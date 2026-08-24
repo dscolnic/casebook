@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "Measure distance",
     "objective": "Get a distance to a nebula, and know everything that could make it wrong.",
     "briefing": "Years of plates, one relation, and three stars that should not be used.",
-    "stake": "Monday in the plate vault. Henrietta Leavitt, who runs it, has years of photographs of the same patch of sky and a handful of stars in them that swell and shrink on a regular cycle. That cycle is the only rung of the ladder anybody has: among these stars the slow ones are the bright ones, and knowing how bright a thing really is turns how bright it looks into a distance. Camille Moreau, at the ladder desk, will do that arithmetic and inherit every error in it. Today you say what the cycle tells you, match the two brightnesses to what each one fixes, and find out what a crowded star does to a distance.",
+    "stake": "Monday in the plate vault. Henrietta Leavitt runs it. She has years of photographs of the same patch of sky. A few stars in them swell and shrink on a steady cycle. Each of those cycles can be timed. Among these stars, the slow ones are the bright ones. That pattern is the only rung of the distance ladder anybody has. Knowing how bright a star really is turns how bright it looks into a distance. Camille Moreau, at the ladder desk, does that arithmetic. Every error in the brightness lands on her. Today you say what the cycle tells you. Then you match each brightness to the thing it fixes. Then you find out what a crowded star does to a distance.",
     "takeaway": "A distance is only as good as the brightness it came from, and brightness is easy to get wrong in one direction.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Measure recession",
     "objective": "Get speeds out of the spectra, and find out which axis is limiting everything.",
     "briefing": "Nights of exposure for one spectrum, and a list of shifts with no distances beside it.",
-    "stake": "Tuesday, and the spectrograph room has been running for years. Vesto Slipher, who runs it, has spent several nights of exposure on each of these faint nebulae and has a list of spectral lines that have all moved to longer wavelengths. He was measuring these long before anybody had a distance to put beside them, and a list of shifts on its own is a list. Today you turn a shift into a speed, decide whether one shifted line is enough to call it a redshift at all, and work out which of the two axes of the coming plot is actually limiting it. The answer to the last one is why every early value of the slope was wrong.",
+    "stake": "Tuesday. The spectrograph room has been running for years. Vesto Slipher runs it. Each faint nebula costs him several nights of exposure. What comes back is a set of spectral lines. On every one of these nebulae, the lines have all moved to longer wavelengths. He was measuring them long before anybody had a distance to put beside them. A list of shifts on its own is just a list. Today you turn a shift into a speed. Then you decide whether one shifted line is enough to call it a redshift at all. Last, you work out which of the two axes of the coming plot is the one limiting it all. Every early value of the slope came out wrong, and that last question is why.",
     "takeaway": "A redshift is a pattern rather than a measurement, and the plot it goes on is limited by its other axis.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "Find the law",
     "objective": "Fit the relation, read what its units mean, and say what it does not imply.",
     "briefing": "Two axes measured by different people, and a line somebody has to defend.",
-    "stake": "Wednesday, in the diagram room. Edwin Hubble owns the plot. Distances from the plate vault go along the bottom and recession speeds from the spectrograph go up the side, measured by different people on different nights. Nadia Farouk, at the theory desk, had an expanding solution written down before there were enough points to draw a line through, and has been saying so politely for two years. Today you find the slope the points support, work out what its units mean once they cancel, and say what a recession in proportion to distance does and does not imply about where we are standing.",
+    "stake": "Wednesday, in the diagram room. Edwin Hubble owns the plot. Distances from the plate vault run along the bottom. Recession speeds from the spectrograph room run up the side. A recession speed is simply how fast a nebula is moving away from us. Different people measured the two axes, on different nights. Nadia Farouk, at the theory desk, saw this coming. She had an expanding solution written down before there were enough points to draw a line through. She has been saying so politely for two years. Today you find the slope the points support. Then you work out what its units mean once they cancel. Last, you say what a recession in proportion to distance does and does not imply about where we are standing.",
     "takeaway": "A relation is a slope, a set of units, and a careful statement about what it does not say.",
     "stops": [
       {

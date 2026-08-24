@@ -361,7 +361,7 @@ missions:
   - title: The Failure
     objective: Create a trusted state vector and a prioritized anomaly list before commanding the crew.
     briefing: A crewed lunar spacecraft reports an explosion, falling electrical power, and contradictory telemetry. The player takes the flight-director console and must first determine what can still be measured reliably.
-    stake: "The bang was four minutes ago. Commander Hale reported it before any instrument did, which is the first thing that should worry you. Now three consoles hold numbers that contradict each other: one bus reads zero, the guidance computer has restarted with nothing loaded, and several cabin-pressure channels dropped together inside the same second. The integration lead, Evelyn Carter, is already saying that channels dropping together are one fault and not three. This shift you decide what is happening to the vehicle, get one agreed picture of it, and set how this room will work for the next five days. Hale, Ruiz and Sato can hear every word of this."
+    stake: "The bang was four minutes ago. Commander Hale called it in. No instrument caught it first, and that should worry you. Three consoles now hold numbers that do not agree. One power bus reads zero. The guidance computer has restarted with nothing loaded. Several cabin pressure channels dropped in the same second. Evelyn Carter, the mission integration lead, is already saying one thing. Channels that drop together are one fault, not three. This shift you decide what is wrong with the vehicle. Nobody commands the crew until the room holds one agreed picture. You also set how this room will work for the next five days. Hale, Ruiz and Sato hear every word of it."
     takeaway: Use units, vectors, graphs, measurement uncertainty, common-mode failure as an evidence chain rather than as isolated facts.
     stops:
       - group: INTEG
@@ -542,7 +542,7 @@ missions:
   - title: Find the Spacecraft
     objective: Produce a consistent trajectory estimate and identify which new observation most reduces uncertainty.
     briefing: Tracking data are intermittent, and the onboard computer has restarted. The team must reconstruct position and velocity from range, bearing, and timed observations.
-    stake: 9 hours after the bang, and the station carrying the whole solution sets in 40 minutes. The guidance lead, Camila Reyes, will not sign the trajectory until she has one measurement that did not come through the same computer. Today you rebuild where the spacecraft is and how fast it is going, and buy the next observation. Fitting the measurements together is the job, and only one station is still up. Her trajectory officer, Dale Whitaker, wants a number now so the room can start planning the correction. Reyes wants the right number. They are both right, and there are 40 minutes.
+    stake: "Nine hours after the bang. The one station that carries the whole solution sets in 40 minutes. Camila Reyes, the guidance lead, will not sign the trajectory yet. She wants one measurement that did not come through the same computer. Today you rebuild where the spacecraft is and how fast it is going. Fitting the measurements together is the job. Only one station is still up, so you also buy the next look. Her trajectory officer, Dale Whitaker, wants a number now. The room cannot start planning the correction without one. Reyes wants the right number. They are both right, and there are 40 minutes."
     takeaway: Use position, velocity, acceleration, coordinate systems, graphs of motion as an evidence chain rather than as isolated facts.
     stops:
       - group: NAV
@@ -699,7 +699,7 @@ missions:
   - title: The Wrong Trajectory
     objective: Choose a correction that restores a safe return while preserving fuel and engine options.
     briefing: The spacecraft is drifting away from its planned free-return path. The player must use Newtonian gravity and impulse to determine whether a small correction now can prevent a large correction later.
-    stake: 18 hours in, the drift is confirmed, and this is where Whitaker and Carter stop agreeing for the rest of the mission. The path misses the entry corridor by 400 kilometres. Whitaker wants a modest burn this shift, arguing that a correction gets cheaper the earlier it is made. Carter wants to wait for the next tracking pass, because correcting a number you have not measured properly is how a small error becomes a committed one. This shift you settle it. That is Whitaker's whole case, and this shift it is the better one. There is no more propellant coming.
+    stake: "18 hours in, and the drift is confirmed. This is where Whitaker and Carter stop agreeing, and they do not start again. The path misses the entry corridor by 400 kilometres. Whitaker wants a small burn this shift. A correction gets cheaper the earlier you make it. Carter wants to wait for the next tracking pass. Fixing a number you have not measured well is how a small error becomes a locked-in one. This shift you settle it between them. That is Whitaker's whole case, and today it is the better one. There is no more propellant coming, and no way to send any."
     takeaway: Use Newton’s laws, gravity, orbits, impulse, trajectory sensitivity as an evidence chain rather than as isolated facts.
     stops:
       - group: INTEG
@@ -853,7 +853,7 @@ missions:
   - title: Turn Without Wasting Fuel
     objective: Develop a controlled reorientation procedure that stops the rotation at the required attitude.
     briefing: The main guidance platform is unavailable, and the crew must reorient the spacecraft using limited thrusters and visible reference objects.
-    stake: 26 hours in. The guidance platform is off to save power, 1 thruster quad is dead, and Hale has to turn the spacecraft 90 degrees by hand while Sato reads angles aloud. Kwame Mensah, who owns the structural dynamics, has done the sums and does not like them. This shift you agree what the rotation numbers mean, write the procedure, and work out what a thruster actually does. Every degree of turn is paid for twice, once to start it and once to stop it. Let it tumble and the antenna, the array and the burn attitude go together.
+    stake: "26 hours in. The guidance platform is off to save power. One thruster quad is dead. Hale has to turn the spacecraft 90 degrees by hand. Sato will read the angles aloud to him. Kwame Mensah, the dynamics and structures lead, has done the sums. He does not like them. This shift you write the turn procedure. That means agreeing what the rotation numbers mean, and what a thruster actually does. Every degree of turn is paid for twice. Once to start the turn, once to stop it. Let the ship tumble and three things go together. The antenna, the array and the burn attitude."
     takeaway: Use torque, angular acceleration, moment of inertia, angular momentum, center of mass as an evidence chain rather than as isolated facts.
     stops:
       - group: STRUCT
@@ -1100,7 +1100,7 @@ missions:
   - title: The Power Budget
     objective: Build a load-shedding plan that preserves essential functions through the next critical maneuver.
     briefing: Fuel cells and batteries are degraded. Every electrical load now competes with guidance, communications, thermal control, and life support.
-    stake: 34 hours in, and the argument changes shape. Priya Shah, who runs the power systems, has the reserve down to hours and wants everything non-essential off by the end of the shift. Aaron Brooks, on thermal and life support, says the two things on his list are the scrubber fan and the cabin heaters, and that his crew are already sleeping in everything they own. The bus is sagging at 24 volts instead of 28 while the current sits near where it should be, which is Shah's other problem. This shift you work out how long the batteries last, decide why the voltage is low, and choose what goes off.
+    stake: "34 hours in, and the argument changes shape. Priya Shah, the power systems lead, has the reserve down to hours. She wants everything non-essential off by the end of the shift. Brooks has two things on his list. The scrubber fan and the cabin heaters. His crew are already sleeping in everything they own. The bus is sagging at 24 volts instead of 28. The current sits near where it should be, which is Shah's other problem. This shift you choose what goes off. Getting that right means knowing how long the batteries last, and why the voltage is low."
     takeaway: Use current, voltage, resistance, electrical power, energy budget as an evidence chain rather than as isolated facts.
     stops:
       - group: ELEC
@@ -1313,7 +1313,7 @@ missions:
   - title: A Dangerous Battery Configuration
     objective: Approve only a configuration whose voltage, current sharing, and failure behavior are understood.
     briefing: Engineers propose reconnecting battery modules, but a mismatched module could overheat or reverse-charge. The player must reason through series, parallel, internal resistance, and fault isolation.
-    stake: 42 hours in. The electrical load officer, Ana Ferreira, has found a battery module on the damaged bus that would buy 11 hours, and Shah wants it connected before the next pass. Nobody knows its state of charge, and the connectors were never meant for this. Ferreira has already reported one connector on that bus running warm and cannot say why. This shift you decide whether that configuration is safe and what has to be measured first. Shah is counting the hours and Brooks is counting the people. Sealed cabin. Three of them. 11 hours is not worth a fire.
+    stake: "42 hours in. The electrical load officer, Ana Ferreira, has found a battery module on the damaged bus. Connected, it would buy 11 hours. Shah wants it on before the next pass. Nobody knows how much charge is left in it. The connectors were never meant for this. Ferreira has already found one connector on that bus running warm, and cannot say why. This shift you decide whether that setup is safe to fly. Nothing gets connected until you say what has to be measured first. Shah is counting the hours. Brooks is counting the people. Sealed cabin. Three of them. 11 hours is not worth a fire."
     takeaway: Use series circuits, parallel circuits, internal resistance, Joule heating, fault isolation as an evidence chain rather than as isolated facts.
     stops:
       - group: ELEC
@@ -1480,7 +1480,7 @@ missions:
   - title: The Cabin Is Cooling
     objective: Create a thermal survival plan that protects crew, electronics, and batteries with minimal power.
     briefing: With most systems powered down, cabin temperature falls and condensation forms. The player must balance conduction, convection, radiation, metabolic heat, and battery performance.
-    stake: "Two days after the bang, Brooks wins one, and it costs Shah her margin. The cabin is at four degrees and falling, condensation is running down the walls, and Ruiz has stopped being able to write legibly. Today you work out how fast the vehicle is losing heat, decide which way it is leaving, and choose what to insulate. There is power to fight it one way and not three. Average temperature is also the wrong number: batteries fail at their own local temperature, and the coldest spot in that cabin is the wall behind the pack the entry sequence depends on. Brooks is arguing for the crew, Shah for the batteries, and they want the same watts."
+    stake: "Two days after the bang. Brooks wins one, and it costs Shah her margin. The cabin is at four degrees and still falling. Water is running down the walls. Ruiz can no longer write so anyone can read it. Today you choose what to insulate. There is power to fight the cold one way, not three. So you need how fast the heat is leaving, and which way it goes out. The average cabin temperature is the wrong number to watch. A battery fails at its own local temperature. The coldest spot is the wall behind the pack the entry sequence depends on. Brooks argues for the crew, Shah for the batteries, and they want the same watts."
     takeaway: Use heat capacity, conduction, convection, radiation, energy balance as an evidence chain rather than as isolated facts.
     stops:
       - group: THERM
@@ -1694,7 +1694,7 @@ missions:
   - title: The Air Problem
     objective: Develop a safe temporary air-cleaning and circulation strategy using only validated physical principles and monitored limits.
     briefing: Carbon dioxide removal is failing, and pressure readings differ between compartments. The player must connect gas laws, partial pressure, fluid flow, and filter resistance.
-    stake: 58 hours in. Carbon dioxide is climbing in a cabin built for two and holding three. The life support engineer, Petra Novak, has been on the loop with the crew for an hour, and the canisters that fit are aboard the module they cannot use. The scrubber fan still draws its rated current, which Brooks refuses to accept as good news. Today you find out why the air is not being cleaned, work out how fast three people fill a cabin, and build something out of what is aboard. Hale has started making small mistakes reading numbers back. That is the first symptom, and he cannot notice it himself.
+    stake: "58 hours in. Carbon dioxide is climbing in a cabin built for two and holding three. Petra Novak, the life support engineer, has been on the loop with the crew for an hour. The canisters that fit are aboard the module they cannot use. The scrubber fan still draws its full rated current. Brooks refuses to call that good news. Today you build an air cleaner out of what is already aboard. First you need to know why the air is not being cleaned, and how fast three people fill a cabin. Hale has started making small mistakes reading numbers back. That is the first symptom. He cannot notice it himself."
     takeaway: Use ideal gases, partial pressure, flow resistance, pressure difference, filtration as an evidence chain rather than as isolated facts.
     stops:
       - group: INTEG
@@ -1861,7 +1861,7 @@ missions:
   - title: Communication Fades
     objective: Restore a reliable low-bandwidth link and use the signal itself as a navigation measurement.
     briefing: The spacecraft signal weakens and shifts in frequency as geometry changes. The team must separate transmitter failure from antenna pointing, range loss, and Doppler effects.
-    stake: 66 hours in, the link went weak at the moment the vehicle turned — down 12 decibels, and Hale is answering calls he can barely hear. The communications lead, Naomi Ito, has the link budget open and her network officer is arguing for a different term in it. Ito wants the pointing checked first and he wants the receiver. This shift you find the cause and get the link back. Losing this costs two things at once, because the signal is also a navigation measurement — the room goes deaf and half blind in the same minute, with a burn still to fly.
+    stake: "66 hours in. The link went weak at the moment the vehicle turned. It is down 12 decibels, and Hale is answering calls he can barely hear. Naomi Ito, the communications lead, has the link budget open. Her network officer wants to blame a different term in it. Ito wants the pointing checked first. He wants the receiver checked first. This shift you find the cause and get the link back. Losing the link costs two things at once. The signal is also a navigation measurement. The room would go deaf and half blind in the same minute, with a burn still to fly."
     takeaway: Use waves, frequency, wavelength, inverse-square behavior, Doppler effect as an evidence chain rather than as isolated facts.
     stops:
       - group: COMMS
@@ -2023,7 +2023,7 @@ missions:
   - title: A Blind Maneuver
     objective: Design a manual alignment procedure whose dominant angular errors are bounded.
     briefing: The crew must align for an engine burn using a window view, a reticle, and imperfect star references. The player must connect optics, angular measurement, and reference frames.
-    stake: 74 hours in, and this is the quiet shift. There is no guidance platform and no star tracker, so Ruiz will aim the burn by eye through a window reticle while Sato holds a stopwatch. Reyes has spent the shift separating what actually moves the spacecraft's aim from what only appears to. This shift you decide how many sightings make an alignment trustworthy. A tenth of a degree is invisible in that window and hundreds of kilometres at the far end. Some of what Ruiz sees is real motion. Some is the window, the lighting, or his own eye at four degrees. Each sighting costs him 20 minutes of cold.
+    stake: "74 hours in, and this is the quiet shift. There is no guidance platform and no star tracker. Ruiz will aim the burn by eye, through a sight in the window. Sato will hold a stopwatch. Reyes has spent the shift sorting what really moves the spacecraft's aim from what only looks as if it does. This shift you decide how many sightings make an alignment worth trusting. A tenth of a degree is invisible in that window. At the far end it is hundreds of kilometres. Some of what Ruiz sees is real motion. Some is the window, the light, or his own eye at four degrees. Each sighting costs him 20 minutes of cold."
     takeaway: Use lenses, angular measurement, parallax, reference frames, error propagation as an evidence chain rather than as isolated facts.
     stops:
       - group: COMMS
@@ -2189,7 +2189,7 @@ missions:
   - title: Crossing the Atmosphere
     objective: Choose a corridor and monitoring strategy robust to atmospheric and navigation uncertainty.
     briefing: "The return corridor is narrow: too steep causes extreme heating and deceleration; too shallow risks skipping back into space. The player must integrate drag, energy conversion, and atmospheric density."
-    stake: 82 hours in, and nothing goes wrong this shift, which is its own kind of unnerving. The capsule will arrive at about 11 kilometres a second into a corridor roughly a degree wide, and Erika Lindqvist, integrating the flight dynamics, wants the whole room to understand what that means before anybody is asked to vote on it. This shift you follow where the energy goes, put a number on it, and decide how to protect the corridor. Too shallow and the capsule skips back out with no consumables to come round again. Too steep and the shield takes everything in seconds. The same physics keeps them alive and would kill them.
+    stake: "82 hours in. Nothing goes wrong this shift. That is its own kind of unnerving. The capsule will arrive at about 11 kilometres a second. The way in is a corridor roughly a degree wide. Erika Lindqvist, who integrates the flight dynamics, wants the room to understand that. Nobody votes before they do. This shift you decide how to protect the corridor. That means following where all that energy goes, and putting a number on it. Come in too shallow and the capsule skips back out. Nothing is left aboard for a second try. Come in too steep and the shield takes everything in seconds. The same physics keeps them alive and would kill them."
     takeaway: Use kinetic energy, drag, work-energy, heating, deceleration as an evidence chain rather than as isolated facts.
     stops:
       - group: INTEG
@@ -2345,7 +2345,7 @@ missions:
   - title: The Structure Is Vibrating
     objective: Move the system away from resonance and verify that the mitigation works across operating conditions.
     briefing: A pump and flexible panel produce a growing oscillation near one operating speed. The player must identify resonance and protect the structure without disabling life support.
-    stake: 90 hours in, and a structural dynamics engineer, Chidi Okoye, caught this 1 — worth saying, because nothing else this week has been caught early. A panel starts shaking whenever a pump runs near one particular speed, and a line behind it has been rubbing for an hour. Mensah has the numbers ready. This shift you decide what is driving it, work out the structure's own natural rhythm, and stop it. The shaking dies away as soon as the pump moves off that speed, which is the part Okoye thinks matters. This is a shift where something is simply fixed.
+    stake: "90 hours in. Chidi Okoye, a structural dynamics engineer, caught this one early, and nothing else this week has been caught early. A panel starts shaking whenever a pump runs near one particular speed. A line behind that panel has been rubbing for an hour. Mensah has the numbers ready. This shift you stop the shaking. To do that you need what is driving it, and the structure's own natural rhythm. The shaking dies away as soon as the pump moves off that speed. Okoye thinks that is the part that matters. This is a shift where something is simply fixed, which the room could use."
     takeaway: Use simple harmonic motion, natural frequency, resonance, damping, forced oscillation as an evidence chain rather than as isolated facts.
     stops:
       - group: INTEG
@@ -2600,7 +2600,7 @@ missions:
   - title: Choose the Return Path
     objective: Select a return plan with explicit margins and contingencies for the dominant uncertainties.
     briefing: Several return trajectories trade fuel, time, heating, communications, and life-support consumption. The player must make a multi-constraint physical decision rather than optimize one variable.
-    stake: "98 hours in. The correction Whitaker flew on the third shift has come back with a cost: tracking now says the path he chose is the expensive one, and Carter has not said anything about it, which is somehow worse. Four routes are on the board — fastest, least propellant, coolest entry, best tracking coverage — and once the burn flies most of them close. This shift you find what actually limits this vehicle and pick the path that survives being wrong. What you want is the path with something left when the next thing breaks."
+    stake: "98 hours in. The correction Whitaker flew on the third shift has come back with a bill. Tracking now says the path he chose is the expensive one. Carter has said nothing about it, which is somehow worse. Four routes are on the board. Fastest. Least propellant. Coolest entry. Best tracking coverage. Once the burn flies, most of them close for good. This shift you pick the path that survives being wrong. First you have to find what really limits this vehicle. What you want is the route with something left when the next thing breaks."
     takeaway: Use optimization, constraints, trade spaces, margins, critical path as an evidence chain rather than as isolated facts.
     stops:
       - group: INTEG
@@ -2802,7 +2802,7 @@ missions:
   - title: The Last Correction
     objective: Decide whether to burn using the expected benefit relative to navigation and propulsion uncertainty.
     briefing: Hours before entry, tracking stations disagree slightly. The player must combine measurements with correlated errors and decide whether another burn reduces or increases total risk.
-    stake: 106 hours in, and it is Carter's turn — she has been waiting 4 days for it. Several ground stations have suddenly put the spacecraft ahead of its predicted path. They agree closely, and they are fed from the same timing reference. Whitaker wants the burn now, on the same argument that was correct on the third shift. This shift you decide whether the trajectory really moved. Carter's rule is that a correction is worth making only when it is bigger than the error in knowing it, and she will say so in front of the room.
+    stake: "106 hours in, and it is Carter's turn. She has waited four days for it. Several ground stations have suddenly put the spacecraft ahead of its predicted path. They agree closely with each other. They are also fed from the same timing reference. Whitaker wants the burn now. It is the same argument he was right about on the third shift. This shift you decide whether the trajectory really moved. Carter has a rule for this. A correction is worth making only when it is bigger than the error in knowing it. She will say so in front of the whole room."
     takeaway: Use random and systematic error, weighted averages, errors that move together, propagation, decision thresholds as an evidence chain rather than as isolated facts.
     stops:
       - group: NAV
@@ -3001,7 +3001,7 @@ missions:
   - title: Reentry
     objective: Conduct a claim-by-claim readiness review and execute entry with predefined triggers and authority.
     briefing: "The final minutes require every physical model and procedure to agree: attitude, center of mass, velocity, atmosphere, thermal shield, communications, and recovery."
-    stake: "A hundred and 18 hours in. The sequence starts in 11 minutes, 4 of them with no communications, and nothing in it can be undone. This shift you take the claims one at a time and decide whether this vehicle is ready. They are not equally strong: a heat shield cold for four days, a battery charged through a path Ferreira invented on the sixth shift, an alignment Ruiz flew by hand against stars, a corridor entered on Carter's independent measurement. Every one of them has to hold at the same moment. After the first event there are no decisions left, only things to watch. Hale, Ruiz and Sato have heard every word of this for five days, and today they say very little."
+    stake: "118 hours in. The sequence starts in 11 minutes. Four of those minutes have no communications, and nothing in the sequence can be undone. This shift you take the claims one at a time and say whether this vehicle is ready. They are not equally strong. A heat shield cold for four days. A battery charged through a path Ferreira invented on the sixth shift. An alignment Ruiz flew by hand against the stars. A corridor entered on Carter's own independent measurement. Every one of them has to hold at the same moment. After the first event there are no decisions left, only things to watch. Hale, Ruiz and Sato have heard every word for five days. Today they say very little."
     takeaway: Use integrated mechanics, thermodynamics, waves, fluids, uncertainty, ethics of command as an evidence chain rather than as isolated facts.
     stops:
       - group: INTEG

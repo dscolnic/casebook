@@ -74,14 +74,42 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // Ten days, so ten pieces. A card is a claim about what an inspection
+  // covered, so each entry carries the evidence under it rather than the
+  // colour alone.
+  delivery: {
+    name: 'The Building Card Register',
+    what: 'The register the council and the insurers both read. Every building, what it may be '
+      + 'used for, and the evidence behind the card on its door.',
+    where: 'SAFE',
+    pieces: [
+      'The two-town comparison',
+      'The corrected magnitude',
+      'The worst-looking building',
+      'The overlooked building',
+      'The hospital decision',
+      'The tested strength',
+      'The cordon review',
+      'The corrected record',
+      'The ranked morning order',
+      'The evidence grading',
+    ],
+  },
   opening: [
-    'An earthquake hit Kestrel Bay three days ago. The town is still standing, unevenly. You are the '
-    + 'building safety coordinator, which means you say which buildings people may go back into. '
-    + 'Green to enter. Yellow for part of it. Red for nobody. Four hundred families are sleeping in '
-    + 'halls tonight, waiting on what you decide, and the hospital has a yellow card on its front '
-    + 'door. Rei Tanaka, who forecasts the aftershocks, will not say the shaking is finished. Upper Town sits on granite and lost its chimneys. '
-    + 'The Flats sit on made ground and lost their streets, and four hundred families are waiting '
-    + 'on you to say which of them can go home.',
+    'An earthquake hit Kestrel Bay three days ago. The town is still standing, unevenly. '
+    + 'You are the building safety coordinator. You put a card on every door. Green to go in. '
+    + 'Yellow for part of it. Red for nobody. In ten days the council and the insurers read '
+    + 'the register behind those cards. It lists every building, what it may be used for, and '
+    + 'the evidence the colour rests on. You settle one building a day. A card with nothing '
+    + 'behind it is worse than no card. Four hundred families are sleeping in halls until the '
+    + 'register says they can go home.',
   ],
 
   ending: [

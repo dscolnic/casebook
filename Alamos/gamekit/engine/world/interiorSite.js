@@ -9,7 +9,8 @@
 // it: walls, doorways, doors, ceiling grid, signage, lighting and collision.
 import * as THREE from 'three';
 import { addCaseBeacon } from './caseBeacon.js';
-import { markStructure, bladeSign } from './interiorKit.js';
+import { markStructure, bladeSign, markWallMounted } from './interiorKit.js';
+import { buildDeliveryCase } from './deliveryCase.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import {
   paintTexture, sheetFloorTexture, ceilingTileTexture, diffuserTexture,
@@ -83,6 +84,8 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
    *  with no lesson still has a sign to read, and the world module needs
    *  something to hang that interaction on. */
   const roomDoors = new Map();
+  /** The campaign's delivery board, in whichever room `hooks.delivery.where` names. */
+  let deliveryCase = null;
 
   const M = {
     wall:  mat('wall',  () => new THREE.MeshStandardMaterial({ map: paintTexture(P.palette.wall), roughness: 0.92, envMapIntensity: 0.5 })),
@@ -524,6 +527,50 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
       beacon.setActive(false);
       caseStands.set(r.group, { hit, beacon, x: sx, z: sz, room: r });
     }
+    // ---- the delivery board, in the one room the campaign keeps it in
+    //
+    // A floor game has no door-rooms: `interiorFloor` deliberately registers no
+    // door interactable for a group room, because the room is right there off the
+    // corridor and the separately built copy in the interior district was
+    // scenery. So the board cannot be hung by `createInteriors` the way it is in
+    // an outdoor game — it goes up here, in the plan room itself.
+    //
+    // ON THE FAR CROSS-WALL, facing back down the room, because that is the wall
+    // the player looks straight at walking in, and the case stand is already on
+    // the outer wall at mid-depth. A room too shallow for that gets the outer
+    // wall near its front instead — narrow rooms exist (the hospital's ward has
+    // several) and a board hung 3 m from a wall 2 m away is a board in the
+    // corridor.
+    if(hooks.delivery?.total && r.group && r.group === hooks.delivery.where){
+      const off = P.wall / 2 + 0.03;
+      const deep = (r.z1 - r.z0) >= 4.2;
+      // Off the centre line, toward the corridor side. The middle of a room is
+      // where a theme's own fit-out puts the thing the room is FOR — the ward's
+      // bed, the bench, the trolley — and the hospital's first screenshot had the
+      // case standing in a treatment bed. The theme's hook runs after this and
+      // does not read `deliveryAt`, so the placement has to stay out of the way
+      // rather than ask to be avoided.
+      const at = deep
+        ? { x: b.cx - b.sign * 1.5, y: 1.98, z: r.z1 - off, rotY: Math.PI }
+        : { x: b.xOuter - b.sign * off, y: 1.98, z: r.z0 + 1.9,
+            rotY: b.sign > 0 ? -Math.PI / 2 : Math.PI / 2 };
+      deliveryCase = buildDeliveryCase(scene, {
+        id: r.group, at,
+        name: hooks.delivery.name,
+        total: hooks.delivery.total,
+        colour: hooks.delivery.colour,
+        hard: ctx.hard,
+      });
+      interactables.push(...deliveryCase.interactables);
+      const faceX = Math.abs(Math.sin(at.rotY)) > 0.5;
+      markWallMounted(deliveryCase.wallObjects, faceX,
+        faceX ? Math.sign(Math.sin(at.rotY)) : Math.sign(Math.cos(at.rotY)), 'delivery board');
+      // The theme's own fit-out runs next and does not read this, so it is a
+      // hint rather than a reservation: what stops a clash is looking at the
+      // room in `npm run shots`, which is how every other placement in this
+      // file was settled.
+      ctx.deliveryAt = { x: at.x, z: at.z };
+    }
     if(hooks.fitOutRoom) hooks.fitOutRoom(r, { ...ctx, bounds: b, opening });
   }
   // close the far end of the last room each side
@@ -551,6 +598,7 @@ export function buildInterior(scene, renderer, plan, hooks = {}){
   if(hooks.fitOutSpine) hooks.fitOutSpine(ctx);
 
   return { geo, colliders, softColliders, interactables, stopMeshes, roomDoors, caseStands,
+           deliveryCase,
            lightPanels, groundHeight: () => 0 };
 }
 

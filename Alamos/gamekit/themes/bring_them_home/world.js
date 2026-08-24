@@ -18,7 +18,8 @@
 //   · the light comes from the displays. Three real lights total, and every
 //     bright surface is emissive.
 import * as THREE from 'three';
-import { furnishArea, wordedSign, paintMural } from '../../engine/world/interiorKit.js';
+import { furnishArea, wordedSign, paintMural, markWallMounted } from '../../engine/world/interiorKit.js';
+import { buildDeliveryCase, deliveryHook } from '../../engine/world/deliveryCase.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { site, CONSOLES, BOARDS, WORKROOMS } from './site.js';
 import { openCaseGroups } from '../../engine/core/app.js';
@@ -30,6 +31,17 @@ import { dampEnvironment, tuneRendererForDevice } from '../../engine/world/mater
 // over the console: with no doors and no rooms, an open call had nothing to
 // announce it from across the floor except a ring on the carpet.
 import { addCaseBeacon } from '../../engine/world/caseBeacon.js';
+
+/** The campaign's delivery board, in the one bay that keeps it. */
+let deliveryCase = null;
+/**
+ * Tell the board what is in.
+ *
+ * Called on every world refresh: these bays are walked into rather than entered
+ * through a door, so there is no arrival to hang it on, and the board has to be
+ * right the moment a saved campaign loads.
+ */
+export function setDeliveryPieces(pieces){ deliveryCase?.setPieces(pieces); }
 
 export let scene = null;
 export let renderer = null;
@@ -433,11 +445,38 @@ function buildWorkroom(spec, def){
     id: spec.group, x: xIn - f * 2.4, z: cz - 1.2,
     facing: f > 0 ? Math.PI / 2 : -Math.PI / 2,
   });
+  // ---- the delivery board, in the one wing that keeps it
+  //
+  // Mission Control has no door-rooms — `interiors` is empty and every area is a
+  // bay off the ring corridor — so the board cannot arrive through
+  // `createInteriors` the way an outdoor game's does, and this world module owns
+  // its own rooms rather than building them through `interiorSite`. So it is put
+  // up here, on the far end wall of the bay, which is the wall the player walks
+  // in facing.
+  let clear = null;
+  const hook = deliveryHook(theme);
+  if(hook && hook.where === spec.group){
+    deliveryCase = buildDeliveryCase(scene, {
+      id: spec.group,
+      at: { x: cx, y: y + 1.98, z: spec.z1 - 0.22, rotY: Math.PI },
+      name: hook.name, total: hook.total, colour: hook.colour,
+      // These rooms sit on a raised tier, so the case has to be told where the
+      // floor is; left at zero it stands under it.
+      floorY: y,
+      hard: (bx, bz, bw, bd, bh) => collide(bx, bz, bw, bd, y, bh),
+    });
+    interactables.push(...deliveryCase.interactables);
+    // A board is not a point. Say which way its face looks, so an audit — and the
+    // screenshot harness that finds it by this tag — can see it has width.
+    markWallMounted(deliveryCase.wallObjects, false, -1, 'delivery board');
+    clear = { x: cx, z: spec.z1 - 1.0, r: 2.6 };
+  }
+
   // The rest of the room. A twenty-metre bay with a bench and a door in it is a
   // corridor: what makes it a working laboratory is the racks along the outer
   // wall, the trolleys, the boxes nobody has put away and the paper on every
   // surface. Measured before this, each of these four held six pieces.
-  furnishWorkroom(spec, { xIn, xOut, y, cz });
+  furnishWorkroom(spec, { xIn, xOut, y, cz, clear });
 
 }
 
@@ -458,7 +497,7 @@ function buildWorkroom(spec, def){
  * parts bins, the trolley of documentation that follows every one of these rooms
  * around.
  */
-function furnishWorkroom(spec, { xIn, xOut, y, cz }){
+function furnishWorkroom(spec, { xIn, xOut, y, cz, clear = null }){
   const f = spec.side === 'w' ? -1 : 1;
   const inX = xIn + f * 0.9, outX = xOut - f * 0.9;
 
@@ -614,7 +653,9 @@ function furnishWorkroom(spec, { xIn, xOut, y, cz }){
     sep: 1.5,
     // The doorway in the corridor wall, and the middle of the room where the
     // stop's own bench and case already are.
-    keepClear: [{ x: xIn + f * 1.2, z: cz, r: 2.4 }, { x: (xIn + xOut) / 2, z: cz, r: 2.6 }],
+    keepClear: [{ x: xIn + f * 1.2, z: cz, r: 2.4 }, { x: (xIn + xOut) / 2, z: cz, r: 2.6 },
+      // And the delivery case, in the one bay that has one.
+      ...(clear ? [clear] : [])],
   });
 }
 

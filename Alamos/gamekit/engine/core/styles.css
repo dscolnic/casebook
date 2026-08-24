@@ -538,6 +538,28 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .debrief .debriefQuote cite{display:block;margin-top:3px;font-style:normal;font-weight:600;
   font-size:.72rem;opacity:.75}
 .debrief .debriefCarry{margin:8px 0 0;padding-top:8px;border-top:1px solid rgba(30,28,24,.14)}
+/* The handover under the debrief: what the day left behind, and how much of the
+   campaign's product is now in the room that keeps it. Set as a receipt rather
+   than as praise — the debrief above it is the only thing on this card that is
+   allowed to say the day went well. */
+.deliver .deliverLede{margin:0}
+.deliver .deliverCount{margin:6px 0 0;font-size:.78rem;opacity:.85}
+.deliver .deliverCaveat{margin:6px 0 0;font-size:.78rem;color:#7a5a1f}
+.deliverCase .deliverWhat{margin:0 0 6px;font-style:italic}
+.deliverCase .deliverCount{margin:0 0 8px;font:700 .78rem Inter,system-ui;color:#4e4a43}
+.deliverList{margin:0;padding:0;list-style:none;display:grid;gap:5px;
+  max-height:min(46vh,420px);max-height:min(46dvh,420px);overflow-y:auto}
+.deliverRow{display:flex;gap:9px;align-items:baseline;padding:7px 9px;border-radius:7px;
+  border:1px solid #cfe3d6;background:#f2f8f4}
+.deliverRow .deliverNum{font:800 .78rem/1 Inter,system-ui;color:#3d6f52;flex:0 0 auto}
+.deliverRow .deliverName{font:500 .82rem/1.4 Inter,system-ui;color:var(--ink);min-width:0}
+.deliverRow .deliverName small{display:block;margin-top:2px;font:500 .74rem/1.4 Inter,system-ui;
+  color:#6d675c}
+.deliverRow.deliverFlagged{border-color:#e6d5b0;background:#fdf6e8}
+.deliverRow.deliverFlagged .deliverNum{color:#8a6a2c}
+.deliverRow .deliverWarn{color:#8a6a2c}
+.deliverRow.deliverOpen{border-color:var(--line);background:#f7f5ef;opacity:.75}
+.deliverRow.deliverOpen .deliverNum{color:var(--muted)}
 .debrief.debrief-clean{background:#eef5f0;border-left-color:#3d6f52}
 .debrief.debrief-clean .debriefQuote{border-left-color:#3d6f52}
 .debrief.debrief-worked{background:#eef3f6;border-left-color:#3f6b86}
@@ -613,10 +635,21 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .planCallRow{display:flex;flex-wrap:wrap;gap:8px}
 .planCall{flex:1 1 auto;min-width:min(210px,100%);display:flex;align-items:baseline;gap:7px;
   border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:#fbf8f0}
-.planCall b{font:700 .84rem/1.3 Inter,system-ui;color:var(--ink)}
+.planCall b{font:700 .84rem/1.3 Inter,system-ui;color:var(--ink);display:block}
 .planCall .planNum{font:800 .72rem/1 Inter,system-ui;color:var(--muted);flex:0 0 auto}
 .planCall.planDone{opacity:.6}
 .planCall.planDone .planNum{color:#3d6f52}
+/* Why this one. A clause under the call, quieter than it — the call is the
+   instruction and this is the reason it is worth taking, and a reason set at the
+   same weight as its instruction turns a row of three choices into prose. */
+.planCall{align-items:flex-start}
+.planCallText{min-width:0}
+.planWhy{display:block;margin-top:2px;font:500 .74rem/1.4 Inter,system-ui;color:#6d675c}
+/* What today adds to the thing the fortnight is building. Sits under the stake
+   and reads as a note on it, not as a second stake: the campaign's product is
+   the same every morning and only the piece changes. */
+.planDeliver{font:600 .78rem/1.5 Inter,system-ui;color:#3d5a6b;background:#f0f5f8;
+  border:1px solid #cddce4;border-left:4px solid #3f6b86;border-radius:8px;padding:9px 12px}
 
 /* What the question takes as read, and what it is about, before it is asked.
    Quiet and small: this is orientation for somebody who is stuck, and it must

@@ -68,15 +68,14 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'Every living thing carries instructions for building a copy of itself, and nobody in '
-    + 'the world knows what those instructions are made of. Four benches in this building '
-    + 'have each measured something true about the same substance, and not one of the four '
-    + 'can say what shape it is. Get the shape right and you may be able to see how the '
-    + 'copying works — get it wrong and three plausible structures go on standing. You are '
-    + 'the research student, which means the walk between those benches is yours and so is '
-    + 'the argument at the end of it. John Randall, who runs the unit, will not let a '
-    + 'candidate off the evidence wall unless somebody names the clue it breaks, and on '
-    + 'Friday one of them gets defended in print.',
+    'Every living thing carries instructions for building a copy of itself. Nobody knows what those '
+    + 'instructions are made of. Four benches in this building have measured the same substance. Each '
+    + 'of the four measured something true. Not one of them can say what shape it is. Get the shape '
+    + 'right and you may see how the copying works. Get it wrong and three likely shapes go on '
+    + 'standing. Nothing tells you which of them to drop. You are the research student. The walk '
+    + 'between those benches is yours. So is the argument at the end of it. No shape comes off the wall '
+    + 'here until somebody names the clue it breaks. Three shapes are standing this morning. One of '
+    + 'them gets defended in print on Friday.',
   ],
 
   ending: [

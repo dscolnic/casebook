@@ -8,7 +8,7 @@
 import theme from '@theme/theme.js';
 import { tiersFor, unlockDay } from '../engine/core/orientation.js';
 import { gatesFor, lapCardHTML } from '../engine/core/orientationLap.js';
-import { warmupDue } from '../engine/core/warmups.js';
+import { warmupDue, WARMUP_MAX_STOPS } from '../engine/core/warmups.js';
 import * as world from '../engine/core/world.js';
 import { initPlayer, updatePlayer, camera, controls, getPosition, teleport, isLocked,
          setGround, setBounds, moveState, touchControls } from '../engine/core/player.js';
@@ -40,6 +40,8 @@ import { createTrial, trialLimit } from '../engine/world/trial.js';
 import { createWorldFormats } from '../engine/world/worldFormats.js';
 import { DAY_NOUN, WEEKS } from '../engine/core/constants.js';
 import { dayDebrief } from '../engine/core/debrief.js';
+import { deliveryGainHTML, deliveryCaseHTML, deliveryProgress,
+         deliveryPieces } from '../engine/core/delivery.js';
 import { BALLPARK_CALCS } from '../engine/core/curriculum.js';
 
 const canvas = document.getElementById('canvas');
@@ -162,6 +164,12 @@ function refreshWorld(){
     const gs = state.groups?.find(g => g.id === id);
     return gs ? groupPct(gs) : 0;
   });
+  // The delivery board, in a game whose rooms are part of the place rather than
+  // behind a door. An outdoor game's board is refreshed by `interiors.enter`,
+  // which is the only moment it can be seen; a floor game's room is walked into
+  // with no event to hang it on, so it is refreshed with everything else. Absent
+  // in a world module that builds no board, and in every theme with no delivery.
+  world.setDeliveryPieces?.(deliveryPieces(theme, state));
   // A grounded aircraft whose prompt still reads "E — Fly" is a prompt that lies.
   // Rewritten here rather than at registration because it changes with the day.
   if(VEHICLES_FROM_DAY > 0){
@@ -422,7 +430,13 @@ const day = createDay({
               : (TIERS.hasFar ? TIERS.near : (theme.content?.GROUPS ?? []).map(g => g.id));
             // A lap with nothing to visit is not a lap. Better to say nothing
             // happened than to drop the player at the spawn with no gates.
-            const gates = gatesFor({ ...lap, groups: lap.groups ?? tierGroups }, entryFor);
+            //
+            // Capped at WARMUP_MAX_STOPS, in the site's own order: a lap of ten
+            // sheds is a tutorial, not an orientation. An authored `groups:` is
+            // capped the same way — the cap is about how long a player is kept
+            // off the work, not about who chose the list.
+            const gates = gatesFor({ ...lap,
+              groups: (lap.groups ?? tierGroups).slice(0, WARMUP_MAX_STOPS) }, entryFor);
             // Driven rather than walked where the vehicles have just come out, so
             // the far lap is not given an hour for ground it crosses in a truck.
             return gates.length >= 2 && trial.start({ gates,
@@ -431,9 +445,11 @@ const day = createDay({
               done);
           }
           case 'GREET': {
-            const list = (lap.roster ?? roster()).slice(0, 14);
+            const list = (lap.roster ?? roster()).slice(0, WARMUP_MAX_STOPS);
             return list.length >= 2 && worldFormats.greet({
-              roster: list, target: +lap.target || Math.min(8, Math.max(2, Math.ceil(list.length * 0.7))),
+              roster: list,
+              target: +lap.target || Math.min(WARMUP_MAX_STOPS,
+                Math.max(2, Math.ceil(list.length * 0.7))),
               minutes: +lap.minutes || 60, hint: lap.hint, moral: lap.moral }, done);
           }
           case 'FOLLOW': {
@@ -548,8 +564,12 @@ function showDayOver(outstanding){
     grade: theme.audience?.grade,
     lastDay,
   });
+  // The debrief is how the day went; the handover is what it left behind. Under
+  // it rather than inside it, because one is composed from the day's results and
+  // the other is true whichever way the day went.
   day.ui.open(`${DAY_NOUN} ${state.week} closed`,
     debrief.html
+      + deliveryGainHTML(theme, state, { dayNoun: DAY_NOUN, grade: theme.audience?.grade })
       + (COPY.dayEnd ? `<div class="briefBox"><p>${COPY.dayEnd}</p></div>` : ''),
     [{ id: 'dayNext',
       label: lastDay ? 'See how it ended' : `Start the next ${DAY_NOUN.toLowerCase()}`,
@@ -660,6 +680,17 @@ const activate = makeActivate({
   station: (t) => {
     const read = interiors.readStation(t.id);
     if(read !== null) t.prompt = `Read — ${t.station?.label ?? t.id}`;
+  },
+  // The case where the campaign's product is kept. The board and the plinth say
+  // how far through it is at a glance; this is the reading of it — every piece,
+  // what each one was for, and which of them rests on a call that did not hold.
+  delivery: () => {
+    const state = getState();
+    const { got, total } = deliveryProgress(theme, state);
+    day.ui.open(theme.delivery?.name ?? 'The case',
+      deliveryCaseHTML(theme, state, { dayNoun: DAY_NOUN, grade: theme.audience?.grade }),
+      [{ id: 'deliverClose', label: got >= total && total ? 'It is finished' : 'Back to it',
+         primary: true, onClick: () => day.ui.close() }]);
   },
   roomexit: () => interiors.exit(),
   // Held back on the same day as the aircraft, and for the same reason: on a

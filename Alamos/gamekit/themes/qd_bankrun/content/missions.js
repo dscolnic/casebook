@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "What the building actually holds",
     "objective": "Read both sides of the sheet, see what the mismatch is for, and price the trade underneath it.",
     "briefing": "Hearn wants the sheet read before anybody talks about the queue.",
-    "stake": "Tuesday, ten in the morning, and there is a queue on the pavement. Alice Hearn, the chief cashier, has opened three tills and will not open a fourth, because opening one would be read as expecting a longer queue. Victor Sowden, who manages the loan book upstairs, has the maturities: four units come back this month and the rest is out for years. Nobody in the building thinks the bank is unsound. Today you read both sides of the sheet, say what the mismatch between them is actually for, and price the trade every bank makes before it opens.",
+    "stake": "Tuesday, ten in the morning. There is a queue on the pavement outside. Alice Hearn, the chief cashier, has opened three tills. She will not open a fourth. Opening one more would be read as expecting a longer queue. Victor Sowden manages the loan book upstairs, and he has the maturities. Four units of the book come back this month. The rest is out for years. Nobody in the building thinks the bank is unsound. Today you read both sides of the sheet. Then you say what the mismatch between the two sides is actually for. Then you price the trade that every bank makes before it opens.",
     "takeaway": "A bank owes money that can be asked for today and holds money that comes back in years, and that is the business rather than a mistake.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "The day they all ask",
     "objective": "Say what state the bank is in, price what a forced sale raises, and work out why waiting is the losing move.",
     "briefing": "Broadbent has the count and the dealing room has the bid.",
-    "stake": "Noon, four hours after the doors opened, and the queue has turned the corner into Cathcart Row. Nellie Broadbent, who runs the reserve floor, counted ten units at opening and thirty-two have been asked for already. Victor Sowden's book is still worth what it was worth yesterday if it is held to maturity, and a great deal less than that by four this afternoon. Nobody has changed their mind about whether the bank is sound. Today you say what state it is actually in, find out what selling raises rather than what the book is worth, and work out why the people at the back of the queue are not being foolish.",
+    "stake": "Noon, four hours after the doors opened. The queue has turned the corner into Cathcart Row. Nellie Broadbent runs the reserve floor. She counted ten units of cash at opening. Thirty-two have been asked for already. Sowden's loan book is still worth what it was worth yesterday, if it is held to maturity. By four this afternoon it is worth a good deal less than that. Nobody has changed their mind about whether the bank is sound. Today you say what state the bank is actually in. Then you find out what a sale raises, rather than what the book is worth. Then you work out why the people at the back of the queue are not being foolish.",
     "takeaway": "A bank can be worth more than it owes and still be unable to pay today, and the second of those is what closes it.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "Which problem is this",
     "objective": "Change what waiting is worth, work out what is still owed, and decide who the facility is for.",
     "briefing": "Eccles wants the incentive changed rather than the crowd persuaded.",
-    "stake": "Two in the afternoon, six hours into the day, and from the fifth floor the whole length of the queue is visible. Marriner Eccles, at the crisis desk, has run a bank through this and says nothing said to the pavement will work. William Woodin, here from the Treasury, has a facility and the problem of deciding who gets it. Carter Glass, a legislator, is here about what the rule should be afterwards, and is against the thing about to be done. Four banks are on the wire and one of them is not like the others. Today you commit a figure for what a guarantee does, work out what is still owed after the vault and the sale, and decide who is lent to.",
+    "stake": "Two in the afternoon, six hours into the day. From the fifth floor you can see the whole length of the queue. Marriner Eccles, who runs the crisis desk, has taken a bank through a run before. He says nothing said to the pavement will work. William Woodin, here from the Treasury, has a facility to lend from. His problem is deciding who gets it. Carter Glass, a legislator, is here about the rule that should apply afterwards. He is against the thing that is about to be done. Four banks are on the wire, and one of them is not like the others. Today you commit a figure for what a guarantee does. Then you work out what is still owed after the vault and the sale. Then you say who the money is lent to.",
     "takeaway": "A guarantee works by changing what queuing is worth, and a loan works only if the problem it is aimed at is a timing problem.",
     "stops": [
       {

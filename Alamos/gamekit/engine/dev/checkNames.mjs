@@ -146,6 +146,111 @@ export function unintroducedInCampaign(theme, content){
   return out;
 }
 
+
+
+/**
+ * Ordinary words that can stand in front of a surname. Closed, short, and the
+ * reason the rule above does not fire on prose. A miss here costs one false
+ * finding that a reader dismisses in a second; a first name on this list would
+ * hide a real one, so nothing that could be a person's name goes on it.
+ */
+const OPENERS = new Set(['a', 'an', 'the', 'and', 'but', 'or', 'so', 'if', 'when', 'while', 'since',
+  'that', 'this', 'these', 'those', 'then', 'now', 'today', 'tonight', 'tomorrow', 'yesterday',
+  'what', 'why', 'how', 'who', 'where', 'which', 'whether', 'both', 'each', 'every', 'either',
+  'after', 'before', 'by', 'with', 'without', 'about', 'against', 'until', 'unless', 'because',
+  'he', 'she', 'it', 'they', 'we', 'you', 'her', 'his', 'their', 'its', 'our', 'your', 'my',
+  'ask', 'tell', 'find', 'give', 'take', 'read', 'watch', 'meet', 'call', 'send', 'catch',
+  'follow', 'bring', 'check', 'walk', 'talk', 'say', 'said', 'says', 'let', 'make', 'get', 'put',
+  'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'first', 'last',
+  'day', 'night', 'morning', 'evening', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday',
+  'saturday', 'sunday', 'nobody', 'somebody', 'everybody', 'neither', 'nothing', 'something',
+  // Prepositions and adverbs that open a sentence in front of a name. Every one
+  // of these produced a false finding on shipped prose: "In Brennan's notebook",
+  // "Meanwhile Twill has", "Use Novotny's figure", "At Iyer's desk", "On Sarkis's
+  // reading".
+  'in', 'on', 'at', 'to', 'for', 'from', 'over', 'under', 'meanwhile', 'use', 'once', 'again',
+  'later', 'still', 'only', 'even', 'just', 'most', 'more', 'less', 'next', 'back', 'out', 'up',
+  'down', 'near', 'past', 'per', 'via', 'plus', 'inside', 'outside', 'across', 'along', 'around',
+  'between', 'beside', 'behind', 'below', 'above', 'beyond', 'during', 'despite', 'toward',
+  // Courtesy titles and ranks. `introRule` already has an opinion about these,
+  // and none of them is a first name.
+  'dr', 'mr', 'mrs', 'ms', 'miss', 'prof', 'professor', 'doctor', 'captain', 'commander',
+  'chief', 'lieutenant', 'sergeant', 'nurse', 'sister', 'father', 'sir', 'lady', 'lord',
+  // Name particles: the roster spells them lowercase and a sentence-initial
+  // "Von Neumann" or "De Vries" is the same person, not another one.
+  'von', 'van', 'de', 'da', 'du', 'del', 'della', 'di', 'la', 'le', 'mac', 'mc', 'o']);
+
+/**
+ * A name that reads as somebody on the roster and is not.
+ *
+ * Blackout's day-2 stake said "a fuel limit **Amira Haddad** flagged this
+ * morning", and day 15 gave a forecast width to **Ravi Lindgren**. The roster
+ * has Nadia Haddad and Sten Lindgren, and nobody else. So two of that
+ * campaign's fifteen day cards handed work to people who do not exist: no NPC
+ * in the world, no passage to read, nothing on the map — and the player, who has
+ * met Nadia Haddad and Sten Lindgren, reads a first name they half recognise and
+ * files it as somebody they have not been introduced to yet.
+ *
+ * Nothing caught it. `checkNames` asks whether everybody ON the roster is
+ * introduced; it never asked whether everybody introduced is on the roster.
+ *
+ * THE RULE IS DELIBERATELY NARROW: a `Firstname Surname` where the surname is a
+ * roster surname and the first name belongs to nobody who holds it. That is the
+ * defect exactly, and it cannot fire on a place ("Kestrel Bay"), a product
+ * ("Ardley Fab 7"), a trial name ("CLARION-3") or a real historical figure,
+ * because none of those share a surname with the cast. A wholly invented name —
+ * "Marta Whitcombe" in a game with no Whitcombe — is NOT reported: telling those
+ * apart from a street, a ship or a company needs a list of first names, and a
+ * checker that guesses at that reports confidently on correct prose.
+ */
+export function impostorNames(theme, content){
+  const roster = content?.ROSTER ?? [];
+  const givensBySurname = new Map();
+  /** Surname -> the roster's own spelling of whoever holds it, for the message. */
+  const heldBy = new Map();
+  for(const p of roster){
+    const n = nameOf(p);
+    if(!n) continue;
+    const set = givensBySurname.get(n.surname) ?? new Set();
+    // Every word of the roster's own spelling, so a nickname it carries counts:
+    // the roster says `William “Deak” Parsons` and the cards say "Deak Parsons",
+    // which is the same man and was the first thing this rule got wrong.
+    for(const w of String(p.name ?? '').split(/[^\p{L}']+/u)) if(w) set.add(w.toLowerCase());
+    // Lowercased, because a roster spells a particle "von Neumann" and a sentence
+    // that starts on him spells it "Von Neumann" — the same man, and the first
+    // version of this reported him as an impostor in his own campaign.
+    for(const g of n.givens) set.add(g.toLowerCase());
+    givensBySurname.set(n.surname, set);
+    heldBy.set(n.surname, (heldBy.get(n.surname) ?? []).concat(String(p.name ?? '').trim()));
+  }
+  const out = [];
+  const seen = new Set();
+  for(const [where, text] of narrativeSlots(theme, content)){
+    const plain = String(text).replace(/<[^>]+>/g, ' ');
+    for(const m of plain.matchAll(/(^|[^-\p{L}])(\p{Lu}[\p{Ll}']+)\s+(\p{Lu}[\p{Ll}']+)\b/gu)){
+      // The `[^-\w]` in front matters: a hyphenated given name is one name.
+      // Without it "Mei-Ling Cho" reads as "Ling Cho", and Red Sand reported its
+      // own metallurgist as somebody who does not exist.
+      const [, , given, surname] = m;
+      const givens = givensBySurname.get(surname);
+      if(!givens || givens.has(given.toLowerCase())) continue;
+      // The word in front of a surname is capitalised for two different reasons,
+      // and the first version of this could not tell them apart: it reported
+      // "What Dube does next" and "Catch Whitlock before the shift" as people.
+      // A closed stoplist of ordinary openers is the whole fix — everything on it
+      // is a word that can stand in front of a name in English prose, and a name
+      // is never on it. A capitalised word NOT on the list, in front of a roster
+      // surname, is somebody.
+      if(OPENERS.has(given.toLowerCase())) continue;
+      const key = `${given} ${surname}`;
+      if(seen.has(key)) continue;
+      seen.add(key);
+      out.push({ name: key, surname, real: (heldBy.get(surname) ?? []).join(', '), where });
+    }
+  }
+  return out;
+}
+
 const RAN_DIRECTLY = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
 if(RAN_DIRECTLY){
   if(process.argv.includes('--selftest')) await selftest();
@@ -163,9 +268,17 @@ async function run(themeName){
   const content = theme.content ?? {};
   normalizeContent(content);
 
+  const impostors = impostorNames(theme, content);
+  for(const i of impostors){
+    console.log(`\n✗ "${i.name}" is nobody: the roster has ${i.real}, and this card is in ${i.where}`);
+    console.log('  (a card cannot hand work to somebody the player can never meet — use the person who holds that surname, or add them to the roster)');
+  }
+
   const findings = unintroducedInCampaign(theme, content);
-  if(!findings.length){
-    console.log(`\n✓ theme "${themeName}": every person is introduced with their job the first time they are named`);
+  if(!findings.length && !impostors.length){
+    console.log(`\n✓ theme "${themeName}": every person is introduced with their job the first time they are named, and every name on a card is on the roster`);
+  } else if(!findings.length){
+    console.log(`\n${impostors.length} name(s) on a card belong to nobody in "${themeName}"`);
   } else {
     console.log(`\n${findings.length} name(s) used before the job is stated in "${themeName}"`);
     for(const f of findings){
@@ -174,7 +287,7 @@ async function run(themeName){
     }
     console.log('  (put the job beside the name at the first mention: "Reyes, the shift supervisor, …")');
   }
-  process.exit(findings.length ? 1 : 0);
+  process.exit(findings.length + impostors.length ? 1 : 0);
 }
 
 /**
@@ -213,10 +326,18 @@ async function selftest(){
     JSON.stringify(unintroducedInCampaign(early.theme, early.content)));
 
   // And the same for a warm-up card, which is read before that morning's plan.
+  //
+  // FIFTEEN MISSIONS, not one, and that is the fix rather than a detail. The
+  // warm-up schedule spreads its runs over a campaign — `warmupPlan` returns an
+  // empty list for anything under about ten days — so a one-day fixture has no
+  // warm-up card in it at all, and this case failed for years on a campaign that
+  // could not have shown the defect. The rule was right the whole time.
+  const filler = { stake: 'Nothing happens today.', stops: [] };
   const warm = {
     theme: { title: 't', opening: 'The valley is short of power.', ending: [] },
     content: { ROSTER: [person], CURRICULUM: {}, WARMUPS: { greet: { title: 'The shift changes at seven', why: 'Reyes takes new engineers round the room once before the first shift.' } },
-      MISSIONS: [{ stake: 'Reyes, the shift supervisor, wants the trend read.', stops: [] }] },
+      MISSIONS: [{ stake: 'Reyes, the shift supervisor, wants the trend read.', stops: [] },
+                  ...Array.from({ length: 14 }, () => filler)] },
   };
   check('a warm-up card is read before that morning\'s stake',
     unintroducedInCampaign(warm.theme, warm.content).length === 1,
@@ -265,6 +386,33 @@ async function selftest(){
   check('an initial does not cut the sentence in half',
     unintroducedInCampaign(initial.theme, initial.content).length === 0,
     JSON.stringify(unintroducedInCampaign(initial.theme, initial.content)));
+
+  // ——— the impostor rule ————————————————————————————————————————————
+  //
+  // Three cases, and the third is the one that decides whether the rule is worth
+  // having: an ordinary capitalised word in front of a surname must NOT be read
+  // as a person, or the rule fires on prose and gets turned off.
+  const nadia = { name: 'Nadia Haddad', role: 'Generation Lead', division: 'GEN' };
+  const impostorThemeOf = (stake) => ({
+    theme: { dayNoun: 'Day', opening: ['x'] },
+    content: { ROSTER: [nadia], CURRICULUM: {}, MISSIONS: [{ stake, stops: [] }] },
+  });
+  {
+    const t = impostorThemeOf('A fuel limit Amira Haddad flagged this morning.');
+    const found = impostorNames(t.theme, t.content);
+    check('a first name nobody with that surname holds is reported',
+      found.length === 1 && found[0].name === 'Amira Haddad');
+  }
+  {
+    const t = impostorThemeOf('Nadia Haddad flagged the fuel limit this morning.');
+    check('the person who actually holds the surname is not reported',
+      impostorNames(t.theme, t.content).length === 0);
+  }
+  {
+    const t = impostorThemeOf('What Haddad does next is the whole morning. Catch Haddad before seven.');
+    check('an ordinary word in front of a surname is not a person',
+      impostorNames(t.theme, t.content).length === 0);
+  }
 
   // Two people with one surname: a bare mention belongs to neither of them.
   const kitty = { name: 'Katherine Reyes', role: 'Botanist' };

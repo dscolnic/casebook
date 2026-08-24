@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "Build the detector",
     "objective": "Understand what the instrument is listening for, and everything else it hears.",
     "briefing": "Two four-kilometre arms holding still, and a list of everything that will not let them.",
-    "stake": "Monday, and nothing has happened yet. Rainer Weiss, the optics lead, has both arms locked and the two beams recombining so nearly perfectly that almost no light reaches the readout at all. Asha Mwangi, who runs noise and isolation, has a list of everything else that moves a mirror, from lorries on the road to the counting statistics of photons. What this instrument is trying to notice is a change in length smaller than a fraction of the width of a proton. Today you say why it is held at near-total cancellation, predict what a passing wave does to the two arms, and find the band where the instrument can hear anything at all.",
+    "stake": "Monday, and nothing has happened yet. Rainer Weiss, the optics lead, has both arms locked. The two beams come back together almost perfectly. Almost no light reaches the readout at all. That is on purpose, and somebody has to be able to say why. Asha Mwangi, who runs noise and isolation, has a list of everything else that moves a mirror. Lorries on the road are on it. So is the counting of single photons. What this instrument is trying to notice is a change in length. That change is smaller than a fraction of the width of a proton. Today you set out what this instrument can hear and what it cannot. Weiss wants the working point defended. Mwangi wants the band written down before anyone calls a wobble a wave.",
     "takeaway": "An instrument that can hear one thing at one loudness is an instrument built around a noise curve.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Find the chirp",
     "objective": "Say what the candidate is shaped like, why it is shaped that way, and whether it was real.",
     "briefing": "A fifth of a second in both detectors, and everything local to rule out first.",
-    "stake": "Tuesday at four in the morning, and something has been through both instruments. Nuria González, who reviews candidates, has a fifth of a second of strain that sweeps upward in frequency and amplitude and then stops. Ren Takahashi, who owns the auxiliary channels, has several hundred sensors watching the building and the ground and reports that none of them saw anything. Today you find which template accounts for the shape, say why the frequency climbs, and work out how far apart in time two sites are allowed to see the same wave. Every one of those is a way this turns out to be a lorry.",
+    "stake": "Tuesday, four in the morning. Something has been through both instruments. Gabriela González, who reviews candidates, has a fifth of a second of strain on her screen. It sweeps upward in frequency. It grows louder as it goes. Then it stops. Ren Takahashi, who owns the auxiliary channels, has several hundred sensors watching the building and the ground. Not one of them saw a thing. That is a good sign. It is not proof. Today you decide whether this trace is a wave from far away or a knock from close by. Three things stand in the way. The shape has to be accounted for by a model. The rising note has to have a cause. And the two sites have to agree about when it arrived. Every one of those is a way this turns out to be a lorry.",
     "takeaway": "A candidate becomes a signal by surviving the ordinary explanations, one at a time.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "Read the merger",
     "objective": "Get masses out of the waveform, close the ledger, and claim only what the match supports.",
     "briefing": "One waveform, two masses, and three solar masses that are not there any more.",
-    "stake": "Wednesday, and the candidate has survived everything. Elin Bergström, who does the parameter estimation, has the waveform fitted through the inspiral, the merger and the ringdown, and a template bank that will give her almost any pair of masses if she lets it. What went in does not equal what came out, and the difference is about three times the mass of the Sun. Today you find out which pair of masses the signal actually fixes, say where the missing mass went, and write the claim a coherent match will carry. The numbers on this desk are early-reported teaching values, and the paper has to say so.",
+    "stake": "Wednesday, and the candidate has survived everything thrown at it. Elin Bergström, who does the parameter estimation, has the waveform fitted end to end. It covers the spiral inward, the merger, and the ringing that follows. Her template bank is the trouble. Let it run free and it will hand her almost any pair of masses she asks for. What went in does not add up to what came out either. Some mass is not there any more. Today you decide what this waveform is allowed to claim. Bergström will write down whatever the two of you agree. The masses on this desk are early reported values, kept here for teaching. Better fits came later and moved them, and the paper has to say so.",
     "takeaway": "A waveform gives up a combination before it gives up a number, and a claim stops where the match stops.",
     "stops": [
       {

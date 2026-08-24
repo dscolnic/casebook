@@ -505,13 +505,14 @@ missions:
     objective: Get the acceleration and the depth out of the shape the winder is driven to.
     briefing: Twelve working days to the inspector, and the proposal on the desk is a shape nobody has differentiated.
     stake: >-
-      Monday, and the inspector is here in twelve working days to re-license the winder. Delia
-      Marchetti, the winding engineer, wants twelve seconds out of every cycle, and what she has
-      submitted is a curve: how fast the cage is to be going at each second of a journey. Grace
-      Ubah, the banksman, stands on the landing every one of those journeys ends at and reads the
-      same curve as a shape. Today you get the acceleration out of that curve, work out what the
-      floor of the cage has to push with while it is changing speed, and find out what Marchetti's
-      twelve seconds are actually made of. Forty-one men a shift ride whatever gets signed.
+      Monday. The inspector comes in twelve working days to re-license the winder. Delia
+      Marchetti, the winding engineer, wants twelve seconds out of every cycle. What she has
+      handed in is a curve. It shows how fast the cage should be going at each second of a trip.
+      A curve is not a set of numbers yet. Grace Ubah, the banksman, meets every one of those
+      trips at the landing. She reads the same curve as a shape, not as a plan. Today you get
+      the acceleration out of Marchetti's curve. Acceleration is how fast the speed itself
+      changes. From it you can work out what the cage floor has to push up with, and where her
+      twelve seconds really come from. Forty-one men a shift ride whatever gets signed.
     takeaway: A speed curve contains the acceleration and the distance, and neither is written on it.
     stops:
       - group: BANK
@@ -753,13 +754,14 @@ missions:
     objective: Get the drum's inertia out of how its mass is arranged, not out of its weight.
     briefing: The torque calculation on the desk uses a figure for the drum nobody can source.
     stake: >-
-      Tuesday, and the submission quotes a moment of inertia for the drum with no working behind it.
-      Marchetti found the figure in an eighteen-year-old handover file; the drum was re-flanged since.
-      Samuel Otieno, the chief rope examiner, points out that the same file has the rope forty metres
-      longer than it is. Today you take the drum's inertia off its own dimensions, settle which body
-      the rope's eleven tonnes actually hang from, and go down to the inset to ask Tom Halloway, the
-      onsetter, what the depth recorder can be made to tell you. Every torque, every braking
-      calculation and every cycle time in the submission rests on that one number for the drum.
+      Tuesday. The submission gives a moment of inertia for the drum with no working behind it.
+      Moment of inertia is how hard a spinning thing is to speed up or slow down. Marchetti took
+      the figure from a handover file that is eighteen years old. The drum has been re-flanged
+      since then. Samuel Otieno, the chief rope examiner, has read the same file. It has the
+      rope forty metres longer than the rope really is. Today you work the drum's inertia out
+      from the drum's own size. You also have to settle what the rope's eleven tonnes hang from,
+      and go down to the inset to see Tom Halloway, the onsetter. Every torque in the submission
+      rests on that one number. So does every stopping sum, and every cycle time.
     takeaway: How hard something is to spin up depends on where its mass sits, not on how much of it there is.
     stops:
       - group: WIND
@@ -990,14 +992,14 @@ missions:
     objective: Get the tension at the drum with the rope's own weight in it, and see what a body feels.
     briefing: The submission's tension figure is one number, and the rope's weight changes with where the cage is.
     stake: >-
-      Wednesday, and Otieno has stopped the submission going forward. The tension quoted in it is
-      the cage and its load times gravity, which is the tension at the cappel and not the tension
-      anywhere the rope actually fails. With the cage at the inset there are twelve hundred and
-      forty metres of steel hanging above it, and it weighs nearly three times what it carries.
-      Today you get the tension at the drum with the rope in it, work out what a man in the cage
-      feels on the way into the stop, and hear from Ruth Anand, the winder driver, what a hard ramp
-      does that a soft one does not. Marchetti's whole case rests on a margin computed at the wrong
-      end of the rope.
+      Wednesday. Otieno has stopped the submission going forward. The tension in it is the cage
+      and its load times gravity. That is the pull at the cappel, up at the top of the cage. It
+      is not the pull anywhere a rope ever breaks. With the cage at the inset there are twelve
+      hundred and forty metres of steel hanging above it. The rope weighs nearly three times
+      what the cage carries. Today you find the tension at the drum with the rope's own weight
+      in it. Then you work out what a man standing in the cage feels as the stop begins. Ruth
+      Anand, the winder driver, will tell you how a hard ramp differs from a soft one.
+      Marchetti's whole case rests on a margin worked out at the wrong end of the rope.
     takeaway: The tension in a hoisting rope is a function of where the cage is, and its worst value is at the drum.
     stops:
       - group: ROPE
@@ -1243,14 +1245,15 @@ missions:
     objective: Find the torque the faster wind needs, and say whether the machine has it.
     briefing: Marchetti's case comes down to one number in newton metres, and today it gets computed.
     stake: >-
-      Thursday, and this is the day Marchetti has been waiting a fortnight for. With the drum's own
-      inertia measured off the drum and the tension taken at the right end of the rope, the torque
-      the faster wind asks for can be computed instead of asserted. Otieno has said all week that he
-      is not arguing about torque. Iona Craig, the brake fitter, has a different question, which is
-      what the pads can hold once the motor has been given the numbers. Today you take the torque at
-      the worst instant of the cycle, settle what a friction limit is, and put the drum and the rope
-      into one relation with Ubah. If the number comes in under the motor's rating, Marchetti is
-      right and the submission goes forward.
+      Thursday, and this is the day Marchetti has waited a fortnight for. The drum's inertia has
+      been measured off the drum. The tension has been taken at the right end of the rope. So
+      the torque the faster wind asks for can now be worked out instead of claimed. Torque is
+      the twist the motor has to supply. Otieno has said all week that he is not arguing about
+      torque. Iona Craig, the brake fitter, has a different question. She wants to know what the
+      pads can hold once the motor has been given those numbers. Today you take the torque at
+      the hardest instant of the cycle. You also settle what a friction limit is, and put the
+      drum and the rope into one relation with Ubah. If the torque comes in under the motor's
+      rating, the submission goes forward.
     takeaway: A rotating machine needs torque for its own inertia and for the load, and they are separate terms.
     stops:
       - group: WIND
@@ -1475,13 +1478,14 @@ missions:
     objective: Add up the work a wind actually does, with a force that changes all the way up.
     briefing: The energy figures in the submission are the cage's, and the cage is a quarter of the rope.
     stake: >-
-      Friday, and the energy section of the submission is one line: cage times gravity times depth.
-      Rahimi has asked what happens to the other three quarters. The rope's weight is lifted too,
-      and less of it every metre, so the force the drum works against falls the whole way up the
-      shaft. Craig wants the total because it is the same energy the brake has to take out again if
-      a wind is ever stopped from full speed. Today you take the work with the rope in it, put the
-      cage's own share beside it, and ask Otieno why he keeps calling twelve hundred metres of steel
-      a spring.
+      Friday. The energy part of the submission is one line long: cage times gravity times
+      depth. Rahimi has asked what happens to the other three quarters. The rope has to be
+      lifted as well. Less of it hangs below the drum with every metre wound on. So the force
+      the drum works against changes the whole way up the shaft. Craig wants the total for her
+      own reason. It is the same energy the brake must take out again if a wind is ever stopped
+      at full speed. Today you take the work done with the rope's weight in it. Then you set the
+      cage's own share beside it, and ask Otieno why he keeps calling twelve hundred metres of
+      steel a spring.
     takeaway: Work done against a force that changes with position is an integral, and the changing part can be the larger part.
     stops:
       - group: CAGE
@@ -1724,14 +1728,15 @@ missions:
     objective: Get the force a moving stream makes, and settle who feels the other end of it.
     briefing: The conveyor drive trips twice a shift and every load on it is inside its rating.
     stake: >-
-      Monday, and the conveyor drive tripped twice on Friday's night shift. Bart Lindqvist, the tip
-      foreman, has the loads: nothing over four tonnes, nothing outside what the belt is rated for.
-      What he has not got is the force the belt feels from ore arriving on it continuously, which is
-      a different quantity from the weight of what is on it. Rahimi wants the same arithmetic for the
-      arrestors, because a mass stopped by crushing steel is the same problem with the sign changed.
-      Today you take the force in the ore stream, settle who feels the reaction to it, and go out to
-      the gravity station to hear from Femi Adebayo, the survey assistant, why a reading needs three
-      other readings around it.
+      Monday. The conveyor drive tripped twice on Friday's night shift. Bart Lindqvist, the tip
+      foreman, has the loads written down. Nothing over four tonnes. Nothing outside what the
+      belt is rated for. What he has not got is the force the belt feels from ore landing on it
+      without a break. That is a different quantity from the weight of the ore sitting on the
+      belt. Rahimi wants the same sum for the arrestors. A mass stopped by crushing steel is the
+      same problem with the sign turned round. Today you find the force in the ore stream. You
+      also settle who feels the push back from it, and go out to the gravity station to see Femi
+      Adebayo, the survey assistant. He will tell you why one reading needs three more around
+      it.
     takeaway: A stream of mass arriving at a rate makes a steady force, and no single load in it accounts for that force.
     stops:
       - group: TIP
@@ -1953,14 +1958,15 @@ missions:
     objective: Work out what gravity should do down the shaft, and what the measurement says instead.
     briefing: Sokol has two readings a kilometre and a quarter apart, and they disagree with the textbook.
     stake: >-
-      Tuesday, and Dr. Lena Sokol, the geophysicist, has been given the shaft for two hours on Thursday, which is the
-      third time in four years. She has a reading at the bench station and a reading taken at the
-      inset, and the difference between them is the wrong way round: gravity is larger at the bottom
-      of the shaft and the uniform-sphere result in every textbook says it should be smaller. Nobody
-      at this mine has looked at it. Today you derive what gravity does inside a sphere, get the
-      density of the rock above the inset out of the disagreement, and settle with Kit Nowak, the
-      rope splicer, what six months of shortening has done to the rope. A working shaft is the only
-      instrument in the country that can take a gravimeter down a kilometre.
+      Tuesday. Dr. Lena Sokol, the geophysicist, has the shaft for two hours on Thursday. That
+      is the third time in four years anyone has been given it. She has one reading at the bench
+      station and one taken at the inset. The difference between them comes out the wrong way
+      round. Gravity is larger at the bottom of the shaft. The uniform-sphere result in every
+      textbook says it should be smaller. Nobody at this mine has ever looked at that. Today you
+      work out what gravity does inside a sphere. From the disagreement you can get the density
+      of the rock above the inset. You also settle with Kit Nowak, the rope splicer, what six
+      months of shortening has done to the rope. A working shaft is the only place in the
+      country that can take a gravity meter down a kilometre.
     takeaway: Gravity inside a body depends only on the mass below you, which is why a shaft measures what a surface cannot.
     stops:
       - group: GRAV
@@ -2210,13 +2216,14 @@ missions:
     objective: Find where in the cycle the motor works hardest, and put a number on it.
     briefing: The motor is rated in kilowatts and the submission has never said where the peak is.
     stake: >-
-      Wednesday, and the electrical engineer has asked a question nobody in the winder house can
-      answer: at which instant of a wind is the motor working hardest? Marchetti has the torque, which
-      is largest at the bottom, and the speed, which is largest in the middle, and the product of the
-      two is what a motor is rated by. Craig wants the same figure from the other side, because
-      whatever the motor puts in on the way up is what the pads take out on the way down. Today you
-      take the power at the worst instant, order four instants of the wind by what they ask for, and
-      settle with Craig what the brake is really being asked to do.
+      Wednesday. The electrical engineer has asked a question nobody in the winder house can
+      answer. At which instant of a wind is the motor working hardest? Marchetti has the torque,
+      which is largest at the bottom. She has the speed, which is largest in the middle. A motor
+      is rated by the two of them multiplied together. Craig wants the same figure from her own
+      side of the shaft. Whatever the motor puts in on the way up is what the pads take out on
+      the way down. Today you find the power at the hardest instant of the wind. You then put
+      four instants of the wind in order by what each one asks for. Craig will settle with you
+      what the brake is really being asked to do.
     takeaway: Power is a product, so its peak is at neither of the places where its two factors peak.
     stops:
       - group: BANK
@@ -2438,14 +2445,15 @@ missions:
     objective: Get the stiffness of twelve hundred metres of steel and the period it gives the cage.
     briefing: Otieno has asked for one number for two years and it has never been computed.
     stake: >-
-      Thursday, and Otieno has the shaft's rope data on the shop bench: the steel area, the modulus
-      the maker quotes, and the length as it is today rather than as the file has it. What comes out
-      of those three is a stiffness, and out of the stiffness comes a period — how long the cage takes
-      to bounce once on the end of the rope. Nothing in the submission contains a period. Nothing in
-      the winder handbook contains one either. Today you take the stiffness and the period, settle
-      what a bounce stores while it is happening, and ask Ubah what the crawl at the bank is really
-      there for. The rope stretches more than a metre under an ordinary load, and nobody has ever put
-      that number beside the overwind margin.
+      Thursday. Otieno has the shaft's rope data out on the shop bench. There is the area of
+      steel and the modulus the maker quotes. There is the length the rope is today, not the
+      length in the file. The modulus is how much the steel stretches under a pull. Those three
+      give a stiffness. The stiffness gives a period. A period is how long the cage takes to
+      bounce once on the end of the rope. Nothing in the submission has a period in it. Nothing
+      in the winder handbook has one either. Today you take the rope's stiffness and its period.
+      You then settle what a bounce stores while it is happening, and ask Ubah what the crawl at
+      the bank is really for. The rope stretches more than a metre under an ordinary load.
+      Nobody has put that number beside the overwind margin.
     takeaway: A hoisting rope is a spring with a period, and neither appears anywhere in the plant's paperwork.
     stops:
       - group: ROPE
@@ -2665,14 +2673,15 @@ missions:
     objective: Account for the March overwind with the numbers now on the board.
     briefing: The inquiry blamed the pads. The pads were fine, and the cage still went past the landing.
     stake: >-
-      Friday, and everything the March inquiry lacked is now on one board: the rope's stiffness, the
-      cage's period, the energy in a stretch. Anand applied the emergency brake with the descending
-      cage forty metres above the inset at eight and a half metres a second. The drum stopped in
-      under a second and the cage's own position recorder shows it travelling a metre and six tenths
-      after that, coming to rest below the landing. Craig's pad measurement was correct and was taken
-      cold on a bench. Today you work out how far a cage travels after its drum has stopped, decide
-      which account of March fits every record, and settle with Anand what a brake actually stops.
-      This is the day Otieno turns out to have been right for two years.
+      Friday. Everything the March inquiry did not have is now on one board. The rope's
+      stiffness. The cage's period. The energy stored in a stretch. Anand put the emergency
+      brake on with the cage going down, forty metres above the inset, at eight and a half
+      metres a second. The drum stopped in under a second. The cage's own position recorder
+      shows it moving a metre and six tenths after that. It came to rest below the landing.
+      Craig's pad measurement was right, and it was taken cold on a bench. Today you work out
+      how far a cage travels after its drum has stopped. You then decide which account of March
+      fits every record, and settle with Anand what a brake actually stops. This is the day
+      Otieno turns out to have been right for two years.
     takeaway: A brake stops the drum; what stops the cage is the rope, and the rope stretches first.
     stops:
       - group: CAGE
@@ -2901,14 +2910,15 @@ missions:
     objective: Add up what an emergency stop puts into the brake, and test one prediction against a wind.
     briefing: The pads are rated per stop and nobody has added up what a stop actually contains.
     stake: >-
-      Monday, and two working days before the inspector. Craig has the pads' rating in front of her —
-      six hundred kilojoules a stop, from the maker — and no figure at all for what a stop puts into
-      them. Three things are moving when the brake goes on: the cage, the rope hanging with it, and
-      eighteen tonnes of drum, and the drum is the one nobody counts. Marchetti has agreed to one test
-      wind on the empty cage this afternoon. Today you total the energy an emergency stop delivers,
-      predict what the test wind will do and then measure it, and settle with Bart Lindqvist what a
-      skip tipping into a bin has in common with all of it. Whatever the pads cannot absorb is what
-      the shaft finds out about later.
+      Monday, and two working days are left before the inspector. Craig has the pads' rating in
+      front of her. The maker says six hundred kilojoules a stop. Nobody has a figure for what
+      one stop actually puts into them. Three things are moving when the brake goes on. The
+      cage. The rope hanging with it. And eighteen tonnes of drum, which is the one nobody
+      counts. Marchetti has agreed to one test wind on the empty cage this afternoon. Today you
+      total the energy an emergency stop delivers. You then predict what the test wind will do,
+      and go and measure it. Lindqvist will show you what a skip tipping into a bin has in
+      common with all of it. Whatever the pads cannot take in is what the shaft finds out about
+      later.
     takeaway: A stop has to absorb the rotation as well as the motion, and the rotation can be the larger half.
     stops:
       - group: WIND
@@ -3142,14 +3152,14 @@ missions:
     objective: Integrate the revised profile, spend what is left, and say what the licence rests on.
     briefing: The inspector is here tomorrow. Two of the twelve seconds are not available and seven are.
     stake: >-
-      Tuesday, and the inspector arrives in the morning. What the fortnight has established is that
-      Marchetti was right about the machine and Otieno was right about the rope: the motor has the
-      torque and the power, and the binding constraints are the energy in a downward emergency stop
-      and how far a cage travels after its drum has stopped. A revised profile has been drafted that
-      keeps most of the saving by capping the speed at which the brake can be applied. Today you
-      integrate it and say what the cycle time really comes to, spend what is left of the maintenance
-      budget, and settle with Rahimi what goes in the submission. Forty-one men a shift, four winds
-      an hour, and one signature.
+      Tuesday, and the inspector arrives in the morning. The fortnight has settled two things.
+      Marchetti was right about the machine. Otieno was right about the rope. The motor has the
+      torque and the power it needs. What binds the profile is the energy in a downward
+      emergency stop, and how far a cage travels after its drum has stopped. A revised profile
+      has been drafted. It keeps most of the saving by capping the speed at which the brake may
+      be applied. Today you integrate that profile and say what the cycle time really comes to.
+      You then spend what is left of the maintenance budget, and settle with Rahimi what goes in
+      the submission. Forty-one men a shift. Four winds an hour. One signature.
     takeaway: A revised profile is a decision about which numbers the plant is allowed to reach, and it has to be integrated to be believed.
     stops:
       - group: BANK

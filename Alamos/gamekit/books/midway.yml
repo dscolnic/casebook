@@ -579,13 +579,15 @@ missions:
     objective: Find out what the park actually knows about its own rides.
     briefing: Every setting in this park is in one man's handwriting and none of them has a calculation behind it.
     stake: >-
-      Monday, and the season opens in three weeks. Corbin Park lost its certificate in October and
-      seven rides have to get it back before the gates open, which is your signature on seven
-      documents. Delia Marsh, who owns the park, has laid out the 11 notebooks of Alf Brennan, her retired chief mechanic, on the workshop bench: 41 years of settings, timings and turns of a nut, in 1 hand, with not
-      1 line of working anywhere in them. Marcus Vey, the county inspector, has read the same
-      notebooks and calls them a record of having got away with it. Today you take the first three
-      numbers the park runs on and find out where they come from. 106 days of season
-      pay for the other 259, and nothing opens on a setting nobody can derive.
+      Monday, and the season opens in three weeks. Corbin Park lost its certificate in October.
+      Seven rides have to win it back before the gates open. That is your signature on seven
+      documents. Delia Marsh, who owns the park, has laid out 11 notebooks on the workshop
+      bench. They belong to Alf Brennan, her retired chief mechanic. Forty one years of
+      settings, timings and turns of a nut. All in one hand. Not one line of working anywhere in
+      them. Marcus Vey, the county inspector, has read the same notebooks. He calls them a
+      record of having got away with it. Today you take the first three numbers the park runs on
+      and find where they came from. The 106 days of season pay for the other 259. Nothing opens
+      on a setting nobody can derive.
     takeaway: A number that works is not the same as a number somebody can justify.
     stops:
       # ΣF = ma is shown on a card from day 1 and, until this stop, was computed by no
@@ -853,15 +855,15 @@ missions:
     objective: Turn a stopping distance into a force on a person.
     briefing: The tower's brake has nine metres to remove everything the fall put in.
     stake: >-
-      Tuesday, and the tower is first on Vey's list because it is the ride with the least between a
-      rider and the ground. Yesterday's derivation says the carriage reaches the fins at 29
-      metres a second; the fins have 9 metres to take that back. Rafael Santos, who maintains the
-      brakes, points out that nothing in the system is adjustable — the magnets make more force the
-      faster the fins move — and Vey's reply is that a brake nobody can adjust is still a brake
-      nobody has measured. Today you turn a stopping distance into an acceleration, get a pressure
-      out of a depth at the flume, and settle what a moment arm is under the wheel. 4.7
-      times gravity is a number a fit adult takes in their seat and a number you would not put a
-      child through.
+      Tuesday, and the tower is first on Vey's list. It is the ride with the least between a
+      rider and the ground. Yesterday's working says the carriage reaches the fins at 29 metres
+      a second. The fins have 9 metres to take all of that back. Rafael Santos, who looks after
+      the brakes, points out that nothing in the system can be set. The magnets push harder the
+      faster the fins move, and that is all the control there is. Vey's reply is short. A brake
+      nobody can set is still a brake nobody has measured. Today you turn a stopping distance
+      into an acceleration. You also work out a pressure from a depth at the flume, and settle
+      what a moment arm is under the wheel. Ask what the seat does to the rider, not just what
+      the fins do to the car.
     takeaway: Every force in this park is a mass times an acceleration somebody has to work out.
     stops:
       - group: TOWER
@@ -1078,14 +1080,15 @@ missions:
     objective: Find the losses on the circuit, and what they leave for the loop.
     briefing: The train comes back to the station slower every year and nobody has measured by how much.
     stake: >-
-      Wednesday, and Kovač has three seasons of station-return speeds on a clipboard: 6.1 metres a
-      second in her first year, 5.2 this spring, measured the same way each time with the same
-      wheel. Nothing about the hill has changed, which means the difference is friction and the
-      difference is energy the ride no longer has. Marsh reads it as wear and a bearing job. Vey
-      reads it as a circuit whose margins are all computed from a drawing made in 1974. Today you
-      close the energy books on one lap, work out what a circular ride does to the direction of a
-      velocity, and count momentum through a collision on the bumper floor. Whatever the loop needs,
-      it has to come out of what is left at the top of the hill.
+      Wednesday, and Marta Kovač has three seasons of station speeds on a clipboard. The train
+      came back at 6.1 metres a second in her first year. This spring it came back at 5.2. She
+      used the same wheel each time, in the same place. Nothing about the hill has changed. So
+      the loss is friction, and friction is energy the ride no longer has. Marsh reads it as
+      wear and a bearing job. Vey reads it as a ride whose margins all come off a drawing made
+      in 1974. Today you close the energy books on one lap of the coaster. You also work out
+      what a circular ride does to the direction of a velocity. Then you count momentum through
+      a crash on the bumper floor. Whatever the loop needs has to come out of what is left at
+      the top of the hill.
     takeaway: Friction takes a fixed amount of energy each lap, and it takes it out of the margin.
     stops:
       - group: COASTER
@@ -1285,14 +1288,14 @@ missions:
     objective: Check a forty-one-year-old setting against the physics behind it.
     briefing: Brennan set the swings by how the chains hung, and nobody has ever computed the angle.
     stake: >-
-      Thursday, and Alf Brennan walked up from his house this morning to be asked why the swing
-      carousel runs at 10 turns a minute and not 11. His answer is the one it always is: at
-      11 the chains came out too far and it felt wrong. Vey has been polite about this for three
-      days. Today you derive the angle the chains hang at from the speed and the radius, put a number
-      on the energy in the ship's swing, and balance the wheel on paper. Marsh is right this
-      afternoon, and it is worth saying out loud: the derived angle lands within a degree of the
-      chalk mark Brennan made in 1991, and 2 days of an engineer's time have confirmed what a
-      mechanic knew by looking at it.
+      Thursday, and Alf Brennan walked up from his house this morning. He was asked why the
+      swing carousel runs at 10 turns a minute and not 11. His answer is the one it always is.
+      At 11 the chains came out too far and it felt wrong. Vey has been polite about this for
+      three days. Today you work out the angle the chains hang at from the speed and the radius.
+      You also put a number on the energy in the ship's swing, and balance the wheel on paper.
+      Marsh is right this afternoon, and it is worth saying out loud. The angle you derive lands
+      within a degree of the chalk mark Brennan made in 1991. Two days of an engineer's time
+      have confirmed what a mechanic knew by looking at it.
     takeaway: Confirming a good number is not wasted work; it is the difference between a setting and a limit.
     stops:
       - group: CAROUSEL
@@ -1558,14 +1561,14 @@ missions:
     objective: Put forces on the parts that hold people in a circle.
     briefing: The carousel's poles and the flume's gate both hold, and neither has ever been computed.
     stake: >-
-      Friday, and the first week ends with three parts nobody has a number for. Adeyemi will not wire
-      the new controller until somebody tells her what force an outer horse's pole carries at eight
-      turns a minute. Santos has a hydraulic gate on the flume with a two-centimetre ram driving a
-      nine-centimetre one and a note in Brennan's hand reading "plenty". Vey has spent the morning
-      reading yesterday's derivation and has signed nothing. Today you get the sideways force on a
-      carousel pole, put the tower's drop test in the order it has to happen in, and derive what a
-      hydraulic ram multiplies. Marsh has the season on a wall chart with 15 working days left
-      on it.
+      Friday, and the first week ends with three parts nobody has a number for. Bisi Adeyemi
+      will not wire the new controller yet. She wants to know what force an outer horse's pole
+      carries at eight turns a minute. Santos has a hydraulic gate on the flume. A two
+      centimetre ram drives a nine centimetre one, and Brennan's note beside it reads "plenty".
+      Vey has spent the morning reading yesterday's working and has signed nothing. Today you
+      get the sideways force on a carousel pole. You also put the tower's drop test into the
+      order it has to happen in, and derive what a hydraulic ram multiplies. Marsh has the
+      season on a wall chart. There are 15 working days left on it.
     takeaway: Every part in this park is holding a force somebody can compute in three lines.
     stops:
       - group: CAROUSEL
@@ -1751,13 +1754,14 @@ missions:
     briefing: 400 logged collisions, and nobody has ever written the equation for 1.
     stake: >-
       Monday of the second week, and Wei Chen has 400 collisions off last season's
-      accelerometers with nothing to compare them against. The bumper floor is the ride Vey expects
-      to sign first and Georgia Hart, the midway supervisor, expects to argue about, because whatever number comes out of it
-      has to be a rule 12 nineteen-year-olds can apply on the four-hundredth cycle of a hot
-      Saturday. Today you derive the speed a pair of cars leaves a collision at, work out what the
-      lift motor is doing on the coaster, and settle what makes a wheel hard to start. Marsh has
-      moved the reopening announcement to Friday, which gives the second week a deadline it did not
-      have this morning.
+      accelerometers. He has nothing to compare any of them against. The bumper floor is the
+      ride Vey expects to sign first. It is also the ride Georgia Hart, the midway supervisor,
+      expects to argue about. Whatever number comes out of today has to become a rule. Twelve
+      nineteen year olds have to apply that rule on the four hundredth cycle of a hot Saturday.
+      Today you derive the speed a pair of cars leaves a collision at. You also work out what
+      the lift motor is doing on the coaster, and settle what makes a wheel hard to start. Marsh
+      has moved the reopening announcement to Friday. That gives the second week a deadline it
+      did not have this morning.
     takeaway: A collision hands back its momentum in full and keeps a good share of its energy.
     stops:
       - group: BUMPER
@@ -1952,13 +1956,14 @@ missions:
     objective: Derive why a pendulum's timing does not depend on what is in it.
     briefing: Idowu has said for two seasons that the drive pushes at the wrong moment on a full boat.
     stake: >-
-      Tuesday, and Sam Idowu has been saying the same thing for two seasons: on a heavy boat the
-      second push arrives late and you can feel it through the floor. He has been told each time that
-      the ride is within specification, which it is. Today you derive the ship's period from the
-      restoring force, so that there is a number to check the drive against rather than an
-      operator's account of a floor. You also float a loaded boat at the flume and settle what the
-      tower's timing gives for the local strength of gravity. Elena Bianchi, the weld inspection, has the swing arm's
-      welds booked for Thursday and wants to know what load she is looking for cracks against.
+      Tuesday, and Sam Idowu has been saying the same thing for two seasons. On a heavy boat the
+      second push arrives late, and you can feel it through the floor. He has been told each
+      time that the ride is within its specification. It is. Today you derive the ship's period
+      from the force that pulls it back to the middle. That gives a number to check the drive
+      against, instead of an operator's account of a floor. You also float a loaded boat at the
+      flume, and settle what the tower's timing gives for the local strength of gravity. Elena
+      Bianchi, the weld inspection, has the swing arm booked for Thursday. She wants to know
+      what load she is looking for cracks against.
     takeaway: A measured period is a measurement of the pendulum, and it can be turned into g.
     stops:
       - group: SHIP
@@ -2133,13 +2138,14 @@ missions:
     objective: Get a load into a joint before anybody looks at the joint.
     briefing: Bianchi found an indication in a spider arm weld and will not say whether it matters.
     stake: >-
-      Wednesday, and Elena Bianchi has an indication 41 millimetres long in the weld at the
-      root of the wheel's number-nine spider arm. She has photographed it, sized it, and refused
-      three times to say whether it matters, which is her discipline rather than her opinion: a crack
-      is a length in a material and whether it counts depends on the load, and the load is not her
-      number. Priya Raman wants that load computed today. Today you derive the force in the hub bolt
-      group from the out-of-balance moment, put a number on what a bumper collision does to a neck,
-      and read the carousel's drive panel. Marsh has the ride on the reopening poster.
+      Wednesday, and Elena Bianchi has found a mark 41 millimetres long in a weld. It sits at
+      the root of the wheel's number nine spider arm. She has photographed it and sized it.
+      Three times she has refused to say whether it matters. That is her discipline, not her
+      opinion. A crack is a length in a material. Whether the length counts depends on the load,
+      and the load is not her number. Priya Raman wants that load computed today. Today you
+      derive the force in the hub bolt group from the out of balance moment. You also put a
+      number on what a bumper crash does to a neck, and read the carousel's drive panel. Marsh
+      has the ride on the reopening poster.
     takeaway: A defect cannot be judged until somebody has computed what the part it is in carries.
     stops:
       - group: WHEEL
@@ -2351,15 +2357,14 @@ missions:
     objective: Derive what the loop demands, and measure what it actually is.
     briefing: Kovač taped the crown of the loop yesterday and the radius is not the one on the 1974 drawing.
     stake: >-
-      Thursday, and Marta Kovač put a tape over the crown of the loop yesterday afternoon because
-      nobody could find a reason not to. The drawing says the radius there is 5.6 metres. The tape
-      says 7.4. In Brennan's ninth notebook, under 1998, there is a line about regrading the top of
-      the loop after complaints of a rough ride, and no drawing was ever changed. Vey is right this
-      morning and says so quietly: a ride that has run for 25 years on a number nobody
-      checked is not the same thing as a ride with a margin. Today you derive the speed the loop
-      demands at its crown, settle what a margin actually is, and read the ship's drive against
-      yesterday's period. Everything computed this fortnight above the first drop now has to be done
-      again.
+      Thursday, and Marta Kovač put a tape over the crown of the loop yesterday afternoon.
+      Nobody could find a reason not to. The drawing says the radius there is 5.6 metres. The
+      tape says 7.4. Brennan's ninth notebook has a line under 1998. The top of the loop was
+      reground after complaints of a rough ride. No drawing was ever changed. Vey is right this
+      morning and says so quietly. A ride that has run 25 years on a number nobody checked is
+      not the same as a ride with a margin. Today you derive the speed the loop demands at its
+      crown. You also settle what a margin actually is, and read the ship's drive against
+      yesterday's period. Everything worked out above the first drop now has to be done again.
     takeaway: A flatter loop is a gentler ride and a hungrier one, and both of those are the same number.
     stops:
       - group: COASTER
@@ -2602,14 +2607,14 @@ missions:
     objective: Recompute the circuit against the loop it actually has.
     briefing: Every margin computed before yesterday rests on a radius that was wrong.
     stake: >-
-      Friday, and the second week ends with the coaster's file open on the bench and every number in
-      it suspect above the first drop. The train crosses the crown at about 10.2 metres a second and
-      the crown now demands 8.5, which is a margin of 1.20 rather than the 1.38 the certificate
-      claimed. Kovač's clipboard says the station return speed has fallen 0.9 metres a second in
-      3 seasons. Today you turn a collision into a force on a neck, decide what to change on the
-      bumper floor, and size the pump that has to lift the flume's water back up. Vey will not sign
-      the coaster on a margin that is shrinking unless somebody can say how fast it shrinks and what
-      would be measured to catch it.
+      Friday, and the second week ends with the coaster's file open on the bench. Every number
+      in it above the first drop is now in doubt. The train crosses the crown at about 10.2
+      metres a second. The crown now demands 8.5. That is a margin of 1.20, where the
+      certificate claimed 1.38. Kovač's clipboard says the station speed has fallen 0.9 metres a
+      second in 3 seasons. Today you turn a crash into a force on a neck. You also decide what
+      to change on the bumper floor, and size the pump that lifts the flume's water back up. Vey
+      will not sign a coaster whose margin is shrinking. Somebody has to say how fast it
+      shrinks, and what would be measured to catch it.
     takeaway: A margin that moves is a schedule, and a margin that is checked each morning is a rule.
     stops:
       - group: BUMPER
@@ -2769,12 +2774,13 @@ missions:
     briefing: Nothing broke over the weekend, which is the first time that has happened this month.
     stake: >-
       Monday of the third week, and nothing is wrong. The flume ran all weekend on the new pump
-      curve, the coaster's morning speed came in where Friday's rule says it should, and Vey spent
-      the afternoon reading rather than asking. Kelechi Abara has wanted a derivation for the outlet
-      speed since the first week and this is the first day anybody has had time to do one. Today you
-      derive what the water leaves the chute at, settle what the carousel's controller does when the
-      limit is reached, and put a number on the wind load a gondola carries. Marsh has started
-      telling people the park opens in 11 days, which she has not said out loud since October.
+      curve. The coaster's morning speed came in where Friday's rule says it should. Vey spent
+      the afternoon reading rather than asking. Kelechi Abara has wanted a derivation for the
+      outlet speed since the first week. This is the first day anybody has had the time. Today
+      you derive the speed the water leaves the chute at. You also settle what the carousel's
+      controller does when the limit is reached, and put a number on the wind load a gondola
+      carries. Marsh has started telling people the park opens in 11 days. She has not said that
+      out loud since October.
     takeaway: The morning to close a set of books is the one where nothing is asking to be fixed.
     stops:
       - group: FLUME
@@ -3025,13 +3031,14 @@ missions:
     objective: Set the limits the ride will be operated to when nobody has time to think.
     briefing: 30 degrees forecast, a gusting westerly, and a queue that will not stop all afternoon.
     stake: >-
-      Tuesday, and the forecast for opening weekend came in this morning: 30 degrees and a
-      westerly gusting through the afternoon. Georgia Hart's point has been the same all fortnight
-      and today it is the whole agenda — whatever gets decided in this workshop has to be doable by a
-      nineteen-year-old on the four-hundredth cycle of a hot day. Today you set the wind rules for
-      the wheel with the lead time built into them, decide what to do about the ship's drive, and
-      settle how the tower's brake gets proved rather than asserted. Vey has said he will witness
-      whatever tests are run on Thursday and sign or not sign on Friday morning.
+      Tuesday, and the forecast for opening weekend came in this morning. Thirty degrees, with a
+      westerly gusting through the afternoon. Georgia Hart's point has been the same all
+      fortnight. Today it is the whole agenda. Whatever gets decided in this workshop has to be
+      doable by a nineteen year old. It has to work on the four hundredth cycle of a hot day.
+      Today you set the wind rules for the wheel, with the lead time built into them. You also
+      decide what to do about the ship's drive, and settle how the tower's brake gets proved
+      rather than claimed. Vey has said he will witness whatever tests are run on Thursday. He
+      signs, or does not sign, on Friday morning.
     takeaway: A limit written for a calm Tuesday is not a limit; it has to work on the worst afternoon of the year.
     stops:
       - group: WHEEL
@@ -3236,14 +3243,15 @@ missions:
     objective: Rank what gets fixed with two days left.
     briefing: Three faults, one maintenance crew, and the inspection is on Friday.
     stake: >-
-      Wednesday, and three things arrived this morning: a bumper car with a cracked chassis rail, the
-      coaster's morning speed a tenth low for the second day running, and the carousel's platform
-      settling that Adeyemi first saw as a current peak. Kovač has one crew and two days. Marsh wants
-      the coaster because it is on the poster; Hart wants the bumper car because it is the ride her
-      staff cannot supervise their way out of. Today you rank the three, decide what the coaster's
-      low reading means, and put the carousel's repair in an order that can be done overnight. Vey
-      inspects on Friday morning and signs on Friday afternoon, and what is not fixed by Thursday
-      night is a ride that opens shut.
+      Wednesday, and three things arrived this morning. A bumper car with a cracked chassis
+      rail. The coaster's morning speed a tenth low for the second day running. And the
+      carousel's platform settling, which Adeyemi first saw as a peak in the current. Kovač has
+      one crew and two days. Marsh wants the coaster, because it is on the poster. Hart wants
+      the bumper car, because it is the ride her staff cannot supervise their way out of. Today
+      you rank the three jobs. You also decide what the coaster's low reading means, and put the
+      carousel's repair in an order that can be done overnight. Vey inspects on Friday morning
+      and signs on Friday afternoon. What is not fixed by Thursday night is a ride that opens
+      shut.
     takeaway: Ranking work is a question about what each delay costs, not about what each fault is.
     stops:
       - group: BUMPER
@@ -3439,14 +3447,14 @@ missions:
     objective: Sign what the working supports, and say what it does not.
     briefing: The inspection is tomorrow, and a signature is not a thing that can be taken back.
     stake: >-
-      Thursday, and the last day anything can be changed. Marcus Vey witnessed the drop test this
-      afternoon and has said nothing since. 7 rides have a margin computed for them, 6 of those
-      margins hold, and the coaster's is 1.20 against a certificate that has said 1.38 for
-      25 years. Marsh has 98000 pounds of advance bookings against the
-      opening weekend. Today you set each ride against what has actually been derived for it, put a
+      Thursday, and the last day anything can be changed. Marcus Vey witnessed the drop test
+      this afternoon and has said nothing since. All 7 rides have a margin computed for them
+      now. Six of those margins hold. The coaster's is 1.20, against a certificate that has said
+      1.38 for 25 years. Marsh has 98000 pounds of advance bookings against the opening weekend.
+      Today you set each ride against what has actually been derived for it. You also put a
       number on the ship's certified swing angle, and settle what the flume's boats may carry. A
-      certificate is a claim in your name about what a machine will do to the next quarter of 1 million
-      people through it, and it cannot be qualified afterwards.
+      certificate is a claim in your name. It says what a machine will do to the next quarter of
+      a million people through it, and it cannot be taken back later.
     takeaway: A signature says what the working supports, and everything it does not cover has to be written down too.
     stops:
       - group: TOWER
@@ -3598,13 +3606,14 @@ missions:
     objective: Say what has been established, how well, and what has not.
     briefing: The inspection is this morning, and what survives it is what was derived.
     stake: >-
-      Friday, and Vey has been on site since 13 of the 7 rides have a derivation, a
-      number and a condition; the wheel has a computed bolt load and a weld indication that arrived
-      too late to resolve. The park opens in eight days if the certificates are signed this
-      afternoon. Today you decide what the winter's money goes on, state what can honestly be
-      claimed about the coaster, and write the standing order for the bumper floor that Hart's staff
-      will actually work to. Brennan came in at 9 with the tenth notebook, which he had found in
-      a drawer, and it has the 1998 regrade in it — dated, with a sketch, and no drawing number.
+      Friday, and Vey has been on site since first thing. Six of the seven rides have a
+      derivation, a number and a condition. The wheel has a computed bolt load. It also has a
+      weld mark that arrived too late to resolve. The park opens in eight days if the
+      certificates are signed this afternoon. Today you decide what the winter's money goes on.
+      You also state what can honestly be claimed about the coaster. And you write the standing
+      order for the bumper floor that Hart's staff will work to. Brennan came in at nine with
+      the tenth notebook. He had found it in a drawer. The 1998 regrade is in it, dated, with a
+      sketch, and no drawing number.
     takeaway: What outlives this fortnight is what somebody wrote down in a form the next person can use.
     stops:
       - group: COASTER

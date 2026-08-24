@@ -209,15 +209,14 @@ missions:
     objective: Sort what a recognition test contains, see what familiarity does not carry, and count how often the missing word is claimed.
     briefing: Roediger will not explain the lists until the test is over.
     stake: >-
-      Monday, and forty people are booked to hear twelve lists of fifteen words. Henry
-      Roediger, a memory researcher who builds the lists, will not tell any of them what they
-      are for until
-      afterwards, because somebody who has been told is testing something else. Kathleen
-      McDermott, who runs the recognition tests, has forecast the result before the first
-      participant arrives. Ruth Achebe, the data manager, has the comparisons written down
-      already. Today you sort what is actually on a test sheet, say what a strong sense of
-      recognition does and does not carry with it, and put a number on how often a word that
-      was never read out is claimed.
+      Monday. Forty people are booked in to hear twelve lists of fifteen words each. Henry
+      Roediger, the memory researcher who builds the lists, will not say what they are for. Not
+      until the test is over. Anyone who has been told is testing something else by then.
+      Kathleen McDermott, the researcher who runs the recognition tests, has already written
+      down what she expects. She did that before the first person walked in. Ruth Achebe, the
+      data manager, has the comparisons ready to fill in. One word in each list is never read
+      out loud. It is the word all fifteen point at. Today you put a number on how often people
+      claim they heard that missing word.
     takeaway: A memory system that stores meaning will hand back meaning, including meaning nobody supplied.
     stops:
       - group: STUDY
@@ -409,12 +408,13 @@ missions:
     objective: See what a wording assumes, commit a figure before the recall test, and take the difference between the two groups.
     briefing: Loftus will not let an interviewer know which wording their participant had.
     stake: >-
-      Wednesday, and two hundred people have watched the same twelve seconds of a junction.
-      Elizabeth Loftus, who works on what happens to an account afterwards, has split them by
-      a sealed list into two groups that differ in one clause of one question. Colin Vance,
-      who trains the interviewers, has made sure no interviewer knows which group they are
-      sitting with. The recall test is a week away. Today you say what a wording does, commit
-      a figure before the test is run, and take the difference between the two groups.
+      Wednesday. Two hundred people have watched the same twelve seconds of a junction.
+      Elizabeth Loftus, the eyewitness researcher, works on what happens to an account after the
+      event. She has split the two hundred into two groups. A sealed list decided who went
+      where. Both groups get the same questions, with one difference. One clause of one question
+      is not the same. Colin Vance, who trains the interviewers, has made sure of one thing. No
+      interviewer knows which group the person in front of them is in. The recall test is a week
+      away. Today you work out the difference between the two groups.
     takeaway: What somebody learns after an event blends into what they recall of it, and only two groups can show that.
     stops:
       - group: EVENT
@@ -624,12 +624,13 @@ missions:
     objective: Separate confidence from accuracy, name the failure properly, and buy the change to the interview that helps most.
     briefing: Johnson wants the error named before anybody recommends anything.
     stake: >-
-      Friday, and an interview team has asked the unit for advice. Marcia Johnson, whose subject is source
-      monitoring — where a remembered detail was actually picked up — has the confidence ratings beside the
-      accuracy scores and says the two are not one measurement. Colin Vance has four proposed
-      changes to how the team asks their questions and time to test one properly. Ruth Achebe
-      has the transcripts. Today you read the confidence data, say what kind of error this
-      actually is, and spend the study on the change that could turn out not to work.
+      Friday. An interview team has come to the unit for advice. Marcia Johnson, who works on
+      source monitoring, has the confidence ratings laid out beside the accuracy scores. Source
+      monitoring means working out where a remembered detail was really picked up. Johnson says
+      those two columns are not one measurement. Colin Vance has four changes the team could
+      make to the way they ask. There is time to test one of them properly. Ruth Achebe has the
+      transcripts ready. Today you spend that one study on the change that might turn out not to
+      work.
     takeaway: Memory is reconstructed from real material, so the way it is asked for is part of what comes back.
     stops:
       - group: DATA

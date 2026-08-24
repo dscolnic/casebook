@@ -50,6 +50,18 @@
 // this module stamps onto the plan in `initWorld`.
 import * as THREE from 'three';
 import { buildInterior, buildInteriorLighting, updateInteriorTimeOfDay } from './interiorSite.js';
+import { deliveryHook } from './deliveryCase.js';
+/** The campaign's delivery board, in whichever build holds its room. */
+let deliveryCase = null;
+/**
+ * Tell the board what is in.
+ *
+ * Called on every world refresh rather than on entering the room: these rooms are
+ * built once and walked into, so there is no arrival event, and the board has to
+ * be right the moment a saved campaign is loaded.
+ */
+export function setDeliveryPieces(pieces){ deliveryCase?.setPieces(pieces); }
+
 import { markStructure, markWallMounted } from './interiorKit.js';
 import { tuneRendererForDevice } from './materials.js';
 
@@ -431,7 +443,11 @@ export function initWorld(canvas, activeTheme){
     const built = buildInterior(holder, renderer, floorPlan, {
       fitOutRoom: (room, ctx) => theme.fitOutRoom?.(room, { ...ctx, floor: f }),
       fitOutSpine: (ctx) => theme.fitOutSpine?.({ ...ctx, floor: f }),
+      // One floor of the four holds the room the delivery is kept in; the other
+      // three are handed the same hook and match nothing.
+      delivery: deliveryHook(theme),
     });
+    if(built.deliveryCase) deliveryCase = built.deliveryCase;
     firstBuilt = firstBuilt ?? built;
 
     // Collision is tested in x and z with the player's y ignored, so a floor's

@@ -54,15 +54,41 @@ export default {
   interiorStyle: 'lab',
 
   // The title card: ONE paragraph of situation.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // Ten days, so ten pieces. The surveyed distance is measured late and it
+  // moves everything written before it.
+  delivery: {
+    name: 'The Ward Referral',
+    what: 'What the board acts on. What the file claimed, what can still be measured seven '
+      + 'years later, and what one witness can support on her own.',
+    where: 'MEASURE',
+    pieces: [
+      'The file\'s claims',
+      'The visual angle',
+      'The lighting measurement',
+      'The interview\'s method',
+      'The newspaper photograph',
+      'The shared-source finding',
+      'The lineup\'s real size',
+      'The surveyed distance',
+      'The nineteenth-hour admission',
+      'The disposition',
+    ],
+  },
   opening: [
     'On a November night in 2019 a stranger watched a robbery from across Ferrier Street. '
-    + 'What she said put Elias Ward in prison. He has served seven years of fourteen, and there '
-    + 'was never other evidence. You are the review analyst at the Conviction Integrity Unit, '
-    + 'and the report that goes to the board in fifteen days is yours. The unit has rebuilt '
-    + 'that street corner in its own hall, lit the way the street was. Ines Baptiste, the unit '
-    + 'director, wants it filed this month. Ren Okada, the memory scientist, says the one '
-    + 'account nobody has touched yet is what a rushed report would use up. If the board says '
-    + 'no, nobody looks at this again until 2033.',
+    + 'What she said put Elias Ward in prison. He has served seven years of fourteen. There '
+    + 'was never other evidence. You are the review analyst at the Conviction Integrity Unit. '
+    + 'You can tell the board only what you can show. In ten days you hand over the Ward '
+    + 'referral. It says what the file claimed, what can still be measured on that street '
+    + 'seven years later, and how much one witness can carry on her own. One finding goes in '
+    + 'a day. If the board says no, nobody looks at this until 2033.',
   ],
 
   ending: [

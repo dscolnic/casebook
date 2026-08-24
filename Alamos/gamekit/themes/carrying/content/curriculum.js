@@ -10,11 +10,11 @@ export const CURRICULUM = {
       "scene": "Calloway has the landings book open at two pages. The west ground landed 214 tonnes in the season five years ago and 168 tonnes last season. The ferry paper quotes a fall without saying from when.",
       "takeaway": "A change is a fraction of where it started, and it means nothing without its period.",
       "place": "Harbour Office",
-      "guide": "A change is only a claim once it says what it is a change from. Take the difference between the two seasons and divide it by the earlier one, because dividing by the later one answers a different question and gives a different number. Then check what period the ferry paper attaches to it, and whether that is the period you just used.",
+      "guide": "A change is only a claim once it says what it is a change from. Take the difference between the two seasons and divide it by the earlier one. Dividing by the later one answers a different question, and gives a different number. Then check what period the ferry paper attaches to it, and whether that is the period you just used.",
       "background": [
-        "Why the denominator is the earlier value. A percentage change measures how much of the original has gone, so the original is what it is a fraction of. Dividing by the new value gives a real number about something else — how much the smaller figure would have to grow to get back — and the two are never the same.",
+        "Why the denominator is the earlier value. A percentage change measures how much of the original has gone, so the original is what it is a fraction of. Dividing by the new value gives a real number about something else. It gives how much the smaller figure would have to grow to get back. The two are never the same.",
         "What a percentage hides. Twenty-one per cent of 214 tonnes is 46 tonnes, and 46 tonnes is either a crisis or a rounding error depending on the stock it came out of. A percentage travels well between contexts and loses the size of the thing it is about, which is why a council paper carries both.",
-        "Why the period matters more than the arithmetic. The same two numbers describe a five-year fall, an annual rate of a little over four per cent, or a single bad season, depending on what is put beside them. Only one of those is what the book records, and the other two are how it gets misquoted."
+        "Why the period matters more than the arithmetic. The same two numbers describe three different things, depending on what is put beside them. A five-year fall. An annual rate of a little over four per cent. Or a single bad season. Only one of those is what the book records, and the other two are how it gets misquoted."
       ],
       "story": "Calloway has the landings book open at two pages. The west ground landed 214 tonnes in the season five years ago and 168 tonnes last season. The ferry paper quotes a fall without saying from when.",
       "game": {
@@ -25,7 +25,7 @@ export const CURRICULUM = {
         "task": "Turn two years of landings into a comparison",
         "question": "Estimate the percentage fall in landings across the five seasons.",
         "answer": "About 21.5 per cent over five seasons, which is roughly 4.7 per cent a season.",
-        "why": "The difference is 46 tonnes and the comparison is against the 214 the fall started from, which gives 21.5 per cent. Dividing by last season's 168 gives 27 per cent, and that number answers how much the catch would have to rise to recover rather than how much of it has gone. Both are arithmetic; only one is the claim the paper is making. The period is the part that travels badly. Twenty-one per cent over five seasons and twenty-one per cent in a year are the same figure describing two different fisheries, and the book records the first.\n",
+        "why": "The difference is 46 tonnes and the comparison is against the 214 the fall started from, which gives 21.5 per cent. Dividing by last season's 168 gives 27 per cent instead. That number answers how much the catch would have to rise to recover. It does not answer how much of it has gone. Both are arithmetic; only one is the claim the paper is making. The period is the part that travels badly. Twenty-one per cent over five seasons and twenty-one per cent in a year are the same figure describing two different fisheries, and the book records the first.\n",
         "rebuttals": [
           "Dividing by last season's figure measures the rise needed to recover, not the fall that happened.",
           "The raw 46 tonnes is the size of the change and not a rate; it cannot be compared with another ground."
@@ -67,11 +67,11 @@ export const CURRICULUM = {
       "scene": "Calloway has the resident register at ninety-one and the ferry manifests for last July. The manifests show 340 day visitors and 61 people staying overnight across the month.",
       "takeaway": "A visitor is a load rather than a person, and peak load is what the budgets feel.",
       "place": "Harbour Office",
-      "guide": "A population is not the same as a load. Ask what each kind of person actually draws from the island's budgets — water, waste, power — and for how long. A day visitor and a resident are not the same number of anything, and adding them as though they were is how the ferry paper gets to a figure that looks harmless.",
+      "guide": "A population is not the same as a load. Ask what each kind of person actually draws from the island's budgets — water, waste, power — and for how long. A day visitor and a resident are not the same number of anything. Adding them as though they were is how the ferry paper reaches a figure that looks harmless.",
       "background": [
-        "What a footprint measures. The land and water needed to supply what somebody consumes and absorb what they discard. On an island the interesting part is not the total but the share of it that has to be met locally: water and waste cannot be imported or exported cheaply, and power partly can.",
+        "What a footprint measures. The land and water needed to supply what somebody consumes and absorb what they discard. On an island the interesting part is not the total. It is the share of that total which has to be met locally. Water and waste cannot be imported or exported cheaply. Power partly can.",
         "Why day visitors and overnight visitors are different quantities. A day visitor uses a toilet, buys lunch and leaves; an overnight visitor showers, washes and produces a day's waste. The water difference between the two is roughly tenfold, and the ferry paper's headline counts them together.",
-        "Why peak matters more than average here. Three hundred and forty visitors spread over a year is invisible in every budget. The same number in July arrives when the borehole is at its lowest and the tanks are already being managed, which is the one month the island's spare capacity is not spare."
+        "Why peak matters more than average here. Three hundred and forty visitors spread over a year is invisible in every budget. The same number in July arrives when the borehole is at its lowest. The tanks are already being managed by then. July is the one month the island's spare capacity is not spare."
       ],
       "story": "Calloway has the resident register at ninety-one and the ferry manifests for last July. The manifests show 340 day visitors and 61 people staying overnight across the month.",
       "game": {
@@ -81,20 +81,20 @@ export const CURRICULUM = {
         "play": "Say who is actually on the island",
         "task": "Say who is actually on the island",
         "question": "Which comparison tells the council what July actually costs the island?",
-        "answer": "Visitor-nights against resident days in the same month, per head",
-        "why": "The budgets feel person-days, not arrivals, and they feel them in the month they happen. Sixty-one overnight visitors across July is a few hundred visitor-nights, each drawing something like a resident's daily water; three hundred and forty day visitors draw roughly a tenth of that each. Putting both into one annual total is what makes the figure look harmless, because it divides the peak across eleven months that were never under pressure. Sailings are a proxy for arrivals and arrivals are a proxy for load, and each step of that chain loses the thing the council has to decide.\n",
+        "answer": "Visitor-nights against resident days in the same month, per head.",
+        "why": "The budgets feel person-days, not arrivals, and they feel them in the month they happen. Sixty-one overnight visitors across July is a few hundred visitor-nights. Each of those nights draws something like a resident's daily water. Three hundred and forty day visitors draw roughly a tenth of that each. Putting both into one annual total is what makes the figure look harmless, because it divides the peak across eleven months that were never under pressure. Sailings are a proxy for arrivals and arrivals are a proxy for load, and each step of that chain loses the thing the council has to decide.\n",
         "rebuttals": [
           "An annual comparison spreads July across eleven months that had spare capacity, which is what hides the peak.",
           "Arrivals count people through the berth; a day visitor and an overnight visitor are not the same load.",
           "Sailings measure the ferry's schedule rather than what anybody drew from the island's stores."
         ],
         "choices": [
-          "Visitor-nights against resident days in the same month, per head",
-          "Total visitor numbers across the whole year set against the resident population of 91",
-          "Day visitors against overnight visitors, counted as arrivals",
-          "Ferry sailings in July against sailings in January"
+          "Visitor-nights against resident days in the same month, per head.",
+          "Total visitor numbers across the whole year set against the resident population of 91.",
+          "Day visitors against overnight visitors, counted as arrivals.",
+          "Ferry sailings in July against sailings in January."
         ],
-        "correctChoice": "Visitor-nights against resident days in the same month, per head"
+        "correctChoice": "Visitor-nights against resident days in the same month, per head."
       },
       "assumes": [
         "the register and the manifests both cover the same July",
@@ -121,10 +121,10 @@ export const CURRICULUM = {
       "scene": "Rask's assessment puts the west ground's carrying capacity at 1,600 tonnes, give or take 400, with an intrinsic growth rate of 0.42 a year. Last season landed 168 tonnes.",
       "takeaway": "The largest replaceable catch is a quarter of r times K, and it sits on a knife edge.",
       "place": "Harbour Office",
-      "guide": "A stock does not grow fastest when it is full. A full stock is at its capacity and barely grows at all; an almost empty one has nothing to grow from. The fastest growth is in the middle, and the largest catch that can be taken indefinitely is that growth — a quarter of the growth rate times the capacity. Work it out, then set it beside last season's landings.",
+      "guide": "A stock does not grow fastest when it is full. A full stock is at its capacity and barely grows at all; an almost empty one has nothing to grow from. The fastest growth is in the middle. The largest catch that can be taken indefinitely is that growth: a quarter of the growth rate times the capacity. Work it out, then set it beside last season's landings.",
       "background": [
-        "Why the maximum sits at half. Growth is proportional both to how many there are and to how much room is left, and the product of those two peaks when the stock is at half its capacity. That is the whole of the logistic idea, and it is why a fishery managed to keep a stock full catches less than one managed to keep it half full.",
-        "Why fishing at the maximum is a knife edge. At exactly the peak, any error or bad year pushes the stock below half, where the growth is lower — so the same catch is now too big and the stock keeps falling. Fisheries set targets below the maximum for that reason, and the range on the capacity is what decides how far below.",
+        "Why the maximum sits at half. Growth is proportional to how many there are, and to how much room is left. The product of those two peaks when the stock is at half its capacity. That is the whole of the logistic idea. It is why a fishery managed to keep a stock full catches less than one managed to keep it half full.",
+        "Why fishing at the maximum is a knife edge. At exactly the peak, any error or bad year pushes the stock below half. Growth is lower there. The same catch is now too big, and the stock keeps falling. Fisheries set targets below the maximum for that reason, and the range on the capacity is what decides how far below.",
         "What the width of the estimate does. Capacity is 1,600 give or take 400, so the sustainable catch is anywhere between 126 and 210 tonnes. Setting the quota at 210 is setting it on the assumption that the generous end of the estimate was right, which is exactly the choice that ends fisheries."
       ],
       "story": "Rask's assessment puts the west ground's carrying capacity at 1,600 tonnes, give or take 400, with an intrinsic growth rate of 0.42 a year. Last season landed 168 tonnes.",
@@ -136,7 +136,7 @@ export const CURRICULUM = {
         "task": "Work out the largest catch the stock can replace",
         "question": "Estimate the maximum sustainable yield of the west ground.",
         "answer": "About 168 tonnes a year, which is exactly what last season landed.",
-        "why": "A quarter of 0.42 times 1,600 is 168 tonnes, and last season landed 168. The fishery is being worked at its theoretical maximum, which sounds like success and is the least stable place a stock can sit: at the peak, one bad year or one over-landing pushes the stock below half its capacity, where growth is slower, so the same catch becomes too big and the decline continues. The width is the other half of the answer. Capacity is 1,600 plus or minus 400, so the sustainable catch is somewhere between 126 and 210 tonnes, and 168 is the middle of a range rather than a number.\n",
+        "why": "A quarter of 0.42 times 1,600 is 168 tonnes, and last season landed 168. The fishery is being worked at its theoretical maximum. That sounds like success. It is the least stable place a stock can sit. At the peak, one bad year or one over-landing pushes the stock below half its capacity. Growth is slower there, so the same catch becomes too big and the decline continues. The width is the other half of the answer. Capacity is 1,600 plus or minus 400. The sustainable catch is therefore somewhere between 126 and 210 tonnes. So 168 is the middle of a range rather than a number.\n",
         "rebuttals": [
           "Last season's landings are what the yield is being compared against, not an input to it.",
           "Half the capacity is the stock size that grows fastest, not the catch that can be taken."
@@ -194,7 +194,7 @@ export const CURRICULUM = {
       "place": "Harbour Office",
       "guide": "Compare the options by what they change about a skipper's decision on an unobserved day, because that is when the over-landing happened. Coverage, penalty size and who does the checking are three different levers. One of them can be paid for out of the fees the island already collects.",
       "background": [
-        "Why coverage and penalty trade against each other. A skipper weighs the chance of being caught against what happens if they are, so the same deterrent can be bought with frequent inspection and a small penalty, or rare inspection and a large one. The island can afford one of those and not the other.",
+        "Why coverage and penalty trade against each other. A skipper weighs the chance of being caught against what happens if they are. So the same deterrent can be bought two ways. Frequent inspection with a small penalty, or rare inspection with a large one. The island can afford one of those and not the other.",
         "Why landings-book verification is cheap here. Every boat lands at one berth and Calloway is on it. Cross-checking the book against buyers' receipts costs nothing and catches systematic over-landing, though not a single bad trip.",
         "Why peer enforcement works on Vellan and not in general. Eleven boats, all known to each other, all wintering in the same harbour. Published landings turn a private gain into a public one, which is the mechanism that actually held the common's stocking limit for a century before it drifted."
       ],
@@ -276,9 +276,9 @@ export const CURRICULUM = {
       "place": "Harbour Office",
       "guide": "A sample is a claim about the water in one place at one time. Ask what makes the school tap different from the main — where it sits on the network, when the sample was taken, and who drinks from it. Two of those three change the number and the third changes what the number means.",
       "background": [
-        "Why the end of a main reads higher. Water sits longest there, and a weekend with the school closed means it sat for two days. Anything that accumulates has had longer to accumulate, so a Monday sample at the far end is systematically the worst reading on the network, and it is a real reading rather than an artefact.",
-        "Why Nkemdi asked for it separately. Concentration is the same water for everybody and dose is not. The youngest child at that tap weighs eleven kilograms and drinks about a litre a day; the same concentration is roughly six times the dose per kilogram that it is for an adult drinking two litres.",
-        "What the council can be told. That the school tap is the highest reading on the network, that the Monday timing partly explains it, and that the dose it implies for the smallest children is what the guidance is written for. All three are defensible; any one of them alone is misleading."
+        "Why the end of a main reads higher. Water sits longest there, and a weekend with the school closed means it sat for two days. Anything that accumulates has had longer to accumulate. A Monday sample at the far end is therefore systematically the worst reading on the network. It is a real reading rather than an artefact.",
+        "Why Nkemdi asked for it separately. Concentration is the same water for everybody and dose is not. The youngest child at that tap weighs eleven kilograms and drinks about a litre a day. An adult drinking two litres takes roughly a sixth of that dose per kilogram. The concentration is identical.",
+        "What the council can be told. That the school tap is the highest reading on the network. That the Monday timing partly explains it. And that the dose it implies for the smallest children is what the guidance is written for. All three are defensible; any one of them alone is misleading."
       ],
       "story": "Nkemdi wants the school tap read out at the council. The distribution main tested at 8.4 milligrams a litre; the school tap, sampled after the weekend, tested at 11.2.",
       "game": {
@@ -288,20 +288,20 @@ export const CURRICULUM = {
         "play": "Say what a school tap result is a result about",
         "task": "Say what a school tap result is a result about",
         "question": "What is the school tap result a result about?",
-        "answer": "The highest exposure on the network, where the smallest bodies drink",
-        "why": "Two things are true at once and the honest sentence contains both. The school tap is at the end of the main and was sampled after a weekend of standing water, which is why it reads highest — that is real rather than an error. And it is the tap where an eleven-kilogram child drinks, so the same concentration is about six times the dose per kilogram it is for an adult. Quoting it as the island's water quality takes the worst point on the network as the average. Calling it contamination in the building asserts a source nothing has looked for. Calling it a sampling error dismisses the highest genuine exposure the network has.\n",
+        "answer": "The highest exposure on the network, where the smallest bodies drink.",
+        "why": "Two things are true at once and the honest sentence contains both. The school tap is at the end of the main. It was sampled after a weekend of standing water. That is why it reads highest, and the reading is real rather than an error. And it is the tap where an eleven-kilogram child drinks, so the same concentration is about six times the dose per kilogram it is for an adult. Quoting it as the island's water quality takes the worst point on the network as the average. Calling it contamination in the building asserts a source nothing has looked for. Calling it a sampling error dismisses the highest genuine exposure the network has.\n",
         "rebuttals": [
           "It is the worst point on the network, not the network's average; quoted as the island's water it overstates the whole.",
           "Nothing here points at a source inside the school. The reading is explained by where the tap sits and when it was sampled.",
           "Standing water over a weekend is a real condition the children then drink, not an artefact to be discarded."
         ],
         "choices": [
-          "The highest exposure on the network, where the smallest bodies drink",
-          "The quality of the drinking water supplied to the island as a whole",
-          "Contamination entering the school building itself",
-          "A sampling error caused by the weekend closure"
+          "The highest exposure on the network, where the smallest bodies drink.",
+          "The quality of the drinking water supplied to the island as a whole.",
+          "Contamination entering the school building itself.",
+          "A sampling error caused by the weekend closure."
         ],
-        "correctChoice": "The highest exposure on the network, where the smallest bodies drink"
+        "correctChoice": "The highest exposure on the network, where the smallest bodies drink."
       },
       "assumes": [
         "both samples were taken by the same method in the same week",
@@ -350,11 +350,11 @@ export const CURRICULUM = {
       "scene": "The reef's algal cover has risen as coral cover has fallen. Rask's landings show the grazing species — taken as a low-value bycatch — down by a third over the same period.",
       "takeaway": "Removing the grazers turns a temporary stress into a permanent change of state.",
       "place": "Harbour Office",
-      "guide": "Follow what eats what. Something is keeping algae off the coral, and if the landings of that something have fallen a third, the question is whether the algae rose because the coral weakened or because its grazers went. Both mechanisms are consistent with the same two graphs, and they call for different actions.",
+      "guide": "Follow what eats what. Something is keeping algae off the coral. The landings of that something have fallen a third. So the question is whether the algae rose because the coral weakened, or because its grazers went. Both mechanisms are consistent with the same two graphs, and they call for different actions.",
       "background": [
         "What grazers do on a reef. They crop algae that would otherwise overgrow coral and stop new coral settling. Remove them and algae wins the space even where conditions would let coral recover, which turns a temporary stress into a permanent change of state.",
         "Why a low-value bycatch is the dangerous one. Nobody manages a species nobody sells. The grazers here are taken incidentally, not counted carefully and not in the quota, so a third of them can go without any part of the system noticing.",
-        "Why this is the island's lever. Sea temperature is set elsewhere. Whether the reef keeps its grazers is decided at this berth, by what the quota counts, and it is the one part of the reef's problem that a council on Vellan can vote on."
+        "Why this is the island's lever. Sea temperature is set elsewhere. Whether the reef keeps its grazers is decided at this berth, by what the quota counts. It is the one part of the reef's problem that a council on Vellan can vote on."
       ],
       "story": "The reef's algal cover has risen as coral cover has fallen. Rask's landings show the grazing species — taken as a low-value bycatch — down by a third over the same period.",
       "game": {
@@ -364,20 +364,20 @@ export const CURRICULUM = {
         "play": "Work out what a bad August costs the west boats",
         "task": "Work out what a bad August costs the west boats",
         "question": "What does the fall in grazer landings imply about the reef's recovery?",
-        "answer": "Algae holds the space even in years coral could return",
-        "why": "Grazers crop the algae that would otherwise overgrow coral and block new coral from settling. Take a third of them out and algae keeps the space in the good years too, so a temperature stress that would have been temporary becomes a permanent change of state. That is why this stop is on the harbour's list rather than the reef's: the temperature is set far away and the grazers are decided at this berth, by what the quota counts. A low-value bycatch is exactly the case nobody manages, which is what makes a third of them disappearing possible without anybody objecting.\n",
+        "answer": "Algae holds the space even in years coral could return.",
+        "why": "Grazers crop the algae that would otherwise overgrow coral and block new coral from settling. Take a third of them out and algae keeps the space in the good years too. A temperature stress that would have been temporary becomes a permanent change of state. That is why this stop is on the harbour's list rather than the reef's. The temperature is set far away. The grazers are decided at this berth, by what the quota counts. A low-value bycatch is exactly the case nobody manages, which is what makes a third of them disappearing possible without anybody objecting.\n",
         "rebuttals": [
           "Recovery needs bare space for new coral to settle on, and algae holding that space prevents it whatever the temperature does.",
           "The grazers have been fished, which is a cause. Their decline tracks landings rather than reef condition.",
           "The fraction of the landings is small; the fraction of the grazing population is a third, which is what matters."
         ],
         "choices": [
-          "Algae holds the space even in years coral could return",
-          "The reef recovers of its own accord as soon as sea temperatures fall back",
-          "The grazers are a symptom of the decline rather than a cause of it",
-          "The bycatch is too small a fraction of the landings to matter"
+          "Algae holds the space even in years coral could return.",
+          "The reef recovers of its own accord as soon as sea temperatures fall back.",
+          "The grazers are a symptom of the decline rather than a cause of it.",
+          "The bycatch is too small a fraction of the landings to matter."
         ],
-        "correctChoice": "Algae holds the space even in years coral could return"
+        "correctChoice": "Algae holds the space even in years coral could return."
       },
       "assumes": [
         "the grazing species landings are recorded even as bycatch",
@@ -401,16 +401,16 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Forty-one thousand, and what it saves",
-      "scene": "The gearbox is £41,000. At a capacity factor of 0.28 the turbine displaces about 613,000 kilowatt-hours of generation a year, and diesel electricity costs the island about 7.4 pence a kilowatt-hour in fuel alone.",
+      "scene": "The gearbox is £41,000. At a capacity factor of 0.28 the turbine displaces about 613,000 kilowatt-hours of generation a year. Diesel electricity costs the island about 7.4 pence a kilowatt-hour in fuel alone.",
       "takeaway": "Simple payback is capital over annual saving, and what it omits belongs beside it.",
       "place": "Harbour Office",
-      "guide": "Work out what a year of displaced diesel is worth, then divide the capital cost by it. That is the simple payback. Then look at what the number does not contain, because two of the things it leaves out point in opposite directions and the council will be told only one of them.",
+      "guide": "Work out what a year of displaced diesel is worth, then divide the capital cost by it. That is the simple payback. Then look at what the number does not contain. Two of the things it leaves out point in opposite directions, and the council will be told only one of them.",
       "background": [
-        "What simple payback leaves out. Maintenance on the machine, the cost of borrowing the £41,000, and the fact that the turbine cannot displace diesel at every hour it generates — some of its output arrives when the cable is carrying the island anyway. All three make the real payback longer.",
-        "What it also leaves out in the other direction. The fuel price is not fixed, the cable is failing and will be replaced at somebody's cost, and the emissions saved are worth something in any future the council has to plan for. All three make the real case stronger.",
+        "What simple payback leaves out. Maintenance on the machine. The cost of borrowing the £41,000. And the fact that the turbine cannot displace diesel at every hour it generates. Some of its output arrives when the cable is carrying the island anyway. All three make the real payback longer.",
+        "What it also leaves out in the other direction. The fuel price is not fixed. The cable is failing, and will be replaced at somebody's cost. The emissions saved are worth something in any future the council has to plan for. All three make the real case stronger.",
         "Why simple payback is still the right first number. It is transparent, it can be checked by anybody in the room in one line, and both sides can then argue about the adjustments in the open. A discounted calculation with eleven assumptions in it wins a meeting and does not inform one."
       ],
-      "story": "The gearbox is £41,000. At a capacity factor of 0.28 the turbine displaces about 613,000 kilowatt-hours of generation a year, and diesel electricity costs the island about 7.4 pence a kilowatt-hour in fuel alone.",
+      "story": "The gearbox is £41,000. At a capacity factor of 0.28 the turbine displaces about 613,000 kilowatt-hours of generation a year. Diesel electricity costs the island about 7.4 pence a kilowatt-hour in fuel alone.",
       "game": {
         "type": "BALLPARK",
         "title": "Forty-one thousand, and what it saves",
@@ -419,7 +419,7 @@ export const CURRICULUM = {
         "task": "Work out how long the gearbox takes to pay for itself",
         "question": "Estimate the simple payback time on the gearbox.",
         "answer": "About eleven months on fuel alone, which makes the two-year wait the real cost.",
-        "why": "Six hundred and thirteen thousand kilowatt-hours at 7.4 pence is £45,400 of fuel a year, against a £41,000 gearbox: a payback under twelve months. The striking part is not the gearbox, it is the two years the machine has already stood still — roughly £90,000 of diesel burnt waiting for a part, which is more than twice what the part costs. Simple payback leaves out maintenance, borrowing and the hours the turbine generates while the cable is carrying the island anyway, all of which lengthen it; and it leaves out fuel price risk, the failing cable and the emissions, all of which shorten it. It is still the right first number, because anybody in the room can check it in one line.\n",
+        "why": "Six hundred and thirteen thousand kilowatt-hours at 7.4 pence is £45,400 of fuel a year, against a £41,000 gearbox: a payback under twelve months. The striking part is not the gearbox. It is the two years the machine has already stood still. That is roughly £90,000 of diesel burnt waiting for a part, more than twice what the part costs. Simple payback leaves out three things that lengthen it. Maintenance, borrowing, and the hours the turbine generates while the cable is carrying the island anyway. It leaves out three things that shorten it. Fuel price risk, the failing cable, and the emissions. It is still the right first number, because anybody in the room can check it in one line.\n",
         "rebuttals": [
           "The capacity factor is already inside the 613,000 kWh; applying it again halves a figure that was measured.",
           "Dividing the cost by the energy alone gives pounds per kilowatt-hour, which is a price rather than a time."
@@ -496,7 +496,7 @@ export const CURRICULUM = {
       "scene": "Iversen's register: nineteen children, of whom two leave in August. The island's adults are heavily weighted above fifty-five, and four of the nine graziers are past seventy.",
       "takeaway": "A total can be propped up by arrivals; a shape changes only with arrivals of a particular age.",
       "place": "Harbour Office",
-      "guide": "Read the shape rather than the total. Ask how many people are of an age to have children here, how many are of an age to stop working, and what those two numbers do over ten years without anybody moving. Then ask which of the ferry's promised effects would change the shape rather than the total.",
+      "guide": "Read the shape rather than the total. Ask how many people are of an age to have children here. Ask how many are of an age to stop working. Then ask what those two numbers do over ten years, without anybody moving. Then ask which of the ferry's promised effects would change the shape rather than the total.",
       "background": [
         "What an age structure predicts that a total cannot. The number of births in ten years is set by how many people of childbearing age are present now, and that is already determined. A total can be propped up by arrivals; the shape can only be changed by arrivals of a particular age.",
         "Why an island's shape gets worse on its own. People leave in their late teens for education and work, and the ones who return, if any, return later. That removes the same cohort every year, so the structure hollows in the middle even when the total looks stable for a while.",
@@ -510,20 +510,20 @@ export const CURRICULUM = {
         "play": "Say what the age structure predicts",
         "task": "Say what the age structure predicts",
         "question": "What would actually change the age structure rather than the summer total?",
-        "answer": "Families with school-age children who move here and stay",
-        "why": "The shape is what forecasts, and only one of these changes it. Families with children who stay add to both the young cohort and the working-age one, which is the two places the structure is hollow. Day visitors change nothing about residency at all. Seasonal workers change the summer total and the water demand, and leave in September. And a higher birth rate is not available as a lever: the number of people of childbearing age on Vellan is already fixed, and it is small — which is the thing Iversen keeps saying and the ferry argument keeps not hearing, because one side is talking about traffic and the other about residents.\n",
+        "answer": "Families with school-age children who move here and stay.",
+        "why": "The shape is what forecasts, and only one of these changes it. Families with children who stay add to both the young cohort and the working-age one, which is the two places the structure is hollow. Day visitors change nothing about residency at all. Seasonal workers change the summer total and the water demand, and leave in September. And a higher birth rate is not available as a lever. The number of people of childbearing age on Vellan is already fixed, and it is small. That is the thing Iversen keeps saying and the ferry argument keeps not hearing. One side is talking about traffic, the other about residents.\n",
         "rebuttals": [
           "Day visitors do not enter the register at all; they change the summer total and nothing else.",
           "Seasonal workers leave in September and take their contribution to the structure with them.",
           "The birth rate cannot be a lever when the number of people of childbearing age is already small and fixed."
         ],
         "choices": [
-          "Families with school-age children who move here and stay",
-          "A larger number of day visitors spread across the whole season",
-          "Seasonal workers arriving for the summer",
-          "A higher birth rate among the existing residents"
+          "Families with school-age children who move here and stay.",
+          "A larger number of day visitors spread across the whole season.",
+          "Seasonal workers arriving for the summer.",
+          "A higher birth rate among the existing residents."
         ],
-        "correctChoice": "Families with school-age children who move here and stay"
+        "correctChoice": "Families with school-age children who move here and stay."
       },
       "assumes": [
         "the register and the age figures describe the same population",
@@ -564,20 +564,20 @@ export const CURRICULUM = {
         "play": "Say what carrying capacity means for this vote",
         "task": "Say what carrying capacity means for this vote",
         "question": "What should the recommendation actually say?",
-        "answer": "Support it, with abstraction capped at recharge and metered at the berth",
-        "why": "The binding constraint is a rate — 294,000 cubic metres of recharge a year against a licence for 340,000 — so the honest recommendation caps the rate rather than answering yes or no about a boat. That form does the work both sides need: the sailing goes ahead, and it cannot be met out of the store, which is what \"capped at recharge\" means. Supporting it on the school roll ignores the constraint entirely. Opposing it treats a licence that can be rewritten as though it were the aquifer. Deferring for a survey spends eighteen months on a borehole that would draw from the same store, and the ferry contract will not wait.\n",
+        "answer": "Support it, with abstraction capped at recharge and metered at the berth.",
+        "why": "The binding constraint is a rate: 294,000 cubic metres of recharge a year against a licence for 340,000. So the honest recommendation caps the rate. It does not answer yes or no about a boat. That form does the work both sides need: the sailing goes ahead, and it cannot be met out of the store, which is what \"capped at recharge\" means. Supporting it on the school roll ignores the constraint entirely. Opposing it treats a licence that can be rewritten as though it were the aquifer. Deferring for a survey spends eighteen months on a borehole that would draw from the same store, and the ferry contract will not wait.\n",
         "rebuttals": [
           "The roll is the reason the question is being asked; it is not evidence about what the store can supply.",
           "The aquifer can support a second sailing at a lower abstraction rate. What it cannot support is the present licence.",
           "A second borehole draws on the same recharge, so the survey answers a question about pumps rather than about water."
         ],
         "choices": [
-          "Support it, with abstraction capped at recharge and metered at the berth",
-          "Support it, on the grounds that nineteen children on the register require it",
-          "Oppose the sailing, on the grounds that the aquifer cannot support it",
-          "Defer the decision until a second borehole has been surveyed"
+          "Support it, with abstraction capped at recharge and metered at the berth.",
+          "Support it, on the grounds that nineteen children on the register require it.",
+          "Oppose the sailing, on the grounds that the aquifer cannot support it.",
+          "Defer the decision until a second borehole has been surveyed."
         ],
-        "correctChoice": "Support it, with abstraction capped at recharge and metered at the berth"
+        "correctChoice": "Support it, with abstraction capped at recharge and metered at the berth."
       },
       "assumes": [
         "the recharge figure measured on day 2 stands as the pack's number",
@@ -625,10 +625,10 @@ export const CURRICULUM = {
       "scene": "Petra Rask, the fisheries observer, has four figures pencilled on the back of her sheet and no headings on any of them. Calloway wants all four in the council pack and will not send them up unlabelled.",
       "takeaway": "A figure is a stock, a flow or a difference, and which of the three it is decides what it can be compared with.",
       "place": "Harbour Office",
-      "guide": "Four figures and four descriptions of what a figure can be. Ask of each whether it is an amount standing there at one moment, an amount crossing the ground's edge over a stretch of time, or the gap between two readings of the same amount. The first kind takes a date. The second kind takes a period. The third is not a rate until somebody says how long it took.",
+      "guide": "Four figures and four descriptions of what a figure can be. Ask of each what kind of quantity it is. An amount standing there at one moment. An amount crossing the ground's edge over a stretch of time. Or the gap between two readings of the same amount. The first kind takes a date. The second kind takes a period. The third is not a rate until somebody says how long it took.",
       "background": [
         "Why the label decides the argument. The same figure supports opposite claims depending on what it is a measure of. Three hundred tonnes standing on the ground is a fishery in trouble; three hundred tonnes arriving each year is a fishery that can be worked. Nothing in the number itself separates those two readings, and the council pack has to.",
-        "Why a difference is the awkward one. A stock and a flow each carry their own unit and their own time word, so a reader who wants to check them can. A bare difference carries neither: it is tonnes, like the stock, and it happened over a stretch, like the flow, and it is the figure most often quoted with the wrong period attached."
+        "Why a difference is the awkward one. A stock and a flow each carry their own unit and their own time word, so a reader who wants to check them can. A bare difference carries neither. It is tonnes, like the stock. It happened over a stretch, like the flow. It is the figure most often quoted with the wrong period attached."
       ],
       "story": "Petra Rask, the fisheries observer, has four figures pencilled on the back of her sheet and no headings on any of them. Calloway wants all four in the council pack and will not send them up unlabelled.",
       "game": {
@@ -639,7 +639,7 @@ export const CURRICULUM = {
         "task": "Match each of Rask's figures to what it is a measure of.",
         "question": "Match each of Rask's figures to what it is a measure of.",
         "answer": "The nineteen hundred is a stock, the three hundred an inflow, the hundred and sixty-eight an outflow, and the forty-six a difference between two readings of the stock.",
-        "why": "A budget has three kinds of entry and they are not interchangeable. A stock is an amount present at an instant, so it is quoted with a date. A flow crosses the boundary over a stretch, so it is quoted with a period, and inflow and outflow are the two directions of it. A difference between two readings of a stock is neither: it has the stock's unit and the flow's need for a period, and it becomes a rate only when the years between the readings are stated. Mislabel one and every comparison drawn from it is against something of a different kind.\n",
+        "why": "A budget has three kinds of entry and they are not interchangeable. A stock is an amount present at an instant, so it is quoted with a date. A flow crosses the boundary over a stretch, so it is quoted with a period, and inflow and outflow are the two directions of it. A difference between two readings of a stock is neither. It has the stock's unit and the flow's need for a period. It becomes a rate only when the years between the readings are stated. Mislabel one and every comparison drawn from it is against something of a different kind.\n",
         "rebuttals": [
           "Nineteen hundred tonnes is what is standing there now; it belongs to a date, not to a season.",
           "Three hundred tonnes a year is what the ground gains, and the year is part of the figure.",
@@ -653,10 +653,10 @@ export const CURRICULUM = {
           "Forty-six tonnes fewer than the season five years before it"
         ],
         "choices": [
-          "A stock, standing there at one moment, and it needs a date rather than a period",
-          "An inflow, gained by the ground over a stretch of time, and useless without the stretch",
-          "An outflow, taken out over a stretch of time, and the only one of the four the harbour weighs directly",
-          "A difference between two readings of the same stock, which is not a rate until a period is put on it"
+          "A stock, standing there at one moment, and it needs a date rather than a period.",
+          "An inflow, gained by the ground over a stretch of time, and useless without the stretch.",
+          "An outflow, taken out over a stretch of time, and the only one of the four the harbour weighs directly.",
+          "A difference between two readings of the same stock, which is not a rate until a period is put on it."
         ],
         "mapping": [
           0,
@@ -686,11 +686,11 @@ export const CURRICULUM = {
       "scene": "Sorley has fourteen years of rain readings. They average 1.05 metres a year. The catchment above the borehole is 1.4 square kilometres, and the original licence says a fifth of the rain gets down to the aquifer.",
       "takeaway": "Recharge is rain times area times the fraction that gets underground, and it is an annual average.",
       "place": "Waterworks",
-      "guide": "Rain that lands is not water you can have. Some runs off the rock to the sea, most of the rest goes back up through the turf, and what is left soaks down to the store the borehole draws from. Multiply the depth of rain by the area it falls on to get a volume, then take the fraction that actually gets down there. Watch the units: a depth in metres times an area in square metres is cubic metres.",
+      "guide": "Rain that lands is not water you can have. Some runs off the rock to the sea. Most of the rest goes back up through the turf. What is left soaks down to the store the borehole draws from. Multiply the depth of rain by the area it falls on to get a volume, then take the fraction that actually gets down there. Watch the units: a depth in metres times an area in square metres is cubic metres.",
       "background": [
-        "Why the coefficient is so small. On Vellan the rock is close to the surface, the turf is short and the wind is constant, so evaporation and transpiration take the largest share and runoff takes most of the rest. A fifth reaching the aquifer is normal for a thin maritime soil and would be wrong for a deep sand.",
-        "What the number is and is not. It is an annual average over a catchment, which means it is right about a decade and silent about August. The store buffers the difference between a wet winter and a dry summer, and the licence has to be written against the average while the tanks are sized against the worst month.",
-        "Why nobody has measured it. The licence was written in 1998 from a mainland table, and the figure has been repeated ever since. Sorley's fourteen years of readings are the first local evidence, and they are about eight per cent lower than the table — which matters, because the licensed abstraction was set from the table."
+        "Why the coefficient is so small. On Vellan the rock is close to the surface, the turf is short and the wind is constant. So evaporation and transpiration take the largest share, and runoff takes most of the rest. A fifth reaching the aquifer is normal for a thin maritime soil and would be wrong for a deep sand.",
+        "What the number is and is not. It is an annual average over a catchment, which means it is right about a decade and silent about August. The store buffers the difference between a wet winter and a dry summer. The licence has to be written against the average. The tanks are sized against the worst month.",
+        "Why nobody has measured it. The licence was written in 1998 from a mainland table, and the figure has been repeated ever since. Sorley's fourteen years of readings are the first local evidence. They are about eight per cent lower than the table. That matters, because the licensed abstraction was set from the table."
       ],
       "story": "Sorley has fourteen years of rain readings. They average 1.05 metres a year. The catchment above the borehole is 1.4 square kilometres, and the original licence says a fifth of the rain gets down to the aquifer.",
       "game": {
@@ -701,7 +701,7 @@ export const CURRICULUM = {
         "task": "Work out what the catchment actually gives back",
         "question": "Estimate the annual recharge to the aquifer.",
         "answer": "About 294,000 cubic metres a year — against a licence permitting 340,000.",
-        "why": "A depth of rain over an area is a volume, and only the fifth that gets underground is available: 1.05 metres over 1.4 square kilometres is 1.47 million cubic metres of rain, and 294,000 of it reaches the store. The licence allows 340,000. That gap is the whole of the day, and it is not a modelling subtlety — the licence was written from a mainland recharge table and Sorley's readings are the first local measurement. Using the 0.8 instead gives 1.18 million, which is the water that never arrives; it is the largest number on the board and it belongs to the sea and the sky.\n",
+        "why": "A depth of rain over an area is a volume. Only the fifth that gets underground is available. 1.05 metres over 1.4 square kilometres is 1.47 million cubic metres of rain. Of that, 294,000 reaches the store. The licence allows 340,000. That gap is the whole of the day, and it is not a modelling subtlety. The licence was written from a mainland recharge table. Sorley's readings are the first local measurement. Using the 0.8 instead gives 1.18 million, which is the water that never arrives. It is the largest number on the board, and it belongs to the sea and the sky.\n",
         "rebuttals": [
           "The 0.8 is what runs off and evaporates. It is the largest number here and none of it reaches the borehole.",
           "Rainfall times area without the coefficient is the rain that fell, which is not water anybody can abstract."
@@ -759,8 +759,8 @@ export const CURRICULUM = {
       "place": "Waterworks",
       "guide": "Ask three questions of the number before anybody quotes it: what it is about, over what period, and what it is being compared with. A single reading is evidence about the day it was taken. Five readings all taken in the same month are evidence about that month across five years, which is a stronger claim about a different thing.",
       "background": [
-        "Why July is the worst month to sample and the right month to sample. Abstraction is highest and recharge is lowest, so July is when chloride peaks — which makes a July reading unrepresentative of the year and exactly the right measurement for deciding whether the borehole is being over-drawn.",
-        "What the series can support. Five Julys rising from 74 to 191 is a trend in the peak, and the rise is faster than the abstraction has grown, which is the signature of seawater arriving rather than of concentration by evaporation. That is a claim worth making and it is not the same claim as \"the island's water is at 191\".",
+        "Why July is the worst month to sample and the right month to sample. Abstraction is highest and recharge is lowest, so July is when chloride peaks. That makes a July reading unrepresentative of the year. It also makes it exactly the right measurement for deciding whether the borehole is being over-drawn.",
+        "What the series can support. Five Julys rising from 74 to 191 is a trend in the peak. The rise is faster than the abstraction has grown. That is the signature of seawater arriving rather than of concentration by evaporation. That is a claim worth making and it is not the same claim as \"the island's water is at 191\".",
         "How the misquote happens. The figure enters the pack as \"chloride at 191 mg/L\", loses its month on the way, and comes back as the island's water quality. Sarah Dunmore, the council clerk, has a rule for this: every figure carries what it is about and over what period."
       ],
       "story": "Sorley's chloride reading from the borehole in July was 191 milligrams a litre. The previous four years' July readings were 74, 88, 96 and 121. Nobody has sampled in any other month.",
@@ -771,20 +771,20 @@ export const CURRICULUM = {
         "play": "Decide what a single reading is allowed to claim",
         "task": "Decide what a single reading is allowed to claim",
         "question": "What can the five July readings support, put in front of the council?",
-        "answer": "The July peak has risen five years running, faster than abstraction",
-        "why": "Five readings from the same month in five years is a series about that month, and what it shows is a rising peak — rising faster than abstraction, which is the part that points at seawater rather than at concentration. That is the strongest claim the data carries and it is worth making. Stating a single figure as the island's water drops the month and turns a peak into an average. Confirming intrusion is a step further than five numbers can go without a chloride-to-bromide ratio or a second borehole. And seasonal variation is something these readings cannot show at all, because every one of them was taken in July.\n",
+        "answer": "The July peak has risen five years running, faster than abstraction.",
+        "why": "Five readings from the same month in five years is a series about that month. What it shows is a rising peak. The peak is rising faster than abstraction, and that is the part which points at seawater rather than at concentration. That is the strongest claim the data carries and it is worth making. Stating a single figure as the island's water drops the month and turns a peak into an average. Confirming intrusion is a step further than five numbers can go without a chloride-to-bromide ratio or a second borehole. And seasonal variation is something these readings cannot show at all, because every one of them was taken in July.\n",
         "rebuttals": [
           "The 191 is a July peak. Quoted without its month it becomes an annual figure the data never measured.",
           "Intrusion is the likely mechanism and needs a ratio or a second borehole to be confirmed.",
           "Seasonality cannot be shown by five samples all taken in the same month of the year."
         ],
         "choices": [
-          "The July peak has risen five years running, faster than abstraction",
-          "The island's water contains 191 milligrams of chloride a litre",
-          "Seawater intrusion has been confirmed at the borehole",
-          "Chloride at the borehole varies with the season, peaking in the summer months"
+          "The July peak has risen five years running, faster than abstraction.",
+          "The island's water contains 191 milligrams of chloride a litre.",
+          "Seawater intrusion has been confirmed at the borehole.",
+          "Chloride at the borehole varies with the season, peaking in the summer months."
         ],
-        "correctChoice": "The July peak has risen five years running, faster than abstraction"
+        "correctChoice": "The July peak has risen five years running, faster than abstraction."
       },
       "assumes": [
         "all five readings were taken at the same borehole by the same method",
@@ -811,11 +811,11 @@ export const CURRICULUM = {
       "scene": "The aquifer holds an estimated 2.6 million cubic metres. Recharge is the 294,000 cubic metres a year you measured, and the borehole is licensed to take 340,000.",
       "takeaway": "Residence time is stock over flow, and it sets how slowly a store both fails and recovers.",
       "place": "Waterworks",
-      "guide": "Divide what is held by what moves through each year. That is the residence time — how long the store takes to replace itself. It is the number that says how fast the aquifer responds to anything, in both directions: how long an over-draw takes to show up, and how long a corrected licence takes to fix it.",
+      "guide": "Divide what is held by what moves through each year. That is the residence time — how long the store takes to replace itself. It is the number that says how fast the aquifer responds to anything, in both directions. How long an over-draw takes to show up. And how long a corrected licence takes to fix it.",
       "background": [
         "Why a slow store is dangerous rather than safe. A big buffer absorbs a mistake without showing it, so the evidence of over-abstraction arrives years after the licence that caused it. By the time the chloride is unambiguous, the decision being questioned is a decade old and the people who made it have left.",
-        "Why the recovery takes the same time. The clock is set by the ratio of the store to the flow, and the flow does not change when a cap is imposed. Capping abstraction tomorrow does not restore the balance tomorrow; it restores it over the same nine-year turnover, which is what a council expecting a quick result has to be told.",
-        "What the number rests on. The stock estimate is the weakest term — it comes from a 1998 geophysical survey with a range of about thirty per cent, while the recharge is now measured. A residence time quoted to the year from a stock known to a third is a false precision, and the honest form is \"roughly nine years\"."
+        "Why the recovery takes the same time. The clock is set by the ratio of the store to the flow, and the flow does not change when a cap is imposed. Capping abstraction tomorrow does not restore the balance tomorrow. It restores it over the same nine-year turnover. That is what a council expecting a quick result has to be told.",
+        "What the number rests on. The stock estimate is the weakest term. It comes from a 1998 geophysical survey with a range of about thirty per cent. The recharge, by contrast, is now measured. A residence time quoted to the year from a stock known to a third is a false precision, and the honest form is \"roughly nine years\"."
       ],
       "story": "The aquifer holds an estimated 2.6 million cubic metres. Recharge is the 294,000 cubic metres a year you measured, and the borehole is licensed to take 340,000.",
       "game": {
@@ -826,7 +826,7 @@ export const CURRICULUM = {
         "task": "Work out how long the aquifer takes to turn over",
         "question": "Estimate the residence time of the island's aquifer.",
         "answer": "About nine years — which is how long the store took to show the error, and how long a cap takes to undo it.",
-        "why": "Two point six million cubic metres over 294,000 a year is a little under nine years. That single number explains the shape of the whole argument. A licence written from a mainland table in 1998 has been over-drawing by about fifteen per cent, and a store that replaces itself once a decade absorbed it quietly until the July chloride became undeniable — which is now. It also disposes of the hope in the room: capping abstraction does not restore the balance this season, it restores it across another nine years. The stock is the weak term, known to about a third, so the honest answer is \"roughly nine\" rather than 8.8.\n",
+        "why": "Two point six million cubic metres over 294,000 a year is a little under nine years. That single number explains the shape of the whole argument. A licence written from a mainland table in 1998 has been over-drawing by about fifteen per cent. A store that replaces itself once a decade absorbed it quietly. It went on absorbing it until the July chloride became undeniable, which is now. It also disposes of the hope in the room: capping abstraction does not restore the balance this season, it restores it across another nine years. The stock is the weak term, known to about a third, so the honest answer is \"roughly nine\" rather than 8.8.\n",
         "rebuttals": [
           "Dividing the stock by the licensed abstraction gives how long the store would last with no rain at all.",
           "Rainfall on the catchment is not what reaches the store; four fifths of it never arrives."
@@ -901,7 +901,7 @@ export const CURRICULUM = {
       "background": [
         "What a pump's efficiency is made of. Motor losses of a few per cent, pump losses of rather more, and pipe friction that rises with the square of the flow. On an old installation the pipe is usually the largest single loss and the cheapest to fix, by slowing the pump and running it longer.",
         "Why the leak is not an efficiency question and matters more. A fifth of what this pump lifts never arrives, which means a fifth of the energy is spent on water that runs into the ground. No improvement in the pump touches that, and it is the largest number in the whole analysis.",
-        "Why the lift itself cannot be improved. Forty-six metres of head is where the water is and where the tanks are, and no pump can better it — that portion of the bill is physics rather than engineering. The distinction between \"loss\" and \"the work\" is the whole of reading an energy account."
+        "Why the lift itself cannot be improved. Forty-six metres of head is where the water is and where the tanks are. No pump can better it. That portion of the bill is physics rather than engineering. The distinction between \"loss\" and \"the work\" is the whole of reading an energy account."
       ],
       "story": "Sorley's borehole pump runs at 11 kilowatts for about nine hours a day. It is the largest single load on the island after the school's heating, and it lifts water 46 metres.",
       "game": {
@@ -911,20 +911,20 @@ export const CURRICULUM = {
         "play": "Say what the pumps are actually costing",
         "task": "Say what the pumps are actually costing",
         "question": "Which part of the pumping bill is worth spending money on first?",
-        "answer": "The fifth of the lifted water that never arrives",
-        "why": "A fifth of everything this pump lifts never reaches a tap, so a fifth of the energy is spent on water that goes into the ground — and no pump improvement recovers a penny of it. That is the largest recoverable item by a wide margin. The lift itself is not a loss at all: 46 metres of head is the work being paid for, and it cannot be improved by anybody. Motor losses on a modern induction motor are a few per cent, and pipe friction is worth attacking after the leak because slowing the flow to reduce it means running longer, which only helps once the water arriving is water being used.\n",
+        "answer": "The fifth of the lifted water that never arrives.",
+        "why": "A fifth of everything this pump lifts never reaches a tap. So a fifth of the energy is spent on water that goes into the ground. No pump improvement recovers a penny of it. That is the largest recoverable item by a wide margin. The lift itself is not a loss at all: 46 metres of head is the work being paid for, and it cannot be improved by anybody. Motor losses on a modern induction motor are a few per cent. Pipe friction is worth attacking after the leak, not before. Slowing the flow to reduce friction means running longer, and that only helps once the water arriving is water being used.\n",
         "rebuttals": [
           "Motor losses are a few per cent of the bill; the leak is twenty.",
           "The 46-metre lift is the useful work, not a loss. No pump can do better than the head.",
           "Friction is real and second in line: reducing it means running slower for longer, which is only worth it once the leak is fixed."
         ],
         "choices": [
-          "The fifth of the lifted water that never arrives",
-          "The electrical losses in the pump motor itself, which run at a few per cent",
-          "The energy spent lifting the water 46 metres",
-          "The friction in the rising main at present flow"
+          "The fifth of the lifted water that never arrives.",
+          "The electrical losses in the pump motor itself, which run at a few per cent.",
+          "The energy spent lifting the water 46 metres.",
+          "The friction in the rising main at present flow."
         ],
-        "correctChoice": "The fifth of the lifted water that never arrives"
+        "correctChoice": "The fifth of the lifted water that never arrives."
       },
       "assumes": [
         "the pump runs at roughly constant load when it is running",
@@ -972,11 +972,11 @@ export const CURRICULUM = {
       "scene": "The school tap reads 11.2 milligrams a litre. Nkemdi's youngest pupil weighs 11 kilograms and drinks about a litre a day; an adult on the same tap drinks two and weighs seventy.",
       "takeaway": "A dose is intake times concentration, divided by the body taking it.",
       "place": "Waterworks",
-      "guide": "A dose is not a concentration. Multiply the concentration by how much is drunk to get the amount taken in, then divide by the mass of the body taking it. Do it for the child and set it against the same arithmetic for an adult, because the ratio is the whole reason guidance is written the way it is.",
+      "guide": "A dose is not a concentration. Multiply the concentration by how much is drunk to get the amount taken in, then divide by the mass of the body taking it. Do it for the child, then set it against the same arithmetic for an adult. The ratio is the whole reason guidance is written the way it is.",
       "background": [
         "Why the guidance is per kilogram. A tolerable intake is a property of a body's ability to process something, which scales roughly with its mass. A figure quoted per person is a figure written for an average adult, and the smallest person drinking the water is the one it fails.",
         "Why intake matters as much as mass. Children drink more per kilogram than adults do — a litre in eleven kilos against two in seventy — so the two factors compound rather than cancel. That is why the ratio between the two doses is far larger than the ratio of the body masses.",
-        "What a dose-response curve adds. Whether the dose matters depends on where it sits on a curve that is usually not a straight line: below a threshold, little or nothing; past it, rising harm. The dose is the input to that judgement rather than the judgement."
+        "What a dose-response curve adds. Whether the dose matters depends on where it sits on a curve, and that curve is usually not a straight line. Below a threshold, little or nothing. Past it, rising harm. The dose is the input to that judgement rather than the judgement."
       ],
       "story": "The school tap reads 11.2 milligrams a litre. Nkemdi's youngest pupil weighs 11 kilograms and drinks about a litre a day; an adult on the same tap drinks two and weighs seventy.",
       "game": {
@@ -1036,7 +1036,7 @@ export const CURRICULUM = {
       "scene": "The second sailing would take on fresh water at the berth: about 6 cubic metres a crossing, twice a week through the season. Sorley has the recharge at 294,000 cubic metres a year and the licence at 340,000.",
       "takeaway": "A small volume drawn in the worst month is not a small demand on the store.",
       "place": "Waterworks",
-      "guide": "Work out what the sailings would draw across a season and set it against the two numbers that matter — the recharge, and the gap between recharge and licence. Then ask when it would be drawn, because a volume spread over a year and the same volume drawn in July are different demands on this store.",
+      "guide": "Work out what the sailings would draw across a season. Set it against the two numbers that matter: the recharge, and the gap between recharge and licence. Then ask when it would be drawn, because a volume spread over a year and the same volume drawn in July are different demands on this store.",
       "background": [
         "Why the annual comparison understates it. Six cubic metres twice a week for a twenty-week season is 240 cubic metres, which is less than a thousandth of the recharge and looks like nothing. Every cubic metre of it is drawn in the twenty weeks when the store is lowest and the chloride is rising.",
         "Why it is the marginal draw that counts. The island is already licensed to take more than the recharge, so any new demand is not being met out of spare capacity — there is none. It is met out of the store, which is the same as saying it is met out of next year.",
@@ -1051,7 +1051,7 @@ export const CURRICULUM = {
         "task": "Say what the ferry's own water would do",
         "question": "Read what you need and report what the island actually takes out of the store each year.",
         "answer": "About 331,000 cubic metres a year — houses, the garden, the sailing's 240, and the 51,000 that leaks out of the main before anybody receives it.",
-        "why": "The term that does not announce itself is the leak. A fifth of everything the borehole lifts never reaches a tap, so it is on no bill and no meter that anybody reads, and it is the second largest withdrawal on the island. Counting only what is billed gives 280,000 and makes the recharge look nearly adequate; counting the leak puts the total at 331,000 against a recharge of 294,000, which is the over-draw the July chloride has been reporting for five years. The ferry's own 240 cubic metres is the smallest number here and it lands entirely in the twenty weeks when the store is lowest, which is why it is metered separately rather than folded into a total. And the rain is the deposit rather than a withdrawal, which is the one line that must not be added.\n",
+        "why": "The term that does not announce itself is the leak. A fifth of everything the borehole lifts never reaches a tap. It is on no bill and no meter that anybody reads. It is the second largest withdrawal on the island. Counting only what is billed gives 280,000, and makes the recharge look nearly adequate. Counting the leak puts the total at 331,000 against a recharge of 294,000. That is the over-draw the July chloride has been reporting for five years. The ferry's own 240 cubic metres is the smallest number here. It lands entirely in the twenty weeks when the store is lowest. That is why it is metered separately rather than folded into a total. And the rain is the deposit rather than a withdrawal, which is the one line that must not be added.\n",
         "balance": {
           "total": {
             "amount": 331,
@@ -1146,7 +1146,7 @@ export const CURRICULUM = {
       "guide": "A population changes by four flows and only four. Add what came in, take away what went out, divide by the population it happened to, and put it as a percentage. The sign is the answer to the day's question, and then the doubling-time arithmetic works the same way in reverse for a shrinking population.",
       "background": [
         "Why all four flows have to be counted. Two of them are demographic and two are migration, and on a small island the migration terms are much the larger. A council discussing birth rates is discussing the smallest two numbers on the list.",
-        "What the rule of 70 does with a negative rate. It gives a halving time. At about minus four and a half per cent a year, ninety-one people halve in something like fifteen years — which is the number nobody in the room has said out loud, and it is not affected by whether the school stays open next year.",
+        "What the rule of 70 does with a negative rate. It gives a halving time. At about minus four and a half per cent a year, ninety-one people halve in something like fifteen years. That is the number nobody in the room has said out loud. It is not affected by whether the school stays open next year.",
         "Why the seven who left is the term to interrogate. It is the largest flow and the only one anybody can change. Why they left, and whether a second sailing changes those reasons, is the actual question hiding behind the ferry argument."
       ],
       "story": "Last year on Vellan: one birth, four people arrived, two died and seven left. The resident population is 91.",
@@ -1158,7 +1158,7 @@ export const CURRICULUM = {
         "task": "Work out the island's own rate of change",
         "question": "Estimate Vellan's population growth rate for the year.",
         "answer": "About minus 4.4 per cent a year — a halving time of roughly sixteen years.",
-        "why": "Five in, nine out, over ninety-one, is minus 4.4 per cent a year. The rule of 70 works just as well downward: seventy over four point four is about sixteen years to halve, and nobody in the ferry argument has said that out loud. The two migration terms dominate — one birth and two deaths against four arrivals and seven departures — so a discussion about birth rates is a discussion about the smallest numbers on the sheet. The seven who left is the term worth interrogating, because it is the largest and the only one anybody can act on. The school roll is the consequence being argued about, not an input to the rate.\n",
+        "why": "Five in, nine out, over ninety-one, is minus 4.4 per cent a year. The rule of 70 works just as well downward. Seventy over four point four is about sixteen years to halve. Nobody in the ferry argument has said that out loud. The two migration terms dominate. One birth and two deaths, against four arrivals and seven departures. So a discussion about birth rates is a discussion about the smallest numbers on the sheet. The seven who left is the term worth interrogating, because it is the largest and the only one anybody can act on. The school roll is the consequence being argued about, not an input to the rate.\n",
         "rebuttals": [
           "The school roll is what the rate produces, not one of the flows that makes it.",
           "Counting only births and deaths leaves out the two largest flows on a small island."
@@ -1235,12 +1235,12 @@ export const CURRICULUM = {
       "day": 8,
       "title": "What the rain leaves behind — Review",
       "scene": "Sorley has drawn the island's rainfall year on the back of a licence form as four boxes with nothing written on them. Grace Nkemdi, the island nurse, wants it as a poster for the school, and the boxes are in no order.",
-      "takeaway": "Each stage of an island water cycle is what is left of the one before it, so a limit is only honest at the stage it is written against.",
+      "takeaway": "Each stage of an island water cycle is what is left of the one before it. A limit is only honest at the stage it is written against.",
       "place": "Waterworks",
-      "guide": "Four stages, and the rail runs in time. Ask of each what has to have happened already for it to be possible at all, and where in the path the island loses the greater part of what fell. One of the four is the only stage anybody on Vellan meters, and it is not the first.",
+      "guide": "Four stages, and the rail runs in time. Ask of each what has to have happened already for it to be possible at all. Then ask where in the path the island loses the greater part of what fell. One of the four is the only stage anybody on Vellan meters, and it is not the first.",
       "background": [
-        "Why the losses come before the store rather than after it. Evaporation, transpiration and runoff all act on water that is still at or near the surface. Once it is past the root zone it is out of reach of the turf and the burns, which is why the fraction reaching the aquifer is settled within days of the rain falling.",
-        "What the order buys you on a licence form. Each stage is what is left of the stage before it, so an abstraction limit written against rainfall is written against the largest number in the chain rather than the smallest. The licence has to be set at the last stage that is still a natural quantity, and that is the store, not the sky."
+        "Why the losses come before the store rather than after it. Evaporation, transpiration and runoff all act on water that is still at or near the surface. Once it is past the root zone it is out of reach of the turf and the burns. That is why the fraction reaching the aquifer is settled within days of the rain falling.",
+        "What the order buys you on a licence form. Each stage is what is left of the stage before it. So an abstraction limit written against rainfall is written against the largest number in the chain, not the smallest. The licence has to be set at the last stage that is still a natural quantity, and that is the store, not the sky."
       ],
       "story": "Sorley has drawn the island's rainfall year on the back of a licence form as four boxes with nothing written on them. Grace Nkemdi, the island nurse, wants it as a poster for the school, and the boxes are in no order.",
       "game": {
@@ -1251,7 +1251,7 @@ export const CURRICULUM = {
         "task": "Order the four stages by when they happen to one year's rain, earliest first.",
         "question": "Order the four stages by when they happen to one year's rain, earliest first.",
         "answer": "",
-        "why": "The chain runs in one direction and each link is smaller than the one above it. Rain arrives on the whole catchment. The turf, the wind and the burns take the greater part of it back before it is anywhere useful. Only what gets past the root zone reaches the store, and only what the pump draws reaches a tap. Putting abstraction before recharge is the common error and it is the one that matters, because it is the shape of a licence written against rainfall instead of against the store the pump actually empties.\n",
+        "why": "The chain runs in one direction and each link is smaller than the one above it. Rain arrives on the whole catchment. The turf, the wind and the burns take the greater part of it back before it is anywhere useful. Only what gets past the root zone reaches the store, and only what the pump draws reaches a tap. Putting abstraction before recharge is the common error, and it is the one that matters. It is the shape of a licence written against rainfall instead of against the store the pump actually empties.\n",
         "cards": [
           "Rain lands on the catchment and wets the turf and the thin soil over the rock.",
           "Most of it leaves again — up through the turf and off the rock down the burns to the sea.",
@@ -1308,16 +1308,16 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Nine inches over rock",
-      "scene": "Dan Pike, the common grazing officer, has a pit dug at the top of the common: nine inches of dark topsoil, two inches of paler material under it, and rock. Ewan Hollis, who runs the market garden, wants another acre in vegetables if the ferry brings a market.",
+      "scene": "Dan Pike, the common grazing officer, has a pit dug at the top of the common. The pit shows nine inches of dark topsoil, two inches of paler material under it, and rock. Ewan Hollis, who runs the market garden, wants another acre in vegetables if the ferry brings a market.",
       "takeaway": "A thin soil over rock limits what can be grown, because the replacement has to be made on the island.",
       "place": "Common Office",
-      "guide": "A soil profile is read as layers, and the top one is the one that grows things. Look at how deep it is, what is under it, and how fast water leaves it. Then ask what a crop takes out each year and whether nine inches of soil over rock can replace it — because on an island the replacement has to be made here.",
+      "guide": "A soil profile is read as layers, and the top one is the one that grows things. Look at how deep it is, what is under it, and how fast water leaves it. Then ask what a crop takes out each year. Ask whether nine inches of soil over rock can replace it. On an island the replacement has to be made here.",
       "background": [
         "What the horizons are. A dark surface layer rich in organic matter, a paler layer below it where minerals have washed down, and then parent rock. Deep soils have more between the two; this one has almost nothing, which is normal for a grazed maritime island and limits what can be asked of it.",
-        "Why texture decides as much as depth. Sand drains fast and holds little; clay holds water and air badly; loam is the mixture that does both. Vellan's is a sandy loam over rock, which drains quickly — good in a wet spring, and the reason a dry August is felt in the polytunnels within a fortnight.",
+        "Why texture decides as much as depth. Sand drains fast and holds little; clay holds water and air badly; loam is the mixture that does both. Vellan's is a sandy loam over rock, which drains quickly. That is good in a wet spring. It is also the reason a dry August is felt in the polytunnels within a fortnight.",
         "What the common's history has already done. Two hundred years of grazing has kept organic matter cycling in place through dung and has stopped anything woody establishing. Hollis's two acres are the only deep soil on the island, and every inch of it was built out of seaweed and what the tip would release."
       ],
-      "story": "Dan Pike, the common grazing officer, has a pit dug at the top of the common: nine inches of dark topsoil, two inches of paler material under it, and rock. Ewan Hollis, who runs the market garden, wants another acre in vegetables if the ferry brings a market.",
+      "story": "Dan Pike, the common grazing officer, has a pit dug at the top of the common. The pit shows nine inches of dark topsoil, two inches of paler material under it, and rock. Ewan Hollis, who runs the market garden, wants another acre in vegetables if the ferry brings a market.",
       "game": {
         "type": "PROTOCOL",
         "title": "Nine inches over rock",
@@ -1326,7 +1326,7 @@ export const CURRICULUM = {
         "task": "Match each layer to what it tells you about growing here.",
         "question": "Match each layer to what it tells you about growing here.",
         "answer": "Topsoil grows the crop, the pale layer adds almost nothing, the rock caps the rooting depth, and the fast drainage means August is felt within a fortnight.",
-        "why": "A profile is read as a set of limits rather than as a description. Nine inches of topsoil is what carries the organic matter, the nutrients and nearly all the roots, so it is the whole of the productive soil here. The pale layer beneath is leached mineral material and adds little. The rock at eleven inches means there is no deep store to fall back on, and the twenty-minute drainage says the texture is sandy, so a dry month is felt quickly rather than buffered. Together those four say the common can carry grazing and cannot carry another acre of vegetables without soil being built first, which takes years.\n",
+        "why": "A profile is read as a set of limits rather than as a description. Nine inches of topsoil is what carries the organic matter, the nutrients and nearly all the roots, so it is the whole of the productive soil here. The pale layer beneath is leached mineral material and adds little. The rock at eleven inches means there is no deep store to fall back on. The twenty-minute drainage says the texture is sandy. So a dry month is felt quickly rather than buffered. Together those four say the common can carry grazing and cannot carry another acre of vegetables without soil being built first, which takes years.\n",
         "rebuttals": [
           "The dark surface layer is where the organic matter and almost all the rooting is.",
           "The pale layer is leached mineral material; it adds very little usable rooting depth.",
@@ -1340,10 +1340,10 @@ export const CURRICULUM = {
           "Water drained out of the pit within twenty minutes of digging"
         ],
         "choices": [
-          "The layer that holds the organic matter and grows the crop",
-          "Minerals washed down out of the layer above, and little rooting depth gained",
-          "No deep reserve of water or nutrients, and no route for roots past this point",
-          "A sandy texture: a dry August is felt in a fortnight rather than a season"
+          "The layer that holds the organic matter and grows the crop.",
+          "Minerals washed down out of the layer above, and little rooting depth gained.",
+          "No deep reserve of water or nutrients, and no route for roots past this point.",
+          "A sandy texture: a dry August is felt in a fortnight rather than a season."
         ],
         "mapping": [
           0,
@@ -1374,8 +1374,8 @@ export const CURRICULUM = {
       "guide": "Species richness and area are related by a power law, not a straight line: the exponent for islands is about a quarter. Work out what 51 hectares would hold given what 62 holds, using that exponent. Then compare the loss of species with the loss of area, because they are nothing like the same fraction.",
       "background": [
         "What the exponent means. Because z is about 0.25, richness goes as roughly the fourth root of area. Halving the area does not halve the species; it costs about sixteen per cent of them. Which cuts both ways — a small protected area keeps far more than its share, and a small loss is not harmless either.",
-        "Why islands have their own exponent. On a mainland a patch is restocked constantly from next door. Here it is not: whatever goes locally extinct has to arrive across open water to come back, so island richness sits lower for the same area and falls further when area is taken.",
-        "What the relationship cannot tell you. Which species. The eleven hectares proposed are the flattest and best-drained part of the common, which is where the two orchids in Pike's list are and where nothing else on the island offers the same conditions. A power law is about counts and is silent about the identity of what is lost."
+        "Why islands have their own exponent. On a mainland a patch is restocked constantly from next door. Here it is not. Whatever goes locally extinct has to arrive across open water to come back. So island richness sits lower for the same area, and falls further when area is taken.",
+        "What the relationship cannot tell you. Which species. The eleven hectares proposed are the flattest and best-drained part of the common. That is where the two orchids in Pike's list are. Nothing else on the island offers the same conditions. A power law is about counts and is silent about the identity of what is lost."
       ],
       "story": "The ferry paper proposes taking eleven hectares of the common for parking and serviced pitches. Pike has a plant list for the common: 96 species over 62 hectares.",
       "game": {
@@ -1386,7 +1386,7 @@ export const CURRICULUM = {
         "task": "Say what shrinking the habitat would cost in species",
         "question": "Estimate the species the common would hold at 51 hectares.",
         "answer": "About 91 species — five lost for eleven hectares, because richness follows the fourth root of area.",
-        "why": "The ratio of areas is 0.82, and raised to the power 0.25 that is 0.95, so the count falls from 96 to about 91. An eighteen per cent loss of ground costs about five per cent of the species, which is the general shape of the relationship and it cuts both ways: a small reserve keeps more than its share, and a small loss is never proportional. What the arithmetic cannot say is which five, and that is the part Pike will raise. The eleven hectares proposed are the flat, well-drained end of the common, which is where the two orchids are and where nothing else on Vellan offers the same conditions.\n",
+        "why": "The ratio of areas is 0.82, and raised to the power 0.25 that is 0.95, so the count falls from 96 to about 91. An eighteen per cent loss of ground costs about five per cent of the species. That is the general shape of the relationship, and it cuts both ways. A small reserve keeps more than its share. A small loss is never proportional. What the arithmetic cannot say is which five, and that is the part Pike will raise. The eleven hectares proposed are the flat, well-drained end of the common. That is where the two orchids are, and nothing else on Vellan offers the same conditions.\n",
         "rebuttals": [
           "Scaling the species count by the area ratio directly assumes a straight line, which islands do not follow.",
           "Using the area lost rather than the area remaining answers what the eleven hectares hold on their own."
@@ -1449,7 +1449,7 @@ export const CURRICULUM = {
       "guide": "Work out where the extra animals came from before deciding what rule answers it. Look at who gains from one more animal and who pays for it, and whether any individual grazier has broken anything. Then pick the rule that changes the arithmetic each grazier faces, rather than the one that describes what you wish they would do.",
       "background": [
         "Why nobody has to cheat for this to happen. One more animal is worth having to the grazier who owns it, and the cost — slightly worse grazing — is spread across all nine. Each individual decision is rational and the sum of them exceeds the common's capacity. That is the structure, and moralising about it changes nothing.",
-        "Why shares alone did not hold it. The shares were set as fractions of a total that was never inspected, so nine graziers each within their share can still sum past the limit as the total drifts. A rule expressed as a proportion needs the total to be counted; a rule expressed in animals does not.",
+        "Why shares alone did not hold it. The shares were set as fractions of a total that was never inspected. So nine graziers each within their share can still sum past the limit as the total drifts. A rule expressed as a proportion needs the total to be counted; a rule expressed in animals does not.",
         "What the three real options do. A hard stocking limit with inspection changes what each grazier may do. A charge per animal above a threshold changes what each animal costs them. Dividing the common into private parcels internalises the cost entirely and ends the common — which is a real answer and has its own price."
       ],
       "story": "Pike's count puts 512 sheep on a common assessed at 430. Nine graziers hold forty-one shares between them, and not one of them is over their own share.",
@@ -1460,20 +1460,20 @@ export const CURRICULUM = {
         "play": "Decide what the stocking rule has to say",
         "task": "Decide what the stocking rule has to say",
         "question": "Which rule actually answers what the count shows?",
-        "answer": "A limit in animals, inspected, and the count published",
-        "why": "Nobody here has broken their share, so the failure is in the rule rather than in the graziers: shares are proportions of an uninspected total, and nine people inside their proportion can still sum past 430. A limit expressed in animals and actually counted fixes precisely that, and publishing the count is what makes it enforceable between neighbours who have to live together. A reminder changes no arithmetic. Cutting every share proportionally keeps the same uncounted structure and simply moves the number. Banning new graziers protects the nine who are already over and does nothing about the 512 animals on the ground.\n",
+        "answer": "A limit in animals, inspected, and the count published.",
+        "why": "Nobody here has broken their share. So the failure is in the rule rather than in the graziers. Shares are proportions of an uninspected total, and nine people inside their proportion can still sum past 430. A limit expressed in animals and actually counted fixes precisely that, and publishing the count is what makes it enforceable between neighbours who have to live together. A reminder changes no arithmetic. Cutting every share proportionally keeps the same uncounted structure and simply moves the number. Banning new graziers protects the nine who are already over and does nothing about the 512 animals on the ground.\n",
         "rebuttals": [
           "Responsibility is not what failed. Every grazier is within their share and the total is still over.",
           "A proportional cut keeps a rule based on an uninspected total, which is the thing that drifted.",
           "Excluding newcomers freezes the present overstocking in place and reduces nothing."
         ],
         "choices": [
-          "A limit in animals, inspected, and the count published",
-          "A written reminder to every grazier of their responsibility to the common as a whole",
-          "Reducing every grazier's share by the same proportion",
-          "A ban on new graziers joining the common"
+          "A limit in animals, inspected, and the count published.",
+          "A written reminder to every grazier of their responsibility to the common as a whole.",
+          "Reducing every grazier's share by the same proportion.",
+          "A ban on new graziers joining the common."
         ],
-        "correctChoice": "A limit in animals, inspected, and the count published"
+        "correctChoice": "A limit in animals, inspected, and the count published."
       },
       "assumes": [
         "Pike's count is of animals on the common on one day",
@@ -1500,7 +1500,7 @@ export const CURRICULUM = {
       "scene": "Hollis has aphids in two of four polytunnels. The neighbouring holding sprays on the first of the month regardless. His tunnels need treating twice a season; theirs need it five times and rising.",
       "takeaway": "Treating on a calendar selects for resistance; treating on a threshold does not.",
       "place": "Common Office",
-      "guide": "Compare the two regimes by what they do to the pest population over years, not by what they cost this month. Ask which one selects for resistance, and how a threshold is set — because \"treat when you see one\" and \"treat when it will cost you more than the spray does\" are different rules with different outcomes.",
+      "guide": "Compare the two regimes by what they do to the pest population over years, not by what they cost this month. Ask which one selects for resistance, and how a threshold is set. \"Treat when you see one\" and \"treat when it will cost you more than the spray does\" are different rules, with different outcomes.",
       "background": [
         "How calendar spraying breeds the problem. Every application kills the susceptible individuals and leaves the resistant ones to breed, so the population's tolerance rises with each treatment. Five sprays a season rising is what that looks like from inside: the same chemical, doing less each year.",
         "What a threshold is. The pest density at which the damage exceeds the cost of treating. Below it, spraying costs more than it saves and still selects for resistance. Above it, treating pays. Setting it requires counting, which is the part growers skip.",
@@ -1514,20 +1514,20 @@ export const CURRICULUM = {
         "play": "Decide when to treat, and on what evidence",
         "task": "Decide when to treat, and on what evidence",
         "question": "Why does the neighbouring holding need five sprays where Hollis needs two?",
-        "answer": "Spraying regardless of numbers has bred resistance in their aphids",
-        "why": "Each application kills the susceptible aphids and leaves the resistant ones to breed, so a fixed schedule raises the population's tolerance season by season. Five treatments and rising is the signature: the same chemical achieving less each year. Hollis's two are what is left after resistant varieties, sowing dates, predators and barriers have done the rest, with the spray kept as a last resort against a counted threshold. Temperature and crop susceptibility would show as a difference from the first season rather than a worsening trend, and a stronger chemical would accelerate the same selection rather than avoid it.\n",
+        "answer": "Spraying regardless of numbers has bred resistance in their aphids.",
+        "why": "Each application kills the susceptible aphids and leaves the resistant ones to breed, so a fixed schedule raises the population's tolerance season by season. Five treatments and rising is the signature: the same chemical achieving less each year. Hollis's two are what is left after resistant varieties, sowing dates, predators and barriers have done the rest. The spray is kept as a last resort, against a counted threshold. Temperature and crop susceptibility would show as a difference from the first season, not a worsening trend. A stronger chemical would accelerate the same selection rather than avoid it.\n",
         "rebuttals": [
           "A warmer tunnel would show as a higher pest load from the start, not a requirement that grows every year.",
           "A stronger chemical selects for resistance faster; it is the mechanism, not an escape from it.",
           "Crop susceptibility is a constant. It cannot explain a rising number of treatments."
         ],
         "choices": [
-          "Spraying regardless of numbers has bred resistance in their aphids",
-          "Their polytunnels run warmer than his, and aphids breed faster at higher temperatures",
-          "Hollis uses a stronger chemical at each application",
-          "Their crop is more susceptible to aphid damage"
+          "Spraying regardless of numbers has bred resistance in their aphids.",
+          "Their polytunnels run warmer than his, and aphids breed faster at higher temperatures.",
+          "Hollis uses a stronger chemical at each application.",
+          "Their crop is more susceptible to aphid damage."
         ],
-        "correctChoice": "Spraying regardless of numbers has bred resistance in their aphids"
+        "correctChoice": "Spraying regardless of numbers has bred resistance in their aphids."
       },
       "assumes": [
         "both holdings grow comparable crops under comparable cover",
@@ -1575,10 +1575,10 @@ export const CURRICULUM = {
       "scene": "Hollis wants the whole compostable stream: about forty tonnes a year, currently going into the hole. He has two acres of built soil and four polytunnels, and no fertiliser budget to speak of.",
       "takeaway": "Compost is the only lever on a thin soil, and it carries whatever was in the material.",
       "place": "Common Office",
-      "guide": "Count what the transfer does at both ends. Forty tonnes is volume out of a tip with eleven years left, and it is organic matter into the only deep soil on the island. Then find the cost, because there is one — the same material carries salt and whatever was sprayed on it, and it arrives on ground that drains toward the borehole.",
+      "guide": "Count what the transfer does at both ends. Forty tonnes is volume out of a tip with eleven years left, and it is organic matter into the only deep soil on the island. Then find the cost, because there is one. The same material carries salt and whatever was sprayed on it. It arrives on ground that drains toward the borehole.",
       "background": [
         "What compost does to a thin soil. It raises organic matter, which raises how much water the soil holds and how much nutrient it can retain against leaching. On a sandy loam over rock that is the only lever available: nothing else deepens what is there.",
-        "Why the salt is worth checking. Island compostables include seaweed and kitchen waste from a place where everything is salted, and repeated application of a salty amendment to free-draining ground raises soil salinity until germination suffers. The soil is not flushed by irrigation here — it is flushed by rain, in winter, if at all.",
+        "Why the salt is worth checking. Island compostables include seaweed and kitchen waste from a place where everything is salted. Repeated application of a salty amendment to free-draining ground raises soil salinity, until germination suffers. The soil is not flushed by irrigation here — it is flushed by rain, in winter, if at all.",
         "What the tip gains and does not. Forty tonnes out of the arrivals slows the hole's filling and reduces the methane the cell generates, because compostables are what generate it. It does not reduce the tonnage the island produces, which is the number Okafor is actually judged on."
       ],
       "story": "Hollis wants the whole compostable stream: about forty tonnes a year, currently going into the hole. He has two acres of built soil and four polytunnels, and no fertiliser budget to speak of.",
@@ -1590,7 +1590,7 @@ export const CURRICULUM = {
         "task": "Decide what a released compost stream is worth",
         "question": "At what compost conductivity do you stop the release, given the ground takes six weeks to flush?",
         "answer": "Stop at about 3 millisiemens a centimetre. The week-8 batch crosses it with six weeks of winter rain still to come; a line up near where germination fails is not crossed until week 13, when there are two.",
-        "why": "The transfer is good at both ends — volume out of a hole with eleven years left and organic matter into the only deep soil on the island — so the rule has to catch the one thing that makes it go wrong. Island compostables carry seaweed and heavily salted kitchen waste, and on free-draining ground over rock there is nothing to flush salt through but winter rain. Two ways of getting the line wrong cost the same. Set it near 4, where germination measurably suffers, and it is not crossed until the week-13 batch with two weeks of rain left — a correct rule for an action that needed six. Set it near 1.5 and it fires on ordinary compost, and a rule that fires on normal is a rule nobody keeps.\n",
+        "why": "The transfer is good at both ends. Volume comes out of a hole with eleven years left. Organic matter goes into the only deep soil on the island. So the rule has to catch the one thing that makes it go wrong. Island compostables carry seaweed and heavily salted kitchen waste, and on free-draining ground over rock there is nothing to flush salt through but winter rain. Two ways of getting the line wrong cost the same. Set it near 4, where germination measurably suffers. Then it is not crossed until the week-13 batch, with two weeks of rain left. That is a correct rule for an action that needed six. Set it near 1.5 and it fires on ordinary compost, and a rule that fires on normal is a rule nobody keeps.\n",
         "trigger": {
           "scale": {
             "label": "Compost electrical conductivity",
@@ -1701,11 +1701,11 @@ export const CURRICULUM = {
       "scene": "Pike has three nitrogen inputs to the common: clover in the sward, imported fertiliser, and dung from 512 sheep. Hollis adds compost. The stream below carries nitrate.",
       "takeaway": "Only what arrives from outside adds to the island's total; the rest is redistribution.",
       "place": "Common Office",
-      "guide": "Sort the inputs by where the nitrogen came from before it arrived here. Some was taken out of the air on the island itself, some was manufactured elsewhere and shipped in, and some is nitrogen already on the island being moved around. Only one of the three adds to the island's total, and that is the one the stream reflects.",
+      "guide": "Sort the inputs by where the nitrogen came from before it arrived here. Some was taken out of the air on the island itself. Some was manufactured elsewhere and shipped in. And some is nitrogen already on the island, being moved around. Only one of the three adds to the island's total, and that is the one the stream reflects.",
       "background": [
         "What fixation is. Bacteria in the nodules of clover and other legumes convert nitrogen gas from the air into a form plants can use. It is a genuine input to the island and it arrives slowly, in place, and in proportion to how much clover is in the sward.",
         "Why dung is not an input. The sheep ate the grass here. Their dung returns nitrogen that was already on the common to the common, moved from where it was eaten to where the animal stood. It matters enormously for distribution and not at all for the total.",
-        "Why imported fertiliser is the one the stream sees. It is nitrogen manufactured elsewhere, landed at the berth and spread in a few weeks. Applied faster than the sward can take it up, the surplus leaches — and free-draining ground over rock leaches readily, which is the connection between a bag on the pier and a nitrate reading in the bay."
+        "Why imported fertiliser is the one the stream sees. It is nitrogen manufactured elsewhere, landed at the berth and spread in a few weeks. Applied faster than the sward can take it up, the surplus leaches. Free-draining ground over rock leaches readily. That is the connection between a bag on the pier and a nitrate reading in the bay."
       ],
       "story": "Pike has three nitrogen inputs to the common: clover in the sward, imported fertiliser, and dung from 512 sheep. Hollis adds compost. The stream below carries nitrate.",
       "game": {
@@ -1716,7 +1716,7 @@ export const CURRICULUM = {
         "task": "Match each input to what it does to the island's nitrogen budget.",
         "question": "Match each input to what it does to the island's nitrogen budget.",
         "answer": "Clover and imported fertiliser are real inputs; dung and compost move nitrogen that was already here.",
-        "why": "Two of these four add nitrogen to the island and two redistribute what is already on it. Clover fixes it out of the air, slowly and in place. Bagged fertiliser is manufactured elsewhere, landed at the berth and spread over a few weeks, which is why it is the input the stream reflects: applied faster than the sward can take up, the surplus leaches through free-draining ground over rock. Dung and compost feel like additions and are not — the sheep ate grass grown here and the kitchen waste was island food. Getting that distinction right is what stops the response being aimed at the sheep.\n",
+        "why": "Two of these four add nitrogen to the island and two redistribute what is already on it. Clover fixes it out of the air, slowly and in place. Bagged fertiliser is manufactured elsewhere, landed at the berth and spread over a few weeks. That is why it is the input the stream reflects. It is applied faster than the sward can take up, so the surplus leaches through free-draining ground over rock. Dung and compost feel like additions and are not — the sheep ate grass grown here and the kitchen waste was island food. Getting that distinction right is what stops the response being aimed at the sheep.\n",
         "rebuttals": [
           "Clover fixes nitrogen out of the air, which is genuinely new to the island.",
           "Bagged fertiliser is the only input landed at the berth, and the only one applied faster than the sward takes it up.",
@@ -1730,10 +1730,10 @@ export const CURRICULUM = {
           "Compost made from the island's own kitchen waste"
         ],
         "choices": [
-          "A real input, taken from the air on the island, arriving slowly",
-          "A real input, manufactured elsewhere and applied in weeks — what the stream reflects",
-          "No change to the total — nitrogen already here, moved to where the animal stood",
-          "No change to the total — island nitrogen returned to island ground in a slower form"
+          "A real input, taken from the air on the island, arriving slowly.",
+          "A real input, manufactured elsewhere and applied in weeks — what the stream reflects.",
+          "No change to the total — nitrogen already here, moved to where the animal stood.",
+          "No change to the total — island nitrogen returned to island ground in a slower form."
         ],
         "mapping": [
           0,
@@ -1768,16 +1768,16 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Four conditions, and it has all of them",
-      "scene": "The beetle is in all four tunnels, breeds three times a season, eats eleven of the crops Hollis grows, and nothing on the island has been seen eating it. It arrived within a year of the freight change.",
+      "scene": "The beetle is in all four tunnels. It breeds three times a season and eats eleven of the crops Hollis grows. Nothing on the island has been seen eating it. It arrived within a year of the freight change.",
       "takeaway": "An invasive species is one that breeds fast, eats widely, is uncontrolled and can spread.",
       "place": "Common Office",
-      "guide": "Being new is not the same as being invasive. Go through what the species does here rather than where it came from: how fast it reproduces, how broad its diet is, whether anything controls it, and whether it can spread beyond where it landed. A species with one of those is a curiosity; one with all four is a management problem.",
+      "guide": "Being new is not the same as being invasive. Go through what the species does here rather than where it came from. How fast it reproduces. How broad its diet is. Whether anything controls it. And whether it can spread beyond where it landed. A species with one of those is a curiosity; one with all four is a management problem.",
       "background": [
-        "Why \"no natural predator\" is the load-bearing condition. In its home range something eats it, and the population sits at a level that reflects that. Removed from its predators it does not sit anywhere: it grows until food or space stops it, which is why the same beetle is unremarkable at home and a problem here.",
+        "Why \"no natural predator\" is the load-bearing condition. In its home range something eats it, and the population sits at a level that reflects that. Removed from its predators it does not sit anywhere. It grows until food or space stops it. That is why the same beetle is unremarkable at home and a problem here.",
         "Why a broad diet matters so much on a small island. A specialist can only occupy what its host occupies. A generalist eating eleven crops can move between them as each is harvested, so there is no season in which its population has to crash.",
         "Why the arrival route is the only part that can be closed. The beetle cannot be removed from four tunnels once it is breeding. What can change is the next arrival: inspection at the berth, cleaned pallets, and knowing which sailings carry soil and plants. A second sailing doubles the opportunities without doubling the inspection."
       ],
-      "story": "The beetle is in all four tunnels, breeds three times a season, eats eleven of the crops Hollis grows, and nothing on the island has been seen eating it. It arrived within a year of the freight change.",
+      "story": "The beetle is in all four tunnels. It breeds three times a season and eats eleven of the crops Hollis grows. Nothing on the island has been seen eating it. It arrived within a year of the freight change.",
       "game": {
         "type": "CHOICE",
         "title": "Four conditions, and it has all of them",
@@ -1785,20 +1785,20 @@ export const CURRICULUM = {
         "play": "Decide what makes the beetle invasive rather than merely new",
         "task": "Decide what makes the beetle invasive rather than merely new",
         "question": "Which condition makes this beetle a management problem rather than a new record?",
-        "answer": "Nothing here eats it, so only food and space limit it",
-        "why": "All four conditions matter and one of them is doing the work. Where it comes from, a predator holds this beetle at a level nobody notices; here nothing eats it, so the population is limited only by food and space, and on an island with eleven suitable crops that limit is a long way off. Arriving from the mainland is how it got here rather than why it is a problem — most introductions establish nothing. Breeding three times a season is dangerous only because nothing is removing the offspring. And being found under cover is where it was noticed, not a constraint: the tunnels are warmer, and the crops outside are on the same list.\n",
+        "answer": "Nothing here eats it, so only food and space limit it.",
+        "why": "All four conditions matter and one of them is doing the work. Where it comes from, a predator holds this beetle at a level nobody notices. Here nothing eats it. The population is limited only by food and space. On an island with eleven suitable crops, that limit is a long way off. Arriving from the mainland is how it got here rather than why it is a problem — most introductions establish nothing. Breeding three times a season is dangerous only because nothing is removing the offspring. And being found under cover is where it was noticed, not a constraint: the tunnels are warmer, and the crops outside are on the same list.\n",
         "rebuttals": [
           "Most introduced species never establish. The route explains its arrival, not its success.",
           "Three generations a season is only decisive because nothing is removing any of them.",
           "The tunnels are where it was found and where it is warmest; eleven of the crops it eats grow outdoors too."
         ],
         "choices": [
-          "Nothing here eats it, so only food and space limit it",
-          "It arrived from the mainland rather than establishing naturally",
-          "It breeds three times in a single season rather than once",
-          "It was first found inside a polytunnel rather than outdoors"
+          "Nothing here eats it, so only food and space limit it.",
+          "It arrived from the mainland rather than establishing naturally.",
+          "It breeds three times in a single season rather than once.",
+          "It was first found inside a polytunnel rather than outdoors."
         ],
-        "correctChoice": "Nothing here eats it, so only food and space limit it"
+        "correctChoice": "Nothing here eats it, so only food and space limit it."
       },
       "assumes": [
         "the beetle was not recorded on the island before the freight change",
@@ -1828,8 +1828,8 @@ export const CURRICULUM = {
       "guide": "Look for what the four have in common rather than what each says. Each one replaced something with something else of a different kind, and the same replacement happened four times. Name it, because that is what the council is being asked to adopt as a way of working rather than as four items.",
       "background": [
         "What each of the four did. The stocking limit replaced a proportion of an uncounted total with a number of animals, inspected. The volume plan replaced tonnage with cubic metres per pound. The gearbox replaced a nameplate rating with a measured capacity factor. The cap replaced a licensed figure with a measured recharge.",
-        "Why that is one move and not four. In every case a figure inherited from elsewhere — a template, a brochure, a proportion, an invoice — was replaced by a quantity measured on Vellan, with a period attached. The measurement was cheap in all four cases and nobody had taken it.",
-        "What it does not settle. The reef's decline is still not attributable, the beetle is still in the tunnels, the hole still has eleven years in it and the register is still falling at four per cent a year. A fortnight of measurement changes what the council can decide, not what the island is."
+        "Why that is one move and not four. In every case a figure was inherited from elsewhere: a template, a brochure, a proportion, an invoice. Each was replaced by a quantity measured on Vellan, with a period attached. The measurement was cheap in all four cases and nobody had taken it.",
+        "What it does not settle. The reef's decline is still not attributable. The beetle is still in the tunnels. The hole still has eleven years in it. The register is still falling at four per cent a year. A fortnight of measurement changes what the council can decide, not what the island is."
       ],
       "story": "Pike has the stocking limit, Okafor the volume plan, Ferris the gearbox and Sorley the cap. Four decisions, taken separately across a fortnight, going to one vote.",
       "game": {
@@ -1840,7 +1840,7 @@ export const CURRICULUM = {
         "task": "Say what the fortnight actually established",
         "question": "Put the fortnight's four replacements in the order the pack should present them.",
         "answer": "Water first, because it binds soonest and everything else is downstream of it; then the tip, the turbine and the common.",
-        "why": "The order is by how soon each constraint binds, which is the only ordering a council can act on in one evening. Water binds now: the licence exceeds the recharge, the store turns over in nine years and the ferry's own draw lands in the worst twenty weeks. The tip binds next, with eleven years of volume and a growth rate that shortens it. The turbine is a nine-month payback on a machine already bought, so it binds as soon as anybody signs. The common is the least urgent because the overstocking is recoverable within a season once it is counted. All four are the same move — an inherited number replaced by a measured one with a period attached — and that is what the council is really being asked to adopt.\n",
+        "why": "The order is by how soon each constraint binds, which is the only ordering a council can act on in one evening. Water binds now: the licence exceeds the recharge, the store turns over in nine years and the ferry's own draw lands in the worst twenty weeks. The tip binds next, with eleven years of volume and a growth rate that shortens it. The turbine is a nine-month payback on a machine already bought, so it binds as soon as anybody signs. The common is the least urgent because the overstocking is recoverable within a season once it is counted. All four are the same move. An inherited number is replaced by a measured one, with a period attached. That is what the council is really being asked to adopt.\n",
         "cards": [
           "Recharge measured on the island, replacing a licence figure copied from a mainland table",
           "Volume per pound, replacing tonnage as the way the tip's spending is ranked",
@@ -1954,10 +1954,10 @@ export const CURRICULUM = {
       "scene": "Ewan Hollis has opened a pit in his own two acres of market garden: two feet of dark, heavy, worked soil over the same rock as the common. Pike wants it read against the pit at the top of the common before either acre is promised to the ferry.",
       "takeaway": "Depth in an island soil is imported rather than found, and the rock underneath sets a ceiling no amount of importing lifts.",
       "place": "Common Office",
-      "guide": "The same four questions as the common pit, on ground that answers them differently. How deep is the material a root can work in, what is the texture doing to the water, where did the organic matter come from, and what is at the bottom. Three of the four are better here than on the common. The fourth is the same on both, and it is the one that sets the ceiling.",
+      "guide": "The same four questions as the common pit, on ground that answers them differently. How deep is the material a root can work in? What is the texture doing to the water? Where did the organic matter come from? And what is at the bottom. Three of the four are better here than on the common. The fourth is the same on both, and it is the one that sets the ceiling.",
       "background": [
-        "What forty years of importing does to a profile. Seaweed and sorted compost worked in every autumn raises the organic matter, darkens the surface and deepens the worked layer until it meets rock. It builds depth downwards from the top because there is nowhere else for it to come from on an island, and it stops the moment it reaches the rock face.",
-        "Why the drainage reverses the usual advantage. On the common a sandy texture over rock drains in twenty minutes and a dry August bites within a fortnight. A heavier, better worked soil holds that water, which carries a crop through the month; the same property leaves it wet in a late spring, which is the reason Hollis plants a fortnight after the mainland does."
+        "What forty years of importing does to a profile. Seaweed and sorted compost worked in every autumn raises the organic matter, darkens the surface and deepens the worked layer until it meets rock. It builds depth downwards from the top, because there is nowhere else for it to come from on an island. It stops the moment it reaches the rock face.",
+        "Why the drainage reverses the usual advantage. On the common a sandy texture over rock drains in twenty minutes and a dry August bites within a fortnight. A heavier, better worked soil holds that water, which carries a crop through the month. The same property leaves it wet in a late spring. That is the reason Hollis plants a fortnight after the mainland does."
       ],
       "story": "Ewan Hollis has opened a pit in his own two acres of market garden: two feet of dark, heavy, worked soil over the same rock as the common. Pike wants it read against the pit at the top of the common before either acre is promised to the ferry.",
       "game": {
@@ -1968,7 +1968,7 @@ export const CURRICULUM = {
         "task": "Match each thing the garden pit shows to what it decides about growing there.",
         "question": "Match each thing the garden pit shows to what it decides about growing there.",
         "answer": "The depth is rooting depth, the standing water is a heavy texture, the seaweed and compost are where the profile came from, and the rock is the ceiling both pits share.",
-        "why": "A profile is read as a set of limits, and on this island three of the four can be bought and one cannot. Depth, organic matter and texture are all products of forty years of importing seaweed and compost, and they are why two acres carry vegetables while sixty-two hectares carry sheep. The rock at the base is the term that does not move: it caps the profile, it caps the water held under it, and it is why the garden was built upwards instead of dug deeper. Any plan for another acre is a plan to make soil, not to find it.\n",
+        "why": "A profile is read as a set of limits, and on this island three of the four can be bought and one cannot. Depth, organic matter and texture are all products of forty years of importing seaweed and compost. They are why two acres carry vegetables while sixty-two hectares carry sheep. The rock at the base is the term that does not move. It caps the profile. It caps the water held under it. It is why the garden was built upwards instead of dug deeper. Any plan for another acre is a plan to make soil, not to find it.\n",
         "rebuttals": [
           "Two feet against nine inches is rooting depth, and rooting depth is the reserve a crop draws on in a dry month.",
           "Water standing an hour after digging is a heavy texture holding on to it, which is what delays a drought here.",
@@ -1982,10 +1982,10 @@ export const CURRICULUM = {
           "The same unbroken rock at the base, two feet down instead of eleven inches"
         ],
         "choices": [
-          "Roughly three times the common's rooting depth, so a crop has a reserve under it",
-          "A heavier texture holding its water, so a dry August bites weeks later than on the common",
-          "The organic matter was carried here and made here, so the depth is a built thing rather than a found one",
-          "A hard floor with no store below it, so the profile can only ever be deepened from above"
+          "Roughly three times the common's rooting depth, so a crop has a reserve under it.",
+          "A heavier texture holding its water, so a dry August bites weeks later than on the common.",
+          "The organic matter was carried here and made here, so the depth is a built thing rather than a found one.",
+          "A hard floor with no store below it, so the profile can only ever be deepened from above."
         ],
         "mapping": [
           0,
@@ -2012,16 +2012,16 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Eleven years, at what rate",
-      "scene": "Blessing Okafor, who runs the tip, weighs everything that arrives: 204 tonnes last year, and the figure has risen about 3.5 per cent a year since the sorting yard opened. The cell has eleven years of volume left at last year's rate.",
+      "scene": "Blessing Okafor, who runs the tip, weighs everything that arrives. Last year it was 204 tonnes. The figure has risen about 3.5 per cent a year since the sorting yard opened. The cell has eleven years of volume left at last year's rate.",
       "takeaway": "A steady percentage growth doubles in seventy over that percentage, and it fills a hole early.",
       "place": "Tip and Sorting Yard",
-      "guide": "A quantity growing by the same percentage each year does not add, it multiplies, and the useful way to feel that is the time it takes to double. Divide seventy by the annual percentage. Then set the doubling time against the eleven years the hole is said to have, and decide whether \"eleven years at last year's rate\" is a forecast or a sentence with a condition hidden in it.",
+      "guide": "A quantity growing by the same percentage each year does not add, it multiplies, and the useful way to feel that is the time it takes to double. Divide seventy by the annual percentage. Then set the doubling time against the eleven years the hole is said to have. Decide whether \"eleven years at last year's rate\" is a forecast, or a sentence with a condition hidden in it.",
       "background": [
-        "Where the seventy comes from. It is the natural logarithm of two, multiplied by a hundred, so it works for any steadily compounding quantity — a population, a landfill, a bank balance, an epidemic. Seven per cent doubles in ten years, one per cent in seventy.",
+        "Where the seventy comes from. It is the natural logarithm of two, multiplied by a hundred. So it works for any steadily compounding quantity: a population, a landfill, a bank balance, an epidemic. Seven per cent doubles in ten years, one per cent in seventy.",
         "Why \"at last year's rate\" is the load-bearing phrase. Eleven years of volume divided by a constant annual tonnage is arithmetic. The tonnage is not constant, and a quantity that doubles in twenty years fills a hole considerably sooner than a flat one does. The phrase makes the estimate sound careful while removing the growth.",
         "What the island can do about the rate rather than the hole. What leaves on the ferry costs money per tonne and what stays takes volume. Hollis takes compostable material off Okafor's hands and returns it as topsoil, which is the only stream on the island that is genuinely removed from the arithmetic."
       ],
-      "story": "Blessing Okafor, who runs the tip, weighs everything that arrives: 204 tonnes last year, and the figure has risen about 3.5 per cent a year since the sorting yard opened. The cell has eleven years of volume left at last year's rate.",
+      "story": "Blessing Okafor, who runs the tip, weighs everything that arrives. Last year it was 204 tonnes. The figure has risen about 3.5 per cent a year since the sorting yard opened. The cell has eleven years of volume left at last year's rate.",
       "game": {
         "type": "BALLPARK",
         "title": "Eleven years, at what rate",
@@ -2030,7 +2030,7 @@ export const CURRICULUM = {
         "task": "Work out how long the hole has left",
         "question": "Estimate the doubling time of the island's annual waste tonnage.",
         "answer": "About twenty years to double — so the tonnage rises roughly a third inside the hole's stated life.",
-        "why": "Seventy over three and a half is twenty years, and that number is what turns the eleven-year figure into a claim with a condition. A tonnage doubling in twenty years is up about a third within eleven, so the volume consumed is not eleven times last year's arrivals but appreciably more, and the hole closes several years early. The phrase doing the damage is \"at last year's rate\", which sounds like caution and is the assumption the whole estimate rests on. What the island can actually move is the rate rather than the hole, and the only stream genuinely leaving the arithmetic is what Hollis composts.\n",
+        "why": "Seventy over three and a half is twenty years, and that number is what turns the eleven-year figure into a claim with a condition. A tonnage doubling in twenty years is up about a third within eleven. So the volume consumed is not eleven times last year's arrivals, but appreciably more. The hole closes several years early. The phrase doing the damage is \"at last year's rate\", which sounds like caution and is the assumption the whole estimate rests on. What the island can actually move is the rate rather than the hole, and the only stream genuinely leaving the arithmetic is what Hollis composts.\n",
         "rebuttals": [
           "Multiplying 204 tonnes by eleven years is the flat calculation the eleven-year figure already assumes.",
           "The eleven years is the answer being tested, not an input to the doubling time."
@@ -2072,7 +2072,7 @@ export const CURRICULUM = {
       "scene": "The tip's leachate collection runs at 2,300 litres a day and tested at 41 milligrams a litre of ammoniacal nitrogen. Okafor's note says the concentration is well below the discharge limit, which is true.",
       "takeaway": "Concentration is strength and load is mass; only mass accumulates in a store.",
       "place": "Tip and Sorting Yard",
-      "guide": "A concentration says how strong something is and a load says how much of it there is. Multiply the concentration by the flow to get a mass per day, and mind the units — a milligram per litre times litres a day is milligrams a day, which has to come back to kilograms before it can be compared with anything in a council paper. Then ask which of the two numbers the stream downstream of it responds to.",
+      "guide": "A concentration says how strong something is and a load says how much of it there is. Multiply the concentration by the flow to get a mass per day. Then mind the units. A milligram per litre times litres a day is milligrams a day. That has to come back to kilograms before it can be compared with anything in a council paper. Then ask which of the two numbers the stream downstream of it responds to.",
       "background": [
         "Why the limit is written as a concentration and the harm is done by the load. A limit on strength is easy to sample and easy to meet by dilution, which changes the concentration and not the mass. What accumulates in the ground, in the stream and in the borehole is mass, and mass is what a load measures.",
         "Why this pipe matters out of proportion to its size. Two thousand three hundred litres a day is nothing beside the island's water movements, and the tip sits up-catchment of the borehole. A small mass arriving continuously into a store that turns over once a decade accumulates, which is the same residence-time argument in a different currency.",
@@ -2087,7 +2087,7 @@ export const CURRICULUM = {
         "task": "Turn a leachate concentration into a daily load",
         "question": "Estimate the daily nitrogen load from the leachate.",
         "answer": "About 0.094 kilograms a day — some 34 kilograms a year, into a store with a nine-year turnover.",
-        "why": "Forty-one milligrams a litre times 2,300 litres is 94,000 milligrams, which is 0.094 kilograms a day and about 34 kilograms a year. The concentration passes the limit and the load is the number that matters, because what accumulates in an aquifer is mass. This is also why a limit written as a concentration is weak: it can be met by dilution, which changes the strength and not the mass. Thirty-four kilograms a year sounds small and belongs beside the other loads into the same store rather than beside a discharge limit it was never meant to be compared with.\n",
+        "why": "Forty-one milligrams a litre times 2,300 litres is 94,000 milligrams, which is 0.094 kilograms a day and about 34 kilograms a year. The concentration passes the limit and the load is the number that matters, because what accumulates in an aquifer is mass. This is also why a limit written as a concentration is weak: it can be met by dilution, which changes the strength and not the mass. Thirty-four kilograms a year sounds small. It belongs beside the other loads into the same store. It does not belong beside a discharge limit it was never meant to be compared with.\n",
         "rebuttals": [
           "The discharge limit is a concentration. Passing it says nothing about the mass arriving each year.",
           "Concentration times flow without the unit conversion gives milligrams a day, which is not comparable with anything in the pack."
@@ -2164,8 +2164,8 @@ export const CURRICULUM = {
       "place": "Tip and Sorting Yard",
       "guide": "The tip is short of volume, not of mass, and the ferry charges for mass. Rank the four streams by volume saved per pound spent shipping them, not by how much they weigh or how virtuous each feels. One of the four should not be shipped at all, because the island has a use for it.",
       "background": [
-        "Why the two currencies pull apart. Glass is heavy and compacts to almost nothing; plastic is light and takes volume no matter what is done to it. Ship by weight and the plastic is nearly free to remove and the glass is expensive, which is the opposite of the intuition that heavy things are the problem.",
-        "Why compostables are a special case. They are the heaviest stream and the wettest, so shipping them is the worst pound-for-pound choice — and Hollis will take them for nothing and return them as the only deep topsoil on the island. A stream with a local use is not a waste stream.",
+        "Why the two currencies pull apart. Glass is heavy and compacts to almost nothing; plastic is light and takes volume no matter what is done to it. Ship by weight and the plastic is nearly free to remove, while the glass is expensive. That is the opposite of the intuition that heavy things are the problem.",
+        "Why compostables are a special case. They are the heaviest stream and the wettest, so shipping them is the worst pound-for-pound choice. Hollis will take them for nothing. He returns them as the only deep topsoil on the island. A stream with a local use is not a waste stream.",
         "What the ferry's own arithmetic adds. Every tonne shipped is a tonne of fuel burnt across the crossing, and the island counts that in its own emissions because the sailing is made for it. The cheapest stream to remove by volume is not automatically the best one to remove overall."
       ],
       "story": "Okafor has 204 tonnes a year arriving, a cell with eleven years of volume and a ferry that charges by the tonne. Four streams could leave instead of staying: metal, glass, plastic and compostables.",
@@ -2191,10 +2191,10 @@ export const CURRICULUM = {
           "Scrap metal — heavy, dense, and worth money on the mainland"
         ],
         "choices": [
-          "Send it: the most volume removed per pound of freight",
-          "Crush it and keep it: cheap to store once compacted, expensive to send",
-          "Give it to the market garden: a local use makes it not a waste stream",
-          "Send it: the crossing is paid for by what the scrap sells for"
+          "Send it: the most volume removed per pound of freight.",
+          "Crush it and keep it: cheap to store once compacted, expensive to send.",
+          "Give it to the market garden: a local use makes it not a waste stream.",
+          "Send it: the crossing is paid for by what the scrap sells for."
         ],
         "mapping": [
           0,
@@ -2235,7 +2235,7 @@ export const CURRICULUM = {
       "guide": "A litre of fresh water weighs about a kilogram, so a milligram dissolved in it is one part in a million by mass. That makes two of these three units the same number. Convert the laboratory's figure into the licence's units, and into the guidance's, and check which pair are actually identical.",
       "background": [
         "Why the approximation holds here and not everywhere. Fresh water at ordinary temperatures is close enough to a kilogram a litre that the conversion is exact for any purpose a council paper has. In seawater, or in a brine, the density has moved and so has the conversion — which matters on an island where some samples are brackish.",
-        "Why three units exist for one quantity. The licence was drafted from a national template in parts per million, the laboratory reports in milligrams a litre because that is what its instruments produce, and health guidance uses micrograms because the numbers of interest are small. Nobody is being obscure; the units accumulated.",
+        "Why three units exist for one quantity. The licence was drafted from a national template in parts per million. The laboratory reports in milligrams a litre, because that is what its instruments produce. Health guidance uses micrograms, because the numbers of interest are small. Nobody is being obscure; the units accumulated.",
         "What the conversion cannot fix. None of the three is a load, and none is a dose. The same 8.4 milligrams a litre is a different mass per day depending on the flow and a different dose depending on who drinks it and how much. Getting the units right is the first step and not the answer."
       ],
       "story": "The laboratory reports the stream below the tip at 8.4 milligrams a litre of nitrate. The licence is written in parts per million and the mainland guidance in micrograms a litre. All three describe the same water.",
@@ -2247,7 +2247,7 @@ export const CURRICULUM = {
         "task": "Put the laboratory and the licence in the same units",
         "question": "Estimate the stream's nitrate in micrograms a litre.",
         "answer": "8,400 micrograms a litre, and the same sample is 8.4 parts per million.",
-        "why": "A milligram is a thousand micrograms, so the laboratory's 8.4 becomes 8,400 — the same water, reported in a unit chosen because health numbers are small. The parts-per-million figure is the one worth noticing: in fresh water a milligram a litre is a milligram in a kilogram, which is one part in a million, so 8.4 mg/L and 8.4 ppm are not merely comparable but identical. The density tile is what that rests on, and it stops being one in brackish water, which is half the samples on this island. What none of the three units gives is a load or a dose.\n",
+        "why": "A milligram is a thousand micrograms, so the laboratory's 8.4 becomes 8,400 — the same water, reported in a unit chosen because health numbers are small. The parts-per-million figure is the one worth noticing. In fresh water a milligram a litre is a milligram in a kilogram, which is one part in a million. So 8.4 mg/L and 8.4 ppm are not merely comparable but identical. The density tile is what that rests on, and it stops being one in brackish water, which is half the samples on this island. What none of the three units gives is a load or a dose.\n",
         "rebuttals": [
           "The licence limit is what the reading is compared against, not part of the conversion.",
           "Dividing by the density leaves the figure unchanged in fresh water and hides the assumption the conversion rests on."
@@ -2446,8 +2446,8 @@ export const CURRICULUM = {
       "place": "Tip and Sorting Yard",
       "guide": "Two gases cannot be added until they are in the same unit. Each has a global warming potential — how much heat a kilogram of it traps compared with a kilogram of carbon dioxide, over a stated period. Convert the methane and then compare, and note which period the conversion factor belongs to, because the answer changes with it.",
       "background": [
-        "Why methane's factor is so large and so slippery. It traps far more heat per kilogram than carbon dioxide and it breaks down in about a decade, so its potential depends entirely on the period chosen: roughly 28 over a hundred years, and around 80 over twenty. Both numbers are correct and they describe different questions.",
-        "Why a landfill emits it at all. Organic matter decomposing without oxygen produces methane rather than carbon dioxide. That is why diverting the compostable stream is an emissions action as much as a volume action, and why a flare — which burns methane to carbon dioxide — is worth so much despite producing a greenhouse gas itself.",
+        "Why methane's factor is so large and so slippery. It traps far more heat per kilogram than carbon dioxide, and it breaks down in about a decade. So its potential depends entirely on the period chosen. Roughly 28 over a hundred years, and around 80 over twenty. Both numbers are correct and they describe different questions.",
+        "Why a landfill emits it at all. Organic matter decomposing without oxygen produces methane rather than carbon dioxide. That is why diverting the compostable stream is an emissions action as much as a volume action. It is also why a flare is worth so much. A flare burns methane to carbon dioxide, and it is worth that despite producing a greenhouse gas itself.",
         "Why the pack lists only the diesel. Fuel arrives on an invoice and gas leaves through a vent nobody meters. What is easy to count gets counted, and an island reporting only its fuel emissions has left out something comparable in size."
       ],
       "story": "The cell vents methane from decomposing organic matter. Okafor's estimate is 14 tonnes a year. The diesel house emits about 205 tonnes of carbon dioxide. The pack lists only the second.",
@@ -2459,7 +2459,7 @@ export const CURRICULUM = {
         "task": "Put the tip's gas and the diesel's gas on one scale",
         "question": "Estimate the tip's methane emissions as carbon dioxide equivalent.",
         "answer": "About 392 tonnes of carbon dioxide equivalent — nearly twice the diesel house.",
-        "why": "The diesel is counted from the delivery note rather than the chimney: 78,000 litres at 2.63 kilograms a litre is 205 tonnes. Fourteen tonnes of methane at a hundred-year potential of 28 is 392 tonnes of carbon dioxide equivalent. The island's largest single greenhouse source is a vent on a hole, and it is not in the pack because fuel arrives on an invoice and gas does not. The period is doing real work in that sentence: at the twenty-year potential of 80 the same 14 tonnes is 1,120, which is five times the diesel house. Both figures are correct and they answer different questions, which is why the pack has to say which one it used. Adding the raw tonnages gives 219 and compares kilograms of two gases as though they were the same substance.\n",
+        "why": "The diesel is counted from the delivery note rather than the chimney: 78,000 litres at 2.63 kilograms a litre is 205 tonnes. Fourteen tonnes of methane at a hundred-year potential of 28 is 392 tonnes of carbon dioxide equivalent. The island's largest single greenhouse source is a vent on a hole. It is not in the pack, because fuel arrives on an invoice and gas does not. The period is doing real work in that sentence: at the twenty-year potential of 80 the same 14 tonnes is 1,120, which is five times the diesel house. Both figures are correct and they answer different questions, which is why the pack has to say which one it used. Adding the raw tonnages gives 219 and compares kilograms of two gases as though they were the same substance.\n",
         "rebuttals": [
           "The twenty-year potential is also correct and gives 1,120 tonnes; the pack has to state which period it used.",
           "Adding 14 tonnes to 205 treats a kilogram of methane as equivalent to a kilogram of carbon dioxide."
@@ -2511,11 +2511,11 @@ export const CURRICULUM = {
       "scene": "The pack needs one emissions figure. Seventy-eight thousand litres of diesel went into the sets this year and the cell vents about 14 tonnes of methane. The flare would burn the methane to carbon dioxide.",
       "takeaway": "A flare changes which gas carries the carbon, and that is most of the benefit.",
       "place": "Tip and Sorting Yard",
-      "guide": "Count the diesel from what went into the tank — litres times an emission factor — rather than from anything measured at the stack. Convert the methane to carbon dioxide equivalent, add the two and state the period the conversion belongs to. Then work out what the flare would leave, because burning methane does not remove the carbon — it changes which gas is carrying it, and that is most of the benefit.",
+      "guide": "Count the diesel from what went into the tank — litres times an emission factor — rather than from anything measured at the stack. Convert the methane to carbon dioxide equivalent, add the two and state the period the conversion belongs to. Then work out what the flare would leave. Burning methane does not remove the carbon. It changes which gas is carrying it, and that is most of the benefit.",
       "background": [
-        "What a flare actually does. It oxidises methane to carbon dioxide and water. The carbon still reaches the atmosphere, as a gas that traps a twenty-eighth as much heat per kilogram, so the climate effect falls by around ninety-five per cent while the emitted mass barely changes.",
+        "What a flare actually does. It oxidises methane to carbon dioxide and water. The carbon still reaches the atmosphere, as a gas that traps a twenty-eighth as much heat per kilogram. So the climate effect falls by around ninety-five per cent, while the emitted mass barely changes.",
         "Why diverting the compostables is better than flaring them. A flare deals with methane after it is made. Removing the organic matter means it is never made, and the same material becomes soil instead. The flare is what you fit for the material you cannot divert.",
-        "Why the period has to be on the line. At a hundred years methane is 28 times carbon dioxide and the tip is about two thirds of the island's total; at twenty years it is 80 times and the tip is five sixths of it. The same island, the same tonnages, two very different papers."
+        "Why the period has to be on the line. At a hundred years methane is 28 times carbon dioxide, and the tip is about two thirds of the island's total. At twenty years it is 80 times, and the tip is five sixths of it. The same island, the same tonnages, two very different papers."
       ],
       "story": "The pack needs one emissions figure. Seventy-eight thousand litres of diesel went into the sets this year and the cell vents about 14 tonnes of methane. The flare would burn the methane to carbon dioxide.",
       "game": {
@@ -2526,7 +2526,7 @@ export const CURRICULUM = {
         "task": "Put the island's two greenhouse sources on one line",
         "question": "Estimate the island's total annual emissions in carbon dioxide equivalent.",
         "answer": "About 597 tonnes a year, two thirds of it from the tip — and a flare would cut it to roughly 245.",
-        "why": "Fourteen tonnes of methane at 28 is 392, plus the diesel's 205, gives about 600 tonnes of carbon dioxide equivalent — and two thirds of the island's climate footprint is a vent nobody meters. That is the sentence the pack has been missing. The flare is the striking part: burning the methane leaves nearly the same mass of gas and about 40 tonnes of equivalent, because the carbon is now travelling as a gas that traps a twenty-eighth as much heat. Diverting the compostables is better still, because the methane is then never made. The period has to be stated: on the twenty-year basis the same tonnages give 1,325.\n",
+        "why": "Fourteen tonnes of methane at 28 is 392. Add the diesel's 205 and it gives about 600 tonnes of carbon dioxide equivalent. So two thirds of the island's climate footprint is a vent nobody meters. That is the sentence the pack has been missing. The flare is the striking part. Burning the methane leaves nearly the same mass of gas, and about 40 tonnes of equivalent. The carbon is now travelling as a gas that traps a twenty-eighth as much heat. Diverting the compostables is better still, because the methane is then never made. The period has to be stated: on the twenty-year basis the same tonnages give 1,325.\n",
         "rebuttals": [
           "The twenty-year potential gives 1,325 tonnes. Both are correct and the pack must say which it used.",
           "Adding the raw tonnages compares a kilogram of methane with a kilogram of carbon dioxide."
@@ -2603,7 +2603,7 @@ export const CURRICULUM = {
         "task": "Match each observation to what kind of source it indicates.",
         "question": "Match each observation to what kind of source it indicates.",
         "answer": "Rain-driven nitrogen is diffuse, the steady outfall is a point source, the oil is a hardstanding behaving diffusely, and the flat chloride belongs to the aquifer.",
-        "why": "Each pattern is diagnostic. Nitrogen appearing in the first hour after rain and vanishing in dry weather is being washed off fertilised ground across the whole catchment, which is managed by changing practice rather than by a licence. A concentration steady in every condition has a continuous flow behind it, which is a pipe with an owner. The oil is the case worth arguing: it comes from one yard and only moves when it rains, so it is a point source with a diffuse signature and both tools apply. And the flat chloride matters most — it rules this stream out of the salt problem, which means the borehole's chloride is arriving through the rock.\n",
+        "why": "Each pattern is diagnostic. Nitrogen appearing in the first hour after rain and vanishing in dry weather is being washed off fertilised ground. That happens across the whole catchment. It is managed by changing practice rather than by a licence. A concentration steady in every condition has a continuous flow behind it, which is a pipe with an owner. The oil is the case worth arguing. It comes from one yard and only moves when it rains. So it is a point source with a diffuse signature, and both tools apply. And the flat chloride matters most — it rules this stream out of the salt problem, which means the borehole's chloride is arriving through the rock.\n",
         "rebuttals": [
           "Nitrogen that spikes with rain and disappears in dry weather is being washed off the ground, not piped.",
           "A concentration that does not move with the weather has a steady flow behind it, which is a pipe.",
@@ -2617,10 +2617,10 @@ export const CURRICULUM = {
           "Chloride unchanged along the whole stream in every condition"
         ],
         "choices": [
-          "Diffuse runoff from fertilised ground across the catchment",
-          "A point discharge with a steady flow behind it",
-          "A hardstanding: a definite place, behaving like a diffuse source because rain moves it",
-          "No source on this stream; the signal being followed is in the aquifer instead"
+          "Diffuse runoff from fertilised ground across the catchment.",
+          "A point discharge with a steady flow behind it.",
+          "A hardstanding: a definite place, behaving like a diffuse source because rain moves it.",
+          "No source on this stream; the signal being followed is in the aquifer instead."
         ],
         "mapping": [
           0,
@@ -2683,7 +2683,7 @@ export const CURRICULUM = {
       "background": [
         "What each number decides. Average demand times hours in the year is the energy, which sets the fuel bill and what a turbine could displace. The peak half hour sets the plant: three sets exist so that the largest can fail during the peak and the island stays lit.",
         "Why the peak is where it is. A July evening with the ferry alongside is cooking, showers, the berth's own load and the chandlery all at once, with the cable out. It is not a typical July evening; it is the worst credible combination, and that is exactly what a plant is sized against.",
-        "Why a second sailing matters here out of proportion. It does not move the annual energy much — a few more crossings against a whole year — and it adds directly to the one half hour that already sets the plant. A small change to the average can be a large change to the peak."
+        "Why a second sailing matters here out of proportion. It does not move the annual energy much: a few more crossings against a whole year. But it adds directly to the one half hour that already sets the plant. A small change to the average can be a large change to the peak."
       ],
       "story": "Aled Ferris, the power engineer, has four years of half-hourly demand. The annual average is 88 kilowatts and the highest half hour on record is 310, on a July evening with the ferry alongside and the cable out.",
       "game": {
@@ -2693,20 +2693,20 @@ export const CURRICULUM = {
         "play": "Find where the demand actually peaks",
         "task": "Find where the demand actually peaks",
         "question": "Which figure does a second sailing change in the way that costs money?",
-        "answer": "The July peak half hour, which sizes the diesel plant",
-        "why": "A handful of extra crossings adds very little to a year's energy and lands directly on the half hour that already sets the plant — a July evening with the boat alongside and the cable out. Plant is bought for peaks and fuel is bought for totals, and the two questions have different units: kilowatts against kilowatt-hours. That is why the annual average is the wrong figure to argue the ferry from, and why Ferris keeps returning to a single half hour four years ago. The turbine's capacity factor is a property of the wind rather than of the ferry and does not move at all.\n",
+        "answer": "The July peak half hour, which sizes the diesel plant.",
+        "why": "A handful of extra crossings adds very little to a year's energy. It lands directly on the half hour that already sets the plant. That is a July evening with the boat alongside and the cable out. Plant is bought for peaks and fuel is bought for totals, and the two questions have different units: kilowatts against kilowatt-hours. That is why the annual average is the wrong figure to argue the ferry from, and why Ferris keeps returning to a single half hour four years ago. The turbine's capacity factor is a property of the wind rather than of the ferry and does not move at all.\n",
         "rebuttals": [
           "The annual total barely moves: a few crossings against 8,760 hours of everything else.",
           "An average across the year is the least sensitive number to a change concentrated in one month.",
           "Capacity factor describes what the wind gives the turbine and is unaffected by sailings."
         ],
         "choices": [
-          "The July peak half hour, which sizes the diesel plant",
-          "The annual energy total, which is what the fuel order for the year is set from",
-          "The average demand across the year",
-          "The capacity factor of the turbine on the hill"
+          "The July peak half hour, which sizes the diesel plant.",
+          "The annual energy total, which is what the fuel order for the year is set from.",
+          "The average demand across the year.",
+          "The capacity factor of the turbine on the hill."
         ],
-        "correctChoice": "The July peak half hour, which sizes the diesel plant"
+        "correctChoice": "The July peak half hour, which sizes the diesel plant."
       },
       "assumes": [
         "the four years of half-hourly records cover the same load",
@@ -2754,7 +2754,7 @@ export const CURRICULUM = {
       "scene": "Ferris has the island's average demand at 88 kilowatts across the whole year. The diesel invoice covers the nine days the cable was out and he wants the annual energy figure to compare it against.",
       "takeaway": "Energy is power times time, and a year is 8,760 hours of it.",
       "place": "Turbine Yard",
-      "guide": "Energy is a rate multiplied by a time. Take the average power and the hours in a year and multiply. The number that comes out is the whole island's consumption, and it is the figure a turbine's output, a fuel bill and a tariff all have to be compared with — none of which can be compared with a demand in kilowatts.",
+      "guide": "Energy is a rate multiplied by a time. Take the average power and the hours in a year and multiply. The number that comes out is the whole island's consumption. It is the figure a turbine's output, a fuel bill and a tariff all have to be compared with. None of those can be compared with a demand in kilowatts.",
       "background": [
         "Why this conversion is where the confusion lives. A kilowatt is a rate, like a speed; a kilowatt-hour is an amount, like a distance. Most arguments about energy on this island have been two people using the same word for both, and a factor of 8,760 between them.",
         "What the average conceals and why it is still the right number here. It hides the July peak entirely, which is a separate question about plant. For fuel, tariffs and anything a turbine might displace, the total is what matters, and the total is the average times the hours.",
@@ -2769,7 +2769,7 @@ export const CURRICULUM = {
         "task": "Turn a demand into a year of energy",
         "question": "Predict the island's annual energy from the average demand, then read the meter total.",
         "answer": "About 771 megawatt-hours predicted from 88 kilowatts across 8,760 hours, and the meter says 764 — of which the March outage was some 19.",
-        "why": "Eighty-eight kilowatts held for 8,760 hours is 771 megawatt-hours, and the meter says 764 — close enough to confirm that the average is a real average rather than a convenient one. That total is what everything else is compared against: the fuel bill, the tariff and whatever the turbine might displace. Predicting from the 310 kilowatt peak instead gives 2,700, which is the island's consumption if the worst half hour ever recorded ran all year, and the meter would have refuted it by a factor of three. Rate and amount are the same word in ordinary speech and a factor of nearly nine thousand apart here, which is why the reading is worth taking.\n",
+        "why": "Eighty-eight kilowatts held for 8,760 hours is 771 megawatt-hours, and the meter says 764. That is close enough to confirm the average is a real average rather than a convenient one. That total is what everything else is compared against: the fuel bill, the tariff and whatever the turbine might displace. Predicting from the 310 kilowatt peak instead gives 2,700. That is the island's consumption if the worst half hour ever recorded ran all year. The meter would have refuted it by a factor of three. Rate and amount are the same word in ordinary speech and a factor of nearly nine thousand apart here, which is why the reading is worth taking.\n",
         "relationship": "kWh = kW × h: energy is power multiplied by the time it ran.",
         "verify": {
           "prediction": {
@@ -2850,11 +2850,11 @@ export const CURRICULUM = {
       "scene": "The pack has three draft sentences about the reef in front of it. Ferris wants the one that will survive being read out by somebody who disagrees with it; Dunmore wants the one that is true.",
       "takeaway": "A trend, a correlation and a cause need three different amounts of evidence.",
       "place": "Turbine Yard",
-      "guide": "Take each draft sentence and ask what evidence it would take to support it, then check whether eleven springs of cover and temperature on one bay is that evidence. A trend, a correlation and a cause need three different amounts of data, and only one of the three is in the room.",
+      "guide": "Take each draft sentence and ask what evidence it would take to support it. Then check whether eleven springs of cover and temperature on one bay is that evidence. A trend, a correlation and a cause need three different amounts of data, and only one of the three is in the room.",
       "background": [
         "What a trend needs. Repeated measurement by a consistent method over a period long relative to the variation. Eleven springs on eleven fixed transects is exactly that, and it is why this record is the strongest thing on the island.",
-        "What attribution needs beyond a trend. Either an experiment, which is impossible here, or enough independent lines of evidence to rule out the alternatives — other reefs as controls, a bleaching record tied to specific warm weeks, a nutrient series, a sediment series. Some of that exists elsewhere; almost none of it exists for Vellan.",
-        "Why understating is also a failure. \"Cover has changed\" is defensible and useless. The pack has to carry the strongest claim the evidence supports, because a paper that says less than it knows invites a decision the evidence would not have allowed."
+        "What attribution needs beyond a trend. Either an experiment, which is impossible here, or enough independent lines of evidence to rule out the alternatives. Other reefs as controls. A bleaching record tied to specific warm weeks. A nutrient series. A sediment series. Some of that exists elsewhere; almost none of it exists for Vellan.",
+        "Why understating is also a failure. \"Cover has changed\" is defensible and useless. The pack has to carry the strongest claim the evidence supports. A paper that says less than it knows invites a decision the evidence would not have allowed."
       ],
       "story": "The pack has three draft sentences about the reef in front of it. Ferris wants the one that will survive being read out by somebody who disagrees with it; Dunmore wants the one that is true.",
       "game": {
@@ -2865,7 +2865,7 @@ export const CURRICULUM = {
         "task": "Match each draft sentence to what it would take to support it.",
         "question": "Match each draft sentence to what it would take to support it.",
         "answer": "The fall is supported, the correlation is supported, causation by warming is not, and the nutrient claim has no series behind it at all.",
-        "why": "The record is strong and it is strong about one thing: a fall in cover, measured the same way, over long enough to be a trend. Putting the temperature series beside it gives a correlation, which is a real and weaker claim. Attribution is a different order of evidence — control sites, bleaching tied to specific warm weeks, the alternatives eliminated — and none of that exists here. The nutrient sentence is the one to strike outright, because nobody has collected a nutrient series for the bay. The pack should carry the two claims the data supports, stated at full strength, because a paper that says less than it knows invites a decision the evidence would have prevented.\n",
+        "why": "The record is strong and it is strong about one thing: a fall in cover, measured the same way, over long enough to be a trend. Putting the temperature series beside it gives a correlation, which is a real and weaker claim. Attribution is a different order of evidence — control sites, bleaching tied to specific warm weeks, the alternatives eliminated — and none of that exists here. The nutrient sentence is the one to strike outright, because nobody has collected a nutrient series for the bay. The pack should carry the two claims the data supports, stated at full strength. A paper that says less than it knows invites a decision the evidence would have prevented.\n",
         "rebuttals": [
           "A fall measured the same way over eleven springs is a trend, and the record supports it.",
           "Two series over one period is a correlation, which is a weaker and still useful claim.",
@@ -2879,10 +2879,10 @@ export const CURRICULUM = {
           "Local nutrient loading is the main driver of the decline"
         ],
         "choices": [
-          "Consistent method and a long enough series: this record already supports it",
-          "Both series measured over the same period, which this record has",
-          "Control sites, bleaching events tied to warm weeks, and the alternatives ruled out",
-          "A nutrient series for the bay, which nobody has collected"
+          "Consistent method and a long enough series: this record already supports it.",
+          "Both series measured over the same period, which this record has.",
+          "Control sites, bleaching events tied to warm weeks, and the alternatives ruled out.",
+          "A nutrient series for the bay, which nobody has collected."
         ],
         "mapping": [
           0,
@@ -2943,9 +2943,9 @@ export const CURRICULUM = {
       "place": "Turbine Yard",
       "guide": "Work out the energy that went in, then compare it with the electricity that came out. The ratio is the efficiency. Then account for the missing part: it has not disappeared, and on this island there is a use for some of it that nobody has taken up.",
       "background": [
-        "Why a third is normal. A diesel generator turns about a third of the fuel's chemical energy into electricity at full load, less at part load, and the rest leaves as exhaust heat and jacket cooling. This is not a fault in the machine — it is what a heat engine does, and the ceiling is set by thermodynamics rather than maintenance.",
-        "Why part load makes it worse. A set running at a quarter of its rating burns a disproportionate amount of fuel for what it delivers, and Vellan's demand varies by a factor of three across a day. Running one set hard is better than three sets lightly, which is a scheduling decision rather than a capital one.",
-        "What the heat could do. Two thirds of 835,000 kilowatt-hours is a very large amount of low-grade heat leaving the diesel house through a radiator forty metres from a school that burns oil for its heating. Nobody has piped it, and no efficiency figure for the generator will ever show that as a loss."
+        "Why a third is normal. A diesel generator turns about a third of the fuel's chemical energy into electricity at full load, less at part load. The rest leaves as exhaust heat and jacket cooling. This is not a fault in the machine — it is what a heat engine does, and the ceiling is set by thermodynamics rather than maintenance.",
+        "Why part load makes it worse. A set running at a quarter of its rating burns a disproportionate amount of fuel for what it delivers. Vellan's demand varies by a factor of three across a day. Running one set hard is better than three sets lightly, which is a scheduling decision rather than a capital one.",
+        "What the heat could do. Two thirds of 835,000 kilowatt-hours is a very large amount of low-grade heat. It leaves the diesel house through a radiator forty metres from a school that burns oil for its heating. Nobody has piped it, and no efficiency figure for the generator will ever show that as a loss."
       ],
       "story": "Seventy-eight thousand litres of diesel went into the sets this year. Each litre holds about 10.7 kilowatt-hours of energy, and the sets generated 271,000 kilowatt-hours of electricity between them.",
       "game": {
@@ -2956,7 +2956,7 @@ export const CURRICULUM = {
         "task": "Work out what fraction of the fuel became electricity",
         "question": "Read what you need and report the energy that left the sets as heat.",
         "answer": "About 522 megawatt-hours left as heat: the 835 that went in, less the 271 that reached the board and the 42 the sets used on themselves.",
-        "why": "Seventy-eight thousand litres at 10.7 kilowatt-hours each is 835 megawatt-hours in, and 271 reached the board: a third, which is what a diesel generator does when it is working properly. The term that does not announce itself is the auxiliaries — pumps, fans and jacket heaters drawn by the sets before the board meter, so they are never billed and never appear. Forty-two megawatt-hours of work the plant does for itself. What is left, 522 megawatt-hours, is low-grade heat leaving through a radiator forty metres from a school heated with oil, and no efficiency figure for the generator will ever record that as a loss. The jacket cooling is part of that heat rather than a separate stream, and counting it again double-counts the largest number here.\n",
+        "why": "Seventy-eight thousand litres at 10.7 kilowatt-hours each is 835 megawatt-hours in. Of that, 271 reached the board. A third is what a diesel generator does when it is working properly. The term that does not announce itself is the auxiliaries. Pumps, fans and jacket heaters are drawn by the sets before the board meter. So they are never billed and never appear. Forty-two megawatt-hours of work the plant does for itself. What is left, 522 megawatt-hours, is low-grade heat. It leaves through a radiator forty metres from a school heated with oil. No efficiency figure for the generator will ever record that as a loss. The jacket cooling is part of that heat rather than a separate stream, and counting it again double-counts the largest number here.\n",
         "relationship": "efficiency = useful ÷ input × 100: the fraction of the energy put in that did the job wanted.",
         "balance": {
           "total": {
@@ -3052,11 +3052,11 @@ export const CURRICULUM = {
       "scene": "The turbine is rated at 250 kilowatts. In its last full year before the gearbox failed it generated 613,000 kilowatt-hours. The brochure quotes an annual output of 900,000.",
       "takeaway": "Capacity factor is what the machine actually gives, and it already contains the calm days.",
       "place": "Turbine Yard",
-      "guide": "Work out what the machine would have made if it had run at its rating every hour of the year, then compare what it actually made with that. The ratio is the capacity factor and it is the only number that plans anything, because it already contains the hours the wind was too light, too strong or gone.",
+      "guide": "Work out what the machine would have made if it had run at its rating every hour of the year, then compare what it actually made with that. The ratio is the capacity factor, and it is the only number that plans anything. It already contains the hours the wind was too light, too strong or gone.",
       "background": [
         "Why a rating is not a forecast. The rating is the output at the wind speed the machine is designed for, which on Vellan happens perhaps a fifth of the time. The rest of the year it produces less, and above a cut-out speed it produces nothing at all and turns itself out of the wind.",
         "What a good capacity factor looks like. Onshore wind sits between about 25 and 35 per cent, offshore rather higher, and rooftop solar in this latitude around 10. A figure near 28 per cent on an exposed island is a genuinely good machine, and it is still nothing like the rating.",
-        "Why the brochure figure is not dishonest and is still wrong. It is a modelled output at a reference wind distribution, which Vellan does not have — the island is windier on average and loses more hours to cut-out in winter gales. The only trustworthy figure is the one measured on this hill."
+        "Why the brochure figure is not dishonest and is still wrong. It is a modelled output at a reference wind distribution, which Vellan does not have. The island is windier on average, and loses more hours to cut-out in winter gales. The only trustworthy figure is the one measured on this hill."
       ],
       "story": "The turbine is rated at 250 kilowatts. In its last full year before the gearbox failed it generated 613,000 kilowatt-hours. The brochure quotes an annual output of 900,000.",
       "game": {
@@ -3067,7 +3067,7 @@ export const CURRICULUM = {
         "task": "Work out what the machine gives on average",
         "question": "Estimate the turbine's capacity factor on Vellan.",
         "answer": "About 0.28 — a good capacity factor, and well under a third of the rating.",
-        "why": "Two hundred and fifty kilowatts for 8,760 hours would be 2.19 million kilowatt-hours, and the machine made 613,000: a capacity factor of 0.28. That is a genuinely good number for onshore wind and it is nothing like the rating, because the rating is the output at one wind speed and the factor already contains every calm hour, every gale above cut-out and every hour of maintenance. Comparing against the brochure's 900,000 gives 0.68, which is a comparison between two estimates rather than a measurement. The 613,000 is what this hill actually produced, and it is the only figure a nine-year decision should rest on.\n",
+        "why": "Two hundred and fifty kilowatts for 8,760 hours would be 2.19 million kilowatt-hours, and the machine made 613,000: a capacity factor of 0.28. That is a genuinely good number for onshore wind, and it is nothing like the rating. The rating is the output at one wind speed. The factor already contains every calm hour, every gale above cut-out and every hour of maintenance. Comparing against the brochure's 900,000 gives 0.68, which is a comparison between two estimates rather than a measurement. The 613,000 is what this hill actually produced, and it is the only figure a nine-year decision should rest on.\n",
         "rebuttals": [
           "Comparing with the brochure figure compares two estimates and measures neither.",
           "Dividing the annual generation by the rating alone leaves out the hours, so the answer is not a fraction of anything."
@@ -3133,8 +3133,8 @@ export const CURRICULUM = {
       "place": "Turbine Yard",
       "guide": "Two trends run in opposite directions and the plant has to be specified against both. Work out which of them sets the plant and which sets the fuel, then say what the specification should follow. A falling total and a rising peak is not a contradiction; it is two different quantities, and only one of them buys equipment.",
       "background": [
-        "Why the two diverge. Residents use energy all year and set the average. Visitors use it in twenty weeks and concentrate it in evenings, so they barely move the annual total and land squarely on the peak half hour that sizes the plant.",
-        "What over-sizing costs. Diesel sets run inefficiently at part load, so a plant sized for a peak that rarely happens burns more fuel per unit all year. The cost of being wrong upward is continuous and invisible; the cost of being wrong downward is one dark evening and very visible, which is why plants are usually over-sized.",
+        "Why the two diverge. Residents use energy all year and set the average. Visitors use it in twenty weeks and concentrate it in evenings. So they barely move the annual total. They land squarely on the peak half hour that sizes the plant.",
+        "What over-sizing costs. Diesel sets run inefficiently at part load, so a plant sized for a peak that rarely happens burns more fuel per unit all year. The cost of being wrong upward is continuous and invisible. The cost of being wrong downward is one dark evening, and very visible. That is why plants are usually over-sized.",
         "Why the falling resident number does not save any equipment. Fewer residents lowers the average and the fuel bill. It does nothing to the July evening with the ferry alongside and the cable out, and that half hour is what the third diesel set exists for."
       ],
       "story": "Ferris has to specify the replacement cable and the diesel sets for twenty-five years. The resident population is falling at four per cent a year; the July peak is set by visitors and is rising.",
@@ -3145,20 +3145,20 @@ export const CURRICULUM = {
         "play": "Decide what the plant has to be sized for",
         "task": "Decide what the plant has to be sized for",
         "question": "What should the twenty-five-year specification follow?",
-        "answer": "The July peak for plant; the falling average for fuel",
-        "why": "The two trends answer two different questions and the specification needs both. Plant is bought for the worst credible half hour, and that is a July evening with the boat alongside and the cable out — which is rising, whatever the register does. Fuel, tariffs and anything a turbine displaces follow the annual total, which is falling with the resident population. Following the falling trend alone leaves the island dark on the one evening it has visitors; following the peak for both over-sizes the sets, and diesels at part load burn more per unit all year, which is a continuous invisible cost. The present average is stable because it averages the two trends into a number describing neither.\n",
+        "answer": "The July peak for plant; the falling average for fuel.",
+        "why": "The two trends answer two different questions and the specification needs both. Plant is bought for the worst credible half hour. That is a July evening with the boat alongside and the cable out. It is rising, whatever the register does. Fuel, tariffs and anything a turbine displaces follow the annual total, which is falling with the resident population. Following the falling trend alone leaves the island dark on the one evening it has visitors. Following the peak for both over-sizes the sets. Diesels at part load burn more per unit all year, and that is a continuous invisible cost. The present average is stable because it averages the two trends into a number describing neither.\n",
         "rebuttals": [
           "Sizing plant to a falling average leaves nothing for the one half hour that has always set the plant.",
           "Sizing fuel to the peak assumes a load the island has never held for more than thirty minutes.",
           "Today's average is the midpoint of two opposing trends and describes neither of them in twenty-five years."
         ],
         "choices": [
-          "The July peak for plant; the falling average for fuel",
-          "The falling resident population, on the grounds that it is the long-run trend",
-          "The rising July peak, for both plant and fuel",
-          "The present annual average, as the most stable figure available"
+          "The July peak for plant; the falling average for fuel.",
+          "The falling resident population, on the grounds that it is the long-run trend.",
+          "The rising July peak, for both plant and fuel.",
+          "The present annual average, as the most stable figure available."
         ],
-        "correctChoice": "The July peak for plant; the falling average for fuel"
+        "correctChoice": "The July peak for plant; the falling average for fuel."
       },
       "assumes": [
         "the twenty-five-year specification cannot be revisited cheaply",
@@ -3208,7 +3208,7 @@ export const CURRICULUM = {
       "scene": "Berhane has eleven springs of transect counts and a bathymetric chart on the wall. The reef runs across the mouth of the bay in a broken line, and the harbour sits behind it.",
       "takeaway": "A service nobody is billed for is invisible in every account until it stops.",
       "place": "Reef Station",
-      "guide": "Ask what would have to be built if the thing were not there. The harbour's swell, the beach that the school uses, the ground the west boats fish and the nursery those fish come from are four separate benefits, and only one of them appears in any island account. The question is which of the four is doing the work the ferry paper silently assumes.",
+      "guide": "Ask what would have to be built if the thing were not there. The harbour's swell. The beach that the school uses. The ground the west boats fish, and the nursery those fish come from. Those are four separate benefits, and only one of them appears in any island account. The question is which of the four is doing the work the ferry paper silently assumes.",
       "background": [
         "What an ecosystem service is. Something a working system does that would otherwise have to be paid for. A reef breaking a swell is a breakwater; a marsh holding a flood is a reservoir; pollination is a workforce. The term exists because these things are invisible in accounts until they stop.",
         "Why the invisibility is the problem rather than the price. Nobody sends the island a bill for the reef, so no line in the ferry paper falls when the reef declines. The cost appears years later, in dredging, in a sea wall, or in the west ground being fished out because its nursery went.",
@@ -3222,20 +3222,20 @@ export const CURRICULUM = {
         "play": "Say what the reef is doing that nobody pays for",
         "task": "Say what the reef is doing that nobody pays for",
         "question": "Which of these is the reef's service the ferry paper is silently relying on?",
-        "answer": "Breaking the swell before it reaches the berth",
-        "why": "The berth is behind the reef line, and a second sailing means more days when the boat has to work in weather. What makes that a service rather than a fact about geography is that the alternative has a price: a breakwater, built and maintained. The paper assumes the shelter without costing it, which is exactly how these things go missing. The other three are not services this reef provides. A reef is not a quarry here, the freshwater lens is held by the rock and the recharge rather than by anything offshore, and the quantity of carbon dioxide a coral reef takes up is small and largely returned.\n",
+        "answer": "Breaking the swell before it reaches the berth.",
+        "why": "The berth is behind the reef line, and a second sailing means more days when the boat has to work in weather. What makes that a service rather than a fact about geography is that the alternative has a price: a breakwater, built and maintained. The paper assumes the shelter without costing it, which is exactly how these things go missing. The other three are not services this reef provides. A reef is not a quarry here. The freshwater lens is held by the rock and the recharge, not by anything offshore. And the quantity of carbon dioxide a coral reef takes up is small, and largely returned.\n",
         "rebuttals": [
           "Coral limestone is not quarried on Vellan, and taking it would remove the shelter the harbour depends on.",
           "The freshwater lens sits in the island's own rock; what holds it is recharge against abstraction, not the reef.",
           "Reefs cycle carbon rather than storing it on the scale of a diesel plant's emissions."
         ],
         "choices": [
-          "Breaking the swell before it reaches the berth",
-          "Providing coral limestone as a source of building material for the island",
-          "Holding the freshwater lens under the island in place against the sea",
-          "Absorbing the diesel house's carbon dioxide emissions"
+          "Breaking the swell before it reaches the berth.",
+          "Providing coral limestone as a source of building material for the island.",
+          "Holding the freshwater lens under the island in place against the sea.",
+          "Absorbing the diesel house's carbon dioxide emissions."
         ],
-        "correctChoice": "Breaking the swell before it reaches the berth"
+        "correctChoice": "Breaking the swell before it reaches the berth."
       },
       "assumes": [
         "the reef's position across the bay mouth is what shelters the harbour",
@@ -3264,9 +3264,9 @@ export const CURRICULUM = {
       "place": "Reef Station",
       "guide": "Work upward one step at a time. Roughly a tenth of the energy held at each level reaches the one above it, because most of it is spent living, lost as heat or never eaten. Three steps up from the producers is a tenth of a tenth of a tenth. Do the arithmetic before deciding whether the west ground's landings are plausible.",
       "background": [
-        "Where the ninety per cent goes. Respiration takes the largest share — an animal spends most of what it eats staying alive — and the rest is lost as heat, excreted, or simply not eaten. The tenth that transfers is an average across systems and runs from about two per cent to twenty.",
-        "Why this is the reason food chains are short. Four steps up from a producer leaves a ten-thousandth of the original energy, which cannot support a population of any size. It is also why a predator at the top of a web is rare, slow to mature and slow to recover, and why fishing one is a different proposition from fishing a herbivore.",
-        "What it means for the quota argument. Landings are measured at the thin end. A change in the plankton or in what grazes it moves the top of the web with a lag of years, so a stock assessment that reads only landings sees the consequence long after the cause, which is Rask's objection to a quota argued in tonnes alone."
+        "Where the ninety per cent goes. Respiration takes the largest share, because an animal spends most of what it eats staying alive. The rest is lost as heat, excreted, or simply not eaten. The tenth that transfers is an average across systems and runs from about two per cent to twenty.",
+        "Why this is the reason food chains are short. Four steps up from a producer leaves a ten-thousandth of the original energy, which cannot support a population of any size. It is also why a predator at the top of a web is rare, slow to mature and slow to recover. And it is why fishing one is a different proposition from fishing a herbivore.",
+        "What it means for the quota argument. Landings are measured at the thin end. A change in the plankton or in what grazes it moves the top of the web, with a lag of years. So a stock assessment that reads only landings sees the consequence long after the cause. That is Rask's objection to a quota argued in tonnes alone."
       ],
       "story": "Berhane has a productivity figure for the bay: the plankton fix about 84,000 kilojoules a square metre a year. The west boats land predators three steps up from that.",
       "game": {
@@ -3277,7 +3277,7 @@ export const CURRICULUM = {
         "task": "Work the energy up from the bottom of the web",
         "question": "Estimate the energy reaching the third level up from the producers.",
         "answer": "About 84 kilojoules a square metre a year — a thousandth of what the producers fixed.",
-        "why": "Three transfers at a tenth each leave a thousandth, so 84,000 kilojoules becomes 84. That is the whole reason the top of a web is thin, and it reframes the quota argument: the west boats are harvesting a level that only ever receives a thousandth of the bay's production, so a small proportional change lower down is a large change to them. Using the 0.9 gives 61,000, which is what is lost rather than what transfers — a plausible number with the wrong meaning, and the tile is on the board because that is exactly how the mistake is made. The lag matters as much as the size: a change at the bottom reaches the landings years later.\n",
+        "why": "Three transfers at a tenth each leave a thousandth, so 84,000 kilojoules becomes 84. That is the whole reason the top of a web is thin, and it reframes the quota argument. The west boats are harvesting a level that only ever receives a thousandth of the bay's production. So a small proportional change lower down is a large change to them. Using the 0.9 gives 61,000, which is what is lost rather than what transfers. It is a plausible number with the wrong meaning. The tile is on the board because that is exactly how the mistake is made. The lag matters as much as the size: a change at the bottom reaches the landings years later.\n",
         "rebuttals": [
           "The 0.9 is the share lost at each step; applying it gives what did not transfer.",
           "One transfer rather than three answers about grazers, which nobody lands here."
@@ -3344,7 +3344,7 @@ export const CURRICULUM = {
       "scene": "Two species come off the west ground. One matures at two years and spawns hundreds of thousands of eggs; the other matures at nine and produces a few dozen young a season. The quota treats them as tonnes.",
       "takeaway": "Two stocks of equal weight are not two harvests of equal cost.",
       "place": "Reef Station",
-      "guide": "Sort the two by how they reproduce, then ask what each does after a bad year. Many small offspring with no care is one strategy and a few large ones with a long maturation is the other, and they respond to fishing in opposite ways. A quota in tonnes is silent about which of the two it is taking.",
+      "guide": "Sort the two by how they reproduce, then ask what each does after a bad year. Many small offspring with no care is one strategy. A few large ones with a long maturation is the other. They respond to fishing in opposite ways. A quota in tonnes is silent about which of the two it is taking.",
       "background": [
         "What the two strategies are. An r-selected species matures early, breeds prolifically and dies young; a K-selected one matures late, breeds slowly and lives long. Neither is better — they are answers to different conditions, one to an unpredictable environment and the other to a crowded stable one.",
         "Why it decides recovery. Fish out an r-selected stock and it can rebuild in a few seasons if the habitat holds, because the survivors breed fast. Fish out a K-selected one and recovery takes decades, because nothing in its life history is fast. The same tonnage taken from the two is not the same decision.",
@@ -3358,20 +3358,20 @@ export const CURRICULUM = {
         "play": "Say which fish is which kind of animal",
         "task": "Say which fish is which kind of animal",
         "question": "What does the difference between the two species mean for a quota written in tonnes?",
-        "answer": "The same tonnage is a far heavier harvest on the slow-maturing one",
-        "why": "A hundred tonnes of a fish that matures at two and spawns in hundreds of thousands is a harvest the stock can replace within a few seasons. A hundred tonnes of one that matures at nine and produces dozens is a harvest that removes breeding adults which cannot be replaced for a decade or more. The weight is identical and the decision is not, which is why assessments are written per species. Protecting the abundant one first inverts the argument, and closing the ground entirely is a real option that the arithmetic does not require — it requires the quota to be split.\n",
+        "answer": "The same tonnage is a far heavier harvest on the slow-maturing one.",
+        "why": "A hundred tonnes of a fish that matures at two and spawns in hundreds of thousands is a harvest the stock can replace within a few seasons. A hundred tonnes of one that matures at nine and produces dozens is a harvest that removes breeding adults which cannot be replaced for a decade or more. The weight is identical and the decision is not, which is why assessments are written per species. Protecting the abundant one first inverts the argument. Closing the ground entirely is a real option, but the arithmetic does not require it. It requires the quota to be split.\n",
         "rebuttals": [
           "Biomass is what the scale reads. It says nothing about how long the animals took to grow.",
           "Abundance is not the same as resilience; the numerous species here is the one that recovers fastest.",
           "Closing the ground is available and stronger than the evidence needs; separating the quota is what the difference argues for."
         ],
         "choices": [
-          "The same tonnage is a far heavier harvest on the slow-maturing one",
-          "Neither is affected differently, because a tonne of biomass is a tonne of biomass",
-          "The fast-breeding species should be protected first, being more numerous",
-          "Both should be closed until the assessment separates them"
+          "The same tonnage is a far heavier harvest on the slow-maturing one.",
+          "Neither is affected differently, because a tonne of biomass is a tonne of biomass.",
+          "The fast-breeding species should be protected first, being more numerous.",
+          "Both should be closed until the assessment separates them."
         ],
-        "correctChoice": "The same tonnage is a far heavier harvest on the slow-maturing one"
+        "correctChoice": "The same tonnage is a far heavier harvest on the slow-maturing one."
       },
       "assumes": [
         "both species are taken by the same boats on the same ground",
@@ -3423,7 +3423,7 @@ export const CURRICULUM = {
       "background": [
         "Why dawn is the diagnostic hour. Algae photosynthesise in daylight and respire all the time, so oxygen peaks in late afternoon and bottoms out just before sunrise. A dawn minimum well below the afternoon reading is the signature of a large algal population rather than of a single discharge.",
         "Why warm water makes it worse twice over. Warm water holds less dissolved oxygen to begin with, and it speeds up both algal growth and the decomposition that consumes the oxygen. August is the month the nutrients arrive, the water is warmest and the oxygen ceiling is lowest.",
-        "What suffers first. Not the algae and not the bacteria. Fish and the invertebrates on the reef leave or die, and the ones that cannot move are the ones counted on Berhane's transects — which is how a nutrient problem in a stream becomes a line on a reef survey two months later."
+        "What suffers first. Not the algae and not the bacteria. Fish and the invertebrates on the reef leave or die. The ones that cannot move are the ones counted on Berhane's transects. That is how a nutrient problem in a stream becomes a line on a reef survey two months later."
       ],
       "story": "Berhane has dissolved oxygen readings from the inner bay: 8.1 milligrams a litre in March, 4.2 in August, and 2.9 at dawn on the third of August. The nitrate arriving from the stream peaks in the same month.",
       "game": {
@@ -3488,7 +3488,7 @@ export const CURRICULUM = {
       "background": [
         "What a tolerance range is. Every population has conditions in which it thrives, wider conditions in which it survives with reduced growth and reproduction, and limits beyond which it dies. Moving the average two degrees moves the whole distribution, so what was the rare bad week becomes the normal August.",
         "Why the two stresses compound. Warmer water expels the symbiotic algae corals depend on for most of their energy, and a more acidic sea makes the skeleton more expensive to build. An animal short of energy and facing a higher construction cost is not facing two problems; it is facing one, twice.",
-        "What the island controls and what it does not. Sea temperature and acidity are set far away. Nutrient load from the stream, sediment from the works, anchor damage in the bay and fishing pressure on the grazers that keep algae off the coral are all local, and all of them decide how much stress the reef meets on top of the global part."
+        "What the island controls and what it does not. Sea temperature and acidity are set far away. Nutrient load from the stream. Sediment from the works. Anchor damage in the bay. Fishing pressure on the grazers that keep algae off the coral. All four are local, and all of them decide how much stress the reef meets on top of the global part."
       ],
       "story": "August sea temperature in the bay has risen by nearly two degrees across the eleven springs of record. Cover on the transects has fallen from 41 per cent to 26. The station has a flow tank that will hold a reef fragment at a set temperature for six weeks.",
       "game": {
@@ -3499,7 +3499,7 @@ export const CURRICULUM = {
         "task": "Say what the temperature record does to the animals",
         "question": "At what August temperature does the fragment stop holding its cover?",
         "answer": "Around 18 degrees — where the curve stops sloping and falls away. Cover holds to about 17.5 and is a third of the record by 18.3, and 18.0 is this August's measured temperature.",
-        "why": "A tolerance range is not a switch and it is not a straight line either. Between 15 and 17.5 degrees the fragment holds nearly all its cover, and the curve then falls away steeply — so the animal is not gradually worse across its range, it is fine until it is not. The two-degree rise the bay has actually seen lands exactly on that shoulder, which is why cover has gone from 41 per cent to 26 rather than from 41 to 38. It also settles what the island can do. At the shoulder there is nothing spare for a nutrient pulse, a sediment plume, an anchor scar or a summer with no grazers, and every one of those is decided on Vellan even though the temperature is not.\n",
+        "why": "A tolerance range is not a switch and it is not a straight line either. Between 15 and 17.5 degrees the fragment holds nearly all its cover. The curve then falls away steeply. So the animal is not gradually worse across its range. It is fine until it is not. The two-degree rise the bay has actually seen lands exactly on that shoulder. That is why cover has gone from 41 per cent to 26, rather than from 41 to 38. It also settles what the island can do. At the shoulder there is nothing spare. Not for a nutrient pulse, a sediment plume, an anchor scar or a summer with no grazers. Every one of those is decided on Vellan, even though the temperature is not.\n",
         "sweep": {
           "mode": "peak",
           "axis": {
@@ -3646,16 +3646,16 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "The distance, and the bridge across it",
-      "scene": "Berhane's list of species recorded on Vellan for the first time runs at about one a year for thirty years, and four in the three years since the freight contract changed. There is no inspection at the berth.",
+      "scene": "Berhane's list of species recorded on Vellan for the first time runs at about one a year for thirty years. Four of them came in the three years since the freight contract changed. There is no inspection at the berth.",
       "takeaway": "An island is protected by its distance, and inspection is the only part of that anybody can restore.",
       "place": "Reef Station",
-      "guide": "An island's species list is held in place by two things: how big the island is and how hard it is to reach. The first cannot change. Ask what the second is worth in practice, and what a second sailing does to it — then decide what the pack should ask for, given that the beetle already here cannot be removed.",
+      "guide": "An island's species list is held in place by two things: how big the island is and how hard it is to reach. The first cannot change. Ask what the second is worth in practice, and what a second sailing does to it. Then decide what the pack should ask for. The beetle already here cannot be removed.",
       "background": [
         "Why isolation matters as much as area. Arrivals are rare, so a species that goes locally extinct is not replaced, and a species that arrives faces no competitors that arrived recently either. Reduce the isolation and both halves change: more arrivals, and a community that has never had to hold its ground against newcomers.",
-        "What the numbers suggest and cannot prove. One new record a year for thirty years and four in three is a rate change worth acting on, and it coincides with a freight contract rather than being explained by it. Berhane will say exactly that much and no more.",
-        "Why inspection is the cheap intervention. Nothing removes an established beetle from four polytunnels. What a berth inspection changes is the next arrival, at a cost of an hour a sailing — which is the whole argument for spending effort at the point of entry rather than on eradication afterwards."
+        "What the numbers suggest and cannot prove. One new record a year for thirty years, and four in three, is a rate change worth acting on. It coincides with a freight contract rather than being explained by it. Berhane will say exactly that much and no more.",
+        "Why inspection is the cheap intervention. Nothing removes an established beetle from four polytunnels. What a berth inspection changes is the next arrival, at a cost of an hour a sailing. That is the whole argument for spending effort at the point of entry rather than on eradication afterwards."
       ],
-      "story": "Berhane's list of species recorded on Vellan for the first time runs at about one a year for thirty years, and four in the three years since the freight contract changed. There is no inspection at the berth.",
+      "story": "Berhane's list of species recorded on Vellan for the first time runs at about one a year for thirty years. Four of them came in the three years since the freight contract changed. There is no inspection at the berth.",
       "game": {
         "type": "CHOICE",
         "title": "The distance, and the bridge across it",
@@ -3663,20 +3663,20 @@ export const CURRICULUM = {
         "play": "Say what an inspection at the berth is worth",
         "task": "Say what an inspection at the berth is worth",
         "question": "What should the pack ask for, given the beetle cannot be removed?",
-        "answer": "Inspection of soil, plants and pallets at the berth",
-        "why": "Nothing removes a breeding beetle from four polytunnels, so effort spent on eradication buys very little. What can be changed is the next arrival, and the rate change — one new record a year for thirty years, four in the last three — is what makes that urgent. An hour's inspection a sailing is the cheapest environmental measure in the pack. A survey into how this beetle arrived is interesting and does not stop the next one; the route is already obvious enough to act on. And a ban on plant imports is stronger than the evidence needs, would stop Hollis restocking, and drives the same traffic into unrecorded channels.\n",
+        "answer": "Inspection of soil, plants and pallets at the berth.",
+        "why": "Nothing removes a breeding beetle from four polytunnels, so effort spent on eradication buys very little. What can be changed is the next arrival. The rate change is what makes that urgent: one new record a year for thirty years, four in the last three. An hour's inspection a sailing is the cheapest environmental measure in the pack. A survey into how this beetle arrived is interesting and does not stop the next one; the route is already obvious enough to act on. And a ban on plant imports is stronger than the evidence needs, would stop Hollis restocking, and drives the same traffic into unrecorded channels.\n",
         "rebuttals": [
           "Eradication from four tunnels with a three-generation season is not achievable, and the crops outside are on its list too.",
           "A survey answers how it arrived; the pack needs a measure that changes the next arrival.",
           "A full import ban costs the garden its stock and pushes the same material into channels nobody inspects."
         ],
         "choices": [
-          "Inspection of soil, plants and pallets at the berth",
-          "Eradication of the beetle from all four of the polytunnels it is now breeding in",
-          "A survey to establish how the beetle arrived",
-          "A ban on importing plants to the island"
+          "Inspection of soil, plants and pallets at the berth.",
+          "Eradication of the beetle from all four of the polytunnels it is now breeding in.",
+          "A survey to establish how the beetle arrived.",
+          "A ban on importing plants to the island."
         ],
-        "correctChoice": "Inspection of soil, plants and pallets at the berth"
+        "correctChoice": "Inspection of soil, plants and pallets at the berth."
       },
       "assumes": [
         "the first-record list has been kept by the same person throughout",
@@ -3707,7 +3707,7 @@ export const CURRICULUM = {
       "background": [
         "The two ways a pack sentence fails. It claims more than the evidence supports, or it carries a figure with no period so it will be requoted as a permanent fact. Both are survivable in a conversation and neither survives being read out by somebody who disagrees.",
         "Why the strongest sentence should stay in. Understating is a failure too: a paper that says less than it knows invites a decision the evidence would have prevented. The eleven-spring cover trend and the five-July chloride series both belong in at full strength.",
-        "Why this is the last stop of the fortnight. Everything measured over fourteen days arrives here as sentences somebody will read aloud at seven o'clock, and the work is worth exactly as much as the sentences can bear."
+        "Why this is the last stop of the fortnight. Everything measured over fourteen days arrives here as sentences somebody will read aloud at seven o'clock. The work is worth exactly as much as the sentences can bear."
       ],
       "story": "Four sentences are in the draft pack. Dunmore has flagged one. Berhane has flagged a different one. The vote is in three hours and both flags are correct.",
       "game": {
@@ -3718,7 +3718,7 @@ export const CURRICULUM = {
         "task": "Match each draft sentence to what is wrong with it, or that nothing is.",
         "question": "Match each draft sentence to what is wrong with it, or that nothing is.",
         "answer": "The recharge and the cover trend stand. The chloride needs its month. The warming sentence claims a cause the pack cannot support.",
-        "why": "Two of these are the best evidence the island has and belong in at full strength: a recharge figure measured this fortnight, and eleven springs of cover read the same way each time. The chloride sentence is true and dangerous — 191 is a July peak, and without its month it will be requoted as the island's water quality by the second meeting. The warming sentence is the one to cut: the correlation between the temperature series and the cover series can be stated, and causation needs control sites and bleaching tied to specific weeks, which nobody here has. Understating is also a failure, which is why the answer is not to soften all four.\n",
+        "why": "Two of these are the best evidence the island has, and belong in at full strength. A recharge figure measured this fortnight. And eleven springs of cover, read the same way each time. The chloride sentence is true and dangerous. The 191 is a July peak. Without its month it will be requoted as the island's water quality by the second meeting. The warming sentence is the one to cut. The correlation between the temperature series and the cover series can be stated. Causation needs control sites and bleaching tied to specific weeks, which nobody here has. Understating is also a failure, which is why the answer is not to soften all four.\n",
         "rebuttals": [
           "The recharge figure was measured this fortnight against a licence that is on the record. It stands.",
           "191 is a July peak. Without its month it is quoted afterwards as the island's water.",
@@ -3732,10 +3732,10 @@ export const CURRICULUM = {
           "Cover on the eleven transects has fallen from 41 to 26 per cent since the record began"
         ],
         "choices": [
-          "Stands: measured this fortnight, and the strongest number in the pack",
-          "Drop the period and it becomes an annual figure the data never measured — it is a July peak",
-          "Claims a cause the evidence cannot separate; the correlation can be stated instead",
-          "Stands: a trend measured the same way over long enough to be one"
+          "Stands: measured this fortnight, and the strongest number in the pack.",
+          "Drop the period and it becomes an annual figure the data never measured — it is a July peak.",
+          "Claims a cause the evidence cannot separate; the correlation can be stated instead.",
+          "Stands: a trend measured the same way over long enough to be one."
         ],
         "mapping": [
           0,
@@ -3796,7 +3796,7 @@ export const CURRICULUM = {
       "place": "Reef Station",
       "guide": "Ask what the island would have to start doing for itself if the bed were gone. Three of the four candidates describe work that something else on the island already does, or that no marine plant does at this scale. One of them is work the harbour currently gets for nothing and would have to buy every year. The quote prices the dredging and not that.",
       "background": [
-        "Why a one-off quote hides an annual cost. Cutting the channel is a single payment and the service it removes was a payment avoided every year. A cost that recurs is worth far more than a cost that happens once, and the paper in front of the council shows only the second of them because only the second has an invoice attached.",
+        "Why a one-off quote hides an annual cost. Cutting the channel is a single payment and the service it removes was a payment avoided every year. A cost that recurs is worth far more than a cost that happens once. The paper in front of the council shows only the second of them. Only the second has an invoice attached.",
         "How to tell a service from a fact about the place. The test is substitution. If the thing stopped, would somebody have to build or buy a replacement? A reef breaking a swell substitutes for a breakwater. A view from the pier substitutes for nothing, and is not counted here whatever else it is worth."
       ],
       "story": "Berhane has a second chart out: four hectares of seagrass inside the bay, between the pier and the burn mouth. A quote has come across from the mainland for dredging a deeper channel straight through it.",
@@ -3807,20 +3807,20 @@ export const CURRICULUM = {
         "play": "Name the service the dredging quote quietly spends",
         "task": "Name the service the dredging quote quietly spends",
         "question": "Which service would the island have to start paying for if the channel is cut through the bed?",
-        "answer": "Holding the bay's sediment in place against the tide",
-        "why": "Seagrass roots bind the soft sediment of an inner bay and the leaves slow the water over it, so the fines settle in the bed instead of travelling to the deepest hole in the bay, which is the berth. Cut the channel and that stops, and the island buys a dredger visit on a cycle for as long as the harbour is used. That is the substitution test passing. The other three fail it: the garden's seaweed comes off the strandline, no marine plant cleans a diesel plume, and the shoreline seepage is the island's own lens coming out through the rock.\n",
+        "answer": "Holding the bay's sediment in place against the tide.",
+        "why": "Seagrass roots bind the soft sediment of an inner bay, and the leaves slow the water over it. So the fines settle in the bed instead of travelling on. The deepest hole in the bay is the berth. Cut the channel and that stops, and the island buys a dredger visit on a cycle for as long as the harbour is used. That is the substitution test passing. The other three fail it. The garden's seaweed comes off the strandline. No marine plant cleans a diesel plume. And the shoreline seepage is the island's own lens coming out through the rock.\n",
         "rebuttals": [
           "The wrack the garden uses is thrown up on the strandline; the seagrass bed is subtidal and is not cut for it.",
           "A diesel plume is carried off by the air above the island, and no bed of marine plants works at that scale.",
           "The seepage at low water is the freshwater lens leaving the rock, and the bed sits on top of it rather than supplying it."
         ],
         "choices": [
-          "Holding the bay's sediment in place against the tide",
-          "Supplying the market garden with seaweed for building soil, as the strandline has done for two centuries",
-          "Cleaning the smoke that the diesel house puts into the air above the bay",
-          "Providing the freshwater that seeps out along the shore at every low tide"
+          "Holding the bay's sediment in place against the tide.",
+          "Supplying the market garden with seaweed for building soil, as the strandline has done for two centuries.",
+          "Cleaning the smoke that the diesel house puts into the air above the bay.",
+          "Providing the freshwater that seeps out along the shore at every low tide."
         ],
-        "correctChoice": "Holding the bay's sediment in place against the tide"
+        "correctChoice": "Holding the bay's sediment in place against the tide."
       },
       "assumes": [
         "the berth is dredged only when it has silted enough to shoal"

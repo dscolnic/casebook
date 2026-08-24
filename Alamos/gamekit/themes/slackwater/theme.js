@@ -73,15 +73,45 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One term a day, in the order the estuary gave them up. Twelve days, so
+  // twelve pieces: the shallow-water term is found late and moves every level
+  // worked before it.
+  delivery: {
+    name: 'The Sarn Gate Programme',
+    what: 'What the six gates come down on when the springs arrive: a predicted level, a bound '
+      + 'on how wrong it may be, and a sentence saying what neither of them covers.',
+    where: 'PRED',
+    pieces: [
+      'The board against the gauge',
+      'The path\'s speed and heading',
+      'The length and the displacement',
+      'The bound on the tail',
+      'The current rose\'s area',
+      'The returning chain\'s total',
+      'The impoundment solution',
+      'The unmeasured tail, bounded',
+      'The residual\'s shape',
+      'The bound\'s real scope',
+      'The rearranged integrals',
+      'The gate programme, signed',
+    ],
+  },
   opening: [
-    'Sarn Barrage is six gates across the neck of an estuary, holding four hundred hectares '
-    + 'of water. In twelve working days the biggest tides of the year arrive, with half a metre '
-    + 'of surge. The gates work to a timetable written from predicted levels, not measured '
-    + 'ones. You are the tidal prediction lead, so no level reaches it unless you can show how '
-    + 'it was worked out and how wrong it may be. Idris Calloway, the chief tidal analyst, '
-    + 'holds that a prediction with a stated error can be acted on. Renate Oyelaran, the '
-    + 'barrage master, holds that the gates come down on what the gauge reads. Ninety graziers '
-    + 'move stock off the marsh on one number you signed.',
+    'In twelve working days the biggest tides of the year reach Sarn Barrage. A storm surge will sit '
+    + 'half a metre on top of them. Six gates hold four hundred hectares of water back off the marsh. '
+    + 'The gates move to a timetable. That timetable is written from predicted levels, not from '
+    + 'measured ones. You are the tidal prediction lead. No level goes on the timetable unless you can '
+    + 'show how it was worked out. In twelve days you hand over the Sarn gate programme. It gives the '
+    + 'level predicted for each tide. It gives how wrong that level might be. It says what the '
+    + 'prediction does not cover at all. One figure is settled a day. Ninety graziers move stock off '
+    + 'the marsh on one number you signed.',
   ],
 
   // How it ends. The last thing anybody reads, and the counterpart of `opening`:

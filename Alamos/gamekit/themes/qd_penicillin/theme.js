@@ -62,14 +62,13 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'A plate that should have gone into the wash has a ring on it where nothing grew. '
-    + 'The ring is centred on a colony of mould that blew in out of the air. If something '
-    + 'is coming off that mould, an infection nobody can treat may have an answer in it. '
-    + 'If the ring is a dry patch, four benches are about to waste a week. You are the '
-    + 'junior researcher, which means the walk between those benches is yours and so is '
-    + 'the argument at the end of it. Howard Florey, who heads the unit, will not let a '
-    + 'claim stay on the trial room wall unless somebody can name the measurement under '
-    + 'it. On Friday the wall is read out, and a week of everything this department can\n    '
+    'A plate that should have gone into the wash has a ring on it. Nothing grew inside the ring. At '
+    + 'the centre of it sits a colony of mould that blew in out of the air. Something may be coming off '
+    + 'that mould. If it is, an infection nobody can treat may have an answer in it. If the ring is '
+    + 'only a dry patch, four benches are about to waste a week. You are the junior researcher here. '
+    + 'The walk between those benches is yours. So is the argument at the end of it. Howard Florey '
+    + 'heads the unit. He will not let a claim stay on the trial room wall unless somebody can name the '
+    + 'measurement under it. The wall is read out on Friday. A week of everything this department can '
     + 'make comes to three days of treatment for one adult.',
   ],
 

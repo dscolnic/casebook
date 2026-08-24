@@ -460,13 +460,14 @@ missions:
     objective: Establish what the station measures and what last season cost it.
     briefing: Week three of six, and the first cell of the week is forecast for the afternoon.
     stake: >-
-      Monday of week three, and there are three weeks of season left. Station 12 fires small
-      rockets trailing an earthed wire into charged sky and instruments what comes back down the
-      wire. Adeyinka Vero wants shots; Hal Brenner wants a rule written down before the sky is
-      overhead rather than during it. Last August a triggered strike killed every card in the
-      outstation trailer two hundred metres from the mast, on a site whose earthing had been
-      signed off that spring. Today you set the launch rule, read what a field mill is telling
-      you, and find out what that certificate actually measured.
+      Monday of week three. Three weeks of the season are left. Station 12 fires small rockets
+      into charged sky. Each rocket trails a wire down to earth. The strike comes back down that
+      wire, past the instruments. Adeyinka Vero, the station lead, wants shots. Hal Brenner, the
+      safety officer, wants the launch rule written down first. He wants it agreed before the
+      sky is overhead, not while it is. Last August a triggered strike killed every card in the
+      outstation trailer. That trailer stands two hundred metres from the mast. Its earthing had
+      been signed off that spring. Today you set the launch rule the crew will fire by. Then you
+      read what a field mill is telling you, and what that April certificate actually measured.
     takeaway: A criterion written while the cell is overhead is not a criterion.
     stops:
       - group: SHOT
@@ -663,12 +664,13 @@ missions:
     objective: Get the charge on the cloud base out of a reading taken at the ground.
     briefing: The mills read 4.5 kV/m under yesterday's cell, and nobody has turned that into charge.
     stake: >-
-      Tuesday, and yesterday's cell left a number nobody has used. At the moment the crew was
-      walked back the four mills read 4.5 kV/m together, which Vero wants in the season log as a
-      charge rather than as a field. Emil Strand, the high-voltage engineer, says the hall can produce the same field between
-      two plates a metre apart and that the arithmetic is the same either way. Today you get the
-      charge per square metre on the cloud base out of a reading taken at head height, and find
-      out what the same law says about the inside of the screened room.
+      Tuesday. Yesterday's cell left a number nobody has used. At the moment the crew was walked
+      back, the four field mills read 4.5 kV/m. Vero wants that in the season log as a charge,
+      not as a field. A field is what the meter reads. A charge is what the cloud holds. Emil
+      Strand, the high-voltage engineer, says the hall can make the same field between two
+      plates a metre apart. The arithmetic is the same either way. Today you turn a reading
+      taken at head height into the charge on each square metre of cloud base. The same law says
+      something about the inside of the screened room. Strand wants that written down too.
     takeaway: Gauss turns a field into a charge whenever a surface can be chosen the field is simple on.
     stops:
       - group: FIELD
@@ -891,13 +893,14 @@ missions:
     objective: Turn a field in volts per metre into the volts between two places.
     briefing: The season log wants the cloud-to-ground potential, and nobody has written the integral.
     stake: >-
-      Wednesday, and the log has a column for potential difference that has been empty since the
-      station opened. Vero wants it filled from yesterday's field rather than from a textbook.
-      Ingrid Lauwers, the emc engineer, has asked a question that sounds like pedantry and is not: between which two
-      points. Today you take the field down a path and get volts out of it, and settle what a
-      number in that column would have to name before it means anything. The records officer,
-      Yusuf Kaya, has three shots
-      from last season with no criterion recorded, and this is how that happens.
+      Wednesday. The log has a column for potential difference. It has been empty since the
+      station opened. Vero wants it filled from yesterday's field, not from a textbook. Ingrid
+      Lauwers, the emc engineer, has asked one question. Between which two points. It sounds
+      like fussing. It is not. Volts are always volts between one place and another place. Yusuf
+      Kaya, the records officer, has three shots from last season with no criterion written
+      down. That is how a column stays empty for years. Today you walk the field down a path and
+      get volts out of it. Then you say what a number in that column has to name before it means
+      anything.
     takeaway: A potential belongs to a pair of points, and a path is how you get from the field to the volts.
     stops:
       - group: FIELD
@@ -1109,12 +1112,14 @@ missions:
     objective: Get the field at the mast tip, and say what it does to the air.
     briefing: The mast has been drawing corona since the first cell, and nobody has computed the tip field.
     stake: >-
-      Thursday, and Tate reports the mast hissing again — corona at the tip, audible from the base
-      in the quiet before a cell. Vero calls that the station working; Brenner calls it the mast
-      being sixty metres of steel with nothing else near it. Both are describing the same
-      arithmetic and neither has done it. Today you get the field at the tip out of the field over
-      the flat, work out what air can stand before it stops insulating, and decide whether the
-      afternoon's marginal cell is a launch. Vero has been arguing for a week that it is.
+      Thursday. Tate reports the mast hissing again. The hiss is corona at the tip: air breaking
+      down in a thin glow around the steel. You can hear it from the base in the quiet before a
+      cell. Vero calls that the station working. Brenner calls it the mast being sixty metres of
+      steel with nothing else near it. Both of them are describing the same piece of arithmetic.
+      Neither has done it. Air stops insulating at some field, and nobody here has written that
+      number down. Today you get the field at the tip out of the field over the flat. Then you
+      decide whether the afternoon's marginal cell is a launch. Vero has argued for a week that
+      it is.
     takeaway: A conductor takes the potential of the air it reaches into, and a small radius turns that potential into an enormous field.
     stops:
       - group: MAST
@@ -1312,12 +1317,14 @@ missions:
     objective: Get a capacitance out of the geometry, and see what it is worth.
     briefing: Strand wants the cell modelled as a plate pair before anybody talks about energy.
     stake: >-
-      Friday, and Strand has taken over the board in the hall. The station keeps describing the
-      cell overhead as though it were a charged plate above a conducting flat, and he wants the
-      capacitance of that pair written down before Monday, because on Monday somebody will want
-      the energy and the energy needs it. Sifuentes is more interested in what the same model says
-      about the trench, where two conductors run parallel for two hundred metres. Today you derive
-      a capacitance from a geometry and find out what a dielectric does to it.
+      Friday. Strand has taken over the board in the hall. The station keeps describing the cell
+      overhead as a charged plate above a flat that conducts. Strand wants the capacitance of
+      that pair written down before Monday. Capacitance is how much charge the pair holds for
+      each volt across it. On Monday somebody will ask for the stored energy, and the energy
+      cannot be had without it. Sifuentes cares more about the trench. Two conductors run side
+      by side down it for two hundred metres. That is the same model with different numbers in
+      it. Today you derive a capacitance from a geometry. Then you find out what filling the gap
+      with an insulator does to it.
     takeaway: Capacitance is a ratio before it is a formula, and the formula is Gauss followed by a line integral.
     stops:
       - group: BANK
@@ -1525,14 +1532,15 @@ missions:
     objective: Derive the energy in the bank, and say what it means for the hall.
     briefing: Twelve stages at fifty kilovolts, and the safety case rests on a number nobody re-derives.
     stake: >-
-      Monday of week four, and Josefa Ruiz, the impulse hall technician, wants the hall's energy figure checked before the
-      season's biggest impulse test on Friday. Twelve stages, a hundred nanofarads each, charged
-      to fifty kilovolts: the placard on the barrier says fifteen hundred joules, and it has said
-      so since the hall was built by people who have all since left. Emil Strand's view is that a
-      number nobody has re-derived is a rumour with a unit after it, and he has been saying so
-      about this one for two seasons. Today you get the stored energy out of the work it took to
-      put the charge there, settle what the earthing stick is actually for, and decide what the
-      hall can honestly stand in for when the sky will not cooperate.
+      Monday of week four. Josefa Ruiz, the impulse hall technician, wants the hall's energy
+      figure checked. The season's biggest impulse test runs on Friday. The hall holds twelve
+      stages. Each stage is a hundred nanofarads, charged to fifty kilovolts. The placard on the
+      barrier says fifteen hundred joules. It has said that since the hall was built, by people
+      who have all since left. Strand's view of it is blunt. A number nobody has re-derived is a
+      rumour with a unit after it. He has been saying that about this one for two seasons. Today
+      you get the stored energy out of the work it took to put the charge there. Ruiz wants the
+      earthing stick explained in the same breath. You also decide what the hall can honestly
+      stand in for when the sky will not cooperate.
     takeaway: The energy in a capacitor is the work done against the voltage that was already there, which is where the half comes from.
     stops:
       - group: BANK
@@ -1748,13 +1756,14 @@ missions:
     objective: Find out whether the current measurements are independent of each other.
     briefing: Three shunts, three readings within ten per cent, and one thing they have in common.
     stake: >-
-      Tuesday, and Kenji Nakata, the current measurement engineer, has the S-114 record open because the funding review will quote
-      it. Three separate measurements of last August's strike agree within ten per cent, which the
-      station has been treating as confirmation for a year and which Vero has already put in a
-      draft. Nakata does not like how tidy it is. Ana Sifuentes has pointed out, without making
-      anything of it yet, that every digitiser on the site is referred to one rod. Today you open
-      each channel, find what its reading was measured against, and work out what the agreement
-      between them is actually worth to a reviewer who asks.
+      Tuesday. Kenji Nakata, the current measurement engineer, has the S-114 record open. The
+      funding review is going to quote it. Three separate measurements of last August's strike
+      agree to within ten per cent. The station has treated that as confirmation for a year.
+      Vero has already put it in a draft. Nakata does not like how tidy it is. Ana Sifuentes has
+      noticed something and has not made much of it yet. Every digitiser on the site is referred
+      to one earth rod. Today you open each channel and find what its reading was measured
+      against. Then you work out what the agreement between them is worth to a reviewer who
+      asks.
     takeaway: Instruments that share a reference share its errors, and their agreement measures nothing.
     stops:
       - group: MAST
@@ -1975,12 +1984,13 @@ missions:
     objective: Get the field around the down-conductor, and say what has to live in it.
     briefing: The instrument cabinet sits two metres from the down-conductor and has done for nine years.
     stake: >-
-      Wednesday, and Tate has been asked to move the instrument cabinet and wants a reason he can
-      put in a job sheet. It has stood two metres from the down-conductor since the mast went up.
-      Nakata's clamp says thirty kiloamps went past it in August and nobody has ever written down
-      what that means at the cabinet door. Today you get the magnetic field around a conductor out
-      of Ampère's law, work out what force that puts on the bonding straps, and settle what the
-      hall can and cannot test about it.
+      Wednesday. Tate has been asked to move the instrument cabinet. He wants a reason he can
+      put on a job sheet. The cabinet has stood two metres from the down-conductor since the
+      mast went up. Nakata's clamp says thirty kiloamps went past it last August. Nobody has
+      ever written down what that means at the cabinet door. A current makes a magnetic field
+      around itself. That field pushes on any other current near it. Today you get the field out
+      of Ampère's law, and you put a number on the force it lands on the bonding straps. Then
+      you settle what the hall can test about this, and what it cannot.
     takeaway: A current does not stay in its conductor as far as anything nearby is concerned.
     stops:
       - group: MAST
@@ -2254,12 +2264,13 @@ missions:
     objective: Work out how a strike reached a cable it never touched.
     briefing: The outstation cards died in August, and the trailer is bonded to nothing that was struck.
     stake: >-
-      Thursday, and this is the question the station has been arguing about for a year. In August
-      every card in the outstation trailer died. The trailer is two hundred metres from the mast,
-      it is earthed to its own rod, and no conductor runs between it and anything the strike
-      touched. Sifuentes has been defending the earthing for twelve months and Lauwers has been
-      saying the earthing was never the route. Today you compute the flux through the cable loop
-      that runs beside the down-conductor, and find out what a microsecond does to it.
+      Thursday. This is the question the station has argued about for a year. Last August every
+      card in the outstation trailer died. The trailer sits two hundred metres from the mast. It
+      is earthed to its own rod. No conductor runs between it and anything the strike touched.
+      Sifuentes has defended that earthing for twelve months. Lauwers keeps saying the earthing
+      was never the route in. They cannot both be right, and the review will ask. Today you
+      compute the flux through the cable loop that runs beside the down-conductor. Then you find
+      out what one microsecond of rise time does to it.
     takeaway: A circuit that touches nothing can still be driven, because flux does not need a connection.
     stops:
       - group: COUPLE
@@ -2492,12 +2503,13 @@ missions:
     objective: Work out what the bonding lead does, and what the certificate never covered.
     briefing: Six metres of copper between the mast base and the equipment earth, and nobody has costed it.
     stake: >-
-      Friday, and Sifuentes has brought the April certificate back to the table. Yesterday's
-      finding explains the trailer and not the rack at the mast base, which also lost two channels
-      in August and is bonded to the grid by six metres of heavy copper. Strand says six metres of
-      copper is nine hundredths of an ohm and can be ignored. Sifuentes says that is the right
-      number for the wrong quantity. Today you work out what a rising current does along a
-      straight piece of wire, and settle what the earthing certificate was ever able to say.
+      Friday. Sifuentes has brought the April certificate back to the table. Yesterday's finding
+      explains the trailer. It does not explain the rack at the mast base. That rack also lost
+      two channels last August. It is bonded to the earth grid by six metres of heavy copper.
+      Strand says six metres of copper is nine hundredths of an ohm, and can be ignored.
+      Sifuentes says that is the right number for the wrong quantity. One of them has to give.
+      Today you work out what a fast rising current does along a straight piece of wire. Then
+      you settle what the April certificate was ever able to say.
     takeaway: A perfect earth at the end of six metres of wire is not an earth at a microsecond.
     stops:
       - group: EARTH
@@ -2723,12 +2735,13 @@ missions:
     objective: Follow the strike down the mast and find where it stops matching.
     briefing: Nothing goes wrong today. Three things get confirmed and one of them is a surprise.
     stake: >-
-      Monday of week five, and it is the quietest day the season has had. No cell is forecast
-      before Wednesday, the hall is down for a gap service, and Nakata has last week's stroke
-      recorded at every shunt on the mast for the first time. Tate has been asked to check the
-      bonding at each joint while the weather allows a climb. Today you read the current at each
-      station down the conductor, find where the record stops adding up, and put a number on how
-      much charge the cell over the flat was holding.
+      Monday of week five. It is the quietest day the season has had. No cell is forecast before
+      Wednesday. The hall is down for a gap service. Nakata has last week's stroke recorded at
+      every shunt on the mast, which is a first. Tate has been asked to check the bonding at
+      each joint while the weather still allows a climb. Today you read the current at each
+      point down the conductor, and you find where the record stops adding up. The same records
+      say how much charge the cell over the flat was holding. Nobody has added that up either. A
+      quiet day is the only day this work gets done on.
     takeaway: A current that is not where it was a moment ago has gone somewhere, and the place it left is a fact about the site.
     stops:
       - group: MAST
@@ -3015,12 +3028,13 @@ missions:
     objective: Commit to a number before the stroke, and find out what a forecast is worth.
     briefing: A cell for the afternoon, and a prediction that has to be written before it arrives.
     stake: >-
-      Tuesday, and there is a cell forecast for two o'clock. Vero wants the season's first
-      prediction on the board before it: peak current, written down, from the field and the charge
-      the station has now measured. Brenner has the nowcast open and is unhappy with how fast the
-      cell is tracking. Today you commit to a number, fire, and measure — and the afternoon ends
-      with the crew coming in late off the flat and a trailer nobody can use, which is the
-      argument Brenner has been making since week one.
+      Tuesday. A cell is forecast for two o'clock. Vero wants the season's first prediction on
+      the board before it arrives. Peak current, written down in advance, from the field and the
+      charge the station has now measured. Brenner has the nowcast open and does not like how
+      fast the cell is tracking. Today you commit to a number, then fire, then measure what came
+      down. The afternoon does not end well. The crew comes in late off the flat. A trailer is
+      left in a state nobody can use. That is the argument Brenner has been making since week
+      one, and he was right in a way nobody wanted.
     takeaway: A prediction that is never measured against anything is an opinion with a unit after it.
     stops:
       - group: SHOT
@@ -3220,13 +3234,14 @@ missions:
     objective: Solve the electrometer's circuit, and find out what its time constant costs.
     briefing: The mills report the slow field, and nobody has written down how slow.
     stake: >-
-      Wednesday, and the record of Tuesday's stroke has a hole in the middle of it. The clamp
-      caught the current and the shunts caught the current, and all four field mills recorded a
-      smooth dip that only begins after the stroke was over. Mira Halvorsen has been saying for
-      two seasons that the mills are slow and has never been asked how slow. Kaya needs a caption
-      for the plot before the pack closes. Today you solve the electrometer's own circuit, get its
-      time constant out of the solution rather than off a data sheet, and settle what the mill
-      record is evidence about and what it is silent on.
+      Wednesday. The record of Tuesday's stroke has a hole in the middle of it. The clamp caught
+      the current. The shunts caught the current. All four field mills recorded a smooth dip
+      instead. That dip only begins after the stroke was already over. Mira Halvorsen has said
+      for two seasons that the mills are slow. Nobody has ever asked her how slow. Kaya needs a
+      caption for the plot before the pack closes. Today you solve the electrometer circuit
+      inside the mill and get its time constant out of that solution. A number off a data sheet
+      will not do here. Then you say what the mill record is evidence about, and what it is
+      silent on.
     takeaway: An instrument's time constant decides what it is evidence about, and no amount of care with a slow instrument makes it a fast one.
     stops:
       - group: EARTH
@@ -3542,14 +3557,14 @@ missions:
     objective: Set the bank for the season's final test, and say what it will show.
     briefing: After today the hall is committed and the sky is whatever it is.
     stake: >-
-      Thursday, and this is the last day anything can be altered. The final impulse test runs
-      tomorrow at whatever setting is agreed this afternoon, one gap service is left, and the
-      review pack closes on whatever it returns. Emil Strand wants twelve stages at fifty
-      kilovolts, which is what the hall has fired eleven hundred times. Ingrid Lauwers wants the
-      front shortened at the same peak instead, which tests Tuesday's coupling number rather than
-      confirming the placard. Today you work out what twelve stages in series actually produce,
-      choose what the last shot is for, and fix what the report will recommend to a station
-      nobody here has visited.
+      Thursday. This is the last day anything can be altered. The final impulse test runs
+      tomorrow, at whatever setting is agreed this afternoon. One gap service is left. The
+      review pack closes on whatever that shot returns. Strand wants twelve stages at fifty
+      kilovolts. That is what the hall has fired eleven hundred times. Lauwers wants the same
+      peak with a shorter front instead. A short front tests Tuesday's coupling number. The long
+      one confirms the placard. Today you work out what twelve stages in series actually
+      produce, and you choose what the last shot of the season is for. The report also has to
+      recommend something to a station nobody here has visited.
     takeaway: A test that repeats what is already known spends the same time as one that could come out either way.
     stops:
       - group: BANK
@@ -3762,13 +3777,13 @@ missions:
     objective: Set next season's rule, and sort what was measured from what was inferred.
     briefing: The review pack closes tonight, and every sentence in it has to be answerable.
     stake: >-
-      Friday, and the pack goes tonight. Adeyinka Vero wants the second mast; Hal Brenner wants a
-      lead time that reflects how fast cells have actually crossed this flat rather than how fast
-      the handbook says they do; Ana Sifuentes wants the April certificate reissued with the
-      quantity it measured written on its face. All three of those go in or none of them does,
-      and the review reads the pack before it reads anybody. Today you set the criterion the
-      station will work to next season, sort the season's claims by what stands behind each one,
-      and name the thing this whole campaign has not shown. Nothing can be added after tonight.
+      Friday. The pack goes tonight. Vero wants the second mast. Brenner wants a lead time that
+      comes from how fast cells have actually crossed this flat, not from the handbook.
+      Sifuentes wants the April certificate reissued with the quantity it measured written on
+      its face. All three go in or none of them does. The review reads the pack before it reads
+      anybody in this room. Today you set the criterion the station will work to next season.
+      You also sort the season's claims by what stands behind each one, and name the thing
+      fifteen days of work has not shown. Nothing can be added after tonight.
     takeaway: A season is worth what its record can defend, which is always less than what the room believes.
     stops:
       - group: SHOT

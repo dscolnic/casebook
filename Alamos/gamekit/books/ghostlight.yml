@@ -448,7 +448,13 @@ missions:
     objective: Establish what the room actually is and what the sales are doing.
     briefing: The seat map is 1911, the proscenium is 1958, and the advance is three weeks old.
     stake: >-
-      Monday, fourteen days out. Ruth Dowd, the box office manager, has three weeks of advance sales and a producer who reads the last week as the trend. Alan Kettleby, the house manager, has a seat map drawn in 1911 for a proscenium that was narrowed in 1958, and no record of what that did to the front rows. Today you work out what the sales are actually doing, which seats are in question and what the shop has to build to. A number read off the flat part of a curve is a decision made about a different fortnight.
+      Monday, fourteen days out. Ruth Dowd, the box office manager, has three weeks of advance
+      sales. The producer is quoting the last week alone as the trend for the fortnight. Alan
+      Kettleby, the house manager, has a seat map drawn in 1911. The stage opening was made
+      narrower in 1958. Nobody wrote down what that did to the front rows. Today you work out
+      what the sales are really doing. You also settle which seats are in doubt, and what the
+      shop has to build to. A number read off the flat part of a curve is a decision about a
+      different fortnight.
     takeaway: A rate of change belongs to the interval it was measured over.
     stops:
       - group: FRONT
@@ -462,7 +468,7 @@ missions:
           - 'A function as a rule, its domain and what the domain rules out'
         scene: >
           Dowd has three weeks of advance. Week one sold 41 seats, week two 66, week three
-          188. Sallow is quoting the last week as the rate for the fortnight.
+          188. Sallow, the producer, is quoting the last week as the rate for the fortnight.
         guide: >-
           A rate of change is a difference divided by an interval, and the interval is part of the
           answer. Work out the average across all three weeks, then compare it with the last week
@@ -637,7 +643,7 @@ missions:
     objective: Build the rehearsal sequence and the batten trim heights, and tell the two kinds apart.
     briefing: Haigh needs a call sheet and Osei needs trim heights, and they are different kinds of sequence.
     stake: >-
-      Tuesday, and two lists have to be written before the first flying rehearsal. Simone Haigh, the stage manager, wants rehearsal calls on an even interval so forty-one people can see where the day ends. Kwame Osei needs the trim heights for eleven battens, which are not evenly spaced because the grid is not. Marguerite Sallow wants both on one sheet by six. Today you build each sequence, and say which kind each one is. A list that looks even and is not is a list somebody works to and gets wrong.
+      Tuesday, and two lists have to be written before the first flying rehearsal. Simone Haigh, the stage manager, wants rehearsal calls on an even interval so forty-one people can see where the day ends. Kwame Osei, the head flyman, needs the trim heights for eleven battens, which are not evenly spaced because the grid is not. Marguerite Sallow wants both on one sheet by six. Today you build each sequence, and say which kind each one is. A list that looks even and is not is a list somebody works to and gets wrong.
     takeaway: A constant difference and a constant ratio are two different kinds of list.
     stops:
       - group: FLY
@@ -831,7 +837,13 @@ missions:
     objective: Get an angle out of two measurements, and a beam onto a mark.
     briefing: Adeyemi's plot is in bearings and the bars are hung on a plan drawn in 1911.
     stake: >-
-      Wednesday, and the rig has to be plotted before the bars go out on Thursday. Tunde Adeyemi, the lighting designer, works in bearings and spreads and converts afterwards; Nuno Ferreira, the chief electrician, has to hang the units on a bar whose plan positions are 1911. Sallow wants the first look on Friday. Today you turn two measurements into an angle, and the angle into a position on a bar, and you say which shape the advance sales are actually following. Everything hung on a wrong angle is hung again in front of a company standing about, and the notes session is at six.
+      Wednesday. The rig has to be plotted before the bars go out on Thursday. Tunde Adeyemi,
+      the lighting designer, works in bearings and spreads. He converts to positions afterwards.
+      Nuno Ferreira, the chief electrician, has to hang the lamps on a bar. The bar positions on
+      his plan are from 1911. Sallow wants the first look on Friday. Today you turn two
+      measurements into an angle. Then you turn that angle into a spot on a bar. You also say
+      which shape the advance sales are following. Any lamp hung on a wrong angle gets hung
+      again. That happens with the whole company standing about. The notes session is at six.
     takeaway: Two sides of a right triangle fix an angle, and the angle is what a rigger can work to.
     stops:
       - group: BOARD
@@ -1024,7 +1036,13 @@ missions:
     objective: Read a waveform for its four parameters, and fit a decay to the ticket returns.
     briefing: Brand has a trace off the desk and Dowd has three weeks of returns.
     stake: >-
-      Thursday, and the band plays into the room for the first time at two. Ilse Brand, the sound designer, has a trace off the desk that the pit cannot interpret and Thandi Mbatha, the musical director, has nine players covering an arrangement for twenty-two. Meanwhile Dowd's returns are running and Sallow wants them forecast. Today you describe a wave in the four numbers that fix it, and put a shape on a set of returns. A waveform argued about in adjectives is a waveform nobody can set a fader to.
+      Thursday. The band plays into the room for the first time at two. Ilse Brand, the sound
+      designer, has a trace off the sound desk. It is a picture of the sound the band made. The
+      pit cannot read it. Thandi Mbatha, the musical director, has nine players in the pit. The
+      music in front of them was written for twenty-two. Meanwhile Dowd's returns are coming in,
+      and Sallow wants them forecast. Today you describe a wave in the four numbers that fix it.
+      You also put a shape on the set of returns. A waveform argued about in adjectives is a
+      waveform nobody can set a fader to.
     takeaway: Amplitude, midline, period and phase fix a sinusoid completely.
     stops:
       - group: PIT
@@ -1221,7 +1239,13 @@ missions:
     objective: Turn the gain chain into decibels and the beam plot into coordinates.
     briefing: Brand's desk is calibrated in decibels and Adeyemi's plot is in bearings.
     stake: >-
-      Friday, and the first technical run is at four. Brand has a chain of gains that multiply and a desk marked in decibels, and Mbatha wants two channels matched by ear rather than by number, which Brand will not do. Adeyemi's rig plot is a list of bearings and distances that Ferreira has to turn into positions on a bar. Today you use logarithms to add what would otherwise multiply, and convert a beam from a bearing to a coordinate. Two people describing the same rig in different coordinates argue for an hour and hang nothing.
+      Friday. The first technical run is at four. Brand has a chain of gains, and gains
+      multiply. Her desk is marked in decibels. Mbatha wants two channels matched by ear, not by
+      number. Brand will not do it that way. Adeyemi's rig plot is a list of bearings and
+      distances. Ferreira has to turn that list into positions on a bar. Today you use
+      logarithms to add what would otherwise multiply. You also convert a beam from a bearing to
+      a coordinate. Two people describe the same rig in different coordinates. They argue for an
+      hour and hang nothing.
     takeaway: Logarithms turn multiplication into addition, which is what a fader is.
     stops:
       - group: PIT
@@ -1425,7 +1449,12 @@ missions:
     objective: Set a level against the licence, a period against a cue, and a resultant against a rating.
     briefing: Pell wants sound levels at the seat and Haigh wants the revolve timed.
     stake: >-
-      Saturday, and Douglas Pell, the licensing officer, has asked for sound levels measured at the seat rather than at the desk. Haigh needs the revolve's period so the cue can be called on a count rather than on a look. Osei has a second cloth to fly and the first one's figure to compare it against. Today you work three numbers the licence file needs. A level read off a desk and a level at a seat are two different measurements, and only one of them is what an audience gets.
+      Saturday. Douglas Pell, the licensing officer, has asked for sound levels measured at the
+      seat. Not at the desk, where they are easy to read. Haigh needs the period of the revolve.
+      Then the cue can be called on a count instead of on a look. Osei has a second cloth to
+      fly. He has the first cloth's figure to compare it against. Today you work out three
+      numbers the licence file needs. A level at the desk and a level at a seat are two
+      different things. Only one of them is what an audience actually gets.
     takeaway: A level is a ratio on a logarithmic scale, and a period is what one cycle costs.
     stops:
       - group: PIT
@@ -1605,7 +1634,12 @@ missions:
     objective: Measure what the empty house does to sound, and what the seats will do about it.
     briefing: The house rings, the seats arrive on Tuesday, and Pell wants a figure either way.
     stake: >-
-      Sunday, and the seats are on a lorry that arrives Tuesday. Brand can hear what the empty house does and cannot put a number on it until she measures the decay. Mbatha wants the pit rail lowered, which is a construction job Novak would have to start today. Pell wants the reverberation figure in the file whichever way it goes. Today you measure a decay and say what it will be once eight hundred and sixty people are sitting in it. A room measured empty is a measurement of a building nobody performs in.
+      Sunday. The seats are on a lorry that arrives Tuesday. Brand can hear what the empty house
+      does to a sound. She cannot put a number on it until she measures the decay. Mbatha wants
+      the pit rail lowered. That is a building job, and Novak would have to start it today. Pell
+      wants the reverberation figure in the file whichever way it comes out. Today you measure a
+      decay in the empty house. Then you say what it will be with eight hundred and sixty people
+      sitting in it. A room measured empty is a measurement of a building nobody performs in.
     takeaway: A quantity falling by the same fraction each interval never quite reaches zero.
     stops:
       - group: HOUSE
@@ -1770,7 +1804,13 @@ missions:
     objective: Get a level onto a face, and find both angles a cue could be called at.
     briefing: The first look is tonight and the plot has not been checked against a meter.
     stake: >-
-      Monday, and the first full look is at seven. Adeyemi's plot is drawn and Ferreira has not yet put a meter under any of it, which is where every rig argument starts. Haigh has a cue that has to fire when the revolve reaches a mark, and the chase reaches that level twice a cycle. Today you work out what arrives at the performer, find both times the cue could go, and say which seats the walked survey actually condemns. A trigonometric equation with one answer written down has usually had a second one thrown away, and a cue called on the wrong crossing fires fifteen seconds late.
+      Monday. The first full look is at seven. Adeyemi's plot is drawn. Ferreira has not yet put
+      a meter under any of it. That is where every rig argument starts. Haigh has a cue that has
+      to fire when the revolve reaches a mark. The chase reaches that level twice in every
+      cycle. Today you work out what light arrives at the performer. You also find both times
+      the cue could go, and which seats the walked survey condemns. A trigonometric equation
+      with one answer written down has usually had a second one thrown away. A cue called on the
+      wrong crossing fires fifteen seconds late.
     takeaway: A ratio falling as the square of a distance, and an equation with two solutions a cycle.
     stops:
       - group: BOARD
@@ -1940,7 +1980,12 @@ missions:
     objective: Produce a load plot the grid can be signed against.
     briefing: Osei will not fly the sequence without it and Pell will not sign without it.
     stake: >-
-      Tuesday, and the seats arrive at eight, the flying rehearsal is at two and Pell wants the load plot before either. Osei has four pieces to fly on a grid nobody has tested since 1958, and Sallow's sequence puts three of them in the air at once. Every line leans, because the grid is narrower than the stage. Today you work the per-line tensions, total the grid load and say what the margin is. A grid signed off on an assurance is the one number in this building nobody gets a second chance at.
+      Tuesday. The seats arrive at eight and the flying rehearsal is at two. Pell wants the load
+      plot before either. Osei has four pieces to fly. Nobody has tested the grid above them
+      since 1958. Sallow's sequence puts three of the four in the air at once. Every line leans,
+      because the grid is narrower than the stage. Today you work out the tension in each line.
+      Then you total the load on the grid and say what the margin is. A grid signed off on
+      somebody's word is the one number here nobody gets a second chance at.
     takeaway: A leaning line pulls harder than the load it carries, and the angle sets by how much.
     stops:
       - group: FLY
@@ -2123,7 +2168,12 @@ missions:
     objective: Decide what happens to twelve seats, and price a house that is not full.
     briefing: Sallow is right that a held seat sells to nobody, and Kettleby is right that a blind seat is a refund.
     stake: >-
-      Wednesday, and the seat map goes to the printer at four. Sallow's position today is the one she is right about: twelve seats withdrawn in the last fortnight of a rising sales curve are twelve seats that sell to nobody, and the run is costed on nine hundred. Kettleby is equally right that a seat with no line to the mark is a refund and a complaint. Today you price both, and find the number the argument has been missing. Two people are right and only one of the two numbers has been calculated.
+      Wednesday. The seat map goes to the printer at four. Sallow is right about one thing
+      today. Twelve seats pulled out in the last fortnight of a rising sales curve are twelve
+      seats that sell to nobody. The run is costed on nine hundred. Kettleby is just as right
+      about his own point. A seat with no line to the mark is a refund and a complaint. Today
+      you put a price on both sides. You also find the number the argument has been missing all
+      week. Two people are right, and only one of the two numbers has been worked out.
     takeaway: A quantity rising without bound as its input approaches a value has an asymptote there.
     stops:
       - group: FRONT
@@ -2302,7 +2352,13 @@ missions:
     objective: Mix a colour that survives the filter, and say what a transformation does.
     briefing: The wash reads green on camera and nobody can say which channel is lying.
     stake: >-
-      Thursday, and the recording company is in on the fourteenth, so the wash has to read on camera as well as in the room. Adeyemi has three channels and a filter; Ferreira has dimmers that do not do what their numbers say. Sallow wants the look signed off before the dress. Today you work out what a mix actually delivers and what a transformation does to a plot. Three channels each doing what they are told and a look that is wrong is a multiplication somebody has treated as an addition.
+      Thursday. The recording company is in on the fourteenth. So the wash has to read on camera
+      as well as in the room. Adeyemi has three channels and one filter. Ferreira has dimmers
+      that do not do what their numbers say. Sallow wants the look signed off before the dress
+      rehearsal. Today you work out what a mix of light actually delivers. You also work out
+      what a transformation does to a plot. Three channels can each do exactly what they are
+      told and the look can still be wrong. That is a multiplication somebody has treated as an
+      addition.
     takeaway: A transformation applied to every point is a matrix, and it does not commute.
     stops:
       - group: BOARD
@@ -2642,7 +2698,13 @@ missions:
     objective: Finish the plot, and find the one unit that is in the wrong place.
     briefing: Twenty-eight units are hung and one of them is 900 millimetres out.
     stake: >-
-      Saturday, and the rig is hung except for the focus. Ferreira has twenty-eight units on four bars and a plot in bearings, and one unit is not where the plot puts it — the focus session found a shadow on the mark that nothing accounts for. Adeyemi wants it found before the notes session at six. Today you use the plot's own coordinates to find which unit moved. A rig plotted in one coordinate system and hung in another has exactly one kind of error in it, and it is always the same kind.
+      Saturday. The rig is hung, except for the focus. Ferreira has twenty-eight lamps on four
+      bars and a plot written in bearings. One lamp is not where the plot puts it. The focus
+      session found a shadow on the mark that nothing accounts for. Adeyemi wants the fault
+      found before the notes session at six. Today you use the plot's own coordinates to work
+      out which lamp moved. A rig plotted in one coordinate system and hung in another has
+      exactly one kind of error in it. So there is one thing to look for, and twenty-eight lamps
+      to look at.
     takeaway: Converting between two descriptions of a point is where a rig's errors live.
     stops:
       - group: BOARD
@@ -2810,7 +2872,12 @@ missions:
     objective: Fit the last of the numbers and spend the last of the time.
     briefing: One rehearsal, four things to fix, and the licence file closes at noon tomorrow.
     stake: >-
-      Sunday, and there is one rehearsal left. The pass door bottleneck is still 161 seconds, the flying cue is timed but not run with the revolve, the wash reads green on camera and the last hundred seats are not selling themselves. Sallow wants the notes closed and Pell wants the file. Today you decide where the last four hours go and finish the two numbers the file is short of. Four hours is a smaller quantity than the list, which is what makes it a decision rather than a plan.
+      Sunday, and there is one rehearsal left. The pass door bottleneck is still 161 seconds.
+      The flying cue is timed, but it has not been run with the revolve. The wash reads green on
+      camera. The last hundred seats are not selling themselves. Sallow wants the notes closed
+      and Pell wants the file. Today you decide where the last four hours go. You also finish
+      the two numbers the file is still short of. Four hours is a smaller quantity than that
+      list. That is what makes it a decision rather than a plan.
     takeaway: A finite pool spent on a list longer than itself is a decision about what is not done.
     stops:
       - group: HOUSE
@@ -3025,7 +3092,13 @@ missions:
     objective: Close the file, open the doors, and say what the fortnight established.
     briefing: Pell signs at noon, the house opens at seven, and everything either measures or it does not.
     stake: >-
-      Monday the fourteenth. Pell signs the licence at noon on the strength of the file, the doors open at seven and eight hundred and sixty-one seats are sold. Sallow wants the last hundred released; Kettleby wants the twelve confirmed clear on the moved mark; Osei wants the load plot signed as it stands. Today you close three numbers, decide what happens to the last thirty-nine seats and say what the fortnight actually established. Everything in this building is now either a measurement with a period on it or somebody's recollection, and the file is what decides which of the two the next production inherits.
+      Monday the fourteenth. Pell signs the licence at noon on the strength of the file. The
+      doors open at seven. Eight hundred and sixty-one seats are sold. Sallow wants the last
+      hundred released. Kettleby wants the twelve confirmed clear on the moved mark. Osei wants
+      the load plot signed as it stands. Today you close three numbers. You decide what happens
+      to the last thirty-nine seats, and say what the fortnight actually settled. Everything in
+      this building is now one of two things. It is a measurement with a date on it, or it is
+      somebody's memory. The file decides which of the two the next production inherits.
     takeaway: A measured local number with a stated period is worth more than an inherited figure.
     stops:
       - group: HOUSE

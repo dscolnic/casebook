@@ -41,15 +41,14 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'Every faint nebula anybody has taken a spectrum of is running away from us, and '
-    + 'nobody can say why. There are years of those spectra in the room across the '
-    + 'corridor and not one distance to put beside any of them, so the list has sat '
-    + 'there being a list. In the plate vault there is now a way to measure how far '
-    + 'away some of those nebulae are. If the two numbers turn out to be related, then '
-    + 'either we are sitting at the middle of something enormous or the whole thing is '
-    + 'getting bigger. You are the observer who has been given both sets, which means '
-    + 'the ladder, the shifts and the plot all come through you. Edwin Hubble, who owns '
-    + 'the plot, wants a line on it by Wednesday.',
+    'Every faint nebula anybody has taken a spectrum of is running away from us. Nobody can say why. '
+    + 'Years of those spectra sit in the room across the corridor. Not one of them has a distance '
+    + 'beside it. So the list has stayed a list. The plate vault now has a way to measure how far away '
+    + 'some of those nebulae are. Soon each nebula will carry two numbers. One is how fast it runs from '
+    + 'us. The other is how far off it is. If those two numbers go together, only two answers are left. '
+    + 'Either we sit at the middle of something enormous. Or the whole thing is getting bigger. You are '
+    + 'the observer who has been handed both sets of numbers. The ladder, the shifts and the plot all '
+    + 'come through you. Edwin Hubble, who owns the plot, wants a line on it by Wednesday.',
   ],
 
   ending: [

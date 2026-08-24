@@ -54,17 +54,47 @@ export default {
   // Painted steel and deck matting, not laboratory vinyl.
   interiorStyle: 'steel',
 
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // Same fifteen days as themes/deepwatch, so the same fifteen pieces: this
+  // edition changes the course the questions are drawn from, not what the
+  // fortnight builds.
+  delivery: {
+    name: 'The Standing Orders',
+    what: 'The orders the next watch section works to: one rule a night, written in the words '
+      + 'of whatever went wrong, and signed before the boat is handed over.',
+    where: 'NAV',
+    pieces: [
+      'The compartment boundary card',
+      'The contact tracking rule',
+      'The two-source fix rule',
+      'The quiet-state trade order',
+      'The flooding boundary order',
+      'The de-energise-first order',
+      'The atmosphere sampling rule',
+      'The casualty priority order',
+      'The own-noise diagnosis card',
+      'The depth control order',
+      'The cooling chain check',
+      'The silent lineup deadlines',
+      'The rig-for-dive proof list',
+      'The refit recommendation',
+      'The night orders, signed',
+    ],
+  },
   opening: [
-    'You have the watch on a submarine at ninety metres. Everybody aboard is '
-    + 'asleep, on watch, or working in a compartment they cannot see out of. '
-    + 'Neither can you. What you know about the water comes from sonar. What you '
-    + 'know about the boat comes from gauges other people read out to you over a '
-    + 'telephone. A contact nobody has identified is closing, and water already '
-    + 'inside the hull is rising. The pencilled track on the chart drifts further '
-    + 'from where the boat really is with every minute nobody corrects it. '
-    + 'Surfacing is where every one of these problems stops being fatal. Somebody '
-    + 'has to be willing to call it, and Chief Petty Officer Dario Ferro, who has the damage control, '
-    + 'says the water is winning below.',
+    'You have the watch on a submarine, ninety metres down. Nobody aboard can see out. Neither can '
+    + 'you. What you know about the water comes from sonar. What you know about the boat comes from '
+    + 'gauges. Other people read those gauges out to you over a telephone. A contact nobody has named '
+    + 'is closing on the boat. Water inside the hull is rising. You have the watch, so the calls are '
+    + 'yours. In fifteen watches you hand over the standing orders. One rule says where flooding gets '
+    + 'stopped. One says when a repair can be trusted. One says when the boat comes up. You write one '
+    + 'of them a night, in the words of whatever went wrong.',
   ],
 
   // How it ends. Shown when the campaign closes and printed as the book's last page.

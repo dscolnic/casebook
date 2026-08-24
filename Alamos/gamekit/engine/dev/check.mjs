@@ -99,6 +99,29 @@ for(const theme of wanted){
                      // word of it — and a compliment on a day where nothing
                      // held is worse than no compliment at all.
                      'dayDebrief.mjs',
+                     // What the fortnight is FOR. A campaign declares one thing it
+                     // builds, a piece of it per day, and the room that keeps them —
+                     // and the one part that fails invisibly is naming an area with
+                     // no interior, which builds the board where nobody can walk.
+                     // Gated against engine/dev/delivery-debt.json.
+                     'delivery.mjs',
+                     // The tagline, as a measurement: hard concepts, explained at a
+                     // sixth-grade reading level. Nothing else in this list asks it —
+                     // `questionLoad` gates at grade 8 and below, so a campaign that
+                     // declares grade 12 passed everything with grade-11 prose on the
+                     // card a player reads every morning. Ratcheted against
+                     // engine/dev/plaincards-debt.json: a campaign may not gain a card
+                     // over the bar or make its worst one worse.
+                     'plainCards.mjs',
+                     // plainCards reads the two narrative cards and says in its own
+                     // header that it does not read the questions. This is that other
+                     // half — scene, guide, background, verdict and options, on all
+                     // 2,331 stops — against the same bar out of plainBar.mjs. It also
+                     // carries the hard half nothing else asked: three cards shipped
+                     // with no `guide` and one with no verdict, and every gate in this
+                     // list passed them. Reading load is ratcheted against
+                     // engine/dev/plainquestions-debt.json; a missing field never is.
+                     'plainQuestions.mjs',
                      // The seven world-graded runs: scheduled by the engine, and each one
                      // given a reason by the campaign that takes it.
                      'warmupOrder.mjs',
@@ -197,6 +220,16 @@ if(!process.argv[2]){
                      // question title passes every content gate because the title
                      // is correct where it was authored.
                      'dayDebrief.mjs --selftest',
+                     // And delivery's, whose silent inversions are both about
+                     // measuring nothing: an opening card that says "the case"
+                     // satisfying a name made of generic words, and an area with no
+                     // interior passing as a room the pieces are gathered in.
+                     'delivery.mjs --selftest',
+                     // And plainCards', whose load-bearing case is the equality one this
+                     // repo insists on: the same prose in an opening card and in a day
+                     // card has to score the same, or every number it prints compares two
+                     // different measurements.
+                     'plainCards.mjs --selftest',
                      // And the eleventh, whose silent inversion is an abbreviation: every
                      // unprotected `Dr.` turns a one-sentence stub into a two-sentence
                      // passage, and all eighteen bios it was written for name a doctor.
@@ -220,7 +253,12 @@ if(!process.argv[2]){
                      // And it reads the nesting the content actually uses: its first
                      // version read `lesson.attest`, found nothing in any campaign,
                      // and passed all ten games by measuring an empty set.
-                     'discoveryHistory.mjs --selftest']){
+                     'discoveryHistory.mjs --selftest',
+                     // And it knows a colon is not a full stop. Splitting on ':' as
+                     // well shortens every segment, so a 38-word pile-up reads as two
+                     // of 19 and the cap never fires — which is why Red Sand was
+                     // reported at zero over-long sentences when it had three.
+                     'plainQuestions.mjs --selftest']){
     const [file, ...flags] = tool.split(' ');
     const res = spawnSync(process.execPath, [resolve(here, file), ...flags],
       { stdio: 'inherit', cwd: resolve(here, '../..') });

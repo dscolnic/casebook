@@ -863,7 +863,7 @@ missions:
     objective: Work out what is out there before the boat commits to anything.
     briefing: |-
       Sonar has four sources on the display at once. Two of them have been there since before the boat slowed, one came with the turn, and one comes and goes. The captain wants to know which of them she has to care about.
-    stake: "Second day out. Sonar is listening for sound in the water, and there are four traces on the display. Nils Rask, the sonar supervisor, has been arguing with his own operator about the fourth. It holds almost the same bearing, and it is getting louder. Commander Iris Vance wants it classified before the boat commits. This watch you sort out what is out there, and say what a steady bearing means. A bearing that does not change is two ships heading for the same water."
+    stake: "Second day out. Sonar listens for sound in the water. There are four traces on the display. Nils Rask, the sonar supervisor, has been arguing with his own operator about the fourth one. It holds almost the same bearing. It is getting louder. Commander Iris Vance wants it classified before the boat commits. Classified means somebody says what it is. This watch you work out what is out there. A bearing that does not change is two ships heading for the same water."
     takeaway: A bearing is a measurement; a track is an argument built from several of them.
     stops:
       - group: SONAR
@@ -1038,7 +1038,7 @@ missions:
     objective: Work out not where the boat is, but how well that is known.
     briefing: |-
       The boat has been submerged for hours on dead reckoning. The plot is a confident-looking line drawn from course and speed, and it knows nothing about the water that has been setting the boat sideways the whole time. Ahead is a bank.
-    stake: "Third day, and the last trusted fix was three and a half hours ago. Imani Sowande has a plot built from course, speed and time. Anya Petrov, the assistant navigator, has been reading the depth sounder, and the two do not agree. There is a half-knot current nobody has measured today. This watch you work out how far the water has carried the boat, and get a position that does not depend on the plot. A bank sits half a mile off the track."
+    stake: "Third day. The last fix anybody trusts was three and a half hours ago. Imani Sowande has a plot built from course, speed and time. Anya Petrov, the assistant navigator, has been reading the depth sounder. The two do not agree. There is a half-knot current nobody has measured today. This watch you work out how far the water has carried the boat. You need a position that does not come from the plot. A bank sits half a mile off the track."
     takeaway: Precision is not accuracy, and two displays sharing a source are one measurement.
     stops:
       - group: NAV
@@ -1197,7 +1197,7 @@ missions:
     objective: Cross a constrained area without losing contact awareness or making unnecessary noise.
     briefing: |-
       The route ahead narrows between the bank and a shipping lane. Command wants the boat through it with contact held throughout and as little acoustic exposure as the plant allows.
-    stake: "Fifth day. The narrows are four miles across, the passage takes eleven hours, and the plot's doubt is a circle two miles wide. Lieutenant Commander Theo Whitfield, second in command, wants to wait for a better fix. Vance points out that waiting puts the boat mid-strait at first light, which is worse. This watch you decide what has to be true before the boat commits, and how much margin the passage really has."
+    stake: "Fifth day. The narrows are four miles across. The passage takes eleven hours. The plot's best guess at where the boat is covers a circle two miles wide. Lieutenant Commander Theo Whitfield, second in command, wants to wait for a better fix. Vance says waiting puts the boat in the middle of the strait at first light. That is worse. This watch you decide what has to be true before the boat goes in."
     takeaway: Quiet costs capability, and the trade has to be made deliberately rather than by default.
     stops:
       - group: SONAR
@@ -1338,7 +1338,7 @@ missions:
     objective: Find the water, decide whether pumping can win, and stop the source.
     briefing: |-
       The forward space is taking water. The drain pump is running and the level is still rising. Somewhere under those deck plates is a hole, and the boat is at 90 metres, which is what makes it a hole worth respecting.
-    stake: "Sixth day. Water is over the bilge in the forward space, with the drain pump running. Ruth Hallam, the auxiliary division, has the level and reports it steady. Ferro does not believe steady means anything, and is looking for the hole. This watch you find where the water is coming in, and work out whether pumping can win. Pumping buys minutes, and they are worth nothing unless somebody spends them finding the source."
+    stake: "Sixth day. Water is over the bilge in the forward space. The drain pump is running. Ruth Hallam, the auxiliary division, has the level, and reports it steady. Ferro does not believe steady means much. He is looking for the hole. This watch you find where the water is getting in. Pumping buys the boat minutes. Those minutes are wasted unless somebody uses them to find the hole."
     takeaway: Flooding is stopped at the hull fitting; everything else is delay.
     stops:
       - group: DC
@@ -1507,7 +1507,7 @@ missions:
     objective: Put out a fire whose ignition source is electrical, in the order that makes it stay out.
     briefing: |-
       Smoke in the electrical distribution space. The switchboard indicator says the affected bus is open, and the fire is behind a panel where nobody can see the seat of it.
-    stake: "Same day, eight hours after the flooding, and nobody has slept. Smoke is coming off a switchboard in the electrical space. The indicator says the bus is open, and a meter on the cable inside reads 440 volts. Bede Okonkwo, the electrical division, will not send anybody in on the strength of a lamp. This watch you decide what that meter is telling you, and how to fight a space nobody can see into."
+    stake: "Same day, eight hours after the flooding. Nobody has slept. Smoke is coming off a switchboard in the electrical space. The lamp on the panel says the power to that board is off. A meter on the cable inside reads 440 volts. Bede Okonkwo, the electrical division, will not send anybody in on the word of a lamp. Nobody can see into that space. This watch you decide which reading to trust. Either way, somebody has to open that board."
     takeaway: An electrical fire is put out by de-energizing it; the agent only finishes the job.
     stops:
       - group: FIRE
@@ -1718,7 +1718,7 @@ missions:
     objective: Tell a failing sensor from failing air, and find where the air stopped moving.
     briefing: |-
       Two of the crew in berthing have headaches. The atmosphere plant says everything is normal. Both of those statements can be true at once, and working out how is the whole of this watch.
-    stake: "Eighth day. The scrubber is running and its outlet reads clean. Elena Navarro, the corpsman, has been round berthing with a handheld meter, and it reads far higher than the sensor on that bulkhead. Nine people are asleep in there. This watch you decide whether it is the air or the instrument that is wrong, and how long that space is safe. The crew notice this one before the instruments do."
+    stake: "Eighth day. The scrubber takes carbon dioxide out of the boat's air. It is running, and its outlet reads clean. Elena Navarro, the corpsman, has been round berthing with a handheld meter. Her meter reads far higher than the sensor on that bulkhead. Nine people are asleep in there. Two readings of the same air do not agree. This watch you decide which of them to believe."
     takeaway: A plant reading is a report about the plant, not about the compartment you are standing in.
     stops:
       - group: ATMO
@@ -1945,7 +1945,7 @@ missions:
     objective: Prioritise and delegate when there are more casualties than there are people.
     briefing: |-
       Flooding forward, a partial power loss, a degraded plot and one injured crewman, all inside four minutes. There are not enough people to do everything, so the first decision is which things do not get done yet.
-    stake: "Ninth day, and four things at once. Water forward. A bus lost aft. The plot gone soft with the power. And Tunde Adeyemi, who runs the propulsion plant, in the passage with a broken wrist. Vance wants to hold the ordered speed. Theo Whitfield says a boat with four casualties at eight knots, nine miles off a bank, is about to have five. This watch you decide what you keep, what you hand over, and whether the boat slows."
+    stake: "Ninth day, and four things at once. Water forward. A bus lost aft. The plot gone soft with the power. And Tunde Adeyemi, who runs the propulsion plant, in the passage with a broken wrist. Vance wants to hold the ordered speed. Theo Whitfield says a boat with four casualties at eight knots, nine miles off a bank, is about to have five. This watch you decide what you keep and what you hand over. Whether the boat slows is part of it."
     takeaway: Command is deciding what you do, and who does the rest.
     stops:
       - group: DC
@@ -2157,7 +2157,7 @@ missions:
     objective: Trace one cooling path end to end and find where it stopped.
     briefing: |-
       Lube oil temperature is rising on the main bearing and nothing has changed on the throttle. Somewhere between the sea and that bearing there is a chain of things that carry heat away, and one of them is not.
-    stake: "Thirteenth day, and this one was bought two watches ago. A main bearing is running hot. The oil is hot, the fresh water is hot, and the seawater leaving the cooler is barely warmer than the sea going in. The second pump is still shut down from a quiet lineup. This watch you write the cooling path down in order, and find the link that stopped handing the heat on."
+    stake: "Thirteenth day, and this one was set up two watches ago. A main bearing is running hot. Chief Jun Haruki, the engineering watch supervisor, has the temperatures. The oil is hot. The fresh water is hot. The seawater leaving the cooler is barely warmer than the sea going in. The second pump is still shut down from an earlier lineup. This watch you write the cooling path down in order, and find the link that stopped handing the heat on."
     takeaway: A cooling system is a chain, and a chain is diagnosed link by link.
     stops:
       - group: ENG
@@ -2418,7 +2418,7 @@ missions:
     objective: Run the whole boat at once, with everything degraded a little and nothing decided for you.
     briefing: |-
       An uncertain contact, a plot four hours old, water in the forward bilge, a scrubber train down and a bearing running warm. None of them is an emergency. Together they are the patrol.
-    stake: "Twenty-second day, the last full watch, and everything is degraded a little. A contact Rask has not resolved. A plot Sowande has not fixed since morning. A machine nobody has looked at since Tuesday. Whitfield is in the wardroom with a fractured wrist, so the officer you would hand half of this to is gone. This watch you decide the order it all gets worked in, while it is happening."
+    stake: "Twenty-second day, the last full watch. Nothing aboard is quite right. A contact Rask has not resolved. A plot Sowande has not fixed since morning. A machine nobody has looked at since Tuesday. Whitfield is in the wardroom with a fractured wrist. The officer you would hand half of this to is gone. This watch you decide the order it all gets worked in. Nothing waits while you think."
     takeaway: Command is choosing which uncertainty you can live with, and saying so out loud.
     stops:
       - group: NAV

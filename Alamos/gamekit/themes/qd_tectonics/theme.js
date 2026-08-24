@@ -43,16 +43,15 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'Continents on opposite sides of an ocean carry the same fossils, the same rock '
-    + 'belts and scratches from the same ice sheet, and nobody can say what would '
-    + 'move a continent. For forty years that has been enough to make the idea '
-    + 'interesting and not enough to make anybody act on it. Then the ships came '
-    + 'back. There is a second wall in this building, locked until this morning, '
-    + 'holding rock ages and magnetic traces and forty years of earthquakes from '
-    + 'under the sea. You are the geoscientist the section has put on it, which '
-    + 'means every file gets read by you before it gets argued about. Hugh '
-    + 'Ewing, who runs the section, wants one framework over all of it by '
-    + 'Wednesday, and he will name the file any near miss leaves out.',
+    'Look at a map of the Atlantic. The land on one side matches the land on the other. The same '
+    + 'fossils. The same belts of rock. The same deep scratches, cut by one sheet of ice. For forty '
+    + 'years that has been enough to make people curious. It has not been enough to make them act. '
+    + 'Nobody can name a force big enough to move a whole continent. Then the ships came back. There is '
+    + 'a second wall in this building, locked until this morning. Behind it are rock ages from the sea '
+    + 'floor. There are magnetic traces, towed in long straight lines. There are forty years of quakes '
+    + 'from under the ocean. You are the geoscientist here, so every file is read by you before it is '
+    + 'argued about. The head of the section wants one story that covers all of it by Wednesday. That '
+    + 'is three days away.',
   ],
 
   ending: [

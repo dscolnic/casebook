@@ -371,17 +371,22 @@ if(!manifest.dayNoun){
       fail(`the opening ends on "${closing.trim().slice(0, 72)}…" — a closing line with no number, `
          + 'no clock and nobody in it is a specification rather than a stake');
     }
-    // Beat three is "the clock or the argument, WITH SOMEBODY FROM THE ROSTER IN IT",
-    // and this was a note for as long as seventeen of forty-two campaigns ignored it —
-    // including The Trial and Ice Core, whose openings are among the best-written in the
-    // set and whose arguments are between two people neither of whom was on the card. A
-    // note nobody has to clear is a note nobody clears. All seventeen carry a name now,
-    // so this fails.
-    if(!surnames.some(s => card.includes(s))){
-      fail('the opening names nobody from the roster — the third beat is the clock or the '
-         + 'argument with somebody in it, and an argument with no people in it reads as a '
-         + 'property of the place rather than as something anybody has to settle');
-    }
+    // THE ROSTER-NAME RULE IS GONE, deliberately, and this comment is what is left
+    // of it. For a while this failed a card that named nobody, on the argument that
+    // an argument with no people in it reads as a property of the place. What that
+    // produced was cards that spent two sentences introducing two people and their
+    // disagreement before saying what the fortnight was for — "Ada Verhoeven, the
+    // board chair, wants the rate fixed on Friday. Emil Radic, the board's
+    // statistician, has three weeks of price data" — and the introduction is a beat
+    // the day cards do better, at the moment the person is standing in front of
+    // you. The opening card is the mission and the delivery: what has happened,
+    // what your signature is on, what has to be handed over at the end, what one
+    // day of it produces, and what it costs. The cast is introduced by
+    // `checkNames`/`introRule` wherever it is first named, which is now usually a
+    // day-1 stake.
+    //
+    // What still holds, above: one paragraph, the authority clause, no mechanics,
+    // no sentence over 40 words, and a closing line with a number or a clock in it.
   }
 }
 

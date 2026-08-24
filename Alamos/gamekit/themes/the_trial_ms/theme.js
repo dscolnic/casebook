@@ -74,15 +74,41 @@ export default {
 
   // The title card: ONE paragraph of situation. No mechanics, no controls, no
   // scope note — every game had those and every game lost them.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // Ten days, so ten pieces. The claims the trial made first are written
+  // first, because every later section is read against them.
+  delivery: {
+    name: 'The Safety Board Pack',
+    what: 'What the safety board reads before it decides whether the trial goes on. One section '
+      + 'a day, and every claim in it made before the data came in.',
+    where: 'REG',
+    pieces: [
+      'The claims made first',
+      'The measuring rules',
+      'The two-site signal',
+      'The fast site\'s check',
+      'The missing-people rule',
+      'The cold room note',
+      'The guessing survey',
+      'The locked file',
+      'The 1-in-14 correction',
+      'The wording of the finding',
+    ],
+  },
   opening: [
-    'CLARION-3 has been running for four years. Two thousand four hundred people are in it, across '
-    + 'thirty-one hospitals. Half of them get a new drug and half get the usual treatment, and '
-    + 'nobody in this building knows which is which. You are the methods and operations lead at the '
-    + 'coordinating centre, which means the pack the safety board reads is the pack you put '
-    + 'together. That board sits in three weeks and it can stop the trial. Stop it early on a '
-    + 'result that turns out to be luck, and a drug that works is buried for ten years. Carry on '
-    + 'too long, and everybody who joins after today is in a trial that already had its answer. '
-    + 'Dr. Miriam Feldman, who does the trial arithmetic, thinks this result will not grow.',
+    'The safety board sits in ten days, and it can stop CLARION-3. Four years in, the trial has two '
+    + 'thousand four hundred people across thirty-one hospitals. Half get a new drug and half get the '
+    + 'usual treatment, and nobody in this building knows which is which. You are the methods and '
+    + 'operations lead at the coordinating centre. What the board sees is what you send it. In ten days '
+    + 'you hand over the safety board pack. It says what the trial promised to measure before it had '
+    + 'any data. It says what it has measured since. It says how much of the difference can honestly be '
+    + 'claimed. You write one section a day.',
   ],
 
   ending: [

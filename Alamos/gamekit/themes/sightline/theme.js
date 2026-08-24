@@ -47,15 +47,47 @@ export default {
   interiorStyle: 'lab',
 
   // The title card: ONE paragraph of situation.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One finding a day, in the order the file gave them up. The surveyed
+  // distance is measured halfway through and moves everything written before
+  // it.
+  delivery: {
+    name: 'The Ward Referral',
+    what: 'The report the board acts on: what the file claimed, what can still be measured '
+      + 'seven years later, and what one identification can and cannot support alone.',
+    where: 'MEASURE',
+    pieces: [
+      'The file\'s claims, listed',
+      'The visual angle calculation',
+      'The walked distance',
+      'The lighting measurement',
+      'The interview\'s method',
+      'The photograph\'s contamination',
+      'The shared-source finding',
+      'The array\'s functional size',
+      'The surveyed thirty-four metres',
+      'The four changes, separated',
+      'The certainty statement, dated',
+      'The nineteenth-hour admission',
+      'The match\'s real weight',
+      'The irreversible call',
+      'The disposition, as supported',
+    ],
+  },
   opening: [
-    'On a November night in 2019 a stranger watched a robbery from across Ferrier Street. Her '
-    + 'account put Elias Ward in prison, and he has served seven years of fourteen on no other '
-    + 'evidence. You are the review analyst at the Conviction Integrity Unit, and the report '
-    + 'going to the board in fifteen days is yours. The unit has rebuilt that corner, lit as '
-    + 'the street was. Your work is what could have been seen from it. Ines Baptiste, the unit '
-    + 'director, wants it filed this month. Ren Okada, the memory scientist, says the one '
-    + 'account nobody has touched is what such a report would use up. Ward is thirty-four; if '
-    + 'the board says no, nobody looks again until 2033.',
+    'On a November night in 2019 a stranger watched a robbery from across Ferrier Street. She said '
+    + 'the man was Elias Ward. Her word put him in prison. He has served seven years of a fourteen year '
+    + 'term. No other evidence was ever found. You are the review analyst at the Conviction Integrity '
+    + 'Unit. You can tell the board only what you can show them. In fifteen days you hand over the Ward '
+    + 'referral. It sets out what the file claimed. It sets out what can still be measured on that '
+    + 'street today. And it sets out how much one witness can carry alone. One finding goes in each '
+    + 'day. Ward is thirty-four. If the board says no, nobody looks again until 2033.',
   ],
 
   // The last thing anybody reads. What happened, what it cost, what is left.

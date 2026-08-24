@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "The Vapor Cloud",
     "objective": "Provide a bounded plume assessment and decision triggers for evacuation zones.",
     "briefing": "A colorless plume moves toward two neighborhoods as the weather changes. The team must estimate expansion, density, and direction without treating an ideal-gas model as a complete atmospheric forecast. A delayed evacuation risks exposure; an overbroad evacuation can block emergency access and overwhelm shelters.",
-    "stake": "Day two, first light. The wind has turned, and a colourless cloud is drifting off the yard toward two neighbourhoods. Miklos Varga, the atmospheric chemistry lead, has a forecast that disagrees with the fire chief's map about where it goes by eleven. Sipho Mbeki, the public briefing officer, has to tell residents something by eight. Today you work out how much air that release can fill, and what the warming morning does to it. Warn too small an area and somebody is standing in it.",
+    "stake": "Day two, first light. The wind has turned. A colourless cloud is drifting off the yard toward two neighbourhoods. Miklós Varga, the atmospheric chemistry lead, has his own forecast. It does not match the fire chief's map of where the cloud goes by eleven. Sipho Mbeki, the public briefing officer, has to tell residents something by eight. Today you work out how much air that release can fill on a warming morning. Warn too small an area and somebody is standing in it.",
     "takeaway": "Provide a bounded plume assessment and decision triggers for evacuation zones.",
     "stops": [
       {
@@ -84,7 +84,7 @@ export const MISSIONS = [
     "title": "The Concentration Problem",
     "objective": "Produce concentration maps whose units, detection limits, and quality controls are explicit.",
     "briefing": "City leaders ask whether the contaminant is \"high,\" but samples differ in dilution, path length, and what else is in the sample. The team must turn signals into defensible concentrations. An incorrect concentration map can either close a safe water system or expose residents through a false reassurance.",
-    "stake": "Day six. The results are back as numbers, and the city is holding each one against a legal limit. Rie Nakamura is the quality assurance lead. She wants every result run again before anything reopens. Marisol Reyes runs the water utility. She points out that four water systems are already shut on numbers nobody has questioned. Hospitals are on tankers. Today you turn readings into what was really in the river, and decide whether one result can be trusted.",
+    "stake": "Day six. The lab results are back as numbers. The city holds each number against a legal limit. Rie Nakamura is the quality assurance lead. She wants every test run again before the taps go back on. Marisol Reyes runs the water utility. Four water systems are shut already, she says, on numbers nobody has checked. Hospitals are drinking from trucks. Today you turn the readings into what was really in the river. One of those readings may not be worth trusting.",
     "takeaway": "Produce concentration maps whose units, detection limits, and quality controls are explicit.",
     "stops": [
       {
@@ -238,7 +238,7 @@ export const MISSIONS = [
     "title": "Reopen the City",
     "objective": "Deliver a claim-by-claim chemical evidence package and a long-term monitoring plan.",
     "briefing": "The final board must explain what was released, how chemicals moved and changed, which treatments worked, and what contamination remains in solids, infrastructure, and ecosystems. Without a complete fate and uncertainty record, the city cannot know whether the emergency is over or merely hidden.",
-    "stake": "Day fifty-two. The mayor wants one word tonight, and Sipho Mbeki has to put it on a screen behind him. Behind that word sits seven weeks of work, and not all of it is equally solid. Elena Stavros, the long-term monitoring officer, wants the long-term monitoring paid for before the emergency money closes on Friday. Nobody else has mentioned it. Today you take the claims one at a time, and decide what the city keeps paying for.",
+    "stake": "Day fifty-two. The mayor wants one word tonight. Sipho Mbeki has to put that word on a screen behind him. Seven weeks of work sits behind it. Not all of that work is equally solid. Elena Stavros, the long-term monitoring officer, wants the watching after the clean-up paid for. The emergency money closes on Friday. Nobody else has asked for it. Today you take the claims one at a time and say what the city keeps paying for.",
     "takeaway": "Deliver a claim-by-claim chemical evidence package and a long-term monitoring plan.",
     "stops": [
       {

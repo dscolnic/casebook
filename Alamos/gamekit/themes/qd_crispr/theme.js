@@ -62,17 +62,15 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'Forty bacterial genomes carry the same odd structure. A short sequence is repeated '
-    + 'over and over, with something different filed between every pair of copies. One of '
-    + 'those filed pieces matches a virus that kills this species, exactly, over thirty '
-    + 'bases. If the bacteria keep a written record of what has attacked them, something in '
-    + 'the cell must be reading it. And a machine that is told what to find by a copy can '
-    + 'be told to find anything. If the match is a coincidence, four benches are about to '
-    + 'waste a month. You are the molecular biologist, which means the genomes, the design '
-    + 'desk and the sequencing queue all come through you. Jennifer Doudna, who works on the '
-    + 'structural biochemistry of the machinery, will not sign an order until the chance has '
-    + 'been priced. There is '
-    + 'one run on Friday, nineteen sites worth worrying about, and depth for four.',
+    'Forty bacterial genomes carry the same odd shape. One short piece of code repeats over and over. '
+    + 'Between every pair of copies sits a different piece. One of those pieces matches a virus that '
+    + 'kills this species. The match is exact, and it runs thirty bases long. Maybe these cells keep a '
+    + 'written record of what has attacked them. If they do, something in the cell must be reading it. '
+    + 'And a machine that is told what to find by a copy can be told to find anything. Or the match is '
+    + 'luck, and four benches waste a month. So nobody signs an order until the chance has been priced. '
+    + 'You are the molecular biologist here. The genomes, the design desk and the sequencing queue all '
+    + 'come through you. There is one run on Friday, nineteen sites worth worrying about, and depth for '
+    + 'four.',
   ],
 
   ending: [

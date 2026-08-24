@@ -7,7 +7,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What you can still make out at twenty-two metres",
-      "scene": "Nadia Frey, the vision scientist, runs a tape out to the twenty-two metre mark on the bay floor and stands a face at the doorway. She wants a number before anybody looks.",
+      "scene": "Halina Frey, the vision scientist, runs a tape out to the twenty-two metre mark on the bay floor and stands a face at the doorway. She wants a number before anybody looks.",
       "takeaway": "The further away something is, the bigger it has to be before you can make it out at all.",
       "place": "Reconstruction Bay",
       "guide": "Your eye can separate two things only if the gap between them is big enough for how far away they are. The rule is about a third of a millimetre for every metre. Two tiles give the answer; the others describe the corner but do not go into it.",
@@ -15,7 +15,7 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "Nadia Frey, the vision scientist, runs a tape out to the twenty-two metre mark on the bay floor and stands a face at the doorway. She wants a number before anybody looks.",
+      "story": "Halina Frey, the vision scientist, runs a tape out to the twenty-two metre mark on the bay floor and stands a face at the doorway. She wants a number before anybody looks.",
       "game": {
         "type": "BALLPARK",
         "title": "What you can still make out at twenty-two metres",

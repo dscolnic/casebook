@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "Competing predictions",
     "objective": "Settle what is being separated, and how small the angle is.",
     "briefing": "Two numbers on a card, a factor of two apart, and an eclipse in eleven days.",
-    "stake": "Eleven days out, and the camp is still being levelled. Arthur Eddington, the chief observer, has two prediction cards pinned inside the camera hut: about nine tenths of an arcsecond, and about one and three quarters. They are not two guesses at the same thing — one comes from treating light as particles falling toward the Sun, and the other from a theory that says space itself is bent. Today you say which number the newer theory gives, work out how small an arcsecond actually is, and put the observing plan in the order it has to happen in. Totality lasts about five minutes and there is no second attempt.",
+    "stake": "Eleven days to go, and the camp is still being levelled. Arthur Eddington, the chief observer, has pinned two cards inside the camera hut. One card says about nine tenths of an arcsecond. The other says about one and three quarters. They are not two guesses at the same thing. The older idea treats light as tiny grains falling toward the Sun. The newer theory says space itself is bent near a heavy body. Only one of those numbers belongs to the newer theory. Today you say which one it is. After that you work out how small an arcsecond really is. Then you put the observing plan in the order it has to happen in. Totality lasts about five minutes. There is no second attempt.",
     "takeaway": "An experiment does not need to be precise in the abstract; it needs to separate two numbers.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Measure the plates",
     "objective": "Make the two sets comparable, find the pattern, and price the errors honestly.",
     "briefing": "The plates are back and one set has visibly softer focus than the other.",
-    "stake": "Eight weeks later, and both sets of plates are on the bench. Charles Davidson, the plate measurer, has the measuring engine set up and a problem: one set was exposed on a warm night with the focus a little soft, and its star images are visibly wider than the other's. Nakagawa has an error budget open beside her. Today you make the two sets comparable, work out which direction the shifts should point if this is gravity at all, and find out which of the four uncertainties is actually carrying the answer. Getting the last one wrong means spending a week improving a number that was already good enough.",
+    "stake": "Eight weeks later. Both sets of plates are back on the bench. Charles Davidson, the plate measurer, has the measuring engine ready. He also has a problem. One set was exposed on a warm night with the focus a little soft. Its star images came out wider than the other set's. Nakagawa has an error budget open beside her. Today you make the two sets comparable. After that you work out which way the shifts should point if gravity is really doing this. Then you find which of four uncertainties is carrying the answer. Get that last one wrong and you spend a week improving a number that was already good enough.",
     "takeaway": "A residual is only about physics once everything that is not physics has been solved for.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "Test the prediction",
     "objective": "Combine the sets honestly, see what the band separates, and write what may be said.",
     "briefing": "Two results, two very different error bars, and a wire that charges by the word.",
-    "stake": "The last week, and there are two combined estimates on the table. One plate set gives close to two arcseconds with a narrow error bar; the softer set gives about nine tenths with an error bar six times wider. Rupert Fielding, the expedition secretary, has the telegraph open and a word limit. Today you find out how wide the band has to be before the result stops separating the two predictions, work out how much more the sharper set should count, and choose the sentence that goes down the wire. A cable arrives without the plates, without the band and without the argument, and it is quoted for a century.",
+    "stake": "The last week of the trip. Two combined estimates sit on the table. One plate set gives close to two arcseconds, and its error bar is narrow. The soft set gives about nine tenths, and its error bar is six times wider. Rupert Fielding, the expedition secretary, has the telegraph open. He also has a word limit. Today you find how wide the band has to be before the result stops telling the two predictions apart. After that you work out how much more the sharp set should count. Then you pick the sentence that goes down the wire. A cable arrives with no plates, no band and no argument. People will still be quoting it a hundred years from now.",
     "takeaway": "A result is a number, a band, and a sentence, and the sentence has to survive being read alone.",
     "stops": [
       {

@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "88%",
     "objective": "Get an instantaneous rate out of readings, out of a formula, and find the instant that has none.",
     "briefing": "Nine days of rain forecast, and every number on this dam is about to be asked how fast it is moving.",
-    "stake": "Monday, and the reservoir is at 88% after the driest summer in 9 years. June Sato, the forecast liaison, brought the five-day forecast down an hour ago — rain over the high ground from Thursday, and a lot of it. Dermot Halloran has already said the word drawdown in a tone that means he does not want one. Everything decided this fortnight is decided on rates rather than readings, so today you take a rate three ways — between two gauge readings, out of a fitted formula by the definition itself, and at one instant where the record has no rate at all.",
+    "stake": "Monday. The reservoir is at 88% after the driest summer in nine years. June Sato, the forecast liaison, brought the five-day forecast down an hour ago. Rain over the high ground from Thursday. A lot of it. Dermot Halloran has already said the word drawdown. He said it in a tone that means he does not want one. This fortnight is not run on readings. It is run on rates. A rate is how fast a number is changing. Today you find a rate three ways. Once between two gauge readings. Once from a fitted formula, straight from the definition. Once at a single instant, where the record holds no rate at all.",
     "takeaway": "A reading is a value; a rate is a limit, and the limit is the part that says what happens next.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "The same water, moving faster",
     "objective": "Differentiate the three relations this dam runs on, and see what each rate carries with it.",
     "briefing": "Three formulas on three walls, and today every one of them is asked how fast it is moving.",
-    "stake": "Tuesday, and the rain has started on the upper catchment. The gauge is climbing, the level is climbing behind it, and Reggie Wilkes, the gate mechanic, has been asked what happens to the discharge if the gate is wound at a steady rate — a question about the spillway relation rather than about the gate. Mercy Anand, the powerhouse chief, has the same question about power, which depends on two things that are both moving at once. Today you differentiate the three relations the dam is run from, and find that a rate on the left picks up every factor the right-hand side's own change brings with it.",
+    "stake": "Tuesday. The rain has started on the upper catchment. The gauge is climbing. The level is climbing behind it. Reggie Wilkes, the gate mechanic, has a question. Wind the gate open at a steady rate, and what happens to the discharge going out? That is a question about the spillway relation, not about the gate. Mercy Anand, the powerhouse chief, asks the same thing about power. Power leans on two quantities, and both of them are moving at once. Today you differentiate the three relations the dam is run from. A rate on the left picks up every part of the right side that is moving too.",
     "takeaway": "Differentiating a relation converts it from a statement about values into a statement about rates.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "What fell, and what arrived",
     "objective": "Add up a rate that only exists as readings, and say which way each way of adding it is wrong.",
     "briefing": "Six hours of gauge readings and no formula behind any of them.",
-    "stake": "Wednesday, and the front arrived overnight. Ekundayo has six hours of fifteen-minute gauge readings and Sato is asking for the volume already in the reservoir — a total, out of a rate, with nothing to integrate but a column of numbers. Down in the gallery Halina Zawadzka, the structural engineer, has the same problem in miniature at the seepage weirs, where the readings are rising and the choice of which end of each interval to trust decides the answer. Today you accumulate a rate that exists only as a column of numbers, and say which way each way of adding it up is wrong.",
+    "stake": "Wednesday. The front arrived overnight. Ekundayo has six hours of gauge readings, one every fifteen minutes. Sato wants the volume of water that has already reached the reservoir. That is a total built out of a rate. There is no formula to work from, only a column of numbers. Down in the gallery, Halina Zawadzka, the structural engineer, has the same job in miniature. Her seepage weirs are reading higher each hour. She has to pick which end of each interval to trust, and that choice moves the answer. Today you add up a rate that exists only as a column of numbers. Then you say which way each method of adding leans.",
     "takeaway": "A rate known only at instants still accumulates, and every rule for adding it is wrong in a direction you can name.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "Two days of not deciding",
     "objective": "Use an antiderivative to evaluate an accumulation, and say what the accumulation function's own rate is.",
     "briefing": "The release that was deferred on Monday has to be made today, and the arithmetic for it is an integral.",
-    "stake": "Thursday. Sunniva Berg asked for a release on Monday and did not get 1, and the water that would have gone out at 120 cubic metres a second now has to go out at 480 into a river with people beside it. The schedule is written as a formula this time rather than a table, which means the volume it delivers can be evaluated exactly instead of summed. Today you use the fundamental theorem in both directions — an antiderivative to total a rate, and an accumulation to hand a rate back.",
+    "stake": "Thursday. On Monday, Sunniva Berg asked for a release and did not get one. The water that would have gone out at 120 cubic metres a second now has to go out at 480. It goes into a river with people living beside it. This time the schedule is a formula, not a table. So the volume it delivers can be worked out exactly, instead of summed piece by piece. Today you use the fundamental theorem of calculus in both directions. One way, an antiderivative turns a rate into a total. The other way, a total hands a rate back. Berg wants to know what two days of waiting cost.",
     "takeaway": "An antiderivative turns an accumulation into a subtraction, and an accumulation differentiates back to the rate that built it.",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "The last half metre",
     "objective": "Differentiate a relation that will not solve, and follow a rate through everything it passes.",
     "briefing": "Two quantities tied by a curve nobody can rearrange, and one rate that has to travel four steps.",
-    "stake": "Friday, and the head over the spillway sill has reached the part of the rating where the last half metre does more than the first two did. Bo Ferrand cannot rearrange the stage–storage curve into a formula for the level, which does not stop the level having a rate. In the gallery the uplift gauges are tied to the reservoir by a relation with the unknown on both sides, and Anand wants the same arithmetic for the machines. Today you differentiate a relation without solving it first, and follow one rate the whole way from rain on the hills to water past the sill.",
+    "stake": "Friday. The head of water over the spillway sill has climbed into a new part of the rating curve. Up here the last half metre does more work than the first two did. Bo Ferrand cannot rearrange the stage to storage curve into a neat formula for the level. That does not stop the level from having a rate. In the gallery, the uplift gauges are tied to the reservoir by a relation with the unknown on both sides. Anand wants the same arithmetic done for the machines. Today you differentiate a relation without solving it first. Then you follow one rate the whole way, from rain on the hills to water past the sill.",
     "takeaway": "A relation can be differentiated where it cannot be rearranged, and a rate travels through every relation between its ends.",
     "stops": [
       {
@@ -132,7 +132,7 @@ export const MISSIONS = [
     "title": "Has it peaked?",
     "objective": "Find the inflection in a rising record, and say which quantity peaks when.",
     "briefing": "The gauge is still climbing, and the question on the call is whether it is climbing as hard as it was.",
-    "stake": "Saturday, and the first honest news of the fortnight is on Ekundayo's screen — the inflow is still rising and the hourly increments are not. Nobody wants to hear it as a hunch, and the difference between a rate that has peaked and a rate that is merely slackening is the difference between two very different afternoons. Ferrand has the level fitted to a curve that turns over on a nameable day. Baptiste has to tell the reach which peak she means, because the two do not happen on the same day. Today you find where a climb turns over, and say which quantity peaks when.",
+    "stake": "Saturday. The first good news of the fortnight is on Ekundayo's screen. The inflow is still rising. The hourly steps up are not getting bigger any more. Nobody will take that as a hunch. A rate that has peaked and a rate that is merely easing off make for two very different afternoons. Ferrand has the level fitted to a curve that turns over on a day you can name. Baptiste has to warn the reach, and she has to say which peak she means. The two peaks do not fall on the same day. Today you find the point where a climb turns over. Then you say which quantity peaks when.",
     "takeaway": "The first derivative says which way, the second says whether the way is easing, and they turn over on different days.",
     "stops": [
       {
@@ -156,7 +156,7 @@ export const MISSIONS = [
     "title": "What the wall is carrying",
     "objective": "Find a maximum at a critical point, at an endpoint, and by sweeping a control.",
     "briefing": "Three quantities that are largest somewhere, and the somewhere is different in each case.",
-    "stake": "Sunday, and three people want a largest value. Zawadzka has an overturning moment that grows with the extent of the uplift under the base and then stops growing. Wilkes wants to know where on the rating the spillway is at its most sensitive, over a head range fixed by the gates. Anand has a grid schedule to write and a penstock that loses head the harder it is driven, so more water through the machines stops meaning more power somewhere in the middle of the range. Today you find three largest values, and the three do not have their answers in the same kind of place.",
+    "stake": "Sunday. Three people want a largest value. Zawadzka has an overturning moment on the wall. It grows as the uplift under the base spreads, and then it stops growing. Wilkes wants the place on the rating curve where the spillway is most sensitive. His head range is fixed by how far the gates open. Anand has a grid schedule to write. Her penstock loses head the harder it is driven. So pushing more water through the machines stops buying more power somewhere in the middle of the range. Today you find three largest values. The three answers do not sit in the same kind of place.",
     "takeaway": "A maximum sits at a critical point, at an end of the interval, or nowhere — and which of the three is a question about the derivative.",
     "stops": [
       {
@@ -180,7 +180,7 @@ export const MISSIONS = [
     "title": "The release that just clears it",
     "objective": "Reduce a varying rate to the single steady one with the same total, and say what that guarantees.",
     "briefing": "A schedule that varies all day, and a committee that wants one number for it.",
-    "stake": "Monday of the second week. The release schedule varies through the day and the liaison committee wants one figure for it, which sounds like a simplification and is a definite integral. Berg needs the same number for a different reason — a steady release with the same total is the release she would have made on the first day, and the comparison is the whole of her argument with Halloran. Today you reduce a varying rate to the one steady rate with the same total, and say what that guarantees about the morning it came from.",
+    "stake": "Monday of the second week. The release schedule changes through the day. The liaison committee wants one figure for it. That sounds like rounding off. It is a definite integral. Berg needs the same figure for her own reason. A steady release with the same total is the release she would have made on the first day. That comparison is the whole of her argument with Halloran. Today you reduce a changing rate to the one steady rate with the same total. Then you say what that steady rate guarantees about the morning it came from.",
     "takeaway": "The average value of a rate is its accumulation divided by the interval, and a continuous rate attains it somewhere inside.",
     "stops": [
       {
@@ -204,7 +204,7 @@ export const MISSIONS = [
     "title": "The ledger that will not close",
     "objective": "Solve the drawdown equation, and find what a single reading leaves undetermined.",
     "briefing": "The low-level outlet is open and the level is falling on a curve nobody has written down yet.",
-    "stake": "Tuesday, and the low-level outlet has been open since first light. The level is falling and it is not falling at a steady rate, because the head driving the outlet is the very thing that is going down. Ferrand wants the level as a function of time rather than a table, which means solving the equation rather than reading it. Ekundayo has one reading six hours old and is being asked to state a drain constant from it, which turns out to be two questions wearing one number. Today you solve the drawdown equation, find what a single reading leaves open, and turn the answer into an hour somebody can act on.",
+    "stake": "Tuesday. The low-level outlet has been open since first light. The level is falling, and it is not falling at a steady rate. The head driving the outlet is the very thing that is going down. Ferrand wants the level as a function of time, not as a table. That means solving the equation instead of reading it off. Ekundayo has one gauge reading, six hours old. He is being asked to state a drain constant from it. That turns out to be two questions wearing one number. Today you solve the drawdown equation. Then you turn what it gives you into an hour somebody can act on.",
     "takeaway": "A rate that depends on the quantity itself is solved by separating and integrating, and the constant that comes out needs its own measurement.",
     "stops": [
       {
@@ -233,7 +233,7 @@ export const MISSIONS = [
     "title": "Every number again",
     "objective": "Rebuild the volume from the area curve, and find which quantity the correction reaches.",
     "briefing": "The survey boat has been out, and the curve every volume on this site came through is wrong.",
-    "stake": "Wednesday, and Ilya Rasmussen has been over the reservoir with an echo sounder. The stage-storage curve was surveyed in 2003 and never resurveyed, and 2 decades of silt mean the surface area at any given level is smaller than the sheet says. Nothing was faked and nobody was careless. But volume is the integral of area with respect to level, so an integrand wrong by a few per cent makes every accumulation this control room has computed for a fortnight wrong in the same direction. Today you rebuild a volume out of the corrected areas, and find how far the correction travels.",
+    "stake": "Wednesday. Ilya Rasmussen has been out over the reservoir with an echo sounder. The stage to storage curve was surveyed in 2003 and never done again. Two decades of silt have settled since. So the surface area at any given level is smaller than the old sheet says. Nothing was faked and nobody was careless. But volume is the integral of area with respect to level. The area is the integrand, the thing being added up. Get it wrong by a few per cent, and every total this control room has worked out for a fortnight is wrong the same way. Today you rebuild a volume from the corrected areas. Then you find how far that correction travels.",
     "takeaway": "An integral inherits every error in its integrand, and the only quantities it spares are the ones that never went through it.",
     "stops": [
       {
@@ -257,7 +257,7 @@ export const MISSIONS = [
     "title": "A day when nothing happens",
     "objective": "Predict with a tangent line and then measure it, and evaluate a limit that arithmetic cannot reach.",
     "briefing": "A quiet day, which is the only kind on which a prediction can be checked against a measurement.",
-    "stake": "Thursday, and for the first time in a fortnight nothing has to be decided before lunch. Anand wants to raise the machines and can say from the rate alone what that should buy, which is a prediction and therefore a thing that can be wrong. Zawadzka has a routing expression that goes to zero over zero at the instant a release starts, which is not a small number but no number at all until it is handled properly. Ekundayo has a six-centimetre head rise and a rating curve. Today you predict with a tangent line and then measure it, and work one limit that no amount of substitution reaches.",
+    "stake": "Thursday. For the first time in a fortnight, nothing has to be decided before lunch. Anand wants to raise the machines. From the rate alone she can say what that should buy her. That is a prediction, so it is a thing that can be wrong. Zawadzka has a routing expression that goes to zero over zero the instant a release starts. Zero over zero is not a small number. It is no number at all until it is handled properly. Ekundayo has a rating curve and a head rise of six centimetres. Today you predict with a tangent line, then measure what really happened. You also work one limit that no amount of substitution will reach.",
     "takeaway": "A derivative predicts nearby values, its own arithmetic is a multiplication, and a limit that comes out as zero over zero has to be worked rather than read.",
     "stops": [
       {
@@ -281,7 +281,7 @@ export const MISSIONS = [
     "title": "The front that never came",
     "objective": "Solve the recession equation, fit its constant honestly, and turn it into a time.",
     "briefing": "The rain stopped on Wednesday and the river is falling on a curve with one number in it.",
-    "stake": "Friday. The front that justified Monday's pre-release did not arrive, the reservoir is short going into summer, and Halloran has been civil about it in a way that is worse than not being. What is left is the recession — the river falling away with no rain behind it — and the single constant that describes it. Ferrand has to solve the equation. Ekundayo has to fit the constant on days that have happened and then live with it on days that have not, which is a harder discipline than the fitting. Anand needs it as an hour rather than a curve. Today you solve the recession, fit its constant on days you can check, and turn it into a date.",
+    "stake": "Friday. The front that justified Monday's pre-release never arrived. The reservoir is short going into summer. Halloran has been polite about it in a way that is worse than not being. What is left is the recession. That is the river falling away with no rain behind it. One constant describes the whole fall. Ferrand has to solve the equation for it. Ekundayo has to fit that constant on days that have already happened. Then he has to live with it on days that have not, which is the harder half. Anand needs the answer as an hour, not as a curve. Today you solve the recession and turn its constant into a date.",
     "takeaway": "A rate proportional to the quantity itself decays exponentially, and a constant fitted on one stretch of data is only honest when it is scored on another.",
     "stops": [
       {
@@ -310,7 +310,7 @@ export const MISSIONS = [
     "title": "Three things before nine",
     "objective": "Integrate a difference, read its sign, and substitute your way through an integrand nobody can antidifferentiate as it stands.",
     "briefing": "Two curves crossing at four o'clock, and a load record that will not integrate as written.",
-    "stake": "Saturday, and three jobs have to close before the nine o'clock call. Baptiste has the inflow and the release plotted on one pair of axes, crossing in the middle of the afternoon, and a committee that will read the shaded region as though it were a total. Wilkes has a window between eight and two where the inflow ran clear of the release and wants what it added. And Ekundayo has the suspended-load record from the peak, a fraction with the variable in both parts that cannot be integrated as written. Today you integrate a difference, read its sign, and substitute your way through an integrand that resists.",
+    "stake": "Saturday. Three jobs have to close before the nine o'clock call. Baptiste has the inflow and the release drawn on one pair of axes. The two lines cross in the middle of the afternoon. Her committee will read the shaded region between them as though it were a total. Wilkes has a window between eight and two, when the inflow ran clear of the release. He wants to know what that window added. Ekundayo has the suspended load record from the peak. It is a fraction with the variable in both halves, and it will not integrate as written. Today you integrate a difference and read what its sign is telling you. One of the three needs a substitution first.",
     "takeaway": "An integral of a difference carries the difference's sign, and an integrand that resists is usually one substitution away from an ordinary one.",
     "stops": [
       {
@@ -334,7 +334,7 @@ export const MISSIONS = [
     "title": "The last reversible moment",
     "objective": "Write rules on a rate, find where an accumulation is greatest, and read a level off a graph of its derivative.",
     "briefing": "Everything on the board tonight is a derivative, and the decisions have to be written before the data arrives.",
-    "stake": "Sunday night, and the last decisions that can still be unmade are made now. Berg wants the night orders written against the rate the level is climbing rather than against the level itself, because a level threshold gives no warning and a rate does. Ferrand has the net flow as a formula and needs the hour the reservoir is fullest. And in the gate chamber the only trace on the screen is the net flow — the level plot has not been drawn since Friday, and Wilkes has to say what the level did from the derivative alone. Today you write rules on a rate, find where an accumulation tops out, and read a level off the graph of what built it.",
+    "stake": "Sunday night. The last decisions that can still be unmade are made now. Berg wants the night orders written against the rate the level is climbing. She does not want them written against the level itself. A level threshold gives no warning. A rate does. Ferrand has the net flow as a formula and needs the hour when the reservoir is fullest. In the gate chamber the only trace on the screen is the net flow. The level plot has not been drawn since Friday. Wilkes has to say what the level did from that rate alone. Today you write rules on a rate, and find the hour an accumulation tops out.",
     "takeaway": "A rate written into a rule buys the lead time a level cannot, and an accumulation's whole shape is readable from the rate that built it.",
     "stops": [
       {
@@ -358,7 +358,7 @@ export const MISSIONS = [
     "title": "What the fortnight is worth",
     "objective": "Judge a fit by what it leaves over, reduce a fortnight to one rate, and say what has been established.",
     "briefing": "The water has gone and what is left is what can be defended in writing.",
-    "stake": "Monday, a fortnight on. The reservoir is at 91%, the reach was warned twice and flooded neither time, and the resurvey has moved every volume on the site by 11%. Zawadzka has three fits of the uplift against head and the one with the best summary number is not obviously the one to keep. Ferrand has to reduce 14 days to a single figure for the annual return. And the liaison committee sits this evening. Today you judge a fit by what it leaves over, reduce a fortnight to one rate, and say what the two weeks actually established.",
+    "stake": "Monday, a fortnight on. The reservoir is at 91%. The reach was warned twice and flooded neither time. The resurvey has moved every volume on the site by 11%. Zawadzka has three fits of the uplift against head. The one with the best summary number is not obviously the one to keep. Ferrand has to reduce 14 days to a single figure for the annual return. And the liaison committee sits this evening. Today you judge a fit by what it leaves over. Then you reduce a fortnight to one rate, and say what these two weeks actually settled.",
     "takeaway": "A model is judged by the structure it leaves behind, not by the size of what it leaves behind.",
     "stops": [
       {

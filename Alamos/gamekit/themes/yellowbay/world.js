@@ -20,6 +20,18 @@
 // if anything below looks arbitrary.
 import * as THREE from 'three';
 import { buildInterior, buildInteriorLighting, updateInteriorTimeOfDay } from '../../engine/world/interiorSite.js';
+import { deliveryHook } from '../../engine/world/deliveryCase.js';
+/** The campaign's delivery board, in whichever build holds its room. */
+let deliveryCase = null;
+/**
+ * Tell the board what is in.
+ *
+ * Called on every world refresh rather than on entering the room: these rooms are
+ * built once and walked into, so there is no arrival event, and the board has to
+ * be right the moment a saved campaign is loaded.
+ */
+export function setDeliveryPieces(pieces){ deliveryCase?.setPieces(pieces); }
+
 import { wordedSign, furnishingMaterials } from '../../engine/world/interiorKit.js';
 import { displayBoard } from '../../engine/world/kit.js';
 import { tuneRendererForDevice } from '../../engine/world/materials.js';
@@ -261,10 +273,15 @@ export function initWorld(canvas, activeTheme){
       glazedSide: wing.glazedSide,
       ceiling: wing.ceiling,
     };
-    const built = slide(buildInterior(g, renderer, wingPlan, {
+    const wingBuild = buildInterior(g, renderer, wingPlan, {
       fitOutRoom: theme.fitOutRoom,
       fitOutSpine: theme.fitOutSpine,
-    }), wing.x);
+      // Whichever wing holds the room the delivery is kept in builds the board;
+      // the other is handed the same hook and matches nothing.
+      delivery: deliveryHook(theme),
+    });
+    if(wingBuild.deliveryCase) deliveryCase = wingBuild.deliveryCase;
+    const built = slide(wingBuild, wing.x);
     colliders.push(...built.colliders);
     softColliders.push(...built.softColliders);
     interactables.push(...built.interactables);

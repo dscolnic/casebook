@@ -966,7 +966,7 @@ export const CURRICULUM = {
         "task": "Fund the checks that would catch a failure before the lot runs.",
         "question": "Fund the checks that would catch a failure before the lot runs.",
         "answer": "",
-        "why": "",
+        "why": "Two of these four would have caught this failure before the lot ran, and two would only have described it afterwards. The substrate type was never on the incoming certificate, because one supplier shipped one type for thirty years and nobody added a field for it. That is the assumption the fab did not know it was making, and the test takes four minutes on a probe already in the building. The second thermocouple is the other one: the eighteen degrees showed up only in a composition measurement taken six weeks later, so the furnace had no way to say what it was doing at the time. Measuring the failing lots a third time buys nothing — two runs already agree. Photographing the yield maps is a report, not a check.",
         "proposals": [
           {
             "label": "A",

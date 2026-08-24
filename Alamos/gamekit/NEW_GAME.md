@@ -165,15 +165,21 @@ primary audience), in this order:
 
 1. **What has happened, or is about to, and to whom.** A situation, with a clock
    on it where there is one — *"The transfer window opens on sol 486 and does not
-   open again for twenty-six months."*
-2. **The job, as authority.** "You are the …, **which means** …" — the clause
-   that says what the player's signature is on. `checkStory` fails a card with no
-   `you are / you have / you lead / you run / you direct / you command` in it.
-3. **The clock or the argument**, with somebody from the roster in it. A named
-   pair who disagree is worth more than a paragraph of atmosphere; a card that
-   carries a deadline instead gets a note rather than a failure.
-4. **What it costs, in people, last.** The closing sentence is the one that has
+   open again for twenty-six months."* Short sentences; no inventory of the place.
+2. **The job, as authority.** "You are the …", and then, plainly, what you
+   decide. `checkStory` fails a card with no `you are / you have / you lead / you
+   run / you direct / you command` in it.
+3. **What is handed over at the end**, named, with what is in it. This is
+   `theme.delivery`, and it is the reason the card exists rather than a fifth beat.
+4. **What one day of it produces** — "you write one of them a night".
+5. **What it costs, in people, last.** The closing sentence is the one that has
    to land, and `checkStory` fails one with no number, no clock and nobody in it.
+
+**No cast introduction on this card, and no em-dashes.** Both were rules once and
+both are gone: a named pair introducing themselves and disagreeing is two
+sentences the day cards do better, with the person standing in front of you, and a
+clause hung off a dash is a sentence trying to be three. `STORY_SPEC.md` § 4b has
+the before-and-after.
 
 **The failure this was all swept for is the inventory opening.** Red Sand's first
 version read: *"Arcadia Rise is a propellant plant on a plain in the northern
@@ -187,6 +193,18 @@ not leave for another twenty-six months — was never in the paragraph. The rewr
 keeps every one of those numbers and puts them behind the window that does not
 move; it ends *"Six people go home on whatever the two of them can be got to
 agree to make."*
+
+**And it names what the fortnight builds.** `delivery` in the manifest — one
+named thing, one piece of it per mission, and the area whose room keeps them —
+and the opening card has to name it, or day 1 does not know what day 15 produces.
+`gamekit/STORY_SPEC.md` § 4c is the contract; `engine/dev/delivery.mjs` is the
+gate; `engine/dev/delivery-debt.json` is empty and stays that way.
+
+**Pay for it out of the paragraph.** The delivery is what the card is about now,
+and the words come out of the place description and the cast introductions that
+used to fill it. Every one of the 41 shipped cards came out of that pass the same
+length or shorter than it went in. Three failed on the closing beat and two on a
+43-word sentence, both of which `validateContent` and `checkStory` caught.
 
 Three more rules the sweep produced, all gated:
 

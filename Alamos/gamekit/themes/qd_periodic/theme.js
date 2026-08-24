@@ -62,16 +62,14 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'Sixty-three elements sit in numbered drawers, and the numbers record when each one '
-    + 'arrived. Nobody can say why lithium, sodium and potassium behave alike when their '
-    + 'weights are nothing like each other. If the elements can be laid out so that '
-    + 'behaviour keeps coming round, then something underneath is doing it, and the '
-    + 'arrangement could say what belongs in a place nobody has filled. If they cannot, '
-    + 'chemistry stays a list to be memorised. You are the assistant, which means the '
-    + 'drawers, the long table and the bench all come through you. Dmitri Mendeleev, the '
-    + 'professor here, will not push a card into a hole to make the table look finished. '
-    + 'The proceedings go to press on Friday, and what goes in them is either a set of '
-    + 'figures for elements nobody has or nothing at all.',
+    'Sixty-three elements sit in numbered drawers. The number on a drawer says when the element '
+    + 'arrived, and nothing else. Lithium, sodium and potassium all behave the same way. Their weights '
+    + 'are nothing like each other. Nobody can say why they match. So chemistry stays a list, and a '
+    + 'list has to be learned by heart. There may be another way. Lay the elements out so that '
+    + 'behaviour keeps coming round. If it does, something underneath is causing it. And the layout '
+    + 'could say what belongs in a place nobody has filled. You are the assistant here. The drawers, '
+    + 'the long table and the bench all come through you. The proceedings go to press on Friday. What '
+    + 'goes into them is either figures for elements nobody has, or nothing at all.',
   ],
 
   ending: [

@@ -96,15 +96,47 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One finding a phase, in the order the sky gave them up. The orbit solution
+  // is written third and is the thing every later page is read against.
+  delivery: {
+    name: 'The Defense Review',
+    what: 'The dossier the international committee votes on: how big it is, where it is going, '
+      + 'whether it can be moved, and what risk is left if it is.',
+    where: 'OPS',
+    pieces: [
+      'The discovery confirmation',
+      'The astrometric positions',
+      'The first orbit solution',
+      'The uncertainty corridor',
+      'The size estimate',
+      'The composition finding',
+      'The rotation and shape model',
+      'The radar range and Doppler',
+      'The impact energy estimate',
+      'The entry and airburst model',
+      'The survey completeness figure',
+      'The deflection feasibility',
+      'The intercept design',
+      'The evacuation decision',
+      'The residual risk statement',
+    ],
+  },
   opening: [
-    'A survey telescope flagged a faint moving point near the ecliptic four hours ago. Four hours of '
-    + 'observation is not enough to pin down an orbit, and some of the orbits that fit the data so far '
-    + 'pass through the Earth. Nobody can say yet whether the object is a hundred metres across or six '
-    + 'hundred, which is the difference between damage to a city and damage to a country. You direct '
-    + 'the campaign: the telescopes that track it, a radar window that opens once in eleven years, and '
-    + 'a deflection mission that would have to launch years before anyone could be certain it is '
-    + 'needed. Dr. Anna Fischer, who runs the radar, gets that window once and has to say which '
-    + 'night it is spent on.',
+    'Four hours ago a survey telescope found a faint point of light. It was moving against the stars. '
+    + 'Four hours is not enough time to pin down an orbit. Some of the orbits that still fit pass '
+    + 'through the Earth. Nobody can say yet how wide the object is. It could be a hundred metres. It '
+    + 'could be six hundred. That is the difference between damage to a city and damage to a country. '
+    + 'You are the campaign director. The international committee will vote on your Defense Review. It '
+    + 'has to say how big the object is and where it is going. It has to say whether the object can be '
+    + 'pushed off course. It has to say what danger is left if the push works. The vote is on the '
+    + 'finished thing, and the object passes Earth in 11 days.',
   ],
 
   // How it ends. Printed on the last page of the book and shown when the campaign

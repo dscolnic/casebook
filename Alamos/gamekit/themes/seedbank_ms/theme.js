@@ -74,15 +74,42 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // Ten days, so ten pieces. The crossing block is chosen near the end, out of
+  // everything the season established before it.
+  delivery: {
+    name: 'The Wellmere Season Record',
+    what: 'What the next season lead opens on. Every sample\'s state, what was grown again and '
+      + 'when, and the crossing block chosen this year.',
+    where: 'VAULT',
+    pieces: [
+      'The viability audit',
+      'The parents\' ratio',
+      'The delay-against-release note',
+      'The linked marker map',
+      'The sample size decision',
+      'The realised gain',
+      'The drifted sample list',
+      'The crossing block, chosen',
+      'The season\'s findings',
+      'The list for next year',
+    ],
+  },
   opening: [
-    'Two hundred kilometres east there is a wheat disease, and the breeding programme at '
-    + 'Wellmere has one gene that stands up to it. Only one. The wind that would carry the '
-    + 'disease in comes over the causeway. You are the season lead. Forty-one thousand seed '
-    + 'samples are kept here at minus eighteen, and the fields outside are laid out in rings, '
-    + 'set as far apart as pollen can blow. Sowing starts in three weeks. Dr. Chiara Volpe, the '
-    + 'head breeder, wants a new wheat sent out to farmers this year. Dr. Nasrin Qureshi, who '
-    + 'looks after the collection, says the oldest samples must be grown again first, while '
-    + 'enough of them still come up.',
+    'A wheat disease is two hundred kilometres east. The wind that would carry it here '
+    + 'comes in over the causeway. The breeding programme has one gene that stands up to it. '
+    + 'Only one. You are the season lead at Wellmere. You decide what is sown in the next '
+    + 'three weeks, and which old seed is grown again while it still comes up. In ten days '
+    + 'you hand over the season record. It says which samples are still alive, which were '
+    + 'grown and when, and which parents go into the crossing block. That block sets the next '
+    + 'ten years. One finding goes in a day. Anything not sown in three weeks waits a full '
+    + 'year.',
   ],
 
   // How it ends. Shown when the campaign closes, and the last thing the player

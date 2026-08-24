@@ -63,6 +63,18 @@
 /** Fewer days than this and the campaign is one sitting: no warm-ups at all. */
 export const WARMUP_MIN_DAYS = 4;
 
+/**
+ * The most places or people either opener puts in front of a player.
+ *
+ * Both openers size themselves off the campaign's own data — the lap takes the
+ * tier's areas, the round takes the roster — and on the bigger sites that came
+ * out at ten gates and fourteen names before a single lesson. Two runs that long
+ * are the tutorial the day model has a rule against, whatever their cards say.
+ * Five is a lap you can hold in your head and a round you can finish, and the
+ * campaign's own data still decides *which* five: cut the list, not the site.
+ */
+export const WARMUP_MAX_STOPS = 5;
+
 /** The five that follow the two openers, in the order they are handed out. */
 export const WARMUP_TAIL = ['FOLLOW', 'HUNT', 'CANVASS', 'EVADE', 'TAG'];
 

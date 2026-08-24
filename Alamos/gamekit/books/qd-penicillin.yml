@@ -208,13 +208,15 @@ missions:
     objective: Turn one contaminated plate into a statement that can be tested, and design the test.
     briefing: Fleming wants the plate described before anybody explains it.
     stake: >-
-      Monday. A plate that should have gone into the wash is on the bench instead. Alexander Fleming,
-      who leads the bacteriology work here, has been looking at it since the morning: a lawn
-      of staphylococcus covering the whole dish except for a clear ring round one colony of
-      mould. Everybody who walks past offers an explanation. Today you write down what the
-      plate actually shows, measure how far the effect reaches, and set up the one experiment
-      that can separate the mould itself from anything it might have released. A description
-      agreed before an explanation is one nobody can bend later.
+      Monday. A plate that should have gone into the wash is on the bench instead. Alexander
+      Fleming leads the bacteriology work here. He has been looking at that plate since the
+      morning. Staphylococcus covers the whole dish. There is one exception. Round a single
+      colony of mould there is a clear ring, and nothing grows in it. Everybody who walks past
+      the bench offers an explanation for it. Nobody has measured anything yet. Today you write
+      down what the plate actually shows, and not one word more. Then the ring gets measured.
+      Then one experiment gets set up. That experiment has to separate the mould itself from
+      anything the mould may have let out. A description agreed before an explanation is one
+      nobody can bend later.
     takeaway: A plate can show that something happened and cannot say what did it.
     stops:
       - group: CULT
@@ -425,12 +427,13 @@ missions:
     objective: Establish that the effect is a substance in the broth, that it acts on some species and not others, and that it scales with dose.
     briefing: Chain and Heatley want a control, a spectrum and a number before anybody says the word treatment.
     stake: >-
-      Wednesday, and the filtered broth works. That is one sentence and it is not enough for anything.
-      Ernst Chain, the biochemist, has four flasks of it and four things he could do to
-      them. Norman Heatley, who built the assay, has three species of bacteria and a rack of
-      dilutions and no way yet to say how strong anything is. Today you change one thing at
-      a time and put it back, find out which organisms respond and which do not, and get a
-      number out of the dilution rack. Everything after this is arithmetic on those numbers.
+      Wednesday. The filtered broth works. That is one sentence, and one sentence is not enough
+      for anything. Ernst Chain, the biochemist, has four flasks of that broth. He has four
+      things he could do to them. Norman Heatley, who built the assay, has three species of
+      bacteria and a rack of dilutions. He has no way yet to say how strong anything is. Today
+      you change one thing about a flask, put it back, and read what moved. After that the three
+      species get tested. Then the rack has to give up a number. Everything past this level is
+      arithmetic on the numbers you get here.
     takeaway: A substance is established by what changes when you alter one thing, and measured by how the effect follows the dose.
     stops:
       - group: BROTH
@@ -652,12 +655,12 @@ missions:
     objective: Follow the activity through purification, separate the record from the evidence, and count what a week of production is worth.
     briefing: Florey will not let anything off the wall that the counts do not support.
     stake: >-
-      Friday, and everything so far is about a liquid. Howard Florey, who heads the unit, wants to know
-      what happens to it on the way to a patient, and the answer is that most of it does not
-      get there. Norman Heatley has an extraction step that concentrates the material and may
-      destroy it. Samuel Adeyemi, who keeps the animal house, has two matched groups and one
-      afternoon's counts. And the wall in the trial room has six claims pinned to it, some
-      measured and some merely signed. Today you find out what survives.
+      Friday. Everything so far is about a liquid in a flask. Howard Florey heads the unit. He
+      wants to know what happens to that liquid on the way to a patient. Most of it never gets
+      there. Norman Heatley has an extraction step that concentrates the material. The same step
+      may destroy it. Samuel Adeyemi keeps the animal house. He has two matched groups and one
+      afternoon of counts. And the wall in the trial room holds six claims. Some of them were
+      measured. Some were only signed. Today you find out what survives the trip to a ward.
     takeaway: The distance between an effect and a treatment is purification, evidence and supply, and each of those is its own piece of work.
     stops:
       - group: ASSAY

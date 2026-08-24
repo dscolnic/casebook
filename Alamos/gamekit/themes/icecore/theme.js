@@ -73,17 +73,48 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One finding a day, in the order the ice gave them up. The layer count is
+  // made early and the gas-ice age difference late, and the late one moves the
+  // early one.
+  delivery: {
+    name: 'The Vestri Record',
+    what: 'What this station sends home and other groups measure their own against: one finding '
+      + 'a day, with the limits of every one of them written beside it.',
+    where: 'DATA',
+    pieces: [
+      'The accumulation rate',
+      'The drilling recovery log',
+      'The layer count, to 2000',
+      'The shared-sample comparison',
+      'The temperature calibration',
+      'The gas-ice age difference',
+      'The dust provenance finding',
+      'The tephra tie point',
+      'The deep-ice limit',
+      'The two-record comparison',
+      'The dating offset finding',
+      'The quiet-day decision',
+      'The cold-chain break record',
+      'The worst-credible test',
+      'The stated limits',
+    ],
+  },
   opening: [
-    'Vestri Dome is a drilling camp on the polar plateau: six huts up on legs, '
-    + 'a trench with a tower over it, and two and a half kilometres of ice '
-    + 'already pulled out of the ground. None of it can be let above minus '
-    + 'twenty. You are the season science lead, which means the climate record '
-    + 'this station sends home is the one you signed. A camp four hundred '
-    + 'kilometres away has published a record that disagrees with yours. The '
-    + 'aircraft that takes everybody off the ice arrives in fifteen days. '
-    + 'Whatever has not been measured by then is not measured until the next crew '
-    + 'flies in, two years from now. Marit Halvorsen, the chief scientist, says a disagreement '
-    + 'kept quiet is a decision made for everybody else.',
+    'Vestri Dome sits on a high ice plateau. Two and a half kilometres of ice are already out of the '
+    + 'ground here. A camp four hundred kilometres away has just published its own record of the past '
+    + 'climate. It does not agree with this one. The gap between them is wider than either camp says '
+    + 'its own error is. You are the season science lead. What this station says about the past is what '
+    + 'you sign. In fifteen days you hand over the Vestri record. It says how far back this ice can be '
+    + 'counted. It says what the ice tells us about past temperature and about the old air. And it says '
+    + 'how well each of those is known. One finding goes in each day, with its limits written beside '
+    + 'it. The aircraft comes on the fifteenth. Anything not measured by then waits two years.',
   ],
 
   // The last thing anybody reads. Says what happened, what it cost and what is

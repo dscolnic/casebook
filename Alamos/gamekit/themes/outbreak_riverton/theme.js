@@ -80,14 +80,48 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One established fact a stage, in the order the outbreak gave them up. The
+  // case definition is written first and is the thing the file is read back
+  // against.
+  delivery: {
+    name: 'The Riverton Outbreak File',
+    what: 'The file the city and the state both act on: what the agent is, how it moves between '
+      + 'people, who it makes sickest, and what actually stops it.',
+    where: 'POP',
+    pieces: [
+      'The case definition',
+      'The agent identification',
+      'The route of entry',
+      'The replication mechanism',
+      'The validated test',
+      'The severity explanation',
+      'The immune response finding',
+      'The transmission chain',
+      'The reservoir and vector map',
+      'The variant assessment',
+      'The resistance finding',
+      'The intervention design',
+      'The trial read-out',
+      'The containment scenarios',
+      'The final briefing, signed',
+    ],
+  },
   opening: [
-    'Three hospitals in one river city reported the same unusual illness inside a day of each '
-    + 'other, and the ambulances are still arriving. Seven patients, four days, and the same four '
-    + 'symptoms in every one of them. You are the scientific response director, which means what '
-    + 'gets measured is your decision and the city acts on whatever comes back. Sofia Morales, the epidemiology lead, will '
-    + 'not yet say whether seven is a lot, because nobody has written down what a normal week in '
-    + 'this city looks like. An outbreak is only stoppable while it is still small, and this one '
-    + 'has been running for four days.',
+    'Three hospitals in one river city saw the same strange illness. All three reported it inside a '
+    + 'day of each other. Seven patients. Four days. The same four symptoms in every one of them. You '
+    + 'are the scientific response director. You choose what gets measured. The city then acts on '
+    + 'whatever comes back. Over fifteen stages you build the Riverton outbreak file. It says what the '
+    + 'illness is. It says how it passes from one person to the next. It says who it makes sickest. It '
+    + 'says what actually stops it. One settled fact goes in at each stage. Nothing goes in that only '
+    + 'one test supports. An outbreak can be stopped while it is small. This one has been running for '
+    + 'four days.',
   ],
 
   // How it ends. Shown when the campaign closes and printed as the book's last page.

@@ -1,7 +1,17 @@
 # Alamos — mission-based learning games
 
 Twenty-five first-person, mission-driven educational games on three.js, plus the shared
-engine they run on. Each is the same loop in a different setting: missions × stops,
+engine they run on.
+
+**The philosophy is one line: hard concepts, explained at a sixth-grade reading
+level.** The syllabus stays where it is — AP Physics C stays AP Physics C — and the
+prose comes down to meet the reader. `engine/dev/plainCards.mjs` measures the two
+cards nobody can avoid (the opening card and every day's stake) against grade 6.5
+whatever `audience.grade` says, and ratchets: a campaign may not gain a card over
+the bar. What the number cannot see is obliqueness — *"hold too little and the
+first cold evening finds out"* scores grade 3 and still made a reader stop — so
+every card is read after it passes. `alamos-accessibility` is the pass for
+questions; `alamos-copy` is the bar for cards. Each is the same loop in a different setting: missions × stops,
 walk to a place, answer a science question, hand off. No combat, no weapons.
 
 **This file is the core; ten skills under `.claude/skills/` carry the detail** and
@@ -24,6 +34,7 @@ skill you are in.
 | `gamekit/REWRITE_PASS.md` | How to re-author a shipping game: a parallel edition at the same grade, sandboxed, with the delivery snapshot as invariant and a teardown costing one `rm -rf` and three reverted lines. Trigger is equations the course never computes, never format mix. |
 | `gamekit/RETARGET_PASS.md` | How to point one game's world at a **different course** — same place, same cast, same grade, a new syllabus. The three high-school editions of university games came from it, and the test is whether the place can host a whole AP syllabus rather than whether the course is hard. |
 | `gamekit/DIVERSITY_PASS.md` | The format-cap pass. |
+| `gamekit/ACCESSIBILITY_PASS.md` | The sixth-grader pass — a card's reading level down with the course's judgement intact. Worked on `redsand KINET-1`, 7.9 → 4.2. |
 | `gamekit/QUESTION_BRIEF.md` | The card shape every stop is rewritten to. |
 | `gamekit/FORMATS.md` | The instrument catalogue. |
 | `gamekit/ARCADE.md` | The fun-first formats, and why FLOW as specified should not be one. |
@@ -119,12 +130,32 @@ are in.
   player in place: renders perfectly, W does nothing → `alamos-world`.
 - **A hard equation early is fine; a derived one before its base is not.** Only a
   question that *computes* settles it → `alamos-curriculum`, `equationOrder.mjs`.
+- **A campaign builds one named thing, and `delivery.where` has to be an area
+  with somewhere to stand.** A room behind a door, or a room of its own on the
+  plan — name an area with neither and the board every day's piece goes onto is
+  built where nobody can walk into it, silently. Mission Control's first choice
+  was a console on the control-room floor, is on the site plan, and built the
+  board nowhere with every gate green → `alamos-copy`, `npm run check`.
+- **A room's floor is not always y = 0.** Mission Control and the theatre stand
+  their rooms on a raised tier, and anything placed at zero there is under the
+  floor: the delivery case stood a metre and a half below the boards' own floor
+  while the board on the wall above it looked perfect → `alamos-world`.
 - **The scene is the situation; the verdict is the teaching.** Scene 30–45 words of
   situation only, `why` 70–90 of mechanism, a rebuttal per wrong option. The single
   most expensive content mistake in the repo → `alamos-copy`.
 - **Reading score cannot see demand.** Prose at grade 4 with an AP course's
   judgement in it is the failure this repo records three times; `questionLoad`'s
   four numbers are the gate at grade 8 and below → `alamos-curriculum`.
+- **Hard concepts explained for sixth graders — and no gate enforces it.** Every
+  question is written to that line: reading level down, demand untouched. **Never
+  delete the official term to get there — name it and gloss it on the spot**, then
+  let the plain words carry the card (*"its rate — how fast the gas reacts"*). A
+  student who never meets the word cannot read their own textbook. And a card is
+  not readable because its score fell: a stem whose grammar no option answers
+  scores beautifully. Before writing or simplifying any question read
+  `alamos-accessibility` — the seven things to find first, and the Flesch-Kincaid
+  step that is currently the whole gate, because `questionLoad` passes grade-12
+  prose in a game declaring grade 12 → `alamos-accessibility`.
 - **A panel that enforces the player's decision has removed it**, and a panel that
   grades against a number prints the *goal*, never the *target* →
   `alamos-formats`.
@@ -150,6 +181,7 @@ description above is in context until then. Invoke with the `Skill` tool.
 | `alamos-curriculum` | curriculumDelivery, formatMix's cap, the four questionLoad numbers, dayCalls, conceptOrder/equationOrder, the card's shape |
 | `alamos-formats` | the 35 answer formats, the four panel rules, DERIVE/askRule, every instrument's trap |
 | `alamos-copy` | the opening card's four beats, introRule, endings, the day debrief, editions and audience, the discovery games' real people |
+| `alamos-accessibility` | the sixth-grader pass: the seven defects to find in a card before touching it, the rewrite rules, the word and Flesch-Kincaid evidence. **Read before writing or simplifying any question** |
 | `alamos-warmups` | the seven world-graded runs and their schedule, the two-tier ground rule, two vehicle kinds per site |
 | `alamos-day` | the plan card, budgetForRoute, the countdown and PANEL_PACE, penalties, the economy, shapeMissions |
 | `alamos-world` | the house rules, the touch input path, the map and markers, screenshot discipline |

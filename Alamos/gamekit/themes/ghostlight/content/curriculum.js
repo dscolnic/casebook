@@ -7,7 +7,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Off the flat part",
-      "scene": "Dowd has three weeks of advance. Week one sold 41 seats, week two 66, week three 188. Sallow is quoting the last week as the rate for the fortnight.",
+      "scene": "Dowd has three weeks of advance. Week one sold 41 seats, week two 66, week three 188. Sallow, the producer, is quoting the last week as the rate for the fortnight.",
       "takeaway": "The same three numbers give two honest rates, and the interval is which one you mean.",
       "place": "Box Office",
       "guide": "A rate of change is a difference divided by an interval, and the interval is part of the answer. Work out the average across all three weeks, then compare it with the last week on its own. Both are correct arithmetic about the same three numbers, and one of them is being used to forecast eleven days nobody has data for.",
@@ -16,7 +16,7 @@ export const CURRICULUM = {
         "What a rising rate of change means. The steps are 25 and 122, so the rate is not constant — the curve is bending upward. A quantity whose rate of change is itself increasing cannot be described by any single average without saying which interval it is the average of.",
         "Why the shape of a variety advance is known. Dowd has twenty-two years of it: three weeks flat, then vertical in the last fortnight. That is a fact about how people buy tickets rather than about this show, and it is why a week-two decision is a decision made on the flat part."
       ],
-      "story": "Dowd has three weeks of advance. Week one sold 41 seats, week two 66, week three 188. Sallow is quoting the last week as the rate for the fortnight.",
+      "story": "Dowd has three weeks of advance. Week one sold 41 seats, week two 66, week three 188. Sallow, the producer, is quoting the last week as the rate for the fortnight.",
       "game": {
         "type": "BALLPARK",
         "title": "Off the flat part",

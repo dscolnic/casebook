@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "What any model has to do already",
     "objective": "Establish what composition and charge permit, before a photograph is on the table.",
     "briefing": "Randall wants the chemical constraints on the wall before the plate room delivers anything.",
-    "stake": "Monday, and there is no photograph in the building yet. Erwin Chargaff, who runs the chemistry bench, has run the base analysis twice and has two blank columns on the sheet. Francis Crick, the model builder, has three candidate strands in brass and no reason to prefer one. John Randall, the unit director, has a wall with nothing on it. Today you close the composition, say which piece of a strand is the chain, and buy the one measurement that decides where the charges can sit. A constraint written down before the evidence arrives cannot be bent to fit it afterwards.",
+    "stake": "Monday. There is no photograph of the substance in the building yet. Erwin Chargaff, who runs the chemistry bench, has counted the bases in the sample twice. Both runs agree. Two columns on his sheet are still blank. Francis Crick, the model builder, has three candidate strands in brass. He has no reason to prefer one of them. John Randall, the unit director, has a wall with nothing on it. Today you fill in the two blank columns and close the composition sheet. After that you say which part of a strand forms the long chain. Then you spend the unit's money on the one measurement that fixes where the charges can sit. A rule written down before the photograph arrives is a rule nobody can bend afterwards.",
     "takeaway": "Composition and charge rule on a structure before any picture of it is taken.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "What the photograph will and will not say",
     "objective": "Take the geometry off the plate, and stop where the plate stops.",
     "briefing": "Franklin will hand over two spacings and a symmetry, and nothing else.",
-    "stake": "Tuesday, and the plate is developed. Rosalind Franklin, the crystallographer who exposed it, has brought it up with Raymond Gosling, the diffraction assistant who measured it. Both have said the same sentence twice. This is a record of where the scattered X-rays went, and the room wants it to be a picture of the molecule. Today you read the symmetry off the pattern, turn two spacings into a count, and then find out how many chains the photograph cannot tell you about. The level ends on what the plate does not settle, which is the only honest place for it to end.",
+    "stake": "Tuesday. The plate from the X-ray camera has been developed. Rosalind Franklin, the crystallographer who made the exposure, has it on the light box. Raymond Gosling, the diffraction assistant who measured it, is with her. Both have said the same thing twice. The plate is a record of where the scattered X-rays landed. It is not a picture of the molecule. The room keeps wanting it to be one. Today you take the shape of the pattern and say what kind of shape it points to. After that you turn two spacings on the plate into a count. Then you find out how many chains the plate cannot tell you about. This level ends on what the plate does not settle. That is the only honest place to end it.",
     "takeaway": "A pattern fixes a symmetry and some spacings, and leaves a family of structures standing.",
     "stops": [
       {

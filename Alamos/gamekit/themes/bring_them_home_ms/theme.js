@@ -90,14 +90,46 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // Ten shifts, so ten pieces, in the order the failure forced them. Nobody
+  // writes a return checklist in the order it is read.
+  delivery: {
+    name: 'The Return Checklist',
+    what: 'The pages the crew reads back over the radio. One procedure a shift, checked on the '
+      + 'ground before three people bet their lives on it.',
+    // The Guidance Computer Room, which is one of the four WING ROOMS. It has to be
+    // one of those: the consoles on the control-room floor are not rooms and this
+    // world module hangs the board on a wing room's end wall. INTEG was the first
+    // choice and built nothing anywhere — the area is a console, and `delivery.mjs`
+    // could not see that, because the site's plan lists it as a room.
+    where: 'NAV',
+    pieces: [
+      'The failure timeline',
+      'The tracking solution',
+      'The turning procedure',
+      'The power budget',
+      'The warm-up plan',
+      'The air scrubber fix',
+      'The radio link plan',
+      'The shaking limit',
+      'The last correction',
+      'The entry checklist',
+    ],
+  },
   opening: [
-    'Three people are in a spacecraft, a quarter of a million miles from home, and something '
-    + 'on board has just exploded. You are the flight director. Every call is yours to make. '
-    + 'The power is falling. The cabin is getting cold. The ship is drifting off the one path '
-    + 'that brings it back. The air they are breathing will run out at an hour somebody has '
-    + 'already worked out. Dr. Evelyn Carter, who leads mission integration, has to fit every '
-    + 'repair into one plan that still adds up. And the crew can hear every word anybody says '
-    + 'on the radio loop.',
+    'Three people are in a spacecraft, a quarter of a million miles from home, and '
+    + 'something on board has just exploded. You are the flight director. Every call is yours '
+    + 'to make. The power is falling. The cabin is getting cold. The ship is drifting off the '
+    + 'one path that brings it home. In ten shifts you hand over the return checklist. It '
+    + 'holds every step the crew reads back over the radio, from turning the ship by hand to '
+    + 'burning for home. You write one of them a shift, and the ground checks it first. The '
+    + 'air aboard runs out at an hour somebody has already worked out.',
   ],
 
   // How it ends. Shown when the campaign closes and printed as the book's last page.

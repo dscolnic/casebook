@@ -76,15 +76,41 @@ export default {
   // of it discoverable in the first minute of play or from the plan card.
   // One paragraph of situation. No mechanics, no controls, and never a list of
   // what the player does not do.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // Ten days, so ten pieces. The frequency page is written first because every
+  // later page is read against it.
+  delivery: {
+    name: 'The Winter Grid Plan',
+    what: 'One plan the regulator has to accept before winter. What the lines can carry, what '
+      + 'is held back, and how the power is brought back.',
+    where: 'OPS',
+    pieces: [
+      'The frequency page',
+      'The line rating page',
+      'The restoration order',
+      'The two-meter check',
+      'The reserve page',
+      'The fault numbers',
+      'The cost order',
+      'The restart path',
+      'The ranked job list',
+      'The signed summary',
+    ],
+  },
   opening: [
-    'Four million people get their electricity from the Calder network, and the whole network '
-    + 'runs on one number. The mains change direction fifty times a second. That rate is not '
-    + 'really a reading. It is a balance: how much power the stations make against how much '
-    + 'everyone is using. If the number drifts too far, generators switch themselves off to '
-    + 'stay safe. Then there is less power still, and the number falls further. You are the '
-    + 'system operator on nights, and holding the two sides together is the job. Chinelo Obi, '
-    + 'who runs the local wires, would rather switch off fourteen thousand homes than let the '
-    + 'number fall. A fault takes seconds. Getting the power back takes days.',
+    'It is a cold Monday night and the Calder network is holding, just. The network carries '
+    + 'electricity to four million people. It stays up only while the power the stations make matches '
+    + 'the power everyone is using. You are the system operator on nights. When the two stop matching, '
+    + 'you decide who gets switched off. In ten days the regulator has to accept your winter grid plan. '
+    + 'The plan sets how much the big lines can carry. It sets how much power is held back for the '
+    + 'coldest evening. It sets how the power comes back if the whole system goes dark. You write one '
+    + 'page of it a day. A fault takes seconds. Getting the power back takes days.',
   ],
 
   ending: [

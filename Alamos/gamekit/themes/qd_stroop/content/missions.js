@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "Before anybody is told what this is",
     "objective": "Establish what the plain blocks give, reduce a block honestly, and commit a prediction before the conflict.",
     "briefing": "Whitlock will not run a mixed block until both baselines are on the sheet.",
-    "stake": "Monday, and nobody in the booth has been told what this study is about. Ada Whitlock, the testing coordinator, has four blocks in a fixed order and will not run the fourth before the third. Samuel Boateng, the booth assistant, has re-set every deck overnight so nothing measures what somebody has learnt. Elsie Ward, the tabulator, will reduce four hundred trials to two numbers and refuses to let either of them out alone. Today you say what the plain blocks establish, get one person's typical time reported honestly, and commit a figure for the hard block before anybody runs it.",
+    "stake": "Monday. Nobody in the booth has been told what this study is about. Ada Whitlock, the testing coordinator, has four blocks and runs them in a fixed order. She will not run the fourth before the third. Samuel Boateng, the booth assistant, re-set every deck overnight. That way nothing here measures what somebody has already learnt. Elsie Ward, the tabulator, will cut four hundred trials down to two numbers. She refuses to let either number out on its own. Today you say what the two plain blocks establish. Then you get one person's typical time reported honestly. Last, you write a figure down for the hard block before anybody runs it.",
     "takeaway": "A difference needs two conditions, and the first one has to be measured before the second exists.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "The difference, and what it costs",
     "objective": "Take the subtraction, put the errors beside it, and say what is hard to ignore.",
     "briefing": "Ward will not release a time without an error rate against it.",
-    "stake": "Tuesday, and both mixed blocks are on the sheet. Marion Kell has the medians and will not let a raw time leave the bench. Elsie Ward, the tabulator, has the error columns and says a block described by its time alone can be improved by cheating. John Ridley Stroop, the research student running the tabulation, wants the difference and the errors written up together before anybody starts explaining anything. Today you take the subtraction, read a panel where speed and accuracy disagree, and say what it is about the printed word that will not be set aside.",
+    "stake": "Tuesday. Both mixed blocks are on the sheet. Marion Kell, the chronoscope operator, has the medians. She will not let a raw time leave the bench. Elsie Ward has the error columns. She says a block described by its time alone can be improved by cheating. John Ridley Stroop, the research student running the tabulation, wants the difference and the errors written up together. That has to happen before anybody starts explaining anything. Today you take the subtraction. Then you read a panel where speed and accuracy disagree. Last, you say what it is about the printed word that will not be set aside.",
     "takeaway": "An effect is a difference between two conditions, and it is described by time and errors together.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "What the wall does not show",
     "objective": "Price the effect against the baseline after practice, buy the thing that helps, and say what a robust result is not evidence for.",
     "briefing": "Cattell has four accounts pinned up and all four fit.",
-    "stake": "Friday, and eight hundred times are pinned across the distribution wall as two piles. John Ridley Stroop has a week of practice blocks and wants the cost stated as a share rather than as a number of milliseconds. James McKeen Cattell, the visiting professor who showed fifty years ago that reading beats naming, has four accounts of the slowdown on the wall beside the times, and every one of them fits. Today you price the effect after practice, buy the intervention that actually helps, and say out loud what a result this reliable is not evidence for.",
+    "stake": "Friday. Eight hundred times are pinned across the distribution wall in two piles. John Ridley Stroop has a week of practice blocks behind him. He wants the cost stated as a share rather than as a number of milliseconds. James McKeen Cattell, the visiting professor, showed fifty years ago that reading beats naming. He has pinned four accounts of the slowdown on the wall beside the times. Every one of the four fits. Today you price the effect after a week of practice. Then you buy the thing that actually helps. Last, you say out loud what a result this reliable is not evidence for.",
     "takeaway": "An effect can be as solid as anything in the subject and still not favour any account of itself.",
     "stops": [
       {

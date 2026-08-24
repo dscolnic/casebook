@@ -3,6 +3,7 @@
 //   node engine/dev/shots.mjs quantum
 //   node engine/dev/shots.mjs bring_them_home --hud
 //   node engine/dev/shots.mjs quantum --at -6,0,32 --yaw 90 --name cryostat
+//   node engine/dev/shots.mjs blackout --case      just the delivery board
 //   npm run shots quantum
 //
 // WHY THIS EXISTS. Everything about how a place *looks* has been found by a
@@ -350,6 +351,87 @@ try{
     process.stdout.write('.');
   }
   process.stdout.write('\n');
+
+  // ---- the delivery board, found in the running game rather than in the data
+  //
+  // WHY IT CANNOT BE A VIEW LIKE THE OTHERS. Every view above is computed from
+  // `plan.js` or a theme's `shots.js` before the browser starts. The board is
+  // placed by whichever builder owns the room, at whatever spot in it was clear
+  // — which nothing outside the running game knows. So it is asked for: enter the
+  // room if it is behind a door, find the object by the mount label
+  // `markWallMounted` gave it, and stand back along its own normal.
+  //
+  // It also fakes a few days of results first, because a board with nothing on it
+  // is the one state that proves nothing. `delivery.mjs` checks the declaration;
+  // this is the picture, which is the only thing that has ever caught a board
+  // hung behind a pinboard or a case standing under the floor.
+  if(has('case') || !flag('at')){
+    const found = await cdp.eval(`(() => {
+      const g = window.gamekit, st = g.getState && g.getState();
+      const d = g.theme && g.theme.delivery;
+      if(!d || !st) return null;
+      const M = g.theme.content.MISSIONS || [];
+      // Two thirds of the way through, and one day with a call that did not hold.
+      const upto = Math.max(1, Math.round(M.length * 0.6));
+      st.missionResults = st.missionResults || {};
+      for(let w = 1; w <= upto; w++){
+        ((M[w - 1] || {}).stops || []).forEach((s, i) => {
+          st.missionResults[w + '-' + i] = { group: s.group, lesson: s.lesson, correct: w !== 2 };
+        });
+      }
+      const pieces = (d.pieces || []).map((name, i) => {
+        const rows = (((M[i] || {}).stops) || []).map((_, k) => st.missionResults[(i + 1) + '-' + k]);
+        const earned = rows.length > 0 && rows.every(Boolean);
+        return { n: i + 1, name, earned, held: earned && rows.every(r => r && r.correct) };
+      });
+      if(g.world && g.world.setDeliveryPieces) g.world.setDeliveryPieces(pieces);
+      if(g.interiors && g.interiors.enter) g.interiors.enter(d.where);
+      if(g.interiors && g.interiors.current && g.interiors.current.room
+         && g.interiors.current.room.delivery){
+        g.interiors.current.room.delivery.setPieces(pieces);
+      }
+      // A TOWER IS SKIPPED, and this is the honest version of a picture that came
+      // out wrong. Its floors are stacked on one footprint, teleport() takes its
+      // height from GROUND(x, z) and not from the argument, and activating floor
+      // 3 leaves the camera standing on floor 0 photographing the counter room —
+      // which looks like a room, so it reads as a board that is not there. The
+      // per-floor room views above already cover it: the board shows up in
+      // f48-rate-back.png for Changeover.
+      if(g.theme.site.plan && g.theme.site.plan.floors) return { stacked: true, where: d.where };
+      let board = null;
+      g.scene.traverse(o => {
+        if(!board && o.userData && o.userData.mount && o.userData.mount.label === 'delivery board') board = o;
+      });
+      if(!board) return { missing: d.where };
+      const p = new board.position.constructor();
+      board.getWorldPosition(p);
+      const n = board.userData.mount.n;
+      return { name: d.name, where: d.where, x: p.x + n[0] * 3.6, z: p.z + n[2] * 3.6,
+               // forward is (-sin yaw, -cos yaw) here, so looking AT the board is atan2(n.x, n.z)
+               yaw: Math.atan2(n[0], n[2]) };
+    })()`);
+    if(found && found.stacked){
+      console.log(`  case: ${found.where} is on a floor of a tower — see that room's own`
+        + ' views above rather than a shot from the wrong floor');
+    } else if(found && found.missing){
+      console.log(`  case: nothing found in ${found.missing} — the board was built where`
+        + ' nobody can walk in, or not built at all');
+    } else if(found){
+      // The lift ride is animated and carries the player with it, so the teleport
+      // waits for it to arrive.
+      await wait(2600);
+      await cdp.eval(`new Promise(ok => {
+        window.gamekit.teleport({x:${found.x},z:${found.z}}, ${found.yaw});
+        requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(() => ok(true), 80)));
+      })`);
+      if(!has('hud')) await cdp.eval(hideChrome);
+      const shot = await cdp.send('Page.captureScreenshot', { format: 'png' });
+      writeFileSync(resolve(outDir, 'delivery-board.png'), Buffer.from(shot.data, 'base64'));
+      written.push({ name: 'delivery-board', file: 'delivery-board.png',
+        note: `${found.name}, in ${found.where}, with two thirds of it in` });
+      console.log(`  case: ${found.name}, in ${found.where}`);
+    }
+  }
 
   // The contact sheet. The point of the whole tool is one thing to open.
   const esc = (s) => String(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);

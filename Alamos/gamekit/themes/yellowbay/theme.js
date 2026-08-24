@@ -71,15 +71,48 @@ export default {
 
   // The title card. Two or three paragraphs: what the player is, what is at
   // stake, and how a day works. Nothing here is generated.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One claim a day, in the order the plant gave them up. The substrate
+  // certificate is questioned early and the recipe late, and which of the two
+  // was wrong is the whole fortnight.
+  delivery: {
+    name: 'The Proving Batch File',
+    what: 'What the customer\'s auditor reads beside the lot itself: every claim about this '
+      + 'process reduced to something countable, and what nobody ever established.',
+    where: 'ATOM',
+    pieces: [
+      'The atom count, checked',
+      'The photon threshold figures',
+      'The shielding calculation',
+      'The chamber\'s mass spectrum',
+      'The photoelectron reading',
+      'The common-reference finding',
+      'The bonding shift result',
+      'The lattice energy comparison',
+      'The temperature ledger',
+      'The materials\' bonding table',
+      'The post-clean clock',
+      'The re-aimed distribution',
+      'The rate-limiting step',
+      'The verified intervention',
+      'The handover, signed',
+    ],
+  },
   opening: [
-    'Ardley Fab 7 prints silicon chips, layer by layer, on wafers the size of a dinner plate. '
-    + 'Since March four wafers in ten have come out unsellable. In fifteen days the plant runs '
-    + 'a proving batch. The customer that buys sixty per cent of everything Ardley makes '
-    + 'accepts or refuses a whole contract on it. You are the process integration lead, so the '
-    + 'signature on that batch is yours. Hana Ferreira, who runs surface analysis, says the '
-    + 'silicon arriving at the door is not what its certificate claims. Ruben Ostrowski, who '
-    + 'runs the machines that lay each layer down, says the material is fine and a recipe has '
-    + 'drifted. One customer is large enough to close the plant.',
+    'Since March, four wafers in ten come out of Ardley Fab 7 too poor to sell. Nobody agrees why. In '
+    + 'fifteen days the plant runs a proving batch. One customer buys sixty per cent of everything '
+    + 'Ardley makes. That customer will read the batch and then accept or refuse a whole contract. You '
+    + 'are the process integration lead. The proving batch file that goes with the lot is yours to '
+    + 'sign. It has to say what this process really does. What is in the chamber. What the film is made '
+    + 'of. Which step decides the yield. You settle one claim a day. A claim with no measurement under '
+    + 'it does not go in the file. One customer is large enough to close a plant with nine hundred '
+    + 'people in it.',
   ],
 
   ending: [

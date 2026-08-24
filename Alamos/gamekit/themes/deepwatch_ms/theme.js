@@ -53,14 +53,41 @@ export default {
   // Painted steel and deck matting, not laboratory vinyl.
   interiorStyle: 'steel',
 
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // Ten watches, so ten pieces. Each one is written in the words of whatever
+  // went wrong that night.
+  delivery: {
+    name: 'The Standing Orders',
+    what: 'The orders the next watch section works to. One rule a watch, written the night the '
+      + 'boat taught it, and signed before the handover.',
+    where: 'NAV',
+    pieces: [
+      'The compartment card',
+      'The tracking rule',
+      'The two-source rule',
+      'The quiet-running trade',
+      'The flooding rule',
+      'The power-off-first rule',
+      'The air sampling rule',
+      'The priority order',
+      'The cooling chain check',
+      'The night orders, signed',
+    ],
+  },
   opening: [
-    'You have the watch on a submarine, ninety metres down. Nobody aboard can see '
-    + 'out, and neither can you. What you know about the water comes from listening. '
-    + 'What you know about the boat comes from people reading gauges to you over a '
-    + 'telephone. Tonight something is out there that nobody has named, water is '
-    + 'rising inside the hull, and the pencil line on the chart drifts further from '
-    + 'the truth every minute. Commander Iris Vance can order the boat up, where all '
-    + 'of it stops being deadly. Somebody has to be willing to say so.',
+    'You have the watch on a submarine, ninety metres down. Nobody aboard can see out, and '
+    + 'nor can you. What you know about the water comes from listening. What you know about '
+    + 'the boat comes from people reading gauges to you over a telephone. Tonight something '
+    + 'is out there that nobody has named. Water is rising inside the hull. You have the '
+    + 'watch, so the calls are yours. In ten watches you hand over the standing orders. They '
+    + 'say where flooding gets stopped, when a repair can be trusted, and when the boat comes '
+    + 'up. You write one of them a night, in the words of whatever went wrong.',
   ],
 
   // How it ends. Shown when the campaign closes and printed as the book's last page.

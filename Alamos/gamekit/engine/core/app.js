@@ -19,6 +19,7 @@ import { nextMissionStopIndex, openStopIndices, isPersonStopForIdx, getCurrentMi
          getPersonIdForStop } from './simulation.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import { callLabel } from './place.js';
+import { deliveryPieces, deliveryPlanLine } from './delivery.js';
 import { esc } from './utils.js';
 import { DAY_NOUN, RUN_SKIP_COST } from './constants.js';
 import { readRating, postRating } from './cloudSave.js';
@@ -204,6 +205,11 @@ export function createInteriors({
       style: theme.interiorStyle ?? 'lab',
       ...spec,
       caseName: who.name, caseLine: who.line,
+      // The campaign's product, in the one room the manifest names. Every other
+      // room gets `undefined` and builds exactly what it built before.
+      delivery: theme.delivery?.where === id && theme.delivery?.pieces?.length
+        ? { name: theme.delivery.name, total: theme.delivery.pieces.length }
+        : undefined,
     });
     // The room's walls and its case stand join the arrays the town already
     // uses. Nothing leaks: the raycast stops at twelve metres and the collision
@@ -227,6 +233,11 @@ export function createInteriors({
       inside = { id, room, back: player.getPosition().clone(), yaw: live(camera).rotation.y };
       room.setVisible(true);
       room.setCaseOpen(openCaseGroups().has(id));
+      // The board says what is in as of this morning. Refreshed on entry rather
+      // than at the end of a day, because the day that fills a cell is closed
+      // from wherever the player was standing and this room may be four
+      // kilometres away and not yet built.
+      room.delivery?.setPieces(deliveryPieces(theme, getState()));
       // The screen on the wall shows the instrument this call is actually about.
       const station = stationForOpenCall(theme, id, calcs);
       if(station) room.screen?.set?.(station);
@@ -763,6 +774,31 @@ export function createDay({
       + `</div>`).join('')}</div>`;
   }
 
+  /**
+   * One clause saying why this call is worth making.
+   *
+   * Generated, for the reason `debrief.js` composes its card rather than taking a
+   * `praise:` key: a `reason:` on every stop is 1,600 lines of writing across the
+   * campaigns and a new book key the importer would have to carry, and everything
+   * a reason needs is already authored somewhere better. A person holds a job —
+   * that is why it is them — and an area is for something, which is what the
+   * book's own `desc` on the group says. A book may still override it per stop
+   * with `reason:`, and where one does, that wins.
+   */
+  function reasonFor(state, stop, idx, person){
+    if(stop?.reason) return String(stop.reason);
+    if(person){
+      const role = String(person.role ?? '').trim();
+      return role || '';
+    }
+    const g = (theme?.content?.GROUPS ?? []).find(x => x.id === stop?.group);
+    const desc = String(g?.desc ?? '').trim();
+    if(!desc) return '';
+    // One clause. A group description is a sentence and some of them are two.
+    const first = desc.split(/(?<=[.?!])\s/)[0] ?? desc;
+    return first.replace(/\.$/, '');
+  }
+
   function planHTML(resuming = false){
     const state = getState();
     const m = getCurrentMission(state);
@@ -787,17 +823,35 @@ export function createDay({
       // read as an itinerary in order, which is the one thing this list is not —
       // they are taken in whatever order the player likes, and side by side is
       // what that looks like.
+      // WHY THIS ONE, under the call. The card named six places and gave no
+      // reason to walk to any of them, so a day read as an itinerary somebody
+      // else had drawn up — and the one thing the player is actually deciding is
+      // the route. A person's reason is the job they hold, which is why it is
+      // them and not somebody else; a room's is what that area is for, which the
+      // book already wrote as the area's own description.
+      //
+      // Deliberately NOT the day's question, which used to be here and was taken
+      // out for being a second briefing. A reason is a clause, and a call with
+      // three lines under it is a card nobody reads twice.
+      const why = reasonFor(state, s, i, person);
       return `<div class="planCall${made ? ' planDone' : ''}">`
         + `<span class="planNum">${made ? '✓' : i + 1}</span>`
-        + `<b>${esc(callLabel(person, s.group))}</b>`
-        + `${made ? '<span class="planMade">made</span>' : ''}</div>`;
+        + `<span class="planCallText"><b>${esc(callLabel(person, s.group))}</b>`
+        + (why ? `<span class="planWhy">${esc(why)}</span>` : '')
+        + `${made ? '<span class="planMade">made</span>' : ''}</span></div>`;
     }).join('');
     // Order: what happened, what you are called to, what you need to know, and
     // the map last — the map is what the player chooses a route from, so it is
     // the thing they should still be looking at when they press start.
+    // What today adds to the thing the fortnight is building. One line, under the
+    // stake, because "why am I doing today at all" is a different question from
+    // "what has happened" — and until the delivery existed the campaign answered
+    // it with a week number in the corner of the HUD.
+    const deliverLine = deliveryPlanLine(theme, state, { dayNoun: DAY_NOUN });
     return `<div class="planCard">`
       + continuityHTML(state)
       + `<div class="planStake">${esc(m.stake || m.objective || '')}</div>`
+      + (deliverLine ? `<div class="planDeliver">${esc(deliverLine)}</div>` : '')
       + `<div class="planCalls"><h4>Objectives</h4><div class="planCallRow">${rows}</div></div>`
       + primerHTML(m)
       + (mapHTML ? `<div class="planMap">${mapHTML()}</div>` : '')

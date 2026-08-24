@@ -1,0 +1,317 @@
+{
+  "bar": 6.5,
+  "longest": 28,
+  "themes": {
+    "contamcity": {
+      "over": 52,
+      "long": 78,
+      "worst": 10.5
+    },
+    "projecty": {
+      "over": 156,
+      "long": 178,
+      "worst": 11.7
+    },
+    "hospital": {
+      "over": 3,
+      "long": 111,
+      "worst": 7
+    },
+    "deepwatch": {
+      "over": 38,
+      "long": 79,
+      "worst": 8.3
+    },
+    "bring_them_home": {
+      "over": 50,
+      "long": 82,
+      "worst": 10.2
+    },
+    "outbreak_riverton": {
+      "over": 51,
+      "long": 82,
+      "worst": 10.4
+    },
+    "planetary_defense": {
+      "over": 52,
+      "long": 98,
+      "worst": 10.9
+    },
+    "blackout": {
+      "over": 50,
+      "long": 94,
+      "worst": 9.5
+    },
+    "aftershock": {
+      "over": 52,
+      "long": 128,
+      "worst": 9.7
+    },
+    "quantum": {
+      "over": 51,
+      "long": 158,
+      "worst": 11.2
+    },
+    "instruments": {
+      "over": 33,
+      "long": 85,
+      "worst": 9.1
+    },
+    "the_trial": {
+      "over": 51,
+      "long": 116,
+      "worst": 10.3
+    },
+    "headwater": {
+      "over": 51,
+      "long": 156,
+      "worst": 10.4
+    },
+    "icecore": {
+      "over": 52,
+      "long": 137,
+      "worst": 10.1
+    },
+    "seedbank": {
+      "over": 47,
+      "long": 114,
+      "worst": 10.3
+    },
+    "redsand": {
+      "over": 10,
+      "long": 2,
+      "worst": 7.1
+    },
+    "midway": {
+      "over": 50,
+      "long": 108,
+      "worst": 9.7
+    },
+    "planetary_defense_ms": {
+      "over": 0,
+      "long": 37,
+      "worst": 6.1
+    },
+    "deepwatch_ms": {
+      "over": 0,
+      "long": 29,
+      "worst": 5.7
+    },
+    "aftershock_ms": {
+      "over": 1,
+      "long": 28,
+      "worst": 6.6
+    },
+    "icecore_ms": {
+      "over": 0,
+      "long": 35,
+      "worst": 6.5
+    },
+    "sightline": {
+      "over": 56,
+      "long": 144,
+      "worst": 11.3
+    },
+    "seedbank_ms": {
+      "over": 0,
+      "long": 34,
+      "worst": 6.3
+    },
+    "outbreak_riverton_ms": {
+      "over": 0,
+      "long": 30,
+      "worst": 6.4
+    },
+    "blackout_ms": {
+      "over": 1,
+      "long": 33,
+      "worst": 6.6
+    },
+    "bring_them_home_ms": {
+      "over": 0,
+      "long": 37,
+      "worst": 6.4
+    },
+    "contamcity_ms": {
+      "over": 0,
+      "long": 34,
+      "worst": 6.4
+    },
+    "groundtruth": {
+      "over": 49,
+      "long": 107,
+      "worst": 9.6
+    },
+    "blackout_fable": {
+      "over": 47,
+      "long": 77,
+      "worst": 9.7
+    },
+    "yellowbay": {
+      "over": 49,
+      "long": 75,
+      "worst": 10.8
+    },
+    "sightline_ms": {
+      "over": 25,
+      "long": 47,
+      "worst": 8.6
+    },
+    "redsand_ms": {
+      "over": 34,
+      "long": 58,
+      "worst": 8.4
+    },
+    "the_trial_ms": {
+      "over": 25,
+      "long": 53,
+      "worst": 8.6
+    },
+    "deepwatch_hs": {
+      "over": 42,
+      "long": 143,
+      "worst": 11.2
+    },
+    "contamcity_hs": {
+      "over": 50,
+      "long": 90,
+      "worst": 10.5
+    },
+    "the_trial_hs": {
+      "over": 51,
+      "long": 108,
+      "worst": 10.9
+    },
+    "carrying": {
+      "over": 25,
+      "long": 0,
+      "worst": 8
+    },
+    "ghostlight": {
+      "over": 42,
+      "long": 123,
+      "worst": 9.2
+    },
+    "changeover": {
+      "over": 44,
+      "long": 94,
+      "worst": 9.4
+    },
+    "slackwater": {
+      "over": 38,
+      "long": 100,
+      "worst": 12.1
+    },
+    "overwind": {
+      "over": 38,
+      "long": 98,
+      "worst": 10.2
+    },
+    "darkfibre": {
+      "over": 38,
+      "long": 107,
+      "worst": 13.8
+    },
+    "qd_accel": {
+      "over": 7,
+      "long": 11,
+      "worst": 8.4
+    },
+    "qd_dna": {
+      "over": 6,
+      "long": 30,
+      "worst": 7.6
+    },
+    "qd_nucleus": {
+      "over": 8,
+      "long": 37,
+      "worst": 7.4
+    },
+    "qd_tectonics": {
+      "over": 6,
+      "long": 18,
+      "worst": 7.5
+    },
+    "qd_higgs": {
+      "over": 8,
+      "long": 29,
+      "worst": 8.7
+    },
+    "qd_eclipse": {
+      "over": 8,
+      "long": 25,
+      "worst": 7.9
+    },
+    "qd_exo": {
+      "over": 5,
+      "long": 23,
+      "worst": 8
+    },
+    "qd_ligo": {
+      "over": 9,
+      "long": 30,
+      "worst": 8.4
+    },
+    "qd_cmb": {
+      "over": 8,
+      "long": 35,
+      "worst": 8.1
+    },
+    "qd_hubble": {
+      "over": 7,
+      "long": 29,
+      "worst": 8.7
+    },
+    "qd_penicillin": {
+      "over": 8,
+      "long": 20,
+      "worst": 8.4
+    },
+    "qd_germ": {
+      "over": 5,
+      "long": 22,
+      "worst": 8.1
+    },
+    "qd_mendel": {
+      "over": 7,
+      "long": 21,
+      "worst": 7.6
+    },
+    "qd_crispr": {
+      "over": 9,
+      "long": 30,
+      "worst": 8
+    },
+    "qd_oxygen": {
+      "over": 6,
+      "long": 26,
+      "worst": 7.5
+    },
+    "qd_periodic": {
+      "over": 9,
+      "long": 18,
+      "worst": 8.5
+    },
+    "qd_stroop": {
+      "over": 9,
+      "long": 19,
+      "worst": 7.5
+    },
+    "qd_memory": {
+      "over": 8,
+      "long": 18,
+      "worst": 8.4
+    },
+    "qd_keynes": {
+      "over": 6,
+      "long": 22,
+      "worst": 7.8
+    },
+    "qd_bankrun": {
+      "over": 3,
+      "long": 24,
+      "worst": 7
+    }
+  },
+  "_comment": "What each campaign still owes the tagline on its QUESTION cards: cards over grade 6.5, sentence pile-ups over 28 words, and its worst card. engine/dev/plainQuestions.mjs FAILS a theme that gains one or gets worse. A card with no scene, no guide or no verdict is a hard failure and is never banked. Rewrite cards down with the accessibility pass and re-bank with --write-debt; the numbers only fall."
+}

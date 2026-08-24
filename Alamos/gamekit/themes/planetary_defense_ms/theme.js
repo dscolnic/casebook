@@ -97,14 +97,41 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // Ten phases, so ten pieces. The orbit is measured early and every later
+  // page is read against it.
+  delivery: {
+    name: 'The Defense Review',
+    what: 'What the committee votes on. How big the rock is, where it is going, whether it can '
+      + 'be pushed, and what risk is left if it is.',
+    where: 'OPS',
+    pieces: [
+      'The discovery check',
+      'The measured positions',
+      'The size estimate',
+      'The material finding',
+      'The radar distance',
+      'The impact energy',
+      'The deflection plan',
+      'The evacuation decision',
+      'The after-check',
+      'The final review',
+    ],
+  },
   opening: [
-    'Four hours ago a survey telescope found a faint dot moving against the stars. Four hours is not '
-    + 'long enough to know where it is going, and some of the paths that fit go through the Earth. You '
-    + 'run the campaign. The telescopes that watch it are yours, and so is the radar dish that gets one '
-    + 'window in eleven years. Nobody knows yet whether this rock is the width of a street or of a '
-    + 'town. That is the difference between one city and one country, and the people in both are '
-    + 'waiting on what you can find out in time. Dr. Anna Fischer, who runs the radar dish, gets one '
-    + 'window in eleven years and has to pick the night.',
+    'Four hours ago a survey telescope found a faint dot moving against the stars. Four '
+    + 'hours is not long enough to know where it is going, and some of the paths that fit go '
+    + 'through the Earth. Nobody knows yet whether the rock is the width of a street or of a '
+    + 'town. You run the campaign. In ten phases the committee votes on your defense review. '
+    + 'It says how big the rock is, where it is going, whether it can be pushed aside, and '
+    + 'what danger is left if it is. One finding goes in a phase. A street and a town are '
+    + 'very different amounts of trouble, and nobody can tell you which this is yet.',
   ],
 
   // How it ends. Printed on the last page of the book and shown when the campaign

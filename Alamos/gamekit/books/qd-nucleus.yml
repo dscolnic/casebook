@@ -247,12 +247,14 @@ missions:
     briefing: The prediction is dated and signed before Ernest Marsden, the laboratory assistant, lines up the beam.
     stake: >-
       Monday, and nothing has been fired at anything yet. Ernest Rutherford, the professor who
-      runs this laboratory, has three candidate atoms on the blackboard and only one of them is
-      the accepted model. Hans Geiger, who owns the scattering chamber, has a gold leaf mounted
-      and a screen on an arm that swings out to a hundred and fifty degrees. Today you state what
-      the accepted atom is made of, commit to the largest deflection it can produce, and put the
-      beam line together so that a measured angle means something. A prediction written after the
-      data arrives is not a prediction, and everyone in the building knows it.
+      runs this lab, has three candidate atoms chalked on the blackboard. Only one of them is
+      the accepted model. Hans Geiger, the experimental physicist here, owns the scattering
+      chamber. He has a gold leaf mounted and a screen on a swinging arm. The arm reaches out to
+      a hundred and fifty degrees. Today you commit to the largest bend the accepted atom could
+      give one alpha particle. Before that you have to say what that atom is made of. Then you
+      set the beam line up in the right order, so that a measured angle means something. A
+      prediction written after the counts arrive is not a prediction. Everyone in this building
+      knows that.
     takeaway: A model earns a test by committing to a number it could be wrong about.
     stops:
       - group: STUDY
@@ -482,12 +484,14 @@ missions:
     briefing: Two observers, an hour each at the eyepiece, and one bin nobody expected to be occupied.
     stake: >-
       Tuesday, and the counting room has been dark since seven. Ewa Kowalczyk, the observer at
-      the microscope, has an hour of counts per bin and a tally book that runs from five degrees
-      to a hundred and fifty. Margaret Aitken, who turns the book into distributions, has the
-      Monday prediction sheet beside it: nothing past a fifth of a degree. Today you build the
-      distribution out of the counts, decide which part of it the accepted atom cannot survive,
-      and work out how close something got to turn a particle right round. Ten flashes in ten
-      thousand is a number small enough to be missed and large enough to be impossible.
+      the microscope, has an hour of counts for every band of angles. Her tally book runs from
+      five degrees out to a hundred and fifty. Margaret Aitken, the records computer, turns that
+      book into a distribution. A distribution is just the count of flashes at each angle, laid
+      out in order. Monday's prediction sheet is lying beside it, and it says nothing should
+      bend past a fifth of a degree. Today you build the distribution out of the raw counts.
+      Then you pick out the part of it the accepted atom cannot live with. Last, you work out
+      how close one particle had to get to be turned right round. Ten flashes in ten thousand is
+      a small number. Small enough to be missed. Large enough to be impossible.
     takeaway: An anomaly is worth what the model's own prohibition on it was worth.
     stops:
       - group: COUNT
@@ -737,13 +741,14 @@ missions:
     objective: Explain the dull majority and the ten exceptions with one atom, and claim only what each half supports.
     briefing: Three candidate atoms, one distribution, and a verdict that has to say which clause came from where.
     stake: >-
-      Wednesday, and the distribution is on the wall with three candidate atoms beside it.
-      Rutherford will not accept a model on the strength of the tail alone, and Kowalczyk will
-      not have the forward peak described as though it were a detail. Today you find out how the
-      deflection depends on how close a particle was aimed, fit each candidate to the counts and
-      look at what it leaves over, and write a claim in two clauses with a different half of the
-      data behind each. The nuclear atom is a step and not the last one, and the last paragraph
-      has to say so.
+      Wednesday, and the distribution is up on the wall. Three candidate atoms are pinned beside
+      it. Rutherford will not take a model on the strength of the tail alone. The tail is the
+      handful of big bends out at the far angles. Kowalczyk will not have the forward peak
+      called a detail. The peak is the crowd of tiny bends near straight ahead. Today you find
+      out how the bend depends on how close a particle was aimed. Then you fit each candidate to
+      the counts, and look at what each one leaves over. Your claim goes in two clauses, with a
+      different half of the data behind each one. The nuclear atom is a step, and not the last
+      one. Your last line has to say so.
     takeaway: A structure is claimed clause by clause, each from the part of the data that supports it.
     stops:
       - group: CHAMBER

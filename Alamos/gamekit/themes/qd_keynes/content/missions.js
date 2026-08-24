@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "A fall that does not stop",
     "objective": "Follow a shock round the board, find out what decides how it comes out, and say what firms cut first.",
     "briefing": "Keynes wants the second round on the board before anybody talks about prices.",
-    "stake": "Monday, and investment spending has fallen by a fifth. John Maynard Keynes, the economic adviser here, is at the board with the whole economy drawn on it and wants the fall traced arrow by arrow. Colin Clark, who counts the national income figures, has the returns for the quarter and one number on them that decides everything. Edith Marchant, the statistical clerk, has spent the week refusing to compare figures that are not comparable. Today you work out what the second round of the fall is worth, say what decides whether demand moves output or prices, and settle what a firm facing weaker orders actually cuts.",
+    "stake": "Monday. Investment spending has fallen by a fifth. John Maynard Keynes, the economic adviser here, stands at the board. The whole economy is drawn on it. He wants the fall traced arrow by arrow, before anybody argues about prices. Colin Clark, who counts the national income figures, has the returns for the quarter. One number on those returns decides everything that follows. Edith Marchant, the statistical clerk, has spent the week refusing to compare figures that were not measured the same way. Two million people are out of work. The board has plenty of arrows on it and no numbers yet. Today you work out what the second round of the fall is worth.",
     "takeaway": "A fall in spending arrives as somebody else's lost income, and then goes round again.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Rounds that add up",
     "objective": "Read what a set of rounds is doing, sum the series, and find how much leaks out of it.",
     "briefing": "Kahn will not publish a figure nobody can check on a sheet of paper.",
-    "stake": "Wednesday, and the model room has the rounds on the long table. Richard Kahn, who works the arithmetic in the model room, will not put a number in a note unless the working is on the sheet beside it. Colin Clark has figures for how much of each extra pound goes to tax, to saving and abroad, and none of those comes back as anybody's income here. Edith Marchant has spent two days making the returns comparable. Today you read what the rounds are actually doing, add the whole series up, and find out how much leakage the tidy figure survives.",
+    "stake": "Wednesday. The model room has the rounds laid out on the long table. Richard Kahn, who runs the model room, works the sums. He will not put a number in a note unless the working is on the sheet beside it. Colin Clark has brought new figures. They show how much of each extra pound goes to tax, how much to saving, and how much abroad. None of that money comes back as anybody's income here. Edith Marchant has spent two days making the returns comparable. The long table now holds a row of numbers and no total at the end of it. Today you add the whole series up.",
     "takeaway": "A change in spending is amplified by a factor that can be computed, and every leak makes it smaller.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "What to do, and when not to",
     "objective": "Size the response, test it against the state of the economy, and write the conditions in.",
     "briefing": "Robinson will not let a recommendation leave without its conditions attached.",
-    "stake": "Friday, and the desk has to produce a recommendation. Joan Robinson, who runs the policy desk, has the output gap and the honest multiplier and will not release a sentence with the conditions stripped off it. Tom Beddowes, her secretary, is holding the summary back until they are written in, because an unnumbered draft once got quoted as final for three years. And on the file are six claims about what this week established, some of them measured and some of them merely typed. Today you size the injection, test it against a state of the economy nobody has measured exactly, and go through the file.",
+    "stake": "Friday. The policy desk has to produce a recommendation today. Joan Robinson, who runs the policy desk, has the output gap and the honest multiplier in front of her. She will not release a sentence with the conditions stripped off it. Tom Beddowes, her secretary, is holding the summary back until those conditions are written in. An unnumbered draft once got quoted as final for three years. He has not forgotten it. On the file are six claims about what this week established. Some of them were measured. Some of them were merely typed. Today you size the injection the gap needs.",
     "takeaway": "The strongest claim a model of this kind supports is a conditional one, and the conditions are the part that gets dropped.",
     "stops": [
       {

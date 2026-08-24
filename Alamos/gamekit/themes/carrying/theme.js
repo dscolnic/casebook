@@ -73,15 +73,46 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One condition a day, in the order the island forced them. A rate with no
+  // period attached is what half of these replace.
+  delivery: {
+    name: 'The Vellan Conditions',
+    what: 'What the council votes on: the water licence, the quota, the tip and the sailing, '
+      + 'each with the rate and the limit it was actually written from.',
+    where: 'COMMON',
+    pieces: [
+      'The stocks and flows, dated',
+      'The recharge figure',
+      'The food web efficiency',
+      'The saline intrusion finding',
+      'The sustainable catch',
+      'The enforcement cost',
+      'The kilowatt-hour price',
+      'The concentration and load',
+      'The children\'s dose limit',
+      'The reef trend, uncaused',
+      'The diesel efficiency',
+      'The generator\'s average hour',
+      'The biosecurity condition',
+      'The age structure',
+      'The carrying statement',
+    ],
+  },
   opening: [
-    'Vellan is a low island with ninety-one people on it, one ferry a day, and eleven months '
-    + 'of fresh water left underground. The council votes in a fortnight on a second daily '
-    + 'sailing. You are the island\'s resources officer, so the water licence, the fishing quota '
-    + 'and the tip are all signed by you. Ines Calloway, who runs the harbour, has the '
-    + 'arithmetic that keeps the school open: nineteen children on the register, and the fees a '
-    + 'second sailing brings. Tomas Berhane, who has counted the reef for eleven years, has the '
-    + 'arithmetic that says salt water is already reaching the borehole. Ninety-one people live '
-    + 'on what those two can be got to agree.',
+    'Vellan is a small island, and its council votes in a fortnight. The vote is on a second ferry '
+    + 'sailing every day. Under the island there are eleven months of fresh water left. You are the '
+    + 'island\'s resources officer. The water licence, the fishing quota and the tip are all signed by '
+    + 'you. In 15 days the council votes on the Vellan conditions you write. They say how much water '
+    + 'may be pumped in a year. They say how much fish may be landed. They say what may be burnt, '
+    + 'buried or brought ashore. One condition is settled each day, and each one carries the rate and '
+    + 'the limit it came from. 91 people live here. 19 children are on the school register.',
   ],
 
   // How it ends. The last thing anybody reads, and the counterpart of `opening`:

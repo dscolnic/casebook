@@ -39,7 +39,8 @@ import {
 } from './materials.js';
 import { instrumentScreen, printedSheet, chalkboard, typedSheet } from './screens.js';
 import { addCaseBeacon } from './caseBeacon.js';
-import { furnishRoom, furnishingMaterials, markStructure } from './interiorKit.js';
+import { furnishRoom, furnishingMaterials, markStructure, markWallMounted } from './interiorKit.js';
+import { buildDeliveryCase } from './deliveryCase.js';
 
 /** Far enough along +x that the town is past the camera's far plane. */
 export const DISTRICT_X = 4000;
@@ -439,6 +440,18 @@ export function buildInteriorBuilding(scene, spec){
     ? new THREE.MeshStandardMaterial({ map: grainTexture(hex), roughness: 0.9 })
     : new THREE.MeshStandardMaterial({ color: colour, roughness: 0.6, metalness: 0.12 });
 
+  /**
+   * Every fitting already standing against a wall, as the point it stands at.
+   *
+   * The named fittings — the bench, the pinboard, the tool board, the clock —
+   * hang on a wall and leave NO collider behind, because nothing walks into a
+   * board at head height. So a placement test that only reads `colliders` cannot
+   * see them, and the first Deep Watch screenshot of the delivery board had a
+   * cork pinboard disappearing behind its left edge. This is the list that test
+   * reads instead.
+   */
+  const wallFittings = [];
+
   function against(wall, u = 0){
     const w = side(wall);
     const g = new THREE.Group();
@@ -447,6 +460,7 @@ export function buildInteriorBuilding(scene, spec){
     else if(w === 'left'){ g.position.set(x0 + inset, 0, u); g.rotation.y = Math.PI / 2; }
     else { g.position.set(x1 - inset, 0, u); g.rotation.y = -Math.PI / 2; }
     add(g);
+    wallFittings.push({ wall: w, x: g.position.x, z: g.position.z });
     const cos = Math.cos(g.rotation.y), sin = Math.sin(g.rotation.y);
     const turned = Math.abs(sin) > 0.5;
     return {
@@ -1013,6 +1027,99 @@ export function buildInteriorBuilding(scene, spec){
   //
   // Seeded on the room id, so it is the same room on every visit and a different
   // room from the one next door.
+  // ------------------------------------------------- the delivery case
+  //
+  // One room in a campaign holds what the fortnight is building: the board with
+  // a cell per piece, and the plinth with a block on it for every piece already
+  // in. Only the room the theme named (`delivery.where`) gets it, and only if
+  // the manifest declares one at all.
+  //
+  // BUILT HERE, BEFORE THE FIT-OUT, AND THAT ORDER IS THE POINT. The named
+  // fittings are already standing, so a candidate spot can be tested against
+  // the colliders they left behind; and the footprint this takes goes into the
+  // fit-out's `keepClear`, so nothing generic is placed on top of it afterwards.
+  // Built after `furnishRoom` instead, it would have to guess — which is how six
+  // probe posts once ended up inside the shelving.
+  let delivery = null;
+  const deliveryClear = [];
+  let deliveryWall = null;
+  if(spec.delivery?.total){
+    // WHICH WALL. Not the instrument's — the instrument is what the room is for
+    // and a board beside it competes with it — and not the doorway wall, which is
+    // behind the player on the way in. So: the far wall when the instrument is on
+    // a side, and the side away from the case stand when it is on the far wall.
+    const first = IW === 'back' ? (standX < 0 ? side('right') : side('left')) : 'back';
+    const walls = [first, first === 'back' ? (standX < 0 ? side('right') : side('left')) : 'back',
+                  first === side('left') ? side('right') : side('left')];
+    // Candidate positions along each wall, middle first. A wall is 8.5 to 15.5 m
+    // long and the case is 2.9 wide, so there is room; what there may not be room
+    // for is a *particular* spot, which is what the clearance test is for.
+    const box = new THREE.Box3();
+    const clearAt = (wall, u) => {
+      const span = wallSpan(wall);
+      if(Math.abs(u) > span / 2 - 1.9) return null;
+      const at = onWall(wall, u, 1.98, P.wall / 2 + 0.03);
+      // The plinth footprint, one metre out from the wall face, in world space.
+      const cx = at.x + Math.sin(at.rotY) * 0.78, cz = at.z + Math.cos(at.rotY) * 0.78;
+      // Nothing may land on the case stand, on the doorway, or on the lane the
+      // probe posts use — none of which leaves a collider behind.
+      if(Math.hypot(cx - standX, cz - standZ) < 2.4) return null;
+      if(Math.hypot(cx - 0, cz - (z0 + 1.2)) < 2.6) return null;
+      if(Math.abs(cx - mx(-2.35)) < 1.0) return null;
+      // The footprint, oriented to the wall rather than square to the world: 2.8 m
+      // along the wall and 1.0 m out from it, and it stops short of the wall face.
+      // A square box big enough to cover the case reaches THROUGH the wall it is
+      // hung on — and the walls are colliders, so the first version of this test
+      // rejected every candidate position in every room and the board was silently
+      // never built. Nothing failed; the room simply came out exactly as before,
+      // which is this repo's rule about a measurement that produces a plausible
+      // answer arriving through a placement test.
+      const wtx = Math.cos(at.rotY), wtz = -Math.sin(at.rotY);
+      const wnx = Math.sin(at.rotY), wnz = Math.cos(at.rotY);
+      box.setFromCenterAndSize(new THREE.Vector3(ox + cx, 0.6, oz + cz),
+        new THREE.Vector3(Math.abs(wtx) * 2.8 + Math.abs(wnx) * 1.0, 1.2,
+                          Math.abs(wtz) * 2.8 + Math.abs(wnz) * 1.0));
+      if(colliders.some(c => c.intersectsBox(box))) return null;
+      // And nothing already hanging on this wall. A 3 m board plus a 1.7 m
+      // pinboard needs 2.4 m of clear wall between their centres.
+      if(wallFittings.some(f => f.wall === wall
+        && Math.hypot(f.x - at.x, f.z - at.z) < 2.4)) return null;
+      return { at, cx, cz };
+    };
+    let spot = null;
+    for(const wall of walls){
+      for(const u of [0, 1.8, -1.8, 3.2, -3.2, 4.6, -4.6]){
+        spot = clearAt(wall, u);
+        if(spot) break;
+      }
+      if(spot) break;
+    }
+    if(spot){
+      delivery = buildDeliveryCase(group, {
+        id: spec.id,
+        at: spot.at,
+        name: spec.delivery.name,
+        total: spec.delivery.total,
+        colour: '#' + accent.getHexString(),
+        hard: (cx, cz, cw, cd, ch) => solid(cx, cz, cw, ch, cd),
+      });
+      interactables.push(...delivery.interactables);
+      // A board is not a point. Tell the audit which way its face looks, or it is
+      // invisible to the one check that would catch it hung inside the plaster.
+      const faceX = Math.abs(Math.sin(spot.at.rotY)) > 0.5;
+      markWallMounted(delivery.wallObjects, faceX,
+        faceX ? Math.sign(Math.sin(spot.at.rotY)) : Math.sign(Math.cos(spot.at.rotY)),
+        'delivery board');
+      deliveryClear.push({ x: spot.cx, z: spot.cz, r: 2.6 });
+      // And the stretch of WALL it hangs on. `keepClear` is about the floor: the
+      // fit-out's notices and boards are placed against a wall by `wallOk`, so
+      // without this a pinboard lands behind the delivery board and shows as a
+      // half-hidden sheet sticking out from under it — which is what the first
+      // screenshot of this in Deep Watch showed.
+      deliveryWall = { x: spot.at.x, z: spot.at.z, r: 2.0 };
+    }
+  }
+
   const kindOfRoom = /store|supply|spares|stock/i.test(spec.placeName ?? spec.name ?? '') ? 'supply'
     : /office|desk|planning/i.test(spec.placeName ?? spec.name ?? '') ? 'office'
     : /control|operations|ops|watch/i.test(spec.placeName ?? spec.name ?? '') ? 'station'
@@ -1043,7 +1150,8 @@ export function buildInteriorBuilding(scene, spec){
     wallThickness: P.wall,
     // The doorway is a hole in the front wall, and a notice hung across it floats
     // in the opening.
-    wallOk: (wx, wz) => !(Math.abs(wz - z0) < 0.4 && Math.abs(wx) < P.doorW / 2 + 0.35),
+    wallOk: (wx, wz) => !(Math.abs(wz - z0) < 0.4 && Math.abs(wx) < P.doorW / 2 + 0.35)
+      && !(deliveryWall && Math.hypot(wx - deliveryWall.x, wz - deliveryWall.z) < deliveryWall.r),
     kind: kindOfRoom,
     // Both names: the building the player walked into ("Generation Hall") is more
     // specific than the area's ("Generation & Fuel"), and the kit reads whichever
@@ -1055,6 +1163,7 @@ export function buildInteriorBuilding(scene, spec){
       new THREE.Vector3(ox + cx2 + cw / 2, ch, oz + cz2 + cd / 2))),
     // The case stand, the way in, and the instrument wall are all spoken for.
     keepClear: [
+      ...deliveryClear,
       { x: standX, z: standZ, r: 2.2 },
       { x: 0, z: z0 + 1.2, r: 2.4 },
       { x: 0, z: z1 - 0.9, r: 2.0 },
@@ -1077,6 +1186,8 @@ export function buildInteriorBuilding(scene, spec){
   return {
     id: spec.id,
     group, colliders, interactables, light, screen, plate, chart, beacon, stationLane,
+    /** The campaign's own product, in the one room that keeps it. Absent elsewhere. */
+    delivery,
     /** Light the marker only while there is actually a case waiting here. */
     setCaseOpen(on){ beacon.setActive(on); },
     /** Where the player stands on entering: just inside, facing the room. */

@@ -70,6 +70,31 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight BUILDS. One named thing, one piece of it per mission, and
+  // one room that keeps them: the opening card names it, each plan card says
+  // which piece today is, the card that closes a day hands that piece over, and
+  // the board in the room named by `where` is where all of them can be seen at
+  // once. See engine/core/delivery.js, and engine/dev/delivery.mjs for the gate.
+  //
+  // `pieces` has to be one per mission, in mission order, and each one a thing
+  // somebody could hand over — not a sentence. `where` has to be an area with
+  // somewhere to stand: a room behind a door (`interiors`) in an outdoor game, or
+  // a room of its own on the plan in a floor game.
+  delivery: {
+    name: 'The Handover File',
+    what: 'The one thing this fortnight produces, who receives it, and what it lets '
+      + 'them do that they could not do before.',
+    where: 'G1',
+    pieces: [
+      'The first measurement',
+      'The corrected reading',
+      'The ranked findings',
+      'The signed summary',
+    ],
+  },
+
   opening: [
     'Say what the player is, where they are, and what happens if the work is not done. '
     + 'This paragraph is the only place the game explains itself.',

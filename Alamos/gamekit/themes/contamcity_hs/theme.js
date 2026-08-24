@@ -48,14 +48,48 @@ export default {
   // The opening screen. Lives here rather than in index.html, which is shared by
   // every theme served from gamekit/ — Deep Watch spent a session opening with a
   // paragraph about a river city.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // Same fifteen days as themes/contamcity, so the same fifteen pieces: this
+  // edition changes the course the questions are drawn from, not what the
+  // fortnight builds.
+  delivery: {
+    name: 'The Riverton Evidence Package',
+    what: 'The package the state accepts before the city drinks its own water again: every '
+      + 'claim about what came off that yard, named by two independent methods.',
+    where: 'IDENT',
+    pieces: [
+      'The provisional identity list',
+      'The plume assessment',
+      'The underground reaction estimate',
+      'The confirmed component list',
+      'The mass balance sampling plan',
+      'The concentration maps',
+      'The neutralisation strategy',
+      'The reservoir equilibrium forecast',
+      'The secondary product watch list',
+      'The energy balance',
+      'The corrosion cell finding',
+      'The safe operating envelope',
+      'The treatment train choice',
+      'The release decision',
+      'The claim-by-claim summary',
+    ],
+  },
   opening: [
-    'A freight yard beside the river burned last night, and nobody can say what came off it. You '
-    + 'are the city\'s Chief Scientific Officer, which means what gets measured — and what the city '
-    + 'is told about it — is decided by you. Two neighbourhoods are downwind of a plume nobody has '
-    + 'identified. The drinking-water intake for a hundred and forty thousand people sits nine '
-    + 'hundred metres downstream of the outfall, and the utility has closed it, which means the '
-    + 'city is drinking its reserves and the reserves are measured in days. Adaeze Okonjo, who runs '
-    + 'analytical chemistry, will not name the compound on one method.',
+    'A freight yard beside the river burned last night. Nobody can say yet what came off it. Nine '
+    + 'hundred metres downstream, the city draws the drinking water for a hundred and forty thousand '
+    + 'people. The utility has shut that intake. You are the city\'s Chief Scientific Officer. You '
+    + 'decide what gets measured. You also decide what the city is told about it. In fifteen days the '
+    + 'state has to accept one Riverton evidence package. Only then does the intake reopen. The package '
+    + 'says what burned. It says where the stuff went, in the water and in the air. It says what has to '
+    + 'be cleaned up first. Every claim in it is named twice, by two different methods. One claim is '
+    + 'settled each day. The city is drinking its reserves now, and those are measured in days.',
   ],
 
   people: {

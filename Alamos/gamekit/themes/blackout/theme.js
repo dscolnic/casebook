@@ -75,16 +75,49 @@ export default {
   // of it discoverable in the first minute of play or from the plan card.
   // One paragraph of situation. No mechanics, no controls, and never a list of
   // what the player does not do.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and where the parts of it are kept. The opening
+  // card names it, each day's plan card says which piece today is, the card that
+  // closes a day hands that piece over, and the board in the System Operations
+  // room is where all fifteen can be seen at once — see engine/core/delivery.js.
+  //
+  // One piece per mission, in order. They are the pages of the case in the order
+  // the fortnight happens to build them, which is not the order they are bound in:
+  // the black start plan is written on day 10 and read first.
+  delivery: {
+    name: 'The Winter Operating Case',
+    what: 'The one document the regulator accepts before the winter peak: what the '
+      + 'corridor carries, what is held back, and how a dark system is brought back.',
+    where: 'OPS',
+    pieces: [
+      'The reserve margin page',
+      'The ranked constraint list',
+      'The frequency response page',
+      'The corridor rating sheet',
+      'The feeder restoration order',
+      'The instrument reconciliation',
+      'The parallel path flow map',
+      'The fault level and clearing times',
+      'The islanding plan',
+      'The black start cranking path',
+      'The drifted sensor finding',
+      'The quiet shift assumptions',
+      'The dispatch and reserve costs',
+      'The second circuit decision note',
+      'The signed evidence summary',
+    ],
+  },
+
   opening: [
-    'The Calder network carries electricity to four million people, and all of it runs on one '
-    + 'number. The mains change direction fifty times a second, and that rate is not a reading. '
-    + 'It is the running balance between what the power stations make and what the country '
-    + 'draws. Let it drift half a hertz and generators disconnect to protect themselves, which '
-    + 'leaves less supply and drags the rate further down. You are the system operator on '
-    + 'nights. Chinelo Obi, the distribution lead, would sooner cut fourteen thousand '
-    + 'households now than watch that number fall. Dolores Reyes, the shift supervisor, has '
-    + 'held on before and kept the network standing. A fault takes seconds; getting a system '
-    + 'back takes days.',
+    'It is a cold Monday night and the Calder network is holding, just. The grid carries '
+    + 'electricity to four million people, and it stays up only while what the power stations '
+    + 'make matches what the country draws. You are the system operator on nights. When it '
+    + 'stops matching, you decide who gets switched off. In fifteen nights the regulator has '
+    + 'to accept one winter operating case, signed at this desk. It says three things. How '
+    + 'much the transmission line can really carry. How much power is held back for the '
+    + 'coldest evening. And the order a dead network is switched back on in. One page of it is '
+    + 'written each night. A fault takes seconds. Getting a region back takes days.',
   ],
 
   ending: [

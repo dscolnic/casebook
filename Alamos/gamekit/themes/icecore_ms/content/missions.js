@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "What the plateau has been writing down",
     "objective": "Establish what this site records, how fast it records it, and why anybody drilled here.",
     "briefing": "A new season opens on a core that is already 2000 metres deep.",
-    "stake": "First morning of the season, and the drill has not turned yet. Nadia Brandt, the field glaciologist, has a fortnight of stake readings and a fresh pit wall. Marit Halvorsen, the chief scientist, wants the season's snowfall figure before the plan is written. Today you settle how much snow a year adds, and why the hole was put here rather than forty kilometres downhill. Get the snowfall wrong and every age below it is wrong the same way, quietly, for three kilometres.",
+    "stake": "First morning of the season, and the drill has not turned yet. Nadia Brandt, the field glaciologist, has two weeks of stake readings and a fresh pit wall. Marit Halvorsen, the chief scientist, wants the season's snowfall figure. The plan waits on it. She also asks why the hole was put here, not forty kilometres downhill. Today you settle how much snow a year adds. Get the snowfall wrong and every age below it is wrong the same way. All three kilometres of it.",
     "takeaway": "A record is only as good as the rate at which it was written.",
     "stops": [
       {
@@ -60,7 +60,7 @@ export const MISSIONS = [
     "title": "Counting to 2000",
     "objective": "Establish how a year is counted, and find the depth where counting stops working.",
     "briefing": "Okonkwo needs the depth at which the layer thickness drops below what the line can resolve.",
-    "stake": "Wednesday, and the counting is holding everything else up. Okonkwo has counted by eye to eleven hundred and eighty metres, and the layers get thinner with every hundred. Halvorsen wants the depth and age scale before the aircraft comes. Today you find where counting stops being possible, and choose which yearly signal to count with. Below where the layers close up, every age comes from a model, and a model is not a count.",
+    "stake": "Wednesday, and the counting is holding everything else up. Okonkwo has counted layers by eye to eleven hundred and eighty metres. Every hundred metres down, the layers get thinner. Halvorsen wants the depth and age scale before the aircraft comes. Today you find where counting by eye stops being possible. You also pick which yearly signal to count with. Below the depth where layers close up, every age comes from a model. A model is not a count.",
     "takeaway": "Every dating method has a depth where it stops working, and knowing it is part of the date.",
     "stops": [
       {
@@ -89,7 +89,7 @@ export const MISSIONS = [
     "title": "Turning a ratio into a temperature",
     "objective": "Establish what the isotope record measures and how confidently it can be stated in degrees.",
     "briefing": "The isotope profile is finished to 1,600 metres and nobody has agreed what it says in degrees.",
-    "stake": "Friday, and the isotope readings run down to sixteen hundred metres. Tanabe has the numbers, and Halvorsen wants them in degrees for the summary. That means a conversion figure. Somebody measured that figure; it is not a law of nature. Today you turn the readings into a temperature change, and decide how firmly it can be stated. A figure taken on trust turns every degree into somebody's assumption.",
+    "stake": "Friday. The isotope readings run down to sixteen hundred metres. Tanabe has the numbers. Halvorsen wants them in degrees for the summary. That means a conversion figure. Somebody measured that figure. It is not a law of nature. Today you turn the readings into a temperature change. You also say how firmly it can be stated. Take the figure on trust and every degree becomes somebody's assumption.",
     "takeaway": "A proxy becomes a number through a calibration, and the calibration is part of the result.",
     "stops": [
       {

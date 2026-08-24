@@ -42,15 +42,14 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'There is a hiss coming out of the sky and it will not go away. About three '
-    + 'degrees above absolute zero, arriving from every direction the horn is pointed, '
-    + 'and still there after the atmosphere, the ground and the road have been '
-    + 'subtracted. Everybody on this hill believes the receiver is broken, because '
-    + 'that is what an unexplained signal almost always is. If it is not broken, then '
-    + 'something fills the entire sky at one temperature and nobody has any idea what '
-    + 'would do that. You are the radio astronomer on the site, which means the '
-    + 'checks, the sky sweep and the arithmetic all come through you. Robert Wilson, '
-    + 'the receiver engineer, has a list of local causes and is running out of them.',
+    'There is a hiss coming out of the sky, and it will not go away. It is faint. It works out to '
+    + 'about three degrees above absolute zero. It arrives from every direction the horn is pointed. '
+    + 'The crew have already subtracted the air, the ground and the road. The hiss is still there. '
+    + 'Everybody on this hill thinks the receiver is broken, because that is what a strange signal '
+    + 'almost always turns out to be. But if the receiver is fine, then the whole sky is glowing at one '
+    + 'temperature. Nobody here can name a thing that would do that. You are the radio astronomer on '
+    + 'the site. The checks, the sky sweep and the arithmetic all come through you. Three kelvin, '
+    + 'arriving from everywhere, and not one person on the hill can explain it.',
   ],
 
   ending: [

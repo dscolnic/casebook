@@ -73,17 +73,14 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'There is a queue on the pavement below the window and nothing about this bank has '
-    + 'changed since yesterday. The loans are good, the borrowers are paying, the book covers '
-    + 'the deposits. There are ten units of cash in the building and thirty-two have been '
-    + 'asked for by noon. If a sound bank can be closed by the order people arrive in, then '
-    + 'the thing that fails is the arrangement rather than the bank, and no amount of being '
-    + 'careful prevents it. If the queue is right about something, the sheet is wrong. You are '
-    + 'the junior clerk, which means the counter, the book, the reserve and the desk all come '
-    + 'through you, and the lift is the only way between them. Marriner Eccles, who runs the '
-    + 'crisis desk on the fifth floor, has run a bank through this and says nothing said to '
-    + 'the pavement will work. Four thousand people hold the '
-    + 'deposits and the queue has turned into Cathcart Row.',
+    'There is a queue on the pavement below the window. Nothing about this bank has changed since '
+    + 'yesterday. The loans are good. The borrowers are paying. The book covers the deposits. But there '
+    + 'are ten units of cash in the building, and thirty-two have been asked for by noon. Can a sound '
+    + 'bank be closed by the order that people arrive in? If it can, the thing that fails is the '
+    + 'arrangement rather than the bank. Being careful does not stop it. You are the junior clerk. The '
+    + 'counter, the loan book, the reserve and the crisis desk all come through you. The lift is the '
+    + 'only way between them. Four thousand people hold the deposits, and the queue has turned into '
+    + 'Cathcart Row.',
   ],
 
   ending: [

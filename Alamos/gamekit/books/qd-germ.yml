@@ -208,13 +208,13 @@ missions:
     objective: Turn a cluster into a rate, find a comparison that tests it, and separate a candidate organism from a passenger.
     briefing: Whitehead wants the map before anybody argues about the air.
     stake: >-
-      Monday. Sixty-six people in the court are dead or dying and the explanations on offer
-      are the smell, the weather, and the character of the poor. Henry Whitehead, who keeps
-      the district's returns, has the addresses. Harriet Deane, his clerk, has the one number
-      nobody else collected — how many people live in those houses. John Snow, a physician
-      who has been asking every door where it draws its water, wants a comparison rather than
-      more cases. Today you turn the cluster into a rate, buy the one enquiry that could
-      overturn it, and look at what a microscope can and cannot settle.
+      Monday. Sixty-six people in the court are dead or dying. Nobody agrees on why. Some blame
+      the smell. Some blame the weather. Some blame the character of the poor. Henry Whitehead,
+      who keeps the district's returns, has the address of every death. He began sure that the
+      water had nothing to do with it. Harriet Deane, his clerk, has the one number nobody else
+      bothered to collect. She counted how many people live in those houses. John Snow, a
+      physician, has been asking every door where it draws its water. He does not want more
+      cases. He wants a comparison. Today you turn the cluster of deaths into a rate.
     takeaway: A cluster names something worth testing and settles nothing on its own.
     stops:
       - group: REG
@@ -418,14 +418,13 @@ missions:
     objective: Get one organism away from everything it arrived with, give it to matched hosts, and recover it again.
     briefing: Koch will not accept a result from a mixture.
     stake: >-
-      Wednesday, and the map has done all it can. Robert Koch, the bacteriologist, has a
-      streak plate with four kinds of colony on it and will not run anything until there is
-      one. Sixty matched animals are in the hut, thirty to be exposed and thirty to receive
-      sterile medium and nothing else. Martha Lowry, the ward sister, has agreed to compare
-      what comes back with what went in. Today you separate the candidate from everything it
-      arrived with, set the two groups against each other and say what the ratio between
-      them is worth, and read a bench where three cultures agree and one does not. This is
-      where the argument stops being about where people live.
+      Wednesday. The map has done all it can. Robert Koch, the bacteriologist, has a plate with
+      four kinds of colony growing on it. He will not put anything into an animal until the
+      plate shows one kind. Sixty matched animals wait in the hut. Thirty are to be exposed.
+      Thirty get a sterile medium and nothing else. Martha Lowry, the ward sister, has agreed to
+      compare what comes back out with what went in. This is where the argument stops being
+      about where people live. It starts being about what one thing does when you hand it over
+      on purpose. Today you separate the suspect from everything that arrived with it.
     takeaway: A pattern becomes a cause when one thing is given deliberately and the rest is held still.
     stops:
       - group: LAB
@@ -633,15 +632,14 @@ missions:
     objective: Predict what closing a route buys, notice that prevention need not wait for a mechanism, and say where the theory stops.
     briefing: Lowry will change one thing on the ward and count what follows.
     stake: >-
-      Friday, and the argument has to become a decision. Martha Lowry, the ward sister, will
-      change exactly one thing between the two wings and count the fortnight that follows.
-      Ignaz Semmelweis, the ward physician, has been arguing for that change for two years
-      without being able to say what it removes, and has been told he is wasting a ward.
-      Out in the court the vestry meets tonight about the pump handle, and forty households
-      will walk further for water if it comes off. On the registrar's desk are four proposals
-      for the district's hundred pounds. Today you commit a prediction before the basin goes
-      in, make the case for acting without a mechanism, and say out loud which of the four
-      proposals this week has nothing to say about.
+      Friday. The argument has to turn into a decision. Martha Lowry, the ward sister, will
+      change exactly one thing between the two wings. Then she will count the deaths for a
+      fortnight. Ignaz Semmelweis, the ward physician, has asked for that change for two years.
+      He still cannot say what the washing takes off a pair of hands. He has been told he is
+      wasting a ward. Out in the court the vestry meets tonight about the pump handle. Forty
+      households will walk further for their water if it comes off. On the registrar's desk sit
+      four proposals for the district's hundred pounds. Today you write down your prediction
+      before the basin goes in.
     takeaway: A mechanism earns its keep by predicting what a change will buy, and by saying which cases it does not cover.
     stops:
       - group: WARD

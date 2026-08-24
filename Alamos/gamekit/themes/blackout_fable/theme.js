@@ -77,18 +77,48 @@ export default {
   // of it discoverable in the first minute of play or from the plan card.
   // One paragraph of situation. No mechanics, no controls, and never a list of
   // what the player does not do.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One piece a night, in the order this edition happens to build them — which
+  // is not the order the case is bound in. The black start plan is written on
+  // the tenth night and read first.
+  delivery: {
+    name: 'The Winter Operating Case',
+    what: 'The one document the regulator accepts before the winter peak: what the corridor '
+      + 'carries, what is held back, and how a dark system is brought back.',
+    where: 'OPS',
+    pieces: [
+      'The frequency response page',
+      'The corridor rating sheet',
+      'The feeder restoration order',
+      'The instrument reconciliation',
+      'The reserve margin page',
+      'The parallel path flow map',
+      'The fault level and clearing times',
+      'The dispatch and reserve costs',
+      'The islanding plan',
+      'The black start cranking path',
+      'The drifted sensor finding',
+      'The quiet shift assumptions',
+      'The ranked constraint list',
+      'The second circuit decision note',
+      'The signed evidence summary',
+    ],
+  },
   opening: [
-    'Four million people are supplied from the Calder network, and the whole of '
-    + 'it runs on one number. Mains frequency has to stay within half a hertz of '
-    + 'fifty. Drift further and generators start tripping off, which takes the '
-    + 'rest of the system with them. You are the system operator on nights. The '
-    + 'power stations belong to companies you can instruct under contract and '
-    + 'cannot order about. Demand rises and falls with whatever four million '
-    + 'people happen to be doing. Chinelo Obi, who runs the distribution wires, would rather shed '
-    + 'fourteen thousand homes than let the frequency fall. Holding the two together, second by second, is '
-    + 'the job. A fault takes seconds. Getting a system back after one has gone '
-    + 'down takes days, and the hospitals on this network hold about eight hours '
-    + 'of their own generation.',
+    'It is a cold Monday night. The Calder network is holding, just. Four million people draw their '
+    + 'power from it. It stays up only while the power stations make what the country uses. You are the '
+    + 'system operator on nights. The stations belong to power companies. You can instruct them under '
+    + 'contract. You cannot order them about. So what you have is the argument and the record. In '
+    + 'fifteen nights the regulator has to accept one winter operating case. It says how much the '
+    + 'transmission line can really carry. It says how much power is held back for the coldest evening. '
+    + 'It says the order a dead network is switched back on in. One page of it is written each night. '
+    + 'The hospitals on this network hold about eight hours of their own generation.',
   ],
 
   ending: [

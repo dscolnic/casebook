@@ -207,13 +207,14 @@ missions:
     objective: Find a family by behaviour, watch a property recur along an ordered run, and meet the pair that will not fit.
     briefing: Popova will open the drawers and the sorting happens on paper.
     stake: >-
-      Monday. Sixty-three elements are in numbered drawers and the numbers record when each
-      one arrived and nothing else. Anna Popova, who keeps the specimen store, will open any
-      of them and will not let a single one be moved. Dmitri Mendeleev, the professor here,
-      has a long table, a card for every element and no arrangement yet. Today you find a set
-      that behaves alike, order a run by one measured quantity and watch what the properties
-      do, and meet a pair whose weights put them in the wrong families. A cupboard is not an
-      argument.
+      Monday. Sixty-three elements sit in numbered drawers. The number on a drawer says when
+      that element arrived. It says nothing else. Anna Popova, who keeps the specimen store,
+      will open any drawer for you. She will not let a single sample leave the room. Dmitri
+      Mendeleev, the professor here, has a long table and a card for every element. The cards
+      are in no order at all. Today you decide what an order should be built on. You will hunt
+      for elements that behave alike. You will lay out a run by one measured quantity and watch
+      what the properties do. You will meet two cards whose weights put them beside the wrong
+      neighbours. A cupboard is not an argument.
     takeaway: An arrangement has to come from what the elements do, not from the order they arrived in.
     stops:
       - group: SPEC
@@ -429,13 +430,13 @@ missions:
     objective: Refuse to force a card, put figures on an element nobody has, and get them printed before anybody looks.
     briefing: Mendeleev wants the gaps carrying numbers or not carrying anything.
     stake: >-
-      Wednesday, and there are three holes in the arrangement. Dmitri Mendeleev will not put
-      the nearest card into any of them. Julius Lothar Meyer, the visiting professor, has
-      reached much the same arrangement by a different route and thinks printing figures for
-      elements nobody has is a way of looking foolish in public. Vera Sokolova, the analytical
-      assistant, has the neighbours' masses and densities to hand. Today you decide what an
-      empty cell is for, work out what would have to go in one, and settle whether the figures
-      are published before or after somebody finds it.
+      Wednesday. There are three holes in the arrangement. Mendeleev will not push the nearest
+      card into any of them. Julius Lothar Meyer, the visiting professor, got to much the same
+      table by a different route. He thinks it is foolish to print figures for elements nobody
+      has. Doing it in public is worse. Vera Sokolova, the analytical assistant, has the masses
+      and densities of the neighbours to hand. Today you decide what an empty cell is for. You
+      will work out what would have to sit in one. Then you will settle whether those figures go
+      to the printer this week. The other choice is to wait until somebody finds the metal.
     takeaway: A gap is worth having only if it carries figures somebody could have found to be wrong.
     stops:
       - group: CARDS
@@ -644,14 +645,14 @@ missions:
     objective: Set the sealed figures against the measurements, say how close is close enough, and find the ordering underneath.
     briefing: Boisbaudran has the sample and did not know what he was looking for.
     stake: >-
-      Five years on, and a metal nobody had has arrived by post. Paul-Émile Lecoq de
-      Boisbaudran, the analyst who found it, came to it through a spectroscope rather than
-      through anybody's table and has three grams, which is the entire world supply. Vera
-      Sokolova has measured its mass, its density and the formula of its oxide, each by a
-      different method. And in the lecture hall, decades later again, Henry Moseley, a physicist, has an
-      instrument that reads a number off an element which is not a weight. Today you set
-      prediction against measurement, say what counts as close, and find the quantity the
-      order was really about.
+      Five years on. A metal nobody had has arrived by post. Paul-Émile Lecoq de Boisbaudran,
+      the analyst who found it, did not use anybody's table. He found it in a spectroscope, as
+      lines nobody had seen before. He has three grams, and that is the whole world supply. Vera
+      Sokolova has measured its mass, its density and the formula of its oxide. She used a
+      different method for each one. Henry Moseley, a physicist, waits in the lecture hall
+      decades later again. His machine reads a number off an element, and the number is not a
+      weight. Today you set the sealed prediction against the measurements. You will say how
+      close counts as close. And you will find the quantity the order was really about.
     takeaway: A prediction is confirmed approximately by several independent properties, and the ordering underneath it was a different quantity all along.
     stops:
       - group: HALL

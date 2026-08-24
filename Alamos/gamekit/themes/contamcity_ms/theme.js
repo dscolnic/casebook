@@ -47,14 +47,42 @@ export default {
   // The opening screen. Lives here rather than in index.html, which is shared by
   // every theme served from gamekit/ — Deep Watch spent a session opening with a
   // paragraph about a river city.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // Ten days, so ten pieces. The name list is written first and everything
+  // after it is read against that.
+  delivery: {
+    name: 'The Riverton Evidence File',
+    what: 'The file the state has to accept before Riverton drinks its own water again. Every '
+      + 'claim in it is checked by two different tests.',
+    where: 'IDENT',
+    pieces: [
+      'The first name list',
+      'The cloud map',
+      'The river prediction',
+      'The concentration map',
+      'The heat balance',
+      'The neutralising plan',
+      'The corrosion finding',
+      'The clean-up choice',
+      'The release decision',
+      'The signed summary',
+    ],
+  },
   opening: [
-    'A freight yard beside the river burned last night, and nobody can say what came off it. You are '
-    + 'the city\'s chief scientist, which means you decide what gets measured, and what the city gets '
-    + 'told. Two neighbourhoods sit downwind of a cloud nobody has named. The drinking water for a '
-    + 'hundred and forty thousand people is drawn from the river just below the yard, and the '
-    + 'utility has shut the intake. So the city is drinking what it has stored, and what it has '
-    + 'stored is measured in days. Adaeze Okonjo, who runs the laboratory, will not name what burned '
-    + 'until two different tests agree.',
+    'A freight yard beside the river burned last night. Nobody can say what came off it. Just below '
+    + 'the yard the city takes the drinking water for a hundred and forty thousand people. That intake '
+    + 'is shut. You are the city\'s chief scientist. You decide what gets measured. You decide what the '
+    + 'city gets told. In ten days the state has to accept your Riverton evidence file before the '
+    + 'intake opens again. The file has to say what burned. It has to say where it went, in the river '
+    + 'and in the air. It has to say what gets cleaned up first. Every claim in it is checked by two '
+    + 'different tests. One claim is settled a day. Ten days, and the city is drinking what it has '
+    + 'stored.',
   ],
 
   people: {

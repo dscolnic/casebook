@@ -429,7 +429,7 @@ missions:
   - title: The First Cluster
     objective: Open an investigation using a defensible provisional case definition and an explicit comparison baseline.
     briefing: Three Riverton hospitals report an unusual combination of fever, dry cough, severe headache, and profound fatigue. The player must decide whether the pattern is a true outbreak signal before scarce emergency resources are committed.
-    stake: "Day one. Seven patients, three hospitals, four days, and the same four symptoms in every one of them. Sofia Morales has the printout, and a reporter downstairs already has the number. Today you decide whether this is an outbreak at all, and agree what counts as a case. Seven sounds like a lot. Morales will not say whether it is until she knows what a normal week here looks like."
+    stake: "Day one. Seven patients, three hospitals, four days, and the same four symptoms in every one of them. Sofia Morales, the epidemiology lead, has the printout, and a reporter downstairs already has the number. Today you decide whether this is an outbreak at all, and agree what counts as a case. Seven sounds like a lot. Morales will not say whether it is until she knows what a normal week here looks like."
     takeaway: Use baseline variation, case definition, controls, correlation versus coincidence, measurement bias as an evidence chain rather than as isolated facts.
     stops:
       - group: POP
@@ -1029,7 +1029,7 @@ missions:
   - title: A Test Before Morning
     objective: Approve a diagnostic workflow only after its analytical and clinical limitations are explicit.
     briefing: Hospitals need a rapid diagnostic by sunrise. The molecular signal is promising, but contamination, false negatives, and prevalence could make a technically impressive test clinically misleading.
-    stake: "Day nine. The hospitals need a working test by sunrise. Ravi Patel, the molecular diagnostics lead, ran the tests overnight. Several patients came back positive — and so did one of the controls, a tube that had nothing in it. Three thousand people have already been told to stay home on that run. The bulletin goes out at six. Today you decide whether the run can be believed, and what a positive would mean for one patient."
+    stake: "Day nine. The hospitals need a working test by sunrise. Ravi Patel, the molecular diagnostics lead, ran the tests overnight. Several patients came back positive. So did one of the controls. That control is a tube with nothing in it. Three thousand people have already been told to stay home on that run. The bulletin goes out at six. Today you decide whether the run can be believed, and what a positive would mean for one patient."
     takeaway: Use PCR logic, controls, sensitivity, specificity, predictive value, prevalence as an evidence chain rather than as isolated facts.
     stops:
       - group: MOL
@@ -1588,7 +1588,7 @@ missions:
   - title: The Animal Connection
     objective: Build a defensible reservoir hypothesis using ecological exposure, prevalence, and genetic relatedness.
     briefing: Genetic similarities and field reports point toward an animal reservoir near the river corridor. The player must investigate without assuming that the most visible species is the source.
-    stake: "Day thirty-three. Readings from three patients look close to something found in animals along the river. The council has signed an order to clear the heron colony on Saturday. Mateo Castellanos, the wildlife veterinarian, has been out there twice and says the herons are the wrong animal. Today you decide what part any animal is really playing, and design the sampling that could show it. Nearby is not the same as guilty."
+    stake: "Day thirty-three. Three patients have readings that look close to something found in animals by the river. The council has signed an order. On Saturday the heron colony gets cleared out. Mateo Castellanos, the wildlife vet, has been out there twice. He says the herons are the wrong animal. Today you decide what part any animal really plays here. Then design the sampling that could show it. Living nearby is not the same as being the cause."
     takeaway: Use reservoirs, vectors, food webs, host range, ecological sampling, One Health as an evidence chain rather than as isolated facts.
     stops:
       - group: FIELD

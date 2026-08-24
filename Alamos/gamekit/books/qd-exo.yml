@@ -239,14 +239,15 @@ missions:
     objective: Establish that something is pulling the star, and how often it goes round.
     briefing: Twenty nights of spectra, and a shift smaller than any line in them.
     stake: >-
-      Monday, and there is nothing on the images but an ordinary star. Michel Mayor, the
-      spectrograph lead, has twenty nights of spectra of it, and every one of them shows the
-      whole forest of absorption lines shifted very slightly from the night before —
-      sometimes toward the blue, sometimes toward the red, and back again. Something is
-      pulling that star about and it is not in any picture anybody has. Today you say which
-      way the star is moving when the lines go blue, find how long the pattern takes to
-      repeat, and decide whether the thing pulling it could be another star. Get the last one
-      wrong and the programme spends a year on a binary.
+      Monday, and the images show nothing but an ordinary star. Michel Mayor, the spectrograph
+      lead, has twenty nights of spectra of it. In every one, the whole forest of absorption
+      lines sits a little to one side of where it was the night before. Sometimes the lines
+      slide toward the blue. Sometimes they slide toward the red. Then they slide back again.
+      Something is pulling that star about. Whatever it is, it is in no picture anybody has.
+      Today you decide whether the thing doing the pulling could be another star. First you read
+      which way the star moves when the lines go blue. Then you work out how long the pattern
+      takes to repeat. Get that decision wrong and the programme spends a year on a binary. That
+      is only a pair of stars going round each other.
     takeaway: A wobble is evidence that something is there, and by itself it does not say what.
     stops:
       - group: SPEC
@@ -455,14 +456,15 @@ missions:
     objective: Get a size out of a dip, and find out what else makes one.
     briefing: A month of photometry on the same star, and dips on a schedule.
     stake: >-
-      A month later, and the survey has been watching the same star every four minutes.
-      David Charbonneau, the survey photometrist, has a light curve that is almost entirely
-      noise with a dip of about a hundredth in it, lasting three hours — and then another
-      one, and another. Didier Queloz, the physicist who turns raw frames into a light curve, has already had to decide
-      how much of the drift to remove without removing the dip. Today you predict when the
-      next dip should fall and go and look, turn its depth into a size, and buy the one
-      follow-up that could show the whole thing is a pair of stars next door. A candidate
-      that is really a blend has cost programmes years.
+      A month later, and the survey has watched the same star every four minutes. David
+      Charbonneau, the survey photometrist, has a light curve that is almost all noise. In the
+      middle of it sits a dip of about a hundredth, lasting three hours. Then there is another
+      one. Then another. Didier Queloz, the physicist who turns raw frames into a light curve,
+      has already had to strip the drift out of it. He had to do that without stripping out the
+      dip as well. Today you buy the one follow-up that could show the whole thing is a pair of
+      stars next door. First you predict when the next dip should fall. Then you go and look.
+      After that you turn the depth of the dip into a size. A candidate that turns out to be two
+      blended stars has cost programmes years.
     takeaway: A dip has to be predicted before it means anything, and then defended against the things that fake it.
     stops:
       - group: PHOT
@@ -697,13 +699,14 @@ missions:
     objective: Put the two measurements together, remove the tilt, and say what this is.
     briefing: A mass, a radius, and a name that has to be earned.
     stake: >-
-      The last week, and both measurements are on the desk of Marie Ferrand, the physicist who does the characterisation. The wobble gives at
-      least half of Jupiter's mass; the transit gives a radius a little larger than Jupiter's.
-      Ferrand, who does the characterisation, will not put a class on the file until the tilt
-      of the orbit has been dealt with, because the wobble on its own never gave a mass at
-      all. Today you work out how tightly the thing is packed, find out what the transit tells
-      you about the tilt, and name what this is. The name goes on the discovery paper and gets
-      quoted without any of the four measurements behind it.
+      It is the last week of the programme. Both measurements are now on the desk of Marie
+      Ferrand, the physicist who does the characterisation. The wobble gives at least half of
+      Jupiter's mass. The transit gives a radius a little larger than Jupiter's. Ferrand will
+      not put a class on the file yet. The tilt of the orbit has to be dealt with first. On its
+      own, the wobble never gave a mass at all. Today you name what this thing is. First you
+      work out how tightly it is packed. Then you find out what the transit tells you about the
+      tilt. The name goes on the discovery paper. People will quote it without any of the four
+      measurements behind it.
     takeaway: A class is a summary of several measurements, and the summary is only as good as the measurements in it.
     stops:
       - group: CLASS

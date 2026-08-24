@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Who measures, and how",
     "objective": "Find out where a number is made before deciding what it is worth.",
     "briefing": "Two outcomes, two ways of measuring, and only one of them has a committee.",
-    "stake": "Tuesday, and two of the measurements in this trial are worth arguing about. Miriam Feldman, the statistician, says one of them is standing in for something else. Kwame Ansah, who chairs the committee that rules on each event, wants to know what he is scoring. Today you decide what a measurement is really telling you. You also work out what counts as breaking the plan.",
+    "stake": "Tuesday. Two of the things this trial measures are worth an argument. Miriam Feldman, the statistician, says one of them stands in for something else. Kwame Ansah chairs the committee that rules on each event. He wants to know what he is scoring. Today you decide what a measurement is really telling you. You also work out what counts as breaking the plan.",
     "takeaway": "A measurement is worth what the procedure that made it is worth.",
     "stops": [
       {
@@ -175,7 +175,7 @@ export const MISSIONS = [
     "title": "The quiet day",
     "objective": "Close the file that the board will read.",
     "briefing": "Nothing has gone wrong. The cut is on Thursday.",
-    "stake": "Wednesday, and for once nothing is on fire. Nkechi Umeh, the regulatory lead, wants the analysis plan frozen before anybody sees a number from it. Tobias Renner has forty-one questions still open on the data and three days to close them. Nobody is chasing either of them today, which is exactly why both will slip. Today you decide what gets locked down and when. A quiet day is when the work that prevents next month's argument gets done.",
+    "stake": "Wednesday, and for once nothing is on fire. Nkechi Umeh, the regulatory lead, wants the analysis plan frozen. It has to be frozen before anybody sees a number from it. Tobias Renner has forty-one open questions on the data. He has three days to close them. Nobody is chasing either of them today. That is exactly why both jobs will slip. Today you decide what gets locked down and when. Do this work today and next month's argument never happens.",
     "takeaway": "A locked file is a promise about a moment, not about perfection.",
     "stops": [
       {

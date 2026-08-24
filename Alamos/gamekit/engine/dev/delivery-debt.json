@@ -1,0 +1,4 @@
+{
+  "_comment": "Course adventures with no `delivery` yet: a fortnight that still leaves nothing behind — no named product, no piece a day, no board in any room. engine/dev/delivery.mjs FAILS a course adventure that is not on this list, and prints a note beside any that is on it and no longer needs to be. The list only ever shrinks. It is EMPTY: all 41 course adventures build something, and a new one has to as well.",
+  "unwritten": []
+}

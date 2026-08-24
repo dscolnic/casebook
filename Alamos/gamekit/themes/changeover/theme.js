@@ -77,15 +77,48 @@ export default {
 
   // The title card. Two or three paragraphs: what the player is, what is at
   // stake, and how a day works. Nothing here is generated.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One figure a day, in the order the fortnight forced them. The rate itself
+  // is set last, out of everything gathered before it, and is the one page
+  // nobody can revise afterwards.
+  delivery: {
+    name: 'The Halvern Rate Book',
+    what: 'What the board publishes on the fifteenth: the rate the reserves can actually hold, '
+      + 'and every figure behind it with the period it counts printed beside it.',
+    where: 'RATE',
+    pieces: [
+      'The counted statistics, dated',
+      'The output aggregate',
+      'The index and its rate',
+      'The basket, fixed and revised',
+      'The reserve multiplier',
+      'The spending rounds',
+      'The reserve clock',
+      'The real rate\'s owner',
+      'The money supply count',
+      'The output gap',
+      'The policy lag',
+      'The defensible rate',
+      'The exporters\' side',
+      'The first week\'s cover',
+      'The rate, with conditions',
+    ],
+  },
   opening: [
-    'Halvern is a country of nine hundred thousand people, and in fourteen days its shops and '
-    + 'banks stop taking the mark, the money it has always used. Nobody has agreed what the new '
-    + 'one is worth. You are the chief economist to the currency board, so the rate and its '
-    + 'published figures are yours to sign. The board sits on the top four floors of Kesteven '
-    + 'House, and the queue for the counter is on the plaza a hundred and eighty metres below. '
-    + 'Ada Verhoeven, the board chair, wants the rate fixed on Friday so contracts can be '
-    + 'written. Emil Radic, the board\'s statistician, has three weeks of price data and says '
-    + 'that cannot tell anybody what prices are doing.',
+    'In fourteen days the shops and banks of Halvern stop taking the mark. The mark is the money the '
+    + 'country has always used. Nobody has agreed what the new money is worth. Nine hundred thousand '
+    + 'people are paid in marks. You are the chief economist to the currency board. The rate is signed '
+    + 'by you, and so is every figure published beside it. In fifteen days you hand over the Halvern '
+    + 'rate book. It gives the rate the reserves can really hold. It says what prices have truly been '
+    + 'doing. It says how much of the old money is still out there. One figure goes in each day, with '
+    + 'the period it counts printed beside it. A rate nobody can hold is worse than a rate nobody '
+    + 'likes.',
   ],
 
   // How it ends: what came of the fortnight, what it cost, what is unfinished —

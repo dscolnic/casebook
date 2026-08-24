@@ -67,16 +67,14 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'Print the word GREEN in red ink, ask somebody to say the colour of the ink, and they '
-    + 'stumble. They know the answer. They can see it. Something arrives first and will not '
-    + 'be set aside, and no amount of trying harder makes it go away. If a process this '
-    + 'well drilled runs whether or not anybody wants it, then a great deal of what people '
-    + 'call attention is a race between answers rather than a choice between them. If the '
-    + 'stumble is nothing but a fiddly card, four blocks and a week of tabulation are wasted. '
-    + 'You are the research assistant, which means the booth, the instrument and the sheets '
-    + 'all come through you. John Ridley Stroop, the research student running this, will not '
-    + 'let a raw time out of the building. Forty-two people are booked this week and each '
-    + 'session produces two numbers.',
+    'Print the word GREEN in red ink. Ask somebody to say the colour of the ink, and they stumble. '
+    + 'They know the answer. They can see it. Something arrives first and will not be set aside. Trying '
+    + 'harder does not make it go away. If a habit this well drilled runs whether anybody wants it or '
+    + 'not, then attention is not a simple choice. It looks more like a race between two answers, and '
+    + 'the quicker answer wins. If the stumble is nothing but a fiddly card, then four blocks and a '
+    + 'week of counting are wasted. You are the research assistant here. The booth, the instrument and '
+    + 'the sheets all come through your hands. Forty-two people are booked this week, and each session '
+    + 'produces two numbers.',
   ],
 
   ending: [

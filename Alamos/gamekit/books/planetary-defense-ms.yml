@@ -1386,7 +1386,7 @@ missions:
   - title: Impact Energy
     objective: Provide low, central, and high impact-energy scenarios with transparent assumptions.
     briefing: The latest size and speed estimates imply regional consequences, but uncertainty in diameter, density, and velocity spans a wide range. The player must compute scales without presenting a false point estimate.
-    stake: "The object passed a week ago at four times the distance of the Moon, and it is heading away. What it left behind is a description: about 180 metres across, and roughly four hundred megatons if the return in eight years arrives. Rohan Banerjee, the impact physics lead, wants one number for civil defence today. Adebayo says the width is still the widest guess. Today you give a low, a middle and a high."
+    stake: "The object passed a week ago at four times the distance of the Moon. It is heading away now. What it left behind is a set of numbers. The rock is about 180 metres across. If the return in eight years arrives, the hit would be roughly four hundred megatons. Rohan Banerjee, the impact physics lead, wants one number for civil defence today. Adebayo says the width is still the widest guess. Today you give a low, a middle and a high."
     takeaway: Use mass and density, kinetic energy, scaling, how uncertainty carries forward, orders of magnitude as an evidence chain rather than as isolated facts.
     stops:
       - group: IMPACT

@@ -25,17 +25,24 @@ export const VIEWS = [
   { name: 'corridor--from-the-far-end', at: { x: 0, z: 44 }, yaw: BACK,
     note: 'back down the length of it, past the card desk door' },
 
-  // One view into each of the four rooms a stop happens in, standing just
-  // inside the door and looking at the far wall — which is where the fit-out,
-  // the case stand and the room's own screen are.
-  { name: 'specimen-store--doorway', at: { x: -3.3, y: 1.6, z: 11.0 }, yaw: WEST,
-    note: 'inside the door of the specimen store, looking at the far wall' },
-  { name: 'card-desk--doorway', at: { x: -3.3, y: 1.6, z: 34.0 }, yaw: WEST,
-    note: 'inside the door of the card desk, looking at the far wall' },
-  { name: 'analysis-bench--doorway', at: { x: 3.3, y: 1.6, z: 13.0 }, yaw: EAST,
-    note: 'inside the door of the analysis bench, looking at the far wall' },
-  { name: 'lecture-hall--doorway', at: { x: 3.3, y: 1.6, z: 30.0 }, yaw: EAST,
-    note: 'inside the door of the lecture hall, looking at the far wall' },
+  // One view into each of the four rooms a stop happens in, looking across it at
+  // the far wall — which is where the fit-out and the room's own screen are.
+  // Standing 3.5 m off the room's centre line, not on it.
+  //
+  // The first cut of these put the camera on the centre line looking at the far
+  // wall — which is exactly where the case stand is, and the case beacon over it
+  // draws through everything by design. Every one of the sixteen group rooms came
+  // back as a pale yellow slab filling the middle of the frame with the room
+  // behind it. Nothing was wrong with the room; the camera was aimed down the one
+  // object in it that is meant to be unmissable.
+  { name: 'specimen-store--doorway', at: { x: -3.3, y: 1.6, z: 7.5 }, yaw: WEST,
+    note: 'across the specimen store, looking at the far wall' },
+  { name: 'card-desk--doorway', at: { x: -3.3, y: 1.6, z: 30.5 }, yaw: WEST,
+    note: 'across the card desk, looking at the far wall' },
+  { name: 'analysis-bench--doorway', at: { x: 3.3, y: 1.6, z: 9.5 }, yaw: EAST,
+    note: 'across the analysis bench, looking at the far wall' },
+  { name: 'lecture-hall--doorway', at: { x: 3.3, y: 1.6, z: 26.5 }, yaw: EAST,
+    note: 'across the lecture hall, looking at the far wall' },
 ];
 
 export default VIEWS;

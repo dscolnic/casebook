@@ -75,15 +75,48 @@ export default {
 
   // The title card. Two or three paragraphs: what the player is, what is at
   // stake, and how a day works. Nothing here is generated.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One number a day, in the order the building gave them up. The walked
+  // clearance comes last and is the one the licence is signed on.
+  delivery: {
+    name: 'The Ellery Licence File',
+    what: 'What the inspector reads on opening night: every number the licence rests on, '
+      + 'measured in this building rather than inherited from a plan drawn before anybody '
+      + 'looked.',
+    where: 'FRONT',
+    pieces: [
+      'The eleven-year rate',
+      'The two kinds of list',
+      'The lantern angle',
+      'The wave\'s four numbers',
+      'The fader\'s arithmetic',
+      'The level and the period',
+      'The room\'s decay',
+      'The level at the performer',
+      'The grid load plot',
+      'The seat map, to print',
+      'The colour matrix',
+      'The two-rate meeting',
+      'The rig\'s coordinates',
+      'The last rehearsal\'s list',
+      'The walked clearance',
+    ],
+  },
   opening: [
-    'The Ellery is a theatre shut for eleven years, and it opens in a fortnight. The council '
-    + 'will not let an audience in without a safety licence, and the inspection is on opening '
-    + 'night. You are the production manager, so the lighting rig, the seats an audience can '
-    + 'see from, and every number in that licence file are signed by you. Marguerite Sallow, '
-    + 'the producer, has sold nine hundred seats on a plan drawn before anybody measured the '
-    + 'building. Kwame Osei, the head flyman, works the ropes above the stage and says that '
-    + 'plan hangs four tonnes on a grid nobody has tested. Forty-one people are on the payroll '
-    + 'for a run that only exists if the doors open.',
+    'The Ellery has been shut for eleven years. It opens in a fortnight. The safety check is on '
+    + 'opening night. Nine hundred seats are sold already. You are the production manager. You sign for '
+    + 'the lighting rig. You sign for the seats an audience can really see the stage from. You sign for '
+    + 'every number the licence rests on. In fifteen days you hand over the Ellery Licence File. It '
+    + 'says what the grid above the stage can carry. It says what the room does to sound and light. It '
+    + 'says how long the house takes to empty. One number is measured each day, in this building. Not '
+    + 'copied off a plan drawn before anyone looked. Forty-one people are on the payroll for a run that '
+    + 'only starts if the doors open.',
   ],
 
   // How it ends. What came of the fortnight, what it cost, what is unfinished —

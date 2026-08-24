@@ -41,15 +41,13 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'One slot on the chart on this wall is still empty. If something is sitting in it, '
-    + 'then the reason anything in the universe has mass has just become measurable. The '
-    + 'trouble is what that something does. It falls apart the instant it is made, and '
-    + 'all it leaves behind is a few extra ordinary-looking events at one particular '
-    + 'mass, buried in billions of collisions that look the same. You are the physicist '
-    + 'on the search, which means the channels, the reconstruction and the background '
-    + 'model all come through you. Fabiola Gianotti, the physicist who combines the channels '
-    + 'and writes what the group says out loud, has a hall booked for Thursday morning. '
-    + 'Whatever sentence goes up on that screen will be quoted for twenty years.',
+    'One slot on the wall chart is still empty. Fill it, and the reason anything has mass turns into '
+    + 'something we can measure. The trouble is what fills it. The thing falls apart the moment it is '
+    + 'made. All it leaves behind is a few extra events at one mass. They look like every other event '
+    + 'on the tape. There are billions of those, and they all look the same. You are the physicist on '
+    + 'the search. The channels, the reading of the detector and the background model all come through '
+    + 'you. A hall is booked for Thursday morning. Whatever sentence goes up on that screen will be '
+    + 'quoted back for twenty years.',
   ],
 
   ending: [

@@ -80,15 +80,47 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One entry a sol, in the order the plant forced them. A handover states
+  // what is known, how well, and what was never established at all — so the
+  // entries carry their assays rather than their conclusions.
+  delivery: {
+    name: 'The Propellant Handover',
+    what: 'What the next crew is handed: every batch signed against the assay it came with, the '
+      + 'plant\'s real limits, and what nobody here ever established.',
+    where: 'GIBBS',
+    pieces: [
+      'The rate and ceiling figures',
+      'The recycle loop argument',
+      'The chain bottleneck finding',
+      'The feed limit table',
+      'The temperature ceiling',
+      'The water plant priority',
+      'The nine-sol bed profile',
+      'The assay bench result',
+      'The spent charge analysis',
+      'The new charge procedure',
+      'The books, reconciled',
+      'The low-power decision',
+      'The ranked sol order',
+      'The loading decision',
+      'The handover, signed',
+    ],
+  },
   opening: [
-    'Everyone here goes home on a rocket that can only leave when Mars and Earth line up. The '
-    + 'next alignment is sixteen months off. It stands on the pad four hundred metres away and '
-    + 'has to lift off full. Nothing is flown from Earth to fill it. The 6.6 tonnes of methane '
-    + 'and 23 of oxygen have to be made here, out of Martian air and ground. So far the plant '
-    + 'has made 3.9. You are the propellant lead at Arcadia Rise, so every kilogram loaded '
-    + 'aboard is signed for by you. Ingrid Sundqvist, the production lead, wants the reactor '
-    + 'forty degrees hotter. Tomas Herrera, who owns the reactor, says a hotter reactor hands '
-    + 'back less methane every pass.',
+    'The rocket on the pad leaves when Mars and Earth line up. It has to lift off full. It needs 6.6 '
+    + 'tonnes of methane and 23 of oxygen. All of that is made here, out of Martian air and ground. So '
+    + 'far the plant has made 3.9. You are the propellant lead at Arcadia Rise. Every kilogram loaded '
+    + 'aboard is signed for by you. In fifteen sols you write the propellant handover. The next crew '
+    + 'works from it. It says what the plant can really make. It says what slows the plant down. It '
+    + 'says what every batch was measured at before it went in the tank. One entry goes in a sol. Six '
+    + 'people leave on what the tank holds, or they wait twenty-six months.',
   ],
 
   // The last thing anybody reads. What happened, what it cost, what is left

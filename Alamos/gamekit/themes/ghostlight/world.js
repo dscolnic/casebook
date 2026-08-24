@@ -22,7 +22,8 @@
 //   · the light is stage light. Four real lights, and everything else that is
 //     bright is emissive.
 import * as THREE from 'three';
-import { furnishArea, wordedSign } from '../../engine/world/interiorKit.js';
+import { furnishArea, wordedSign, markWallMounted } from '../../engine/world/interiorKit.js';
+import { buildDeliveryCase, deliveryHook } from '../../engine/world/deliveryCase.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { site, POSITIONS, OFFICES } from './site.js';
 import { INTERIORS } from './interiors.js';
@@ -32,6 +33,18 @@ import { camera } from '../../engine/core/player.js';
 import { instrumentScreen } from '../../engine/world/screens.js';
 import { dampEnvironment, tuneRendererForDevice } from '../../engine/world/materials.js';
 import { addCaseBeacon } from '../../engine/world/caseBeacon.js';
+
+/** The campaign's delivery board, in the one office that keeps it. */
+let deliveryCase = null;
+/**
+ * Tell the board what is in.
+ *
+ * Called on every world refresh: an office here is walked into rather than
+ * entered through a door — `interiors` is empty and the stop is the desk — so
+ * there is no arrival to hang it on, and the board has to be right the moment a
+ * saved campaign loads.
+ */
+export function setDeliveryPieces(pieces){ deliveryCase?.setPieces(pieces); }
 
 export let scene = null;
 export let renderer = null;
@@ -760,7 +773,32 @@ function buildOffice(spec, def){
     });
   }
 
-  furnishOffice(spec, { xIn, xOut, y, cz });
+  // ---- the delivery board, in the one office that keeps it
+  //
+  // The house has no door-rooms: `interiors` carries the desks' panel data and
+  // nothing else, and this world module builds its own offices rather than going
+  // through `interiorSite`. So the board goes up here, on the far end wall of the
+  // office, which is the wall somebody coming through the door is looking at.
+  let clear = null;
+  const hook = deliveryHook(theme);
+  if(hook && hook.where === spec.group){
+    deliveryCase = buildDeliveryCase(scene, {
+      id: spec.group,
+      at: { x: cx, y: y + 1.9, z: spec.z1 - 0.22, rotY: Math.PI },
+      name: hook.name, total: hook.total, colour: hook.colour,
+      // These rooms sit on a raised tier, so the case has to be told where the
+      // floor is; left at zero it stands under it.
+      floorY: y,
+      hard: (bx, bz, bw, bd, bh) => collide(bx, bz, bw, bd, y, bh),
+    });
+    interactables.push(...deliveryCase.interactables);
+    // A board is not a point. Say which way its face looks, so an audit — and the
+    // screenshot harness that finds it by this tag — can see it has width.
+    markWallMounted(deliveryCase.wallObjects, false, -1, 'delivery board');
+    clear = { x: cx, z: spec.z1 - 1.0, r: 2.4 };
+  }
+
+  furnishOffice(spec, { xIn, xOut, y, cz, clear });
 }
 
 /**
@@ -771,7 +809,7 @@ function buildOffice(spec, def){
  * follows every wardrobe in the world around. Measured before this, a room with
  * a desk and a door in it holds six pieces and reads as a corridor.
  */
-function furnishOffice(spec, { xIn, xOut, y, cz }){
+function furnishOffice(spec, { xIn, xOut, y, cz, clear = null }){
   const f = spec.side === 'w' ? -1 : 1;
   const inX = xIn + f * 0.9, outX = xOut - f * 0.9;
   const id = spec.group ?? spec.id;
@@ -960,7 +998,9 @@ function furnishOffice(spec, { xIn, xOut, y, cz }){
     // Mission Control's twenty-metre bays keep their bench — here the desk is
     // against the OUTER wall, so the circle protected empty floor and the placer
     // stood a stack of timber across the board the stop is answered from.
-    keepClear: [{ x: xIn + f * 1.2, z: cz, r: 1.9 }, { x: xOut - f * 1.9, z: cz, r: 2.9 }],
+    keepClear: [{ x: xIn + f * 1.2, z: cz, r: 1.9 }, { x: xOut - f * 1.9, z: cz, r: 2.9 },
+      // And the delivery case, in the one office that has one.
+      ...(clear ? [clear] : [])],
   });
 }
 

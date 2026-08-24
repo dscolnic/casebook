@@ -374,14 +374,16 @@ missions:
     objective: Establish what the frequency is actually telling the room before anybody acts on it.
     briefing: A unit tripped at 04:12 and the frequency has not come back to where it started.
     stake: >-
-      Tuesday, 04:12, and the largest unit on the Calder system has tripped without warning. Frequency fell
-      and then steadied somewhere below where it began, which Dolores Reyes, the shift supervisor, says matters more than the fall
-      itself — a system that stops falling has found a new balance, and the new balance is short. Nadia Haddad, the generation lead,
-      has machines that can make up the shortfall but not in the next two minutes. June Farrow, the metering and standards engineer, wants the
-      records checked before anybody calls it a lost unit, and Reyes is not waiting: a system this far
-      short does not get more certain while you read about it. This morning Reyes is right. Today you read what the
-      frequency is telling you, work out how much generation actually went missing, and decide what to ask
-      for first. Read it as a fault on one machine and you will spend the morning fixing the wrong thing.
+      Tuesday, 04:12. The largest unit on the Calder system has tripped with no warning. The
+      frequency fell. Then it steadied, lower than it started. Dolores Reyes, the shift
+      supervisor, says that is the part that matters. A system that stops falling has found a
+      new balance. The new balance is short of power. Nadia Haddad, the generation lead, has
+      machines that can cover the gap. She cannot have them running in the next two minutes.
+      June Farrow, the metering and standards engineer, wants the records checked first. She
+      will not call it a lost unit until they are. Reyes is not waiting. A system this far short
+      does not get more certain while you read about it. This morning Reyes is right. Today you
+      work out how much generation actually went missing. Read it as a fault on one machine and
+      you will spend the morning fixing the wrong thing.
     takeaway: Frequency is not a reading from a place; it is the whole system's supply and demand, arriving as a number.
     stops:
       - group: OPS
@@ -586,14 +588,14 @@ missions:
     objective: Decide which circuit takes the flow once one path is gone.
     briefing: With the unit off, the flow has redistributed and one corridor is running warm.
     stake: >-
-      Wednesday, and the replacement generation is coming from the wrong side of the system, which means it
-      is arriving down two circuits instead of three. Piotr Novak, the protection engineer, has a corridor sitting above its
-      continuous rating and a relay that will take the decision away from the room in about 40 minutes
-      if nobody else does. The 40 minutes comes off a thermal record June Farrow has not verified, and she
-      says so. Thabo Dube, the substation technician, is in the yard waiting for a switching instruction. Today you rate
-      the line honestly, work out where the flow goes if it trips, and decide whether to move generation
-      or accept the risk. A thermal rating is not a cliff, and treating it as one is how a warm line becomes
-      two cold ones.
+      Wednesday. The replacement power is coming from the wrong side of the system. That means
+      it arrives down two circuits instead of three. Piotr Novak, the protection engineer, has a
+      corridor running above its continuous rating. A relay will take the decision away from the
+      room in about 40 minutes. It will do that if nobody in here does it first. The 40 minutes
+      comes off a thermal record June Farrow has not checked. She says so, out loud, to the
+      room. Thabo Dube, the substation technician, is out in the yard. He is waiting to be told
+      what to switch. Today you rate the line honestly. A thermal rating is not a cliff. Treat
+      it as one and a warm line becomes two cold ones.
     takeaway: A rating is a time and a temperature, not a wall, and what matters is where the flow goes next.
     stops:
       - group: TRANS
@@ -803,12 +805,13 @@ missions:
     objective: Get customers back on in an order that can be defended afterwards.
     briefing: 11 feeders are still dead and the crews can only be in 1 place at a time.
     stake: >-
-      Thursday, and the transmission side is steady, but 11 distribution feeders are still dead. Chinelo
-      Obi has 3 crews and 14000 households in the dark. One of her circuits carries a
-      dialysis clinic. Another carries 1000 homes. Ewa Kowalczyk, the field crew lead, is at the first fault already, and it
-      is a tree. Today you work out why the far end of a long feeder sits below limit, decide what sets the
-      current a conductor may carry, and choose which circuit gets the first crew. Every hour of this is
-      somebody sitting in the cold. The order you choose is the order an inquiry will read back to you.
+      Thursday. The transmission side is steady. But 11 distribution feeders are still dead.
+      Those are the street-level circuits, the last wires before a house. Chinelo Obi has 3
+      crews and 14000 households in the dark. One of her circuits carries a dialysis clinic.
+      Another carries 1000 homes. Ewa Kowalczyk, the field crew lead, is at the first fault
+      already. It is a tree across a line. Her crew has to cut it clear before that circuit can
+      be fed. Today you choose which circuit gets the first crew. Every hour of this is somebody
+      sitting in the cold. The order you choose is the order an inquiry will read back to you.
     takeaway: Restoration is a series of choices about people, made with instruments that only see the substation.
     stops:
       - group: DIST
@@ -974,14 +977,13 @@ missions:
     objective: Establish which readings the incident account is allowed to rest on.
     briefing: The report is due and two of the figures in it come from instruments nobody has checked.
     stake: >-
-      Friday, and the account of Tuesday night has to be written down. Dolores Reyes wants it filed today so the
-      week can close. June Farrow will not sign it while
-      two of its figures come from instruments last calibrated in the spring. Nadia Haddad needs a machine
-      back on the bars before the evening peak, and there is a right order for that which is not the order
-      anybody is in a hurry to follow. Today you work out what the system was actually delivering, put the
-      steps of synchronising a machine in the order physics requires, and settle an argument between a meter
-      and an oscilloscope. This time Farrow is right, and the delay is the cheapest thing in the week: a number
-      in a report outlives everybody who knew what it meant.
+      Friday. The account of Tuesday night has to be written down. Dolores Reyes wants it filed
+      today so the week can close. June Farrow will not sign it yet. Two of its figures come
+      from instruments last calibrated in the spring. Nadia Haddad needs a machine back on the
+      bars before the evening peak. There is a right order for that. It is not the order anybody
+      is in a hurry to follow. Today you put the steps of synchronising that machine in the
+      order physics requires. This time Farrow is right. The delay is the cheapest thing in the
+      week. A number in a report outlives everybody who knew what it meant.
     takeaway: A reading is a claim about one quantity, and two instruments can disagree while both are right.
     stops:
       - group: METER
@@ -1144,13 +1146,13 @@ missions:
     objective: Decide what the system is holding back, and whether it is enough.
     briefing: Tomorrow's peak is colder than the forecast the reserve was set against.
     stake: >-
-      Monday, and the forecast for tomorrow's evening peak has moved four degrees colder. Sten Lindgren says
-      the number has not changed much but the width has, and the width is what the reserve has to cover.
-      Rafael Alvarez, the demand analyst, has the storage figures from the weekend and they are worse than the brochure. Dolores
-      Reyes has to say tonight how much generation is held back and how much is sold. Today you work out
-      what the battery will really give back, decide why the transmission side runs at high voltage at all,
-      and choose what evidence is worth buying before the peak. Hold too much back and it is wasted. Hold
-      too little and Thursday happens again.
+      Monday. The forecast for tomorrow's evening peak has moved four degrees colder. Sten
+      Lindgren says the number itself has barely changed. What has changed is the width of it.
+      The width is what the reserve has to cover. Rafael Alvarez, the demand analyst, has the
+      storage figures from the weekend. They are worse than the brochure. Dolores Reyes has to
+      say tonight how much generation is held back and how much is sold. Today you work out what
+      the battery will really give back. Hold too much back and the network pays for power it
+      never uses. Hold too little and homes go dark on the coldest evening of the winter.
     takeaway: A reserve is bought with something, and the argument is always about how much uncertainty it has to cover.
     stops:
       - group: LOAD
@@ -1340,12 +1342,13 @@ missions:
     objective: Work out how flow divides between paths before switching changes them.
     briefing: Two circuits share the same corridor and they are not sharing it equally.
     stake: >-
-      Tuesday, a week on, and the corridor has two circuits in it rather than one. Piotr Novak points out
-      that this does not halve anything. The flow divides according to what each path costs it, and the
-      newer circuit is the lower-impedance one, so it is taking two thirds of the load while the older one
-      idles. Thabo Dube is waiting to be told which one to switch out for the morning's work. Today you work
-      out how the current splits, decide what a node can and cannot hide, and say which arrangement leaves
-      the least exposure. Switch the wrong one and the remaining circuit finds out what the sum was.
+      Tuesday, a week on. The corridor has two circuits in it now, not one. Piotr Novak points
+      out that this does not halve anything. The flow divides according to what each path costs
+      it. The newer circuit is the lower-impedance one. So it is taking two thirds of the load.
+      The older one idles. Thabo Dube is waiting to be told which one to switch out for the
+      morning's work. Today you work out how the current splits between the two. Switch out the
+      wrong one and the circuit left standing carries the whole flow. It was never rated for
+      that.
     takeaway: Current divides between parallel paths in inverse proportion to their impedance, whatever anybody intended.
     stops:
       - group: TRANS
@@ -1515,12 +1518,14 @@ missions:
     objective: Establish what a fault does before anybody can respond to it.
     briefing: A cable failed at the substation and the protection cleared it before the alarm reached the room.
     stake: >-
-      Wednesday, and a cable failed inside the substation at 13:40. The protection cleared it in under a
-      tenth of a second, which is the whole story: nobody in the control room saw the fault, they saw the
-      aftermath. Piotr Novak needs the fault current worked out before he will sign the switchgear back into
-      service. June Farrow wants to know how a current transformer produces a reading from a wire it never
-      touches. Ewa Kowalczyk has a crew standing at a gate and a rule about earthing that they are quietly
-      impatient with. Today you size the fault, explain the instrument, and decide who may approach.
+      Wednesday. A cable failed inside the substation at 13:40. The protection cleared it in
+      under a tenth of a second. That is the whole story. Nobody in the control room saw the
+      fault. They saw the aftermath. Piotr Novak needs the fault current worked out. He will not
+      sign the switchgear back into service until it is. June Farrow wants to know how a current
+      transformer reads a wire it never touches. Ewa Kowalczyk has a crew standing at a gate.
+      She also has a rule about earthing that they are quietly impatient with. Today you size
+      the fault current. Get it wrong and the switchgear is asked to break more than it can
+      hold.
     takeaway: A fault is limited only by impedance, which is why the numbers are enormous and the times are tiny.
     stops:
       - group: TRANS
@@ -1697,13 +1702,13 @@ missions:
     objective: Decide what runs tomorrow, and what is held back for the day it is needed.
     briefing: The cheapest generation is on the ridge and it will not say what it is doing after four.
     stake: >-
-      Thursday, and tomorrow has to be bought tonight. Sten Lindgren has a peak that moves with the
-      temperature and a width he will not narrow. Mina Sarraf, the wind fleet controller, has a ridge that will produce almost nothing
-      for money and cannot promise any of it, and she is tired of being asked to. Nadia Haddad has expensive
-      machines that can be told exactly what to do. Dolores Reyes has to sign an order that puts them in
-      sequence. Today you forecast the peak from the load curve, decide what merit order actually means when
-      the cheapest plant is the least certain, and choose what to do with more wind than the corridor can
-      carry.
+      Thursday. Tomorrow has to be bought tonight. Sten Lindgren has a peak that moves with the
+      temperature. He will not narrow the width of it. Mina Sarraf, the wind fleet controller,
+      has a ridge that will produce almost nothing for money. She cannot promise any of it. She
+      is tired of being asked to. Nadia Haddad has expensive machines that can be told exactly
+      what to do. Dolores Reyes has to sign an order that puts them all in sequence. Today you
+      decide what merit order really means when the cheapest plant is the least certain. Get the
+      sequence wrong and the network buys power it does not need, or misses power it does.
     takeaway: Dispatch orders plant by cost, and the value of certainty is what stops that being the whole story.
     stops:
       - group: DIST
@@ -1867,13 +1872,14 @@ missions:
     objective: Work out what an island is, and whether the one that has formed can hold.
     briefing: The corridor tripped and the valley is now running on its own, for the moment.
     stake: >-
-      Friday, 18:20, and the corridor tripped at the worst hour of the worst day — the same corridor the room chose
-      to hold inside its emergency rating a week ago, on a thermal record nobody had checked. The valley did not go dark.
-      It separated, and it is now an island of its own with the ridge, one gas machine and about a fifth of
-      the demand it had at lunchtime. Dolores Reyes has minutes to decide whether to help it survive or shut
-      it down deliberately. Nadia Haddad says the one machine in there has almost no inertia behind it.
-      Chinelo Obi has the customer numbers. Today you work out what is holding that island's frequency up,
-      decide what stored energy is actually available, and choose whether to keep it or collapse it.
+      Friday, 18:20. The corridor has tripped, at the worst hour of the worst day. It is the
+      same corridor the room held inside its emergency rating a week ago. That call rested on a
+      thermal record nobody had checked. The valley did not go dark. It separated. It is now an
+      island of its own. In it are the ridge, one gas machine, and about a fifth of the demand
+      it had at lunchtime. Nadia Haddad says that one machine has almost no inertia behind it.
+      Chinelo Obi has the customer numbers. Dolores Reyes has minutes, not hours. Today you
+      choose whether to help the island survive or shut it down on purpose. Wait too long and
+      the island's own protection makes the choice for you.
     takeaway: An island lives or dies on whether generation inside it can follow the load inside it.
     stops:
       - group: OPS
@@ -2067,12 +2073,13 @@ missions:
     objective: Build a live system out of a dead one, in the only order that works.
     briefing: The valley collapsed at 19:04 and nothing in it can start without power it has not got.
     stake: >-
-      Saturday, 19:04, and the island went. The valley is dark and every machine in it needs electricity to
-      start: the boiler feed pumps, the fans, the control systems, the switchgear itself. Nadia Haddad has
-      one small hydro set at the head of the valley that can start on its own, and Thabo Dube has a yard full
-      of open switches. Dolores Reyes has to decide the order, and there is only one that works. Today you
-      cost the energy the valley has already lost, work out why the small set matters more than the large
-      one, and write the restoration in the sequence physics allows rather than the one people want.
+      Saturday, 19:04. The island went. The valley is dark. Every machine in it needs
+      electricity to start. The boiler feed pumps need it. So do the fans, the control systems
+      and the switchgear itself. Nadia Haddad has one small hydro set at the head of the valley.
+      It can start on its own. Thabo Dube has a yard full of open switches. Dolores Reyes has to
+      decide the order they close in. There is only one order that works. Today you write the
+      restoration in the sequence physics allows, not the one people want. Close a switch out of
+      turn and the valley goes dark again, with the hydro set in it.
     takeaway: A dead system is rebuilt from one machine that needs nothing, outward along a path chosen in advance.
     stops:
       - group: GEN
@@ -2261,13 +2268,13 @@ missions:
     objective: Re-read the week from a record nobody had checked.
     briefing: Farrow has traced the corridor's thermal record, and the number the room worked from was wrong.
     stake: >-
-      Sunday, and June Farrow has finished tracing the corridor's thermal history. The emergency rating that
-      bought the room 40 minutes a week ago was calculated from a sensor that had been reading 11
-      degrees low since a firmware update in the spring. The corridor was not 40 minutes from its limit.
-      It had been above continuous rating for six hours, and it had been there twice before. Dolores Reyes
-      has to decide what that does to every decision taken since. Today you work out what a drifted sensor
-      does to a rating, decide which of the week's conclusions still stand, and say what you would have done
-      differently. Nothing in the week was reasoned badly. It was reasoned from a number.
+      Sunday. June Farrow has finished tracing the corridor's thermal history. The emergency
+      rating bought the room 40 minutes a week ago. That rating came off one sensor. The sensor
+      had been reading 11 degrees low since a firmware update in the spring. The corridor was
+      not 40 minutes from its limit. It had already been above its continuous rating for six
+      hours. It had been there twice before. Dolores Reyes has to decide what that does to every
+      call taken since. Today you decide which of the week's conclusions still stand. Nothing in
+      the week was reasoned badly. All of it was reasoned from a number that was wrong.
     takeaway: A conclusion is only as good as the measurement under it, and a drifted instrument leaves the reasoning intact and the answer wrong.
     stops:
       - group: METER
@@ -2473,13 +2480,14 @@ missions:
     objective: Run an ordinary evening, and notice what ordinary is now resting on.
     briefing: The forecast holds, every circuit is inside limits, and nothing needs deciding.
     stake: >-
-      Monday, and it is a quiet shift. The forecast is holding to within 30 megawatts, every corridor is
-      comfortably inside rating, the ridge is producing steadily, and there is nothing on the board that
-      needs a decision. Aaron Whitlock has the log open with almost nothing in it. Dolores Reyes uses these
-      evenings to walk the room and ask what everybody is assuming, because a quiet shift is the only time
-      anybody has to. Today you check what the system would do if one thing went, read a trend that is
-      behaving, and say which of tonight's comforts is actually a measurement and which is a habit. Nothing
-      will go wrong tonight. Nothing went wrong the Monday before last, either.
+      Monday. It is a quiet shift. The forecast is holding to within 30 megawatts. Every
+      corridor is comfortably inside its rating. The ridge is producing steadily. There is
+      nothing on the board that needs a decision. Aaron Whitlock has the log open with almost
+      nothing in it. Dolores Reyes uses these evenings to walk the room. She asks everybody what
+      they are assuming. A quiet shift is the only time anybody has to. Today you say which of
+      tonight's comforts is a measurement and which is only a habit. Nothing will go wrong
+      tonight. Nothing went wrong the Monday before last, either. Then Tuesday came, and the
+      largest unit on the system tripped.
     takeaway: A quiet system is a set of assumptions nobody is currently being forced to check.
     stops:
       - group: OPS
@@ -2656,13 +2664,13 @@ missions:
     objective: Rank three simultaneous problems, and hold the reasoning while they interfere.
     briefing: A fault, a forecast miss and a plant coming off at the same hour, and one room.
     stake: >-
-      Thursday, 16:40, and 3 things arrive together. A cable fault has taken a feeder with 3,300
-      households on it. Sten Lindgren's forecast is running 200 megawatts under actual and still
-      climbing. And the gas machine that has carried the evening peak all week has to come off at 1800
-      for a fuel limit Nadia Haddad flagged this morning and nobody built a plan around. Dolores
-      Reyes has 1 control room, 1 crew on shift and about 80 minutes. Today you decide what gets
-      attention first, work out what the corridor is costing at the higher flow, and put the evening's moves
-      in an order that does not undo itself. None of these is new. All three at once is.
+      Thursday, 16:40. 3 things arrive together. A cable fault has taken a feeder with 3,300
+      households on it. Sten Lindgren's forecast is running 200 megawatts under actual, and
+      still climbing. And the gas machine that has carried the evening peak all week has to come
+      off at 1800. It has a fuel limit. Nadia Haddad flagged that limit this morning. Nobody
+      built a plan around it. Dolores Reyes has 1 control room, 1 crew on shift and about 80
+      minutes. Today you decide what gets attention first. None of these three is new on its
+      own. All three at once is.
     takeaway: Ranking is not about which problem is worst but about which one gets worse fastest and which one is cheapest to remove.
     stops:
       - group: OPS
@@ -2844,14 +2852,13 @@ missions:
     objective: Commit the corridor to a course, knowing the window closes today.
     briefing: The reinforcement decision from last week has a date on it, and the date is today.
     stake: >-
-      Monday, and the corridor decision comes back for the last time. The outage window that would let a
-      second circuit be strung this year closes at close of business, and if it closes the next one is
-      18 months out. June Farrow has the corrected thermal record, which says the corridor has spent
-      more hours over limit than anybody thought. Nadia Haddad has a storage quote that expires with the
-      window. Dolores Reyes has a board that will not approve both. Today you work out what the corrected
-      record does to the corridor's remaining life, decide what the money buys, and say what the decision
-      commits the system to for the next 18 months. Last week this was a preference. This morning it
-      is the last morning.
+      Monday. The corridor decision comes back for the last time. The outage window that would
+      let a second circuit be strung this year closes at close of business. If it closes, the
+      next one is 18 months out. June Farrow has the corrected thermal record. It says the
+      corridor has spent more hours over its limit than anybody thought. Nadia Haddad has a
+      storage quote that expires with the window. Dolores Reyes has a board that will not
+      approve both. Today you say what this decision commits the system to for the next 18
+      months. Last week this was a preference. This morning it is the last chance to have one.
     takeaway: A reversible decision is a cheap one, and the moment it stops being reversible is the moment it needs the whole argument.
     stops:
       - group: METER
@@ -3016,13 +3023,14 @@ missions:
     objective: Say how strongly each of the fortnight's claims is held, and what outlives the emergency.
     briefing: The event report has to state what is established, what is inferred and what is still a guess.
     stake: >-
-      Friday, and the fortnight goes into a report. Dolores Reyes will not sign a document that states
-      everything at the same confidence, because a reader who cannot tell a measurement from an inference
-      will act on both the same way. June Farrow has the evidence file. Sten Lindgren wants his forecast
-      width in as a range rather than a number. Piotr Novak wants the sensor drift written as a finding
-      rather than an excuse. Today you sort the fortnight's claims by how strongly each is held, put
-      numbers on the ones that deserve them, and decide which of the emergency's changes should become
-      permanent practice. This is the part of the fortnight that will still matter in a year.
+      Friday. The fortnight goes into a report. Dolores Reyes will not sign a document that
+      states everything at the same confidence. A reader who cannot tell a measurement from an
+      inference will act on both the same way. June Farrow has the evidence file. Sten Lindgren
+      wants his forecast width written in as a range, not a single number. Piotr Novak wants the
+      sensor drift written up as a finding, not an excuse. Today you sort the fortnight's claims
+      by how strongly each one is held. Put a number on the ones that deserve one. Leave the
+      rest as open questions. This is the part of the fortnight that will still matter in a
+      year.
     takeaway: A finding is worth what its evidence is worth, and saying so is what makes a report usable a year later.
     stops:
       - group: METER

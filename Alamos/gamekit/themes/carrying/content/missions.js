@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "Ninety-one people and one of everything",
     "objective": "Establish what the island's budgets actually are before anybody argues about the ferry.",
     "briefing": "The handover is four books and a licence, and no two of them cover the same year.",
-    "stake": "Tuesday, and the boat that brought you takes the outgoing officer off at four. Ines Calloway, the harbourmaster, has the landings book open at a page showing 168 tonnes against 214 five years ago, and she wants that figure in the council pack before the ferry paper is drafted. Tomas Berhane, who counts the reef, says the same page has been quoted three times with three different periods attached to it. Today you settle what the island's four books each measure, over what period, and which of them can go in front of a vote. A figure with no year on it comes back in three years as a fact nobody can trace.",
+    "stake": "Tuesday. The boat that brought you takes the outgoing officer off at four. Ines Calloway, the harbourmaster, has the landings book open on the desk. The page shows 168 tonnes this year against 214 five years ago. She wants that figure in the council pack before the ferry paper is drafted. Tomas Berhane, the reef ecologist, says the same page has been quoted three times. Each time a different period was attached to it. Today you settle what each of the island's four books measures. You settle the period each one covers, and which of them can go in front of a vote. A figure with no year on it is not much use. In three years it comes back as a fact nobody can trace.",
     "takeaway": "Every environmental number is a stock or a flow, and it is worth nothing without its period.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "One deposit, four standing orders",
     "objective": "Measure what the island's aquifer is actually given each year, and what is taken out.",
     "briefing": "The abstraction licence is up for renewal and nobody has measured the recharge since it was written.",
-    "stake": "Wednesday, and the abstraction licence renewal has to be lodged before the ferry paper is drafted, because the ferry's water is the thing the paper is quiet about. Mairead Sorley, the water engineer, has fourteen years of her own rain readings and a borehole meter, and she has never been asked to put the two together. Calloway wants a figure she can defend at the council; Berhane wants the licence capped at whatever the recharge turns out to be. Today you measure the deposit, count the standing orders and say how long the store would last if the rain stopped. Get the deposit wrong and the cap is a number that means nothing for the next ten years.",
+    "stake": "Wednesday. The abstraction licence is the island's permit to pump water. The renewal has to be lodged before the ferry paper is drafted. The ferry will need water too, and the paper is quiet about that. Mairead Sorley, the water engineer, has 14 years of her own rain readings. She also has a meter on the borehole. Nobody has ever asked her to put the two together. Calloway wants a figure she can defend at the council. Berhane wants the licence capped at the recharge. Today you measure the deposit, count the standing orders, and say how long the store would last if the rain stopped. Get the deposit wrong and the cap means nothing for ten years.",
     "takeaway": "An aquifer is an account with one deposit, and a licence written above it spends the balance.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "The thin end of the food web",
     "objective": "Work out how much the reef and the ground can support, and why the top of a web is small.",
     "briefing": "Berhane's transect counts and the west ground's landings describe the same system from two ends.",
-    "stake": "Thursday, and Petra Rask, the fisheries observer, is on the island for three days and wants the trophic arithmetic in the assessment rather than in an appendix. The west boats land predators, and Berhane's transects count what those predators eat. Rask's point is that a quota argued in tonnes of fish is an argument about the bottom of the web without ever mentioning it. Today you work the energy from the plankton up, put a number on how many species this island can keep, and say what a survey of eleven lines can support. Argue the top of a web without the bottom and the quota is set on a number with nothing under it.",
+    "stake": "Thursday. Petra Rask, the fisheries observer, is on the island for three days. She wants the trophic arithmetic in the assessment, not in an appendix. Trophic means the feeding levels, and how much energy passes up each one. The west boats land predators. Berhane's transects count what those predators eat. Rask's point is simple. A quota argued in tonnes of fish is really an argument about the bottom of the web. Nobody ever mentions the bottom. Today you work the energy up from the plankton, and say how many species the island can keep. You also say how much a survey of 11 lines can be asked to prove. Argue the top of a web without the bottom, and the quota rests on a number with nothing under it.",
     "takeaway": "Each step up a food web keeps about a tenth of what the step below had.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "Salt in the borehole",
     "objective": "Find out whether the aquifer is being over-drawn, and how long it would take to recover.",
     "briefing": "The July chloride is up again and the licence renewal is due on Friday.",
-    "stake": "Friday, and the licence has to be lodged today. Sorley has the recharge figure you measured and a fifth July chloride reading that is 58 per cent above the first. Berhane has asked the council to cap abstraction at recharge; Calloway says a cap written this week decides the ferry vote before it is taken, and she is right that it does. Today you find how long the store takes to turn over, what the tip is putting into it and what a cap would actually have to say. A store this slow does not tell you it is empty until years after the decision that emptied it.",
+    "stake": "Friday. The licence has to be lodged today. Sorley has the recharge figure you measured. She also has a fifth July chloride reading, 58 per cent above the first one. Chloride is the salt in a water sample. Berhane has asked the council to cap pumping at the recharge. Calloway says a cap written this week decides the ferry vote before it is taken. She is right that it does. Today you find how long the store takes to turn over. You say what the tip is putting into it, and what a cap would have to say. A store this slow does not tell you it is empty. It tells you years after the decision that emptied it.",
     "takeaway": "A store with a long residence time hides the mistake that damaged it, and recovers on the same clock.",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "What the west ground can replace",
     "objective": "Set a catch the stock can replace, from a stock estimate that has a width to it.",
     "briefing": "Rask's assessment lands today and the quota has to be recommended before the Friday boat.",
-    "stake": "Monday, and Rask's assessment came off the Friday boat as a range rather than a number, which is what the council least wants. Josef Mbeki, a skipper who has kept to the quota for nine seasons, can name four boats that have not, and says he will stop keeping to it if the rule stays unenforced. Calloway wants the recommendation today because the landing fee schedule hangs on it. Today you work out the largest catch the west ground can replace, and what setting it at the edge of a range would do. A quota set at the top of an estimate is a quota set on the assumption that the estimate was generous.",
+    "stake": "Monday. Rask's assessment came off the Friday boat as a range, not a single number. A range is what the council least wants. Josef Mbeki is a skipper, and he has kept to the quota for nine seasons. He can name four boats that have not. He says he will stop keeping to it if the rule stays unenforced. Calloway wants the recommendation today, because the landing fee schedule hangs on it. Today you work out the largest catch the west ground can replace. You also say what setting it at the edge of a range would do. Set a quota at the top of an estimate and you have assumed the estimate was generous. If it was not, the boats take out more than the ground can put back.",
     "takeaway": "A stock grows fastest at half its capacity, so the biggest sustainable catch is a quarter of r times K.",
     "stops": [
       {
@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "The rule and the money behind it",
     "objective": "Decide how the quota is enforced and what pays for the enforcement.",
     "briefing": "Four boats landed over quota last season and nothing happened to any of them.",
-    "stake": "Tuesday, and Calloway has the landing fee schedule open beside Rask's list of four boats. Her argument today is the one she is right about: the observer comes over three days a fortnight because the landing fees pay for those three days, and a second sailing pays for six. Mbeki says he will fish to the limit like everyone else if the limit stays a suggestion. Berhane's objection is that the same sailing brings July water demand. Today you decide what enforcement the island can actually run, and what it is funded by. An unenforced quota costs the boats that keep it and saves nothing.",
+    "stake": "Tuesday. Calloway has the landing fee schedule open beside Rask's list of four boats. Her argument today is the one she is right about. The observer comes over for three days a fortnight. The landing fees pay for those three days. A second sailing would pay for six. Mbeki says he will fish to the limit like everyone else, if the limit stays a suggestion. Berhane objects that the same sailing brings July water demand with it. Today you decide what enforcement the island can actually run, and what pays for it. A quota nobody enforces costs the boats that keep it. It saves nothing at all.",
     "takeaway": "A rule is only a rule to the extent somebody is funded to check it.",
     "stops": [
       {
@@ -151,7 +151,7 @@ export const MISSIONS = [
     "title": "What a kilowatt-hour costs here",
     "objective": "Put the island's energy use in the units that decide anything.",
     "briefing": "The sea cable failed twice in March and the diesel bill for the year is in.",
-    "stake": "Wednesday, and the cable was out for nine days in March. Aled Ferris, the power engineer, has the year's diesel bill and a turbine on the hill that has been waiting two years for a gearbox. Calloway's ferry paper assumes the turbine comes back; Ferris will not sign that assumption without a capacity factor from Vellan rather than from a brochure. Berhane, for once, is on Calloway's side here — anything that displaces diesel helps the reef. Today you work out what the island actually uses, in the units a decision can be made in. Argue energy in the wrong unit and the plant is either half the size it needs or twice the price it should be.",
+    "stake": "Wednesday. The cable to the mainland was out for nine days in March. Aled Ferris, the power engineer, has the year's diesel bill. He also has a wind turbine on the hill. It has waited two years for a gearbox. Calloway's ferry paper assumes the turbine comes back. Ferris will not sign that assumption on a brochure figure. He wants a capacity factor measured on Vellan itself. Berhane is on Calloway's side today, for once. Anything that pushes out diesel helps the reef. Today you work out what the island actually uses, in the units a decision can be made in. Argue energy in the wrong unit and the plant comes out half the size it needs, or twice the price.",
     "takeaway": "Power is the rate and energy is the amount, and the two decide different things.",
     "stops": [
       {
@@ -175,7 +175,7 @@ export const MISSIONS = [
     "title": "What leaks out of the hole",
     "objective": "Follow the tip's leachate into the water it reaches and say what the numbers mean.",
     "briefing": "The stream below the tip has nitrogen, and the school tap is sampled separately for a reason.",
-    "stake": "Thursday, and Grace Nkemdi, the island nurse, has asked for the school tap result to be read out at the council rather than filed. Okafor's leachate is passing its concentration limit and adding thirty-four kilograms of nitrogen a year to a store that turns over once a decade. Dunmore, the clerk, wants every figure in the pack to name what it is about. Today you convert between the units the licence, the laboratory and the clinic each use, and say which of them the school tap answers to. Two of these numbers are the same measurement in different clothes, and one of them is not.",
+    "stake": "Thursday. Grace Nkemdi, the island nurse, has asked for the school tap result to be read out at the council. She does not want it filed. Okafor's leachate is past its concentration limit. Leachate is the liquid that drains out of the tip. It is adding 34 kilograms of nitrogen a year to a store that turns over once a decade. Sarah Dunmore, the council clerk, wants every figure in the pack to name what it is about. Today you convert between the units the licence, the laboratory and the clinic each use. You then say which of them the school tap answers to. Two of these numbers are the same measurement in different clothes, and one of them is not. Mix them up and the school tap is judged against a limit that was never about it.",
     "takeaway": "Concentration, load and dose are three different questions about the same water.",
     "stops": [
       {
@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "What is put on the ground",
     "objective": "Weigh the inputs on the common and the garden against what they do downstream.",
     "briefing": "Hollis wants more compost released and the neighbouring holding wants the spray limit raised.",
-    "stake": "Friday, and two requests arrived together. Ewan Hollis wants the whole compostable stream released to him, which takes forty tonnes a year out of Okafor's hole. The neighbouring holding wants its spray allowance raised, which puts more of the same chemical on ground that drains past the borehole. Nkemdi has the dose arithmetic for the school tap and wants it in the pack. Today you decide what goes on the ground and what a dose actually is. The same milligram is a different quantity depending on whose body it ends up in.",
+    "stake": "Friday, and two requests arrived on the same boat. Ewan Hollis, the island's market gardener, wants the whole compostable stream released to him. That would take 40 tonnes a year out of Okafor's hole. The neighbouring holding wants its spray allowance raised. That puts more of the same chemical on ground that drains past the borehole. Nkemdi has worked out the dose for the school tap. She wants it in the council pack. Today you decide what goes on the ground, and what a dose actually is. A dose is not simply an amount. The same milligram is a different quantity depending on whose body it ends up in.",
     "takeaway": "Dose is exposure divided by the body taking it, which is why children are the limit.",
     "stops": [
       {
@@ -223,7 +223,7 @@ export const MISSIONS = [
     "title": "A warmer, sourer sea",
     "objective": "Read eleven springs of reef data for what it can and cannot say.",
     "briefing": "Berhane's spring count is in and the cover is down again.",
-    "stake": "Monday, and Berhane has this spring's transects on the table beside the other ten. Cover is down a further four per cent and the August sea temperature was the highest in the series. Calloway's position today is that the reef's decline is global and nothing the island does about ferries changes it, which is partly true and is being used to end an argument. Dunmore wants the pack to state exactly what eleven springs support. Today you read the record for its trend, separate what the island controls from what it does not, and say what the reef is running out of. A record this good is easy to overstate, and overstating it is how it gets dismissed.",
+    "stake": "Monday. Berhane has this spring's transects on the table, beside the other ten. Coral cover is down a further 4 per cent. The August sea temperature was the highest in the series. Calloway's position today is that the reef's decline is global. Nothing the island does about ferries changes it, she says. That is partly true, and it is being used to end an argument. Dunmore wants the pack to state exactly what 11 springs of counting support. Today you read the record for its trend. You separate what the island controls from what it does not, and say what the reef is running out of. A record this good is easy to overstate. Overstating it is how it gets dismissed.",
     "takeaway": "A long local record can show a trend clearly and still not settle a cause.",
     "stops": [
       {
@@ -247,7 +247,7 @@ export const MISSIONS = [
     "title": "What the diesel actually buys",
     "objective": "Account for the fuel: what becomes electricity, what becomes heat, and what leaves the stack.",
     "briefing": "The year's fuel figure has to go in the pack next to the turbine proposal.",
-    "stake": "Tuesday, and Ferris has the fuel delivery notes for the year: 78,000 litres into three sets that produced most of the island's electricity while the cable was out and some of it when it was not. Calloway needs the number for the ferry paper. Berhane wants the emissions from it stated in the same place, not in an annex. Dunmore will not accept a figure without its period. Today you work out how much of the fuel became electricity and what the rest became. Most of a litre of diesel does not become electricity, and where the rest goes decides whether the turbine is worth the gearbox.",
+    "stake": "Tuesday. Ferris has the fuel delivery notes for the whole year. They add up to 78,000 litres, burnt in three generator sets. Those sets made most of the island's electricity while the cable was out, and some of it when it was not. Calloway needs the number for the ferry paper. Berhane wants the emissions from it stated in the same place, not in an annex. Dunmore will not accept a figure without its period attached. Today you work out how much of that fuel became electricity, and what the rest became. Most of a litre of diesel does not become electricity. Where the rest goes decides whether the turbine is worth its gearbox.",
     "takeaway": "Efficiency says what fraction of the fuel did the job, and the rest left as heat.",
     "stops": [
       {
@@ -271,7 +271,7 @@ export const MISSIONS = [
     "title": "The gearbox and the nine years",
     "objective": "Cost the turbine honestly, on Vellan's wind rather than a brochure's.",
     "briefing": "The gearbox quote is in and the ferry paper assumes the turbine is running.",
-    "stake": "Wednesday, and the gearbox quote arrived on the Tuesday boat: £41,000, eleven weeks. Calloway's ferry paper already assumes the turbine is turning, because a diesel island is a hard thing to argue visitors into. Ferris will not sign the assumption without Vellan's own capacity factor, and he is right to ask. Berhane wants the emissions saving stated. Today you work out what the machine actually produces here, what the gearbox pays back and how long it takes. A nameplate rating is a number for a brochure, and nine years is a long time to be wrong about.",
+    "stake": "Wednesday. The gearbox quote came in on the Tuesday boat: £41,000, and 11 weeks to fit. Calloway's ferry paper already assumes the turbine is turning. A diesel island is a hard thing to sell to visitors. Ferris will not sign that assumption without Vellan's own capacity factor. He is right to ask for it. Berhane wants the emissions saving stated as well. Today you work out what the machine really produces here. You also work out what the gearbox pays back, and how long that takes. A nameplate rating is a number for a brochure, not what the hill delivers. If the payback runs to nine years, being wrong about it costs the island nine years of diesel.",
     "takeaway": "A generator is named for its best hour and paid for its average one.",
     "stops": [
       {
@@ -295,7 +295,7 @@ export const MISSIONS = [
     "title": "What came in on the boat",
     "objective": "Decide what an introduced species is doing and what the island's own emissions add up to.",
     "briefing": "Something is eating the tunnel crops and it was not here three years ago.",
-    "stake": "Thursday, and Hollis has found the same beetle in all four polytunnels. Nobody had seen it on Vellan before the spring of the year the freight contract changed. Berhane's point today is the one Calloway cannot answer: every additional sailing is an additional chance for something to arrive, and the island has no inspection at the berth. Meanwhile the pack still needs a single emissions figure. Today you decide what makes this beetle a problem rather than a curiosity, and put the island's two greenhouse sources on one line. An island's defence is its distance, and a ferry is a bridge across it.",
+    "stake": "Thursday. Hollis has found the same beetle in all four of his polytunnels. Nobody had seen it on Vellan before the spring the freight contract changed. Berhane makes the point Calloway cannot answer. Every extra sailing is an extra chance for something to arrive. The island has no inspection at the berth at all. The council pack also still needs one single emissions figure. Today you decide what makes this beetle a problem rather than a curiosity. You also put the island's two greenhouse sources on one line. An island is defended by its distance. A ferry is a bridge across it.",
     "takeaway": "Isolation is what an island's species are protected by, and a sailing is a hole in it.",
     "stops": [
       {
@@ -319,7 +319,7 @@ export const MISSIONS = [
     "title": "Nineteen on the register",
     "objective": "Work out what the island's own population is doing, separately from the visitors.",
     "briefing": "Iversen has the register and two of the nineteen leave in August.",
-    "stake": "Friday, and Liv Iversen, the schoolteacher, has brought the register to the office rather than send it. The roll has fallen from thirty-one to nineteen in twelve years and two more leave for the mainland secondary in August. Calloway's whole case rests on that number and Iversen will not let it be quoted as a slogan: it is an age structure, she says, and it predicts the next decade whichever way the vote goes. Today you work out the island's own growth rate, what it doubles or halves in, and what the age structure says the ferry cannot fix. A population is not a total, it is a shape, and the shape is what forecasts anything.",
+    "stake": "Friday. Liv Iversen, the schoolteacher, has brought the register to the office herself. The roll has fallen from 31 to 19 in twelve years. Two more leave for the mainland secondary school in August. Calloway's whole case rests on that number. Iversen will not let it be quoted as a slogan. It is an age structure, she says. An age structure is how many people there are at each age. It predicts the next decade whichever way the vote goes. Today you work out the island's own growth rate, and what that rate doubles or halves in. You also say what the age structure tells you the ferry cannot fix. A population is not a total. It is a shape, and the shape is what forecasts anything.",
     "takeaway": "A population is an age structure, and its shape decides the next decade.",
     "stops": [
       {
@@ -343,7 +343,7 @@ export const MISSIONS = [
     "title": "What the island can carry",
     "objective": "Put one recommendation in front of the council, with the conditions it needs.",
     "briefing": "The vote is at seven, and the pack closes at four.",
-    "stake": "Monday, and the pack closes at four for a vote at seven in the chapel hall. Calloway has the landing fees, the school roll and a ferry operator waiting on an answer. Berhane has eleven springs of transects, a rising July chloride and a beetle in four polytunnels. Sorley's recharge figure is the only number in the pack nobody disputes. Today you settle what the recommendation says, what conditions it carries and what the island is being asked to accept. Ninety-one people live on the difference between a decision with conditions attached and a decision without them.",
+    "stake": "Monday. The pack closes at four, and the vote is at seven in the chapel hall. Calloway has the landing fees and the school roll. She also has a ferry operator waiting on an answer. Berhane has 11 springs of transects and a rising July chloride reading. He has a beetle in four polytunnels as well. Sorley's recharge figure is the only number in the pack nobody disputes. Today you settle what the recommendation says. You settle what conditions it carries, and what the island is being asked to accept. There is a difference between a decision with conditions attached and one without them. 91 people live on that difference.",
     "takeaway": "A resource decision is a rate and a limit, and the conditions are where both are written down.",
     "stops": [
       {

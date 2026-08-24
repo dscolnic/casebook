@@ -181,3 +181,48 @@ present, meshes created, no errors, builds clean.
 - **`maxW` for the map sheet is 760, because the card is `min(820px, 100%)`.** The caller asked for 1100
   for years and it never showed, because the aspect of a whole site capped the width first; the first map
   that could fill it ran its right-hand edge and every label under the edge of the card.
+
+## The delivery board, and where a floor actually is
+
+One room per campaign carries the board with a cell per piece and the case under
+it with a block per piece earned — `engine/world/deliveryCase.js`, placed by
+whichever builder owns the room:
+
+| Game shape | Who places it |
+| --- | --- |
+| outdoor town (a door per area) | `interiorBuilding.js`, from `createInteriors` |
+| a floor from `plan.js` | `interiorSite.js`, in the room loop |
+| stacked floors / two wings | the same, through `interiorLevels` / `interiorTower` / Yellow Bay's world |
+| its own world module | that module: Mission Control, the Ellery |
+
+Four things this cost, and every one of them was found in a still:
+
+- **A placement test that rejects everything looks exactly like a feature that
+  was never built.** The first clearance test used a square footprint big enough
+  to cover the case — which reaches THROUGH the wall it hangs on, and the walls
+  are colliders, so every candidate position in every room was refused and the
+  room came out exactly as before. The footprint is oriented to the wall now:
+  2.8 m along it, 1.0 m out from it, stopping short of the face.
+- **A wall fitting leaves no collider**, because nothing walks into a board at
+  head height. So a test that reads `colliders` cannot see the pinboard, and Deep
+  Watch's first screenshot had a cork board disappearing behind the delivery
+  board's left edge. `interiorBuilding` records every fitting `against()` a wall
+  and keeps 2.4 m of clear wall between centres — and extends `wallOk`, so the
+  fit-out's own notices do not land on it either.
+- **A room's floor is not always y = 0.** Mission Control and the Ellery stand
+  their rooms on a raised tier, so the case — placed in world space at
+  `PH / 2` — stood a metre and a half *under* the floor while the board on the
+  wall above it looked perfect. `floorY` is the fix and the reason it exists.
+- **The middle of a room is where the room's own thing is.** The board goes on
+  the far wall 1.5 m off the centre line, because a theme's `fitOutRoom` runs
+  after this and does not read `ctx.deliveryAt`: the hospital's first shot had the
+  case standing in a treatment bed.
+
+The board's face is a canvas texture repainted on `setPieces`, faintly emissive
+(0.22, and 0.18 on the blocks) because three of the four room styles are dark and
+a matte board four metres away in a night-adapted room is a rectangle you can
+tell is a board. It is not a light.
+
+An outdoor game refreshes it on entering the room; a floor game has no arrival to
+hang that on, so `world.setDeliveryPieces(...)` is called from `refreshWorld` and
+the board is right the moment a saved campaign loads.

@@ -804,6 +804,7 @@ export const CURRICULUM = {
       "scene": "Volpe has two parents pinned above the bench. One is a high-yielding modern variety. The other is a low-yielding landrace that survived the 2018 drought. Otto Bengtsson, the glasshouse manager, asks what combination the programme is trying to create.",
       "takeaway": "A cross is a request for a combination, and it takes generations to find out whether it was granted.",
       "place": "Crossing Hall",
+      "guide": "Bengtsson is asking what the cross is for, which is not the same question as what it will produce. Two parents, each holding something the other lacks: yield in the modern variety, drought survival in the landrace. Follow the chromosomes. The F1 gets one set from each parent, and then meiosis reshuffles those sets in the generation after. So ask of each option whether it names something a breeder could actually select for once that reshuffling has happened.",
       "story": "Volpe has two parents pinned above the bench. One is a high-yielding modern variety. The other is a low-yielding landrace that survived the 2018 drought. Otto Bengtsson, the glasshouse manager, asks what combination the programme is trying to create.",
       "game": {
         "type": "CHOICE",
@@ -2126,6 +2127,7 @@ export const CURRICULUM = {
       "scene": "Meera Quiroga, the field trials manager, has the plot map on the wall: 240 plots, with each line appearing 4 times across 4 blocks. The order is randomised, and the north end of the field is visibly wetter than the south.",
       "takeaway": "A field is not uniform, so a single plot measures the plot as much as the line in it.",
       "place": "Field Laboratory",
+      "guide": "Quiroga has told you the thing that matters: the north end of the field is visibly wetter than the south. So the field is not one place, it is many. Sow a line once and its yield is the line plus whichever patch of ground it landed on, with no way to pull those apart afterwards. Ask of each option what replication and randomising actually buy. Be careful — more than one of these is a genuine benefit of something else.",
       "story": "Meera Quiroga, the field trials manager, has the plot map on the wall: 240 plots, with each line appearing 4 times across 4 blocks. The order is randomised, and the north end of the field is visibly wetter than the south.",
       "game": {
         "type": "CHOICE",

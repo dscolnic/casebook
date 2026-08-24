@@ -236,6 +236,11 @@ const bookOutPath = resolve(bookDir, bookOutName);
 // the base imports — a shared.js of diagnosis packs, a plan.js instead of a
 // site.js — comes across without anybody having to remember it. Only three
 // things change: where the place comes from, the audience, and the id.
+//
+// Which means the base's `delivery` comes across whole, and an edition with fewer
+// days than its base carries a piece list of the wrong length until somebody
+// rewrites it — one piece per mission is what `engine/dev/delivery.mjs` asserts,
+// and the piece NAMES are written for the base's reader anyway.
 const baseThemeJs = resolve(gamekit, 'themes', base, 'theme.js');
 if(!existsSync(baseThemeJs)){
   console.error(`no themes/${base}/theme.js — an edition is derived from a theme that ships`);
@@ -340,6 +345,8 @@ ${edition}: ${kept.length} days, ${kept.reduce((n, d) => n + (missions[d - 1].st
                          theme's syllabus, and this edition has its own list
   reading level now      ${mean.toFixed(1)} mean, against a target of ${GRADE}
   passages to rewrite    ${over.length} of ${graded.length} above grade ${GRADE}, ${hard.length} of them hard failures
+  delivery               the base's, copied whole — ${kept.length} days now, so its piece list is
+                         the wrong length until you rewrite it. \`delivery.mjs\` says so.
 
 That is the work list, not a fault in the scaffold — the days carry the base
 game's own words until an editorial pass replaces them.

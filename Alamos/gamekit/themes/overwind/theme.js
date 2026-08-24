@@ -73,14 +73,44 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One term a day, in the order the shaft forced them. Twelve days, so twelve
+  // pieces: the rope's own period is found late and is what puts two limits
+  // into the profile nobody would have written at the start.
+  delivery: {
+    name: 'The Winding Profile',
+    what: 'What the inspector renews the certificate against: the speeds and the stops this '
+      + 'winder is allowed to reach, and the integration behind every one of them.',
+    where: 'WIND',
+    pieces: [
+      'The profile\'s hidden terms',
+      'The drum\'s inertia',
+      'The rope tension at the drum',
+      'The torque terms, separated',
+      'The work against a changing force',
+      'The stream\'s steady force',
+      'The gravity station\'s reading',
+      'The worst instant for power',
+      'The rope\'s own period',
+      'The stopping distance',
+      'The pads\' total energy',
+      'The profile, signed',
+    ],
+  },
   opening: [
-    'Kerrow No. 3 is a mine, and everyone who works in it goes down twelve hundred and forty '
-    + 'metres of shaft in a cage on a steel rope. A proposal to cut twelve seconds off every '
-    + 'trip goes to the inspector who renews the winder\'s certificate in twelve working days. '
-    + 'You are the winding engineer\'s assistant, so every number in it has to be one you can '
-    + 'show the working for. Delia Marchetti, the winding engineer, has the arithmetic for the '
-    + 'motor and the rope, and all of it assumes steady speed. Samuel Otieno, the chief rope '
-    + 'examiner, says twelve hundred metres of steel bounces at a rhythm of its own. Forty-one '
+    'Everyone who works at Kerrow No. 3 goes down twelve hundred and forty metres of shaft in a cage. '
+    + 'The cage hangs on one steel rope. A plan has been put in to cut twelve seconds off every trip. '
+    + 'The inspector who renews the winder\'s certificate reads that plan in twelve working days. You '
+    + 'are the winding engineer\'s assistant. Your job in those twelve days is to hand over the winding '
+    + 'profile. That is the sheet the inspector signs or refuses. It says how fast the cage may run, '
+    + 'and how hard it may be stopped. It says what the rope and the drum are doing while that happens. '
+    + 'One figure gets settled each day. A number with no working behind it does not go in. Forty-one '
     + 'men a shift ride whatever gets signed.',
   ],
 

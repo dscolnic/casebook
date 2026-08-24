@@ -81,14 +81,42 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // Ten stages, so ten pieces. The case definition is written first, because
+  // every later page is read against it.
+  delivery: {
+    name: 'The Riverton Outbreak File',
+    what: 'The file the city and the state both act on. What the illness is, how it spreads, '
+      + 'who it hits hardest, and what stops it.',
+    where: 'POP',
+    pieces: [
+      'The case definition',
+      'The agent\'s identity',
+      'The way in',
+      'The working test',
+      'The severity finding',
+      'The transmission route',
+      'The animal link',
+      'The resistance finding',
+      'The plan to stop it',
+      'The final briefing',
+    ],
+  },
   opening: [
-    'Three hospitals in one river city have reported the same strange illness within a day of each '
-    + 'other. The ambulances are still arriving. Seven patients, four days, and the same four '
-    + 'symptoms every time. You are the science lead for the city, which means what gets measured '
-    + 'is your call, and the city acts on whatever comes back. Sofia Morales, the epidemiology lead, will not yet say '
-    + 'whether seven is a lot, because nobody wrote down what '
-    + 'a normal week looks like. An outbreak can only be stopped while it is small, and this one '
-    + 'has had four days.',
+    'Three hospitals in one river city have reported the same strange illness within a day '
+    + 'of each other. The ambulances are still arriving. Seven patients, four days, and the '
+    + 'same four symptoms every time. You are the science lead for Riverton. What gets '
+    + 'measured is your call, and the city acts on whatever comes back. In ten stages you '
+    + 'hand over the outbreak file. It says what the illness is, how it passes from one '
+    + 'person to the next, who it hits hardest, and what stops it. One settled fact goes in a '
+    + 'stage. An outbreak can only be stopped while it is small, and this one has had four '
+    + 'days.',
   ],
 
   // How it ends. Shown when the campaign closes and printed as the book's last page.

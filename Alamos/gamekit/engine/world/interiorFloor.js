@@ -24,6 +24,7 @@
 import * as THREE from 'three';
 import { buildInterior, buildInteriorLighting, updateInteriorTimeOfDay } from './interiorSite.js';
 import { displayBoard } from './kit.js';
+import { deliveryHook } from './deliveryCase.js';
 import { tuneRendererForDevice } from './materials.js';
 
 export const colliders = [];
@@ -58,6 +59,15 @@ export const areaScreens = new Map();
 
 /** One source of truth for floor height. Indoors it is flat. */
 export function groundHeight(){ return 0; }
+
+/**
+ * The delivery board, told what is in.
+ *
+ * Called on every refresh rather than when a day closes: a floor game's rooms are
+ * built once and never entered, so there is no arrival to hang it on, and the
+ * board has to be right the moment the campaign is loaded from a save.
+ */
+export function setDeliveryPieces(pieces){ built?.deliveryCase?.setPieces(pieces); }
 
 // ------------------------------------------------------------------ waypoint
 function makeWaypoint(){
@@ -143,6 +153,9 @@ export function initWorld(canvas, activeTheme){
   built = buildInterior(scene, renderer, plan, {
     fitOutRoom: theme.fitOutRoom,
     fitOutSpine: theme.fitOutSpine,
+    // The campaign's product, on a board in the one room that keeps it. Absent
+    // for a theme with no `delivery`, and then nothing here is built.
+    delivery: deliveryHook(theme),
   });
   colliders.push(...built.colliders);
   softColliders.push(...built.softColliders);

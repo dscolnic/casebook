@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "Four days before anybody asked",
     "objective": "Establish how the first full account was taken, and who was in the room.",
     "briefing": "The account everybody has argued about since was recorded on 18 November.",
-    "stake": "Thursday. Nobody took a full account from Alma Cardoza for four days after the robbery. Ren Okada, the memory scientist, says that gap matters more than anything else in the file. Baptiste says the unit cannot rerun an interview from 2019. Today you settle what order a good interview goes in. You also find the one instruction the line-up never gave her.",
+    "stake": "Thursday. Nobody took a full account from Alma Cardoza for four days after the robbery. Four days. Ren Okada, the memory scientist, says that gap matters more than anything else in the file. Baptiste says the unit cannot go back and ask her again. The 2019 interview is the only one there will ever be. Today you settle what order a good interview goes in. You also find the one thing the line-up never told her.",
     "takeaway": "An account is not collected; it is produced, by a method, in a room, with people in it.",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "The photograph in the evening paper",
     "objective": "Find out what entered the account after the night it describes.",
     "briefing": "The Hallam Register ran Ward's photograph on 19 November, the day after the interview.",
-    "stake": "Friday, and the case analyst Yara Solomon has found the newspaper. A photograph of Ward ran in the Register on 19 November. The scar first appears in a statement dated 26 December, six weeks later. Okada wants the whole file put in date order before anybody argues about it. Today you work out where that detail came from. Being wrong here costs Ward another seven years.",
+    "stake": "Friday. Yara Solomon, the case analyst, has found the newspaper. A photograph of Ward ran in the Register on 19 November. The scar first shows up in a statement dated 26 December. That is six weeks later. Okada wants the whole file put in date order first, before anybody argues. Today you work out where that detail came from. Get this wrong and Ward serves another seven years.",
     "takeaway": "A detail that is absent before a photograph and present after it has a source, and the source is not the night.",
     "stops": [
       {
@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "The nineteenth hour",
     "objective": "Read the interview that produced the only words the file has from Ward.",
     "briefing": "Nineteen hours in custody, no lawyer, and an agreement retracted the next morning.",
-    "stake": "Thursday, and Priya Raghunathan has the shift records. Alma Cardoza had been awake nineteen hours when she was first asked anything. Samuel Oyelaran says that explains the gaps in her account without making it dishonest. Today you work out what nineteen hours does to what a person notices. You also decide whether a cheaper test would answer the same question.",
+    "stake": "Thursday. Priya Raghunathan has pulled the shift records. Alma Cardoza had been awake nineteen hours when she was first asked anything. Nineteen. Samuel Oyelaran says that explains the gaps in her account. It does not make her a liar. Today you work out what nineteen hours does to what a person notices. You also decide whether a cheaper test would answer the same question.",
     "takeaway": "An admission is evidence about the interview as well as about the event, and the interview is on the record.",
     "stops": [
       {

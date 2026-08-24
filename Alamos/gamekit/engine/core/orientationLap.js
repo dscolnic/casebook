@@ -35,6 +35,7 @@
 // forward.
 
 import { tiersFor, unlockDay } from './orientation.js';
+import { wantsTouch } from '../device.js';
 
 /** Which lap, if any, is owed before this day. Null on every other day. */
 export function lapDue(site, day, done = {}) {
@@ -85,6 +86,39 @@ export function gatesFor(lap, entryFor) {
 }
 
 /**
+ * How to get about, on the card of the run whose subject is getting about.
+ *
+ * The controls were written down in exactly one place — the Controls note in
+ * Settings — and Settings is behind a button a player has no reason to press on
+ * their first morning. The lap is the run that asks them to walk somewhere
+ * before they have walked anywhere, so it is where the note belongs.
+ *
+ * Two versions, because there are two input paths and each describes controls
+ * the other device does not have: WASD and a mouse to lock on a desktop, a
+ * floating thumb stick and a pad of buttons on a tablet. `wantsTouch()` is the
+ * same predicate `touch.js` builds the thumb layer from, so the card cannot
+ * describe a layer that is not there — asking for a coarse pointer that cannot
+ * hover rather than for a touch API, which a touchscreen laptop also answers.
+ * It is false in Node and on a page with no browser, so the keyboard text is
+ * what a headless render gets.
+ */
+export function controlsNoteHTML() {
+  const body = wantsTouch()
+    ? '<b>Left half of the screen</b> — put a thumb down anywhere and a ring appears under it;'
+      + ' drag to walk, and half way out is half speed. <b>Right half</b> — drag to look about,'
+      + ' and a tap that does not drag uses whatever is in the middle of the screen.'
+      + ' <b>Use</b>, bottom right, is the same thing as a button: it opens the room, the person'
+      + ' or the vehicle you are facing. <b>Run</b> latches — it stays on until you tap it again.'
+      + ' <b>Climb</b> and <b>Descend</b> appear only when you are flying something.'
+      + ' The <b>Map</b> is top right, and it is the only one of these that is not a thumb.'
+    : '<b>W A S D</b> walk — W forward, S back, A and D sideways.'
+      + ' <b>The mouse</b> looks about, and the game holds onto it until you press <b>Esc</b>.'
+      + ' <b>Shift</b> runs. <b>E</b> uses whatever the crosshair is on — a door, a person, a'
+      + ' vehicle. <b>M</b> opens the map, <b>Tab</b> the summary.';
+  return `<div class="controlsHelp"><h4>Getting about</h4><p>${body}</p></div>`;
+}
+
+/**
  * The card that offers the lap.
  *
  * Two buttons, and `createDay` owns both: "Take the run" is primary because it
@@ -98,6 +132,14 @@ export function lapCardHTML(lap, vehicleNote) {
   // card whose whole job is the reason for the run — and the second half of the
   // day model's own rule is that the player finds out what a thing costs by
   // doing it, not by being told in advance that it costs nothing.
+  //
+  // The controls, on the two cards where a player might not have them yet: the
+  // very first morning of the campaign, whichever run that is, and the lap —
+  // which on a one-tier site is the second morning, because there is no far
+  // ground to learn and the round leads instead. Every later run gets nothing:
+  // a paragraph of controls on all seven is the tutorial this model refuses.
+  const first = lap?.day === 1 || lap?.slot === 'trial-near';
   return `<p>${lap.why}</p>`
-    + (lap.unlocksVehicles && vehicleNote ? `<p>${vehicleNote}</p>` : '');
+    + (lap.unlocksVehicles && vehicleNote ? `<p>${vehicleNote}</p>` : '')
+    + (first ? controlsNoteHTML() : '');
 }

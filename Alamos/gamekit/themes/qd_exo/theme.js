@@ -41,16 +41,14 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'The star on the screen looks like every other star. It is also being pulled '
-    + 'about by something, and nobody knows what. Twenty nights of spectra show its '
-    + 'whole forest of lines sliding one way and then the other, by a few parts in '
-    + 'ten million, over and over. If the thing pulling is another star, this is a '
-    + 'dull binary and the programme has wasted a season. If it is small enough, it '
-    + 'is a planet round somebody else\'s sun, and nobody has ever measured one. You '
-    + 'are the observer on the search, which means the spectra, the light curve and '
-    + 'the arithmetic all come through you. Michel Mayor, the spectrograph lead, wants '
-    + 'a class on the sheet by Thursday, and the name you write goes on the discovery '
-    + 'paper.',
+    'The star on the screen looks like every other star. Something is pulling it about, and nobody '
+    + 'knows what. Twenty nights of spectra show its whole forest of lines sliding one way, then the '
+    + 'other. The shift is tiny. It is a few parts in ten million, over and over. If the thing doing '
+    + 'the pulling is another star, this is a binary. That is a plain pair of stars, and it would waste '
+    + 'the season. If it is small enough, it is a planet going round somebody else\'s sun. Nobody has '
+    + 'ever measured one of those. You are the observer on the search. The spectra, the light curve and '
+    + 'the arithmetic all come through you. A class for this thing has to be on the sheet by Thursday. '
+    + 'The name you write goes on the discovery paper, and people will quote it for years.',
   ],
 
   ending: [

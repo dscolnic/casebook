@@ -64,15 +64,47 @@ export default {
 
   // The title card. Two or three paragraphs: what the player is, what is at
   // stake, and how a day works. Nothing here is generated.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One number a day, in the order the machine gave them up. A number with no
+  // method beside it is the thing this report exists to stop being sent out.
+  delivery: {
+    name: 'The Ridgeway Device Report',
+    what: 'The report the review board reads and the funder reads after it: every number this '
+      + 'group claims about its processor, with the method that produced it attached.',
+    where: 'VER',
+    pieces: [
+      'The base temperature record',
+      'The qubit frequency map',
+      'The T1 and T2 pair',
+      'The readout fidelity chain',
+      'The window decision, dated',
+      'The material defect trace',
+      'The sensor calibration',
+      'The benchmarking comparison',
+      'The Bell test result',
+      'The advantage claim, read',
+      'The retrained discriminator',
+      'The quiet-day assumptions',
+      'The triage order',
+      'The withdrawal decision',
+      'The evidence separation',
+    ],
+  },
   opening: [
-    'Ridgeway runs a quantum processor: twelve qubits, held a hundredth of a degree above '
-    + 'absolute zero by a refrigerator the size of a wardrobe. Everyone calls it the fridge. '
-    + 'You lead the group. A laboratory in Delft has published a result your funder has already '
-    + 'asked about. Your own best number came off one machine, one group, one week. The review '
-    + 'board sits in a fortnight. This morning the fridge came down to forty-two thousandths of '
-    + 'a degree instead of eleven. That is the difference between a quantum processor and a '
-    + 'warm chip. Priya Raghavan, who finds the money for this group, needs to know which you '
-    + 'have before the board does.',
+    'This morning the fridge came down to forty-two thousandths of a degree above absolute '
+    + 'zero. It usually holds eleven. That is the difference between a quantum processor and '
+    + 'a warm chip. Ridgeway runs twelve qubits inside it. You lead the group. Every number '
+    + 'that leaves this building leaves under your name. A laboratory in Delft has published '
+    + 'a result the funder has already asked about. In a fortnight you hand over the Ridgeway '
+    + 'device report. It says what the machine can do, how well it does it, and the method '
+    + 'behind every figure. One number goes in a day. Twelve qubits are what the whole claim '
+    + 'rests on.',
   ],
 
   ending: [

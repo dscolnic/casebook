@@ -171,15 +171,28 @@ False Memories takes the twelve-room shape of Sightline's psychology unit. And
 Bank Runs is the only one on a different world altogether — `interiorTower.js`,
 four floors on one footprint with a lift between them, which Changeover brought.
 
-**Four of the ten have not been photographed inside, and that is a gap rather than
-a finding.** CRISPR, Oxygen, Periodic Table and Stroop have corridor views and no
-room views: `npm run shots` hung before its first render on five separate
-attempts, with the machine sitting at a load average of about 150 from outside
-the session. Their shelf heroes point at corridor shots that do exist, so nothing
-on the shelf is broken — but nobody has looked at the fit-out of eight of those
-sixteen rooms, and this file's own record is that a green check has coexisted with
-an inside-out roof, a sign behind a canopy and a mural hung on a window. Run
-`npm run shots` on those four when the machine is quiet.
+**Every group room in all ten has been photographed, and the room views are
+deliberately off the centre line.** The first set of them stood in the doorway
+looking at the far wall, which is exactly where the case stand is — and the case
+beacon over it draws through everything by design, so all sixteen came back as a
+pale yellow slab filling the middle of the frame with the room somewhere behind
+it. Nothing was wrong with any of those rooms; the camera was aimed straight down
+the one object in them that is meant to be unmissable. The views sit three and a
+half metres off the centre line now.
+
+**Every live panel in the ten has been driven in Chrome**, right and wrong, with
+`npm run drive` — twenty-two panels across the ten, all grading correctly.
+
+Worth recording separately, because it cost most of a session and will happen
+again: both browser harnesses fail *at startup* under machine load, and a startup
+failure is indistinguishable from a failure on the thing you handed them.
+`npm run shots` hung before its first render on five consecutive attempts at a
+load average of about 150, then rendered five themes without complaint at four.
+`npm run drive` threw `instruments.html did not expose __CURRICULUM` on the
+shipped `qd_dna` as readily as on anything new, and on `qd_bankrun` three times in
+a row — which looked exactly like a defect in the one theme on its own world,
+until the other tower drove clean and `qd_bankrun` drove clean on the fourth
+attempt. Check the load average before believing either tool.
 
 **Two things the reskins cost, and both were found by a screenshot.** Period is
 carried by proportion and value rather than by colour: the first cut of the
@@ -301,6 +314,50 @@ Three worlds satisfy the world contract — `engine/world/outdoorTown.js`,
 from its world module**: two themes on the same world look alike whatever the
 palette does, which is why the distinctive ones either brought their own world
 or carry a props layer heavy enough to change the shape of the space.
+
+## What each campaign builds
+
+Every course adventure names one thing it produces, declares one piece of it per
+mission, and keeps them all on a board in one room — `theme.delivery`, read by
+`engine/core/delivery.js`, gated by `engine/dev/delivery.mjs`, contract in
+`gamekit/STORY_SPEC.md` § 4c. The opening card names it, each plan card says which
+piece today is, the card that closes a day hands that piece over, and the room
+with the board in it is where a player finds out how far through they are by
+walking somewhere and looking.
+
+| Game | What the fortnight builds | Pieces | Kept in |
+| --- | --- | --- | --- |
+| The Contaminated City | The Riverton Evidence Package | 15 | Molecular Identification |
+| Project Y | The Evidence Chain | 15 | Theory & Calculations |
+| Hospital Heroes | The Body Map | 15 | Triage & Emergency |
+| Deep Watch | The Standing Orders | 15 | Navigation & Position |
+| Bring Them Home | The Return Checklist | 15 | Guidance & Motion |
+| Outbreak: Riverton | The Riverton Outbreak File | 15 | Epidemiology & Evolution |
+| Planetary Defense | The Defense Review | 15 | Survey & Response |
+| Blackout | The Winter Operating Case | 15 | System Operations |
+| Aftershock | The Placard Register | 15 | Public Safety |
+| Quantum | The Ridgeway Device Report | 15 | Error & Verification |
+| The Trial | The Monitoring Board Pack | 15 | Regulatory & Reporting |
+| Headwater | The Ashfell Release Rules | 15 | Storage & Level |
+| Ice Core | The Vestri Record | 15 | Records & Reporting |
+| Wellmere | The Wellmere Season Record | 15 | Conservation & Viability |
+| Red Sand | The Propellant Handover | 15 | Plant Control |
+| Safety Factor | The Corbin Park Certificate | 15 | The Drop Tower |
+| Sightline | The Ward Referral | 15 | Testing & Records |
+| Ground Truth | The Station 12 Season Report | 15 | Launch & Records |
+| Yellow Bay | The Proving Batch File | 15 | Metrology Bay |
+| Carrying Capacity | The Vellan Conditions | 15 | Common Office |
+| Ghost Light | The Ellery Licence File | 15 | Box Office |
+| Changeover | The Halvern Rate Book | 15 | Rate Room |
+| Slack Water | The Sarn Gate Programme | 12 | Prediction Office |
+| Overwind | The Winding Profile | 12 | Winder House |
+| Dark Fibre | The Repair Chart | 12 | Test Room |
+
+The twelve junior editions and the three same-grade AP editions each declare their
+own — same object, their own words, and ten pieces rather than fifteen where the
+edition is a ten-day campaign. `delivery-debt.json` is empty: all 41 course
+adventures build something, and the Quick Discoveries deliberately do not — nine
+stops in one sitting has nothing to accumulate.
 
 ## Where a game's content lives
 

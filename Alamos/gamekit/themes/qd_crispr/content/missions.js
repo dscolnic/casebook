@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "A pattern nobody was looking for",
     "objective": "Find the structure, price the coincidence, and see how a record becomes a tool.",
     "briefing": "Mojica wants the chance calculation before anybody says the word immunity.",
-    "stake": "Monday. Forty bacterial genomes carry a shape nobody can account for. Francisco Mojica, who works on comparative genomics, has been staring at it for weeks: one sequence repeated exactly, with something different between every pair of copies. Rodolphe Barrangou, the microbial immunity lead, works on the viruses that kill industrial cultures. He has noticed that some of those different pieces match phage. Today you say what the structure is, work out how often a match like that happens by chance, and put the defence in the order it has to run in. A coincidence nobody has priced is not evidence.",
+    "stake": "Monday. Forty bacterial genomes carry a shape nobody can account for. Francisco Mojica, who works on comparative genomics, has stared at it for weeks. One sequence repeats, exactly, again and again. Between every pair of copies sits something different. Rodolphe Barrangou, the microbial immunity lead, works on the viruses that kill the cultures used in industry. He has spotted something. Some of those in-between pieces match a phage. A phage is a virus that attacks bacteria. So the cells may be fighting back. Jennifer Doudna, who works on the structural biochemistry of the machinery, has the steps of that fight on four cards. Nobody has put them in order yet. Today you say what this pattern is. Then you work out how often chance alone would land a match like that. Last, you put the defence in the order it has to run in. A coincidence nobody has priced is not evidence.",
     "takeaway": "A pattern becomes a finding when the chance of it has been worked out.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Two constraints and a fixed cut",
     "objective": "Choose a site the enzyme will actually engage, find where the break falls, and match a repair route to a goal.",
     "briefing": "Doudna wants the motif checked before an order form is signed.",
-    "stake": "Wednesday, and the design desk has four candidate sites and a deadline. Jennifer Doudna, who works on the machinery, will not sign an order for a guide against a site that carries no motif, however good the match is. Feng Zhang, who runs the editing bay, has cells up and two controls that go on every plate whether anybody asks for them or not. Today you pick a site the enzyme can engage, find where the break actually falls relative to the motif, and decide which way you want the cell to mend it. A guide is not a target and a cut is not an edit.",
+    "stake": "Wednesday. The design desk has four candidate sites and a deadline. Jennifer Doudna, who works on the machinery, will not sign an order for a site with no motif, however good the match is. A motif is a short tag the enzyme has to find right next door. Feng Zhang, who runs the editing bay, has cells up and waiting. He puts two controls on every plate, whether anybody asks for them or not. Today you pick a site the enzyme can really take hold of. Then you find where the break falls, and choose how you want the cell to mend it. A guide is not a target, and a cut is not an edit.",
     "takeaway": "Recognising a sequence, engaging it and mending the break are three separate things with three separate rules.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "What actually happened",
     "objective": "Decide which sites are worth reading, measure how often the edit worked, and report both halves.",
     "briefing": "Raman has one run and four sites she can read to any useful depth.",
-    "stake": "Friday, and the plates are ready. Priya Raman, who runs the sequencing room, has one run of twenty-six hours and enough depth for four sites, and there are nineteen places in the genome somebody has a reason to worry about. Feng Zhang wants the target read first and is not certain what should come second. And a draft of the report is already circulating with a sentence in it about specificity that nobody has measured. Today you spend the run where it changes something, work out how often the edit actually happened, and go through the draft claim by claim.",
+    "stake": "Friday. The plates are ready. Priya Raman, who runs the sequencing room, has one run of twenty-six hours. It is deep enough to read four sites properly. Nineteen places in the genome give somebody a reason to worry. Feng Zhang wants the target read first. He is not sure what should come second. And a draft of the report is going round already. One sentence in it calls the edit specific. Nobody has measured that. Today you spend the run where it changes something. Then you work out how often the edit really happened, and go through the draft claim by claim.",
     "takeaway": "A design says what should happen; a sequencer says what did, and both numbers have to be reported.",
     "stops": [
       {

@@ -43,15 +43,14 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'Two theories disagree about starlight by a factor of two, and one of them says '
-    + 'space itself is bent. Nobody has ever been able to tell them apart, because the '
-    + 'only place a ray passes close enough to the Sun to be measurably deflected is '
-    + 'the one place the Sun is far too bright to photograph. For about five minutes '
-    + 'next month the Moon fixes that. You are the expedition astronomer, which means '
-    + 'the focus, the plates and the arithmetic are yours, and so is the sentence at '
-    + 'the end. Arthur Eddington, the chief observer, has one mount, two lenses and no '
-    + 'second attempt, and the shift you are looking for is about a third of the width '
-    + 'of a hair on the finished glass.',
+    'Starlight bends as it passes the Sun. Two theories say so. But they do not agree on how much. '
+    + 'One says a certain amount. The other says twice that. The larger number comes from the idea that '
+    + 'space itself is bent. Nobody has told the two apart yet. The bend only shows up right beside the '
+    + 'Sun. That is the one place the Sun is far too bright for a camera. Next month the Moon covers '
+    + 'the Sun for about five minutes. That is the gap. You are the expedition astronomer. The focus is '
+    + 'yours. So are the glass plates and the sums. So is the sentence sent home at the end. On the '
+    + 'finished glass, the shift you are hunting is about a third of the width of a hair. There is one '
+    + 'mount, two lenses, and no second try.',
   ],
 
   ending: [

@@ -76,16 +76,48 @@ export default {
 
   // The title card. One paragraph of situation — no mechanics, no scope note.
   // Nothing here is generated.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One rule a day, in the order the reservoir forced them. The resurveyed
+  // storage curve comes last and moves every number written before it, which
+  // is why the rules carry the survey they were written against.
+  delivery: {
+    name: 'The Ashfell Release Rules',
+    what: 'What the next duty engineer opens the gates by: one rule or figure a day, and the '
+      + 'storage curve every one of them is measured against.',
+    where: 'STORE',
+    pieces: [
+      'The rate-limit rule',
+      'The rising-fast rule',
+      'The inflow accumulation',
+      'The two-day cost note',
+      'The last-half-metre relation',
+      'The peak test',
+      'The wall\'s carrying limit',
+      'The just-clears release',
+      'The seepage ledger rule',
+      'The error carried into volume',
+      'The quiet-day check',
+      'The decay constant, scored',
+      'The three-before-nine order',
+      'The lead-time rule',
+      'The resurveyed storage curve',
+    ],
+  },
   opening: [
-    'Ashfell Dam holds ninety-two million cubic metres of water in a gorge, '
-    + 'with four villages along the river below it. This morning the reservoir is '
-    + 'at 88% after the driest summer in nine years. The forecast is nine '
-    + 'days of rain starting Thursday, over every hillside that drains into it. '
-    + 'You are the duty engineer, so the amount of water let out each morning is '
-    + 'ordered by you. You order it out of gauge readings taken hours ago and a '
-    + 'survey of the reservoir\'s shape made in 2003. The gates take six hours to '
-    + 'make any difference downstream. The river can rise in two, and Bo Ferrand, who keeps the '
-    + 'rating curves, says the survey is the thing to fix before anything else.',
+    'This morning Ashfell reservoir stands at 88%. It has been the driest summer in nine years. Now '
+    + 'nine days of rain are forecast from Thursday. Four villages live along the river below the dam. '
+    + 'You are the duty engineer. Each morning you order how much water goes out. You order it from '
+    + 'gauge readings taken hours ago. You order it from a survey of the reservoir made in 2003. In '
+    + 'fifteen days you hand over the Ashfell release rules. That is what the next duty engineer opens '
+    + 'the gates by. It says how much water the reservoir really holds. It says how much the wall can '
+    + 'take. It says how fast the river below can be fed. One rule gets written each day, and the old '
+    + 'survey has to be fixed before any of them mean a thing.',
   ],
 
   // How it ends. Shown when the campaign closes, and the last thing the player

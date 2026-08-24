@@ -3279,6 +3279,7 @@ export const CURRICULUM = {
       "scene": "Halvorsen wants a date. Delacroix wants a condition. Tanaka points out that a date makes a promise about the ground and a condition makes a promise about the office. The next resident update is due before the office closes.",
       "takeaway": "Tie a decision to a condition somebody can check, and it stays honest whatever the ground does next.",
       "place": "Hazard & Forecasting",
+      "guide": "Halvorsen and Delacroix are not disagreeing about the engineering. They are disagreeing about what the office is allowed to promise. So ask of each option one thing: is this a promise about the ground, or a promise about the office? The office controls one of those and not the other. Tanaka has already said which is which, and the update goes out before the office closes.",
       "story": "Halvorsen wants a date. Delacroix wants a condition. Tanaka points out that a date makes a promise about the ground and a condition makes a promise about the office. The next resident update is due before the office closes.",
       "game": {
         "type": "CHOICE",

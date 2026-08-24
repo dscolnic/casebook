@@ -77,13 +77,45 @@ export default {
   // The title card: ONE paragraph of situation. What the player is, where
   // they are, and what it costs if the work is not done — no mechanics, no
   // controls, no scope line. This game had none at all and opened on a blank.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One part a shift, in the order the ward taught it. The map is in Emergency
+  // & Triage because that is the room everybody walks through.
+  delivery: {
+    name: 'The Body Map',
+    what: 'A big picture of the body on the ward wall. One new part goes up on it at the end of '
+      + 'every shift you work.',
+    where: 'TRI',
+    pieces: [
+      'The first-look page',
+      'The food and water page',
+      'The bones page',
+      'The brain page',
+      'The heart page',
+      'The senses page',
+      'The lungs page',
+      'The water page',
+      'The germ page',
+      'The immune team page',
+      'The getting-strong page',
+      'The skin page',
+      'The allergy page',
+      'The hot and cold page',
+      'The finished map',
+    ],
+  },
   opening: [
-    'You are a new doctor at the children\'s hospital. Today is your first day '
-    + 'on the ward. Children come in hurt, or sick, or scared. Some of them are '
-    + 'too little to say what is wrong. Nurse Alex Lee will show you round this '
-    + 'morning. Then she will start asking you what you saw. Your job is to look '
-    + 'closely, ask good questions, and work out who needs help first. Three '
-    + 'children are waiting by the door right now.',
+    'You are a new doctor at the children\'s hospital. Today is your first day on the ward. '
+    + 'Children come in hurt, or sick, or scared. Some of them are too little to say what is '
+    + 'wrong. Your job is to look closely and work out who needs help first. By the end you '
+    + 'will have made the ward\'s body map: a big picture of how a body works, from bones to '
+    + 'germs. You add one part to it at the end of every shift. Three children are waiting by '
+    + 'the door right now.',
   ],
 
   look: {

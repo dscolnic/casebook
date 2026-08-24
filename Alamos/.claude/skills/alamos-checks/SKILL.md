@@ -145,3 +145,83 @@ reportAudit(gamekit.scene, gamekit.renderer, {
   groundHeight: gamekit.world.groundHeight,   // outdoor: or every prop in a dip is reported
 });
 ```
+
+## `delivery.mjs` — the fortnight builds something, and it is kept somewhere
+
+In `npm run check`, per theme, plus `--selftest`. Gated against
+`engine/dev/delivery-debt.json`, which is **empty**: all 41 course adventures
+declare a `delivery`, and a new one has to as well. Silent for the Quick
+Discoveries, recognised by `dayNoun: 'Level'` rather than by an id prefix, and for
+the instrument test bed.
+
+What it asserts, and why each line is there rather than in a README:
+
+- **one piece per mission, in mission order** — `deliveryPieces` reads mission
+  *n* beside piece *n*, so a short list drops the last day's piece in silence;
+- **a piece is a thing, not a sentence** — it has to fit a cell on a board;
+- **`where` is an area with somewhere to stand** — a room behind a door
+  (`theme.interiors`) or a room of its own on the plan (`site.plan.rooms`). This
+  is the one that fails invisibly: name an area with neither and the board is
+  built where nobody can walk in, which renders and raises nothing;
+- **the opening card names the delivery** — every *distinctive* word of the name,
+  after the words every campaign uses (case, report, plan, file, brief …) come
+  out. "We take the case tonight" must not satisfy *The Winter Operating Case*,
+  and "an operating case" must not either: half a name is a different document.
+
+Nine selftest cases, three of them inversions that would leave the gate green
+over a broken feature: the generic-word match above, an area with no room passing
+as a room, and a floor game — the hospital, Mission Control, the observatory
+declare no `interiors` at all — being refused by a rule that only reads
+`interiors`. Both bugs were put back and only their own cases failed.
+
+**What it cannot see**: whether the pieces are the right pieces, and whether a
+theme with its own world module actually builds the board. Mission Control's
+first `where` was a console on the control-room floor, is listed on the site plan
+as a room, and built nothing anywhere with every gate green. Screenshot it.
+
+## `checkNames.mjs` also asks the other half of the question
+
+It has always asked whether everybody ON the roster is introduced with their job.
+It never asked whether everybody introduced is on the roster — and the answer was
+no. Blackout's day-2 stake handed a fuel limit to **Amira Haddad** and day 15 gave
+a forecast width to **Ravi Lindgren**; the roster has Nadia Haddad and Sten
+Lindgren and nobody else. Two cards of fifteen handed work to people with no NPC
+in the world, no passage to read and nothing on the map, and the player who has
+met Nadia and Sten reads a half-familiar first name and files it as somebody they
+have not been introduced to yet.
+
+Six more turned up across the set once the rule existed, and two of them are the
+pastiche failure this repo already paid for in `discoveryHistory`: **Hugh Ewing**
+where the roster has the real Maurice Ewing, and **Tomás Riess** where it has the
+real Adam Riess — invented first names on real Nobel laureates' surnames, in
+games built to credit them. Also **Rei Hess** for Harry Hess (Rei Tanaka is
+Aftershock's forecaster: a name that walked in from another campaign), **Nadia
+Frey** for Halina Frey, **Ravi Lindgren** again in the junior edition, and
+**Miklos Varga** for Miklós Varga — the same man spelled two ways.
+
+**The rule is deliberately narrow**: a `Firstname Surname` where the surname is a
+roster surname and the first name belongs to nobody who holds it. It cannot fire
+on a place, a product or a trial name, because none of those shares a surname with
+the cast, and a wholly invented name in a campaign with no such surname is NOT
+reported — telling that from a street or a ship needs a list of first names, and a
+checker that guesses at that reports confidently on correct prose.
+
+Three things it got wrong first, each fixed and each with a selftest case:
+ordinary capitalised words in front of a surname (*"What Dube does next"*,
+*"Meanwhile Twill has"*, *"Use Novotny's figure"*) — a closed stoplist of openers,
+titles and name particles; **hyphenated given names**, because "Mei-Ling Cho" read
+as "Ling Cho" and Red Sand reported its own metallurgist as an impostor; and
+**accented letters**, because `[A-Z][a-z]+` cannot see "Miklós" and the rule
+quietly measured nothing for that surname.
+
+And the sweep lied once on the way, in this repo's favourite fashion: a
+`ReferenceError` inside the new function meant every theme threw, the grep for
+findings matched nothing, and the run printed a clean sweep over 62 broken
+invocations. The fix that mattered was reading the tool's own output rather than
+the grep of it.
+
+**One selftest case in this file had been failing for a long time** — "a warm-up
+card is read before that morning's stake" — and the rule was right the whole time.
+`warmupPlan` spreads its runs over a campaign and returns nothing under about ten
+days, so the one-mission fixture had no warm-up card in it to find. Fifteen
+missions, and it passes.

@@ -67,16 +67,15 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'A fifth of the country is idle and it is staying idle. Factories stand, people are out '
-    + 'of work, and prices have barely moved — which is the wrong way round, because a market '
-    + 'with too much of something is supposed to clear by getting cheaper. If an economy can '
-    + 'settle at a level with a fifth of it doing nothing, then something is holding it there '
-    + 'and something could move it. If it corrects on its own, everything this building does '
-    + 'is a waste of paper. You are the junior economist, which means the board, the returns '
-    + 'and the arithmetic all come through you. John Maynard Keynes, the economic adviser '
-    + 'here, wants a fall traced arrow by arrow before anybody argues about prices. The '
-    + 'recommendation goes out on Friday and two million people are out of work while it is '
-    + 'being written.',
+    'A fifth of the country is out of work, and it is staying that way. Factories stand still. People '
+    + 'want jobs. Yet prices have barely moved. That is the wrong way round. When there is too much of '
+    + 'something, it is meant to get cheaper until it sells. So why has that not happened here? Maybe '
+    + 'an economy can settle in a bad place and stay there. If it can, then something is holding it '
+    + 'there, and something could shift it. If it mends itself, this whole building is wasting paper. '
+    + 'You are the junior economist here. The board, the returns and the sums all come through you. '
+    + 'John Maynard Keynes, the economic adviser, wants a fall traced arrow by arrow before anybody '
+    + 'argues about prices. The report goes out on Friday. Two million people are out of work while it '
+    + 'is being written.',
   ],
 
   ending: [

@@ -53,16 +53,14 @@ export default {
 
   // ONE paragraph. The mystery first, then what it might mean, then the job.
   opening: [
-    'Ten alpha particles in every ten thousand come back out of a sheet of gold the way '
-    + 'they went in. On the accepted picture of the atom that is not unlikely. It is '
-    + 'impossible. A cloud of positive charge spread through a whole atom cannot turn a '
-    + 'particle that fast right round, and something in that gold is hitting far harder '
-    + 'than any atom is supposed to be able to hit. Nobody knows how small it is. You are '
-    + 'the research assistant here, which means the predicting, the counting and the '
-    + 'arithmetic all pass through your hands. Ernest Rutherford, the professor who runs '
-    + 'the laboratory, has given you until Thursday. Five people will spend the week '
-    + 'counting flashes in the dark on the strength of the number you write down on '
-    + 'Monday.',
+    'Ten alpha particles in every ten thousand come back out of a sheet of gold the way they went in. '
+    + 'On the accepted picture of the atom, that is not just unlikely. It is impossible. That picture '
+    + 'smears the positive charge across the whole atom. A charge spread that thin gives a weak push. A '
+    + 'weak push cannot turn a fast particle right round. So something in that gold hits far harder '
+    + 'than any atom should be able to hit. Nobody knows how small that something is. You are the '
+    + 'research assistant here. The predictions, the counting and the sums all pass through your hands. '
+    + 'The professor who runs this lab has given you until Thursday. Five people will spend the week '
+    + 'counting flashes in the dark, on the strength of one number you write down on Monday.',
   ],
 
   ending: [

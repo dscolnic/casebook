@@ -75,17 +75,49 @@ export default {
 
   // The title card: ONE paragraph of situation. No mechanics, no controls, no
   // scope note — every game had those and every game lost them.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // Same fifteen days as themes/the_trial, so the same fifteen pieces: this
+  // edition changes the course the questions are drawn from, not what the
+  // fortnight builds.
+  delivery: {
+    name: 'The Monitoring Board Pack',
+    what: 'What the independent monitoring board reads before it decides whether CLARION-3 goes '
+      + 'on: one section a day, and every claim in it made before the data arrived.',
+    where: 'REG',
+    pieces: [
+      'The pre-specified claims',
+      'The measurement procedures',
+      'The two-site safety signal',
+      'The unplanned look, accounted',
+      'The fast site\'s audit',
+      'The amendment\'s cost in events',
+      'The missing-data rule',
+      'The cold-room exposure note',
+      'The blinding survey result',
+      'The bias-adjusted estimate',
+      'The locked file',
+      'The three separated problems',
+      'The multiplicity correction',
+      'The stopping decision',
+      'The wording of the finding',
+    ],
+  },
   opening: [
-    'CLARION-3 has been running for four years: 2,400 people across thirty-one '
-    + 'hospitals, half of them getting a new drug and half the usual treatment. '
-    + 'Nobody in this building knows which patient got which. You are the '
-    + 'methodology and operations lead at the coordinating centre, so the pack '
-    + 'the independent monitoring board reads is the pack you assemble. That '
-    + 'board sits in three weeks, and it can stop the trial. Stop it early on a '
-    + 'result that turns out to be noise, and a drug that works is buried for a '
-    + 'decade. Carry on past the point the evidence was in, and every patient who '
-    + 'joined after today was in a trial that already had its answer. Dr. Miriam Feldman, the '
-    + 'trial statistician, holds that a result this size will not grow.',
+    'The independent monitoring board sits in three weeks. It can stop CLARION-3. The trial is four '
+    + 'years old. It holds 2,400 people across 31 hospitals. Half are on a new drug. Half are on the '
+    + 'usual care. Nobody in this building knows which is which. You are the methodology and operations '
+    + 'lead at the coordinating centre. What that board sees is what you send it. In 15 days you hand '
+    + 'over the monitoring board pack. It says what the trial promised to measure before it had any '
+    + 'data. It says what it has measured since. And it says how much of the gap between the two arms '
+    + 'can honestly be claimed. One section is written a day. Stop the trial early on noise, and a drug '
+    + 'that works is buried for 10 years. Carry on past the point the evidence was in, and everybody '
+    + 'who joins after today is in a trial that already had its answer.',
   ],
 
   // The last thing anybody reads. Says what happened, what it cost and what is

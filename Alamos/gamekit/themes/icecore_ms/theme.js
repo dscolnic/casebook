@@ -74,14 +74,41 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // Ten days, so ten pieces. The trapped-air difference is worked out late and
+  // it moves the layer count made early.
+  delivery: {
+    name: 'The Vestri Record',
+    what: 'What this camp sends home, and what other groups will measure their own records '
+      + 'against. One finding a day, with its limits written beside it.',
+    where: 'DATA',
+    pieces: [
+      'The snowfall rate',
+      'The recovery log',
+      'The layer count',
+      'The temperature calibration',
+      'The trapped air difference',
+      'The tie point',
+      'The two-record comparison',
+      'The dating offset',
+      'The cold-chain break',
+      'The stated limits',
+    ],
+  },
   opening: [
-    'Vestri Dome is a camp on the polar ice. The crew drills the ice up in long cylinders and '
-    + 'reads the weather of the past out of it. Two and a half kilometres of it has come up '
-    + 'already, and none of it may ever get warmer than minus twenty. You are the season '
-    + 'science lead, and the record this camp sends home is the one you sign. A camp four '
-    + 'hundred kilometres away has published a record that does not agree with yours. Marit '
-    + 'Halvorsen, the chief scientist, says a disagreement kept quiet is a decision made for '
-    + 'everybody else. The plane comes in fifteen days. Anything not measured by then waits two '
+    'A camp four hundred kilometres away has published a record of the past climate. It '
+    + 'does not agree with this camp\'s. Vestri Dome has two and a half kilometres of ice out '
+    + 'of the ground and ten days of season left. You are the season science lead, and what '
+    + 'this camp says about the past is what you sign. In ten days you hand over the Vestri '
+    + 'record. It says how far back the ice can be counted, what it says about temperature '
+    + 'and air, and how well each of those is known. One finding goes in a day, with its '
+    + 'limits beside it. The plane comes on the tenth day. Anything not measured waits two '
     + 'years.',
   ],
 

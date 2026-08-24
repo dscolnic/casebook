@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "Fourteen days and no rate",
     "objective": "Establish what the board measures and what it can defend.",
     "briefing": "Three weeks of prices, a basket from another decade, and a rate due Friday.",
-    "stake": "Monday, fourteen days out. Ada Verhoeven, the board chair, wants a rate on Friday so that wages and contracts can be written against something. Emil Radic, the chief statistician, has been handed a basket fixed in a year when half of Halvern heated with coal, and will not certify an index built on it. Ngozi Okonjo has forty people at the counter asking what a note will be worth on Monday. Today you establish what the board actually measures and what each measurement is a measurement of. A figure the board cannot defend on the fifteenth is a figure that arrives back in six months as a fact.",
+    "stake": "Monday, fourteen days out. Ada Verhoeven, the board chair, wants a rate on Friday. Wages and contracts have to be written against something. Emil Radic, the chief statistician, has been handed a basket of goods fixed years ago. Half of Halvern heated with coal back then. He will not certify an index built on it. Ngozi Okonjo has forty people at her counter. They are asking what a note will be worth on Monday. Today you settle what the board actually measures. Every figure has to say what it is a measure of, and over what period. A figure the board cannot defend on the fifteenth comes back in six months as a fact.",
     "takeaway": "Every economic statistic counts something specific, over a specific period.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "What Halvern actually makes",
     "objective": "Add up the output and count who is working, without double-counting either.",
     "briefing": "The board's own output figure has flour in it twice.",
-    "stake": "Tuesday, and the board has an output figure it cannot defend. Radic found the flour counted twice — once as a sale to the bakery and again in the bread — and Della Prentice, the labour statistician, has an unemployment rate that fell in a month when three factories shut. Verhoeven needs both numbers before the rate can be argued about at all. Today you work out what the output figure should be and what the labour figure is actually counting. Two statistics that move the wrong way are usually two statistics measuring something other than what their names say.",
+    "stake": "Tuesday. The board has an output figure it cannot defend. Radic found the flour counted twice. It went in once as a sale to the bakery. Then it went in again inside the bread. Della Prentice, the labour statistician, has a problem of her own. Her unemployment rate fell in a month when three factories shut. Verhoeven needs both numbers before the rate can be argued about at all. Today you work out what the output figure should really be. You also say what the labour figure is actually counting. Two statistics that move the wrong way are usually measuring something other than what their names say.",
     "takeaway": "An aggregate is a sum of specific things, and what it excludes is a decision.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "A level and a rate are different things",
     "objective": "Turn two index numbers into an inflation rate, and a wage into what it buys.",
     "briefing": "The board keeps quoting the index and calling it inflation.",
-    "stake": "Wednesday, and the board's draft statement uses the word inflation for the index level. Radic will not have it published that way; Douglas Farr, the press officer, points out that the correction costs more than the sentence saves. Meanwhile the tram drivers have a wage claim written in marks and nobody has said what those marks buy. Today you turn the index into a rate and a wage into real terms. A level quoted as a rate is the single most common error in a monetary statement, and it is always in the alarming direction.",
+    "stake": "Wednesday. The board's draft statement uses the word inflation for the index level. Those are two different things. Radic will not have it published that way. Douglas Farr, the press officer, agrees for his own reason. A correction costs more than the sentence saves. Meanwhile the tram drivers have a wage claim written in marks. Nobody has said what those marks buy. Today you turn the index level into a rate, and the wage into real terms. A level quoted as a rate is the commonest error in a money statement. It always points the alarming way.",
     "takeaway": "An index is a level; inflation is what the level did between two dates.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "The city the basket prices",
     "objective": "Fix the basket before the index built on it is certified.",
     "briefing": "Radic will not sign, and he is right about why.",
-    "stake": "Thursday, and Radic has refused to certify for the second time. This is the day he is right about: the basket was fixed when half of Halvern heated with coal and nobody bought imported flour, so it prices a city that has stopped existing. Verhoeven needs a certified figure to set a rate against on Friday, and Kata Novotny has three weeks of stall prices that are the only real check on any new basket. Today you decide what the basket should contain and what changing it costs. Fixing a basket is what makes an index comparable, and refusing to revise it is what makes it wrong.",
+    "stake": "Thursday. Radic has refused to certify for the second time. This is the day he is right about. The basket was fixed when half of Halvern heated with coal. Nobody bought imported flour then. So it prices a city that has stopped existing. Verhoeven needs a certified figure to set a rate against on Friday. Kata Novotny has three weeks of stall prices. They are the only real check on any new basket. Today you decide what the basket should hold, and what changing it costs. Fixing a basket is what makes an index comparable over time. Refusing to ever revise it is what makes it wrong.",
     "takeaway": "A basket has to be fixed to be comparable and revised to be about anybody.",
     "stops": [
       {
@@ -103,7 +103,7 @@ export const MISSIONS = [
     "title": "A column that multiplies",
     "objective": "Work out what the banking system can create, and what caps it.",
     "briefing": "Iyer wants the reserve requirement raised before the new notes go out.",
-    "stake": "Friday, and the board meets at four. Sunita Iyer has spent the week arguing that the reserve requirement has to rise before the new currency is issued rather than after, and Ruth Haldane has the arithmetic for what either timing does to her loan book. Verhoeven still wants a rate today. Today you work out what a reserve injection can become and what a requirement caps it at. The money supply is not a quantity anybody chose; it is what the banks made, and the requirement is the only part of it the board holds.",
+    "stake": "Friday, and the board meets at four. Sunita Iyer has argued the same point all week. The reserve requirement has to rise before the new currency goes out, not after. Ruth Haldane has the arithmetic for either timing. She can say what each one does to her loan book. Verhoeven still wants a rate today. Today you work out what a reserve injection can grow into, and what a requirement caps it at. The money supply is not a quantity anybody chose. It is what the banks made. The requirement is the only part of it the board holds.",
     "takeaway": "A pound of reserves supports several pounds of deposits, and the requirement sets how many.",
     "stops": [
       {
@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "What the wages become",
     "objective": "Work the spending multiplier and say which curve the treasury's plan moves.",
     "briefing": "The treasury wants to pay wages early, and every option moves demand.",
-    "stake": "Saturday, and Josiah Mbeya has brought the treasury's plan: pay two weeks of public wages early so that nobody is unpaid across the changeover. He is straightforward that it is the right thing to do and that it makes the inflation figure worse. Radic wants the size of the effect before the board votes on it. Today you work out what the payment becomes once it has been spent and respent, and say which curve it moves. Money paid once is spent several times, and the several times is what shows up in a price index.",
+    "stake": "Saturday. Josiah Mbeya has brought the treasury's plan. Pay two weeks of public wages early, so that nobody goes unpaid across the changeover. He is straightforward about it. It is the right thing to do, and it makes the inflation figure worse. Radic wants the size of that effect before the board votes. Today you work out what the payment becomes once it has been spent and respent. You also say which curve it moves. Money paid out once is spent several times over. The several times is the part that shows up in a price index.",
     "takeaway": "A pound spent becomes income and is partly spent again, so one round is not the total.",
     "stops": [
       {
@@ -151,7 +151,7 @@ export const MISSIONS = [
     "title": "What the reserves can hold",
     "objective": "Price the currency and say how long a defended rate lasts.",
     "briefing": "Verhoeven wants a fixed rate and Sarkis has the reserve position.",
-    "stake": "Sunday, and the board sits again at six. Verhoeven wants a fixed rate announced with the new notes; Levon Sarkis has the reserve book and will not give her a number without a period attached to it. Farr points out that a rate announced and then abandoned costs more than never fixing one. Today you turn the reserve stock into a number of days at each candidate rate, choose the rate the reserves can actually hold, and settle what the announcement has to carry beyond the figure. A stock divided by a daily outflow is a deadline, and a peg is a promise with that deadline already inside it.",
+    "stake": "Sunday, and the board sits again at six. Verhoeven wants a fixed rate announced with the new notes. Levon Sarkis has the reserve book. He will not give her a number without a period attached to it. Farr points out the risk. A rate announced and then abandoned costs more than never fixing one at all. Today you choose the rate the reserves can actually hold. That means turning the reserve stock into a number of days at each candidate rate. It also means settling what the announcement has to carry beyond the figure. A stock divided by a daily outflow is a deadline. A peg is a promise with that deadline already inside it.",
     "takeaway": "Defending a rate spends reserves daily, so the stock is a clock.",
     "stops": [
       {
@@ -175,7 +175,7 @@ export const MISSIONS = [
     "title": "Who the difference falls on",
     "objective": "Work the real interest rate and say who gains and loses from it.",
     "briefing": "Eleven banks have loan books written at rates set before the changeover.",
-    "stake": "Monday, and Haldane has brought her loan book. Every loan in it was written at a nominal rate agreed before prices started moving, and eleven per cent a month has turned careful lending into something else. Iyer wants to know which of the eleven banks is solvent on Friday. Mbeya wants to know whether the treasury's own borrowing has become cheaper. Today you work the real rate and say who it moves money between. Unexpected inflation does not destroy money; it moves it, and it moves it in one direction.",
+    "stake": "Monday. Ruth Haldane has brought her loan book upstairs. Every loan in it was written at a nominal rate. All of those rates were agreed before prices started moving. Eleven per cent a month has turned careful lending into something else. Iyer wants to know which of the eleven banks is solvent on Friday. Mbeya wants to know whether the treasury's own borrowing has got cheaper. Today you work out the real rate and say who it moves money between. Inflation nobody expected does not destroy money. It moves it, and it moves it one way rather than the other.",
     "takeaway": "The real rate is the nominal rate less inflation, and the difference has an owner.",
     "stops": [
       {
@@ -199,7 +199,7 @@ export const MISSIONS = [
     "title": "How much money there is",
     "objective": "Reconcile the money supply and decide the requirement.",
     "briefing": "The weighed returns, the ledgers and the deposits have to add up to one figure.",
-    "stake": "Tuesday, and the board publishes a money supply figure on Thursday. Tulloch's weighed returns, Adeyinka's vault ledger and Iyer's eleven balance sheets are three counts of overlapping things, and nobody has added them without double-counting something. Iyer still wants the requirement raised before the new notes go out, and this is the day she gets a number for it. Today you count the money and decide what caps it. A money supply figure that double-counts a vault holding is a figure the board will be asked about for a year.",
+    "stake": "Tuesday. The board publishes a money supply figure on Thursday. There are three counts to work from. Tulloch has weighed returns from the note room. Adeyinka has the vault ledger. Iyer has eleven bank balance sheets. The three of them overlap, and nobody has added them up without counting something twice. Iyer still wants the requirement raised before the new notes go out. This is the day she gets a number for it. Today you count the money and decide what caps it. A money supply figure that counts a vault holding twice is a figure the board will be asked about for a year.",
     "takeaway": "The money supply is cash in hands plus deposits, and neither counts twice.",
     "stops": [
       {
@@ -223,7 +223,7 @@ export const MISSIONS = [
     "title": "How far from capacity",
     "objective": "Measure the gap between what Halvern makes and what it could.",
     "briefing": "Two people are reading the same figures as opposite problems.",
-    "stake": "Wednesday, and the board has to say in writing whether Halvern's problem is demand or supply, because the two call for opposite policies. Prentice has the labour figures, Radic has the output series and Verhoeven has to sign whichever sentence the numbers support. Mbeya's wage plan is a demand answer and Iyer's requirement is a supply constraint. Today you measure the gap between actual and potential output and say what it implies. A policy aimed at the wrong side of the diagram makes the problem it was aimed at worse.",
+    "stake": "Wednesday. The board has to say in writing what Halvern's problem is. Is it demand, or is it supply? The two call for opposite policies. Prentice has the labour figures. Radic has the output series. Verhoeven has to sign whichever sentence the numbers support. Mbeya's wage plan is a demand answer. Iyer's requirement is a supply constraint. Today you measure the gap between actual output and potential output, and say what it implies. A policy aimed at the wrong side of the diagram makes the problem it was aimed at worse.",
     "takeaway": "Where output sits relative to capacity is what says which problem you have.",
     "stops": [
       {
@@ -247,7 +247,7 @@ export const MISSIONS = [
     "title": "Three tools and a lag",
     "objective": "Choose the instrument, and know when it lands.",
     "briefing": "Everything the board can do arrives after the day it was decided.",
-    "stake": "Thursday, and the board has three instruments and eleven days. Farr wants an announcement, Iyer wants the requirement, Mbeya wants the wages paid, and Verhoeven has to choose in an order. Sarkis points out that whatever is chosen lands after the fifteenth rather than before it. Today you match each tool to what it moves, work out how long the requirement takes to bite, and say what the short-run trade-off actually looks like once a cost shock has moved it. A correct policy that arrives after the event it was aimed at is a policy that lands on the recovery instead of on the problem.",
+    "stake": "Thursday. The board has three instruments and eleven days. Farr wants an announcement. Iyer wants the requirement raised. Mbeya wants the wages paid. Verhoeven has to put those three in an order. Sarkis points out the awkward part. Whatever is chosen lands after the fifteenth rather than before it. Today you match each tool to the thing it actually moves. That means working out how long the requirement takes to bite. It also means saying what the short-run trade-off looks like once a cost shock has moved it. A correct policy that arrives after the event lands on the recovery instead of on the problem.",
     "takeaway": "A policy has a lag, and the lag decides what it actually lands on.",
     "stops": [
       {
@@ -271,7 +271,7 @@ export const MISSIONS = [
     "title": "A number, and what it is written against",
     "objective": "Fix the rate and say what it costs whom.",
     "briefing": "Verhoeven is right today, and the number has to be defensible anyway.",
-    "stake": "Friday, and the rate is announced at four whatever happens. This is the day Verhoeven is right: another week without a number means wages, rents and contracts written against a guess, and that is its own inflation. Sarkis has the reserve arithmetic that rules out the rate savers want. Farr has one page. Today you fix the rate, convert a wage into the new currency for the counter notice, state what the rate is held with and say plainly who pays for it. A rate is a price, and every price has somebody standing on each side of it who did not choose it.",
+    "stake": "Friday, and the rate is announced at four whatever happens. This is the day Verhoeven is right about. Another week without a number means wages, rents and contracts written against a guess. That is its own kind of inflation. Sarkis has the reserve arithmetic that rules out the rate savers want. Farr has one page to fill. Today you fix the rate. You then convert a wage into the new currency for the notice at the counter. You state what the rate is held with, and say plainly who pays for it. A rate is a price. Every price has somebody standing on each side of it who did not choose it.",
     "takeaway": "A rate that can be held is worth more than a rate that is fair and cannot be.",
     "stops": [
       {
@@ -295,7 +295,7 @@ export const MISSIONS = [
     "title": "What the wires say",
     "objective": "Work out what the rate does to trade, and who is better at what.",
     "briefing": "The mills want a weaker rate and the importers want a stronger one.",
-    "stake": "Saturday, and the two industries left in Halvern want opposite things. The textile mills export and want the new mark cheap; the bakeries import flour and want it dear. Sarkis has the wires and the reserve position; Mbeya has a delegation from each. Verhoeven wants one paragraph explaining why the rate cannot be set for either. Today you work out what the rate does to each side, what Halvern is actually better at making, and what the deposit and lending figures say about the rate that would clear the market. A rate is one price and it lands on two industries in exactly opposite directions.",
+    "stake": "Saturday. The two industries left in Halvern want opposite things. The textile mills export, and they want the new mark cheap. The bakeries import flour, and they want it dear. Sarkis has the wires and the reserve position. Mbeya has a delegation from each side waiting downstairs. Verhoeven wants one paragraph on why the rate cannot be set for either of them. Today you work out what the rate does to each side. You also say what Halvern is actually better at making. Then you read what the deposit and lending figures say about the rate that would clear the market. One rate is one price, and it lands on two industries in exactly opposite directions.",
     "takeaway": "A weaker currency helps exporters and taxes anybody who buys from abroad.",
     "stops": [
       {
@@ -319,7 +319,7 @@ export const MISSIONS = [
     "title": "The day before the fifteenth",
     "objective": "Spend the last of the reserves, the last of the notes and the last of the time.",
     "briefing": "Everything that has not been decided gets decided today.",
-    "stake": "Sunday, and the counter closes at six for the last time in old marks. Tulloch has notes still coming in and a furnace that takes four hours a load; Sarkis has reserves that have to cover a first week of unknown demand; Iyer has three banks below the new requirement. Verhoeven wants one page for the morning. Today you spend what is left of the reserves, count what is still outstanding in old notes and decide what happens to the three banks below the requirement. A plan for the fifteenth that assumes the fifteenth goes well is not a plan, and by six this evening there is no time left to make another one.",
+    "stake": "Sunday. The counter closes at six for the last time in old marks. Tulloch has notes still coming in. His furnace takes four hours a load. Sarkis has reserves that have to cover a first week of unknown demand. Iyer has three banks sitting below the new requirement. Verhoeven wants one page for the morning. Today you decide how what is left of the reserves gets spent. You also count what is still out there in old notes. Then you settle what happens to the three banks below the requirement. A plan for the fifteenth that assumes the fifteenth goes well is not a plan. By six this evening there is no time left to make another one.",
     "takeaway": "A finite reserve spent against an unknown first week is a decision about what is not covered.",
     "stops": [
       {
@@ -343,7 +343,7 @@ export const MISSIONS = [
     "title": "The fifteenth",
     "objective": "Open in the new currency and say what the fortnight established.",
     "briefing": "The counter opens at nine in new marks and everything either measures or it does not.",
-    "stake": "Monday the fifteenth. The counter opens at nine in new marks, the old ones stop being money at midnight and nine hundred thousand people find out this morning what their wages are. Verhoeven has one page to publish; Radic has an index that has to survive the changeover; Sarkis has a rate to defend for ninety-six days. Today you close three figures and say what the fortnight actually established. Everything in this building is now either a measurement with a period on it or somebody's recollection, and what is published today decides which of the two the next board inherits.",
+    "stake": "Monday the fifteenth. The counter opens at nine in new marks. The old ones stop being money at midnight. Nine hundred thousand people find out this morning what their wages are. Verhoeven has one page to publish. Radic has an index that has to survive the changeover. Sarkis has a rate to defend for ninety-six days. Today you close the last three figures and say what the fortnight actually established. Everything in this building is now one of two things. It is either a measurement with a period on it, or it is somebody's recollection. What is published today decides which of the two the next board inherits.",
     "takeaway": "A measured figure with its conditions stated is worth more than an agreed one.",
     "stops": [
       {

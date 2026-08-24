@@ -96,21 +96,105 @@ It reaches the plan card title, the continuity line, the turn-in button
 ("Finish this watch and move on" rather than "Go to sleep"), the day-over card
 and the campaign log.
 
-## 4b. The opening card is required, and it has four beats
+## 4b. The opening card is required, and it is the mission and the delivery
 
-`opening` in the manifest, ONE paragraph of 70–180 words: what has happened and
-to whom · the job as authority ("You are the …, which means …") · the clock or
-the argument, with somebody from the roster in it · what it costs, in people,
-**last**. Enforced by `checkStory.mjs`, including the case nobody had looked for
-— Project Y and Hospital Heroes had no opening at all and rendered a blank title
-screen for as long as they existed.
+`opening` in the manifest, ONE paragraph of 70–180 words (55 at a primary
+audience), in this order:
 
-The failure worth naming is the **inventory opening**: a paragraph of true facts
-about the place, with nobody in it, ending on a specification. Red Sand opened
-with nine modules, eighteen hundred square metres of panel and a vehicle four
-hundred metres away, and never said that six people do not leave for another
-twenty-six months if the tank is not filled. Full worked before-and-after in
-`NEW_GAME.md` § 5.
+1. **What has happened, or is about to, and to whom.** Short sentences. No
+   inventory of the place.
+2. **The job, as authority.** "You are the …" and then, plainly, what you decide.
+   `checkStory` fails a card with no `you are / you have / you lead / you run /
+   you direct / you command` in it.
+3. **What is handed over at the end**, named, with what is in it — see § 4c.
+4. **What one day of it produces.** "You write one of them a night." A fortnight
+   that produces something has to say what today's share of it is.
+5. **What it costs, in people or in time, last.** `checkStory` fails a closing
+   line with no number, no clock and nobody in it.
+
+**Two rules that were dropped, deliberately, and are not coming back.**
+
+- **No cast introduction on this card.** For a while `checkStory` *failed* a card
+  that named nobody, and what that produced was two sentences of introduction and
+  disagreement — *"Ada Verhoeven, the board chair, wants the rate fixed on Friday.
+  Emil Radic, the board's statistician, has three weeks of price data"* — in front
+  of the only paragraph a player reads before the game has taught them a word. The
+  argument is a campaign property (§ 1) and the day cards make it, with the person
+  standing in front of you. The rule is gone; `checkNames`/`introRule` still
+  introduces everybody wherever they are first named, which is now usually a day-1
+  stake.
+- **No em-dashes, no piled-up clauses.** *"You are the duty engineer, which means
+  the water let out each morning is ordered by you — out of gauge readings taken
+  hours ago and a survey of the reservoir made in 2003"* is one sentence trying to
+  be three. Say it directly: *"You are the duty engineer. You order how much water
+  goes out each morning, from gauge readings taken hours ago and a survey of the
+  reservoir made in 2003."*
+
+**The failure they were all swept for is still the inventory opening**: a paragraph
+of true facts about the place, with nobody in it, ending on a specification. Red
+Sand opened with nine modules, eighteen hundred square metres of panel and a
+vehicle four hundred metres away, and never said that six people do not leave for
+another twenty-six months if the tank is not filled. Full worked before-and-after
+in `NEW_GAME.md` § 5.
+
+## 4c. The campaign builds ONE thing, and the opening card names it
+
+`delivery` in the manifest, beside `opening` and `ending`:
+
+```js
+delivery: {
+  name:   'The Winter Operating Case',       // the thing itself
+  what:   'who receives it, and what it lets them do',
+  where:  'OPS',                             // the area whose room keeps it
+  pieces: [ 'The reserve margin page', ... ] // one per mission, in order
+}
+```
+
+**Why it exists.** A campaign was fifteen days of correct answers with nothing
+between them. The opening card said what was at stake, each day's card said what
+was owed that morning, the ending said how it turned out — and a day that closed
+left behind nothing a player could go and look at. The only record of twelve days
+of work was the week number in the corner of the HUD.
+
+Four surfaces read it, and each answers a question the campaign could not answer
+before:
+
+- the **opening card** names it, so day 1 knows what day 15 produces;
+- each **plan card** says which piece today is, which is the answer to "why am I
+  doing today at all";
+- the **card that closes a day** hands that piece over — under the debrief, not
+  inside it: the debrief is how the day went and this is what the day left
+  behind, which is true whichever way it went;
+- **one room keeps all of them**, on a board with a cell per piece and a case
+  under it with a block on it per piece earned, so "how far through this am I" is
+  answered by walking somewhere and looking.
+
+**Four rules, and `engine/dev/delivery.mjs` is the gate.**
+
+1. **One piece per mission, in mission order.** `deliveryPieces` reads mission
+   *n* beside piece *n*, so a list of the wrong length silently drops the last
+   day's piece or invents a day with no takeaway to print.
+2. **A piece is a thing somebody could hand over**, two to eight words, not a
+   sentence. It goes in a cell on a board.
+3. **`where` has to be an area with somewhere to stand** — a room behind a door
+   in an outdoor game, a room of its own on the plan in a floor game. Name an
+   area with neither and the board is built where nobody can walk into it, which
+   renders, raises nothing, and looks exactly like a board nobody has found yet.
+   **And a game with its own world module can still get this wrong in a way no
+   checker can see**: Mission Control's `INTEG` is on the site plan and is a
+   console on the control-room floor rather than a wing room, so the first
+   version built the board nowhere and every gate was green. Take the
+   screenshot.
+4. **Nothing is authored per piece beyond its name.** The sentence under it on
+   the board is the day's own `takeaway`, which is already written — and is
+   dropped where it is a stub, for the reason `debrief.js` drops it: Hospital's
+   fifteen takeaways all read "Shift complete".
+
+**And the opening card pays for it.** The delivery sentence is not added to the
+card, it replaces something: fold it into the sentence that already carries the
+argument, or cut the least load-bearing sentence in the paragraph. All 41
+campaigns' cards are the same length or shorter than they were before they named
+what the fortnight builds.
 
 ## 5. The card briefs; it does not hint
 

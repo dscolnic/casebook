@@ -209,13 +209,14 @@ missions:
     objective: Establish the mass gain, seal the system, and see which account of burning it costs.
     briefing: Lavoisier wants the gain on the page before anybody explains it.
     stake: >-
-      Monday. Ten grams of lead have been heated in the open and what is left weighs twelve
-      point seven. Marie-Anne Paulze Lavoisier, who records every weighing in this building,
-      has three metals on the sheet and all three heavier afterwards. Antoine Lavoisier, who
-      runs the laboratory, wants to know where the extra matter came from before anybody
-      names it. Agnès Delaunay, the furnace assistant, has a vessel charged and sealed and a
-      burning glass ready. Today you work out what the product should weigh, commit a
-      prediction about a sealed system, and say which account of burning the ledger costs.
+      Monday. Ten grams of lead have been heated in the open air. What is left of it weighs
+      twelve point seven grams. Marie-Anne Paulze Lavoisier is the recorder here. She writes
+      down every weighing in the building. Three metals are on her sheet today. All three came
+      off the fire heavier than they went on. Antoine Lavoisier wants to know where the extra
+      matter came from. He wants that settled before anybody gives it a name. Agnès Delaunay,
+      the furnace assistant, has a vessel charged and sealed shut. Her burning glass is ready.
+      Today you work out what the burnt metal should weigh. You write that figure down before
+      the run, not after it.
     takeaway: A mass gain is a constraint, and any account of burning has to meet it.
     stops:
       - group: BAL
@@ -421,14 +422,14 @@ missions:
     objective: Name a gas by what it does, measure how much of the air takes part, and see where breathing fits.
     briefing: Priestley has four jars off the trough and no names on any of them.
     stake: >-
-      Wednesday, and the trough has four jars on the shelf. Joseph Priestley, the pneumatic
-      chemist here, catches gases over water and has one in which a glowing splint bursts back
-      into flame. He will not call it anything yet. Carl Wilhelm Scheele, an apothecary and
-      chemist working at the furnace, has prepared what may be the same thing by a different
-      route and cannot say whether it is. A sealed combustion has
-      left seventy-nine units of gas out of a hundred, and none of it will burn. Today you
-      name a gas by what it does, work out how much of the air took part, and decide what a
-      mouse and a candle have in common.
+      Wednesday. Four jars stand on the shelf above the trough. Joseph Priestley is the
+      pneumatic chemist here. He catches gases over water and then asks them questions. In one
+      jar, a splint that is barely glowing bursts back into flame. He will not give that gas a
+      name yet. Carl Wilhelm Scheele is an apothecary and chemist, and he works at the furnace.
+      He has made what may be the same gas by a quite different route. He cannot yet say whether
+      it is. A sealed burn has left seventy-nine units of gas out of a hundred. Not one of them
+      will burn. In the furnace room, a mouse and a candle sit in two sealed chambers. Today you
+      name a gas by what it does to a flame.
     takeaway: A gas is described by its behaviour long before anybody is entitled to name it.
     stops:
       - group: TROUGH
@@ -628,13 +629,12 @@ missions:
     objective: Find the missing term, state what oxidation actually is, and spend the week on the experiment that separates the two accounts.
     briefing: Lavoisier will not close a column with an unexplained figure in it.
     stake: >-
-      Friday, and the desk has two columns and a hole. Antoine Lavoisier, who runs the
-      laboratory, has the metal in and the product out and one term that has not been
-      entered. Marie-Anne Paulze Lavoisier has written up a note about accounts that fit
-      every outcome and has not taken it down. And the academy will fund one more experiment
-      next week, with four proposals on the desk and only one of them capable of coming out
-      either way. Today you close the ledger, say what the general rule actually is, and buy
-      the experiment that could still overturn the week.
+      Friday. The desk holds two columns and a hole. Antoine Lavoisier has the metal on the left
+      and the product on the right. One term has not been entered. Until it is, the two totals
+      will not meet. Marie-Anne Paulze Lavoisier has pinned up a note about accounts that fit
+      every outcome. It has been there all week and she will not take it down. The academy will
+      pay for one more experiment next week. Four proposals sit on the desk. Only one of them
+      could come out either way. Today you find the term that is missing from the column.
     takeaway: A framework earns its keep by closing a ledger and by saying which experiment would break it.
     stops:
       - group: LEDGER

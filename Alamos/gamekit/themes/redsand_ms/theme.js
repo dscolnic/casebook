@@ -81,15 +81,41 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // Ten sols, so ten pieces. A handover says what is known, how well, and what
+  // was never established at all.
+  delivery: {
+    name: 'The Propellant Handover',
+    what: 'What the next crew is handed. Every batch signed against the test it came with, the '
+      + 'plant\'s real limits, and what nobody here ever settled.',
+    where: 'GIBBS',
+    pieces: [
+      'The rate and the ceiling',
+      'The hotter-reactor argument',
+      'The blocked line finding',
+      'The recycle loop',
+      'The water plant first',
+      'The assay result',
+      'The new charge rule',
+      'The low-power decision',
+      'The loading decision',
+      'The handover, signed',
+    ],
+  },
   opening: [
-    'The window opens on sol 486 and does not open again for twenty-six months. Six people '
-    + 'are at Arcadia Rise, and none of them goes home unless the vehicle on the pad is full. '
-    + 'The fuel has to be made here, out of the air and the ground of Mars, because nothing was '
-    + 'sent from Earth. You are the propellant lead, so the plant is yours. It is making eleven '
-    + 'kilograms a sol and the schedule needs nearly fourteen. Ingrid Sundqvist, who runs '
-    + 'production, wants the reactor run hotter tonight. Tomas Herrera, who owns the reactor, '
-    + 'says a hotter bed hands back less every pass. Six people go home on whatever those two '
-    + 'can be made to agree.',
+    'The window opens on sol 486 and not again for twenty-six months. Six people are at '
+    + 'Arcadia Rise, and none of them goes home unless the vehicle on the pad is full. The '
+    + 'fuel is made here, out of the air and the ground of Mars. You are the propellant lead, '
+    + 'so the plant is yours. In ten sols you write the handover the next crew works from. It '
+    + 'says what the plant can really make, what slows it down, and what every batch was '
+    + 'measured at before it went in the tank. One entry goes in a sol. Six people leave on '
+    + 'what the tank holds.',
   ],
 
   ending: [

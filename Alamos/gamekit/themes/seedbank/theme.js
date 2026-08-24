@@ -73,15 +73,48 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One finding a day, in the order the season forced them. The crossing block
+  // is chosen on the second-to-last day out of everything established before
+  // it.
+  delivery: {
+    name: 'The Wellmere Season Record',
+    what: 'What the next season lead opens on: every accession\'s state, what was grown out and '
+      + 'when, and the crossing block this season committed the next decade to.',
+    where: 'VAULT',
+    pieces: [
+      'The viability audit',
+      'The parents\' ratio finding',
+      'The population\'s frequencies',
+      'The delay-against-release note',
+      'The linked marker map',
+      'The sample size decision',
+      'The single-gene warning',
+      'The realised gain figure',
+      'The drifted accession list',
+      'The duplication gap',
+      'The quiet-week backlog',
+      'The rust response, from store',
+      'The ranked morning order',
+      'The crossing block, chosen',
+      'The regrowing schedule',
+    ],
+  },
   opening: [
-    'Two hundred kilometres east there is a wheat disease the breeding programme has exactly '
-    + 'one gene against. The wind that would carry it here comes in over the causeway. You are '
-    + 'Season Lead at Wellmere. Forty-one thousand seed samples are held here at minus '
-    + 'eighteen, and the ground outside is laid out in rings, spaced by how far pollen can '
-    + 'travel. Dr. Chiara Volpe, the head breeder, wants a new wheat released to the merchant '
-    + 'this season. Dr. Nasrin Qureshi, the collection curator, wants the oldest samples grown '
-    + 'out again first, while enough of them will still come up. Anything not sown in three '
-    + 'weeks waits a full year.',
+    'A wheat disease is two hundred kilometres east, and the wind that would carry it here '
+    + 'comes in over the causeway. The breeding programme has exactly one gene that stands up '
+    + 'to it. You are Season Lead at Wellmere. You decide what is sown in the next three '
+    + 'weeks and what is grown out again while the old seed still comes up. In fifteen days '
+    + 'you hand over the season record, which is what the next lead opens on. It says which '
+    + 'samples are still alive, which were grown and when, and which parents go into the '
+    + 'crossing block that sets the next decade of wheat. One finding goes in a day. Anything '
+    + 'not sown in three weeks waits a full year.',
   ],
 
   // How it ends. Shown when the campaign closes, and the last thing the player

@@ -94,15 +94,47 @@ export default {
   // The title card: ONE paragraph of situation. What the player is, where
   // they are, and what it costs if the work is not done — no mechanics, no
   // controls, no scope line. This game had none at all and opened on a blank.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One link a stage, in the order the work happened to establish them. A
+  // chain is only as good as its weakest link, which is why each piece carries
+  // how well it is known rather than what it concluded.
+  delivery: {
+    name: 'The Evidence Chain',
+    what: 'What the laboratory has to be able to show at the end: every claim from a counted '
+      + 'signal to a frozen design, and how well each one of them is known.',
+    where: 'T',
+    pieces: [
+      'The counting notebook',
+      'The mass defect calculation',
+      'The decay curve sheet',
+      'The cross-section measurement',
+      'The neutron transport figures',
+      'The design pivot memorandum',
+      'The compression study',
+      'The symmetry metric',
+      'The mockup results',
+      'The timing survey',
+      'The uncertainty budget',
+      'The integrated trial plan',
+      'The Trinity prediction sheet',
+      'The design freeze record',
+      'The responsibility statement',
+    ],
+  },
   opening: [
-    'It is April 1943, and the site is three weeks old: a boys\' school on a mesa in New '
-    + 'Mexico with a laboratory going up around it. There is a fence, and most people arriving '
-    + 'cannot tell their families where they are. You are a scientist newly assigned to Project '
-    + 'Y, which has one problem to solve and a schedule set by a war. Five divisions work on it '
-    + 'at once, and not one can finish without the other four. Nobody yet knows whether the '
-    + 'thing on three blackboards will work at all. Oppenheimer, who directs the laboratory, '
-    + 'holds a meeting every week where anyone may be asked anything, so that being wrong costs '
-    + 'days instead of months.',
+    'It is April 1943. The site is three weeks old. A boys\' school sits on a mesa in New Mexico. A '
+    + 'laboratory is going up around it, and a war has set the schedule. You are a scientist newly '
+    + 'posted to Project Y. Five divisions are working on one problem at once. What the laboratory owes '
+    + 'at the end is a single evidence chain. What was counted. What was measured. What was worked out '
+    + 'from those. And how well each of them is known. One link of the chain is settled each stage. A '
+    + 'link nobody can show the working for is not a link. Nobody yet knows whether the thing on three '
+    + 'blackboards works at all.',
   ],
 
   look: {

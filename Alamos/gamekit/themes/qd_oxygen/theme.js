@@ -62,15 +62,15 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'Ten grams of lead were heated in the open this morning and what is left weighs twelve '
-    + 'point seven. Burning is supposed to be a losing: the light goes, the smoke goes, and '
-    + 'a crumbly powder is what remains. If the powder is heavier than the metal was, then '
-    + 'something joined it while it burnt, and every account of fire anybody holds has to be '
-    + 'rewritten. If the balance is wrong, four benches are about to waste a season. You are '
-    + 'the assistant, which means the weighings, the jars and the ledger all come through '
-    + 'you. Antoine Lavoisier, who runs the laboratory, will not enter a figure he cannot '
-    + 'account for. The academy funds one more experiment next week, and six people here '
-    + 'disagree about what it should be.',
+    'Ten grams of lead were heated in the open air this morning. What is left of it weighs twelve '
+    + 'point seven grams. Burning is supposed to take things away. The light goes. The smoke goes. A '
+    + 'dry, crumbly powder is all that stays behind. So how can the powder weigh more than the metal '
+    + 'did? If it truly does, then something joined the lead while it burnt. Every account of fire that '
+    + 'anybody here holds would have to be written again. If the balance is wrong instead, four benches '
+    + 'waste a whole season of work. You are the assistant. The weighings, the jars and the ledger all '
+    + 'come through you. Antoine Lavoisier runs this laboratory, and he will not write down a figure he '
+    + 'cannot account for. The academy will pay for one more experiment next week, and six people here '
+    + 'disagree about which one.',
   ],
 
   ending: [

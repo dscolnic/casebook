@@ -370,13 +370,14 @@ missions:
     objective: Establish what is actually on the floor and what the paperwork claims about it.
     briefing: Four wafers in ten are failing and two leads have opposite explanations.
     stake: >-
-      Monday, and the qualification lot runs in fifteen days whatever anybody has worked out by
-      then. Four wafers in ten have failed final test since the second week of March, and the fab
-      manager, Simone Hale, has stopped taking explanations that are not measurements. Hana
-      Ferreira wants every incoming lot held; Ruben Ostrowski wants the line running while the
-      recipes are checked. Today you count what is actually in a lot, settle what makes one atom a
-      different element from another, and read what a purity limit is a claim about. Nine hundred
-      people work here and none of the arguing has yet produced a number anybody can act on.
+      Monday. The qualification lot runs in fifteen days, whatever anybody has worked out by
+      then. Four wafers in ten have failed final test since the second week of March. Simone
+      Hale, the fab manager, has stopped taking explanations that are not measurements. She
+      wants numbers. Hana Ferreira wants every incoming lot held at the door. Ruben Ostrowski
+      wants the line running while the recipes are checked. Both cannot happen. Today you count
+      how many atoms are really in one lot of wafers. You also settle what makes one atom a
+      different element from another. Then you read a purity limit and say what it claims. Nine
+      hundred people work here. None of the arguing has produced a number anybody can act on.
     takeaway: Every claim in this building reduces to a count of atoms, and a count is something you can check.
     stops:
       - group: WAFER
@@ -505,13 +506,15 @@ missions:
     objective: Establish what the light in this building can do and what the gas in the chambers is doing.
     briefing: The yellow bay is lit amber for a reason nobody on the shift can state.
     stake: >-
-      Tuesday, and the first re-run of the failing layer goes into the yellow bay this afternoon.
-      Yuki Tanabe, who runs lithography, has been asked twice this week why her bay is lit amber
-      and has twice given an answer that satisfied nobody, which is a problem because the same
-      argument decides which lamps may be changed. Ostrowski wants the deposition chamber opened
-      and closed again between runs to save four hours. Today you settle what a photon of a given
-      wavelength can and cannot do, what a gas in a chamber is actually doing, and how strongly an
-      atom holds the electrons that decide all of it. Four hours a run is a day of the fortnight.
+      Tuesday. The first re-run of the failing layer goes into the yellow bay this afternoon.
+      Yuki Tanabe, who runs lithography, has been asked twice this week why her bay is lit
+      amber. Twice she has given an answer that satisfied nobody. That matters more than it
+      sounds. The same argument decides which lamps she may change. Ostrowski wants the
+      deposition chamber opened between runs and closed again. That would save four hours a run.
+      Today you settle what light of one wavelength can and cannot do to a wafer. You work out
+      what the gas inside a chamber is doing while nothing seems to happen. Then you look at how
+      tightly an atom holds the electrons that decide both. Four hours a run adds up to a whole
+      day of the fifteen.
     takeaway: Light delivers energy in packets with a threshold, and a gas is particles whose speeds follow from their masses.
     stops:
       - group: LITHO
@@ -651,14 +654,14 @@ missions:
     objective: Correct yesterday's arithmetic for the electrons that sit in the way.
     briefing: The attraction calculated yesterday is too large for every element on the wafer.
     stake: >-
-      Wednesday, and the first re-qualification data is due back at four. Yesterday's arithmetic
-      says silicon should hold its outer electron about eleven hundred times more strongly than
-      hydrogen holds its own, and the measured energy is nothing like that. Dorsey has the
-      measured table and Ferreira has the calculation, and neither of them will move until the
-      gap is explained. Today you work out what stands between an outer electron and the nucleus,
-      read a table of successive ionisation energies for what it says about shells, and settle how
-      deep a measurement has to go before it is about the surface. The re-qualification argument
-      rests on all three.
+      Wednesday. The first data from the re-qualification comes back at four. Yesterday's sums
+      say something odd. They say silicon should hold its outer electron about eleven hundred
+      times more tightly than hydrogen holds its own. The measured energy is nothing like that.
+      Dorsey has the table of measured values. Ferreira has the sums. Neither of them will move
+      until the gap is explained. Today you work out what sits between an outer electron and the
+      nucleus. You read a table of energies, one electron pulled off at a time, for what it says
+      about shells. Then you settle how deep a probe may go and still be reading the surface.
+      The argument over that gap does not end until all three are settled.
     takeaway: An outer electron is held by what is left of the nuclear charge once the inner electrons have cancelled part of it.
     stops:
       - group: ATOM
@@ -791,13 +794,14 @@ missions:
     objective: Count what is in a chamber from a gauge, and read a mass spectrum honestly.
     briefing: The residual gas analyser has a peak that two people are reading two ways.
     stake: >-
-      Thursday, and Vance has the chamber down for eight hours, which is the only window this week
-      to answer what is inside it. The residual gas analyser shows a peak at mass twenty-eight
-      that Ostrowski reads as harmless carrier and Ferreira reads as air getting in, and the two
-      readings imply different repairs on different days. Today you turn a pressure gauge into a
-      number of molecules, decide what a single mass peak can and cannot establish, and count the
-      valence electrons of the elements this process is built out of. Eight hours of chamber time
-      is the most expensive thing in the fortnight and it is being spent today.
+      Thursday. Vance has the chamber down for eight hours. It is the only window this week to
+      find out what is inside it. The residual gas analyser shows a peak at mass twenty-eight.
+      Ostrowski reads that peak as harmless carrier gas. Ferreira reads it as air leaking in.
+      The two readings mean different repairs, on different days. Today you turn a pressure
+      gauge into a number of molecules. You decide what one mass peak can and cannot prove on
+      its own. Then you count each element's valence electrons, the outer ones that do the
+      bonding. Eight hours of chamber time is the most expensive thing in the fortnight. It is
+      being spent today.
     takeaway: A gauge counts molecules and a mass spectrum weighs them, and neither of them names what is there on its own.
     stops:
       - group: DEP
@@ -929,14 +933,13 @@ missions:
     objective: Read a photoelectron spectrum, and use the table to predict rather than to look up.
     briefing: The surface measurement everybody has been waiting for runs this morning.
     stake: >-
-      Friday, and the photoelectron spectrometer has the first failing wafer on it at nine. It is
-      the one instrument in the building that answers what is on the surface and what it is bonded
-      to, and Ferreira has been waiting eleven days for the slot. Ostrowski has asked for the
-      chamber back by three and Vance cannot pump it down twice in one day. Today you turn a
-      spectrum into binding energies, predict how an element you have not measured should behave
-      from where it sits in the table, and work out how far a molecule travels in that chamber
-      before it meets another one. Whatever this spectrum says decides which argument gets funded
-      on Monday.
+      Friday. The photoelectron spectrometer has the first failing wafer on it at nine. It is
+      the one instrument here that answers what is on the surface and what it is bonded to.
+      Ferreira has waited eleven days for the slot. Ostrowski has asked for the chamber back by
+      three. Vance cannot pump it down twice in one day. Today you turn a spectrum into binding
+      energies. You predict how an element you have not measured should behave, from where it
+      sits in the table. Then you work out how far a molecule travels in that chamber before it
+      hits another one. Whatever the spectrum says decides which argument gets funded on Monday.
     takeaway: A photon of known energy in and an electron of measured energy out is a direct reading of how tightly an atom was holding on.
     stops:
       - group: ATOM
@@ -1078,13 +1081,14 @@ missions:
     objective: Find out why every measurement of the substrate agrees and the wafers still fail.
     briefing: Every incoming measurement is consistent, and the lots are behaving differently.
     stake: >-
-      Monday, and the second week opens with four independent-looking measurements of the
-      substrate that all agree to within a few per cent, and a yield map that says two of the lots
-      are not the same material. Twill has the certificates, Ferreira has the mapped results, and
-      Hale has told them both that agreement is not the same as evidence. Today you open those
-      four derivations and find what they were each computed against, turn a purity limit into a
-      count of atoms, and draw the first molecule this process is built out of. If the substrate
-      is wrong, every recipe argument of the last three weeks was about the wrong thing.
+      Monday. The second week opens with four measurements of the substrate that look
+      independent. They all agree to within a few per cent. A yield map says two of the lots are
+      not the same material. Twill has the certificates. Ferreira has the mapped results. Hale
+      has told them both that agreement is not the same as evidence. Today you open those four
+      numbers and find what each of them was measured against. You turn a purity limit into a
+      count of atoms. Then you draw the first molecule this process is built out of. If the
+      substrate is wrong, every recipe argument of the last three weeks was about the wrong
+      thing.
     takeaway: Numbers computed against a common reference agree with each other whatever that reference is doing.
     stops:
       - group: WAFER
@@ -1247,13 +1251,14 @@ missions:
     objective: Read what a peak position says about bonding, and name what holds each material together.
     briefing: The substrate finding has changed which questions are worth asking.
     stake: >-
-      Tuesday, and the substrate finding has been on Hale's desk since eight. Two lots go back to
-      the supplier and thirteen do not, which leaves the failures on those thirteen still
-      unexplained and eight days to explain them. Ostrowski has taken it as vindication and asked
-      for the recipe review to start this afternoon. Today you read a spectrum peak for what it
-      says about bonding rather than about quantity, work out what shape each precursor molecule
-      is forced into, and name what actually holds a metal together. The recipe review needs all
-      three before it can distinguish a film that is wrong from a film that is merely different.
+      Tuesday. The substrate finding has been on Hale's desk since eight. Two lots go back to
+      the supplier. Thirteen do not. The failures on those thirteen are still unexplained, and
+      eight days are left to explain them. Ostrowski has taken the finding as proof he was right
+      all along. He wants the recipe review to start this afternoon. Today you read a peak in a
+      spectrum for what it says about bonding, not about how much is there. You work out what
+      shape each precursor molecule is forced into. Then you name what actually holds a metal
+      together. The recipe review cannot tell a wrong film from a merely different one until all
+      three are settled.
     takeaway: A peak that has moved and a molecule that is bent are both statements about bonding rather than about amount.
     stops:
       - group: ATOM
@@ -1378,13 +1383,14 @@ missions:
     objective: Choose between structures that both satisfy the octet, and rank what holds solids together.
     briefing: Two structures for the same molecule imply two different processes.
     stake: >-
-      Wednesday, and the recipe review has stalled on a molecule that can be drawn two ways. Vance
-      needs a purchase decision on the precursor by Friday and the two structures imply different
+      Wednesday. The recipe review has stalled on a molecule that can be drawn two ways. Vance
+      needs a purchase decision on the precursor by Friday. The two drawings mean different
       handling, different lines and a different temperature. Meanwhile Twill has three ceramic
-      liners quoted at three prices, all sold as equivalent. Today you settle which structure is
-      the better description, work out whether the molecules on the drawing are polar, and rank
-      three solids by what it takes to pull them apart. Buying the wrong precursor costs eleven
-      days on a fifteen-day clock, which is the whole remaining fortnight.
+      liners quoted at three prices. All three are sold as equivalent. Today you settle which of
+      the two drawings is the better description. You work out whether the molecules on the
+      board are polar. Then you rank three solids by what it takes to pull them apart. Buying
+      the wrong precursor would cost eleven days. There are only fifteen in the fortnight, so
+      that is the rest of it.
     takeaway: A structure that satisfies the octet may still be the worse description, and what a solid costs to take apart follows from its charges and their spacing.
     stops:
       - group: DEP
@@ -1506,13 +1512,14 @@ missions:
     objective: Establish what a temperature has to be high enough to break, and what the film is made of.
     briefing: The nitride film is the right two elements in the wrong proportion.
     stake: >-
-      Thursday, and the film analysis came back overnight with a composition Ostrowski predicted
-      three weeks ago and nobody would fund the measurement for. The nitride on the failing lots
-      is the right two elements in the wrong proportion, and the furnace log shows the deposition
-      temperature has been running eighteen degrees below its setpoint since a controller was
-      replaced in February. Today you work out what energy it takes to break the precursor apart,
-      compute what the film should be made of if the recipe were followed, and settle what holds
-      one molecule to the next. This is the day Ostrowski turns out to have been right as well.
+      Thursday. The film analysis came back overnight. It shows the composition Ostrowski
+      predicted three weeks ago, when nobody would pay for the measurement. The nitride on the
+      failing lots has the right two elements in the wrong proportion. The furnace log adds one
+      more fact. The deposition temperature has been running eighteen degrees below its setpoint
+      since a controller was replaced in February. Today you work out how much energy it takes
+      to break the precursor apart. You compute what the film should be made of if the recipe
+      were followed exactly. Then you settle what holds one molecule to the next. This is the
+      day Ostrowski turns out to have been right as well.
     takeaway: A temperature has a job to do, and a film with the right elements in the wrong ratio is a temperature that did not do it.
     stops:
       - group: DEP
@@ -1651,13 +1658,14 @@ missions:
     objective: Name what holds each of these materials together, and find where the gas line breaks.
     briefing: Two causes are established and the layer stack has to be understood as materials.
     stake: >-
-      Friday, and there are two established causes with five working days behind them: a
-      substrate that was not what it was taken to be, and a furnace running cold. Hale wants the
-      layer stack itself understood before the qualification recipe is written, because a stack is
-      four materials that behave in four different ways under the same polish. Vance has a
-      moisture reading somewhere in six hundred metres of gas line and one shift to find it.
-      Today you name what holds each material in the stack together, settle what makes silicon
-      switchable at all, and walk the gas line until the pattern breaks.
+      Friday. Two causes are established, with five working days spent to get them. The
+      substrate was not what everybody took it to be. The furnace has been running cold. Hale
+      wants the layer stack itself understood before the qualification recipe is written. A
+      stack is four materials, and the same polish treats all four differently. Vance has a
+      moisture reading somewhere in six hundred metres of gas line. He has one shift to find it.
+      Today you name what holds each material in the stack together. You settle what makes
+      silicon switchable at all. Then you walk the gas line until the pattern breaks. Five days
+      are left after this one.
     takeaway: What a material does when heated, polished or wetted follows from what holds it together.
     stops:
       - group: WAFER
@@ -1811,13 +1819,13 @@ missions:
     objective: Find out what is putting oxide back on the wafer, and what a solvent will lift.
     briefing: The bare surface the next step needs is not bare by the time it gets there.
     stake: >-
-      Monday, and four working days remain. Aubrey has wafers leaving the bench bare and arriving
-      at the coater with an oxide on them that the process does not allow, and four candidate
-      causes between the two rooms. Park has the queue times for every wafer for six weeks and
-      nobody has looked at them against the failures. Today you find out which of the four steps
-      is putting the oxide back, decide which solvent will lift the resist and leave the layer
-      beneath it, and read a spectrum that has two things wrong with it at once. A wafer that
-      waits is a wafer that changes.
+      Monday, with four working days left. Aubrey has wafers that leave her bench bare and reach
+      the coater with an oxide on them. The process does not allow that oxide. There are four
+      candidate causes between the two rooms. Park has the queue times for every wafer for six
+      weeks. Nobody has yet compared them against the failures. Today you find out which of the
+      four steps is putting the oxide back. You decide which solvent will lift the resist and
+      leave the layer underneath it. Then you read a spectrum with two things wrong with it at
+      once. A wafer that waits is a wafer that changes.
     takeaway: A freshly cleaned surface has unsatisfied bonds and the air satisfies them, so every step after a clean is racing a clock.
     stops:
       - group: WET
@@ -1970,13 +1978,13 @@ missions:
     objective: Bring the implant dose inside specification, and buy only the measurements that decide something.
     briefing: Three days left and more things worth knowing than there is time to know them.
     stake: >-
-      Tuesday, and the qualification recipe has to be frozen on Thursday morning. Ganesan's
-      implanter is delivering a dose whose spread is wider than the customer specification allows,
-      and she can re-aim it or she can measure it better, which are not the same thing. Ferreira
-      has six hours of spectrometer time left in the fortnight and four proposals for it. Aubrey
-      wants a decision on whether the copper is alloyed or pure before the fill step is written.
-      Today you settle all three. Hale is signing whatever comes out of today, so what is not
-      decided today is not in the lot.
+      Tuesday. The qualification recipe has to be frozen on Thursday morning. Ganesan's
+      implanter is delivering a dose whose spread is wider than the customer allows. She can
+      re-aim the beam. She can also measure the dose better. Those are not the same choice.
+      Ferreira has six hours of spectrometer time left in the fortnight and four proposals for
+      it. Aubrey wants to know whether the copper is alloyed or pure before the fill step is
+      written. Today you settle all three of those questions. Hale is signing whatever comes out
+      of today. What is not decided today is not in the lot.
     takeaway: Re-aiming moves a distribution and only new information narrows it, and a measurement is worth what the decision it changes is worth.
     stops:
       - group: DOPE
@@ -2148,12 +2156,13 @@ missions:
     objective: Find the step that governs the whole sequence, and spend what is left of the budget.
     briefing: Every step in the deposition sequence has a number against it except one.
     stake: >-
-      Wednesday, and the recipe goes to Hale tomorrow morning. Ostrowski has five steps between a
-      cylinder and a film and wants to know which of them is deciding the outcome, because that is
-      the one the recipe has to guarantee. Twill has money for two more pieces of work and four
-      things the fab would like to know before the lot runs. Park has a queue-time rule to write
-      that every shift will have to follow without him standing there. Today you settle all three,
-      and tomorrow is the last day anything can be measured.
+      Wednesday. The recipe goes to Hale tomorrow morning. Ostrowski has five steps between a
+      gas cylinder and a finished film. He wants to know which of the five decides the outcome.
+      That is the step the recipe has to guarantee. Twill has money for two more pieces of work
+      and four things the fab would like to know. Park has a queue-time rule to write. Every
+      shift will have to follow it without him standing there. Today you settle all three of
+      those. Tomorrow is the last day anything can be measured. After that the recipe is only
+      what is already written down.
     takeaway: A sequence is governed by whichever required step is slowest or weakest, whatever the steps either side of it can do.
     stops:
       - group: DEP
@@ -2247,6 +2256,16 @@ missions:
           - { label: C, text: 'Repeat the composition measurement on the failing lots a third time.' }
           - { label: D, text: 'Photograph the yield maps for the customer report.' }
         recommended: { A: 40, B: 35 }
+        why: >-
+          Two of these four would have caught this failure before the lot ran, and two would
+          only have described it afterwards. The substrate type was never on the incoming
+          certificate, because one supplier shipped one type for thirty years and nobody
+          added a field for it. That is the assumption the fab did not know it was making,
+          and the test takes four minutes on a probe already in the building. The second
+          thermocouple is the other one: the eighteen degrees showed up only in a composition
+          measurement taken six weeks later, so the furnace had no way to say what it was
+          doing at the time. Measuring the failing lots a third time buys nothing — two runs
+          already agree. Photographing the yield maps is a report, not a check.
         evidence: |
           The substrate type was never on the incoming certificate and there is no field for it,
           because one supplier shipped one type for thirty years. The test itself takes four
@@ -2302,13 +2321,14 @@ missions:
     objective: Commit to what the corrected recipe will produce, and then find out.
     briefing: The recipe change is written and nobody has said in advance what it should do.
     stake: >-
-      Thursday, and the qualification recipe is signed at noon. The temperature correction is
-      written into it and Ostrowski is confident, which is the state in which a fab stops
-      measuring. Aubrey has a copper fill that failed its polish on two wafers overnight and three
-      panels of data about it. Ganesan has a customer question about why the finished device
-      conducts at all. Today you write down what the corrected recipe should produce before it
-      runs, find out what actually happened, and answer for the two failures that are not the ones
-      this fortnight has been about. Tomorrow the lot runs on whatever is signed today.
+      Thursday. The qualification recipe is signed at noon. The temperature correction is
+      written into it, and Ostrowski is sure it will work. That is exactly when a fab stops
+      measuring. Aubrey has a copper fill that failed its polish on two wafers overnight, and
+      three panels of data about it. Ganesan has a customer question about why the finished
+      device conducts at all. Today you write down what the corrected recipe should produce,
+      before it runs. Then you find out what actually happened. You also answer for those two
+      failures, which are not what this fortnight has been about. Tomorrow the lot runs on
+      whatever is signed today.
     takeaway: An intervention is verified by measuring what it changed, not by confirming that it was made.
     stops:
       - group: DEP
@@ -2454,13 +2474,13 @@ missions:
     objective: Release the substrate, hand over what is known, and say what the light can be trusted to do.
     briefing: The qualification lot goes in this morning and the handover goes out this afternoon.
     stake: >-
-      Friday, and the qualification lot goes into the yellow bay at ten. Twill has the substrate
-      release form waiting for a signature and two lots he will not sign for. The customer's team
-      arrives on Monday and will read a fortnight of work in twenty minutes, none of them having
-      been here for any of it. Tanabe has one last question about the lamps from the maintenance
-      contractor. Today you release the substrate, decide what goes at the top of the handover, and
-      settle what the light in this building can be trusted to do. Nine hundred jobs are on what
-      goes in at ten.
+      Friday. The qualification lot goes into the yellow bay at ten. Twill has the substrate
+      release form waiting for a signature. There are two lots he will not sign for. The
+      customer's team arrives on Monday. They will read a fortnight of work in twenty minutes,
+      and none of them was here for any of it. Tanabe has one last question about the lamps,
+      sent up by the maintenance contractor. Today you release the substrate for the lot. You
+      decide what goes at the top of the handover. Then you settle what the light in this
+      building can be trusted to do. Nine hundred jobs ride on what goes in at ten.
     takeaway: A handover states what is known, how well it is known, and what was never established.
     stops:
       - group: WAFER

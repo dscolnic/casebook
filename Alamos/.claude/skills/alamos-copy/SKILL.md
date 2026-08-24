@@ -234,3 +234,80 @@ of those women was denied at the time.
   already in their head?", and writing it down is what stops a question quietly requiring a degree.
 - **`theme.stopNoun`** — what a non-person stop is called. Mission Control has no rooms and no doors, and
   "a room" sent players hunting for one.
+
+## The campaign builds one thing, and four surfaces say so
+
+`delivery` in the manifest, beside `opening` and `ending`: a **name**, one
+sentence of **what** it is and who receives it, the area whose room **where** it
+is kept, and **pieces** — one per mission, in mission order. `engine/core/delivery.js`
+is the only reader; `gamekit/STORY_SPEC.md` § 4c is the contract and
+`engine/dev/delivery.mjs` is the gate.
+
+**Why.** A campaign was fifteen days of correct answers with nothing between
+them: the opening said what was at stake, the day card said what was owed that
+morning, the ending said how it turned out, and a day that closed left behind
+nothing anybody could go and look at. The whole record of twelve days of work was
+the week number in the corner of the HUD.
+
+- **The opening card IS the delivery now, and it pays for the words.** The card
+  is: what has happened, what you decide, what is handed over at the end and what
+  is in it, what one day of it produces, and what it costs. All 41 came out of the
+  pass the same length or shorter. Two rules were dropped on the way and are not
+  coming back: **no cast introduction on this card** — `checkStory`'s
+  roster-name failure is gone, because what it produced was two sentences of
+  introduction and disagreement in front of the only paragraph read before the
+  game has taught the player a word — and **no em-dashes or piled-up clauses**:
+  "You are the duty engineer, which means the water let out each morning is
+  ordered by you — out of gauge readings taken hours ago and a survey made in
+  2003" is one sentence trying to be three. Say it in two.
+  `introRule`/`checkNames` still introduces everybody where they are first named,
+  which after that pass is usually a day-1 stake — six campaigns needed a job
+  attached there once their opening stopped doing it.
+- **A piece is a thing, not a sentence.** Two to eight words, ≤ 46 characters,
+  because it has to fit a cell on a board four metres away. "The corridor rating
+  sheet", not "A rating is a time and a temperature".
+- **Nothing else is authored.** The line under a piece on the board is that
+  day's own `takeaway` — already written, and dropped where it is a stub, for the
+  same reason `debrief.js` drops it: Hospital's fifteen takeaways all read "Shift
+  complete", and a board whose every filled cell says that is worse than a board
+  with nothing under the names.
+- **The blanks name their day and nothing else.** Printing the piece a future day
+  produces is printing the end of a story the player is halfway through, and
+  printing its takeaway answers a question they have not been asked.
+- **A piece is earned when the day's calls are all answered; `held` is the
+  stronger claim that they were all right.** Both come off `missionResults`, so
+  nothing new is saved and a retaken day cannot disagree with a stored count. The
+  board marks a piece that rests on a wrong call — "to check again" — and does not
+  withhold it, because the day is over and the work went in.
+
+## Hard concepts, explained at a sixth-grade reading level
+
+The standing rule for every card, and `engine/dev/plainCards.mjs` is the gate:
+the opening card and every day's stake are measured against **grade 6.5**,
+regardless of what `audience.grade` says. Twenty-eight campaigns declare grade 12
+and passed every gate in the repo with grade-11 prose on the card a player reads
+before every day, because `questionLoad` only gates at grade 8 and below.
+
+**What "direct" means here, from the pass that produced it.** Blackout's fifteen
+day cards went from grade 9.2 to 4.8 with nothing removed from the course:
+
+| Instead of | Write |
+| --- | --- |
+| "Hold too little and the first cold evening finds out." | "Hold back too little and homes lose power on the coldest night of the year." |
+| "the largest unit on the system has tripped without warning. Frequency fell and then steadied somewhere below where it began, which Reyes says matters more than the fall itself" | "The frequency dropped, then stopped dropping. It is now steady, but lower than it was. Reyes says that is the worrying part." |
+| "a system that stops falling has found a new balance, and the new balance is short" | keep it — it is plain, and it is the concept |
+| "eleven distribution feeders are still dead" | "Eleven street-level circuits are still dead." |
+| "the corridor is above its continuous rating" | "both lines are carrying more than they should" |
+| "a thermal record June Farrow has not verified" | "a heat record Farrow has not checked" |
+
+Four rules that did most of it: **one clause a sentence**; **a fact per sentence,
+not three in a list**; **the plainest word that is still true** (heat record, not
+thermal record; street-level circuit, not distribution feeder); and **say the
+consequence, do not imply it** — the oblique closing line is the tic to hunt, and
+it is the one thing the gate cannot see, because "the first cold evening finds
+out" is nine short words and scores grade 3.
+
+**What does not come down.** The technical term the course needs, glossed once in
+plain words. Frequency stays frequency. A system that has "found a new balance" is
+the concept, not decoration. Lowering the demand is the failure this repo has paid
+for three times; lowering the sentences is the product.

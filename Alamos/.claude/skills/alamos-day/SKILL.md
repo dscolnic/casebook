@@ -72,3 +72,29 @@ Two traps, both already paid for: the entry points start their frame loop during
   and it is why a day has a second building to walk to.
 - A stop's `person` and `callback` flags are authored data; `isPersonStopForIdx` honours the flag and falls
   back to the campaign-wide rule for anything unshaped.
+
+## The plan card says why, and what today adds
+
+Two lines the plan card did not have, and both are generated rather than authored
+— `engine/core/app.js` `reasonFor` and `engine/core/delivery.js`
+`deliveryPlanLine`:
+
+- **A reason under every call.** The card named six places and gave no reason to
+  walk to any of them, so a day read as an itinerary somebody else had drawn up
+  — when the one thing the player is actually deciding is the route. A person's
+  reason is the job they hold, which is why it is them; a room's is what that area
+  is for, which the book already wrote as the group's `desc`. A stop may override
+  it with `reason:`, and where one does, that wins. **Deliberately not the day's
+  question**, which used to be printed there and was taken out for being a second
+  briefing: a reason is a clause, and a call with three lines under it is a card
+  nobody reads twice.
+- **One line saying which piece of the delivery today is**, under the stake:
+  *"Today's work is the parallel path flow map — piece 7 of 15 of The Winter
+  Operating Case. 6 pieces are already on the board in System Operations."* It is
+  the answer to "why am I doing today at all", which the fiction gave and the
+  campaign answered with a week number in the HUD.
+
+And the card that closes a day carries the **handover** under the debrief:
+`deliveryGainHTML`. Under it rather than inside it, because the debrief is
+composed from the day's results and this is what the day left behind, which is
+true whichever way the day went.

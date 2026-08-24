@@ -73,15 +73,47 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One entry a day, in the order the town forced them. A placard is a claim
+  // about what an inspection covered, so each entry carries the evidence under
+  // it rather than the colour alone.
+  delivery: {
+    name: 'The Placard Register',
+    what: 'The register the council and the insurers both read: every building, what it may be '
+      + 'used for, and the evidence the placard on its door rests on.',
+    where: 'SAFE',
+    pieces: [
+      'The two-town shaking comparison',
+      'The revised magnitude note',
+      'The placard\'s own wording',
+      'The soft-storey assessment',
+      'The overlooked building\'s entry',
+      'The hospital decision',
+      'The aftershock forecast range',
+      'The tested material strength',
+      'The cordon review',
+      'The resident\'s photograph, filed',
+      'The building that held',
+      'The corrected reference',
+      'The ranked repair order',
+      'The irreversible call',
+      'The evidence grading',
+    ],
+  },
   opening: [
-    'A magnitude 6.8 earthquake hit Kestrel Bay three days ago and the town is still standing, '
-    + 'unevenly. You are the building safety coordinator, which means you decide which buildings '
-    + 'people are allowed back into: green to enter, yellow for restricted use, red for nobody. '
-    + 'Four hundred households are sleeping in halls waiting on those decisions, the hospital has '
-    + 'a yellow placard on its front door, and Rei Tanaka, who forecasts the sequence, will not say '
-    + 'the aftershocks have finished. Upper Town sits '
-    + 'on granite and lost its chimneys. The Flats sit on eighty-year-old fill and lost their '
-    + 'streets.',
+    'A magnitude 6.8 earthquake hit Kestrel Bay three days ago. The town is still standing. It is not '
+    + 'standing evenly. You are the building safety coordinator. You put a card on every door. Green '
+    + 'means go in. Yellow means part of it. Red means nobody. In fifteen days the council and the '
+    + 'insurers read the placard register behind those cards. It lists every building. It says what '
+    + 'each one may be used for. It says what evidence the colour rests on. One building is settled a '
+    + 'day. A card with nothing behind it is worse than no card at all. Four hundred households are '
+    + 'sleeping in halls until the register says they can go home.',
   ],
 
   ending: [

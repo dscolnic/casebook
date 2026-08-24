@@ -41,15 +41,15 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'At four in the morning something swept through both instruments in a fifth of a '
-    + 'second, climbing in pitch, and then stopped. If it is a lorry or a cracked weld '
-    + 'then somebody is about to waste a fortnight. If it is not, two black holes a billion '
-    + 'light years away have just spiralled into each other. Space itself arrived here and '
-    + 'changed the length of a four-kilometre arm by a thousandth of the width of a proton. '
-    + 'Nobody has ever measured that. You are the detector scientist '
-    + 'on shift, which means the noise, the templates and the mass ledger all come '
-    + 'through you. Gabriela González, who reviews candidates, will not call the other '
-    + 'site until you can say what the shape is.',
+    'At four in the morning something went through both instruments at once. It lasted a fifth of a '
+    + 'second. It climbed in pitch, and then it stopped. It could be a lorry on the road. It could be a '
+    + 'crack in a weld in the building. If it is either of those, the whole site loses a fortnight '
+    + 'chasing it. If it is neither, then two black holes have spiralled into each other. That happened '
+    + 'a billion light years away. The wave from it crossed all that space and reached this valley. It '
+    + 'stretched an arm four kilometres long by a thousandth of the width of a proton. Nobody has ever '
+    + 'measured a length change that small. You are the detector scientist on shift. The noise, the '
+    + 'templates and the mass ledger all come through you. Until you can say what that shape is, nobody '
+    + 'calls the second site.',
   ],
 
   ending: [

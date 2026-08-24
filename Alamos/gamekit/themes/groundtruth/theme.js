@@ -73,15 +73,47 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One number a day, in the order the sky allowed. A number whose derivation
+  // is not beside it is what this report exists to stop leaving the site.
+  delivery: {
+    name: 'The Station 12 Season Report',
+    what: 'What the review reads before it grants this place a second mast or a padlock: every '
+      + 'number with the path from the field to the volts still attached to it.',
+    where: 'SHOT',
+    pieces: [
+      'The criterion, written cold',
+      'The layer charge, from Gauss',
+      'The path to the volts',
+      'The tip field calculation',
+      'The cloud capacitance',
+      'The stored energy derivation',
+      'The shared-reference finding',
+      'The field at two metres',
+      'The induced loop voltage',
+      'The earth at a microsecond',
+      'The current path finding',
+      'The prediction, then measured',
+      'The mill\'s time constant',
+      'The last shot chosen',
+      'The defensible record',
+    ],
+  },
   opening: [
     'Station 12 makes lightning on purpose. With a storm overhead the crew fires a rocket '
     + 'trailing an earthed wire, and the strike comes down it past waiting instruments. Last '
-    + 'August a triggered strike killed every circuit board in a trailer two hundred metres '
+    + 'August one of those strikes killed every circuit board in a trailer two hundred metres '
     + 'away, on earthing signed off that spring, and nobody can say how. You are the '
-    + 'measurements lead, so no number reaches the season report unless you can show where it '
-    + 'came from. Adeyinka Vero, the station lead, wants shots while there is sky. Hal Brenner, '
-    + 'the safety officer, wants warning times matching how fast storms cross this flat. Three '
-    + 'weeks are left, and the review at the end gives this place a second mast or a padlock.',
+    + 'measurements lead. Nothing leaves this site unless you can show where the number came '
+    + 'from. In fifteen days the review reads the Station 12 season report and gives this '
+    + 'place a second mast or a padlock. One number goes in a day, with the working that '
+    + 'turns what the instrument saw into what is claimed.',
   ],
 
   // The last thing anybody reads.

@@ -498,15 +498,15 @@ missions:
     objective: Establish what the prediction is made of, and what the barrage does with it.
     briefing: Twelve working days to the equinoctial springs, and the gate programme has not been written.
     stake: >-
-      Monday, and the springs are twelve working days out. Sarn Barrage holds a impoundment of four
-      hundred hectares behind six gates, and the programme that says when each one moves is
-      written from a predicted tide rather than from a measured one. Idris Calloway, the chief
-      tidal analyst, fitted the constants for this station and reads the board every morning.
-      Renate Oyelaran, the barrage master, has closed against a prediction once in nine years
-      and remembers it. Today you take the prediction apart into the terms it is made of, work
-      out what the head across the gates will be at the top of the afternoon, and find out what a
-      drifting float can and cannot tell you. A gate programme built on a number nobody can
-      defend is a licence review nobody can defend either.
+      Monday. The springs are twelve working days out. Sarn Barrage holds four hundred hectares
+      of water behind six gates. A programme says when each gate moves. It is written from a
+      predicted tide, not a measured one. Idris Calloway, the chief tidal analyst, fitted the
+      constants for this station. He reads the board every morning. Renate Oyelaran, the barrage
+      master, has closed the gates against a prediction once in nine years. She remembers it.
+      Today you take the prediction apart into the terms it is made of. You work out the head
+      across the gates at the top of the afternoon. Then you find out what a drifting float can
+      and cannot tell you. A gate programme built on a number nobody can defend cannot be
+      defended at the licence review either.
     takeaway: A predicted tide is a sum of terms, and every question about it is a question about the terms.
     stops:
       - group: PRED
@@ -751,15 +751,15 @@ missions:
     objective: Get speed and heading out of a record that contains neither.
     briefing: Float 7 is still out, and eleven days of fixes have never been reduced.
     stake: >-
-      Tuesday, and float 7 has been in the water eleven days. Sunniva Palmer, the hydrographic
-      surveyor, has its fixes in two columns and wants them turned into the numbers the sediment
-      work needs. Dr. Halina Vos, the currents scientist, has four meters on the barrage face
-      reporting speed and bearing every ten minutes, which is the same information written the
-      other way round, and the two records have never been compared. Today you get the float's
-      speed at a stated hour, work out the heading of its track where it passes the meters, and
-      settle what the office can safely say from eight constituents rather than thirty-seven. If
-      the float and the meters disagree, the sediment budget in the licence report rests on
-      whichever one somebody preferred.
+      Tuesday. Float 7 has been in the water for eleven days. Sunniva Palmer, the hydrographic
+      surveyor, has its fixes written out in two columns. She wants them turned into the numbers
+      the sediment work needs. Dr. Halina Vos, the currents scientist, has four meters on the
+      barrage face. They report speed and bearing every ten minutes. That is the same
+      information, written the other way round. Nobody has ever compared the two records. Today
+      you get the float's speed at a stated hour. You work out the heading of its track where it
+      passes the meters. Then you settle what the office can safely say from eight constituents
+      rather than thirty-seven. If the float and the meters disagree, the sediment budget in the
+      licence report rests on whichever record somebody preferred.
     takeaway: A record of positions against time holds the speed and the heading, but neither is written in it.
     stops:
       - group: TRACK
@@ -1008,14 +1008,15 @@ missions:
     objective: Separate the length of a path from the gap between its ends.
     briefing: The sediment budget needs the distance float 7 travelled, not the distance it ended up.
     stake: >-
-      Wednesday, and the sediment budget for the licence report is due at the end of next week.
-      Nkechi Ude, the estuary ecologist, needs to know how much water a particle of mud actually
-      rides through in a fortnight, and the only measurement of that in this building is float 7.
-      Palmer has a smooth curve fitted through the first two hours of its track, which is the part
-      that was surveyed from the launch and is trustworthy. Today you get the length of that
-      fitted path, work out how far the float finished from where it started, and settle with
-      Tomas Beke, the sluice engineer, what happens to a rate while you are using it. Two of those
-      numbers differ by a factor of thirteen, and only one of them is the transport distance.
+      Wednesday. The sediment budget for the licence report is due at the end of next week.
+      Nkechi Ude, the estuary ecologist, needs one number. How much water does a particle of mud
+      ride through in a fortnight? The only measurement of that in this building is float 7.
+      Palmer has fitted a smooth curve through the first two hours of its track. That is the
+      part surveyed from the launch, so it can be trusted. Today you get the length of that
+      fitted path. You work out how far the float finished from where it started. Then you
+      settle with Tomas Beke, the sluice engineer, what happens to a rate while you are using
+      it. Two of those numbers differ by a factor of thirteen. Only one of them is the transport
+      distance.
     takeaway: Length is accumulated along a path; displacement only looks at the two ends.
     stops:
       - group: TRACK
@@ -1265,14 +1266,15 @@ missions:
     objective: Put a ceiling on what twenty-nine dropped constituents can do, and compare it with waiting.
     briefing: Calloway wants the gate call made on the board; Oyelaran wants it made on the gauge.
     stake: >-
-      Thursday, and the argument that runs this barrage arrives at a number for the first time.
-      Calloway holds that the board can be acted on because what it leaves out can be bounded.
-      Oyelaran holds that the gates close on the gauge, and that a prediction is somebody's opinion
-      about water that has not arrived. Achterberg has the twenty-nine dropped amplitudes on the
-      wall and nobody has ever added them up. Today you put a ceiling on the whole dropped tail,
-      work out what the level does while a gauge is being waited for, and ask Pieter Loots, the
-      instrument technician, what a meter's reading actually is. Whichever way the eastern gate is
-      programmed on day thirteen, it will be defended with one of those two numbers.
+      Thursday. The argument that runs this barrage reaches a number for the first time.
+      Calloway holds that the board can be acted on. What it leaves out can be bounded, he says.
+      Oyelaran holds that the gates close on the gauge. A prediction, to her, is somebody's
+      opinion about water that has not arrived. Achterberg has the twenty-nine dropped
+      amplitudes pinned on the wall. Nobody has ever added them up. Today you put a ceiling on
+      the whole dropped tail. You work out what the level does while a gauge is being waited
+      for. Then you ask Pieter Loots, the instrument technician, what a meter's reading actually
+      is. The eastern gate is programmed on day thirteen. Whichever way it goes, it will be
+      defended with one of those two numbers.
     takeaway: A bound on what a sum left out is a number, and it can be compared with the cost of waiting.
     stops:
       - group: PRED
@@ -1514,14 +1516,14 @@ missions:
     objective: Get a number out of a figure that has no axes.
     briefing: The sediment work needs the ebb and the flood compared, and they are drawn as roses.
     stake: >-
-      Friday, and the sediment section of the licence report is the part that has been rewritten
-      twice. Vos has a fortnight of meter records plotted as two roses, one for the ebb and one for
-      the flood, and Ude needs them compared as quantities rather than looked at. Nobody in the
-      building has ever taken a number off one of these figures. Today you get the area enclosed by
-      the ebb rose, compare it with the flood rose, and go out to the wall to hear from Jonas Fell,
-      the wall keeper, what the gauge at the head does after the gates have turned. The asymmetry
-      between those two roses is the whole reason the eastern flats are building up and the western
-      ones are not.
+      Friday. The sediment section of the licence report has been rewritten twice already. Vos
+      has a fortnight of meter records plotted as two roses. One is for the ebb and one is for
+      the flood. Ude needs them compared as quantities, not just looked at. Nobody in the
+      building has ever taken a number off one of these figures. Today you get the area enclosed
+      by the ebb rose. You compare it with the flood rose. Then you go out to the wall to hear
+      from Jonas Fell, the wall keeper, what the gauge at the head does after the gates have
+      turned. The asymmetry between those two roses is the whole reason the eastern flats are
+      building up and the western ones are not.
     takeaway: A curve given as a reach at each bearing encloses an area, and the area is a comparable number.
     stops:
       - group: ROSE
@@ -1777,14 +1779,14 @@ missions:
     objective: Add up a chain of reflections, and say when such a chain has a total at all.
     briefing: The wall head reads higher than the first arrival, on every spring tide.
     stake: >-
-      Monday, and the wall has not been surveyed since the eastern gate was re-gated last March.
-      Marta Grieve, the structures and resonance engineer, has a fortnight of gauge records from the
-      head and a first arrival of 0.34 metres on each of them, against a reading at the head that
-      goes to nearly nine tenths of a metre. She is working the returned fraction out of the records
-      rather than out of the wall. Today you add the chain of returns up, settle what a shrinking
-      term does and does not prove about a sum, and ask Palmer what one float is evidence of. The
-      armour on the last forty metres of that wall was placed for a design wave, and the design wave
-      was the first arrival.
+      Monday. The wall has not been surveyed since the eastern gate was re-gated last March.
+      Marta Grieve, the structures and resonance engineer, has a fortnight of gauge records from
+      the head. Each one shows a first arrival of 0.34 metres. The reading at the head goes to
+      nearly nine tenths of a metre. Grieve is working the returned fraction out of the records
+      rather than out of the wall. Today you add the chain of returns up. You settle what a
+      shrinking term does and does not prove about a sum. Then you ask Palmer what one float is
+      evidence of. The armour on the last forty metres of that wall was placed for a design
+      wave. The design wave was the first arrival.
     takeaway: A chain of returns each a fixed fraction of the last has a finite total, and the total is not the first term.
     stops:
       - group: WALL
@@ -2014,13 +2016,14 @@ missions:
     briefing: Beke wants a filling time he can defend, and a reason for half an hour rather than ten minutes.
     stake: >-
       Tuesday, six working days to the springs. Beke has to publish the gate programme for day
-      thirteen and every row of it rests on how long the impoundment takes to come up through a part-open
-      gate. The flow depends on the head, and the head closes while the water is passing, so the
-      rate falls throughout — which is why nobody in this building has ever written the filling time
-      down. Calloway's office is stepping the surge forecast forward at half-hour intervals for the
-      same programme. Today you solve the filling equation properly, take one step of the surge
-      model by hand, and ask Nkechi Ude what the impoundment actually exchanges. A gate programme built on
-      a filling time that is twenty per cent wrong closes the eastern gate in the wrong half hour.
+      thirteen. Every row of it rests on one thing. How long does the impoundment, the held
+      water behind the gates, take to come up through a part-open gate? The flow depends on the
+      head. The head closes while the water is passing. So the rate falls the whole time. That
+      is why nobody here has ever written the filling time down. Calloway's office is stepping
+      the surge forecast forward in half-hour steps for the same programme. Today you solve the
+      filling equation properly. You take one step of the surge model by hand. Then you ask
+      Nkechi Ude what the impoundment actually exchanges. A filling time that is twenty per cent
+      wrong closes the eastern gate in the wrong half hour.
     takeaway: A rate that depends on what it has already done has to be solved, not multiplied.
     stops:
       - group: SLUICE
@@ -2268,14 +2271,14 @@ missions:
     objective: Decide when the far end of a long process is worth a number.
     briefing: The nutrient claim in the licence report is an integral to infinity, and nobody has taken it.
     stake: >-
-      Wednesday, and the nutrient section of the report needs one number: the total exposure of the
-      flats to a discharge that decays away over many tides. Ude can measure the first four or five
-      tides directly and the rest is a tail. Achterberg has been asked to say which tails have a
-      total at all, because two of the models in circulation do not. Today you take the exposure
-      integral out to infinity, sort four tails into those with a total and those without, and hear
-      from Grieve why the armour count on the wall is the same question. A tail that has no total is
-      a model that says the flats are exposed to an unlimited amount, which is the sort of sentence
-      a licence review notices.
+      Wednesday. The nutrient section of the report needs one number. It is the total exposure
+      of the flats to a discharge that decays away over many tides. Ude can measure the first
+      four or five tides directly. The rest is a tail. Achterberg has been asked which tails
+      have a total at all. Two of the models in circulation do not. Today you take the exposure
+      integral out to infinity. You sort four tails into those with a total and those without.
+      Then you hear from Grieve why the armour count on the wall is the same question. A tail
+      with no total is a model saying the flats are exposed to an unlimited amount. That is the
+      sort of sentence a licence review notices.
     takeaway: An integral or a sum that runs for ever may still be a finite number, and which it is has to be shown.
     stops:
       - group: FLATS
@@ -2510,14 +2513,15 @@ missions:
     objective: Find out where the extra term in the record comes from, and whether the fit has absorbed it.
     briefing: The eight-constituent fit leaves something behind, and it is not the same at every station.
     stake: >-
-      Thursday, and three working days to the springs. The office has been treating what the fit
-      leaves over as noise for nine years. Achterberg has plotted it against station and it is
-      positive at every seaward gauge and negative at every one up the estuary, which is not what
-      noise looks like. Calloway thinks the discharge law itself generates an extra term in shallow
-      water. Today you expand the discharge law about mean head and see what the second-order term
-      turns into, choose which of three fits should be carried into the springs prediction, and
-      settle the order Beke's gate programme has to be built in. If the extra term is real, the
-      board has been quietly wrong at the same stations in the same direction since commissioning.
+      Thursday, three working days to the springs. For nine years this office has treated what
+      the fit leaves over as noise. Achterberg has now plotted it against station. It is
+      positive at every seaward gauge and negative at every gauge up the estuary. Noise does not
+      look like that. Calloway thinks the discharge law itself makes an extra term in shallow
+      water. Today you expand the discharge law about mean head. You see what the second-order
+      term turns into. You choose which of three fits should be carried into the springs
+      prediction. Then you settle the order Beke's gate programme has to be built in. If the
+      extra term is real, the board has been quietly wrong since the barrage was commissioned.
+      Wrong at the same stations, in the same direction, every time.
     takeaway: A residual with a pattern in it is a term the model does not contain, not scatter.
     stops:
       - group: PRED
@@ -2784,14 +2788,14 @@ missions:
     objective: Bound what the expansion left out, and find out what neither bound covers.
     briefing: The surge forecast has arrived, and it is not in the constituent list.
     stake: >-
-      Friday, and the surge forecast for day thirteen came in overnight: half a metre of wind-driven
-      water on top of the largest range of the year. Calloway's bound on the dropped constituents is
-      0.19 metres and his expansion of the discharge law now needs a bound of its own. Oyelaran has
-      read both and wants to know which of them says anything at all about the surge. Today you bound
-      the error of the second-order expansion, settle what the tail bound does and does not cover,
-      and ask Vos what her meters say about how fast a current changes. This is the day the argument
-      that has run all fortnight comes out on Oyelaran's side, and it does so without anything
-      Calloway wrote being wrong.
+      Friday. The surge forecast for day thirteen came in overnight. It is half a metre of
+      wind-driven water on top of the largest range of the year. Calloway's bound on the dropped
+      constituents is 0.19 metres. His expansion of the discharge law now needs a bound of its
+      own. Oyelaran has read both. She wants to know which of them says anything at all about
+      the surge. Today you bound the error of the second-order expansion. You settle what the
+      tail bound does and does not cover. Then you ask Vos what her meters say about how fast a
+      current changes. This is the day the fortnight's argument comes out on Oyelaran's side. It
+      does so without anything Calloway wrote being wrong.
     takeaway: A bound covers what the model it came from contains, and a surge is not in the model.
     stops:
       - group: PRED
@@ -3019,13 +3023,14 @@ missions:
     objective: Get a moment and a growth law out of integrals that need a technique each.
     briefing: The generation report wants when the water went, and the silt model will not integrate as it stands.
     stake: >-
-      Monday, and two working days to the springs. The generation section of the licence report asks
-      for something the office has always fudged: not how much water was released on an ebb but when
-      in the ebb it went, which is an integral with a time inside it. Ude has the opposite problem —
-      her silt model is a growth law that slows as the flats fill, and it will not integrate until it
-      is split into pieces. Achterberg has been refining the springs prediction term by term and
-      wants to know when to stop. Today you take the flow-weighted mean time of a release, settle
-      what splitting a fraction buys, and put a bracket round a refinement.
+      Monday, two working days to the springs. The generation section of the licence report asks
+      for something this office has always fudged. Not how much water was released on an ebb.
+      When in the ebb it went. That is an integral with a time inside it. Ude has the opposite
+      problem. Her silt model is a growth law that slows as the flats fill. It will not
+      integrate until it is split into pieces. Achterberg has been refining the springs
+      prediction term by term. He wants to know when to stop. Today you take the flow-weighted
+      mean time of a release. You settle what splitting a fraction buys. Then you put a bracket
+      round a refinement. Two days from now the gates move on these numbers.
     takeaway: An integral that will not come out is usually an integral that has not been rearranged yet.
     stops:
       - group: SLUICE
@@ -3250,14 +3255,14 @@ missions:
     objective: Show the expansion is legitimate at the springs, and decide what the barrage closes on.
     briefing: The programme for day thirteen is signed this afternoon, with a surge on top of the largest range of the year.
     stake: >-
-      Tuesday, and the springs are tomorrow. The prediction has the shallow-water term in it now and
-      the surge forecast is holding at half a metre. Oyelaran will sign a gate programme this
-      afternoon and Calloway will sign the prediction it rests on; the two signatures have been in
-      tension for a fortnight and both are needed. Grieve has a hundred points of survey money left
-      and four things she could spend it on. Today you show that the expansion is still legitimate
-      when the head moves as far as it will tomorrow, spend what is left of the survey budget, and
-      settle with the barrage master what the eastern gate closes on. Four hundred hectares and the
-      marsh graziers' stock are behind that decision.
+      Tuesday. The springs arrive tomorrow. The prediction has the shallow-water term in it now.
+      The surge forecast is holding at half a metre. Oyelaran will sign a gate programme this
+      afternoon. Calloway will sign the prediction it rests on. Those two signatures have been
+      in tension for a fortnight, and both are needed. Grieve has a hundred points of survey
+      money left and four things she could spend it on. Today you show that the expansion still
+      holds when the head moves as far as it will tomorrow. You spend what is left of the survey
+      budget. Then you settle with the barrage master what the eastern gate closes on. Four
+      hundred hectares of marsh are behind that call. So is the graziers' stock.
     takeaway: A prediction, a bound and a measurement are three different things, and a decision has to say which one it rests on.
     stops:
       - group: PRED

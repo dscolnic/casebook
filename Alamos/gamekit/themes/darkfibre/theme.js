@@ -73,15 +73,44 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One measurement a day, in the order the cable gave them up. Twelve days,
+  // so twelve pieces: the correction from fibre length to route position is
+  // made late and moves the only number the ship actually uses.
+  delivery: {
+    name: 'The Repair Chart',
+    what: 'What the ship digs on: a position along the route rather than along the glass, and '
+      + 'the one cause the loss budget closes against when the others will not.',
+    where: 'TEST',
+    pieces: [
+      'The launch conditions',
+      'The delay turned to distance',
+      'The reflection at the step',
+      'The loss budget\'s margin',
+      'The photon\'s energy',
+      'The detector\'s responsivity',
+      'The steel\'s halving thickness',
+      'The quarter-wave coating',
+      'The source\'s decay schedule',
+      'The corrected position',
+      'The pump\'s gain ceiling',
+      'The chart the ship digs on',
+    ],
+  },
   opening: [
-    'An undersea cable runs out from Pellow Head, and nineteen days ago the light coming back '
-    + 'dropped away. Something out there is broken, and everything has gone the long way round '
-    + 'since. A repair ship is on charter from the thirteenth at forty thousand a day, and it '
-    + 'digs where this station says. You are the optical measurements lead, so no position goes '
-    + 'on that chart unless you can show how it was worked out. Ines Sarraf, the chief '
-    + 'transmission engineer, has a trace putting the fault to within a few metres. Gerald '
-    + 'Okonkwo, the station chief, laid this cable with slack coiled into it, and says the '
-    + 'instrument measures along the glass while the ship searches the seabed.',
+    'Nineteen days ago the light stopped coming back. The undersea cable at Pellow Head went dark. '
+    + 'Every call and message on it now goes the long way round. A repair ship is on charter from the '
+    + 'thirteenth. It costs forty thousand a day. You are the optical measurements lead here. The ship '
+    + 'digs where this station tells it to dig. In twelve days you hand over the repair chart. The '
+    + 'chart says how far out the fault is. It says where that lands on the seabed, not along the '
+    + 'glass. It says what broke. One measurement goes on it each day. The ship gets one crossing. '
+    + 'Forty thousand a day is spent digging wherever the chart points.',
   ],
 
   // How it ends. The last thing anybody reads, and the counterpart of `opening`:

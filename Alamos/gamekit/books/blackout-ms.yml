@@ -525,7 +525,7 @@ missions:
   - title: What the line can carry
     objective: Decide which circuit takes the flow once one path is gone.
     briefing: With the unit off, the flow has redistributed and one corridor is running warm.
-    stake: "Wednesday. The replacement power is coming from the wrong side of the system, so it arrives down two lines instead of three. Piotr Novak, the protection engineer, has a line above its steady limit. A relay will take the decision away from the room in about forty minutes if nobody else does. Thabo Dube, the substation technician, is in the yard waiting to be told what to switch. Today you rate the line honestly, and work out where the flow goes if it trips."
+    stake: "Wednesday. The replacement power is coming from the wrong side of the system. It arrives down two lines instead of three. Piotr Novak, the protection engineer, has a line carrying more than its steady limit. In about forty minutes a relay will trip that line on its own. Thabo Dube, the substation technician, waits in the yard to be told what to switch. Today you rate the line honestly, and work out where the flow goes if it trips."
     takeaway: A rating is a time and a temperature, not a wall, and what matters is where the flow goes next.
     stops:
       - group: TRANS
@@ -1094,7 +1094,7 @@ missions:
   - title: Enough in the tank
     objective: Decide what the system is holding back, and whether it is enough.
     briefing: Tomorrow's peak is colder than the forecast the reserve was set against.
-    stake: "Monday. The forecast for tomorrow's evening peak has moved four degrees colder. Sten Lindgren says the middle has hardly changed, but the width has, and the width is what the reserve must cover. Rafael Alvarez, the demand analyst, has weekend storage figures that are worse than the brochure. Today you work out what the battery will really give back, and decide what is worth finding out before the peak. Hold too little back and Thursday happens again."
+    stake: "Monday. The forecast for tomorrow's evening peak has moved four degrees colder. Sten Lindgren says the middle of the forecast has hardly changed. What changed is the spread around it. The reserve has to cover that spread. Rafael Alvarez, the demand analyst, has weekend storage figures worse than the brochure promised. Today you work out what the battery will really give back. Hold back too little and Thursday happens again, with families in the cold."
     takeaway: A reserve is bought with something, and the argument is always about how much uncertainty it has to cover.
     stops:
       - group: LOAD
@@ -1257,7 +1257,7 @@ missions:
   - title: 80 milliseconds
     objective: Establish what a fault does before anybody can respond to it.
     briefing: A cable failed at the substation and the protection cleared it before the alarm reached the room.
-    stake: "Wednesday. A cable failed inside the substation at twenty to two. The protection cleared it in under a tenth of a second, so nobody in the control room saw the fault — only the aftermath. Piotr Novak wants the fault current worked out before he signs the switchgear back into service. Ewa Kowalczyk, the field crew lead, has a crew at the gate. Today you size the fault, and decide who may go near it."
+    stake: "Wednesday. A cable failed inside the substation at twenty to two. The protection cleared it in under a tenth of a second. Nobody in the control room saw the fault, only the aftermath. Piotr Novak wants the fault current worked out before he signs the switchgear back into service. Ewa Kowalczyk, the field crew lead, has a crew at the gate. Today you size the fault, and decide who may go near it."
     takeaway: A fault is limited only by impedance, which is why the numbers are enormous and the times are tiny.
     stops:
       - group: TRANS
@@ -1410,7 +1410,7 @@ missions:
   - title: Merit order
     objective: Decide what runs tomorrow, and what is held back for the day it is needed.
     briefing: The cheapest generation is on the ridge and it will not say what it is doing after four.
-    stake: "Thursday. Tomorrow has to be bought tonight. Sten Lindgren has a peak that moves with the temperature and a width he will not narrow. Mina Sarraf, the wind fleet controller, has a ridge that will produce almost nothing for money and cannot promise any of it. Nadia Haddad has expensive machines that do exactly as they are told. Today you forecast the peak, and decide what cheapest-first really means when the cheapest plant is the least certain."
+    stake: "Thursday. Tomorrow's power has to be bought tonight. Sten Lindgren has a peak that moves with the temperature. He will not narrow the spread around it. Mina Sarraf, the wind fleet controller, has a ridge of turbines that costs almost nothing to run. She cannot promise a single megawatt of it. Nadia Haddad has costly machines that do exactly as they are told. Today you decide what cheapest first means when the cheapest plant is the least sure."
     takeaway: Dispatch orders plant by cost, and the value of certainty is what stops that being the whole story.
     stops:
       - group: LOAD
@@ -1786,7 +1786,7 @@ missions:
   - title: Three things at once
     objective: Rank three simultaneous problems, and hold the reasoning while they interfere.
     briefing: A fault, a forecast miss and a plant coming off at the same hour, and one room.
-    stake: "Thursday, twenty to five, and three things arrive together. A cable fault has taken a feeder with three thousand three hundred households on it. Ravi Lindgren's forecast is running two hundred megawatts under, and climbing. And the gas machine that has carried the peak all week must come off at six. Dolores Reyes has one crew and about eighty minutes. Today you decide what gets attention first. None of these is new; all three at once is."
+    stake: "Thursday, twenty to five, and three things arrive together. A cable fault has taken a feeder with three thousand three hundred households on it. Sten Lindgren's forecast is running two hundred megawatts under, and climbing. And the gas machine that has carried the peak all week must come off at six. Dolores Reyes has one crew and about eighty minutes. Today you decide what gets attention first. None of these is new. All three at once is."
     takeaway: Ranking is not about which problem is worst but about which one gets worse fastest and which one is cheapest to remove.
     stops:
       - group: OPS
@@ -1957,7 +1957,7 @@ missions:
   - title: What we know, and how well
     objective: Say how strongly each of the fortnight's claims is held, and what outlives the emergency.
     briefing: The event report has to state what is established, what is inferred and what is still a guess.
-    stake: "Friday. The fortnight goes into a report, and Dolores Reyes will not sign one that states everything at the same confidence. A reader who cannot tell a measurement from a guess will act on both the same way. June Farrow has the evidence file. Ravi Lindgren wants his forecast written as a range. Today you sort the fortnight's claims by how well each is known, and decide what becomes permanent practice."
+    stake: "Friday. The fortnight goes into a report, and Dolores Reyes will not sign one that states everything at the same confidence. A reader who cannot tell a measurement from a guess will act on both the same way. June Farrow has the evidence file. Lindgren wants his forecast written as a range. Today you sort the fortnight's claims by how well each is known, and decide what becomes permanent practice."
     takeaway: A finding is worth what its evidence is worth, and saying so is what makes a report usable a year later.
     stops:
       - group: METER

@@ -44,16 +44,14 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'Sixty-six people in one court are dead or dying, and the houses fifty yards off are '
-    + 'almost untouched. Everybody has an explanation. The smell, the weather, the '
-    + 'character of the poor, and something passing from person to person are all being '
-    + 'argued in the same room. If a specific thing is reaching specific people by a route '
-    + 'somebody can name, then closing the route would stop it and the whole of medicine '
-    + 'changes. If it is the air, nothing anybody does here will matter. You are the '
-    + 'investigator, which means the map, the ward counts and the laboratory all report to '
-    + 'you. Henry Whitehead, who keeps the district returns, has the addresses and does not '
-    + 'believe the water has anything to do with it. The vestry votes on Friday, and forty '
-    + 'households are on that one pump.',
+    'Sixty-six people in one court are dead or dying. The houses fifty yards away are almost '
+    + 'untouched. Everybody has an answer. Some blame the smell. Some blame the weather. Some blame the '
+    + 'poor themselves. Others think the illness passes from one person to the next. If one thing is '
+    + 'reaching these people by a route somebody can name, then blocking that route would stop it. That '
+    + 'would change how doctors work everywhere. If it is the bad air, nothing done in this court will '
+    + 'help. You are the investigator here. The street map, the ward counts and the lab all report to '
+    + 'you. The vestry votes on Friday about the pump handle. Forty households draw their water from '
+    + 'that one pump.',
   ],
 
   ending: [

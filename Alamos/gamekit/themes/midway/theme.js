@@ -77,15 +77,48 @@ export default {
   // second paragraph here and in every game, and it was the part nobody read:
   // four sentences of mechanics standing between the player and the game, all
   // of it discoverable in the first minute of play or from the plan card.
+  // ---------------------------------------------------------- the delivery
+  //
+  // What the fortnight produces, and the one room the parts of it are kept in.
+  // The opening card names it, the plan card says which piece today is, the card
+  // that closes a day hands that piece over, and the board in the room named by
+  // `where` is where all of them can be seen at once — engine/core/delivery.js.
+  //
+  // One ride's working a day, in the order the park forced them. Eleven
+  // notebooks of settings with no working anywhere is what this replaces, so
+  // every entry carries its derivation rather than its number.
+  delivery: {
+    name: 'The Corbin Park Certificate',
+    what: 'The one document the county signs before seven rides open: every limit with the '
+      + 'working behind it, and everything the signature does not cover written down too.',
+    where: 'TOWER',
+    pieces: [
+      'The first ride\'s working, written',
+      'The brake energy figure',
+      'The friction loss per lap',
+      'The swing speed limit',
+      'The seat and ram loads',
+      'The bumper collision limits',
+      'The pendulum period, from g',
+      'The cracked arm assessment',
+      'The regraded loop\'s speed',
+      'The re-checked drop margin',
+      'The flume\'s closed books',
+      'The hot-Saturday limit',
+      'The ranked crew order',
+      'The signature\'s scope',
+      'The conditions written down',
+    ],
+  },
   opening: [
-    'Corbin Park is an amusement park, and in October the county took away its certificate to '
-    + 'open. The season starts in three weeks. Seven rides have to earn it back: a coaster, a '
-    + 'wheel, a drop tower, a pirate ship, a carousel, a bumper floor and a log flume. The '
-    + 'signature on all seven is yours. You are the ride engineer, hired in February, and what '
-    + 'you inherited is eleven notebooks of settings and timings, forty-one years of them, with '
-    + 'not one line of working anywhere. Delia Marsh, who owns the park, says eleven million '
-    + 'people have ridden on those numbers unhurt. Marcus Vey, who inspects for the county, '
-    + 'calls that a record of having got away with it.',
+    'Corbin Park lost its certificate to open in October. The season starts in three weeks. Seven '
+    + 'rides have to earn that certificate back. You are the ride engineer. The signature on all seven '
+    + 'is yours. What you inherited is eleven notebooks of settings and timings. Not one line of '
+    + 'working is written in any of them. In fifteen days the county signs the Corbin Park certificate, '
+    + 'or it does not. It has to carry every limit each ride runs to. It has to show the working that '
+    + 'gets you to each limit. It has to say plainly what the signature does not cover. One ride\'s '
+    + 'working is written a day. Eleven million people have ridden on those old numbers. Nobody will '
+    + 'take them on trust again.',
   ],
 
   // The last thing anybody reads: what happened, what it cost and what is left over.

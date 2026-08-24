@@ -44,15 +44,15 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'Cross a yellow-seeded pea with a green-seeded one and every seed comes out yellow, as '
-    + 'though the green had been rubbed out. Sow those and a quarter of the next generation '
-    + 'is green again. Something is being carried through a plant that does not show it, and '
-    + 'nobody can say what that something is or how many of them there are. If the counts '
-    + 'follow a rule, inheritance is arithmetic and can be predicted. If they wander, it is '
-    + 'a blending nobody will ever get a grip on. You are the experimental assistant, which '
-    + 'means the crossing, the tally and the seed lines all come through you. Gregor Mendel, '
-    + 'who lays out the trials, has one season and two hundred and fifty beds, and he will '
-    + 'not sow a single one until the trait is settled.',
+    'Cross a yellow-seeded pea plant with a green-seeded one. Every seed of that cross comes out '
+    + 'yellow. The green looks rubbed out. Now sow those yellow seeds and wait. A quarter of the plants '
+    + 'that come up are green again. So something green was carried through a plant that never showed '
+    + 'it. Nobody can say what that something is. Nobody can say how many of them one plant holds. If '
+    + 'the counts follow a rule, inheritance is arithmetic and can be predicted. If the counts wander, '
+    + 'it is a blending nobody will ever get a grip on. You are the experimental assistant. The '
+    + 'crossing, the tally and the seed lines all come through you. Gregor Mendel, who lays out the '
+    + 'trials, is waiting on the first choice. He has one season and two hundred and fifty beds, and he '
+    + 'will not sow one of them until the trait is settled.',
   ],
 
   ending: [

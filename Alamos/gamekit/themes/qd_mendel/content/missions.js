@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "Crosses you can read",
     "objective": "Choose a countable trait, protect the parentage, and see what a uniform first generation does and does not say.",
     "briefing": "Mendel wants the trait settled before a single bed is sown.",
-    "stake": "Monday, and nothing is in the ground yet. Gregor Mendel, who lays out the trials, has two hundred and fifty beds and one season, and he will not sow until the trait is chosen. František Klácel, the garden master, has the glasshouse ready and a box of muslin bags, because six skeps of bees stand forty yards away and a bee ruins an experiment quietly. Terezie Fischer, the garden assistant, will open several hundred flowers by hand before any of them open themselves. Today you choose what the season measures, work out what each precaution actually protects, and read the first generation when it comes up.",
+    "stake": "Monday, and nothing is in the ground yet. Gregor Mendel, who lays out the trials, has one season and two hundred and fifty beds. He will not sow until the trait is chosen. František Klácel, the garden master, has the glasshouse ready. He has set out a box of muslin bags as well. Six skeps of bees stand forty yards from the beds. A bee ruins an experiment quietly, and nobody sees it happen. Terezie Fischer, the garden assistant, will open several hundred pea flowers by hand. She has to reach each one before it opens itself. Today you choose what the season measures. Choose badly and the autumn tally settles nothing at all.",
     "takeaway": "An experiment is made readable before it is run, not afterwards.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "What a count is allowed to mean",
     "objective": "Compare a tally against a model, work out what two plants together imply, and say how much a sample is worth.",
     "briefing": "Nägeli will accept an arithmetic he can check and nothing else.",
-    "stake": "Autumn, four months after the beds were sown, and the trays are in from the second generation. Carl Nägeli, the visiting botanist, has read the tallies and says a ratio in peas is a fact about peas. Gregor Mendel wants the expected count written down before the observed one is defended. Josef Brandl, the seed clerk, has drawn a sample from a bin and put the sample size in the ledger beside it, which is the column nobody else fills in. Today you turn a model into a number, work out what two plants picked together imply, and say how sure a handful of seed lets you be.",
+    "stake": "Autumn, four months after the beds were sown. The trays are in from the second generation. Carl Nägeli, the visiting botanist, has read the tallies already. He says a ratio in peas is a fact about peas and nothing more. Gregor Mendel wants the expected count written on the board first. A number written after the tray is opened tests nothing. Josef Brandl, the seed clerk, has drawn a sample of seed from a bin. He wrote the size of that sample in the ledger beside it. That is the column nobody else bothers to fill in. Today you turn the model into a count the tray can be set against.",
     "takeaway": "A ratio is a prediction about large numbers, and a sample is worth what its size makes it worth.",
     "stops": [
       {
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "The rules underneath",
     "objective": "Measure what a single plant passes on, put two traits together, and use a cross to read a genotype off the offspring.",
     "briefing": "Mendel wants the rule stated in a form the next garden can test.",
-    "stake": "Spring, a year on, and the garden has a ratio and no mechanism. Gregor Mendel wants the rule written as something another garden could check: what one plant passes on, what happens when two traits are followed at once, and how to find out what a plant is carrying without waiting for its grandchildren. Carl Nägeli, the visiting botanist, still holds that peas are a special case. Cyrill Napp, the abbot, has asked twice what the ratios are for. Today you commit a prediction about pollen and then measure it, say what two traits together should give, and read a hidden copy off a hundred seeds.",
+    "stake": "Spring, a year on, and the garden has a ratio and no mechanism. Gregor Mendel wants the rule written down in a form another garden could check. That means saying what a single plant passes on. It also means saying it before anybody counts a thing. Carl Nägeli still holds that peas are a special case. Cyrill Napp, the abbot, has asked twice what the ratios are for. He has paid for the beds and protected the work for years. Today you write down what this plant's pollen should carry, and then go and measure it. Guess after the count and you have measured nothing.",
     "takeaway": "A rule earns its keep by predicting a count somebody else can go and take.",
     "stops": [
       {

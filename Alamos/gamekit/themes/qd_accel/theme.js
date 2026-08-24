@@ -64,15 +64,14 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'Forty-two exploding stars have come back fainter than they are allowed to be. Fainter '
-    + 'means further away, and further away than a universe made of matter can put them, '
-    + 'because matter pulls and a universe of matter has to be slowing down. If the '
-    + 'measurement holds, something nobody has ever detected is pushing the universe apart '
-    + 'faster and faster. If it does not hold, it is dust, or a calibration error, or a '
-    + 'ruler somebody built wrong. You are the analyst on the team, which means the ruler is '
-    + 'yours to build and yours to defend. Brian Schmidt, who runs the programme, unseals the '
-    + 'sample on Wednesday, and three days later somebody has to stand up and say which of '
-    + 'those it was.',
+    'Forty-two exploding stars have come back too faint. A star that looks fainter is further away. '
+    + 'These look further away than they should be. A universe made of matter can only slow down, '
+    + 'because matter pulls on matter. So the distant stars should not be that far out. If the '
+    + 'measurement holds, something nobody has ever found is pushing the universe apart. Not just '
+    + 'apart. Faster and faster. If it does not hold, the answer is dust, or a bad calibration, or a '
+    + 'ruler somebody built wrong. You are the analyst on the team. The ruler is yours to build and '
+    + 'yours to defend. The sealed sample opens on Wednesday. Three days after that, somebody has to '
+    + 'stand up and say which of those it was.',
   ],
 
   ending: [

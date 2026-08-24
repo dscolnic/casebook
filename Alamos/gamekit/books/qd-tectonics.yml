@@ -243,13 +243,15 @@ missions:
     objective: Get everything the land can give, and stop where it stops.
     briefing: Tharp has the map wall clear and the ocean-floor file is still locked.
     stake: >-
-      Monday, and the second wall is locked. Marie Tharp, the map room curator, has thirty
-      feet of continents cut out of board and hung on pins, and Tesfaye Bekele, the
-      palaeontologist, has brought his fossil cards down. Everything available today was
-      collected on land. Today you find the fit that means something geologically, decide
-      which fossil is worth arguing from, and place an ancient pole from ice scratches on
-      three continents. What you will not have by the end of it is a mechanism, and Hugh
-      Ewing, who runs the section, will say so out loud.
+      Monday. The second wall is still locked. So everything you have today was picked up on
+      land. Marie Tharp, the map room curator, has thirty feet of continents cut out of board
+      and hung on pins. She can slide them about. Tesfaye Bekele, the palaeontologist, has
+      brought his fossil cards down. Each card is one species and a list of the places it has
+      been dug up. Next door there are scratches, cut into hard rock by moving ice, on three
+      continents at once. Today you decide how much the land on its own can prove. Some of it
+      will hold up. Some of it will not. Maurice Ewing, who runs the section, will say what is
+      still missing at the end of the day. What is missing is a mechanism. Nothing on this floor
+      can say what would move a continent.
     takeaway: Descriptive clues can make an arrangement likely without saying what moved anything.
     stops:
       - group: MAP
@@ -460,13 +462,14 @@ missions:
     objective: Get from a floor of rock ages and magnetic bands to a mechanism.
     briefing: The second wall is open, and it is ten years of ships.
     stake: >-
-      Tuesday, and Ewing has unlocked the second wall. Behind it is what the land could
-      never give: rock ages from the deep Atlantic, magnetic traces towed in straight lines
-      across it, and every located earthquake of forty years with a depth attached. Rei
-      Hess, the marine geophysicist, has the age file; Drummond Matthews, who runs the
-      magnetic survey, has the bands. Today you get a speed out of the age pattern, put the
-      magnetic bands in order, and find out what the earthquake depths draw. Level one had
-      clues. This is the mechanism.
+      Tuesday. Ewing has unlocked the second wall. Behind it is what the land could never give
+      you. There are rock ages from the deep Atlantic, sample by sample. There are magnetic
+      traces, towed in long straight lines across the ocean. And there is every quake of the
+      last forty years, each one with a depth on it. Harry Hess, the marine geophysicist, keeps
+      the age file. Drummond Matthews, who runs the magnetic survey, keeps the bands. Today you
+      work out what the sea floor is doing. It is the same ocean the map wall showed you
+      yesterday. Yesterday you had clues. This is where a mechanism would show up, if there is
+      one to find.
     takeaway: A pattern in space can be a record of a process in time, and that is what a mechanism looks like in data.
     stops:
       - group: MARINE
@@ -689,15 +692,13 @@ missions:
     objective: Put every layer under one framework, and say what it does not cover.
     briefing: Six files, three boundary types, and a claim Ewing will take apart.
     stake: >-
-      Wednesday, and every file is open at once. Hugo Benioff, the seismologist, has three
-      depth sections on the table. Hess has the ages, Matthews has the bands, and Tharp
-      still has the continents on pins next door. Seven files, and yesterday's mechanism
-      accounts for four of them on its own. Maurice Ewing, who runs the section, wants one
-      framework over all seven by the end of the day, and he will name the file any near miss
-      leaves standing outside. Today you classify what is happening at three boundaries,
-      predict which plate goes down where an ocean meets a continent, and write the summary
-      the section will publish. Whatever goes to the printer on Friday is what the section is
-      held to for the next twenty years.
+      Wednesday. Every file is open at once. Hugo Benioff, the seismologist, has three depth
+      sections laid out on the table. Hess has the ages. Matthews has the bands. Tharp still has
+      the continents on pins next door. Seven files in all. Yesterday's mechanism accounts for
+      four of them on its own. Ewing wants one framework that covers all seven by the end of the
+      day. He will name any file that a near miss leaves standing outside. Today you write the
+      summary the section will publish. It goes to the printer on Friday. After that it is what
+      the section is held to for the next twenty years.
     takeaway: A framework is judged on every layer at once, and a near miss is named by the layer it leaves out.
     stops:
       - group: SEIS

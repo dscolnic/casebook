@@ -69,18 +69,15 @@ export default {
 
   // ONE paragraph. The mystery first, then what it would mean, then the job.
   opening: [
-    'Read somebody fifteen words that all point at a sixteenth, leave the sixteenth out, and '
-    + 'more than half of them will tell you they heard it. They are not guessing and they are '
-    + 'not lying. It felt exactly like the words that were there. If a memory can be produced '
-    + 'by meaning rather than by having happened, then every account anybody gives of anything '
-    + 'is partly built rather than played back, and what you ask matters as much as what they '
-    + 'saw. If it is only a trick of a word list, nothing here reaches past the laboratory. '
-    + 'You are '
-    + 'the research assistant, which means the lists, the interviews and the transcripts all '
-    + 'come through you. Elizabeth Loftus, who works on eyewitness accounts, has two hundred '
-    + 'people booked, and one clause of one question is different between them. On Friday an '
-    + 'interview team of nine officers arrives wanting to know what to change about the way '
-    + 'they ask.',
+    'Read someone a list of fifteen words. Every word on it points at a sixteenth word. Leave that '
+    + 'one out. More than half the room will tell you they heard it. They are not guessing. They are '
+    + 'not lying. It felt just like the words that were really said. So a memory can be built out of '
+    + 'meaning alone. If that is true, then every account of anything is partly built rather than '
+    + 'played back. What you ask a witness would matter as much as what they saw. Or it may be a trick '
+    + 'that only works on word lists. Then nothing here reaches past the lab. You are the research '
+    + 'assistant here. The lists, the interviews and the transcripts all come through you. Two hundred '
+    + 'people are booked in this week. One clause of one question will be different between them. On '
+    + 'Friday, nine officers arrive wanting to know what to change.',
   ],
 
   ending: [

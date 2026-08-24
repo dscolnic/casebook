@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "Two towns, one earthquake",
     "objective": "Work out why the same shaking wrecked one half of Kestrel Bay and spared the other.",
     "briefing": "Upper Town lost its chimneys. The Flats lost its streets. Both are the same distance from the source.",
-    "stake": "Friday, three days after, and nothing about it makes sense yet. Upper Town sits on granite. It lost its chimneys and kept its buildings. The Flats are eleven hundred metres away, on the same fault, with sand in the gutters and a six-storey block leaning over. Marisol Okonkwo, the structural engineer, will not sign an assessment plan until somebody says why. Today you read the two records side by side, and decide which half of town gets the assessors first.",
+    "stake": "Friday, three days after the quake, and nothing about it makes sense yet. Upper Town sits on granite. It lost its chimneys and kept its buildings. The Flats are eleven hundred metres away, on the same fault. There is sand in the gutters there, and a six-storey block leaning over. Marisol Okonkwo, the structural engineer, will not sign an assessment plan until somebody says why. Today you read the two records side by side, and decide which half of town gets the assessors first.",
     "takeaway": "One earthquake produces as many shakings as there are grounds to shake, and the ground is the difference.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "The number everybody has already heard",
     "objective": "Pin the magnitude and the location down, and separate them from what people felt.",
     "briefing": "Two agencies published two magnitudes, and the difference is being read as a disagreement.",
-    "stake": "Saturday, and the town has two numbers for the same earthquake. One agency said 6.6 within twenty minutes. Another said 6.8 six hours later. Rei Tanaka, the seismologist, can explain the difference to an engineer, and has spent the morning failing to explain it to a radio station. Funmi Adeyemi, the public information officer, has to put something in a notice by four. Today you say what the magnitude is, and what it is not.",
+    "stake": "Saturday. The town has two numbers for the same earthquake. One agency said 6.6 within twenty minutes. Another said 6.8 six hours later. Rei Tanaka, the seismologist, can explain the gap to an engineer. She has spent the morning failing to explain it on the radio. Funmi Adeyemi, the public information officer, must put something in a notice by four. Today you say what the magnitude is, and what it is not.",
     "takeaway": "A magnitude is a measurement with a method attached, and revising it is the method working.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "The one everybody assumed was fine",
     "objective": "Look at a green building properly, and find what a walk-past could never see.",
     "briefing": "Bay Road School is green, term starts in a week, and nobody has been inside the gym.",
-    "stake": "Tuesday, and the school is the quiet problem. Bay Road School came through with a green placard, and the district would like four hundred children back next week. Alan Whitcombe, the assessment engineer, placarded it from outside, and wrote that the gymnasium was locked. The gym is a single-storey hall with a long roof and heavy panels for walls. Today you work out what such a hall does in an earthquake, and whether the children go in on Monday.",
+    "stake": "Tuesday. The school is the quiet problem. Bay Road School came through with a green placard. The district would like four hundred children back next week. Alan Whitcombe, the assessment engineer, placarded it from outside. He wrote that the gymnasium was locked. The gym is a single-storey hall with a long roof and heavy panel walls. Today you work out what such a hall does in a quake, and whether the children go in on Monday.",
     "takeaway": "The dangerous building is often the one nobody looked at, because nothing about it invited a second look.",
     "stops": [
       {
@@ -108,7 +108,7 @@ export const MISSIONS = [
     "title": "The hospital, and what waiting costs",
     "objective": "Resolve a yellow placard on the one building the district cannot do without.",
     "briefing": "90 patients, 3 days of yellow, and an argument about whether more evidence is worth more time.",
-    "stake": "Wednesday, and the hospital has been yellow for four days. Peter Ives, the hospital facilities manager, has ninety patients on the ground floor and two empty floors above them. Surgery is being done sixty kilometres away. Okonkwo wants the plant room opened and the walls cored before she signs. Bram Halvorsen says every day of that is a day of care nobody gets, and this morning he is right. Today you work out what is really unsettled, and what waiting costs.",
+    "stake": "Wednesday. The hospital has been yellow for four days. Peter Ives, the hospital facilities manager, has ninety patients on the ground floor. The two floors above them are empty. Surgery is being done sixty kilometres away. Okonkwo wants the plant room opened and the walls cored before she signs. Bram Halvorsen says each of those days is a day of care nobody gets. This morning he is right. Today you work out what is still unsettled, and what waiting costs.",
     "takeaway": "Gathering more evidence is not free, and evidence that cannot change the decision costs without buying anything.",
     "stops": [
       {
@@ -132,7 +132,7 @@ export const MISSIONS = [
     "title": "The material, and what it can still carry",
     "objective": "Get a number for the strength of a damaged building instead of an opinion.",
     "briefing": "The library's columns look cracked. Nobody has said what they can still hold.",
-    "stake": "Friday, and the argument has moved from buildings to numbers. The library is a concrete frame from the 1970s, with cracks running diagonally through three ground-floor columns. Three engineers have called them moderate, serious and superficial. Duarte Ferreira, the materials engineer, points out that none of those is a number, and his lab can give one in a day. Today you turn a sample into a strength, and say what the building may be used for meanwhile.",
+    "stake": "Friday. The argument has moved from buildings to numbers. The library is a concrete frame built in the 1970s. Cracks run at a slant through three columns on the ground floor. One engineer called them moderate. One called them serious. One called them slight. Duarte Ferreira, the materials engineer, says none of those is a number. His lab can give one in a day. Today you turn a sample into a strength, and say what the library may be used for meanwhile.",
     "takeaway": "A word like serious is an opinion; a strength with a method behind it is something the next engineer can use.",
     "stops": [
       {
@@ -185,7 +185,7 @@ export const MISSIONS = [
     "title": "The record that was wrong all along",
     "objective": "Re-read the fortnight after finding the instrument everyone trusted was mis-sited.",
     "briefing": "The vault on the bench is not on rock. It is on four metres of weathered granite, and that changes every comparison.",
-    "stake": "Tuesday, and Inês Cardoso has found the thing nobody wanted found. The vault above Upper Town is the station every comparison this fortnight has been measured against. It is not founded on rock. It sits on four metres of broken granite that behaves like stiff soil, and it has been exaggerating the shaking since 1998. Today you work out what that does to the fortnight's conclusions, and which of them still stand.",
+    "stake": "Tuesday. Inês Cardoso has found the thing nobody wanted found. The vault above Upper Town is the station every comparison this fortnight rests on. It is not founded on rock. It sits on four metres of broken granite that acts like stiff soil. It has been exaggerating the shaking since 1998. Today you work out what that does to the fortnight's findings, and which of them still stand.",
     "takeaway": "A reference that is not what it claims moves every measurement made against it, and finding that out is a good day.",
     "stops": [
       {
@@ -238,7 +238,7 @@ export const MISSIONS = [
     "title": "What we know, and how well",
     "objective": "State the fortnight's findings at the confidence each one has earned.",
     "briefing": "The report goes out today, and it has to say which of its findings are measurements and which are judgements.",
-    "stake": "Friday, two weeks on, and the fortnight goes into a report. Marisol Okonkwo will not sign one that states everything with the same confidence. A reader who cannot tell a measurement from a guess will act on both the same way. Rei Tanaka wants her forecast written as a range. Today you sort the findings by the evidence under them, and say what should outlive the emergency.",
+    "stake": "Friday, two weeks on. The fortnight now goes into a report. Marisol Okonkwo will not sign one that sounds equally sure of everything. Some findings were measured. Some were only guessed. A reader who cannot tell those apart will act on both the same way. Rei Tanaka wants her forecast written as a range, not one number. Today you sort the findings by the evidence under them. The report is what the town keeps after the emergency ends.",
     "takeaway": "A finding is worth what its evidence is worth, and saying so is what makes a report usable a year later.",
     "stops": [
       {
