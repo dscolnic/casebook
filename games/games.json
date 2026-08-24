@@ -17,7 +17,7 @@
       "role": "Chief Scientific Officer · Riverton Contamination Response",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "A freight yard beside the river burned last night, and nobody can say what came off it. You are the city's Chief Scientific Officer, which means what gets measured — and what the city is told about it — is decided by you.",
+      "drama": "A freight yard beside the river burned last night. You are the city's Chief Scientific Officer.",
       "concepts": [
         "Atomic structure, ions and electron configuration",
         "Kinetic molecular theory, diffusion and volatility",
@@ -48,7 +48,7 @@
       "role": "Chief Scientific Officer · Riverton Contamination Response",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "A freight yard beside the river burned last night, and nobody can say what came off it. You are the city's Chief Scientific Officer, which means what gets measured — and what the city is told about it — is decided by you.",
+      "drama": "A freight yard beside the river burned last night. You are the city's Chief Scientific Officer.",
       "concepts": [
         "The mole as a count, and molar mass as the bridge to a mass",
         "The ideal gas law, and a headspace that tells you what is dissolved",
@@ -79,7 +79,7 @@
       "role": "Chief Scientific Officer · Riverton Contamination Response",
       "dayNoun": "Day",
       "grade": 6,
-      "drama": "A freight yard beside the river burned last night, and nobody can say what came off it. You are the city's chief scientist, which means you decide what gets measured, and what the city gets told.",
+      "drama": "A freight yard beside the river burned last night. You are the city's chief scientist.",
       "concepts": [
         "Everything is made of matter, and matter comes in solids, liquids and gases",
         "Dilution: adding water lowers the concentration and not the amount",
@@ -110,7 +110,7 @@
       "role": "Propellant Lead · Arcadia Rise",
       "dayNoun": "Sol",
       "grade": 12,
-      "drama": "Everyone here goes home on a rocket that can only leave when Mars and Earth line up. You are the propellant lead at Arcadia Rise, so every kilogram loaded aboard is signed for by you.",
+      "drama": "The rocket on the pad leaves when Mars and Earth line up. You are the propellant lead at Arcadia Rise.",
       "concepts": [
         "Stoichiometry as a feed rate: turning a production target into kilograms in",
         "Rate constants, and how steeply they climb with temperature",
@@ -141,7 +141,7 @@
       "role": "Propellant Lead · Arcadia Rise",
       "dayNoun": "Sol",
       "grade": 6,
-      "drama": "The window opens on sol 486 and does not open again for twenty-six months. You are the propellant lead, so the plant is yours.",
+      "drama": "The window opens on sol 486 and not again for twenty-six months. You are the propellant lead, so the plant is yours.",
       "concepts": [
         "Everything is made of atoms, and atoms are never lost",
         "Temperature is how fast the particles are moving",
@@ -172,7 +172,7 @@
       "role": "Process Integration Lead · Ardley Fab 7",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "Ardley Fab 7 prints silicon chips, layer by layer, on wafers the size of a dinner plate. You are the process integration lead, so the signature on that batch is yours.",
+      "drama": "Since March, four wafers in ten come out of Ardley Fab 7 too poor to sell. You are the process integration lead.",
       "concepts": [
         "Atomic structure: protons, electrons and the shells they occupy",
         "Percent composition: what a formula asserts about a film",
@@ -203,7 +203,7 @@
       "role": "Duty Engineer · Ashfell Dam",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "Ashfell Dam holds ninety-two million cubic metres of water in a gorge, with four villages along the river below it. You are the duty engineer, so the amount of water let out each morning is ordered by you.",
+      "drama": "This morning Ashfell reservoir stands at 88%. You are the duty engineer.",
       "concepts": [
         "Limits, one-sided limits, and where a limit fails to exist",
         "Related rates",
@@ -234,7 +234,7 @@
       "role": "Methodology & Operations Lead · CLARION-3",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "CLARION-3 has been running for four years: 2,400 people across thirty-one hospitals, half of them getting a new drug and half the usual treatment. You are the methodology and operations lead at the coordinating centre, so the pack the independent monitoring board reads is the pack you assemble.",
+      "drama": "CLARION-3 has been running for four years. You are the methods and operations lead at the centre that holds the data.",
       "concepts": [
         "Why a comparison needs a control arm at all",
         "Hard endpoints against judged ones, and blinded adjudication",
@@ -265,7 +265,7 @@
       "role": "Methodology & Operations Lead · CLARION-3",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "CLARION-3 has been running for four years: 2,400 people across thirty-one hospitals, half of them getting a new drug and half the usual treatment. You are the methodology and operations lead at the coordinating centre, so the pack the independent monitoring board reads is the pack you assemble.",
+      "drama": "The independent monitoring board sits in three weeks. You are the methodology and operations lead at the coordinating centre.",
       "concepts": [
         "A distribution of one variable: shape, centre and spread",
         "Least-squares regression, and the slope as a rate",
@@ -296,7 +296,7 @@
       "role": "Methodology & Operations Lead · CLARION-3",
       "dayNoun": "Day",
       "grade": 6,
-      "drama": "CLARION-3 has been running for four years. You are the methods and operations lead at the coordinating centre, which means the pack the safety board reads is the pack you put together.",
+      "drama": "The safety board sits in ten days, and it can stop CLARION-3. You are the methods and operations lead at the coordinating centre.",
       "concepts": [
         "A fair test changes one thing and keeps the rest the same",
         "Not knowing who got what, and why that helps",
@@ -327,7 +327,7 @@
       "role": "Review Analyst · Conviction Integrity Unit",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "On a November night in 2019 a stranger watched a robbery from across Ferrier Street. You are the review analyst at the Conviction Integrity Unit, and the report going to the board in fifteen days is yours.",
+      "drama": "On a November night in 2019 a stranger watched a robbery from across Ferrier Street. You are the review analyst at the Conviction Integrity Unit.",
       "concepts": [
         "Acuity as an angle: what the eye can resolve falls off with distance",
         "Encoding: memory is built at the moment, from what was attended to",
@@ -358,7 +358,7 @@
       "role": "Review Analyst · Conviction Integrity Unit",
       "dayNoun": "Day",
       "grade": 6,
-      "drama": "On a November night in 2019 a stranger watched a robbery from across Ferrier Street. You are the review analyst at the Conviction Integrity Unit, and the report that goes to the board in fifteen days is yours.",
+      "drama": "On a November night in 2019 a stranger watched a robbery from across Ferrier Street. You are the review analyst at the Conviction Integrity Unit.",
       "concepts": [
         "Memory is rebuilt each time, not played back",
         "Repeat a measurement and take the average",
@@ -389,7 +389,7 @@
       "role": "Group Lead · Ridgeway Quantum Laboratory",
       "dayNoun": "Day",
       "grade": null,
-      "drama": "Ridgeway runs a quantum processor: twelve qubits, held a hundredth of a degree above absolute zero by a refrigerator the size of a wardrobe. You lead the group.",
+      "drama": "This morning the fridge came down to forty-two thousandths of a degree above absolute zero. You lead the group.",
       "concepts": [
         "Energy quantisation, and why a level spacing sets everything else",
         "Resonance, detuning, and finding a qubit frequency",
@@ -482,7 +482,7 @@
       "role": "Reasoning Under Pressure Beneath the Surface",
       "dayNoun": "Watch",
       "grade": 12,
-      "drama": "You have the watch on a submarine at ninety metres. Everybody aboard is asleep, on watch, or working in a compartment they cannot see out of.",
+      "drama": "You have the watch on a submarine at ninety metres. You have the watch, so the calls are yours.",
       "concepts": [
         "Sound as a wave: frequency, wavelength, speed",
         "Bearings, triangulation and geometry",
@@ -513,7 +513,7 @@
       "role": "Reasoning Under Pressure Beneath the Surface",
       "dayNoun": "Watch",
       "grade": 12,
-      "drama": "You have the watch on a submarine at ninety metres. Everybody aboard is asleep, on watch, or working in a compartment they cannot see out of.",
+      "drama": "You have the watch on a submarine, ninety metres down. You have the watch, so the calls are yours.",
       "concepts": [
         "Pressure as force over area, and what a depth gauge is reading",
         "Potential difference as energy per unit charge, and the field between two plates",
@@ -544,7 +544,7 @@
       "role": "Reasoning Under Pressure Beneath the Surface",
       "dayNoun": "Watch",
       "grade": 6,
-      "drama": "You have the watch on a submarine, ninety metres down. Nobody aboard can see out, and neither can you.",
+      "drama": "You have the watch on a submarine, ninety metres down. You have the watch, so the calls are yours.",
       "concepts": [
         "Sound is a wave, and it travels through water as well as air",
         "Hearing something quiet next to something loud",
@@ -575,7 +575,7 @@
       "role": "Los Alamos · 1943–45",
       "dayNoun": "Stage",
       "grade": 12,
-      "drama": "It is April 1943, and the site is three weeks old: a boys' school on a mesa in New Mexico with a laboratory going up around it. You are a scientist newly assigned to Project Y, which has one problem to solve and a schedule set by a war.",
+      "drama": "It is April 1943. You are a scientist newly posted to Project Y. Five divisions are working on one problem at once.",
       "concepts": [
         "Nuclear structure: protons, neutrons, isotopes, nuclide notation",
         "Criticality: mass, geometry, reflectors, moderation",
@@ -606,7 +606,7 @@
       "role": "Measurements Lead · Station 12, where lightning is made on purpose",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "Station 12 makes lightning on purpose. You are the measurements lead, so no number reaches the season report unless you can show where it came from.",
+      "drama": "Station 12 makes lightning on purpose. You are the measurements lead.",
       "concepts": [
         "Charge, and where it sits on a conductor",
         "Potential and field as derivative and integral of one another",
@@ -637,7 +637,7 @@
       "role": "System Operator · Calder Interconnection",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "The Calder network carries electricity to four million people, and all of it runs on one number. You are the system operator on nights.",
+      "drama": "It is a cold Monday night and the Calder network is holding, just. You are the system operator on nights.",
       "concepts": [
         "Charge, current, voltage and resistance",
         "Reactance, impedance and phasors",
@@ -668,7 +668,7 @@
       "role": "System Operator · Calder Interconnection",
       "dayNoun": "Day",
       "grade": 6,
-      "drama": "Four million people get their electricity from the Calder network, and the whole network runs on one number. You are the system operator on nights, and holding the two sides together is the job.",
+      "drama": "It is a cold Monday night and the Calder network is holding, just. You are the system operator on nights.",
       "concepts": [
         "A circuit is a loop, and a break anywhere stops it",
         "Current through something makes heat, and that is why wires have limits",
@@ -699,7 +699,7 @@
       "role": "Building Safety Coordinator · Kestrel Bay",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "A magnitude 6.8 earthquake hit Kestrel Bay three days ago and the town is still standing, unevenly. You are the building safety coordinator, which means you decide which buildings people are allowed back into: green to enter, yellow for restricted use, red for nobody.",
+      "drama": "A magnitude 6.8 earthquake hit Kestrel Bay three days ago. You are the building safety coordinator.",
       "concepts": [
         "P and S waves, and what the gap between them measures",
         "Natural period, and resonance between building and ground",
@@ -730,7 +730,7 @@
       "role": "Building Safety Coordinator · Kestrel Bay",
       "dayNoun": "Day",
       "grade": 6,
-      "drama": "An earthquake hit Kestrel Bay three days ago. You are the building safety coordinator, which means you say which buildings people may go back into.",
+      "drama": "An earthquake hit Kestrel Bay three days ago. You are the building safety coordinator.",
       "concepts": [
         "Plates move, and a fault is the crack where they slip past each other",
         "The ground itself changes the shaking: soft ground shakes more",
@@ -761,7 +761,7 @@
       "role": "Campaign Director · International NEO Response",
       "dayNoun": "Phase",
       "grade": 12,
-      "drama": "A survey telescope flagged a faint moving point near the ecliptic four hours ago. You direct the campaign: the telescopes that track it, a radar window that opens once in eleven years, and a deflection mission that would have to launch years before anyone could be certain it is needed.",
+      "drama": "Four hours ago a survey telescope found a faint point of light. You are the campaign director.",
       "concepts": [
         "Celestial coordinates and angular measure",
         "Orbital elements and orbit determination",
@@ -823,7 +823,7 @@
       "role": "Ride Engineer · Corbin Park",
       "dayNoun": "Day",
       "grade": 11,
-      "drama": "Corbin Park is an amusement park, and in October the county took away its certificate to open. You are the ride engineer, hired in February, and what you inherited is eleven notebooks of settings and timings, forty-one years of them, with not one line of working anywhere.",
+      "drama": "Corbin Park lost its certificate to open in October. You are the ride engineer.",
       "concepts": [
         "Velocity against speed: direction is part of the quantity",
         "What supplies the centripetal force in each case — a rail, a chain, a seat",
@@ -854,7 +854,7 @@
       "role": "Season Science Lead · Vestri Dome",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "Vestri Dome is a drilling camp on the polar plateau: six huts up on legs, a trench with a tower over it, and two and a half kilometres of ice already pulled out of the ground. You are the season science lead, which means the climate record this station sends home is the one you signed.",
+      "drama": "Vestri Dome sits on a high ice plateau. You are the season science lead.",
       "concepts": [
         "Why ice keeps a record at all: burial without melting",
         "Stable isotopes as a thermometer: δ¹⁸O and deuterium",
@@ -885,7 +885,7 @@
       "role": "Season Science Lead · Vestri Dome",
       "dayNoun": "Day",
       "grade": 6,
-      "drama": "Vestri Dome is a camp on the polar ice. You are the season science lead, and the record this camp sends home is the one you sign.",
+      "drama": "A camp four hundred kilometres away has published a record of the past climate. You are the season science lead, and what this camp says about the past is what you sign.",
       "concepts": [
         "Snow that never melts piles up in layers, one year at a time",
         "Something measured today can stand in for something nobody measured then",
@@ -916,7 +916,7 @@
       "role": "Scientific Response Director · Riverton",
       "dayNoun": "Stage",
       "grade": 12,
-      "drama": "Three hospitals in one river city reported the same unusual illness inside a day of each other, and the ambulances are still arriving. You are the scientific response director, which means what gets measured is your decision and the city acts on whatever comes back.",
+      "drama": "Three hospitals in one river city saw the same strange illness. You are the scientific response director.",
       "concepts": [
         "Cell structure and function",
         "Mutation and genetic variation",
@@ -947,7 +947,7 @@
       "role": "Scientific Response Director · Riverton",
       "dayNoun": "Stage",
       "grade": 6,
-      "drama": "Three hospitals in one river city have reported the same strange illness within a day of each other. You are the science lead for the city, which means what gets measured is your call, and the city acts on whatever comes back.",
+      "drama": "Three hospitals in one river city have reported the same strange illness within a day of each other. You are the science lead for Riverton.",
       "concepts": [
         "Some illnesses are caused by living things too small to see",
         "A graph of cases over time, and what its shape says",
@@ -978,7 +978,7 @@
       "role": "Season Lead · Wellmere Seed Bank",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "Two hundred kilometres east there is a wheat disease the breeding programme has exactly one gene against. You are Season Lead at Wellmere.",
+      "drama": "A wheat disease is two hundred kilometres east, and the wind that would carry it here comes in over the causeway. You are Season Lead at Wellmere.",
       "concepts": [
         "Seed viability as a rate: what a stored seed is still doing",
         "Linkage and recombination: distance on a chromosome as a probability",
@@ -1009,7 +1009,7 @@
       "role": "Season Lead · Wellmere Seed Bank",
       "dayNoun": "Day",
       "grade": 6,
-      "drama": "Two hundred kilometres east there is a wheat disease, and the breeding programme at Wellmere has one gene that stands up to it. You are the season lead.",
+      "drama": "A wheat disease is two hundred kilometres east. You are the season lead at Wellmere.",
       "concepts": [
         "Living things pass traits to their offspring",
         "Counting the offspring, and comparing counts with what was expected",
@@ -1040,7 +1040,7 @@
       "role": "Island Resources Officer · Vellan Island",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "Vellan is a low island with ninety-one people on it, one ferry a day, and eleven months of fresh water left underground. You are the island's resources officer, so the water licence, the fishing quota and the tip are all signed by you.",
+      "drama": "Vellan is a small island, and its council votes in a fortnight. You are the island's resources officer.",
       "concepts": [
         "An ecosystem as a budget: what comes in, what leaves, what stays",
         "Ecosystem services, and the ones nobody is billed for",
@@ -1071,7 +1071,7 @@
       "role": "Production Manager · The Ellery Variety Theatre",
       "dayNoun": "Day",
       "grade": 11,
-      "drama": "The Ellery is a theatre shut for eleven years, and it opens in a fortnight. You are the production manager, so the lighting rig, the seats an audience can see from, and every number in that licence file are signed by you.",
+      "drama": "The Ellery has been shut for eleven years. You are the production manager.",
       "concepts": [
         "A function as a rule, its domain and what the domain rules out",
         "Choosing a model, and what a residual says about the choice",
@@ -1102,7 +1102,7 @@
       "role": "Chief Economist · Halvern Currency Board",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "Halvern is a country of nine hundred thousand people, and in fourteen days its shops and banks stop taking the mark, the money it has always used. You are the chief economist to the currency board, so the rate and its published figures are yours to sign.",
+      "drama": "In fourteen days the shops and banks of Halvern stop taking the mark. You are the chief economist to the currency board.",
       "concepts": [
         "Scarcity, and why every choice has a next-best alternative",
         "Nominal against real: taking the price change out of a figure",
@@ -1133,7 +1133,7 @@
       "role": "Tidal Prediction Lead · Sarn Barrage, twelve days before the springs",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "Sarn Barrage is six gates across the neck of an estuary, holding four hundred hectares of water. You are the tidal prediction lead, so no level reaches it unless you can show how it was worked out and how wrong it may be.",
+      "drama": "In twelve working days the biggest tides of the year reach Sarn Barrage. You are the tidal prediction lead.",
       "concepts": [
         "A quantity written as a sum of periodic terms",
         "Speed as the magnitude of a velocity vector",
@@ -1164,7 +1164,7 @@
       "role": "",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "Kerrow No. 3 is a mine, and everyone who works in it goes down twelve hundred and forty metres of shaft in a cage on a steel rope. You are the winding engineer's assistant, so every number in it has to be one you can show the working for.",
+      "drama": "Everyone who works at Kerrow No. 3 goes down twelve hundred and forty metres of shaft in a cage. You are the winding engineer's assistant.",
       "concepts": [
         "Position, velocity and acceleration as successive derivatives",
         "Newton's third law, and which force acts on which body",
@@ -1195,7 +1195,7 @@
       "role": "Optical Measurements Lead · Pellow Head, twelve days with a cable down",
       "dayNoun": "Day",
       "grade": 12,
-      "drama": "An undersea cable runs out from Pellow Head, and nineteen days ago the light coming back dropped away. You are the optical measurements lead, so no position goes on that chart unless you can show how it was worked out.",
+      "drama": "Nineteen days ago the light stopped coming back. You are the optical measurements lead here.",
       "concepts": [
         "Refractive index, and the speed of light in a material",
         "Diffraction, and what a grating does to a mixture of wavelengths",
@@ -1226,7 +1226,7 @@
       "role": "Analyst · High-Redshift Supernova Team",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "Forty-two exploding stars have come back fainter than they are allowed to be. You are the analyst on the team, which means the ruler is yours to build and yours to defend.",
+      "drama": "Forty-two exploding stars have come back too faint. You are the analyst on the team.",
       "concepts": [
         "Standardising a Type Ia supernova by its decline rate",
         "Flux falls as the inverse square of distance",
@@ -1257,7 +1257,7 @@
       "role": "Research Student · Structural Biology Unit",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "Every living thing carries instructions for building a copy of itself, and nobody in the world knows what those instructions are made of. You are the research student, which means the walk between those benches is yours and so is the argument at the end of it.",
+      "drama": "Every living thing carries instructions for building a copy of itself. You are the research student.",
       "concepts": [
         "Chargaff's ratios: adenine matches thymine and guanine matches cytosine",
         "A charged group sits where the water is",
@@ -1288,7 +1288,7 @@
       "role": "Research Assistant · Scattering Laboratory",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "Ten alpha particles in every ten thousand come back out of a sheet of gold the way they went in. You are the research assistant here, which means the predicting, the counting and the arithmetic all pass through your hands.",
+      "drama": "Ten alpha particles in every ten thousand come back out of a sheet of gold the way they went in. You are the research assistant here.",
       "concepts": [
         "A charge spread through a volume makes a weak field everywhere in it",
         "A thin target makes one deflection one encounter",
@@ -1319,7 +1319,7 @@
       "role": "Geoscientist · Global Survey Section",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "Continents on opposite sides of an ocean carry the same fossils, the same rock belts and scratches from the same ice sheet, and nobody can say what would move a continent. You are the geoscientist the section has put on it, which means every file gets read by you before it gets argued about.",
+      "drama": "Look at a map of the Atlantic. You are the geoscientist here, so every file is read by you before it is argued about.",
       "concepts": [
         "A continent's real edge is its shelf, not its coastline",
         "Indicators scattered now can be coherent on a reconstruction",
@@ -1350,7 +1350,7 @@
       "role": "Physicist · Collider Analysis Group",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "One slot on the chart on this wall is still empty. You are the physicist on the search, which means the channels, the reconstruction and the background model all come through you.",
+      "drama": "One slot on the wall chart is still empty. You are the physicist on the search.",
       "concepts": [
         "The Higgs is a scalar boson, in a category of its own",
         "A clean channel beats a common one",
@@ -1381,7 +1381,7 @@
       "role": "Expedition Astronomer · Eclipse Camp",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "Two theories disagree about starlight by a factor of two, and one of them says space itself is bent. You are the expedition astronomer, which means the focus, the plates and the arithmetic are yours, and so is the sentence at the end.",
+      "drama": "Starlight bends as it passes the Sun. You are the expedition astronomer.",
       "concepts": [
         "The two predictions differ by a factor of two, and that is the whole test",
         "The measurement is differential: two plates, never one",
@@ -1412,7 +1412,7 @@
       "role": "Observer · Planet Search Programme",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "The star on the screen looks like every other star. You are the observer on the search, which means the spectra, the light curve and the arithmetic all come through you.",
+      "drama": "The star on the screen looks like every other star. You are the observer on the search.",
       "concepts": [
         "A shift to shorter wavelengths means the star is coming toward us",
         "Radial velocity alone gives a minimum mass",
@@ -1443,7 +1443,7 @@
       "role": "Detector Scientist · Interferometer Site",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "At four in the morning something swept through both instruments in a fifth of a second, climbing in pitch, and then stopped. You are the detector scientist on shift, which means the noise, the templates and the mass ledger all come through you.",
+      "drama": "At four in the morning something went through both instruments at once. You are the detector scientist on shift.",
       "concepts": [
         "A dark fringe is where a tiny path difference is most visible",
         "Every noise source has its own frequency band, and the sum has a minimum",
@@ -1474,7 +1474,7 @@
       "role": "Radio Astronomer · Hilltop Antenna",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "There is a hiss coming out of the sky and it will not go away. You are the radio astronomer on the site, which means the checks, the sky sweep and the arithmetic all come through you.",
+      "drama": "There is a hiss coming out of the sky, and it will not go away. You are the radio astronomer on the site.",
       "concepts": [
         "An unexplained signal is an instrument problem until it survives the checks",
         "A foreground is separated by where it is, not by how strong it is",
@@ -1505,7 +1505,7 @@
       "role": "Observer · Mountain Observatory",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "Every faint nebula anybody has taken a spectrum of is running away from us, and nobody can say why. You are the observer who has been given both sets, which means the ladder, the shifts and the plot all come through you.",
+      "drama": "Every faint nebula anybody has taken a spectrum of is running away from us. You are the observer who has been handed both sets of numbers.",
       "concepts": [
         "A longer-period variable star is intrinsically brighter",
         "Anything that makes a star look brighter makes it look closer",
@@ -1536,7 +1536,7 @@
       "role": "Junior Researcher · Inoculation Department",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "A plate that should have gone into the wash has a ring on it where nothing grew. You are the junior researcher, which means the walk between those benches is yours and so is the argument at the end of it.",
+      "drama": "A plate that should have gone into the wash has a ring on it. You are the junior researcher here.",
       "concepts": [
         "An inhibition zone is an observation, not yet a cause",
         "A cell-free filtrate separates the agent from the organism that made it",
@@ -1567,7 +1567,7 @@
       "role": "Investigator · Marlow Fields",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "Sixty-six people in one court are dead or dying, and the houses fifty yards off are almost untouched. You are the investigator, which means the map, the ward counts and the laboratory all report to you.",
+      "drama": "Sixty-six people in one court are dead or dying. You are the investigator here.",
       "concepts": [
         "A cluster around a shared exposure is a hypothesis, not a cause",
         "An organism found in the diseased and not the healthy is a candidate",
@@ -1598,7 +1598,7 @@
       "role": "Experimental Assistant · The Abbey Garden",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "Cross a yellow-seeded pea with a green-seeded one and every seed comes out yellow, as though the green had been rubbed out. You are the experimental assistant, which means the crossing, the tally and the seed lines all come through you.",
+      "drama": "Cross a yellow-seeded pea plant with a green-seeded one. You are the experimental assistant.",
       "concepts": [
         "A trait with two clean states can be counted; a graded one cannot yet",
         "A trait absent in the offspring has not been destroyed",
@@ -1629,7 +1629,7 @@
       "role": "Molecular Biologist · Genome Editing Institute",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "Forty bacterial genomes carry the same odd structure. You are the molecular biologist, which means the genomes, the design desk and the sequencing queue all come through you.",
+      "drama": "Forty bacterial genomes carry the same odd shape. You are the molecular biologist here.",
       "concepts": [
         "A repeat-and-spacer array is a record of past encounters",
         "Sequence-directed cutting is programmable because the guide is separable",
@@ -1660,7 +1660,7 @@
       "role": "Assistant · The Pneumatic Laboratory",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "Ten grams of lead were heated in the open this morning and what is left weighs twelve point seven. You are the assistant, which means the weighings, the jars and the ledger all come through you.",
+      "drama": "Ten grams of lead were heated in the open air this morning. You are the assistant.",
       "concepts": [
         "A product heavier than its reactant is a constraint any theory must meet",
         "A model that needs a rescue for every measurement is losing",
@@ -1691,7 +1691,7 @@
       "role": "Assistant · The Chemistry Institute",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "Sixty-three elements sit in numbered drawers, and the numbers record when each one arrived. You are the assistant, which means the drawers, the long table and the bench all come through you.",
+      "drama": "Sixty-three elements sit in numbered drawers. You are the assistant here.",
       "concepts": [
         "A chemical family is defined by recurring behaviour, not neighbouring mass",
         "When order and chemistry disagree, the ordering variable is suspect",
@@ -1722,7 +1722,7 @@
       "role": "Research Assistant · Reaction-Time Laboratory",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "Print the word GREEN in red ink, ask somebody to say the colour of the ink, and they stumble. You are the research assistant, which means the booth, the instrument and the sheets all come through you.",
+      "drama": "Print the word GREEN in red ink. You are the research assistant here.",
       "concepts": [
         "A baseline is what an effect is measured against",
         "A prediction made before the data is what makes the result informative",
@@ -1753,7 +1753,7 @@
       "role": "Research Assistant · Memory and Testimony Unit",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "Read somebody fifteen words that all point at a sixteenth, leave the sixteenth out, and more than half of them will tell you they heard it. You are the research assistant, which means the lists, the interviews and the transcripts all come through you.",
+      "drama": "Read someone a list of fifteen words. You are the research assistant here.",
       "concepts": [
         "Recognition can be produced by meaning as well as by presentation",
         "A lure is predicted in advance by the structure of the list",
@@ -1784,7 +1784,7 @@
       "role": "Junior Economist · Economic Advisory Building",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "A fifth of the country is idle and it is staying idle. You are the junior economist, which means the board, the returns and the arithmetic all come through you.",
+      "drama": "A fifth of the country is out of work, and it is staying that way. You are the junior economist here.",
       "concepts": [
         "Spending is somebody else's income, so a fall propagates",
         "A fall in expected sales cuts production before it cuts prices",
@@ -1815,7 +1815,7 @@
       "role": "Junior Clerk · Marrable House",
       "dayNoun": "Level",
       "grade": 9,
-      "drama": "There is a queue on the pavement below the window and nothing about this bank has changed since yesterday. You are the junior clerk, which means the counter, the book, the reserve and the desk all come through you, and the lift is the only way between them.",
+      "drama": "There is a queue on the pavement below the window. You are the junior clerk.",
       "concepts": [
         "A balance sheet balances, and the two sides mean different things",
         "Liquidity and return trade against each other",
