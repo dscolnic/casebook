@@ -1,0 +1,914 @@
+# Germ Theory of Disease — a Quick Discovery.
+#
+# The 3 x 3 shape from great_discoveries_next10_nonphysics_expanded.docx, game
+# 12, mapped onto the engine's day model: a level is a day, a micro-game is a
+# stop, and the campaign is nine stops in one sitting. Three levels, in order:
+#
+#   1  Competing explanations   a map, a comparison group and a slide
+#   2  Make it an experiment    pure culture, exposure, and closing the loop
+#   3  Change what is done      prediction, prevention, and where it stops
+#
+# The science guardrail from the source book, kept, and it decides the shape of
+# this one. Germ theory did not come from a single decisive experiment. A map
+# supported waterborne spread before anybody had the organism; prevention worked
+# on a ward before the mechanism was accepted; the laboratory evidence came later
+# and from other people. The three levels are three different kinds of evidence
+# rather than three steps of one argument, and the last stop is about what the
+# theory has no business being applied to.
+#
+# Format budget. Nine stops, so `formatMix`'s cap is three of any one format:
+# BALLPARK 2, CHOICE 2, and one each of VALUE, PROTOCOL, DIAGNOSIS, VERIFY,
+# SCIENCETANK. Seven formats in nine stops, three of them driven.
+
+theme:
+  id: qd_germ
+  title: Germ Theory of Disease
+  subtitle: Investigator · Marlow Fields
+
+groups:
+  - id: REG
+    code: REG
+    name: Registrar's Office
+    color: '#6b5a8a'
+    desc: Every death in the district with an address against it, and the map they are stuck into.
+    defaultLeader: whitehead
+    milestones: [Plot the cases, Find a comparison, Say what it forbids, Ready to hand over]
+  - id: PUMP
+    code: PUMP
+    name: The Court
+    color: '#3f6f8a'
+    desc: One standpipe, forty households, and the streets fifty yards off that draw from somewhere else.
+    defaultLeader: snow
+    milestones: [Walk the court, Ask who draws where, Name the exposure, Ready to hand over]
+  - id: LAB
+    code: LAB
+    name: Laboratory Hut
+    color: '#4d7a3f'
+    desc: Slides, plates and matched animals, and the only place here that can turn a suspicion into a test.
+    defaultLeader: koch
+    milestones: [Find the candidate, Grow it pure, Test it, Ready to hand over]
+  - id: WARD
+    code: WARD
+    name: Fever Ward
+    color: '#8a4a3f'
+    desc: Two wings with different rates in them, and the routes by which anything might be travelling between beds.
+    defaultLeader: semmelweis
+    milestones: [Read the rates, Name a route, Close it, Ready to hand over]
+
+roster:
+  - id: snow
+    name: John Snow
+    role: Physician, Water and Disease
+    real: true
+    division: PUMP
+    bio: |
+      Walks the court asking one question of every door: where does this house
+      get its water. It is a tedious question and it is the whole of his method.
+
+      What he is after is not more cases. It is the household that lives beside
+      the pump and draws from somewhere else, and the household two streets away
+      that sends a child to the court for water. Those two are worth more than a
+      hundred more cases from the middle of the cluster.
+
+      His limit is that he cannot say what is in the water. Nothing he has shows
+      an organism, and he knows that an argument from a pattern is one somebody
+      can refuse.
+    quiz:
+      - q: Why is one household near the pump that draws elsewhere worth more than more cases?
+        a: Because it shares the surroundings and not the exposure
+        wrong:
+          - Because a household that stays well is easier to interview than a sick one
+          - Because the registrar keeps better records for households with no deaths in them
+          - Because it shows the disease is not carried between people who live near each other
+
+  - id: whitehead
+    name: Henry Whitehead
+    role: Local Investigator
+    real: true
+    division: REG
+    bio: |
+      Keeps the addresses. Every death in the district arrives here as a line
+      with a street on it, and turning those lines into a shape on a map is his
+      work.
+
+      He is also the person who goes back to the houses. A cluster on paper has
+      holes in it, and half of them are people who moved, or who died elsewhere,
+      or who were counted twice. Filling them in is what makes the map an
+      argument rather than a picture.
+
+      His limit is that a map shows where people were, not what reached them. He
+      began this convinced the water had nothing to do with it.
+    quiz:
+      - q: Why does Whitehead go back to the houses after the map is drawn?
+        a: Because the holes in a cluster change what it means
+        wrong:
+          - Because the registrar's clerks are not trusted to copy an address correctly
+          - Because the families have to be told before any of it can be published
+          - Because a map cannot be printed until every death has a named cause on it
+
+  - id: koch
+    name: Robert Koch
+    role: Bacteriologist
+    real: true
+    division: LAB
+    bio: |
+      Works on the step everybody else skips: getting one organism away from
+      everything it arrived with. A smear of diseased tissue holds the candidate,
+      several other organisms and the tissue itself, and an experiment on that
+      mixture is an experiment on a mixture.
+
+      A single colony picked off a plate and grown again is a pure culture, and
+      a pure culture is what can be given to a healthy animal in a controlled
+      way. After that the questions are about matched groups and counts.
+
+      His limit is the one he states himself: the scheme works for organisms that
+      will grow on a plate, and there is no reason to think every cause of every
+      disease will.
+    quiz:
+      - q: Why does Koch insist on a pure culture before any exposure experiment?
+        a: So the test is of one organism rather than of a mixture
+        wrong:
+          - Because a mixed culture will always kill the animal it is given to
+          - Because the microscope cannot resolve two organisms growing side by side
+          - Because an impure culture takes far longer to grow to a usable quantity
+
+  - id: semmelweis
+    name: Ignaz Semmelweis
+    role: Ward Physician
+    real: true
+    division: WARD
+    bio: |
+      Has two wings of one ward with the same building, the same food and the
+      same air, and death rates that differ by a factor of three. He has been
+      keeping the counts himself since nobody else would.
+
+      What differs between the wings is who attends and what they did
+      beforehand. That points at something carried on hands and instruments, and
+      it points there without saying what the something is.
+
+      His limit is that he cannot name it, and that has cost him the argument
+      more than once. A measure that works and cannot be explained is a measure
+      people go on declining to take.
+    quiz:
+      - q: What does the difference between the two wings point at?
+        a: Something carried in on hands and instruments
+        wrong:
+          - A difference in the air between the two ends of the same building
+          - A difference in the constitution of the patients admitted to each wing
+          - A difference in how carefully the deaths in each wing were counted
+
+  - id: deane
+    name: Harriet Deane
+    role: Registrar's Clerk
+    division: REG
+    bio: |
+      Copies the returns, checks the addresses against the rate book and keeps
+      the count of who lives in each house. The last of those is the one nobody
+      asks for and the one every rate depends on.
+
+      A number of deaths is not a rate. A rate needs the people who could have
+      died and did not, and in a court of forty households that number has to be
+      collected door by door and kept up to date as families come and go.
+
+      Her limit is that she can count the living and the dead and cannot say what
+      passed between them.
+    quiz:
+      - q: Why does Deane keep a count of who lives in each house?
+        a: So a rate has a denominator under it
+        wrong:
+          - Because the parish is required to know how many people are in the district
+          - Because the count decides how much water each household is allowed to draw
+          - Because deaths cannot be registered until the household has been listed
+
+  - id: lowry
+    name: Martha Lowry
+    role: Ward Sister
+    division: WARD
+    bio: |
+      Runs the fever ward, which means she knows what actually happens between
+      beds rather than what the procedure says happens.
+
+      Linen, hands, instruments, bowls and the order in which the beds are
+      visited are all routes, and they are not equally used. She can say which of
+      them a change would really alter, which is the difference between a measure
+      that works on paper and one that works on a ward.
+
+      Her limit is that she cannot run two wards side by side. She can change one
+      thing and count what follows, and that is all.
+    quiz:
+      - q: Why does Lowry care which route a measure actually changes?
+        a: Because a route nobody uses is a route worth nothing to close
+        wrong:
+          - Because closing a route requires the agreement of the ward physician
+          - Because every route costs the same amount of time to close properly
+          - Because the ward can only afford to change one thing in a year
+
+missions:
+  - title: Where the cases are
+    objective: Turn a cluster into a rate, find a comparison that tests it, and separate a candidate organism from a passenger.
+    briefing: Whitehead wants the map before anybody argues about the air.
+    stake: >-
+      Monday. Sixty-six people in the court are dead or dying and the explanations on offer
+      are the smell, the weather, and the character of the poor. Henry Whitehead, who keeps
+      the district's returns, has the addresses. Harriet Deane, his clerk, has the one number
+      nobody else collected — how many people live in those houses. John Snow, a physician
+      who has been asking every door where it draws its water, wants a comparison rather than
+      more cases. Today you turn the cluster into a rate, buy the one enquiry that could
+      overturn it, and look at what a microscope can and cannot settle.
+    takeaway: A cluster names something worth testing and settles nothing on its own.
+    stops:
+      - group: REG
+        task: Turn the cluster into a rate
+        title: Sixty-six, out of how many
+        place: Registrar's Office
+        concept: 'A cluster around a shared exposure is a hypothesis, not a cause'
+        scene: >
+          The map has sixty-six pins in the court and eighteen in the streets on
+          the other main. Deane has just finished counting who lives in each
+          house, which took her four days.
+        guide: >-
+          A count of the dead is not a rate. Work out what share of the people exposed to the
+          pump actually fell ill, which is the cases divided by the people who could have had
+          them. Two of the tiles are counts of other things — how many houses there are, and
+          how many cases fell elsewhere — and neither belongs in this division.
+        background:
+          - >-
+              How to do it, on a different example. Twelve people in a village of two hundred
+              catch something: that is twelve over two hundred, six in a hundred, six per
+              cent. Now suppose eleven of the twelve live in the eight houses at the top of
+              the lane, which hold forty people between them. Eleven over forty is
+              twenty-eight per cent. The second number is the one worth explaining.
+          - >-
+              Why the denominator is the hard part. Anybody can count the dead; the parish
+              does it for you. Counting who was exposed and stayed well means going to every
+              door, and it is the reason four days of Deane's week went on something that
+              produces no names.
+          - >-
+              What a high rate in one group does and does not say. It says the people in that
+              group met something the others did not. It does not say what, and everybody in
+              a court shares a good deal besides a pump — the same air, the same trades, the
+              same crowding and the same food.
+          - >-
+              Why this is the first question. Every later argument is a comparison, and a
+              comparison needs two rates. Producing the first one is cheap and it fixes what
+              the rest of the week has to beat.
+        assumes:
+          - everybody in a household draws water from the same source
+          - a share of a group can be written as a percentage of it
+        takeaway: A rate is cases over the people who could have had them, and the second number is the one that has to be collected.
+        format: BALLPARK
+        question: What is the attack rate among the households drawing from the court pump?
+        estimate:
+          prompt: >-
+            Whitehead will not take the map to the vestry as a count. He wants it as a rate.
+          question: What is the attack rate among the households drawing from the court pump?
+          relationship: The attack rate is the cases divided by the number of people who could have had them, written as a percentage.
+          labels:
+            - 66  (people who fell ill in the pump households)
+            - 220  (people living in those households)
+            - 100  (to turn a share into a percentage)
+            - 40  (the number of households in the court)
+            - 18  (cases in the streets on the other main)
+          values: [66, 220, 100, 40, 18]
+          slots: 3
+          template: '{0} ÷ {1} × {2}'
+          formula: a/b*c
+          correct: [0, 1, 2]
+          target: 30
+          tolerance: 1
+          units: per cent of the people exposed
+          solution: Sixty-six cases among the two hundred and twenty people in those households is thirty in every hundred, which is an attack rate of thirty per cent.
+          explanation: Dividing by the forty households gives cases per house, which is a different quantity and cannot be compared with a rate anywhere else.
+        why: >
+          Thirty per cent is a number that can be argued with. A count cannot. It can be set
+          beside the rate in any other group, which is what the whole method rests on, and it
+          survives the court being larger or smaller than somebody remembers. What it does not
+          do is name a cause. The people in those households share a pump, and they also share
+          the air, the trades, the crowding and the food. A rate says where to look next; the
+          next stop is about what looking would have to consist of.
+
+      - group: PUMP
+        task: Buy the enquiry that could overturn it
+        title: The house that draws elsewhere
+        place: The Court
+        concept: 'A natural comparison group is worth more than more cases'
+        scene: >
+          Snow has a day and four things he could spend it on. Three of them
+          would add to what is already known about the court. One of them could
+          show the pattern is wrong.
+        guide: >-
+          Every enquiry here is real work and would produce a true answer. The one worth
+          buying is the one whose result could come out either way and change what you
+          believe. Ask of each: if the answer were the opposite of what you expect, would
+          anything about the case be different tomorrow?
+        background:
+          - >-
+              How to do it, on a different example. A shop is blamed for a run of upset
+              stomachs. You could interview twenty more customers who were ill, or you could
+              find the family who eat there weekly and are all perfectly well. The twenty
+              interviews confirm what you already have. The healthy family either has an
+              explanation or it damages the case, and either way you learn something.
+          - >-
+              What makes a comparison group natural. It has to share the surroundings and not
+              the exposure. A household in the court that draws from a private well has the
+              same air, the same crowding and the same neighbours, and differs in the one
+              thing under suspicion — which is exactly the condition an experiment tries to
+              arrange and cannot, here.
+          - >-
+              Why more cases add so little. Cases from the middle of a cluster are drawn from
+              a group already known to be heavily affected. Each one makes the count larger
+              and the argument no stronger, because none of them could have come out the
+              other way.
+          - >-
+              What the risky answer looks like. If the households that draw elsewhere are
+              falling ill at the same rate, the water hypothesis is in serious trouble on the
+              spot. That is what makes the enquiry worth a day.
+        assumes:
+          - an enquiry is worth what it would change rather than what it costs
+          - people living in one court share most conditions besides their water
+        takeaway: A comparison group that shares the surroundings and not the exposure is what turns a pattern into evidence.
+        format: VALUE
+        question: >-
+          You have one day in the court. Buy the enquiry that could change what you believe.
+        value:
+          hint: >-
+            All four of these are honest work. The question is which result could come out the
+            other way.
+          budget: { amount: 1, unit: day }
+          decision: Whether the court pump stays in use tomorrow
+          options:
+            - { id: more, label: Record twenty more cases in the court, cost: 1, axis: size of the cluster, reveals: 'Twenty more households in the affected streets, as expected.' }
+            - { id: smell, label: Rate the smell in each street from one to five, cost: 1, axis: the air in the court, reveals: 'The worst-smelling street is not the worst-affected one.' }
+            - { id: elsewhere, label: Find the households in the court that draw from elsewhere, cost: 1, axis: people with the surroundings and not the exposure, decisive: true, reveals: 'Eleven households draw from a private well. Two cases between them.' }
+            - { id: register, label: Copy the last five years of deaths for the district, cost: 1, axis: history of the district, reveals: 'Nothing like this in five years, which is worth knowing and settles nothing about the pump.' }
+          commit: Spend the day
+        answerText: >-
+          Find the households that draw from elsewhere. They live in the same court, breathe
+          the same air and differ in the one thing under suspicion, so their rate could come
+          out either way — and it is the only enquiry here of which that is true.
+        why: >
+          Three of these produce true answers that could not have surprised anybody. Twenty
+          more cases from an affected court were always going to be found. The smell rating is
+          interesting and does not decide anything, since a street can be foul and healthy or
+          sweet and stricken. The five-year register is worth having as background. Only the
+          eleven households can go the other way: if they were falling ill at the same rate,
+          the water argument would be finished by teatime. Two cases among them is the number
+          that makes the pump the thing to act on.
+
+      - group: LAB
+        task: Say what the slide is worth
+        title: Eighteen of twenty, and none of twenty
+        place: Laboratory Hut
+        concept: 'An organism found in the diseased and not the healthy is a candidate'
+        scene: >
+          Robert Koch, the bacteriologist here, has forty slides on the tray.
+          A rod-shaped organism appears in eighteen of the twenty diseased
+          samples and in none of the twenty healthy ones.
+        guide: >-
+          Four readings of that result are offered. What separates them is how much each one
+          adds to a count of where an organism was seen. A statement about which samples it
+          was found in adds nothing; a statement that it causes the disease adds a mechanism;
+          a statement about how it travels adds a route nothing here has looked at.
+        background:
+          - >-
+              How to do it, on a different example. Mud is found on the boots of eighteen of
+              the twenty people who were in the field and on none of the twenty who stayed
+              indoors. That is a strong association between mud and the field. It is not
+              evidence that mud makes people walk into fields, and no amount of extra boots
+              will make it so.
+          - >-
+              Why a control set is doing the work. Something present in every diseased sample
+              might be present in everybody. The twenty healthy slides are what turn a
+              frequent organism into a distinctive one, and without them the finding could not
+              be stated at all.
+          - >-
+              What a passenger is. Damaged tissue is a good place to live, so an organism can
+              arrive because of the disease rather than the disease arriving because of it.
+              Nothing seen through a microscope separates those two, because both produce the
+              same picture.
+          - >-
+              Why the next step has to be an experiment. Association can be strengthened by
+              more slides and cannot be converted by them. What changes the kind of evidence
+              is giving the organism to something healthy and seeing what follows.
+        assumes:
+          - the healthy samples were collected and prepared the same way as the diseased ones
+          - an organism seen on a slide is present in the tissue rather than in the stain
+        takeaway: An organism common in the diseased and absent in the healthy is a candidate, and a candidate is a thing to test rather than a finding.
+        format: CHOICE
+        question: What is the best next statement about the rod-shaped organism?
+        choices:
+          - The association is strong, so the organism is worth testing as a cause.
+          - The organism is now shown to cause the disease.
+          - The healthy slides were not needed once the pattern was clear.
+          - Microscopy has established how the organism travels between people.
+        answer: The association is strong, so the organism is worth testing as a cause.
+        rebuttals:
+          - Nothing here rules out the organism arriving because of the disease rather than the other way round.
+          - Without the healthy slides the finding could not have been stated at all, since a common organism would look identical.
+          - Nothing on a slide is about travel; the samples were all taken after the fact.
+        why: >
+          Eighteen against none is about as strong as an association from slides gets, and it
+          is still an association. The picture produced by an organism that causes damage and
+          the picture produced by one that thrives in damage are the same picture. What the
+          control slides buy is the distinction between an organism that is everywhere and one
+          that is found where the disease is. What no further slides can buy is causation, and
+          that is why the next level is a set of matched animals rather than a bigger tray.
+
+  - title: Make it an experiment
+    objective: Get one organism away from everything it arrived with, give it to matched hosts, and recover it again.
+    briefing: Koch will not accept a result from a mixture.
+    stake: >-
+      Wednesday, and the map has done all it can. Robert Koch, the bacteriologist, has a
+      streak plate with four kinds of colony on it and will not run anything until there is
+      one. Sixty matched animals are in the hut, thirty to be exposed and thirty to receive
+      sterile medium and nothing else. Martha Lowry, the ward sister, has agreed to compare
+      what comes back with what went in. Today you separate the candidate from everything it
+      arrived with, set the two groups against each other and say what the ratio between
+      them is worth, and read a bench where three cultures agree and one does not. This is
+      where the argument stops being about where people live.
+    takeaway: A pattern becomes a cause when one thing is given deliberately and the rest is held still.
+    stops:
+      - group: LAB
+        task: Get one organism on its own
+        title: Four colonies, and the one that matters
+        place: Laboratory Hut
+        concept: 'A pure culture separates the candidate from everything it arrived with'
+        scene: >
+          The streak plate carries four kinds of colony. Koch has a loop, a fresh
+          plate and a rule that nothing goes into an animal until the plate it
+          came from shows one kind of growth.
+        guide: >-
+          Four things about the purification step are on the card, and each one settles a
+          different question. What separates them is what each is actually about — the
+          mixture, the single colony, the check that the second plate is pure, or the record
+          of where the material came from. Read what each step establishes, not what it
+          reminds you of.
+        background:
+          - >-
+              How to do it, on a different example. A bag of mixed seed will not tell you
+              which plant makes the yellow flower. Sow one seed, grow it, collect seed from
+              that plant alone, and sow again. The second sowing is the test; the first is
+              what makes the second possible. Ask of each step below which of those two jobs
+              it is doing.
+          - >-
+              Why a mixture cannot be tested. Give diseased tissue to a healthy animal and it
+              falls ill, and you have learnt that diseased tissue makes animals ill. That was
+              already known. Everything the experiment is for depends on being able to say
+              which of the things in the tissue did it.
+          - >-
+              What one colony is. A colony is the visible descendants of a single organism
+              that landed on the plate, so picking one and growing it again gives a population
+              descended from one thing. That is what the word pure means here, and it is
+              checked by looking rather than assumed.
+          - >-
+              Why the record travels with the culture. A pure culture six days later is a jar
+              of broth that looks like every other jar. What makes it evidence is the line
+              saying which plate, which colony and which patient, kept from the beginning.
+        assumes:
+          - a visible colony grew from a single organism landing on the plate
+          - diseased tissue holds other organisms besides any candidate
+        takeaway: Growing one colony on its own is what makes the next experiment a test of one organism rather than of a mixture.
+        format: PROTOCOL
+        task_line: Match each step to what it settles.
+        scenarios:
+          - Diseased tissue is streaked out and four kinds of colony appear.
+          - One colony is picked and streaked onto a fresh plate.
+          - The second plate is examined and shows a single kind of growth.
+          - The plate, the colony and the patient are written on the jar.
+        choices:
+          - What the tissue holds, which is the candidate and several other things.
+          - A population descended from one organism, which is what can be tested.
+          - That the separation worked, which is checked rather than assumed.
+          - Where the material came from, which is what makes it evidence later.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Each step answers a different question. The first plate says what was in the tissue,
+          which is more than the candidate. Picking one colony produces a population descended
+          from a single organism, and that is the only thing an exposure experiment can be
+          about. Looking at the second plate is the check, and it matters because a loop can
+          carry two things as easily as one. The label is not housekeeping. A jar of broth six
+          days later looks like any other jar, and the line on it is the whole of its
+          provenance.
+
+      - group: LAB
+        task: Compare the exposed with the unexposed
+        title: Twenty-four of thirty, three of thirty
+        place: Laboratory Hut
+        concept: 'Exposure against an unexposed control is where causation starts'
+        scene: >
+          Thirty matched animals received the pure culture and thirty received
+          sterile medium. Twenty-four of the exposed group have the disease and
+          three of the control group do.
+        guide: >-
+          Both groups have a rate, so put one over the other and say how many times more often
+          illness struck the exposed. Work with the two rates rather than the two counts; the
+          counts happen to be comparable here because the groups are the same size, and that
+          is a coincidence you should not build a habit on.
+        background:
+          - >-
+              How to do it, on a different example. Forty of two hundred people who ate at one
+              stall fell ill, which is twenty per cent. Ten of five hundred who did not fell
+              ill, which is two per cent. Twenty divided by two is ten, so illness struck the
+              stall's customers ten times as often. Note that the raw counts, forty against
+              ten, would have said four — and that number is wrong because the groups are
+              different sizes.
+          - >-
+              Why the control group is not zero. Three animals in the unexposed group fell
+              ill, and that is normal. Animals meet things; a control group is not a group in
+              which nothing can happen. What the comparison uses is how much the exposed rate
+              exceeds it.
+          - >-
+              What matching bought. Same age, same weight, same hut, same day, and the culture
+              was the only thing that differed. Without that, a difference between the groups
+              could be a difference in anything, and there would be no way to tell from the
+              counts.
+          - >-
+              What this establishes and what it does not. It establishes that this organism
+              can produce this disease in this host under these conditions. It says nothing
+              about people, about other doses, or about how anything reaches anybody outside
+              this hut.
+        assumes:
+          - the two groups differ in the exposure and in nothing anybody could measure
+          - a rate can be compared with another rate as a ratio
+        takeaway: Two matched groups differing in one thing, and afterwards in their rates, is where an association becomes a cause.
+        format: BALLPARK
+        question: How many times more often did illness strike the exposed group?
+        estimate:
+          prompt: >-
+            Koch wants the comparison as a ratio before it goes anywhere near the ward.
+          question: How many times more often did illness strike the exposed group?
+          relationship: The relative risk is the attack rate in the exposed group divided by the attack rate in the unexposed group.
+          labels:
+            - 80 %  (the attack rate in the exposed group)
+            - 10 %  (the attack rate in the control group)
+            - 30  (animals in each group)
+            - 24  (how many of the exposed fell ill)
+          values: [80, 10, 30, 24]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 8
+          tolerance: 0.4
+          units: times as often
+          solution: Eighty per cent in the exposed group against ten per cent in the control is a ratio of eight, so illness struck the exposed animals eight times as often.
+          explanation: Dividing the twenty-four cases by the thirty animals gives the exposed rate again rather than the comparison between the two groups.
+        why: >
+          Eight times is a statement about two groups that differed in one thing. That is what
+          the matching was for, and it is why this evidence is of a different kind from the map
+          — nobody chose to be in the court, but every animal here was assigned. The control
+          group is not empty, and it should not be: three cases arose without any culture at
+          all, and the ratio is what says how far above that the exposed group sat. What the
+          result is about is this organism, this host and this dose, and it stays about them.
+
+      - group: WARD
+        task: Find out whether the same thing came back
+        title: What grew out of the newly ill
+        place: Fever Ward
+        concept: 'Recovering the same organism closes the loop back to the exposure'
+        scene: >
+          Cultures from four newly diseased animals are on the bench beside the
+          original. Three of the four match it on every reading. The fourth does
+          not, and Lowry wants to know what that costs.
+        guide: >-
+          Read the whole panel rather than the loudest row. Three of the four recovered
+          cultures agree with the original on colony shape, growth and appearance under the
+          microscope, and one does not. The explanation you want is the one that accounts for
+          the quiet readings as well as the mismatch.
+        background:
+          - >-
+              How to do it, on a different example. Four keys are cut from one original. Three
+              open the door and one does not. That is not evidence that the original was the
+              wrong key. It is evidence that one cut went wrong, and the test of that is
+              whether the failed key differs from the original in the way a bad cut would.
+          - >-
+              Why recovering the organism matters at all. The exposed animals were given
+              something and then fell ill. Growing the same organism back out of them links
+              the illness to what was given rather than to the giving — to the needle, the
+              handling or the day.
+          - >-
+              What a mismatch usually is. An animal in a hut meets other organisms. A
+              recovered culture that differs from the original on every reading is most simply
+              a second infection or a contaminated plate, and the way to tell is whether
+              anything about it resembles the original at all.
+          - >-
+              What this step is not. It is not a universal rule. Plenty of real causes of
+              disease cannot be grown on a plate, and some are carried by people who never
+              show anything. The loop is strong evidence when it closes and its failure to
+              close is not proof of innocence.
+        assumes:
+          - two cultures can be compared on colony appearance, growth and microscopic form
+          - an animal in a shared hut can meet organisms other than the one it was given
+        takeaway: Growing the same organism out of a host that was made ill with it ties the illness to the exposure rather than to the act of exposing.
+        format: DIAGNOSIS
+        headline: Three recovered cultures match the original on every reading. The fourth matches on none.
+        task: Which explanation fits the whole bench, and not only the odd one out?
+        readings:
+          - { zone: Recovered A, label: Colony form and microscopy, value: matches original, status: normal }
+          - { zone: Recovered B, label: Colony form and microscopy, value: matches original, status: normal }
+          - { zone: Recovered C, label: Colony form and microscopy, value: matches original, status: normal }
+          - { zone: Recovered D, label: Colony form and microscopy, value: no feature in common, status: alarm }
+          - { zone: Control group, label: Cultures from the three unexposed cases, value: none match the original, status: normal, note: rules out the hut itself carrying it }
+          - { zone: Plate D, label: Second colony type on the same plate, value: present, status: alarm, note: the plate was not pure }
+        choices:
+          - label: The loop closes and animal D has a second infection
+            mechanism: The organism given was recovered from three of the four, and D's plate carried a second colony type.
+          - label: The original culture was never the cause
+            mechanism: One failure to recover is taken to undo the exposure result.
+          - label: The organism changed inside the animals
+            mechanism: Three matched by chance and D shows what it really becomes.
+          - label: The control animals were exposed as well
+            mechanism: Something in the hut is carrying the organism between cages.
+        answer: The loop closes and animal D has a second infection
+        why: >
+          Three recoveries matching the original on every reading is the loop closing. The
+          quiet rows are what settle the fourth. D's plate carried a second kind of colony, so
+          the culture read off it was never pure, and the three control cases grew nothing
+          resembling the original, which rules out the hut passing it round. An organism that
+          changed inside an animal would not have left three unchanged. One mismatch weakens a
+          chain and does not break it, and the useful question is always what else on the
+          bench the explanation has to account for.
+
+  - title: Change what is done
+    objective: Predict what closing a route buys, notice that prevention need not wait for a mechanism, and say where the theory stops.
+    briefing: Lowry will change one thing on the ward and count what follows.
+    stake: >-
+      Friday, and the argument has to become a decision. Martha Lowry, the ward sister, will
+      change exactly one thing between the two wings and count the fortnight that follows.
+      Ignaz Semmelweis, the ward physician, has been arguing for that change for two years
+      without being able to say what it removes, and has been told he is wasting a ward.
+      Out in the court the vestry meets tonight about the pump handle, and forty households
+      will walk further for water if it comes off. On the registrar's desk are four proposals
+      for the district's hundred pounds. Today you commit a prediction before the basin goes
+      in, make the case for acting without a mechanism, and say out loud which of the four
+      proposals this week has nothing to say about.
+    takeaway: A mechanism earns its keep by predicting what a change will buy, and by saying which cases it does not cover.
+    stops:
+      - group: WARD
+        task: Predict what closing one route buys
+        title: One change, and a fortnight of counting
+        place: Fever Ward
+        concept: 'Interrupting one transmission route predicts a measurable fall'
+        scene: >
+          The two wings run at nine and three deaths in every hundred. Lowry will
+          put a chlorinated lime basin at the door of the worse wing and change
+          nothing else for a fortnight.
+        guide: >-
+          Say first, in writing, what the rate in the worse wing will be after the change.
+          Then make the change, then count the fortnight. The prediction is locked once it is
+          made, because a prediction adjusted after the count has stopped being a test of
+          anything. Note also that the change is not finished until the counting has been done.
+        background:
+          - >-
+              How to do it, on a different example. A shop suspects one leaking window is
+              costing it heat. Write down what the fuel bill should fall to if that window is
+              the whole of the problem — say from forty pounds a month to thirty. Then seal
+              it, then read the meter for a month. A bill of thirty-one supports the guess; a
+              bill of thirty-nine says the window was not it.
+          - >-
+              What the mechanism predicts. If something is being carried in on hands, and
+              hands are the difference between the wings, then washing should bring the worse
+              wing down toward the better one rather than to zero. Predicting zero is
+              predicting that hands are the only route, which nobody believes.
+          - >-
+              Why the other wing is left alone. It is the comparison. If both wings changed,
+              a fall in the worse one could be the season, the weather or the admissions, and
+              there would be no way to tell from the counts.
+          - >-
+              What is not being claimed. Nothing here says what is on the hands. The mechanism
+              is doing real work — it named a route and predicted a size — and it does that
+              without anybody being able to name the thing.
+        assumes:
+          - the two wings differ in who attends and in little else that can be measured
+          - a death rate over a fortnight can be counted without dispute
+        takeaway: A route worth naming is one that predicts how far a rate should fall when it is closed, and the prediction is what the change is judged against.
+        format: VERIFY
+        question: >-
+          Lock a prediction for the worse wing, put the basin in, then count the fortnight.
+        verify:
+          hint: >-
+            Write the prediction down before the basin goes in. Nothing about it can be changed
+            afterwards, which is what makes it a prediction.
+          prediction: { label: Predicted deaths per hundred in the worse wing, unit: 'per 100', min: 0, max: 12, step: 0.5 }
+          truth: 3.5
+          passRatio: [0.6, 1.7]
+          intervention:
+            label: The chlorinated lime basin
+            note: At the door of the worse wing, used before every examination. The other wing is untouched.
+            outcome: The basin is in and in use. Attendance, admissions and the rota are unchanged.
+          measurement:
+            label: The fortnight's count in both wings
+            note: Deaths per hundred admissions, counted by the sister rather than by the physician.
+            cost: 14
+            costUnit: days
+          unmeasuredMoral: >-
+            The basin is in and everybody is using it. That is a statement about the basin, and
+            it is not a statement about the ward.
+          commit: Report the fortnight
+        answerText: >-
+          A little over three in a hundred, which is the better wing's rate. The route was
+          carrying most of the difference, and only the count says so.
+        why: >
+          The prediction worth making is the better wing's rate, not zero. If hands were the
+          difference between the wings, closing that route should bring the two together and
+          leave whatever both wings share. That is what happened, and it is a stronger result
+          than a fall to nothing would have been, because a fall to nothing would have needed
+          explaining. The untouched wing is what makes the fortnight readable at all. Without
+          it, a mild fortnight and a working basin produce the same number.
+
+      - group: PUMP
+        task: Decide about the handle
+        title: The vestry meets tonight
+        place: The Court
+        concept: 'Prevention can work before the mechanism is known'
+        scene: >
+          Nobody in the district can say what is in the water. The rate in the
+          pump households is thirty per cent and in the eleven that draw
+          elsewhere it is two cases. The vestry will vote on removing the handle.
+        guide: >-
+          Four positions are on offer and all four are held by somebody in the room. What
+          separates them is what each treats as the condition for acting. Ask of each whether
+          it makes acting depend on knowing something nobody can know tonight, and what that
+          costs while the knowing is arranged.
+        background:
+          - >-
+              How to do it, on a different example. A bridge is closed after two lorries go
+              through the deck, before any engineer has said which member failed. Closing it
+              is not a claim about the member. It is a decision that the cost of being wrong
+              in one direction is much larger than in the other, made with the evidence
+              available.
+          - >-
+              What is actually known tonight. A rate of thirty per cent among households on
+              one pump and almost nothing among households in the same court on another
+              supply. That is a pattern with a comparison group in it, which is a good deal
+              more than an impression.
+          - >-
+              What removing the handle costs. Those households walk further for water. That is
+              a real cost and it is reversible in an afternoon, which is the other half of the
+              argument: a cheap, reversible measure needs less evidence behind it than an
+              expensive, permanent one.
+          - >-
+              Why this is not an argument against mechanism. Knowing what is in the water
+              would be better in every way — it would say how to treat it, where else to look
+              and what else the same thing does. It is worth pursuing and it is not worth
+              waiting for.
+        assumes:
+          - the households drawing from elsewhere share the court's other conditions
+          - removing a pump handle can be undone at little cost
+        takeaway: An intervention aimed at the right route reduces disease whether or not anybody can yet say what travels along it.
+        format: CHOICE
+        question: What is the best case for acting on the pump tonight?
+        choices:
+          - The evidence points at one route, and the measure is cheap and reversible.
+          - The organism in the water has been identified, so the case is closed.
+          - Nothing should be done until the mechanism is understood.
+          - The smell in the court is bad enough to justify any measure.
+        answer: The evidence points at one route, and the measure is cheap and reversible.
+        rebuttals:
+          - Nothing in the week has identified anything in the water, and the case does not depend on it.
+          - Waiting for a mechanism is a decision too, and it costs whatever the next month costs.
+          - The worst-smelling street is not the worst-affected one, which is the finding that removed the smell from the argument.
+        why: >
+          Two things carry this. The comparison group makes the pattern more than an
+          impression. And the measure is cheap, so it can be undone if it turns out to be
+          wrong. That pair is what licenses acting without a mechanism. It is worth being
+          plain about what is not being claimed. Nobody has shown anything in the water, and
+          nobody will tonight. Some of the largest falls in disease in this history came from
+          people who could not say what they were stopping. Others were held up for years by
+          the demand that they should say it first.
+
+      - group: REG
+        task: Spend the district's money
+        title: Four proposals, and one the week cannot speak to
+        place: Registrar's Office
+        concept: 'Germ theory explains infectious disease, and only infectious disease'
+        scene: >
+          A hundred pounds is to be allocated. Four proposals are on the desk,
+          three of them aimed at routes this week has produced evidence about
+          and one aimed at something else entirely.
+        guide: >-
+          Put the hundred where the week's evidence actually reaches. Three of these target a
+          route the campaign has produced a rate, a comparison or a controlled count for. The
+          fourth is a real problem and a serious one, and nothing established here says
+          anything about what causes it — which is a reason to be honest about the funding
+          rather than a reason to think it does not matter.
+        background:
+          - >-
+              What the week produced, proposal by proposal. A thirty per cent attack rate on
+              one water supply against almost nothing on another in the same court. A
+              fortnight's controlled count showing hand washing bringing one ward wing down to
+              the other. An exposure experiment tying one organism to one disease in matched
+              animals. Those are the three the evidence covers.
+          - >-
+              The fourth proposal. Sailors on the coastal run come back with bleeding gums and
+              old wounds reopening after months at sea. It is a serious condition and it is
+              not passed from person to person, does not cluster on a water supply and grows
+              no organism. It is a deficiency, and it is cured by fresh food.
+          - >-
+              Why funding it out of this evidence would be a mistake. Not because it is
+              unimportant, but because nothing in the week's work bears on it, and a measure
+              chosen on the wrong theory tends to be the wrong measure. Cleaning a ship does
+              not cure it; lemons do.
+          - >-
+              What the honest allocation looks like. Weight the three the evidence reaches,
+              in proportion to how much a change there would buy, and say plainly that the
+              fourth needs a different kind of study rather than a share of this one.
+        assumes:
+          - a hundred points can be split across proposals in any proportion
+          - a condition that does not spread between people is not explained by transmission
+        takeaway: The claim established is that particular organisms cause particular transmissible diseases, which is a statement about which cases the theory covers as much as about what it says.
+        format: SCIENCETANK
+        task: Put the hundred where this week's evidence reaches.
+        rules: >-
+          Commit all one hundred points. At least sixty must go to proposals this week has
+          produced a rate, a comparison or a controlled count for.
+        proposals:
+          - { label: A, text: Cover the court's wells and pipe clean water to the standpipes. }
+          - { label: B, text: Chlorinated lime basins and a washing rule at the door of every ward. }
+          - { label: C, text: A laboratory allowance so cultures from every fever case can be grown and compared. }
+          - { label: D, text: Whitewash and ventilate the seamen's lodging against the bleeding-gum sickness. }
+        recommended: { A: 45, B: 35, C: 20 }
+        why: >
+          The first three are all routes this week has evidence about, and the water supply
+          takes the largest share because it carries the largest measured difference. The
+          laboratory allowance is smaller and it is not nothing: the organism work is what
+          turns a route into a mechanism, and a mechanism is what says where else to look. The
+          fourth proposal is the point of the stop. Bleeding gums after months at sea is a
+          real and serious condition, it is a deficiency rather than a transmission, and
+          whitewashing a lodging will not touch it. A theory is strong partly in knowing which
+          cases it has no business being used on.
+
+warmups:
+  greet:
+    title: Four kinds of evidence and nobody who has all of them
+    why: >-
+      A map, a ward count, a slide and a set of matched animals come from four different
+      people who mostly disagree, and a claim is worth what the work behind it is worth. Put a
+      name to as many of them as you can before the week starts.
+  trial-near:
+    title: Walk the court before the vestry meets
+    why: >-
+      The pump and the registrar's office are within sight of each other and the ward and the
+      laboratory hut are ninety metres up the lane, past the fence. John Snow, the physician
+      asking every door about its water, would rather you knew the way than found it out on
+      Friday.
+  follow:
+    title: Deane carries a household count from the door to the map
+    why: >-
+      A number of people in a house is asked for on a doorstep, written on a slip and added to
+      a rate in another building, and most of what goes wrong happens in between. Harriet
+      Deane, the registrar's clerk, walks one the whole way. Stay with her and watch where the
+      number changes hands.
+
+interiors:
+  REG:
+    caption: A count of the dead is not a rate.
+    standLine: Eighty-four pins in the map, and four days spent on the denominator.
+    station:
+      kind: panel
+      title: District returns
+      rows:
+        - { label: Cases in pump households, value: 66, status: alarm }
+        - { label: People in those households, value: 220, status: normal }
+        - { label: Cases on the other main, value: 18, status: normal }
+        - { label: People on the other main, value: 640, status: normal }
+  PUMP:
+    caption: The households that draw from elsewhere are the whole of the argument.
+    standLine: Forty households on one standpipe, and eleven that are not.
+    station:
+      kind: plot
+      title: Cases by distance from the pump
+      note: eleven households in the court draw from a private well
+      axes: { x: distance from the standpipe, y: attack rate }
+      curves:
+        - { points: [[0.05, 0.94], [0.2, 0.78], [0.45, 0.42], [0.7, 0.16], [0.95, 0.1]], label: households on the pump }
+  LAB:
+    caption: An experiment on a mixture is an experiment on a mixture.
+    standLine: Four colony types on the first plate and one on the second.
+    station:
+      kind: panel
+      title: Exposure trial
+      rows:
+        - { label: Exposed group, value: 24 of 30 ill, status: alarm }
+        - { label: Control group, value: 3 of 30 ill, status: normal }
+        - { label: Culture purity, value: single colony type, status: normal }
+        - { label: Recovered and matched, value: 3 of 4, status: normal }
+  WARD:
+    caption: Two wings, one building, and three times the rate in one of them.
+    standLine: A basin at one door, and a fortnight of counting either side of it.
+    station:
+      kind: vitals
+      title: Ward rates
+      rows:
+        - { label: Worse wing, value: 9 per 100, status: alarm }
+        - { label: Better wing, value: 3 per 100, status: normal }
+        - { label: Basin in use, value: since Friday, status: normal }
+
+copy:
+  REG: <p>The registrar's office, on the near side of the lane. Ledgers of returns, a rate book, and a district map with eighty-four pins in it.</p>
+  PUMP: <p>The court, across the lane. A standpipe on a stone step, two terraces of houses round it, and the shelter the parish put up over the tools.</p>
+  LAB: <p>The laboratory hut, ninety metres up the lane past the fence. A microscope, an incubator, plates in a rack, and sixty matched animals in cages along the far wall.</p>
+  WARD: <p>The fever ward, on the hospital ground. Two wings off one entrance, the same beds in each, and a chlorinated lime basin at one of the two doors.</p>
+  LODGE: <p>The gate lodge, at the entrance. A book everybody signs, a lamp, and the keys to the yard gate.</p>
+  WATER: <p>The water company's office, by the lane. A wall map of which street is on which main, and a counter nobody stands at.</p>
+  MORT: <p>The mortuary, behind the ward. Cold, quiet, and the place a cause of death is written down before it becomes a line in a ledger.</p>

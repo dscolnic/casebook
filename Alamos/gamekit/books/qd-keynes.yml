@@ -1,0 +1,946 @@
+# Keynes and the Great Depression — a Quick Discovery.
+#
+# The 3 x 3 shape from great_discoveries_next10_nonphysics_expanded.docx, game
+# 19, mapped onto the engine's day model: a level is a day, a micro-game is a
+# stop, and the campaign is nine stops in one sitting. Three levels, in order:
+#
+#   1  The downward spiral   a fall that does not stop where it started
+#   2  The multiplier        rounds, a finite sum, and what leaks out of it
+#   3  Stabilise             size the response, and say when it is wrong
+#
+# The science guardrail from the source book, kept, and it is the whole of the
+# third level. The player drives a toy model and then states a conditional
+# insight rather than a slogan: when demand has collapsed and resources are idle,
+# reduced spending can sustain unemployment and public demand support can raise
+# short-run output — subject to timing, leakage and capacity. Strip the
+# conditions off and the same sentence is wrong half the time it is used.
+#
+# Format budget. Nine stops, so `formatMix`'s cap is three of any one format:
+# BALLPARK 3, and one each of CHOICE, PROTOCOL, DIAGNOSIS, SWEEP, STRESS,
+# ATTEST. Seven formats in nine stops, three of them driven.
+
+theme:
+  id: qd_keynes
+  title: Keynes and the Great Depression
+  subtitle: Junior Economist · Economic Advisory Building
+
+groups:
+  - id: FLOW
+    code: FLOW
+    name: Flow Room
+    color: '#2f6f5a'
+    desc: A wall-sized board of the whole economy with every arrow on it, and no chairs in front of it.
+    defaultLeader: keynes
+    milestones: [Trace the shock, Follow the round, Say what moves first, Ready to hand over]
+  - id: STAT
+    code: STAT
+    name: Statistics Room
+    color: '#3f6f8a'
+    desc: Returns by industry, capacity in use, and every figure counted rather than estimated from the mood.
+    defaultLeader: clark
+    milestones: [Read the returns, Measure the slack, Price the leakage, Ready to hand over]
+  - id: MODEL
+    code: MODEL
+    name: Model Room
+    color: '#8a6a1e'
+    desc: A long table, a slide rule with a cracked cursor, and rounds of spending added up where anybody can check them.
+    defaultLeader: kahn
+    milestones: [Work the rounds, Sum the series, Show the arithmetic, Ready to hand over]
+  - id: DESK
+    code: DESK
+    name: Policy Desk
+    color: '#4a3a2c'
+    desc: Where a number becomes a recommendation, and where the conditions on it are written in before it leaves.
+    defaultLeader: robinson
+    milestones: [Size the response, Test the assumption, Write the conditions, Ready to hand over]
+
+roster:
+  - id: keynes
+    name: John Maynard Keynes
+    role: Economic Adviser
+    real: true
+    division: FLOW
+    bio: |
+      Stands at the board and argues. His claim is that the economy has settled
+      somewhere with a fifth of it idle, and that nothing in the older account
+      explains why it should settle there rather than correcting itself.
+
+      What he wants traced is a fall in spending going round. A pound not spent
+      is a pound not received, and the people who did not receive it then do not
+      spend it either. That is not a metaphor; every step of it is an arrow on
+      the board with a number on it.
+
+      His limit is that a board is not a measurement. He can show the mechanism
+      and he needs the statistics room to say how much of anything there is.
+    quiz:
+      - q: What does Keynes want the board to show?
+        a: That a fall in spending arrives as somebody else's lost income
+        wrong:
+          - That firms will cut prices as soon as orders fall away
+          - That households are saving more than they used to
+          - That the government's own accounts are the place to start
+
+  - id: kahn
+    name: Richard Kahn
+    role: Model Room
+    real: true
+    division: MODEL
+    bio: |
+      Turned the argument into arithmetic, which is what made it usable. Each
+      round of induced spending is the round before it multiplied by the share
+      households spend, so the rounds shrink by the same fraction every time.
+
+      Rounds that shrink like that add to a finite total, and the total is the
+      first change divided by one minus the share. That is a number rather than
+      an opinion, and anybody with a sheet of paper can check it.
+
+      His limit is that the tidy figure is always too big. Every pound that goes
+      to tax, to saving or abroad leaves the round, and the honest multiplier is
+      a good deal smaller than the one in the textbook.
+    quiz:
+      - q: Why do the rounds add up to a finite total?
+        a: Each one is a fixed fraction of the one before it
+        wrong:
+          - Because the government stops the process after a few rounds
+          - Because households eventually run out of money to spend
+          - Because prices rise and choke off the later rounds
+
+  - id: clark
+    name: Colin Clark
+    role: National Income Statistics
+    real: true
+    division: STAT
+    bio: |
+      Counts things, which sounds unremarkable and is why this building can say
+      anything at all. Output, employment, orders and capacity in use, by
+      industry, from returns somebody actually filled in.
+
+      His figure that matters most this week is the share of capacity standing
+      idle. That number decides whether extra demand comes out as more goods or
+      as higher prices, and it is measurable rather than a matter of temperament.
+
+      His limit is that a return is filled in by somebody with an interest in it,
+      and that a December figure compared with a June one has a Christmas in it.
+    quiz:
+      - q: Why does capacity in use matter more than anything else this week?
+        a: It decides whether extra demand raises output or prices
+        wrong:
+          - It is the only figure the returns can measure accurately
+          - It shows how many people are out of work in each industry
+          - It determines how large the multiplier turns out to be
+
+  - id: robinson
+    name: Joan Robinson
+    role: Policy Desk
+    real: true
+    division: DESK
+    bio: |
+      Turns numbers into recommendations, and her rule is that a recommendation
+      arrives with its conditions attached or it does not leave the building.
+
+      When this holds, do that. The same measure that raises output with a fifth
+      of the country idle raises prices at full stretch and takes resources from
+      somewhere else. A sentence with the conditions stripped off is a slogan,
+      and a slogan is wrong about half the time it is used.
+
+      Her limit is timing. Deciding, legislating and spending takes eighteen
+      months, and a measure sized for this quarter arrives into a different
+      economy.
+    quiz:
+      - q: What is Robinson's objection to a recommendation with no conditions?
+        a: It will be applied in a state where it does the opposite
+        wrong:
+          - It cannot be checked against the statistics room's figures
+          - It gives no guidance about how large the measure should be
+          - It leaves out the eighteen months a measure takes to arrive
+
+  - id: marchant
+    name: Edith Marchant
+    role: Statistical Clerk
+    division: STAT
+    bio: |
+      Works the returns into figures anybody can compare, which is mostly a
+      matter of refusing to compare things that are not comparable.
+
+      A December figure set beside a June one has a Christmas in it. A change in
+      which industries file has to be separated from a change in what they make.
+      None of that produces a new number and all of it decides whether the old
+      ones mean anything.
+
+      Her limit is that she can only work with what was filed. An industry that
+      did not return its sheet is a hole, and a hole filled in by estimate is
+      recorded as an estimate.
+    quiz:
+      - q: What is most of Marchant's work actually about?
+        a: Refusing to compare figures that are not comparable
+        wrong:
+          - Chasing industries that have not sent their returns in
+          - Converting the returns into a single national total
+          - Estimating the figures for industries that never file
+
+  - id: beddowes
+    name: Tom Beddowes
+    role: Policy Desk Secretary
+    division: DESK
+    bio: |
+      Keeps the file, numbers every copy and holds the summary back until the
+      conditions have been written into it.
+
+      His rule about numbering came from an unnumbered draft that was quoted as
+      final for three years. His rule about the summary comes from the same
+      place: a recommendation circulated without its conditions is the version
+      everybody will remember.
+
+      His limit is that he can hold a document and not an argument. What is said
+      in a meeting leaves the building whatever the file says.
+    quiz:
+      - q: Why is the policy summary held back?
+        a: Because the version that circulates first is the one remembered
+        wrong:
+          - Because the figures in it have not been checked yet
+          - Because the desk does not take calls between eleven and one
+          - Because the duplicating room is working through a backlog
+
+missions:
+  - title: A fall that does not stop
+    objective: Follow a shock round the board, find out what decides how it comes out, and say what firms cut first.
+    briefing: Keynes wants the second round on the board before anybody talks about prices.
+    stake: >-
+      Monday, and investment spending has fallen by a fifth. John Maynard Keynes, the economic
+      adviser here, is at the board with the whole economy drawn on it and wants the fall
+      traced arrow by arrow. Colin Clark, who counts the national income figures, has the
+      returns for the quarter and one number on them that decides everything. Edith Marchant,
+      the statistical clerk, has spent the week refusing to compare figures that are not
+      comparable. Today you work out what the second round of the fall is worth, say what
+      decides whether demand moves output or prices, and settle what a firm facing weaker
+      orders actually cuts.
+    takeaway: A fall in spending arrives as somebody else's lost income, and then goes round again.
+    stops:
+      - group: FLOW
+        task: Work out the second round
+        title: A hundred, then seventy-five
+        place: Flow Room
+        concept: 'Spending is somebody else''s income, so a fall propagates'
+        scene: >
+          Investment spending has fallen by a hundred units. Households spend
+          three quarters of every extra pound of income they get, and save the
+          rest. The first round of lost income is on the board.
+        guide: >-
+          Work out the second round of induced spending, which is the first round multiplied by
+          the share households spend. Use the first round and that share. One tile is the share
+          households save and one is the original fall, and neither belongs in this
+          multiplication.
+        background:
+          - >-
+              How to do it, on a different example. A firm cancels an order worth two hundred.
+              The supplier's staff lose two hundred of income and spend three fifths of it, so a
+              hundred and twenty is not spent in the shops. The shops' staff then lose that and
+              spend three fifths of it in turn, which is seventy-two. Each round is the last one
+              times the same fraction.
+          - >-
+              Why the fall does not stay put. Every pound spent is a pound somebody receives.
+              The board has no arrow that leaves a box without arriving in another one, so a
+              pound not spent is a pound not received, and the people who did not receive it
+              have less to spend.
+          - >-
+              What the fraction is. Households do not spend all of an extra pound and they do
+              not save all of it. The share they spend is what carries the fall to the next
+              round, and it is the only parameter the simple story needs.
+          - >-
+              Why this is the first question. Everything later this week is arithmetic on these
+              rounds — how they sum, how much leaks out, how big a push would be needed. The
+              second round is the smallest piece of it and it fixes the shape of the rest.
+        assumes:
+          - every pound spent arrives as somebody else's income
+          - households spend the same share of each extra pound
+        takeaway: Each round of induced spending is the round before it times the share households spend, which is why a shock keeps arriving after it has stopped happening.
+        format: BALLPARK
+        question: What is the second round of induced spending worth?
+        estimate:
+          prompt: >-
+            Keynes will not discuss prices until the second round is on the board with the first.
+          question: What is the second round of induced spending worth?
+          relationship: Each round of induced spending is the round before it times the propensity to consume.
+          labels:
+            - 75  (the first round of induced spending)
+            - 0.75  (the share of extra income households spend)
+            - 0.25  (the share they save)
+            - 100  (the original fall in investment)
+          values: [75, 0.75, 0.25, 100]
+          slots: 2
+          template: '{0} × {1}'
+          formula: a*b
+          correct: [0, 1]
+          target: 56.25
+          tolerance: 2
+          units: units of spending
+          solution: Three quarters of the first round's seventy-five is fifty-six and a quarter.
+          explanation: The quarter saved is what does not go on to the next round, and multiplying by it computes the leak rather than the flow.
+        why: >
+          Fifty-six and a quarter, and it is still falling. The board has no arrow that leaves a
+          box without arriving in another, so a pound not spent is a pound somebody did not
+          receive. Those people then spend three quarters of what they did not get, which is the
+          next round. The rounds shrink because households do not spend all of an extra pound.
+          That single fraction is the only parameter the story needs, and everything later this
+          week is arithmetic on it.
+
+      - group: STAT
+        task: Say what decides how demand comes out
+        title: Sixty-one per cent of the machines
+        place: Statistics Room
+        concept: 'Whether output or prices move depends on whether capacity is idle'
+        scene: >
+          Clark has the capacity returns. Sixty-one per cent of the country's
+          plant is in use and the rest is standing. A second set of returns, from
+          a boom year, shows ninety-four.
+        guide: >-
+          Four accounts of what extra demand would do are offered. What separates them is what
+          each assumes about whether there is anything spare. Ask of each: in a factory running
+          at three fifths, what stops an extra order being met by making more of the thing?
+        background:
+          - >-
+              How to do it, on a different example. A restaurant with half its tables empty can
+              take twenty more bookings tonight without changing a price. The same restaurant
+              full on a Saturday cannot, so what an extra twenty people do there is bid up what
+              a table costs. Same demand, opposite outcome, and the difference is measurable
+              before anybody arrives.
+          - >-
+              Why this is a measurement rather than a doctrine. Capacity in use is on the
+              returns, by industry, every month. Whether extra demand raises output or prices is
+              therefore something the statistics room can answer for this quarter rather than
+              something to be argued from first principles.
+          - >-
+              What idle capacity means for the people in it. Machines standing and workers
+              unemployed are the same fact from two directions, and both are what makes an extra
+              order fillable without anybody bidding anything away from anybody else.
+          - >-
+              Why the boom-year returns are on the desk. They are the contrast case. At
+              ninety-four per cent there is nothing much spare, extra demand meets a hard
+              ceiling, and the same measure that helps this quarter would do something quite
+              different.
+        assumes:
+          - capacity in use is measured from returns filed by industry
+          - a factory below full capacity can meet an extra order by producing more
+        takeaway: Extra demand met by idle plant comes out as production, and the same demand at full stretch comes out as prices, so the state of capacity decides the sign of a policy.
+        format: CHOICE
+        question: With three fifths of capacity in use, what should extra demand mostly do?
+        choices:
+          - Raise output, because there is plant and labour standing idle.
+          - Raise prices, because extra demand always raises prices.
+          - Do nothing, because firms will simply hold larger stocks.
+          - Raise wages only, because labour is the binding constraint.
+        answer: Raise output, because there is plant and labour standing idle.
+        rebuttals:
+          - That holds when there is nothing spare, and the returns say there is a great deal spare.
+          - Firms facing orders they can fill do fill them; stocks absorb a shock, not a trend.
+          - Nothing here says labour is scarce, and unemployment is the reason this is being asked.
+        why: >
+          At sixty-one per cent there is plant standing and people out of work. An extra order
+          can be filled by making more, without bidding anything away from anywhere else. The
+          useful thing is that this is a measurement rather than a doctrine. The returns say
+          what capacity is in use this quarter, by industry, so which way demand comes out can
+          be looked up. The boom-year figure on the same desk is the contrast, and it is why
+          the third level is about conditions.
+
+      - group: FLOW
+        task: Settle what a firm cuts first
+        title: Orders down, prices unmoved
+        place: Flow Room
+        concept: 'A fall in expected sales cuts production before it cuts prices'
+        scene: >
+          The quarter's returns are pinned to the board. Investment down a fifth,
+          orders down, employment down, and prices barely moved at all. The last
+          of those is the one nobody expected.
+        guide: >-
+          Four observations from the quarter are on the card, and each one settles a different
+          question. What separates them is which part of the account each one bears on — the
+          shock, what a firm does about it, who pays for it, or what did not happen. Read what
+          each one constrains.
+        background:
+          - >-
+              How to do it, on a different example. A bakery finds it is selling half as much
+              bread. It bakes half as much and puts a baker on short hours. It does not halve
+              the price, because at half the price it would lose money on every loaf and still
+              have too much bread. Quantity is the thing that moves first.
+          - >-
+              Why the price figure is the surprising one. The older account says a market with
+              too much of something clears by the price falling until it does. If that were
+              happening here, prices would be down and output would not be. The returns say the
+              reverse.
+          - >-
+              What firms actually do. Facing weaker expected sales in the short run they cut
+              what they make and who they employ. Prices move too, later and less, and by then
+              the fall in employment has already done its work by cutting the income that would
+              have bought the goods.
+          - >-
+              Why that makes the spiral possible. If prices did all the adjusting, a fall in
+              spending would leave output and employment alone. Because quantity adjusts first,
+              the fall becomes lost income, and lost income becomes the next round.
+        assumes:
+          - the returns record output, employment and prices for the same quarter
+          - a firm facing weaker orders decides what to make before it decides what to charge
+        takeaway: In the short run firms adjust what they make rather than what they charge, which is why a shortfall in demand shows up as unemployment rather than as cheaper goods.
+        format: PROTOCOL
+        task_line: Match each observation to what it settles.
+        scenarios:
+          - Investment spending is down a fifth on the quarter.
+          - Output is down and employment with it.
+          - Prices have barely moved.
+          - The fall in employment is itself a fall in income.
+        choices:
+          - The size of the shock the rest of the quarter is a response to.
+          - What firms did about it, which was to make less rather than charge less.
+          - What did not happen, and what the older account said would.
+          - Why the shock does not stop, since lost income is next quarter's lost orders.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Four figures from one quarter and each of them does different work. The investment
+          fall is the shock. Output and employment falling is what firms did about it, which is
+          to cut what they make. Prices barely moving is the negative result and it is the
+          interesting one, because an account in which markets clear by price predicts the
+          opposite. And the fourth is what turns a shock into a spiral: the employment that was
+          cut was somebody's income, and next quarter it is somebody's missing order.
+
+  - title: Rounds that add up
+    objective: Read what a set of rounds is doing, sum the series, and find how much leaks out of it.
+    briefing: Kahn will not publish a figure nobody can check on a sheet of paper.
+    stake: >-
+      Wednesday, and the model room has the rounds on the long table. Richard Kahn, who works
+      the arithmetic, will not put a number in a note unless the working is on the sheet beside
+      it. Colin Clark has figures for how much of each extra pound goes to tax, to saving and
+      abroad, and none of those comes back as anybody's income here. Edith Marchant has spent
+      two days making the returns comparable. Today you read what the rounds are actually
+      doing, add the whole series up, and find out how much leakage the tidy figure survives.
+    takeaway: A change in spending is amplified by a factor that can be computed, and every leak makes it smaller.
+    stops:
+      - group: MODEL
+        task: Read what the rounds are doing
+        title: A hundred, seventy-five, fifty-six
+        place: Model Room
+        concept: 'Each round of induced spending is the last one times the propensity to consume'
+        scene: >
+          Six rounds are written out along the table: a hundred, seventy-five,
+          fifty-six and a quarter, forty-two, thirty-one and a half, twenty-three
+          and a half. Kahn wants the rule that produced them named.
+        guide: >-
+          Read the whole row rather than the first two numbers. Several rules would produce a
+          falling sequence and only one produces this one, and the quiet rows — what is being
+          subtracted, whether the fall is steady in size or in proportion — are what separate
+          them.
+        background:
+          - >-
+              How to do it, on a different example. Take 80, 40, 20, 10. Each is the last one
+              halved, not the last one minus forty. The two rules agree for one step and part
+              company immediately afterwards, and the way to tell them apart is to look further
+              along the row.
+          - >-
+              What a fixed fraction gives you. Each round is a constant share of the round
+              before, so the rounds fall away in proportion rather than in size. That is what
+              makes the total finite, and it is why the whole thing can be summed rather than
+              added up until somebody gets tired.
+          - >-
+              What a fixed subtraction would give. Rounds falling by the same amount each time
+              would reach zero after a definite number of steps and would sum to something quite
+              different. Nothing about the arithmetic here would work.
+          - >-
+              Why naming the rule is the useful move. Once the rule is named the sum has a
+              closed form, and the closed form is what makes the argument portable — a number
+              somebody in another department can check without redoing the rounds.
+        assumes:
+          - each round is induced by the income created in the round before it
+          - households spend the same share of each extra pound whatever the round
+        takeaway: Rounds that are each a constant share of the one before fall away in proportion, which is what makes the whole series add up to something finite.
+        format: DIAGNOSIS
+        headline: A hundred, seventy-five, fifty-six and a quarter, forty-two, thirty-one and a half, twenty-three and a half.
+        task: Which rule produces this row, and not only its first two entries?
+        readings:
+          - { zone: Round 1 to 2, label: What happened, value: 100 to 75, status: normal }
+          - { zone: Round 2 to 3, label: What happened, value: 75 to 56.25, status: normal }
+          - { zone: Round 5 to 6, label: What happened, value: 31.5 to 23.5, status: normal }
+          - { zone: Differences, label: Size of each fall, value: 25 then 18.75 then 8, status: alarm, note: not a constant amount }
+          - { zone: Ratios, label: Each round over the last, value: 0.75 every time, status: normal }
+          - { zone: Households, label: Share of extra income spent, value: 0.75, status: normal }
+        choices:
+          - label: Each round is three quarters of the one before it
+            mechanism: A constant fraction, which matches the ratios and the households figure.
+          - label: Each round is twenty-five less than the one before it
+            mechanism: A constant subtraction, which matches the first step only.
+          - label: The rounds are halving
+            mechanism: A constant fraction, but the wrong one.
+          - label: The rounds are falling at random
+            mechanism: No rule, so no sum.
+        answer: Each round is three quarters of the one before it
+        why: >
+          The first step fits two of these rules and the row as a whole fits one. The falls are
+          twenty-five, then eighteen and three quarters, then eight — not a constant amount. The
+          ratios are three quarters every time, and the households figure on the same table is
+          three quarters, which is not a coincidence. Naming the rule is what makes the next
+          stop possible: a series of constant ratio has a closed form, and a closed form is a
+          number somebody in another department can check without redoing anybody's rounds.
+
+      - group: MODEL
+        task: Add the whole series up
+        title: What a hundred is finally worth
+        place: Model Room
+        concept: 'A geometric series of rounds sums to a finite multiplier'
+        scene: >
+          The rounds shrink by a quarter each time and go on for ever. Kahn wants
+          the factor by which the first change is amplified, worked on the sheet
+          where anybody can check it.
+        guide: >-
+          The multiplier is one divided by the share that does not go round again. Take the
+          whole of an extra pound and the share households spend, and divide the first by what
+          is left when the second is taken off it. One tile is that leftover share handed to you
+          and one is the original fall, and neither is what this division needs.
+        background:
+          - >-
+              How to do it, on a different example. Add a half, a quarter, an eighth and so on
+              for ever and the total is one, not infinity. Each term is a fixed fraction of the
+              last, so the sum closes. That is the whole of the mathematics here and it was
+              known for two thousand years before anybody applied it to an economy.
+          - >-
+              Why the answer is one over what leaks. Of every pound that arrives, some fraction
+              goes round again and the rest stops. The total effect is the first change divided
+              by the share that stops, and with three quarters going round the share that stops
+              is a quarter.
+          - >-
+              What the number means. A fall of a hundred in investment eventually costs four
+              hundred of output, if nothing else changes. That is the claim, and it is why a
+              small shock can leave an economy a long way below where it was.
+          - >-
+              Why it works in both directions. A hundred added to spending is amplified the same
+              way, which is what makes the third level possible. The mechanism does not care
+              which sign the first change had.
+        assumes:
+          - the rounds continue indefinitely and shrink by the same fraction each time
+          - nothing else in the economy changes while they do
+        takeaway: Rounds of constant ratio sum to the first change divided by the share that does not go round again, so the amplification is a number rather than an opinion.
+        format: BALLPARK
+        question: By what factor is the first change amplified?
+        estimate:
+          prompt: >-
+            Kahn will not put a figure in the note until the working is on the sheet beside it.
+          question: By what factor is the first change amplified?
+          relationship: In the simplest closed model the multiplier is one over one minus the share households spend.
+          labels:
+            - 1  (the whole of an extra pound of income)
+            - 0.75  (the share of it households spend)
+            - 0.25  (the share they do not)
+            - 100  (the original fall in investment)
+          values: [1, 0.75, 0.25, 100]
+          slots: 2
+          template: '{0} ÷ ({0} − {1})'
+          formula: a/(a-b)
+          correct: [0, 1]
+          target: 4
+          tolerance: 0.2
+          units: times the first change
+          solution: A quarter of each pound stops going round, and one divided by a quarter is four.
+          explanation: The quarter on the board is the answer to the subtraction rather than an input to it, and starting from it skips the step the sheet is supposed to show.
+        why: >
+          Four. A fall of a hundred in investment eventually costs four hundred of output, if
+          nothing else changes. The arithmetic is short because the rounds shrink by the same
+          fraction every time, so the series closes rather than running away — which was known
+          long before anybody applied it to an economy. And it works in both directions, which
+          is what makes the third level possible: the mechanism does not care what sign the
+          first change had.
+
+      - group: STAT
+        task: Find how much leakage the figure survives
+        title: Where a pound goes instead
+        place: Statistics Room
+        concept: 'Leakages shrink the multiplier below the closed-model value'
+        scene: >
+          Not everything that arrives as income comes back round. Some is taxed,
+          some saved, some spent abroad. Clark can set the total leakage anywhere
+          and read off what the multiplier becomes.
+        guide: >-
+          Move the leakage — the share of each arriving pound that does not go round again —
+          and watch what the multiplier does. You are looking for the leakage at which it still
+          reaches four, the figure the closed model gave. Read across the whole range, because
+          the shape of the curve is what says how fragile that figure is.
+        background:
+          - >-
+              How to do it, on a different example. A bucket with a hole fills to the level at
+              which what runs out matches what runs in. Widen the hole and the level falls, and
+              it falls fastest when the hole is small. The relation is not a straight line and
+              guessing from one end of it is how people get it badly wrong.
+          - >-
+              What counts as a leak. Anything that arrives as income and does not go on to
+              become somebody else's income here: saved, taken in tax, or spent on goods made
+              somewhere else. Each is ordinary and each removes a pound from the next round.
+          - >-
+              Why the closed figure is always too big. The closed model assumes the only leak is
+              saving. A real economy taxes and imports as well, so the honest multiplier is
+              always the smaller number, and publishing the tidy one is how a department loses
+              an argument in public.
+          - >-
+              What the shape tells you. The multiplier falls steeply where leakage is small and
+              flattens out where it is large. So the difference between a quarter leaking and a
+              third leaking matters enormously, and the difference between a half and two thirds
+              barely matters at all.
+        assumes:
+          - the leakage is the share of each arriving pound that does not go round again
+          - the multiplier is one over that share
+        takeaway: Every pound taxed, saved or spent abroad leaves the round, so the honest multiplier is always smaller than the closed-model figure and the difference matters most when leakage is small.
+        format: SWEEP
+        question: How much leakage still leaves the multiplier at four?
+        answerText: >-
+          A quarter. Above that it falls away quickly — a third of each pound leaking takes it
+          to three, and a half takes it to two.
+        why: >
+          A quarter, which is the closed model's assumption that the only leak is saving. Real
+          leakage is larger, because income is also taxed and partly spent on goods made
+          somewhere else, so the honest multiplier is always the smaller number. The shape is
+          the part worth carrying away. The curve is steep where leakage is small and flat where
+          it is large, so the difference between a quarter and a third changes the answer a great
+          deal and the difference between a half and two thirds hardly changes it at all.
+        sweep:
+          axis:
+            label: Share of each arriving pound that leaks out
+            unit: ""
+            min: 0.10
+            max: 0.70
+            step: 0.01
+          readout:
+            label: Multiplier
+            unit: ""
+          baseline: 1.4
+          response:
+            - at: 0.10
+              value: 10.0
+            - at: 0.15
+              value: 6.7
+            - at: 0.20
+              value: 5.0
+            - at: 0.25
+              value: 4.0
+            - at: 0.33
+              value: 3.0
+            - at: 0.40
+              value: 2.5
+            - at: 0.50
+              value: 2.0
+            - at: 0.60
+              value: 1.7
+            - at: 0.70
+              value: 1.4
+          target: 0.25
+          tolerance: 0.02
+          start: 0.70
+          commit: Mark the leakage
+
+  - title: What to do, and when not to
+    objective: Size the response, test it against the state of the economy, and write the conditions in.
+    briefing: Robinson will not let a recommendation leave without its conditions attached.
+    stake: >-
+      Friday, and the desk has to produce a recommendation. Joan Robinson, who runs the policy
+      desk, has the output gap and the honest multiplier and will not release a sentence with
+      the conditions stripped off it. Tom Beddowes, her secretary, is holding the summary back
+      until they are written in, because an unnumbered draft once got quoted as final for
+      three years. And on the file are six claims about what this week established, some of
+      them measured and some of them merely typed. Today you size the injection, test it
+      against a state of the economy nobody has measured exactly, and go through the file.
+    takeaway: The strongest claim a model of this kind supports is a conditional one, and the conditions are the part that gets dropped.
+    stops:
+      - group: DESK
+        task: Size the injection
+        title: A gap of a hundred and sixty
+        place: Policy Desk
+        concept: 'A gap can be sized against a multiplier'
+        scene: >
+          The statistics room puts the shortfall in output at a hundred and sixty
+          units. The honest multiplier, with tax and imports in it, is two point
+          two. Robinson wants the size of the injection.
+        guide: >-
+          If the effect is the injection multiplied by the multiplier, then the injection is the
+          effect you want divided by the multiplier. Use the gap and the honest multiplier. One
+          tile is the closed-model figure from the model room and using it would size the
+          measure against a number the statistics room has already ruled out.
+        background:
+          - >-
+              How to do it, on a different example. A lever gives you four times the force you
+              put in and you need four hundred newtons at the far end. You push a hundred. The
+              division is trivial and the whole difficulty is knowing what the lever actually
+              multiplies by, which is never the number in the diagram.
+          - >-
+              Why the honest multiplier and not the tidy one. Sizing an injection against four
+              when the real figure is two point two would produce a measure about half the size
+              of what is needed. That is not a small error, and it is the error a department
+              makes when it publishes the closed-model number.
+          - >-
+              What the arithmetic does not include. Whether the money can be spent in time, what
+              it is spent on, and whether the gap will still be there when it arrives. Those are
+              the third and fourth things on the file and none of them is in this division.
+          - >-
+              Why the gap is a measurement and the multiplier is an estimate. The shortfall
+              comes off returns. The multiplier comes off an estimate of what people do with an
+              extra pound, and that estimate has a range on it wider than anybody at the desk
+              would like.
+        assumes:
+          - the output gap has been measured from the returns
+          - the multiplier applies to an injection as it does to a fall
+        takeaway: The injection needed is the shortfall divided by the multiplier, which is one division and two inputs that are known to quite different standards.
+        format: BALLPARK
+        question: What injection does the gap need?
+        estimate:
+          prompt: >-
+            Robinson wants a figure on the file before the argument about what to spend it on.
+          question: What injection does the gap need?
+          relationship: To size the response you divide the gap by the multiplier, which gives the required injection.
+          labels:
+            - 160  (the shortfall in output, from the returns)
+            - 2.2  (the multiplier with tax and imports in it)
+            - 4.0  (the closed-model multiplier from the model room)
+            - 0.75  (the share of extra income households spend)
+          values: [160, 2.2, 4.0, 0.75]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 72.7
+          tolerance: 4
+          units: units of spending
+          solution: A hundred and sixty divided by two point two is about seventy-three units.
+          explanation: The four is the closed-model figure, and using it sizes the measure at forty units — a little over half of what the gap actually needs.
+        why: >
+          About seventy-three units. The division is the easy part and the inputs are not equal.
+          The gap is measured from returns; the multiplier is estimated from what people do with
+          an extra pound, and that estimate carries a range wider than anybody at this desk would
+          like. Using the tidy figure of four instead would size the measure at forty and leave
+          most of the gap open, which is exactly what happens when a department publishes the
+          closed-model number and then acts on it.
+
+      - group: DESK
+        task: Test it against a state nobody has measured exactly
+        title: How much slack is there really
+        place: Policy Desk
+        concept: 'The same policy has a different sign near capacity'
+        scene: >
+          The capacity figure is sixty-one per cent and it is a survey with a
+          range on it. Four courses are on the desk, and which one is right
+          depends on where in that range the truth sits.
+        guide: >-
+          Move the amount of slack through the range the survey allows, and watch what each
+          course costs at each end of it. Then commit to the one you would defend. A course that
+          is only best at the middle of the range is a course that has not been tested, and the
+          end nobody measured away is the end that decides it.
+        background:
+          - >-
+              How to do it, on a different example. A bridge is designed for a load estimated
+              between eight and fourteen tonnes. Designing for eleven is designing for a number
+              nobody has measured. The question is which design is still standing at fourteen,
+              and that is usually not the cheapest one at eleven.
+          - >-
+              What the range is. Capacity in use is a survey, and surveys of this kind carry
+              several points either way. Sixty-one per cent is the middle of a spread that runs
+              from the low fifties to the low seventies, and the two ends imply different
+              policies.
+          - >-
+              What each end does to a large injection. With a great deal of slack it comes out as
+              output and employment. With very little it comes out as prices and bids resources
+              away from other uses, which is the same measure doing harm. Concentrating it in one
+              region needs slack in that region, and spreading it over three years needs the
+              slack to still be there when the later instalments land.
+          - >-
+              Why a staged measure is different in kind. Committing part of the injection now and
+              the rest on a later reading costs some of the effect and survives both ends of the
+              range. That is what robustness means here, and it is not the same as caution.
+        assumes:
+          - the capacity survey carries a range rather than a single value
+          - a measure can be committed in stages against later readings
+        takeaway: A course chosen at the middle of a range has not been tested, and the one worth committing to is the one that still holds at the end nobody measured away.
+        format: STRESS
+        question: >-
+          Move the slack through its range, then choose the course you would defend.
+        stress:
+          hint: >-
+            The capacity figure is a survey with several points either way. Move it through the
+            range before you choose.
+          assumption:
+            label: Capacity standing idle
+            unit: '%'
+            min: 26
+            max: 48
+            nominal: 39
+            step: 1
+          criteria:
+            - { key: output, label: Output raised, unit: units }
+            - { key: prices, label: Price pressure, unit: index }
+            - { key: months, label: Months to arrive, unit: months }
+          candidates:
+            - { id: full, label: Commit the whole seventy-three units now }
+            - { id: staged, label: Commit forty now and the rest on the next survey }
+            - { id: local, label: Put the whole seventy-three into public works in one region }
+            - { id: slow, label: Spread the same seventy-three over three years }
+          scores:
+            full: { output: 150, prices: 62, months: 14 }
+            staged: { output: 126, prices: 31, months: 16 }
+            local: { output: 138, prices: 48, months: 12 }
+            slow: { output: 96, prices: 14, months: 30 }
+          # How much idle capacity each course needs before it stops doing harm.
+          feasible:
+            full: 40
+            staged: 25
+            local: 33
+            slow: 30
+          optimiseOn: output
+          robust: staged
+          commit: Commit the course
+        answerText: >-
+          The staged commitment. It is not the largest at the middle of the range and it is the
+          only one of the four still worth making at the low end, where a full injection meets a
+          ceiling, a concentrated one exhausts a single region, and a slow one arrives after the
+          slack has gone.
+        why: >
+          At thirty-nine per cent idle the full injection raises the most output and looks like
+          the obvious answer. Move the survey to the low end of its range and it stops being
+          one: there is less spare than the middle figure implied, the extra demand meets a
+          ceiling, and the same measure comes out as prices and takes resources from other uses.
+          The staged version gives up some of the effect at the middle and survives both ends,
+          which is what robustness means here. It is not caution. It is refusing to commit to a
+          number nobody measured.
+
+      - group: MODEL
+        task: Go through the file
+        title: Six sentences, and what each rests on
+        place: Model Room
+        concept: 'A conditional claim is the strongest claim this model supports'
+        scene: >
+          Six claims about the week are on the file with a name against each.
+          Beddowes has time to check three of them properly before the summary is
+          duplicated.
+        guide: >-
+          Every claim here has somebody's name against it, so a name cannot be what separates
+          them. What separates them is whether something measured this week stands behind the
+          claim, and whether the claim reaches further than what was measured. Check the ones
+          that would do the most damage if they were wrong.
+        background:
+          - >-
+              How to do it, on a different example. A survey report carries six statements and a
+              signature. One of them is a count, one is an estimate with a range, and one says
+              what will happen next year. All three look the same on the page and only the first
+              can be checked.
+          - >-
+              What this week measured. A capacity figure and an output gap from the returns, a
+              multiplier estimated from a spending share, and a set of rounds worked on a sheet
+              anybody can check. Those are the claims with something behind them.
+          - >-
+              What it did not measure. How long a measure takes to arrive, what happens at full
+              employment, and whether the same arithmetic applies in a different decade. Those
+              are the claims that reach past the week.
+          - >-
+              Why the conditional version is the strong one. "When demand has collapsed and
+              resources are idle, public spending can raise short-run output, subject to timing
+              and leakage" is a claim that can be wrong in a stateable way. Remove the clauses
+              and it is a slogan that will be applied where it does the opposite.
+        assumes:
+          - a name against a claim records that somebody accepted it
+          - a claim reaching past what was measured is not supported by it
+        takeaway: The defensible statement names the circumstances it holds in, because the same measure has a different sign in a different state of the economy.
+        format: ATTEST
+        question: >-
+          Check what the time allows and hold whatever this week cannot support.
+        attest:
+          hint: >-
+            All six have a name against them. Checking costs time and there is not enough of it
+            for the whole file.
+          checks: 3
+          claims:
+            - { id: gap, label: 'The shortfall in output this quarter is about a hundred and sixty units', signedBy: Clark, critical: true, backed: true, evidence: 'from the capacity and output returns, by industry, filed this quarter' }
+            - { id: mult, label: 'With tax and imports the multiplier is about two point two', signedBy: Kahn, backed: true, evidence: 'worked on the sheet from the spending share and the leakage figures' }
+            - { id: always, label: 'Public spending always raises output', signedBy: a party pamphlet, critical: true, evidence: 'at full employment the same measure raises prices, which the survey range reaches' }
+            - { id: quick, label: 'The measure will reach the economy within three months', signedBy: a press briefing, critical: true, evidence: 'nothing this week measured a lag, and deciding and legislating alone take longer' }
+            - { id: cond, label: 'With resources idle, demand support can raise short-run output subject to timing and leakage', signedBy: Robinson, backed: true, evidence: 'the capacity figure, the multiplier and the staged commitment together' }
+            - { id: debt, label: 'The injection will pay for itself entirely', signedBy: a draft foreword, evidence: 'nothing this week costed anything beyond the injection itself' }
+        answerText: >-
+          Hold the claim that public spending always raises output and the claim that the
+          measure arrives within three months. Both are critical, both have names against them,
+          and this week contradicts one and measured nothing about the other.
+        why: >
+          The claims that survive have something behind them: a figure off the returns, an
+          arithmetic anybody can check, and a sentence that names the conditions it holds in.
+          The two that fail fail differently. The word "always" is contradicted by the survey's
+          own range, which reaches a state where the same measure raises prices instead. The
+          three-month claim is not contradicted; it is simply unmeasured, and unmeasured is not
+          the same as safe. The conditional version is the strong one precisely because it can
+          be wrong in a way somebody could point at.
+
+warmups:
+  greet:
+    title: Four rooms and one recommendation between them
+    why: >-
+      The board, the returns, the arithmetic and the desk are four different jobs, and the
+      figure that leaves on Friday has passed through all of them. A recommendation is worth
+      what the room behind each of its numbers is worth. Put a name to as many of them as you
+      can before the week starts.
+  trial-near:
+    title: Walk the building before the first figure is quoted
+    why: >-
+      The flow room and the model room are down one side of the corridor and the statistics
+      room and the policy desk are down the other, which means every number crosses it twice.
+      John Maynard Keynes, the economic adviser here, would rather you knew the way than found
+      it out carrying a draft.
+  follow:
+    title: Marchant carries a capacity figure from the returns to the desk
+    why: >-
+      A percentage is worked out of a stack of returns, written on a slip and quoted in another
+      room, and most of what goes wrong happens in between. Edith Marchant, the statistical
+      clerk, walks one the whole way. Stay with her and watch where the range around it gets
+      dropped.
+
+interiors:
+  FLOW:
+    caption: Every arrow on this board is somebody's income.
+    standLine: Four boxes, eleven arrows, and not one that arrives from nowhere.
+    station:
+      kind: panel
+      title: The quarter
+      rows:
+        - { label: Investment spending, value: down a fifth, status: alarm }
+        - { label: Orders, value: down, status: alarm }
+        - { label: Employment, value: down, status: alarm }
+        - { label: Prices, value: barely moved, status: low }
+  STAT:
+    caption: Counted, not estimated from the mood.
+    standLine: Returns by industry, and a range around every one of them.
+    station:
+      kind: panel
+      title: Capacity returns
+      rows:
+        - { label: Capacity in use, value: 61 %, status: alarm }
+        - { label: Range on that figure, value: several points either way, status: low }
+        - { label: Boom-year comparison, value: 94 %, status: normal }
+        - { label: Leakage per pound, value: about 45 %, status: normal }
+  MODEL:
+    caption: A number nobody can check is a number nobody has to believe.
+    standLine: Six rounds along the table, and the working beside them.
+    station:
+      kind: plot
+      title: Rounds of induced spending
+      note: each one three quarters of the last
+      axes: { x: round, y: spending }
+      curves:
+        - { points: [[0.05, 1.0], [0.22, 0.75], [0.39, 0.56], [0.56, 0.42], [0.73, 0.32], [0.9, 0.24]], label: rounds }
+  DESK:
+    caption: When this holds, do that. Take the conditions off and it is a slogan.
+    standLine: A gap, a multiplier and eighteen months nobody has measured.
+    station:
+      kind: panel
+      title: The file
+      rows:
+        - { label: Output gap, value: 160 units, status: alarm }
+        - { label: Honest multiplier, value: 2.2, status: normal }
+        - { label: Injection needed, value: 73 units, status: normal }
+        - { label: Months to arrive, value: not measured, status: low }
+
+copy:
+  FLOW: <p>The flow room, open to the corridor on the west side. A wall-sized board with the whole economy drawn on it, no chairs, and chalk on the floor.</p>
+  STAT: <p>The statistics room, across the corridor. Eight metres of filing, returns by industry, and a clerk who will not compare December with June.</p>
+  MODEL: <p>The model room, at the far end of the west side. A long working table down the middle, a slide rule with a cracked cursor, and one quire of graph paper.</p>
+  DESK: <p>The policy desk, opposite the model room. A file, a numbered-copy book, and a summary being held back until the conditions are written into it.</p>
+  PORCH: <p>The porter's room, inside the front door. A book that doubles as the fire roll, a rack of pigeonholes, and a telephone that rings for the policy desk.</p>
+  TEA: <p>The common room, halfway down the west side. A radiator that knocks, eight chairs that never leave, and a rota with two blank days on it.</p>
+  DUP: <p>The duplicating room, beside the porter. A machine, a smell of spirit, and a rule that every copy is numbered.</p>
+  RACK: <p>The stationery store at the end of the west side. Foolscap, carbons, graph paper and blue ink, and a card to sign when you take the last of anything.</p>
+  LIB: <p>The library at the far end. Bound trade figures that do not leave the room, two armchairs, and the only quiet in the building.</p>

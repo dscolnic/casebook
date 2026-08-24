@@ -123,7 +123,7 @@ function card(g) {
           <span class="field">${esc(g.field)}</span>
           ${built ? '<span class="play" aria-hidden="true">▶</span>' : '<span class="unbuilt">not built</span>'}
           <span class="resume" hidden></span>
-          <h2>${esc(g.title)}</h2>
+          <h3>${esc(g.title)}</h3>
         </div>
         <div class="body">
           <p class="course">${esc(g.course)}</p>
@@ -141,7 +141,9 @@ function card(g) {
 }
 
 function page(games) {
-  const fields = [...new Set(games.map(g => g.field))];
+  // Alphabetical, because the chips are also the order the shelf is grouped in
+  // and insertion order of the catalogue is not an order a reader can predict.
+  const fields = [...new Set(games.map(g => g.field))].sort((a, b) => a.localeCompare(b));
   const builtCount = games.filter(g => existsSync(resolve(DIST, g.build, 'index.html'))).length;
   // Only levels that have a card. A set with no elementary game should not draw
   // a control that filters everything away.
@@ -236,8 +238,27 @@ function page(games) {
   .chip[aria-pressed="true"]{background:var(--ink); color:#0d0f13; border-color:var(--ink)}
   .chip:focus-visible{outline:2px solid #6fc7d8; outline-offset:2px}
 
-  .grid{
-    display:grid; gap:22px; margin-top:26px;
+  /* Grouped by subject: the grid is a column of sections and each section
+     carries its own card grid. The tag is sticky INSIDE its section, not on the
+     grid — a sticky grid item only travels inside its own grid area, which is
+     one row tall, so it would not move at all. */
+  .grid{display:block; margin-top:26px}
+  .group + .group{margin-top:34px}
+  .group[hidden]{display:none}
+  .grouptag{
+    position:sticky; top:0; z-index:5; margin:0 0 14px;
+    display:flex; align-items:center; gap:12px; padding:11px 0 10px;
+    font:600 11.5px/1 ui-monospace,Menlo,monospace; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--dim);
+    /* Semi-transparent over a blur rather than a flat fill: the page background
+       is two fixed washes and a solid bar reads as a seam across them. */
+    background:color-mix(in srgb, var(--bg) 78%, transparent);
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  }
+  .grouptag small{font:inherit; color:var(--faint); letter-spacing:.08em}
+  .grouptag::after{content:''; flex:1; height:1px; background:var(--line)}
+  .groupgrid{
+    display:grid; gap:22px;
     grid-template-columns:repeat(auto-fill,minmax(310px,1fr));
   }
 
@@ -273,7 +294,7 @@ function page(games) {
     position:absolute; inset:0; pointer-events:none;
     background:linear-gradient(180deg,rgba(8,10,14,.10) 0%,rgba(8,10,14,.05) 38%,rgba(8,10,14,.88) 100%);
   }
-  .shot h2{
+  .shot h3{
     position:absolute; left:16px; right:16px; bottom:11px; margin:0;
     font-size:21px; line-height:1.15; letter-spacing:-.015em; font-weight:640;
     text-shadow:0 2px 14px rgba(0,0,0,.75);
@@ -381,7 +402,15 @@ function page(games) {
     </div>
   </header>
 
-  <main class="grid" id="grid">${games.map(card).join('\n')}
+  <main class="grid" id="grid">
+    ${fields.map(f => {
+      const here = games.filter(g => g.field === f);
+      return `<section class="group" data-field="${esc(f)}">
+      <h2 class="grouptag"><span>${esc(f)}</span><small>${here.length}</small></h2>
+      <div class="groupgrid">${here.map(card).join('\n')}
+      </div>
+    </section>`;
+    }).join('\n    ')}
   </main>
   <p class="empty" id="empty">Nothing in that subject yet.</p>
 
@@ -503,6 +532,14 @@ function page(games) {
       if (!any && c.getAttribute('aria-pressed') === 'true') {
         chips.forEach(o => o.setAttribute('aria-pressed', String(o.dataset.f === '*')));
       }
+    });
+    // A subject heading with every card under it hidden is a heading over a gap.
+    // The count beside it is the visible count, not the catalogue's.
+    document.querySelectorAll('.group').forEach(sec => {
+      const n = [...sec.querySelectorAll('.card')].filter(c => c.style.display !== 'none').length;
+      sec.hidden = !n;
+      const small = sec.querySelector('.grouptag small');
+      if (small) small.textContent = String(n);
     });
     empty.style.display = shown ? 'none' : 'block';
   }

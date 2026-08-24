@@ -1,0 +1,922 @@
+# The Laws of Inheritance — a Quick Discovery.
+#
+# The 3 x 3 shape from great_discoveries_next10_nonphysics_expanded.docx, game
+# 13, mapped onto the engine's day model: a level is a day, a micro-game is a
+# stop, and the campaign is nine stops in one sitting. Three levels, in order:
+#
+#   1  Clean crosses     why this experiment could be read at all
+#   2  Ratios appear     counting, and what a count is allowed to mean
+#   3  General rules     gametes, two traits at once, and the hidden copy
+#
+# The science guardrail from the source book, kept. These are deliberately the
+# easy traits. Real inheritance carries incomplete dominance, codominance,
+# linkage, epistasis, polygenic traits, environmental effects and sex linkage,
+# and the famous ratios hold under specific genetic and sampling assumptions
+# rather than as laws of every trait. The first stop is about choosing the
+# tractable case on purpose, and the sampling stop is about what a ratio is a
+# claim over.
+#
+# Format budget. Nine stops, so `formatMix`'s cap is three of any one format:
+# BALLPARK 2, CHOICE 2, and one each of VALUE, PROTOCOL, CLOUD, VERIFY,
+# DIAGNOSIS. Seven formats in nine stops, three of them driven.
+
+theme:
+  id: qd_mendel
+  title: The Laws of Inheritance
+  subtitle: Experimental Assistant · The Abbey Garden
+
+groups:
+  - id: PLOT
+    code: PLOT
+    name: Trial Plots
+    color: '#4d7a3f'
+    desc: Two hundred and fifty beds, a bed book, and the season that separates a question from its answer.
+    defaultLeader: mendel
+    milestones: [Choose the trait, Lay out the beds, Sow the season, Ready to hand over]
+  - id: GLASS
+    code: GLASS
+    name: Glasshouse
+    color: '#3f7f6a'
+    desc: Where a flower is opened before it opens, and where the father of every seed is decided by hand.
+    defaultLeader: klacel
+    milestones: [Bag the flowers, Make the cross, Label the pod, Ready to hand over]
+  - id: COUNT
+    code: COUNT
+    name: Counting Room
+    color: '#8a6a1e'
+    desc: Trays, a ledger and nothing growing. The only room here where a season becomes a number.
+    defaultLeader: nageli
+    milestones: [Sort the trays, Tally the seed, Compare with the model, Ready to hand over]
+  - id: STORE
+    code: STORE
+    name: Seed Store
+    color: '#7a5a3f'
+    desc: Every line kept apart and labelled twice, and the bins a sample is drawn from.
+    defaultLeader: napp
+    milestones: [Draw the sample, Read the share, Say how sure, Ready to hand over]
+
+roster:
+  - id: mendel
+    name: Gregor Mendel
+    role: Head of the Trials
+    real: true
+    division: PLOT
+    bio: |
+      Lays out the beds and decides what the season is for. His argument is that
+      most of what has been written about inheritance is unreadable because the
+      experiments were unreadable, and that the fix is choosing the question
+      before sowing anything.
+
+      What he wants is a trait with two states anybody can sort, parents whose
+      history is known, and enough offspring that a ratio means something. Given
+      those three, the counting does the work.
+
+      His limit is that his own explanation is invisible. Nothing in the garden
+      shows a factor; what shows is a ratio, and a ratio is a shape rather than a
+      mechanism.
+    quiz:
+      - q: Why does Mendel choose the trait before anything is sown?
+        a: Because a trait nobody can sort cleanly gives a season of unreadable data
+        wrong:
+          - Because the abbey requires the season's plan to be approved in advance
+          - Because different traits need different soils and the beds must be prepared
+          - Because a trait chosen later would produce fewer offspring to count
+
+  - id: klacel
+    name: František Klácel
+    role: Garden Master
+    real: true
+    division: GLASS
+    bio: |
+      Ran this garden before the trials began and still runs the glasshouse. He
+      knows what a bee does to an experiment, which is why every flower in here
+      is opened by hand before it can open itself.
+
+      A cross is only a cross if the pollen that reached the stigma is the pollen
+      somebody chose. Removing the anthers, bagging the flower and labelling the
+      pod are three separate defences against three separate ways of losing that.
+
+      His limit is that he can guarantee the parentage and not the line. A plant
+      whose ancestry was never recorded is a plant no amount of careful crossing
+      will make interpretable.
+    quiz:
+      - q: Why are the anthers removed before the flower opens?
+        a: So the flower cannot pollinate itself before anybody chooses a father
+        wrong:
+          - So the flower will remain open long enough for the cross to be made
+          - So the pod will set more seed than it otherwise would have done
+          - So the bees are not attracted to the glasshouse during the season
+
+  - id: nageli
+    name: Carl Nägeli
+    role: Visiting Botanist
+    real: true
+    division: COUNT
+    bio: |
+      Reads the tallies and does not accept what is drawn from them. His position
+      is that peas are a special case, that a ratio in one species proves nothing
+      about inheritance in general, and that the whole thing should be repeated in
+      something else.
+
+      He is a nuisance and he is not wrong about everything. A ratio is a
+      description of a count, and the step from a count to hidden units that
+      separate is an inference somebody has to argue for rather than read off.
+
+      His limit is that he treats a clean case as a suspicious one. An experiment
+      designed to be readable is not thereby an experiment about nothing.
+    quiz:
+      - q: What is the reasonable part of Nägeli's objection?
+        a: That a ratio describes a count and does not by itself show a mechanism
+        wrong:
+          - That peas cannot be crossed reliably enough to give a trustworthy tally
+          - That the ratio would disappear entirely if more offspring were counted
+          - That the garden has not recorded which bed each pod came from
+
+  - id: napp
+    name: Cyrill Napp
+    role: Abbot
+    real: true
+    division: STORE
+    bio: |
+      Pays for the garden, defends it when the diocese asks what it is for, and
+      keeps the seed store, which is the least glamorous and most load-bearing
+      building on the site.
+
+      Every line has to stay separate for years. A bin mixed once is a line that
+      can never be used as a known starting point again, and eight seasons of
+      work go with it. He labels twice and checks in winter.
+
+      His limit is that he can protect the experiment and not interpret it. He
+      has asked twice what the ratios are for and been given an answer he says he
+      does not follow.
+    quiz:
+      - q: Why does a mixed seed bin cost more than the seed in it?
+        a: Because a line whose history is lost can no longer be a known starting point
+        wrong:
+          - Because the mixed seed will not germinate as reliably afterwards
+          - Because the abbey has to buy replacement seed at the market price
+          - Because the bins are labelled in a way that cannot easily be changed
+
+  - id: fischer
+    name: Terezie Fischer
+    role: Garden Assistant
+    division: GLASS
+    bio: |
+      Does the bagging, the labelling and most of the crossing. Several hundred
+      flowers a season are opened with forceps before they can open themselves,
+      and every one of them gets a stake.
+
+      What she guards against is the ordinary: a bag blown off, a stake pulled up
+      by a bird, two pods from different crosses ending up in one tray. None of
+      those is dramatic and each of them turns a season into an anecdote.
+
+      Her limit is that she can protect one cross at a time. Whether the whole
+      design answers anything is somebody else's question.
+    quiz:
+      - q: What is Fischer actually guarding against?
+        a: The ordinary accidents that make a season impossible to read
+        wrong:
+          - Disease spreading between the beds during a wet summer
+          - Plants being cross-pollinated deliberately by a rival garden
+          - The abbey reassigning the beds to a food crop halfway through
+
+  - id: brandl
+    name: Josef Brandl
+    role: Seed Clerk
+    division: STORE
+    bio: |
+      Draws the samples. A bin holds thousands of seeds and nobody counts a bin,
+      so what gets reported is a handful, and how large the handful is decides
+      how much the report is worth.
+
+      He keeps the sample sizes in the ledger beside every share, because a
+      seventy-five per cent from twenty seeds and a seventy-five per cent from two
+      thousand are the same number and not the same claim.
+
+      His limit is that a larger sample costs a longer afternoon, and the season
+      has a fixed number of them.
+    quiz:
+      - q: Why does Brandl record the sample size beside every share?
+        a: Because the same share from a small sample is a much weaker claim
+        wrong:
+          - Because the ledger has a column for it that has to be filled in
+          - Because small samples tend to give shares that are systematically low
+          - Because the sample size determines how long the seed can be stored
+
+missions:
+  - title: Crosses you can read
+    objective: Choose a countable trait, protect the parentage, and see what a uniform first generation does and does not say.
+    briefing: Mendel wants the trait settled before a single bed is sown.
+    stake: >-
+      Monday, and nothing is in the ground yet. Gregor Mendel, who lays out the trials, has
+      two hundred and fifty beds and one season, and he will not sow until the trait is
+      chosen. František Klácel, the garden master, has the glasshouse ready and a box of
+      muslin bags, because six skeps of bees stand forty yards away and a bee ruins an
+      experiment quietly. Terezie Fischer, the garden assistant, will open several hundred
+      flowers by hand before any of them open themselves. Today you choose what the season
+      measures, work out what each precaution actually protects, and read the first
+      generation when it comes up.
+    takeaway: An experiment is made readable before it is run, not afterwards.
+    stops:
+      - group: PLOT
+        task: Choose what the season measures
+        title: A trait you can sort without arguing
+        place: Plot Shelter
+        concept: 'A trait with two clean states can be counted; a graded one cannot yet'
+        scene: >
+          Four traits are on the bed book and there is one season. Mendel will
+          sow whichever is chosen this morning across all two hundred and fifty
+          beds, and nothing else will be measured until autumn.
+        guide: >-
+          All four of these are real properties of a pea plant and all four are inherited.
+          The one to buy is the one whose result could come out either way and be read
+          without argument in the autumn. Ask of each: when the pods are opened, will two
+          people sorting the same tray put every seed in the same pile?
+        background:
+          - >-
+              How to do it, on a different example. You want to know whether a coin is bent.
+              You could record which way up it lands, or how far it rolls, or how loudly it
+              rings, or how satisfying the toss felt. Only the first gives two piles anybody
+              can agree on. The others are all real and none of them can be tallied without
+              a judgement in the middle.
+          - >-
+              What a clean pair of states buys. A tally needs categories, and a category with
+              a border people argue about produces a number that depends on who counted.
+              Seed colour comes in two forms with nothing between them, which means the
+              autumn produces a count rather than an opinion.
+          - >-
+              Why the graded traits are not being called ungenetic. Height is inherited and so
+              is vigour. They need a different experiment — many plants, a measuring stick and
+              statistics that had not been invented — and choosing the countable case first is
+              why this garden got an answer and other gardens did not.
+          - >-
+              What is being given up. Everything found this season will be about traits that
+              behave like switches. That is a real limit and it is stated out loud here,
+              because a rule inferred from the easy cases is a rule that has to be checked
+              against the hard ones later.
+        assumes:
+          - a tally needs categories two people would sort the same way
+          - one season can carry one trait across the whole garden
+        takeaway: A trait with two states anybody can sort produces a count; a graded one produces a judgement, and only one of those can be compared with a model.
+        format: VALUE
+        question: >-
+          One season, two hundred and fifty beds. Choose what it measures.
+        value:
+          hint: >-
+            All four are inherited. The question is which one gives an autumn anybody can read
+            the same way.
+          budget: { amount: 1, unit: season }
+          decision: Which trait the season's two hundred and fifty beds are sown to
+          options:
+            - { id: colour, label: Seed colour — yellow or green, cost: 1, axis: a trait with two states anybody can sort, decisive: true, reveals: 'Two piles, no borderline seeds, and a count two people agree on.' }
+            - { id: height, label: Plant height to the millimetre, cost: 1, axis: a trait measured on a continuous scale, reveals: 'A spread of heights with no natural break in it, and no ratio to compare.' }
+            - { id: damage, label: Leaf damage after the summer storms, cost: 1, axis: a trait set mostly by the weather, reveals: 'Damage tracks which end of the garden the wind hit, not which parents were crossed.' }
+            - { id: vigour, label: Overall vigour judged by eye, cost: 1, axis: a trait judged rather than measured, reveals: 'Two assistants sorting the same bed disagree on a third of it.' }
+          commit: Sow it
+        answerText: >-
+          Seed colour. It is the only one of the four that gives two piles with nothing between
+          them, so the autumn produces a count rather than an argument about where the border is.
+        why: >
+          All four are inherited and only one is countable. Height is a spread with no natural
+          break, so there is no ratio to compare a model against. Storm damage is mostly about
+          which end of the garden the wind hit. Vigour is a judgement, and two people sorting
+          one bed will disagree on a third of it. Choosing the easy case is not a trick. It is
+          the reason this garden produced a number at all, and the limit it buys — that these
+          are switch-like traits — is worth saying out loud rather than hiding.
+
+      - group: GLASS
+        task: Work out what each precaution protects
+        title: Forceps, a bag and a stake
+        place: Glasshouse
+        concept: 'A true-breeding line is what makes a cross interpretable'
+        scene: >
+          Fischer has a flower open under the forceps, a muslin bag in her other
+          hand and a box of stakes at her elbow. Klácel wants each of the four
+          precautions matched to the accident it prevents.
+        guide: >-
+          Four things are done to every cross, and each one closes off a different way of
+          losing the result. What separates them is where the loss would come from — the
+          plant's own history, its own pollen, somebody else's pollen, or the paperwork. Read
+          what each guards, not what it reminds you of.
+        background:
+          - >-
+              How to do it, on a different example. A parcel is sealed, weighed, addressed and
+              signed for. Each step defends against a different failure: tampering, the wrong
+              postage, the wrong house, and a dispute about whether it arrived. Losing any one
+              of the four loses a different thing, and none of them substitutes for another.
+          - >-
+              Why the line matters before the cross does. A plant from a line that has given
+              the same seed colour for eight generations is a known quantity. Anything new in
+              its offspring came from the cross. Without that, an unexpected seed could always
+              have been hiding in either parent, and there is no experiment.
+          - >-
+              What a pea flower does if left alone. It pollinates itself, usually before it
+              opens. That is convenient for keeping a line pure and fatal to a cross, which is
+              why the anthers come out with forceps rather than after the fact.
+          - >-
+              Why the stake is not housekeeping. In autumn a tray of seed looks exactly like
+              every other tray of seed. The stake is the only thing linking a count to the
+              cross that produced it, and a season of careful work with no labels is a season
+              of anonymous peas.
+        assumes:
+          - a pea flower will pollinate itself if nothing is done to it
+          - a line that has bred true for generations can be treated as a known starting point
+        takeaway: A cross is interpretable when the parents' history is known, the pollen is the pollen you chose, and the pod can be traced back to both.
+        format: PROTOCOL
+        task_line: Match each precaution to what it protects.
+        scenarios:
+          - The line has given the same seed colour for eight generations.
+          - The anthers are taken out with forceps before the flower opens.
+          - A muslin bag goes over the flower for the rest of the season.
+          - The bed, the two parents and the date go onto a stake.
+        choices:
+          - A known starting point, so anything new in the offspring came from the cross.
+          - The plant cannot pollinate itself, so the father is the one somebody chose.
+          - No bee can bring pollen in from another bed, which is what the six skeps make necessary.
+          - Which cross the tray came from, which is what makes an autumn count evidence.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Each precaution closes a different door. The line gives a known starting point, so a
+          new appearance is attributable to the cross rather than to something that was hiding
+          all along. The forceps stop the flower fathering its own seed, which is what a pea
+          does if nothing is done. The bag stops the bees, which are forty yards away and do
+          not know about the experiment. The stake is what connects a tray in October to a
+          flower in May. Lose any one and a different part of the argument goes with it.
+
+      - group: GLASS
+        task: Read the first generation
+        title: Two hundred yellow, and no green at all
+        place: Glasshouse
+        concept: 'A trait absent in the offspring has not been destroyed'
+        scene: >
+          The first generation is in from the yellow line crossed onto the green.
+          Two hundred seeds, every one of them yellow. Nägeli, who is reading the
+          tally over Mendel's shoulder, wants to know what that shows.
+        guide: >-
+          Four readings of a uniform result are offered. What separates them is how much each
+          says about the green parent's contribution. A statement about which colour appears
+          claims one thing; a statement about what happened to the other colour claims a good
+          deal more, and nothing yet tested says anything about that.
+        background:
+          - >-
+              How to do it, on a different example. Mix a spoon of salt into a jug of water
+              and the salt is not visible. That the salt is gone and that the salt is present
+              and not showing are two different claims, and looking at the jug cannot separate
+              them. The test is whether it comes back when the water is boiled off.
+          - >-
+              What uniformity establishes. Every offspring carries something from each parent,
+              and every one of them looks like the yellow parent. So when both are present in
+              one plant, yellow is what shows. That is a statement about appearance in a plant
+              carrying both.
+          - >-
+              What it does not establish. Nothing here says the green contribution was lost,
+              diluted or destroyed. A thing that is present and not showing produces exactly
+              this result, and so does a thing that is gone, which is why the next generation
+              is the experiment rather than a formality.
+          - >-
+              Why the word for it is chosen carefully. Yellow winning in a plant that has both
+              is not yellow being stronger, more common or better. It is a fact about which of
+              two present things is visible, and everything else people want to read into it
+              has to be shown separately.
+        assumes:
+          - each offspring receives something from each parent
+          - the parental lines each bred true for the trait being followed
+        takeaway: A uniform first generation says which of two contributions is visible when both are present, and says nothing about whether the other survived.
+        format: CHOICE
+        question: Two hundred yellow seeds and no green ones. What does that most directly show?
+        choices:
+          - Yellow is what shows when a plant carries both.
+          - The green contribution was destroyed by the cross.
+          - Every offspring is now identical to the yellow parent throughout.
+          - Green cannot appear anywhere in this line again.
+        answer: Yellow is what shows when a plant carries both.
+        rebuttals:
+          - Something present and not showing produces this result too, and nothing here separates the two.
+          - The offspring got something from each parent, so they are not copies of one of them.
+          - This is a claim about every future generation, made from one.
+        why: >
+          Both parents contributed and only one of them is visible, which is the whole of what
+          the tray shows. The three rejected readings all add a claim about the green
+          contribution's fate, and nothing tested so far bears on it. This matters because the
+          two possibilities make different predictions. If green was destroyed, the next
+          generation is all yellow. If it is present and not showing, some of it comes back —
+          and that is why the second level is a count rather than another look.
+
+  - title: What a count is allowed to mean
+    objective: Compare a tally against a model, work out what two plants together imply, and say how much a sample is worth.
+    briefing: Nägeli will accept an arithmetic he can check and nothing else.
+    stake: >-
+      Autumn, four months after the beds were sown, and the trays are in from the second generation. Carl Nägeli, the visiting
+      botanist, has read the tallies and says a ratio in peas is a fact about peas. Gregor
+      Mendel wants the expected count written down before the observed one is defended.
+      Josef Brandl, the seed clerk, has drawn a sample from a bin and put the sample size in
+      the ledger beside it, which is the column nobody else fills in. Today you turn a model
+      into a number, work out what two plants picked together imply, and say how sure a
+      handful of seed lets you be.
+    takeaway: A ratio is a prediction about large numbers, and a sample is worth what its size makes it worth.
+    stops:
+      - group: COUNT
+        task: Turn the model into a number
+        title: Three hundred, against three hundred and one
+        place: Counting Room
+        concept: 'A three-to-one count is what a hidden pair of factors looks like'
+        scene: >
+          Four hundred seeds are sorted on the tray: three hundred and one
+          yellow, ninety-nine green. The model on the board says three in every
+          four should be yellow.
+        guide: >-
+          Work out how many yellow seeds the model expects out of the four hundred, so the
+          model and the tray can be set beside each other as two counts. That is the only
+          form in which a ratio and a tally can be compared. Two of the tiles are what was
+          actually counted, and neither of those belongs in a prediction.
+        background:
+          - >-
+              How to do it, on a different example. A die is rolled six hundred times and a
+              model says a six comes up one time in six. The expected count is six hundred
+              times one over six, which is a hundred. Now the observed 94 can be set against
+              it. Working the other way — starting from the 94 — tells you what happened and
+              not what was predicted.
+          - >-
+              Where three in four comes from. If each plant carries two copies and passes one
+              on at random, then of the four equally likely combinations three contain at
+              least one yellow copy and one contains none. That is the model, and it is worth
+              noticing that it predicts a number rather than describing one.
+          - >-
+              Why a prediction has to be written first. A ratio fitted to a tally after the
+              tally is known always fits. The whole force of three hundred against three
+              hundred and one is that the three hundred was available before anybody counted.
+          - >-
+              What close means here. One seed out of four hundred is closer than anybody has
+              any right to expect, and biological counts are not expected to land on the
+              model. What the comparison establishes is that the model is in the running, not
+              that it is proved.
+        assumes:
+          - each plant carries two copies of the factor and passes one on at random
+          - an expected share can be applied to a real number of offspring
+        takeaway: An expected count is the number of offspring times the share a model predicts, and it has to exist before the tally can be compared with anything.
+        format: BALLPARK
+        question: How many yellow seeds does the model expect out of the four hundred?
+        estimate:
+          prompt: >-
+            Nägeli will not discuss the tray until the prediction is on the board beside it.
+          question: How many yellow seeds does the model expect out of the four hundred?
+          relationship: The expected count is the number of offspring times the expected share, which the model puts at three quarters.
+          labels:
+            - 400  (seeds sorted on the tray)
+            - 3  (parts of the ratio that are yellow)
+            - 4  (parts in the whole ratio)
+            - 301  (yellow seeds actually counted)
+            - 99  (green seeds actually counted)
+          values: [400, 3, 4, 301, 99]
+          slots: 3
+          template: '{0} × {1} ÷ {2}'
+          formula: a*b/c
+          correct: [0, 1, 2]
+          target: 300
+          tolerance: 4
+          units: yellow seeds expected
+          solution: Three quarters of four hundred is three hundred, so the model expects three hundred yellow seeds and one hundred green.
+          explanation: The three hundred and one is what was counted rather than what was predicted, and a prediction built out of the observation cannot be compared with it.
+        why: >
+          Three hundred is what the model says before anybody looks. Setting it beside the
+          three hundred and one is the comparison, and the comparison only works because the
+          prediction came first — a ratio fitted afterwards fits every time. The closeness
+          here is better than anybody should expect from four hundred seeds, and it does not
+          prove the model. What it does is put a model with hidden paired factors in the
+          running against blending, which predicts a uniform intermediate and is finished by
+          the ninety-nine green seeds.
+
+      - group: COUNT
+        task: Work out what two plants together imply
+        title: Two yellow plants, picked at random
+        place: Counting Room
+        concept: 'Two individuals that look alike can carry different factors'
+        scene: >
+          Among the yellow plants of this generation, two in every three carry a
+          green copy they are not showing. Nägeli picks two yellow plants off the
+          bench and asks what the chance is that both of them do.
+        guide: >-
+          Each plant has its own chance of carrying a hidden green copy, and picking one tells
+          you nothing about the other. Multiply the two chances together and put the answer
+          back into percentage terms. One of the tiles is the chance of the opposite case and
+          another is a share of the whole generation, and neither belongs in this product.
+        background:
+          - >-
+              How to do it, on a different example. Two in every five cards in a box are
+              marked. Draw one and put it back, then draw again. The chance both are marked is
+              forty per cent of forty per cent, which is sixteen per cent. In percentage terms
+              that is forty times forty divided by a hundred, and the division is only there to
+              get back from a product of percentages to a percentage.
+          - >-
+              Where two in three comes from. Of the yellow plants, one in three carries two
+              yellow copies and two in three carry one of each. Both look identical, which is
+              the whole difficulty: appearance sorts the generation into two piles and what the
+              plants carry sorts it into three.
+          - >-
+              Why the two plants are independent. Which copies one plant received says nothing
+              about which the other received, because they came from different pods and
+              different chance events. That is exactly the condition under which chances
+              multiply, and it is why the arithmetic is this short.
+          - >-
+              What the answer is good for. It says how often two yellow plants crossed together
+              could produce a green offspring, which is a prediction anybody in the garden can
+              test on a bed. A rule that only describes is worth less than one that forecasts.
+        assumes:
+          - which copies one plant carries is unrelated to which the other carries
+          - a chance stated as a percentage can be multiplied by another
+        takeaway: Two plants that look the same can carry different things, and how often that matters is a probability you can work out and then go and check.
+        format: BALLPARK
+        question: What is the chance that both plants carry a hidden green copy?
+        estimate:
+          prompt: >-
+            Nägeli wants a number he can hold Mendel to before the next bed is sown.
+          question: What is the chance that both plants carry a hidden green copy?
+          relationship: The two plants are independent of each other, so the chance of both carrying a green copy is the two chances multiplied together.
+          labels:
+            - 67 %  (chance the first yellow plant carries a green copy)
+            - 67 %  (chance the second one does)
+            - 100  (to get back from a product of percentages to a percentage)
+            - 33 %  (chance a yellow plant carries two yellow copies)
+            - 75 %  (share of the whole generation that is yellow at all)
+          values: [67, 67, 100, 33, 75]
+          slots: 3
+          template: '{0} × {1} ÷ {2}'
+          formula: a*b/c
+          correct: [0, 1, 2]
+          target: 45
+          tolerance: 2
+          units: per cent of such pairs
+          solution: Two thirds of two thirds is four ninths, which is a little under forty-five in every hundred pairs of yellow plants.
+          explanation: The thirty-three per cent is the chance of the opposite case, and using it computes how often neither plant carries a green copy.
+        why: >
+          Just under half of all pairs of yellow plants carry a hidden green copy in both. That
+          is a working number: it says how often two plants that look identical could throw a
+          green offspring, and anybody in the garden can go and test it. The step that does the
+          work is independence — which copies one plant got has nothing to do with the other,
+          because they came from different pods. The reason the question exists at all is that
+          appearance sorts these plants into two piles and what they carry sorts them into
+          three.
+
+      - group: STORE
+        task: Say how sure a handful lets you be
+        title: A share from twenty, and a share from two thousand
+        place: Seed Store
+        concept: 'A ratio is a claim about large numbers, and small samples wander'
+        scene: >
+          Brandl has drawn samples of twenty seeds from the bin all afternoon. The
+          shares scatter from three in five to nine in ten. The report has to give
+          a share and say how far it could be out.
+        guide: >-
+          Place the middle bar where you think the true share sits and the two outer bars one
+          spread either side of it, so about two thirds of the samples fall between them. Then
+          get the report inside the corridor. Two of the actions move where you are aiming and
+          two of them buy more counting, and only one of those two kinds changes how wide the
+          scatter is.
+        background:
+          - >-
+              How to do it, on a different example. Weigh a sack ten times on a shaky balance
+              and you get ten different numbers. Moving your guess to whichever reading you
+              liked best does not make the balance steadier. Weighing it forty more times does,
+              because the spread of an average shrinks as the count grows.
+          - >-
+              Why small samples wander so far. In twenty seeds, a true three-in-four share can
+              easily come out as thirteen or as eighteen. In two thousand it cannot come out
+              anywhere near either. The share is the same claim in both cases and the evidence
+              for it is not.
+          - >-
+              What the two bars mean. The middle is the share being reported and the outer pair
+              are one spread either side, which should hold about two thirds of the samples
+              between them. Placing them right is the report; the drawn curve is what you are
+              claiming rather than what is true.
+          - >-
+              Why re-centring is the trap. Sliding the report onto the most convenient sample
+              moves the whole scatter across without making it any narrower, so the fraction
+              landing inside the corridor barely improves. Only counting more seed does that,
+              and it costs afternoons the season has a fixed number of.
+        assumes:
+          - repeated samples from one bin scatter around the true share
+          - the spread of a sample share narrows as more seed is counted
+        takeaway: A share is only as good as the count behind it, and moving where you aim is not the same as narrowing what the measurement permits.
+        format: CLOUD
+        question: >-
+          Get the reported share inside the corridor, place the bars to report the middle and
+          its spread, and say when it is ready.
+        cloud:
+          hint: >-
+            The scatter is what samples of this size actually do. Every point in it is a
+            handful somebody could have drawn.
+          bounds: { min: 71, max: 79, unit: '%', label: Reported yellow share }
+          centre: 76.4
+          spread: 4.5
+          pass: 0.95
+          seed: 23
+          costUnit: afternoons
+          actions:
+            - { id: recentre, label: Re-centre the report on the last twenty seeds counted, effect: shift, amount: 1.5, cost: 1 }
+            - { id: best, label: Report the share from the best-looking bed instead, effect: shift, amount: 2.0, cost: 1 }
+            - { id: two, label: Count another two hundred seeds, effect: narrow, amount: 0.66, cost: 3 }
+            - { id: four, label: Count another four hundred, effect: narrow, amount: 0.58, cost: 4 }
+          report: { centreTol: 0.5, spreadTol: 0.5 }
+          commit: File the report
+        answerText: >-
+          Both counting actions. Re-centring slides the whole scatter across and leaves better
+          than one report in twenty outside the corridor; only counting more seed narrows it.
+        why: >
+          The share from twenty seeds is not a bad measurement of a different quantity — it is
+          the same quantity measured badly, and the difference between the two is the width of
+          the scatter. Re-centring is tempting because it moves the middle onto the corridor,
+          and it changes nothing about how far a single handful can land from the truth. Only
+          counting more narrows that, and it costs afternoons. This is what stands behind the
+          three-to-one claim: not that any one tray came out at three to one, but that trays of
+          four hundred cannot come out far from it if the model holds.
+
+  - title: The rules underneath
+    objective: Measure what a single plant passes on, put two traits together, and use a cross to read a genotype off the offspring.
+    briefing: Mendel wants the rule stated in a form the next garden can test.
+    stake: >-
+      Spring, a year on, and the garden has a ratio and no mechanism. Gregor Mendel wants
+      the rule written as something another garden could check: what one plant passes on, what
+      happens when two traits are followed at once, and how to find out what a plant is
+      carrying without waiting for its grandchildren. Carl Nägeli, the visiting botanist,
+      still holds that peas are a special case. Cyrill Napp, the abbot, has asked twice what
+      the ratios are for. Today you commit a prediction about pollen and then measure it,
+      say what two traits together should give, and read a hidden copy off a hundred seeds.
+    takeaway: A rule earns its keep by predicting a count somebody else can go and take.
+    stops:
+      - group: GLASS
+        task: Predict what one plant passes on
+        title: Half and half, or something else
+        place: Glasshouse
+        concept: 'Each parent passes one of its two copies, at even odds'
+        scene: >
+          A plant known to carry one yellow copy and one green is in the
+          glasshouse. Crossed onto a true-breeding green tester, its offspring
+          read its pollen back directly.
+        guide: >-
+          Say first, in writing, what share of this plant's pollen you expect to carry the
+          yellow copy. Then make the cross and sow it, then count the offspring. The
+          prediction is locked once it is made, because a prediction adjusted after the count
+          has stopped being a test. Note also that the cross is not finished until the
+          counting has been done.
+        background:
+          - >-
+              How to do it, on a different example. A bag holds one red counter and one blue.
+              Draw one, note it, replace it, and repeat two hundred times. Write down what
+              share you expect to be red before you start — a half — and then actually do the
+              draws. The writing-down is what makes the two hundred draws a test rather than
+              a demonstration.
+          - >-
+              Why the tester makes the pollen readable. A true-breeding green parent has
+              nothing but green copies to contribute, so it hides nothing. Every offspring
+              shows whichever copy came from the other side, which means the tray of seed is a
+              direct count of what that plant's pollen carried.
+          - >-
+              What is being claimed. Not that the plant chooses, and not that yellow is more
+              common. Only that the two copies a plant holds separate when pollen is made, so
+              each grain carries one of them and the two are equally likely.
+          - >-
+              Why the counting cannot be skipped. A cross that was made and never counted is a
+              statement about the glasshouse. Everything this level is for depends on somebody
+              opening the pods.
+        assumes:
+          - a true-breeding green tester contributes only green copies
+          - each pollen grain carries one of the parent's two copies
+        takeaway: The two copies a plant holds separate when gametes are made, and a cross onto a tester turns that into a count anybody can take.
+        format: VERIFY
+        question: >-
+          Lock a prediction for the pollen, make the cross onto the tester, then count the pods.
+        verify:
+          hint: >-
+            Write the prediction down before the cross is made. Nothing about it can be changed
+            afterwards, which is what makes it a prediction.
+          prediction: { label: Predicted share of pollen carrying the yellow copy, unit: '%', min: 0, max: 100, step: 5 }
+          truth: 50
+          passRatio: [0.8, 1.2]
+          intervention:
+            label: The cross onto the green tester
+            note: Anthers out, bagged, and the tester's pollen applied by hand to sixty flowers.
+            outcome: Sixty pods set. The bags stayed on and every stake is still in the ground.
+          measurement:
+            label: The count of the offspring
+            note: Every pod opened and sorted into yellow and green, both piles recorded.
+            cost: 1
+            costUnit: seasons
+          unmeasuredMoral: >-
+            Sixty pods set and every bag stayed on. That is a statement about the glasshouse,
+            and it is not a statement about the pollen.
+          commit: Report the share
+        answerText: >-
+          About half. The pods come back close to fifty-fifty, which is what two copies
+          separating at even odds looks like once it is counted.
+        why: >
+          The tester is what makes this readable. A parent with nothing but green copies hides
+          nothing, so every offspring shows what came from the other side and the tray is a
+          direct count of the pollen. Half and half is the prediction that follows from two
+          copies separating, and predicting anything else means predicting that one copy is
+          favoured. What the panel is built around is the temptation to stop at the cross. Sixty
+          pods and every bag intact is a well-run glasshouse and says nothing whatever about
+          what was in the pollen.
+
+      - group: PLOT
+        task: Put two traits together
+        title: Two traits, four kinds of seed
+        place: Trial Plots
+        concept: 'Two traits on separate chromosomes are inherited independently'
+        scene: >
+          A second trait is added: seed shape, round or wrinkled. Two plants
+          carrying one copy of each form are crossed, and the beds are sown to
+          count all four combinations.
+        guide: >-
+          Each trait on its own gives three of one form to one of the other. If the two traits
+          travel independently, the four combinations are as common as the two separate shares
+          multiplied together. Work out what that gives before looking at the options, and
+          watch for the ones that are a single trait's ratio wearing a second trait's clothes.
+        background:
+          - >-
+              How to do it, on a different example. Toss two coins that have nothing to do with
+              each other. Heads comes up three times in four on a loaded one and three times in
+              four on the other. Both heads is three quarters of three quarters, nine
+              sixteenths. One head and one tail is three quarters times one quarter, twice
+              over. The four outcomes come to nine, three, three and one.
+          - >-
+              What independence means here. The two traits sit on different chromosomes, so
+              which copy of one an offspring receives says nothing about which copy of the
+              other it receives. That is a physical fact about where the factors are, and it is
+              the assumption the whole prediction rests on.
+          - >-
+              What breaks it. Two factors close together on the same chromosome travel together
+              more often than not, and the four combinations then come out badly wrong. That is
+              not a failure of the rule; it is how the position of a factor was eventually
+              measured.
+          - >-
+              Why the wrong options are the interesting ones. Three to one is one trait's ratio
+              with the second forgotten. One to two to one is what the underlying combinations
+              give before appearance collapses them. One to one to one to one is what you would
+              get if all four were simply equally likely.
+        assumes:
+          - the two traits are carried on different chromosomes
+          - each trait on its own shows three of one form to one of the other
+        takeaway: When two traits are inherited without reference to each other, the share showing any combination is the product of the two separate shares, so the joint pattern is fixed by arithmetic rather than measured.
+        format: CHOICE
+        question: What ratio of the four combinations should the beds give?
+        choices:
+          - Nine to three to three to one.
+          - Three to one.
+          - One to two to one.
+          - One to one to one to one.
+        answer: Nine to three to three to one.
+        rebuttals:
+          - That is one trait's ratio with the second trait forgotten about.
+          - That is what the underlying combinations give before appearance collapses them together.
+          - That would need all four combinations to be equally likely, which independence does not give.
+        why: >
+          Three quarters of the seeds show the first trait's dominant form. Three quarters show
+          the second's. If the two are independent, the share showing both is three quarters of
+          three quarters. Work the other three combinations the same way and you get nine,
+          three, three and one out of sixteen. Everything rests on the independence, and the
+          useful thing about saying so plainly is that it can fail. Factors close together on
+          one chromosome travel together. The four counts then come out wrong, and measuring how
+          wrong is how the position of a factor was eventually found.
+
+      - group: COUNT
+        task: Read a hidden copy off the offspring
+        title: Fifty-two yellow, forty-eight green
+        place: Counting Room
+        concept: 'A cross with the recessive parent reveals the hidden copy'
+        scene: >
+          A yellow plant of unrecorded ancestry has been crossed onto the green
+          tester. A hundred offspring are on the tray: fifty-two yellow and
+          forty-eight green.
+        guide: >-
+          Read the whole bench rather than the loudest row. The tray is the loud part; the
+          quiet rows say what the other parent was, whether anything else could have reached
+          the flowers, and what is missing from the record. The explanation you want accounts
+          for all of them.
+        background:
+          - >-
+              How to do it, on a different example. A locked box opens with one of two keys and
+              you do not know which you were given. Try it on a lock that accepts only the
+              second key. If it opens half the time you have both; if it never opens you have
+              only the first. The test works because the lock contributes nothing of its own.
+          - >-
+              Why the tester hides nothing. A true-breeding green parent contributes only green
+              copies. Any offspring showing green therefore received a green copy from the
+              unknown parent as well, so every green seed on that tray is a direct sighting of
+              a copy the unknown plant was not showing.
+          - >-
+              What the two candidate answers predict. A plant carrying two yellow copies gives
+              offspring that are all yellow. A plant carrying one of each gives about half and
+              half. Fifty-two against forty-eight is not close to the first of those.
+          - >-
+              Why the missing record matters and does not decide it. The line the plant came
+              from was never written down, which is why the cross had to be done at all. It is
+              a gap in the paperwork rather than a rival explanation, and the bagging rules out
+              the one thing that could have faked this result.
+        assumes:
+          - the green tester breeds true and contributes only green copies
+          - the flowers were bagged, so no other pollen could reach them
+        takeaway: Crossing onto a parent that hides nothing turns the offspring into a direct reading of what the unknown parent was carrying.
+        format: DIAGNOSIS
+        headline: A yellow plant of unrecorded ancestry, crossed onto the green tester, has given fifty-two yellow and forty-eight green.
+        task: Which explanation fits the whole bench, and not only the tray?
+        readings:
+          - { zone: Tray, label: Yellow offspring, value: 52, status: normal }
+          - { zone: Tray, label: Green offspring, value: 48, status: alarm }
+          - { zone: Tester, label: The other parent, value: true-breeding green, status: normal, note: contributes only green copies }
+          - { zone: Glasshouse, label: Flowers bagged before opening, value: all sixty, status: normal, note: rules out pollen from another bed }
+          - { zone: Seed store, label: Line the unknown plant came from, value: not recorded, status: alarm }
+          - { zone: Stakes, label: Labels still in the ground at harvest, value: all present, status: normal }
+        choices:
+          - label: The unknown plant carries one yellow copy and one green
+            mechanism: Half its pollen carried green, and the tester let every one of those show.
+          - label: The unknown plant carries two yellow copies
+            mechanism: The green offspring came from somewhere other than the cross.
+          - label: The unknown plant is green underneath and was mislabelled
+            mechanism: The tray would then be all green rather than half.
+          - label: Yellow is recessive after all
+            mechanism: The first generation was read the wrong way round.
+        answer: The unknown plant carries one yellow copy and one green
+        why: >
+          Forty-eight green offspring each needed a green copy from both parents, and the
+          tester can only supply one of them. So the unknown plant was carrying a green copy it
+          never showed, which is what one of each means. The quiet rows close off the
+          alternatives: the bags were on, so no other pollen reached the flowers, and every
+          stake was still in the ground, so no tray was confused with another. The missing line
+          in the seed store is why this cross was necessary and is not a rival explanation. Two
+          copies of yellow would have given a tray with no green in it at all.
+
+warmups:
+  greet:
+    title: Six people and one experiment none of them can run alone
+    why: >-
+      The trait, the crossing, the counting and the seed lines are four different jobs, and one
+      of the four people here does not believe the conclusion. A tally is worth what the
+      crossing behind it was worth. Put a name to as many of them as you can before the season
+      starts.
+  trial-near:
+    title: Walk the garden before anything is sown
+    why: >-
+      The glasshouse and the plot shelter are either side of the beds, and the counting room
+      and the seed store are eighty-five metres down the walk. Gregor Mendel, who lays out the
+      trials, would rather you knew the way than found it out with a tray in your hands.
+  follow:
+    title: Fischer carries a labelled pod from the glasshouse to the trays
+    why: >-
+      A pod is picked in one building, carried down a walk and tipped into a tray in another,
+      and everything that goes wrong with a season happens in between. Terezie Fischer, the
+      garden assistant, walks one the whole way. Stay with her and watch where the label could
+      part company with the seed.
+
+interiors:
+  PLOT:
+    caption: Two hundred and fifty beds, and one trait across all of them.
+    standLine: The bed book, open at a season that has not been sown yet.
+    station:
+      kind: panel
+      title: Bed book
+      rows:
+        - { label: Beds available, value: 250, status: normal }
+        - { label: Trait chosen, value: not yet, status: low }
+        - { label: Seasons in hand, value: 1, status: low }
+        - { label: Lines bred true, value: 8 generations, status: normal }
+  GLASS:
+    caption: A cross is only a cross if the pollen is the pollen you chose.
+    standLine: Sixty flowers opened by hand, bagged, and staked.
+    station:
+      kind: panel
+      title: Crossing bench
+      rows:
+        - { label: Flowers emasculated, value: 60 of 60, status: normal }
+        - { label: Bags on, value: 60 of 60, status: normal }
+        - { label: Skeps within forty yards, value: 6, status: low }
+        - { label: Stakes written, value: 60 of 60, status: normal }
+  COUNT:
+    caption: A ratio is a prediction before it is a description.
+    standLine: Four hundred seeds sorted, and a model on the board beside them.
+    station:
+      kind: plot
+      title: Counted against expected
+      note: the prediction was written before the tray was opened
+      axes: { x: seeds counted, y: share yellow }
+      curves:
+        - { points: [[0.05, 0.6], [0.2, 0.82], [0.4, 0.71], [0.65, 0.76], [0.9, 0.752]], label: running share }
+  STORE:
+    caption: The same share from twenty seeds and from two thousand is not the same claim.
+    standLine: A bin, a scoop, and the sample size written beside every share.
+    station:
+      kind: panel
+      title: Sampling ledger
+      rows:
+        - { label: Sample size, value: 20 seeds, status: low }
+        - { label: Shares seen today, value: 60 % to 90 %, status: alarm }
+        - { label: Bin total, value: about 9000, status: normal }
+        - { label: Afternoons left, value: 8, status: normal }
+
+copy:
+  PLOT: <p>The plot shelter, at the head of the trial beds. A bench out of the sun, the bed book on a hook, and two hundred and fifty numbered beds running away from the door.</p>
+  GLASS: <p>The glasshouse, across the walk. Forceps, a box of muslin bags, a tray of stakes, and rows of pots with a flower opened on nearly every one.</p>
+  COUNT: <p>The counting room, forty metres down the walk. Sorting trays, a ledger ruled into four columns, and nothing growing anywhere in it.</p>
+  STORE: <p>The seed store at the far end. Bins along both walls, every line labelled twice, and a scoop hanging on a nail beside the door.</p>
+  GATE: <p>The gate house at the entrance. The garden book everybody signs, and a key board with more keys than doors.</p>
+  BEES: <p>The bee house, inside the wall. Six skeps on a stone shelf, and the reason every flower in the glasshouse is bagged before it opens.</p>
+  TOOLS: <p>The tool shed beyond the counting room. Canes in bundles, netting on a roll, twine, and a sharpening stone worn hollow.</p>

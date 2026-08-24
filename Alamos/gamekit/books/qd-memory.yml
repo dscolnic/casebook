@@ -1,0 +1,899 @@
+# False Memories — a Quick Discovery.
+#
+# The 3 x 3 shape from great_discoveries_next10_nonphysics_expanded.docx, game
+# 18, mapped onto the engine's day model: a level is a day, a micro-game is a
+# stop, and the campaign is nine stops in one sitting. Three levels, in order:
+#
+#   1  The word that was never there   meaning producing a recognition
+#   2  Information after the event     what a question puts into an account
+#   3  Advising the interview          confidence, origin, and how to ask
+#
+# The science guardrail from the source book, kept. Nothing here is distressing:
+# the event is a twelve-second traffic sequence and the lists are ordinary words,
+# and everybody is fully debriefed. The campaign is careful that a false memory
+# is not an invention out of nothing — it is real content assigned to the wrong
+# occasion — and that confidence and accuracy are two measurements rather than
+# one.
+#
+# Format budget. Nine stops, so `formatMix`'s cap is three of any one format:
+# CHOICE 2, BALLPARK 2, and one each of PROTOCOL, CASEBOOK, VERIFY, DIAGNOSIS,
+# VALUE. Seven formats in nine stops, two of them driven.
+
+theme:
+  id: qd_memory
+  title: False Memories
+  subtitle: Research Assistant · Memory and Testimony Unit
+
+groups:
+  - id: STUDY
+    code: STUDY
+    name: Study Room
+    color: '#3a5566'
+    desc: A bay with nothing memorable in it, a card easel, and lists of fifteen words that all point at a sixteenth.
+    defaultLeader: roediger
+    milestones: [Read the list, Take the test, Count the lures, Ready to hand over]
+  - id: EVENT
+    code: EVENT
+    name: Event Bay
+    color: '#5a7f3f'
+    desc: One screen, one seat, twelve seconds of a junction, and everybody sees exactly the same thing.
+    defaultLeader: loftus
+    milestones: [Show the sequence, Assign the groups, Hold the wording back, Ready to hand over]
+  - id: INT
+    code: INT
+    name: Interview Suites
+    color: '#7a4fa3'
+    desc: Two identical rooms with a table and two chairs in each, and an interviewer who does not know which wording their participant had.
+    defaultLeader: johnson
+    milestones: [Ask openly, Ask specifically, Record it, Ready to hand over]
+  - id: DATA
+    code: DATA
+    name: Data Room
+    color: '#2f6f8a'
+    desc: Two groups on one bench, a difference between them, and a rule against deciding the comparisons afterwards.
+    defaultLeader: achebe
+    milestones: [Enter both groups, Take the difference, Say what it supports, Ready to hand over]
+
+roster:
+  - id: roediger
+    name: Henry Roediger
+    role: Memory Researcher
+    real: true
+    division: STUDY
+    bio: |
+      Builds the lists, and the building is the whole trick. Fifteen words, all
+      of them close in meaning to a sixteenth, and the sixteenth is never read
+      out.
+
+      What comes back is that people recognise the missing word about as often as
+      they recognise words that were actually on the list, and say it feels just
+      as vivid. That is not a lapse. It is what a memory system that stores
+      meaning does when meaning is what it is given.
+
+      His limit is that a laboratory list is not a life. The effect is large and
+      reliable and it is produced by a task designed to produce it, and how far it
+      reaches is a separate argument.
+    quiz:
+      - q: Why is the missing word recognised so often?
+        a: The list was built out of things that all point at it
+        wrong:
+          - It appears earlier in the session in a different list
+          - People are guessing when they are unsure of an answer
+          - It is a more common word than the ones actually presented
+
+  - id: mcdermott
+    name: Kathleen McDermott
+    role: Memory Researcher
+    real: true
+    division: STUDY
+    bio: |
+      Runs the recognition tests and keeps the count that makes the finding a
+      number rather than an anecdote.
+
+      Her insistence is that the effect is predicted in advance. The lists are
+      assembled so that a particular word is the one everything points at, and
+      how often it will be falsely recognised can be forecast before anybody is
+      tested. That is what makes it a mechanism rather than a curiosity.
+
+      Her limit is that a rate says how often and not what it felt like. People
+      report the missing word as vividly remembered, and the counting cannot get
+      at that directly.
+    quiz:
+      - q: What makes the effect a mechanism rather than a curiosity?
+        a: The rate is forecast from how the list was built
+        wrong:
+          - It happens to nearly everybody who takes part
+          - It has been found in several different laboratories
+          - It is larger than the rate of ordinary recognition errors
+
+  - id: loftus
+    name: Elizabeth Loftus
+    role: Eyewitness Researcher
+    real: true
+    division: EVENT
+    bio: |
+      Works on what happens to an account after the event it is about, which is
+      where most of the damage is done and none of the attention goes.
+
+      Show two groups the same twelve seconds, ask one of them a question with a
+      detail assumed in it, and a week later that detail turns up in their
+      recall. Both groups saw the same thing. The only difference between them is
+      one clause in one question.
+
+      Her limit is that a study measures a group. It says a wording changes the
+      chance of a report, not that any particular person's account is wrong, and
+      the difference between those two matters enormously outside a laboratory.
+    quiz:
+      - q: What does a between-groups difference establish?
+        a: That the wording changed the chance of a report
+        wrong:
+          - That any particular person's account is unreliable
+          - That the misled group did not see the event properly
+          - That people cannot remember a junction after a week
+
+  - id: johnson
+    name: Marcia Johnson
+    role: Source Monitoring
+    real: true
+    division: INT
+    bio: |
+      Works on the part everybody skips: not whether a detail is remembered but
+      where it was picked up.
+
+      A memory arrives with a sense of how strongly it is known and not with a
+      label saying where it came from. The origin is worked out afterwards from
+      what fits, and that inference is what goes wrong. The characteristic error
+      is not inventing something from nothing; it is holding real content and
+      assigning it to the wrong occasion.
+
+      Her limit is that she can show the error happening and cannot tell, in any
+      single case, which detail came from where.
+    quiz:
+      - q: What is the characteristic failure she describes?
+        a: Real content assigned to the wrong occasion
+        wrong:
+          - A detail invented from nothing during the interview
+          - A memory that fades until nothing of it is left
+          - A person deliberately adding to what they saw
+
+  - id: achebe
+    name: Ruth Achebe
+    role: Data Manager
+    division: DATA
+    bio: |
+      Keeps the two groups apart on the bench and the comparisons written down
+      before anybody looks at them.
+
+      Her rule is the one people resent: decide what you are comparing before you
+      see the numbers. Any set of data contains a subgroup that says something,
+      and going looking after the fact is how a study produces a finding nobody
+      can reproduce.
+
+      Her limit is that she can protect a comparison and cannot make a small
+      difference larger. Two hundred people is what the study has, and what it can
+      detect follows from that.
+    quiz:
+      - q: Why are the comparisons written down before the data is seen?
+        a: So a finding cannot be chosen after the numbers are known
+        wrong:
+          - Because the analysis takes too long to plan afterwards
+          - Because the groups would otherwise be different sizes
+          - Because the interviewers need to know what is being tested
+
+  - id: vance
+    name: Colin Vance
+    role: Interview Trainer
+    division: INT
+    bio: |
+      Trains the interviewers, and most of what he teaches is what not to say.
+
+      The order is fixed: tell me everything, then open questions, then specific
+      ones, then anything to add. Never the other way round, because what is asked
+      first shapes everything after it. The interviewer is also not told which
+      wording their participant received, which removes the most obvious way for
+      the study to leak into itself.
+
+      His limit is that he can train a method and not a conversation. Two
+      interviewers following the same protocol still say different things, and
+      the recording is the only thing that catches it.
+    quiz:
+      - q: Why is the interviewer kept unaware of which wording was used?
+        a: So the study cannot leak into itself through the asking
+        wrong:
+          - So the interviewer can be surprised by the answers
+          - So the two suites can be run at the same time
+          - So the recordings can be compared without labels
+
+missions:
+  - title: A word that was never read out
+    objective: Sort what a recognition test contains, see what familiarity does not carry, and count how often the missing word is claimed.
+    briefing: Roediger will not explain the lists until the test is over.
+    stake: >-
+      Monday, and forty people are booked to hear twelve lists of fifteen words. Henry
+      Roediger, a memory researcher who builds the lists, will not tell any of them what they
+      are for until
+      afterwards, because somebody who has been told is testing something else. Kathleen
+      McDermott, who runs the recognition tests, has forecast the result before the first
+      participant arrives. Ruth Achebe, the data manager, has the comparisons written down
+      already. Today you sort what is actually on a test sheet, say what a strong sense of
+      recognition does and does not carry with it, and put a number on how often a word that
+      was never read out is claimed.
+    takeaway: A memory system that stores meaning will hand back meaning, including meaning nobody supplied.
+    stops:
+      - group: STUDY
+        task: Sort what the test sheet contains
+        title: Four words, four different things
+        place: Study Room
+        concept: 'Recognition can be produced by meaning as well as by presentation'
+        scene: >
+          The list has been read out and the test sheet is face down. On it are
+          four words: one that was read, one that was not and is unrelated, one
+          that was not and is close to all of them, and one that was read early
+          and quietly.
+        guide: >-
+          Match each word on the sheet to what it is doing there. What separates them is
+          whether the word was presented and whether it is related to the list. Two of the four
+          are not on the list at all, and they are on the sheet for quite different reasons.
+        background:
+          - >-
+              How to do it, on a different example. A photograph line-up contains the person
+              who was there, a stranger who looks nothing like them, a stranger who looks a
+              great deal like them, and the person who was there but at the edge of the frame.
+              Each of those four is testing something different about the witness.
+          - >-
+              Why the unrelated word is on the sheet. If somebody says yes to it, they are
+              saying yes to everything, and their whole sheet has to be read differently. It is
+              the control against a person who simply agrees.
+          - >-
+              Why the related word is the experiment. It was never read out and it is close in
+              meaning to everything that was. If recognition came only from having heard
+              something, it should be rejected as easily as the unrelated one.
+          - >-
+              Why the quiet presented word is there. Not everything read out is remembered, and
+              a test with only strong items in it would make the sheet look easier than it is.
+              It sets the ordinary rate of forgetting the rest is judged against.
+        assumes:
+          - a recognition test asks whether each word was on the list just read
+          - the list was assembled so that one unpresented word is close to all of them
+        takeaway: A recognition test contains presented items, unrelated ones and one designed lure, and the three of them together are what make a rate mean anything.
+        format: PROTOCOL
+        task_line: Match each word on the sheet to what it is for.
+        scenarios:
+          - A word that was read out in the middle of the list.
+          - A word that was not read out and has nothing to do with the others.
+          - A word that was not read out and is close in meaning to all of them.
+          - A word that was read out once, quietly, at the very start.
+        choices:
+          - What ordinary correct recognition looks like for this person.
+          - A check on somebody who is simply agreeing with everything.
+          - The thing the whole list was built to produce.
+          - The ordinary rate of forgetting, which the rest is judged against.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Four words and four jobs. The presented ones set what this person's correct
+          recognition looks like and how much they forget, and without those two the sheet
+          cannot be read at all. The unrelated word catches anybody saying yes to everything,
+          which would otherwise look like excellent memory. And the related word is the whole
+          experiment: never read out, close in meaning to everything that was, and about to be
+          claimed as remembered by rather more than half of the people in the room.
+
+      - group: STUDY
+        task: Say what the feeling does not carry
+        title: It felt exactly like the others
+        place: Study Room
+        concept: 'A strong feeling of familiarity does not carry its own source'
+        scene: >
+          A participant has marked the missing word as remembered and, asked
+          afterwards, says it felt no different from the words that were really
+          on the list. Several others say the same.
+        guide: >-
+          Four accounts of that report are offered. What separates them is what each says a
+          feeling of recognition is made of. Ask of each whether it also explains why the
+          person is not aware of anything having gone wrong, since that is the part that needs
+          accounting for.
+        background:
+          - >-
+              How to do it, on a different example. You are certain you have met somebody
+              before and cannot place where. The certainty and the placing are two separate
+              things, and here the certainty has arrived on its own. Usually the placing
+              catches up. Sometimes it arrives wrong and nothing feels different.
+          - >-
+              What a memory does and does not come with. It arrives with a sense of how
+              strongly it is known. It does not arrive with a label saying where it was picked
+              up. The origin is worked out afterwards from what fits, and most of the time that
+              inference is right and invisible.
+          - >-
+              Why the lure feels so ordinary. Every word on the list activated its meaning, and
+              the missing word shares that meaning with all fifteen. So when the test sheet
+              shows it, it is already active, and being active is what recognition feels like.
+          - >-
+              Why this is not lying or guessing. People report the lure with the same
+              confidence as real items and are surprised when told. Nothing in the experience
+              distinguishes it, which is exactly why the inference about origin cannot be
+              corrected from the inside.
+        assumes:
+          - a memory arrives with a sense of strength and not with a record of its origin
+          - the fifteen words and the lure share most of their meaning
+        takeaway: A stored trace carries its strength and not its provenance, so the origin is an inference made afterwards from what fits — and an inference is the kind of thing that can be mistaken without anybody noticing.
+        format: CHOICE
+        question: What is the best account of the participant's report?
+        choices:
+          - The report is honest and the part that went wrong is not one they can check.
+          - They are guessing and covering for it.
+          - They heard the word and the experimenter failed to record it.
+          - They have a poorer memory than the people who rejected it.
+        answer: The report is honest and the part that went wrong is not one they can check.
+        rebuttals:
+          - Guessing would produce yeses to the unrelated word too, and it does not.
+          - The lists are printed and read from a script, and the same word is claimed by more than half the room.
+          - The same people recognise the presented words correctly and reject the unrelated ones.
+        why: >
+          The report needs to explain two things at once: that the word is claimed, and that
+          nothing about claiming it feels unusual. A memory arrives with a sense of how strongly
+          it is known and with no record of where it was picked up, so the origin is worked out
+          afterwards from what fits. Here the lure is already active — every word on the list
+          shares its meaning — so it arrives feeling exactly like the rest. That is why it
+          cannot be corrected from the inside, and why the same people reject the unrelated word
+          without difficulty.
+
+      - group: DATA
+        task: Count how often it happens
+        title: Two hundred and fifty-nine out of four hundred and eighty
+        place: Data Room
+        concept: 'A lure is predicted in advance by the structure of the list'
+        scene: >
+          Forty people, twelve lists each, and one designed lure per list. Two
+          hundred and fifty-nine of the four hundred and eighty lures were marked
+          as remembered.
+        guide: >-
+          Work out what share of the lures were claimed, as a percentage. Use the lure counts
+          and nothing else. Two of the tiles are about the words that really were on the lists,
+          and mixing presented items into this rate produces a number about neither.
+        background:
+          - >-
+              How to do it, on a different example. A test contains fifty trick questions and
+              thirty of them are answered wrongly. That is thirty out of fifty, sixty per cent.
+              The two hundred ordinary questions on the same paper are a different rate about a
+              different thing, and averaging the two describes nothing.
+          - >-
+              Why the rate is the finding rather than the anecdote. One person claiming one
+              word is a story. Fifty-four in a hundred lures claimed, across forty people and
+              twelve lists, is a property of the task — and it was forecast before anybody was
+              tested, from how the lists were assembled.
+          - >-
+              What to compare it against. The presented words were correctly recognised about
+              seven times in ten, so the lure is claimed nearly as often as a word that really
+              was read out. That comparison is what makes the number striking rather than
+              merely large.
+          - >-
+              What the rate does not say. It does not say the memory is worthless or that people
+              cannot be trusted. It says a system that stores meaning hands meaning back, and it
+              says how often, under a task built to make it happen.
+        assumes:
+          - every list carried exactly one designed lure
+          - a claimed lure is a word marked as remembered that was never read out
+        takeaway: The share of never-presented related words that are claimed is a rate that can be forecast from how the lists were built, which is what makes it a mechanism rather than an oddity.
+        format: BALLPARK
+        question: What share of the lures was claimed as remembered?
+        estimate:
+          prompt: >-
+            McDermott forecast this figure before the first participant arrived and wants it
+            beside her forecast.
+          question: What share of the lures was claimed as remembered?
+          relationship: The false-recognition rate is the share of never-presented related words that were called old.
+          labels:
+            - 259  (lures marked as remembered)
+            - 480  (lures on the test sheets altogether)
+            - 100  (to turn a share into a percentage)
+            - 612  (presented words correctly recognised)
+            - 720  (presented words tested)
+          values: [259, 480, 100, 612, 720]
+          slots: 3
+          template: '{0} ÷ {1} × {2}'
+          formula: a/b*c
+          correct: [0, 1, 2]
+          target: 54
+          tolerance: 2
+          units: per cent of lures
+          solution: Two hundred and fifty-nine of the four hundred and eighty lures is a little under fifty-four in every hundred.
+          explanation: The six hundred and twelve and the seven hundred and twenty are the presented words, and they give the rate of ordinary correct recognition rather than of false recognition.
+        why: >
+          Fifty-four per cent, against about eighty-five per cent for words that really were on
+          the lists. A word nobody read out is claimed nearly as often as one that was, which is
+          the comparison that makes the number worth having. And it was forecast before anybody
+          was tested, from nothing but how the lists were assembled — which is what separates a
+          mechanism from a curiosity. What the rate does not say is that memory is worthless. It
+          says a system that stores meaning gives meaning back, and it says how often.
+
+  - title: What a question puts into an account
+    objective: See what a wording assumes, commit a figure before the recall test, and take the difference between the two groups.
+    briefing: Loftus will not let an interviewer know which wording their participant had.
+    stake: >-
+      Wednesday, and two hundred people have watched the same twelve seconds of a junction.
+      Elizabeth Loftus, who works on what happens to an account afterwards, has split them by
+      a sealed list into two groups that differ in one clause of one question. Colin Vance,
+      who trains the interviewers, has made sure no interviewer knows which group they are
+      sitting with. The recall test is a week away. Today you say what a wording does, commit
+      a figure before the test is run, and take the difference between the two groups.
+    takeaway: What somebody learns after an event blends into what they recall of it, and only two groups can show that.
+    stops:
+      - group: EVENT
+        task: Say what each wording does
+        title: One clause, four questions
+        place: Event Bay
+        concept: 'A leading question supplies the detail it appears to ask about'
+        scene: >
+          Four versions of the same question are on the card. Everybody has seen
+          the same junction and there was no yield sign in it. One version puts a
+          yield sign into the room.
+        guide: >-
+          Match each wording to what it actually does to the interview. What separates them is
+          whether the question mentions a thing as established, asks about it openly, asks
+          nothing about it at all, or asks the participant to judge. Read what each puts in
+          front of the person answering.
+        background:
+          - >-
+              How to do it, on a different example. Ask "how fast was the red car going" and
+              you have said there was a red car. Ask "describe the vehicles" and you have said
+              nothing. Both feel like questions about the same event, and only one of them adds
+              to it.
+          - >-
+              Why a mentioned detail is not neutral. The person answering has now met the yield
+              sign, in this room, from you. A week later that meeting is a piece of content in
+              their head about this event, and nothing marks it as having arrived from the
+              interviewer.
+          - >-
+              Why the open version is not simply weaker. It gets less, and everything it gets
+              came from the witness. An account built from open questions is shorter and it is
+              the one you can rely on, which is a trade every interview makes whether or not
+              anybody notices.
+          - >-
+              Why the interviewer is kept in the dark. Somebody who knows which condition they
+              are running will emphasise differently without meaning to. The wording is on a
+              card and the interviewer does not know which card they were given.
+        assumes:
+          - all four groups saw the same twelve-second sequence
+          - there was no yield sign in what any of them saw
+        takeaway: A question that names a detail as established has put that detail into the interview, and a week later nothing distinguishes it from something witnessed.
+        format: CASEBOOK
+        task_line: Match each wording to what it does.
+        scenarios:
+          - Did the blue car stop at the yield sign?
+          - Was there any traffic sign at the junction?
+          - Tell me everything you remember about the junction.
+          - Do you think the blue car was driving carelessly?
+        choices:
+          - Puts a sign into the interview as something already established.
+          - Asks about signs without supplying one, so a yes came from the witness.
+          - Supplies nothing at all, and gets less and better material.
+          - Asks for a judgement rather than an observation, which is not evidence about the junction.
+        mapping: [0, 1, 2, 3]
+        why: >
+          The first question is the only one that adds anything, and it adds a great deal: after
+          it, the yield sign is a thing this person has met in connection with this junction.
+          The second asks about signs without supplying one, so an answer is the witness's. The
+          third supplies nothing and is what an interview should open with. The fourth is a
+          different problem — it asks for an opinion, which cannot be evidence about what
+          happened, and which a person will then feel committed to defending.
+
+      - group: INT
+        task: Commit a figure before the recall test
+        title: How many will report the sign
+        place: Interview Suites
+        concept: 'Post-event information changes what is later reported'
+        scene: >
+          The misled group met the yield sign in a question a week ago. The
+          neutral group did not. In the neutral group, twelve people in a
+          hundred report a sign anyway.
+        guide: >-
+          Say first, in writing, what share of the misled group will report the sign at the
+          recall test. Then run the test, then read the count. The figure is locked once it is
+          made, because a prediction adjusted after the count has stopped being a test. Note
+          also that running the interviews is not the end of this.
+        background:
+          - >-
+              How to do it, on a different example. Predict how many people will remember a
+              detail from an advertisement they saw a week ago, write it down, then ask a
+              hundred of them. Afterwards, whatever the answer is, it will feel like the number
+              you would have said, and the written figure is the only thing that stops that.
+          - >-
+              What the neutral group tells you. Twelve in a hundred report a sign with no
+              prompting at all. Junctions usually have signs, so some people supply one from
+              general knowledge, and any figure for the misled group has to be read against
+              that rather than against zero.
+          - >-
+              What the mechanism predicts. If a mentioned detail becomes content about the
+              event, the misled group should report the sign a good deal more often. It should
+              not be everybody, because not everybody attended to the question or kept it.
+              Predicting a hundred per cent is predicting something nobody has ever seen.
+              anything.
+          - >-
+              Why the interviews are not the result. Two hundred interviews are a week of work
+              and a room full of tapes. The result is a pair of counts, and until somebody has
+              gone through the transcripts there is no finding of any kind.
+        assumes:
+          - the two groups were assigned from a sealed list and saw the same sequence
+          - a report of the sign is a mention of it in the participant's own account
+        takeaway: A detail supplied after an event turns up in a later account, and the figure worth predicting is how much more often rather than whether at all.
+        format: VERIFY
+        question: >-
+          Lock a figure for the misled group, run the recall interviews, then read the counts.
+        verify:
+          hint: >-
+            Write the figure down before the first interview. Nothing about it can be changed
+            afterwards, which is what makes it a prediction.
+          prediction: { label: Predicted share of the misled group reporting the sign, unit: '%', min: 0, max: 100, step: 5 }
+          truth: 41
+          passRatio: [0.6, 1.6]
+          intervention:
+            label: The recall interviews
+            note: A week later, both groups, open questions first, interviewer unaware of the condition.
+            outcome: Two hundred interviews recorded and transcribed. Nobody in either group found it difficult.
+          measurement:
+            label: The counts from the transcripts
+            note: Every mention of a sign, coded by two people working separately.
+            cost: 3
+            costUnit: days
+          unmeasuredMoral: >-
+            Two hundred interviews are recorded and everybody found them easy. That is a
+            statement about the interviews.
+          commit: Report the counts
+        answerText: >-
+          About forty-one in a hundred, against twelve in the neutral group. Not everybody,
+          which matters — a clause in a question changes the chance of a report rather than
+          installing a memory.
+        why: >
+          Forty-one against twelve. The neutral group is what makes the number readable: some
+          people supply a sign from general knowledge, because junctions usually have them, and
+          the misled figure has to be read against that rather than against zero. Note what it
+          is not. It is not everybody, so a mentioned detail changes the chance of a report
+          rather than writing a memory to order. And the interviews themselves are not the
+          result — two hundred tapes are a week of work and no finding until somebody has coded
+          the transcripts.
+
+      - group: DATA
+        task: Take the difference
+        title: Forty-one against twelve
+        place: Data Room
+        concept: 'A between-groups difference is what separates suggestion from noise'
+        scene: >
+          Both counts are on the bench. Forty-one in a hundred of the misled
+          group mention the sign; twelve in a hundred of the neutral group do.
+          Achebe wants the comparison written as one number.
+        guide: >-
+          Subtract the neutral group's share from the misled group's, and report the difference
+          in percentage points. Use the two shares of people reporting the sign. Two of the
+          tiles are about a different detail and about the size of the groups, and neither
+          belongs in this subtraction.
+        background:
+          - >-
+              How to do it, on a different example. A field treated with fertiliser yields sixty
+              bushels an acre and an untreated field beside it yields forty-five. The fertiliser
+              is worth fifteen bushels. Reporting sixty on its own says nothing, because you do
+              not know what that field would have done anyway.
+          - >-
+              Why the neutral group is the whole argument. Without it, forty-one per cent could
+              be what people say about junctions in general. The comparison group is what turns
+              a rate into an effect, and it works because the two groups were assigned from a
+              sealed list and differ in nothing else anybody could name.
+          - >-
+              What random assignment buys. Age, eyesight, attention, how good a week they have
+              had — all of it is spread across both groups by the assignment rather than by
+              anybody's judgement. That is why the one clause can be held responsible.
+              Everything else was shared out.
+          - >-
+              What the difference does not say. It is a statement about a hundred people
+              against another hundred. It does not say which individuals were affected, and it
+              does not say that any particular account in the pile is wrong.
+        assumes:
+          - the two groups were randomly assigned and saw the same sequence
+          - both were interviewed the same way by interviewers unaware of the condition
+        takeaway: A difference between two randomly assigned groups is what makes the one thing that differed the cause, and a single rate on its own says nothing.
+        format: BALLPARK
+        question: What did the wording add, in percentage points?
+        estimate:
+          prompt: >-
+            Achebe will not write "more likely" in the report. She wants the difference.
+          question: What did the wording add, in percentage points?
+          relationship: What the wording added is the share of the misled group reporting the detail minus the share of the neutral group.
+          labels:
+            - 41 %  (of the misled group reported the sign)
+            - 12 %  (of the neutral group reported it)
+            - 53 %  (of the misled group described the car's colour correctly)
+            - 100  (people in each group)
+          values: [41, 12, 53, 100]
+          slots: 2
+          template: '{0} − {1}'
+          formula: a-b
+          correct: [0, 1]
+          target: 29
+          tolerance: 2
+          units: percentage points
+          solution: Forty-one in a hundred against twelve in a hundred is a difference of twenty-nine percentage points.
+          explanation: The fifty-three per cent is about the colour of the car, which both groups were asked and neither was misled about.
+        why: >
+          Twenty-nine points, and it is the only number here worth reporting. Forty-one on its
+          own could be what people say about junctions in general, because junctions usually
+          have signs. The neutral group's twelve is exactly that. What licenses blaming the
+          clause is the random assignment. Age, eyesight, attention and everything else nobody
+          measured were spread across both groups by a sealed list rather than by anybody's
+          judgement. The difference is about a hundred people against another hundred, and not
+          about which of them were affected.
+
+  - title: Advising the people who ask
+    objective: Separate confidence from accuracy, name the failure properly, and buy the change to the interview that helps most.
+    briefing: Johnson wants the error named before anybody recommends anything.
+    stake: >-
+      Friday, and an interview team has asked the unit for advice. Marcia Johnson, whose subject is source
+      monitoring — where a remembered detail was actually picked up — has the confidence ratings beside the
+      accuracy scores and says the two are not one measurement. Colin Vance has four proposed
+      changes to how the team asks their questions and time to test one properly. Ruth Achebe
+      has the transcripts. Today you read the confidence data, say what kind of error this
+      actually is, and spend the study on the change that could turn out not to work.
+    takeaway: Memory is reconstructed from real material, so the way it is asked for is part of what comes back.
+    stops:
+      - group: DATA
+        task: Read the confidence data
+        title: Certain, and wrong
+        place: Data Room
+        concept: 'Confidence and accuracy are two measurements, not one'
+        scene: >
+          Every participant rated how sure they were. The most confident reports
+          are right more often than the least confident ones — and among the
+          misled group, the reports of the sign are among the most confident of
+          all.
+        guide: >-
+          Read the whole panel rather than the striking row. Confidence and accuracy are
+          related here and the relation is not what people assume, and the quiet rows are what
+          say why. The reading you want accounts for both facts at once.
+        background:
+          - >-
+              How to do it, on a different example. Weather forecasters who say seventy per cent
+              are right about seventy per cent of the time, and most people who feel seventy per
+              cent sure are not. Confidence carries information when it has been calibrated
+              against outcomes, and very little when it has not.
+          - >-
+              What the data actually show. Across everybody, higher confidence does go with
+              higher accuracy — that relation is real and it is weaker than anybody expects.
+              And it breaks down worst exactly where the errors are, because a suggested detail
+              feels no different from a witnessed one.
+          - >-
+              Why the misled reports are so confident. The detail was supplied a week ago and
+              has been sitting there since, so by the time it is asked for it is familiar. That
+              familiarity is what confidence is built out of, and nothing in it records where
+              the detail came from.
+          - >-
+              What follows for an interview team. Not that confident witnesses should be
+              ignored. That confidence is a second measurement with its own failure mode, and
+              that it is least informative under the conditions that produce the errors.
+        assumes:
+          - each participant rated their confidence at the time of reporting
+          - accuracy is judged against the recording everybody saw
+        takeaway: Confidence and accuracy are related and the relation is weaker than it feels, and it is weakest under exactly the conditions that produce errors.
+        format: DIAGNOSIS
+        headline: Higher confidence goes with higher accuracy overall, and the misled group's reports of the sign are among the most confident in the study.
+        task: Which reading fits both of those at once?
+        readings:
+          - { zone: All reports, label: Confidence against accuracy, value: related but weakly, status: normal }
+          - { zone: Misled group, label: Confidence in the sign reports, value: among the highest, status: alarm }
+          - { zone: Misled group, label: Accuracy of the sign reports, value: all wrong, status: alarm, note: there was no sign }
+          - { zone: Neutral group, label: Confidence in their sign reports, value: also high, status: alarm }
+          - { zone: Both groups, label: Confidence in the car colour, value: high and accurate, status: normal, note: nobody was misled about the colour }
+          - { zone: Rating scale, label: When it was given, value: at the time of reporting, status: normal }
+        choices:
+          - label: Confidence is built out of familiarity
+            mechanism: A supplied detail becomes familiar, so it is reported with the same certainty as a witnessed one.
+          - label: Confidence carries nothing and should be ignored
+            mechanism: The relation with accuracy is not perfect, so it is worth nothing at all.
+          - label: The misled participants are not telling the truth
+            mechanism: They know there was no sign and are saying otherwise.
+          - label: The rating scale was misunderstood
+            mechanism: People were rating something other than how certain they were.
+        answer: Confidence is built out of familiarity
+        why: >
+          Both facts have to be accounted for at once, and one explanation does it. Confidence
+          is built out of how familiar something feels, and familiarity carries no record of
+          where it was acquired — so a detail supplied a week ago arrives feeling exactly like a
+          detail witnessed. The quiet rows rule out the alternatives. Confidence about the car's
+          colour is both high and accurate, so the scale works and people are not lying. And the
+          relation across all reports is real, so confidence is not worthless. It is a second
+          measurement, least informative where it is most needed.
+
+      - group: INT
+        task: Name the failure properly
+        title: Where the detail came from
+        place: Interview Suites
+        concept: 'A source-monitoring error is remembering the content and losing the origin'
+        scene: >
+          A participant describes the yield sign in detail: its shape, roughly
+          where it stood, that they noticed it as the blue car approached. There
+          was no sign, and they have met one — in a question, a week ago.
+        guide: >-
+          Four descriptions of what has gone wrong are offered. What separates them is what each
+          says was lost. Ask of each whether it explains the detail in the account, since a
+          person who had invented the sign would have had to invent its shape and position too.
+        background:
+          - >-
+              How to do it, on a different example. You are certain a friend told you a piece of
+              news and it was actually on the radio. Nothing about the news is wrong, and the
+              memory is real. What has gone is the tag saying where you got it, and everything
+              else is intact.
+          - >-
+              Why the detail is the clue. This person can describe the sign's shape and its
+              position. Somebody manufacturing a memory from nothing would have to manufacture
+              all of that. Somebody who has a real, ordinary idea of a yield sign and has
+              assigned it to the wrong occasion would not.
+          - >-
+              What the correct name buys. Calling it a false memory suggests something was
+              created. Calling it a source-monitoring error says what actually happened —
+              content held, origin misassigned — and it points at the fix, which is about how
+              details are supplied rather than about how hard people try to remember.
+          - >-
+              Why it cannot be caught from the inside. The person has no experience of having
+              assigned an origin, because the assignment happens without their noticing. They
+              cannot check it, and being asked whether they are sure will not help.
+        assumes:
+          - the participant met the sign in a question a week earlier
+          - nothing in a memory records where it was acquired
+        takeaway: The characteristic failure is holding real content and assigning it to the wrong occasion, which is why the detail is ordinary and the confidence is genuine.
+        format: CHOICE
+        question: What has gone wrong in this account?
+        choices:
+          - Real content has been kept and its origin has been assigned wrongly.
+          - A memory has been manufactured out of nothing at all.
+          - The event has been forgotten and is being reconstructed from guesswork.
+          - The participant is deliberately adding to what they saw.
+        answer: Real content has been kept and its origin has been assigned wrongly.
+        rebuttals:
+          - Somebody inventing a sign would have had to invent its shape and position too, and this one is entirely ordinary.
+          - The rest of the account is accurate, so nothing has been forgotten wholesale.
+          - The same people are accurate and confident about details nobody mentioned to them.
+        why: >
+          The detail in the account is what settles it. This person can describe the sign's
+          shape and roughly where it stood, and all of that is an ordinary yield sign — which is
+          what you would expect from somebody who has a perfectly good idea of one and has
+          attached it to the wrong afternoon. Nothing has been invented and nothing has been
+          forgotten. What is missing is the tag saying where the sign was met, and that tag was
+          never stored, so the person has nothing to check against.
+
+      - group: INT
+        task: Buy the change that could fail
+        title: Four ways to ask better
+        place: Interview Suites
+        concept: 'An interview can be designed to add less than it takes'
+        scene: >
+          The interview team have four proposals for how their officers should
+          ask. There is time to test one of them properly against the way they
+          currently work.
+        guide: >-
+          All four are things a team could adopt and all four would produce a real measurement.
+          The one worth testing is the one whose result could come out either way and change
+          what is recommended. Ask of each: does it reduce how much the interview supplies, or
+          only how much effort it demands?
+        background:
+          - >-
+              How to do it, on a different example. To find out whether a form is confusing you
+              can reprint it in a larger typeface, add a help line, shorten it, or tell staff to
+              be patient. Only one of those changes what the form asks people to do, and it is
+              the one whose result you cannot guess.
+          - >-
+              What the week established. A detail mentioned in a question turns up in an account
+              a week later, in twenty-nine more people per hundred than would have supplied it
+              anyway. Any proposal that reduces how much the interview mentions is acting on
+              that mechanism directly.
+          - >-
+              Why more time and more effort do so little. The problem is not that witnesses are
+              not trying. It is that material arriving from the interviewer is indistinguishable
+              later from material that was witnessed, and no amount of concentration separates
+              them afterwards.
+          - >-
+              What an open opening costs. It gets less. A free account is shorter than an
+              interview built out of specific questions, and every specific question is a chance
+              to supply something. That is the trade, and it is why it is worth measuring rather
+              than assuming.
+        assumes:
+          - the team currently opens with specific questions about the incident
+          - one proposal can be tested properly against current practice
+        takeaway: An interview supplies as well as collects, so the changes worth making are the ones that reduce what it supplies rather than what it demands of the witness.
+        format: VALUE
+        question: >-
+          Time to test one change properly. Buy the one that could come out either way.
+        value:
+          hint: >-
+            All four are testable against current practice. The question is which result is not
+            already known.
+          budget: { amount: 1, unit: study }
+          decision: What the unit recommends to the interview team
+          options:
+            - { id: open, label: Open with "tell me everything" before any specific question, cost: 1, axis: how much the interview supplies, decisive: true, reveals: 'Accounts are shorter and the rate of suggested details falls by about half.' }
+            - { id: time, label: Allow twice as long for each interview, cost: 1, axis: how much the interview demands, reveals: 'Longer accounts, and the same rate of suggested details in them.' }
+            - { id: try, label: Ask witnesses to concentrate harder before answering, cost: 1, axis: how much the interview demands, reveals: 'No measurable change of any kind.' }
+            - { id: room, label: Repaint the interview rooms in a calmer colour, cost: 1, axis: how the room feels, reveals: 'Witnesses report finding it pleasanter. No change in the accounts.' }
+          commit: Run it
+        answerText: >-
+          Open with the free account. It is the only proposal that reduces how much the
+          interview puts in front of the witness, and it is the only one whose result was not
+          already obvious.
+        why: >
+          Three of these act on the witness and one acts on the interview. More time and more
+          effort do not help. The problem is never that people are not trying. What arrives from
+          the interviewer cannot be told apart later from what was witnessed, and concentration
+          will not separate them afterwards. The free account works on the mechanism directly.
+          Everything obtained before a specific question is asked is the witness's own. It costs
+          something real, because a free account is shorter, and whether that trade is worth
+          making was genuinely open.
+
+warmups:
+  greet:
+    title: Six people and one account between them
+    why: >-
+      The lists, the event, the interviews and the transcripts are four different jobs, and the
+      interviewer is deliberately not told which group they are sitting with. An account is
+      worth what the room it was taken in was worth. Put a name to as many of them as you can
+      before the week starts.
+  trial-near:
+    title: Walk the unit before anybody is brought in
+    why: >-
+      The study room and the interview suites are down one side of the corridor and the event
+      bay and the data room are down the other, which means nothing a participant saw ever
+      meets what they were told until the data room. Elizabeth Loftus, who works on eyewitness
+      accounts, would rather you knew the way than walked a participant past a waiting one.
+  follow:
+    title: Vance carries a transcript from the suite to the data room
+    why: >-
+      An account is spoken in one room, typed up in another and coded in a third, and most of
+      what goes wrong happens in between. Colin Vance, who trains the interviewers, walks one
+      the whole way. Stay with him and watch where somebody else's words could get in.
+
+interiors:
+  STUDY:
+    caption: Nothing in here is worth remembering, and that is deliberate.
+    standLine: Twelve lists of fifteen words, and a sixteenth that is never read out.
+    station:
+      kind: panel
+      title: List runner
+      rows:
+        - { label: Words in the list, value: 15, status: normal }
+        - { label: Lure read out, value: never, status: low }
+        - { label: Presented words recognised, value: 85 %, status: normal }
+        - { label: Lure claimed, value: 54 %, status: alarm }
+  EVENT:
+    caption: Everybody sees the same twelve seconds.
+    standLine: One screen, one seat, and a sealed list deciding the wording.
+    station:
+      kind: film
+      title: Junction sequence
+      note: twelve seconds, two cars, and no sign of any kind
+  INT:
+    caption: A question can put a thing into an interview.
+    standLine: A table, two chairs, and an interviewer who has not been told which card they were given.
+    station:
+      kind: panel
+      title: Interview log
+      rows:
+        - { label: Order of questions, value: open first, status: normal }
+        - { label: Interviewer knows the condition, value: 'no', status: normal }
+        - { label: Recorded before discussion, value: always, status: normal }
+        - { label: Suites in use, value: 2 of 2, status: normal }
+  DATA:
+    caption: One person recalling wrongly proves nothing.
+    standLine: Two groups on one bench, and the comparisons written down beforehand.
+    station:
+      kind: plot
+      title: Reporting the sign
+      note: two hundred people, one clause different
+      axes: { x: group, y: share reporting it }
+      curves:
+        - { points: [[0.2, 0.12], [0.8, 0.41]], label: neutral against misled }
+
+copy:
+  STUDY: <p>The study room, open to the corridor at the near end. A card easel, a chair, and walls with nothing on them worth reading.</p>
+  EVENT: <p>The event bay, opposite the study room and also open to the corridor. One screen on a stand, one seat in front of it, and a sealed list of who gets which wording.</p>
+  INT: <p>Interview suite A, first door on the west side. A table, two chairs, a recorder, and suite B next door fitted out identically on purpose.</p>
+  DATA: <p>The data room, halfway down the east side. A long bench, both groups' counts laid out along it, and the comparisons written down before anybody looked.</p>
+  INT2: <p>Interview suite B, next to A and identical to it. Two rooms that differ would be a variable nobody meant to introduce.</p>
+  OBS: <p>The observation room, between the two suites. A live feed from both, a log sheet, and a rule against saying anything you would not say next door.</p>
+  WAIT: <p>The waiting room, halfway down the west side. Eight chairs, a clock that is nine minutes fast, and a notice asking people not to compare notes.</p>
+  BRIEF: <p>The briefing room, near the far end. Where everybody is told what the study actually was, before they leave, including which wording they had.</p>
+  RECS: <p>The transcript store at the end of the west side. Tapes, transcripts typed verbatim, and nothing tidied.</p>
+  STORE: <p>The equipment store at the far end. Four recorders, a box of tapes, and nine hundred response sheets with a confidence scale printed on each.</p>

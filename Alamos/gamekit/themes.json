@@ -52,6 +52,15 @@
     "qd_exo": "themes/qd_exo",
     "qd_ligo": "themes/qd_ligo",
     "qd_cmb": "themes/qd_cmb",
-    "qd_hubble": "themes/qd_hubble"
+    "qd_hubble": "themes/qd_hubble",
+    "qd_penicillin": "themes/qd_penicillin",
+    "qd_germ": "themes/qd_germ",
+    "qd_mendel": "themes/qd_mendel",
+    "qd_crispr": "themes/qd_crispr",
+    "qd_oxygen": "themes/qd_oxygen",
+    "qd_periodic": "themes/qd_periodic",
+    "qd_stroop": "themes/qd_stroop",
+    "qd_memory": "themes/qd_memory",
+    "qd_keynes": "themes/qd_keynes"
   }
 }

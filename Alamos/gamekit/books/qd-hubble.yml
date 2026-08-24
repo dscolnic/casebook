@@ -1,4 +1,4 @@
-# No Middle To It — a Quick Discovery.
+# The Expanding Universe — a Quick Discovery.
 #
 # The 3 x 3 shape from great_discoveries_first10_expanded.docx, game 10, mapped
 # onto the engine's day model: a level is a day, a micro-game is a stop, and the
@@ -27,7 +27,7 @@
 
 theme:
   id: qd_hubble
-  title: No Middle To It
+  title: The Expanding Universe
   subtitle: Observer · Mountain Observatory
 
 groups:

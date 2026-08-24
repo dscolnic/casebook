@@ -23,7 +23,7 @@ export default {
   dayNoun: 'Level',
 
   id: 'qd_exo',
-  title: 'Something Is Pulling',
+  title: 'The First Exoplanet',
   subtitle: 'Observer · Planet Search Programme',
 
   site: { kind: 'interior', name: 'The Planet Search Floor', plan },

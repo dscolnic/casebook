@@ -23,7 +23,7 @@ export default {
   dayNoun: 'Level',
 
   id: 'qd_hubble',
-  title: 'No Middle To It',
+  title: 'The Expanding Universe',
   subtitle: 'Observer · Mountain Observatory',
 
   site: { kind: 'interior', name: 'The Mountain Observatory', plan },

@@ -1,4 +1,4 @@
-# The Chirp — a Quick Discovery.
+# Gravitational Waves — a Quick Discovery.
 #
 # The 3 x 3 shape from great_discoveries_first10_expanded.docx, game 08, mapped
 # onto the engine's day model: a level is a day, a micro-game is a stop, and the
@@ -25,7 +25,7 @@
 
 theme:
   id: qd_ligo
-  title: The Chirp
+  title: Gravitational Waves
   subtitle: Detector Scientist · Interferometer Site
 
 groups:

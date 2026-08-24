@@ -1,4 +1,4 @@
-# The Noise That Would Not Go — a Quick Discovery.
+# The Cosmic Microwave Background — a Quick Discovery.
 #
 # The 3 x 3 shape from great_discoveries_first10_expanded.docx, game 09, mapped
 # onto the engine's day model: a level is a day, a micro-game is a stop, and the
@@ -30,7 +30,7 @@
 
 theme:
   id: qd_cmb
-  title: The Noise That Would Not Go
+  title: The Cosmic Microwave Background
   subtitle: Radio Astronomer · Hilltop Antenna
 
 groups:

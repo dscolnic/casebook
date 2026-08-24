@@ -34,16 +34,16 @@ description: The inventory of all 35 Alamos campaigns — what each teaches, its
 | Dark Fibre | `gamekit/themes/darkfibre/` | Pellow Head: a low landing station in the dunes, a manhole above the tide line, a radiography bay 300 m out. AP Physics 2, optics and modern | `THEME=darkfibre npm run dev` |
 | Project Y | `gamekit/themes/projecty/` | Los Alamos 1943–45, outdoor mesa | `THEME=projecty npm run dev` |
 | Hospital Heroes | `gamekit/themes/hospital/` | Children's hospital, interior, ~grades 3–4 | `THEME=hospital npm run dev` |
-| Too Faint | `gamekit/themes/qd_accel/` | **A Quick Discovery, not a fortnight**: Cerro Vela Survey Operations, an analysis floor facing a wall of plot boards. Astronomy and cosmology | `THEME=qd_accel npm run dev` |
-| The Only Shape That Fits | `gamekit/themes/qd_dna/` | A 1950s structural biology unit: chemistry and the model room down one side of a corridor, X-ray and an evidence wall down the other. Biology | `THEME=qd_dna npm run dev` |
-| The Impossible Bounce | `gamekit/themes/qd_nucleus/` | A 1910 physics laboratory: the apparatus down one side, the counting and the argument down the other, a gold leaf in a vacuum between them. Physics | `THEME=qd_nucleus npm run dev` |
-| One Moving System | `gamekit/themes/qd_tectonics/` | A postwar survey section: the land evidence one side, ten years of ships the other, and thirty feet of continents on pins. Earth science | `THEME=qd_tectonics npm run dev` |
-| Is the Bump Real | `gamekit/themes/qd_higgs/` | A collider analysis floor: a theory wall, a dark event-display room, ten metres of histogram. Particle physics | `THEME=qd_higgs npm run dev` |
-| Twice the Old Number | `gamekit/themes/qd_eclipse/` | **Outdoors**: an eclipse camp on a red dust plain — two coelostats out on the flat, a light-tight plate hut, one wire to the coast. Physics | `THEME=qd_eclipse npm run dev` |
-| Something Is Pulling | `gamekit/themes/qd_exo/` | A planet search floor: a spectrograph one side, a month of light curve on the wall of the other. Astronomy | `THEME=qd_exo npm run dev` |
-| The Chirp | `gamekit/themes/qd_ligo/` | An interferometer corner station: a beam splitter with two metre-wide tubes leaving through the wall at right angles. Physics | `THEME=qd_ligo npm run dev` |
-| The Noise That Would Not Go | `gamekit/themes/qd_cmb/` | **Outdoors**: a hilltop radio site — a twenty-foot horn inside a ring of ground shielding, a receiver hut under it. Cosmology | `THEME=qd_cmb npm run dev` |
-| No Middle To It | `gamekit/themes/qd_hubble/` | A 1920s mountain observatory: years of glass in drawers one side, a spectrograph on its own pier the other, one plot at the end. Astronomy | `THEME=qd_hubble npm run dev` |
+| The Accelerating Universe | `gamekit/themes/qd_accel/` | **A Quick Discovery, not a fortnight**: Cerro Vela Survey Operations, an analysis floor facing a wall of plot boards. Astronomy and cosmology | `THEME=qd_accel npm run dev` |
+| The Double Helix | `gamekit/themes/qd_dna/` | A 1950s structural biology unit: chemistry and the model room down one side of a corridor, X-ray and an evidence wall down the other. Biology | `THEME=qd_dna npm run dev` |
+| The Atomic Nucleus | `gamekit/themes/qd_nucleus/` | A 1910 physics laboratory: the apparatus down one side, the counting and the argument down the other, a gold leaf in a vacuum between them. Physics | `THEME=qd_nucleus npm run dev` |
+| Plate Tectonics | `gamekit/themes/qd_tectonics/` | A postwar survey section: the land evidence one side, ten years of ships the other, and thirty feet of continents on pins. Earth science | `THEME=qd_tectonics npm run dev` |
+| The Higgs Boson | `gamekit/themes/qd_higgs/` | A collider analysis floor: a theory wall, a dark event-display room, ten metres of histogram. Particle physics | `THEME=qd_higgs npm run dev` |
+| The Bending of Starlight | `gamekit/themes/qd_eclipse/` | **Outdoors**: an eclipse camp on a red dust plain — two coelostats out on the flat, a light-tight plate hut, one wire to the coast. Physics | `THEME=qd_eclipse npm run dev` |
+| The First Exoplanet | `gamekit/themes/qd_exo/` | A planet search floor: a spectrograph one side, a month of light curve on the wall of the other. Astronomy | `THEME=qd_exo npm run dev` |
+| Gravitational Waves | `gamekit/themes/qd_ligo/` | An interferometer corner station: a beam splitter with two metre-wide tubes leaving through the wall at right angles. Physics | `THEME=qd_ligo npm run dev` |
+| The Cosmic Microwave Background | `gamekit/themes/qd_cmb/` | **Outdoors**: a hilltop radio site — a twenty-foot horn inside a ring of ground shielding, a receiver hut under it. Cosmology | `THEME=qd_cmb npm run dev` |
+| The Expanding Universe | `gamekit/themes/qd_hubble/` | A 1920s mountain observatory: years of glass in drawers one side, a spectrograph on its own pier the other, one plot at the end. Astronomy | `THEME=qd_hubble npm run dev` |
 
 **A Quick Discovery is nine stops in one sitting, and needs no second day model.**
 `great_discoveries_first10_expanded.docx` specifies ten discoveries on a 3 × 3

@@ -196,7 +196,7 @@ export const GAMES = [
     level: 'high', grades: '11–12' },
 
   { id: 'slackwater', title: 'Slack Water',
-    course: 'AP Calculus BC · parametric, polar, vector and series', field: 'Mathematics', accent: '#4f7fa8',
+    course: 'AP Calculus BC · parametric, polar, vector and series', field: 'Maths & Stats', accent: '#4f7fa8',
     place: 'Sarn Barrage: six sluice gates across the neck of an estuary, mud at low water and a training wall running out into the channel.',
     hero: 'shore--east-to-the-wall.png',
     // Headwater is the AB half. This is the half that starts where AB stops:
@@ -279,33 +279,96 @@ export const GAMES = [
     hero: 'camera-field--from-the-track.png',
     level: 'high', grades: '9–12' },
 
-  { id: 'qd_exo', kind: 'quick', title: 'Something Is Pulling',
+  { id: 'qd_exo', kind: 'quick', title: 'The First Exoplanet',
     course: 'Astronomy · how a planet nobody can see is detected and then described',
     field: 'Earth & Space', accent: '#274a4f',
     place: 'A planet search floor: a spectrograph on one side of the corridor, a month of light curve on the wall of the other, and a room at the end with no instrument in it.',
     hero: 'survey-photometry--doorway.png',
     level: 'high', grades: '9–12' },
 
-  { id: 'qd_ligo', kind: 'quick', title: 'The Chirp',
+  { id: 'qd_ligo', kind: 'quick', title: 'Gravitational Waves',
     course: 'Physics · how a passing gravitational wave was measured and read',
     field: 'Physics', accent: '#1c3f52',
     place: 'An interferometer corner station: the beam splitter and two metre-wide tubes leaving through the wall at right angles, three suspension stacks, and a control room at four in the morning.',
     hero: 'optics-lab--doorway.png',
     level: 'high', grades: '9–12' },
 
-  { id: 'qd_cmb', kind: 'quick', title: 'The Noise That Would Not Go',
+  { id: 'qd_cmb', kind: 'quick', title: 'The Cosmic Microwave Background',
     course: 'Cosmology · how an unwanted signal turned out to be the early universe',
     field: 'Earth & Space', accent: '#7a4fa3',
     place: 'A hilltop radio site: a twenty-foot horn on a concrete pier inside a ring of ground shielding, a receiver hut under it, and a much newer building up the ridge.',
     hero: 'horn--three-quarter.png',
     level: 'high', grades: '9–12' },
 
-  { id: 'qd_hubble', kind: 'quick', title: 'No Middle To It',
+  { id: 'qd_hubble', kind: 'quick', title: 'The Expanding Universe',
     course: 'Astronomy · how a relation between distance and recession became an expanding universe',
     field: 'Earth & Space', accent: '#2e3d48',
     place: 'A 1920s mountain observatory: years of glass in numbered drawers on one side of the corridor, a spectrograph on its own pier on the other, and one plot at the end of it.',
     hero: 'diagram-room--doorway.png',
     level: 'high', grades: '9–12' },
+
+  // --------------------------------------------- the second ten Quick Discoveries
+  //
+  // Same 3 x 3 shape as the first ten and the same grade-9 register. What is
+  // different is the subjects: these are the non-physics discoveries — medicine,
+  // biology, chemistry, psychology and economics — and each one reuses a place
+  // the repo already builds, reskinned to its own period.
+
+  { id: 'qd_penicillin', kind: 'quick', title: 'Penicillin',
+    course: 'Microbiology · how an inhibition zone on one plate became a medicine',
+    field: 'Biology', accent: '#4d7a3f',
+    place: 'An interwar hospital inoculation department: the culture room and the broth room down one side of a corridor, the assay rack and the trial wall down the other.',
+    hero: 'culture-room--doorway.png',
+    level: 'high', grades: '9-12' },
+
+  { id: 'qd_germ', kind: 'quick', title: 'Germ Theory of Disease',
+    course: 'Medicine and public health · how disease was shown to be caused by organisms',
+    field: 'Biology', accent: '#3f6f8a',
+    place: 'A Victorian court and the fever hospital behind it: one standpipe with forty households round it, and a ward and a laboratory hut ninety metres up the lane.',
+    hero: 'pump--from-the-lane.png',
+    level: 'high', grades: '9-12' },
+
+  { id: 'qd_mendel', kind: 'quick', title: 'The Laws of Inheritance',
+    course: 'Genetics · how counting offspring revealed hidden units of inheritance',
+    field: 'Biology', accent: '#4d7a3f',
+    place: 'A monastery garden: two blocks of trial beds either side of the walk, a glasshouse where every flower is opened by hand, and a counting room with nothing growing in it.',
+    hero: 'beds--from-the-walk.png',
+    level: 'high', grades: '9-12' },
+
+  { id: 'qd_crispr', kind: 'quick', title: "CRISPR Gene Editing",
+    course: 'Molecular biology · how a bacterial defence system became a way of editing genomes',
+    field: 'Biology', accent: '#1f4f6b',
+    place: 'A modern genome-editing institute: the genome room and the design desk down one side of a corridor, the editing bay and the sequencing queue down the other.',
+    hero: 'corridor--from-the-entrance.png',
+    level: 'high', grades: '9-12' },
+
+  { id: 'qd_oxygen', kind: 'quick', title: 'Oxygen and Combustion',
+    course: 'Chemistry · how weighing what burned replaced a theory of what was lost',
+    field: 'Chemistry', accent: '#7a5a2b',
+    place: 'A 1770s pneumatic laboratory: a balance room and a furnace down one side of a corridor, a trough of gas jars and an accounting desk down the other. No electric light and no ceiling tiles.',
+    hero: 'corridor--from-the-lodge.png',
+    level: 'high', grades: '9-12' },
+
+  { id: 'qd_periodic', kind: 'quick', title: 'Periodic Table',
+    course: 'Chemistry · how the elements were arranged so that the gaps meant something',
+    field: 'Chemistry', accent: '#5a3b2a',
+    place: 'An 1869 chemistry institute: a wall of numbered specimen drawers and a long card table down one side of a corridor, an analysis bench and a lecture hall down the other.',
+    hero: 'card-desk--doorway.png',
+    level: 'high', grades: '9-12' },
+
+  { id: 'qd_stroop', kind: 'quick', title: 'Stroop Effect',
+    course: 'Cognitive psychology · how a reaction-time difference exposed an automatic process',
+    field: 'Psychology', accent: '#5a4a7a',
+    place: 'A 1935 reaction-time laboratory: a three-sided testing booth and a tabulation room down one side of a corridor, a chronoscope bench and a wall of eight hundred times down the other.',
+    hero: 'testing-booth--doorway.png',
+    level: 'high', grades: '9-12' },
+
+  { id: 'qd_memory', kind: 'quick', title: 'False Memories',
+    course: 'Cognitive psychology · how memory was shown to reconstruct rather than replay',
+    field: 'Psychology', accent: '#7a4fa3',
+    place: 'A memory and testimony unit: a study room and an event bay open to the corridor at the near end, two identical interview suites down one side and a data room down the other.',
+    hero: 'bays--study-room.png',
+    level: 'high', grades: '9-12' },
 
   { id: 'hospital', title: 'Hospital Heroes',
     course: 'Anatomy & physiology', field: 'Biology', accent: '#e0868f',

@@ -1,0 +1,903 @@
+# Oxygen and Combustion — a Quick Discovery.
+#
+# The 3 x 3 shape from great_discoveries_next10_nonphysics_expanded.docx, game
+# 15, mapped onto the engine's day model: a level is a day, a micro-game is a
+# stop, and the campaign is nine stops in one sitting. Three levels, in order:
+#
+#   1  Weigh before and after   the constraint any account of burning has to meet
+#   2  Question the gas         what part of the air is doing it
+#   3  Close the ledger         the framework that predicts a number
+#
+# The science guardrail from the source book, kept, and it decides the tone. This
+# history was collaborative and contested: two people prepared the gas
+# independently before anybody had an interpretation of it, and the interpretation
+# came from a third who did not prepare it. The game never says one person
+# discovered oxygen, and its last level is careful that the modern idea of
+# oxidation is broader than burning in oxygen.
+#
+# Format budget. Nine stops, so `formatMix`'s cap is three of any one format:
+# BALLPARK 2, CHOICE 2, and one each of VERIFY, DIAGNOSIS, PROTOCOL, BALANCE,
+# VALUE. Seven formats in nine stops, three of them driven.
+
+theme:
+  id: qd_oxygen
+  title: Oxygen and Combustion
+  subtitle: Assistant · The Pneumatic Laboratory
+
+groups:
+  - id: BAL
+    code: BAL
+    name: Balance Room
+    color: '#7a5a2b'
+    desc: A balance worth more than the room, a case of brass weights, and everything weighed twice.
+    defaultLeader: paulze
+    milestones: [Weigh it cold, Weigh it after, Record both, Ready to hand over]
+  - id: FURN
+    code: FURN
+    name: Furnace Room
+    color: '#b5502f'
+    desc: A hearth, a chimney that draws badly in a south wind, and a burning glass that adds heat and nothing else.
+    defaultLeader: scheele
+    milestones: [Charge the vessel, Heat it, Let it cool, Ready to hand over]
+  - id: TROUGH
+    code: TROUGH
+    name: Pneumatic Trough
+    color: '#3f6f8a'
+    desc: Jars filled over water, a glowing splint, and four gases with no names on them yet.
+    defaultLeader: priestley
+    milestones: [Catch the gas, Question it, Label the jar, Ready to hand over]
+  - id: LEDGER
+    code: LEDGER
+    name: Accounting Desk
+    color: '#33402f'
+    desc: Two columns, both totalled, and the rule that a story fitting every outcome forecasts none.
+    defaultLeader: lavoisier
+    milestones: [Enter the masses, Find the missing term, Close it, Ready to hand over]
+
+roster:
+  - id: lavoisier
+    name: Antoine Lavoisier
+    role: Head of the Laboratory
+    real: true
+    division: LEDGER
+    bio: |
+      Keeps the accounting desk, and the rule there is the one everybody finds
+      tiresome: everything in on the left, everything out on the right, and the
+      two totals set beside each other.
+
+      His argument is that chemistry has been an argument about words and can be
+      made into arithmetic. A theory that says what the balance will read can be
+      shown to be wrong by anybody who owns one, and a theory that explains
+      whatever happens cannot.
+
+      His limit is that a ledger says what must be accounted for and not what the
+      things in it are. He can show that matter came out of the air. Saying what
+      that matter is takes somebody else's jars.
+    quiz:
+      - q: Why does Lavoisier prefer an account that can be shown to be wrong?
+        a: Because one that fits any outcome forecasts none of them
+        wrong:
+          - Because a wrong account can be corrected more cheaply than a vague one
+          - Because the academy will not publish work that cannot be repeated
+          - Because arithmetic is easier to teach than the older explanations were
+
+  - id: paulze
+    name: Marie-Anne Paulze Lavoisier
+    role: Laboratory Recorder
+    real: true
+    division: BAL
+    bio: |
+      Records every weighing and draws every apparatus, which is why this
+      laboratory can be argued with at all by somebody who was not in it.
+
+      Her rule at the balance is that the system is weighed rather than the
+      sample: a vessel, its contents and its stopper are one object, and a number
+      taken any other way cannot be compared with anything. She also reads and
+      translates the work coming in from England, which is how anybody here knows
+      what has been done elsewhere.
+
+      Her limit is that a record is a record. She can make an experiment
+      repeatable and she cannot make it decisive.
+    quiz:
+      - q: Why is the whole apparatus weighed rather than the sample?
+        a: Because a vessel and everything in it is one system
+        wrong:
+          - Because the sample is too light for the balance to resolve on its own
+          - Because opening a vessel to weigh the sample would let the heat escape
+          - Because the glass changes weight when it is heated and cooled again
+
+  - id: priestley
+    name: Joseph Priestley
+    role: Pneumatic Chemist
+    real: true
+    division: TROUGH
+    bio: |
+      Catches gases over water and then asks them questions. A jar comes off the
+      trough with no name on it, and what it is called afterwards depends on what
+      it does to a flame, to a mouse and to a plant.
+
+      He has a jar in which a candle burns four times as long as it does in
+      common air, and he can prepare it whenever he likes. That is a fact about
+      the jar, arrived at without any theory of burning at all.
+
+      His limit is that he reads his own results inside the older framework and
+      says so. A property is not an interpretation, and the two of them keep
+      being confused for each other in the same sentence.
+    quiz:
+      - q: What has Priestley established about the jar?
+        a: How it behaves, which is not the same as knowing why
+        wrong:
+          - That the gas in it is a component of common air in a fixed proportion
+          - That burning consists of a substance combining with the gas
+          - That the gas is released when the red powder is heated by a fire
+
+  - id: scheele
+    name: Carl Wilhelm Scheele
+    role: Apothecary and Chemist
+    real: true
+    division: FURN
+    bio: |
+      Prepared the same gas independently, by a different route, and wrote it up
+      before anybody else. The manuscript sat with a printer for years, which is
+      why his name is third in most sentences about this.
+
+      At the furnace his concern is the heating rather than the argument. A
+      vessel heated before it is weighed has told you nothing, a burning glass
+      adds heat and no fuel, and a sealed vessel opened while warm has already
+      spoiled the run.
+
+      His limit is that he works alone and publishes slowly, and this is a
+      subject in which four laboratories are doing the same experiments in the
+      same year.
+    quiz:
+      - q: Why is a burning glass worth the trouble at the furnace?
+        a: It puts heat into a sealed vessel with no fuel going in
+        wrong:
+          - It reaches a much higher temperature than the reverberatory hearth
+          - It heats the vessel evenly, so the glass is less likely to crack
+          - It leaves no soot on the outside of the vessel to confuse a weighing
+
+  - id: rouvier
+    name: Étienne Rouvier
+    role: Balance Maker
+    division: BAL
+    bio: |
+      Made the balance and is the only person allowed to touch it. It reads to a
+      hundredth of a grain, which is a claim that has to be defended daily rather
+      than stamped on the beam.
+
+      Most of his work is not weighing. It is knowing what moves a pan and
+      arranging for none of it to be happening: a door at the far end of the
+      corridor, a warm hand on the case, a draught from the furnace chimney when
+      the wind is in the south.
+
+      His limit is that he can guarantee the reading and not the sample. What is
+      put on the pan is somebody else's problem.
+    quiz:
+      - q: What is most of Rouvier's work actually about?
+        a: Removing everything that could move the pan while a reading is taken
+        wrong:
+          - Adjusting the beam so that it reads correctly at every load
+          - Cleaning the weights, which gain in mass as they are handled
+          - Recording the temperature, because brass expands as the room warms
+
+  - id: delaunay
+    name: Agnès Delaunay
+    role: Furnace Assistant
+    division: FURN
+    bio: |
+      Charges the vessels, works the damper and keeps the order of operations,
+      which sounds like fetching and is the reason a run can be believed.
+
+      Weigh, seal, record, then heat. Every one of those is a chance to spoil a
+      week, and the commonest way is heating something before its cold weight is
+      on the page. She also keeps the log of which vessel held what, because a
+      retort three days later looks like every other retort.
+
+      Her limit is that she can protect one run at a time, and whether the set of
+      runs answers anything is somebody else's question.
+    quiz:
+      - q: What is the commonest way a run gets spoiled here?
+        a: Heating a vessel before its cold weight is written down
+        wrong:
+          - Opening the damper before the hearth has come up to temperature
+          - Letting a sealed vessel cool for too long before it is weighed
+          - Charging a retort with more material than it can safely hold
+
+missions:
+  - title: The thing that gets heavier
+    objective: Establish the mass gain, seal the system, and see which account of burning it costs.
+    briefing: Lavoisier wants the gain on the page before anybody explains it.
+    stake: >-
+      Monday. Ten grams of lead have been heated in the open and what is left weighs twelve
+      point seven. Marie-Anne Paulze Lavoisier, who records every weighing in this building,
+      has three metals on the sheet and all three heavier afterwards. Antoine Lavoisier, who
+      runs the laboratory, wants to know where the extra matter came from before anybody
+      names it. Agnès Delaunay, the furnace assistant, has a vessel charged and sealed and a
+      burning glass ready. Today you work out what the product should weigh, commit a
+      prediction about a sealed system, and say which account of burning the ledger costs.
+    takeaway: A mass gain is a constraint, and any account of burning has to meet it.
+    stops:
+      - group: BAL
+        task: Work out what the product should weigh
+        title: Ten grams in, and something else besides
+        place: Balance Room
+        concept: 'A product heavier than its reactant is a constraint any theory must meet'
+        scene: >
+          Ten grams of lead went onto the hearth this morning. Étienne Rouvier,
+          who made the balance, has the sealed run beside it, which shows the gas in the vessel losing two point
+          seven grams while the metal was heated.
+        guide: >-
+          Nothing is made and nothing vanishes, so the product weighs the metal plus whatever
+          went into it. Add the two quantities that describe this run. Two of the tiles are
+          about other runs — a different metal and the whole apparatus — and neither belongs
+          in this addition.
+        background:
+          - >-
+              How to do it, on a different example. A bucket holds four kilograms of sand and
+              two kilograms of water are poured in. The bucket now holds six. Nobody finds that
+              surprising, and the only reason burning feels different is that one of the two
+              things going in is invisible.
+          - >-
+              Why the gain is the whole difficulty. Burning looks like loss. Something bright
+              leaves, smoke leaves, and what is left is a crumbly powder. An account of
+              burning as losing something is the natural one, and it has to explain a product
+              that outweighs what went in.
+          - >-
+              What is not being claimed yet. The two point seven grams came out of the air
+              inside a sealed vessel. Nothing here says what that matter is, whether it is one
+              substance or several, or whether it is the same thing in every case.
+          - >-
+              Why this is the first question. Every account on offer this week is going to be
+              judged against a number, and the number has to exist first. Producing it is one
+              addition and it fixes what the rest of the week has to satisfy.
+        assumes:
+          - matter is neither created nor destroyed in an ordinary chemical change
+          - a sealed vessel lets the gas inside it be weighed before and after
+        takeaway: The product weighs what went into it, so a solid heavier than the metal it came from names a quantity that has to have come from somewhere.
+        format: BALLPARK
+        question: What should the solid product weigh?
+        estimate:
+          prompt: >-
+            Paulze will not enter the run in the record until the expected figure is beside
+            the measured one.
+          question: What should the solid product weigh?
+          relationship: Nothing is created or destroyed, so the mass of the oxide is the metal plus whatever it took out of the air.
+          labels:
+            - 10.0 g  (the lead, weighed cold)
+            - 2.7 g  (the mass the sealed vessel's gas lost)
+            - 1.9 g  (what the tin gained, which is a different metal)
+            - 250.0 g  (the whole sealed apparatus, before and after)
+          values: [10.0, 2.7, 1.9, 250.0]
+          slots: 2
+          template: '{0} + {1}'
+          formula: a+b
+          correct: [0, 1]
+          target: 12.7
+          tolerance: 0.2
+          units: grams of product
+          solution: Ten grams of metal plus the two point seven grams that came out of the air is twelve point seven grams of product.
+          explanation: The one point nine belongs to the tin run, and a figure from another metal cannot be added to this one.
+        why: >
+          Twelve point seven grams, and the balance says twelve point seven. The addition is
+          trivial and what it establishes is not. Burning looks like loss: light goes, smoke
+          goes, and a crumbly powder is left. Any account that says burning is losing
+          something has to explain a product that outweighs the metal it came from. This one
+          number is what the rest of the week is judged against, and it exists before anybody
+          has said what the two point seven grams are made of.
+
+      - group: BAL
+        task: Commit a figure for the sealed system
+        title: Nothing in, nothing out
+        place: Balance Room
+        concept: 'In a sealed vessel the total does not change, though the parts do'
+        scene: >
+          A vessel with metal inside has been sealed and weighed: two hundred and
+          fifty grams, apparatus and all. Delaunay will heat it with the burning
+          glass, which adds heat and no fuel.
+        guide: >-
+          Say first, in writing, what the whole apparatus will weigh once it has been heated
+          and cooled. Then heat it, then weigh it. The prediction is locked once it is made,
+          because a figure adjusted after the reading has stopped being a test. Note also that
+          the run is not finished until the weighing has been done.
+        background:
+          - >-
+              How to do it, on a different example. A sealed jar holds a candle stub, some air
+              and a little water. Write down what the jar will weigh after the candle has burnt
+              itself out — the same, if nothing can get in or out. Then light it and weigh it.
+              The writing-down is what turns the weighing into a test.
+          - >-
+              Why the burning glass matters here. A fire under the vessel puts fuel, soot and a
+              draught into the experiment. A lens puts in sunlight and nothing else, so the
+              only things in the system at the end are the things that were in it at the start.
+          - >-
+              What the two readings say together. The metal inside gains and the whole
+              apparatus does not. That places the source of the gain inside the vessel without
+              naming it: the matter moved from one part of the system to another rather than
+              arriving from outside.
+          - >-
+              Why a warm vessel is not weighed. Warm glass sets up a draught round the pan and
+              the reading drifts. Letting it cool costs an afternoon and is the difference
+              between a number and an opinion.
+        assumes:
+          - a sealed vessel exchanges no matter with the room
+          - a burning glass adds heat without adding any material
+        takeaway: A total that does not change while a part of it does places the source of the change inside the system, which is a conclusion about where rather than about what.
+        format: VERIFY
+        question: >-
+          Lock a figure for the sealed apparatus, heat it with the glass, then weigh it.
+        verify:
+          hint: >-
+            Write the figure down before the glass goes on. Nothing about it can be changed
+            afterwards, which is what makes it a prediction.
+          prediction: { label: Predicted mass of the whole apparatus afterwards, unit: g, min: 240, max: 262, step: 0.5 }
+          truth: 250
+          passRatio: [0.98, 1.02]
+          intervention:
+            label: Heating with the burning glass
+            note: The lens on the stand, the vessel sealed and stoppered, nothing else added.
+            outcome: The metal inside has plainly changed colour and texture. The seal has held.
+          measurement:
+            label: Weighing the cooled apparatus
+            note: Left overnight to reach room temperature, then weighed twice by Rouvier.
+            cost: 1
+            costUnit: weighings
+          unmeasuredMoral: >-
+            The seal has held and the metal has plainly changed. That is a statement about the
+            metal, and it is not a statement about the mass.
+          commit: Report the mass
+        answerText: >-
+          Two hundred and fifty grams, unchanged. The solid inside is heavier and the whole
+          apparatus is not, which is the pair of readings the week rests on.
+        why: >
+          The metal gained and the apparatus did not. Those two facts together say the matter
+          moved within the system rather than arriving from outside, which is a much stronger
+          statement than either on its own. Note what has not been established: nothing here
+          says what the matter is. The failure the panel is built around is stopping at the
+          intervention. A held seal and a changed metal is a well-run afternoon, and until the
+          cooled vessel is back on the pan it says nothing at all about mass.
+
+      - group: LEDGER
+        task: Say which account the readings cost
+        title: A rescue for every measurement
+        place: Accounting Desk
+        concept: 'A model that needs a rescue for every measurement is losing'
+        scene: >
+          Two accounts are written up on the board. One says burning releases a
+          fire principle from the metal; the other says the metal combines with
+          something from the air. Both have been amended this week.
+        guide: >-
+          Four judgements are offered. What separates them is what each one treats as the cost
+          of keeping an account alive. Ask of each: after the amendment, does the account
+          forecast anything the other one does not, or has it only been made to agree with what
+          has already happened?
+        background:
+          - >-
+              How to do it, on a different example. Somebody predicts rain every day. When it
+              is dry they say the rain fell elsewhere; when it is cloudy they say it nearly
+              fell. Each amendment is available and each one costs the same thing — after
+              enough of them, there is no weather the prediction rules out, and a forecast that
+              rules nothing out is not a forecast.
+          - >-
+              What the first account has to add. If burning releases something, the product
+              should be lighter, and it is heavier. The amendment on offer is that the thing
+              released has less than no weight, so losing it makes a body heavier. That is
+              available and nothing else in the laboratory behaves that way.
+          - >-
+              What the second account has to add. If the metal combines with something from the
+              air, the product should be heavier by exactly what the air lost, and in a sealed
+              vessel the total should not change. Both of those were already true before
+              anybody went looking.
+          - >-
+              Why this is not a caricature. Several versions of the older account existed and
+              some of them were carefully argued. What is being weighed is not whether it can
+              be made to fit — anything can — but whether fitting it costs a new assumption
+              every week.
+        assumes:
+          - an account can be kept alive by adding an assumption
+          - a forecast is only worth having if some outcome would contradict it
+        takeaway: Between two accounts of the same events, the one worth keeping is the one that says in advance what the balance will read.
+        format: CHOICE
+        question: What does the week's pair of readings actually cost the older account?
+        choices:
+          - It survives only by adding an assumption nothing else supports.
+          - It is refuted outright and could not be held by anybody sensible.
+          - It is unaffected, since weighing has nothing to do with burning.
+          - It is confirmed, because the sealed vessel did not change in mass.
+        answer: It survives only by adding an assumption nothing else supports.
+        rebuttals:
+          - It can be held, and holding it now requires a substance with less than no weight.
+          - Weighing is the whole of the evidence here, and the product is heavier than the metal.
+          - The unchanged total is what the combination account predicted; the other one has to be amended to allow it.
+        why: >
+          Neither account is refuted by a measurement, and that is the useful thing to notice.
+          The older one can be kept, and keeping it now needs a substance whose loss makes a
+          body heavier — an assumption introduced for this result and supported by nothing
+          else. The other account predicted both readings before they were taken. What
+          separates them is not truth arrived at in one blow but the price of staying alive,
+          and an account amended once per experiment has stopped forecasting anything.
+
+  - title: Which part of the air
+    objective: Name a gas by what it does, measure how much of the air takes part, and see where breathing fits.
+    briefing: Priestley has four jars off the trough and no names on any of them.
+    stake: >-
+      Wednesday, and the trough has four jars on the shelf. Joseph Priestley, the pneumatic
+      chemist here, catches gases over water and has one in which a glowing splint bursts back
+      into flame. He will not call it anything yet. Carl Wilhelm Scheele, an apothecary and
+      chemist working at the furnace, has prepared what may be the same thing by a different
+      route and cannot say whether it is. A sealed combustion has
+      left seventy-nine units of gas out of a hundred, and none of it will burn. Today you
+      name a gas by what it does, work out how much of the air took part, and decide what a
+      mouse and a candle have in common.
+    takeaway: A gas is described by its behaviour long before anybody is entitled to name it.
+    stops:
+      - group: TROUGH
+        task: Say which jar supports burning
+        title: Four jars and a glowing splint
+        place: Pneumatic Trough
+        concept: 'A gas is identified by what it does before it is named'
+        scene: >
+          Four jars are on the trough shelf. A glowing splint bursts into flame in
+          one, burns as usual in another, goes out at once in a third, and burns
+          poorly and briefly in the fourth.
+        guide: >-
+          Read the whole shelf rather than the loudest jar. One jar does something dramatic and
+          the other three are what make it interpretable. The explanation you want accounts for
+          the quiet readings as well as the bright one, and it stops at what the splint shows.
+        background:
+          - >-
+              How to do it, on a different example. Four unlabelled taps: one runs hot, two run
+              cold, one runs warm. Calling the first one the hot tap is a description of what it
+              does. Calling it the boiler is an explanation, and it needs looking behind the wall.
+          - >-
+              What a glowing splint is for. It is barely alight, so it is sensitive: a gas that
+              merely permits burning leaves it as it was, and a gas that strongly supports
+              burning drives it back to flame. That makes it a comparison rather than a
+              yes-or-no.
+          - >-
+              Why the residue jar matters. The gas left after something has burnt in a closed
+              vessel will not support burning at all. That is a second, different result about
+              the same air, and it says the air is a mixture rather than one substance being
+              used up evenly.
+          - >-
+              What is not being claimed. Nothing here names the gas, says how much of common
+              air it makes up, or says what happens to it in the metal. Those are the next two
+              stops, and the description survives whichever way they come out.
+        assumes:
+          - a glowing splint responds to how strongly a gas supports burning
+          - the four jars were filled and handled the same way
+        takeaway: A substance can be described by what it does before anybody can say what it is, and that description survives whatever it turns out to be.
+        format: DIAGNOSIS
+        headline: A glowing splint relights in jar B, burns normally in jar A, goes out in jar C and burns poorly in jar D.
+        task: Which reading of the shelf fits every jar rather than only the bright one?
+        readings:
+          - { zone: Jar A, label: Glowing splint, value: burns as usual, status: normal, note: filled with common air }
+          - { zone: Jar B, label: Glowing splint, value: bursts into flame, status: alarm, note: from heating the red powder }
+          - { zone: Jar C, label: Glowing splint, value: goes out at once, status: normal, note: from chalk and acid }
+          - { zone: Jar D, label: Glowing splint, value: burns poorly and briefly, status: normal, note: the residue after a candle burnt out }
+          - { zone: All four, label: Filled and handled, value: the same way, status: normal, note: rules out the filling method }
+          - { zone: Names, label: What any of them is called, value: not established, status: low }
+        choices:
+          - label: Jar B sits at one end of a scale the other three set
+            mechanism: The splint is a comparison, and B is at one end of it while C and D are at the other.
+          - label: Jar B is empty and the splint is burning in nothing
+            mechanism: A splint burns better with less around it.
+          - label: Jar C must contain the same gas as jar D
+            mechanism: Both put the splint out, so both are the same substance.
+          - label: The splint itself produced the gas in jar B
+            mechanism: Burning generates what it needs as it goes.
+        answer: Jar B sits at one end of a scale the other three set
+        why: >
+          One jar drives a dying splint back to flame and two will not keep it alight at all,
+          which makes the shelf a scale rather than a single striking result. The quiet jars
+          are what carry the argument. Common air sits in the middle, so whatever is in B is
+          present in ordinary air and not in that quantity. The residue jar is the sharpest of
+          the four: after something has burnt in a closed vessel, what remains will not support
+          burning, which says the air is a mixture and one part of it has been used up.
+
+      - group: TROUGH
+        task: Measure how much of the air took part
+        title: A hundred units in, seventy-nine left
+        place: Pneumatic Trough
+        concept: 'Only part of ordinary air takes part in burning'
+        scene: >
+          A sealed combustion began with a hundred volume units of common air.
+          When nothing more would burn, seventy-nine units of gas remained, and
+          the splint goes straight out in it.
+        guide: >-
+          Work out what share of the starting air was used up, as a percentage. Take the fall
+          in volume and state it against the volume there was at the start, because a fall of
+          twenty-one units means something quite different in a small vessel and a large one.
+        background:
+          - >-
+              How to do it, on a different example. A barrel holds sixty litres and forty-five
+              are left after a week. Fifteen have gone, which is fifteen out of sixty, a
+              quarter. Doing it in that order — the fall first, then the fall as a share of what
+              there was — is what makes the answer comparable with another barrel of a
+              different size.
+          - >-
+              Why this is a measurement rather than a demonstration. Everybody could already see
+              that a candle in a closed jar goes out. Putting a number on how much of the air is
+              gone when it does turns a familiar fact into a statement about the composition of
+              air.
+          - >-
+              What the residue is. Whatever is left will not support burning however long you
+              leave a splint in it, so it is not simply the same air in a smaller amount. Air
+              behaves here as a mixture of at least two things doing different jobs.
+          - >-
+              Why the historical experiments were messier. A real closed combustion leaves
+              products that dissolve in the water or stick to the vessel, and separating those
+              from the gas that was consumed is most of the work. The clean fifth is a teaching
+              number; the finding it stands for is not.
+        assumes:
+          - the gas volumes are measured at the same temperature and pressure
+          - the vessel was sealed for the whole of the burn
+        takeaway: A fifth of ordinary air takes part in burning and four fifths does not, which makes air a mixture rather than a substance.
+        format: BALLPARK
+        question: What share of the air took part?
+        estimate:
+          prompt: >-
+            Priestley wants the figure as a share before it goes on the shelf card, not as a
+            number of units.
+          question: What share of the air took part?
+          relationship: The fraction of the air that took part is the fall in volume divided by the volume there was at the start.
+          labels:
+            - 100 units  (air in the vessel at the start)
+            - 79 units  (gas left when nothing more would burn)
+            - 100  (to turn a share into a percentage)
+            - 250 g  (the sealed apparatus, which is a mass and not a volume)
+          values: [100, 79, 100, 250]
+          slots: 3
+          template: '({0} − {1}) ÷ {0} × {2}'
+          formula: (a-b)/a*c
+          correct: [0, 1, 2]
+          target: 21
+          tolerance: 1.5
+          units: per cent of the air
+          solution: Twenty-one units of the hundred are gone, and twenty-one out of a hundred is twenty-one per cent.
+          explanation: The two hundred and fifty grams is the mass of the apparatus from the other room, and a mass cannot be divided into a volume.
+        why: >
+          About a fifth. That single number does more than it looks: it says that air is a
+          mixture, that only one part of it takes part in burning, and that the part which
+          takes part is a minority of it. The residue is the clincher, because it is not
+          thinner air — nothing will burn in it at all. Real experiments of this kind were far
+          messier than a clean twenty-one, since products dissolve in the water and stick to
+          the glass, and separating those from the gas consumed is most of the work.
+
+      - group: FURN
+        task: Say what a mouse and a candle share
+        title: Two chambers, the same falling meter
+        place: Furnace Room
+        concept: 'Respiration and combustion consume the same component'
+        scene: >
+          Two sealed chambers stand on the bench. One holds a candle and one holds
+          a mouse. In both, the gas that supports burning falls and a gas that
+          will not support it rises in its place.
+        guide: >-
+          Four observations about the two chambers are on the card, and each one settles a
+          different question. What separates them is which claim each one licenses — about the
+          gas, about the two processes being alike, about the mouse, or about the limits of the
+          comparison. Read what each observation constrains.
+        background:
+          - >-
+              How to do it, on a different example. A car and a stove both use gas from the same
+              main and both leave the same products. That is a real and useful thing to know
+              about the chemistry, and it does not make a car a stove: the rates differ, the
+              control differs, and one of them is designed to stop.
+          - >-
+              What the two chambers share. Both take the same component out of the air and both
+              put the same gas back in its place. Whatever is happening chemically there is
+              the same reaction, which is a genuinely surprising thing to learn about a living
+              animal.
+          - >-
+              What they do not share. A flame is fast, uncontrolled and stops when the fuel is
+              gone. An animal does the same chemistry slowly, at body temperature, in stages,
+              and stops long before the last of the gas is used. Calling breathing a slow fire
+              is a good slogan and a poor description.
+          - >-
+              Why the animal comes out early. The chamber answers the question at the first
+              sign of distress. The experiment is the falling meter and the rising indicator,
+              and neither of them needs the animal to be harmed.
+        assumes:
+          - both chambers were sealed and started with the same air
+          - the meters report the same two gases in both
+        takeaway: Burning and breathing take the same component out of the air and put the same gas back in its place, which is a claim about the chemistry rather than about the two being the same thing.
+        format: PROTOCOL
+        task_line: Match each observation to what it settles.
+        scenarios:
+          - In both chambers the gas that supports burning falls.
+          - In both chambers the same heavier gas rises in its place.
+          - The mouse's meters move far more slowly than the candle's.
+          - The animal is taken out at the first sign of distress.
+        choices:
+          - The same component of the air is being consumed by both.
+          - The same product is being formed by both.
+          - The rates differ, so the two processes are not the same process.
+          - The reading is the experiment, and nothing beyond it is being asked for.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Two of these establish the chemistry and two guard against reading too much into it.
+          The falling supporter and the rising product are the same reaction happening in both
+          chambers, which is the finding — a living animal doing on a bench what a flame does.
+          The difference in rate is what stops the finding becoming the slogan. Breathing is not
+          a slow fire: it happens at body temperature, in stages, under control, and stops long
+          before the air runs out. And the fourth is a rule about the work rather than the
+          result.
+
+  - title: Closing the ledger
+    objective: Find the missing term, state what oxidation actually is, and spend the week on the experiment that separates the two accounts.
+    briefing: Lavoisier will not close a column with an unexplained figure in it.
+    stake: >-
+      Friday, and the desk has two columns and a hole. Antoine Lavoisier, who runs the
+      laboratory, has the metal in and the product out and one term that has not been
+      entered. Marie-Anne Paulze Lavoisier has written up a note about accounts that fit
+      every outcome and has not taken it down. And the academy will fund one more experiment
+      next week, with four proposals on the desk and only one of them capable of coming out
+      either way. Today you close the ledger, say what the general rule actually is, and buy
+      the experiment that could still overturn the week.
+    takeaway: A framework earns its keep by closing a ledger and by saying which experiment would break it.
+    stops:
+      - group: LEDGER
+        task: Close the ledger
+        title: The term that was never entered
+        place: Accounting Desk
+        concept: 'Mass is conserved, so a reaction is an accounting problem'
+        scene: >
+          The product weighs twelve point seven grams and the metal weighed ten.
+          The heat put in by the burning glass is entered at nothing. One term is
+          missing and the column will not close without it.
+        guide: >-
+          Read what you need and report the total mass of the solid product. Reading a figure
+          costs nothing; entering it is the claim you are making about where the matter came
+          from. One of the things you can read is not on the balance sheet at all, and that is
+          the term the column is short by.
+        background:
+          - >-
+              How to do it, on a different example. A shop counts sixty items on the shelf at
+              close and had a hundred at opening, with thirty sales recorded. The books are ten
+              short. The missing ten are not a mystery about arithmetic; they are a question
+              about a door nobody was watching, and until that term is entered the account is
+              simply wrong.
+          - >-
+              Why heat is entered at nothing. Heat is what the burning glass supplied and it
+              does not appear on the balance. That is worth entering explicitly rather than
+              leaving out, because an account with a blank in it invites somebody to fill the
+              blank later with whatever they need.
+          - >-
+              Where the missing term comes from. The sealed vessel weighs the same before and
+              after while the metal inside gains, so the gas in that vessel lost exactly what
+              the metal gained. That figure is a reading somebody took, and it belongs in this
+              column.
+          - >-
+              What closing the ledger buys. Not a name for the gas, and not a mechanism. What
+              it buys is that there is nothing left over — no residue of the account that has
+              to be explained by a substance nobody can weigh.
+        assumes:
+          - a chemical change conserves the total mass of everything taking part
+          - heat supplied by a lens adds no mass to a sealed system
+        takeaway: A reaction is an accounting problem with two columns, and a column that will not close is naming a term somebody has not entered.
+        format: BALANCE
+        question: >-
+          Read what you need and report the mass of the solid product.
+        balance:
+          hint: >-
+            Reading a figure is free. Entering it is the claim you are making about where the
+            matter came from.
+          total: { amount: 12.7, unit: g, label: Mass of the solid product }
+          streams:
+            - { id: metal, label: Lead before heating, value: 10.0, display: 10.0 g on the pan }
+            - { id: air, label: Mass the gas in the sealed vessel lost, value: 2.7, display: 2.7 g, hidden: true, note: 'weighed in the other room and on no sheet in this one' }
+            - { id: heat, label: Heat supplied by the burning glass, value: 0, display: no mass }
+          tolerance: 0.3
+          commit: Close the column
+        answerText: >-
+          Twelve point seven grams — the ten of metal plus the two point seven the gas in the
+          sealed vessel lost while the metal was heated.
+        why: >
+          The metal is not the reaction; it is one side of it. Anything that entered the solid
+          while the weighing was going on has to appear in the column, and a figure taken in
+          another room is easy to leave out precisely because nothing on this desk changes when
+          it is missing. Report the ten and the account is short by two point seven grams that
+          have to be explained away by something. Enter it and there is no residue at all,
+          which is the strongest thing a framework of this kind can offer.
+
+      - group: FURN
+        task: State the general rule
+        title: Rust, magnesium, and a reaction with no oxygen in it
+        place: Furnace Room
+        concept: 'Oxidation is broader than burning in oxygen'
+        scene: >
+          Three cards are on the furnace bench. Magnesium burns in the gas from
+          jar B. Iron rusts slowly in damp air. And on the third, one metal takes
+          the place of another with no gas in the reaction at all.
+        guide: >-
+          Four statements of the general rule are offered, and they differ in how much they
+          cover. Test each one against all three cards rather than against the first. A rule
+          that fits the burning and fails on the third card is a rule about burning wearing a
+          general name.
+        background:
+          - >-
+              How to do it, on a different example. Somebody proposes that a vehicle is a thing
+              with four wheels. It covers the car and the lorry and fails on the motorcycle, so
+              either the motorcycle is not a vehicle or the definition was about cars. Test a
+              general claim on the case that is least like the one it came from.
+          - >-
+              What the three cards have in common. In each of them one substance gives up
+              electrons and another takes them. In the first two the taker happens to be
+              oxygen; in the third there is no oxygen anywhere in the reaction and the same
+              accounting applies.
+          - >-
+              Why the historical word survived. The reactions people met first mostly did
+              involve oxygen, so the name stuck to a much larger family than the cases it was
+              coined for. That is ordinary in science and it is a reason to be careful with the
+              word rather than to abandon it.
+          - >-
+              What this does not take away. Everything established this week is still true:
+              burning in air is combination with a component of the air, the mass gained comes
+              from the air, and the ledger closes. The general rule contains that case rather
+              than replacing it.
+        assumes:
+          - the same accounting applies to a reaction whether or not a gas is involved
+          - a definition is tested against the cases least like the one it came from
+        takeaway: What these reactions share is a transfer of electrons rather than the presence of one particular gas, and the historical case is one member of a much larger family.
+        format: CHOICE
+        question: Which statement covers all three cards?
+        choices:
+          - One substance gives up electrons and another takes them.
+          - A substance combines with oxygen from the air.
+          - A substance burns with a visible flame.
+          - A substance gains exactly one oxygen atom.
+        answer: One substance gives up electrons and another takes them.
+        rebuttals:
+          - The third card has no oxygen in it anywhere, and the same accounting still applies.
+          - Rust forms over months with no flame, and the displacement card has no flame either.
+          - The amount of oxygen differs between the first two cards and is zero in the third.
+        why: >
+          Two of the three cards involve oxygen and one does not. The same bookkeeping works on
+          all three. Something gives up electrons and something takes them. The old name stuck
+          because the reactions people met first mostly did involve oxygen. That is ordinary,
+          and it is a reason to handle the word with care rather than to drop it. Nothing
+          established this week is undone by the wider rule. Burning in air really is joining
+          with a part of the air. That case is now one member of a family rather than the whole
+          of it.
+
+      - group: LEDGER
+        task: Buy the experiment that could still overturn it
+        title: One week, four proposals
+        place: Accounting Desk
+        concept: 'The framework kept is the one that predicts numbers'
+        scene: >
+          The academy will fund one experiment next week. Four proposals are on
+          the desk and three of them would confirm what is already on the board.
+        guide: >-
+          Every proposal here is real work and would give a true answer. The one worth funding
+          is the one whose result could come out either way and change what anybody believes on
+          Monday. Ask of each: if the answer were the opposite of what you expect, would the
+          board have to be rewritten?
+        background:
+          - >-
+              How to do it, on a different example. A bridge design is questioned. You could
+              measure the same beam a fourth time, or you could load the joint the calculation
+              says is weakest. The fourth measurement is careful and produces a number you
+              already have. The load test is the one that could stop the bridge being built.
+          - >-
+              What the reduction proposal actually is. Heat the product together with charcoal
+              and it gives back a metal and releases a gas. Weighing that gas is a direct test:
+              the account says the mass gained should come back out again, in that quantity.
+              Nothing else on the desk makes a numerical prediction anybody could miss.
+          - >-
+              Why a fourth metal adds so little. Three metals have already gained on heating.
+              A fourth doing the same is expected, and a fourth doing something different would
+              be far more interesting — which is a reason to run it eventually and not a reason
+              to spend the only week on it.
+          - >-
+              Why the flame colour proposal is the honest trap. It is a real observation, it is
+              cheap, and it is the kind of thing a laboratory does when it has run out of
+              questions. No result it could produce enters the argument on the board.
+        assumes:
+          - an experiment is worth what its result would change
+          - the academy will fund one proposal and not two
+        takeaway: A framework is kept because it forecasts a number somebody could have failed to find, and the experiment worth buying is the one that could still take it away.
+        format: VALUE
+        question: >-
+          One week of the academy's money. Buy the experiment that could still overturn the board.
+        value:
+          hint: >-
+            All four are honest work. The question is which result could come out the other way.
+          budget: { amount: 1, unit: week }
+          decision: Whether the combination account goes into the memoir
+          options:
+            - { id: reduce, label: Reduce the product with charcoal and weigh the gas released, cost: 1, axis: whether the mass gained comes back out again, decisive: true, reveals: 'Metal returns and a gas comes off, weighing two point seven grams.' }
+            - { id: fourth, label: Heat a fourth metal and weigh it before and after, cost: 1, axis: more cases of a gain already measured three times, reveals: 'Heavier afterwards, like the other three.' }
+            - { id: repeat, label: Repeat the lead run a fourth time for precision, cost: 1, axis: more cases of a gain already measured three times, reveals: 'Twelve point seven grams again, to a closer figure.' }
+            - { id: colour, label: Record the colour of the flame in each of the four jars, cost: 1, axis: appearance rather than quantity, reveals: 'Brighter in jar B, as anybody watching would expect.' }
+          commit: Fund it
+        answerText: >-
+          Reduce the product with charcoal and weigh the gas. It is the only proposal whose
+          result could come out the other way — the account says two point seven grams should
+          come back off, and nothing else on the desk forbids anything.
+        why: >
+          Three of these would confirm what the board already says, and one of them could take
+          it away. The reduction makes a quantitative prediction that could fail: heat the
+          product with charcoal and the mass that went in should come back out, in that
+          amount. If it came off at half a gram the account would be in serious trouble by
+          Tuesday. That is the property being bought — not more confidence in a figure already
+          measured three times, but a place where the framework has put itself at risk.
+
+warmups:
+  greet:
+    title: Four benches and one ledger between them
+    why: >-
+      The weighing, the heating, the jars and the accounting are four different kinds of work
+      and two of the four people here read their own results inside the older framework. A
+      figure is worth what the bench behind it is worth. Put a name to as many of them as you
+      can before the week starts.
+  trial-near:
+    title: Walk the laboratory before the first vessel is charged
+    why: >-
+      The balance and the furnace are down one side of the corridor and the trough and the
+      accounting desk are down the other, which means every weighing crosses it. Antoine
+      Lavoisier, who runs the laboratory, would rather you knew the way than found it out
+      carrying a sealed retort.
+  follow:
+    title: Rouvier carries a weighing from the balance to the desk
+    why: >-
+      A figure is read off a beam, written on a slip and entered in a column in another room,
+      and most of what goes wrong happens in between. Étienne Rouvier, who made the balance,
+      walks one the whole way. Stay with him and watch where the number changes hands.
+
+interiors:
+  BAL:
+    caption: A vessel, its contents and its stopper are one system.
+    standLine: Three metals weighed, and all three heavier afterwards.
+    station:
+      kind: panel
+      title: The balance
+      rows:
+        - { label: Lead before, value: 10.0 g, status: normal }
+        - { label: Lead after, value: 12.7 g, status: alarm }
+        - { label: Sealed apparatus before, value: 250.0 g, status: normal }
+        - { label: Sealed apparatus after, value: 250.0 g, status: normal }
+  FURN:
+    caption: Weigh, seal, record, then heat.
+    standLine: A burning glass on its stand, and a vessel that has not been opened.
+    station:
+      kind: panel
+      title: The two chambers
+      rows:
+        - { label: Candle chamber — supporter, value: falling, status: alarm }
+        - { label: Mouse chamber — supporter, value: falling slowly, status: alarm }
+        - { label: Both chambers — the gas that replaces it, value: rising, status: normal }
+        - { label: Rates, value: not alike, status: low }
+  TROUGH:
+    caption: A gas is caught, and then it is questioned.
+    standLine: Four jars on the shelf and not a name among them.
+    station:
+      kind: plot
+      title: What is left after burning
+      note: a hundred units in, seventy-nine out, and none of it will burn
+      axes: { x: time in the sealed vessel, y: gas remaining }
+      curves:
+        - { points: [[0.02, 0.98], [0.2, 0.9], [0.45, 0.83], [0.7, 0.8], [0.95, 0.79]], label: volume }
+  LEDGER:
+    caption: A story that fits every outcome forecasts none.
+    standLine: Two columns, and one term that has not been entered.
+    station:
+      kind: panel
+      title: The ledger
+      rows:
+        - { label: Metal in, value: 10.0 g, status: normal }
+        - { label: Product out, value: 12.7 g, status: normal }
+        - { label: Heat supplied, value: no mass, status: normal }
+        - { label: Column short by, value: 2.7 g, status: alarm }
+
+copy:
+  BAL: <p>The balance room, first door on the west side. One beam under a glass case, a set of brass weights, and a record book that leaves the room only when the maker carries it.</p>
+  FURN: <p>The furnace room, at the far end of the west side. A reverberatory hearth, a stack that draws badly in a south wind, a burning glass on a stand, and a sand bucket by the door.</p>
+  TROUGH: <p>The pneumatic trough, across the corridor. A lead-lined tank with a shelf under the water, jars inverted along it, and a box of splints kept dry on the sill.</p>
+  LEDGER: <p>The accounting desk, opposite the furnace. Two long columns on a board, a note about accounts that fit every outcome, and nowhere to sit.</p>
+  PORCH: <p>The porter's lodge, inside the front door. A book that doubles as the fire roll, a lantern on a hook, and a bell nobody answers quickly.</p>
+  TEA: <p>The common room, halfway down the west side. A stove, eight chairs that never leave, and a water rota with two blank days on it.</p>
+  COAL: <p>The charcoal store, beside the lodge. Four sacks, two jars of red powder, and a standing rule about naked flame that is not negotiable.</p>
+  RACK: <p>The glass store at the end of the west side. Bell jars, retorts and receivers in racks, and three stopcocks between six retorts.</p>
+  LIB: <p>The library at the far end. Bound volumes, a table of slips, and the only quiet in the building.</p>

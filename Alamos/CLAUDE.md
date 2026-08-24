@@ -63,16 +63,16 @@ silhouette and the fit-out lessons for each. Run any of them with
 | `darkfibre` | Dark Fibre | AP Physics 2, optics and modern |
 | `projecty` | Project Y | Los Alamos 1943–45, outdoor mesa |
 | `hospital` | Hospital Heroes | ~grades 3–4, interior |
-| `qd_accel` | Too Faint | astronomy and cosmology |
-| `qd_dna` | The Only Shape That Fits | biology |
-| `qd_nucleus` | The Impossible Bounce | physics |
-| `qd_tectonics` | One Moving System | earth science |
-| `qd_higgs` | Is the Bump Real | particle physics |
-| `qd_eclipse` | Twice the Old Number | physics (outdoors) |
-| `qd_exo` | Something Is Pulling | astronomy |
-| `qd_ligo` | The Chirp | physics |
-| `qd_cmb` | The Noise That Would Not Go | cosmology (outdoors) |
-| `qd_hubble` | No Middle To It | astronomy |
+| `qd_accel` | The Accelerating Universe | astronomy and cosmology |
+| `qd_dna` | The Double Helix | biology |
+| `qd_nucleus` | The Atomic Nucleus | physics |
+| `qd_tectonics` | Plate Tectonics | earth science |
+| `qd_higgs` | The Higgs Boson | particle physics |
+| `qd_eclipse` | The Bending of Starlight | physics (outdoors) |
+| `qd_exo` | The First Exoplanet | astronomy |
+| `qd_ligo` | Gravitational Waves | physics |
+| `qd_cmb` | The Cosmic Microwave Background | cosmology (outdoors) |
+| `qd_hubble` | The Expanding Universe | astronomy |
 
 The last ten are the **Quick Discoveries** — nine stops in one sitting on a 3 × 3
 spine, `dayNoun: 'Level'`, all at `audience: { grade: 9 }`, no second-day model.

@@ -1,0 +1,907 @@
+# Stroop Effect — a Quick Discovery.
+#
+# The 3 x 3 shape from great_discoveries_next10_nonphysics_expanded.docx, game
+# 17, mapped onto the engine's day model: a level is a day, a micro-game is a
+# stop, and the campaign is nine stops in one sitting. Three levels, in order:
+#
+#   1  Establish the baseline   what an effect is going to be measured against
+#   2  Create the conflict      the difference, and what it costs in errors
+#   3  Explain the slowdown     practice, control, and what a robust effect is not
+#
+# The science guardrail from the source book, kept, and it is the last stop. The
+# effect is robust and its size depends on language, task design, practice,
+# response mode and the person. Several accounts predict the same slowdown, so
+# the reliability of the result is not evidence for any one of them, and the
+# campaign ends on that rather than on a mechanism.
+#
+# Format budget. Nine stops, so `formatMix`'s cap is three of any one format:
+# BALLPARK 2, CHOICE 2, and one each of PROTOCOL, CLOUD, VERIFY, DIAGNOSIS,
+# VALUE. Seven formats in nine stops, three of them driven.
+
+theme:
+  id: qd_stroop
+  title: Stroop Effect
+  subtitle: Research Assistant · Reaction-Time Laboratory
+
+groups:
+  - id: BOOTH
+    code: BOOTH
+    name: Testing Booth
+    color: '#3f6f8a'
+    desc: A three-sided cubicle, a card stand, a daylight lamp, and somebody being timed on the other side of it.
+    defaultLeader: whitlock
+    milestones: [Seat the participant, Run the baselines, Run the mixed blocks, Ready to hand over]
+  - id: CHRON
+    code: CHRON
+    name: Chronoscope Bench
+    color: '#2f3f4a'
+    desc: An instrument that starts on a card and stops on a voice, with a delay at both ends of it.
+    defaultLeader: kell
+    milestones: [Calibrate, Time the block, Take the difference, Ready to hand over]
+  - id: TAB
+    code: TAB
+    name: Tabulation Room
+    color: '#8a6a1e'
+    desc: Sheets, a middle value rather than an average, and an error column nobody is allowed to leave blank.
+    defaultLeader: stroop
+    milestones: [Check the sheets, Take the medians, Enter both columns, Ready to hand over]
+  - id: WALL
+    code: WALL
+    name: Distribution Wall
+    color: '#5a4a7a'
+    desc: Eight hundred times pinned up as two piles, and four accounts of the effect that all fit them.
+    defaultLeader: cattell
+    milestones: [Pin the times, Read the shape, Say what it does not show, Ready to hand over]
+
+roster:
+  - id: stroop
+    name: John Ridley Stroop
+    role: Research Student
+    real: true
+    division: TAB
+    bio: |
+      Runs the tabulation, which means he decides what a block of four hundred
+      trials is reduced to before it leaves the building.
+
+      His rule is that nothing goes out as a raw time. A reading carries the
+      apparatus, the operator, the room and the person in it, and all four cancel
+      the moment two blocks are subtracted. What survives is the thing that
+      differed between them.
+
+      His limit is that a difference is a measurement rather than an account. He
+      can say how much slower and cannot say why, and he is careful about that in
+      a way most people writing about this are not.
+    quiz:
+      - q: Why does Stroop refuse to report a raw time?
+        a: Because it carries the apparatus and the person as well as the task
+        wrong:
+          - Because the chronoscope has not been calibrated since Wednesday
+          - Because a single block is too few trials to report anything from
+          - Because raw times are not comparable between different laboratories
+
+  - id: cattell
+    name: James McKeen Cattell
+    role: Visiting Professor
+    real: true
+    division: WALL
+    bio: |
+      Showed nearly fifty years ago that people read a word faster than they name
+      a colour, which is the fact this whole week is built on and which nobody
+      had thought to put into conflict.
+
+      At the wall his contribution is a warning. Four accounts of the slowdown are
+      pinned up beside the times and every one of them fits: two responses
+      racing, one channel carrying two loads, a gate that is slow to shut, a
+      single place in the brain doing the work.
+
+      His limit is that he has no way to choose between them either. A result
+      every account fits is a solid result and it is not evidence for any of
+      them.
+    quiz:
+      - q: What is Cattell's warning at the wall?
+        a: A result that every account fits favours none of them
+        wrong:
+          - Four accounts is too few to be sure the right one is among them
+          - The times were gathered by too few people to be trusted
+          - The accounts cannot be tested because the effect is too small
+
+  - id: whitlock
+    name: Ada Whitlock
+    role: Testing Coordinator
+    division: BOOTH
+    bio: |
+      Seats the participants, reads the instructions out and keeps the order of
+      the blocks, which sounds like hospitality and is most of the design.
+
+      The wording is part of the apparatus, so it is read out and never
+      paraphrased; two experimenters improvising are running two experiments. The
+      block order is fixed, because running the hard condition first would put
+      half the effect down to practice.
+
+      Her limit is that she can protect one session at a time. Whether the set of
+      sessions answers anything is somebody else's question.
+    quiz:
+      - q: Why are the instructions read out rather than paraphrased?
+        a: So that two experimenters are running one experiment
+        wrong:
+          - Because participants would otherwise ask what the study is about
+          - Because the reading is timed along with the rest of the block
+          - Because the department requires a record of what was said
+
+  - id: kell
+    name: Marion Kell
+    role: Chronoscope Operator
+    division: CHRON
+    bio: |
+      Works the instrument, which starts when a card is exposed and stops when a
+      voice trips the key. There is a delay at both ends of that and neither of
+      them is small.
+
+      Her point is that the delays do not matter as long as nobody reports a raw
+      time. They are the same in both conditions, so they cancel in the
+      subtraction, and a difference is therefore a cleaner number than either of
+      the times it came from.
+
+      Her limit is that a cancellation only works if nothing else changed. She
+      logs the calibration daily, and the day she did not is the day every block
+      since has been reported as a difference.
+    quiz:
+      - q: Why do the instrument's delays not spoil the result?
+        a: Nothing that appears in both readings survives a subtraction
+        wrong:
+          - They are small enough to be ignored at this precision
+          - They are measured separately and taken off each reading
+          - They affect only the start of a block rather than the whole of it
+
+  - id: ward
+    name: Elsie Ward
+    role: Tabulator
+    division: TAB
+    bio: |
+      Reduces four hundred trials to two numbers and checks every sheet somebody
+      else wrote.
+
+      Her insistence is on the error column. Anybody can go faster by being less
+      careful, so a block described by its time alone can be improved by cheating
+      and nobody would know. A condition that costs both time and errors is
+      genuinely harder; one that costs only time may be one people slowed down
+      for on purpose.
+
+      Her limit is that she works from sheets. If a trial was mis-recorded in the
+      booth she cannot recover it, which is why every sheet is checked by
+      somebody who did not write it.
+    quiz:
+      - q: Why does Ward refuse to report times without errors beside them?
+        a: Because speed can always be bought with mistakes
+        wrong:
+          - Because errors take longer to record than times do
+          - Because the error rate is what the experiment is really about
+          - Because a block with no errors in it cannot be trusted
+
+  - id: boateng
+    name: Samuel Boateng
+    role: Booth Assistant
+    division: BOOTH
+    bio: |
+      Sets the decks, which is the job that stops a week of work being about
+      memory instead of about colour.
+
+      A deck in the same order every time is a deck people learn, so each one is
+      re-set in a fresh order before every session. He also keeps the count of
+      how many cards of each kind exist, because the conflicting decks take three
+      times as long to print and are always the ones that run out.
+
+      His limit is that he can shuffle the cards and not the person. Somebody who
+      has sat in the booth before is a different participant from somebody who
+      has not.
+    quiz:
+      - q: Why is every deck re-set in a fresh order?
+        a: So the block measures the task rather than what somebody has learnt
+        wrong:
+          - So the cards wear evenly and last more sessions
+          - So two participants cannot compare what they saw afterwards
+          - So the conflicting cards are spread evenly through the deck
+
+missions:
+  - title: Before anybody is told what this is
+    objective: Establish what the plain blocks give, reduce a block honestly, and commit a prediction before the conflict.
+    briefing: Whitlock will not run a mixed block until both baselines are on the sheet.
+    stake: >-
+      Monday, and nobody in the booth has been told what this study is about. Ada Whitlock,
+      the testing coordinator, has four blocks in a fixed order and will not run the fourth
+      before the third. Samuel Boateng, the booth assistant, has re-set every deck overnight
+      so nothing measures what somebody has learnt. Elsie Ward, the tabulator, will reduce
+      four hundred trials to two numbers and refuses to let either of them out alone. Today
+      you say what the plain blocks establish, get one person's typical time reported
+      honestly, and commit a figure for the hard block before anybody runs it.
+    takeaway: A difference needs two conditions, and the first one has to be measured before the second exists.
+    stops:
+      - group: BOOTH
+        task: Say what each plain block establishes
+        title: Patches, then words in grey
+        place: Testing Booth
+        concept: 'A baseline is what an effect is measured against'
+        scene: >
+          Two blocks have been run before anything is mixed. A hundred colour
+          patches named aloud, and a hundred colour words printed in grey and
+          read aloud. Both are on the sheet.
+        guide: >-
+          Four things about the two plain blocks are on the card, and each settles a different
+          question. What separates them is what each is actually about — the person, the
+          instrument, the order of the blocks, or the deck. Read what each one establishes
+          rather than what it reminds you of.
+        background:
+          - >-
+              How to do it, on a different example. Before you can say a hill slowed a runner
+              down you need their time on the flat. That is not a preliminary; it is half the
+              measurement, and without it the hill time is a number about a person you know
+              nothing about.
+          - >-
+              Why a person is compared with themselves. People differ enormously in how fast
+              they respond, and so do rooms, instruments and mornings. Comparing one person's
+              two blocks removes all of that at once, which no amount of averaging over
+              strangers would do.
+          - >-
+              Why the block order is fixed. Running the hard condition first and the easy one
+              afterwards would let practice make the second look better, and the difference
+              would then be part effect and part familiarity. Fixed order is what stops the two
+              being confused.
+          - >-
+              What the plain blocks are not. They are not the experiment and nothing in them is
+              surprising. Reading is faster than naming and everybody has known that for fifty
+              years. They exist so that the third and fourth blocks have something to be
+              measured against.
+        assumes:
+          - the same person runs all four blocks in one session
+          - a block is a hundred cards named or read aloud in order
+        takeaway: A baseline is half the measurement, because an effect is a difference and a difference needs two conditions measured the same way.
+        format: PROTOCOL
+        task_line: Match each part of the session to what it establishes.
+        scenarios:
+          - A hundred plain colour patches, named aloud.
+          - A hundred colour words printed in grey, spoken aloud.
+          - Both plain blocks run before either mixed one.
+          - Every deck re-set in a fresh order overnight.
+        choices:
+          - How fast this person names a colour when nothing else is on the card.
+          - This person's plain speed on the more practised of the two jobs.
+          - That practice cannot be mistaken for the effect being looked for.
+          - That the block measures the task rather than what somebody has memorised.
+        mapping: [0, 1, 2, 3]
+        why: >
+          The two plain blocks are the two things the mixed blocks will be compared against, and
+          each is about one process on its own. The order and the shuffling are not tidiness.
+          Run the hard block first and practice makes the easy one look better, so the
+          difference would be part effect and part familiarity. Leave a deck in the same order
+          and by the third session somebody is reciting it. None of this is interesting on its
+          own, and every one of them is a way the week could have produced a number that meant
+          something else.
+
+      - group: BOOTH
+        task: Reduce one person's block honestly
+        title: A hundred times and one sneeze
+        place: Testing Booth
+        concept: 'A median is safer than a mean when one trial can be very slow'
+        scene: >
+          One person's hundred trials are on the sheet. Most are bunched close
+          together, a few are much slower, and one is enormous — somebody coughed
+          halfway through it.
+        guide: >-
+          Place the middle bar where you think this person's typical time sits and the two
+          outer bars one spread either side, so about two thirds of the trials fall between
+          them. Then get the report inside the band the laboratory accepts. Two of the actions
+          move where you are aiming and two of them buy more trials, and only one of those
+          kinds narrows anything.
+        background:
+          - >-
+              How to do it, on a different example. Nine houses in a street are worth about the
+              same and the tenth is a mansion. The average price describes no house on the
+              street; the middle one describes nine of them. Which summary is honest depends on
+              the shape of the pile, and the shape here has a long tail on one side.
+          - >-
+              Why reaction times have that shape. There is a floor — nobody responds faster than
+              their nerves allow — and no ceiling, because anything can go wrong on a single
+              trial. So the pile is bunched at the fast end with a tail stretching away, every
+              time, in every laboratory.
+          - >-
+              What throwing out the slowest trials does. It moves the summary and does nothing
+              to the scatter, so the report is no better established than it was. It also
+              invites the obvious question about which trials you decided to lose, and there is
+              rarely a good answer.
+          - >-
+              What more trials do. The scatter of a summary narrows as the count grows, which is
+              the only thing that makes a report better established. It costs blocks, and there
+              is a fixed number of them in a session before somebody is too tired to be worth
+              timing.
+        assumes:
+          - reaction times are bunched at the fast end with a long tail
+          - the scatter of a summary narrows as more trials are taken
+        takeaway: The middle value describes the bunch and an average follows the tail, and only more trials narrows what a summary is worth.
+        format: CLOUD
+        question: >-
+          Report this person's typical time, place the bars to show the middle and its spread,
+          and say when it is ready.
+        cloud:
+          hint: >-
+            The scatter is what a hundred trials from one person actually look like. Every point
+            in it is a trial somebody ran.
+          bounds: { min: 560, max: 700, unit: ms, label: Reported typical time }
+          centre: 648
+          spread: 90
+          pass: 0.95
+          seed: 31
+          costUnit: blocks
+          actions:
+            - { id: drop, label: Throw out the three slowest trials, effect: shift, amount: 12, cost: 1 }
+            - { id: mean, label: Report the average instead of the middle, effect: shift, amount: 18, cost: 1 }
+            - { id: more, label: Run another hundred trials, effect: narrow, amount: 0.62, cost: 3 }
+            - { id: lots, label: Run two hundred more, effect: narrow, amount: 0.55, cost: 4 }
+          report: { centreTol: 8, spreadTol: 8 }
+          commit: File the report
+        answerText: >-
+          Both extra blocks. Dropping trials and switching to an average slide the summary
+          about and leave the scatter where it was; only more trials narrows it.
+        why: >
+          A hundred trials from one person is not a number, it is a pile with a shape, and the
+          shape is always the same: bunched at the fast end with a tail stretching away. The
+          middle value describes the bunch and an average follows the tail. Neither of the two
+          tempting actions helps. Throwing out the slowest trials moves the summary and leaves
+          the scatter alone, and invites a question about which trials you chose to lose. Only
+          more trials makes a summary better established, and it costs blocks a session has a
+          fixed number of.
+
+      - group: CHRON
+        task: Commit a figure before the hard block
+        title: Write it down before you run it
+        place: Chronoscope Bench
+        concept: 'A prediction made before the data is what makes the result informative'
+        scene: >
+          Marion Kell, the chronoscope operator, has the conflicting deck loaded
+          and the instrument checked against a known interval this morning. Nobody has run this block yet, and the
+          two plain medians are on the sheet at six hundred and ten and four
+          hundred and eighty.
+        guide: >-
+          Say first, in writing, what the median will be in the block where the word and the
+          ink disagree. Then run it, then read the instrument. The figure is locked once it is
+          made, because a prediction adjusted after the reading has stopped being a test. Note
+          also that the block is not finished until it has been timed.
+        background:
+          - >-
+              How to do it, on a different example. Guess how long a detour will take before you
+              drive it, write the guess on the dashboard, and then look at the clock. Afterwards
+              any outcome feels like the one you expected, which is a fact about memory rather
+              than about traffic, and the written guess is the only defence against it.
+          - >-
+              What there is to go on. Naming a colour takes this person about six hundred and
+              ten milliseconds and reading a word about four hundred and eighty. Nobody knows
+              yet what happens when the two are put on the same card in disagreement, and that
+              is the whole question.
+          - >-
+              Why the prediction is worth making even if it is wrong. A figure that is badly out
+              is informative: it says the conflict does something nobody expected. A figure
+              produced afterwards can never say that, because it will always have been about
+              right.
+          - >-
+              What the instrument contributes. It starts on the card and stops on the voice, and
+              there is a delay at both ends. Those delays are in this reading and in the
+              baselines equally, which is why the number that leaves this room is a difference
+              rather than a time.
+        assumes:
+          - the same person runs the conflicting block as ran the two plain ones
+          - the instrument's delays are the same in every block
+        takeaway: A figure written down before the block is run can turn out to be wrong, and one produced afterwards always turns out to have been about right.
+        format: VERIFY
+        question: >-
+          Lock a figure for the conflicting block, run it, then read the instrument.
+        verify:
+          hint: >-
+            Write the figure down before the deck is loaded. Nothing about it can be changed
+            afterwards, which is what makes it a prediction.
+          prediction: { label: Predicted median in the conflicting block, unit: ms, min: 400, max: 1400, step: 20 }
+          truth: 940
+          passRatio: [0.75, 1.3]
+          intervention:
+            label: The conflicting block
+            note: A hundred cards on which the word names one colour and the ink is another.
+            outcome: The block is run. Everybody in the room agrees it looked much harder than the last one.
+          measurement:
+            label: The median from the chronoscope
+            note: A hundred trials, middle value, errors counted separately.
+            cost: 1
+            costUnit: blocks
+          unmeasuredMoral: >-
+            The block was run and everybody agreed it looked harder. That is a statement about
+            how it looked.
+          commit: Report the median
+        answerText: >-
+          About nine hundred and forty milliseconds — half as long again as naming a plain
+          patch, and nearly twice as long as reading a plain word.
+        why: >
+          Nine hundred and forty against six hundred and ten is a large effect by the standards
+          of this laboratory, and the point of the written figure is that it could have been
+          absent. If the conflicting block had come back at six hundred and twenty there would
+          be nothing here at all. The failure the panel is built around is stopping at the run.
+          A room full of people agreeing that a block looked hard is a fact about a room, and
+          the difference does not exist until somebody reads the instrument.
+
+  - title: The difference, and what it costs
+    objective: Take the subtraction, put the errors beside it, and say what is hard to ignore.
+    briefing: Ward will not release a time without an error rate against it.
+    stake: >-
+      Tuesday, and both mixed blocks are on the sheet. Marion Kell has the medians and will
+      not let a raw time leave the bench. Elsie Ward, the tabulator, has the error columns and
+      says a block described by its time alone can be improved by cheating. John Ridley
+      Stroop, the research student running the tabulation, wants the difference and the errors
+      written up together before anybody starts explaining anything. Today you take the
+      subtraction, read a panel where speed and accuracy disagree, and say what it is about
+      the printed word that will not be set aside.
+    takeaway: An effect is a difference between two conditions, and it is described by time and errors together.
+    stops:
+      - group: CHRON
+        task: Take the subtraction
+        title: Nine forty against six twenty
+        place: Chronoscope Bench
+        concept: 'Interference is a difference between two conditions, not a raw time'
+        scene: >
+          Both mixed blocks are done. When the word and the ink agree the median
+          is six hundred and twenty milliseconds; when they disagree it is nine
+          hundred and forty.
+        guide: >-
+          Subtract the matching condition from the conflicting one. Use the two mixed blocks
+          and nothing else — the two plain blocks are on the board as well, and they belong to
+          the baseline rather than to this difference, because the mixed pair is the pair that
+          differs in only one thing.
+        background:
+          - >-
+              How to do it, on a different example. Two runners go up the same hill. One is
+              carrying a pack and takes eleven minutes; the other takes eight. The cost of the
+              pack is three minutes, and it is a cleaner number than either time, because
+              everything the two runs shared has cancelled.
+          - >-
+              Why the two mixed blocks are the right pair. Both have a colour word printed in a
+              colour ink, both ask for the ink, both use the same deck size and the same
+              instrument. The single thing that differs is whether the word agrees with the ink.
+          - >-
+              Why the plain blocks are not the comparison. Naming a plain patch is a different
+              task with different cards on it, so the difference between it and the conflicting
+              block would carry the change of task as well as the conflict.
+          - >-
+              What the subtraction removes. The instrument's delay at both ends, the operator,
+              the room, the hour and the person are all in both readings and none of them is in
+              the difference. That is why a difference is reported and a time is not.
+        assumes:
+          - the two mixed blocks differ only in whether word and ink agree
+          - the instrument behaves the same way in both
+        takeaway: The effect is one condition's median subtracted from the other's, and the subtraction removes everything the two conditions shared.
+        format: BALLPARK
+        question: What is the interference cost?
+        estimate:
+          prompt: >-
+            Kell will not let a raw time leave the bench. She wants the difference.
+          question: What is the interference cost?
+          relationship: The interference cost is the median when word and ink disagree minus the median when they agree.
+          labels:
+            - 940 ms  (median when the word and the ink disagree)
+            - 620 ms  (median when they agree)
+            - 610 ms  (median naming plain colour patches)
+            - 480 ms  (median reading plain grey words)
+          values: [940, 620, 610, 480]
+          slots: 2
+          template: '{0} − {1}'
+          formula: a-b
+          correct: [0, 1]
+          target: 320
+          tolerance: 20
+          units: milliseconds
+          solution: Nine hundred and forty less six hundred and twenty is three hundred and twenty milliseconds.
+          explanation: The six hundred and ten is the plain-patch baseline, and subtracting it would fold a change of task into the difference along with the conflict.
+        why: >
+          Three hundred and twenty milliseconds, and it is a better number than either time it
+          came from. Everything the two blocks shared — the instrument, the operator, the room,
+          the person, the hour — appears in both readings and in neither the difference. The
+          choice of pair is the part people get wrong. Both mixed blocks show a colour word in a
+          colour ink and both ask for the ink, so the one thing separating them is the conflict.
+          Subtracting a plain block instead would fold a change of task into the answer.
+
+      - group: CHRON
+        task: Read the panel where the columns disagree
+        title: Faster, and wrong more often
+        place: Chronoscope Bench
+        concept: 'Speed and accuracy trade off, so both have to be reported'
+        scene: >
+          Two participants ran the same conflicting block. The first was slow and
+          made two errors. The second was almost as quick as in the matching
+          block and made nineteen.
+        guide: >-
+          Read the whole panel rather than the fastest row. The times are the loud part and the
+          error columns are what make them interpretable. The reading you want accounts for
+          both participants and for the fact that the instructions were the same for each.
+        background:
+          - >-
+              How to do it, on a different example. Two people copy out a page. One takes twenty
+              minutes and makes no mistakes; the other takes eight and makes forty. Reporting
+              only the times would say the second is the better copyist, which is the opposite
+              of what happened.
+          - >-
+              Why the trade is always available. Any task can be done faster by being less
+              careful, and in a task where a wrong answer is already sitting ready the fast
+              mistake is the easiest one in the world to make. Nobody has to decide to cheat.
+          - >-
+              What a real cost looks like. A condition that takes longer and produces more
+              errors is genuinely harder. A condition that costs only time may be one people
+              slowed down for deliberately, which is a different finding and worth knowing.
+          - >-
+              Why the instructions matter here. Both were told to go as fast as they could while
+              staying accurate. Neither was told which to favour, and the two of them resolved
+              that instruction differently — which is exactly why both columns get reported.
+        assumes:
+          - both participants received the same instructions
+          - an error is a response that names the wrong colour
+        takeaway: Time and errors are two halves of one measurement, because any task can be done faster by being less careful.
+        format: DIAGNOSIS
+        headline: One participant is slow and almost always right; the other is quick and wrong nineteen times in a hundred.
+        task: Which reading fits both participants rather than only the quicker one?
+        readings:
+          - { zone: Participant A, label: Median in the conflicting block, value: 980 ms, status: normal }
+          - { zone: Participant A, label: Errors in the block, value: 2 of 100, status: normal }
+          - { zone: Participant B, label: Median in the conflicting block, value: 660 ms, status: normal }
+          - { zone: Participant B, label: Errors in the block, value: 19 of 100, status: alarm }
+          - { zone: Both, label: Errors in the matching block, value: 1 and 2, status: normal, note: neither has trouble when the two agree }
+          - { zone: Instructions, label: What each was told, value: fast and accurate, status: normal, note: identical wording for both }
+        choices:
+          - label: B bought speed with mistakes, so B's time is not a smaller cost
+            mechanism: The conflict is there in both; B resolved the instruction differently.
+          - label: B is simply much better at the task than A
+            mechanism: A shorter time means a smaller cost.
+          - label: A misunderstood the instructions and went too slowly
+            mechanism: Two errors in a hundred is unnecessarily careful.
+          - label: The effect is absent in B
+            mechanism: B was no slower than in the matching block, so there was no conflict.
+        answer: B bought speed with mistakes, so B's time is not a smaller cost
+        why: >
+          B is quick and wrong nineteen times, and both of those come from the same decision.
+          The quiet rows settle it. Neither participant has trouble when word and ink agree, so
+          the errors are not carelessness in general, and the instructions were identical, so
+          the difference is in how each resolved them. Reporting only the times would say B
+          found the task easy, which is the opposite of what happened. This is the ordinary way
+          a reaction-time result goes wrong, and the fix is that neither column is ever
+          published alone.
+
+      - group: TAB
+        task: Say what will not be set aside
+        title: The word arrives whether or not you want it
+        place: Tabulation Room
+        concept: 'A well-practised process runs whether it is wanted or not'
+        scene: >
+          Every participant has been asked for the ink and every one of them was
+          slower when the word disagreed. Stroop wants one sentence saying what
+          the word is doing that the instruction cannot stop.
+        guide: >-
+          Four accounts of the slowdown are offered, and they differ in what they say the
+          participant is failing to do. Ask of each whether it also explains the other half of
+          the result — that naming the ink interferes with reading the word hardly at all,
+          although the two cards are identical.
+        background:
+          - >-
+              How to do it, on a different example. Somebody says your name across a room and
+              you turn round, in the middle of a conversation you were concentrating on. You did
+              not decide to listen for it. A signal you have processed a million times arrives
+              whether or not you have any use for it.
+          - >-
+              Why the effect is one-sided. Show the same card and ask for the word instead, and
+              the disagreeing ink slows people barely at all. Both directions have a conflict on
+              the card and only one of them costs anything, so the account has to be about the
+              two processes rather than about the card.
+          - >-
+              What practice has to do with it. Reading has been drilled for years and colour
+              naming has not. The practised process is faster and starts itself, so by the time
+              the required answer is ready there is already a different one waiting to come out.
+          - >-
+              What the cost actually is. It is not the reading. It is having a second answer
+              available and having to keep it from being the one that is said, and that keeping
+              takes time whether or not anybody is aware of doing it.
+        assumes:
+          - reading is far more practised than colour naming for these participants
+          - the same cards are used whichever dimension is asked for
+        takeaway: The cost of an unwanted process is paid in holding its output back rather than in the process itself, which is why effort does not remove it and availability does.
+        format: CHOICE
+        question: What is the best account of why the printed word costs anything?
+        choices:
+          - Reading is so practised that it runs on its own and leaves a competing answer ready.
+          - The participants were not concentrating hard enough on the ink.
+          - The conflicting cards are physically harder to see than the matching ones.
+          - The colours used are harder to name than the words are to read.
+        answer: Reading is so practised that it runs on its own and leaves a competing answer ready.
+        rebuttals:
+          - Trying harder does not remove it, and the same people manage the matching block at full speed.
+          - The two decks are printed identically in the same inks; only the pairing differs.
+          - That is true and it is the baseline, which is exactly what the difference has already removed.
+        why: >
+          The one-sidedness is what settles this. Show the same card and ask for the word rather
+          than the ink, and the disagreeing colour slows people hardly at all — so the account
+          has to be about the two processes, not about a busy card. Reading is drilled for
+          years and colour naming is not, so the practised one gets there first and leaves an
+          answer waiting. The cost is not the reading. It is having a second response available
+          and keeping it from being the one that comes out, and that takes time whether or not
+          anybody notices doing it.
+
+  - title: What the wall does not show
+    objective: Price the effect against the baseline after practice, buy the thing that helps, and say what a robust result is not evidence for.
+    briefing: Cattell has four accounts pinned up and all four fit.
+    stake: >-
+      Friday, and eight hundred times are pinned across the distribution wall as two piles.
+      John Ridley Stroop has a week of practice blocks and wants the cost stated as a share
+      rather than as a number of milliseconds. James McKeen Cattell, the visiting professor
+      who showed fifty years ago that reading beats naming, has four accounts of the slowdown
+      on the wall beside the times, and every one of them fits. Today you price the effect
+      after practice, buy the intervention that actually helps, and say out loud what a result
+      this reliable is not evidence for.
+    takeaway: An effect can be as solid as anything in the subject and still not favour any account of itself.
+    stops:
+      - group: TAB
+        task: Price the effect after a week of practice
+        title: Down to a third, and still there
+        place: Tabulation Room
+        concept: 'A cost that shrinks with practice does not have to reach zero'
+        scene: >
+          After a week of daily conflicting blocks the cost has fallen from three
+          hundred and twenty milliseconds to two hundred and ten. The matching
+          median is still six hundred and twenty.
+        guide: >-
+          State the remaining cost as a share of the matching-condition median, so it can be
+          set beside somebody faster or slower. Use the cost after practice and the matching
+          median. Two of the tiles belong to the week before practice, and mixing the two weeks
+          gives a share about neither.
+        background:
+          - >-
+              How to do it, on a different example. Two people are each delayed by ten minutes.
+              One was making a three-hour journey and the other a twenty-minute one. The same
+              ten minutes is a trivial cost to the first and half again to the second, which is
+              why a delay is stated against the thing it delayed.
+          - >-
+              Why a share rather than milliseconds. A fast responder and a slow one can show the
+              same cost in milliseconds and be having quite different experiences of the task.
+              Dividing by the baseline puts them on the same scale.
+          - >-
+              What practice does and does not do. Repeating the conflicting task makes the
+              required response more available, so it arrives sooner and the cost falls. It does
+              not usually vanish, because the interfering process has years behind it and a week
+              cannot match that.
+          - >-
+              What would count as the effect being trained away. A cost of zero, holding across
+              new colours and new words. Nobody has produced that, and the honest description is
+              that the effect shrinks and stays.
+        assumes:
+          - the same participants ran the practice blocks all week
+          - the matching-condition median has not changed over the week
+        takeaway: A cost stated as a share of the baseline can be compared between people, and a cost that falls with practice without reaching zero is what a well-drilled competing process looks like.
+        format: BALLPARK
+        question: What is the remaining cost as a share of the matching median?
+        estimate:
+          prompt: >-
+            Stroop wants the week written up as a share, so it can be set beside a laboratory
+            whose participants are quicker.
+          question: What is the remaining cost as a share of the matching median?
+          relationship: The cost as a share of the baseline is the interference cost divided by the median in the matching condition, as a percentage.
+          labels:
+            - 210 ms  (the cost after a week of practice)
+            - 620 ms  (the median when word and ink agree)
+            - 100  (to turn a share into a percentage)
+            - 320 ms  (the cost before practice)
+            - 940 ms  (the median when word and ink disagree)
+          values: [210, 620, 100, 320, 940]
+          slots: 3
+          template: '{0} ÷ {1} × {2}'
+          formula: a/b*c
+          correct: [0, 1, 2]
+          target: 33.9
+          tolerance: 2.5
+          units: per cent slower
+          solution: Two hundred and ten milliseconds against a matching median of six hundred and twenty is a little under thirty-four in every hundred.
+          explanation: The three hundred and twenty is last week's cost, and using it reports the effect before the practice the stop is about.
+        why: >
+          A third slower, down from a half. The fall is real and the remainder is the finding: a
+          week of daily practice makes the required response more available and does not undo
+          years of reading. Stating it as a share rather than in milliseconds is what lets this
+          week be compared with a laboratory whose participants are quicker, since the same two
+          hundred milliseconds means something different against a baseline of four hundred. An
+          effect that shrinks and stays is what a well-drilled competing process looks like.
+
+      - group: WALL
+        task: Buy the thing that actually helps
+        title: Four ways to make it easier
+        place: Distribution Wall
+        concept: 'Holding the task rule available is what control means here'
+        scene: >
+          Four suggestions are pinned beside the wall for reducing the cost. There
+          is time to test one of them properly before the report goes in.
+        guide: >-
+          All four of these are things somebody could do and all four would produce a real
+          measurement. The one worth testing is the one whose result could come out either way
+          and change what is recommended. Ask of each: does it act on the race between two
+          answers, or only on how hard somebody is trying?
+        background:
+          - >-
+              How to do it, on a different example. A driver keeps taking the wrong turning at a
+              junction they used to take daily. Telling them to concentrate does very little. A
+              sign at the approach saying which lane does a great deal, because it makes the
+              right choice available at the moment the wrong one arrives.
+          - >-
+              Why trying harder does so little. Nothing switches the reading off, so effort
+              spread over a whole block has nothing specific to act on. What is needed is the
+              required rule being active at the moment the competing answer turns up.
+          - >-
+              What a reminder before each trial does. It puts the governing rule at the front
+              just before the card appears, so the wanted response is more available in the race
+              rather than the unwanted one being weaker.
+          - >-
+              Why the physical suggestions are worth testing and are not this. A bigger typeface
+              or a longer gap between cards changes how easily the card is seen and read. Either
+              could help a little and neither acts on the competition, which is where the cost
+              comes from.
+        assumes:
+          - the cost comes from a competing answer being available rather than from effort
+          - one suggestion can be tested properly in the time remaining
+        takeaway: Nothing switches a practised process off, so what helps is keeping the governing rule active at the moment the competing answer arrives.
+        format: VALUE
+        question: >-
+          Time to test one suggestion properly. Buy the one that could change the recommendation.
+        value:
+          hint: >-
+            All four are testable. The question is which result could come out the other way.
+          budget: { amount: 1, unit: study }
+          decision: What the report recommends to laboratories running this task
+          options:
+            - { id: cue, label: A one-word reminder of the rule just before each card, cost: 1, axis: how available the required rule is at the moment of choice, decisive: true, reveals: 'The cost falls by about a quarter and the error rate falls with it.' }
+            - { id: try, label: Tell participants to concentrate harder throughout, cost: 1, axis: general effort with nothing specific to act on, reveals: 'No change beyond ordinary block-to-block variation.' }
+            - { id: font, label: Print the cards in a larger typeface, cost: 1, axis: how easily the card is seen, reveals: 'Everything speeds up slightly, both conditions equally, so the difference is unchanged.' }
+            - { id: gap, label: Leave two seconds between cards instead of one, cost: 1, axis: how easily the card is seen, reveals: 'Both conditions speed up a little and the difference is unchanged.' }
+          commit: Run it
+        answerText: >-
+          The reminder before each card. It is the only one that acts on which answer is
+          available at the moment the card appears, and it is the only one whose result could
+          have come out either way.
+        why: >
+          The two physical suggestions speed both conditions up together, so the difference
+          survives untouched. That was predictable before either was run, which is what makes
+          them poor buys. Telling people to concentrate has nothing to act on, because nothing
+          switches the reading off. The reminder is different in kind. It makes the governing
+          rule active at the moment the competing answer turns up, so the wanted response is
+          more available in the race. Whether that was worth a quarter of the cost or nothing
+          at all was genuinely open.
+
+      - group: WALL
+        task: Say what the wall is not evidence for
+        title: Four accounts, and all of them fit
+        place: Distribution Wall
+        concept: 'An effect being robust does not make one explanation of it proven'
+        scene: >
+          Eight hundred times are pinned up as two piles with the same shape, one
+          shifted along. Four accounts of the slowdown are on the wall beside
+          them, and Cattell says every one fits.
+        guide: >-
+          Four statements about what the wall establishes are offered. What separates them is
+          how far each reaches past the measurement. Ask of each whether the pinned times would
+          look any different if one of the four accounts were true and the others false.
+        background:
+          - >-
+              How to do it, on a different example. A shop is busier on Saturdays, every
+              Saturday, for ten years. The pattern is as solid as anything. Whether it is the
+              weekend, the market, the bus timetable or the football is a separate question, and
+              no amount of extra Saturdays settles it.
+          - >-
+              What the wall does establish. The effect is there in almost everybody, it is
+              large, it appears in every laboratory that has looked, and it survives practice.
+              That is about as solid as a behavioural result gets.
+          - >-
+              What the four accounts are. Two responses racing to be said; one channel carrying
+              two loads at once; a gate that is slow to shut on the unwanted answer; a single
+              place in the brain doing the controlling. All four predict a slower conflicting
+              block, and the wall cannot separate them.
+          - >-
+              What would separate them. Experiments designed so the accounts disagree — changing
+              how the response is made, how long the card is shown, what else the person is
+              holding in mind. That is a different research programme and it is what the next
+              fifty years of this were.
+        assumes:
+          - all four accounts predict a slower conflicting block
+          - the wall shows the same two conditions and nothing else
+        takeaway: A result every account predicts is strong evidence that something is happening and no evidence at all about which account is right.
+        format: CHOICE
+        question: What does the wall establish?
+        choices:
+          - The two piles, and no more than the two piles.
+          - That one place in the brain is doing the controlling.
+          - That two responses are racing to be said.
+          - Nothing at all, since four accounts cannot all be right.
+        answer: The two piles, and no more than the two piles.
+        rebuttals:
+          - Nothing pinned up here is about brains; every reading on the wall is a time.
+          - That is one of the four accounts, and the wall does not favour it over the other three.
+          - Three of the four being wrong does not stop the times being a solid measurement.
+        why: >
+          The times are as solid as a behavioural result gets. Large, in nearly everybody,
+          found in every laboratory, and still there after a week of practice. All four accounts
+          on the wall predict exactly this picture, so the picture cannot favour any one of
+          them. That is not a disappointing ending. It is the ordinary situation after a good
+          measurement, and it says what to build next. You need experiments designed so the
+          accounts disagree, which is what the fifty years after this were spent on.
+
+warmups:
+  greet:
+    title: Six people and one number that leaves the building
+    why: >-
+      The booth, the instrument, the sheets and the wall are four different jobs, and four
+      hundred trials are reduced to two numbers by people who mostly never meet the
+      participant. A figure is worth what the room behind it is worth. Put a name to as many of
+      them as you can before the week starts.
+  trial-near:
+    title: Walk the laboratory before anybody is timed
+    why: >-
+      The booth and the tabulation room are down one side of the corridor and the chronoscope
+      and the distribution wall are down the other, which means every reading crosses it. Ada
+      Whitlock, the testing coordinator, would rather you knew the way than opened a booth door
+      in the middle of a block.
+  follow:
+    title: Kell carries a median from the bench to the sheets
+    why: >-
+      A time is read off an instrument, written on a slip and entered in a column in another
+      room, and most of what goes wrong happens in between. Marion Kell, who works the
+      chronoscope, walks one the whole way. Stay with her and watch where the number changes
+      hands.
+
+interiors:
+  BOOTH:
+    caption: Nobody in here has been told what this is about.
+    standLine: Four blocks in a fixed order, and a deck re-set overnight.
+    station:
+      kind: panel
+      title: Session sheet
+      rows:
+        - { label: Plain patches, value: 610 ms, status: normal }
+        - { label: Plain words in grey, value: 480 ms, status: normal }
+        - { label: Word and ink agreeing, value: 620 ms, status: normal }
+        - { label: Word and ink disagreeing, value: not yet run, status: low }
+  CHRON:
+    caption: A raw time carries the instrument. A difference does not.
+    standLine: Start on the card, stop on the voice, and a delay at both ends.
+    station:
+      kind: panel
+      title: Chronoscope
+      rows:
+        - { label: Calibration, value: checked today, status: normal }
+        - { label: Conflicting median, value: 940 ms, status: alarm }
+        - { label: Matching median, value: 620 ms, status: normal }
+        - { label: Difference, value: 320 ms, status: alarm }
+  TAB:
+    caption: One sneeze does not move the middle value.
+    standLine: Four hundred trials a session, reduced to two numbers.
+    station:
+      kind: plot
+      title: A hundred times from one person
+      note: bunched at the fast end with a tail stretching away
+      axes: { x: response time, y: how many trials }
+      curves:
+        - { points: [[0.05, 0.05], [0.15, 0.55], [0.25, 0.95], [0.4, 0.6], [0.55, 0.3], [0.7, 0.14], [0.85, 0.06], [0.98, 0.03]], label: trials }
+  WALL:
+    caption: A result every account fits is not evidence for any of them.
+    standLine: Eight hundred times, two piles, four explanations.
+    station:
+      kind: panel
+      title: The wall
+      rows:
+        - { label: Times pinned up, value: 800, status: normal }
+        - { label: Participants showing the effect, value: 40 of 42, status: normal }
+        - { label: Cost after a week of practice, value: 210 ms, status: normal }
+        - { label: Accounts the wall separates, value: none of the four, status: alarm }
+
+copy:
+  BOOTH: <p>The testing booth, first door on the west side. A three-sided cubicle, a card stand, a daylight lamp, and a chair facing away from the door.</p>
+  CHRON: <p>The chronoscope bench, across the corridor. A brass and bakelite instrument on a slab, a voice key on a stand, and a calibration log kept daily.</p>
+  TAB: <p>The tabulation room, at the far end of the west side. Sheets in trays, a column ruled for errors, and a rule against raw times pinned over the desk.</p>
+  WALL: <p>The distribution wall, opposite the tabulation room. One long wall with eight hundred slips on it, a table to lay them out on first, and four accounts pinned up beside them.</p>
+  PORCH: <p>The entrance desk, inside the front door. A visitor book, a bench for participants, and deliberately nothing on the walls worth reading.</p>
+  TEA: <p>The common room, halfway down the west side. An urn, eight chairs that never leave, and a rota with two blank days on it.</p>
+  DARK: <p>The dark adaptation room, beside the entrance. A red lamp outside the door, and nothing in this week's work that needs it.</p>
+  RACK: <p>The card store at the end of the west side. Four inks, one press, and twenty-four hundred cards that are re-set before every session.</p>
+  LIB: <p>The reading room at the far end. Offprints in a case, two armchairs, and the 1886 paper everybody asks for in the second drawer.</p>

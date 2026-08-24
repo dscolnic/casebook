@@ -23,7 +23,7 @@ export default {
   dayNoun: 'Level',
 
   id: 'qd_cmb',
-  title: 'The Noise That Would Not Go',
+  title: 'The Cosmic Microwave Background',
   subtitle: 'Radio Astronomer · Hilltop Antenna',
 
   site,

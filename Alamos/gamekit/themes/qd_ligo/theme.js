@@ -23,7 +23,7 @@ export default {
   dayNoun: 'Level',
 
   id: 'qd_ligo',
-  title: 'The Chirp',
+  title: 'Gravitational Waves',
   subtitle: 'Detector Scientist · Interferometer Site',
 
   site: { kind: 'interior', name: 'The Interferometer Station', plan },

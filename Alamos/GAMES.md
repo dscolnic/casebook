@@ -115,16 +115,16 @@ syllabus computed by a question, and every one green on all twenty-six checks.
 
 | # | Game | Where | Subject, and the shape of the three levels | Run it |
 | --- | --- | --- | --- | --- |
-| 01 | **The Only Shape That Fits** | `themes/qd_dna` | Biology. What chemistry forbids before any photograph exists; what a diffraction pattern will and will not settle; the model no clue rules out | `THEME=qd_dna npm run dev` |
-| 02 | **Too Faint** | `themes/qd_accel` | Astronomy. What a Type Ia is worth as a ruler; fainter than a universe of matter allows; say only what the data will carry | `THEME=qd_accel npm run dev` |
-| 03 | **The Impossible Bounce** | `themes/qd_nucleus` | Physics. Commit to what the accepted atom permits; count the band it forbids; explain the dull majority and the ten exceptions at once | `THEME=qd_nucleus npm run dev` |
-| 04 | **One Moving System** | `themes/qd_tectonics` | Earth science. What the continents alone will carry; the mechanism ten years of ships supplied; one framework over seven files | `THEME=qd_tectonics npm run dev` |
-| 05 | **Is the Bump Real** | `themes/qd_higgs` | Particle physics. What would count as evidence and where to look; detector layers to a mass distribution; significance, and the claim July 2012 could carry | `THEME=qd_higgs npm run dev` |
-| 06 | **Twice the Old Number** | `themes/qd_eclipse` | Physics. Two predictions a factor of two apart; registration, direction and which error dominates; what the band separates and what may be said | `THEME=qd_eclipse npm run dev` |
-| 07 | **Something Is Pulling** | `themes/qd_exo` | Astronomy. An orbit inferred from motion nobody can see; a size, and the impostors that fake one; mass, radius, tilt and what may be called what | `THEME=qd_exo npm run dev` |
-| 08 | **The Chirp** | `themes/qd_ligo` | Physics. What the instrument listens for and everything else it hears; a shape, a cause and a second site; masses, missing mass, and what a match supports | `THEME=qd_ligo npm run dev` |
-| 09 | **The Noise That Would Not Go** | `themes/qd_cmb` | Cosmology. An engineering problem that will not go away; a shape, a temperature, and what is not yet known; a framework, a cooling law and one explanation | `THEME=qd_cmb npm run dev` |
-| 10 | **No Middle To It** | `themes/qd_hubble` | Astronomy. A ladder and everything that makes it lie; a shift, a pattern and which axis limits everything; a slope, a time, and where the middle is | `THEME=qd_hubble npm run dev` |
+| 01 | **The Double Helix** | `themes/qd_dna` | Biology. What chemistry forbids before any photograph exists; what a diffraction pattern will and will not settle; the model no clue rules out | `THEME=qd_dna npm run dev` |
+| 02 | **The Accelerating Universe** | `themes/qd_accel` | Astronomy. What a Type Ia is worth as a ruler; fainter than a universe of matter allows; say only what the data will carry | `THEME=qd_accel npm run dev` |
+| 03 | **The Atomic Nucleus** | `themes/qd_nucleus` | Physics. Commit to what the accepted atom permits; count the band it forbids; explain the dull majority and the ten exceptions at once | `THEME=qd_nucleus npm run dev` |
+| 04 | **Plate Tectonics** | `themes/qd_tectonics` | Earth science. What the continents alone will carry; the mechanism ten years of ships supplied; one framework over seven files | `THEME=qd_tectonics npm run dev` |
+| 05 | **The Higgs Boson** | `themes/qd_higgs` | Particle physics. What would count as evidence and where to look; detector layers to a mass distribution; significance, and the claim July 2012 could carry | `THEME=qd_higgs npm run dev` |
+| 06 | **The Bending of Starlight** | `themes/qd_eclipse` | Physics. Two predictions a factor of two apart; registration, direction and which error dominates; what the band separates and what may be said | `THEME=qd_eclipse npm run dev` |
+| 07 | **The First Exoplanet** | `themes/qd_exo` | Astronomy. An orbit inferred from motion nobody can see; a size, and the impostors that fake one; mass, radius, tilt and what may be called what | `THEME=qd_exo npm run dev` |
+| 08 | **Gravitational Waves** | `themes/qd_ligo` | Physics. What the instrument listens for and everything else it hears; a shape, a cause and a second site; masses, missing mass, and what a match supports | `THEME=qd_ligo npm run dev` |
+| 09 | **The Cosmic Microwave Background** | `themes/qd_cmb` | Cosmology. An engineering problem that will not go away; a shape, a temperature, and what is not yet known; a framework, a cooling law and one explanation | `THEME=qd_cmb npm run dev` |
+| 10 | **The Expanding Universe** | `themes/qd_hubble` | Astronomy. A ladder and everything that makes it lie; a shift, a pattern and which axis limits everything; a slope, a time, and where the middle is | `THEME=qd_hubble npm run dev` |
 
 **They are written for grade 9, not AP, and every card teaches its method before
 it asks anything.** That is the one thing about the set that came from playing it

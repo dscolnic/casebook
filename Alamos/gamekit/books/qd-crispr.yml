@@ -1,0 +1,919 @@
+# CRISPR Gene Editing — a Quick Discovery.
+#
+# The 3 x 3 shape from great_discoveries_next10_nonphysics_expanded.docx, game
+# 14, mapped onto the engine's day model: a level is a day, a micro-game is a
+# stop, and the campaign is nine stops in one sitting. Three levels, in order:
+#
+#   1  Bacterial memory   a pattern in a genome, and what it is a record of
+#   2  Guide the enzyme   two constraints, a fixed cut, and what mends it
+#   3  Edit and verify    where the risk is, what happened, and what to report
+#
+# The science guardrail from the source book, kept. CRISPR is a family of
+# microbial defence systems turned into editing tools by many people over three
+# decades, and the game uses one enzyme with one simple motif rule because a
+# nine-stop campaign cannot carry the family. A guide does not guarantee a unique
+# edit, repair is probabilistic, and the third level is entirely about the gap
+# between what was designed and what a sequencer says happened.
+#
+# Format budget. Nine stops, so `formatMix`'s cap is three of any one format:
+# CHOICE 2, BALLPARK 2, and one each of SEQUENCE, SWEEP, PROTOCOL, VALUE,
+# ATTEST. Seven formats in nine stops, three of them driven.
+
+theme:
+  id: qd_crispr
+  title: CRISPR Gene Editing
+  subtitle: Molecular Biologist · Genome Editing Institute
+
+groups:
+  - id: ARRAY
+    code: ARRAY
+    name: Genome Room
+    color: '#2f7f8a'
+    desc: Bacterial genomes on screens, a phage library beside them, and a pattern nobody has explained.
+    defaultLeader: mojica
+    milestones: [Find the pattern, Match a spacer, Price the chance, Ready to hand over]
+  - id: DESIGN
+    code: DESIGN
+    name: Design Desk
+    color: '#1f4f6b'
+    desc: Candidate sites, motif checks and off-target scores, and the order form at the end of them.
+    defaultLeader: doudna
+    milestones: [Pick the site, Check the motif, Order the guide, Ready to hand over]
+  - id: EDIT
+    code: EDIT
+    name: Editing Bay
+    color: '#5a7f3f'
+    desc: Cells, a hood, two controls that always go on the plate, and a cut whose position is fixed.
+    defaultLeader: zhang
+    milestones: [Deliver the guide, Locate the cut, Choose the repair, Ready to hand over]
+  - id: SEQ
+    code: SEQ
+    name: Sequencing Room
+    color: '#7a4fa3'
+    desc: Twenty-six hours a run, four sites you can afford to read, and nineteen you would like to.
+    defaultLeader: raman
+    milestones: [Queue the run, Read the target, Read the others, Ready to hand over]
+
+roster:
+  - id: mojica
+    name: Francisco Mojica
+    role: Comparative Genomics
+    real: true
+    division: ARRAY
+    bio: |
+      Spends his days comparing bacterial genomes to each other, which is how
+      anybody notices a structure nobody was looking for.
+
+      What he found is an alternation: a short sequence repeated exactly, with
+      something different between every pair of repeats. The repeats are a frame
+      and the things between them are the information, and where that information
+      came from is the whole question.
+
+      His limit is that a pattern is a pattern. Nothing in a genome browser says
+      what a sequence is for, and the step from a structure to a function has to
+      be argued from somewhere else.
+    quiz:
+      - q: What made the alternation worth pursuing?
+        a: The repeats are identical and the pieces between them are all different
+        wrong:
+          - The whole region is repeated more often than any other part of the genome
+          - The repeats appear only in bacteria that cause disease in people
+          - The sequence between the repeats is the same in every species examined
+
+  - id: barrangou
+    name: Rodolphe Barrangou
+    role: Microbial Immunity
+    real: true
+    division: ARRAY
+    bio: |
+      Works on the organisms industry cares about staying alive, which means he
+      works on the viruses that kill them. That is an unglamorous route to a
+      fundamental result and it is the route this one came by.
+
+      Challenge a culture with a virus, keep the survivors, and read their arrays:
+      the survivors have picked up a new piece between the repeats, and it matches
+      the virus. Do it again with a different virus and you get a different piece.
+
+      His limit is that a survivor is a survivor. Showing that a sequence is
+      acquired after an encounter is not the same as showing what it then does.
+    quiz:
+      - q: What does challenging a culture and reading the survivors establish?
+        a: That the pieces between the repeats are acquired after an encounter
+        wrong:
+          - That the virus cannot infect the same culture a second time
+          - That the repeats themselves change in response to the virus
+          - That every cell in the culture carries the same new piece
+
+  - id: doudna
+    name: Jennifer Doudna
+    role: Structural Biochemistry
+    real: true
+    division: DESIGN
+    bio: |
+      Works on what the machinery physically does, which is where the step from a
+      defence system to a tool actually happens.
+
+      The protein that cuts does not know what it is cutting. It is told by a
+      short RNA copied out of the array, and that RNA can be replaced. Everything
+      about the tool follows from that one separation, and none of it was obvious
+      from the genome alone.
+
+      Her limit is that a purified system in a tube is a purified system in a
+      tube. What a cell does with a cut afterwards is a different subject.
+    quiz:
+      - q: Why is the enzyme redirectable at all?
+        a: Because the part that recognises the target is a separate molecule
+        wrong:
+          - Because the protein can be engineered to recognise any sequence
+          - Because bacteria naturally change which viruses they attack
+          - Because the enzyme cuts at random and the guide selects the fragments
+
+  - id: charpentier
+    name: Emmanuelle Charpentier
+    role: RNA Biology
+    real: true
+    division: DESIGN
+    bio: |
+      Works on the RNA half, which for a long time was the half nobody could
+      account for. The array is transcribed and processed, and the pieces that
+      come out are what carry the sequence to the target.
+
+      Her contribution is the discovery that the system needs a second RNA nobody
+      had noticed to work at all. A mechanism with a missing part looks like a
+      mechanism that does not work, which is how a real system spends years being
+      called an artefact.
+
+      Her limit is that knowing which molecules are needed does not say which
+      sites in a large genome the assembled thing will visit.
+    quiz:
+      - q: Why did the system appear not to work before the second RNA was found?
+        a: A mechanism missing a necessary part behaves like one that is wrong
+        wrong:
+          - The first RNA had been sequenced incorrectly in the original work
+          - The enzyme used in the early experiments came from the wrong species
+          - The experiments were done at a temperature the bacteria never meet
+
+  - id: zhang
+    name: Feng Zhang
+    role: Genome Engineering
+    real: true
+    division: EDIT
+    bio: |
+      Runs the bay, and his subject is the half that a tube cannot answer: what
+      happens after the cut, inside a cell that has its own opinions.
+
+      A break is mended one of two ways. Rejoining the ends usually adds or loses
+      a few bases, which is how a gene gets disabled. Copying from a supplied
+      template installs a specific sequence. Which route runs is a probability
+      rather than a setting, so what comes back is always a mixture.
+
+      His limit is that he can raise the odds and cannot fix them. Every plate
+      leaves this bay as a population, and describing it any other way is wrong
+      before the sequencer has said anything.
+    quiz:
+      - q: Why does a plate leave the editing bay as a mixture?
+        a: Because which way a cell mends a break is a probability
+        wrong:
+          - Because the guide reaches only a fraction of the cells on the plate
+          - Because the enzyme runs out before the last cells have been cut
+          - Because the cells divide at different rates during the incubation
+
+  - id: raman
+    name: Priya Raman
+    role: Sequencing Lead
+    division: SEQ
+    bio: |
+      Runs the machine and the queue for it. Twenty-six hours a run and a fixed
+      number of sites you can read to any useful depth, so what gets checked is a
+      decision rather than a formality.
+
+      Her rule is that a site with two hundred reads on it has not been checked;
+      it has been glanced at. Depth is what turns a sequence into a fraction, and
+      a fraction is the only honest description of a population.
+
+      Her limit is that she can only read what she is given. A site nobody put in
+      the queue comes back as no information at all, and it is easy to mistake
+      that for good news.
+    quiz:
+      - q: Why does Raman refuse to report a site with two hundred reads on it?
+        a: Because a fraction needs enough depth to be worth stating
+        wrong:
+          - Because the machine cannot resolve a single-base change at that depth
+          - Because two hundred reads takes longer to process than four thousand
+          - Because shallow sites are more likely to be contaminated by neighbours
+
+missions:
+  - title: A pattern nobody was looking for
+    objective: Find the structure, price the coincidence, and see how a record becomes a tool.
+    briefing: Mojica wants the chance calculation before anybody says the word immunity.
+    stake: >-
+      Monday. Forty bacterial genomes carry a shape nobody can account for. Francisco Mojica,
+      who works on comparative genomics, has been staring at it for weeks: one sequence
+      repeated exactly, with something different between every pair of copies. Rodolphe
+      Barrangou, the microbial immunity lead, works on the viruses that kill industrial
+      cultures. He has noticed that some of those different pieces match phage. Today you say
+      what the structure is, work out how often a match like that happens by chance, and put
+      the defence in the order it has to run in. A coincidence nobody has priced is not
+      evidence.
+    takeaway: A pattern becomes a finding when the chance of it has been worked out.
+    stops:
+      - group: ARRAY
+        task: Say what the structure is
+        title: Repeat, spacer, repeat, spacer
+        place: Genome Room
+        concept: 'A repeat-and-spacer array is a record of past encounters'
+        scene: >
+          Five hundred bases of a bacterial genome are on the screen. One
+          twenty-nine-base sequence appears again and again, exactly, and between
+          every pair of copies sits something that appears nowhere else.
+        guide: >-
+          Four descriptions of the screen are offered and only one of them stays inside what
+          is visible. Sort them by what each one claims: a statement about the arrangement
+          claims a structure, a statement about what a stretch codes for claims a function,
+          and a statement about every array claims something about genomes nobody has opened.
+        background:
+          - >-
+              How to do it, on a different example. A shelf holds identical bookends with
+              different books between them. What you can see is the alternation. That the
+              bookends are holding the books up is an explanation, and it competes with the
+              bookends being what somebody had spare. Ask of each description how much of it
+              you would have to take on trust.
+          - >-
+              Why the alternation is the informative part. A sequence repeated in a row is
+              ordinary and turns up everywhere in every genome. A sequence repeated with
+              something different between every copy is a different object: the repeats are a
+              frame and the pieces between them are what varies, which means they can carry
+              something.
+          - >-
+              What a genome browser can and cannot say. It can tell you a sequence is there,
+              how long it is, and whether it matches something else on file. It cannot tell
+              you what a stretch of DNA is for, and no amount of looking at more genomes will
+              change that.
+          - >-
+              Why the wording matters. Everything for the rest of the campaign is a test of
+              one sentence, and the sentence has to be narrow enough to be wrong. "Repeats
+              with different pieces between them" can be checked in the next genome. "A
+              bacterial immune system" cannot be checked in anything.
+        assumes:
+          - a sequence found repeatedly in one genome can be identified by comparison
+          - a stretch of DNA can be described without knowing what it does
+        takeaway: A structure is what the sequence shows; every word about what it is for is an explanation being smuggled in.
+        format: CHOICE
+        question: What does the screen most directly show?
+        choices:
+          - An exactly repeated sequence with a different piece between every pair.
+          - A bacterial immune system.
+          - A long gene coding for one very repetitive protein.
+          - Random sequence with no structure in it.
+        answer: An exactly repeated sequence with a different piece between every pair.
+        rebuttals:
+          - That is an explanation of what the structure is for, and nothing on this screen bears on it.
+          - A coding sequence is read straight through; this one is interrupted by something different every time.
+          - Random sequence does not repeat a twenty-nine-base stretch exactly, over and over.
+        why: >
+          The screen shows an arrangement. Everything else on offer adds something it cannot
+          supply: what the region does, whether it is transcribed, whether it defends anything.
+          Each of those is a real question needing its own experiment. Keeping the first
+          sentence narrow is what makes the rest possible, because a claim that could not be
+          wrong cannot be tested either. What makes the arrangement worth pursuing is the
+          asymmetry — the frame is identical every time and the contents never are.
+
+      - group: ARRAY
+        task: Price the coincidence
+        title: How often a match like that happens anyway
+        place: Genome Room
+        concept: 'A spacer matching a virus is a memory, not an immunity guarantee'
+        scene: >
+          One of the pieces between the repeats is a thirty-base exact match to a
+          phage that infects this species. Barrangou wants to know how impressed
+          to be before anybody writes it down.
+        guide: >-
+          Work out how many times a sequence of a given length turns up in a genome by
+          chance, which is the size of the genome divided by how many different sequences of
+          that length there are. Do it for the short case on the board first, because that is
+          the one whose answer you can hold in your head, and then read what it implies about
+          thirty.
+        background:
+          - >-
+              How to do it, on a different example. There are ten thousand different four-digit
+              codes. In a list of ten thousand random codes you expect a given one to appear
+              about once. In a list of a hundred, you expect it a hundredth of the time. The
+              arithmetic is the length of the list divided by the number of possibilities.
+          - >-
+              Why the number of possibilities grows so fast. Each position can be one of four
+              bases, so a sequence one base longer has four times as many possibilities. Eleven
+              bases give about four million; twenty give a million million; thirty give more
+              than a million million million.
+          - >-
+              What that does to the answer. An eleven-base match in a bacterial genome is
+              expected about once, so finding one means nothing at all. A thirty-base exact
+              match is expected in a genome of that size roughly never — the number is smaller
+              than one divided by anything in this building.
+          - >-
+              What the match therefore is and is not. A shared thirty-base sequence needs an
+              explanation, and the simplest one is that the piece came from the phage. That is
+              a hypothesis about history. It says nothing about whether the bacterium can now
+              resist that phage, which is a separate experiment.
+        assumes:
+          - each position in a random sequence is one of four bases
+          - a genome can be treated as a long run of positions for this estimate
+        takeaway: A match is only evidence once chance has been priced, and the price rises so steeply with length that thirty bases cannot be a coincidence.
+        format: BALLPARK
+        question: How many times would a given eleven-base sequence turn up in this genome by chance?
+        estimate:
+          prompt: >-
+            Mojica will not put the phage match in a draft until the short case has been worked
+            out on the board.
+          question: How many times would a given eleven-base sequence turn up in this genome by chance?
+          relationship: How often a sequence turns up by chance is the length of the genome divided by the number of different sequences of that length.
+          labels:
+            - 4,200,000  (bases in this bacterial genome)
+            - 4,194,304  (the number of different sequences eleven bases long)
+            - 30  (bases in the piece that matched the phage)
+            - 4  (the number of different bases)
+            - 29  (bases in the repeated frame)
+          values: [4200000, 4194304, 30, 4, 29]
+          slots: 2
+          template: '{0} ÷ {1}'
+          formula: a/b
+          correct: [0, 1]
+          target: 1
+          tolerance: 0.15
+          units: times, by chance
+          solution: Four million two hundred thousand bases divided by the four million or so different eleven-base sequences is about one, so an eleven-base match is expected roughly once and means nothing.
+          explanation: The thirty is the length of the piece that actually matched, and there are far more thirty-base sequences than there are bases in any genome — which is the point the short case is being worked out to make.
+        why: >
+          One. An eleven-base match turns up about once in a genome this size, so finding one
+          would be no evidence of anything. Now count the possibilities for thirty bases: every
+          extra base multiplies them by four, so thirty bases have more than a million million
+          million possibilities against four million bases of genome. An exact match at that
+          length is not a coincidence. What it is is a piece of the phage, kept — which is a
+          claim about where the sequence came from and not yet a claim about what it does.
+
+      - group: DESIGN
+        task: Put the defence in order
+        title: Acquire, remember, recognise, cut
+        place: Design Desk
+        concept: 'Sequence-directed cutting is programmable because the guide is separable'
+        scene: >
+          Jennifer Doudna, who works on the machinery itself, has four cards on
+          the desk. They are the steps a defence of this kind would have to run
+          in, and they are in the wrong order.
+        guide: >-
+          Four steps are on the card and they have to happen in a fixed order, because each
+          one needs the one before it to have produced something. Ask of each step what it
+          requires to already exist: a record, a copy of the record, a target found, or a
+          break made.
+        background:
+          - >-
+              How to do it, on a different example. A library keeps a card for every banned
+              book. Somebody hands in a book; a card is written; the card is copied for the
+              door staff; the door staff match a book against the copy; the book is stopped.
+              Each step needs the previous one to have produced its output, and copying a card
+              that has not been written is not a step you can take early.
+          - >-
+              Why the copy is the whole story. The card in the file is a record and cannot stop
+              anything. What acts is a copy carried by whoever is doing the checking. In this
+              system that copy is a short RNA transcribed off the array, and the protein that
+              cuts is told what to cut by it.
+          - >-
+              Why that separation is the step from a defence to a tool. The protein does not
+              know what it is cutting. Supply a different RNA and the same protein cuts
+              somewhere else, which means anything with this shape can be pointed at a target
+              nobody in nature ever pointed it at.
+          - >-
+              What this is not. It is not how vertebrate immunity works. Nothing here makes an
+              antibody, nothing recognises a shape, and the memory is a sequence on file rather
+              than a cell that remembers.
+        assumes:
+          - a sequence in the genome can be transcribed into a working RNA copy
+          - a protein can be directed to a target by a molecule bound to it
+        takeaway: What acts is a copy of the record, carried by an enzyme that does not itself know the target, which is why the whole thing can be redirected.
+        format: SEQUENCE
+        task_line: Order the four steps of the defence.
+        cards:
+          - A virus infects, and a piece of its sequence is filed between two repeats.
+          - The array is transcribed and cut into short pieces, one per spacer.
+          - A short piece finds matching sequence and the enzyme engages it.
+          - The enzyme cuts both strands at the site it has been brought to.
+        order: [0, 1, 2, 3]
+        why: >
+          Each step exists to make the next one possible. The encounter puts a record on file.
+          Transcribing it produces the copy that can actually travel, which is the step that
+          turns a stored sequence into something that acts. Matching brings the enzyme to a
+          place, and only then is there anything to cut. The order matters for a reason beyond
+          tidiness: the copy is separable from the enzyme, and everything this institute does
+          with the system follows from being able to hand it a copy of something else.
+
+  - title: Two constraints and a fixed cut
+    objective: Choose a site the enzyme will actually engage, find where the break falls, and match a repair route to a goal.
+    briefing: Doudna wants the motif checked before an order form is signed.
+    stake: >-
+      Wednesday, and the design desk has four candidate sites and a deadline. Jennifer Doudna,
+      who works on the machinery, will not sign an order for a guide against a site that
+      carries no motif, however good the match is. Feng Zhang, who runs the editing bay, has
+      cells up and two controls that go on every plate whether anybody asks for them or not.
+      Today you pick a site the enzyme can engage, find where the break actually falls
+      relative to the motif, and decide which way you want the cell to mend it. A guide is not
+      a target and a cut is not an edit.
+    takeaway: Recognising a sequence, engaging it and mending the break are three separate things with three separate rules.
+    stops:
+      - group: DESIGN
+        task: Pick a site the enzyme will engage
+        title: A perfect match with nowhere to hold on
+        place: Design Desk
+        concept: 'Complementarity and PAM are two separate constraints'
+        scene: >
+          Four candidate sites are on the screen — A, B, C and D — with each one's
+          match length and the three bases sitting next to it. The enzyme in use
+          engages only a site carrying its own short motif.
+        guide: >-
+          Two things have to be true of a target and they are independent of each other. The
+          guide has to pair with it, and the enzyme has to find its motif immediately next
+          door. Check both for every candidate rather than picking the best match, because a
+          perfect match with no motif is not a target at all.
+        background:
+          - >-
+              How to do it, on a different example. A key has to fit the lock and the door has
+              to have a handle. A key that fits a lock on a door with no handle opens nothing,
+              and no amount of improving the key changes that. Check the handle for every door
+              before deciding which key to cut.
+          - >-
+              Why the motif exists. The enzyme has to be able to tell a target in a foreign
+              genome from the copy of the same sequence sitting in its own array, and the motif
+              is the difference. It is not a design decision anybody made; it is a fact about
+              this enzyme that a designer has to live with.
+          - >-
+              What a partial match buys. A twelve-base match beside a good motif is worse than
+              it looks: short matches occur all over a genome, so a guide built on one has many
+              places it could engage. Length and motif are both constraints and neither
+              substitutes for the other.
+          - >-
+              Why a different enzyme would give a different answer. Other members of this
+              family read different motifs, and some cut in a different way entirely. The rule
+              being applied here belongs to the enzyme on the bench rather than to the idea.
+        assumes:
+          - the enzyme in use engages only a site carrying its own short motif
+          - a longer exact match occurs in fewer places in a genome
+        takeaway: A target needs a guide that pairs with it and a motif the enzyme can engage, and neither of those makes up for the other being absent.
+        format: CHOICE
+        question: Which of the four sites should the guide be ordered against?
+        choices:
+          - Site C — twenty bases, motif present.
+          - Site A — twenty bases, nothing usable next to it.
+          - Site D — twelve bases, motif present.
+          - Site B — twenty bases, motif one base out.
+        answer: Site C — twenty bases, motif present.
+        rebuttals:
+          - Site A is a place the enzyme cannot engage, however well the guide pairs with it.
+          - Site D is short enough to occur in many places in a genome, so the guide would have somewhere else to go.
+          - Site B is a near miss, and a near miss is not what the enzyme reads.
+        why: >
+          Two constraints, both required, and they come from different parts of the system. The
+          pairing is between the guide and the target and it is what makes the tool
+          programmable. The motif is a property of the enzyme, and it exists because the enzyme
+          has to be able to tell a foreign target from the copy sitting in its own array. That
+          is why a designer meets it as a limit rather than a choice. The twelve-base candidate
+          is the subtle wrong answer: it satisfies the motif and fails on length, so the guide
+          would have several places in the genome it could plausibly engage.
+
+      - group: EDIT
+        task: Find where the break falls
+        title: Three bases from the motif
+        place: Editing Bay
+        concept: 'The cut position is fixed relative to the recognition site'
+        scene: >
+          The guide is in and the cells have been harvested. Sequencing across the
+          target shows where the ends were rejoined, so the position of the break
+          can be read off directly.
+        guide: >-
+          Move the reading position along the target and watch what fraction of molecules show
+          a break there. You are looking for where the breaks actually concentrate. Read across
+          the whole range before deciding, because the shape of this distribution is the
+          finding — a break that fell anywhere in the matched stretch would look quite
+          different.
+        background:
+          - >-
+              How to do it, on a different example. A guillotine is bolted to a bench with a
+              stop. Feed in twenty sheets and measure each offcut: if the machine is doing what
+              it is bolted to do, every offcut is the same length, and the spread of those
+              lengths tells you how well. Measure them all rather than assuming.
+          - >-
+              Why the position being fixed is the important part. If the break fell anywhere in
+              the twenty matched bases, a designer could choose which gene to cut and not where
+              in it. Because it falls a set short distance from the motif, a small planned
+              change at a chosen position becomes possible, which is most of what the tool is
+              used for.
+          - >-
+              How the reading is made. The cell mends the break and usually leaves a trace at
+              the join — a base or two lost or gained. Sequencing thousands of molecules and
+              plotting where the traces sit is a direct measurement of where the ends were.
+          - >-
+              What the small tail means. A few molecules show traces a base or two either side.
+              That is real, and it is why an edit is described as landing near a position rather
+              than at one.
+        assumes:
+          - a rejoined break usually leaves a trace at the join
+          - thousands of molecules can be read across the same position
+        takeaway: The break falls a fixed short distance from the motif rather than anywhere in the matched stretch, which is what makes a planned change at a chosen position possible.
+        format: SWEEP
+        question: How far from the motif do the breaks actually fall?
+        answerText: >-
+          Three bases upstream of the motif, where about seven molecules in ten show the join.
+          The small shoulder a base either side is real and is why an edit lands near a
+          position rather than at one.
+        why: >
+          The breaks pile up at one position rather than spreading across the matched stretch,
+          and that is the whole reason a planned edit is possible. An enzyme that cut anywhere
+          in twenty bases would let a designer choose a gene and not a place in it. The
+          distribution also says something the peak alone does not: a few molecules show joins
+          a base either side, so the honest description is that an edit lands near a position
+          rather than at one. Reading the whole range is what separates a fixed cut from a
+          vague one.
+        sweep:
+          axis:
+            label: Distance upstream of the motif
+            unit: bases
+            min: 0
+            max: 24
+            step: 1
+          readout:
+            label: Share of molecules with a join here
+            unit: ""
+          baseline: 0.002
+          response:
+            - at: 0
+              value: 0.005
+            - at: 1
+              value: 0.03
+            - at: 2
+              value: 0.12
+            - at: 3
+              value: 0.71
+            - at: 4
+              value: 0.10
+            - at: 5
+              value: 0.02
+            - at: 10
+              value: 0.004
+            - at: 24
+              value: 0.002
+          target: 3
+          tolerance: 0.6
+          start: 20
+          commit: Mark where the break falls
+
+      - group: EDIT
+        task: Match the repair to the goal
+        title: Rejoin it, or copy from a template
+        place: Editing Bay
+        concept: 'Which repair pathway runs decides what the edit becomes'
+        scene: >
+          Two jobs are on the bay whiteboard: disable a gene, and change one
+          specific base in another. Zhang has the same enzyme and the same guide
+          chemistry for both, and one further decision to make on each.
+        guide: >-
+          Four statements about repair are on the card, and each one settles a different
+          question. What separates them is what each is actually about — how a break is mended
+          without help, how it is mended with a template, what that gives you in a whole
+          population, and what the controls on the plate are for. Read what each establishes.
+        background:
+          - >-
+              How to do it, on a different example. A torn page can be taped back together or
+              recopied from the original. Taping is quick, always available, and leaves the
+              join visible. Recopying needs the original to hand and gives you the page as it
+              should be. Which you want depends on whether you mind the join, and the two are
+              not interchangeable.
+          - >-
+              Why a visible join disables a gene. Rejoining usually adds or loses a base or
+              two, and a protein-coding sequence is read three bases at a time. Change the
+              count by one or two and everything after the join is read out of step, which
+              usually ends the protein early.
+          - >-
+              What a template buys and costs. Supply a piece of DNA carrying the sequence you
+              want and some cells will copy from it, installing exactly the change you designed.
+              Fewer cells do this than rejoin, and how many depends on the cell type, the stage
+              it is at and how much template reaches it.
+          - >-
+              Why the controls go on every plate. A plate with no guide and a plate with no
+              enzyme are what say that anything seen afterwards came from the edit rather than
+              from the handling, the sequencing or the cells themselves.
+        assumes:
+          - a protein-coding sequence is read three bases at a time
+          - a supplied template can be copied from during repair
+        takeaway: A cut changes nothing on its own; what the cell does with it decides whether the result is a disabled gene, a designed change, or neither.
+        format: PROTOCOL
+        task_line: Match each statement to what it settles.
+        scenarios:
+          - The ends are rejoined with no template available.
+          - A supplied template carrying the intended sequence is present.
+          - A thousand cells are treated and the plate is harvested together.
+          - A plate with no guide and a plate with no enzyme go in alongside.
+        choices:
+          - A base or two is usually lost or gained, which reads the rest of the gene out of step.
+          - Some cells copy from it and install exactly the designed change.
+          - What comes back is a mixture of outcomes rather than one of them.
+          - Anything seen afterwards can be attributed to the edit rather than to the handling.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Each statement is about a different part of the job. Rejoining is the route that is
+          always available and it is how a gene gets disabled, because a coding sequence read
+          three bases at a time cannot survive losing one. A template is how a specific change
+          gets installed, and it works in a smaller share of cells. The third is the fact that
+          governs how any of it gets reported: one plate is a population with several outcomes
+          in it. And the controls are what make the whole thing attributable, which is why they
+          go on whether or not anybody asks.
+
+  - title: What actually happened
+    objective: Decide which sites are worth reading, measure how often the edit worked, and report both halves.
+    briefing: Raman has one run and four sites she can read to any useful depth.
+    stake: >-
+      Friday, and the plates are ready. Priya Raman, who runs the sequencing room, has one
+      run of twenty-six hours and enough depth for four sites, and there are nineteen places
+      in the genome somebody has a reason to worry about. Feng Zhang wants the target read
+      first and is not certain what should come second. And a draft of the report is already
+      circulating with a sentence in it about specificity that nobody has measured. Today you
+      spend the run where it changes something, work out how often the edit actually
+      happened, and go through the draft claim by claim.
+    takeaway: A design says what should happen; a sequencer says what did, and both numbers have to be reported.
+    stops:
+      - group: EDIT
+        task: Spend the run where it changes something
+        title: Nineteen sites and depth for four
+        place: Editing Bay
+        concept: 'A near-match with a compatible PAM is where off-target risk lives'
+        scene: >
+          The scanner has returned nineteen places in the genome resembling the
+          guide. Raman can read four of them properly. Zhang wants to know which
+          three go in beside the target.
+        guide: >-
+          Every one of these is a real site and reading any of them would produce a true
+          answer. The ones worth the run are those whose result could come out either way and
+          change what happens next. Ask of each: if this site turned out to be edited, would
+          anybody do anything differently?
+        background:
+          - >-
+              How to do it, on a different example. A surveyor can test four points on a bridge.
+              Testing four points on the pier everybody already knows is sound produces four
+              true readings and changes nothing. Testing the joint that would fail first is the
+              one where the answer could go either way.
+          - >-
+              What makes a site risky. It resembles the guide closely and it carries the motif
+              the enzyme needs. Similarity on its own is not enough, because a site the enzyme
+              cannot engage is not a site it can cut, and the motif on its own is not enough
+              either — most of the genome carries one somewhere.
+          - >-
+              Why similarity is not evidence of cutting. A near-match with a motif is a place
+              worth looking. Whether anything happened there is a measurement, and the whole
+              point of spending the run is that nobody can tell from the sequence which of them
+              actually was.
+          - >-
+              What reading a site cannot do. A site not put in the queue comes back as no
+              information, and the report has to say so. Silence about fifteen sites is not the
+              same as fifteen clean sites, and it is easy to write it up as though it were.
+        assumes:
+          - the enzyme engages only sites carrying its motif
+          - a site not sequenced returns no information rather than a clean result
+        takeaway: Off-target risk lives where a close match meets a usable motif, and similarity says where to look rather than what happened.
+        format: VALUE
+        question: >-
+          Depth for three sites beside the target. Buy the ones that could change something.
+        value:
+          hint: >-
+            All of these are real sites. The question is which results could come out the other
+            way.
+          budget: { amount: 3, unit: sites }
+          decision: Whether this cell line can be used in the experiment that follows
+          options:
+            - { id: near, label: One mismatch from the guide — motif beside it, cost: 1, axis: a site the enzyme could actually engage, decisive: true, reveals: 'A new one-base deletion in nine per cent of reads.' }
+            - { id: near2, label: Two mismatches — motif beside it, cost: 1, axis: a site the enzyme could actually engage, decisive: true, reveals: 'Unchanged, to the depth read.' }
+            - { id: nomotif, label: One mismatch from the guide — no motif near it, cost: 1, axis: sequence similarity with no way in, reveals: 'Unchanged, which was the only possible result.' }
+            - { id: far, label: Ten mismatches on a different chromosome, cost: 1, axis: sequence similarity with no way in, reveals: 'Unchanged, which was the only possible result.' }
+            - { id: gene, label: A housekeeping gene nobody has flagged, cost: 1, axis: a place with no reason for concern, reveals: 'Unchanged, as expected.' }
+          commit: Queue the run
+        answerText: >-
+          The two sites that combine a close match with a usable motif. They are the only ones
+          whose result could come out either way, and one of them does — a new deletion in
+          nine per cent of reads.
+        why: >
+          Three of these could only have come back clean. A site the enzyme cannot engage will
+          not be cut however much it resembles the guide, so reading it produces a true answer
+          that was available without the run. The two close matches with motifs are the ones
+          where the answer was genuinely open, and one of them is not clean. The report also has
+          to be honest about the fifteen sites nobody read: that is no information rather than a
+          clean result, and writing it up as the second is the ordinary way this goes wrong.
+
+      - group: SEQ
+        task: Work out how often it happened
+        title: Not a yes, a fraction
+        place: Sequencing Room
+        concept: 'Designed is not achieved; the sequence has to be read back'
+        scene: >
+          The run is in. At the target position, four thousand one hundred reads
+          cover the site and three thousand three hundred and sixty-two of them
+          carry the intended three-base change.
+        guide: >-
+          Work out what share of the reads at that position carry the change, as a percentage.
+          Use the reads at the target and nothing else. Two of the tiles come from a different
+          site in the same run, and mixing sites is how a report ends up quoting a number about
+          somewhere nobody asked about.
+        background:
+          - >-
+              How to do it, on a different example. Nine hundred and twelve of one thousand one
+              hundred and forty ballots in one box are marked yes: divide, multiply by a
+              hundred, and it is eighty per cent. The count from the box next door is a fact
+              about the box next door and cannot go in the same division.
+          - >-
+              Why the answer is a fraction rather than a yes. Repair is probabilistic, so a
+              treated plate is a population with several outcomes in it. There is no single
+              thing the cells did, and a report saying the edit worked has replaced a
+              measurement with an impression.
+          - >-
+              Why depth is in the denominator. Four thousand reads make a percentage worth a
+              decimal place. Two hundred reads make the same percentage worth almost nothing,
+              which is why the site list and the read counts belong together in the report.
+          - >-
+              What eighty-two per cent is and is not. It is the share of sequenced molecules
+              carrying the change. It is not the share of cells, because a cell has more than
+              one copy of most positions, and turning one into the other needs assumptions the
+              run does not supply.
+        assumes:
+          - every read covering the position is either changed or unchanged
+          - reads from one site can be counted without reference to another
+        takeaway: An edit is described by the share of reads carrying it, with the depth beside it, because a treated population has several outcomes in it rather than one.
+        format: BALLPARK
+        question: What share of reads at the target carries the intended change?
+        estimate:
+          prompt: >-
+            Raman will not release the run summary with the word "worked" in it. She wants a
+            percentage.
+          question: What share of reads at the target carries the intended change?
+          relationship: The editing efficiency is the reads carrying the intended change divided by all the reads covering that position, written as a percentage.
+          labels:
+            - 3,362  (reads at the target carrying the intended change)
+            - 4,100  (reads covering the target position)
+            - 100  (to turn a share into a percentage)
+            - 3,950  (reads covering the off-target site)
+            - 356  (reads at the off-target site with a new deletion)
+          values: [3362, 4100, 100, 3950, 356]
+          slots: 3
+          template: '{0} ÷ {1} × {2}'
+          formula: a/b*c
+          correct: [0, 1, 2]
+          target: 82
+          tolerance: 2
+          units: per cent of reads at the target
+          solution: Three thousand three hundred and sixty-two of the four thousand one hundred reads is a little over eighty-two in every hundred.
+          explanation: The three thousand nine hundred and fifty is the depth at the off-target site, and dividing the target's changed reads by it mixes two positions into one number.
+        why: >
+          Eighty-two per cent, with four thousand one hundred reads behind it. That is what a
+          treated population looks like: not an outcome but a distribution over outcomes, which
+          is a direct consequence of repair being probabilistic. The depth belongs in the report
+          beside the percentage, because the same eighty-two from two hundred reads would be
+          worth almost nothing. And the number is about molecules rather than cells — most
+          positions are present in more than one copy per cell, and converting between the two
+          needs assumptions this run does not supply.
+
+      - group: SEQ
+        task: Go through the draft
+        title: Six sentences, and what each rests on
+        place: Sequencing Room
+        concept: 'Efficiency and specificity are two numbers, and both have to be reported'
+        scene: >
+          A draft of the report is circulating with six claims in it and a name
+          against every one. Raman has time to check three properly before the
+          meeting.
+        guide: >-
+          Every claim here has somebody's name on it, so a name cannot be what separates them.
+          What separates them is whether a measurement from this run stands behind the claim,
+          and whether that measurement is about what the claim says. Check the ones that would
+          do the most damage if they were wrong, and hold anything the run cannot close.
+        background:
+          - >-
+              How to do it, on a different example. A car comes back with a list: brakes
+              checked, tyres checked, exhaust replaced. The list is signed and one tyre is
+              visibly bald. The signature records that somebody accepted the claim; the tyre is
+              evidence about the tyre. Where the two disagree, look at the tyre.
+          - >-
+              What this run does establish. Eighty-two per cent of reads at the target carry the
+              intended change, one nearby site is unchanged to the depth read, and another
+              carries a new deletion in nine per cent of reads. Those three are measurements,
+              with denominators.
+          - >-
+              What it does not establish. Nothing about the fifteen sites that were never
+              queued, nothing about cells as opposed to molecules, and nothing about whether the
+              line is fit for whatever comes next. A claim reaching past the run is not
+              supported by the run however carefully the run was done.
+          - >-
+              Why holding is a real outcome. Three checks against six claims means most of the
+              draft stays unverified, and that is fine as long as it is recorded as unverified.
+              A claim marked open is honest; the same claim read next month as settled is how a
+              draft becomes a result.
+        assumes:
+          - a name against a claim records that somebody accepted it
+          - a site that was not sequenced returns no information about itself
+        takeaway: How often the intended change happened and whether anything unintended happened are separate measurements, and a good answer on one says nothing about the other.
+        format: ATTEST
+        question: >-
+          Check what the time allows and hold whatever this run cannot close.
+        attest:
+          hint: >-
+            All six have a name against them. Checking costs time and there is not enough of it
+            for the whole draft.
+          checks: 3
+          claims:
+            - { id: eff, label: 'The intended change is present in eighty-two per cent of reads at the target', signedBy: Raman, critical: true, backed: true, evidence: 'four thousand one hundred reads at that position, in the run log' }
+            - { id: off1, label: 'The two-mismatch site is unchanged', signedBy: Raman, backed: true, evidence: 'three thousand eight hundred reads and no changed molecule among them' }
+            - { id: off2, label: 'The edit was completely specific', signedBy: a press release, critical: true, evidence: 'the one-mismatch site carries a new deletion in nine per cent of reads' }
+            - { id: clean, label: 'Every cell in the line now carries the intended change', signedBy: a grant report, critical: true, evidence: 'eighty-two per cent of reads is a mixture, and reads are molecules rather than cells' }
+            - { id: nine, label: 'The one-mismatch site carries a new deletion in nine per cent of reads', signedBy: Zhang, backed: true, evidence: 'three thousand nine hundred and fifty reads, and the deletion is absent from both controls' }
+            - { id: done, label: 'No further checking is needed before the line is used', signedBy: a preprint abstract, evidence: 'fifteen candidate sites were never put in the queue' }
+        answerText: >-
+          Hold the claim that the edit was completely specific and the claim that every cell
+          carries the change. Both are critical, both have names against them, and the run
+          contradicts one and cannot support the other.
+        why: >
+          The claims that survive are the ones with denominators: a share of reads at a stated
+          depth, at a stated position, with controls. The two that fail fail differently. One is
+          contradicted directly — a site the run read carries a new deletion — and the other
+          converts a measurement about molecules into a claim about every cell, which the run
+          cannot reach. The sentence about no further checking is the quiet one: fifteen sites
+          were never queued, and no information is not the same as a clean result.
+
+warmups:
+  greet:
+    title: Five benches and one claim between them
+    why: >-
+      The pattern, the phage challenge, the machinery, the plates and the run come from five
+      different kinds of work, and a sentence in the report is worth what the bench behind it
+      is worth. Put a name to as many of them as you can before the week starts.
+  trial-near:
+    title: Walk the floor before the first genome is opened
+    why: >-
+      The genome room and the design desk are down one side of the corridor and the editing
+      bay and the sequencing room are down the other, which means every design crosses it.
+      Jennifer Doudna, who works on the structural biochemistry of the machinery itself,
+      would rather you knew the way than found it out with a plate in your hands.
+  follow:
+    title: Raman carries a run summary from the machine to the desk
+    why: >-
+      A percentage is read off a screen, written on a sheet and pasted into a draft in another
+      room, and most of what goes wrong happens in between. Priya Raman, who runs the
+      sequencing room, walks one the whole way. Stay with her and watch where the denominator
+      gets left behind.
+
+interiors:
+  ARRAY:
+    caption: The repeats are the frame; the pieces between them are the information.
+    standLine: Forty genomes open, and one thirty-base match nobody can explain away.
+    station:
+      kind: panel
+      title: Array browser
+      rows:
+        - { label: Repeat length, value: 29 bases, status: normal }
+        - { label: Spacers in this array, value: 12, status: normal }
+        - { label: Longest phage match, value: 30 bases, status: alarm }
+        - { label: Expected by chance, value: essentially never, status: alarm }
+  DESIGN:
+    caption: A perfect match with no motif beside it is not a target.
+    standLine: Four candidate sites, and one of them withdrawn at this desk.
+    station:
+      kind: panel
+      title: Guide design
+      rows:
+        - { label: Match length, value: 20 bases, status: normal }
+        - { label: Motif adjacent, value: present, status: normal }
+        - { label: Sites resembling the guide, value: 19, status: alarm }
+        - { label: With a usable motif, value: 2, status: alarm }
+  EDIT:
+    caption: A cut changes nothing. What the cell does with it is the edit.
+    standLine: Four plates in the incubator, and two of them are controls.
+    station:
+      kind: plot
+      title: Where the joins fall
+      note: read off thousands of molecules across the target
+      axes: { x: distance from the motif, y: share of molecules }
+      curves:
+        - { points: [[0.04, 0.01], [0.08, 0.04], [0.12, 0.17], [0.16, 0.98], [0.2, 0.14], [0.3, 0.03], [0.9, 0.01]], label: joins }
+  SEQ:
+    caption: Designed is not achieved.
+    standLine: One run, twenty-six hours, and depth for four sites out of nineteen.
+    station:
+      kind: panel
+      title: Run summary
+      rows:
+        - { label: Target — edited reads, value: 3362 of 4100, status: normal }
+        - { label: Two-mismatch site, value: unchanged, status: normal }
+        - { label: One-mismatch site, value: 356 of 3950, status: alarm }
+        - { label: Sites not read, value: 15, status: low }
+
+copy:
+  ARRAY: <p>The genome room, first door on the west side. Four screens, a phage library on the shelf beside them, and forty bacterial genomes open at the same region.</p>
+  DESIGN: <p>The design desk, at the far end of the west side. Candidate sites, motif checks, an off-target scanner and the order form nobody signs before all three are done.</p>
+  EDIT: <p>The editing bay, across the corridor. A hood, an incubator, cells at four passages, and two control plates that go in whether or not anybody asked for them.</p>
+  SEQ: <p>The sequencing room, opposite the design desk. Three machines, a queue on the wall, and the only clock in the building that matters.</p>
+  PORCH: <p>The entrance desk, inside the front doors. A badge drawer, a visitor book and a rack of coats nobody has claimed since the spring.</p>
+  TEA: <p>The coffee area, halfway down the west side. A machine that needs descaling, eight chairs that never leave, and a rota with two blank days on it.</p>
+  COLD: <p>The cold room, beside the entrance. Four degrees, a logbook on a chain, and eleven boxes on a shelf that has not been cleared since 2009.</p>
+  RACK: <p>The consumables store at the end of the west side. Tips, plates, tubes and gloves in stacks, and a card to sign when you take the last of anything.</p>
+  LIB: <p>The reading room at the far end. Journals nobody prints any more, two armchairs, and deliberately no printer.</p>

@@ -1,0 +1,932 @@
+# Periodic Table — a Quick Discovery.
+#
+# The 3 x 3 shape from great_discoveries_next10_nonphysics_expanded.docx, game
+# 16, mapped onto the engine's day model: a level is a day, a micro-game is a
+# stop, and the campaign is nine stops in one sitting. Three levels, in order:
+#
+#   1  Sort the elements   families, recurrence, and an ordering that breaks
+#   2  Leave the gaps       what an empty cell is worth if it carries figures
+#   3  Test the table       a sample arrives, and later a different ordering
+#
+# The science guardrail from the source book, kept. The 1869 table was one of
+# several developing classifications and it used atomic weights plus chemical
+# behaviour; the modern ordering principle is atomic number and it was
+# established decades later. Nothing here gives Mendeleev knowledge he did not
+# have, and the third level says out loud that the instrument settling the
+# anomaly arrived long after the table was drawn.
+#
+# Format budget. Nine stops, so `formatMix`'s cap is three of any one format:
+# CHOICE 2, BALLPARK 2, and one each of CASEBOOK, SWEEP, PROTOCOL, VERIFY,
+# DIAGNOSIS. Seven formats in nine stops, two of them driven.
+
+theme:
+  id: qd_periodic
+  title: Periodic Table
+  subtitle: Assistant · The Chemistry Institute
+
+groups:
+  - id: SPEC
+    code: SPEC
+    name: Specimen Store
+    color: '#3f7f6a'
+    desc: Sixty-three elements in numbered drawers, stored in the order they were acquired and in no other.
+    defaultLeader: popova
+    milestones: [Open the drawers, Compare behaviour, Group them, Ready to hand over]
+  - id: CARDS
+    code: CARDS
+    name: Card Desk
+    color: '#5a3b2a'
+    desc: A long table, one card an element, and permission to leave a hole where nothing fits.
+    defaultLeader: mendeleev
+    milestones: [Lay the cards, Find the recurrence, Leave the gap, Ready to hand over]
+  - id: BENCH
+    code: BENCH
+    name: Analysis Bench
+    color: '#3f6f8a'
+    desc: Mass, density and the formula of an oxide, each by its own method and none of them settling another.
+    defaultLeader: boisbaudran
+    milestones: [Weigh it, Measure the density, Analyse the oxide, Ready to hand over]
+  - id: HALL
+    code: HALL
+    name: Lecture Hall
+    color: '#2c3a30'
+    desc: Where a claim is defended, and where an instrument nobody in 1869 had was eventually wheeled in.
+    defaultLeader: meyer
+    milestones: [Read the sealed figures, Set them beside the measurements, Say what it supports, Ready to hand over]
+
+roster:
+  - id: mendeleev
+    name: Dmitri Mendeleev
+    role: Professor of Chemistry
+    real: true
+    division: CARDS
+    bio: |
+      Keeps the long table, which is where the cards get moved about. His rule is
+      that the drawers stay as they are and the rearranging happens on paper,
+      because a cupboard rearranged is a week nobody can retrace.
+
+      What he is after is a recurrence. Line the elements up by one measured
+      quantity and watch whether similar behaviour keeps reappearing; if it does,
+      the quantity is standing in for whatever really governs the chemistry.
+
+      His limit is that he does not know what that is. He has an arrangement and
+      a set of predictions and no account whatever of why the pattern exists.
+    quiz:
+      - q: Why does Mendeleev rearrange cards rather than drawers?
+        a: Because a cupboard rearranged cannot be put back
+        wrong:
+          - Because the specimens are too dangerous to be handled repeatedly
+          - Because the drawers are numbered in the order the elements were found
+          - Because a card carries more information than a specimen does
+
+  - id: meyer
+    name: Julius Lothar Meyer
+    role: Visiting Professor
+    real: true
+    division: HALL
+    bio: |
+      Arrived at much the same arrangement independently and by a different
+      route, plotting the volume each element takes up against its mass and
+      finding the curve rises and falls and rises again.
+
+      He is useful here because he agrees about the pattern and disagrees about
+      what to do with it. His instinct is to publish the curve; the argument he
+      loses is about whether to print figures for elements nobody has.
+
+      His limit is the one he concedes in the hall: a beautiful curve that
+      forecasts nothing cannot be shown to be wrong, and being shown to be wrong
+      is the only thing that would settle this.
+    quiz:
+      - q: What does Meyer concede about his curve?
+        a: That nothing it says could turn out to be false
+        wrong:
+          - That the volumes were measured too roughly to be trusted
+          - That the curve only holds for the lighter elements
+          - That plotting against mass was the wrong choice of variable
+
+  - id: boisbaudran
+    name: Paul-Émile Lecoq de Boisbaudran
+    role: Analyst
+    real: true
+    division: BENCH
+    bio: |
+      Works on separating and measuring, and has three grams of a metal nobody
+      had a year ago. Mass by weighing, density by displacement, the formula of
+      its oxide by analysis: three methods, three answers, no shortcuts between
+      them.
+
+      He came to it through the spectroscope rather than through any table, which
+      matters — the person who found the element was not looking for the element
+      that had been predicted.
+
+      His limit is the sample. Three grams is the entire world supply and every
+      measurement uses some of it.
+    quiz:
+      - q: Why does it matter that Boisbaudran was not looking for a predicted element?
+        a: The measurement is independent of the arrangement it tests
+        wrong:
+          - It means the spectroscope is a more reliable method than weighing
+          - It shows the predicted properties were not specific enough to search by
+          - It means the sample cannot be compared with the sealed figures
+
+  - id: moseley
+    name: Henry Moseley
+    role: Physicist
+    real: true
+    division: HALL
+    bio: |
+      Brings the instrument that settles the ordering, and it is not a chemical
+      instrument at all. Fire electrons at an element, read the X-rays it gives
+      back, and there is a number in them that goes up by exactly one from each
+      element to the next.
+
+      That number is not a weight and does not depend on which isotopes an
+      element happens to have, which is why the awkward pairs stop being awkward
+      the moment the run is ordered by it.
+
+      His limit here is a matter of dates rather than method: this instrument did
+      not exist when the table was drawn, and the game says so rather than
+      quietly handing it over early.
+    quiz:
+      - q: Why does the new number settle the awkward pairs?
+        a: Nothing about it is an average over a mixture
+        wrong:
+          - It is measured far more precisely than an atomic weight can be
+          - It is derived from the chemistry rather than from the physics
+          - It changes the atomic weights that were causing the conflict
+
+  - id: popova
+    name: Anna Popova
+    role: Specimen Curator
+    division: SPEC
+    bio: |
+      Keeps the drawers, the dockets and the standing orders about which
+      elements are safe to open in front of. Several of them are not.
+
+      Her point about the store is one people find dull and then repeat back to
+      her later: the drawers are numbered in the order the elements were
+      acquired, which is a fact about this cupboard and about nothing else. Any
+      order anybody claims to see has to come from the properties.
+
+      Her limit is that she can guarantee what is in a drawer and not what it
+      means. The comparing happens on the long table.
+    quiz:
+      - q: What is Popova's point about the numbering of the drawers?
+        a: It records when each one arrived and nothing else
+        wrong:
+          - It follows the order the elements were arranged in by weight
+          - It groups the dangerous specimens away from the others
+          - It matches the order the cards are laid out in on the table
+
+  - id: sokolova
+    name: Vera Sokolova
+    role: Analytical Assistant
+    division: BENCH
+    bio: |
+      Does the displacement work and the oxide analyses, and keeps the note of
+      how much sample each one costs.
+
+      Her contribution to the argument is a rule about method: three properties
+      measured three different ways is worth far more than one property measured
+      three times, because the errors are unrelated. A prediction that lands near
+      all three cannot be luck in the same way.
+
+      Her limit is that she cannot make a small sample larger, and the honest
+      uncertainty on a density from three grams is bigger than anybody wants it
+      to be.
+    quiz:
+      - q: Why are three different properties worth more than one measured three times?
+        a: Their errors are unrelated, so agreement cannot be one mistake
+        wrong:
+          - Three properties take less of the sample than three repeats would
+          - A single property can only be measured to two figures
+          - The three methods can be carried out at the same time
+
+missions:
+  - title: Sixty-three drawers and no order
+    objective: Find a family by behaviour, watch a property recur along an ordered run, and meet the pair that will not fit.
+    briefing: Popova will open the drawers and the sorting happens on paper.
+    stake: >-
+      Monday. Sixty-three elements are in numbered drawers and the numbers record when each
+      one arrived and nothing else. Anna Popova, who keeps the specimen store, will open any
+      of them and will not let a single one be moved. Dmitri Mendeleev, the professor here,
+      has a long table, a card for every element and no arrangement yet. Today you find a set
+      that behaves alike, order a run by one measured quantity and watch what the properties
+      do, and meet a pair whose weights put them in the wrong families. A cupboard is not an
+      argument.
+    takeaway: An arrangement has to come from what the elements do, not from the order they arrived in.
+    stops:
+      - group: SPEC
+        task: Find the elements that behave alike
+        title: Three that do the same chemistry
+        place: Specimen Store
+        concept: 'A chemical family is defined by recurring behaviour, not neighbouring mass'
+        scene: >
+          Eight drawers are open on the bench with a card beside each: lithium,
+          sodium, potassium, magnesium, calcium, chlorine, bromine and oxygen.
+          Each card gives a mass and the compounds the element makes.
+        guide: >-
+          Match each set of three on the card to the thing its members actually share. What
+          separates the sets is whether the shared thing is chemical behaviour or something
+          about the numbers. Read what each set has in common rather than which cards happen
+          to lie near each other in the drawer.
+        background:
+          - >-
+              How to do it, on a different example. Sort a shelf of tools. Hammer, mallet and
+              sledge belong together because of what they do; hammer, screwdriver and chisel
+              belong together only because they weigh about the same, which is a fact about
+              the shelf. One of those groupings predicts what a new tool will be for.
+          - >-
+              What behaviour means here. An element is described by the compounds it makes and
+              in what proportions, and by how vigorously it reacts. Lithium, sodium and
+              potassium each make one kind of compound with chlorine, in one to one, and each
+              of them attacks water.
+          - >-
+              Why mass is a poor guide on its own. The masses of those three are nothing like
+              each other, and elements with very similar masses can behave completely
+              differently. Grouping by mass groups things that happen to weigh alike.
+          - >-
+              Why this comes first. Everything later in the week is a claim that behaviour
+              recurs when the elements are put in a particular order. Establishing what a
+              family is has to happen before anybody can say a family has reappeared.
+        assumes:
+          - an element is described by the compounds it makes and in what proportions
+          - two elements can have similar masses and unlike chemistry
+        takeaway: Elements belong together when they do the same chemistry, and a grouping made from adjacent masses is a fact about the storeroom rather than about the elements.
+        format: CASEBOOK
+        task_line: Match each set of three to what its members actually share.
+        scenarios:
+          - Lithium, sodium and potassium.
+          - Sodium, magnesium and chlorine.
+          - Chlorine, oxygen and potassium.
+          - Magnesium, bromine and lithium.
+        choices:
+          - The same kind of compound in the same proportions, and the same violence with water.
+          - Nothing but their positions in the run — three neighbours picked off the list.
+          - Nothing at all — one from each of three different families.
+          - Nothing but their masses, which happen to fall in the same part of the range.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Only the first set shares any chemistry. Its three members each make the same kind of
+          compound in the same proportion and each attacks water, and their masses are nothing
+          like one another — which is exactly the point. The other three sets are grouped by
+          position, by accident and by weight, and none of those predicts anything about a new
+          element. This is the distinction the rest of the week depends on. When an arrangement
+          is claimed to work, what has to recur is behaviour.
+
+      - group: SPEC
+        task: Order a run and watch what recurs
+        title: How far before it comes round again
+        place: Specimen Store
+        concept: 'Ordering by one variable reveals a recurrence, if there is one'
+        scene: >
+          The lighter elements are laid out in order of increasing mass with a
+          combining power written under each. Popova will read out any position
+          in the run you point at.
+        guide: >-
+          Move along the ordered run and watch how closely each element's chemistry matches the
+          first one's. You are looking for the first place where it comes back. Read across the
+          whole run before deciding, because one return could be a coincidence and a second one
+          the same distance further on is what makes it a recurrence.
+        background:
+          - >-
+              How to do it, on a different example. Walk along a terrace reading the house
+              colours: red, blue, green, yellow, red, blue, green, yellow. You do not learn the
+              period from the first red; you learn it by going far enough to see it come back
+              and then keep coming back. Read the whole run.
+          - >-
+              What is being ordered and what is being watched. The ordering is by a measured
+              quantity — mass — and the thing being watched is a chemical property. Those have
+              to be independent, or the recurrence is built into the arrangement rather than
+              found in it.
+          - >-
+              What a recurrence would mean. If a property keeps returning at intervals as the
+              mass rises, then mass is standing in for something else that governs the
+              chemistry and comes round again and again. That is a much larger claim than
+              having sorted a cupboard, and it is what the rest of the week rests on.
+          - >-
+              Why the early periods are short. In the historical arrangement the first
+              recurrence comes after seven or eight elements, and later ones are longer. A
+              fixed interval is not being claimed; what is being claimed is that behaviour
+              returns rather than drifting.
+        assumes:
+          - the ordering quantity and the property watched are measured independently
+          - combining power can be read as a single number for these elements
+        takeaway: Ordering by one measured quantity and watching an independent property is how a recurrence is found rather than assumed, and how far apart the returns are is read off the run.
+        format: SWEEP
+        question: Where along the run does the chemistry first come back to the first element's?
+        answerText: >-
+          At the ninth place — eight along from the first. It happens again at the seventeenth,
+          eight further on, which is what makes it a recurrence rather than one coincidence.
+        why: >
+          The chemistry does not drift away. It comes back. Read only the first few elements
+          and you see it fall off and learn nothing. Read the whole run and the match returns at
+          the ninth place and again at the seventeenth, eight further on. One return could be a
+          coincidence. Two, the same distance apart, is a recurrence. That is a claim of a
+          different order from having sorted a cupboard. If mass stands in for something that
+          comes round, the arrangement can be asked what belongs in a place nobody has filled.
+        sweep:
+          axis:
+            label: Place along the run, ordered by mass
+            unit: ""
+            min: 2
+            max: 20
+            step: 1
+          readout:
+            label: How closely the chemistry matches the first element
+            unit: ""
+          baseline: 0.08
+          response:
+            - at: 2
+              value: 0.10
+            - at: 3
+              value: 0.07
+            - at: 4
+              value: 0.05
+            - at: 5
+              value: 0.05
+            - at: 6
+              value: 0.08
+            - at: 7
+              value: 0.14
+            - at: 8
+              value: 0.30
+            - at: 9
+              value: 0.93
+            - at: 10
+              value: 0.28
+            - at: 11
+              value: 0.12
+            - at: 14
+              value: 0.06
+            - at: 17
+              value: 0.90
+            - at: 20
+              value: 0.10
+          target: 9
+          tolerance: 0.6
+          start: 20
+          commit: Mark where it comes back
+
+      - group: CARDS
+        task: Decide what to do with the awkward pair
+        title: Two cards that will not both be right
+        place: Card Desk
+        concept: 'When order and chemistry disagree, the ordering variable is suspect'
+        scene: >
+          Two cards will not sit still. By mass, tellurium comes after iodine. By
+          the compounds they make, tellurium plainly belongs with the family
+          above iodine's.
+        guide: >-
+          Four responses are on offer. What separates them is what each treats as the thing to
+          be trusted when the ordering quantity and the chemistry disagree. Ask of each: after
+          it, is the arrangement still able to make a claim, and is the disagreement still
+          visible to somebody reading it later?
+        background:
+          - >-
+              How to do it, on a different example. A library shelves by height and one book is
+              plainly a volume of an encyclopaedia that is a centimetre shorter than the rest.
+              Shelve it with its set and note the anomaly, and the shelf still works and the
+              oddity is on record. Shelve it by height and the set is broken to protect a rule
+              nobody cares about.
+          - >-
+              Why the chemistry wins here. The whole arrangement was built out of recurring
+              behaviour, so behaviour is what it is for. Obeying mass at the cost of the
+              families would be preferring the measuring stick to the thing measured.
+          - >-
+              Why the flag matters as much as the placement. A pair moved quietly is a pair
+              nobody will look at again. Left visible, it is a standing question: either the
+              masses are wrong, or mass is not quite the right quantity to be ordering by.
+          - >-
+              What is not being claimed. Nobody in this room can say what the right quantity
+              would be. Saying that the ordering variable may be incomplete is a very different
+              thing from knowing what should replace it, and the replacement is decades away.
+        assumes:
+          - the arrangement was built from recurring chemical behaviour
+          - both atomic weights were measured carefully by more than one laboratory
+        takeaway: When the ordering quantity and the chemistry disagree, the arrangement keeps the chemistry and records the disagreement, because the mismatch is a clue about the ordering rather than about the elements.
+        format: CHOICE
+        question: What should be done with tellurium and iodine?
+        choices:
+          - Place them by their chemistry and flag the mismatch as an open question.
+          - Obey the masses and put each one in the family the weights give.
+          - Assume both weights were measured wrongly and correct them to fit.
+          - Take both out of the arrangement until somebody can explain them.
+        answer: Place them by their chemistry and flag the mismatch as an open question.
+        rebuttals:
+          - That breaks two families to protect an ordering rule the arrangement was not built on.
+          - Nothing here is evidence about the weighing, and correcting data to fit is how an arrangement stops being testable.
+          - Removing the awkward cases makes any arrangement work, which is why it is not allowed.
+        why: >
+          The arrangement was built out of behaviour, so behaviour is what it is for. Bending
+          the families to protect the weights would prefer the measuring stick to the thing
+          measured. Correcting the weights to fit is worse. Any table can be rescued by
+          adjusting the numbers under it, and a table rescued that way can no longer be shown
+          to be wrong. What the flag buys is a standing question somebody can come back to. And
+          somebody did, with an instrument nobody in this room could have imagined.
+
+  - title: The holes are the argument
+    objective: Refuse to force a card, put figures on an element nobody has, and get them printed before anybody looks.
+    briefing: Mendeleev wants the gaps carrying numbers or not carrying anything.
+    stake: >-
+      Wednesday, and there are three holes in the arrangement. Dmitri Mendeleev will not put
+      the nearest card into any of them. Julius Lothar Meyer, the visiting professor, has
+      reached much the same arrangement by a different route and thinks printing figures for
+      elements nobody has is a way of looking foolish in public. Vera Sokolova, the analytical
+      assistant, has the neighbours' masses and densities to hand. Today you decide what an
+      empty cell is for, work out what would have to go in one, and settle whether the figures
+      are published before or after somebody finds it.
+    takeaway: A gap is worth having only if it carries figures somebody could have found to be wrong.
+    stops:
+      - group: CARDS
+        task: Decide what an empty cell is for
+        title: The card that nearly fits
+        place: Card Desk
+        concept: 'An empty cell is a prediction, and a forced fit is not'
+        scene: >
+          There is a position below aluminium and no card that belongs in it. One
+          known element could be pushed in; its chemistry is wrong for the
+          column, but the table would look finished.
+        guide: >-
+          Four things could be done with the position, and each one costs something different.
+          Match each action to what it actually costs — a broken family, a hidden pattern, a
+          testable claim, or a question nobody can come back to. Read what each does to the
+          arrangement rather than to its appearance.
+        background:
+          - >-
+              How to do it, on a different example. A jigsaw has a hole and a piece that nearly
+              fits. Force it and every piece after it is out by a millimetre and the picture is
+              quietly wrong. Leave the hole and say what shape and colour the missing piece
+              must be, and the next box of pieces can settle it.
+          - >-
+              What an empty cell says. It says the arrangement requires something with a
+              particular chemistry, a mass between its neighbours' and a particular kind of
+              oxide, and that no known element has that combination. Every one of those is a
+              statement about a thing nobody has.
+          - >-
+              Why a forced fit is worse than a hole. The forced card is now in the wrong family,
+              so it makes the wrong prediction about its own compounds, and the position it
+              vacated is now empty instead. The hole has moved rather than gone.
+          - >-
+              What this costs in public. A table with holes in it looks unfinished and invites
+              exactly the response Meyer expects. The holes are the reason the arrangement is
+              worth more than a tidy one, and that is a hard argument to make before anything
+              has been found.
+        assumes:
+          - a position in the arrangement carries a chemistry its occupant must have
+          - the known elements have all been placed by their behaviour
+        takeaway: An empty cell states what would have to exist, so it is a claim that can fail; a forced fit states nothing and moves the problem one place along.
+        format: PROTOCOL
+        task_line: Match each action to what it costs.
+        scenarios:
+          - Push the nearest known element into the position.
+          - Leave the position empty and say nothing about it.
+          - Leave it empty and print the mass, density and oxide it must have.
+          - Delete the column so there is no position to fill.
+        choices:
+          - A broken family, and the same hole one place further along.
+          - A pattern that is visible and a question nobody can act on.
+          - A claim that a later discovery can confirm or destroy.
+          - A tidy arrangement that has stopped saying anything.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Only one of these produces something that can be wrong. Forcing a card breaks a
+          family and moves the hole one place along. Leaving the cell blank keeps the pattern
+          honest and gives nobody anything to do. Deleting the column buys tidiness by giving up
+          the claim. The third puts figures on a thing nobody has. That is uncomfortable and it
+          is the whole value of the arrangement. Be clear about the risk. If an element turns up
+          below aluminium with the wrong mass or the wrong oxide, the table is in trouble and
+          everybody will know.
+
+      - group: CARDS
+        task: Work out what belongs in the gap
+        title: The mass of something nobody has
+        place: Card Desk
+        concept: 'A property between two neighbours can be interpolated'
+        scene: >
+          The position below aluminium sits between two known elements in the same
+          family. Aluminium's mass is twenty-seven and the one below the gap is a
+          hundred and fourteen.
+        guide: >-
+          A property that changes steadily down a family has a value at an empty position lying
+          between its neighbours, so take the midpoint of the two. Two of the tiles are
+          measurements of the new metal that nobody has taken yet, and using either of them
+          would be predicting from the answer.
+        background:
+          - >-
+              How to do it, on a different example. Two milestones on a road read four
+              kilometres and twelve kilometres, and a village lies halfway between them. The
+              milestone at the village would read eight. That is an estimate rather than a
+              measurement, and it is a good one exactly because the thing being estimated
+              changes steadily along the road.
+          - >-
+              Why the midpoint and not something cleverer. The change down a family is not
+              perfectly even, and a more elaborate rule would need more data than anybody has.
+              The plainest estimate is the honest one, and the difference it makes here is a
+              couple of units.
+          - >-
+              What else gets predicted the same way. Density, the formula of the oxide and how
+              the element behaves with acid all come from the same reasoning: the position sits
+              between two known things and takes values between theirs.
+          - >-
+              Why this makes the claim risky. Sixty-eight and seventy are different numbers, and
+              so are five and seven grams to the cubic centimetre. A prediction stated to that
+              precision can be missed, and being missable is the property that makes it worth
+              printing.
+        assumes:
+          - a property changes steadily down a chemical family
+          - both neighbours' masses have been measured independently
+        takeaway: A value at an unoccupied position lies between the values around it, which turns an empty cell from a hope into a number somebody can check.
+        format: BALLPARK
+        question: What atomic mass belongs in the gap below aluminium?
+        estimate:
+          prompt: >-
+            Mendeleev will not print a prediction until the figure is on the board with the two
+            neighbours beside it.
+          question: What atomic mass belongs in the gap below aluminium?
+          relationship: A property that changes steadily down a family takes a value at an empty position halfway between the two neighbours either side of it.
+          labels:
+            - 27  (the atomic mass of the element above the gap)
+            - 114  (the atomic mass of the element below it)
+            - 2  (the two neighbours the estimate lies between)
+            - 69.7  (the mass measured later, which nobody has yet)
+            - 5.9  (the density measured later, which is not a mass)
+          values: [27, 114, 2, 69.7, 5.9]
+          slots: 3
+          template: '({0} + {1}) ÷ {2}'
+          formula: (a+b)/c
+          correct: [0, 1, 2]
+          target: 70.5
+          tolerance: 1.5
+          units: atomic mass units
+          solution: Twenty-seven and a hundred and fourteen average to seventy point five, so the missing element should weigh about seventy.
+          explanation: The sixty-nine point seven is what somebody measures years later, and a prediction built out of the answer is not a prediction.
+        why: >
+          About seventy. The estimate is plain arithmetic and its value is that it can be
+          missed: seventy and eighty-five are different claims, and an element turning up at
+          eighty-five would put the arrangement in trouble. The same reasoning gives a density
+          and the formula of the oxide, and it is the combination that matters. Any one figure
+          could land near the truth by luck. Three figures from three unrelated properties
+          landing near it is a great deal harder to arrange by accident.
+
+      - group: BENCH
+        task: Settle when the figures are published
+        title: Sealed, dated, and printed
+        place: Analysis Bench
+        concept: 'A prediction made before the measurement is a test; one made after is not'
+        scene: >
+          The figures for the missing element are written out. Meyer's position is
+          that printing them invites ridicule. Sokolova has the press date and
+          wants an answer this afternoon.
+        guide: >-
+          Commit to a figure for the density of the missing element, then publish, then wait for
+          somebody to measure it. Once the figure is printed nothing about it can be changed,
+          which is the whole reason for printing it. Note also that publishing is not the end of
+          this: the claim is settled by a measurement somebody else takes.
+        background:
+          - >-
+              How to do it, on a different example. Two people watch a horse race. One says
+              beforehand which horse will win and is right; the other explains afterwards why
+              that horse was always going to win and is equally convincing. Only the first of
+              them has told you anything about horses.
+          - >-
+              What printing actually buys. A dated publication is a record that the figure
+              existed before the measurement did. Without it, any agreement afterwards can be
+              read as the figure having been chosen to agree, and there is no way to tell the
+              two apart from the outside.
+          - >-
+              Why the risk is the point. If the element turns up with a density of eight, the
+              printed figure is wrong in public and the arrangement is damaged. Accepting that
+              risk is what makes the agreement, when it comes, worth anything at all.
+          - >-
+              What could still go wrong afterwards. Nobody may find the element for thirty
+              years, or ever. A prediction can be perfectly good and simply not get tested, and
+              that is a different outcome from being wrong.
+        assumes:
+          - a dated publication records that a figure existed before a measurement did
+          - the density will eventually be measured by somebody else
+        takeaway: A figure published before anybody measures it can be shown to be wrong, and that is the only property that distinguishes a prediction from an explanation.
+        format: VERIFY
+        question: >-
+          Commit a density for the missing element, print it, then wait for somebody to measure it.
+        verify:
+          hint: >-
+            Write the figure down before it goes to press. Nothing about it can be changed
+            afterwards, which is what makes it a prediction.
+          prediction: { label: Predicted density of the missing element, unit: g/cm³, min: 1, max: 12, step: 0.1 }
+          truth: 5.9
+          passRatio: [0.7, 1.4]
+          intervention:
+            label: Printing the figures
+            note: Mass, density and the formula of the oxide, dated, in the society's proceedings.
+            outcome: Published. Meyer has written a polite letter about the wisdom of it.
+          measurement:
+            label: The density of the new metal, measured in France
+            note: By displacement, on the whole three-gram sample, by somebody who was not looking for it.
+            cost: 5
+            costUnit: years
+          unmeasuredMoral: >-
+            The figures are printed and dated and everybody has read them. That is a statement
+            about the journal, and it is not yet a statement about the world.
+          commit: Report what was measured
+        answerText: >-
+          Just under six grams to the cubic centimetre. The printed figure was close, and the
+          only reason that means anything is that it was printed first.
+        why: >
+          Publishing is what converts an arrangement into a test. Once the figure is dated in
+          print, agreement afterwards cannot be explained away as the figure having been chosen
+          to fit, and disagreement is public. That is an uncomfortable trade and it is the
+          entire value of the exercise. The failure the panel is built around is stopping at
+          publication. A printed prediction is a claim about the world that the world has not
+          yet answered, and until somebody measures it nothing has been established at all.
+
+  - title: Three grams from France
+    objective: Set the sealed figures against the measurements, say how close is close enough, and find the ordering underneath.
+    briefing: Boisbaudran has the sample and did not know what he was looking for.
+    stake: >-
+      Five years on, and a metal nobody had has arrived by post. Paul-Émile Lecoq de
+      Boisbaudran, the analyst who found it, came to it through a spectroscope rather than
+      through anybody's table and has three grams, which is the entire world supply. Vera
+      Sokolova has measured its mass, its density and the formula of its oxide, each by a
+      different method. And in the lecture hall, decades later again, Henry Moseley, a physicist, has an
+      instrument that reads a number off an element which is not a weight. Today you set
+      prediction against measurement, say what counts as close, and find the quantity the
+      order was really about.
+    takeaway: A prediction is confirmed approximately by several independent properties, and the ordering underneath it was a different quantity all along.
+    stops:
+      - group: HALL
+        task: Set the sealed figures against the measurements
+        title: Three properties, three residuals
+        place: Lecture Hall
+        concept: 'Several independent properties close to prediction is strong support'
+        scene: >
+          The sealed envelope is open on the demonstration table beside
+          Sokolova's three measurements. Mass predicted seventy against
+          sixty-nine point seven; density six against five point nine; oxide two
+          to three, as predicted.
+        guide: >-
+          Read the whole table rather than the closest row. Three properties were predicted by
+          three different bits of reasoning and measured by three unrelated methods, and the
+          quiet rows matter as much as the striking one. The reading you want accounts for all
+          of them, including the fact that none is exact.
+        background:
+          - >-
+              How to do it, on a different example. Somebody describes a stranger you are to
+              meet: about six foot, dark coat, carrying a violin case. Any one of those could
+              match by chance in a crowded station. All three together could not, and none of
+              them has to be exactly right for you to be sure you have found the person.
+          - >-
+              Why independence is what makes this strong. The mass came from averaging two
+              neighbours, the density from a trend down the family, and the oxide formula from
+              the column's chemistry. They were measured by weighing, by displacement and by
+              analysis. Nothing links any prediction to any measurement except the arrangement.
+          - >-
+              What one property alone would have been worth. A mass landing near seventy would
+              have been suggestive and no more, because a mass has to be some number and the
+              range of plausible ones is not wide. It is the coincidence of three that cannot
+              easily be arranged.
+          - >-
+              The circumstance that makes it stronger still. The person who found the element
+              was not looking for a predicted one. That removes the ordinary worry that a
+              search shaped by a prediction finds what it was shaped to find.
+        assumes:
+          - the three predictions were made from different reasoning and printed in advance
+          - the three measurements were made by unrelated methods
+        takeaway: Several independent properties landing near their predicted values is much stronger than one, because nothing links them except the arrangement that predicted them.
+        format: DIAGNOSIS
+        headline: Mass predicted 70 and measured 69.7; density predicted 6 and measured 5.9; the oxide is the formula the column requires.
+        task: Which reading of the table fits all three rows and their sizes?
+        readings:
+          - { zone: Mass, label: Predicted against measured, value: 70 against 69.7, status: normal, note: from averaging two neighbours }
+          - { zone: Density, label: Predicted against measured, value: 6 against 5.9, status: normal, note: from a trend down the family }
+          - { zone: Oxide, label: Predicted against analysed, value: two to three, status: normal, note: from the column's chemistry }
+          - { zone: Publication, label: Date of the printed figures, value: five years earlier, status: normal }
+          - { zone: Discovery, label: What the finder was looking for, value: not this element, status: normal, note: found by spectroscope }
+          - { zone: Exactness, label: Any row landing exactly, value: none of the three, status: low }
+        choices:
+          - label: The arrangement predicted three unrelated properties and got all three about right
+            mechanism: Nothing links the three predictions to the three measurements except the table.
+          - label: The mass alone settles it and the other two rows are decoration
+            mechanism: One good number is as strong as three.
+          - label: It fails, because not one of the three landed exactly
+            mechanism: A prediction is only confirmed by an exact match.
+          - label: The finder must have been guided by the printed figures
+            mechanism: A search shaped by a prediction finds what it was shaped to find.
+        answer: The arrangement predicted three unrelated properties and got all three about right
+        why: >
+          Three predictions from three different pieces of reasoning, measured by three
+          unrelated methods, all landing near their figures. Nothing connects them except the
+          arrangement, which is why the combination is so much stronger than any single row.
+          The quiet rows do real work here. The publication date rules out the figures having
+          been fitted afterwards, and the way the element was actually found rules out a search
+          shaped by the prediction. What none of the rows offers is exactness, and the next
+          stop is about what to make of that.
+
+      - group: BENCH
+        task: Say how close it came
+        title: Seventy against sixty-nine point seven
+        place: Analysis Bench
+        concept: 'A prediction is confirmed approximately, not exactly'
+        scene: >
+          Sokolova wants the agreement stated as a figure rather than as an
+          adjective. The predicted mass was seventy point five and the measured
+          mass is sixty-nine point seven.
+        guide: >-
+          State how far the prediction was out as a share of the thing being predicted, which
+          is the difference divided by the measured value. Two of the tiles are the density
+          pair from the other row, and mixing the two properties would produce a number about
+          neither of them.
+        background:
+          - >-
+              How to do it, on a different example. A carpenter predicts a beam at two metres
+              forty and it measures two metres thirty-six. Four centimetres out of two thirty-six
+              is under two per cent. Saying "four centimetres" makes it sound the same as being
+              four centimetres out on a matchbox, which is why the difference is divided by the
+              size of the thing.
+          - >-
+              Why exactness was never on offer. The prediction came from averaging two
+              neighbours down a family whose properties do not change perfectly evenly, so a
+              few per cent is about what the method can give. Demanding better would be
+              demanding more than the reasoning contains.
+          - >-
+              What would have counted as a failure. An element at eighty-five, or a density of
+              nine, or an oxide of a different formula. Those are the outcomes the printed
+              figures ruled out, and ruling them out in advance is what the arrangement was
+              being tested on.
+          - >-
+              Why this matters beyond one element. If approximate agreement did not count, no
+              prediction of this kind could ever be confirmed, and every successful forecast in
+              the history of the subject would have to be thrown away. A claim has to be judged
+              against what its method could deliver.
+        assumes:
+          - a prediction is judged against the size of the quantity predicted
+          - both figures refer to the same property of the same element
+        takeaway: A prediction of this kind claims a value in a range, so it is confirmed by landing in that range, and demanding exactness would discard every confirmation the method has ever had.
+        format: BALLPARK
+        question: How far out was the predicted mass, as a percentage?
+        estimate:
+          prompt: >-
+            Sokolova will not write "close" in the report. She wants a figure.
+          question: How far out was the predicted mass, as a percentage?
+          relationship: How close a prediction came is the difference between it and the measurement, divided by the measured value, as a percentage.
+          labels:
+            - 70.5  (the mass predicted from the two neighbours)
+            - 69.7  (the mass measured on the new metal)
+            - 100  (to turn a share into a percentage)
+            - 6.0  (the density predicted, which is a different property)
+            - 5.9  (the density measured, which is also not a mass)
+          values: [70.5, 69.7, 100, 6.0, 5.9]
+          slots: 3
+          template: '({0} − {1}) ÷ {1} × {2}'
+          formula: (a-b)/b*c
+          correct: [0, 1, 2]
+          target: 1.15
+          tolerance: 0.4
+          units: per cent out
+          solution: The prediction was eight tenths of a unit above the measurement, and eight tenths out of sixty-nine point seven is a little over one per cent.
+          explanation: The six and the five point nine are the density pair from the other row, and combining a mass with a density gives a number about neither.
+        why: >
+          A little over one per cent. That is what the method could deliver. Averaging two
+          neighbours down a family whose properties do not change evenly cannot do better, so
+          demanding an exact hit demands more than the reasoning contains. What the printed
+          figures ruled out is real. An element at eighty-five. A density of nine. An oxide of
+          a different kind. If approximate agreement did not count as confirmation, no
+          prediction of this kind could ever be confirmed at all.
+
+      - group: HALL
+        task: Find the quantity the order was about
+        title: Fifty-two, then fifty-three
+        place: Lecture Hall
+        concept: 'Atomic number, not atomic mass, is what the order is really about'
+        scene: >
+          Decades on, an instrument in the hall reads a number off each element
+          from the X-rays it gives back. For the awkward pair it reads fifty-two
+          and fifty-three, in the order their chemistry always wanted.
+        guide: >-
+          Four candidate ordering quantities are on the board. What separates them is whether
+          the quantity is a property of a single atom or of a sample of them, and whether it
+          could ever run backwards between neighbours. Test each against the awkward pair
+          rather than against the elements that never gave trouble.
+        background:
+          - >-
+              How to do it, on a different example. Sorting people by shoe size mostly sorts
+              them by height and occasionally does not. The exceptions are not mistakes in the
+              measuring; they are the measure being a stand-in for the thing you actually
+              wanted.
+          - >-
+              Why an average mass can run backwards. An element is a mixture of atoms of
+              different masses in whatever proportion nature supplies, and the average is a
+              property of that mixture. Two neighbours can therefore have averages the wrong way
+              round without anything being measured wrongly.
+          - >-
+              What the new number is. It is the charge on the nucleus. A nucleus carries
+              positive particles called protons, and this number is a count of them. It goes up
+              by exactly one from each element to the next, with no mixtures and no averages. That is why the conflict simply disappears rather than being
+              patched.
+          - >-
+              What this does not undo. The arrangement built out of behaviour and atomic weight
+              was right about the families, right about the gaps and right about the elements
+              that filled them. Finding the quantity underneath explains why it worked and
+              shows where the strain was.
+        assumes:
+          - an element is a mixture of atoms of different masses in natural proportions
+          - the X-ray number goes up by one from each element to the next
+        takeaway: The right ordering quantity is a property of a single atom rather than an average over a sample, which is why it can never run backwards between neighbours and an average can.
+        format: CHOICE
+        question: Which quantity should the elements be ordered by?
+        choices:
+          - The number the X-ray instrument reads.
+          - The average atomic mass of a sample.
+          - The density of the solid element.
+          - The year in which it was discovered.
+        answer: The number the X-ray instrument reads.
+        rebuttals:
+          - It is an average over a mixture, so it can run backwards between neighbours through no error at all.
+          - Density depends on how the atoms are packed and is not a property of a single atom.
+          - That is a fact about the history of the subject rather than about the elements.
+        why: >
+          The count of protons goes up by one from each element to the next, and nothing about
+          it is an average, so it cannot run backwards. The awkward pair stops being awkward the
+          moment the run is ordered by it, and no correction to anybody's weighing was needed.
+          What this does not do is take anything away from the earlier arrangement. Built out of
+          behaviour and atomic weight, it was right about the families, right about the gaps and
+          right about what filled them. The new quantity explains why it worked and shows the
+          one place it was under strain.
+
+warmups:
+  greet:
+    title: Four rooms and one arrangement between them
+    why: >-
+      The drawers, the long table, the bench and the hall are four different kinds of work and
+      two of the people here disagree about whether the whole thing should be published. A
+      claim is worth what the room behind it is worth. Put a name to as many of them as you
+      can before the week starts.
+  trial-near:
+    title: Walk the institute before a drawer is opened
+    why: >-
+      The specimens and the card desk are down one side of the corridor and the bench and the
+      lecture hall are down the other, which means every card crosses it. Anna Popova, who
+      keeps the specimen store, would rather you knew the way than found it out carrying an
+      open drawer.
+  follow:
+    title: Sokolova carries a measurement from the bench to the hall
+    why: >-
+      A density is read off a displacement, written on a slip and read out in another room, and
+      most of what goes wrong happens in between. Vera Sokolova, the analytical assistant,
+      walks one the whole way. Stay with her and watch where the figure changes hands.
+
+interiors:
+  SPEC:
+    caption: The drawers are numbered by when they arrived and by nothing else.
+    standLine: Sixty-three elements, eight of them open on the bench.
+    station:
+      kind: panel
+      title: Specimen store
+      rows:
+        - { label: Elements held, value: 63, status: normal }
+        - { label: Kept under oil, value: 3, status: low }
+        - { label: Order of the drawers, value: date of arrival, status: low }
+        - { label: Order of the cards, value: not yet decided, status: alarm }
+  CARDS:
+    caption: An empty cell is a prediction. A forced fit is not.
+    standLine: One card an element, and three holes nobody will fill.
+    station:
+      kind: plot
+      title: A property along the run
+      note: it comes back, and it comes back again
+      axes: { x: place in the run, y: combining power }
+      curves:
+        - { points: [[0.05, 0.14], [0.15, 0.42], [0.25, 0.56], [0.35, 0.28], [0.4, 0.14], [0.5, 0.42], [0.6, 0.56], [0.7, 0.28], [0.8, 0.14], [0.95, 0.42]], label: combining power }
+  BENCH:
+    caption: Three properties, three methods, three chances to be wrong.
+    standLine: Three grams of a metal that did not exist last year.
+    station:
+      kind: panel
+      title: Predicted against measured
+      rows:
+        - { label: Mass, value: 70.5 against 69.7, status: normal }
+        - { label: Density, value: 6.0 against 5.9, status: normal }
+        - { label: Oxide, value: as the column requires, status: normal }
+        - { label: Exact agreement, value: none of the three, status: low }
+  HALL:
+    caption: A claim is defended here or it is not made.
+    standLine: A sealed envelope, three measurements, and an instrument nobody had in 1869.
+    station:
+      kind: panel
+      title: The awkward pair
+      rows:
+        - { label: By average mass, value: 127.6 then 126.9, status: alarm }
+        - { label: By chemistry, value: Te then I, status: normal }
+        - { label: By the X-ray number, value: 52 then 53, status: normal }
+        - { label: Conflict remaining, value: none, status: normal }
+
+copy:
+  SPEC: <p>The specimen store, first door on the west side. A wall of numbered drawers, a bench to put one down on, and a docket book by the door.</p>
+  CARDS: <p>The card desk, at the far end of the west side. One long table down the middle of the room, a card for every element, and nothing pinned down.</p>
+  BENCH: <p>The analysis bench, across the corridor. A balance, a displacement vessel, a rack of reagents, and three grams of metal that arrived by post.</p>
+  HALL: <p>The lecture hall, opposite the card desk. Three raked benches, a demonstration table, and an instrument on a trolley that nobody in 1869 could have wheeled in.</p>
+  PORCH: <p>The porter's room, inside the front door. A book that doubles as the fire roll, a rack of pigeonholes, and a bell.</p>
+  TEA: <p>The common room, halfway down the west side. A samovar, eight chairs that never leave, and a rota with two blank days on it.</p>
+  WEIGH: <p>The weighing room, beside the porter. One balance under glass, three sets of standards, and a door that has to be shut before anybody reads anything.</p>
+  RACK: <p>The reagent store at the end of the west side. Acids, alkalis, filter paper, and one tin of oil for the drawers that will not last the term.</p>
+  LIB: <p>The library at the far end. German journals on the left, offprints in a case, and the only quiet in the building.</p>
