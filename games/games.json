@@ -1682,7 +1682,7 @@
       "field": "Chemistry",
       "accent": "#5a3b2a",
       "place": "An 1869 chemistry institute: a wall of numbered specimen drawers and a long card table down one side of a corridor, an analysis bench and a lecture hall down the other.",
-      "hero": null,
+      "hero": "shots/qd_periodic.jpg",
       "level": "high",
       "grades": "9-12",
       "build": "qd_periodic",
@@ -1713,7 +1713,7 @@
       "field": "Psychology",
       "accent": "#5a4a7a",
       "place": "A 1935 reaction-time laboratory: a three-sided testing booth and a tabulation room down one side of a corridor, a chronoscope bench and a wall of eight hundred times down the other.",
-      "hero": null,
+      "hero": "shots/qd_stroop.jpg",
       "level": "high",
       "grades": "9-12",
       "build": "qd_stroop",
@@ -1729,6 +1729,99 @@
         "Speed and accuracy trade off, so both have to be reported",
         "A cost that shrinks with practice does not have to reach zero",
         "An effect being robust does not make one explanation of it proven"
+      ],
+      "size": {
+        "days": 3,
+        "stops": 9
+      },
+      "built": true
+    },
+    {
+      "id": "qd_memory",
+      "kind": "quick",
+      "title": "False Memories",
+      "course": "Cognitive psychology · how memory was shown to reconstruct rather than replay",
+      "field": "Psychology",
+      "accent": "#7a4fa3",
+      "place": "A memory and testimony unit: a study room and an event bay open to the corridor at the near end, two identical interview suites down one side and a data room down the other.",
+      "hero": "shots/qd_memory.jpg",
+      "level": "high",
+      "grades": "9-12",
+      "build": "qd_memory",
+      "pair": "qd_memory",
+      "shotsFrom": "qd_memory",
+      "role": "Research Assistant · Memory and Testimony Unit",
+      "dayNoun": "Level",
+      "grade": 9,
+      "drama": "Read somebody fifteen words that all point at a sixteenth, leave the sixteenth out, and more than half of them will tell you they heard it. You are the research assistant, which means the lists, the interviews and the transcripts all come through you.",
+      "concepts": [
+        "Recognition can be produced by meaning as well as by presentation",
+        "A lure is predicted in advance by the structure of the list",
+        "Post-event information changes what is later reported",
+        "Confidence and accuracy are two measurements, not one",
+        "An interview can be designed to add less than it takes"
+      ],
+      "size": {
+        "days": 3,
+        "stops": 9
+      },
+      "built": true
+    },
+    {
+      "id": "qd_keynes",
+      "kind": "quick",
+      "title": "Keynes and the Great Depression",
+      "course": "Macroeconomics · how a collapse in spending became a model of output and employment",
+      "field": "Social Science",
+      "accent": "#2f6f5a",
+      "place": "A 1933 economic advisory building: a wall-sized board of the whole economy open to the corridor, a statistics room of returns opposite, and a policy desk at the far end.",
+      "hero": "shots/qd_keynes.jpg",
+      "level": "high",
+      "grades": "9-12",
+      "build": "qd_keynes",
+      "pair": "qd_keynes",
+      "shotsFrom": "qd_keynes",
+      "role": "Junior Economist · Economic Advisory Building",
+      "dayNoun": "Level",
+      "grade": 9,
+      "drama": "A fifth of the country is idle and it is staying idle. You are the junior economist, which means the board, the returns and the arithmetic all come through you.",
+      "concepts": [
+        "Spending is somebody else's income, so a fall propagates",
+        "A fall in expected sales cuts production before it cuts prices",
+        "A geometric series of rounds sums to a finite multiplier",
+        "A gap can be sized against a multiplier",
+        "A conditional claim is the strongest claim this model supports"
+      ],
+      "size": {
+        "days": 3,
+        "stops": 9
+      },
+      "built": true
+    },
+    {
+      "id": "qd_bankrun",
+      "kind": "quick",
+      "title": "Bank Runs",
+      "course": "Economics and finance · why a sound bank can fail and what stops it",
+      "field": "Social Science",
+      "accent": "#8a4a3f",
+      "place": "Four floors of a 1933 bank on one footprint, joined only by the lift: the counter, the loan book, the reserve and the crisis desk — and the queue on the street below the windows.",
+      "hero": "shots/qd_bankrun.jpg",
+      "level": "high",
+      "grades": "9-12",
+      "build": "qd_bankrun",
+      "pair": "qd_bankrun",
+      "shotsFrom": "qd_bankrun",
+      "role": "Junior Clerk · Marrable House",
+      "dayNoun": "Level",
+      "grade": 9,
+      "drama": "There is a queue on the pavement below the window and nothing about this bank has changed since yesterday. You are the junior clerk, which means the counter, the book, the reserve and the desk all come through you, and the lift is the only way between them.",
+      "concepts": [
+        "A balance sheet balances, and the two sides mean different things",
+        "Liquidity and return trade against each other",
+        "A fire sale turns a timing problem into a value problem",
+        "Insurance changes the payoff, so it changes the behaviour",
+        "Diagnosing which problem it is has to come before choosing the tool"
       ],
       "size": {
         "days": 3,
