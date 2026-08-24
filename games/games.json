@@ -1397,6 +1397,7 @@
     },
     {
       "id": "qd_exo",
+      "kind": "quick",
       "title": "Something Is Pulling",
       "course": "Astronomy · how a planet nobody can see is detected and then described",
       "field": "Earth & Space",
@@ -1408,7 +1409,6 @@
       "build": "qd_exo",
       "pair": "qd_exo",
       "shotsFrom": "qd_exo",
-      "kind": "course",
       "role": "Observer · Planet Search Programme",
       "dayNoun": "Level",
       "grade": 9,
@@ -1428,6 +1428,7 @@
     },
     {
       "id": "qd_ligo",
+      "kind": "quick",
       "title": "The Chirp",
       "course": "Physics · how a passing gravitational wave was measured and read",
       "field": "Physics",
@@ -1439,7 +1440,6 @@
       "build": "qd_ligo",
       "pair": "qd_ligo",
       "shotsFrom": "qd_ligo",
-      "kind": "course",
       "role": "Detector Scientist · Interferometer Site",
       "dayNoun": "Level",
       "grade": 9,
@@ -1459,6 +1459,7 @@
     },
     {
       "id": "qd_cmb",
+      "kind": "quick",
       "title": "The Noise That Would Not Go",
       "course": "Cosmology · how an unwanted signal turned out to be the early universe",
       "field": "Earth & Space",
@@ -1470,7 +1471,6 @@
       "build": "qd_cmb",
       "pair": "qd_cmb",
       "shotsFrom": "qd_cmb",
-      "kind": "course",
       "role": "Radio Astronomer · Hilltop Antenna",
       "dayNoun": "Level",
       "grade": 9,
@@ -1490,6 +1490,7 @@
     },
     {
       "id": "qd_hubble",
+      "kind": "quick",
       "title": "No Middle To It",
       "course": "Astronomy · how a relation between distance and recession became an expanding universe",
       "field": "Earth & Space",
@@ -1501,7 +1502,6 @@
       "build": "qd_hubble",
       "pair": "qd_hubble",
       "shotsFrom": "qd_hubble",
-      "kind": "course",
       "role": "Observer · Mountain Observatory",
       "dayNoun": "Level",
       "grade": 9,
