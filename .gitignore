@@ -1,7 +1,9 @@
 # macOS / editor cruft
 .DS_Store
 **/.DS_Store
-.claude/
+**/.claude/*
+!**/.claude/skills/
+CLAUDE.md.bak
 
 # dependencies
 node_modules/
