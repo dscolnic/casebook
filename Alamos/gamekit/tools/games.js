@@ -279,28 +279,28 @@ export const GAMES = [
     hero: 'camera-field--from-the-track.png',
     level: 'high', grades: '9–12' },
 
-  { id: 'qd_exo', title: 'Something Is Pulling',
+  { id: 'qd_exo', kind: 'quick', title: 'Something Is Pulling',
     course: 'Astronomy · how a planet nobody can see is detected and then described',
     field: 'Earth & Space', accent: '#274a4f',
     place: 'A planet search floor: a spectrograph on one side of the corridor, a month of light curve on the wall of the other, and a room at the end with no instrument in it.',
     hero: 'survey-photometry--doorway.png',
     level: 'high', grades: '9–12' },
 
-  { id: 'qd_ligo', title: 'The Chirp',
+  { id: 'qd_ligo', kind: 'quick', title: 'The Chirp',
     course: 'Physics · how a passing gravitational wave was measured and read',
     field: 'Physics', accent: '#1c3f52',
     place: 'An interferometer corner station: the beam splitter and two metre-wide tubes leaving through the wall at right angles, three suspension stacks, and a control room at four in the morning.',
     hero: 'optics-lab--doorway.png',
     level: 'high', grades: '9–12' },
 
-  { id: 'qd_cmb', title: 'The Noise That Would Not Go',
+  { id: 'qd_cmb', kind: 'quick', title: 'The Noise That Would Not Go',
     course: 'Cosmology · how an unwanted signal turned out to be the early universe',
     field: 'Earth & Space', accent: '#7a4fa3',
     place: 'A hilltop radio site: a twenty-foot horn on a concrete pier inside a ring of ground shielding, a receiver hut under it, and a much newer building up the ridge.',
     hero: 'horn--three-quarter.png',
     level: 'high', grades: '9–12' },
 
-  { id: 'qd_hubble', title: 'No Middle To It',
+  { id: 'qd_hubble', kind: 'quick', title: 'No Middle To It',
     course: 'Astronomy · how a relation between distance and recession became an expanding universe',
     field: 'Earth & Space', accent: '#2e3d48',
     place: 'A 1920s mountain observatory: years of glass in numbered drawers on one side of the corridor, a spectrograph on its own pier on the other, and one plot at the end of it.',
@@ -379,5 +379,29 @@ export const LEVELS = [
   { id: 'high', label: 'High School' },
   { id: 'university', label: 'University' },
 ];
+
+/**
+ * `kind` defaults to 'course', and four Quick Discoveries were shipped without it.
+ *
+ * The shelf groups by `kind`, so `qd_exo`, `qd_ligo`, `qd_cmb` and `qd_hubble`
+ * sat among the forty-four Course Adventures and the Quick Discoveries section
+ * read six of ten. Nothing was broken — every game built, every card rendered,
+ * the count on the shelf was simply wrong, and it is the kind of wrong only
+ * somebody looking at the page finds.
+ *
+ * The id prefix and `kind` are two descriptions of one fact, which is why they
+ * drifted. This does not derive one from the other, because a Quick Discovery
+ * that is not named `qd_*` should still be possible — it asserts they agree,
+ * which is the cheap half and the half that would have caught this.
+ */
+for(const g of GAMES){
+  const looksQuick = /^qd[_-]/.test(g.id);
+  const saysQuick = g.kind === 'quick';
+  if(looksQuick !== saysQuick){
+    throw new Error(`games.js: "${g.id}" is ${saysQuick ? '' : 'not '}marked kind: 'quick' `
+      + `but its id ${looksQuick ? 'is' : 'is not'} a qd_ one — the shelf groups by kind, `
+      + 'so one of the two is wrong and the card will file under the wrong heading');
+  }
+}
 
 export default GAMES;
