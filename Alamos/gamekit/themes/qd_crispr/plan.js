@@ -26,8 +26,11 @@ export const plan = {
     // this corridor had no surfaces in it at all, just a bright fog with doors.
     // Everything here is a half-step down from where it reads on a swatch.
     palette: {
-      floorSpine: [118, 124, 128],
-      floorRoom:  [104, 112, 118],
+      // Halved from the first cut. A mid grey is exactly the value that renders
+      // as white under ACES, and the floor is the largest surface in a corridor
+      // frame — so a modern laboratory read as a bright fog with doors in it.
+      floorSpine: [64, 70, 76],
+      floorRoom:  [58, 64, 70],
       wall:  '#c8ccce',
       base:  '#3e4a52',
       rail:  '#7d868c',

@@ -145,13 +145,13 @@ export const CURRICULUM = {
         "rebuttals": [
           "That holds when there is nothing spare, and the returns say there is a great deal spare.",
           "Firms facing orders they can fill do fill them; stocks absorb a shock, not a trend.",
-          "Nothing here says labour is scarce, and unemployment is the reason this is being asked."
+          "Nothing here says labour is scarce, and unemployment is the reason the question is being asked at all."
         ],
         "choices": [
           "Raise output, because there is plant and labour standing idle.",
-          "Raise prices, because extra demand always raises prices.",
+          "Raise prices, because extra demand is what bids prices up.",
           "Do nothing, because firms will simply hold larger stocks.",
-          "Raise wages only, because labour is the binding constraint."
+          "Raise wages, because labour is the binding constraint here."
         ],
         "correctChoice": "Raise output, because there is plant and labour standing idle."
       },
@@ -328,7 +328,7 @@ export const CURRICULUM = {
       "day": 1,
       "title": "A hundred, seventy-five, fifty-six",
       "scene": "Six rounds are written out along the table: a hundred, seventy-five, fifty-six and a quarter, forty-two, thirty-one and a half, twenty-three and a half. Kahn wants the rule that produced them named.",
-      "takeaway": "Rounds that are each a constant share of the one before fall away in proportion, which is what makes the whole series add up to something finite.",
+      "takeaway": "A rule is named by the part of a sequence that distinguishes it from its rivals, and for a falling series that is the ratios rather than the differences.",
       "place": "Model Room",
       "guide": "Read the whole row rather than the first two numbers. Several rules would produce a falling sequence and only one produces this one, and the quiet rows — what is being subtracted, whether the fall is steady in size or in proportion — are what separate them.",
       "background": [

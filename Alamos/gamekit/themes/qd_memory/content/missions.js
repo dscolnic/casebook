@@ -77,17 +77,4 @@ export const MISSIONS = [
   }
 ];
 
-export const WARMUPS = {
-  "greet": {
-    "title": "Six people and one account between them",
-    "why": "The lists, the event, the interviews and the transcripts are four different jobs, and the interviewer is deliberately not told which group they are sitting with. An account is worth what the room it was taken in was worth. Put a name to as many of them as you can before the week starts."
-  },
-  "trial-near": {
-    "title": "Walk the unit before anybody is brought in",
-    "why": "The study room and the interview suites are down one side of the corridor and the event bay and the data room are down the other, which means nothing a participant saw ever meets what they were told until the data room. Elizabeth Loftus, who works on eyewitness accounts, would rather you knew the way than walked a participant past a waiting one."
-  },
-  "follow": {
-    "title": "Vance carries a transcript from the suite to the data room",
-    "why": "An account is spoken in one room, typed up in another and coded in a third, and most of what goes wrong happens in between. Colin Vance, who trains the interviewers, walks one the whole way. Stay with him and watch where somebody else's words could get in."
-  }
-};
+export const WARMUPS = {};

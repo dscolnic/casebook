@@ -326,14 +326,14 @@ missions:
         question: With three fifths of capacity in use, what should extra demand mostly do?
         choices:
           - Raise output, because there is plant and labour standing idle.
-          - Raise prices, because extra demand always raises prices.
+          - Raise prices, because extra demand is what bids prices up.
           - Do nothing, because firms will simply hold larger stocks.
-          - Raise wages only, because labour is the binding constraint.
+          - Raise wages, because labour is the binding constraint here.
         answer: Raise output, because there is plant and labour standing idle.
         rebuttals:
           - That holds when there is nothing spare, and the returns say there is a great deal spare.
           - Firms facing orders they can fill do fill them; stocks absorb a shock, not a trend.
-          - Nothing here says labour is scarce, and unemployment is the reason this is being asked.
+          - Nothing here says labour is scarce, and unemployment is the reason the question is being asked at all.
         why: >
           At sixty-one per cent there is plant standing and people out of work. An extra order
           can be filled by making more, without bidding anything away from anywhere else. The
@@ -405,8 +405,8 @@ missions:
     objective: Read what a set of rounds is doing, sum the series, and find how much leaks out of it.
     briefing: Kahn will not publish a figure nobody can check on a sheet of paper.
     stake: >-
-      Wednesday, and the model room has the rounds on the long table. Richard Kahn, who works
-      the arithmetic, will not put a number in a note unless the working is on the sheet beside
+      Wednesday, and the model room has the rounds on the long table. Richard Kahn, who works the
+      arithmetic in the model room, will not put a number in a note unless the working is on the sheet beside
       it. Colin Clark has figures for how much of each extra pound goes to tax, to saving and
       abroad, and none of those comes back as anybody's income here. Edith Marchant has spent
       two days making the returns comparable. Today you read what the rounds are actually
@@ -449,7 +449,7 @@ missions:
         assumes:
           - each round is induced by the income created in the round before it
           - households spend the same share of each extra pound whatever the round
-        takeaway: Rounds that are each a constant share of the one before fall away in proportion, which is what makes the whole series add up to something finite.
+        takeaway: A rule is named by the part of a sequence that distinguishes it from its rivals, and for a falling series that is the ratios rather than the differences.
         format: DIAGNOSIS
         headline: A hundred, seventy-five, fifty-six and a quarter, forty-two, thirty-one and a half, twenty-three and a half.
         task: Which rule produces this row, and not only its first two entries?
@@ -866,28 +866,11 @@ missions:
           the same as safe. The conditional version is the strong one precisely because it can
           be wrong in a way somebody could point at.
 
-warmups:
-  greet:
-    title: Four rooms and one recommendation between them
-    why: >-
-      The board, the returns, the arithmetic and the desk are four different jobs, and the
-      figure that leaves on Friday has passed through all of them. A recommendation is worth
-      what the room behind each of its numbers is worth. Put a name to as many of them as you
-      can before the week starts.
-  trial-near:
-    title: Walk the building before the first figure is quoted
-    why: >-
-      The flow room and the model room are down one side of the corridor and the statistics
-      room and the policy desk are down the other, which means every number crosses it twice.
-      John Maynard Keynes, the economic adviser here, would rather you knew the way than found
-      it out carrying a draft.
-  follow:
-    title: Marchant carries a capacity figure from the returns to the desk
-    why: >-
-      A percentage is worked out of a stack of returns, written on a slip and quoted in another
-      room, and most of what goes wrong happens in between. Edith Marchant, the statistical
-      clerk, walks one the whole way. Stay with her and watch where the range around it gets
-      dropped.
+# No `warmups:` block, and that is a rule rather than an omission.
+# `engine/core/warmups.js` gives a three-day campaign no warm-up runs at all — one
+# sitting has no morning to open on — so a `warmups:` block here would be content
+# that reaches no screen, and `warmupOrder` refuses one. Give the campaign a fourth
+# level and the runs come back.
 
 interiors:
   FLOW:

@@ -169,10 +169,16 @@ try{
   // itself is what the rest of this file exists to prove and a button that takes
   // the money and leaves the card up would look identical from a checker: the
   // lap is still due, the plan never opens, and nothing throws.
-  const paid = await cdp.eval(String.raw`
+  // A campaign under WARMUP_MIN_DAYS days is one sitting and is offered no runs
+  // at all, so there is no priced way past one to drive. This used to run
+  // anyway and threw on `g.getState()` — the whole report, rows included, was
+  // lost to a TypeError on a campaign that was behaving exactly as specified.
+  const anyRuns = rows.some(r => r.lap);
+  const paid = anyRuns ? await cdp.eval(String.raw`
   (async () => {
     const sleep = (ms) => new Promise(r => setTimeout(r, ms));
     const g = window.gamekit;
+    if(!g) return { fail: 'no window.gamekit — the game is gone by the paid pass' };
     const st = g.getState();
     const openCard = () => { st.dayStarted = false; st.dayEnded = false; g.day.showPlan(); };
     const btn = (id) => [...(document.getElementById('overlay')?.querySelectorAll('button') ?? [])]
@@ -206,10 +212,15 @@ try{
     btn('lapPay')?.click(); await sleep(250);
     after.brokeStillDue = !!btn('lapGo');
     return after;
-  })()`);
-  console.log(`
-paid way past a run:`);
-  const payCases = [
+  })()`) : null;
+  if(!anyRuns){
+    console.log(`
+no warm-up runs: this campaign is ${rows.length} ${rows.length === 1 ? 'day' : 'days'} long, so it opens`
+      + ' on its first plan card. Nothing to drive, and no priced way past a run to check.');
+  }
+  if(paid?.fail){ console.log(`
+paid way past a run:\n  ✗ ${paid.fail}`); bad++; }
+  const payCases = !anyRuns || paid?.fail ? [] : [
     ['the card offers it', paid?.offered === true],
     ['…and it is live when the money is there', paid?.disabledRich === false],
     [`$10 comes off the reserve (30 → ${paid?.reserve})`, paid?.reserve === 20],
@@ -220,6 +231,8 @@ paid way past a run:`);
     ['…and the card says what is missing', paid?.brokeSaysWhy === true],
     ['…and the run is still the way on', paid?.brokeStillDue === true],
   ];
+  if(payCases.length) console.log(`
+paid way past a run:`);
   for(const [what, ok] of payCases){
     console.log(`  ${ok ? '✓' : '✗'} ${what}`);
     if(!ok) bad++;

@@ -77,17 +77,4 @@ export const MISSIONS = [
   }
 ];
 
-export const WARMUPS = {
-  "greet": {
-    "title": "Six files, six people, one wall",
-    "why": "Every layer on that wall was collected by somebody else, and a file is worth what the survey behind it is worth. The fossils, the ages, the magnetics and the earthquakes are four different sections. Put a name to as many of them as you can before the week starts."
-  },
-  "trial-near": {
-    "title": "Walk the section before the second wall opens",
-    "why": "The map room and the kinematics room are down one side, marine survey and seismology down the other. Walk it once now. Marie Tharp, the map room curator, would rather you knew the way than went looking for the age file on Tuesday morning."
-  },
-  "follow": {
-    "title": "Matthews carries a magnetic trace from the ship room to the wall",
-    "why": "A trace is towed at sea, corrected for the ship's own iron, and matched against a dated timeline in a third room, and most of what goes wrong happens in between. Chidi Matthews, who runs the magnetic survey, walks one all the way through. Stay with him and watch where the correction is applied."
-  }
-};
+export const WARMUPS = {};

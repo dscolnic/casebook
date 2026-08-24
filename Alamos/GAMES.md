@@ -126,6 +126,79 @@ syllabus computed by a question, and every one green on all twenty-six checks.
 | 09 | **The Cosmic Microwave Background** | `themes/qd_cmb` | Cosmology. An engineering problem that will not go away; a shape, a temperature, and what is not yet known; a framework, a cooling law and one explanation | `THEME=qd_cmb npm run dev` |
 | 10 | **The Expanding Universe** | `themes/qd_hubble` | Astronomy. A ladder and everything that makes it lie; a shift, a pattern and which axis limits everything; a slope, a time, and where the middle is | `THEME=qd_hubble npm run dev` |
 
+## The second ten Quick Discoveries — the non-physics ones
+
+`great_discoveries_next10_nonphysics_expanded.docx` is the source: ten more on the
+same 3 × 3 spine, deliberately outside physics and astronomy. Medicine,
+microbiology, genetics, biotechnology, chemistry, cognitive psychology and
+economics. Same length, same `dayNoun: 'Level'`, same grade 9, same rule that
+every card teaches its method before it asks anything.
+
+**All ten are built and green on every gate.**
+
+| # | Game | Where | Subject, and the shape of the three levels | Run it |
+| --- | --- | --- | --- | --- |
+| 11 | **Penicillin** | `themes/qd_penicillin` | Microbiology. What one plate is allowed to claim; controls, spectrum and dose; purification, the record, and what a week of production is worth | `THEME=qd_penicillin npm run dev` |
+| 12 | **Germ Theory of Disease** | `themes/qd_germ` | Medicine and public health. A cluster, a comparison group and a slide; pure culture, exposure and closing the loop; prediction, prevention, and where the theory stops | `THEME=qd_germ npm run dev` |
+| 13 | **The Laws of Inheritance** | `themes/qd_mendel` | Genetics. Why this experiment could be read at all; counting, and what a count is allowed to mean; gametes, two traits, and the hidden copy | `THEME=qd_mendel npm run dev` |
+| 14 | **CRISPR Gene Editing** | `themes/qd_crispr` | Molecular biology. A pattern in a genome and the chance of it; two constraints and a fixed cut; where the risk is and what the sequencer says happened | `THEME=qd_crispr npm run dev` |
+| 15 | **Oxygen and Combustion** | `themes/qd_oxygen` | Chemistry. The thing that gets heavier; which part of the air is doing it; closing the ledger and buying the experiment that could still break it | `THEME=qd_oxygen npm run dev` |
+| 16 | **Periodic Table** | `themes/qd_periodic` | Chemistry. Families, recurrence and an ordering that breaks; what an empty cell is worth if it carries figures; a sample arrives, and later a different ordering | `THEME=qd_periodic npm run dev` |
+| 17 | **Stroop Effect** | `themes/qd_stroop` | Cognitive psychology. What an effect is measured against; the difference, and what it costs in errors; practice, control, and what a robust effect is not | `THEME=qd_stroop npm run dev` |
+| 18 | **False Memories** | `themes/qd_memory` | Cognitive psychology. Meaning producing a recognition; what a question puts into an account; confidence, origin, and how to ask | `THEME=qd_memory npm run dev` |
+| 19 | **Keynes and the Great Depression** | `themes/qd_keynes` | Macroeconomics. A fall that does not stop; rounds that add up, and what leaks out; size the response, and say when it is wrong | `THEME=qd_keynes npm run dev` |
+| 20 | **Bank Runs** | `themes/qd_bankrun` | Economics and finance. What the building actually holds; the day they all ask; which problem this is, before choosing a tool | `THEME=qd_bankrun npm run dev` |
+
+**None of the twenty Quick Discoveries has a `warmups:` block, and that is a rule
+rather than an omission.** `WARMUP_MIN_DAYS` in `engine/core/warmups.js` is four:
+the schedule is written for a fortnight of mornings, and handing it to a three-day
+campaign opens two of its three cards on a run the player did not come for — the
+two openers alone would be two thirds of the campaign before a single stop. It is
+derived from the mission count rather than authored, for the same reason the tiers
+are: a `quick: true` flag on twenty-one themes would be a second description of a
+shape the missions file already states. So an authored `warmups:` block on a
+three-day campaign is content that reaches no screen, and `warmupOrder` refuses
+one at both ends. Give a campaign a fourth level and its runs come back.
+
+**Every one reuses a place this repo already builds, adjusted to its period.** That
+was the brief and it is most of why ten games fitted in one pass. Six are the
+Quick Discovery corridor — nine rooms off a spine, driven from `plan.js` — with a
+different palette, a different room list and entirely new wall text: 1928
+(penicillin), 1775 (oxygen), 1869 (periodic table), 1935 (Stroop), 1933 (Keynes)
+and 2012 (CRISPR). Two are outdoor sites on the `outdoorTown.js` pattern: a
+Victorian court with a standpipe in it, and a monastery garden of trial beds.
+False Memories takes the twelve-room shape of Sightline's psychology unit. And
+Bank Runs is the only one on a different world altogether — `interiorTower.js`,
+four floors on one footprint with a lift between them, which Changeover brought.
+
+**Four of the ten have not been photographed inside, and that is a gap rather than
+a finding.** CRISPR, Oxygen, Periodic Table and Stroop have corridor views and no
+room views: `npm run shots` hung before its first render on five separate
+attempts, with the machine sitting at a load average of about 150 from outside
+the session. Their shelf heroes point at corridor shots that do exist, so nothing
+on the shelf is broken — but nobody has looked at the fit-out of eight of those
+sixteen rooms, and this file's own record is that a green check has coexisted with
+an inside-out roof, a sign behind a canopy and a mural hung on a window. Run
+`npm run shots` on those four when the machine is quiet.
+
+**Two things the reskins cost, and both were found by a screenshot.** Period is
+carried by proportion and value rather than by colour: the first cut of the
+Victorian terrace used four-metre bays, square windows and a roof pitched at 0.20
+radians, and rendered as a block of modern flats in a tan that house rule 6
+predicted exactly. And `kit.js`'s `fenceRun` is **chain-link** — right for a
+switchyard, a century early for a monastery garden and for an 1854 court, and
+invisible to every check because the geometry, the collider and the reachability
+are identical either way. Both games have a brick wall now.
+
+**Three defects the gates caught that the prose would not have.** A `SWEEP` whose
+response at the target equalled its baseline — a real curve, correctly authored,
+with nothing to find on it. Two pea beds at 2.6 m centres leaving an 0.8 m alley,
+narrower than the player's own diameter, so `reachable` reported two stops walled
+off behind a crop. And in the tower, `roomWallOk` knows about doorways and does
+not know about glass, so `furnishRoom` hung fifty-seven notice boards on a curtain
+wall — which from inside a room looks like a notice board, and which `placement`
+reported as fifty-seven things attached to nothing.
+
 **They are written for grade 9, not AP, and every card teaches its method before
 it asks anything.** That is the one thing about the set that came from playing it
 rather than from checking it: the first two were authored at the parent games'

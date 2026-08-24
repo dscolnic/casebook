@@ -77,17 +77,4 @@ export const MISSIONS = [
   }
 ];
 
-export const WARMUPS = {
-  "greet": {
-    "title": "Five benches and one preparation between them",
-    "why": "Nothing on that wall was measured by one person. The plate, the broth, the assay rack, the animal counts and the production figures come from five different benches, and a claim is worth what the bench behind it is worth. Put a name to as many of them as you can before the week starts."
-  },
-  "trial-near": {
-    "title": "Walk the department before the first plate is read",
-    "why": "The culture room and the broth room are down one side of the corridor and the assay room and the trial room are down the other, which means every result crosses it. Alexander Fleming, who leads the bacteriology work, would rather you knew the way than found it out on Thursday."
-  },
-  "follow": {
-    "title": "Heatley carries a batch number from the rack to the wall",
-    "why": "A strength is read off a lawn, written on a card and pinned in another room, and most of what goes wrong happens in between. Norman Heatley, who runs the assay, walks one the whole way. Stay with him and watch where the number changes hands."
-  }
-};
+export const WARMUPS = {};

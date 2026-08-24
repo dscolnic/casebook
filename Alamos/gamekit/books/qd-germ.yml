@@ -838,27 +838,11 @@ missions:
           whitewashing a lodging will not touch it. A theory is strong partly in knowing which
           cases it has no business being used on.
 
-warmups:
-  greet:
-    title: Four kinds of evidence and nobody who has all of them
-    why: >-
-      A map, a ward count, a slide and a set of matched animals come from four different
-      people who mostly disagree, and a claim is worth what the work behind it is worth. Put a
-      name to as many of them as you can before the week starts.
-  trial-near:
-    title: Walk the court before the vestry meets
-    why: >-
-      The pump and the registrar's office are within sight of each other and the ward and the
-      laboratory hut are ninety metres up the lane, past the fence. John Snow, the physician
-      asking every door about its water, would rather you knew the way than found it out on
-      Friday.
-  follow:
-    title: Deane carries a household count from the door to the map
-    why: >-
-      A number of people in a house is asked for on a doorstep, written on a slip and added to
-      a rate in another building, and most of what goes wrong happens in between. Harriet
-      Deane, the registrar's clerk, walks one the whole way. Stay with her and watch where the
-      number changes hands.
+# No `warmups:` block, and that is a rule rather than an omission.
+# `engine/core/warmups.js` gives a three-day campaign no warm-up runs at all — one
+# sitting has no morning to open on — so a `warmups:` block here would be content
+# that reaches no screen, and `warmupOrder` refuses one. Give the campaign a fourth
+# level and the runs come back.
 
 interiors:
   REG:

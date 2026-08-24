@@ -77,17 +77,4 @@ export const MISSIONS = [
   }
 ];
 
-export const WARMUPS = {
-  "greet": {
-    "title": "Four benches and one ledger between them",
-    "why": "The weighing, the heating, the jars and the accounting are four different kinds of work and two of the four people here read their own results inside the older framework. A figure is worth what the bench behind it is worth. Put a name to as many of them as you can before the week starts."
-  },
-  "trial-near": {
-    "title": "Walk the laboratory before the first vessel is charged",
-    "why": "The balance and the furnace are down one side of the corridor and the trough and the accounting desk are down the other, which means every weighing crosses it. Antoine Lavoisier, who runs the laboratory, would rather you knew the way than found it out carrying a sealed retort."
-  },
-  "follow": {
-    "title": "Rouvier carries a weighing from the balance to the desk",
-    "why": "A figure is read off a beam, written on a slip and entered in a column in another room, and most of what goes wrong happens in between. Étienne Rouvier, who made the balance, walks one the whole way. Stay with him and watch where the number changes hands."
-  }
-};
+export const WARMUPS = {};

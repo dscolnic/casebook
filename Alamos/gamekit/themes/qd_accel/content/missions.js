@@ -77,17 +77,4 @@ export const MISSIONS = [
   }
 ];
 
-export const WARMUPS = {
-  "greet": {
-    "title": "Six people and one result between them",
-    "why": "Nothing on this floor is measured by one person. The zero points, the types, the light curves and the fit are four different desks, and a number is only as good as the desk it came from. Put a name to as many of them as you can before the run starts."
-  },
-  "trial-near": {
-    "title": "Walk the floor before the sample is unsealed",
-    "why": "Photometry and the cosmology console are out on the floor, and spectroscopy and the publication room are through the ring corridor behind you. Walk it once now. Riess, the photometry lead, would rather you knew the way than went looking during a run."
-  },
-  "follow": {
-    "title": "Grant carries a light curve from the desk to the console",
-    "why": "A magnitude is fitted at one desk, calibrated at another and plotted at a third, and most of what goes wrong happens in between. Sofia Grant, the photometry analyst, walks one all the way through. Stay with her and watch where the number changes hands."
-  }
-};
+export const WARMUPS = {};

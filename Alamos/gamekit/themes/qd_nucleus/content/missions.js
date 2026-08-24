@@ -77,17 +77,4 @@ export const MISSIONS = [
   }
 ];
 
-export const WARMUPS = {
-  "greet": {
-    "title": "Six people, and one number between them",
-    "why": "Nothing in this building is measured by one person. The source, the vacuum, the angle plate, the counting and the arithmetic are five different hands, and a figure is worth what the hands behind it are worth. Put a name to as many of them as you can before the first run."
-  },
-  "trial-near": {
-    "title": "Walk the beam line before the shutter opens",
-    "why": "The bench and the chamber are on one side of the corridor and the counting room and the professor's room on the other. Walk it once now. Hans Geiger, who owns the scattering chamber, would rather you knew the way than opened the wrong door with the shutter up."
-  },
-  "follow": {
-    "title": "Kowalczyk carries a tally book from the eyepiece to the board",
-    "why": "A flash is counted in the dark, divided by a total in another room, and drawn on a board in a third, and most of what goes wrong happens between them. Ewa Kowalczyk, the observer at the microscope, walks one count all the way through. Stay with her and watch where the number changes hands."
-  }
-};
+export const WARMUPS = {};

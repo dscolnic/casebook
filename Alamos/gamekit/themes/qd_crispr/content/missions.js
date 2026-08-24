@@ -77,17 +77,4 @@ export const MISSIONS = [
   }
 ];
 
-export const WARMUPS = {
-  "greet": {
-    "title": "Five benches and one claim between them",
-    "why": "The pattern, the phage challenge, the machinery, the plates and the run come from five different kinds of work, and a sentence in the report is worth what the bench behind it is worth. Put a name to as many of them as you can before the week starts."
-  },
-  "trial-near": {
-    "title": "Walk the floor before the first genome is opened",
-    "why": "The genome room and the design desk are down one side of the corridor and the editing bay and the sequencing room are down the other, which means every design crosses it. Jennifer Doudna, who works on the structural biochemistry of the machinery itself, would rather you knew the way than found it out with a plate in your hands."
-  },
-  "follow": {
-    "title": "Raman carries a run summary from the machine to the desk",
-    "why": "A percentage is read off a screen, written on a sheet and pasted into a draft in another room, and most of what goes wrong happens in between. Priya Raman, who runs the sequencing room, walks one the whole way. Stay with her and watch where the denominator gets left behind."
-  }
-};
+export const WARMUPS = {};

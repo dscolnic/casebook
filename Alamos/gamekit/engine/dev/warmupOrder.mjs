@@ -23,7 +23,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { themeDir as resolveTheme, themeNames } from './registry.mjs';
-import { warmupPlan, warmupDue, WARMUP_TAIL, WARMUP_OPENERS } from '../core/warmups.js';
+import { warmupPlan, warmupDue, WARMUP_TAIL, WARMUP_OPENERS, WARMUP_MIN_DAYS } from '../core/warmups.js';
 import { tiersFor, unlockDay } from '../core/orientation.js';
 import { introduces, names, nameOf } from './introRule.mjs';
 
@@ -54,6 +54,21 @@ async function readTheme(themeName){
 export function judgeSchedule({ days, hasFar, unlockDay }){
   const plan = warmupPlan({ days, hasFar, unlockDay });
   const problems = [];
+  // A campaign under WARMUP_MIN_DAYS days is one sitting and opens on its first
+  // card rather than on a run. Everything below asserts properties of a schedule
+  // that has openers in it, so it would report a campaign with no warm-ups as a
+  // campaign missing all of them — the check has to know the same rule the
+  // engine does, and asks it of the engine rather than restating the number.
+  if(!plan.length){
+    if(days >= WARMUP_MIN_DAYS)
+      problems.push(`a ${days}-day campaign schedules no warm-ups at all`);
+    return { plan, problems };
+  }
+  if(days < WARMUP_MIN_DAYS){
+    problems.push(`a ${days}-day campaign is one sitting and must open on its first card,`
+      + ` not on ${plan.length} warm-up run(s)`);
+    return { plan, problems };
+  }
   const byDay = new Map(plan.map(p => [p.day, p]));
   const d1 = byDay.get(1), d2 = byDay.get(2);
   if(!d1 || !d2) problems.push('days 1 and 2 must each open on a warm-up');
@@ -133,6 +148,15 @@ if(RAN_DIRECTLY){
       if(!info.days) continue;
       const { plan, problems } = judgeSchedule(info);
       for(const p of problems){ console.log(`✗ ${themeName}: ${p}`); failures++; }
+      // A campaign with no runs has no stories to owe. What it can have is
+      // stories for runs nobody will ever be offered, which is the same defect
+      // as a `trial-far` on one tier of ground and reads exactly as clean.
+      if(!plan.length && Object.keys(info.authored).length){
+        console.log(`✗ ${themeName}: a ${info.days}-${info.days === 1 ? 'day' : 'day'} campaign is one sitting`
+          + ` and is offered no warm-ups, but the book authors`
+          + ` ${Object.keys(info.authored).sort().join(', ')} — delete the \`warmups\` block`);
+        failures++;
+      }
       const gaps = unwritten(plan, info.authored);
       const listed = new Set(debt[themeName] ?? []);
       for(const slot of gaps){
@@ -215,6 +239,25 @@ async function selftest(){
   check('and the schedule check accepts that rather than demanding all five',
     judgeSchedule({ days: 5, hasFar: false }).problems.length === 0,
     judgeSchedule({ days: 5, hasFar: false }).problems.join(' | '));
+
+  // One sitting: the Quick Discoveries are three levels, and the schedule above
+  // would open two of those three on a run. The three cases are the ones that
+  // would otherwise pass for the wrong reason — the plan is empty, the check
+  // accepts an empty plan ONLY below the threshold, and a campaign at the
+  // threshold is untouched, without which "return [] always" would pass too.
+  const sitting = warmupPlan({ days: 3, hasFar: false });
+  check('a three-level campaign schedules no warm-ups',
+    sitting.length === 0, sitting.map(p => `d${p.day}:${p.format}`).join(' '));
+  check('…and the schedule check accepts that rather than reporting all seven missing',
+    judgeSchedule({ days: 3, hasFar: false }).problems.length === 0,
+    judgeSchedule({ days: 3, hasFar: false }).problems.join(' | '));
+  check('…while a campaign one day over the line still gets its openers',
+    warmupPlan({ days: WARMUP_MIN_DAYS, hasFar: false }).length > 0
+      && judgeSchedule({ days: WARMUP_MIN_DAYS, hasFar: false }).problems.length === 0,
+    warmupPlan({ days: WARMUP_MIN_DAYS, hasFar: false }).map(p => `d${p.day}:${p.format}`).join(' '));
+  check('and no run is due on a level of a one-sitting campaign',
+    warmupDue(1, {}, {}, { days: 3, hasFar: false }) === null
+      && warmupDue(2, {}, {}, { days: 3, hasFar: false }) === null);
 
   // warmupDue: the save record, and the story
   check('a done slot is not offered again',

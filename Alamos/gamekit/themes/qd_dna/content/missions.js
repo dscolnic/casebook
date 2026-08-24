@@ -77,17 +77,4 @@ export const MISSIONS = [
   }
 ];
 
-export const WARMUPS = {
-  "greet": {
-    "title": "Six people and one wall between them",
-    "why": "Nothing on that wall was measured by one person. The composition, the plate, the spacings, the weighing and the brass are five different benches, and a clue is worth what the bench it came from is worth. Put a name to as many of them as you can before the week starts."
-  },
-  "trial-near": {
-    "title": "Walk the unit before the plate is developed",
-    "why": "The chemistry bench and the model room are down one side of the corridor and the X-ray room and the evidence room are down the other. Walk it once now. John Randall, the unit director, would rather you knew the way than went looking for it on Thursday."
-  },
-  "follow": {
-    "title": "Gosling carries a spacing from the plate to the wall",
-    "why": "A length is measured at the light box, checked against the scale, and written on a card in another room, and most of what goes wrong happens in between. Raymond Gosling, the diffraction assistant, walks one the whole way. Stay with her and watch where the number changes hands."
-  }
-};
+export const WARMUPS = {};

@@ -77,17 +77,4 @@ export const MISSIONS = [
   }
 ];
 
-export const WARMUPS = {
-  "greet": {
-    "title": "Eleven people, two channels, one number",
-    "why": "Nothing in this building is measured by one person. The reconstruction, the calibration, the background and the combination are four different desks, and a significance is worth what the desk behind each of its inputs is worth. Put a name to as many of them as you can before the week starts."
-  },
-  "trial-near": {
-    "title": "Walk the floor before the window is opened",
-    "why": "The theory wall and the event display are down one side and the histogram room and the combination room are down the other. Walk it once now. Ada Kirchner, the reconstruction lead, would rather you knew the way than went looking for the display room with the window already open."
-  },
-  "follow": {
-    "title": "Novak carries an energy scale from the calibration bay to the histogram",
-    "why": "An energy is measured by electronics, turned into GeV by a calibration, and binned into a distribution in a third room, and a fraction of a per cent lost in between moves every mass in the plot. Petra Novak, the detector physicist, walks one through. Stay with her and watch where the number is scaled."
-  }
-};
+export const WARMUPS = {};

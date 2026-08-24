@@ -928,27 +928,11 @@ missions:
           later the careful sentence is still accurate, which is what writing a claim at the
           level of its evidence buys.
 
-warmups:
-  greet:
-    title: Six people and one attempt
-    why: >-
-      Nothing in this camp is done by one person, and the eclipse happens once. The mount, the
-      focus, the exposures, the reference set, the engine and the arithmetic are six different
-      pairs of hands. Put a name to as many of them as you can before totality.
-  trial-near:
-    title: Walk the camp before the mount is levelled
-    why: >-
-      The camera field is out on the flat and the plate hut, the computing tent and the
-      telegraph are back along the track. Walk it once now. Arthur Eddington, the chief observer,
-      would rather you knew the way than went looking for a plate box during the five minutes
-      that matter.
-  follow:
-    title: Davidson carries a plate from the darkroom to the engine
-    why: >-
-      A plate is developed in one hut, carried across the camp, and measured on a screw that
-      reads to a fraction of a star's width, and most of what goes wrong happens in between.
-      Charles Davidson, the plate measurer, walks one all the way through. Stay with him and
-      watch how it is held.
+# No `warmups:` block, and that is a rule rather than an omission.
+# `engine/core/warmups.js` gives a three-day campaign no warm-up runs at all — one
+# sitting has no morning to open on — so a `warmups:` block here would be content
+# that reaches no screen, and `warmupOrder` refuses one. Give the campaign a fourth
+# level and the runs come back.
 
 interiors:
   CAMERA:

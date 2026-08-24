@@ -77,17 +77,4 @@ export const MISSIONS = [
   }
 ];
 
-export const WARMUPS = {
-  "greet": {
-    "title": "Six people, two instruments, one star",
-    "why": "Nothing in this programme is measured by one person, and the two halves of the result come off different machines. The spectra, the reduction, the photometry, the validation and the characterisation are five different desks. Put a name to as many of them as you can before the week starts."
-  },
-  "trial-near": {
-    "title": "Walk the floor before the tape is loaded",
-    "why": "The spectrograph room and the characterisation desk are down one side and photometry and the validation room are down the other. Walk it once now. Michel Mayor, the spectrograph lead, would rather you knew the way than went looking for the validation room with three nights of telescope time to book."
-  },
-  "follow": {
-    "title": "Queloz carries a night of frames from the tape room to the light curve",
-    "why": "Raw frames are corrected for cloud, for temperature and for the detector's own drift, and a correction with too much freedom removes a three-hour transit as happily as a three-hour drift. Didier Queloz is the physicist who turns raw frames into a light curve, and she walks one night's worth all the way through. Stay with her and watch what is taken out."
-  }
-};
+export const WARMUPS = {};

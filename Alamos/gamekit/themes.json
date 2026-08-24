@@ -61,6 +61,7 @@
     "qd_periodic": "themes/qd_periodic",
     "qd_stroop": "themes/qd_stroop",
     "qd_memory": "themes/qd_memory",
-    "qd_keynes": "themes/qd_keynes"
+    "qd_keynes": "themes/qd_keynes",
+    "qd_bankrun": "themes/qd_bankrun"
   }
 }

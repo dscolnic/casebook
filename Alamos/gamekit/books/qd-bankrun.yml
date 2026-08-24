@@ -1,0 +1,890 @@
+# Bank Runs — a Quick Discovery.
+#
+# The 3 x 3 shape from great_discoveries_next10_nonphysics_expanded.docx, game
+# 20, mapped onto the engine's day model: a level is a day, a micro-game is a
+# stop, and the campaign is nine stops in one sitting. Three levels, in order:
+#
+#   1  Build a bank      what it owns, what it owes, and why the two do not match in time
+#   2  The run           solvent, illiquid, and why waiting is the losing move
+#   3  Stop the panic    what a guarantee changes, and which problem this is
+#
+# The science guardrail from the source book, kept, and it is the last stop. The
+# player manipulates a toy balance sheet and then states a conditional insight:
+# illiquidity is a timing problem and insolvency is a value problem, they need
+# different tools, and the classification is made under time pressure with
+# incomplete valuations. Getting it wrong is expensive in both directions.
+#
+# Format budget. Nine stops, so `formatMix`'s cap is three of any one format:
+# BALLPARK 3, CHOICE 2, and one each of PROTOCOL, DIAGNOSIS, VERIFY,
+# SCIENCETANK. Seven formats in nine stops, two of them driven.
+#
+# Four floors, one footprint. The stops are on four different levels and the lift
+# is the only way between them, which is what makes *which floor, in what order*
+# the route decision a corridor game gets from distance.
+
+theme:
+  id: qd_bankrun
+  title: Bank Runs
+  subtitle: Junior Clerk · Marrable House
+
+groups:
+  - id: COUNTER
+    code: COUNTER
+    name: Counter Floor
+    color: '#2b3d47'
+    desc: A mahogany counter, four thousand accounts payable on demand, and a queue on the pavement below the windows.
+    defaultLeader: hearn
+    milestones: [Open the tills, Read both sides, Pay in order, Ready to hand over]
+  - id: LOANS
+    code: LOANS
+    name: Loan Book Floor
+    color: '#7a5a2b'
+    desc: What the deposits were turned into, how long it is tied up for, and two different numbers for what it is worth.
+    defaultLeader: sowden
+    milestones: [Read the book, Read the maturities, Say what it fetches, Ready to hand over]
+  - id: VAULT
+    code: VAULT
+    name: Reserve Floor
+    color: '#3f6f8a'
+    desc: The cash there actually is, counted twice a day, and a dealing room finding out what a hurried sale raises.
+    defaultLeader: broadbent
+    milestones: [Count it, Price a sale, Report the gap, Ready to hand over]
+  - id: CRISIS
+    code: CRISIS
+    name: Crisis Desk
+    color: '#8a4a3f'
+    desc: The top floor, four banks on the wire, and the only room that can see the whole length of the queue.
+    defaultLeader: eccles
+    milestones: [Read the wire, Change the incentive, Diagnose each one, Ready to hand over]
+
+roster:
+  - id: hearn
+    name: Alice Hearn
+    role: Chief Cashier
+    division: COUNTER
+    bio: |
+      Runs the hall. Her rule this morning is the same as every morning: nobody
+      is turned away and nobody is served out of turn, and nothing is announced
+      at the counter that would give anybody a reason to be early.
+
+      She also keeps the sheet. Cash and loans on one side, deposits and the
+      owners' stake on the other, and the two totals equal because that is how a
+      balance sheet is built rather than because anybody arranged it.
+
+      Her limit is that she can control the hall and not the pavement. What she
+      can see out of the window is a queue that has been getting longer since
+      before the doors opened.
+    quiz:
+      - q: Why is nothing about limits announced at the counter?
+        a: It would give people a reason to arrive earlier tomorrow
+        wrong:
+          - The staff at the counter have not been told what the limits are
+          - A limit cannot be announced until the board has agreed it
+          - The tellers would be blamed personally for refusing anybody
+
+  - id: sowden
+    name: Victor Sowden
+    role: Loan Book Manager
+    division: LOANS
+    bio: |
+      Knows what the deposits were turned into and for how long. Four units of
+      the book come back this month, nineteen within a year, and the rest is out
+      for years.
+
+      That mismatch is not a mistake anybody made. It is the whole business —
+      money that can be asked for today, lent to people who need it for a decade —
+      and it is the reason a perfectly sound bank can fail on a Tuesday.
+
+      His limit is that his book has two values and both are honest. What it is
+      worth held to maturity and what it would fetch by four o'clock this
+      afternoon are different numbers, and quoting the wrong one to a board
+      during a run is how a decision gets made that nobody would otherwise make.
+    quiz:
+      - q: Why does Sowden keep two values for the same book?
+        a: What it is worth held and what it fetches today are different
+        wrong:
+          - One is for the auditors and the other is for the board
+          - The second is an estimate and the first has been checked
+          - The two are taken at different points in the month
+
+  - id: broadbent
+    name: Nellie Broadbent
+    role: Head of the Reserve
+    division: VAULT
+    bio: |
+      Counts what is actually in the building, twice a day, with two keys and two
+      people. It is a much smaller number than the one on the deposit ledgers
+      three floors down, and everybody has always known that.
+
+      Today she is also finding out what a sale raises rather than what it is
+      worth. A buyer who knows you must sell before four is a buyer who will wait
+      until half past three, and the price this morning is seventy on the pound.
+
+      Her limit is that she can report a number and not improve it. What the
+      dealing room is bid is what the dealing room is bid.
+    quiz:
+      - q: Why is the price a forced sale gets so much lower?
+        a: The hurry is visible to everybody bidding
+        wrong:
+          - The loans being sold are the worst ones on the book
+          - The buyers have less cash than they had last month
+          - The sale has to be completed before the count at four
+
+  - id: eccles
+    name: Marriner Eccles
+    role: Crisis Desk
+    real: true
+    division: CRISIS
+    bio: |
+      Ran banks through a run and did not lose one, and the thing he learnt is
+      not about balance sheets at all: what stops a queue is removing the reason
+      to be at the front of it.
+
+      A depositor who believes they will be paid whether they are first or last
+      has nothing to gain by queuing. That is why a guarantee mostly does not
+      have to be paid — it works by changing what the sensible thing to do is
+      rather than by handing anybody money.
+
+      His limit is that a guarantee is a promise somebody has to be able to keep,
+      and the person promising has to be believed. Neither of those is a matter
+      of arithmetic.
+    quiz:
+      - q: Why does a guarantee mostly not have to be paid out?
+        a: It removes the reason for joining the queue at all
+        wrong:
+          - It is announced only after the queue has already gone
+          - It applies to a small share of the deposits in the bank
+          - It gives the bank time to sell its loans at a better price
+
+  - id: woodin
+    name: William Woodin
+    role: Treasury
+    real: true
+    division: CRISIS
+    bio: |
+      Has the facility and the problem of deciding who gets it. Lending against
+      good paper to a bank that is sound and short of cash converts a timing
+      problem into a loan that comes back.
+
+      Lending on the same terms to a bank whose assets are worth less than its
+      deposits does not. It keeps that bank open a little longer at greater
+      eventual cost, and the loss falls on whoever lent rather than on the
+      owners it was supposed to fall on.
+
+      His limit is time. The classification has to be made this week from
+      valuations that are days old, and being wrong in either direction is
+      expensive in a different way.
+    quiz:
+      - q: What does lending to an insolvent bank on ordinary terms do?
+        a: It moves the loss onto whoever lent the money
+        wrong:
+          - It delays the closure until the valuations can be checked
+          - It is cheaper than closing the bank and paying the depositors
+          - It has the same effect as lending to a solvent bank, more slowly
+
+  - id: glass
+    name: Carter Glass
+    role: Legislator
+    real: true
+    division: CRISIS
+    bio: |
+      Is here about the law rather than about this morning. His concern is what
+      the rule should be after the queue has gone, which is a different question
+      from what to do at noon and is usually decided in a fortnight of panic.
+
+      He is against a guarantee and has been for years, on the grounds that a
+      bank whose depositors cannot lose is a bank with less reason to be careful.
+      He is not wrong about that, and he loses the argument anyway.
+
+      His limit is that a rule which is right in the long run has to survive the
+      short run, and this week the short run is a queue that goes round into
+      Cathcart Row.
+    quiz:
+      - q: What is the reasonable part of Glass's objection to a guarantee?
+        a: It weakens the pressure on a bank to be careful
+        wrong:
+          - A guarantee would cost more than the deposits it protects
+          - The government has no way to make the promise credible
+          - Depositors would move their money to the largest banks
+
+missions:
+  - title: What the building actually holds
+    objective: Read both sides of the sheet, see what the mismatch is for, and price the trade underneath it.
+    briefing: Hearn wants the sheet read before anybody talks about the queue.
+    stake: >-
+      Tuesday, ten in the morning, and there is a queue on the pavement. Alice Hearn, the
+      chief cashier, has opened three tills and will not open a fourth, because opening one
+      would be read as expecting a longer queue. Victor Sowden, who manages the loan book
+      upstairs, has the maturities: four units come back this month and the rest is out for
+      years. Nobody in the building thinks the bank is unsound. Today you read both sides of
+      the sheet, say what the mismatch between them is actually for, and price the trade every
+      bank makes before it opens.
+    takeaway: A bank owes money that can be asked for today and holds money that comes back in years, and that is the business rather than a mistake.
+    stops:
+      - group: COUNTER
+        task: Read both sides of the sheet
+        title: A hundred against ninety
+        place: Banking Hall
+        concept: 'A balance sheet balances, and the two sides mean different things'
+        scene: >
+          The sheet is on the counter. Ten units of cash in the vault and ninety
+          of loans outstanding, against ninety of deposits owed to about four
+          thousand people. Hearn wants the last line.
+        guide: >-
+          Work out what is left for the owners once everything owed has been taken off what
+          the bank holds. Use the total of what it holds and the total of what it owes. One
+          tile is the cash on its own and one is the number of branches, and neither is a
+          total of anything.
+        background:
+          - >-
+              How to do it, on a different example. A house is worth two hundred and the
+              mortgage on it is a hundred and sixty. The owner's stake is forty. If the house
+              falls to a hundred and fifty the lender is still owed a hundred and sixty, and
+              the forty has gone before the lender loses anything at all.
+          - >-
+              Why the two sides are equal. Everything the bank holds was paid for either by
+              somebody it owes or by its owners, so the two columns come to the same total by
+              construction. That is not a discovery about this bank; it is how the sheet is
+              built.
+          - >-
+              What the owners' stake actually does. It is what absorbs a loss before a
+              depositor does. Ten units of it against ninety of deposits means the loans can
+              lose about a ninth of their value before the depositors are exposed at all.
+          - >-
+              Why this is the first question. Everything the rest of the day turns on is a
+              change to one of these four numbers — cash going out, loans being sold, the value
+              of the book falling — and none of those can be read without the sheet they are
+              changes to.
+        assumes:
+          - everything the bank holds was funded either by a creditor or by its owners
+          - deposits are owed in full whatever the loans turn out to be worth
+        takeaway: What is left for the owners is what the bank holds less what it owes, and that difference is what absorbs a loss before a depositor does.
+        format: BALLPARK
+        question: What is left for the owners?
+        estimate:
+          prompt: >-
+            Hearn will not send the sheet up to the fifth floor with the last line blank.
+          question: What is left for the owners?
+          relationship: The owners' stake is what the bank holds less what it owes.
+          labels:
+            - 100  (everything held — the cash and the loans together)
+            - 90  (deposits owed to customers, payable on demand)
+            - 10  (the cash in the vault, which is part of the first figure)
+            - 4  (branches)
+          values: [100, 90, 10, 4]
+          slots: 2
+          template: '{0} − {1}'
+          formula: a-b
+          correct: [0, 1]
+          target: 10
+          tolerance: 0.5
+          units: units of capital
+          solution: A hundred held against ninety owed leaves ten for the owners.
+          explanation: The ten in the vault is the cash on its own and is already inside the hundred, so subtracting deposits from it computes a different thing entirely.
+        why: >
+          Ten units, and what matters about them is what they do rather than what they are.
+          They are what a loss falls on first. The loans can lose about a ninth of their value
+          before a depositor is exposed at all, and beyond that the depositors start losing
+          instead. Note that both columns come to the same total by construction rather than by
+          luck: everything the bank holds was paid for by somebody it owes or by its owners.
+          Every change today is a change to one of these four numbers.
+
+      - group: COUNTER
+        task: Say what the mismatch is for
+        title: Owed today, lent for years
+        place: Banking Hall
+        concept: 'Maturity transformation is the business, and the risk'
+        scene: >
+          Four statements about the arrangement are on the card. The deposits are
+          payable on demand, four thousand people hold them, and four units of the
+          book come back this month.
+        guide: >-
+          Match each statement to what it establishes. What separates them is which part of
+          the arrangement each one is about — what depositors are entitled to, what borrowers
+          need, what the bank gets out of the difference, and what the difference costs. Read
+          what each one constrains.
+        background:
+          - >-
+              How to do it, on a different example. A car-hire firm owns twenty cars and takes
+              bookings from three hundred people who each want one occasionally. That works,
+              and it works because they do not all come on the same day. On the day they do,
+              nothing about the firm has changed and it cannot deliver.
+          - >-
+              Why the mismatch is deliberate. Depositors want their money available. Borrowers
+              want it for years. A bank exists to hold both of those at once, and if it did not
+              there would be no lending of that kind at all — which is a large part of why
+              anything gets built.
+          - >-
+              What the bank is paid for. The return on a long loan is higher than the return on
+              cash, and the difference is what pays for the arrangement. It is a payment for
+              carrying a risk rather than for doing nothing.
+          - >-
+              What the risk actually is. Not that the loans go bad — that is a different
+              failure. It is that too many people ask on the same day, and the answer would
+              have been yes on any other day.
+        assumes:
+          - deposits are payable in full on demand
+          - a long loan cannot be recalled at short notice
+        takeaway: Taking money repayable today and lending it for years is what a bank is for, and the same fact is what makes it fail on a day when too many people ask at once.
+        format: PROTOCOL
+        task_line: Match each statement to what it establishes.
+        scenarios:
+          - The deposits are payable in full on demand.
+          - Four units of the loan book come back this month.
+          - A long loan pays more than cash in the vault does.
+          - Four thousand people hold the deposits between them.
+        choices:
+          - What the bank has promised, and cannot renegotiate on the day.
+          - How much of what it holds is actually available in that time.
+          - What the bank is paid for carrying the difference between the two.
+          - Why it usually works, since they do not all ask at once.
+        mapping: [0, 1, 2, 3]
+        why: >
+          Four statements and four different parts of one arrangement. The promise is
+          unconditional and cannot be renegotiated on the day. The maturities say how little of
+          the book is actually available in the time. The return on long lending is what pays
+          for carrying the difference. And the fourth is why it works at all — four thousand
+          people who mostly do not want their money on the same Tuesday. None of that is a
+          mistake anybody made, and all of it is why the queue outside is a problem.
+
+      - group: LOANS
+        task: Price the trade underneath it
+        title: Cash meets anything and earns nothing
+        place: Loan Book Room
+        concept: 'Liquidity and return trade against each other'
+        scene: >
+          Sowden has the book open. Cash in the vault meets any withdrawal and
+          earns nothing at all. A five-year loan earns a return and cannot be
+          called back this afternoon.
+        guide: >-
+          Four descriptions of the choice between holding cash and lending are offered. What
+          separates them is whether each treats the trade as a mistake, as a cost with
+          something bought by it, or as something a bank could avoid. Ask of each what a bank
+          would look like if it took that view seriously.
+        background:
+          - >-
+              How to do it, on a different example. Keeping a month's food in the house means
+              never being caught out and means buying a freezer and eating older food. Keeping
+              none means fresher food and a problem on the day the shop shuts. Neither is a
+              mistake, and which is right depends on how likely the shop is to shut.
+          - >-
+              What cash costs. Holding a unit of cash gives up whatever it would have earned
+              lent out. That is a real cost paid every day, against a risk that turns up rarely.
+              A bank holding cash for everybody would earn nothing and could not pay for itself.
+          - >-
+              What lending costs. Every unit lent is a unit not available on Tuesday. That is
+              also a real cost and it is paid only on the days it is needed, which is what makes
+              it easy to underprice.
+          - >-
+              Why there is no right answer written down anywhere. How much cash to hold depends
+              on how likely a bad Tuesday is, and nobody knows that. What can be said is that
+              the choice is a trade with a price on both sides rather than a matter of prudence
+              against recklessness.
+        assumes:
+          - cash held earns nothing and meets any withdrawal
+          - a loan earns a return and cannot be recalled at short notice
+        takeaway: Holding cash and lending it out are both costly in different ways, so how much to hold is a choice with a price on both sides rather than a test of prudence.
+        format: CHOICE
+        question: What is the choice between cash and lending?
+        choices:
+          - A trade with a real cost on both sides, priced against how likely a bad day is.
+          - A failure of prudence that a careful bank would avoid.
+          - A free choice, since cash and loans are worth the same.
+          - A regulatory matter with a right answer written down.
+        answer: A trade with a real cost on both sides, priced against how likely a bad day is.
+        rebuttals:
+          - A bank holding cash for everybody would earn nothing and could not pay for itself.
+          - Cash meets any demand and earns nothing; a loan earns and cannot be recalled today.
+          - How much cash to hold depends on how likely a bad Tuesday is, which nobody knows.
+        why: >
+          Both sides cost something and the costs fall at different times. Cash gives up a
+          return every single day against a risk that turns up rarely, which is why holding a
+          great deal of it is not simply the safe option — a bank that did would earn nothing
+          and could not exist. Lending gives up availability on the one day it is wanted, which
+          is a cost paid rarely and therefore easy to underprice. That asymmetry is the whole
+          difficulty, and no prudent bank holds cash for everybody.
+
+  - title: The day they all ask
+    objective: Say what state the bank is in, price what a forced sale raises, and work out why waiting is the losing move.
+    briefing: Broadbent has the count and the dealing room has the bid.
+    stake: >-
+      Noon, four hours after the doors opened, and the queue has turned the corner into
+      Cathcart Row. Nellie Broadbent, who runs
+      the reserve floor, counted ten units at opening and thirty-two have been asked for
+      already. Victor Sowden's book is still worth what it was worth yesterday if it is held
+      to maturity, and a great deal less than that by four this afternoon. Nobody has changed
+      their mind about whether the bank is sound. Today you say what state it is actually in,
+      find out what selling raises rather than what the book is worth, and work out why the
+      people at the back of the queue are not being foolish.
+    takeaway: A bank can be worth more than it owes and still be unable to pay today, and the second of those is what closes it.
+    stops:
+      - group: LOANS
+        task: Say what state the bank is in
+        title: Sound, and unable to pay
+        place: Loan Book Room
+        concept: 'Solvency is about value; liquidity is about timing'
+        scene: >
+          The book is worth ninety held to maturity and the deposits are ninety.
+          There are ten units of cash and thirty-two have been asked for. Nothing
+          about the loans has changed since yesterday.
+        guide: >-
+          Read the whole panel rather than the loudest row. The shortfall in cash is the loud
+          part; the quiet rows say what the loans are worth, what has changed since yesterday
+          and what has not. The reading you want accounts for all of them at once.
+        background:
+          - >-
+              How to do it, on a different example. Somebody owns a house worth far more than
+              they owe and has eleven pounds in their pocket. Asked for a hundred by four
+              o'clock, they cannot pay. They are not poor and they are not broke. They are
+              short of cash, and the two are different conditions with different remedies.
+          - >-
+              What solvent means. The things the bank holds are worth more than the things it
+              owes. That is a statement about value and it is unchanged since yesterday,
+              because nothing about the borrowers has changed.
+          - >-
+              What liquid means. Enough cash to meet what is asked for today. That is a
+              statement about timing and it went wrong this morning, because thirty-two were
+              asked for and there are ten.
+          - >-
+              Why the distinction is not a technicality. It decides what the remedy is. A
+              timing problem can be lent against and repaid when the loans mature. A value
+              problem cannot, and lending into it moves a loss onto whoever lent.
+        assumes:
+          - the loans are worth what they were worth yesterday if held to maturity
+          - deposits are owed in full and on demand
+        takeaway: Being worth more than you owe and being able to pay today are two separate conditions, and confusing them is what makes the rest of a crisis go wrong.
+        format: DIAGNOSIS
+        headline: Ten units of cash, thirty-two asked for, and a loan book worth ninety against ninety of deposits.
+        task: Which description fits every row rather than only the shortfall?
+        readings:
+          - { zone: Cash, label: In the vault at opening, value: 10, status: normal }
+          - { zone: Demand, label: Asked for by noon, value: 32, status: alarm }
+          - { zone: Loan book, label: Worth if held to maturity, value: 90, status: normal }
+          - { zone: Deposits, label: Owed in full, value: 90, status: normal }
+          - { zone: Borrowers, label: Changed since yesterday, value: nothing, status: normal, note: no default and no downgrade }
+          - { zone: Owners' stake, label: What absorbs a loss first, value: 10, status: normal }
+        choices:
+          - label: Sound in value and unable to pay today
+            mechanism: Nothing about the loans has changed; what has changed is how much is being asked for at once.
+          - label: Worth less than it owes
+            mechanism: The shortfall in cash is a shortfall in value.
+          - label: In no difficulty at all
+            mechanism: The book covers the deposits, so the position is fine.
+          - label: Badly managed, since the cash should have covered this
+            mechanism: A careful bank would have held thirty-two units of cash.
+        answer: Sound in value and unable to pay today
+        why: >
+          The quiet rows do the work. Nothing about the borrowers has changed, the book is
+          worth what it was, and the owners' stake is intact — so the value side of the sheet
+          is unchanged since yesterday. What changed this morning is how many people asked at
+          once, which is a fact about timing. Both of the tempting readings collapse the two
+          into one. And the fourth is worth rejecting carefully: a bank holding thirty-two
+          units of cash against ninety of deposits would earn almost nothing, which is the
+          trade the first level was about.
+
+      - group: VAULT
+        task: Price what a sale raises
+        title: Seventy on the pound
+        place: Reserve Room
+        concept: 'A fire sale turns a timing problem into a value problem'
+        scene: >
+          The dealing room has a bid. Twenty units of the book, at face value, can
+          be sold this afternoon at seventy on the pound. Broadbent wants the cash
+          it raises, not the face value.
+        guide: >-
+          Work out what the sale actually brings in, which is the face value sold multiplied by
+          what a buyer will pay for each unit of it today. One tile is what the same loans are
+          worth if held to maturity and one is the deposits owed, and neither belongs in this
+          multiplication.
+        background:
+          - >-
+              How to do it, on a different example. A car listed at four thousand, sold before
+              the end of the week, fetches two thousand eight hundred. The cash raised is two
+              thousand eight hundred. The twelve hundred is not a discount somebody chose to
+              give; it is what having to sell this week costs.
+          - >-
+              Why the price is what it is. Everybody selling this week is selling for the same
+              reason, and every buyer knows it. A buyer who knows you must be finished by four
+              will wait until half past three, and the bid falls all day.
+          - >-
+              What the sale does to the sheet. Twenty of face value leaves the asset side and
+              fourteen of cash arrives. Six units have gone — out of an owners' stake of ten.
+              That is how a timing problem becomes a value problem, and it happens by the
+              afternoon rather than over years.
+          - >-
+              Why selling more makes it worse. A larger sale into the same market gets a lower
+              price, so the loss grows faster than the cash does. There is a point at which
+              selling enough to meet today's demand takes the owners' stake below zero, and
+              the bank is then insolvent because it tried to pay.
+        assumes:
+          - the loans can be sold today at the price bid rather than at face value
+          - the same loans held to maturity would return their face value
+        takeaway: A hurried sale raises the face value times what is bid today, and the difference comes straight out of the owners' stake — which is how a timing problem becomes a value problem in an afternoon.
+        format: BALLPARK
+        question: How much cash does the sale actually raise?
+        estimate:
+          prompt: >-
+            Broadbent will not report a face value to the fifth floor. She wants what it brings in.
+          question: How much cash does the sale actually raise?
+          relationship: The cash raised is the face value sold multiplied by what a buyer will pay for each unit of it today.
+          labels:
+            - 20  (face value of loans put up for sale)
+            - 0.70  (what a buyer will pay per unit of face value today)
+            - 1.00  (what the same loans return if held to maturity)
+            - 90  (deposits owed)
+          values: [20, 0.70, 1.00, 90]
+          slots: 2
+          template: '{0} × {1}'
+          formula: a*b
+          correct: [0, 1]
+          target: 14
+          tolerance: 0.5
+          units: units of cash
+          solution: Twenty of face value at seventy on the pound brings in fourteen units of cash.
+          explanation: The pound in the pound is what the loans return if they are held, and using it computes the face value again rather than what the sale raises.
+        why: >
+          Fourteen units of cash, and six units gone. That six comes straight out of an owners'
+          stake of ten, which is the whole of what a forced sale does: it converts a problem
+          about timing into a problem about value, in an afternoon rather than over years. And
+          it gets worse the more you sell, because a larger sale into the same market fetches a
+          lower price. There is a point at which selling enough to meet today's demand takes
+          the stake below zero, and the bank is insolvent because it tried to pay.
+
+      - group: VAULT
+        task: Work out why waiting loses
+        title: The people at the back are not being foolish
+        place: Reserve Room
+        concept: 'Withdrawing early is rational when others may withdraw first'
+        scene: >
+          Somebody in the queue believes the bank is perfectly sound. They are
+          queuing anyway. Broadbent wants the reason written down before anybody
+          calls the pavement hysterical.
+        guide: >-
+          Four accounts of why a person who trusts the bank still queues are offered. What
+          separates them is whether each depends on that person being mistaken. Ask of each:
+          does it still work for somebody who has read the balance sheet and believes every
+          word of it?
+        background:
+          - >-
+              How to do it, on a different example. A hall has one narrow exit and somebody
+              smells smoke. You may be sure there is no fire and still head for the door,
+              because what you lose by being last is very large and what you lose by being early
+              is nothing much. Everybody reasoning that way produces the crush.
+          - >-
+              What the depositor at the back is facing. The cash runs out partway down the
+              queue. After that come forced sales at a falling price, and the losses from those
+              fall on whoever has not yet been paid. Being late is not a risk to comfort; it is
+              a risk to the money.
+          - >-
+              Why this cannot be argued away. The reasoning does not depend on believing the
+              bank is unsound. It depends only on believing that other people might queue,
+              which on a morning with a queue outside is not a belief anybody has to be
+              persuaded into.
+          - >-
+              What follows for the remedy. Persuasion does not work, because nobody in the
+              queue is making a mistake. What has to change is the payoff — the thing being
+              lost by waiting — and that is what the third level is about.
+        assumes:
+          - the cash runs out partway down the queue on a day like this
+          - losses from forced sales fall on those not yet paid
+        takeaway: When being late costs money and being early does not, joining the queue is the sensible move even for somebody who trusts the bank — which is why a run cannot be talked down.
+        format: CHOICE
+        question: Why does somebody who trusts the bank queue anyway?
+        choices:
+          - Because what they lose by being last is large and by being early is nothing.
+          - Because they do not really believe the bank is sound.
+          - Because they have been panicked by the crowd outside.
+          - Because they need the money today for something else.
+        answer: Because what they lose by being last is large and by being early is nothing.
+        rebuttals:
+          - The reasoning works perfectly well for somebody who has read the sheet and believes it.
+          - Nothing about it requires a crowd; one person reasoning alone reaches the same answer.
+          - That explains a few people in any queue and not a queue that goes round the corner.
+        why: >
+          Nobody in that queue is making a mistake, and that is the uncomfortable part. The cash
+          runs out partway down, forced sales at a falling price come next, and the losses from
+          those fall on whoever has not yet been paid. So being late risks the money and being
+          early costs an hour. The reasoning does not require believing the bank is unsound — it
+          requires only believing other people might queue, which is not something anybody has
+          to be persuaded of when there is a queue outside. That is why persuasion does not
+          work, and why the remedy has to change the payoff instead.
+
+  - title: Which problem is this
+    objective: Change what waiting is worth, work out what is still owed, and decide who the facility is for.
+    briefing: Eccles wants the incentive changed rather than the crowd persuaded.
+    stake: >-
+      Two in the afternoon, six hours into the day, and from the fifth floor the whole length
+      of the queue is visible. Marriner Eccles, at the crisis desk, has run a bank through this and
+      says nothing said to the pavement will work. William Woodin, here from the Treasury, has
+      a facility and the problem of deciding who gets it. Carter Glass, a legislator, is here
+      about what the rule should be afterwards, and is against the thing about to be done. Four banks are on the wire and
+      one of them is not like the others. Today you commit a figure for what a guarantee does,
+      work out what is still owed after the vault and the sale, and decide who is lent to.
+    takeaway: A guarantee works by changing what queuing is worth, and a loan works only if the problem it is aimed at is a timing problem.
+    stops:
+      - group: CRISIS
+        task: Commit a figure for what a guarantee does
+        title: Say it and see what happens
+        place: Crisis Desk
+        concept: 'Insurance changes the payoff, so it changes the behaviour'
+        scene: >
+          The proposal is a guarantee: every depositor paid in full whether they
+          are first or last. Eccles wants a figure for tomorrow's withdrawals
+          before it is announced, not afterwards.
+        guide: >-
+          Say first, in writing, what share of depositors will withdraw on the day after the
+          guarantee is announced. Then announce it, then count. The figure is locked once it is
+          made, because a number produced afterwards will always have been about right. Note
+          also that posting a notice is not the same as finding out whether it worked.
+        background:
+          - >-
+              How to do it, on a different example. A shop announces that anybody arriving
+              before closing will be served, however long the queue. Predict how many people
+              turn up at opening. Afterwards the outcome will feel like the obvious one, and the
+              written figure is the only defence against that.
+          - >-
+              What the guarantee changes. Not the balance sheet, which is what it is. It
+              changes what a depositor loses by waiting, and waiting was the only thing making
+              the queue worth joining. Remove that and being first is worth nothing.
+          - >-
+              Why the figure should not be zero. Some people genuinely need their money today,
+              some will not have heard, and some will not believe it. A prediction of nobody at
+              all is a prediction that a promise works perfectly, which no promise does.
+          - >-
+              What has to be true for it to work at all. The promise has to be believed, and it
+              has to be one somebody can keep. Neither of those is arithmetic, and both of them
+              are why this is the hardest thing on the desk.
+        assumes:
+          - the guarantee is announced credibly and reaches most depositors overnight
+          - a depositor who expects to be paid in full has no reason to be early
+        takeaway: A guarantee acts on the reason for joining the queue rather than on the bank's position, which is why it mostly does not have to be paid out.
+        format: VERIFY
+        question: >-
+          Lock a figure for tomorrow, announce the guarantee, then count what happens.
+        verify:
+          hint: >-
+            Write the figure down before the notice goes up. Nothing about it can be changed
+            afterwards, which is what makes it a prediction.
+          prediction: { label: Predicted share of depositors withdrawing tomorrow, unit: '%', min: 0, max: 60, step: 2 }
+          truth: 6
+          passRatio: [0.5, 2.2]
+          intervention:
+            label: The guarantee, announced
+            note: Every depositor paid in full, first or last, in every bank on the wire.
+            outcome: Notices up by six. The evening papers carry it. The queue is still there at opening.
+          measurement:
+            label: Tomorrow's withdrawals, counted
+            note: Every till, every branch, against the same day last week.
+            cost: 1
+            costUnit: days
+          unmeasuredMoral: >-
+            The notices are up and the wording was agreed by everybody in the room. That is a
+            statement about the notices.
+          commit: Report the count
+        answerText: >-
+          About six in a hundred, which is an ordinary Wednesday. Not none — some people needed
+          the money and some did not believe it — and nothing like a run.
+        why: >
+          Six per cent, and the balance sheet is exactly what it was yesterday. That is the
+          whole mechanism: the guarantee changes what a depositor loses by waiting, and waiting
+          was the only thing that made queuing worth the morning. Predicting zero would have
+          been predicting that a promise works perfectly, which none does — some people needed
+          the money and some had not heard. And the notices going up is not the result. A room
+          agreeing on wording is a room agreeing on wording until somebody counts the tills.
+
+      - group: VAULT
+        task: Work out what is still owed
+        title: After the vault and the sale
+        place: Reserve Room
+        concept: 'A lender of last resort lends against good assets, at a price'
+        scene: >
+          Thirty-two units have been asked for today. Ten came out of the vault
+          and the forced sale raised fourteen. Woodin wants the gap before he
+          decides anything about the facility.
+        guide: >-
+          Take today's demand and subtract what the vault held and what the sale raised. Use
+          those three. One tile is the face value that was sold rather than the cash it brought
+          in, and using it would report a gap that is two units smaller than the real one.
+        background:
+          - >-
+              How to do it, on a different example. A bill of ninety is met with forty in the
+              account and thirty raised by selling something. Twenty is still owed. The order
+              does not matter and the arithmetic is one subtraction after another, and the only
+              way to get it wrong is to use what something was worth instead of what it fetched.
+          - >-
+              Why the gap is the number that matters. It is what somebody else has to fill for
+              the bank to open tomorrow morning. Everything on the fifth floor this afternoon is
+              a decision about that number.
+          - >-
+              What filling it costs, depending. If the bank is sound, a loan against its
+              remaining book fills the gap and comes back when the loans mature. If it is not,
+              the same loan does not come back and the loss moves onto whoever lent it.
+          - >-
+              Why the gap is not the whole story. Tomorrow there will be another demand and
+              another gap, and it will be smaller or larger depending on whether anything has
+              changed about why people are queuing. That is what the guarantee is for.
+        assumes:
+          - the vault's cash and the sale's proceeds both go to meeting today's demand
+          - what is not met today is owed tomorrow
+        takeaway: Today's demand is met out of the vault and then out of whatever a sale raises, and whatever is left is the gap somebody else has to fill.
+        format: BALLPARK
+        question: What is still owed today?
+        estimate:
+          prompt: >-
+            Woodin will not discuss the facility until the gap is on the sheet.
+          question: What is still owed today?
+          relationship: The shortfall is today's demand less the cash in the vault and less what the sale raised.
+          labels:
+            - 32  (asked for by depositors today)
+            - 10  (cash in the vault at opening)
+            - 14  (raised by the forced sale)
+            - 20  (face value of the loans sold)
+          values: [32, 10, 14, 20]
+          slots: 3
+          template: '{0} − {1} − {2}'
+          formula: a-b-c
+          correct: [0, 1, 2]
+          target: 8
+          tolerance: 0.5
+          units: units still owed today
+          solution: Thirty-two asked for, less ten from the vault and fourteen from the sale, leaves eight still owed.
+          explanation: The twenty is the face value that went out of the door, not the cash that came back in, and using it reports a gap two units too small.
+        why: >
+          Eight units, and that is the number the fifth floor is actually deciding about. It is
+          what somebody else has to fill for the doors to open tomorrow. What filling it costs
+          depends entirely on which problem this is: lent to a bank whose book is worth more
+          than its deposits, the eight comes back when the loans mature and the facility has
+          converted a timing problem into a loan. Lent to one whose book is not, it does not
+          come back, and the loss has moved onto whoever lent it.
+
+      - group: CRISIS
+        task: Decide who the facility is for
+        title: Four banks, one facility
+        place: Crisis Desk
+        concept: 'Diagnosing which problem it is has to come before choosing the tool'
+        scene: >
+          A hundred units of emergency lending, and four banks on the wire. Three
+          of them are short of cash and sound. One of them has a book worth less
+          than its deposits and has been for a month.
+        guide: >-
+          Put the hundred where a loan comes back. Three of these banks have books worth more
+          than their deposits, so lending against that book converts a timing problem into a
+          loan. The fourth does not, and lending to it on the same terms is not a rescue — it is
+          a transfer, and saying so is the job rather than a cruelty.
+        background:
+          - >-
+              What the wire says, bank by bank. Marrable is short eight units today with a book
+              covering its deposits. Ordish is in the same position, further along. Vessey has
+              not been asked yet and would be sound if it were. Penhale's book has been worth
+              less than its deposits since a valuation a month ago.
+          - >-
+              What lending to Penhale on ordinary terms would do. It would keep the doors open
+              a few days longer, at greater eventual cost, and the loss would fall on whoever
+              lent rather than on the owners it is supposed to fall on. That is a decision
+              somebody may still want to take, and it is not a liquidity operation.
+          - >-
+              Why some of the hundred is held back. Vessey has not been asked yet, and "quiet so
+              far" is a time of day rather than a condition. A facility with nothing left in it
+              on Thursday is a facility that has told everybody there is nothing left.
+          - >-
+              How the classification is actually made. From valuations days old, under time
+              pressure, in an afternoon. Being wrong in one direction closes a sound bank and in
+              the other lends into a hole, and both are expensive in ways that are hard to
+              compare.
+        assumes:
+          - a hundred points can be split across the four in any proportion
+          - a bank whose book covers its deposits can repay a loan when the loans mature
+        takeaway: Liquidity support keeps a sound bank alive and keeps an unsound one alive a little longer at greater cost, so the classification has to be made before the tool is chosen.
+        format: SCIENCETANK
+        task: Put the hundred where a loan comes back.
+        rules: >-
+          Commit all one hundred units. At least sixty must go to banks whose books are worth
+          more than the deposits they owe.
+        proposals:
+          - label: A
+            text: Marrable — short eight units today, against a book that covers its deposits.
+          - label: B
+            text: Ordish and Company — the same position, further along, and short a good deal more.
+          - label: C
+            text: Penhale — a book worth less than its deposits since a valuation a month ago.
+          - label: D
+            text: Hold in reserve for Vessey and the country branches tomorrow.
+        recommended: { A: 40, B: 30, D: 20 }
+        why: >
+          Two of the four are exactly what a facility is for: sound books, a shortage of cash
+          today, and a loan that comes back when the loans mature. Some of the hundred is held
+          back on purpose, because a bank that has not been asked yet is not a bank that is
+          safe, and a facility with nothing left in it on Thursday has announced that there is
+          nothing left. Penhale is the point of the stop. Lending to it on these terms would
+          keep the doors open a few days at greater cost and move the loss onto whoever lent.
+          That may still be worth doing, and it is a different decision that has to be named as
+          one.
+
+# No `warmups:` block, and that is a rule rather than an omission.
+# `engine/core/warmups.js` gives a three-day campaign no warm-up runs at all — one
+# sitting has no morning to open on — so a `warmups:` block here would be content
+# that reaches no screen, and `warmupOrder` refuses one. Give the campaign a fourth
+# level and the runs come back.
+
+interiors:
+  COUNTER:
+    caption: Nobody is turned away and nobody is served out of turn.
+    standLine: Three tills open, a fourth made up and not opened.
+    station:
+      kind: panel
+      title: The sheet
+      rows:
+        - { label: Cash in the vault, value: 10, status: normal }
+        - { label: Loans outstanding, value: 90, status: normal }
+        - { label: Deposits owed, value: 90, status: alarm }
+        - { label: Owners' stake, value: 10, status: normal }
+  LOANS:
+    caption: Lent long, and callable on demand. That is the business.
+    standLine: Four units back this month, and twenty-six out beyond five years.
+    station:
+      kind: plot
+      title: When the book comes back
+      note: four units are callable this month
+      axes: { x: time to maturity, y: units of the book }
+      curves:
+        - { points: [[0.05, 0.04], [0.2, 0.19], [0.55, 0.41], [0.95, 0.26]], label: maturities }
+  VAULT:
+    caption: What is actually in the building, counted twice a day.
+    standLine: Two keys, two people, and a much smaller number than the ledgers.
+    station:
+      kind: panel
+      title: The count
+      rows:
+        - { label: In the vault at open, value: 10, status: normal }
+        - { label: Asked for by noon, value: 32, status: alarm }
+        - { label: Bid per unit of face value, value: 0.70, status: alarm }
+        - { label: Raised by the sale, value: 14, status: normal }
+  CRISIS:
+    caption: Short of cash and short of value are different failures.
+    standLine: Four banks on the wire, and the whole queue visible from the window.
+    station:
+      kind: panel
+      title: The wire
+      rows:
+        - { label: Marrable, value: short of cash, status: alarm }
+        - { label: Ordish and Co, value: short of cash, status: alarm }
+        - { label: Penhale, value: short of value, status: alarm }
+        - { label: Vessey, value: not yet asked, status: low }
+
+copy:
+  COUNTER: <p>The banking hall on the second floor. A mahogany counter with a brass grille over it, three tills open, and a window on the street front you can see the queue from.</p>
+  LOANS: <p>The loan book room on the third floor. Ledgers of what the deposits were turned into, a maturity table on the wall, and two valuations of the same book.</p>
+  VAULT: <p>The reserve room on the fourth floor. Steel cages, two keys, a count taken twice a day, and a dealing room next door finding out what a hurried sale fetches.</p>
+  CRISIS: <p>The crisis desk on the fifth floor. A table down the middle, four banks on the wire, and the only window in the building that can see the whole length of the queue.</p>
+  TELLER: <p>The tellers' room behind the hall. Four tills made up this morning and one of them still in the drawer.</p>
+  LEDGERS: <p>The deposit ledgers, across the corridor from the hall. Ninety units owed on demand, to about four thousand people, written by hand.</p>
+  POST: <p>The post room on the second floor. Sacks, a franking machine, and the notices that have not gone out yet.</p>
+  SEC: <p>The securities room on the third floor. Certificates in a cabinet, and a list of what could be sold in a day if it had to be.</p>
+  CREDIT: <p>The credit files on the third floor. Every borrower, what they were lent and whether they have missed anything. Nobody has.</p>
+  VALUERS: <p>The valuers' room. Two numbers for the same book — what it returns held to maturity and what it would fetch by four o'clock.</p>
+  COUNT: <p>The counting room on the fourth floor. A long table, a note-counting machine that jams, and the morning's count still laid out on it.</p>
+  DEALING: <p>The dealing room on the fourth floor. Three telephones, a board of bids, and the price for the book falling through the afternoon.</p>
+  STRONG: <p>The strongroom on the fourth floor. Two keys, two people, and nothing else in it worth describing.</p>
+  CHAIR: <p>The chairman's room on the fifth floor. A desk, a portrait, and a man who keeps saying the bank is solvent as though that settled this afternoon.</p>
+  WIRE: <p>The wire room on the fifth floor, open to the corridor. Four banks reporting, and a window at the end of it.</p>
+  PRESS: <p>The press room on the fifth floor. Two chairs, a telephone, and a rule that nothing is said which is not already true.</p>

@@ -21,25 +21,19 @@ import { furnishRoom, furnishCorridor, furnishingMaterials, paintMural,
  * all of it has to land at 1.4 m/s.
  */
 const WALL_TEXT = {
+  // ONE notice, and that is the whole of it.
+  //
+  // The first version of this room carried five, including a list of the words
+  // and a tally board — and the room's own banner says nothing on these walls is
+  // worth remembering. A screenshot from the corridor is what found it: seven
+  // boards on the wall of the room whose design principle is that there is
+  // nothing to look at. Everything the five said is on the cards the player
+  // reads, which is where it belongs.
   STUDY: [
     { style: 'banner', tag: 'STUDY ROOM', heading: 'Nothing on these walls is worth remembering',
       accent: '#3a5566',
       body: 'That is deliberate. Anything memorable in here would be competing '
         + 'with the list, and the list is the experiment.' },
-    { style: 'grid', tag: 'THE LISTS', heading: 'Fifteen words that all point at a sixteenth',
-      accent: '#3a5566',
-      body: 'Bed, rest, awake, tired, dream, snooze, blanket, doze. The word they '
-        + 'all point at is not on the list and will not be.' },
-    { style: 'list', tag: 'THIS WEEK', heading: 'Lists run', accent: '#5b6a72',
-      items: [['Participants', '40'], ['Lists each', '12'],
-        ['Words a list', '15'], ['Lures tested', '480']],
-      body: 'Four hundred and eighty chances for a word that was never there.' },
-    { style: 'warning', tag: 'DO NOT EXPLAIN', heading: 'Not before the recognition test',
-      accent: '#b5502f',
-      body: 'Somebody who has been told what the lists are for is testing '
-        + 'something else. Debrief afterwards, fully, every time.' },
-    { style: 'tally', tag: 'DAYS SINCE', heading: 'Someone said they would never fall for it',
-      accent: '#8a6a1e', body: '' },
   ],
   EVENT: [
     { style: 'banner', tag: 'EVENT BAY', heading: 'Everybody sees the same thing',

@@ -24,6 +24,18 @@ export const VIEWS = [
     note: 'the plain painted band opposite, which should say nothing' },
   { name: 'corridor--from-the-far-end', at: { x: 0, z: 42 }, yaw: BACK,
     note: 'back down the length of it, past the tabulation room door' },
+
+  // One view into each of the four rooms a stop happens in, standing just
+  // inside the door and looking at the far wall — which is where the fit-out,
+  // the case stand and the room's own screen are.
+  { name: 'testing-booth--doorway', at: { x: -3.25, y: 1.6, z: 9.5 }, yaw: WEST,
+    note: 'inside the door of the testing booth, looking at the far wall' },
+  { name: 'tabulation-room--doorway', at: { x: -3.25, y: 1.6, z: 31.0 }, yaw: WEST,
+    note: 'inside the door of the tabulation room, looking at the far wall' },
+  { name: 'chronoscope-bench--doorway', at: { x: 3.25, y: 1.6, z: 11.0 }, yaw: EAST,
+    note: 'inside the door of the chronoscope bench, looking at the far wall' },
+  { name: 'distribution-wall--doorway', at: { x: 3.25, y: 1.6, z: 26.0 }, yaw: EAST,
+    note: 'inside the door of the distribution wall, looking at the far wall' },
 ];
 
 export default VIEWS;

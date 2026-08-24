@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Rounds that add up",
     "objective": "Read what a set of rounds is doing, sum the series, and find how much leaks out of it.",
     "briefing": "Kahn will not publish a figure nobody can check on a sheet of paper.",
-    "stake": "Wednesday, and the model room has the rounds on the long table. Richard Kahn, who works the arithmetic, will not put a number in a note unless the working is on the sheet beside it. Colin Clark has figures for how much of each extra pound goes to tax, to saving and abroad, and none of those comes back as anybody's income here. Edith Marchant has spent two days making the returns comparable. Today you read what the rounds are actually doing, add the whole series up, and find out how much leakage the tidy figure survives.",
+    "stake": "Wednesday, and the model room has the rounds on the long table. Richard Kahn, who works the arithmetic in the model room, will not put a number in a note unless the working is on the sheet beside it. Colin Clark has figures for how much of each extra pound goes to tax, to saving and abroad, and none of those comes back as anybody's income here. Edith Marchant has spent two days making the returns comparable. Today you read what the rounds are actually doing, add the whole series up, and find out how much leakage the tidy figure survives.",
     "takeaway": "A change in spending is amplified by a factor that can be computed, and every leak makes it smaller.",
     "stops": [
       {
@@ -77,17 +77,4 @@ export const MISSIONS = [
   }
 ];
 
-export const WARMUPS = {
-  "greet": {
-    "title": "Four rooms and one recommendation between them",
-    "why": "The board, the returns, the arithmetic and the desk are four different jobs, and the figure that leaves on Friday has passed through all of them. A recommendation is worth what the room behind each of its numbers is worth. Put a name to as many of them as you can before the week starts."
-  },
-  "trial-near": {
-    "title": "Walk the building before the first figure is quoted",
-    "why": "The flow room and the model room are down one side of the corridor and the statistics room and the policy desk are down the other, which means every number crosses it twice. John Maynard Keynes, the economic adviser here, would rather you knew the way than found it out carrying a draft."
-  },
-  "follow": {
-    "title": "Marchant carries a capacity figure from the returns to the desk",
-    "why": "A percentage is worked out of a stack of returns, written on a slip and quoted in another room, and most of what goes wrong happens in between. Edith Marchant, the statistical clerk, walks one the whole way. Stay with her and watch where the range around it gets dropped."
-  }
-};
+export const WARMUPS = {};

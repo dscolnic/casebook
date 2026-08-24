@@ -31,8 +31,8 @@ export const plan = {
     // deliberately the blandest palette in this set, because the whole subject
     // is that nothing about the room should be memorable.
     palette: {
-      floorSpine: [58, 66, 78],
-      floorRoom:  [64, 70, 80],
+      floorSpine: [44, 50, 60],
+      floorRoom:  [48, 54, 62],
       wall:  '#b6bcc2',
       base:  '#4a5258',
       rail:  '#7c848a',

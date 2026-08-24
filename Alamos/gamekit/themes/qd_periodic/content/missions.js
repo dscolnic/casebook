@@ -77,17 +77,4 @@ export const MISSIONS = [
   }
 ];
 
-export const WARMUPS = {
-  "greet": {
-    "title": "Four rooms and one arrangement between them",
-    "why": "The drawers, the long table, the bench and the hall are four different kinds of work and two of the people here disagree about whether the whole thing should be published. A claim is worth what the room behind it is worth. Put a name to as many of them as you can before the week starts."
-  },
-  "trial-near": {
-    "title": "Walk the institute before a drawer is opened",
-    "why": "The specimens and the card desk are down one side of the corridor and the bench and the lecture hall are down the other, which means every card crosses it. Anna Popova, who keeps the specimen store, would rather you knew the way than found it out carrying an open drawer."
-  },
-  "follow": {
-    "title": "Sokolova carries a measurement from the bench to the hall",
-    "why": "A density is read off a displacement, written on a slip and read out in another room, and most of what goes wrong happens in between. Vera Sokolova, the analytical assistant, walks one the whole way. Stay with her and watch where the figure changes hands."
-  }
-};
+export const WARMUPS = {};

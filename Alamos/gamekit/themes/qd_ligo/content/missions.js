@@ -77,17 +77,4 @@ export const MISSIONS = [
   }
 ];
 
-export const WARMUPS = {
-  "greet": {
-    "title": "Six people, two buildings, one channel",
-    "why": "Nothing here is measured by one person, and half the argument comes from a site two thousand miles away. The optics, the calibration, the isolation, the auxiliary channels and the parameter fitting are five different desks. Put a name to as many of them as you can before the week starts."
-  },
-  "trial-near": {
-    "title": "Walk the site before the arms are locked",
-    "why": "The optics lab and the parameter room are down one side of the corridor and the isolation bay and the control room are down the other. Walk it once now. Rainer Weiss, the optics lead, would rather you knew the way than went looking for the control room at four in the morning."
-  },
-  "follow": {
-    "title": "Oyelaran carries a calibration from the shaken mirror to the strain channel",
-    "why": "A brightness at a port becomes a length only through a calibration, and a calibration a few per cent out scales every amplitude in the record the same way. Femi Oyelaran, the physicist who does the calibration, walks one through. Stay with him and watch where the number is scaled."
-  }
-};
+export const WARMUPS = {};

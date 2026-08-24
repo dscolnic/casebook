@@ -75,7 +75,8 @@ silhouette and the fit-out lessons for each. Run any of them with
 | `qd_hubble` | The Expanding Universe | astronomy |
 
 The last ten are the **Quick Discoveries** — nine stops in one sitting on a 3 × 3
-spine, `dayNoun: 'Level'`, all at `audience: { grade: 9 }`, no second-day model.
+spine, `dayNoun: 'Level'`, all at `audience: { grade: 9 }`, no second-day model and no
+warm-up runs.
 Twelve junior (`_ms`) and three same-grade AP editions exist beside these; an
 edition is a registered theme, not a build flag. Twenty-five games plus ten Quick
 Discoveries; `themes.json` maps every id to its directory.

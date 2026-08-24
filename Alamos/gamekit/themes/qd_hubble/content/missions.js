@@ -77,17 +77,4 @@ export const MISSIONS = [
   }
 ];
 
-export const WARMUPS = {
-  "greet": {
-    "title": "Six people, two axes, one plot",
-    "why": "The two axes of that plot were measured in different rooms by different people on different nights, and the line only means something if both of them do. The plates, the grading, the ladder, the spectra and the theory are five different desks. Put a name to as many of them as you can before the week starts."
-  },
-  "trial-near": {
-    "title": "Walk the observatory before the plates come out",
-    "why": "The plate vault and the diagram room are down one side of the corridor and the spectrograph and the ladder desk are down the other. Walk it once now. Henrietta Leavitt, who runs the plate vault, would rather you knew the way than went looking for the ladder desk with an armful of glass."
-  },
-  "follow": {
-    "title": "Humason carries one star from the plate to the ladder desk",
-    "why": "A star is graded in one room, measured on an engine in the same room, and turned into a distance in another, and a distance inherits every error in the brightness it came from. Milton Humason, the physicist who measures the plates, walks one all the way through. Stay with him and watch what he refuses to use."
-  }
-};
+export const WARMUPS = {};

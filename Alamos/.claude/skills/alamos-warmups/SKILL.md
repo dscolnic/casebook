@@ -116,6 +116,26 @@ and no vehicle to unlock in Mission Control.
 - **The tiers are stamped on the content, not passed at each call site.** `theme.js` normalises once with
   the site; every checker that re-normalises reads the same `content.TIERS`.
 
+## A campaign short enough to finish in one sitting has none
+
+**`WARMUP_MIN_DAYS` is 4, and a campaign under it schedules nothing.** The schedule below is
+written for a fortnight of mornings. A Quick Discovery is three levels and nine stops in one
+sitting, so the two openers alone would be two thirds of the campaign — read before a single
+stop, by a player who came for nine questions. All twenty short campaigns open on their first
+plan card now, and their books' `warmups:` blocks are deleted rather than left unreachable.
+
+**Derived, not authored.** A `quick: true` on twenty themes is a second description of a shape
+the missions file already states, so the rule reads the day count — move a campaign to four days
+and it gets its runs back. Three places know it, all from the one constant: `warmupPlan` returns
+`[]`, `warmupOrder` judges a short campaign on having *no* schedule (and reports a book that
+authors runs nobody will be offered, the length twin of `trial-far` on one tier), and
+`import-book` refuses the block outright.
+
+**And `npm run laps` threw on the first one it was pointed at.** `TypeError: Cannot read
+properties of undefined (reading 'getState')` — its priced-way-past-a-run pass assumed a run
+existed, and the whole report, rows included, was lost to a campaign behaving exactly as
+specified. A harness that cannot describe a legal campaign is the failure, not the campaign.
+
 ## Seven runs open the campaign, and each needs a reason
 
 **`engine/core/warmups.js` is the schedule and the only copy of it.** The seven world-graded formats —
@@ -151,7 +171,7 @@ Everything the run needs defaults from the campaign's own data.
 *properties* the schedule has to have rather than comparing against a table, because a table would be a
 second description of the rule. Fifteen selftest cases, including the two that would otherwise invert
 silently — the two laps sharing a save slot, and a five-day campaign asked for five tail runs it has no
-room for. **The debt is paid: 204 slots across 28 campaigns → nothing.** All 29 campaigns author all seven
+room for. **The debt is paid: 204 slots across 28 campaigns → nothing.** Every campaign that is offered runs authors all seven
 (eight where there is far ground), so an unwritten slot fails immediately. What the writing turned up is
 that the reason is campaign-specific in a way the schedule is not: HUNT is six earths at Calder, eleven
 bagged heads at Wellmere, fourteen ventilators at Riverton, nine spare tapes in Mission Control. That is

@@ -48,7 +48,9 @@ description: The inventory of all 35 Alamos campaigns — what each teaches, its
 **A Quick Discovery is nine stops in one sitting, and needs no second day model.**
 `great_discoveries_first10_expanded.docx` specifies ten discoveries on a 3 × 3
 spine — establish the tool, meet the anomaly, make the claim — as a ten-to-twenty
-minute session. A level is a day, a micro-game is a stop, `dayNoun: 'Level'`, and
+minute session. **No warm-up runs, either**: seven runs spread over a fortnight's
+mornings put two of them in front of a three-level sitting, so `WARMUP_MIN_DAYS`
+keeps them out — see `alamos-warmups`. A level is a day, a micro-game is a stop, `dayNoun: 'Level'`, and
 every gate in the repo reads it unchanged: all ten are green on all of them at
 three days and nine calls. What it did need was one honest number on the shelf —
 both front doors printed "days" for the fifteen themes that call a day something

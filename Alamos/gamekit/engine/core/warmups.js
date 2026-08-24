@@ -46,6 +46,23 @@
 // lap, the roster for a round) so a book that authors only the story still gets
 // a working warm-up. A book may override any of them.
 
+// ## A campaign short enough to finish in one sitting has none
+//
+// The schedule above is written for a fortnight of mornings: two openers, a far
+// lap where there is far ground, and five more laid out so a run turns up about
+// every third day. A Quick Discovery is three levels and nine stops in one
+// sitting, and handing it the same schedule opens two of its three cards on a
+// run the player did not come for — the openers alone would be two thirds of
+// the campaign, before a single stop. So a campaign under `WARMUP_MIN_DAYS`
+// days schedules nothing.
+//
+// Derived rather than authored, for the same reason the tiers are: a `quick:
+// true` on twenty-one themes is a second description of a shape the missions
+// file already states. Move a campaign to four days and it gets its runs back.
+
+/** Fewer days than this and the campaign is one sitting: no warm-ups at all. */
+export const WARMUP_MIN_DAYS = 4;
+
 /** The five that follow the two openers, in the order they are handed out. */
 export const WARMUP_TAIL = ['FOLLOW', 'HUNT', 'CANVASS', 'EVADE', 'TAG'];
 
@@ -61,6 +78,8 @@ export const WARMUP_OPENERS = ['TRIAL', 'GREET'];
  * existed.
  */
 export function warmupPlan({ days = 15, hasFar = false, unlockDay = 4 } = {}) {
+  // One sitting, no runs. See WARMUP_MIN_DAYS above.
+  if (days < WARMUP_MIN_DAYS) return [];
   const plan = [];
   const [first, second] = hasFar ? WARMUP_OPENERS : [WARMUP_OPENERS[1], WARMUP_OPENERS[0]];
   const slotFor = (fmt, i) => (fmt === 'TRIAL' ? (i === 0 ? 'trial-near' : 'trial-far') : fmt.toLowerCase());

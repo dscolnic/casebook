@@ -77,17 +77,4 @@ export const MISSIONS = [
   }
 ];
 
-export const WARMUPS = {
-  "greet": {
-    "title": "Six people, two eras, one hill",
-    "why": "Half the measurements in this campaign were made decades apart by different people, and a claim is worth what the instrument behind it could show. The antenna, the receiver, the foregrounds, the spectrum and the calibration are five different hands. Put a name to as many of them as you can before the week starts."
-  },
-  "trial-near": {
-    "title": "Walk the hill before anything is pointed",
-    "why": "The horn and the receiver hut are at the top of the track and the spectrum building and the theory room are further along it. Walk it once now. Arno Penzias, the antenna engineer, would rather you knew the way than went looking for the cold load with the horn already pointed."
-  },
-  "follow": {
-    "title": "Roll carries a load temperature from the calibration bay to the spectrum",
-    "why": "Every reading on that hill is the sky compared with a body at a known temperature, and a load wrong by a tenth of a kelvin moves every point on the spectrum by a tenth of a kelvin. Peter Roll, the physicist who does the calibration, walks one through. Stay with him and watch where the number is applied."
-  }
-};
+export const WARMUPS = {};

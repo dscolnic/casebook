@@ -353,14 +353,14 @@ export const GAMES = [
     course: 'Chemistry · how the elements were arranged so that the gaps meant something',
     field: 'Chemistry', accent: '#5a3b2a',
     place: 'An 1869 chemistry institute: a wall of numbered specimen drawers and a long card table down one side of a corridor, an analysis bench and a lecture hall down the other.',
-    hero: 'card-desk--doorway.png',
+    hero: 'corridor--from-the-entrance.png',
     level: 'high', grades: '9-12' },
 
   { id: 'qd_stroop', kind: 'quick', title: 'Stroop Effect',
     course: 'Cognitive psychology · how a reaction-time difference exposed an automatic process',
     field: 'Psychology', accent: '#5a4a7a',
     place: 'A 1935 reaction-time laboratory: a three-sided testing booth and a tabulation room down one side of a corridor, a chronoscope bench and a wall of eight hundred times down the other.',
-    hero: 'testing-booth--doorway.png',
+    hero: 'corridor--from-the-entrance.png',
     level: 'high', grades: '9-12' },
 
   { id: 'qd_memory', kind: 'quick', title: 'False Memories',
@@ -368,6 +368,20 @@ export const GAMES = [
     field: 'Psychology', accent: '#7a4fa3',
     place: 'A memory and testimony unit: a study room and an event bay open to the corridor at the near end, two identical interview suites down one side and a data room down the other.',
     hero: 'bays--study-room.png',
+    level: 'high', grades: '9-12' },
+
+  { id: 'qd_keynes', kind: 'quick', title: 'Keynes and the Great Depression',
+    course: 'Macroeconomics · how a collapse in spending became a model of output and employment',
+    field: 'Social Science', accent: '#2f6f5a',
+    place: 'A 1933 economic advisory building: a wall-sized board of the whole economy open to the corridor, a statistics room of returns opposite, and a policy desk at the far end.',
+    hero: 'corridor--from-the-entrance.png',
+    level: 'high', grades: '9-12' },
+
+  { id: 'qd_bankrun', kind: 'quick', title: 'Bank Runs',
+    course: 'Economics and finance · why a sound bank can fail and what stops it',
+    field: 'Social Science', accent: '#8a4a3f',
+    place: 'Four floors of a 1933 bank on one footprint, joined only by the lift: the counter, the loan book, the reserve and the crisis desk — and the queue on the street below the windows.',
+    hero: 'street--from-the-desk.png',
     level: 'high', grades: '9-12' },
 
   { id: 'hospital', title: 'Hospital Heroes',

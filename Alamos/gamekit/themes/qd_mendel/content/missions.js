@@ -77,17 +77,4 @@ export const MISSIONS = [
   }
 ];
 
-export const WARMUPS = {
-  "greet": {
-    "title": "Six people and one experiment none of them can run alone",
-    "why": "The trait, the crossing, the counting and the seed lines are four different jobs, and one of the four people here does not believe the conclusion. A tally is worth what the crossing behind it was worth. Put a name to as many of them as you can before the season starts."
-  },
-  "trial-near": {
-    "title": "Walk the garden before anything is sown",
-    "why": "The glasshouse and the plot shelter are either side of the beds, and the counting room and the seed store are eighty-five metres down the walk. Gregor Mendel, who lays out the trials, would rather you knew the way than found it out with a tray in your hands."
-  },
-  "follow": {
-    "title": "Fischer carries a labelled pod from the glasshouse to the trays",
-    "why": "A pod is picked in one building, carried down a walk and tipped into a tray in another, and everything that goes wrong with a season happens in between. Terezie Fischer, the garden assistant, walks one the whole way. Stay with her and watch where the label could part company with the seed."
-  }
-};
+export const WARMUPS = {};

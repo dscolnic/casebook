@@ -3223,10 +3223,21 @@ const JARGON = (book.glossary ?? []).map(t => {
 // The same geometry `orientation.js` uses, read from the site the TRIAL check
 // already loads. Nothing is authored: move a building and this follows it.
 const { tiersFor: tiersOf } = await import(pathToFileURL(resolve(gamekit, 'engine/core/orientation.js')).href);
+// The fourth refusal: a campaign short enough to be one sitting is offered no
+// runs at all, so a `warmups` block on it is prose nobody will ever read — the
+// same defect as `trial-far` on one tier of ground, arriving through length
+// instead of geometry. The threshold is the engine's, not a number repeated here.
+const { WARMUP_MIN_DAYS } = await import(pathToFileURL(resolve(gamekit, 'engine/core/warmups.js')).href);
 const FAR_TIER = SITE ? !!tiersOf(SITE).hasFar : false;
 const wneed = (cond, msg) => { if(!cond) fail(`warmups: ${msg}`); };
 const WARMUP_SLOTS = ['trial-near', 'trial-far', 'greet', 'follow', 'hunt', 'canvass', 'evade', 'tag'];
 const WARMUPS = {};
+if(Object.keys(book.warmups ?? {}).length && MISSIONS.length < WARMUP_MIN_DAYS){
+  fail(`warmups: this campaign is ${MISSIONS.length} ${MISSIONS.length === 1 ? 'day' : 'days'} long,`
+    + ' so it is one sitting and is offered no warm-up runs at all —'
+    + ' delete the `warmups:` block, or give the campaign'
+    + ` ${WARMUP_MIN_DAYS} days and it gets its runs back`);
+}
 for(const [key, w] of Object.entries(book.warmups ?? {})){
   const slot = String(key);
   wneed(WARMUP_SLOTS.includes(slot),

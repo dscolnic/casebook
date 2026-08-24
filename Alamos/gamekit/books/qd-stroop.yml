@@ -827,28 +827,11 @@ missions:
           measurement, and it says what to build next. You need experiments designed so the
           accounts disagree, which is what the fifty years after this were spent on.
 
-warmups:
-  greet:
-    title: Six people and one number that leaves the building
-    why: >-
-      The booth, the instrument, the sheets and the wall are four different jobs, and four
-      hundred trials are reduced to two numbers by people who mostly never meet the
-      participant. A figure is worth what the room behind it is worth. Put a name to as many of
-      them as you can before the week starts.
-  trial-near:
-    title: Walk the laboratory before anybody is timed
-    why: >-
-      The booth and the tabulation room are down one side of the corridor and the chronoscope
-      and the distribution wall are down the other, which means every reading crosses it. Ada
-      Whitlock, the testing coordinator, would rather you knew the way than opened a booth door
-      in the middle of a block.
-  follow:
-    title: Kell carries a median from the bench to the sheets
-    why: >-
-      A time is read off an instrument, written on a slip and entered in a column in another
-      room, and most of what goes wrong happens in between. Marion Kell, who works the
-      chronoscope, walks one the whole way. Stay with her and watch where the number changes
-      hands.
+# No `warmups:` block, and that is a rule rather than an omission.
+# `engine/core/warmups.js` gives a three-day campaign no warm-up runs at all — one
+# sitting has no morning to open on — so a `warmups:` block here would be content
+# that reaches no screen, and `warmupOrder` refuses one. Give the campaign a fourth
+# level and the runs come back.
 
 interiors:
   BOOTH:
