@@ -130,6 +130,15 @@ are in.
   player in place: renders perfectly, W does nothing → `alamos-world`.
 - **A hard equation early is fine; a derived one before its base is not.** Only a
   question that *computes* settles it → `alamos-curriculum`, `equationOrder.mjs`.
+- **Work is not shipped until the games are rebuilt and main has them.** This
+  branch (`deep-watch-integration`) is the workshop; **`main` is the app and has
+  no `Alamos/` in it at all**, and Replit only ever pulls main. Pushing the
+  workshop branch changes nothing a player can see. The bridge is
+  `npm run sync-casebook`, which builds every theme and writes the output into
+  the casebook checkout at `/Users/scolnic/code/casebook`, which is the same
+  repo on main — then that has to be committed and pushed too. Do not merge the
+  two branches: it would drag the whole workshop into the branch a live Reserved
+  VM serves → `alamos-shipping`.
 - **A campaign builds one named thing, and `delivery.where` has to be an area
   with somewhere to stand.** A room behind a door, or a room of its own on the
   plan — name an area with neither and the board every day's piece goes onto is

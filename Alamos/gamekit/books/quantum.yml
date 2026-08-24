@@ -403,16 +403,10 @@ missions:
         background:
           - >-
               How the stages work. Each stage is anchored to the one above by a deliberate
-              thermal link, and cools whatever is bolted to it. A stage removes a fixed
-              amount of heat per second, so extra heat arriving does not simply pass
-              through: the stage warms and its cooling works harder, and everything below it
-              is left with less cooling to spare. That is why a load shows up as a pattern
+              thermal link, and cools whatever is bolted to it. A stage removes a fixed amount of heat per second. So extra heat arriving does not simply pass through. The stage warms and its cooling works harder. Everything below it is left with less cooling to spare. That is why a load shows up as a pattern
               down the chain rather than at one thermometer.
           - >-
-              What the numbers mean. "Holding now" against "last cooldown" is a comparison
-              with a known-good run, which is worth more here than any absolute temperature
-              — a stage sitting at its usual value under its usual load has been ruled out,
-              and one sitting high has not. The cooling effort is the third column: a stage
+              What the numbers mean. "Holding now" against "last cooldown" is a comparison with a known-good run. That is worth more here than any absolute temperature. A stage sitting at its usual value under its usual load has been ruled out. One sitting high has not. The cooling effort is the third column: a stage
               can hold its temperature and still be telling you something, if it is working
               harder to do it.
           - >-
@@ -430,7 +424,7 @@ missions:
         question: The bottom of the fridge is warm and the top may not be. Take the readings you think you need — at which stage is the heat arriving?
         answerText: The still. It is the first stage that has moved — a quarter of a kelvin above last cooldown, with its heater working 40% harder — and everything below it is warm because the load is above them, not because their own cooling has failed.
         why: |-
-          Two stages held exactly what they held last time, which is what rules almost everything out: a vacuum problem, a failing pulse tube, a room-temperature fault would all warm the top of the chain first, and the top of the chain has not moved. From the still downwards every stage is high and working harder, and heat only behaves that way when it is being delivered from above. So the deepest stage is the worst affected and is not where the problem is — the load enters at the first stage that departs, and the stages below it are inheriting it. That is a conductive path anchored at 50 K and 4 K and not below, which is exactly what a line added since the last cooldown and heat-sunk at only the easy stages does. Okafor's cable is now worth looking at, not because cables are always guilty but because this pattern is what an unanchored one predicts.
+          Two stages held exactly what they held last time. That rules almost everything out. A vacuum problem, a failing pulse tube or a room-temperature fault would all warm the top of the chain first. And the top of the chain has not moved. From the still downwards every stage is high and working harder, and heat only behaves that way when it is being delivered from above. So the deepest stage is the worst affected, and is not where the problem is. The load enters at the first stage that departs. The stages below it are inheriting it. That is a conductive path anchored at 50 K and 4 K, and not below. A line added since the last cooldown does exactly that, if it is heat-sunk at only the easy stages. Okafor's cable is now worth looking at, not because cables are always guilty but because this pattern is what an unanchored one predicts.
         probe:
           chainLabel: Stage
           stations:
@@ -486,14 +480,10 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. It also tests whether the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label catches a unit mismatch before the tile is placed. It also catches a quantity belonging to a different part of the problem. That habit is what this format exists to build.
         assumes:
           - a system in contact with something warm can absorb energy from it
         takeaway: Thermal energy well below one quantum is what keeps a qubit in its ground state at rest.
@@ -501,7 +491,7 @@ missions:
         question: Using the 2 energy scales, estimate the equilibrium excited-state fraction at 42 mK.
         answerText: About 0.34%.
         why: |-
-          A qubit sitting in a warm environment does not stay in its ground state: it is being offered energy all the time, and it takes some. The fraction that ends up excited follows the ratio of the thermal energy to the energy of one quantum, exponentially, which is why a factor of four in temperature is not a factor of four in behaviour. At 11 millikelvin almost nothing is excited. At 42 the population is large enough that a measurement of the ground state is partly a measurement of the fridge.
+          A qubit sitting in a warm environment does not stay in its ground state: it is being offered energy all the time, and it takes some. The fraction that ends up excited follows the ratio of the thermal energy to the energy of one quantum, exponentially. That is why a factor of four in temperature is not a factor of four in behaviour. At 11 millikelvin almost nothing is excited. At 42 the population is large enough that a measurement of the ground state is partly a measurement of the fridge.
         estimate:
           prompt: |-
             For a 5.0 GHz qubit, hf = 3.3 × 10⁻²⁴ J. At 42 mK, kT = 5.8 × 10⁻²⁵ J. For hf ≫ kT, use p_excited ≈ e^(−hf/kT).
@@ -541,9 +531,7 @@ missions:
           a baseline is worse than no measurement at all.
         background:
           - >-
-              Why first is a different question from most important. When several calls
-              compete for the same hour, what a choice is worth is not its own importance
-              but the difference between doing it now and doing it later. A serious problem
+              Why first is a different question from most important. Several calls compete for the same hour. What a choice is worth is not its own importance. It is the difference between doing it now and doing it later. A serious problem
               that will be no worse in an hour costs nothing to defer. A smaller one that
               closes a door costs everything behind that door.
           - >-
@@ -553,11 +541,7 @@ missions:
               rest multiplies the value of the hours after it. Everything else is a
               preference about where to start.
           - >-
-              Why only one answer is marked. In the situation these options describe all of
-              them eventually happen; what is being tested is the head of the queue, because
-              that is where the reasoning is visible. The verdict names what each of the
-              others was waiting on, which is worth reading even when the choice was right —
-              the ordering behind the first place is the rest of the answer.
+              Why only one answer is marked. In the situation these options describe, all of them eventually happen. What is being tested is the head of the queue. That is where the reasoning is visible. The verdict names what each of the others was waiting on. That is worth reading even when the choice was right. The ordering behind the first place is the rest of the answer.
         takesAsRead:
           - Energy quantisation, and why a level spacing sets everything else
         assumes:
@@ -602,9 +586,7 @@ missions:
           has been flat all morning, so the device that came out of fabrication is
           somewhere else.
         guide: >-
-          Drag the drive frequency. The readout is the fraction of shots that finish
-          excited, so a frequency this qubit absorbs shows up as a rise, and only the
-          places you stop at get plotted. Sweep the whole band before deciding: more
+          Drag the drive frequency. The readout is the fraction of shots that finish excited. So a frequency this qubit absorbs shows up as a rise. And only the places you stop at get plotted. Sweep the whole band before deciding: more
           than one feature can appear, and they are not the same size. What counts as
           the transition is on the Background button. Then mark the frequency and
           commit.
@@ -622,9 +604,7 @@ missions:
               size of a feature is evidence about what it is, not merely about how strong
               the drive was.
           - >-
-              What else can absorb. A smaller feature elsewhere in the band is usually real
-              and usually not the qubit: a two-level defect in the oxide, a stray mode of
-              the package, or a neighbouring qubit. Those are worth knowing about — one of
+              What else can absorb. A smaller feature elsewhere in the band is usually real and usually not the qubit. It could be a two-level defect in the oxide, a stray mode of the package, or a neighbouring qubit. Those are worth knowing about — one of
               them turns up again later this fortnight as a place this qubit must not be
               parked.
         assumes:
@@ -634,7 +614,7 @@ missions:
         question: Nothing responds at the design frequency. Which frequency does this qubit absorb the drive at?
         answerText: 4.61 GHz, where nearly the whole population is driven into the excited state. The much weaker feature near 4.55 GHz is real and is not the qubit.
         why: |-
-          A qubit absorbs a drive only close to its own transition, so the frequency where the population goes up is the transition. It is nowhere near 5.02 GHz because that number was a prediction: the frequency depends on a junction barrier about a nanometre thick, and no process controls a nanometre exactly. Two responses appear, and size is what separates them — a transition driven on resonance takes almost the whole population, while the small feature takes a sixth of it and is something else on the chip. Which of the two is the qubit can be settled by driving harder and watching only one of them saturate.
+          A qubit absorbs a drive only close to its own transition, so the frequency where the population goes up is the transition. It is nowhere near 5.02 GHz because that number was a prediction. The frequency depends on a junction barrier about a nanometre thick. No process controls a nanometre exactly. Two responses appear, and size is what separates them. A transition driven on resonance takes almost the whole population. The small feature takes a sixth of it, and is something else on the chip. Which of the two is the qubit can be settled by driving harder and watching only one of them saturate.
         sweep:
           axis:
             label: Drive frequency
@@ -685,14 +665,10 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. It also tests whether the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label catches a unit mismatch before the tile is placed. It also catches a quantity belonging to a different part of the problem. That habit is what this format exists to build.
         takesAsRead:
           - Superposition as an amplitude, not a mixture
           - Resonance, detuning, and finding a qubit frequency
@@ -759,10 +735,7 @@ missions:
           should not be left under twenty.
         background:
           - >-
-              Why the whole spread is graded. Funding is not a vote for one idea. A
-              portfolio says what you think is likely, what is worth hedging against, and
-              what is not worth pursuing at all — and the last two are where most of the
-              information is. Backing the right proposal while quietly funding a bad one is
+              Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely. It says what is worth hedging against. It says what is not worth pursuing at all. The last two are where most of the information is. Backing the right proposal while quietly funding a bad one is
               a worse answer than it looks. That is why the small numbers count as much as
               the big one.
           - >-
@@ -782,7 +755,7 @@ missions:
           - a fabrication run produces chips with a spread of properties
         takeaway: A device decision should compare the cost of its known imperfection with the cost and uncertainty of replacing it.
         format: SCIENCETANK
-        why: The useful question is not whether this chip is perfect; it is whether changing chips is likely to improve the run Ridgeway is about to send to Delft. The present chip has 11 qubits close to target and a twelfth that can be driven and characterised. A swap costs four days, and the spare comes from the same suspicious fabrication run, so replacement does not remove the underlying uncertainty. The strongest plan is to keep this chip, map the nearby resonance, operate the qubit away from it if possible, and give Lindqvist the data needed to decide whether the feature tracks the process.
+        why: The useful question is not whether this chip is perfect; it is whether changing chips is likely to improve the run Ridgeway is about to send to Delft. The present chip has 11 qubits close to target and a twelfth that can be driven and characterised. A swap costs four days, and the spare comes from the same suspicious fabrication run, so replacement does not remove the underlying uncertainty. The strongest plan is to keep this chip. Map the nearby resonance. Operate the qubit away from it if possible. And give Lindqvist the data needed to decide whether the feature tracks the process.
         proposals:
           - label: A
             text: Keep this chip, characterise the 4.55 GHz feature, and operate the twelfth qubit away from it if possible, characterise the defect properly, and report 12 qubits with one of them worse.
@@ -808,17 +781,11 @@ missions:
           load keeps arriving until the circulation answers it.
         background:
           - >-
-              Why ten millikelvin and not one kelvin. A qubit's two levels are a few gigahertz apart,
-              and thermal energy at one kelvin is comparable to that spacing — so the qubit sits in a
-              mixture rather than in its ground state, and every experiment starts from noise.
+              Why ten millikelvin and not one kelvin. A qubit's two levels are a few gigahertz apart. Thermal energy at one kelvin is comparable to that spacing. So the qubit sits in a mixture rather than in its ground state. Every experiment starts from noise.
           - >-
-              Why a heat load is a rate. A coaxial line conducting from room temperature does not
-              raise the chamber by a millikelvin and stop; it carries heat continuously, so the
-              temperature climbs until the circulation carries the same power away.
+              Why a heat load is a rate. A coaxial line conducting from room temperature does not raise the chamber by a millikelvin and stop. It carries heat continuously. The temperature climbs until the circulation carries the same power away.
           - >-
-              Why the margin tightens. The longer a measurement runs, the more of the qubit's
-              coherence has already been spent, so a warm spell late in a run costs a larger share
-              of what was left than the same excursion at the start.
+              Why the margin tightens. The longer a measurement runs, the more of the qubit's coherence has already been spent. So a warm spell late in a run costs a larger share of what was left than the same excursion at the start.
         assumes:
           - a system in thermal contact settles toward the temperature around it
         takeaway: A heat load that keeps arriving is answered by circulation, not by waiting.
@@ -826,17 +793,10 @@ missions:
         question: Hold the mixing chamber at ten millikelvin while the measurement runs.
         answerText: Inside the band for most of the run, with the flow set to carry each load away rather than adjusted after the thermometry has already climbed.
         why: >-
-          A superconducting qubit needs millikelvin because its two levels are only a few
-          gigahertz apart, and thermal energy at a kelvin is comparable to that spacing — the
-          qubit would sit in a thermal mixture rather than in its ground state, and every shot
-          would start from noise. Holding that temperature is a continuous job because every
-          disturbance is a rate. A coaxial line conducts heat down from room temperature for as
-          long as it is installed; a pulse tube cycling changes the load on the still
-          continuously; a helium level falling changes the cooling power available. None of
+          A superconducting qubit needs millikelvin because its two levels are only a few gigahertz apart. Thermal energy at a kelvin is comparable to that spacing. The qubit would sit in a thermal mixture rather than in its ground state. Every shot would start from noise. Holding that temperature is a continuous job because every
+          disturbance is a rate. A coaxial line conducts heat down from room temperature for as long as it is installed. A pulse tube cycling changes the load on the still continuously. A helium level falling changes the cooling power available. None of
           them is a step, so the flow is set to a new rate and left there rather than nudged.
-          The band narrows for the same reason the whole experiment is timed: coherence is
-          being spent as the run goes on, and a warm spell in the last minutes costs a larger
-          share of what remains than the same excursion in the first.
+          The band narrows for the same reason the whole experiment is timed. Coherence is being spent as the run goes on. A warm spell in the last minutes costs a larger share of what remains than the same excursion in the first.
         hold:
           quantity: Mixing chamber temperature
           unit: mK
@@ -971,14 +931,10 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. It also tests whether the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label catches a unit mismatch before the tile is placed. It also catches a quantity belonging to a different part of the problem. That habit is what this format exists to build.
         takesAsRead:
           - Superposition as an amplitude, not a mixture
         assumes:
@@ -1056,9 +1012,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every response used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two joins. That is worth remembering when the last
-              pair looks forced: the fault is usually not in the join you are struggling
-              with, but in one you made early and stopped questioning.
+              therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         assumes:
           - a qubit's frequency can depend on its surroundings
         takeaway: A process that changes the qubit frequency from one repetition to the next can wash out phase even if little energy is lost.
@@ -1139,7 +1093,7 @@ missions:
         takeaway: In a cascaded readout chain, noise added early — and loss before the first high-gain amplifier — is especially costly.
         format: SEQUENCE
         why: |-
-          "A useful rule comes from the noise budget for cascaded amplifiers: once the signal has been given large low-noise gain, the noise of later stages is divided by that gain when referred back to the input. That makes the first high-gain amplifier extremely important. Loss before it is just as serious because it throws away signal before the gain arrives. The cold parametric amplifier is therefore placed close to the device and behind only the components needed to protect and route the signal; the warmer semiconductor amplifier then supplies robust additional gain."
+          "A useful rule comes from the noise budget for cascaded amplifiers. Once the signal has been given large low-noise gain, the noise of later stages is divided by that gain when referred back to the input. That makes the first high-gain amplifier extremely important. Loss before it is just as serious because it throws away signal before the gain arrives. The cold parametric amplifier is therefore placed close to the device. It sits behind only the components needed to protect and route the signal. The warmer semiconductor amplifier then supplies robust additional gain."
         cards:
           - The resonator, which shifts frequency depending on the qubit's state.
           - The parametric amplifier near the base stage, which provides the first high-gain, low-noise amplification.
@@ -1180,9 +1134,7 @@ missions:
           - >-
               Why this line matters more than it looks. Every number built from classified
               outcomes inherits this threshold — readout fidelity, circuit fidelity, the
-              correlations later in the fortnight. A threshold set in the wrong place does
-              not announce itself; it quietly lowers whatever is reported downstream, which
-              is a thing that happens to this group again on day 10.
+              correlations later in the fortnight. A threshold set in the wrong place does not announce itself. It quietly lowers whatever is reported downstream. That happens to this group again on day 10.
         assumes:
           - a measurement produces a distribution rather than a single value
         takeaway: A discriminator converts overlapping analogue distributions into reported states, so its threshold sets a trade between two kinds of misclassification.
@@ -1225,12 +1177,7 @@ missions:
         why: >
           The line does not remove ambiguous shots; it decides which state they are called, so
           every millivolt taken off one error is added to the other. That is why the two curves
-          cross and why the sum has a minimum that is not zero. The floor is the overlap between
-          the two clouds, and it is a property of the measurement rather than of the threshold —
-          getting under it needs more signal, less noise or a longer integration, something that
-          moves the clouds apart. Equal costs put the line at the crossing; where one mistake
-          costs more than the other, the best line moves away from it, which makes this a
-          question about the circuit and not only about the classifier.
+          cross and why the sum has a minimum that is not zero. The floor is the overlap between the two clouds. It is a property of the measurement rather than of the threshold. Getting under it needs more signal, less noise or a longer integration — something that moves the clouds apart. Equal costs put the line at the crossing. Where one mistake costs more than the other, the best line moves away from it. That makes this a question about the circuit and not only about the classifier.
       - group: VER
         task: Take the readout out of the qubit number
         title: Whose error is it
@@ -1260,9 +1207,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every explanation used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two. That is worth remembering when the last pair
-              looks forced: the fault is usually not in the join you are struggling with,
-              but in one you made early and stopped questioning.
+              therefore involves at least two. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         assumes:
           - errors from independent sources combine
         takeaway: An observed error rate is only a diagnosis after you state the model used to separate preparation, gates and measurement.
@@ -1328,9 +1273,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every response used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two joins. That is worth remembering when the last
-              pair looks forced: the fault is usually not in the join you are struggling
-              with, but in one you made early and stopped questioning.
+              therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         takesAsRead:
           - Calibration drift, and the tuning that has to happen daily
         assumes:
@@ -1378,17 +1321,13 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested.
         assumes:
           - classical descriptions can be copied freely, while an arbitrary unknown quantum state cannot be perfectly cloned
         takeaway: The no-cloning theorem forbids making a perfect duplicate of an arbitrary unknown quantum state; it does not forbid transferring quantum information.
@@ -1427,10 +1366,7 @@ missions:
           should not be left under twenty.
         background:
           - >-
-              Why the whole spread is graded. Funding is not a vote for one idea. A
-              portfolio says what you think is likely, what is worth hedging against, and
-              what is not worth pursuing at all — and the last two are where most of the
-              information is. Backing the right proposal while quietly funding a bad one is
+              Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely. It says what is worth hedging against. It says what is not worth pursuing at all. The last two are where most of the information is. Backing the right proposal while quietly funding a bad one is
               a worse answer than it looks. That is why the small numbers count as much as
               the big one.
           - >-
@@ -1494,14 +1430,9 @@ missions:
           - >-
               Why the unremarkable readings decide it. The salient reading is what draws
               attention, and it is usually consistent with several explanations at once,
-              which is why it rarely settles anything. The readings that discriminate are
-              the ones a candidate predicts should have moved and which have not: a normal
-              value is a positive result against every mechanism that would have disturbed
-              it.
+              which is why it rarely settles anything. The readings that discriminate are the ones a candidate predicts should have moved and which have not. A normal value is a positive result against every mechanism that would have disturbed it.
           - >-
-              How to work the candidates. Take each mechanism and predict the panel it
-              implies before you look at the panel again — which readings it drives, in
-              which direction, and by roughly how much. Then compare. Working that way round
+              How to work the candidates. Take each mechanism and predict the panel it implies before you look at the panel again. Which readings it drives, in which direction, and by roughly how much. Then compare. Working that way round
               is what separates a diagnosis from a rationalisation, because the prediction
               is made before the data is consulted.
           - >-
@@ -1515,7 +1446,7 @@ missions:
         takeaway: A narrow, repeatable spectral feature can be used as a fingerprint, but identifying its microscopic cause requires ruling out competing modes and artefacts.
         format: DIAGNOSIS
         why: |-
-          The evidence strongly favours a device-local material resonance. The feature appears only on chips from one process window, survives changes in shared room-temperature electronics, and shifts slightly after thermal cycling. A neighbouring designed qubit or a generator artefact should have different cross-chip behaviour, while thermal photons usually change linewidths and backgrounds rather than producing the same isolated chip-specific line. A two-level material defect is therefore the leading hypothesis. Calling it specifically a defect in the junction oxide would require more localisation evidence than this spectrum alone provides.
+          The evidence strongly favours a device-local material resonance. The feature appears only on chips from one process window, survives changes in shared room-temperature electronics, and shifts slightly after thermal cycling. A neighbouring designed qubit or a generator artefact should have different cross-chip behaviour. Thermal photons usually change linewidths and backgrounds, rather than producing the same isolated chip-specific line. A two-level material defect is therefore the leading hypothesis. Calling it specifically a defect in the junction oxide would require more localisation evidence than this spectrum alone provides.
         headline: A narrow absorption sits 60 MHz below 1 qubit, on 3 chips from 1 six-week window.
         readings:
           - zone: Feature
@@ -1564,26 +1495,17 @@ missions:
           defect the group found yesterday.
         guide: >-
           Drag the qubit frequency. The readout is the relaxation time in microseconds,
-          and higher is better. Across most of the band it is roughly flat, and you are
-          looking for the narrow place where it collapses, because that is the frequency
-          to keep this qubit away from. The damage is only tens of megahertz wide, so
+          and higher is better. Across most of the band it is roughly flat. You are looking for the narrow place where it collapses. That is the frequency to keep this qubit away from. The damage is only tens of megahertz wide, so
           sweep the whole band before deciding. Then mark it and commit.
         background:
           - >-
               Why a frequency can cost you energy. Two systems at the same frequency
-              exchange energy easily; at different frequencies they barely talk. A defect in
-              the oxide with a transition of its own is therefore harmless almost everywhere
-              and ruinous where the qubit's frequency matches it, because the qubit's energy
-              has somewhere to go.
+              exchange energy easily; at different frequencies they barely talk. A defect in the oxide with a transition of its own is therefore harmless almost everywhere. It is ruinous where the qubit's frequency matches it, because the qubit's energy has somewhere to go.
           - >-
-              Why the dip is narrow. The width of the damage is the defect's own linewidth,
-              which is why it is tens of megahertz rather than hundreds, and why a qubit
-              parked 50 megahertz away is unaffected. It also means a coarse sweep can step
+              Why the dip is narrow. The width of the damage is the defect's own linewidth. That is why it is tens of megahertz rather than hundreds. And why a qubit parked 50 megahertz away is unaffected. It also means a coarse sweep can step
               straight over it.
           - >-
-              What this turns a measurement into. A loss channel that is sharply resonant
-              makes frequency an engineering control rather than merely a property: the fix
-              is not to repair the defect but to operate away from it. That is why a tunable
+              What this turns a measurement into. A loss channel that is sharply resonant makes frequency an engineering control rather than merely a property. The fix is not to repair the defect, but to operate away from it. That is why a tunable
               qubit is worth the extra circuitry it costs.
         assumes:
           - two systems at the same frequency can exchange energy
@@ -1613,12 +1535,7 @@ missions:
           About 4.555 GHz, where relaxation falls to roughly a third of the 90 microseconds
           available elsewhere. The damage is gone again within about 30 MHz either side.
         why: >
-          A qubit loses energy quickly when there is somewhere for that energy to go, and a
-          two-level defect is somewhere — but only while the two are close in frequency, which is
-          why the loss appears and disappears over tens of megahertz rather than across the whole
-          band. Two things follow. The width of the dip is a measurement of how strongly the two
-          are coupled, and on a tunable device the frequency itself becomes an engineering
-          control: move the qubit and the loss channel is not there at all. The half of the job
+          A qubit loses energy quickly when there is somewhere for that energy to go. A two-level defect is somewhere. But only while the two are close in frequency. That is why the loss appears and disappears over tens of megahertz rather than across the whole band. Two things follow. The width of the dip is a measurement of how strongly the two are coupled. On a tunable device the frequency itself becomes an engineering control. Move the qubit and the loss channel is not there at all. The half of the job
           that gets forgotten is writing the band down, because an undocumented defect is a trap
           for whoever retunes next month.
       - group: VER
@@ -1637,9 +1554,7 @@ missions:
           costs a quarter.
         background:
           - >-
-              Why first is a different question from most important. When several calls
-              compete for the same hour, what a choice is worth is not its own importance
-              but the difference between doing it now and doing it later. A serious problem
+              Why first is a different question from most important. Several calls compete for the same hour. What a choice is worth is not its own importance. It is the difference between doing it now and doing it later. A serious problem
               that will be no worse in an hour costs nothing to defer. A smaller one that
               closes a door costs everything behind that door.
           - >-
@@ -1649,11 +1564,7 @@ missions:
               rest multiplies the value of the hours after it. Everything else is a
               preference about where to start.
           - >-
-              Why only one answer is marked. In the situation these options describe all of
-              them eventually happen; what is being tested is the head of the queue, because
-              that is where the reasoning is visible. The verdict names what each of the
-              others was waiting on, which is worth reading even when the choice was right —
-              the ordering behind the first place is the rest of the answer.
+              Why only one answer is marked. In the situation these options describe, all of them eventually happen. What is being tested is the head of the queue. That is where the reasoning is visible. The verdict names what each of the others was waiting on. That is worth reading even when the choice was right. The ordering behind the first place is the rest of the answer.
         assumes:
           - a process change can improve one measure and damage another
         takeaway: A process change can improve one metric while degrading another, so causation needs a controlled comparison rather than a retrospective correlation.
@@ -1786,17 +1697,13 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested.
         takesAsRead:
           - Resonance, detuning, and finding a qubit frequency
         assumes:
@@ -1850,9 +1757,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every response used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two joins. That is worth remembering when the last
-              pair looks forced: the fault is usually not in the join you are struggling
-              with, but in one you made early and stopped questioning.
+              therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         takesAsRead:
           - Superposition as an amplitude, not a mixture
         assumes:
@@ -1989,23 +1894,17 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. It also tests whether the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label catches a unit mismatch before the tile is placed. It also catches a quantity belonging to a different part of the problem. That habit is what this format exists to build.
         assumes:
           - independent errors compound over repeated operations
         takeaway: In an independent-error toy model, small per-gate infidelity compounds rapidly with circuit depth.
         format: BALLPARK
         question: Under the simplifying assumption that each of the 400 gates succeeds independently with probability 0.988, estimate the all-gates-success probability.
         why: >
-          If — and this is a simplifying model — every gate succeeds independently with the same
-          probability and the circuit counts as correct only when every gate succeeds, the
-          all-success probability is 0.988^400, about 0.008. The point is the exponential
+          This is a simplifying model. Suppose every gate succeeds independently with the same probability, and the circuit counts as correct only when every gate succeeds. Then the all-success probability is 0.988^400, about 0.008. The point is the exponential
           sensitivity to depth. Real quantum errors can be coherent, correlated and partly
           cancel or amplify, so this product is not a universal prediction of circuit fidelity.
           It is a useful first estimate that shows why a per-gate number that looks close to one
@@ -2072,9 +1971,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every explanation used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two. That is worth remembering when the last pair
-              looks forced: the fault is usually not in the join you are struggling with,
-              but in one you made early and stopped questioning.
+              therefore involves at least two. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         assumes:
           - a threshold is a comparison against a defined quantity
         takeaway: A threshold comparison is meaningful only when the experimental error metric and the code's assumed error metric are actually comparable.
@@ -2216,17 +2113,13 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested.
         assumes:
           - a measurement can rule out a class of explanations without confirming one
         takeaway: A Bell inequality rules out a class of models only to the extent that the experiment satisfies the assumptions used to derive and test the inequality.
@@ -2257,9 +2150,7 @@ missions:
         title: What a careful reader will ask
         place: Control & Readout
         scene: >
-          Petrova lists what somebody sceptical will want to know: whether the settings were chosen after
-          the state was prepared, whether the two qubits were far enough apart, and how many runs were
-          discarded.
+          Petrova lists what somebody sceptical will want to know. Whether the settings were chosen after the state was prepared. Whether the two qubits were far enough apart. How many runs were discarded.
         guide: >-
           The left column is four conditions a sceptic will ask about; the right is four
           things an apparatus physically does. Pair them by mechanism. For each
@@ -2283,17 +2174,13 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every response used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two joins. That is worth remembering when the last
-              pair looks forced: the fault is usually not in the join you are struggling
-              with, but in one you made early and stopped questioning.
+              therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         assumes:
           - an experiment's conclusion depends on conditions its apparatus may not meet
         takeaway: A loophole-free Bell claim requires the apparatus to enforce the assumptions rather than asking the reader to grant them.
         format: PROTOCOL
         why: >
-          Ridgeway's qubits are millimetres apart and measured over microseconds, so signals
-          travelling at or below light speed could cross between them during a trial; the
-          locality loophole is open. Settings fixed long before the measurement also leave the
+          Ridgeway's qubits are millimetres apart and measured over microseconds. So signals travelling at or below light speed could cross between them during a trial. The locality loophole is open. Settings fixed long before the measurement also leave the
           measurement-independence logic weaker than a fast random choice made during each run.
           Outcome-dependent discarding can open a sampling loophole, and insufficient detection
           can require a fair-sampling assumption. An on-chip CHSH violation is still
@@ -2360,9 +2247,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every explanation used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two. That is worth remembering when the last pair
-              looks forced: the fault is usually not in the join you are struggling with,
-              but in one you made early and stopped questioning.
+              therefore involves at least two. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         assumes:
           - a comparison has a measured side and a modelled side
         takeaway: Measured outputs, model-dependent fidelity estimates and classical-runtime estimates are different kinds of evidence even when they appear in one headline.
@@ -2418,17 +2303,13 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested.
         assumes:
           - a small system can be simulated exactly and a large one cannot
         takeaway: Small instances are valuable because they can validate an analysis against a truth that is independently computable.
@@ -2442,9 +2323,7 @@ missions:
         answer: Checking the method where the exact answer is already known.
         why: >
           "At 12 qubits, exact classical calculation of the ideal distribution is easy
-          enough to serve as a ground truth. Ridgeway can therefore run the same *analysis
-          method* at small size and test whether the estimator recovers the answer it is
-          supposed to recover, including how it behaves as controlled noise is added. That does
+          enough to serve as a ground truth. Ridgeway can therefore run the same *analysis method* at small size. The test is whether the estimator recovers the answer it is supposed to recover. That includes how it behaves as controlled noise is added. That does
           not validate the sixty-seven-qubit runtime claim by itself, nor does it prove the
           estimator behaves identically at all sizes. It does something more modest and useful:
           it tests a load-bearing method where the answer is knowable."
@@ -2477,10 +2356,7 @@ missions:
           should not be left under twenty.
         background:
           - >-
-              Why the whole spread is graded. Funding is not a vote for one idea. A
-              portfolio says what you think is likely, what is worth hedging against, and
-              what is not worth pursuing at all — and the last two are where most of the
-              information is. Backing the right proposal while quietly funding a bad one is
+              Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely. It says what is worth hedging against. It says what is not worth pursuing at all. The last two are where most of the information is. Backing the right proposal while quietly funding a bad one is
               a worse answer than it looks. That is why the small numbers count as much as
               the big one.
           - >-
@@ -2542,9 +2418,7 @@ missions:
         guide: >-
           Each slider position is a different threshold, scored against tray A and
           plotted, so the curve is one you build by looking. Two things about those
-          scores. Each comes from 400 shots, so it can land about a point either side
-          of the truth, and you are hunting the best of many positions, which is a
-          contest luck can win. And moving the line 2 mV only reclassifies the shots
+          scores. Each comes from 400 shots, so it can land about a point either side of the truth. You are hunting the best of many positions. That is a contest luck can win. And moving the line 2 mV only reclassifies the shots
           inside those 2 mV, so anything the clouds are really doing changes gradually.
           When you have chosen, freeze. Freezing commits you, and only then does tray B
           open — 400 shots that had no say in your choice. Report tray B's number.
@@ -2565,10 +2439,7 @@ missions:
           - >-
             Why the best number on the screen is not the best threshold. Sixteen
             positions each carry their own wobble, and you are keeping whichever came
-            out highest. The winner is the one whose luck ran furthest in your
-            favour, so the top score in any scan is biased upward — not because
-            anybody cheated, but because picking the maximum is itself a choice made
-            using the noise. Statisticians call it the winner's curse.
+            out highest. The winner is the one whose luck ran furthest in your favour. So the top score in any scan is biased upward. Not because anybody cheated, but because picking the maximum is itself a choice made using the noise. Statisticians call it the winner's curse.
           - >-
             The discriminator is the step that applies your line and turns a voltage
             into a bit. Every other number in the experiment is built on top of it, so
@@ -2597,7 +2468,7 @@ missions:
         question: Choose your threshold on tray A, freeze it, and report what tray B scores.
         answerText: About 95% from the middle of the curve, near 0 mV. The 95.1 at 14 mV is the best score on tray A and it does not survive the move: tray B gives that same threshold 92.5, because 14 mV is genuinely worse than the middle and its high score on tray A was a lucky draw.
         why: |-
-          Two things went wrong at 14 mV and only one of them is luck. It is off the top of the curve, so it really does classify worse — about two points worse — and on top of that its tray A score was a favourable draw of 400 shots. Picking the highest of sixteen scores selects for exactly that kind of draw, which is why the top of a scan is biased upward. The middle of the curve is high on tray A for a different reason: the two voltage clouds are furthest apart there, and the next 400 shots have the same clouds. So a score measured where the threshold was chosen is not a measurement of the threshold. It is a measurement of the threshold plus the sample, biased upward every time, quietly and in the same direction. The cure is procedural rather than clever: keep shots back, freeze the rule, and report what it does on those.
+          Two things went wrong at 14 mV and only one of them is luck. It is off the top of the curve, so it really does classify worse — about two points worse. On top of that, its tray A score was a favourable draw of 400 shots. Picking the highest of sixteen scores selects for exactly that kind of draw, which is why the top of a scan is biased upward. The middle of the curve is high on tray A for a different reason. The two voltage clouds are furthest apart there. The next 400 shots have the same clouds. So a score measured where the threshold was chosen is not a measurement of the threshold. It is a measurement of the threshold plus the sample, biased upward every time, quietly and in the same direction. The cure is procedural rather than clever: keep shots back, freeze the rule, and report what it does on those.
         holdout:
           axis:
             label: Discriminator threshold
@@ -2713,9 +2584,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every explanation used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two. That is worth remembering when the last pair
-              looks forced: the fault is usually not in the join you are struggling with,
-              but in one you made early and stopped questioning.
+              therefore involves at least two. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         assumes:
           - a fault in one step affects only what depends on that step
         takeaway: A pipeline fault propagates only into quantities downstream of that step, and the dependency graph matters more than how important a number feels.
@@ -2764,9 +2633,7 @@ missions:
           hardware fault that does not exist cannot be given back to them.
         background:
           - >-
-              Why first is a different question from most important. When several calls
-              compete for the same hour, what a choice is worth is not its own importance
-              but the difference between doing it now and doing it later. A serious problem
+              Why first is a different question from most important. Several calls compete for the same hour. What a choice is worth is not its own importance. It is the difference between doing it now and doing it later. A serious problem
               that will be no worse in an hour costs nothing to defer. A smaller one that
               closes a door costs everything behind that door.
           - >-
@@ -2776,11 +2643,7 @@ missions:
               rest multiplies the value of the hours after it. Everything else is a
               preference about where to start.
           - >-
-              Why only one answer is marked. In the situation these options describe all of
-              them eventually happen; what is being tested is the head of the queue, because
-              that is where the reasoning is visible. The verdict names what each of the
-              others was waiting on, which is worth reading even when the choice was right —
-              the ordering behind the first place is the rest of the answer.
+              Why only one answer is marked. In the situation these options describe, all of them eventually happen. What is being tested is the head of the queue. That is where the reasoning is visible. The verdict names what each of the others was waiting on. That is worth reading even when the choice was right. The ordering behind the first place is the rest of the answer.
         assumes:
           - a fault found before publication is a different problem from one found after
         takeaway: When an external collaborator is spending time on a discrepancy you already understand, disclosure becomes part of the experimental workflow.
@@ -2913,17 +2776,13 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested.
         takesAsRead:
           - Resonance, detuning, and finding a qubit frequency
         assumes:
@@ -2971,17 +2830,13 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested.
         takesAsRead:
           - Resonance, detuning, and finding a qubit frequency
         assumes:
@@ -3021,9 +2876,7 @@ missions:
           problem than a stale one every drive amplitude is computed from.
         background:
           - >-
-              Why first is a different question from most important. When several calls
-              compete for the same hour, what a choice is worth is not its own importance
-              but the difference between doing it now and doing it later. A serious problem
+              Why first is a different question from most important. Several calls compete for the same hour. What a choice is worth is not its own importance. It is the difference between doing it now and doing it later. A serious problem
               that will be no worse in an hour costs nothing to defer. A smaller one that
               closes a door costs everything behind that door.
           - >-
@@ -3033,11 +2886,7 @@ missions:
               rest multiplies the value of the hours after it. Everything else is a
               preference about where to start.
           - >-
-              Why only one answer is marked. In the situation these options describe all of
-              them eventually happen; what is being tested is the head of the queue, because
-              that is where the reasoning is visible. The verdict names what each of the
-              others was waiting on, which is worth reading even when the choice was right —
-              the ordering behind the first place is the rest of the answer.
+              Why only one answer is marked. In the situation these options describe, all of them eventually happen. What is being tested is the head of the queue. That is where the reasoning is visible. The verdict names what each of the others was waiting on. That is worth reading even when the choice was right. The ordering behind the first place is the rest of the answer.
         assumes:
           - a figure can be current or inherited
         takeaway: The riskiest inherited parameter is usually the one that is both stale and load-bearing in many later calculations.
@@ -3050,9 +2899,7 @@ missions:
           - The amplifier noise temperature, measured last month on the present readout chain.
         answer: The input line attenuation, from a record two rebuilds ago.
         why: >
-          "The input-line attenuation is both old and load-bearing: the wiring has been rebuilt
-          twice since it was measured, yet the value is still used to translate room-temperature
-          power into the drive amplitude believed to reach the qubit. The fridge temperature and
+          "The input-line attenuation is both old and load-bearing. The wiring has been rebuilt twice since it was measured. Yet the value is still used to translate room-temperature power into the drive amplitude believed to reach the qubit. The fridge temperature and
           qubit frequencies are current. The amplifier noise temperature is less current, but it
           was measured on the present chain and affects a narrower part of the interpretation.
           Age alone is not the criterion; age multiplied by how many conclusions depend on the
@@ -3088,9 +2935,7 @@ missions:
           it.
         background:
           - >-
-              Why first is a different question from most important. When several calls
-              compete for the same hour, what a choice is worth is not its own importance
-              but the difference between doing it now and doing it later. A serious problem
+              Why first is a different question from most important. Several calls compete for the same hour. What a choice is worth is not its own importance. It is the difference between doing it now and doing it later. A serious problem
               that will be no worse in an hour costs nothing to defer. A smaller one that
               closes a door costs everything behind that door.
           - >-
@@ -3100,11 +2945,7 @@ missions:
               rest multiplies the value of the hours after it. Everything else is a
               preference about where to start.
           - >-
-              Why only one answer is marked. In the situation these options describe all of
-              them eventually happen; what is being tested is the head of the queue, because
-              that is where the reasoning is visible. The verdict names what each of the
-              others was waiting on, which is worth reading even when the choice was right —
-              the ordering behind the first place is the rest of the answer.
+              Why only one answer is marked. In the situation these options describe, all of them eventually happen. What is being tested is the head of the queue. That is where the reasoning is visible. The verdict names what each of the others was waiting on. That is worth reading even when the choice was right. The ordering behind the first place is the rest of the answer.
         assumes:
           - a problem still developing is different from one that has finished
         takeaway: Urgency is a product of ongoing damage, downstream reach and time-to-containment, not simply deadline pressure.
@@ -3146,17 +2987,13 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested.
         assumes:
           - raw or sifted key material is not yet secret key; the protocol's security proof specifies how parameter estimation and privacy amplification are performed
         takeaway: Sifted or raw QKD bits become usable secret key only after the protocol has bounded leakage and completed authenticated post-processing.
@@ -3205,17 +3042,13 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested.
         takesAsRead:
           - Resonance, detuning, and finding a qubit frequency
         assumes:
@@ -3244,7 +3077,7 @@ missions:
         title: What the morning calibration is chasing
         concept: "Calibration drift, and the tuning that has to happen daily"
         place: Control Rack
-        scene: The morning calibration cannot do everything before the users arrive. The queue is worked to one priority, and Raghavan changes it as the day's plan changes — after the fridge cycles, after the two-qubit run is booked, after a qubit drifts out.
+        scene: The morning calibration cannot do everything before the users arrive. The queue is worked to one priority. Raghavan changes it as the day's plan changes. After the fridge cycles, after the two-qubit run is booked, after a qubit drifts out.
         guide: >-
           Calibrate what the current priority wants and leave the rest. The priority on the
           rack board changes during the morning and nobody announces it. What is scored is
@@ -3269,11 +3102,7 @@ missions:
           Three priorities run across the morning and each wants a different part of the queue.
           Anything for readout, then anything for the two-qubit gates, then anything the fridge
           cycle moved. A routine can answer two at once, which is what makes the change cost
-          real. The panel scores the window either side of each change, because most of the
-          queue is wanted by neither priority and is correctly left for the afternoon by
-          somebody who has read nothing. The rack's own version is the ten minutes after a
-          two-qubit run is booked: the priority has changed to couplers, and the calibration
-          still running is the single-qubit sweep that mattered when it started.
+          real. The panel scores the window either side of each change. Most of the queue is wanted by neither priority. It is correctly left for the afternoon by somebody who has read nothing. The rack's own version is the ten minutes after a two-qubit run is booked. The priority has changed to couplers. The calibration still running is the single-qubit sweep that mattered when it started.
         spot:
           duration: 40
           switchEvery: 12
@@ -3352,9 +3181,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every response used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two joins. That is worth remembering when the last
-              pair looks forced: the fault is usually not in the join you are struggling
-              with, but in one you made early and stopped questioning.
+              therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         assumes:
           - a correction is read by people deciding whether to trust the next result
         takeaway: A useful correction tells readers what changed, why it changed, and which conclusions the mechanism can and cannot affect.
@@ -3399,14 +3226,10 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. It also tests whether the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label catches a unit mismatch before the tile is placed. It also catches a quantity belonging to a different part of the problem. That habit is what this format exists to build.
         assumes:
           - for this estimate only, all 12 qubits have identical independent readout fidelity of 0.941
         takeaway: Exponentiating a per-qubit fidelity gives a projection only after you state the independence and identical-performance assumptions.
@@ -3416,10 +3239,7 @@ missions:
           "If 12 readouts are independent and each is correct with probability 0.941, the
           probability that *all 12* are correct is 0.941^12 ≈ 0.48. That is not a measured
           twelve-qubit circuit fidelity: only 3 qubits have been remeasured, the 12
-          qubits may have different fidelities, and readout errors can be correlated. The
-          calculation is still useful because it shows how modest per-qubit misclassification
-          can compound across a register — as long as the slide calls the result a projection
-          and names the assumptions."
+          qubits may have different fidelities, and readout errors can be correlated. The calculation is still useful. It shows how modest per-qubit misclassification can compound across a register. That holds as long as the slide calls the result a projection and names the assumptions."
         estimate:
           prompt: >
             "Toy model: each of 12 qubits has independent readout fidelity 0.941. Estimate the probability that all 12 are read correctly."
@@ -3477,9 +3297,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every explanation used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two. That is worth remembering when the last pair
-              looks forced: the fault is usually not in the join you are struggling with,
-              but in one you made early and stopped questioning.
+              therefore involves at least two. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         assumes:
           - a decision not to act is also a decision with consequences
         takeaway: When both action and inaction have costs, compare their reversible and irreversible consequences rather than treating silence as the zero-cost option.
@@ -3548,9 +3366,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every explanation used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two. That is worth remembering when the last pair
-              looks forced: the fault is usually not in the join you are struggling with,
-              but in one you made early and stopped questioning.
+              therefore involves at least two. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         assumes:
           - a claim can rest on a measurement, an inference, or a projection
         takeaway: Evidence labels tell the audience what would have to be repeated, assumed or extrapolated to challenge each claim.
@@ -3606,17 +3422,13 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested.
         assumes:
           - a delivered number is used by somebody who cannot check it
         takeaway: A figure handed to somebody else has to carry enough with it for them to judge it.
@@ -3655,9 +3467,7 @@ missions:
           prevents it.
         background:
           - >-
-              Why first is a different question from most important. When several calls
-              compete for the same hour, what a choice is worth is not its own importance
-              but the difference between doing it now and doing it later. A serious problem
+              Why first is a different question from most important. Several calls compete for the same hour. What a choice is worth is not its own importance. It is the difference between doing it now and doing it later. A serious problem
               that will be no worse in an hour costs nothing to defer. A smaller one that
               closes a door costs everything behind that door.
           - >-
@@ -3667,11 +3477,7 @@ missions:
               rest multiplies the value of the hours after it. Everything else is a
               preference about where to start.
           - >-
-              Why only one answer is marked. In the situation these options describe all of
-              them eventually happen; what is being tested is the head of the queue, because
-              that is where the reasoning is visible. The verdict names what each of the
-              others was waiting on, which is worth reading even when the choice was right —
-              the ordering behind the first place is the rest of the answer.
+              Why only one answer is marked. In the situation these options describe, all of them eventually happen. What is being tested is the head of the queue. That is where the reasoning is visible. The verdict names what each of the others was waiting on. That is worth reading even when the choice was right. The ordering behind the first place is the rest of the answer.
         assumes:
           - a practice adopted in a crisis has a cost that only shows later
         takeaway: Keep inexpensive practices that directly block a demonstrated failure mode; distinguish them from good documentation that only helps reconstruct the failure afterwards.
@@ -3849,24 +3655,18 @@ lessons:
       its own. Ijeoma Okafor, the cryogenic engineer, writes 7.2 gigahertz beside the 42
       millikelvin the fridge is holding, and asks what is sitting in it.
     guide: >-
-      Five numbers, and only two of them are energies belonging to today's fridge. One
-      thermal energy is quoted at a temperature this machine is not at, and two of the
-      tiles are the raw frequency and the raw temperature the energies were built from.
+      Five numbers, and only two of them are energies belonging to today's fridge. One thermal energy is quoted at a temperature this machine is not at. Two of the tiles are the raw frequency and the raw temperature the energies were built from.
       The exponent is a ratio of two energies, so both have to be in joules, and the
       resonator's own quantum is the one on top.
     background:
       - >-
           Why the resonator gets the same treatment. Nothing in the comparison is about
-          qubits. Any mode with a level spacing sits in a thermal population set by that
-          spacing against the energy of its surroundings, so a resonator, a package mode
-          and a filter cavity are all read the same way. What changes between them is the
+          qubits. Any mode with a level spacing sits in a thermal population. That population is set by the spacing against the energy of its surroundings. So a resonator, a package mode and a filter cavity are all read the same way. What changes between them is the
           frequency, and the frequency is what decides the answer.
       - >-
           Why a small number is still worth computing. An average occupation of a few
           parts in ten thousand sounds like nothing until it is compared with how long a
-          measurement runs. A resonator holding a fraction of a photon on average is
-          holding a whole photon some of the time, and while it does the qubit it is
-          coupled to is at a different frequency.
+          measurement runs. A resonator holding a fraction of a photon on average is holding a whole photon some of the time. While it does, the qubit it is coupled to is at a different frequency.
     assumes:
       - a mode in contact with something warm holds a thermal population of its own
     takeaway: The comparison of one quantum against the thermal energy settles the occupation of every mode on the chip, not only the qubit's.
@@ -3877,9 +3677,7 @@ lessons:
       A resonator is not a wire. It is a mode with its own level spacing, and the same
       comparison applies to it. At 7.2 gigahertz one quantum is about eight times the
       thermal energy at 42 millikelvin, so the average occupation comes out at a few parts
-      in ten thousand. That sounds negligible and is not: a photon in the readout resonator
-      shifts the qubit's frequency for as long as it is there, and a shift that comes and
-      goes between repetitions is phase scrambled without any energy leaving the qubit. The
+      in ten thousand. That sounds negligible and is not. A photon in the readout resonator shifts the qubit's frequency for as long as it is there. A shift that comes and goes between repetitions is phase scrambled, without any energy leaving the qubit. The
       ratio is what matters, never either energy on its own.
     estimate:
       prompt: >-
@@ -3923,27 +3721,19 @@ lessons:
       source on a slow ramp with the transition frequency plotted against it.
     guide: >-
       Drag the bias. The readout is the transition frequency at that bias, and only the
-      points you stop at are plotted. Sweep the whole range before deciding: the frequency
-      climbs to a maximum and falls away again, and what you want is the bias where a small
-      change in bias moves the frequency least. Mark that bias and commit. You are graded
+      points you stop at are plotted. Sweep the whole range before deciding. The frequency climbs to a maximum and falls away again. What you want is the bias where a small change in bias moves the frequency least. Mark that bias and commit. You are graded
       on the bias you mark, not on the frequency you read there.
     background:
       - >-
           Why the frequency depends on the bias at all. This qubit's inductance comes from
-          a loop, and the loop's response depends on the magnetic flux threading it. So the
-          transition frequency is not a property of the chip alone; it is a property of the
-          chip at a bias, and the design value quoted a bias of zero.
+          a loop, and the loop's response depends on the magnetic flux threading it. So the transition frequency is not a property of the chip alone. It is a property of the chip at a bias. The design value quoted a bias of zero.
       - >-
-          What trapped flux does. Cooling through the superconducting transition can freeze
-          a fraction of a flux quantum into the loop, and it stays there until the chip is
-          warmed past that transition again. It does not change the shape of the curve. It
+          What trapped flux does. Cooling through the superconducting transition can freeze a fraction of a flux quantum into the loop. It stays there until the chip is warmed past that transition again. It does not change the shape of the curve. It
           slides the whole curve along the bias axis, which is why the arc has a top and
           the top is not where it was last cooldown.
       - >-
           Why the top of the arc is the place to sit. The slope of the curve is how much
-          qubit frequency you get per unit of bias noise. At the top the slope is zero to
-          first order, so the same noisy bias current buys far less frequency wander — the
-          qubit is still exposed to the noise and has stopped listening to it.
+          qubit frequency you get per unit of bias noise. At the top the slope is zero to first order. So the same noisy bias current buys far less frequency wander. The qubit is still exposed to the noise, and has stopped listening to it.
     assumes:
       - a flux-tunable qubit's frequency depends on the magnetic flux through its loop
     takeaway: A tunable qubit has an operating point as well as a frequency, and the operating point has to be measured after every cooldown.
@@ -3952,9 +3742,7 @@ lessons:
     answerText: At the top of the arc, −0.18 flux quanta, where the transition sits at 4.94 GHz and the slope against bias has gone to zero. The design put that point at zero bias, and the trapped flux has slid the whole arc along.
     why: >-
       The frequency of a flux-tunable qubit follows an arc in bias, and at the top of that
-      arc the slope is zero. That is the whole reason for finding it. Away from the top,
-      every wobble in the bias current is a wobble in the qubit frequency, and a frequency
-      that changes between repetitions is a phase scrambled without any energy being lost.
+      arc the slope is zero. That is the whole reason for finding it. Away from the top, every wobble in the bias current is a wobble in the qubit frequency. And a frequency that changes between repetitions is a phase scrambled, without any energy being lost.
       Trapped flux does not change the shape of the arc; it slides it sideways. So the
       operating point is measured after a cooldown rather than inherited from the drawing.
     sweep:
@@ -4010,9 +3798,7 @@ lessons:
       - >-
           Why an observation is better evidence than a mechanism. Every source on this list
           is present in every superconducting laboratory, so listing them proves nothing.
-          What separates them is that each leaves a different fingerprint — one is tied to a
-          frequency, one to a piece of equipment being on, one to a physical route on the
-          chip, one to what is outside the shield.
+          What separates them is that each leaves a different fingerprint. One is tied to a frequency. One to a piece of equipment being on. One to a physical route on the chip. One to what is outside the shield.
       - >-
           Why the pairing is graded whole. The four sources are written to be plausible for
           more than one observation, so taking them one at a time lets a nearly-right answer
@@ -4045,11 +3831,7 @@ lessons:
     mapping: [0, 1, 2, 3]
     why: >-
       Two of these entries name a number that did not move, and that is the useful half.
-      A defect at a fixed frequency exchanges energy with anything parked there, so it
-      shows in the relaxation time and is tied to a frequency rather than to a piece of
-      equipment. The other three took no energy at all and are therefore frequency shifts:
-      one arrives from outside and is answered by the can, one arrives with the amplifiers
-      and goes away overnight, and one arrived on the day a harness was moved. Each of them
+      A defect at a fixed frequency exchanges energy with anything parked there. So it shows in the relaxation time. And it is tied to a frequency rather than to a piece of equipment. The other three took no energy at all and are therefore frequency shifts. One arrives from outside and is answered by the can. One arrives with the amplifiers and goes away overnight. One arrived on the day a harness was moved. Each of them
       is dated by something that changed in the room.
     rebuttals:
       - A source tied to one frequency and visible in the relaxation time is a resonant defect, not something outside the shield.

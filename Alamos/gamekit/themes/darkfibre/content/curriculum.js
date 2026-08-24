@@ -12,9 +12,9 @@ export const CURRICULUM = {
       "place": "Cable Termination Room",
       "guide": "You build the working a line at a time, choosing the expression the line above gives you. Start at the boundary between the core and the cladding and ask what angle just fails to cross it. Turn that into an angle from the axis rather than from the boundary, then take it out through the end face into air. Two of the three steps are the same law used twice.",
       "background": [
-        "Why the two angles are complementary. A ray's angle at the core-cladding boundary is measured from the normal to that boundary, which is across the fibre; its angle from the axis is measured along the fibre. The two add to ninety degrees, and confusing them is the commonest way this derivation goes wrong.",
-        "Why the answer is so small. The two indices differ in the third decimal place, which is deliberate: a small difference makes a narrow cone, and a narrow cone is what keeps every ray taking nearly the same path and therefore arriving nearly together. The alternative is a fibre that accepts far more light and spreads every pulse.",
-        "What the number is for. Seven degrees is what a termination has to launch inside. It is also why a fibre is joined by welding rather than by pointing one at another: a misalignment of a fraction of a degree throws light outside the cone, and light outside the cone is gone by the first kilometre."
+        "Why the two angles are complementary. A ray's angle at the core-cladding boundary is measured from the normal to that boundary. That normal runs across the fibre. Its angle from the axis is measured along the fibre instead. The two add to ninety degrees. Confusing them is the commonest way this derivation goes wrong.",
+        "Why the answer is so small. The two indices differ in the third decimal place, and that is deliberate. A small difference makes a narrow cone. A narrow cone keeps every ray on nearly the same path, so the rays arrive nearly together. The alternative is a fibre that accepts far more light and spreads every pulse.",
+        "What the number is for. Seven degrees is what a termination has to launch inside. It is also why a fibre is joined by welding rather than by pointing one at another. A misalignment of a fraction of a degree throws light outside the cone. Light outside the cone is gone by the first kilometre."
       ],
       "story": "Halvard Nilsen, the cable termination technician, has the fibre's two indices on the bench: 1.4682 in the core and 1.4629 in the cladding. He wants the widest cone of light that will stay in the core once it is in.",
       "game": {
@@ -25,7 +25,7 @@ export const CURRICULUM = {
         "task": "Get the acceptance cone out of the two indices",
         "question": "What is the widest angle from the axis that a termination may launch light at?",
         "answer": "About 7.2° in air, a numerical aperture of 0.125. The critical angle is 85.1° from the normal, which is 4.9° from the axis, and the end face refracts that out to 7.2°.",
-        "why": "The cone is about 7.2 degrees in air. Total internal reflection needs a ray to meet the core-cladding boundary at more than the critical angle measured from the normal, which for these indices is 85.1 degrees — that is 4.9 degrees from the axis. Snell's law at the end face then converts that internal angle into an external one, and because the core is denser the external cone is wider than the internal one. Numerical aperture is the sine of it, 0.125, and it is the root of the difference of the squares of the two indices.",
+        "why": "The cone is about 7.2 degrees in air. Total internal reflection needs a ray to meet the core-cladding boundary beyond the critical angle, measured from the normal. For these indices that critical angle is 85.1 degrees. From the axis, that is 4.9 degrees. Snell's law at the end face converts that internal angle into an external one. The core is denser, so the external cone is wider than the internal one. Numerical aperture is the sine of it, 0.125. It is also the root of the difference of the squares of the two indices.",
         "derive": {
           "start": "n₁·sin θ₁ = n₂·sin θ₂",
           "goal": "the largest launch angle from the axis, in degrees, and the numerical aperture",
@@ -229,7 +229,7 @@ export const CURRICULUM = {
       "scene": "Nilsen has three indices written on the bench: the core, the cladding, and the group index the instrument's software is set to. He wants the speed that goes with the core.",
       "takeaway": "A refractive index is a ratio of speeds, so dividing the vacuum speed by it is the whole of the arithmetic.",
       "place": "Cable Termination Room",
-      "guide": "Four quantities are offered and two of them make the answer. The index to use here is the one belonging to the glass the light is in, which is the core; the cladding's index is on the bench because it belongs to the last derivation, and the group index because it belongs to the next one. The vacuum speed is the only other thing needed.",
+      "guide": "Four quantities are offered and two of them make the answer. The index to use here is the one belonging to the glass the light is in, which is the core. The cladding's index is on the bench because it belongs to the last derivation. The group index is there because it belongs to the next one. The vacuum speed is the only other thing needed.",
       "story": "Nilsen has three indices written on the bench: the core, the cladding, and the group index the instrument's software is set to. He wants the speed that goes with the core.",
       "game": {
         "type": "BALLPARK",
@@ -239,7 +239,7 @@ export const CURRICULUM = {
         "task": "Work out the speed in this glass",
         "question": "How fast does light travel in the core of this fibre?",
         "answer": "",
-        "why": "Light makes about 2.042 × 10⁸ metres a second in this core, which is 68 per cent of its speed in vacuum. An index is defined as exactly that ratio, so the arithmetic is a single division — and the difficulty is never the division but which of three indices belongs in it. The core's is the one the light is travelling in. The distinction between it and the group index is worth a kilometre on the ship's chart, and it arrives on day ten.",
+        "why": "Light makes about 2.042 × 10⁸ metres a second in this core. That is 68 per cent of its speed in vacuum. An index is defined as exactly that ratio, so the arithmetic is a single division. The difficulty is never the division. It is which of three indices belongs in it. The core's is the one the light is travelling in. The distinction between it and the group index is worth a kilometre on the ship's chart. It arrives on day ten.",
         "givens": [],
         "relationship": "Speed in the material = the speed of light in empty space divided by the index of that material.",
         "calcKey": "TERM-2"
@@ -418,11 +418,11 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What came back, and when",
-      "scene": "Sarraf has the trace from the night of the loss pinned up: a sloping line with a step in it nineteen days old, and a scale down the side in decibels and along the bottom in kilometres.",
+      "scene": "Sarraf has the trace from the night of the loss pinned up. A sloping line, with a step in it nineteen days old. The scale is decibels down the side and kilometres along the bottom.",
       "takeaway": "An instrument measures in its own units, and every step from there to a decision is a conversion somebody has to make.",
       "place": "Test Room",
       "guide": "Four accounts of what that step is. Ask of each whether the instrument could know it, given that all it has is how much light came back and how long it took. The distinction that decides it is between a quantity the instrument measures and a quantity somebody has to convert it into.",
-      "story": "Sarraf has the trace from the night of the loss pinned up: a sloping line with a step in it nineteen days old, and a scale down the side in decibels and along the bottom in kilometres.",
+      "story": "Sarraf has the trace from the night of the loss pinned up. A sloping line, with a step in it nineteen days old. The scale is decibels down the side and kilometres along the bottom.",
       "game": {
         "type": "CHOICE",
         "title": "What came back, and when",
@@ -431,7 +431,7 @@ export const CURRICULUM = {
         "task": "Settle what the trace in the test room says",
         "question": "What does the step in the trace establish on its own?",
         "answer": "That something lost 4.1 dB at a particular delay",
-        "why": "It establishes that something 4.1 decibels' worth happened at a particular round-trip delay. Everything else is conversion: the delay becomes a distance only once a speed is assumed, and the distance becomes a seabed position only once the cable's slack is allowed for. What the step cannot say at all is what the event is — a break, a bend and a failing joint all put a step in a trace, and telling them apart needs the reflection beside the loss rather than the loss alone.",
+        "why": "It establishes that something 4.1 decibels' worth happened at a particular round-trip delay. Everything else is conversion. The delay becomes a distance only once a speed is assumed. The distance becomes a seabed position only once the cable's slack is allowed for. What the step cannot say at all is what the event is. A break, a bend and a failing joint all put a step in a trace. Telling them apart needs the reflection beside the loss, not the loss alone.",
         "rebuttals": [
           "A delay becomes a distance only once a speed in the glass is assumed, and a position only once slack is.",
           "A repeater's failure is one of several things that would put a step there, and the trace does not name it.",
@@ -479,9 +479,9 @@ export const CURRICULUM = {
       "place": "Test Room",
       "guide": "You build the working a line at a time. Light in glass is slower than light in empty space by exactly the index, and the pulse has been out and back rather than out. Both of those are factors, and getting either the wrong way round gives an answer with the right units.",
       "background": [
-        "Why the factor of two. A reflectometer measures the light that comes back to it, so every delay it reports is a return journey. Leaving the two out doubles every distance, which is why the first thing to check on any trace is whether the far end of the fibre appears at its own length or at twice it.",
+        "Why the factor of two. A reflectometer measures the light that comes back to it, so every delay it reports is a return journey. Leaving the two out doubles every distance. So the first thing to check on any trace is whether the far end of the fibre appears at its own length or at twice it.",
         "Why the index divides. Light covers less ground per second in glass than in vacuum, so the same delay corresponds to a shorter distance. Multiplying by the index instead gives 182 kilometres, which is longer than the span and would put the fault past the first repeater.",
-        "What this distance is and is not. It is a distance along the fibre. The fibre is longer than the cable's route because it is wound helically inside the cable, and the cable is longer than the seabed distance because it was laid with slack. Both corrections come later in the fortnight and both make the number smaller."
+        "What this distance is and is not. It is a distance along the fibre. The fibre is longer than the cable's route, because it is wound helically inside the cable. The cable is longer than the seabed distance, because it was laid with slack. Both corrections come later in the fortnight, and both make the number smaller."
       ],
       "story": "The step in the trace sits at a round-trip delay of 828.6 microseconds. The core's index is 1.4682. Sarraf wants the distance derived rather than read off the instrument's own display.",
       "game": {
@@ -492,7 +492,7 @@ export const CURRICULUM = {
         "task": "Get the distance from the round-trip delay",
         "question": "How far along the fibre is the event that made the step?",
         "answer": "About 84.6 km. The speed in the glass is c/n = 2.042 × 10⁸ m/s, and the distance is half the delay times that speed.",
-        "why": "The event is about 84.6 kilometres along the fibre. Light travels at the vacuum speed divided by the index, which for this glass is 2.042 × 10⁸ metres a second, and the pulse made the journey twice, so the distance is half the product of speed and delay. Both factors matter and both are easy to invert: multiplying by the index rather than dividing gives 182 kilometres, and forgetting the return journey gives 169. This is a distance along the fibre, which is not yet a position on the seabed.",
+        "why": "The event is about 84.6 kilometres along the fibre. Light travels at the vacuum speed divided by the index. For this glass that is 2.042 × 10⁸ metres a second. The pulse made the journey twice, so the distance is half the product of speed and delay. Both factors matter and both are easy to invert. Multiplying by the index rather than dividing gives 182 kilometres. Forgetting the return journey gives 169. This is a distance along the fibre, and not yet a position on the seabed.",
         "derive": {
           "start": "v = c/n,  d = v·t/2",
           "goal": "the distance along the fibre to the event, in kilometres",
@@ -1550,11 +1550,11 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Eleven joints, eleven years old",
-      "scene": "Priya Ramnarine, the chief splicer, has the shore-end record open. Eleven mechanical joints were made on this cable when it was landed, each holding two ends together in a gel, and all eleven are as old as the cable.",
+      "scene": "Priya Ramnarine, the chief splicer, has the shore-end record open. Eleven mechanical joints were made on this cable when it was landed. Each holds two ends together in a gel. All eleven are as old as the cable.",
       "takeaway": "A joint is judged by what it does to the light rather than by how it holds two pieces of glass.",
       "place": "Splice Trailer",
-      "guide": "All four options are things that can go wrong with a joint. Ask of each whether it would make the joint merely lossy or make it visible from the far end, because those are different faults with different signatures — and one of them is what a gel is there to prevent.",
-      "story": "Priya Ramnarine, the chief splicer, has the shore-end record open. Eleven mechanical joints were made on this cable when it was landed, each holding two ends together in a gel, and all eleven are as old as the cable.",
+      "guide": "All four options are things that can go wrong with a joint. Ask of each whether it would make the joint merely lossy, or make it visible from the far end. Those are different faults with different signatures. And one of them is what a gel is there to prevent.",
+      "story": "Priya Ramnarine, the chief splicer, has the shore-end record open. Eleven mechanical joints were made on this cable when it was landed. Each holds two ends together in a gel. All eleven are as old as the cable.",
       "game": {
         "type": "CHOICE",
         "title": "Eleven joints, eleven years old",
@@ -1563,7 +1563,7 @@ export const CURRICULUM = {
         "task": "Ask Ramnarine what a joint has to avoid",
         "question": "What does the gel in a mechanical joint do?",
         "answer": "It removes the step in index, so nothing is reflected at the gap",
-        "why": "It removes the index step. Two glass ends held a hair apart have air between them, and each glass-air boundary reflects a few per cent of the light straight back; a gel of the same index as the glass leaves nothing for the light to notice. So a dried joint is both lossy and reflective, and the reflection is the part that shows on a trace. That is the signature this fortnight turns on: a break reflects, a bend does not, and a dried joint does both a little.",
+        "why": "It removes the index step. Two glass ends held a hair apart have air between them. Each glass-air boundary reflects a few per cent of the light straight back. A gel of the same index as the glass leaves nothing for the light to notice. A dried joint is therefore both lossy and reflective, and the reflection is what shows on a trace. That is the signature this fortnight turns on. A break reflects, a bend does not, and a dried joint does both a little.",
         "rebuttals": [
           "Alignment is done by the ferrule the ends sit in, not by the fluid between them.",
           "Water is kept out by the closure round the whole joint, which is a separate fitting.",
@@ -1609,11 +1609,11 @@ export const CURRICULUM = {
       "scene": "Ramnarine has two cleaved ends on the bench, one dry and one in gel. She wants the fraction of the light each of them sends straight back, in decibels, so that a trace can be read against it.",
       "takeaway": "Reflection at a boundary depends on the size of the index step, so the same loss can come back as a mirror or as nothing.",
       "place": "Splice Trailer",
-      "guide": "You build the working a line at a time. What decides the reflection is the size of the step in index at the boundary, and both ends of that step matter: glass to air is a large step and glass to gel is almost none. Take the fraction first, then put it into decibels, where a small fraction becomes a large negative number.",
+      "guide": "You build the working a line at a time. What decides the reflection is the size of the step in index at the boundary. Both ends of that step matter. Glass to air is a large step; glass to gel is almost none. Take the fraction first, then put it into decibels, where a small fraction becomes a large negative number.",
       "background": [
-        "Why the step is squared. The reflected amplitude goes as the difference over the sum of the two indices, and power goes as the square of amplitude — so a step of one part in eight reflects about one part in seventy of the power. Forgetting the square gives 19 per cent rather than 3.6.",
-        "Why the gel matters so much. Its index is within 0.01 of the glass, so the step is a hundredth of the glass-air step and the reflection is ten thousand times smaller: −51 decibels instead of −14. That is the difference between a joint that shows on a trace and a joint that does not.",
-        "What this settles about the fault. A break with a clean face returns about 3.6 per cent. A bend returns nothing at all, because there is no step anywhere — the light simply leaves the core. The trace shows a step with a spike about a fortieth of the size of a clean break's, which is neither, and that is the finding of the fortnight."
+        "Why the step is squared. The reflected amplitude goes as the difference over the sum of the two indices. Power goes as the square of amplitude. So a step of one part in eight reflects about one part in seventy of the power. Forgetting the square gives 19 per cent rather than 3.6.",
+        "Why the gel matters so much. Its index is within 0.01 of the glass, so the step is a hundredth of the glass-air step. The reflection is then ten thousand times smaller: −51 decibels instead of −14. That is the difference between a joint that shows on a trace and a joint that does not.",
+        "What this settles about the fault. A break with a clean face returns about 3.6 per cent. A bend returns nothing at all, because there is no step anywhere — the light simply leaves the core. The trace shows a step with a spike about a fortieth of the size of a clean break's. That is neither, and it is the finding of the fortnight."
       ],
       "story": "Ramnarine has two cleaved ends on the bench, one dry and one in gel. She wants the fraction of the light each of them sends straight back, in decibels, so that a trace can be read against it.",
       "game": {
@@ -1624,7 +1624,7 @@ export const CURRICULUM = {
         "task": "Work out how much a break in the glass reflects",
         "question": "What fraction of the light does a dry cleaved end send back, in decibels?",
         "answer": "About 3.6 per cent, which is −14.4 dB. In gel the step is a hundred times smaller and the reflection ten thousand times smaller, at −51 dB.",
-        "why": "A dry end returns about 3.6 per cent of the light, or −14.4 decibels. The reflected amplitude is the difference of the two indices over their sum, and power is amplitude squared, so a step from 1.468 to 1.000 returns (0.468/2.468)² of the power. In gel the same expression gives 7.8 × 10⁻⁶, because the step is a hundredth the size and the square makes that ten thousand. The point is not the numbers but that the two cases differ by 37 decibels, which any trace can tell apart.",
+        "why": "A dry end returns about 3.6 per cent of the light, or −14.4 decibels. The reflected amplitude is the difference of the two indices over their sum, and power is amplitude squared. So a step from 1.468 to 1.000 returns (0.468/2.468)² of the power. In gel the same expression gives 7.8 × 10⁻⁶. The step is a hundredth the size, and the square makes that ten thousand. The point is not the numbers. It is that the two cases differ by 37 decibels, which any trace can tell apart.",
         "derive": {
           "start": "R = ((n₁ − n₂)/(n₁ + n₂))²",
           "goal": "the reflected fraction at a dry end, and the same in decibels",
@@ -3036,11 +3036,11 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "A few hundred of something",
-      "scene": "Duarte has the receiver's own record on the bench: the power arriving at the end of the span, in billionths of a watt, and the rate the bits arrive at.",
+      "scene": "Duarte has the receiver's own record on the bench. It gives the power arriving at the end of the span, in billionths of a watt. It also gives the rate the bits arrive at.",
       "takeaway": "A wave has a wavelength and a frequency; a stream of arrivals has a count, and both descriptions are needed at a receiver.",
       "place": "Receiver Lab",
-      "guide": "All four options describe what a receiver is dealing with. Ask of each whether it is a statement about a wave, about a stream of arrivals, or about the electronics, because the answer decides which physics the error rate is limited by.",
-      "story": "Duarte has the receiver's own record on the bench: the power arriving at the end of the span, in billionths of a watt, and the rate the bits arrive at.",
+      "guide": "All four options describe what a receiver is dealing with. Ask of each whether it is a statement about a wave, about a stream of arrivals, or about the electronics. The answer decides which physics the error rate is limited by.",
+      "story": "Duarte has the receiver's own record on the bench. It gives the power arriving at the end of the span, in billionths of a watt. It also gives the rate the bits arrive at.",
       "game": {
         "type": "CHOICE",
         "title": "A few hundred of something",
@@ -3049,7 +3049,7 @@ export const CURRICULUM = {
         "task": "Ask Duarte what arrives at the far end",
         "question": "What is the receiver working with at the end of the span?",
         "answer": "A wave of one wavelength, arriving as a countable number of pieces",
-        "why": "It is working with a wave of a definite wavelength, arriving as a countable number of pieces. Both halves are needed: the wavelength decides how much energy each arrival carries and how the fibre treated it on the way, and the count decides how steady the arrival rate is. At a few hundred arrivals a bit the count is what limits the error rate, and no amount of better electronics changes it — which is a statement about light rather than about the receiver.",
+        "why": "It is working with a wave of a definite wavelength, arriving as a countable number of pieces. Both halves are needed. The wavelength decides how much energy each arrival carries, and how the fibre treated it on the way. The count decides how steady the arrival rate is. At a few hundred arrivals a bit, the count is what limits the error rate. No amount of better electronics changes it. That is a statement about light rather than about the receiver.",
         "rebuttals": [
           "A steady flow would have no scatter of its own, and the measured error floor says it does.",
           "The fibre carries light; a voltage exists only after the diode has turned it into current.",

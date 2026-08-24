@@ -88,3 +88,41 @@ Testing it is awkward: **two browser tabs cannot both be tested at once**, becau
 gets no animation frame and its loop stops sending. The partner has to be a plain WebSocket
 client. There is no checker for any of this — `npm run check` asserts nothing about the wire, the
 same gap that let A and D strafe backwards for years.
+
+## The deploy, end to end, and why there is no branch merge in it
+
+**One repo, two branches, and they are not two versions of one tree.**
+
+| | `deep-watch-integration` | `main` |
+| --- | --- | --- |
+| holds | `Alamos/` — books, themes, engine, tools | `games/`, `server/`, the app |
+| has `Alamos/`? | yes | **no** |
+| who reads it | this workshop | Replit, which pulls main and nothing else |
+
+So a change to a book, a manifest or the engine is invisible to a player until
+the games are **rebuilt** and the built output reaches main. Pushing the
+workshop branch is not shipping. It took a "why can I not see it on Replit" to
+find that out loud.
+
+```sh
+cd gamekit
+npm run check                     # green first, always
+npm run sync-casebook             # builds every theme, writes ../../../casebook/games
+cd /Users/scolnic/code/casebook   # the SAME repo, checked out on main
+git add games && git commit && git push origin main
+```
+
+`sync-casebook` takes `--only theme,theme` and `--no-build` when the output in
+`dist/` is already current, and `--out` or `CASEBOOK_DIR` when the casebook
+checkout is somewhere else. It writes `games/games.json` beside the shelf;
+`games/index.html` belongs to the app and is not touched.
+
+**Do not merge the branches to "get it onto main".** They have diverged by
+hundreds of commits in both directions, and the merge would import the entire
+workshop — books, themes, engine, screenshots — into the branch a live Reserved
+VM with Clerk auth and co-op rooms is serving. The sync is the supported path
+and the only one the tooling knows about.
+
+**The build flag that will bite is in `sync-casebook`'s own header**: every game
+is built `--base ./`. Without it a game asks for `/assets/…` at the server root,
+which is casebook's root, and comes up blank with a 200 and no error anywhere.

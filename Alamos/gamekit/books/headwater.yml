@@ -530,14 +530,13 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. Two things are being tested. Can you pick the quantities the relationship actually needs? And does the
+              size of the answer look right once they are in place?
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how a unit mismatch is caught before it is placed. It is also how a quantity
+              belonging to a different part of the problem is caught. That is the habit this format
+              exists to build.
         assumes:
           - a flow rate says how much water passes a point each second
           - the slope of a line through two points is the rise divided by the run
@@ -545,11 +544,11 @@ missions:
         format: BALLPARK
         question: Estimate the average rate of change of the inflow between 14 o'clock.
         why: >
-          An average rate of change is a slope, and the two readings are the two ends of it. It says
-          nothing about what happened between them — the same pair comes from a river that climbed
-          steadily and from one that sat still for 90 minutes and then jumped. Shrinking the
-          interval is the only cure, and the number that shrinking approaches, the limit of this
-          slope as the two readings close together, is the instantaneous rate the forecast wants.
+          An average rate of change is a slope, and the two readings are the two ends of it. It says nothing
+          about what happened between them. The same pair comes from a river that climbed steadily. It also
+          comes from one that sat still for 90 minutes and then jumped. Shrinking the interval is the only
+          cure. That shrinking approaches a number: the limit of this slope as the two readings close
+          together. That limit is the instantaneous rate the forecast wants.
         estimate:
           prompt: >
             The gauge read 41 cubic metres a second at 06:00 and 48 at 08:00. An average rate of
@@ -597,21 +596,19 @@ missions:
           value.
         background:
           - >-
-              Why the definition rather than the rule. The power rule gives the answer in
-              one line and teaches nothing about why the answer is right. Working the
-              difference quotient through — the change in V over the change in t, as that
-              change goes to nothing — is where the rule comes from, and it is the only
-              version that survives a function no rule covers.
+              Why the definition rather than the rule. The power rule gives the answer in one line and teaches
+              nothing about why the answer is right. Working the difference quotient through is where the rule
+              comes from. That means the change in V over the change in t, as that change goes to nothing. It is
+              the only version that survives a function no rule covers.
           - >-
               What the algebra does. Expand V(t + h), subtract V(t), and every term without
               an h cancels. Divide by h and one factor of h comes out of what is left. The
               limit is then the terms with no h in them at all, which is the derivative —
               and the cancellation is the whole trick.
           - >-
-              Why an average will not do. Storage over the night rose in a curve, so an
-              average across it is a rate that was true at one instant somewhere in the
-              middle and is wrong now. The call is about what to do next, and that depends
-              on the rate at four hours.
+              Why an average will not do. Storage over the night rose in a curve. So an average across it is a
+              rate that was true at one instant somewhere in the middle. It is wrong now. The call is about what
+              to do next, and that depends on the rate at four hours.
         takesAsRead:
           - Limits, one-sided limits, and where a limit fails to exist
           - Continuity, and what a jump costs you
@@ -695,11 +692,11 @@ missions:
           80 thousand cubic metres an hour at 4 hours — a limit of the difference quotient, not
           an average across any interval.
         why: >
-          The difference quotient is the slope of a line through two points on the curve, and its
-          value depends on how far apart they are. Taking the limit closes that gap without ever
-          setting it to 0, which is the whole manoeuvre — at h = 0 the quotient is 0/0 and says
-          nothing, while its limit is one number. What comes out is a rule, 10t + 40, good at every
-          hour of the night, and the four-hour figure is one substitution away from it.
+          The difference quotient is the slope of a line through two points on the curve, and its value
+          depends on how far apart they are. Taking the limit closes that gap without ever setting it to 0.
+          That is the whole manoeuvre. At h = 0 the quotient is 0/0 and says nothing, while its limit is one
+          number. What comes out is a rule, 10t + 40, good at every hour of the night, and the four-hour
+          figure is one substitution away from it.
       - group: SAFE
         task: Say what the trace has no rate at
         title: The instant the gate moved
@@ -723,17 +720,16 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. That was 88 per
+              cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is
+              indistinguishable from a sound one. That stays true until the day the approximation is
+              what is being tested.
         takesAsRead:
           - Limits, one-sided limits, and where a limit fails to exist
         assumes:
@@ -792,14 +788,13 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. Two things are being tested. Can you pick the quantities the relationship actually needs? And does the
+              size of the answer look right once they are in place?
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how a unit mismatch is caught before it is placed. It is also how a quantity
+              belonging to a different part of the problem is caught. That is the habit this format
+              exists to build.
         assumes:
           - the area under a flow-against-time curve is a volume
           - a trapezium's area is the average of its two parallel sides times its width
@@ -1113,17 +1108,16 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. That was 88 per
+              cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is
+              indistinguishable from a sound one. That stays true until the day the approximation is
+              what is being tested.
         assumes:
           - a rate multiplied by an interval gives the accumulation over that interval only if the rate is constant
           - a sum of rectangles approximates the area under a curve
@@ -1466,17 +1460,16 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. That was 88 per
+              cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is
+              indistinguishable from a sound one. That stays true until the day the approximation is
+              what is being tested.
         takesAsRead:
           - The definite integral as an accumulation, and its units
         assumes:
@@ -1538,14 +1531,13 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. Two things are being tested. Can you pick the quantities the relationship actually needs? And does the
+              size of the answer look right once they are in place?
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how a unit mismatch is caught before it is placed. It is also how a quantity
+              belonging to a different part of the problem is caught. That is the habit this format
+              exists to build.
         assumes:
           - a volume rate divided by a plan area is a rate of level
           - the surface area of a reservoir depends on the level it is holding
@@ -1553,12 +1545,11 @@ missions:
         format: BALLPARK
         question: Estimate how fast the level is rising with 28 cubic metres a second net inflow.
         why: >
-          The relation is dh/dt = (I − O) ÷ A(h), and the part that makes it calculus rather than
-          division is that A depends on h. The same net inflow buys less height the higher the
-          reservoir gets, so the level rate falls while nothing about the water changes, and a
-          straight-line forecast made this morning drifts high by the afternoon. It is also the first
-          appearance of the term that the resurvey is going to move: every level forecast on this
-          site divides by an area somebody measured in 2003.
+          The relation is dh/dt = (I − O) ÷ A(h), and the part that makes it calculus rather than division is
+          that A depends on h. The same net inflow buys less height the higher the reservoir gets. So the
+          level rate falls while nothing about the water changes. A straight-line forecast made this morning
+          drifts high by the afternoon. It is also the first appearance of the term that the resurvey is going
+          to move. Every level forecast on this site divides by an area somebody measured in 2003.
         estimate:
           prompt: >
             Net inflow is 28 cubic metres a second and the surface area at this level is
@@ -1703,14 +1694,13 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. Two things are being tested. Can you pick the quantities the relationship actually needs? And does the
+              size of the answer look right once they are in place?
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how a unit mismatch is caught before it is placed. It is also how a quantity
+              belonging to a different part of the problem is caught. That is the habit this format
+              exists to build.
         assumes:
           - a product with one factor held constant differentiates to the constant times the other rate
           - a rate of change carries the units of the quantity divided by the units of time
@@ -1771,18 +1761,16 @@ missions:
           inflow keeps arriving until the outflow matches it.
         background:
           - >-
-              Why the level is an accumulation. The rate of change of storage is inflow minus
-              outflow, so the level is the integral of that difference. A gate opening that does not
-              match the inflow does not move the level to a new place; it changes how fast it is
-              moving, which is the whole difficulty.
+              Why the level is an accumulation. The rate of change of storage is inflow minus outflow, so the
+              level is the integral of that difference. A gate opening that does not match the inflow does not
+              move the level to a new place. It changes how fast it is moving. That is the whole difficulty.
           - >-
               Why the inflow will not sit still. Rain upstream arrives as a wave hours later, a
               tributary joins after the second band of weather, and the catchment goes on delivering
               after the rain has stopped. None of it is a step, and none of it is negotiable.
           - >-
-              Why the margin shrinks. Freeboard is fixed. The longer the afternoon has run, the more
-              of it has already been spent, so the same rate of rise is a larger share of what is
-              left at four than it was at one.
+              Why the margin shrinks. Freeboard is fixed. The longer the afternoon has run, the more of it has
+              already been spent. So the same rate of rise is a larger share of what is left at four than at one.
         assumes:
           - water stored is what has come in minus what has gone out
         takeaway: A level is the accumulation of a difference, so it is held by matching rates rather than by chasing a number.
@@ -1790,17 +1778,15 @@ missions:
         question: Hold the reservoir at its operating level through the afternoon.
         answerText: Inside the band for most of the afternoon, with the gate set so outflow matches inflow rather than opened after the level has already risen.
         why: >-
-          The rate of change of storage is inflow minus outflow, so the level is the
-          accumulation of that difference — and that is why holding it feels unlike holding
-          anything with a setpoint. A gate opening does not put the level somewhere; it decides
-          how fast the level is moving. Match the inflow and the level stops wherever it
-          happens to be. Fall short and it rises at the difference for as long as the mismatch
-          lasts, which is the same integral the whole course keeps returning to, drawn in real
-          time on a gauge. The disturbances are the catchment doing what catchments do: a rain
-          wave arriving hours after the rain, a tributary joining late, the ground going on
-          delivering once the sky has cleared. And the band narrows because freeboard is fixed
-          and finite. The margin above the spillway is what the scheme is protected by, and
-          none of it comes back during the afternoon.
+          The rate of change of storage is inflow minus outflow. So the level is the accumulation of that
+          difference. That is why holding it feels unlike holding anything with a setpoint. A gate opening
+          does not put the level somewhere; it decides how fast the level is moving. Match the inflow and the
+          level stops wherever it happens to be. Fall short and it rises at the difference for as long as the
+          mismatch lasts. That is the same integral the whole course keeps returning to, drawn in real time on
+          a gauge. The disturbances are the catchment doing what catchments do. A rain wave arrives hours
+          after the rain. A tributary joins late. The ground goes on delivering once the sky has cleared. And
+          the band narrows because freeboard is fixed and finite. The margin above the spillway is what the
+          scheme is protected by, and none of it comes back during the afternoon.
         hold:
           quantity: Reservoir level
           unit: m
@@ -1854,11 +1840,10 @@ missions:
               changing is changing. Both are estimates rather than values, because an hourly
               gauge cannot see what happened between two readings.
           - >-
-              Why an inflection is worth an hour of anybody's morning. The flow is still
-              rising at the turn, so nothing about the number itself announces it. What has
-              changed is the trend: from that hour on, each hour adds less than the last,
-              which is the first evidence that a flood peak exists and is approaching.
-              Waiting for the flow to fall means waiting until the peak has already passed.
+              Why an inflection is worth an hour of anybody's morning. The flow is still rising at the turn, so
+              nothing about the number itself announces it. What has changed is the trend. From that hour on, each
+              hour adds less than the last. That is the first evidence that a flood peak exists and is
+              approaching. Waiting for the flow to fall means waiting until the peak has already passed.
           - >-
               Why consecutive readings matter. A difference of differences amplifies noise:
               two readings each a little uncertain give a climb that is more uncertain, and
@@ -1922,12 +1907,11 @@ missions:
           Ten o'clock. The flow is still climbing there and climbing more slowly than it was — the
           increments run 14, 16, 18, 16, 12, and the sign of their change turns between 19.
         why: >
-          Every reading in this column is higher than the one before it, so the first derivative
-          never changes sign and the flow does not peak anywhere on the screen. What changes is the
-          second derivative: the increments grow to 18 and then shrink. That turn is the
-          earliest thing on a hydrograph that says the event has a top, and it arrives hours before
-          the top does, which is the whole reason to look for it. Reading only the flow leaves
-          nothing to say until the peak has already passed.
+          Every reading in this column is higher than the one before it. So the first derivative never changes
+          sign. The flow does not peak anywhere on the screen. What changes is the second derivative: the
+          increments grow to 18 and then shrink. That turn is the earliest thing on a hydrograph that says the
+          event has a top. It arrives hours before the top does. That is the whole reason to look for it.
+          Reading only the flow leaves nothing to say until the peak has already passed.
       - group: STORE
         task: Find the day the level turns over, and prove it is a maximum
         title: Where the curve turns
@@ -1936,11 +1920,10 @@ missions:
           Ferrand has the level fitted to h(t) = 214.6 + 0.9t − 0.03t², with t in days from Monday.
           Halloran wants the day it stops rising and will not take a shape off a screen for it.
         guide: >-
-          Build the working down a line at a time. Finding where the level stops rising
-          is finding where its rate is zero, but that is only half the job — a zero rate
-          is a turning point and this one has to be shown to be a maximum rather than a
-          minimum. Halloran will not take a shape off a screen, so the classification
-          has to come out of the working.
+          Build the working down a line at a time. Finding where the level stops rising is finding where its
+          rate is zero. But that is only half the job. A zero rate is a turning point. This one has to be
+          shown to be a maximum rather than a minimum. Halloran will not take a shape off a screen, so the
+          classification has to come out of the working.
         background:
           - >-
               Why a zero rate is not yet an answer. The derivative is zero at a peak, at a
@@ -2063,17 +2046,16 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. That was 88 per
+              cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is
+              indistinguishable from a sound one. That stays true until the day the approximation is
+              what is being tested.
         assumes:
           - the level rises whenever inflow exceeds outflow and falls whenever it does not
           - a quantity turns over where its own rate of change passes through zero
@@ -2133,14 +2115,13 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. Two things are being tested. Can you pick the quantities the relationship actually needs? And does the
+              size of the answer look right once they are in place?
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how a unit mismatch is caught before it is placed. It is also how a quantity
+              belonging to a different part of the problem is caught. That is the habit this format
+              exists to build.
         assumes:
           - a quantity is largest where its derivative is zero, if it has such a point inside the range
           - the power rule brings an exponent down as a factor and reduces it by one
@@ -2391,14 +2372,13 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. Two things are being tested. Can you pick the quantities the relationship actually needs? And does the
+              size of the answer look right once they are in place?
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how a unit mismatch is caught before it is placed. It is also how a quantity
+              belonging to a different part of the problem is caught. That is the habit this format
+              exists to build.
         takesAsRead:
           - The definite integral as an accumulation, and its units
         assumes:
@@ -2408,12 +2388,11 @@ missions:
         format: BALLPARK
         question: Estimate the steady flow that would have delivered the same volume in the same six hours.
         why: >
-          An average value is an integral divided by an interval, and the division is what turns a
-          volume back into a flow. It is not the mean of the readings unless they happen to be evenly
-          spaced in time, which on a gauge that reports on demand they often are not — that is the
-          error the definition exists to prevent. What comes out is the flat line with the same area
-          underneath it as the real hydrograph, which is exactly the object a committee sheet with
-          one line on it is asking for.
+          An average value is an integral divided by an interval, and the division is what turns a volume back
+          into a flow. It is not the mean of the readings unless they happen to be evenly spaced in time. On a
+          gauge that reports on demand they often are not. That is the error the definition exists to prevent.
+          What comes out is the flat line with the same area underneath it as the real hydrograph. That is
+          exactly the object a committee sheet with one line on it is asking for.
         estimate:
           prompt: >
             The morning delivered 1,582,200 cubic metres. The average value of a rate is its
@@ -2468,17 +2447,16 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. That was 88 per
+              cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is
+              indistinguishable from a sound one. That stays true until the day the approximation is
+              what is being tested.
         takesAsRead:
           - Limits, one-sided limits, and where a limit fails to exist
         assumes:
@@ -2623,10 +2601,9 @@ missions:
           Ferrand has the outlet behaving as dh/dt = −k·√h, with h the head on it in metres and k
           about 0.10 an hour. He wants the level as a function of time, not another table of readings.
         guide: >-
-          Build it a line at a time. The relation gives the rate of change of the level
-          in terms of the level itself, which is what a differential equation is — so
-          the move is to separate the two variables and integrate both sides. Finish
-          with the level as a function of time, not another table of readings.
+          Build it a line at a time. The relation gives the rate of change of the level in terms of the level
+          itself. That is what a differential equation is. So the move is to separate the two variables and
+          integrate both sides. Finish with the level as a function of time, not another table of readings.
         background:
           - >-
               Why the outlet behaves this way. Flow out of an opening goes as the square
@@ -2634,15 +2611,14 @@ missions:
               gets. That is the physics in dh/dt = −k√h, and it is why the drawdown is not a
               straight line however steady the outlet is.
           - >-
-              What separating variables means. Get every h on one side with the dh, and
-              every t on the other with the dt. Each side is then an ordinary integral. The
-              constant of integration is fixed by the level at the moment you started, which
-              is why an initial condition is part of the answer rather than an afterthought.
+              What separating variables means. Get every h on one side with the dh, and every t on the other with
+              the dt. Each side is then an ordinary integral. The constant of integration is fixed by the level at
+              the moment you started. That is why an initial condition is part of the answer rather than an
+              afterthought.
           - >-
-              Why a function beats a table. A table answers the times somebody happened to
-              write down. A function answers when the level will reach the outlet, how long
-              a drawdown will take, and what happens if k is a little different — which is
-              the difference between a record and a tool.
+              Why a function beats a table. A table answers the times somebody happened to write down. A function
+              answers when the level will reach the outlet. It answers how long a drawdown will take. It answers
+              what happens if k is a little different. That is the difference between a record and a tool.
         assumes:
           - a differential equation with the variables on separate sides can be integrated side by side
           - an antiderivative raises a power by one and divides by the new power
@@ -2752,17 +2728,15 @@ missions:
           the drain constant when you can say it rather than guess it.
         background:
           - >-
-              Why one reading cannot do it. A drawdown curve has a size and a rate, and a
-              single level six hours in constrains their combination rather than either one.
-              Trade a larger initial volume against a slower drain and the curve passes
-              through the same point — which is what the family of settings you can slide
-              along actually is.
+              Why one reading cannot do it. A drawdown curve has a size and a rate, and a single level six hours
+              in constrains their combination rather than either one. Trade a larger initial volume against a
+              slower drain, and the curve passes through the same point. That is what the family of settings you
+              can slide along actually is.
           - >-
-              What breaks the tie. A second reading twelve hours later is on a different
-              part of the curve, where the same trade no longer holds: settings that agreed
-              at six hours disagree at eighteen. That is why the second observation is worth
-              more than a repeat of the first, and why Rasmussen's undelivered reading is
-              the whole stop.
+              What breaks the tie. A second reading twelve hours later is on a different part of the curve. There
+              the same trade no longer holds. Settings that agreed at six hours disagree at eighteen. That is why
+              the second observation is worth more than a repeat of the first, and why Rasmussen's undelivered
+              reading is the whole stop.
           - >-
               Why this matters beyond the arithmetic. Reporting a drain constant from one
               reading is reporting a number the data does not contain. The honest answer at
@@ -2805,13 +2779,12 @@ missions:
           About 0.10 an hour, from a starting head near 25 metres — and it takes both readings to
           say so, because either one alone is matched by a whole line of pairs.
         why: >
-          Integrating produced a constant, and the equation cannot supply it; only a measurement can.
-          One reading is one equation in two unknowns, so a higher starting head paired with a faster
-          drain reproduces it exactly, which is why the match stays perfect all along the curve. The
-          second reading is not a repeat of the first — it is taken at a different time, so it
-          constrains the same two unknowns in a different combination and the two lines cross once.
-          Sliding along a locus with a perfect match is what an underdetermined problem feels like
-          from the inside.
+          Integrating produced a constant, and the equation cannot supply it; only a measurement can. One
+          reading is one equation in two unknowns. So a higher starting head paired with a faster drain
+          reproduces it exactly. That is why the match stays perfect all along the curve. The second reading
+          is not a repeat of the first. It is taken at a different time. So it constrains the same two
+          unknowns in a different combination, and the two lines cross once. Sliding along a locus with a
+          perfect match is what an underdetermined problem feels like from the inside.
       - group: SAFE
         task: Say when the outlet will have finished
         title: How long the drawdown takes
@@ -2831,14 +2804,13 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. Two things are being tested. Can you pick the quantities the relationship actually needs? And does the
+              size of the answer look right once they are in place?
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how a unit mismatch is caught before it is placed. It is also how a quantity
+              belonging to a different part of the problem is caught. That is the habit this format
+              exists to build.
         assumes:
           - the drawdown solution can be rearranged for the time at a given head
           - the square root of 25 is 5 and the square root of 16 is 4
@@ -2991,14 +2963,13 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. Two things are being tested. Can you pick the quantities the relationship actually needs? And does the
+              size of the answer look right once they are in place?
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how a unit mismatch is caught before it is placed. It is also how a quantity
+              belonging to a different part of the problem is caught. That is the habit this format
+              exists to build.
         takesAsRead:
           - The definite integral as an accumulation, and its units
         assumes:
@@ -3008,12 +2979,11 @@ missions:
         format: BALLPARK
         question: Estimate the volume held between 210 and 214 metres on the resurveyed curve.
         why: >
-          Volume is the integral of the surface area with respect to level, which is what a
-          stage-storage curve is a table of. Stacking the areas with the trapezoid rule is the same
-          arithmetic as stacking flows in time, with height in place of time, and it is why the
-          resurvey matters so much: the areas are the integrand. The 2003 sheet gives 2.58, 2.75 and
-          2.92 for the same 3 levels and returns 11.0 million for this slice, which is 11%
-           of headroom the control room believed it had.
+          Volume is the integral of the surface area with respect to level, which is what a stage-storage
+          curve is a table of. Stacking the areas with the trapezoid rule is the same arithmetic as stacking
+          flows in time, with height in place of time. That is why the resurvey matters so much. The areas are
+          the integrand. The 2003 sheet gives 2.58, 2.75 and 2.92 for the same 3 levels. It returns 11.0
+          million for this slice. That is 11% of headroom the control room believed it had.
         estimate:
           prompt: >
             Resurveyed areas 2.30, 2.45 and 2.60 square kilometres, at levels 2 metres apart. Half
@@ -3138,17 +3108,16 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. That was 88 per
+              cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is
+              indistinguishable from a sound one. That stays true until the day the approximation is
+              what is being tested.
         assumes:
           - a correction propagates only to quantities computed through the thing corrected
           - the level is measured directly against a datum rather than derived from a volume
@@ -3394,14 +3363,13 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. Two things are being tested. Can you pick the quantities the relationship actually needs? And does the
+              size of the answer look right once they are in place?
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how a unit mismatch is caught before it is placed. It is also how a quantity
+              belonging to a different part of the problem is caught. That is the habit this format
+              exists to build.
         assumes:
           - a small change in a quantity is its rate of change multiplied by the small change in the input
           - 6 centimetres is 0.06 metres
@@ -3472,10 +3440,9 @@ missions:
           now that no rain is behind it. He wants the flow as a function of time before the weekend
           schedule is written.
         guide: >-
-          Build it a line at a time. The flow is falling in proportion to itself, which
-          is the equation whose solution is an exponential — and separating the
-          variables is what shows that rather than asserting it. Finish with the flow as
-          a function of time, in a form the weekend schedule can be written from.
+          Build it a line at a time. The flow is falling in proportion to itself. That is the equation whose
+          solution is an exponential. Separating the variables is what shows that rather than asserting it.
+          Finish with the flow as a function of time, in a form the weekend schedule can be written from.
         background:
           - >-
               What 'in proportion to itself' means. With no rain behind it, the river is
@@ -3488,10 +3455,9 @@ missions:
               the recession constant and quoting that characteristic time are two ways of
               saying one thing, and the second is the one an operator can feel.
           - >-
-              What the schedule needs from it. Committing to a release for Saturday means
-              predicting Saturday's natural flow. An exponential fitted now gives that with
-              one number, and the same function says how wrong you will be if the recession
-              constant is off — which is the honest part of the promise.
+              What the schedule needs from it. Committing to a release for Saturday means predicting Saturday's
+              natural flow. An exponential fitted now gives that with one number. The same function says how wrong
+              you will be if the recession constant is off. That is the honest part of the promise.
         assumes:
           - a differential equation with the variables separable can be integrated a side at a time
           - the antiderivative of one over a quantity is the natural logarithm of it
@@ -3572,24 +3538,20 @@ missions:
           reproduces the days it is scored against, so higher is better. Halloran wants
           the number that will be used next week.
         guide: >-
-          Drag the constant and watch how well it fits the week. Two things to hold on
-          to. Each score comes from a handful of days, so a small difference between two
-          constants is that week's weather rather than the river; and you are keeping
-          the best of many constants, which is a contest luck can win. Then press
-          freeze. Freezing commits you and opens the four held-back days. Report what
-          those say.
+          Drag the constant and watch how well it fits the week. Two things to hold on to. Each score comes
+          from a handful of days. So a small difference between two constants is that week's weather rather
+          than the river. And you are keeping the best of many constants. That is a contest luck can win. Then
+          press freeze. Freezing commits you and opens the four held-back days. Report what those say.
         background:
           - >-
-              What the constant describes. After the rain stops, a catchment drains what it
-              has stored, and the flow falls away by roughly the same fraction each day.
-              That fraction is the recession constant. It is a property of the soil, the
-              geology and the shape of the valley, so it should be much the same next week
-              as it was last week.
+              What the constant describes. After the rain stops, a catchment drains what it has stored, and the
+              flow falls away by roughly the same fraction each day. That fraction is the recession constant. It
+              is a property of the soil, the geology and the shape of the valley. So it should be much the same
+              next week as it was last week.
           - >-
-              Why fitting a week fits the week. The fit sees one week of weather, and that
-              week had its own showers, its own evaporation and its own gauge noise. A
-              constant tuned to the last digit is tuned to those as well as to the
-              catchment, and the parts that came from the weather will not happen again.
+              Why fitting a week fits the week. The fit sees one week of weather, and that week had its own
+              showers, its own evaporation and its own gauge noise. A constant tuned to the last digit is tuned to
+              those as well as to the catchment. The parts that came from the weather will not happen again.
           - >-
               What the freeze is for, and what would break without it. Held-back days can
               only test a constant that was chosen without them. If you could keep adjusting
@@ -3646,12 +3608,12 @@ missions:
           fitted week manages 88 on them, and the 3 points it appeared to gain were a property of
           that week rather than of this river.
         why: >
-          A constant chosen on a sample is chosen partly on that sample's noise, and noise does not
-          come back. That is why the broad shoulder holds up and the narrow spike does not — the
-          shoulder is a property of how this catchment drains, which next week also has, and the
-          spike is a property of seven particular days, which it does not. So a score measured where
-          the constant was chosen is never a measurement of the constant alone, and it is wrong in
-          the same direction every time. The cure is procedure rather than cleverness.
+          A constant chosen on a sample is chosen partly on that sample's noise, and noise does not come back.
+          That is why the broad shoulder holds up and the narrow spike does not. The shoulder is a property of
+          how this catchment drains, which next week also has. The spike is a property of seven particular
+          days, which it does not. So a score measured where the constant was chosen is never a measurement of
+          the constant alone, and it is wrong in the same direction every time. The cure is procedure rather
+          than cleverness.
       - group: POWER
         task: Turn the constant into an hour
         title: How long until it halves
@@ -3669,14 +3631,13 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. Two things are being tested. Can you pick the quantities the relationship actually needs? And does the
+              size of the answer look right once they are in place?
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how a unit mismatch is caught before it is placed. It is also how a quantity
+              belonging to a different part of the problem is caught. That is the habit this format
+              exists to build.
         assumes:
           - the recession solution can be rearranged for the time at a given fraction of the start
           - the natural logarithm of 2 is about 0.693
@@ -3837,17 +3798,16 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. That was 88 per
+              cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is
+              indistinguishable from a sound one. That stays true until the day the approximation is
+              what is being tested.
         takesAsRead:
           - The definite integral as an accumulation, and its units
         assumes:
@@ -3890,14 +3850,13 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. Two things are being tested. Can you pick the quantities the relationship actually needs? And does the
+              size of the answer look right once they are in place?
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how a unit mismatch is caught before it is placed. It is also how a quantity
+              belonging to a different part of the problem is caught. That is the habit this format
+              exists to build.
         takesAsRead:
           - The definite integral as an accumulation, and its units
         assumes:
@@ -3964,10 +3923,9 @@ missions:
               the rate held still, and this one falls away from the peak. Integrating is
               what adding up a changing rate means.
           - >-
-              Why substitution is the move. The numerator is a constant times t and the
-              denominator is t² + 4, whose derivative is 2t. That is the shape that says one
-              variable will do: let u be the denominator and the whole integrand collapses
-              to du over u, whose integral is a logarithm.
+              Why substitution is the move. The numerator is a constant times t and the denominator is t² + 4,
+              whose derivative is 2t. That is the shape that says one variable will do. Let u be the denominator,
+              and the whole integrand collapses to du over u. The integral of that is a logarithm.
           - >-
               What the answer is for. A resurvey file needs the mass that went past, because
               that is what has left the catchment and arrived somewhere downstream. It is
@@ -4166,22 +4124,20 @@ missions:
           days from tonight. The storage is everything that net flow has added since. He
           wants the day the reservoir is fullest.
         guide: >-
-          Build it a line at a time. The storage is the accumulation of a net flow that
-          is falling, so the storage is greatest when the net flow stops being positive
-          — and that has to come out of the working rather than out of a guess. Then
-          classify the turning point, because 'fullest' is a maximum and the algebra has
-          to say so.
+          Build it a line at a time. The storage is the accumulation of a net flow that is falling. So the
+          storage is greatest when the net flow stops being positive. That has to come out of the working
+          rather than out of a guess. Then classify the turning point, because 'fullest' is a maximum and the
+          algebra has to say so.
         background:
           - >-
-              How the two are related. If S is what N has added since tonight, then N is the
-              rate at which S is changing — the fundamental theorem, in the direction people
-              use least. So questions about S's maximum are questions about where N crosses
-              zero, and no integration is needed to find it.
+              How the two are related. If S is what N has added since tonight, then N is the rate at which S is
+              changing. That is the fundamental theorem, in the direction people use least. So questions about S's
+              maximum are questions about where N crosses zero, and no integration is needed to find it.
           - >-
-              Why the sign matters more than the value. While the net flow is positive the
-              reservoir is filling; once it is negative it is emptying. The day the fullest
-              level occurs is the day the sign changes, which is why a linear net flow makes
-              this a one-line answer and a real one makes it a root-finding problem.
+              Why the sign matters more than the value. While the net flow is positive the reservoir is filling;
+              once it is negative it is emptying. The day the fullest level occurs is the day the sign changes.
+              That is why a linear net flow makes this a one-line answer. A real one makes it a root-finding
+              problem.
           - >-
               What it is worth. A dam operator plans drawdown around the day storage peaks,
               because that is the last moment a decision can be made with the season's water
@@ -4262,12 +4218,11 @@ missions:
           Day 5, and it is a maximum — the net flow is positive before it and negative after, and the
           second derivative is −8 on every day of the fortnight.
         why: >
-          The fundamental theorem does the whole of the first step: the derivative of an accumulation
-          with a moving upper end is the rate at that end, so nothing has to be integrated to find
-          where the total turns over. That is the practical value of it here — the reservoir's fullest
-          hour is a property of the net flow alone, readable from a gauge, and the storage figure
-          itself is never needed. The second derivative is constant and negative, so there is one
-          turning point and it can only be a top.
+          The fundamental theorem does the whole of the first step. The derivative of an accumulation with a
+          moving upper end is the rate at that end. So nothing has to be integrated to find where the total
+          turns over. That is the practical value of it here. The reservoir's fullest hour is a property of
+          the net flow alone, readable from a gauge. The storage figure itself is never needed. The second
+          derivative is constant and negative, so there is one turning point and it can only be a top.
       - group: GATES
         task: Say what the level did, from the rate alone
         title: The only trace on the screen
@@ -4291,17 +4246,16 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. That was 88 per
+              cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is
+              indistinguishable from a sound one. That stays true until the day the approximation is
+              what is being tested.
         assumes:
           - the level rises where the net flow is positive and falls where it is negative
           - a quantity turns over where its rate crosses zero, not where its rate is largest
@@ -4430,14 +4384,13 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. Two things are being tested. Can you pick the quantities the relationship actually needs? And does the
+              size of the answer look right once they are in place?
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how a unit mismatch is caught before it is placed. It is also how a quantity
+              belonging to a different part of the problem is caught. That is the habit this format
+              exists to build.
         takesAsRead:
           - The definite integral as an accumulation, and its units
         assumes:
@@ -4541,7 +4494,7 @@ missions:
         why: >
           The two worth funding are the two that everything else is computed through. The area curve
           is the integrand of every volume and the divisor of every level forecast, so an 11%
-           error in it is an 11% error in all of them at once, and 11 transects is
+          error in it is an 11% error in all of them at once, and 11 transects is
           a provisional number the room is already relying on. The coefficient is the widest term in
           the discharge by a long way, and improving the head gauge instead would refine the term that
           was already good. More gauges would improve a forecast that was not what failed, and the
@@ -4716,16 +4669,15 @@ lessons:
       round and the note tells a committee the river is climbing.
     background:
       - >-
-          Where the direction lives. The magnitude of a slope survives being subtracted
-          backwards; the sign does not. Later minus earlier, over later minus earlier, is
-          the only arrangement that puts the river's direction into the answer, and it is
-          the arrangement worth doing by habit rather than by thought.
+          Where the direction lives. The magnitude of a slope survives being subtracted backwards; the sign
+          does not. Later minus earlier, over later minus earlier, is the only arrangement that puts the
+          river's direction into the answer. It is the arrangement worth doing by habit rather than by
+          thought.
       - >-
-          What a falling limb does to a straight-line carry. A recession bends: the fall is
-          quickest just after the crest and slackens for days afterwards. An average slope
-          taken across the steep part and projected forward therefore empties the reservoir
-          faster on paper than the river will empty it, which is the opposite of the error
-          the rising limb produces.
+          What a falling limb does to a straight-line carry. A recession bends: the fall is quickest just
+          after the crest and slackens for days afterwards. An average slope taken across the steep part and
+          projected forward therefore empties the reservoir faster on paper than the river will empty it. That
+          is the opposite of the error the rising limb produces.
     assumes:
       - an average rate of change is the change in a quantity divided by the change in time
       - subtracting the earlier reading from the later one is what makes a rate signed
@@ -4788,10 +4740,10 @@ lessons:
       width the tape never had.
     background:
       - >-
-          What the half-ends form is a shortcut for. Add the 4 trapezia of a 5-reading tape
-          and collect the terms: every interior reading turns up in 2 of them and every end
-          reading in 1, which is where the halves come from. That collection is only legal
-          when the widths are equal, because it is the common width that was factored out.
+          What the half-ends form is a shortcut for. Add the 4 trapezia of a 5-reading tape and collect the
+          terms. Every interior reading turns up in 2 of them and every end reading in 1. That is where the
+          halves come from. That collection is only legal when the widths are equal, because it is the common
+          width that was factored out.
       - >-
           Why the fix is cheap. Nothing about a trapezium needs its neighbours to match it.
           Average the pair, multiply by the gap that separates that pair, and add the 4

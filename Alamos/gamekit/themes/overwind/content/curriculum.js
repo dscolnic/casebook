@@ -7,16 +7,16 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Twelve seconds of ramp",
-      "scene": "Ubah has the new ramp on the landing desk: the winder is to accelerate at 1.2 metres a second squared at the start, tapering to nothing over twelve seconds. She wants the speed at the end of it and the rope wound in that time.",
-      "takeaway": "Integrating an acceleration gives a velocity and integrating that gives a distance, and each integration needs its own starting value.",
+      "scene": "Ubah has the new ramp on the landing desk. The winder is to accelerate at 1.2 metres a second squared at the start. The acceleration then tapers to nothing over twelve seconds. She wants the speed at the end of it, and the rope wound.",
+      "takeaway": "Integrating an acceleration gives a velocity, and integrating that gives a distance. Each",
       "place": "The Bank",
-      "guide": "You build the working a line at a time, choosing the expression the line above gives you. The ramp is stated as an acceleration, so speed comes from accumulating it and distance from accumulating the speed. Both start from zero here, which fixes the constants. The taper is what makes this an integral rather than a multiplication.",
+      "guide": "You build the working a line at a time, and each line follows the one above. The ramp is stated as an acceleration. Speed comes from accumulating it, and distance from accumulating the speed. Both start from zero here, which fixes the constants. The taper is what makes this an integral rather than a multiplication.",
       "background": [
-        "Why the ramp tapers. An acceleration that switches on and off in a step is felt as a jolt by everybody in the cage, because what a passenger notices is how fast the acceleration is changing. Tapering it to nothing at the end of the ramp is what makes a fast wind bearable.",
-        "Why the constant-acceleration formulas will not do. They are derived on the assumption that the acceleration does not change, and here it changes throughout. Using them with the peak value overstates the speed by a factor of two; using the mean gets the speed right and the distance wrong.",
-        "What the two answers are for. The speed at the end of the ramp is what the rest of the cycle is driven from. The distance is what says whether the ramp fits: there are 1,240 metres of shaft and the crawl at the top needs its share of them."
+        "Why the ramp tapers. An acceleration that switches on and off in a step is felt as a jolt. Everybody in the cage feels it. What a passenger notices is how fast the acceleration is changing. Tapering it to nothing at the end of the ramp is what makes a fast wind bearable.",
+        "Why the constant-acceleration formulas will not do. They are derived on the assumption that the acceleration does not change, and here it changes throughout. Using them with the peak value overstates the speed by a factor of two. Using the mean gets the speed right and the distance wrong.",
+        "What the two answers are for. The speed at the end of the ramp is what the rest of the cycle is driven from. The distance is what says whether the ramp fits. There are 1,240 metres of shaft, and the crawl at the top needs its share of them."
       ],
-      "story": "Ubah has the new ramp on the landing desk: the winder is to accelerate at 1.2 metres a second squared at the start, tapering to nothing over twelve seconds. She wants the speed at the end of it and the rope wound in that time.",
+      "story": "Ubah has the new ramp on the landing desk. The winder is to accelerate at 1.2 metres a second squared at the start. The acceleration then tapers to nothing over twelve seconds. She wants the speed at the end of it, and the rope wound.",
       "game": {
         "type": "DERIVE",
         "title": "Twelve seconds of ramp",
@@ -25,7 +25,7 @@ export const CURRICULUM = {
         "task": "Get the speed and the depth out of the programmed ramp",
         "question": "What speed does the cage reach at the end of the ramp, and how much rope is wound?",
         "answer": "7.2 metres a second, after 57.6 metres of rope. The speed is the area under the taper and the distance is the area under the speed.",
-        "why": "The cage reaches 7.2 metres a second, having wound 57.6 metres. The ramp is stated as an acceleration that falls linearly to nothing, so the speed at any instant is the accumulated acceleration up to then and the distance is the accumulated speed. Each integration brings a constant, and both are fixed by the cage starting from rest at the landing. Using the peak acceleration for the whole twelve seconds would give 14.4 metres a second, which is twice what the winder is being asked for.",
+        "why": "The cage reaches 7.2 metres a second, having wound 57.6 metres. The ramp is stated as an acceleration that falls linearly to nothing. The speed at any instant is the accumulated acceleration up to then. The distance is the accumulated speed. Each integration brings a constant. Both are fixed by the cage starting from rest at the landing. Using the peak acceleration for the whole twelve seconds would give 14.4 metres a second. That is twice what the winder is being asked for.",
         "derive": {
           "start": "a = dv/dt, with a(t) = 1.2·(1 − t/12)",
           "goal": "the speed at t = 12 s and the rope wound by then, in metres",
@@ -206,7 +206,7 @@ export const CURRICULUM = {
       "scene": "Halloway has the depth recorder's paper from the March wind: one pen, one trace, position against time, and nothing else recorded anywhere on the plant.",
       "takeaway": "A single record of position against time yields speed, acceleration and jerk by differentiating, and needs no other instrument.",
       "place": "The Bank",
-      "guide": "Each thing the inquiry wanted on the left has one operation on the right that would get it from a trace of position against time. What separates them is which direction you have to go: differentiating gives rates, accumulating gives totals, and one of the four is on the trace already.",
+      "guide": "Each thing the inquiry wanted on the left has one operation on the right. That operation would get it from a trace of position against time. What separates them is which direction you have to go. Differentiating gives rates. Accumulating gives totals. One of the four is on the trace already.",
       "story": "Halloway has the depth recorder's paper from the March wind: one pen, one trace, position against time, and nothing else recorded anywhere on the plant.",
       "game": {
         "type": "PROTOCOL",
@@ -216,7 +216,7 @@ export const CURRICULUM = {
         "task": "Match each thing the inquiry wanted to what has to be done to the trace.",
         "question": "Match each thing the inquiry wanted to what has to be done to the trace.",
         "answer": "",
-        "why": "A position record contains everything derived from it. Speed is its slope, retardation is the slope of the speed, and how fast the retardation is changing is one slope further down: three quantities out of one pen. The distance past the landing is the one thing on the paper directly, because it is a difference of positions. Going the other way — accumulating — is what you need when the record is a rate rather than a position, which is the case at the winder, where the tachometer reads speed.",
+        "why": "A position record contains everything derived from it. Speed is its slope. Retardation is the slope of the speed. How fast the retardation is changing is one slope further down. Three quantities, out of one pen. The distance past the landing is on the paper directly, because it is a difference of positions. Accumulating is the other way, and you need it when the record is a rate rather than a position. That is the case at the winder, where the tachometer reads speed.",
         "scenarios": [
           "How fast the cage was going as it approached the bank.",
           "How hard it was being retarded in the last two seconds.",
@@ -253,9 +253,9 @@ export const CURRICULUM = {
       "day": 3,
       "title": "One machine, two sets of units",
       "scene": "The depth indicator on the bank is driven off the drum shaft. So everything Ubah reads about the cage is really something about the drum. The conversion happens in a gearbox she has never seen.",
-      "takeaway": "Radius converts between the drum's angles and the cage's metres, and every rate converts the same way.",
+      "takeaway": "Radius converts between the drum's angles and the cage's metres. Every rate converts the same way.",
       "place": "The Bank",
-      "guide": "Each drum quantity on the left has one cage quantity on the right that it fixes, and every conversion in the list is the radius doing one of its jobs. What separates the pairs is which power of the radius each conversion needs, and one of the four needs none at all.",
+      "guide": "Each drum quantity on the left has one cage quantity on the right that it fixes. Every conversion in the list is the radius doing one of its jobs. What separates the pairs is which power of the radius each conversion needs. One of the four needs none at all.",
       "story": "The depth indicator on the bank is driven off the drum shaft. So everything Ubah reads about the cage is really something about the drum. The conversion happens in a gearbox she has never seen.",
       "game": {
         "type": "PROTOCOL",
@@ -265,7 +265,7 @@ export const CURRICULUM = {
         "task": "Match each drum quantity to the cage quantity it fixes.",
         "question": "Match each drum quantity to the cage quantity it fixes.",
         "answer": "",
-        "why": "A rope that does not slip means the cage's distance, speed and acceleration are the drum's angle, angular velocity and angular acceleration, each multiplied by the radius. That is one relation used three times, and it is why the depth indicator can be a gearbox on a shaft rather than an instrument in the shaft. The coil count is the odd one out: it says how the rope is stacked, which changes the effective radius slightly and is why a drum is made wide rather than deep.",
+        "why": "A rope that does not slip ties the cage to the drum. The cage's distance, speed and acceleration are the drum's angle, angular velocity and angular acceleration, each multiplied by the radius. That is one relation used three times. It is why the depth indicator can be a gearbox rather than an instrument in the shaft. The coil count is the odd one out. It says how the rope is stacked. That changes the effective radius slightly, and is why a drum is made wide rather than deep.",
         "scenarios": [
           "Revolutions counted since the cage left the inset.",
           "The drum's angular velocity, in radians a second.",
@@ -323,13 +323,13 @@ export const CURRICULUM = {
       "day": 4,
       "title": "A megawatt and a bit",
       "scene": "Just past the end of the ramp the cage is at 7.2 metres a second with 1,182 metres of rope still hanging below the drum. Ubah wants the power the motor is supplying at that instant.",
-      "takeaway": "The peak power of a wind is at the top of the ramp, where the speed has arrived and the rope has not yet shortened.",
+      "takeaway": "The peak power of a wind is at the top of the ramp. The speed has arrived there, and the rope has",
       "place": "The Bank",
-      "guide": "You build the working a line at a time. Power is the rate at which work is being done, which for a force along the motion is the force times the speed at that instant. So the two things to establish are what the tension is where the cage happens to be and how fast it is going there. The wind is steady at this instant, so there is no acceleration term.",
+      "guide": "You build the working a line at a time. Power is the rate at which work is being done. For a force along the motion, that is the force times the speed at that instant. So establish two things. What is the tension where the cage happens to be, and how fast is it going there? The wind is steady at this instant, so there is no acceleration term.",
       "background": [
-        "Why just after the ramp. The tension falls all the way up as rope comes off the hanging side, and the speed rises to its maximum during the ramp and then holds. So the product is largest at the moment the speed has just arrived and the rope has hardly begun to shorten, which is neither of the instants anybody quotes.",
-        "Why the acceleration term is absent here. During the ramp the tension is higher, by the hanging mass times 1.2 metres a second squared, but the speed is lower — the two do not peak together, and at the end of the ramp the acceleration has tapered to nothing by design. That is what makes this instant the worst one and the arithmetic the simplest.",
-        "What the answer settles. The motor is rated at 1.2 megawatts continuous, so 1.03 is inside it, and the faster cycle raises the peak speed rather than the torque — which is where Marchetti's proposal actually presses. Power scales with the speed, so the twelve seconds she wants cost about nine per cent more peak power and no more torque at all."
+        "Why just after the ramp. The tension falls all the way up, as rope comes off the hanging side. The speed rises to its maximum during the ramp and then holds. So the product is largest at the moment the speed has just arrived and the rope has hardly begun to shorten. That is neither of the instants anybody quotes.",
+        "Why the acceleration term is absent here. During the ramp the tension is higher, by the hanging mass times 1.2 metres a second squared. But the speed is lower. The two do not peak together. At the end of the ramp the acceleration has tapered to nothing by design. That is what makes this instant the worst one, and the arithmetic the simplest.",
+        "What the answer settles. The motor is rated at 1.2 megawatts continuous, so 1.03 is inside it. The faster cycle raises the peak speed rather than the torque. That is where Marchetti's proposal actually presses. Power scales with the speed. So the twelve seconds she wants cost about nine per cent more peak power, and no more torque at all."
       ],
       "story": "Just past the end of the ramp the cage is at 7.2 metres a second with 1,182 metres of rope still hanging below the drum. Ubah wants the power the motor is supplying at that instant.",
       "game": {
@@ -340,7 +340,7 @@ export const CURRICULUM = {
         "task": "Take the power at the worst instant of the wind",
         "question": "What power is the motor supplying just after the end of the ramp?",
         "answer": "About 1.03 MW. The hanging mass is 4,000 + 8.9 × 1,182 = 14,520 kg, so the tension is 142.5 kN and the power is that times 7.2 m/s.",
-        "why": "The motor is supplying about 1.03 megawatts. Power is the rate of doing work, and for a force acting along the motion it is the force times the speed at that instant rather than anything averaged. The tension has to be evaluated where the cage actually is — 1,182 metres of rope still hanging, not the full 1,240 — and the speed is the one the ramp has just delivered. The peak is here rather than at the bottom because the two factors do not peak together.",
+        "why": "The motor is supplying about 1.03 megawatts. Power is the rate of doing work. For a force acting along the motion, it is the force times the speed at that instant. It is not anything averaged. The tension has to be evaluated where the cage actually is: 1,182 metres of rope still hanging, not the full 1,240. The speed is the one the ramp has just delivered. The peak is here rather than at the bottom, because the two factors do not peak together.",
         "derive": {
           "start": "P = F·v",
           "goal": "the power supplied at that instant, in megawatts",
@@ -504,7 +504,7 @@ export const CURRICULUM = {
       "scene": "Ubah's landing has a crawl of about three seconds at the end of every wind, and Marchetti's proposal takes two of them out. Ubah has watched some four thousand winds arrive.",
       "takeaway": "A margin that reads as caution is often a quantity somebody once computed and nobody wrote down.",
       "place": "The Bank",
-      "guide": "All four options are things the crawl does. Ask of each whether it would still be needed if the cage arrived on a rigid link rather than on twelve hundred metres of steel, because that is what separates a working margin from a habit.",
+      "guide": "All four options are things the crawl does. Ask of each whether it would still be needed on a rigid link, rather than on twelve hundred metres of steel. That is what separates a working margin from a habit.",
       "story": "Ubah's landing has a crawl of about three seconds at the end of every wind, and Marchetti's proposal takes two of them out. Ubah has watched some four thousand winds arrive.",
       "game": {
         "type": "CHOICE",
@@ -514,7 +514,7 @@ export const CURRICULUM = {
         "task": "Ask Ubah what the crawl is for",
         "question": "What is the crawl at the end of a wind doing?",
         "answer": "Letting the bounce on the rope die away before the stop",
-        "why": "It gives whatever the cage is doing on the end of the rope time to die away before the stop is made. A cage arriving at speed is bouncing, at a bit over a second a cycle, and the damping in the rope and the guides takes several cycles to quieten it. Three seconds is two or three of those cycles. On a rigid link there would be nothing to wait for, which is why the crawl looks like caution to anybody reading the profile and is not.",
+        "why": "It gives whatever the cage is doing on the rope time to die away before the stop. A cage arriving at speed is bouncing, at a bit over a second a cycle. The damping in the rope and the guides takes several cycles to quieten it. Three seconds is two or three of those cycles. On a rigid link there would be nothing to wait for. That is why the crawl looks like caution to anybody reading the profile, and is not.",
         "rebuttals": [
           "The indicator is read throughout the wind, and the crawl is at the one point where it matters least.",
           "The gate is opened after the cage is at rest, by rule, whatever the profile does.",
@@ -543,16 +543,16 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Seven seconds, not twelve",
-      "scene": "The revised profile keeps the 12-second ramp. It keeps the full speed of 7.2 metres a second. It brings the cage down to 4.5 metres a second before the brake may be used, and it cuts the crawl from three seconds to one and a half.",
-      "takeaway": "A cycle time is only as good as the integral behind it, and a saving that ignores a limit is not a saving.",
+      "scene": "The revised profile keeps the 12-second ramp. It keeps the full speed of 7.2 metres a second. It brings the cage down to 4.5 metres a second before the brake may be used. It cuts the crawl from three seconds to one and a half.",
+      "takeaway": "A cycle time is only as good as the integral behind it. A saving that ignores a limit is not a",
       "place": "The Bank",
-      "guide": "You build the working a line at a time. The cycle is a sum of pieces and each piece is either a distance divided by a speed or an integral of a profile. Work out the shaft the ramps use, take what is left for the full-speed run, and add the crawl. Then compare with the present cycle rather than with the proposal.",
+      "guide": "You build the working a line at a time. The cycle is a sum of pieces. Each piece is either a distance divided by a speed, or an integral of a profile. Work out the shaft the ramps use, take what is left for the full-speed run, and add the crawl. Then compare with the present cycle rather than with the proposal.",
       "background": [
-        "Why the retardation cap is what costs the seconds. Capping the speed at which the brake may be applied means the retardation ramp has to bring the cage down to 4.5 metres a second before the mark, which takes shaft and therefore time. That is five of the twelve seconds Marchetti asked for, and it is the price of an overshoot inside a metre.",
+        "Why the retardation cap is what costs the seconds. Capping the speed at which the brake may be applied changes the retardation ramp. The ramp has to bring the cage down to 4.5 metres a second before the mark. That takes shaft, and therefore time. It is five of the twelve seconds Marchetti asked for, and it is the price of an overshoot inside a metre.",
         "Why the crawl can be halved. The crawl exists to let the bounce die away, and the bounce after a retardation ramp is far smaller than the bounce after a brake application. With the brake capped, one and a half seconds is two periods, which is enough.",
         "What the submission now says. Seven seconds a cycle, four winds an hour, eight hours a shift: about three and a half minutes a shift, which is a wind and a half. It is less than Marchetti asked for and it is a real saving, and it rests on a limit nobody would have written down a fortnight ago."
       ],
-      "story": "The revised profile keeps the 12-second ramp. It keeps the full speed of 7.2 metres a second. It brings the cage down to 4.5 metres a second before the brake may be used, and it cuts the crawl from three seconds to one and a half.",
+      "story": "The revised profile keeps the 12-second ramp. It keeps the full speed of 7.2 metres a second. It brings the cage down to 4.5 metres a second before the brake may be used. It cuts the crawl from three seconds to one and a half.",
       "game": {
         "type": "DERIVE",
         "title": "Seven seconds, not twelve",
@@ -561,7 +561,7 @@ export const CURRICULUM = {
         "task": "Integrate the revised profile and get the cycle time",
         "question": "What does the revised profile take off the cycle time?",
         "answer": "About 7 s: the ramps and the retardation cap give back 5.5 s of the 12 asked for, and the shortened crawl 1.5 s.",
-        "why": "The revised profile saves about seven seconds rather than twelve. The ramp up is unchanged at 12 seconds for 57.6 metres. The retardation now has to reach 4.5 metres a second rather than nothing before the brake may be used, which lengthens that ramp and eats five and a half of the seconds the proposal claimed. The crawl gives one and a half back. What is left is a saving that survives the two constraints the fortnight found, which is the only kind worth putting in front of an inspector.",
+        "why": "The revised profile saves about seven seconds, not twelve. The ramp up is unchanged at 12 seconds for 57.6 metres. The retardation now has to reach 4.5 metres a second rather than nothing before the brake may be used. That lengthens the ramp, and eats five and a half of the seconds the proposal claimed. The crawl gives one and a half back. What is left is a saving that survives the two constraints the fortnight found. That is the only kind worth putting in front of an inspector.",
         "derive": {
           "start": "t_cycle = t_ramp + t_run + t_retard + t_crawl",
           "goal": "the saving against the present cycle, in seconds",
@@ -724,9 +724,9 @@ export const CURRICULUM = {
       "day": 7,
       "title": "Twelve seconds of ramp — Review",
       "scene": "Grace Ubah, the banksman, has the other end of the same journey on the landing desk. The retardation ramp starts at 1.5 metres a second squared and tapers to nothing over eight seconds. She wants the speed it takes off.",
-      "takeaway": "A rate that tapers to nothing does half the work its quoted peak suggests, because what it delivers is the area underneath it.",
+      "takeaway": "A rate that tapers to nothing does half the work its quoted peak suggests. What it delivers is the",
       "place": "The Bank",
-      "guide": "Five quantities are offered and three of them belong in the sum. The ramp is stated as a rate that falls linearly to nothing, so what it removes is the area under it rather than a product of its peak and its length. Two of the five belong to the other end of the journey, or to the speed the ramp starts from.",
+      "guide": "Five quantities are offered, and three of them belong in the sum. The ramp is stated as a rate that falls linearly to nothing. What it removes is the area under it, not a product of its peak and its length. Two of the five belong to the other end of the journey, or to the speed the ramp starts from.",
       "story": "Grace Ubah, the banksman, has the other end of the same journey on the landing desk. The retardation ramp starts at 1.5 metres a second squared and tapers to nothing over eight seconds. She wants the speed it takes off.",
       "game": {
         "type": "BALLPARK",
@@ -736,7 +736,7 @@ export const CURRICULUM = {
         "task": "Get the speed the retardation ramp removes",
         "question": "How much speed does the retardation ramp take off?",
         "answer": "",
-        "why": "The ramp takes off six metres a second, which is what leaves the cage creeping into the landing at 1.2. A retardation stated as a rate that falls linearly to nothing removes the area under itself rather than its peak times its length. The mean of a linear taper is half its peak, so eight seconds at a peak of 1.5 do the work of eight at 0.75. Using the peak throughout would take twelve off a wind that has only 7.2 to give.",
+        "why": "The ramp takes off six metres a second. That leaves the cage creeping into the landing at 1.2. A retardation stated as a rate that falls linearly to nothing removes the area under itself, not its peak times its length. The mean of a linear taper is half its peak. So eight seconds at a peak of 1.5 do the work of eight at 0.75. Using the peak throughout would take twelve off a wind that has only 7.2 to give.",
         "givens": [],
         "relationship": "The speed a ramp removes is its mean rate times how long it lasts, and the mean of a linear taper is half its peak.",
         "calcKey": "BANK-7"
@@ -755,9 +755,9 @@ export const CURRICULUM = {
       "day": 8,
       "title": "Three things out of one trace — Review",
       "scene": "Tom Halloway, the onsetter, has the winder house tachometer roll beside the depth recorder's paper. This pen records speed against time and nothing else, and the inquiry wants the overrun distance out of it.",
-      "takeaway": "A record of a rate gives up its totals only to an integration, and an area is worth nothing until both of its limits are fixed.",
+      "takeaway": "A record of a rate gives up its totals only to an integration. An area is worth nothing until both",
       "place": "The Bank",
-      "guide": "Four steps, in the order they have to be done. This roll records a rate rather than a position, so the quantity the inquiry wants is not on the paper and has to be accumulated off it. Each step needs the one above it to have happened, which is what fixes the order.",
+      "guide": "Four steps, in the order they have to be done. This roll records a rate rather than a position. The quantity the inquiry wants is not on the paper. It has to be accumulated off the roll. Each step needs the one above it to have happened. That is what fixes the order.",
       "story": "Tom Halloway, the onsetter, has the winder house tachometer roll beside the depth recorder's paper. This pen records speed against time and nothing else, and the inquiry wants the overrun distance out of it.",
       "game": {
         "type": "SEQUENCE",
@@ -767,7 +767,7 @@ export const CURRICULUM = {
         "task": "Order the four steps that get the overrun distance out of a speed record.",
         "question": "Order the four steps that get the overrun distance out of a speed record.",
         "answer": "",
-        "why": "A record of speed is a rate, so the total is not on the paper: distance is the area under the trace rather than anything read off it. That is the opposite move from the depth recorder, where the totals are on the paper and the rates are its slopes. Both limits have to be fixed before an area means anything, since an area is always between two of them. Only then does subtracting the distance to the landing say how far past it the cage went.",
+        "why": "A record of speed is a rate, so the total is not on the paper. Distance is the area under the trace, not anything read off it. That is the opposite move from the depth recorder. There the totals are on the paper, and the rates are its slopes. Both limits have to be fixed before an area means anything. An area is always between two of them. Only then does subtracting the distance to the landing say how far past it the cage went.",
         "cards": [
           "Mark the instant on the roll where the brake went on.",
           "Mark where the trace reaches zero, which is where the cage stopped.",

@@ -389,15 +389,15 @@ missions:
           compared, and this site gets a tenth of what a coastal one does.
         background:
           - >-
-              Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              Why an estimate rather than a calculation. Every quantity on this board is already
+              measured or stated. Nothing here has to be derived. What is being tested is
+              whether you can pick the quantities the relationship actually needs. Then, whether
+              the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label catches a unit mismatch before it
+              is placed. It also catches a quantity belonging to a different part of the
+              problem. That is the habit this format exists to build.
         takesAsRead:
           - Accumulation rate, and what a site with little snow buys and costs
         assumes:
@@ -407,13 +407,13 @@ missions:
         question: Estimate this year's accumulation in ice equivalent.
         answerText: About 0.12 metres of ice equivalent — a third of the snow thickness, because the snow is a third as dense.
         why: >-
-          Snow and ice are the same material at different densities, so a thickness of snow is not a
-          thickness of record. Multiplying the layer by the ratio of the two densities converts it
-          to the ice it will become once the air is squeezed out, which is the only form in which
-          two sites can be compared. Vestri gets about 12 centimetres a year in ice equivalent.
-          A coastal site gets a metre, and that difference decides everything downstream: how far
-          back the core reaches, how thin the layers get, and how much older the ice is than its own
-          trapped air.
+          Snow and ice are the same material at different densities, so a thickness of snow is
+          not a thickness of record. Multiplying the layer by the ratio of the two densities
+          converts it to the ice it will become once the air is squeezed out. That is the only
+          form in which two sites can be compared. Vestri gets about 12 centimetres a year in
+          ice equivalent. A coastal site gets a metre. That difference decides everything
+          downstream. How far back the core reaches. How thin the layers get. And how much older
+          the ice is than its own trapped air.
         estimate:
           prompt: The last summer surface sits 32 centimetres below this year's, in snow of density 340 kilograms per cubic metre.
           question: Estimate this year's accumulation in metres of ice equivalent.
@@ -450,24 +450,24 @@ missions:
           Domes pay for that in thin layers.
         background:
           - >-
-              Why the wrong options are the interesting ones. Each distractor is written to
-              be the answer under one specific misreading — a step skipped, a quantity
-              confused with a rate, a correlation taken for a cause. Identifying which
-              misreading each belongs to is where the learning is; the right answer alone
-              can be reached on instinct and teach nothing.
+              Why the wrong options are the interesting ones. Each distractor is written to be
+              the answer under one specific misreading. A step skipped. A quantity confused with
+              a rate. A correlation taken for a cause. Identifying which misreading each belongs
+              to is where the learning is. The right answer alone can be reached on instinct and
+              teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
               qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
-              length, hedging and specificity have had the signal taken out of them
+              longest option far more often than chance. Before it was fixed, that was 88 per
+              cent of passage quizzes here. It is now checked per game as a binomial tail.
+              Length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
-              verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              verdict prints them. Each is the reason that option fails, not a restatement of
+              the right one. They are worth reading after a correct answer as well. A right
+              choice made for an approximate reason is indistinguishable from a sound one. That
+              holds until the day the approximation is what is being tested.
         takesAsRead:
           - "Why ice keeps a record at all: burial without melting"
         assumes:
@@ -484,11 +484,11 @@ missions:
         answer: The ice at each depth fell near this spot, not upstream
         why: >-
           An ice sheet flows outwards from its high points. On a slope the ice at a given depth
-          arrived from somewhere upstream, so a core there mixes the weather of one place with the
-          history of a journey, and the two cannot be separated afterwards. Under a dome the flow is
-          almost straight down, so the column below the drill is very nearly the snow that fell on
-          it. Domes pay for that: they are high, cold and dry, which means thin layers and a long
-          slow season.
+          arrived from somewhere upstream. So a core there mixes the weather of one place with
+          the history of a journey. The two cannot be separated afterwards. Under a dome the
+          flow is almost straight down, so the column below the drill is very nearly the snow
+          that fell on it. Domes pay for that: they are high, cold and dry, which means thin
+          layers and a long slow season.
         rebuttals:
           - Summit ice is colder, and cold ice is not what makes depth correspond to time
           - Domes are the driest part of an ice sheet, not the snowiest — thin layers are the price paid here
@@ -509,23 +509,23 @@ missions:
           agree. Where only one does, it is a candidate.
         background:
           - >-
-              Why this is a matching board and not four separate questions. Responses on
-              boards like this are written to be plausible for more than one situation, so
-              choosing them one at a time lets a nearly-right answer through unexamined.
-              Having to place all of them forces the comparison — not "is this reasonable
-              here", but "is it more right here than there".
+              Why this is a matching board and not four separate questions. Responses on boards
+              like this are written to be plausible for more than one situation. Choosing them
+              one at a time lets a nearly-right answer through unexamined. Having to place all
+              of them forces the comparison — not "is this reasonable here", but "is it more
+              right here than there".
           - >-
-              How to use the one-each rule. Because the responses are a set to be
-              distributed rather than a list to be sampled, every join you make constrains
-              the rest. Settling the two you are confident of can leave the remaining pair
-              decided by elimination. Where it does not, two responses are still competing
-              for one situation, and that is exactly the distinction the stop is testing.
+              How to use the one-each rule. The responses are a set to be distributed rather
+              than a list to be sampled. So every join you make constrains the rest. Settling
+              the two you are confident of can leave the remaining pair decided by elimination.
+              Where it does not, two responses are still competing for one situation. That is
+              exactly the distinction the stop is testing.
           - >-
-              Why you cannot be wrong about exactly one. With every response used once,
-              three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two joins. That is worth remembering when the last
-              pair looks forced: the fault is usually not in the join you are struggling
-              with, but in one you made early and stopped questioning.
+              Why you cannot be wrong about exactly one. With every response used once, three
+              correct joins leave the fourth with only one place to go. Any error therefore
+              involves at least two joins. That is worth remembering when the last pair looks
+              forced. The fault is usually not in the join you are struggling with. It is in one
+              you made early and stopped questioning.
         assumes:
           - snow that falls in summer sits under different conditions from snow that falls in winter
         takeaway: A year is counted from several signals that agree, not from one that looks convincing.
@@ -546,11 +546,11 @@ missions:
         mapping: [0, 1, 2, 3]
         why: >-
           No single marker survives the whole core, so a year is established where several
-          independent signals line up. Coarse crystals form on a summer surface that stayed exposed;
-          conductivity spikes are acid, and volcanic acid arrives in a season; dust is delivered by
-          winds thousands of kilometres away and peaks with their season; the light and dark banding
-          is bubble structure changing as each layer was compressed. Where three of the four agree,
-          a year is a year. Where only one does, it is a candidate.
+          independent signals line up. Coarse crystals form on a summer surface that stayed
+          exposed. Conductivity spikes are acid, and volcanic acid arrives in a season. Dust is
+          delivered by winds thousands of kilometres away and peaks with their season. The light
+          and dark banding is bubble structure changing as each layer was compressed. Where
+          three of the four agree, a year is a year. Where only one does, it is a candidate.
         rebuttals:
           - Conductivity responds to acid, and the coarse crystal band is a surface that was left exposed
           - Dust is delivered from elsewhere and does not follow the crystal growth on this surface
@@ -585,22 +585,21 @@ missions:
           them destroys the depth record if it comes early.
         background:
           - >-
-              Why the order is graded whole. A sequence is a claim about dependency: each
-              step is here because the one before it has already happened, or has to have.
-              One transposed pair falsifies that claim wherever it sits, so partial credit
-              would be credit for a sequence that does not work.
+              Why the order is graded whole. A sequence is a claim about dependency. Each step
+              is here because the one before it has already happened, or has to have. One
+              transposed pair falsifies that claim wherever it sits. Partial credit would be
+              credit for a sequence that does not work.
           - >-
-              Why the ends are the place to start. The first and last cards are constrained
-              by having nothing before or after them, which usually makes them the two you
-              can settle from the scene alone. Pinning them collapses the remaining
-              arrangements sharply, and what is left in the middle is where the actual
-              judgement lives.
+              Why the ends are the place to start. The first and last cards are constrained by
+              having nothing before or after them. That usually makes them the two you can
+              settle from the scene alone. Pinning them collapses the remaining arrangements
+              sharply. What is left in the middle is where the actual judgement lives.
           - >-
-              What the rail can be ordered on. Time is the usual axis, but it is not the
-              only one. An order can run on cost, on risk, or on reversibility — every
-              observation that leaves the sample as it was, before any that consumes it. On
-              those boards a chronological reading finds nothing, because none of the steps
-              has to happen at a particular hour.
+              What the rail can be ordered on. Time is the usual axis, but it is not the only
+              one. An order can run on cost, on risk, or on reversibility — every observation
+              that leaves the sample as it was, before any that consumes it. On those boards a
+              chronological reading finds nothing. None of the steps has to happen at a
+              particular hour.
         takesAsRead:
           - "Why ice keeps a record at all: burial without melting"
         assumes:
@@ -615,11 +614,11 @@ missions:
           - Cut and distribute only after the section has stopped cracking
         order: [0, 1, 2, 3, 4]
         why: >-
-          Between about 500 and 1,200 metres the bubbles are at pressures the
-          surface cannot support, and the ice around them fractures as it is brought up. Each step
-          buys the next one: a slow lift reduces the shock, resting the core at hole temperature
-          lets the pressure equalise gradually, logging the breaks fixes what depth each fragment
-          came from before anything moves, and storing it for weeks lets it finish cracking. Cutting
+          Between about 500 and 1,200 metres the bubbles are at pressures the surface cannot
+          support, and the ice around them fractures as it is brought up. Each step buys the
+          next one. A slow lift reduces the shock. Resting the core at hole temperature lets the
+          pressure equalise gradually. Logging the breaks fixes what depth each fragment came
+          from before anything moves. Storing it for weeks lets it finish cracking. Cutting
           first destroys the depth information and cuts a section that is still moving.
       - group: CORE
         task: Decide what an unmarked section is worth
@@ -636,24 +635,24 @@ missions:
           sample, because the danger is somebody downstream who never hears about it.
         background:
           - >-
-              Why the wrong options are the interesting ones. Each distractor is written to
-              be the answer under one specific misreading — a step skipped, a quantity
-              confused with a rate, a correlation taken for a cause. Identifying which
-              misreading each belongs to is where the learning is; the right answer alone
-              can be reached on instinct and teach nothing.
+              Why the wrong options are the interesting ones. Each distractor is written to be
+              the answer under one specific misreading. A step skipped. A quantity confused with
+              a rate. A correlation taken for a cause. Identifying which misreading each belongs
+              to is where the learning is. The right answer alone can be reached on instinct and
+              teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
               qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
-              length, hedging and specificity have had the signal taken out of them
+              longest option far more often than chance. Before it was fixed, that was 88 per
+              cent of passage quizzes here. It is now checked per game as a binomial tail.
+              Length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
-              verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              verdict prints them. Each is the reason that option fails, not a restatement of
+              the right one. They are worth reading after a correct answer as well. A right
+              choice made for an approximate reason is indistinguishable from a sound one. That
+              holds until the day the approximation is what is being tested.
         assumes:
           - a measurement belongs to the depth it came from, and to no other
         takeaway: A sample without a depth is a measurement of nothing in particular.
@@ -667,12 +666,12 @@ missions:
           - Anything, once the run sheet is used to assign it the most likely depth
         answer: Work that tolerates a four-metre depth uncertainty, recorded as such
         why: >-
-          A depth is what converts a measurement into a statement about a year. Four metres here is
-          thirty-odd years, so an isotope value from this section cannot be placed in the record and
-          would sit in it as a point with no time. It is still perfectly good ice for anything the
-          depth does not enter: density, crystal fabric, how the drill is performing. The rule that
-          matters is that the uncertainty travels with the sample, because the danger is not the
-          gap — it is somebody downstream who never hears about it.
+          A depth is what converts a measurement into a statement about a year. Four metres here
+          is thirty-odd years. So an isotope value from this section cannot be placed in the
+          record. It would sit in it as a point with no time. It is still perfectly good ice for
+          anything the depth does not enter: density, crystal fabric, how the drill is
+          performing. The rule that matters is that the uncertainty travels with the sample. The
+          danger is not the gap. It is somebody downstream who never hears about it.
         rebuttals:
           - 4 metres is 30 years at this site, which is larger than most of the features the isotopes are used to find
           - Discarding it throws away measurements that never needed a depth in the first place
@@ -695,23 +694,22 @@ missions:
         background:
           - >-
               Why the unremarkable readings decide it. The salient reading is what draws
-              attention, and it is usually consistent with several explanations at once,
-              which is why it rarely settles anything. The readings that discriminate are
-              the ones a candidate predicts should have moved and which have not: a normal
-              value is a positive result against every mechanism that would have disturbed
-              it.
+              attention. It is usually consistent with several explanations at once, which is
+              why it rarely settles anything. The readings that discriminate are the ones a
+              candidate predicts should have moved, and which have not. A normal value is a
+              positive result against every mechanism that would have disturbed it.
           - >-
-              How to work the candidates. Take each mechanism and predict the panel it
-              implies before you look at the panel again — which readings it drives, in
-              which direction, and by roughly how much. Then compare. Working that way round
-              is what separates a diagnosis from a rationalisation, because the prediction
-              is made before the data is consulted.
+              How to work the candidates. Take each mechanism and predict the panel it implies
+              before you look at the panel again. Which readings it drives, in which direction,
+              and by roughly how much. Then compare. Working that way round is what separates a
+              diagnosis from a rationalisation. The prediction is made before the data is
+              consulted.
           - >-
               Why only one candidate survives. Several will account for part of the panel,
-              deliberately so, and a partial fit is exactly what a confident wrong answer
-              feels like from the inside. When two remain, look for the reading on which
-              their predictions differ and let it decide. If no reading separates them you
-              have not finished reading the panel.
+              deliberately so. A partial fit is exactly what a confident wrong answer feels like
+              from the inside. When two remain, look for the reading on which their predictions
+              differ and let it decide. If no reading separates them you have not finished
+              reading the panel.
         takesAsRead:
           - "What a proxy is: the chain between the thing and the number"
         assumes:
@@ -736,12 +734,12 @@ missions:
             mechanism: The second hole missed the layer entirely.
         answer: Something in the laboratory entered the run and stayed
         why: >-
-          The blank before the sample is ordinary and the blank after it is high, which places the
-          contamination inside the run rather than in the ice. The trim was done to specification,
-          so the outside of the section is ruled out, and the replicate core holds the same year with
-          no sodium in it, so the atmosphere is ruled out as well. Every clean reading here is doing
-          work: what identifies the source is not the loud number but which of the quiet ones stayed
-          quiet.
+          The blank before the sample is ordinary and the blank after it is high, which places
+          the contamination inside the run rather than in the ice. The trim was done to
+          specification, so the outside of the section is ruled out. The replicate core holds
+          the same year with no sodium in it. So the atmosphere is ruled out as well. Every
+          clean reading here is doing work: what identifies the source is not the loud number
+          but which of the quiet ones stayed quiet.
   # ------------------------------------------------------------------ day 3
       - group: DRILL
         task: Hold the borehole fluid while the hole is open.
@@ -767,9 +765,9 @@ missions:
               into the ice, which is both a lost hole and a contaminated record. The band is
               two-sided for that reason, and it is not symmetric in consequence.
           - >-
-              Why the drill itself moves it. Pulling the drill out displaces less than it did going
-              in, chips come up with fluid on them, and cold fluid coming off the reel is denser than
-              what is in the hole. Each of them is a rate, not a step.
+              Why the drill itself moves it. Pulling the drill out displaces less than it did
+              going in. Chips come up with fluid on them. Cold fluid coming off the reel is
+              denser than what is in the hole. Each of them is a rate, not a step.
         assumes:
           - a column of fluid exerts pressure that grows with its depth
         takeaway: A hole is held open by a balance, and a balance is held by somebody.
@@ -778,17 +776,16 @@ missions:
         answerText: Inside the band for most of the run, with the pump set to answer each displacement rather than tapped after the level has already moved.
         why: >-
           Ice this deep flows, and a borehole through it closes on its own unless something
-          holds it open. That something is the fluid column, whose pressure at the bottom has
-          to sit close to the pressure of the ice around it — a little under and the wall
-          creeps in, a little over and it fractures and swallows fluid. Everything in a drilling
-          run disturbs that balance and none of it is a single step. Pulling the drill removes
-          displacement continuously while the winch runs; chips come up carrying fluid; cold
-          fluid off the reel is denser than the column it joins and keeps sinking into it. So
-          the pump is set to a new rate and held rather than tapped. The band narrows with
-          depth because the two failure modes converge: the deeper the hole, the smaller the
-          gap between the pressure that closes it and the pressure that breaks it, and both
-          ends of that gap cost the same thing — a hole nobody can re-enter and a season nobody
-          can repeat.
+          holds it open. That something is the fluid column. Its pressure at the bottom has to
+          sit close to the pressure of the ice around it. A little under and the wall creeps in.
+          A little over and it fractures and swallows fluid. Everything in a drilling run
+          disturbs that balance and none of it is a single step. Pulling the drill removes
+          displacement continuously while the winch runs. Chips come up carrying fluid. Cold
+          fluid off the reel is denser than the column it joins, and keeps sinking into it. So
+          the pump is set to a new rate and held rather than tapped. The band narrows with depth
+          because the two failure modes converge. The deeper the hole, the smaller the gap
+          between the pressure that closes it and the pressure that breaks it. Both ends of that
+          gap cost the same thing. A hole nobody can re-enter, and a season nobody can repeat.
         hold:
           quantity: Fluid level against the balance point
           unit: m
@@ -891,9 +888,9 @@ missions:
           sinks, and the thinning compounds with depth. At Vestri the surface lays down about 12
           centimetres a year in ice equivalent; 2 kilometres down the same year is a few
           millimetres. Where the layers close to within the resolution of the measurement, the
-          count stops — not because the years are gone, but because two of them can no longer be
-          told apart. Everything deeper is dated by a flow model anchored to whatever dated events
-          can still be found.
+          count stops. Not because the years are gone, but because two of them can no longer be
+          told apart. Everything deeper is dated by a flow model anchored to whatever dated
+          events can still be found.
       - group: COLD
         task: Choose the signal to count with
         title: Which year marker survives the depth
@@ -910,24 +907,24 @@ missions:
           do not travel. And two of these fade for other reasons entirely.
         background:
           - >-
-              Why the wrong options are the interesting ones. Each distractor is written to
-              be the answer under one specific misreading — a step skipped, a quantity
-              confused with a rate, a correlation taken for a cause. Identifying which
-              misreading each belongs to is where the learning is; the right answer alone
-              can be reached on instinct and teach nothing.
+              Why the wrong options are the interesting ones. Each distractor is written to be
+              the answer under one specific misreading. A step skipped. A quantity confused with
+              a rate. A correlation taken for a cause. Identifying which misreading each belongs
+              to is where the learning is. The right answer alone can be reached on instinct and
+              teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
               qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
-              length, hedging and specificity have had the signal taken out of them
+              longest option far more often than chance. Before it was fixed, that was 88 per
+              cent of passage quizzes here. It is now checked per game as a binomial tail.
+              Length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
-              verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              verdict prints them. Each is the reason that option fails, not a restatement of
+              the right one. They are worth reading after a correct answer as well. A right
+              choice made for an approximate reason is indistinguishable from a sound one. That
+              holds until the day the approximation is what is being tested.
         takesAsRead:
           - "Firn: snow densifying into ice, and the close-off depth"
           - "Stable isotopes as a thermometer: δ¹⁸O and deuterium"
@@ -969,15 +966,15 @@ missions:
           interval, because the layers get thinner.
         background:
           - >-
-              Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              Why an estimate rather than a calculation. Every quantity on this board is already
+              measured or stated. Nothing here has to be derived. What is being tested is
+              whether you can pick the quantities the relationship actually needs. Then, whether
+              the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label catches a unit mismatch before it
+              is placed. It also catches a quantity belonging to a different part of the
+              problem. That is the habit this format exists to build.
         takesAsRead:
           - "Why ice keeps a record at all: burial without melting"
           - Accumulation rate, and what a site with little snow buys and costs
@@ -988,12 +985,12 @@ missions:
         question: Estimate the age of the snow at the close-off depth.
         answerText: About 275 years. The firn column here holds nearly three centuries of snow that has not yet become ice.
         why: >-
-          A depth–age scale is arithmetic on layer thicknesses: divide the depth by the thickness
-          one year adds and you have the years it took to get there. In the firn the layers have not
-          yet been thinned by flow, so the sum is a straight division; deeper in the ice the same
-          calculation has to be done interval by interval as the layers get thinner. Nearly three
-          centuries of snow sit above the close-off depth at Vestri, and every one of those years
-          is still open to the atmosphere.
+          A depth–age scale is arithmetic on layer thicknesses: divide the depth by the
+          thickness one year adds and you have the years it took to get there. In the firn the
+          layers have not yet been thinned by flow, so the sum is a straight division. Deeper in
+          the ice the same calculation has to be done interval by interval, as the layers get
+          thinner. Nearly three centuries of snow sit above the close-off depth at Vestri, and
+          every one of those years is still open to the atmosphere.
         estimate:
           prompt: The pores seal at 88 metres. The surface adds about 0.32 metres of snow a year, and the firn has not been thinned by flow.
           question: Estimate the age of the snow at the close-off depth.
@@ -1027,13 +1024,15 @@ missions:
           filled the spaces before it refroze. Sort on the ice, not on the label.
         background:
           - >-
-              Why the difference decides the chronology. The count of annual layers is the clock. A
-              melt layer counted as a year makes the core older than it is at every depth below; a
-              year missed makes it younger, and both errors propagate all the way down.
+              Why the difference decides the chronology. The count of annual layers is the
+              clock. A melt layer counted as a year makes the core older than it is at every
+              depth below. A year missed makes it younger. Both errors propagate all the way
+              down.
           - >-
-              What melt does to everything else. Percolating water moves the chemistry down through
-              the layers it passes, so a melt layer is not only a counting problem — it smears the
-              record either side of it, which is why the site was chosen where melt is rare.
+              What melt does to everything else. Percolating water moves the chemistry down
+              through the layers it passes. So a melt layer is not only a counting problem. It
+              smears the record either side of it, which is why the site was chosen where melt
+              is rare.
         assumes:
           - snow builds up in layers and can melt and refreeze
         takeaway: A layer counted wrong moves every date below it, in the same direction, for ever.
@@ -1043,15 +1042,15 @@ missions:
         why: >-
           An annual layer is built by a season: coarse crystals from summer sun, fine
           wind-packed snow through winter, and air trapped as bubbles throughout. A melt layer
-          is built by water. The surface thaws, the water percolates down and refreezes in the
-          pore space, so what comes out on the light table is clear, dense and almost free of
+          is built by water. The surface thaws, and the water percolates down and refreezes in
+          the pore space. What comes out on the light table is clear, dense and almost free of
           bubbles. Both are stripes in a core and only one of them is a year. The cost of
-          confusing them is not local: annual layer counting is the clock, so a melt layer
-          counted as a year makes every date below it too old, and a year missed makes every
-          date too young, all the way to the bottom of the core. Melt also does something worse
-          than miscount. Water moving down carries the chemistry with it, so the isotopes and
-          the ions either side of the layer are smeared — which is why a site is chosen for how
-          rarely its surface melts rather than for how much snow it gets.
+          confusing them is not local. Annual layer counting is the clock. So a melt layer
+          counted as a year makes every date below it too old. A year missed makes every date
+          too young, all the way to the bottom of the core. Melt also does something worse than
+          miscount. Water moving down carries the chemistry with it. So the isotopes and the
+          ions either side of the layer are smeared. That is why a site is chosen for how rarely
+          its surface melts rather than for how much snow it gets.
         belt:
           left: { name: Annual layer }
           right: { name: Melt layer }
@@ -1126,9 +1125,9 @@ missions:
               end of the season.
           - >-
               Why sampling depth matters as much as sample count. Four runs clustered in one
-              interval answer one question well. Four spread across the disagreement answer
-              a different question — which of them is worth more depends on whether the gap
-              is thought to be an offset or a shape.
+              interval answer one question well. Four spread across the disagreement answer a
+              different question. Which of them is worth more depends on whether the gap is
+              thought to be an offset or a shape.
         assumes:
           - two laboratories measuring the same quantity can differ by a fixed amount
         takeaway: A measurement is worth its cost when the decision changes depending on how it comes out.
@@ -1193,24 +1192,24 @@ missions:
           on one instrument.
         background:
           - >-
-              Why the wrong options are the interesting ones. Each distractor is written to
-              be the answer under one specific misreading — a step skipped, a quantity
-              confused with a rate, a correlation taken for a cause. Identifying which
-              misreading each belongs to is where the learning is; the right answer alone
-              can be reached on instinct and teach nothing.
+              Why the wrong options are the interesting ones. Each distractor is written to be
+              the answer under one specific misreading. A step skipped. A quantity confused with
+              a rate. A correlation taken for a cause. Identifying which misreading each belongs
+              to is where the learning is. The right answer alone can be reached on instinct and
+              teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
               qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
-              length, hedging and specificity have had the signal taken out of them
+              longest option far more often than chance. Before it was fixed, that was 88 per
+              cent of passage quizzes here. It is now checked per game as a binomial tail.
+              Length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
-              verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              verdict prints them. Each is the reason that option fails, not a restatement of
+              the right one. They are worth reading after a correct answer as well. A right
+              choice made for an approximate reason is indistinguishable from a sound one. That
+              holds until the day the approximation is what is being tested.
         assumes:
           - an isotope value is reported as a difference from an agreed reference water
         takeaway: A ratio reported against two different references is two different numbers about the same water.
@@ -1239,8 +1238,8 @@ missions:
         title: Which differences a shared instrument removes
         place: Gas Laboratory
         scene: >-
-          The gas geochemist, Samuel Adeyemi, has four ways the two records could differ written on
-          the board, and one working day in which both cores are in the same building.
+          The gas geochemist, Samuel Adeyemi, has four ways the two records could differ written
+          on the board. There is one working day in which both cores are in the same building.
         guide: >-
           Four ways the records could differ, and four kinds of evidence. Pair them by
           asking what sharing an instrument can and cannot remove. A stretched timescale
@@ -1249,23 +1248,23 @@ missions:
           alters the outside of a section more than the inside.
         background:
           - >-
-              Why this is a matching board and not four separate questions. Responses on
-              boards like this are written to be plausible for more than one situation, so
-              choosing them one at a time lets a nearly-right answer through unexamined.
-              Having to place all of them forces the comparison — not "is this reasonable
-              here", but "is it more right here than there".
+              Why this is a matching board and not four separate questions. Responses on boards
+              like this are written to be plausible for more than one situation. Choosing them
+              one at a time lets a nearly-right answer through unexamined. Having to place all
+              of them forces the comparison — not "is this reasonable here", but "is it more
+              right here than there".
           - >-
-              How to use the one-each rule. Because the responses are a set to be
-              distributed rather than a list to be sampled, every join you make constrains
-              the rest. Settling the two you are confident of can leave the remaining pair
-              decided by elimination. Where it does not, two responses are still competing
-              for one situation, and that is exactly the distinction the stop is testing.
+              How to use the one-each rule. The responses are a set to be distributed rather
+              than a list to be sampled. So every join you make constrains the rest. Settling
+              the two you are confident of can leave the remaining pair decided by elimination.
+              Where it does not, two responses are still competing for one situation. That is
+              exactly the distinction the stop is testing.
           - >-
-              Why you cannot be wrong about exactly one. With every response used once,
-              three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two joins. That is worth remembering when the last
-              pair looks forced: the fault is usually not in the join you are struggling
-              with, but in one you made early and stopped questioning.
+              Why you cannot be wrong about exactly one. With every response used once, three
+              correct joins leave the fourth with only one place to go. Any error therefore
+              involves at least two joins. That is worth remembering when the last pair looks
+              forced. The fault is usually not in the join you are struggling with. It is in one
+              you made early and stopped questioning.
         takesAsRead:
           - Accumulation rate, and what a site with little snow buys and costs
           - Annual layer counting, and where counting fails
@@ -1328,15 +1327,15 @@ missions:
           records.
         background:
           - >-
-              Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              Why an estimate rather than a calculation. Every quantity on this board is already
+              measured or stated. Nothing here has to be derived. What is being tested is
+              whether you can pick the quantities the relationship actually needs. Then, whether
+              the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label catches a unit mismatch before it
+              is placed. It also catches a quantity belonging to a different part of the
+              problem. That is the habit this format exists to build.
         takesAsRead:
           - "Stable isotopes as a thermometer: δ¹⁸O and deuterium"
         assumes:
@@ -1416,11 +1415,11 @@ missions:
           commit: State the cooling
         why: >-
           The reconstruction is a distribution, not a number: the slope was fitted to 11 years
-          of overlap and it carries the scatter of that fit. A claim that the interval was more than
-          two degrees colder is a claim about where the whole distribution sits, so it is cleared by
-          making the distribution narrower rather than by moving its middle. More overlap years is
-          the only action here that adds information; the source-region correction changes the
-          central value and leaves the spread exactly as wide as it was.
+          of overlap and it carries the scatter of that fit. A claim that the interval was more
+          than two degrees colder is a claim about where the whole distribution sits. It is
+          cleared by making the distribution narrower, rather than by moving its middle. More
+          overlap years is the only action here that adds information; the source-region
+          correction changes the central value and leaves the spread exactly as wide as it was.
       - group: DATA
         task: Say what the thermometer is a thermometer of
         title: The temperature of what, and where
@@ -1436,24 +1435,24 @@ missions:
           measurements entirely, one of them taken with a thermometer in the hole.
         background:
           - >-
-              Why the wrong options are the interesting ones. Each distractor is written to
-              be the answer under one specific misreading — a step skipped, a quantity
-              confused with a rate, a correlation taken for a cause. Identifying which
-              misreading each belongs to is where the learning is; the right answer alone
-              can be reached on instinct and teach nothing.
+              Why the wrong options are the interesting ones. Each distractor is written to be
+              the answer under one specific misreading. A step skipped. A quantity confused with
+              a rate. A correlation taken for a cause. Identifying which misreading each belongs
+              to is where the learning is. The right answer alone can be reached on instinct and
+              teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
               qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
-              length, hedging and specificity have had the signal taken out of them
+              longest option far more often than chance. Before it was fixed, that was 88 per
+              cent of passage quizzes here. It is now checked per game as a binomial tail.
+              Length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
-              verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              verdict prints them. Each is the reason that option fails, not a restatement of
+              the right one. They are worth reading after a correct answer as well. A right
+              choice made for an approximate reason is indistinguishable from a sound one. That
+              holds until the day the approximation is what is being tested.
         assumes:
           - snow forms in a cloud and falls to a surface some distance below it
         takeaway: A proxy measures one specific thing, and the sentence has to say which.
@@ -1467,13 +1466,13 @@ missions:
           - The temperature of the ocean the water evaporated from
         answer: Where the snow condensed, over this region, in the season it fell
         why: >-
-          The isotope ratio is set as water vapour condenses, so it records conditions in the cloud
-          that produced this snow, weighted towards the seasons that deliver most of it. Getting
-          from there to a surface temperature needs the relationship between cloud and ground, which
-          is what the site calibration supplies. The ocean the water came from does leave a mark,
-          which is why source-region corrections exist. The ice's own temperature is a separate
-          measurement, taken with a thermometer in the borehole, and it says nothing about the year
-          the snow fell.
+          The isotope ratio is set as water vapour condenses. So it records conditions in the
+          cloud that produced this snow, weighted towards the seasons that deliver most of it.
+          Getting from there to a surface temperature needs the relationship between cloud and
+          ground, which is what the site calibration supplies. The ocean the water came from
+          does leave a mark, which is why source-region corrections exist. The ice's own
+          temperature is a separate measurement, taken with a thermometer in the borehole, and
+          it says nothing about the year the snow fell.
         rebuttals:
           - A single site records its own region; hemispheric averages are built by combining many sites
           - Borehole thermometry measures the ice now, and is used to check the isotopes rather than to replace them
@@ -1508,15 +1507,15 @@ missions:
           gas record is plotted centuries too early.
         background:
           - >-
-              Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              Why an estimate rather than a calculation. Every quantity on this board is already
+              measured or stated. Nothing here has to be derived. What is being tested is
+              whether you can pick the quantities the relationship actually needs. Then, whether
+              the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label catches a unit mismatch before it
+              is placed. It also catches a quantity belonging to a different part of the
+              problem. That is the habit this format exists to build.
         assumes:
           - air moves freely through connected pore spaces until they close
         takeaway: A bubble is sealed at a depth, and the ice around it arrived at that depth long before.
@@ -1524,13 +1523,13 @@ missions:
         question: Estimate the age difference between a bubble and the ice around it.
         answerText: About 460 years. The snow at close-off depth is that old, and the air sealed into it is essentially modern at the moment of sealing.
         why: >-
-          Air circulates through the connected pore spaces of the firn and mixes with the atmosphere
-          until those pores close, so the air in a bubble is roughly as old as the moment of
-          sealing while the ice around it is as old as the snow. Converting the firn column to ice
-          equivalent and dividing by the accumulation rate gives that interval. It is set by how
-          deep the close-off is and how fast snow arrives, so cold dry sites carry offsets of
-          centuries and wet coastal ones a few decades. Ignore it and a gas record is plotted
-          centuries too early.
+          Air circulates through the connected pore spaces of the firn and mixes with the
+          atmosphere until those pores close. So the air in a bubble is roughly as old as the
+          moment of sealing. The ice around it is as old as the snow. Converting the firn column
+          to ice equivalent and dividing by the accumulation rate gives that interval. It is set
+          by how deep the close-off is and how fast snow arrives. So cold dry sites carry
+          offsets of centuries, and wet coastal ones a few decades. Ignore it and a gas record
+          is plotted centuries too early.
         estimate:
           prompt: Close-off is at 88 metres, the firn above it averages 0.62 of the density of solid ice, and the site accumulates 0.119 metres of ice equivalent a year.
           question: Estimate the difference between the age of the gas and the age of the ice around it.
@@ -1569,10 +1568,10 @@ missions:
               layer for decades or centuries. Only when the pores finally pinch off is the
               air sealed, and by then the ice around it has been buried a long time.
           - >-
-              What sets the size of the gap. The depth at which the pores close, and how
-              long the snow takes to get there. Both depend on temperature and on how much
-              snow falls each year, which is why the gap is hundreds of years at a cold, dry
-              site and much less at a warm, snowy one.
+              What sets the size of the gap. The depth at which the pores close, and how long
+              the snow takes to get there. Both depend on temperature and on how much snow falls
+              each year. That is why the gap is hundreds of years at a cold, dry site and much
+              less at a warm, snowy one.
           - >-
               Why it matters more than it sounds. Every comparison between a gas record and
               an ice record has this offset in it. Read a carbon dioxide rise against a
@@ -1615,11 +1614,11 @@ missions:
           commit: Name the governing stage
         why: >-
           Every stage moves something, but only one of them fixes the size of the offset. Air
-          exchanges with the atmosphere all the way down the firn, so its age barely changes while
-          the ice around it gets older year by year; the moment the pores seal is the moment that
-          exchange stops, and the age difference is fixed at whatever the ice's age is at that
-          depth. Mixing looks like the answer because it is the process that keeps the air young,
-          but its effect is a decade against a difference of centuries.
+          exchanges with the atmosphere all the way down the firn. So its age barely changes
+          while the ice around it gets older year by year. The moment the pores seal is the
+          moment that exchange stops. The age difference is then fixed at whatever the ice's age
+          is at that depth. Mixing looks like the answer because it is the process that keeps
+          the air young, but its effect is a decade against a difference of centuries.
       - group: CORE
         task: Explain the smoother record
         title: Why the gas record has no sharp edges
@@ -1636,24 +1635,24 @@ missions:
           closes them in a decade.
         background:
           - >-
-              Why the wrong options are the interesting ones. Each distractor is written to
-              be the answer under one specific misreading — a step skipped, a quantity
-              confused with a rate, a correlation taken for a cause. Identifying which
-              misreading each belongs to is where the learning is; the right answer alone
-              can be reached on instinct and teach nothing.
+              Why the wrong options are the interesting ones. Each distractor is written to be
+              the answer under one specific misreading. A step skipped. A quantity confused with
+              a rate. A correlation taken for a cause. Identifying which misreading each belongs
+              to is where the learning is. The right answer alone can be reached on instinct and
+              teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
               qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
-              length, hedging and specificity have had the signal taken out of them
+              longest option far more often than chance. Before it was fixed, that was 88 per
+              cent of passage quizzes here. It is now checked per game as a binomial tail.
+              Length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
-              verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              verdict prints them. Each is the reason that option fails, not a restatement of
+              the right one. They are worth reading after a correct answer as well. A right
+              choice made for an approximate reason is indistinguishable from a sound one. That
+              holds until the day the approximation is what is being tested.
         takesAsRead:
           - "Stable isotopes as a thermometer: δ¹⁸O and deuterium"
         assumes:
@@ -1669,12 +1668,12 @@ missions:
           - Bubbles leak slowly into one another over thousands of years
         answer: Each bubble holds air mixed over the decades it took the pores to close
         why: >-
-          Air is in contact with the atmosphere throughout the open firn, and the pores do not all
-          close at once — the closing happens across a depth range, so the bubbles sealed in one
-          layer hold a mixture spanning the years that range represents. That smoothing is a
+          Air is in contact with the atmosphere throughout the open firn, and the pores do not
+          all close at once. The closing happens across a depth range. So the bubbles sealed in
+          one layer hold a mixture spanning the years that range represents. That smoothing is a
           property of the site: a high-accumulation site closes its pores in a decade and keeps
-          sharp features, while this one takes several. Sample size makes a small contribution and
-          could be reduced by cutting smaller pieces. The smoothing cannot.
+          sharp features, while this one takes several. Sample size makes a small contribution
+          and could be reduced by cutting smaller pieces. The smoothing cannot.
         rebuttals:
           - Sample size is a choice and could be made smaller; the firn smoothing is fixed by the site
           - Some atmospheric changes are genuinely fast, and this record could not show them either
@@ -1708,15 +1707,15 @@ missions:
           reads zero. Polar snow is always negative.
         background:
           - >-
-              Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              Why an estimate rather than a calculation. Every quantity on this board is already
+              measured or stated. Nothing here has to be derived. What is being tested is
+              whether you can pick the quantities the relationship actually needs. Then, whether
+              the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label catches a unit mismatch before it
+              is placed. It also catches a quantity belonging to a different part of the
+              problem. That is the habit this format exists to build.
         assumes:
           - an isotope ratio is the amount of a heavy isotope divided by the amount of a light one
         takeaway: An isotope value is a comparison with an agreed water, which is why every one of them is negative here.
@@ -1724,13 +1723,13 @@ missions:
         question: Estimate the isotope value of this sample in parts per thousand.
         answerText: About −35 per mil. The sample holds 3.5% less heavy oxygen than ocean water, which is what a polar site looks like.
         why: >-
-          Isotope ratios differ from one another in the fourth decimal place, so nobody reports them
-          as ratios. The convention is to divide the sample's ratio by the ratio of one agreed
-          water, subtract 1 so that the standard itself reads 0, and multiply by 1000 so
-          the numbers are convenient. What comes out is a difference in parts per thousand, always
-          negative for polar snow because every stage of the journey from the ocean has already
-          removed some of the heavy isotope. The scale is a comparison, and it only means anything
-          if everyone uses the same water.
+          Isotope ratios differ from one another in the fourth decimal place, so nobody reports
+          them as ratios. The convention is to divide the sample's ratio by the ratio of one
+          agreed water. Then subtract 1 so that the standard itself reads 0. Then multiply by
+          1000 so the numbers are convenient. What comes out is a difference in parts per
+          thousand. It is always negative for polar snow, because every stage of the journey
+          from the ocean has already removed some of the heavy isotope. The scale is a
+          comparison, and it only means anything if everyone uses the same water.
         estimate:
           prompt: The sample's ratio of heavy to light oxygen is 1.935 in thousandths; the standard ocean water reads 2.005 in the same units.
           question: Estimate the sample's isotope value in parts per thousand.
@@ -1766,24 +1765,24 @@ missions:
           intervals on its own.
         background:
           - >-
-              Why the wrong options are the interesting ones. Each distractor is written to
-              be the answer under one specific misreading — a step skipped, a quantity
-              confused with a rate, a correlation taken for a cause. Identifying which
-              misreading each belongs to is where the learning is; the right answer alone
-              can be reached on instinct and teach nothing.
+              Why the wrong options are the interesting ones. Each distractor is written to be
+              the answer under one specific misreading. A step skipped. A quantity confused with
+              a rate. A correlation taken for a cause. Identifying which misreading each belongs
+              to is where the learning is. The right answer alone can be reached on instinct and
+              teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
               qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
-              length, hedging and specificity have had the signal taken out of them
+              longest option far more often than chance. Before it was fixed, that was 88 per
+              cent of passage quizzes here. It is now checked per game as a binomial tail.
+              Length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
-              verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              verdict prints them. Each is the reason that option fails, not a restatement of
+              the right one. They are worth reading after a correct answer as well. A right
+              choice made for an approximate reason is indistinguishable from a sound one. That
+              holds until the day the approximation is what is being tested.
         assumes:
           - fine dust reaching this plateau has travelled thousands of kilometres
         takeaway: A concentration in the ice is a product of what was produced, what was carried, and how much snow diluted it.
@@ -1797,12 +1796,13 @@ missions:
           - Four times as much dust was produced globally at that time
         answer: More dust arrived per unit of snow, for reasons this cannot separate
         why: >-
-          A concentration is an amount of dust divided by an amount of snow, so it responds to three
-          separate things: how much dust the source regions released, how efficiently the winds
-          delivered it, and how much snow fell here to dilute it. Accumulation at this site drops in
-          cold intervals, which raises concentration on its own. Separating the three needs the flux
-          — concentration multiplied by accumulation — and the grain size and chemistry to identify
-          the source. The concentration alone establishes that the delivery changed, and no more.
+          A concentration is an amount of dust divided by an amount of snow. So it responds to
+          three separate things. How much dust the source regions released. How efficiently the
+          winds delivered it. And how much snow fell here to dilute it. Accumulation at this
+          site drops in cold intervals, which raises concentration on its own. Separating the
+          three needs the flux — concentration multiplied by accumulation — and the grain size
+          and chemistry to identify the source. The concentration alone establishes that the
+          delivery changed, and no more.
         rebuttals:
           - Source aridity is one of three contributing factors and is not measured by this number
           - Transport strength contributes and is estimated from grain size rather than from concentration
@@ -1831,12 +1831,11 @@ missions:
           should not be left under twenty.
         background:
           - >-
-              Why the whole spread is graded. Funding is not a vote for one idea. A
-              portfolio says what you think is likely, what is worth hedging against, and
-              what is not worth pursuing at all — and the last two are where most of the
-              information is. Backing the right proposal while quietly funding a bad one is
-              a worse answer than it looks. That is why the small numbers count as much as
-              the big one.
+              Why the whole spread is graded. Funding is not a vote for one idea. A portfolio
+              says what you think is likely, what is worth hedging against, and what is not
+              worth pursuing at all. The last two are where most of the information is. Backing
+              the right proposal while quietly funding a bad one is a worse answer than it
+              looks. That is why the small numbers count as much as the big one.
           - >-
               What the three numbers are for. Thirty-five is what makes a lead a lead: below
               it you have hedged rather than chosen. Fifteen is the most that can sit on
@@ -1900,23 +1899,22 @@ missions:
         background:
           - >-
               Why the unremarkable readings decide it. The salient reading is what draws
-              attention, and it is usually consistent with several explanations at once,
-              which is why it rarely settles anything. The readings that discriminate are
-              the ones a candidate predicts should have moved and which have not: a normal
-              value is a positive result against every mechanism that would have disturbed
-              it.
+              attention. It is usually consistent with several explanations at once, which is
+              why it rarely settles anything. The readings that discriminate are the ones a
+              candidate predicts should have moved, and which have not. A normal value is a
+              positive result against every mechanism that would have disturbed it.
           - >-
-              How to work the candidates. Take each mechanism and predict the panel it
-              implies before you look at the panel again — which readings it drives, in
-              which direction, and by roughly how much. Then compare. Working that way round
-              is what separates a diagnosis from a rationalisation, because the prediction
-              is made before the data is consulted.
+              How to work the candidates. Take each mechanism and predict the panel it implies
+              before you look at the panel again. Which readings it drives, in which direction,
+              and by roughly how much. Then compare. Working that way round is what separates a
+              diagnosis from a rationalisation. The prediction is made before the data is
+              consulted.
           - >-
               Why only one candidate survives. Several will account for part of the panel,
-              deliberately so, and a partial fit is exactly what a confident wrong answer
-              feels like from the inside. When two remain, look for the reading on which
-              their predictions differ and let it decide. If no reading separates them you
-              have not finished reading the panel.
+              deliberately so. A partial fit is exactly what a confident wrong answer feels like
+              from the inside. When two remain, look for the reading on which their predictions
+              differ and let it decide. If no reading separates them you have not finished
+              reading the panel.
         assumes:
           - volcanic glass carries the chemical composition of the volcano that erupted it
         takeaway: A horizon is identified by what is in it, not by the date it would be convenient for it to have.
@@ -1939,13 +1937,13 @@ missions:
             mechanism: Nothing can be assigned a date without a continuous count reaching it.
         answer: The northern eruption, identified by the shard chemistry
         why: >-
-          The shard chemistry is the only reading here that is independent of the timescale, and it
-          is the one that discriminates: glass composition is a fingerprint of a particular magma
-          and a particular volcano. The modelled age cannot choose between 2 candidates 90
-          years apart because its own uncertainty is larger than that gap. Sea-salt sulphate does
-          not arrive with volcanic glass. And waiting for the layer count is waiting for something
-          that stopped 460 metres higher, which is the reason a dated horizon
-          matters here at all.
+          The shard chemistry is the only reading here that is independent of the timescale. It
+          is the one that discriminates. Glass composition is a fingerprint of a particular
+          magma and a particular volcano. The modelled age cannot choose between 2 candidates 90
+          years apart because its own uncertainty is larger than that gap. Sea-salt sulphate
+          does not arrive with volcanic glass. And waiting for the layer count is waiting for
+          something that stopped 460 metres higher, which is the reason a dated horizon matters
+          here at all.
       - group: GAS
         task: Say what the tie point does for the gas
         title: What a dated ash layer fixes
@@ -1961,24 +1959,24 @@ missions:
           age difference has to be estimated first.
         background:
           - >-
-              Why the wrong options are the interesting ones. Each distractor is written to
-              be the answer under one specific misreading — a step skipped, a quantity
-              confused with a rate, a correlation taken for a cause. Identifying which
-              misreading each belongs to is where the learning is; the right answer alone
-              can be reached on instinct and teach nothing.
+              Why the wrong options are the interesting ones. Each distractor is written to be
+              the answer under one specific misreading. A step skipped. A quantity confused with
+              a rate. A correlation taken for a cause. Identifying which misreading each belongs
+              to is where the learning is. The right answer alone can be reached on instinct and
+              teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
               qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
-              length, hedging and specificity have had the signal taken out of them
+              longest option far more often than chance. Before it was fixed, that was 88 per
+              cent of passage quizzes here. It is now checked per game as a binomial tail.
+              Length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
-              verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              verdict prints them. Each is the reason that option fails, not a restatement of
+              the right one. They are worth reading after a correct answer as well. A right
+              choice made for an approximate reason is indistinguishable from a sound one. That
+              holds until the day the approximation is what is being tested.
         assumes:
           - volcanic ash settles out of the atmosphere within a year or two of an eruption
         takeaway: A tie point dates the material it is in, and anything else has to be reached by a calculation.
@@ -1992,12 +1990,12 @@ missions:
           - The accumulation rate at that time, from the thickness of the ash layer
         answer: The age of the ice at that depth, and nothing else on its own
         why: >-
-          Ash falls onto the surface and is buried with the snow, so it dates the ice it sits in.
-          The air in the bubbles beside it was sealed centuries later, at the close-off depth, and
-          it is that much younger. A tie point therefore fixes one of the two clocks in the core and
-          leaves the other one to be reached by calculation — which is exactly why the age
-          difference has to be estimated before any comparison between a gas record and an ice
-          record can be made.
+          Ash falls onto the surface and is buried with the snow, so it dates the ice it sits
+          in. The air in the bubbles beside it was sealed centuries later, at the close-off
+          depth, and it is that much younger. A tie point therefore fixes one of the two clocks
+          in the core. The other one has to be reached by calculation. That is exactly why the
+          age difference has to be estimated before any comparison between a gas record and an
+          ice record can be made.
         rebuttals:
           - The two clocks are in the same section and are not the same clock, which is what the age difference measures
           - Ash arrives at the surface, and the air at that depth stopped moving centuries after it was buried
@@ -2016,23 +2014,23 @@ missions:
           kilometres out and measures a surface that drifting snow rearranges.
         background:
           - >-
-              Why first is a different question from most important. When several calls
-              compete for the same hour, what a choice is worth is not its own importance
-              but the difference between doing it now and doing it later. A serious problem
-              that will be no worse in an hour costs nothing to defer. A smaller one that
-              closes a door costs everything behind that door.
+              Why first is a different question from most important. When several calls compete
+              for the same hour, what a choice is worth is not its own importance. It is the
+              difference between doing it now and doing it later. A serious problem that will be
+              no worse in an hour costs nothing to defer. A smaller one that closes a door costs
+              everything behind that door.
           - >-
-              What to look for in the options. Two things separate them: which is still
+              What to look for in the options. Two things separate them. Which is still
               changing, and which is a precondition for the others. A situation that is
-              deteriorating has a cost per hour attached to it, and a step that unblocks the
-              rest multiplies the value of the hours after it. Everything else is a
-              preference about where to start.
+              deteriorating has a cost per hour attached to it. A step that unblocks the rest
+              multiplies the value of the hours after it. Everything else is a preference about
+              where to start.
           - >-
-              Why only one answer is marked. In the situation these options describe all of
-              them eventually happen; what is being tested is the head of the queue, because
-              that is where the reasoning is visible. The verdict names what each of the
-              others was waiting on, which is worth reading even when the choice was right —
-              the ordering behind the first place is the rest of the answer.
+              Why only one answer is marked. In the situation these options describe, all of
+              them eventually happen. What is being tested is the head of the queue, because
+              that is where the reasoning is visible. The verdict names what each of the others
+              was waiting on. That is worth reading even when the choice was right. The ordering
+              behind the first place is the rest of the answer.
         assumes:
           - a measurement that cannot be repeated should be taken when it can be taken
         takeaway: Order the work by what becomes impossible, not by what is most important.
@@ -2046,12 +2044,12 @@ missions:
           - Re-drill the shallow firn core that broke last week
         answer: Read and re-level the stake farm across the whole array
         why: >-
-          Two of these can be done in bad weather and one cannot. The pit is beside the hut and the
-          mast is a short walk on a fixed line, so both survive four days of blowing snow with
+          Two of these can be done in bad weather and one cannot. The pit is beside the hut, and
+          the mast is a short walk on a fixed line. Both survive four days of blowing snow with
           nothing worse than discomfort. The stake array runs two kilometres out and needs
-          visibility to level against; more to the point, blowing snow redistributes the surface the
-          stakes are measuring, so a reading taken after the storm is measuring something different.
-          The shallow core can be re-drilled in any weather at all.
+          visibility to level against. More to the point, blowing snow redistributes the surface
+          the stakes are measuring. A reading taken after the storm is measuring something
+          different. The shallow core can be re-drilled in any weather at all.
         rebuttals:
           - The pit is a few metres from the hut door and can be dug in any weather
           - The mast is on a fixed line and its record is stored until somebody collects it
@@ -2085,15 +2083,15 @@ missions:
           hundred thousand years into the bottom kilometre.
         background:
           - >-
-              Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              Why an estimate rather than a calculation. Every quantity on this board is already
+              measured or stated. Nothing here has to be derived. What is being tested is
+              whether you can pick the quantities the relationship actually needs. Then, whether
+              the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label catches a unit mismatch before it
+              is placed. It also catches a quantity belonging to a different part of the
+              problem. That is the habit this format exists to build.
         takesAsRead:
           - Annual layer counting, and where counting fails
         assumes:
@@ -2105,12 +2103,12 @@ missions:
         why: >-
           Ice flows outwards from the dome, and to keep going it has to stretch, so each layer
           thins as the weight above it grows. The simplest model treats the vertical strain as
-          uniform, which makes a layer's thickness fall in proportion to the distance left to the
-          bed: at four-fifths of the way down, a layer is one-fifth of what it was. That gives 24
-          millimetres here. The scanner reads 1.5. The model is not wrong about the direction and
-          it is wrong about the size, because strain is not uniform near a bed the ice is being
-          dragged over — and that is the whole reason the counted record stops at 2,180 metres
-          while the modelled one carries on to the bottom with an uncertainty attached.
+          uniform. That makes a layer's thickness fall in proportion to the distance left to the
+          bed. At four-fifths of the way down, a layer is one-fifth of what it was. That gives
+          24 millimetres here. The scanner reads 1.5. The model is not wrong about the
+          direction. It is wrong about the size, because strain is not uniform near a bed the
+          ice is being dragged over. That is the whole reason the counted record stops at 2,180
+          metres. The modelled one carries on to the bottom with an uncertainty attached.
         estimate:
           prompt: The ice is 3,010 metres thick and the sample is from 2,400 metres. A year at the surface is 0.119 metres of ice equivalent.
           question: Estimate the thickness of one annual layer at that depth.
@@ -2138,11 +2136,10 @@ missions:
           Aalto has the dust flux from the cold interval and four quantities behind it, each with
           its own uncertainty. There is time to improve one of them before the season ends.
         guide: >-
-          The panel shows an error budget: each input's own width, times the power it
-          carries in the calculation, contributes a bar. Read the bars rather than the
-          inputs. There is time to improve one quantity before the season ends, so buy
-          the measurement that shortens the tallest bar — not the one that is easiest to
-          improve.
+          The panel shows an error budget: each input's own width, times the power it carries in
+          the calculation, contributes a bar. Read the bars rather than the inputs. There is
+          time to improve one quantity before the season ends. So buy the measurement that
+          shortens the tallest bar. Not the one that is easiest to improve.
         background:
           - >-
               How the widths combine. In a product of quantities, the fractional
@@ -2205,24 +2202,24 @@ missions:
           see the fold.
         background:
           - >-
-              Why the wrong options are the interesting ones. Each distractor is written to
-              be the answer under one specific misreading — a step skipped, a quantity
-              confused with a rate, a correlation taken for a cause. Identifying which
-              misreading each belongs to is where the learning is; the right answer alone
-              can be reached on instinct and teach nothing.
+              Why the wrong options are the interesting ones. Each distractor is written to be
+              the answer under one specific misreading. A step skipped. A quantity confused with
+              a rate. A correlation taken for a cause. Identifying which misreading each belongs
+              to is where the learning is. The right answer alone can be reached on instinct and
+              teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
               qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
-              length, hedging and specificity have had the signal taken out of them
+              longest option far more often than chance. Before it was fixed, that was 88 per
+              cent of passage quizzes here. It is now checked per game as a binomial tail.
+              Length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
-              verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              verdict prints them. Each is the reason that option fails, not a restatement of
+              the right one. They are worth reading after a correct answer as well. A right
+              choice made for an approximate reason is indistinguishable from a sound one. That
+              holds until the day the approximation is what is being tested.
         assumes:
           - ice near the bed has flowed over rough ground for a long time
         takeaway: Ice can be perfectly good material and still hold no readable order.
@@ -2236,12 +2233,13 @@ missions:
           - Dating only, since the oldest ice is what the deep section was drilled for
         answer: Measurements that need no ordered layers, with the disturbance recorded
         why: >-
-          Ice near the bed has been dragged over rough ground for a long time, so layers are folded,
-          sheared and sometimes overturned. The material is unchanged and the order is gone, which
-          rules out anything that depends on depth meaning time — a temperature history, a layer
-          count, a rate of change. It does not rule out what an unordered sample can still answer:
-          what gases are present, how much air the ice holds, how old the oldest ice down there is.
-          The disturbance has to travel with the data, because the next person will not see the fold.
+          Ice near the bed has been dragged over rough ground for a long time, so layers are
+          folded, sheared and sometimes overturned. The material is unchanged and the order is
+          gone. That rules out anything that depends on depth meaning time. A temperature
+          history, a layer count, a rate of change. It does not rule out what an unordered
+          sample can still answer. What gases are present. How much air the ice holds. How old
+          the oldest ice down there is. The disturbance has to travel with the data, because the
+          next person will not see the fold.
         rebuttals:
           - Archiving it unmeasured discards answers that never depended on the order
           - The ice is unaltered and the stratigraphy is not, and half the measurements need the stratigraphy
@@ -2265,9 +2263,9 @@ missions:
               anything for gas, which needs the core's centre and cannot use what has been near the
               wall. Before the aircraft it becomes anything that has to fly.
           - >-
-              Why this is irreversible in a way most work is not. Every other mistake here can be
-              repeated. A cut cannot: the section is gone, the depth it came from cannot be
-              re-drilled, and what was cut for one analysis is unavailable to the others for ever.
+              Why this is irreversible in a way most work is not. Every other mistake here can
+              be repeated. A cut cannot. The section is gone. The depth it came from cannot be
+              re-drilled. What was cut for one analysis is unavailable to the others for ever.
         assumes:
           - a core section can only be cut up once
         takeaway: The cost of a withdrawn instruction is highest where the work cannot be repeated.
@@ -2278,12 +2276,12 @@ missions:
           Three priorities run across the day and each wants a different part of the rack.
           Anything for the dating work, then anything for gas, then anything leaving on the
           aircraft. A section can answer two of those at once, which is what makes the change
-          cost something real. What the panel scores is the window either side of each change,
-          because most of the rack is wanted by neither priority and is correctly left alone by
+          cost something real. What the panel scores is the window either side of each change.
+          Most of the rack is wanted by neither priority, and is correctly left alone by
           somebody who has read nothing. And this is the format's sharpest case, because a cut
           cannot be undone. Everything else on the plateau can be repeated with more time or
-          more fuel; a section cut for isotopes is not available to the gas laboratory ever
-          again, and the ice at that depth cannot be drilled a second time this season.
+          more fuel. A section cut for isotopes is not available to the gas laboratory ever
+          again. The ice at that depth cannot be drilled a second time this season.
         spot:
           duration: 40
           switchEvery: 12
@@ -2360,9 +2358,9 @@ missions:
               model itself gets tested.
           - >-
               Why the question is asked this way round. Nobody expects the flow model to be
-              wrong outright. The question is which conclusions are hostages to it, so that
-              when it is revised — as it is every few years — the group knows exactly what
-              has to be redone.
+              wrong outright. The question is which conclusions are hostages to it. So when it
+              is revised — as it is every few years — the group knows exactly what has to be
+              redone.
         assumes:
           - two results computed from one assumption fail together if that assumption fails
         takeaway: Two numbers that agree because they came through the same step have not confirmed each other.
@@ -2386,12 +2384,13 @@ missions:
           target: flow
           commit: Commit the independent evidence
         why: >-
-          Both groups counted layers as far as they could and then handed the rest to the same flow
-          model, with the same assumption of uniform vertical strain. Below those counts the two age
-          scales are not independent estimates that happen to agree; they are one calculation
-          applied twice. What survives the model being wrong is the counted section, which is
-          arithmetic on measured layers, and the tephra horizon, whose date came from a volcano and
-          not from any ice. Those two are the comparison. The rest is a shared assumption.
+          Both groups counted layers as far as they could and then handed the rest to the same
+          flow model, with the same assumption of uniform vertical strain. Below those counts
+          the two age scales are not independent estimates that happen to agree; they are one
+          calculation applied twice. What survives the model being wrong is the counted section,
+          which is arithmetic on measured layers. The other is the tephra horizon, whose date
+          came from a volcano and not from any ice. Those two are the comparison. The rest is a
+          shared assumption.
       - group: GAS
         task: Turn a gas record into an energy number
         title: What the carbon dioxide change was worth
@@ -2407,15 +2406,15 @@ missions:
           than a proportion.
         background:
           - >-
-              Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              Why an estimate rather than a calculation. Every quantity on this board is already
+              measured or stated. Nothing here has to be derived. What is being tested is
+              whether you can pick the quantities the relationship actually needs. Then, whether
+              the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label catches a unit mismatch before it
+              is placed. It also catches a quantity belonging to a different part of the
+              problem. That is the habit this format exists to build.
         assumes:
           - a greenhouse gas reduces the rate at which the surface loses heat to space
         takeaway: A concentration becomes a climate statement only through the energy it changes.
@@ -2423,12 +2422,12 @@ missions:
         question: Estimate the radiative forcing between the two concentrations.
         answerText: About 2.1 watts per square metre. The change from 190 to 280 parts per million is roughly a third of the way to a doubling.
         why: >-
-          Carbon dioxide absorbs in bands that are already partly saturated, so each extra molecule
-          does less than the one before it, and the forcing goes as the logarithm of the
-          concentration rather than in proportion to it. That is why the effect is usually stated per
-          doubling: every doubling adds about the same. Between the cold interval and the top of the
-          core the concentration rose by half, which is worth about two watts on every square metre
-          of the planet, sustained for as long as it lasts.
+          Carbon dioxide absorbs in bands that are already partly saturated. So each extra
+          molecule does less than the one before it. The forcing goes as the logarithm of the
+          concentration rather than in proportion to it. That is why the effect is usually
+          stated per doubling: every doubling adds about the same. Between the cold interval and
+          the top of the core the concentration rose by half. That is worth about two watts on
+          every square metre of the planet, sustained for as long as it lasts.
         estimate:
           prompt: Carbon dioxide is 190 parts per million in the cold interval and 280 at the top of the core.
           question: Estimate the radiative forcing between the two.
@@ -2464,24 +2463,24 @@ missions:
           and in degrees it is a quarter of the season's headline.
         background:
           - >-
-              Why the wrong options are the interesting ones. Each distractor is written to
-              be the answer under one specific misreading — a step skipped, a quantity
-              confused with a rate, a correlation taken for a cause. Identifying which
-              misreading each belongs to is where the learning is; the right answer alone
-              can be reached on instinct and teach nothing.
+              Why the wrong options are the interesting ones. Each distractor is written to be
+              the answer under one specific misreading. A step skipped. A quantity confused with
+              a rate. A correlation taken for a cause. Identifying which misreading each belongs
+              to is where the learning is. The right answer alone can be reached on instinct and
+              teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
               qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
-              length, hedging and specificity have had the signal taken out of them
+              longest option far more often than chance. Before it was fixed, that was 88 per
+              cent of passage quizzes here. It is now checked per game as a binomial tail.
+              Length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
-              verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              verdict prints them. Each is the reason that option fails, not a restatement of
+              the right one. They are worth reading after a correct answer as well. A right
+              choice made for an approximate reason is indistinguishable from a sound one. That
+              holds until the day the approximation is what is being tested.
         assumes:
           - an isotope difference is converted to a temperature difference by the site slope
         takeaway: A difference has to be converted into the units of the claim before anybody can judge it.
@@ -2496,10 +2495,10 @@ missions:
         answer: About three quarters of a degree — a quarter of the reported cooling
         why: >-
           The site slope is 0.67 per mil for each degree, so half a per mil is about 0.75 of a
-          degree. That is the whole point of converting: in per mil the difference sounds like a
-          rounding error, and in degrees it is a quarter of the cooling the season intends to
+          degree. That is the whole point of converting. In per mil the difference sounds like a
+          rounding error. In degrees it is a quarter of the cooling the season intends to
           report. Whether it is a real climate difference or a shared method's shortcoming is a
-          separate question, and it cannot be argued about honestly until both sides are talking in
+          separate question. It cannot be argued about honestly until both sides are talking in
           the same units.
         rebuttals:
           - A slope of one per mil per degree is not this site's slope, and using it changes the answer by half
@@ -2528,11 +2527,10 @@ missions:
           records on their own gas timescales. The tephra horizon is dated independently of either
           calculation.
         guide: >-
-          Lock what you expect the difference to become once both gas records sit on
-          their own gas timescales. Then re-plot them and see. The tephra horizon is
-          dated independently of either calculation, so it is the check that can tell
-          you whether the correction did what you predicted rather than merely what you
-          wanted.
+          Lock what you expect the difference to become once both gas records sit on their own
+          gas timescales. Then re-plot them and see. The tephra horizon is dated independently
+          of either calculation. So it is the check that can tell you whether the correction did
+          what you predicted, rather than merely what you wanted.
         background:
           - >-
               What the correction does. Each site's gas is younger than the ice around it,
@@ -2577,12 +2575,13 @@ missions:
             an assumption with more arithmetic in it.
           commit: Report what is left
         why: >-
-          Air keeps mixing with the atmosphere until the firn seals, so gas is younger than the ice
-          around it by an amount set by how deep the sealing is and how fast snow arrives. Skarv
-          accumulates four times as fast, so its offset is a fraction of this station's. Plotting
-          both gas records on ice timescales therefore shifts one curve much further than the other,
-          and produces a difference that looks like climate and is arithmetic. What makes the
-          corrected answer trustworthy is the tephra: a date neither calculation produced.
+          Air keeps mixing with the atmosphere until the firn seals. So gas is younger than the
+          ice around it. The amount is set by how deep the sealing is and how fast snow arrives.
+          Skarv accumulates four times as fast, so its offset is a fraction of this station's.
+          Plotting both gas records on ice timescales therefore shifts one curve much further
+          than the other, and produces a difference that looks like climate and is arithmetic.
+          What makes the corrected answer trustworthy is the tephra: a date neither calculation
+          produced.
       - group: CORE
         task: Date ice the counting cannot reach
         title: The clock that does not need layers
@@ -2598,15 +2597,15 @@ missions:
           it owes nothing to the flow model.
         background:
           - >-
-              Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              Why an estimate rather than a calculation. Every quantity on this board is already
+              measured or stated. Nothing here has to be derived. What is being tested is
+              whether you can pick the quantities the relationship actually needs. Then, whether
+              the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label catches a unit mismatch before it
+              is placed. It also catches a quantity belonging to a different part of the
+              problem. That is the habit this format exists to build.
         assumes:
           - a radioactive isotope decays at a rate nothing in the ice can change
         takeaway: Where counting has run out, a clock that runs on its own is the only independent date left.
@@ -2614,12 +2613,13 @@ missions:
         question: Estimate the age of the sample from what is left of the isotope.
         answerText: About 4,900 years. Decay is the one clock in the core that does not depend on the flow model.
         why: >-
-          Radioactive decay proceeds at a rate that no temperature, pressure or flow in the ice can
-          change, which is what makes it usable where the layers have stopped being countable. The
-          amount left falls exponentially with time, so taking the natural logarithm of the fraction
-          remaining and multiplying by the mean lifetime gives the age directly. It carries its own
-          uncertainties — how much was there to begin with, whether anything was added or lost — and
-          none of them is the flow model, which is why the result is worth having.
+          Radioactive decay proceeds at a rate that no temperature, pressure or flow in the ice
+          can change. That is what makes it usable where the layers have stopped being
+          countable. The amount left falls exponentially with time, so taking the natural
+          logarithm of the fraction remaining and multiplying by the mean lifetime gives the age
+          directly. It carries its own uncertainties. How much was there to begin with, and
+          whether anything was added or lost. None of them is the flow model, which is why the
+          result is worth having.
         estimate:
           prompt: The isotope has fallen to 0.55 of its initial amount. Its mean lifetime is 8,267 years.
           question: Estimate the age of the sample.
@@ -2654,24 +2654,24 @@ missions:
           calculation. Both records were on the wrong clock; only one moved far.
         background:
           - >-
-              Why the wrong options are the interesting ones. Each distractor is written to
-              be the answer under one specific misreading — a step skipped, a quantity
-              confused with a rate, a correlation taken for a cause. Identifying which
-              misreading each belongs to is where the learning is; the right answer alone
-              can be reached on instinct and teach nothing.
+              Why the wrong options are the interesting ones. Each distractor is written to be
+              the answer under one specific misreading. A step skipped. A quantity confused with
+              a rate. A correlation taken for a cause. Identifying which misreading each belongs
+              to is where the learning is. The right answer alone can be reached on instinct and
+              teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
               qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
-              length, hedging and specificity have had the signal taken out of them
+              longest option far more often than chance. Before it was fixed, that was 88 per
+              cent of passage quizzes here. It is now checked per game as a binomial tail.
+              Length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
-              verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              verdict prints them. Each is the reason that option fails, not a restatement of
+              the right one. They are worth reading after a correct answer as well. A right
+              choice made for an approximate reason is indistinguishable from a sound one. That
+              holds until the day the approximation is what is being tested.
         assumes:
           - a difference smaller than the uncertainty of either measurement is not a measured difference
         takeaway: Explaining a disagreement away is a result, and it is the result that has to be published.
@@ -2761,12 +2761,13 @@ missions:
             - { question: 'What is the present-day temperature profile of the ice?', requires: [logging] }
           commit: Commit the drilling plan
         why: >-
-          The two required questions are the ones this season exists to answer: whether the deep
-          section reaches older ice, and whether the horizon everything is now tied to appears in
-          ice that shared the weather but not the drill. Together with the fluid change they use
-          exactly the nine days available. The firn profile and the borehole log are both good work
-          and both can be done next season by somebody who has not yet drilled to 2,400 metres. A
-          plan that fits everything in is a plan that has not been asked what it is for.
+          The two required questions are the ones this season exists to answer. Whether the deep
+          section reaches older ice. And whether the horizon everything is now tied to appears
+          in ice that shared the weather but not the drill. Together with the fluid change they
+          use exactly the nine days available. The firn profile and the borehole log are both
+          good work and both can be done next season by somebody who has not yet drilled to
+          2,400 metres. A plan that fits everything in is a plan that has not been asked what it
+          is for.
       - group: FIELD
         task: Say what one stake is worth
         title: The stake that gained a centimetre
@@ -2782,24 +2783,24 @@ missions:
           That is why forty-eight stakes are read rather than one.
         background:
           - >-
-              Why the wrong options are the interesting ones. Each distractor is written to
-              be the answer under one specific misreading — a step skipped, a quantity
-              confused with a rate, a correlation taken for a cause. Identifying which
-              misreading each belongs to is where the learning is; the right answer alone
-              can be reached on instinct and teach nothing.
+              Why the wrong options are the interesting ones. Each distractor is written to be
+              the answer under one specific misreading. A step skipped. A quantity confused with
+              a rate. A correlation taken for a cause. Identifying which misreading each belongs
+              to is where the learning is. The right answer alone can be reached on instinct and
+              teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
               qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
-              length, hedging and specificity have had the signal taken out of them
+              longest option far more often than chance. Before it was fixed, that was 88 per
+              cent of passage quizzes here. It is now checked per game as a binomial tail.
+              Length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
-              verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              verdict prints them. Each is the reason that option fails, not a restatement of
+              the right one. They are worth reading after a correct answer as well. A right
+              choice made for an approximate reason is indistinguishable from a sound one. That
+              holds until the day the approximation is what is being tested.
         assumes:
           - wind moves snow across a surface after it has fallen
         takeaway: A measurement of a surface that moves has to be made in enough places to catch what moved.
@@ -2814,11 +2815,11 @@ missions:
         answer: Little on its own; the whole array separates snowfall from drift
         why: >-
           Wind on this plateau moves far more snow horizontally than falls out of the sky in a
-          fortnight, so any single stake is measuring snowfall and redistribution added together
-          and cannot separate them. The array can: snow moved from one place to another cancels
-          when the whole array is summed, and what is left is what actually arrived. That is why
-          48 stakes are read rather than 1, and why the accumulation figure is a season's
-          arithmetic rather than a reading.
+          fortnight. So any single stake is measuring snowfall and redistribution added
+          together. It cannot separate them. The array can: snow moved from one place to another
+          cancels when the whole array is summed, and what is left is what actually arrived.
+          That is why 48 stakes are read rather than 1, and why the accumulation figure is a
+          season's arithmetic rather than a reading.
         rebuttals:
           - Sheltering is a real effect and would have to be established across several fortnights, not one
           - A fortnight's snowfall is what the whole array establishes, since drift cancels only in the sum
@@ -2838,22 +2839,21 @@ missions:
           corrected values are kept.
         background:
           - >-
-              Why the order is graded whole. A sequence is a claim about dependency: each
-              step is here because the one before it has already happened, or has to have.
-              One transposed pair falsifies that claim wherever it sits, so partial credit
-              would be credit for a sequence that does not work.
+              Why the order is graded whole. A sequence is a claim about dependency. Each step
+              is here because the one before it has already happened, or has to have. One
+              transposed pair falsifies that claim wherever it sits. Partial credit would be
+              credit for a sequence that does not work.
           - >-
-              Why the ends are the place to start. The first and last cards are constrained
-              by having nothing before or after them, which usually makes them the two you
-              can settle from the scene alone. Pinning them collapses the remaining
-              arrangements sharply, and what is left in the middle is where the actual
-              judgement lives.
+              Why the ends are the place to start. The first and last cards are constrained by
+              having nothing before or after them. That usually makes them the two you can
+              settle from the scene alone. Pinning them collapses the remaining arrangements
+              sharply. What is left in the middle is where the actual judgement lives.
           - >-
-              What the rail can be ordered on. Time is the usual axis, but it is not the
-              only one. An order can run on cost, on risk, or on reversibility — every
-              observation that leaves the sample as it was, before any that consumes it. On
-              those boards a chronological reading finds nothing, because none of the steps
-              has to happen at a particular hour.
+              What the rail can be ordered on. Time is the usual axis, but it is not the only
+              one. An order can run on cost, on risk, or on reversibility — every observation
+              that leaves the sample as it was, before any that consumes it. On those boards a
+              chronological reading finds nothing. None of the steps has to happen at a
+              particular hour.
         assumes:
           - an instrument's response can move slowly during a long run
         takeaway: A run is designed so that it can be checked afterwards, not so that it finishes soonest.
@@ -2866,12 +2866,12 @@ missions:
           - Correct the samples for drift, and write the raw and corrected values to the record
         order: [0, 1, 2, 3, 4]
         why: >-
-          Every step here exists to make the run auditable. The blank establishes what the process
-          adds before any ice is involved; the opening standard fixes the scale; the standards
-          inside the run reveal drift while it is happening; the closing standard measures how far
-          it moved overall. Only then can the samples be corrected, and both the raw and the
-          corrected values are kept because a correction is a claim about the instrument that
-          somebody may want to check later.
+          Every step here exists to make the run auditable. The blank establishes what the
+          process adds before any ice is involved. The opening standard fixes the scale. The
+          standards inside the run reveal drift while it is happening. The closing standard
+          measures how far it moved overall. Only then can the samples be corrected. Both the
+          raw and the corrected values are kept, because a correction is a claim about the
+          instrument that somebody may want to check later.
   # ------------------------------------------------------------------ day 13
   - title: The night the generator stopped
     objective: Work out what the core store record can still prove after a power failure.
@@ -2906,10 +2906,10 @@ missions:
               equipment it concerns are already off the ice. A claim checked next year is a
               claim about something nobody can revisit.
           - >-
-              What a night sheet is. A running record of what was done on shift, signed at
-              the end. It is written by people who were tired, at the end of a working
-              night, and its purpose is continuity rather than evidence — which is exactly
-              why some lines on it are firmer than others.
+              What a night sheet is. A running record of what was done on shift, signed at the
+              end. It is written by people who were tired, at the end of a working night. Its
+              purpose is continuity rather than evidence. That is exactly why some lines on it
+              are firmer than others.
           - >-
               How to choose between two doubtful lines. Not by which is least likely to be
               true. By which one, if wrong, would change what somebody does with the
@@ -2938,11 +2938,11 @@ missions:
             - { id: fuel, label: 'Day tank filled at 2200', signedBy: 'de Vries', backed: true, evidence: 'level gauge reading logged before and after' }
           commit: Verify the two
         why: >-
-          A signature says that somebody believed something when they signed, and the store reading
+          A signature says that somebody believed something when they signed. The store reading
           of minus 19 says the belief was wrong for at least part of the night. Two of these
-          claims are both critical and carried by nothing but the signature — the store and the gas
-          samples — and both decide whether measurements made on that ice can be defended. The mast
-          is critical and already carries its own continuous record; the drill tank has an
+          claims are both critical and carried by nothing but the signature: the store and the
+          gas samples. Both decide whether measurements made on that ice can be defended. The
+          mast is critical and already carries its own continuous record; the drill tank has an
           independent logger. The food and the fuel matter to the camp and not to the science.
       - group: DRILL
         task: Put the restart in order
@@ -2958,23 +2958,23 @@ missions:
           day. Queued samples are as good tomorrow. Order by what is still being lost.
         background:
           - >-
-              Why first is a different question from most important. When several calls
-              compete for the same hour, what a choice is worth is not its own importance
-              but the difference between doing it now and doing it later. A serious problem
-              that will be no worse in an hour costs nothing to defer. A smaller one that
-              closes a door costs everything behind that door.
+              Why first is a different question from most important. When several calls compete
+              for the same hour, what a choice is worth is not its own importance. It is the
+              difference between doing it now and doing it later. A serious problem that will be
+              no worse in an hour costs nothing to defer. A smaller one that closes a door costs
+              everything behind that door.
           - >-
-              What to look for in the options. Two things separate them: which is still
+              What to look for in the options. Two things separate them. Which is still
               changing, and which is a precondition for the others. A situation that is
-              deteriorating has a cost per hour attached to it, and a step that unblocks the
-              rest multiplies the value of the hours after it. Everything else is a
-              preference about where to start.
+              deteriorating has a cost per hour attached to it. A step that unblocks the rest
+              multiplies the value of the hours after it. Everything else is a preference about
+              where to start.
           - >-
-              Why only one answer is marked. In the situation these options describe all of
-              them eventually happen; what is being tested is the head of the queue, because
-              that is where the reasoning is visible. The verdict names what each of the
-              others was waiting on, which is worth reading even when the choice was right —
-              the ordering behind the first place is the rest of the answer.
+              Why only one answer is marked. In the situation these options describe, all of
+              them eventually happen. What is being tested is the head of the queue, because
+              that is where the reasoning is visible. The verdict names what each of the others
+              was waiting on. That is worth reading even when the choice was right. The ordering
+              behind the first place is the rest of the answer.
         assumes:
           - a system that has already failed is more informative than one that has not yet been used
         takeaway: Restart in the order of what is still being lost, not in the order of who asked.
@@ -2989,10 +2989,10 @@ missions:
         answer: The core store refrigeration, which is still warming
         why: >-
           Three of these are waiting and one is deteriorating. Ice above minus 20 starts losing
-          gas from the bubbles near its cut faces, and that loss cannot be undone or measured
-          around; every hour is more of the core that can no longer answer a gas question. A lost
-          drilling day is a day, the queued samples are as good tomorrow as today, and a report sent
-          six hours late is a report sent. Order by what is still being lost.
+          gas from the bubbles near its cut faces. That loss cannot be undone or measured
+          around. Every hour is more of the core that can no longer answer a gas question. A
+          lost drilling day is a day, the queued samples are as good tomorrow as today, and a
+          report sent six hours late is a report sent. Order by what is still being lost.
         rebuttals:
           - A drilling day is recoverable, and the drill is not losing anything while it stands idle
           - Queued samples are in the store; if the store is warm they are the thing being lost, not the queue
@@ -3012,15 +3012,15 @@ missions:
           years went in.
         background:
           - >-
-              Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              Why an estimate rather than a calculation. Every quantity on this board is already
+              measured or stated. Nothing here has to be derived. What is being tested is
+              whether you can pick the quantities the relationship actually needs. Then, whether
+              the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label catches a unit mismatch before it
+              is placed. It also catches a quantity belonging to a different part of the
+              problem. That is the habit this format exists to build.
         takesAsRead:
           - Random against systematic uncertainty
         assumes:
@@ -3031,11 +3031,11 @@ missions:
         answerText: About 0.26 degrees. A difference between two such means smaller than half a degree is not a difference at all.
         why: >-
           Individual years scatter because weather scatters, and averaging does not remove that
-          scatter — it reduces the uncertainty of the average, and only as the square root of the
+          scatter. It reduces the uncertainty of the average, and only as the square root of the
           number of years. 30 years of a record with 1.4 degrees of year-to-year variation give
-          a mean known to about a quarter of a degree. Two such means half a degree apart are two
-          standard errors apart, which is where a claim of difference starts becoming defensible and
-          not before. Doubling the precision would take 120 years.
+          a mean known to about a quarter of a degree. Two such means half a degree apart are
+          two standard errors apart, which is where a claim of difference starts becoming
+          defensible and not before. Doubling the precision would take 120 years.
         estimate:
           prompt: The reconstructed annual temperatures scatter by 1.4 degrees, and the period is 30 years long.
           question: Estimate the standard error of the thirty-year mean.
@@ -3164,24 +3164,24 @@ missions:
           slope fitted at this site. Local at both steps.
         background:
           - >-
-              Why the wrong options are the interesting ones. Each distractor is written to
-              be the answer under one specific misreading — a step skipped, a quantity
-              confused with a rate, a correlation taken for a cause. Identifying which
-              misreading each belongs to is where the learning is; the right answer alone
-              can be reached on instinct and teach nothing.
+              Why the wrong options are the interesting ones. Each distractor is written to be
+              the answer under one specific misreading. A step skipped. A quantity confused with
+              a rate. A correlation taken for a cause. Identifying which misreading each belongs
+              to is where the learning is. The right answer alone can be reached on instinct and
+              teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
               qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
-              length, hedging and specificity have had the signal taken out of them
+              longest option far more often than chance. Before it was fixed, that was 88 per
+              cent of passage quizzes here. It is now checked per game as a binomial tail.
+              Length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
-              verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              verdict prints them. Each is the reason that option fails, not a restatement of
+              the right one. They are worth reading after a correct answer as well. A right
+              choice made for an approximate reason is indistinguishable from a sound one. That
+              holds until the day the approximation is what is being tested.
         assumes:
           - a measurement made at one site can record a quantity that is the same everywhere
         takeaway: Some quantities measured at one place are global, and a proxy of local weather is not one of them.
@@ -3219,22 +3219,21 @@ missions:
           disagreement about another group's record into a conversation with them.
         background:
           - >-
-              Why the order is graded whole. A sequence is a claim about dependency: each
-              step is here because the one before it has already happened, or has to have.
-              One transposed pair falsifies that claim wherever it sits, so partial credit
-              would be credit for a sequence that does not work.
+              Why the order is graded whole. A sequence is a claim about dependency. Each step
+              is here because the one before it has already happened, or has to have. One
+              transposed pair falsifies that claim wherever it sits. Partial credit would be
+              credit for a sequence that does not work.
           - >-
-              Why the ends are the place to start. The first and last cards are constrained
-              by having nothing before or after them, which usually makes them the two you
-              can settle from the scene alone. Pinning them collapses the remaining
-              arrangements sharply, and what is left in the middle is where the actual
-              judgement lives.
+              Why the ends are the place to start. The first and last cards are constrained by
+              having nothing before or after them. That usually makes them the two you can
+              settle from the scene alone. Pinning them collapses the remaining arrangements
+              sharply. What is left in the middle is where the actual judgement lives.
           - >-
-              What the rail can be ordered on. Time is the usual axis, but it is not the
-              only one. An order can run on cost, on risk, or on reversibility — every
-              observation that leaves the sample as it was, before any that consumes it. On
-              those boards a chronological reading finds nothing, because none of the steps
-              has to happen at a particular hour.
+              What the rail can be ordered on. Time is the usual axis, but it is not the only
+              one. An order can run on cost, on risk, or on reversibility — every observation
+              that leaves the sample as it was, before any that consumes it. On those boards a
+              chronological reading finds nothing. None of the steps has to happen at a
+              particular hour.
         assumes:
           - a result should be reproducible by somebody who was not present
         takeaway: A result leaves the station as a package: the numbers, the version, and what was assumed.
@@ -3282,24 +3281,24 @@ missions:
           here has read them all.
         background:
           - >-
-              Why the wrong options are the interesting ones. Each distractor is written to
-              be the answer under one specific misreading — a step skipped, a quantity
-              confused with a rate, a correlation taken for a cause. Identifying which
-              misreading each belongs to is where the learning is; the right answer alone
-              can be reached on instinct and teach nothing.
+              Why the wrong options are the interesting ones. Each distractor is written to be
+              the answer under one specific misreading. A step skipped. A quantity confused with
+              a rate. A correlation taken for a cause. Identifying which misreading each belongs
+              to is where the learning is. The right answer alone can be reached on instinct and
+              teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
               qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
-              length, hedging and specificity have had the signal taken out of them
+              longest option far more often than chance. Before it was fixed, that was 88 per
+              cent of passage quizzes here. It is now checked per game as a binomial tail.
+              Length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
-              verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              verdict prints them. Each is the reason that option fails, not a restatement of
+              the right one. They are worth reading after a correct answer as well. A right
+              choice made for an approximate reason is indistinguishable from a sound one. That
+              holds until the day the approximation is what is being tested.
         assumes:
           - a claim is supported when the evidence would have come out differently if it were false
         takeaway: An honest claim states what was measured, over what period, with what uncertainty.
@@ -3338,23 +3337,23 @@ missions:
           below. And one is a solid measurement attached to a modelled date.
         background:
           - >-
-              Why this is a matching board and not four separate questions. Responses on
-              boards like this are written to be plausible for more than one situation, so
-              choosing them one at a time lets a nearly-right answer through unexamined.
-              Having to place all of them forces the comparison — not "is this reasonable
-              here", but "is it more right here than there".
+              Why this is a matching board and not four separate questions. Responses on boards
+              like this are written to be plausible for more than one situation. Choosing them
+              one at a time lets a nearly-right answer through unexamined. Having to place all
+              of them forces the comparison — not "is this reasonable here", but "is it more
+              right here than there".
           - >-
-              How to use the one-each rule. Because the responses are a set to be
-              distributed rather than a list to be sampled, every join you make constrains
-              the rest. Settling the two you are confident of can leave the remaining pair
-              decided by elimination. Where it does not, two responses are still competing
-              for one situation, and that is exactly the distinction the stop is testing.
+              How to use the one-each rule. The responses are a set to be distributed rather
+              than a list to be sampled. So every join you make constrains the rest. Settling
+              the two you are confident of can leave the remaining pair decided by elimination.
+              Where it does not, two responses are still competing for one situation. That is
+              exactly the distinction the stop is testing.
           - >-
-              Why you cannot be wrong about exactly one. With every response used once,
-              three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two joins. That is worth remembering when the last
-              pair looks forced: the fault is usually not in the join you are struggling
-              with, but in one you made early and stopped questioning.
+              Why you cannot be wrong about exactly one. With every response used once, three
+              correct joins leave the fourth with only one place to go. Any error therefore
+              involves at least two joins. That is worth remembering when the last pair looks
+              forced. The fault is usually not in the join you are struggling with. It is in one
+              you made early and stopped questioning.
         assumes:
           - a number is only as strong as the weakest step between the ice and it
         takeaway: Every number in a proxy record belongs to a class, and the class is part of the number.
@@ -3376,10 +3375,11 @@ missions:
         why: >-
           The four numbers are not the same kind of thing, and the report has to say so. The
           accumulation is a direct measurement of the surface and can be checked next year. The
-          cooling is a measurement passed through a calibration, so it inherits the calibration's
-          uncertainty. The age is counted where counting worked and modelled where it did not. The
-          gas concentration is a solid measurement of a global quantity attached to a depth whose
-          age is itself modelled — strong in what it measures, weaker in when it happened.
+          cooling is a measurement passed through a calibration, so it inherits the
+          calibration's uncertainty. The age is counted where counting worked and modelled where
+          it did not. The gas concentration is a solid measurement of a global quantity,
+          attached to a depth whose age is itself modelled. It is strong in what it measures,
+          weaker in when it happened.
         rebuttals:
           - The cooling is not a direct surface measurement; it arrives through a fitted slope
           - The age below the counted section is not checkable against next season's stakes
@@ -3399,15 +3399,15 @@ missions:
           the surface this site can just hold one.
         background:
           - >-
-              Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              Why an estimate rather than a calculation. Every quantity on this board is already
+              measured or stated. Nothing here has to be derived. What is being tested is
+              whether you can pick the quantities the relationship actually needs. Then, whether
+              the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label catches a unit mismatch before it
+              is placed. It also catches a quantity belonging to a different part of the
+              problem. That is the habit this format exists to build.
         assumes:
           - water molecules move through firn before the pores seal, averaging nearby layers together
         takeaway: A record has a shortest event it can show, and it is set by the site rather than by the instrument.
@@ -3415,13 +3415,13 @@ missions:
         question: Estimate the shortest event this record could still resolve, in years.
         answerText: About 1.3 years at the surface, and longer at every depth below it as the layers thin.
         why: >-
-          Water molecules diffuse through the connected pores of the firn for as long as those pores
-          are open, which averages each layer with its neighbours. The scale of that averaging is
-          the diffusion length, and anything thinner than about twice it is smoothed away past
-          recovery. Dividing that limit by the annual layer thickness gives the answer in years. At
-          the surface this site can just about hold a single year; deeper, where the layers have
-          thinned, the same diffusion length covers many years and the annual signal is gone for
-          good.
+          Water molecules diffuse through the connected pores of the firn for as long as those
+          pores are open, which averages each layer with its neighbours. The scale of that
+          averaging is the diffusion length, and anything thinner than about twice it is
+          smoothed away past recovery. Dividing that limit by the annual layer thickness gives
+          the answer in years. At the surface this site can just about hold a single year.
+          Deeper, where the layers have thinned, the same diffusion length covers many years.
+          The annual signal is then gone for good.
         estimate:
           prompt: The firn diffusion length at this site is 0.08 metres, and a year at the surface is 0.119 metres of ice equivalent.
           question: Estimate the shortest event the isotope record could still resolve.
@@ -3588,22 +3588,22 @@ lessons:
       downslope with a pit wall of her own. The last summer surface there sits seventy-one
       centimetres down, and the snow above it is denser than anything on the dome.
     guide: >-
-      Five numbers, and only three of them describe the flank pit. Ask of each
-      whether it says something about that snow as it lies. The close-off depth and
-      the dome's own ice-equivalent figure are on the board so the two sites can be
-      compared afterwards, not so they can go into the sum. The conversion is the
-      one you ran on the dome, on a site that is not the dome.
+      Five numbers, and only three of them describe the flank pit. Ask of each whether it says
+      something about that snow as it lies. The close-off depth and the dome's own
+      ice-equivalent figure are on the board so the two sites can be compared afterwards. They
+      do not go into the sum. The conversion is the one you ran on the dome, on a site that is
+      not the dome.
     background:
       - >-
-          Why an estimate rather than a calculation. Every quantity on this board is
-          already measured or stated, so nothing here has to be derived. What is being
-          tested is whether you can pick the quantities the relationship actually needs,
-          and whether the size of the answer looks right once they are in place.
+          Why an estimate rather than a calculation. Every quantity on this board is already
+          measured or stated. Nothing here has to be derived. What is being tested is whether
+          you can pick the quantities the relationship actually needs. Then, whether the size of
+          the answer looks right once they are in place.
       - >-
-          Why the tiles carry labels. A bare number cannot be checked against the
-          relationship it is going into. Reading the label is how a unit mismatch, or a
-          quantity belonging to a different part of the problem, is caught before it is
-          placed — which is the habit this format exists to build.
+          Why the tiles carry labels. A bare number cannot be checked against the relationship
+          it is going into. Reading the label catches a unit mismatch before it is placed. It
+          also catches a quantity belonging to a different part of the problem. That is the
+          habit this format exists to build.
     takesAsRead:
       - Accumulation rate, and what a site with little snow buys and costs
     assumes:
@@ -3613,12 +3613,12 @@ lessons:
     question: Estimate the flank camp's accumulation in ice equivalent.
     answerText: About 0.30 metres of ice equivalent a year — roughly two and a half times what the dome lays down.
     why: >-
-      Choosing a site is choosing between the detail a core carries and the span it covers, and
-      that trade only becomes visible once both sites are stated in the ice their snow will
-      become. The flank camp catches more than twice the snow and lays it down denser, so its
-      layers stay thick enough to count far deeper than the dome's. It pays at the bottom: the
-      same three kilometres of ice is spent in a third of the time, and the oldest year in it
-      is a few thousand rather than tens of thousands.
+      Choosing a site is choosing between the detail a core carries and the span it covers. That
+      trade only becomes visible once both sites are stated in the ice their snow will become.
+      The flank camp catches more than twice the snow and lays it down denser, so its layers
+      stay thick enough to count far deeper than the dome's. It pays at the bottom. The same
+      three kilometres of ice is spent in a third of the time. The oldest year in it is a few
+      thousand rather than tens of thousands.
     estimate:
       prompt: The last summer surface at the flank camp sits 0.71 metres down, in snow of density 385 kilograms per cubic metre.
       question: Estimate the flank camp's accumulation in metres of ice equivalent.
@@ -3646,33 +3646,30 @@ lessons:
     concept: "Drilling: fluid, brittle ice and what damage costs the record"
     place: Core Line
     scene: >-
-      The core line technician, Sigrid Holt, has a section from 1,150 metres on the light table
-      and four teams down on the request sheet for a piece of it. Nothing on the sheet says
+      The core line technician, Sigrid Holt, has a section from 1,150 metres on the light table.
+      Four teams are down on the request sheet for a piece of it. Nothing on the sheet says
       which of them goes first.
     guide: >-
-      Five operations, all of which will happen to this section. Nothing here has to
-      happen at a particular hour, so reading the rail as a timetable finds nothing.
-      Ask of each how much of the section it spends: whether it could be done again
-      next season, whether it leaves the inner core whole, or whether the ice is gone
-      once it is finished.
+      Five operations, all of which will happen to this section. Nothing here has to happen at a
+      particular hour, so reading the rail as a timetable finds nothing. Ask of each how much of
+      the section it spends. Whether it could be done again next season. Whether it leaves the
+      inner core whole. Or whether the ice is gone once it is finished.
     background:
       - >-
-          Why the order is graded whole. A sequence is a claim about dependency: each
-          step is here because the one before it has already happened, or has to have.
-          One transposed pair falsifies that claim wherever it sits, so partial credit
-          would be credit for a sequence that does not work.
+          Why the order is graded whole. A sequence is a claim about dependency. Each step is
+          here because the one before it has already happened, or has to have. One transposed
+          pair falsifies that claim wherever it sits. Partial credit would be credit for a
+          sequence that does not work.
       - >-
-          Why the ends are the place to start. The first and last cards are constrained
-          by having nothing before or after them, which usually makes them the two you
-          can settle from the scene alone. Pinning them collapses the remaining
-          arrangements sharply, and what is left in the middle is where the actual
-          judgement lives.
+          Why the ends are the place to start. The first and last cards are constrained by
+          having nothing before or after them. That usually makes them the two you can settle
+          from the scene alone. Pinning them collapses the remaining arrangements sharply. What
+          is left in the middle is where the actual judgement lives.
       - >-
-          What the rail can be ordered on. Time is the usual axis, but it is not the
-          only one. An order can run on cost, on risk, or on reversibility — every
-          observation that leaves the sample as it was, before any that consumes it. On
-          those boards a chronological reading finds nothing, because none of the steps
-          has to happen at a particular hour.
+          What the rail can be ordered on. Time is the usual axis, but it is not the only one.
+          An order can run on cost, on risk, or on reversibility — every observation that leaves
+          the sample as it was, before any that consumes it. On those boards a chronological
+          reading finds nothing. None of the steps has to happen at a particular hour.
     takesAsRead:
       - "Why ice keeps a record at all: burial without melting"
     assumes:
@@ -3706,29 +3703,27 @@ lessons:
       side of it. Both blanks are ordinary, the outer centimetre was trimmed to specification,
       and the replicate core from the second hole doubles at the same depth.
     guide: >-
-      Four readings of one panel, and the argument turns on what a control that did
-      not move is worth. Ask of each option which reading it would need to have gone
-      the other way. A blank is the process with no ice in it, so an ordinary blank
-      speaks for everything the sample touched; a second hole speaks for everything
-      this hole did.
+      Four readings of one panel, and the argument turns on what a control that did not move is
+      worth. Ask of each option which reading it would need to have gone the other way. A blank
+      is the process with no ice in it. So an ordinary blank speaks for everything the sample
+      touched. A second hole speaks for everything this hole did.
     background:
       - >-
-          Why the wrong options are the interesting ones. Each distractor is written to
-          be the answer under one specific misreading — a step skipped, a quantity
-          confused with a rate, a correlation taken for a cause. Identifying which
-          misreading each belongs to is where the learning is; the right answer alone
-          can be reached on instinct and teach nothing.
+          Why the wrong options are the interesting ones. Each distractor is written to be the
+          answer under one specific misreading. A step skipped. A quantity confused with a rate.
+          A correlation taken for a cause. Identifying which misreading each belongs to is where
+          the learning is. The right answer alone can be reached on instinct and teach nothing.
       - >-
           Why a clean control is a result. A reading that stays where it always sits is
           easy to skip past, and it is the only kind of reading that can rule a mechanism
           out. The loud number is consistent with several explanations at once; the quiet
           ones are consistent with fewer, which is what makes them decisive.
       - >-
-          What the verdict adds. Every wrong option carries its own rebuttal, and the
-          verdict prints them — the reason that option fails, not a restatement of the
-          right one. They are worth reading after a correct answer as well: a right
-          choice made for an approximate reason is indistinguishable from a sound one
-          until the day the approximation is what is being tested.
+          What the verdict adds. Every wrong option carries its own rebuttal, and the verdict
+          prints them. Each is the reason that option fails, not a restatement of the right one.
+          They are worth reading after a correct answer as well. A right choice made for an
+          approximate reason is indistinguishable from a sound one. That holds until the day the
+          approximation is what is being tested.
     takesAsRead:
       - "What a proxy is: the chain between the thing and the number"
     assumes:
@@ -3744,8 +3739,8 @@ lessons:
       - Nothing can be concluded until a third hole has been drilled and sampled at the same depth
     answer: The doubling is in the ice, since the controls that would have moved did not
     why: >-
-      A blank is the process with no ice in it, so an ordinary blank is a positive statement
-      about everything the sample touched on the way to the instrument: the saw, the gloves, the
+      A blank is the process with no ice in it. So an ordinary blank is a positive statement
+      about everything the sample touched on the way to the instrument. The saw, the gloves, the
       vials, the acid. Both of them are ordinary. The outer centimetre was trimmed, so the
       surface handling is out as well. What is left is a second core, recovered from a different
       hole, doubling at the same depth. Two independent recoveries agreeing on a number is the
@@ -3772,23 +3767,23 @@ lessons:
       yearly beat, and that is the one a count can be built on.
     background:
       - >-
-          Why this is a matching board and not four separate questions. Responses on
-          boards like this are written to be plausible for more than one situation, so
-          choosing them one at a time lets a nearly-right answer through unexamined.
-          Having to place all of them forces the comparison — not "is this reasonable
-          here", but "is it more right here than there".
+          Why this is a matching board and not four separate questions. Responses on boards like
+          this are written to be plausible for more than one situation. Choosing them one at a
+          time lets a nearly-right answer through unexamined. Having to place all of them forces
+          the comparison — not "is this reasonable here", but "is it more right here than
+          there".
       - >-
-          How to use the one-each rule. Because the responses are a set to be
-          distributed rather than a list to be sampled, every join you make constrains
-          the rest. Settling the two you are confident of can leave the remaining pair
-          decided by elimination. Where it does not, two responses are still competing
-          for one situation, and that is exactly the distinction the stop is testing.
+          How to use the one-each rule. The responses are a set to be distributed rather than a
+          list to be sampled. So every join you make constrains the rest. Settling the two you
+          are confident of can leave the remaining pair decided by elimination. Where it does
+          not, two responses are still competing for one situation. That is exactly the
+          distinction the stop is testing.
       - >-
-          Why you cannot be wrong about exactly one. With every response used once,
-          three correct joins leave the fourth with only one place to go. Any error
-          therefore involves at least two joins. That is worth remembering when the last
-          pair looks forced: the fault is usually not in the join you are struggling
-          with, but in one you made early and stopped questioning.
+          Why you cannot be wrong about exactly one. With every response used once, three
+          correct joins leave the fourth with only one place to go. Any error therefore involves
+          at least two joins. That is worth remembering when the last pair looks forced. The
+          fault is usually not in the join you are struggling with. It is in one you made early
+          and stopped questioning.
     assumes:
       - a feature in the ice was put there by something with a duration of its own
     takeaway: A feature is a year only where whatever made it repeats every year.
