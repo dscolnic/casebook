@@ -1120,7 +1120,7 @@
       "id": "slackwater",
       "title": "Slack Water",
       "course": "AP Calculus BC · parametric, polar, vector and series",
-      "field": "Mathematics",
+      "field": "Maths & Stats",
       "accent": "#4f7fa8",
       "place": "Sarn Barrage: six sluice gates across the neck of an estuary, mud at low water and a training wall running out into the channel.",
       "hero": "shots/slackwater.jpg",
@@ -1398,7 +1398,7 @@
     {
       "id": "qd_exo",
       "kind": "quick",
-      "title": "Something Is Pulling",
+      "title": "The First Exoplanet",
       "course": "Astronomy · how a planet nobody can see is detected and then described",
       "field": "Earth & Space",
       "accent": "#274a4f",
@@ -1429,7 +1429,7 @@
     {
       "id": "qd_ligo",
       "kind": "quick",
-      "title": "The Chirp",
+      "title": "Gravitational Waves",
       "course": "Physics · how a passing gravitational wave was measured and read",
       "field": "Physics",
       "accent": "#1c3f52",
@@ -1460,7 +1460,7 @@
     {
       "id": "qd_cmb",
       "kind": "quick",
-      "title": "The Noise That Would Not Go",
+      "title": "The Cosmic Microwave Background",
       "course": "Cosmology · how an unwanted signal turned out to be the early universe",
       "field": "Earth & Space",
       "accent": "#7a4fa3",
@@ -1491,7 +1491,7 @@
     {
       "id": "qd_hubble",
       "kind": "quick",
-      "title": "No Middle To It",
+      "title": "The Expanding Universe",
       "course": "Astronomy · how a relation between distance and recession became an expanding universe",
       "field": "Earth & Space",
       "accent": "#2e3d48",
@@ -1512,6 +1512,223 @@
         "One line is an identification; several lines agreeing is a redshift",
         "The slope with no structure left in the leftovers is the law",
         "Uniform expansion has no middle to be standing at"
+      ],
+      "size": {
+        "days": 3,
+        "stops": 9
+      },
+      "built": true
+    },
+    {
+      "id": "qd_penicillin",
+      "kind": "quick",
+      "title": "Penicillin",
+      "course": "Microbiology · how an inhibition zone on one plate became a medicine",
+      "field": "Biology",
+      "accent": "#4d7a3f",
+      "place": "An interwar hospital inoculation department: the culture room and the broth room down one side of a corridor, the assay rack and the trial wall down the other.",
+      "hero": "shots/qd_penicillin.jpg",
+      "level": "high",
+      "grades": "9-12",
+      "build": "qd_penicillin",
+      "pair": "qd_penicillin",
+      "shotsFrom": "qd_penicillin",
+      "role": "Junior Researcher · Inoculation Department",
+      "dayNoun": "Level",
+      "grade": 9,
+      "drama": "A plate that should have gone into the wash has a ring on it where nothing grew. You are the junior researcher, which means the walk between those benches is yours and so is the argument at the end of it.",
+      "concepts": [
+        "An inhibition zone is an observation, not yet a cause",
+        "A cell-free filtrate separates the agent from the organism that made it",
+        "Susceptibility differs between species, so an antibacterial has a spectrum",
+        "Purification is followed by assay, or the activity is thrown away",
+        "A discovery is not a medicine until it can be made, dosed and supplied"
+      ],
+      "size": {
+        "days": 3,
+        "stops": 9
+      },
+      "built": true
+    },
+    {
+      "id": "qd_germ",
+      "kind": "quick",
+      "title": "Germ Theory of Disease",
+      "course": "Medicine and public health · how disease was shown to be caused by organisms",
+      "field": "Biology",
+      "accent": "#3f6f8a",
+      "place": "A Victorian court and the fever hospital behind it: one standpipe with forty households round it, and a ward and a laboratory hut ninety metres up the lane.",
+      "hero": "shots/qd_germ.jpg",
+      "level": "high",
+      "grades": "9-12",
+      "build": "qd_germ",
+      "pair": "qd_germ",
+      "shotsFrom": "qd_germ",
+      "role": "Investigator · Marlow Fields",
+      "dayNoun": "Level",
+      "grade": 9,
+      "drama": "Sixty-six people in one court are dead or dying, and the houses fifty yards off are almost untouched. You are the investigator, which means the map, the ward counts and the laboratory all report to you.",
+      "concepts": [
+        "A cluster around a shared exposure is a hypothesis, not a cause",
+        "An organism found in the diseased and not the healthy is a candidate",
+        "Exposure against an unexposed control is where causation starts",
+        "Interrupting one transmission route predicts a measurable fall",
+        "Germ theory explains infectious disease, and only infectious disease"
+      ],
+      "size": {
+        "days": 3,
+        "stops": 9
+      },
+      "built": true
+    },
+    {
+      "id": "qd_mendel",
+      "kind": "quick",
+      "title": "The Laws of Inheritance",
+      "course": "Genetics · how counting offspring revealed hidden units of inheritance",
+      "field": "Biology",
+      "accent": "#4d7a3f",
+      "place": "A monastery garden: two blocks of trial beds either side of the walk, a glasshouse where every flower is opened by hand, and a counting room with nothing growing in it.",
+      "hero": "shots/qd_mendel.jpg",
+      "level": "high",
+      "grades": "9-12",
+      "build": "qd_mendel",
+      "pair": "qd_mendel",
+      "shotsFrom": "qd_mendel",
+      "role": "Experimental Assistant · The Abbey Garden",
+      "dayNoun": "Level",
+      "grade": 9,
+      "drama": "Cross a yellow-seeded pea with a green-seeded one and every seed comes out yellow, as though the green had been rubbed out. You are the experimental assistant, which means the crossing, the tally and the seed lines all come through you.",
+      "concepts": [
+        "A trait with two clean states can be counted; a graded one cannot yet",
+        "A trait absent in the offspring has not been destroyed",
+        "Two individuals that look alike can carry different factors",
+        "Each parent passes one of its two copies, at even odds",
+        "A cross with the recessive parent reveals the hidden copy"
+      ],
+      "size": {
+        "days": 3,
+        "stops": 9
+      },
+      "built": true
+    },
+    {
+      "id": "qd_crispr",
+      "kind": "quick",
+      "title": "CRISPR Gene Editing",
+      "course": "Molecular biology · how a bacterial defence system became a way of editing genomes",
+      "field": "Biology",
+      "accent": "#1f4f6b",
+      "place": "A modern genome-editing institute: the genome room and the design desk down one side of a corridor, the editing bay and the sequencing queue down the other.",
+      "hero": "shots/qd_crispr.jpg",
+      "level": "high",
+      "grades": "9-12",
+      "build": "qd_crispr",
+      "pair": "qd_crispr",
+      "shotsFrom": "qd_crispr",
+      "role": "Molecular Biologist · Genome Editing Institute",
+      "dayNoun": "Level",
+      "grade": 9,
+      "drama": "Forty bacterial genomes carry the same odd structure. You are the molecular biologist, which means the genomes, the design desk and the sequencing queue all come through you.",
+      "concepts": [
+        "A repeat-and-spacer array is a record of past encounters",
+        "Sequence-directed cutting is programmable because the guide is separable",
+        "The cut position is fixed relative to the recognition site",
+        "A near-match with a compatible PAM is where off-target risk lives",
+        "Efficiency and specificity are two numbers, and both have to be reported"
+      ],
+      "size": {
+        "days": 3,
+        "stops": 9
+      },
+      "built": true
+    },
+    {
+      "id": "qd_oxygen",
+      "kind": "quick",
+      "title": "Oxygen and Combustion",
+      "course": "Chemistry · how weighing what burned replaced a theory of what was lost",
+      "field": "Chemistry",
+      "accent": "#7a5a2b",
+      "place": "A 1770s pneumatic laboratory: a balance room and a furnace down one side of a corridor, a trough of gas jars and an accounting desk down the other. No electric light and no ceiling tiles.",
+      "hero": "shots/qd_oxygen.jpg",
+      "level": "high",
+      "grades": "9-12",
+      "build": "qd_oxygen",
+      "pair": "qd_oxygen",
+      "shotsFrom": "qd_oxygen",
+      "role": "Assistant · The Pneumatic Laboratory",
+      "dayNoun": "Level",
+      "grade": 9,
+      "drama": "Ten grams of lead were heated in the open this morning and what is left weighs twelve point seven. You are the assistant, which means the weighings, the jars and the ledger all come through you.",
+      "concepts": [
+        "A product heavier than its reactant is a constraint any theory must meet",
+        "A model that needs a rescue for every measurement is losing",
+        "Only part of ordinary air takes part in burning",
+        "Mass is conserved, so a reaction is an accounting problem",
+        "The framework kept is the one that predicts numbers"
+      ],
+      "size": {
+        "days": 3,
+        "stops": 9
+      },
+      "built": true
+    },
+    {
+      "id": "qd_periodic",
+      "kind": "quick",
+      "title": "Periodic Table",
+      "course": "Chemistry · how the elements were arranged so that the gaps meant something",
+      "field": "Chemistry",
+      "accent": "#5a3b2a",
+      "place": "An 1869 chemistry institute: a wall of numbered specimen drawers and a long card table down one side of a corridor, an analysis bench and a lecture hall down the other.",
+      "hero": null,
+      "level": "high",
+      "grades": "9-12",
+      "build": "qd_periodic",
+      "pair": "qd_periodic",
+      "shotsFrom": "qd_periodic",
+      "role": "Assistant · The Chemistry Institute",
+      "dayNoun": "Level",
+      "grade": 9,
+      "drama": "Sixty-three elements sit in numbered drawers, and the numbers record when each one arrived. You are the assistant, which means the drawers, the long table and the bench all come through you.",
+      "concepts": [
+        "A chemical family is defined by recurring behaviour, not neighbouring mass",
+        "When order and chemistry disagree, the ordering variable is suspect",
+        "A property between two neighbours can be interpolated",
+        "Several independent properties close to prediction is strong support",
+        "Atomic number, not atomic mass, is what the order is really about"
+      ],
+      "size": {
+        "days": 3,
+        "stops": 9
+      },
+      "built": true
+    },
+    {
+      "id": "qd_stroop",
+      "kind": "quick",
+      "title": "Stroop Effect",
+      "course": "Cognitive psychology · how a reaction-time difference exposed an automatic process",
+      "field": "Psychology",
+      "accent": "#5a4a7a",
+      "place": "A 1935 reaction-time laboratory: a three-sided testing booth and a tabulation room down one side of a corridor, a chronoscope bench and a wall of eight hundred times down the other.",
+      "hero": null,
+      "level": "high",
+      "grades": "9-12",
+      "build": "qd_stroop",
+      "pair": "qd_stroop",
+      "shotsFrom": "qd_stroop",
+      "role": "Research Assistant · Reaction-Time Laboratory",
+      "dayNoun": "Level",
+      "grade": 9,
+      "drama": "Print the word GREEN in red ink, ask somebody to say the colour of the ink, and they stumble. You are the research assistant, which means the booth, the instrument and the sheets all come through you.",
+      "concepts": [
+        "A baseline is what an effect is measured against",
+        "A prediction made before the data is what makes the result informative",
+        "Speed and accuracy trade off, so both have to be reported",
+        "A cost that shrinks with practice does not have to reach zero",
+        "An effect being robust does not make one explanation of it proven"
       ],
       "size": {
         "days": 3,

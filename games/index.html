@@ -186,8 +186,26 @@
   .chip[aria-pressed="true"]{background:var(--ink); color:#0d0f13; border-color:var(--ink)}
   .chip:focus-visible{outline:2px solid #6fc7d8; outline-offset:2px}
 
-  .grid{
-    display:grid; gap:22px; margin-top:26px;
+  /* The shelf is grouped by subject now, so the grid is a column of sections
+     and each section carries its own card grid. The subject tag is sticky
+     INSIDE its section rather than on the grid: a sticky grid item only travels
+     inside its own grid area, which is one row tall, so it would not move. */
+  .grid{display:block; margin-top:26px}
+  .group + .group{margin-top:34px}
+  .grouptag{
+    position:sticky; top:0; z-index:5; margin:0 0 14px;
+    display:flex; align-items:center; gap:12px; padding:11px 0 10px;
+    font:600 11.5px/1 var(--mono); letter-spacing:.14em; text-transform:uppercase;
+    color:var(--dim);
+    /* Semi-transparent over a blur rather than a flat fill: the page background
+       is two fixed washes, so a solid bar reads as a seam across them. */
+    background:color-mix(in srgb, var(--bg) 78%, transparent);
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  }
+  .grouptag small{font:inherit; color:var(--faint); letter-spacing:.08em}
+  .grouptag::after{content:''; flex:1; height:1px; background:var(--line)}
+  .groupgrid{
+    display:grid; gap:22px;
     grid-template-columns:repeat(auto-fill,minmax(310px,1fr));
   }
 
@@ -228,7 +246,7 @@
     position:absolute; inset:0; pointer-events:none;
     background:linear-gradient(180deg,rgba(8,10,14,.10) 0%,rgba(8,10,14,.05) 38%,rgba(8,10,14,.88) 100%);
   }
-  .shot h2{
+  .shot h3{
     position:absolute; left:16px; right:16px; bottom:11px; margin:0;
     font-size:21px; line-height:1.15; letter-spacing:-.015em; font-weight:640;
     text-shadow:0 2px 14px rgba(0,0,0,.75);
@@ -589,7 +607,7 @@ function cardHTML(g, i){
       ${built ? '<span class="play" aria-hidden="true">▶</span>'
               : '<span class="unbuilt">not built</span>'}
       ${p ? `<span class="resume${p.done ? ' resume--done' : ''}">${esc(p.pill)}</span>` : ''}
-      <h2>${esc(g.title)}</h2>
+      <h3>${esc(g.title)}</h3>
     </div>
     <div class="body">
       <p class="course">${esc(g.course)}</p>
@@ -627,7 +645,19 @@ document.getElementById('grid').addEventListener('click', (e) => {
 
 function render(){
   const shown = games.filter(g => inKind(g) && inLevel(g) && (field === 'All' || g.field === field));
-  document.getElementById('grid').innerHTML = shown.map(cardHTML).join('');
+  // Grouped by subject, alphabetically, with the subject's own tag above each
+  // group and sticking to the top of the window while that group is on screen.
+  // Scrolling a shelf of thirty-odd cards otherwise loses which subject you are
+  // in about two rows down.
+  const subjects = [...new Set(shown.map(g => g.field))].sort((a, b) => a.localeCompare(b));
+  let n = 0;
+  document.getElementById('grid').innerHTML = subjects.map(f => {
+    const here = shown.filter(g => g.field === f);
+    return `<section class="group">
+      <h2 class="grouptag"><span>${esc(f)}</span><small>${here.length}</small></h2>
+      <div class="groupgrid">${here.map(g => cardHTML(g, n++)).join('')}</div>
+    </section>`;
+  }).join('');
   const resumable = games.filter(g => saves[g.id] && saves[g.id].status === 'playing').length;
   document.getElementById('note').textContent = resumable
     ? `${resumable} campaign${resumable === 1 ? '' : 's'} in progress. Your progress follows your account, not this browser.`
@@ -656,7 +686,8 @@ function renderFilters(){
   // then draw an empty shelf, which reads as a broken page rather than as a
   // subject that has no edition yet.
   const here = games.filter(g => inKind(g) && inLevel(g));
-  const fields = ['All', ...Array.from(new Set(here.map(g => g.field)))];
+  const fields = ['All', ...Array.from(new Set(here.map(g => g.field)))
+    .sort((a, b) => a.localeCompare(b))];
   // Switching level can strand the chosen subject. Fall back rather than
   // showing nothing.
   if(!fields.includes(field)) field = 'All';
