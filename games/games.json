@@ -1212,7 +1212,7 @@
     {
       "id": "qd_accel",
       "kind": "quick",
-      "title": "Too Faint",
+      "title": "The Accelerating Universe",
       "course": "Astronomy · how the accelerating expansion was measured",
       "field": "Earth & Space",
       "accent": "#7a4fa3",
@@ -1243,7 +1243,7 @@
     {
       "id": "qd_dna",
       "kind": "quick",
-      "title": "The Only Shape That Fits",
+      "title": "The Double Helix",
       "course": "Biology · how the structure of DNA was forced by the evidence",
       "field": "Biology",
       "accent": "#3f7f6a",
@@ -1274,7 +1274,7 @@
     {
       "id": "qd_nucleus",
       "kind": "quick",
-      "title": "The Impossible Bounce",
+      "title": "The Atomic Nucleus",
       "course": "Physics · how the atomic nucleus was inferred from a scattering experiment",
       "field": "Physics",
       "accent": "#b5502f",
@@ -1305,12 +1305,12 @@
     {
       "id": "qd_tectonics",
       "kind": "quick",
-      "title": "One Moving System",
+      "title": "Plate Tectonics",
       "course": "Earth science · how continental clues and ocean data became plate tectonics",
       "field": "Earth & Space",
       "accent": "#2f4a55",
       "place": "A postwar government survey section: the land evidence down one side of a corridor, ten years of ships down the other, and thirty feet of continents on pins.",
-      "hero": null,
+      "hero": "shots/qd_tectonics.jpg",
       "level": "high",
       "grades": "9–12",
       "build": "qd_tectonics",
@@ -1331,7 +1331,193 @@
         "days": 3,
         "stops": 9
       },
-      "built": false
+      "built": true
+    },
+    {
+      "id": "qd_higgs",
+      "kind": "quick",
+      "title": "The Higgs Boson",
+      "course": "Particle physics · how a new boson was found in a background of ordinary events",
+      "field": "Physics",
+      "accent": "#1f4a63",
+      "place": "A collider analysis floor: the theory wall and the combination room down one side, a dark event-display room and ten metres of histogram down the other.",
+      "hero": "shots/qd_higgs.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "qd_higgs",
+      "pair": "qd_higgs",
+      "shotsFrom": "qd_higgs",
+      "role": "Physicist · Collider Analysis Group",
+      "dayNoun": "Level",
+      "grade": 9,
+      "drama": "One slot on the chart on this wall is still empty. You are the physicist on the search, which means the channels, the reconstruction and the background model all come through you.",
+      "concepts": [
+        "The Higgs is a scalar boson, in a category of its own",
+        "A clean channel beats a common one",
+        "Invariant mass reconstructs the parent from its products",
+        "A localised excess is what a narrow resonance looks like",
+        "The careful claim: a new boson, consistent with the hypothesis"
+      ],
+      "size": {
+        "days": 3,
+        "stops": 9
+      },
+      "built": true
+    },
+    {
+      "id": "qd_eclipse",
+      "kind": "quick",
+      "title": "The Bending of Starlight",
+      "course": "Physics · how the 1919 eclipse tested light bending near the Sun",
+      "field": "Physics",
+      "accent": "#c98a2b",
+      "place": "An eclipse camp on a red dust plain: two coelostats and their lenses out on the flat, a light-tight plate hut back along the track, and one wire to the coast.",
+      "hero": "shots/qd_eclipse.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "qd_eclipse",
+      "pair": "qd_eclipse",
+      "shotsFrom": "qd_eclipse",
+      "role": "Expedition Astronomer · Eclipse Camp",
+      "dayNoun": "Level",
+      "grade": 9,
+      "drama": "Two theories disagree about starlight by a factor of two, and one of them says space itself is bent. You are the expedition astronomer, which means the focus, the plates and the arithmetic are yours, and so is the sentence at the end.",
+      "concepts": [
+        "The two predictions differ by a factor of two, and that is the whole test",
+        "The measurement is differential: two plates, never one",
+        "Light bends toward the Sun, so a star appears displaced away from it",
+        "A result is inconclusive when its band covers both predictions",
+        "Favoured is not proved, and later tests did the proving"
+      ],
+      "size": {
+        "days": 3,
+        "stops": 9
+      },
+      "built": true
+    },
+    {
+      "id": "qd_exo",
+      "title": "Something Is Pulling",
+      "course": "Astronomy · how a planet nobody can see is detected and then described",
+      "field": "Earth & Space",
+      "accent": "#274a4f",
+      "place": "A planet search floor: a spectrograph on one side of the corridor, a month of light curve on the wall of the other, and a room at the end with no instrument in it.",
+      "hero": "shots/qd_exo.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "qd_exo",
+      "pair": "qd_exo",
+      "shotsFrom": "qd_exo",
+      "kind": "course",
+      "role": "Observer · Planet Search Programme",
+      "dayNoun": "Level",
+      "grade": 9,
+      "drama": "The star on the screen looks like every other star. You are the observer on the search, which means the spectra, the light curve and the arithmetic all come through you.",
+      "concepts": [
+        "A shift to shorter wavelengths means the star is coming toward us",
+        "Radial velocity alone gives a minimum mass",
+        "Transit depth is an area ratio, so the radius is its square root",
+        "Mass over radius cubed is a density, and density says what it is made of",
+        "A class is a summary of several measurements at once"
+      ],
+      "size": {
+        "days": 3,
+        "stops": 9
+      },
+      "built": true
+    },
+    {
+      "id": "qd_ligo",
+      "title": "The Chirp",
+      "course": "Physics · how a passing gravitational wave was measured and read",
+      "field": "Physics",
+      "accent": "#1c3f52",
+      "place": "An interferometer corner station: the beam splitter and two metre-wide tubes leaving through the wall at right angles, three suspension stacks, and a control room at four in the morning.",
+      "hero": "shots/qd_ligo.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "qd_ligo",
+      "pair": "qd_ligo",
+      "shotsFrom": "qd_ligo",
+      "kind": "course",
+      "role": "Detector Scientist · Interferometer Site",
+      "dayNoun": "Level",
+      "grade": 9,
+      "drama": "At four in the morning something swept through both instruments in a fifth of a second, climbing in pitch, and then stopped. You are the detector scientist on shift, which means the noise, the templates and the mass ledger all come through you.",
+      "concepts": [
+        "A dark fringe is where a tiny path difference is most visible",
+        "Every noise source has its own frequency band, and the sum has a minimum",
+        "Energy leaving the orbit is why the frequency rises",
+        "One observable across two masses fixes a combination",
+        "Consistent with is the claim a coherent match supports"
+      ],
+      "size": {
+        "days": 3,
+        "stops": 9
+      },
+      "built": true
+    },
+    {
+      "id": "qd_cmb",
+      "title": "The Noise That Would Not Go",
+      "course": "Cosmology · how an unwanted signal turned out to be the early universe",
+      "field": "Earth & Space",
+      "accent": "#7a4fa3",
+      "place": "A hilltop radio site: a twenty-foot horn on a concrete pier inside a ring of ground shielding, a receiver hut under it, and a much newer building up the ridge.",
+      "hero": "shots/qd_cmb.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "qd_cmb",
+      "pair": "qd_cmb",
+      "shotsFrom": "qd_cmb",
+      "kind": "course",
+      "role": "Radio Astronomer · Hilltop Antenna",
+      "dayNoun": "Level",
+      "grade": 9,
+      "drama": "There is a hiss coming out of the sky and it will not go away. You are the radio astronomer on the site, which means the checks, the sky sweep and the arithmetic all come through you.",
+      "concepts": [
+        "An unexplained signal is an instrument problem until it survives the checks",
+        "A foreground is separated by where it is, not by how strong it is",
+        "The wavelength a thermal spectrum peaks at gives its temperature",
+        "A framework is judged by what it has to add to explain the same thing",
+        "One explanation that accounts for every clue at once"
+      ],
+      "size": {
+        "days": 3,
+        "stops": 9
+      },
+      "built": true
+    },
+    {
+      "id": "qd_hubble",
+      "title": "No Middle To It",
+      "course": "Astronomy · how a relation between distance and recession became an expanding universe",
+      "field": "Earth & Space",
+      "accent": "#2e3d48",
+      "place": "A 1920s mountain observatory: years of glass in numbered drawers on one side of the corridor, a spectrograph on its own pier on the other, and one plot at the end of it.",
+      "hero": "shots/qd_hubble.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "qd_hubble",
+      "pair": "qd_hubble",
+      "shotsFrom": "qd_hubble",
+      "kind": "course",
+      "role": "Observer · Mountain Observatory",
+      "dayNoun": "Level",
+      "grade": 9,
+      "drama": "Every faint nebula anybody has taken a spectrum of is running away from us, and nobody can say why. You are the observer who has been given both sets, which means the ladder, the shifts and the plot all come through you.",
+      "concepts": [
+        "A longer-period variable star is intrinsically brighter",
+        "Anything that makes a star look brighter makes it look closer",
+        "One line is an identification; several lines agreeing is a redshift",
+        "The slope with no structure left in the leftovers is the law",
+        "Uniform expansion has no middle to be standing at"
+      ],
+      "size": {
+        "days": 3,
+        "stops": 9
+      },
+      "built": true
     },
     {
       "id": "hospital",
