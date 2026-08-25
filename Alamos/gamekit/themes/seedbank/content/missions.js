@@ -7,23 +7,26 @@ export const MISSIONS = [
     "title": "What is actually in the vault",
     "objective": "Find out what Wellmere is holding and what it is doing while it sits there.",
     "briefing": "41000 accessions, and 60 of them overdue.",
-    "stake": "Monday, the first week of March. The sowing plan has to be signed by Friday. Wellmere keeps 41,000 seed samples in the vault at minus 18. Yusuf Mbaye, the seed physiologist, tests them for germination on a schedule. His schedule says 60 of them have dropped below the line. Below that line a sample has to be grown out this season. There is room in the ground for about 40. Chiara Volpe wants that ground for her own trial. Nasrin Qureshi, the collection curator, wants it for the collection. Both of them have a case. Today you find out what a seed is doing while it sits in that freezer.",
+    "stake": "Monday, the first week of March. Sixty samples in the vault have dropped below the germination line, and there is ground for forty of them. Today you find out what a seed is doing while it sits in a freezer.",
     "takeaway": "A stored seed is alive and spending itself, and everything in the vault is aimed at slowing that down.",
     "stops": [
       {
         "group": "VAULT",
         "lesson": 0,
-        "task": "Say what the cold and the drying are for"
+        "task": "Say what the cold and the drying are for",
+        "reason": "Before choosing which of the sixty to save, find out what the freezer is actually buying them"
       },
       {
         "group": "CROSS",
         "lesson": 0,
-        "task": "Say what a cross is for"
+        "task": "Say what a cross is for",
+        "reason": "She is the reason the ground is contested, and her case starts with what a cross is for"
       },
       {
         "group": "TRIAL",
         "lesson": 0,
-        "task": "Read the trial ground"
+        "task": "Read the trial ground",
+        "reason": "The ground the collection wants is ground the trial has already been promised, so learn what the trial needs it for"
       }
     ]
   },
@@ -31,23 +34,26 @@ export const MISSIONS = [
     "title": "What the generation tells you",
     "objective": "Read the second generation of last year's cross, and check it against a marker.",
     "briefing": "400 plants in the warm bay, and a ratio to count.",
-    "stake": "Tuesday. Volpe crossed two wheat parents in 2024. The second generation of that cross is in the warm bay now, 400 plants. It is the first generation where the parents' genes come apart and show themselves. Hana Nakagawa, the molecular laboratory lead, has run a marker test on the same plants. The test says 16 of them carry the rust resistance gene. Those 16 do not look like it. She wants the disagreement explained. Osman Toft, the agronomist, has grain drying in his hall. His trainees cannot say where the carbon in that grain came from. Today you read what those 400 plants are telling you.",
+    "stake": "Tuesday. Sixteen plants in the warm bay carry the rust gene by marker test, and not one of them looks like it. Today you read what four hundred second-generation plants are telling you.",
     "takeaway": "A ratio is evidence about what the parents carried, not a decoration on a data sheet.",
     "stops": [
       {
         "group": "CROSS",
         "lesson": 1,
-        "task": "Read what the second generation shows"
+        "task": "Read what the second generation shows",
+        "reason": "The four hundred plants are on the benches in the warm bay, and the count is the first thing anybody can check"
       },
       {
         "group": "LAB",
         "lesson": 0,
-        "task": "Fit the marker disagreement with recombination and assay error, then use PCR on the resistance gene itself to separate them."
+        "task": "Fit the marker disagreement with recombination and assay error, then use PCR on the resistance gene itself to separate them.",
+        "reason": "The marker and the plant disagree sixteen times, and only one of the two is wrong"
       },
       {
         "group": "DRY",
         "lesson": 0,
-        "task": "Say where the mass in the harvest came from"
+        "task": "Say where the mass in the harvest came from",
+        "reason": "Eleven tonnes came off one field last week and the trainees think it came out of the soil"
       }
     ]
   },
@@ -55,28 +61,32 @@ export const MISSIONS = [
     "title": "What a collection is made of",
     "objective": "Count what the vault holds at the level that actually matters.",
     "briefing": "Not varieties. Frequencies.",
-    "stake": "Wednesday. Tomas Ivanescu, the population geneticist, has genotyped one landrace from the vault. A landrace is an old farm variety, kept going by a farmer rather than by a breeder. The farmer Idris Fenn's grandfather gave this one to Wellmere in 1994. Ivanescu has put his numbers on the board instead of a description. He wants somebody to read them. Sylvie Pirelli, who keeps the data and the passport records, has found something else. Two sample numbers point at the same collection site. One of the two may be a copy. A copy still takes up a grow-out slot. Today you work out what those numbers say about the collection.",
+    "stake": "Wednesday. Two sample numbers in the vault point at the same field in 1994, and a copy still takes up a grow-out slot. Today you work out what a page of numbers says about the collection.",
     "takeaway": "A population is a set of frequencies, and everything the vault protects is in those numbers.",
     "stops": [
       {
         "group": "POP",
         "lesson": 0,
-        "task": "Work out what the sample says about the population"
+        "task": "Work out what the sample says about the population",
+        "reason": "The landrace from that 1994 field is genotyped and written up as numbers nobody has read yet"
       },
       {
         "group": "VAULT",
         "lesson": 1,
-        "task": "Decide how many plants a grow-out needs"
+        "task": "Decide how many plants a grow-out needs",
+        "reason": "They have to book glasshouse space this week, and the size of a grow-out is the thing nobody agrees on"
       },
       {
         "group": "TRIAL",
         "lesson": 1,
-        "task": "Hold the wheat line fixed, change one field variable at a time, then reverse the change."
+        "task": "Hold the wheat line fixed, change one field variable at a time, then reverse the change.",
+        "reason": "A duplicate would be worth freeing only if the trial's own layout can tell a line from the ground it stood on"
       },
       {
         "group": "VAULT",
         "lesson": 2,
-        "task": "Hold the drying room while the wet lots come in."
+        "task": "Hold the drying room while the wet lots come in.",
+        "reason": "Nothing goes through the vault door wet, and the lorries are still arriving off the field"
       }
     ]
   },
@@ -84,23 +94,26 @@ export const MISSIONS = [
     "title": "The season you do not get back",
     "objective": "Weigh a release against a delay, with a dry summer forecast.",
     "briefing": "WM-712 is ready. The ground it needs is the ground the vault wants.",
-    "stake": "Thursday, and the sowing plan is due tomorrow. Volpe's new line is called WM-712. It has been through 4 seasons of trials. In dry years it yields 11% over the standard variety. Releasing it needs the whole west ground for seed increase. Seed increase means growing a line up in bulk so a merchant has something to sell. That is the same ground Qureshi's 60 overdue samples would have used. The summer forecast is dry. The merchant wants an answer. Qureshi wants her regrowing slots. Each of them is right about something. Today you decide what goes in the west ground.",
+    "stake": "Thursday, and the sowing plan is due in the morning. The west ground will take a new wheat line into seed increase or forty overdue samples back into the collection, and not both. Today you decide what goes in the west ground.",
     "takeaway": "A delay is not neutral, and neither is a release; the question is which cost is recoverable.",
     "stops": [
       {
         "group": "CROSS",
         "lesson": 2,
-        "task": "Say what deferring the release costs"
+        "task": "Say what deferring the release costs",
+        "reason": "The release needs the whole west ground, and what a year of waiting costs is the case for giving it"
       },
       {
         "group": "TRIAL",
         "lesson": 2,
-        "task": "Say what four seasons of trials support"
+        "task": "Say what four seasons of trials support",
+        "reason": "Four seasons of trials are the case for the release, and today somebody has to say what they support"
       },
       {
         "group": "DRY",
         "lesson": 1,
-        "task": "Say why a dry summer costs yield"
+        "task": "Say why a dry summer costs yield",
+        "reason": "The summer forecast is dry, and eleven years of rainfall against yield say what that is worth"
       }
     ]
   },
@@ -108,23 +121,26 @@ export const MISSIONS = [
     "title": "What comes with what you wanted",
     "objective": "Find out what else the resistance gene is dragging behind it.",
     "briefing": "The resistant lines are shorter, and nobody bred them that way.",
-    "stake": "Friday, and the plan is signed. WM-712 goes to seed increase. 40 of the 60 overdue samples get regrown. Qureshi has put what she thinks of that in writing. In the glasshouse there is a new problem. The backcross lines that carry the rust resistance gene are all shorter than their sisters. Nobody selected for short. Nobody wants short. Nakagawa has marker data on those same lines and a question of her own. The marker was chosen two populations ago. She is not sure it still means anything here. Today you work out what came along with the gene.",
+    "stake": "Friday, and the plan is signed. Every backcross line that carries the rust gene came out shorter than its sisters, and nobody selected for short. Today you work out what came along with the gene.",
     "takeaway": "Genes near each other are inherited together, which is what makes markers work and what makes them expensive.",
     "stops": [
       {
         "group": "CROSS",
         "lesson": 3,
-        "task": "Explain the short plants"
+        "task": "Explain the short plants",
+        "reason": "The donor of that gene was a short landrace, and what else came across with it is today's question"
       },
       {
         "group": "LAB",
         "lesson": 1,
-        "task": "Test whether the marker still works here"
+        "task": "Test whether the marker still works here",
+        "reason": "The marker that picked those lines was fitted to a different cross, so it has to earn its cut-off again here"
       },
       {
         "group": "DRY",
         "lesson": 2,
-        "task": "Say what the shorter plants do to the harvest"
+        "task": "Say what the shorter plants do to the harvest",
+        "reason": "Fifteen centimetres of stem nobody asked for is either a fault or the best thing that happened all season"
       }
     ]
   },
@@ -132,23 +148,26 @@ export const MISSIONS = [
     "title": "How many is enough",
     "objective": "Put a number on what a regeneration needs, and on what the vault is losing.",
     "briefing": "40 accessions, 1 field, and a number nobody wants to hear.",
-    "stake": "Monday of the second week. The regrowing list has to be cut from 60 samples to 40. Ivanescu spent the weekend on how many plants a grow-out really needs. The number he got is not the number in the manual. Mbaye has 11 years of germination tests on one sample. Its curve is about to cross his line. Quiroga has a question from the trial ground. Last year's trial found a difference in plant height. This year's trial cannot see it. She wants to know which of the two to believe. Today you decide which 40 samples go in the ground.",
+    "stake": "Monday of the second week. The regrowing list has to come down from sixty samples to forty by tonight, and one of the sixty is about to cross the germination line. Today you decide which forty go in the ground.",
     "takeaway": "Every number here is about a population, and populations do not behave like the plants in them.",
     "stops": [
       {
         "group": "POP",
         "lesson": 1,
-        "task": "Estimate the effective size of this unequal-parent regeneration"
+        "task": "Estimate the effective size of this unequal-parent regeneration",
+        "reason": "Cutting sixty to forty is only defensible if a grow-out of forty plants is still a grow-out"
       },
       {
         "group": "VAULT",
         "lesson": 3,
-        "task": "Set the field-reservation and grow-out thresholds before replaying the viability record."
+        "task": "Set the field-reservation and grow-out thresholds before replaying the viability record.",
+        "reason": "One accession is a test away from the floor, and booking ground takes longer than the fall does"
       },
       {
         "group": "TRIAL",
         "lesson": 3,
-        "task": "Say why last year's height difference has gone"
+        "task": "Say why last year's height difference has gone",
+        "reason": "She has two years of trial that disagree, and which one is believed changes what is worth regrowing"
       }
     ]
   },
@@ -156,23 +175,26 @@ export const MISSIONS = [
     "title": "400 kilometres away",
     "objective": "Decide what to do about a disease that has not arrived.",
     "briefing": "A new race of the rust, reported on the other side of the border.",
-    "stake": "Tuesday. The regional bulletin has a new race of stem rust in it. The race is 400 kilometres east of here. It is on a variety that carries the same resistance gene as WM-712. That gene is not stopping it. WM-712 is already in seed increase. Nakagawa can screen the collection for a second resistance gene. Ivanescu can tell her which samples to look in. Neither of them can do it in one season without dropping something else. Wellmere has no rule that says when a warning this far away becomes work here. Today you decide what the screen looks for.",
+    "stake": "Tuesday. A new race of stem rust is four hundred kilometres east, on a wheat carrying the same resistance gene as the line now going into seed increase. Today you decide what the collection is screened for.",
     "takeaway": "A resistance that rests on one gene is a resistance the pathogen only has to solve once.",
     "stops": [
       {
         "group": "LAB",
         "lesson": 2,
-        "task": "Trace how a DNA change can become a resistance-breaking phenotype"
+        "task": "Trace how a DNA change can become a resistance-breaking phenotype",
+        "reason": "The gene that is failing east of here is the gene the released line carries, and nobody has said how it fails"
       },
       {
         "group": "POP",
         "lesson": 2,
-        "task": "Say where to look for a second gene"
+        "task": "Say where to look for a second gene",
+        "reason": "He can say which corners of the collection would hold a resistance nobody has ever needed"
       },
       {
         "group": "DRY",
         "lesson": 3,
-        "task": "Close a simplified 100-unit resource ledger for the resistant line and identify the unlisted allocation."
+        "task": "Close a simplified 100-unit resource ledger for the resistant line and identify the unlisted allocation.",
+        "reason": "The resistant line quietly yields two per cent less, and a screen is worth less if every hit costs that"
       }
     ]
   },
@@ -180,23 +202,26 @@ export const MISSIONS = [
     "title": "What you asked for and what you got",
     "objective": "Predict what one round of selection will actually deliver.",
     "briefing": "The best 20 plots, and what their offspring will be like.",
-    "stake": "Wednesday. The trial is scored. Volpe wants to take the best 20 plots out of 240 forward, and she has her 20 marked on the plan already. 240 plots is the whole trial, sown before the rust warning came. Quiroga has run the numbers on what those 20 plots would actually give the programme next year. Bengtsson can find the programme one extra generation in the warm bay. He needs the decision this week. Toft has finally got his canopy data. It explains why 2 of the 20 are good. Today you decide what the trial carries forward.",
+    "stake": "Wednesday, and the trial is scored. Twenty of its 240 plots are already marked to carry forward, and the canopy data explains only two of them. Today you decide what the trial sends into next year.",
     "takeaway": "What a round of selection returns is the part of the difference that was inherited, and no more.",
     "stops": [
       {
         "group": "TRIAL",
         "lesson": 4,
-        "task": "Predict the gain"
+        "task": "Predict the gain",
+        "reason": "The twenty marked plots average far above the trial, and what survives to next year is a smaller number"
       },
       {
         "group": "CROSS",
         "lesson": 4,
-        "task": "Decide what the extra generation is for"
+        "task": "Decide what the extra generation is for",
+        "reason": "He can find the programme one more generation this year, and it has to be spent on something today"
       },
       {
         "group": "DRY",
         "lesson": 4,
-        "task": "Say what explains 2 of the 20"
+        "task": "Say what explains 2 of the 20",
+        "reason": "The canopy data explains two of the twenty, and knowing why is what tells you about the other eighteen"
       }
     ]
   },
@@ -204,23 +229,26 @@ export const MISSIONS = [
     "title": "The collection is not what the records say",
     "objective": "Find out why the regenerated accessions no longer match their own passports.",
     "briefing": "A genotyping run that was meant to be routine.",
-    "stake": "Thursday. Nakagawa ran a routine marker panel across 90 samples. She was only building a reference set. A third of the 90 do not match their passport records. Same sample numbers, same paperwork, different plants. Pirelli has checked the labelling twice and found nothing wrong with it. A gene bank sells one thing, which is knowing what is in the packet. Qureshi went down to the vault an hour ago. She has not come back up. 50 of these samples are the ones being screened for rust resistance. Today you work out what has happened to those samples.",
+    "stake": "Thursday. A marker panel run across ninety samples came back with thirty that are not the plants their records say they are. Today you work out what has happened to those samples.",
     "takeaway": "A collection can be kept perfectly and still stop being the thing it was.",
     "stops": [
       {
         "group": "POP",
         "lesson": 3,
-        "task": "Open the dependencies behind the genetic and viability results, keep the independent evidence, and name the shared source behind the shifts."
+        "task": "Open the dependencies behind the genetic and viability results, keep the independent evidence, and name the shared source behind the shifts.",
+        "reason": "Four channels of evidence are pinned up in the records office, and they may all be one channel"
       },
       {
         "group": "LAB",
         "lesson": 3,
-        "task": "Say what this does to the rust screen"
+        "task": "Say what this does to the rust screen",
+        "reason": "Fifty of the mismatched samples are the ones queued for the rust screen, and nobody has said what that costs it"
       },
       {
         "group": "VAULT",
         "lesson": 4,
-        "task": "Say what the vault can still be trusted for"
+        "task": "Say what the vault can still be trusted for",
+        "reason": "The store is being blamed for something, and they are the one who can say what it can still be trusted for"
       }
     ]
   },
@@ -228,23 +256,26 @@ export const MISSIONS = [
     "title": "What is left to work with",
     "objective": "Rebuild the season's plan around material that has not been through a bottleneck.",
     "briefing": "The vault is one copy. The other one is in a field 40 miles away.",
-    "stake": "Friday. The finding is written up and the season has to be planned again around it. 22 of the 50 screening candidates cannot be trusted now. The ground is already committed. One source of material is left outside the vault. Idris Fenn has 4 landraces on his farm. He has grown them every year, and his own weather has done the selecting. Fenn is willing to hand them over. Volpe points out, not unfairly, that none of this changes what is already in seed increase. Today you decide what the rust screen is run on.",
+    "stake": "Friday. Twenty-two of the fifty samples queued for the rust screen cannot be trusted now, and the ground for this season is already committed. Today you decide what the screen is run on instead.",
     "takeaway": "A collection kept in one place is one copy, however carefully it is kept.",
     "stops": [
       {
         "group": "POP",
         "lesson": 4,
-        "task": "Say what on-farm material offers"
+        "task": "Say what on-farm material offers",
+        "reason": "A farmer down the causeway has kept four landraces alive for forty years, and he is offering them"
       },
       {
         "group": "VAULT",
         "lesson": 5,
-        "task": "Order what a regeneration standard has to fix, most binding first."
+        "task": "Order what a regeneration standard has to fix, most binding first.",
+        "reason": "A standard written this week has to outlive four season leads, and the ground it has to fit never grows"
       },
       {
         "group": "TRIAL",
         "lesson": 5,
-        "task": "Spend the ground you can free without spending the trial's ability to answer."
+        "task": "Spend the ground you can free without spending the trial's ability to answer.",
+        "reason": "Every plot for the screen has to come out of a trial that is already laid out and already promised"
       }
     ]
   },
@@ -252,28 +283,32 @@ export const MISSIONS = [
     "title": "A week when the work is just the work",
     "objective": "Sow the ground, and do the things that only get done when nothing is wrong.",
     "briefing": "The drill is in the field and the forecast is kind.",
-    "stake": "Monday of the third week, and for once there is nothing to argue about. The trial is drilled. The screening nursery is in on the headland. Fenn's 4 landraces went in on Saturday. The forecast is a fortnight of ordinary weather. Cloud sits on the ridge north of the shelterbelt and nothing else is in the sky. Wren Ashworth, the genebank technician, has the vault door open and a backlog of packets to re-bag. Toft is out with the canopy meter, because this is the week the readings are worth taking. Today you spend a quiet week on the jobs a busy week makes impossible.",
+    "stake": "Monday of the third week, and nothing is on fire. The trial is drilled, the nursery is in, and the forecast says two weeks of plain weather. Today you spend a quiet week on the jobs a busy week crowds out.",
     "takeaway": "A quiet week is when the work that has no deadline finally gets done.",
     "stops": [
       {
         "group": "DRY",
         "lesson": 5,
-        "task": "Take the readings that need a growing crop"
+        "task": "Take the readings that need a growing crop",
+        "reason": "Half of the year's agronomy can only be read off a crop that is still growing, and it is growing now"
       },
       {
         "group": "VAULT",
         "lesson": 6,
-        "task": "Keep the worsening vault problem and delegate the other two with an owner, first action and return condition."
+        "task": "Keep the worsening vault problem and delegate the other two with an owner, first action and return condition.",
+        "reason": "He has three jobs and one week, and one of the three is taking seed apart while it waits"
       },
       {
         "group": "CROSS",
         "lesson": 5,
-        "task": "Order what has to happen to make a controlled cross."
+        "task": "Order what has to happen to make a controlled cross.",
+        "reason": "Two parents are in flower together for about eleven days, and the crossing bench has to be ready before they are not"
       },
       {
         "group": "DRY",
         "lesson": 6,
-        "task": "Sort the harvest bags before the store closes."
+        "task": "Sort the harvest bags before the store closes.",
+        "reason": "Two hours of heads are still open to the wind and the store shuts at five"
       }
     ]
   },
@@ -281,23 +316,26 @@ export const MISSIONS = [
     "title": "The rust arrives",
     "objective": "Find a second resistance gene, in a collection that may no longer have one.",
     "briefing": "200 kilometres in 4 days, and WM-712 is in the ground.",
-    "stake": "Tuesday. The wind has come round off the foothills. The new race of rust is 200 kilometres closer than it was on Friday. There are pustules on the screening nursery this morning. WM-712's sister lines are in that same nursery. One resistance gene is not holding. Volpe was right in March about the season, and she has stopped arguing. Nakagawa's screen of the 50 candidates has come back with 2 hits. Ivanescu can tell you what is wrong with both of them. Today you find out what the collection can still offer.",
+    "stake": "Tuesday. There are rust pustules on the screening nursery this morning, and the sister lines of the released wheat are standing in it. Today you find out what the collection can still offer.",
     "takeaway": "The insurance was bought decades ago by people who did not know what for, and only some of it survived.",
     "stops": [
       {
         "group": "LAB",
         "lesson": 4,
-        "task": "Spend the two evidence credits on checks that can change which positive accession receives the single increase slot."
+        "task": "Spend the two evidence credits on checks that can change which positive accession receives the single increase slot.",
+        "reason": "The screen found two positives and there is one increase slot, so one of them waits a year"
       },
       {
         "group": "POP",
         "lesson": 5,
-        "task": "What happened to the resistance in this accession?"
+        "task": "What happened to the resistance in this accession?",
+        "reason": "The 1994 notes say one plant in twenty stayed clean in that field, and today's sample has none"
       },
       {
         "group": "VAULT",
         "lesson": 7,
-        "task": "Say where the rest of the collection's insurance is"
+        "task": "Say where the rest of the collection's insurance is",
+        "reason": "If the collection cannot supply a second gene, the next place to look is not a collection"
       }
     ]
   },
@@ -305,28 +343,32 @@ export const MISSIONS = [
     "title": "Three things before the drill",
     "objective": "Rank a nursery, a merchant and a phone call.",
     "briefing": "The rust is here, the merchant wants an answer, and the seed increase is halfway.",
-    "stake": "Wednesday, and three things need deciding before the drill goes out at two. The screening nursery is infected. Nakagawa can score it today, or lose the reading to fungicide drift from the farm next door. The merchant wants WM-712 confirmed or cancelled by 5. There are already 40 tonnes of its seed in store. And Fenn has rung. He has rust in the field his landraces are in. That is either a disaster or the most useful thing that has happened all season. Today you decide the order and live with it.",
+    "stake": "Wednesday. The drill goes out at two, the merchant wants an answer by five, and the infected nursery has to be scored before the spray drifts over it. Today you decide the order and live with it.",
     "takeaway": "Three urgent things are three decisions, and the order is one of them.",
     "stops": [
       {
         "group": "TRIAL",
         "lesson": 6,
-        "task": "Decide what gets done first"
+        "task": "Decide what gets done first",
+        "reason": "Three things want doing before two o'clock and only one of them is still possible tomorrow"
       },
       {
         "group": "CROSS",
         "lesson": 6,
-        "task": "Answer the merchant"
+        "task": "Answer the merchant",
+        "reason": "She has forty tonnes of seed in store and a merchant who wants a yes or a no by five"
       },
       {
         "group": "POP",
         "lesson": 6,
-        "task": "Decide what to do about Fenn's field"
+        "task": "Decide what to do about Fenn's field",
+        "reason": "Rust in a landrace field is a disaster or a gift, and the tape and bags are already on the bench"
       },
       {
         "group": "POP",
         "lesson": 7,
-        "task": "Rogue the nursery to whatever the standing instruction says."
+        "task": "Rogue the nursery to whatever the standing instruction says.",
+        "reason": "The crew is working to whatever is chalked at the end of the nursery row, and nobody has read it since the season turned"
       }
     ]
   },
@@ -334,23 +376,26 @@ export const MISSIONS = [
     "title": "What goes in the crossing block",
     "objective": "Decide what the next seven years are made of, on the last day it can be changed.",
     "briefing": "The block is drilled tomorrow. After that the parents are fixed.",
-    "stake": "Thursday. The crossing block goes in tomorrow morning. It decides what the programme works on until 2033. A cross made in it is a finished line in 4 years and a release in 7. Volpe has her list of parents. Qureshi has hers. This year the two lists overlap more than they ever have. The screen found one clean source of a second resistance gene. Fenn has 40 marked plants being threshed one at a time. There is room in the block for 8 crosses. Today you fix the eight. After tomorrow nothing in this season can be changed.",
+    "stake": "Thursday. The crossing block goes in tomorrow morning with room for eight crosses, and what is in it is the programme's work until 2033. Today you fix the eight, and after tomorrow nothing in this season can change.",
     "takeaway": "A crossing block is a decision about a decade, made in one morning with what is to hand.",
     "stops": [
       {
         "group": "CROSS",
         "lesson": 7,
-        "task": "Spend eight programme slots across four crossing packages and preserve both resistance goals."
+        "task": "Spend eight programme slots across four crossing packages and preserve both resistance goals.",
+        "reason": "Eight slots go on the board this morning and every name anybody has proposed is still on it"
       },
       {
         "group": "POP",
         "lesson": 8,
-        "task": "Say what the block does to the programme's base"
+        "task": "Say what the block does to the programme's base",
+        "reason": "Six elite parents are pinned across the wall and four of them share a grandparent"
       },
       {
         "group": "LAB",
         "lesson": 5,
-        "task": "Decide what to screen early and what the finished line must still prove"
+        "task": "Decide what to screen early and what the finished line must still prove",
+        "reason": "Some of the eight can be proved by DNA and some only by growing a plant and infecting it, and today decides which"
       }
     ]
   },
@@ -358,23 +403,26 @@ export const MISSIONS = [
     "title": "What the season established",
     "objective": "Say what Wellmere knows now, what it cost, and what changes.",
     "briefing": "The block is in. The rust is here. The collection is smaller than the catalogue says.",
-    "stake": "Friday, and the season is set. The crossing block went in yesterday. WM-712 was released with its weakness written on the label. The drifted samples are on a list that will take 15 years to work through. Fenn's marked plants are drying in 40 paper bags with his handwriting on them. The board meets on Monday. The season record goes on the table in front of them. Qureshi has to say what happened here in words that somebody who funds a gene bank will understand. Today you settle what this season established and what it cost to find out.",
+    "stake": "Friday, and the season is set. The board meets on Monday, and somebody has to tell them what three weeks of decisions put in the ground. Today you settle what the season established and what it cost.",
     "takeaway": "A collection is only as good as the last time each accession was grown, and now Wellmere knows which.",
     "stops": [
       {
         "group": "VAULT",
         "lesson": 8,
-        "task": "Say what the season established about the collection"
+        "task": "Say what the season established about the collection",
+        "reason": "The board will be told what the collection holds, and the passport run is where that claim is either true or not"
       },
       {
         "group": "TRIAL",
         "lesson": 7,
-        "task": "Say what the season's trial data supports"
+        "task": "Say what the season's trial data supports",
+        "reason": "She has to sign off what this year's trial data supports before anybody quotes it at the board"
       },
       {
         "group": "DRY",
         "lesson": 7,
-        "task": "Say what the year's agronomy is worth keeping"
+        "task": "Say what the year's agronomy is worth keeping",
+        "reason": "Twelve seasons of records are in the hall and nobody has ever asked for the series until now"
       }
     ]
   }
@@ -403,7 +451,33 @@ export const WARMUPS = {
       "name": "bagged head",
       "plural": "bagged heads"
     },
-    "why": "Every bagged head in the crossing block has to be accounted for before the wind gets up, because a bag that has come off is a cross with an unknown father and nothing downstream can recover which one it was. Four are where the sheet says. Find the other two."
+    "at": [
+      {
+        "x": 0,
+        "z": 14
+      },
+      {
+        "x": -12,
+        "z": 8
+      },
+      {
+        "x": 13,
+        "z": 11
+      },
+      {
+        "x": -24,
+        "z": -28
+      },
+      {
+        "x": 0,
+        "z": -38
+      },
+      {
+        "x": -46,
+        "z": -46
+      }
+    ],
+    "why": "Every head bagged this spring has to be accounted for before the wind gets up, because a bag that has come off is a cross with an unknown father and nothing downstream can recover which one it was. Four are where the sheet says. Find the other two."
   },
   "canvass": {
     "title": "Which growers actually kept the seed apart",

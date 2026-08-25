@@ -123,21 +123,6 @@ export const CURRICULUM = {
           ],
           "s": "Doubling your distance from a lamp leaves a quarter of the light, which is why a doorway a few metres further from a streetlight is very much darker rather than a little darker.",
           "computed": true
-        },
-        {
-          "e": "detail in mm = distance in metres × 0.3",
-          "c": "the smallest thing an eye can still separate",
-          "v": [
-            [
-              "detail in mm",
-              "the smallest gap two things can have and still look like two things"
-            ],
-            [
-              "distance in metres",
-              "how far away the person was standing"
-            ]
-          ],
-          "s": "The further away something is, the bigger it has to be before you can make it out at all — which turns a distance in the file into a hard limit on what any witness could have seen."
         }
       ],
       "concept": {
@@ -205,38 +190,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the eye adjusts to the general level of light it is in"
-      ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "how many did the thing you are counting"
-            ],
-            [
-              "whole",
-              "how many there were altogether"
-            ]
-          ],
-          "s": "A raw count means nothing until you know what it is out of, and a percentage is the form that lets two counts from different-sized groups be compared at all."
-        },
-        {
-          "e": "light on a spot = lamp brightness ÷ (distance × distance)",
-          "c": "how fast light runs out as you move away from a lamp",
-          "v": [
-            [
-              "lamp brightness",
-              "how strong the lamp is, in candela"
-            ],
-            [
-              "distance",
-              "how far the spot is from the lamp, in metres"
-            ]
-          ],
-          "s": "Doubling your distance from a lamp leaves a quarter of the light, which is why a doorway a few metres further from a streetlight is very much darker rather than a little darker."
-        }
       ],
       "concept": {
         "n": 3,
@@ -402,34 +355,6 @@ export const CURRICULUM = {
       "assumes": [
         "a measurement can be repeated by somebody who was not there"
       ],
-      "equations": [
-        {
-          "e": "chance of a lucky pick (%) = 100 ÷ number of real choices",
-          "c": "how often a guess lands on one particular face",
-          "v": [
-            [
-              "number of real choices",
-              "how many of the faces somebody might actually pick, given the description"
-            ]
-          ],
-          "s": "A line-up is only as big as the number of faces a witness might really choose, so counting the real choices says how often a pure guess would land on the suspect."
-        },
-        {
-          "e": "light on a spot = lamp brightness ÷ (distance × distance)",
-          "c": "how fast light runs out as you move away from a lamp",
-          "v": [
-            [
-              "lamp brightness",
-              "how strong the lamp is, in candela"
-            ],
-            [
-              "distance",
-              "how far the spot is from the lamp, in metres"
-            ]
-          ],
-          "s": "Doubling your distance from a lamp leaves a quarter of the light, which is why a doorway a few metres further from a streetlight is very much darker rather than a little darker."
-        }
-      ],
       "concept": {
         "n": 4,
         "c": "Measure it instead of arguing about it",
@@ -469,70 +394,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "illuminance depends on the distance from the source to the surface being lit"
-      ],
-      "equations": [
-        {
-          "e": "detail in mm = distance in metres × 0.3",
-          "c": "the smallest thing an eye can still separate",
-          "v": [
-            [
-              "detail in mm",
-              "the smallest gap two things can have and still look like two things"
-            ],
-            [
-              "distance in metres",
-              "how far away the person was standing"
-            ]
-          ],
-          "s": "The further away something is, the bigger it has to be before you can make it out at all — which turns a distance in the file into a hard limit on what any witness could have seen."
-        },
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "how many did the thing you are counting"
-            ],
-            [
-              "whole",
-              "how many there were altogether"
-            ]
-          ],
-          "s": "A raw count means nothing until you know what it is out of, and a percentage is the form that lets two counts from different-sized groups be compared at all."
-        },
-        {
-          "e": "average = total ÷ how many",
-          "c": "what several readings of one thing come to",
-          "v": [
-            [
-              "total",
-              "all the readings added together"
-            ],
-            [
-              "how many",
-              "the number of readings taken"
-            ]
-          ],
-          "s": "One reading can be out by luck and the average of several is steadier, which is why anything that matters gets measured more than once.",
-          "card": false
-        },
-        {
-          "e": "light on a spot = lamp brightness ÷ (distance × distance)",
-          "c": "how fast light runs out as you move away from a lamp",
-          "v": [
-            [
-              "lamp brightness",
-              "how strong the lamp is, in candela"
-            ],
-            [
-              "distance",
-              "how far the spot is from the lamp, in metres"
-            ]
-          ],
-          "s": "Doubling your distance from a lamp leaves a quarter of the light, which is why a doorway a few metres further from a streetlight is very much darker rather than a little darker.",
-          "card": false
-        }
       ],
       "concept": {
         "n": 3,
@@ -579,38 +440,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the eye works differently in bright light and in near darkness"
-      ],
-      "equations": [
-        {
-          "e": "detail in mm = distance in metres × 0.3",
-          "c": "the smallest thing an eye can still separate",
-          "v": [
-            [
-              "detail in mm",
-              "the smallest gap two things can have and still look like two things"
-            ],
-            [
-              "distance in metres",
-              "how far away the person was standing"
-            ]
-          ],
-          "s": "The further away something is, the bigger it has to be before you can make it out at all — which turns a distance in the file into a hard limit on what any witness could have seen."
-        },
-        {
-          "e": "light on a spot = lamp brightness ÷ (distance × distance)",
-          "c": "how fast light runs out as you move away from a lamp",
-          "v": [
-            [
-              "lamp brightness",
-              "how strong the lamp is, in candela"
-            ],
-            [
-              "distance",
-              "how far the spot is from the lamp, in metres"
-            ]
-          ],
-          "s": "Doubling your distance from a lamp leaves a quarter of the light, which is why a doorway a few metres further from a streetlight is very much darker rather than a little darker."
-        }
       ],
       "concept": {
         "n": 3,
@@ -726,38 +555,6 @@ export const CURRICULUM = {
       "assumes": [
         "memory is built from what was attended to during an event"
       ],
-      "equations": [
-        {
-          "e": "detail in mm = distance in metres × 0.3",
-          "c": "the smallest thing an eye can still separate",
-          "v": [
-            [
-              "detail in mm",
-              "the smallest gap two things can have and still look like two things"
-            ],
-            [
-              "distance in metres",
-              "how far away the person was standing"
-            ]
-          ],
-          "s": "The further away something is, the bigger it has to be before you can make it out at all — which turns a distance in the file into a hard limit on what any witness could have seen."
-        },
-        {
-          "e": "light on a spot = lamp brightness ÷ (distance × distance)",
-          "c": "how fast light runs out as you move away from a lamp",
-          "v": [
-            [
-              "lamp brightness",
-              "how strong the lamp is, in candela"
-            ],
-            [
-              "distance",
-              "how far the spot is from the lamp, in metres"
-            ]
-          ],
-          "s": "Doubling your distance from a lamp leaves a quarter of the light, which is why a doorway a few metres further from a streetlight is very much darker rather than a little darker."
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "Memory is rebuilt each time, not played back",
@@ -800,23 +597,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a question can introduce a detail that was not in the witness's own account"
-      ],
-      "equations": [
-        {
-          "e": "detail in mm = distance in metres × 0.3",
-          "c": "the smallest thing an eye can still separate",
-          "v": [
-            [
-              "detail in mm",
-              "the smallest gap two things can have and still look like two things"
-            ],
-            [
-              "distance in metres",
-              "how far away the person was standing"
-            ]
-          ],
-          "s": "The further away something is, the bigger it has to be before you can make it out at all — which turns a distance in the file into a hard limit on what any witness could have seen."
-        }
       ],
       "concept": {
         "n": 7,
@@ -912,23 +692,6 @@ export const CURRICULUM = {
       "assumes": [
         "a remembered detail carries no label saying where it came from"
       ],
-      "equations": [
-        {
-          "e": "detail in mm = distance in metres × 0.3",
-          "c": "the smallest thing an eye can still separate",
-          "v": [
-            [
-              "detail in mm",
-              "the smallest gap two things can have and still look like two things"
-            ],
-            [
-              "distance in metres",
-              "how far away the person was standing"
-            ]
-          ],
-          "s": "The further away something is, the bigger it has to be before you can make it out at all — which turns a distance in the file into a hard limit on what any witness could have seen."
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "Memory is rebuilt each time, not played back",
@@ -968,23 +731,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "people waiting together talk about what has just happened"
-      ],
-      "equations": [
-        {
-          "e": "detail in mm = distance in metres × 0.3",
-          "c": "the smallest thing an eye can still separate",
-          "v": [
-            [
-              "detail in mm",
-              "the smallest gap two things can have and still look like two things"
-            ],
-            [
-              "distance in metres",
-              "how far away the person was standing"
-            ]
-          ],
-          "s": "The further away something is, the bigger it has to be before you can make it out at all — which turns a distance in the file into a hard limit on what any witness could have seen."
-        }
       ],
       "concept": {
         "n": 8,
@@ -1052,38 +798,6 @@ export const CURRICULUM = {
       "assumes": [
         "an account can be compared with an earlier account by the same person"
       ],
-      "equations": [
-        {
-          "e": "detail in mm = distance in metres × 0.3",
-          "c": "the smallest thing an eye can still separate",
-          "v": [
-            [
-              "detail in mm",
-              "the smallest gap two things can have and still look like two things"
-            ],
-            [
-              "distance in metres",
-              "how far away the person was standing"
-            ]
-          ],
-          "s": "The further away something is, the bigger it has to be before you can make it out at all — which turns a distance in the file into a hard limit on what any witness could have seen."
-        },
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "how many did the thing you are counting"
-            ],
-            [
-              "whole",
-              "how many there were altogether"
-            ]
-          ],
-          "s": "A raw count means nothing until you know what it is out of, and a percentage is the form that lets two counts from different-sized groups be compared at all."
-        }
-      ],
       "concept": {
         "n": 12,
         "c": "How sure somebody is, and when they said it",
@@ -1127,54 +841,6 @@ export const CURRICULUM = {
       "assumes": [
         "attention selects part of a scene at a time"
       ],
-      "equations": [
-        {
-          "e": "detail in mm = distance in metres × 0.3",
-          "c": "the smallest thing an eye can still separate",
-          "v": [
-            [
-              "detail in mm",
-              "the smallest gap two things can have and still look like two things"
-            ],
-            [
-              "distance in metres",
-              "how far away the person was standing"
-            ]
-          ],
-          "s": "The further away something is, the bigger it has to be before you can make it out at all — which turns a distance in the file into a hard limit on what any witness could have seen."
-        },
-        {
-          "e": "average = total ÷ how many",
-          "c": "what several readings of one thing come to",
-          "v": [
-            [
-              "total",
-              "all the readings added together"
-            ],
-            [
-              "how many",
-              "the number of readings taken"
-            ]
-          ],
-          "s": "One reading can be out by luck and the average of several is steadier, which is why anything that matters gets measured more than once."
-        },
-        {
-          "e": "light on a spot = lamp brightness ÷ (distance × distance)",
-          "c": "how fast light runs out as you move away from a lamp",
-          "v": [
-            [
-              "lamp brightness",
-              "how strong the lamp is, in candela"
-            ],
-            [
-              "distance",
-              "how far the spot is from the lamp, in metres"
-            ]
-          ],
-          "s": "Doubling your distance from a lamp leaves a quarter of the light, which is why a doorway a few metres further from a streetlight is very much darker rather than a little darker.",
-          "card": false
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "Memory is rebuilt each time, not played back",
@@ -1214,23 +880,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a question can be asked more than once about the same detail"
-      ],
-      "equations": [
-        {
-          "e": "detail in mm = distance in metres × 0.3",
-          "c": "the smallest thing an eye can still separate",
-          "v": [
-            [
-              "detail in mm",
-              "the smallest gap two things can have and still look like two things"
-            ],
-            [
-              "distance in metres",
-              "how far away the person was standing"
-            ]
-          ],
-          "s": "The further away something is, the bigger it has to be before you can make it out at all — which turns a distance in the file into a hard limit on what any witness could have seen."
-        }
       ],
       "concept": {
         "n": 7,
@@ -1369,34 +1018,6 @@ export const CURRICULUM = {
       "assumes": [
         "a lineup is built to be consistent with the description already given"
       ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "how many did the thing you are counting"
-            ],
-            [
-              "whole",
-              "how many there were altogether"
-            ]
-          ],
-          "s": "A raw count means nothing until you know what it is out of, and a percentage is the form that lets two counts from different-sized groups be compared at all."
-        },
-        {
-          "e": "chance of a lucky pick (%) = 100 ÷ number of real choices",
-          "c": "how often a guess lands on one particular face",
-          "v": [
-            [
-              "number of real choices",
-              "how many of the faces somebody might actually pick, given the description"
-            ]
-          ],
-          "s": "A line-up is only as big as the number of faces a witness might really choose, so counting the real choices says how often a pure guess would land on the suspect."
-        }
-      ],
       "concept": {
         "n": 6,
         "c": "A fair test changes one thing and holds the rest",
@@ -1444,19 +1065,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a witness expects an investigation to have found somebody before showing an array"
-      ],
-      "equations": [
-        {
-          "e": "chance of a lucky pick (%) = 100 ÷ number of real choices",
-          "c": "how often a guess lands on one particular face",
-          "v": [
-            [
-              "number of real choices",
-              "how many of the faces somebody might actually pick, given the description"
-            ]
-          ],
-          "s": "A line-up is only as big as the number of faces a witness might really choose, so counting the real choices says how often a pure guess would land on the suspect."
-        }
       ],
       "concept": {
         "n": 11,
@@ -1515,17 +1123,6 @@ export const CURRICULUM = {
           ],
           "s": "A raw count means nothing until you know what it is out of, and a percentage is the form that lets two counts from different-sized groups be compared at all.",
           "computed": true
-        },
-        {
-          "e": "chance of a lucky pick (%) = 100 ÷ number of real choices",
-          "c": "how often a guess lands on one particular face",
-          "v": [
-            [
-              "number of real choices",
-              "how many of the faces somebody might actually pick, given the description"
-            ]
-          ],
-          "s": "A line-up is only as big as the number of faces a witness might really choose, so counting the real choices says how often a pure guess would land on the suspect."
         }
       ],
       "concept": {
@@ -1597,38 +1194,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a limit on what could be seen is not evidence about who was there"
-      ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "how many did the thing you are counting"
-            ],
-            [
-              "whole",
-              "how many there were altogether"
-            ]
-          ],
-          "s": "A raw count means nothing until you know what it is out of, and a percentage is the form that lets two counts from different-sized groups be compared at all."
-        },
-        {
-          "e": "light on a spot = lamp brightness ÷ (distance × distance)",
-          "c": "how fast light runs out as you move away from a lamp",
-          "v": [
-            [
-              "lamp brightness",
-              "how strong the lamp is, in candela"
-            ],
-            [
-              "distance",
-              "how far the spot is from the lamp, in metres"
-            ]
-          ],
-          "s": "Doubling your distance from a lamp leaves a quarter of the light, which is why a doorway a few metres further from a streetlight is very much darker rather than a little darker."
-        }
       ],
       "concept": {
         "n": 15,
@@ -1766,19 +1331,6 @@ export const CURRICULUM = {
       "assumes": [
         "people differ in how much experience they have of particular faces"
       ],
-      "equations": [
-        {
-          "e": "chance of a lucky pick (%) = 100 ÷ number of real choices",
-          "c": "how often a guess lands on one particular face",
-          "v": [
-            [
-              "number of real choices",
-              "how many of the faces somebody might actually pick, given the description"
-            ]
-          ],
-          "s": "A line-up is only as big as the number of faces a witness might really choose, so counting the real choices says how often a pure guess would land on the suspect."
-        }
-      ],
       "concept": {
         "n": 10,
         "c": "A line-up needs choices somebody might really pick",
@@ -1867,23 +1419,6 @@ export const CURRICULUM = {
         "a threat triggers a fast alarm response before any decision is made",
         "attention narrows under threat"
       ],
-      "equations": [
-        {
-          "e": "detail in mm = distance in metres × 0.3",
-          "c": "the smallest thing an eye can still separate",
-          "v": [
-            [
-              "detail in mm",
-              "the smallest gap two things can have and still look like two things"
-            ],
-            [
-              "distance in metres",
-              "how far away the person was standing"
-            ]
-          ],
-          "s": "The further away something is, the bigger it has to be before you can make it out at all — which turns a distance in the file into a hard limit on what any witness could have seen."
-        }
-      ],
       "concept": {
         "n": 13,
         "c": "Being tired, frightened or hurt changes what you notice",
@@ -1931,23 +1466,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the stress response has a time course that can be measured"
-      ],
-      "equations": [
-        {
-          "e": "detail in mm = distance in metres × 0.3",
-          "c": "the smallest thing an eye can still separate",
-          "v": [
-            [
-              "detail in mm",
-              "the smallest gap two things can have and still look like two things"
-            ],
-            [
-              "distance in metres",
-              "how far away the person was standing"
-            ]
-          ],
-          "s": "The further away something is, the bigger it has to be before you can make it out at all — which turns a distance in the file into a hard limit on what any witness could have seen."
-        }
       ],
       "concept": {
         "n": 12,
@@ -2062,23 +1580,6 @@ export const CURRICULUM = {
       "assumes": [
         "the ability to weigh a future consequence against a present one degrades without sleep"
       ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "how many did the thing you are counting"
-            ],
-            [
-              "whole",
-              "how many there were altogether"
-            ]
-          ],
-          "s": "A raw count means nothing until you know what it is out of, and a percentage is the form that lets two counts from different-sized groups be compared at all."
-        }
-      ],
       "concept": {
         "n": 13,
         "c": "Being tired, frightened or hurt changes what you notice",
@@ -2121,23 +1622,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "people can report how clear a memory feels to them"
-      ],
-      "equations": [
-        {
-          "e": "detail in mm = distance in metres × 0.3",
-          "c": "the smallest thing an eye can still separate",
-          "v": [
-            [
-              "detail in mm",
-              "the smallest gap two things can have and still look like two things"
-            ],
-            [
-              "distance in metres",
-              "how far away the person was standing"
-            ]
-          ],
-          "s": "The further away something is, the bigger it has to be before you can make it out at all — which turns a distance in the file into a hard limit on what any witness could have seen."
-        }
       ],
       "concept": {
         "n": 12,
@@ -2244,23 +1728,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "people adjust what they say to the reaction they are getting"
-      ],
-      "equations": [
-        {
-          "e": "detail in mm = distance in metres × 0.3",
-          "c": "the smallest thing an eye can still separate",
-          "v": [
-            [
-              "detail in mm",
-              "the smallest gap two things can have and still look like two things"
-            ],
-            [
-              "distance in metres",
-              "how far away the person was standing"
-            ]
-          ],
-          "s": "The further away something is, the bigger it has to be before you can make it out at all — which turns a distance in the file into a hard limit on what any witness could have seen."
-        }
       ],
       "concept": {
         "n": 8,
@@ -2406,21 +1873,6 @@ export const CURRICULUM = {
           ],
           "s": "One reading can be out by luck and the average of several is steadier, which is why anything that matters gets measured more than once.",
           "computed": true
-        },
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "how many did the thing you are counting"
-            ],
-            [
-              "whole",
-              "how many there were altogether"
-            ]
-          ],
-          "s": "A raw count means nothing until you know what it is out of, and a percentage is the form that lets two counts from different-sized groups be compared at all."
         }
       ],
       "concept": {
@@ -2473,50 +1925,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "claims of different kinds cannot be defended in the same way"
-      ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "how many did the thing you are counting"
-            ],
-            [
-              "whole",
-              "how many there were altogether"
-            ]
-          ],
-          "s": "A raw count means nothing until you know what it is out of, and a percentage is the form that lets two counts from different-sized groups be compared at all."
-        },
-        {
-          "e": "chance of a lucky pick (%) = 100 ÷ number of real choices",
-          "c": "how often a guess lands on one particular face",
-          "v": [
-            [
-              "number of real choices",
-              "how many of the faces somebody might actually pick, given the description"
-            ]
-          ],
-          "s": "A line-up is only as big as the number of faces a witness might really choose, so counting the real choices says how often a pure guess would land on the suspect."
-        },
-        {
-          "e": "light on a spot = lamp brightness ÷ (distance × distance)",
-          "c": "how fast light runs out as you move away from a lamp",
-          "v": [
-            [
-              "lamp brightness",
-              "how strong the lamp is, in candela"
-            ],
-            [
-              "distance",
-              "how far the spot is from the lamp, in metres"
-            ]
-          ],
-          "s": "Doubling your distance from a lamp leaves a quarter of the light, which is why a doorway a few metres further from a streetlight is very much darker rather than a little darker.",
-          "card": false
-        }
       ],
       "concept": {
         "n": 15,
@@ -2651,23 +2059,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measurement can be repeated by somebody else and a description cannot"
-      ],
-      "equations": [
-        {
-          "e": "light on a spot = lamp brightness ÷ (distance × distance)",
-          "c": "how fast light runs out as you move away from a lamp",
-          "v": [
-            [
-              "lamp brightness",
-              "how strong the lamp is, in candela"
-            ],
-            [
-              "distance",
-              "how far the spot is from the lamp, in metres"
-            ]
-          ],
-          "s": "Doubling your distance from a lamp leaves a quarter of the light, which is why a doorway a few metres further from a streetlight is very much darker rather than a little darker."
-        }
       ],
       "concept": {
         "n": 4,
@@ -2822,34 +2213,6 @@ export const CURRICULUM = {
         "a fair six-member array is picked from at about one time in six",
         "a recommendation can propose changes to a procedure as well as criticise it"
       ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "how many did the thing you are counting"
-            ],
-            [
-              "whole",
-              "how many there were altogether"
-            ]
-          ],
-          "s": "A raw count means nothing until you know what it is out of, and a percentage is the form that lets two counts from different-sized groups be compared at all."
-        },
-        {
-          "e": "chance of a lucky pick (%) = 100 ÷ number of real choices",
-          "c": "how often a guess lands on one particular face",
-          "v": [
-            [
-              "number of real choices",
-              "how many of the faces somebody might actually pick, given the description"
-            ]
-          ],
-          "s": "A line-up is only as big as the number of faces a witness might really choose, so counting the real choices says how often a pure guess would land on the suspect."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "Repeat a measurement and take the average",
@@ -2893,23 +2256,6 @@ export const CURRICULUM = {
       "assumes": [
         "a measurement is made once and then copied from document to document"
       ],
-      "equations": [
-        {
-          "e": "light on a spot = lamp brightness ÷ (distance × distance)",
-          "c": "how fast light runs out as you move away from a lamp",
-          "v": [
-            [
-              "lamp brightness",
-              "how strong the lamp is, in candela"
-            ],
-            [
-              "distance",
-              "how far the spot is from the lamp, in metres"
-            ]
-          ],
-          "s": "Doubling your distance from a lamp leaves a quarter of the light, which is why a doorway a few metres further from a streetlight is very much darker rather than a little darker."
-        }
-      ],
       "concept": {
         "n": 4,
         "c": "Measure it instead of arguing about it",
@@ -2952,54 +2298,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a unit tells a reader what a number is counting"
-      ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "how many did the thing you are counting"
-            ],
-            [
-              "whole",
-              "how many there were altogether"
-            ]
-          ],
-          "s": "A raw count means nothing until you know what it is out of, and a percentage is the form that lets two counts from different-sized groups be compared at all."
-        },
-        {
-          "e": "average = total ÷ how many",
-          "c": "what several readings of one thing come to",
-          "v": [
-            [
-              "total",
-              "all the readings added together"
-            ],
-            [
-              "how many",
-              "the number of readings taken"
-            ]
-          ],
-          "s": "One reading can be out by luck and the average of several is steadier, which is why anything that matters gets measured more than once."
-        },
-        {
-          "e": "light on a spot = lamp brightness ÷ (distance × distance)",
-          "c": "how fast light runs out as you move away from a lamp",
-          "v": [
-            [
-              "lamp brightness",
-              "how strong the lamp is, in candela"
-            ],
-            [
-              "distance",
-              "how far the spot is from the lamp, in metres"
-            ]
-          ],
-          "s": "Doubling your distance from a lamp leaves a quarter of the light, which is why a doorway a few metres further from a streetlight is very much darker rather than a little darker.",
-          "card": false
-        }
       ],
       "concept": {
         "n": 4,

@@ -259,7 +259,7 @@ export const CURRICULUM = {
       "scene": "Nilsen has the launched pulse and the received one on the same screen, the second visibly broader than the first. Nothing about the span has changed except that the light has been along it.",
       "takeaway": "A pulse is not one wavelength, and anything that depends on wavelength therefore acts on its shape.",
       "place": "Cable Termination Room",
-      "guide": "All four options are things that could broaden a pulse over eighty-four kilometres. Ask of each whether it would broaden the pulse or weaken it, because those are different faults with different cures, and one of them is a property of the glass that no amount of care in the termination can remove.",
+      "guide": "All four options are things that could broaden a pulse over eighty-four kilometres. Ask of each whether it would broaden the pulse or weaken it. Those are different faults with different cures. And one of them is a property of the glass that no amount of care in the termination can remove.",
       "story": "Nilsen has the launched pulse and the received one on the same screen, the second visibly broader than the first. Nothing about the span has changed except that the light has been along it.",
       "game": {
         "type": "CHOICE",
@@ -269,7 +269,7 @@ export const CURRICULUM = {
         "task": "Ask Nilsen why a pulse arrives wider",
         "question": "Why does the pulse arrive wider than it left?",
         "answer": "Its colours travel at slightly different speeds in the glass",
-        "why": "Because the pulse is not one wavelength but a narrow band of them, and the index of the glass is slightly different for each — so the parts of the pulse arrive at slightly different times and it spreads. That is dispersion, and it is a property of the material. It is why a long span has a bit rate limit as well as a power limit, and why the fibre's own index is not quite the number a pulse travels at, which is the correction the ship's chart is missing.",
+        "why": "Because the pulse is not one wavelength but a narrow band of them. And the index of the glass is slightly different for each. So the parts of the pulse arrive at slightly different times, and it spreads. That is dispersion, a property of the material. It is why a long span has a bit rate limit as well as a power limit. It is also why the fibre's own index is not quite the number a pulse travels at. That is the correction the ship's chart is missing.",
         "rebuttals": [
           "Losing power lowers a pulse without widening it; the two effects are measured separately.",
           "A joint adds a fixed delay to everything passing through it, which moves a pulse rather than spreading it.",
@@ -301,7 +301,7 @@ export const CURRICULUM = {
       "scene": "Okonkwo has four lengths of fibre on the bench, each bent round a different radius, and the loss of each written beside it. None of them is damaged and all four lose light.",
       "takeaway": "A bend changes the angle a ray meets the boundary at, so light leaves without anything having been damaged.",
       "place": "Cable Termination Room",
-      "guide": "Each observation on the left has one explanation on the right. What separates them is what happens to the angle a ray makes with the core boundary when the fibre is bent, because the condition for staying in the core is an angle rather than a strength — and a bend changes angles without changing anything else.",
+      "guide": "Each observation on the left has one explanation on the right. What separates them is what happens to the angle a ray makes with the core boundary when the fibre is bent. The condition for staying in the core is an angle rather than a strength. A bend changes angles without changing anything else.",
       "story": "Okonkwo has four lengths of fibre on the bench, each bent round a different radius, and the loss of each written beside it. None of them is damaged and all four lose light.",
       "game": {
         "type": "CASEBOOK",
@@ -311,7 +311,7 @@ export const CURRICULUM = {
         "task": "Match each observation about a bent fibre to what explains it.",
         "question": "Match each observation about a bent fibre to what explains it.",
         "answer": "",
-        "why": "A bend does not damage anything; it changes the angles. On the outside of a tight bend the boundary is tilted relative to the rays, so some of them arrive inside the critical angle and refract out instead of reflecting. A gentle bend tilts it too little to matter. Longer wavelengths spread further into the cladding and so leave first, which is exactly the test that separates a bend from a break. And a bend has no index step anywhere in it, so nothing comes back — which is the other half of the same test.",
+        "why": "A bend does not damage anything; it changes the angles. On the outside of a tight bend the boundary is tilted relative to the rays. Some of them then arrive inside the critical angle and refract out instead of reflecting. A gentle bend tilts it too little to matter. Longer wavelengths spread further into the cladding and so leave first, which is exactly the test that separates a bend from a break. And a bend has no index step anywhere in it, so nothing comes back — which is the other half of the same test.",
         "scenarios": [
           "A gentle bend of 40 mm radius loses almost nothing.",
           "A tight bend of 6 mm radius loses 3 dB.",
@@ -334,42 +334,6 @@ export const CURRICULUM = {
       "assumes": [
         "light stays in a core only while it meets the boundary beyond the critical angle"
       ],
-      "equations": [
-        {
-          "e": "sin θ_c = n₂/n₁",
-          "c": "the critical angle for total internal reflection",
-          "v": [
-            [
-              "θ_c",
-              "the critical angle, measured from the normal"
-            ],
-            [
-              "n₁",
-              "the index of the core, the denser material"
-            ],
-            [
-              "n₂",
-              "the index of the cladding"
-            ]
-          ],
-          "s": "Beyond this angle there is no refracted ray at all and every photon stays in the core, which is the whole reason a fibre works."
-        },
-        {
-          "e": "R = ((n₁ − n₂)/(n₁ + n₂))²",
-          "c": "the reflection at a step in index",
-          "v": [
-            [
-              "R",
-              "the fraction of the power reflected straight back"
-            ],
-            [
-              "n₁, n₂",
-              "the indices either side of the step"
-            ]
-          ],
-          "s": "Any abrupt change of index sends part of the light back, and the size of the step decides how much — which is why a break reflects and a bend does not."
-        }
-      ],
       "concept": {
         "n": 2,
         "c": "Snell's law at a boundary",
@@ -387,7 +351,7 @@ export const CURRICULUM = {
       "place": "Cable Termination Room",
       "guide": "Three indices are on the bench and only one belongs in this division. The one you want is the index of the glass the light will actually be travelling in, which is the repair fibre's core. The span's own core is here because the two will be compared once the repair length is in. The cladding is here because it belongs to a boundary rather than to a path.",
       "background": [
-        "Why the answer is close to the span's own and still worth taking. The two glasses differ in the third decimal place, which is under one per cent of a speed and about seven hundred metres over a span of this length. That is inside a grapnel run and outside the tolerance the ship is being given.",
+        "Why the answer is close to the span's own and still worth taking. The two glasses differ in the third decimal place. That is under one per cent of a speed, and about seven hundred metres over a span of this length. That is inside a grapnel run and outside the tolerance the ship is being given.",
         "What an index actually is. It is the vacuum speed divided by the speed in the material, so it is a ratio of two speeds and carries no units of its own. Anything that comes out of it with a unit attached has had a unit invented for it somewhere in the working."
       ],
       "story": "Okonkwo, the station chief, has the spare drum's certificate out. It is a different make of fibre, wound eleven years ago as the repair length for this span, and its core index is 1.4571.",
@@ -670,7 +634,7 @@ export const CURRICULUM = {
         "task": "Find the wavelength this fibre loses least at",
         "question": "A kilometre of this fibre loses least at one setting. Where is it?",
         "answer": "About 1555 nm, at 0.19 dB/km. The rise at 1385 is absorption by water in the glass rather than scattering, which is why the curve is not smooth.",
-        "why": "The loss is lowest near 1555 nanometres, at about 0.19 decibels a kilometre. Two things are happening at once. Scattering by the tiny irregularities of the glass falls steeply as the wavelength grows — as the fourth power of it — which is the whole downward slope. Absorption by the glass itself rises at the long end. Between them is a window, and the narrow spike in the middle is water trapped in the glass absorbing at its own wavelength, which is a property of the molecule and not of the fibre's quality.",
+        "why": "The loss is lowest near 1555 nanometres, at about 0.19 decibels a kilometre. Two things are happening at once. Scattering by the tiny irregularities of the glass falls steeply as the wavelength grows, as the fourth power of it. That is the whole downward slope. Absorption by the glass itself rises at the long end. Between them is a window. The narrow spike in the middle is water trapped in the glass, absorbing at its own wavelength. That is a property of the molecule, not of the fibre's quality.",
         "sweep": {
           "mode": "peak",
           "axis": {
@@ -816,23 +780,6 @@ export const CURRICULUM = {
       "assumes": [
         "scattering falls steeply as the wavelength gets longer"
       ],
-      "equations": [
-        {
-          "e": "loss(dB) = 10·log₁₀(P_in/P_out)",
-          "c": "power ratios in decibels",
-          "v": [
-            [
-              "P_in, P_out",
-              "the powers going in and coming out, in the same unit"
-            ],
-            [
-              "loss",
-              "the loss, in decibels"
-            ]
-          ],
-          "s": "A decibel is a logarithm, so losses along a path add where the power ratios would multiply, and ten decibels is a factor of ten however many stages it took."
-        }
-      ],
       "concept": {
         "n": 10,
         "c": "Scattering, absorption and what makes a material lossy",
@@ -848,11 +795,11 @@ export const CURRICULUM = {
       "scene": "The span is 84.6 kilometres of fibre at 0.19 decibels a kilometre, with eleven joints at 0.15 each, and the new event at 4.1. Sarraf wants the total against the receiver's allowance of 24 decibels.",
       "takeaway": "A loss budget is an addition because decibels are logarithms, and the margin left is what a span has in hand.",
       "place": "Test Room",
-      "guide": "You build the working a line at a time. Every loss here is quoted in decibels, and decibels are logarithms, so the stages add rather than multiply. Take the span first, then the joints, then the event, and only at the end turn the total into a power ratio — because that is where the size of what has happened becomes visible.",
+      "guide": "You build the working a line at a time. Every loss here is quoted in decibels, and decibels are logarithms, so the stages add rather than multiply. Take the span first, then the joints, then the event. Only at the end turn the total into a power ratio. That is where the size of what has happened becomes visible.",
       "background": [
         "Why a logarithm makes a sum. Each stage multiplies the power by a fraction, and the logarithm of a product is the sum of the logarithms. So a chain of fifteen losses becomes an addition of fifteen numbers, which is the whole reason the unit exists.",
-        "What 21.8 decibels is as a ratio. It is a factor of 151: for every hundred and fifty-one photons launched, one arrives. The receiver's allowance of 24 decibels is a factor of 251, so what is left is a margin of 2.2 decibels, which is a factor of 1.66 and is not much.",
-        "Why this settles today's argument. With 2.2 decibels of margin the span is working and it is one small event away from not working. That is an argument for sending the ship on the best number available rather than for spending a week refining it — which is Sarraf's position, and on today's numbers she is right."
+        "What 21.8 decibels is as a ratio. It is a factor of 151: for every hundred and fifty-one photons launched, one arrives. The receiver's allowance of 24 decibels is a factor of 251. What is left is a margin of 2.2 decibels. That is a factor of 1.66, and it is not much.",
+        "Why this settles today's argument. With 2.2 decibels of margin the span is working, and it is one small event away from not working. That is an argument for sending the ship on the best number available, rather than for spending a week refining it. That is Sarraf's position, and on today's numbers she is right."
       ],
       "story": "The span is 84.6 kilometres of fibre at 0.19 decibels a kilometre, with eleven joints at 0.15 each, and the new event at 4.1. Sarraf wants the total against the receiver's allowance of 24 decibels.",
       "game": {
@@ -863,7 +810,7 @@ export const CURRICULUM = {
         "task": "Total the loss along the span",
         "question": "What is the total loss on the span, and what margin is left?",
         "answer": "21.8 dB, leaving 2.2 dB of the 24 dB allowance. That total is a factor of 151 in power.",
-        "why": "The span loses 21.8 decibels and has 2.2 left. Decibels are logarithms of power ratios, so the fifteen stages add: 16.1 for the fibre itself, 1.65 for the eleven joints and 4.1 for the new event. Converting the total back gives a factor of 151, against the receiver's allowance of a factor of 251. A margin of 2.2 decibels is a third of one bad joint, which is why the traffic was moved on the night and why a week of refinement is a week of exposure.",
+        "why": "The span loses 21.8 decibels and has 2.2 left. Decibels are logarithms of power ratios, so the fifteen stages add. That is 16.1 for the fibre itself, 1.65 for the eleven joints and 4.1 for the new event. Converting the total back gives a factor of 151, against the receiver's allowance of a factor of 251. A margin of 2.2 decibels is a third of one bad joint. That is why the traffic was moved on the night. And it is why a week of refinement is a week of exposure.",
         "derive": {
           "start": "loss(dB) = 10·log₁₀(P_in/P_out)",
           "goal": "the total loss in decibels, and the margin against the allowance",
@@ -1023,7 +970,7 @@ export const CURRICULUM = {
       "scene": "Meier has the instrument set to average sixty-five thousand traces, which takes eleven minutes. The same measurement with a thousand takes ten seconds.",
       "takeaway": "Averaging reduces what varies between measurements as the root of their number, and does nothing at all to what does not.",
       "place": "Test Room",
-      "guide": "All four options describe what averaging many traces does. Ask of each whether it acts on something that changes from trace to trace or on something that is the same in every one, because averaging only helps with the first — and how much it helps follows from the count.",
+      "guide": "All four options describe what averaging many traces does. Ask of each whether it acts on something that changes from trace to trace, or on something that is the same in every one. Averaging only helps with the first. And how much it helps follows from the count.",
       "story": "Meier has the instrument set to average sixty-five thousand traces, which takes eleven minutes. The same measurement with a thousand takes ten seconds.",
       "game": {
         "type": "CHOICE",
@@ -1033,7 +980,7 @@ export const CURRICULUM = {
         "task": "Ask Meier what averaging buys",
         "question": "What does averaging sixty-five thousand traces buy?",
         "answer": "Nine decibels of reach, for sixty-four times the time",
-        "why": "It reduces the part of the trace that varies from one pulse to the next, and it does so as the square root of the number averaged: sixty-five times more traces than a thousand buys a factor of eight, which is nine decibels. Sixty-four times the time for nine decibels is the bargain on offer. What it cannot touch is anything the same in every trace — a reflection from a connector, the instrument's own dead zone — because averaging identical things returns the thing.",
+        "why": "It reduces the part of the trace that varies from one pulse to the next. It does so as the square root of the number averaged. Sixty-five times more traces than a thousand buys a factor of eight, which is nine decibels. Sixty-four times the time for nine decibels is the bargain on offer. What it cannot touch is anything the same in every trace. A reflection from a connector, or the instrument's own dead zone. Averaging identical things returns the thing.",
         "rebuttals": [
           "The dead zone is set by the pulse width and the receiver's recovery, neither of which averaging changes.",
           "Resolution is also the pulse width; averaging makes the same blur less noisy.",
@@ -1083,11 +1030,11 @@ export const CURRICULUM = {
       "scene": "The instrument reported 84.6 kilometres using the core's index of 1.4682. A pulse travels at the group index, 1.4718. There is 0.3 per cent more fibre than cable, and 1.5 per cent more cable than route.",
       "takeaway": "Three ratios separate an optical distance from a position, and all three have to be applied with their own signs.",
       "place": "Test Room",
-      "guide": "You build the working a line at a time. Three corrections, each a small ratio, and each one in a definite direction: the instrument used too small an index, the fibre is longer than the cable it is in, and the cable is longer than the route it lies on. Get the sign of each right before touching the arithmetic, because two of the three go the same way and one does not.",
+      "guide": "You build the working a line at a time. Three corrections, each a small ratio, and each one in a definite direction. The instrument used too small an index. The fibre is longer than the cable it is in. The cable is longer than the route it lies on. Get the sign of each right before touching the arithmetic, because two of the three go the same way and one does not.",
       "background": [
-        "Why the group index is the right one. A pulse is a band of wavelengths, and what travels at c over the core's index is a single wavelength. The pulse — the thing whose arrival is timed — travels a little more slowly, at c over the group index, so the same delay corresponds to a slightly shorter distance.",
-        "Why the fibre is longer than the cable. The fibres are laid up helically round the cable's core so that bending the cable does not stretch them, which means a metre of cable contains slightly more than a metre of fibre. It is a fixed property of the cable's construction and it is on the maker's data sheet.",
-        "Why the slack is the largest term and the least certain. A cable is paid out faster than the ship advances so that it lies on the bottom rather than bridging the high spots. 1.5 per cent over 84 kilometres is 1.25 kilometres, and it is an average over a route whose slack was not uniform — which is exactly why Okonkwo will not offer a position without a tolerance on it."
+        "Why the group index is the right one. A pulse is a band of wavelengths, and what travels at c over the core's index is a single wavelength. The pulse — the thing whose arrival is timed — travels a little more slowly, at c over the group index. So the same delay corresponds to a slightly shorter distance.",
+        "Why the fibre is longer than the cable. The fibres are laid up helically round the cable's core so that bending the cable does not stretch them. So a metre of cable contains slightly more than a metre of fibre. It is a fixed property of the cable's construction and it is on the maker's data sheet.",
+        "Why the slack is the largest term and the least certain. A cable is paid out faster than the ship advances so that it lies on the bottom rather than bridging the high spots. 1.5 per cent over 84 kilometres is 1.25 kilometres. It is an average over a route whose slack was not uniform. That is exactly why Okonkwo will not offer a position without a tolerance on it."
       ],
       "story": "The instrument reported 84.6 kilometres using the core's index of 1.4682. A pulse travels at the group index, 1.4718. There is 0.3 per cent more fibre than cable, and 1.5 per cent more cable than route.",
       "game": {
@@ -1098,7 +1045,7 @@ export const CURRICULUM = {
         "task": "Correct the distance for the group index and the slack",
         "question": "How far along the route is the event, once every correction is applied?",
         "answer": "About 82.9 km — 1.7 km closer than the trace says. The group index takes off 207 m, the helix 0.3 per cent and the slack 1.5 per cent.",
-        "why": "The event is about 82.9 kilometres along the route, 1.7 kilometres closer than the trace reads. The instrument's index was too small, so its distance was too large: correcting it takes off 207 metres. The fibre is 0.3 per cent longer than the cable and the cable 1.5 per cent longer than the route, and both of those are divisions rather than multiplications. The total is more than three times the grapnel window, which is what makes it the difference between finding the fault and dragging past it.",
+        "why": "The event is about 82.9 kilometres along the route, 1.7 kilometres closer than the trace reads. The instrument's index was too small, so its distance was too large: correcting it takes off 207 metres. The fibre is 0.3 per cent longer than the cable, and the cable 1.5 per cent longer than the route. Both of those are divisions rather than multiplications. The total is more than three times the grapnel window, which is what makes it the difference between finding the fault and dragging past it.",
         "derive": {
           "start": "d_route = d_optical × (n_core/n_group) ÷ (1 + h) ÷ (1 + s)",
           "goal": "the distance along the route, in kilometres",
@@ -1241,7 +1188,7 @@ export const CURRICULUM = {
       "scene": "Everything from three weeks is on the table: the trace with its step, the two-wavelength comparison, the power feed's log, and Friday's switch to the spare pump.",
       "takeaway": "A cause has to account for the quiet records as well as the loud one, and the quiet ones are usually what rule the others out.",
       "place": "Test Room",
-      "guide": "Look at every record before choosing, including the two that are not alarming. The power feed is in order and the two-wavelength comparison shows the same loss at both, which is the record that does most of the work here: a bend loses more at the longer wavelength and a repeater's gain does not care which wavelength it is amplifying.",
+      "guide": "Look at every record before choosing, including the two that are not alarming. The power feed is in order. The two-wavelength comparison shows the same loss at both, and that is the record that does most of the work here. A bend loses more at the longer wavelength. A repeater's gain does not care which wavelength it is amplifying.",
       "story": "Everything from three weeks is on the table: the trace with its step, the two-wavelength comparison, the power feed's log, and Friday's switch to the spare pump.",
       "game": {
         "type": "DIAGNOSIS",
@@ -1251,7 +1198,7 @@ export const CURRICULUM = {
         "task": "Which cause accounts for all four records?",
         "question": "Which cause accounts for all four records?",
         "answer": "The pump in repeater 6 has aged",
-        "why": "Three of the four records point the same way once the quiet ones are read. A bend and a crush both lose more at 1625 nanometres than at 1550, and the comparison shows the same loss at both — which rules out anything that works by light leaving the core. A dried joint would have put a reflection on the step and would not have been mended by switching a pump three kilometres further out. The pump's decline accounts for a loss equal at both wavelengths, at the position of the repeater, with the feed in order, and for 3.6 of the 4.1 decibels coming back when a fresh pump was switched in.",
+        "why": "Three of the four records point the same way once the quiet ones are read. A bend and a crush both lose more at 1625 nanometres than at 1550. The comparison shows the same loss at both. That rules out anything that works by light leaving the core. A dried joint would have put a reflection on the step, and would not have been mended by switching a pump three kilometres further out. The pump's decline accounts for a loss equal at both wavelengths, at the position of the repeater, with the feed in order. It also accounts for 3.6 of the 4.1 decibels coming back when a fresh pump was switched in.",
         "headline": "The span lost 4.1 dB in a night and a spare pump gave 3.6 of it back.",
         "readings": [
           {
@@ -1302,23 +1249,6 @@ export const CURRICULUM = {
       "assumes": [
         "a bend loses more at longer wavelengths and an amplifier's gain does not"
       ],
-      "equations": [
-        {
-          "e": "loss(dB) = 10·log₁₀(P_in/P_out)",
-          "c": "power ratios in decibels",
-          "v": [
-            [
-              "P_in, P_out",
-              "the powers going in and coming out, in the same unit"
-            ],
-            [
-              "loss",
-              "the loss, in decibels"
-            ]
-          ],
-          "s": "A decibel is a logarithm, so losses along a path add where the power ratios would multiply, and ten decibels is a factor of ten however many stages it took."
-        }
-      ],
       "concept": {
         "n": 31,
         "c": "Which of several candidate causes a signature can tell apart",
@@ -1335,10 +1265,10 @@ export const CURRICULUM = {
       "scene": "The budget from day four is on the board: 21.8 decibels total, of which 4.1 arrived in one night. Friday's switch returned 3.6. Sarraf wants the whole thing closed, term by term, with nothing left over.",
       "takeaway": "A budget closes when every decibel is attributed, and what is left over is either a second cause or a measurement.",
       "place": "Test Room",
-      "guide": "You build the working a line at a time. Take the budget as it stood before the event, add what the pump's decline accounts for, and see what is left unexplained. A budget that closes to within a tenth of a decibel is a different kind of statement from one that closes to within a decibel, and the difference decides what the ship is told to look for.",
+      "guide": "You build the working a line at a time. Take the budget as it stood before the event, add what the pump's decline accounts for, and see what is left unexplained. A budget that closes to within a tenth of a decibel is a different kind of statement from one that closes to within a decibel. The difference decides what the ship is told to look for.",
       "background": [
-        "Why the residue matters more than the total. Half a decibel unaccounted for could be a second cause, or it could be the amplifier giving slightly less gain at the higher input, or it could be the measurement. Saying which is what the last two days have been for, and saying it is not the same as having no residue at all.",
-        "Why the ship still sails. A pump on the seabed cannot be replaced from shore. The spare is now the working pump and there is no second spare, so repeater 6 has one failure left in it before the span goes down with the traffic already diverted — which is why a housing has been radiographed and is on the deck.",
+        "Why the residue matters more than the total. Half a decibel unaccounted for could be a second cause. It could be the amplifier giving slightly less gain at the higher input. It could be the measurement. Saying which is what the last two days have been for, and saying it is not the same as having no residue at all.",
+        "Why the ship still sails. A pump on the seabed cannot be replaced from shore. The spare is now the working pump and there is no second spare. So repeater 6 has one failure left in it before the span goes down, with the traffic already diverted. That is why a housing has been radiographed and is on the deck.",
         "What the chart says now. 82.9 kilometres along the route, at the repeater rather than between repeaters, with a tolerance of 400 metres from the slack and 200 from everything else. A position and an object, rather than a kilometre and a hope."
       ],
       "story": "The budget from day four is on the board: 21.8 decibels total, of which 4.1 arrived in one night. Friday's switch returned 3.6. Sarraf wants the whole thing closed, term by term, with nothing left over.",
@@ -1350,7 +1280,7 @@ export const CURRICULUM = {
         "task": "Close the loss budget against the repeater",
         "question": "How much of the 4.1 dB is accounted for, and what is left?",
         "answer": "3.6 dB by the pump, leaving 0.5 dB — which is inside what the amplifier's own gain does when its input changes, and needs no second cause.",
-        "why": "The pump accounts for 3.6 decibels of the 4.1, leaving 0.5. That residue is inside what an amplifier does when its input changes and it gives a little less gain, so it needs no second cause — but saying so is a judgement rather than an arithmetic result, and it is recorded as such. The budget is now 21.3 decibels against an allowance of 24, which is 2.7 of margin: better than before the switch and worse than the span had when it was new, because the fresh pump is the last one in that housing.",
+        "why": "The pump accounts for 3.6 decibels of the 4.1, leaving 0.5. That residue is inside what an amplifier does when its input changes and it gives a little less gain, so it needs no second cause. But saying so is a judgement rather than an arithmetic result, and it is recorded as such. The budget is now 21.3 decibels against an allowance of 24, which is 2.7 of margin. That is better than before the switch, and worse than the span had when it was new. The fresh pump is the last one in that housing.",
         "derive": {
           "start": "total = span + joints + event",
           "goal": "the residue after the pump is accounted for, and the margin now",
@@ -1580,23 +1510,6 @@ export const CURRICULUM = {
       "assumes": [
         "light is partly reflected wherever the index changes abruptly"
       ],
-      "equations": [
-        {
-          "e": "R = ((n₁ − n₂)/(n₁ + n₂))²",
-          "c": "the reflection at a step in index",
-          "v": [
-            [
-              "R",
-              "the fraction of the power reflected straight back"
-            ],
-            [
-              "n₁, n₂",
-              "the indices either side of the step"
-            ]
-          ],
-          "s": "Any abrupt change of index sends part of the light back, and the size of the step decides how much — which is why a break reflects and a bend does not."
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "Refractive index, and the speed of light in a material",
@@ -1768,21 +1681,6 @@ export const CURRICULUM = {
           ],
           "s": "A decibel is a logarithm, so losses along a path add where the power ratios would multiply, and ten decibels is a factor of ten however many stages it took.",
           "computed": true
-        },
-        {
-          "e": "R = ((n₁ − n₂)/(n₁ + n₂))²",
-          "c": "the reflection at a step in index",
-          "v": [
-            [
-              "R",
-              "the fraction of the power reflected straight back"
-            ],
-            [
-              "n₁, n₂",
-              "the indices either side of the step"
-            ]
-          ],
-          "s": "Any abrupt change of index sends part of the light back, and the size of the step decides how much — which is why a break reflects and a bend does not."
         }
       ],
       "takesAsRead": [
@@ -1812,7 +1710,7 @@ export const CURRICULUM = {
       "scene": "Ramnarine has four faults on the bench, all recovered from shore ends over the years, and a trace beside each. Every one of them lost light and no two of them look alike.",
       "takeaway": "Two faults can lose the same light and be told apart by what comes back, which is why a trace has a shape as well as a step.",
       "place": "Splice Trailer",
-      "guide": "Each fault on the left has one signature on the right. What separates them is whether the light that is lost comes back towards the instrument or leaves the fibre altogether, and whether the loss is at one point or spread along a length. Two of the four look identical in how much they lose and nothing alike in what returns.",
+      "guide": "Each fault on the left has one signature on the right. What separates them is whether the light that is lost comes back towards the instrument or leaves the fibre altogether. It also matters whether the loss is at one point or spread along a length. Two of the four look identical in how much they lose and nothing alike in what returns.",
       "story": "Ramnarine has four faults on the bench, all recovered from shore ends over the years, and a trace beside each. Every one of them lost light and no two of them look alike.",
       "game": {
         "type": "PROTOCOL",
@@ -1845,23 +1743,6 @@ export const CURRICULUM = {
       "assumes": [
         "an instrument sees only the light that returns to it"
       ],
-      "equations": [
-        {
-          "e": "R = ((n₁ − n₂)/(n₁ + n₂))²",
-          "c": "the reflection at a step in index",
-          "v": [
-            [
-              "R",
-              "the fraction of the power reflected straight back"
-            ],
-            [
-              "n₁, n₂",
-              "the indices either side of the step"
-            ]
-          ],
-          "s": "Any abrupt change of index sends part of the light back, and the size of the step decides how much — which is why a break reflects and a bend does not."
-        }
-      ],
       "concept": {
         "n": 31,
         "c": "Which of several candidate causes a signature can tell apart",
@@ -1878,7 +1759,7 @@ export const CURRICULUM = {
       "scene": "Achebe has a connector face under the microscope with a coating on it, and the same face uncoated beside it. The coated one reflects visibly less and neither is polished better than the other.",
       "takeaway": "Two reflections separated by the right path difference arrive out of step and cancel, which removes a reflection without absorbing anything.",
       "place": "Splice Trailer",
-      "guide": "All four options are ways a coating could reduce a reflection. Ask of each whether it removes light or redirects it or cancels it, because only one of those needs a second reflection to work with — and the thickness of the coating is the clue that says which.",
+      "guide": "All four options are ways a coating could reduce a reflection. Ask of each whether it removes light, or redirects it, or cancels it. Only one of those needs a second reflection to work with. The thickness of the coating is the clue that says which.",
       "story": "Achebe has a connector face under the microscope with a coating on it, and the same face uncoated beside it. The coated one reflects visibly less and neither is polished better than the other.",
       "game": {
         "type": "CHOICE",
@@ -1888,7 +1769,7 @@ export const CURRICULUM = {
         "task": "Ask Achebe how two reflections cancel",
         "question": "How does a coating on a connector face reduce its reflection?",
         "answer": "It makes a second reflection that arrives out of step with the first",
-        "why": "The coating makes two reflections instead of one — from its front face and its back face — and if the extra path between them is half a wavelength the two arrive out of step and cancel. Nothing is absorbed: the light that would have come back goes forward instead. That is why the thickness matters and why it is a quarter of a wavelength rather than any old thin layer, and it is the same arithmetic as the gel in a mechanical joint reached a different way.",
+        "why": "The coating makes two reflections instead of one, from its front face and its back face. If the extra path between them is half a wavelength, the two arrive out of step and cancel. Nothing is absorbed: the light that would have come back goes forward instead. That is why the thickness matters, and why it is a quarter of a wavelength rather than any old thin layer. It is the same arithmetic as the gel in a mechanical joint, reached a different way.",
         "rebuttals": [
           "An absorbing coating would lose the light in both directions, and this one does not.",
           "Scattering would show as loss on a trace, and a coated connector is less lossy rather than more.",
@@ -1905,31 +1786,6 @@ export const CURRICULUM = {
       "assumes": [
         "two waves arriving out of step by half a wavelength cancel"
       ],
-      "equations": [
-        {
-          "e": "2·n·t = (m + ½)·λ",
-          "c": "a film that cancels a reflection",
-          "v": [
-            [
-              "n",
-              "the index of the film"
-            ],
-            [
-              "t",
-              "its thickness"
-            ],
-            [
-              "λ",
-              "the wavelength being cancelled"
-            ],
-            [
-              "m",
-              "a whole number"
-            ]
-          ],
-          "s": "A film a quarter of a wavelength thick sends the second reflection back exactly out of step with the first, so the two cancel and the light goes on instead of coming back."
-        }
-      ],
       "concept": {
         "n": 7,
         "c": "Interference of two beams, and the path difference that decides it",
@@ -1945,11 +1801,11 @@ export const CURRICULUM = {
       "scene": "Ramnarine can put a coating on a connector face to any thickness and to a choice of indices. The face is glass at 1.4682, the light is at 1550 nanometres, and air is on the other side.",
       "takeaway": "A coating cancels a reflection when its thickness gives a half-wavelength path difference and its index equalises the two reflections.",
       "place": "Splice Trailer",
-      "guide": "You build the working a line at a time. A coating makes two reflections, one at each of its faces, and the question is what thickness puts them exactly out of step. Count the path difference in the film, remember that the wave travels more slowly in it, and then ask what index makes the two reflections the same size — because cancelling needs both.",
+      "guide": "You build the working a line at a time. A coating makes two reflections, one at each of its faces, and the question is what thickness puts them exactly out of step. Count the path difference in the film. Remember that the wave travels more slowly in it. Then ask what index makes the two reflections the same size, because cancelling needs both.",
       "background": [
         "Why the film is a quarter of a wavelength and not a half. The extra path is twice the thickness, because the second reflection goes down and back, so a quarter-wavelength film gives a half-wavelength path difference. That is the difference between a coating that cancels and one that does nothing at all.",
         "Why the wavelength inside the film is the one that counts. The wave is slower in the film, so its wavelength there is the vacuum wavelength divided by the film's index. The thickness that matters is therefore λ over four n, not λ over four.",
-        "Why the index is a geometric mean. Cancelling needs the two reflections equal as well as opposite, and the two step sizes are equal when the film's index is the root of the product of the two either side. That is 1.212 here, which is close to magnesium fluoride, which is what is actually used."
+        "Why the index is a geometric mean. Cancelling needs the two reflections equal as well as opposite. The two step sizes are equal when the film's index is the root of the product of the two either side. That is 1.212 here, which is close to magnesium fluoride, which is what is actually used."
       ],
       "story": "Ramnarine can put a coating on a connector face to any thickness and to a choice of indices. The face is glass at 1.4682, the light is at 1550 nanometres, and air is on the other side.",
       "game": {
@@ -1960,7 +1816,7 @@ export const CURRICULUM = {
         "task": "Design the film that cancels the reflection",
         "question": "How thick should the coating be, and what index should it have?",
         "answer": "About 320 nm, at an index of 1.212. The thickness is λ/(4n) and the index is the root of the product of the two either side.",
-        "why": "The film should be about 320 nanometres thick with an index of 1.212. Two reflections leave it, and the second travels twice the thickness further, so a thickness of a quarter of the wavelength inside the film puts them half a wavelength apart and they cancel. The wavelength inside the film is the vacuum wavelength divided by the film's index, which is why the thickness depends on that index as well. And they only cancel completely if they are the same size, which happens when the film's index is the geometric mean of its neighbours'.",
+        "why": "The film should be about 320 nanometres thick with an index of 1.212. Two reflections leave it, and the second travels twice the thickness further. So a thickness of a quarter of the wavelength inside the film puts them half a wavelength apart, and they cancel. The wavelength inside the film is the vacuum wavelength divided by the film's index, which is why the thickness depends on that index as well. And they only cancel completely if they are the same size, which happens when the film's index is the geometric mean of its neighbours'.",
         "derive": {
           "start": "2·n·t = (m + ½)·λ",
           "goal": "the thickness in nanometres and the index the film should have",
@@ -2087,31 +1943,6 @@ export const CURRICULUM = {
         "a wave reflected at each face of a film travels an extra distance of twice the thickness",
         "snell's law at a boundary — taken as read"
       ],
-      "equations": [
-        {
-          "e": "2·n·t = (m + ½)·λ",
-          "c": "a film that cancels a reflection",
-          "v": [
-            [
-              "n",
-              "the index of the film"
-            ],
-            [
-              "t",
-              "its thickness"
-            ],
-            [
-              "λ",
-              "the wavelength being cancelled"
-            ],
-            [
-              "m",
-              "a whole number"
-            ]
-          ],
-          "s": "A film a quarter of a wavelength thick sends the second reflection back exactly out of step with the first, so the two cancel and the light goes on instead of coming back."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 2,
@@ -2135,7 +1966,7 @@ export const CURRICULUM = {
       "scene": "The two-wavelength comparison is the record that settled today, and it is made with a ruled plate in the instrument's own head that Ramnarine has never had open.",
       "takeaway": "Separating a mixture and selecting one part of it are different operations with different costs.",
       "place": "Splice Trailer",
-      "guide": "All four options are ways of separating two wavelengths that arrive on the same fibre. Ask of each whether it separates them or merely selects one, and what physical quantity does the separating — because one of the four uses a path difference that depends on the wavelength.",
+      "guide": "All four options are ways of separating two wavelengths that arrive on the same fibre. Ask of each whether it separates them or merely selects one. Then ask what physical quantity does the separating. One of the four uses a path difference that depends on the wavelength.",
       "story": "The two-wavelength comparison is the record that settled today, and it is made with a ruled plate in the instrument's own head that Ramnarine has never had open.",
       "game": {
         "type": "CHOICE",
@@ -2145,7 +1976,7 @@ export const CURRICULUM = {
         "task": "Ask Ramnarine how the two wavelengths are compared",
         "question": "How does a grating separate two wavelengths arriving together?",
         "answer": "Each wavelength reinforces in a different direction",
-        "why": "Light from each of the grating's many lines travels a slightly different distance to any given direction, and the directions where all of them reinforce depend on the wavelength. So each wavelength leaves at its own angle, and the two arrive at different places on a detector: separation rather than selection. A filter would pass one and throw the other away, which is a different instrument and a different measurement — you would have to make it twice and hope nothing changed in between.",
+        "why": "Light from each of the grating's many lines travels a slightly different distance to any given direction. The directions where all of them reinforce depend on the wavelength. So each wavelength leaves at its own angle, and the two arrive at different places on a detector: separation rather than selection. A filter would pass one and throw the other away. That is a different instrument and a different measurement. You would have to make it twice and hope nothing changed in between.",
         "rebuttals": [
           "An absorbing filter selects one and destroys the other, so the comparison would need two runs.",
           "A mirror that reflected by colour would still have to send them somewhere, and a grating is what does that.",
@@ -2179,7 +2010,7 @@ export const CURRICULUM = {
       "scene": "Tanaka has repeater 6's telemetry on the screen: a pump current, a case temperature and a supply voltage, four years of them, all inside limits.",
       "takeaway": "A pump current says power is going in; the gain depends on how many atoms that power is actually exciting.",
       "place": "Amplifier and Power Hall",
-      "guide": "All four options are things the telemetry could be evidence of. Ask of each what would have to be true for a current to establish it, given that everything the amplifier does depends on how many atoms are held in the upper state at any moment. One of the four is what a current cannot reach.",
+      "guide": "All four options are things the telemetry could be evidence of. Ask of each what would have to be true for a current to establish it. Everything the amplifier does depends on how many atoms are held in the upper state at any moment. One of the four is what a current cannot reach.",
       "story": "Tanaka has repeater 6's telemetry on the screen: a pump current, a case temperature and a supply voltage, four years of them, all inside limits.",
       "game": {
         "type": "CHOICE",
@@ -2189,7 +2020,7 @@ export const CURRICULUM = {
         "task": "Ask Tanaka what the pump telemetry reports",
         "question": "What does four years of good pump telemetry establish?",
         "answer": "That the pump laser is being driven, and nothing about its output",
-        "why": "It establishes that the pump laser is being driven. Gain depends on the population inversion — on more erbium atoms being in the upper state than the lower — and that depends on the pump's optical output rather than on its drive current. A laser diode's output falls with age at a constant current, which is exactly the failure that leaves telemetry looking perfect. Nothing on that screen reaches the number that matters, which is why the last fortnight has been spent inferring it from the far end of a fibre.",
+        "why": "It establishes that the pump laser is being driven. Gain depends on the population inversion — on more erbium atoms being in the upper state than the lower. And the inversion depends on the pump's optical output, not on its drive current. A laser diode's output falls with age at a constant current. That is exactly the failure that leaves telemetry looking perfect. Nothing on that screen reaches the number that matters. That is why the last fortnight has been spent inferring it from the far end of a fibre.",
         "rebuttals": [
           "Gain is set by the optical output, and a diode's output at fixed current falls as it ages.",
           "An inversion is a count of excited atoms, and no electrical reading of the pump reports it.",
@@ -2229,7 +2060,7 @@ export const CURRICULUM = {
       "scene": "Bruno Salas, the power feed engineer, has the span's loss on the hall board, written as a rate. A technician has asked him a question about it. Do the tenth kilometre and the eightieth take out the same amount?",
       "takeaway": "A rate quoted per unit length is a fraction rather than an amount, and the two behave nothing alike over a long path.",
       "place": "Amplifier and Power Hall",
-      "guide": "Four readings of what a loss quoted per kilometre asserts. Ask of each whether it is about an amount of power or a fraction of it, because the difference decides whether a long span ends with a little light or with none, and whether adding an amplifier half way is worth anything.",
+      "guide": "Four readings of what a loss quoted per kilometre asserts. Ask of each whether it is about an amount of power or a fraction of it. The difference decides whether a long span ends with a little light or with none. It also decides whether adding an amplifier half way is worth anything.",
       "story": "Bruno Salas, the power feed engineer, has the span's loss on the hall board, written as a rate. A technician has asked him a question about it. Do the tenth kilometre and the eightieth take out the same amount?",
       "game": {
         "type": "CHOICE",
@@ -2239,7 +2070,7 @@ export const CURRICULUM = {
         "task": "Settle what a loss per kilometre means",
         "question": "What does 0.19 decibels a kilometre assert about the eightieth kilometre?",
         "answer": "It removes the same fraction as the first kilometre, and so less power",
-        "why": "It asserts that the eightieth kilometre takes the same fraction as the first, which is about 4.3 per cent, and therefore far less power. That is what a constant figure in decibels means: equal lengths remove equal fractions, so the power falls exponentially. It never reaches zero, which is why the limit on a span is the receiver's sensitivity rather than the fibre running out of light, and why an amplifier half way along is worth exactly the loss it makes up.",
+        "why": "It asserts that the eightieth kilometre takes the same fraction as the first, which is about 4.3 per cent, and therefore far less power. That is what a constant figure in decibels means: equal lengths remove equal fractions, so the power falls exponentially. It never reaches zero. So the limit on a span is the receiver's sensitivity, not the fibre running out of light. And an amplifier half way along is worth exactly the loss it makes up.",
         "rebuttals": [
           "A constant amount would take the light to exactly zero at a stated distance, and no span behaves that way.",
           "Spreading is dispersion and changes the shape of the pulse rather than the power in it.",
@@ -2256,23 +2087,6 @@ export const CURRICULUM = {
       "assumes": [
         "a fixed loss per unit length is a fixed fraction per unit length",
         "power in decibels, and why a loss budget adds — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "loss(dB) = 10·log₁₀(P_in/P_out)",
-          "c": "power ratios in decibels",
-          "v": [
-            [
-              "P_in, P_out",
-              "the powers going in and coming out, in the same unit"
-            ],
-            [
-              "loss",
-              "the loss, in decibels"
-            ]
-          ],
-          "s": "A decibel is a logarithm, so losses along a path add where the power ratios would multiply, and ten decibels is a factor of ten however many stages it took."
-        }
       ],
       "takesAsRead": [
         {
@@ -2297,9 +2111,9 @@ export const CURRICULUM = {
       "place": "Amplifier and Power Hall",
       "guide": "You build the working a line at a time. A photon's energy depends only on its colour, and the two ways of writing that — through the frequency or through the wavelength — are the same statement. Get the energy in joules first, then convert to electron volts, then divide a power by it to turn watts into arrivals a second.",
       "background": [
-        "Why the wavelength divides. Frequency and wavelength are inversely related through the speed of light, so a longer wavelength is a lower frequency and a smaller energy. A photon at 980 nanometres carries 1.27 electron volts against 0.80 at 1550, which is the whole reason an amplifier can be pumped at the shorter wavelength and give out at the longer.",
-        "Why the electron volt is the natural unit. A joule is a household quantity and a photon is not: 1.28 × 10⁻¹⁹ joules is hard to hold in the head, and 0.80 electron volts can be compared straight away with the band gaps of the materials a detector is made of.",
-        "What the arrival rate is for. A milliwatt is 7.8 × 10¹⁵ photons a second, which sounds like an inexhaustible supply until it is divided by ten billion bits a second and reduced by a factor of 151 along the span. Then it is a few thousand a bit, and a few thousand of anything counted has a scatter."
+        "Why the wavelength divides. Frequency and wavelength are inversely related through the speed of light, so a longer wavelength is a lower frequency and a smaller energy. A photon at 980 nanometres carries 1.27 electron volts, against 0.80 at 1550. That is the whole reason an amplifier can be pumped at the shorter wavelength and give out at the longer.",
+        "Why the electron volt is the natural unit. A joule is a household quantity and a photon is not. A photon's 1.28 × 10⁻¹⁹ joules is hard to hold in the head. Its 0.80 electron volts can be compared straight away with the band gaps of the materials a detector is made of.",
+        "What the arrival rate is for. A milliwatt is 7.8 × 10¹⁵ photons a second, which sounds like an inexhaustible supply. Divide it by ten billion bits a second, and reduce it by a factor of 151 along the span. Then it is a few thousand a bit, and a few thousand of anything counted has a scatter."
       ],
       "story": "Tanaka has the two wavelengths this amplifier works at on the board and Planck's constant beside them. She wants the energy of one photon at 1550 nanometres, in electron volts, and how many of them a milliwatt is.",
       "game": {
@@ -2310,7 +2124,7 @@ export const CURRICULUM = {
         "task": "Get the energy of one photon at this wavelength",
         "question": "What is the energy of a photon at 1550 nm, and how many are in a milliwatt?",
         "answer": "1.28 × 10⁻¹⁹ J, which is 0.80 eV. A milliwatt is 7.8 × 10¹⁵ of them a second.",
-        "why": "A photon at 1550 nanometres carries 1.28 × 10⁻¹⁹ joules, or 0.80 electron volts, and a milliwatt is 7.8 × 10¹⁵ of them a second. The energy comes from Planck's constant times the frequency, and the frequency from the speed of light over the wavelength — so the two constants arrive together as hc, which is 1.99 × 10⁻²⁵ joule metres and worth remembering. Dividing a power by the energy of one photon is what turns watts into a count, and the count is what the receiver's limit is really about.",
+        "why": "A photon at 1550 nanometres carries 1.28 × 10⁻¹⁹ joules, or 0.80 electron volts. A milliwatt is 7.8 × 10¹⁵ of them a second. The energy comes from Planck's constant times the frequency, and the frequency from the speed of light over the wavelength. So the two constants arrive together as hc. That is 1.99 × 10⁻²⁵ joule metres, and worth remembering. Dividing a power by the energy of one photon is what turns watts into a count. And the count is what the receiver's limit is really about.",
         "derive": {
           "start": "E = h·f = h·c/λ",
           "goal": "the photon energy in electron volts, and the arrival rate for one milliwatt",
@@ -2510,23 +2324,6 @@ export const CURRICULUM = {
       "assumes": [
         "a test that costs nothing to try should be tried before one that costs a week"
       ],
-      "equations": [
-        {
-          "e": "loss(dB) = 10·log₁₀(P_in/P_out)",
-          "c": "power ratios in decibels",
-          "v": [
-            [
-              "P_in, P_out",
-              "the powers going in and coming out, in the same unit"
-            ],
-            [
-              "loss",
-              "the loss, in decibels"
-            ]
-          ],
-          "s": "A decibel is a logarithm, so losses along a path add where the power ratios would multiply, and ten decibels is a factor of ten however many stages it took."
-        }
-      ],
       "concept": {
         "n": 31,
         "c": "Which of several candidate causes a signature can tell apart",
@@ -2543,7 +2340,7 @@ export const CURRICULUM = {
       "scene": "Tanaka has the two wavelengths on the board: the pump at 980 nanometres and the signal at 1550. Every pump arrival that does its job ends up as a signal arrival, and the two do not carry the same energy.",
       "takeaway": "A pump arrival is more energetic than the signal arrival it produces, and the difference has to leave as heat.",
       "place": "Amplifier and Power Hall",
-      "guide": "Four accounts of what happens to the difference. Ask of each whether it conserves energy and whether it conserves the number of arrivals, because an amplifier conserves the second and not the first — one arrival in, one arrival out, and less energy in the one that leaves.",
+      "guide": "Four accounts of what happens to the difference. Ask of each whether it conserves energy. Then ask whether it conserves the number of arrivals. An amplifier conserves the second and not the first. One arrival in, one arrival out, and less energy in the one that leaves.",
       "story": "Tanaka has the two wavelengths on the board: the pump at 980 nanometres and the signal at 1550. Every pump arrival that does its job ends up as a signal arrival, and the two do not carry the same energy.",
       "game": {
         "type": "CHOICE",
@@ -2553,7 +2350,7 @@ export const CURRICULUM = {
         "task": "Settle where the pump's extra energy goes",
         "question": "What becomes of the difference between a pump arrival and a signal arrival?",
         "answer": "It becomes heat in the glass as the atom settles to the working level",
-        "why": "It ends up as heat in the glass. A pump arrival at 980 nanometres carries 1.27 electron volts and lifts an erbium atom to a state it drops from, quickly and silently, to the level the signal works from — and that drop is 0.47 electron volts that never becomes light. What is conserved is the count: one pump arrival can produce at most one signal arrival. That ceiling is what sets an amplifier's maximum output at the pump power times the ratio of the two wavelengths, whatever else is done to it.",
+        "why": "It ends up as heat in the glass. A pump arrival at 980 nanometres carries 1.27 electron volts. It lifts an erbium atom to a state it drops from, quickly and silently, to the level the signal works from. That drop is 0.47 electron volts that never becomes light. What is conserved is the count: one pump arrival can produce at most one signal arrival. That ceiling is what sets an amplifier's maximum output at the pump power times the ratio of the two wavelengths, whatever else is done to it.",
         "rebuttals": [
           "The difference is 37 per cent of one arrival, and a second arrival would need 100 per cent.",
           "An excited state lasts milliseconds, so nothing is stored for later use.",
@@ -2570,31 +2367,6 @@ export const CURRICULUM = {
       "assumes": [
         "an excited atom can be made to release its energy into a passing wave"
       ],
-      "equations": [
-        {
-          "e": "E = h·f = h·c/λ",
-          "c": "the energy of one photon",
-          "v": [
-            [
-              "h",
-              "Planck's constant, 6.626 × 10⁻³⁴ J·s"
-            ],
-            [
-              "f",
-              "the frequency, in hertz"
-            ],
-            [
-              "λ",
-              "the wavelength, in metres"
-            ],
-            [
-              "E",
-              "the energy of a single photon, in joules or electron volts"
-            ]
-          ],
-          "s": "Light arrives in quanta whose energy depends only on the colour, so a bright beam is many photons and a blue photon carries more than a red one however dim the beam."
-        }
-      ],
       "concept": {
         "n": 21,
         "c": "The quantum defect, and where the pump energy goes",
@@ -2610,7 +2382,7 @@ export const CURRICULUM = {
       "scene": "Repeater 6 has a spare pump laser that has never been used. Tanaka can switch to it from shore, once, and the receiver's power meter is the only instrument that will see the result.",
       "takeaway": "A prediction locked before an intervention is a test of the model; the same number chosen afterwards is a description of the outcome.",
       "place": "Amplifier and Power Hall",
-      "guide": "Lock a prediction for how much the received power will rise before the switch is made. Nothing about it can be changed afterwards, which is the point of making it first. Then switch, and then spend the measurement — because a switch that is confirmed to have happened and never measured establishes that the relay works and nothing whatever about the pump.",
+      "guide": "Lock a prediction for how much the received power will rise before the switch is made. Nothing about it can be changed afterwards, which is the point of making it first. Then switch, and then spend the measurement. A switch that is confirmed to have happened and never measured establishes that the relay works. It establishes nothing whatever about the pump.",
       "story": "Repeater 6 has a spare pump laser that has never been used. Tanaka can switch to it from shore, once, and the receiver's power meter is the only instrument that will see the result.",
       "game": {
         "type": "VERIFY",
@@ -2620,7 +2392,7 @@ export const CURRICULUM = {
         "task": "Predict what the spare pump does, then measure it",
         "question": "Predict the rise in received power, switch to the spare pump, and report what happened.",
         "answer": "About 3.6 dB — but only the power meter establishes it. A confirmed switch is a confirmed switch and nothing else.",
-        "why": "The received power rises about 3.6 decibels. An amplifier's gain follows its pump's optical power, and a pump that has aged puts out less at the same current: if the original is down to 40 per cent of the 118 milliwatts it was logged at, a fresh one restores a factor of two and a half, which is 4 decibels of gain less what the amplifier itself gives back. That is most of the 4.1 decibels the span lost. The failure specific to this decision is finishing without measuring: the telemetry will confirm the switch whatever the light does.",
+        "why": "The received power rises about 3.6 decibels. An amplifier's gain follows its pump's optical power. A pump that has aged puts out less at the same current. If the original is down to 40 per cent of the 118 milliwatts it was logged at, a fresh one restores a factor of two and a half. That is 4 decibels of gain, less what the amplifier itself gives back. That is most of the 4.1 decibels the span lost. The failure specific to this decision is finishing without measuring: the telemetry will confirm the switch whatever the light does.",
         "verify": {
           "prediction": {
             "label": "Predicted rise in received power",
@@ -2656,23 +2428,6 @@ export const CURRICULUM = {
       "assumes": [
         "an amplifier's gain follows the optical power of its pump"
       ],
-      "equations": [
-        {
-          "e": "loss(dB) = 10·log₁₀(P_in/P_out)",
-          "c": "power ratios in decibels",
-          "v": [
-            [
-              "P_in, P_out",
-              "the powers going in and coming out, in the same unit"
-            ],
-            [
-              "loss",
-              "the loss, in decibels"
-            ]
-          ],
-          "s": "A decibel is a logarithm, so losses along a path add where the power ratios would multiply, and ten decibels is a factor of ten however many stages it took."
-        }
-      ],
       "concept": {
         "n": 30,
         "c": "Predicting, then measuring what was predicted",
@@ -2688,11 +2443,11 @@ export const CURRICULUM = {
       "scene": "The pump is at 980 nanometres and the signal at 1550. Repeater 6's pump was logged at 118 milliwatts when it was fitted four years ago. Tanaka wants the most signal power that could ever come out of it.",
       "takeaway": "The most an amplifier can add is its pump power scaled by the ratio of the two wavelengths, because arrivals are conserved and energies are not.",
       "place": "Amplifier and Power Hall",
-      "guide": "You build the working a line at a time. The ceiling is a count: each pump arrival can end up as at most one signal arrival, and the signal arrival carries less energy. So the largest possible added signal power is the pump power times the ratio of the two energies — which is the ratio of the two wavelengths the other way up. Then compare it with what the span lost.",
+      "guide": "You build the working a line at a time. The ceiling is a count: each pump arrival can end up as at most one signal arrival, and the signal arrival carries less energy. So the largest possible added signal power is the pump power times the ratio of the two energies. That is the ratio of the two wavelengths the other way up. Then compare it with what the span lost.",
       "background": [
-        "Why the ceiling is a ratio of wavelengths. A pump arrival at 980 nanometres carries hc over 980; a signal arrival carries hc over 1550. So the same number of arrivals a second carries 980 over 1550 as much power, which is 0.632 — and 118 milliwatts of pump can therefore add at most 74.6 milliwatts of signal.",
-        "Why nothing gets past it. Every route from pump to signal goes through one excited atom releasing one arrival. There is no mechanism in this glass by which one pump arrival produces two signal arrivals, so the ceiling is a statement about counting rather than about engineering, and a better amplifier design approaches it rather than exceeding it.",
-        "What it says about repeater 6. A pump down to 46 milliwatts has a ceiling of 29 milliwatts against the original's 74.6, which is 4.1 decibels of gain lost — the number the span lost in one night, arrived at from the pump's own physics rather than from the trace. That is the end of the fortnight's argument."
+        "Why the ceiling is a ratio of wavelengths. A pump arrival at 980 nanometres carries hc over 980; a signal arrival carries hc over 1550. So the same number of arrivals a second carries 980 over 1550 as much power, which is 0.632. 118 milliwatts of pump can therefore add at most 74.6 milliwatts of signal.",
+        "Why nothing gets past it. Every route from pump to signal goes through one excited atom releasing one arrival. There is no mechanism in this glass by which one pump arrival produces two signal arrivals. So the ceiling is a statement about counting rather than about engineering. A better amplifier design approaches it rather than exceeding it.",
+        "What it says about repeater 6. A pump down to 46 milliwatts has a ceiling of 29 milliwatts against the original's 74.6. That is 4.1 decibels of gain lost. It is the number the span lost in one night, arrived at from the pump's own physics rather than from the trace. That is the end of the fortnight's argument."
       ],
       "story": "The pump is at 980 nanometres and the signal at 1550. Repeater 6's pump was logged at 118 milliwatts when it was fitted four years ago. Tanaka wants the most signal power that could ever come out of it.",
       "game": {
@@ -2703,7 +2458,7 @@ export const CURRICULUM = {
         "task": "Put a ceiling on what the pump could give",
         "question": "What is the most signal power 118 mW of pump could add?",
         "answer": "About 74.6 mW, which is 118 × 980/1550. A pump fallen to 46 mW has a ceiling of 29 mW — 4.1 dB less.",
-        "why": "At most 74.6 milliwatts. The pump's power is a number of arrivals a second, each carrying 1.27 electron volts, and every one of them can produce at most one signal arrival carrying 0.80. So the power that can be added is the pump power times the ratio of those energies, which is the ratio of the wavelengths inverted. Applying the same ceiling to a pump that has fallen to 46 milliwatts gives 29, and the difference between the two ceilings is 4.1 decibels — which is what the span lost in a night.",
+        "why": "At most 74.6 milliwatts. The pump's power is a number of arrivals a second, each carrying 1.27 electron volts. Every one of them can produce at most one signal arrival carrying 0.80. So the power that can be added is the pump power times the ratio of those energies, which is the ratio of the wavelengths inverted. Applying the same ceiling to a pump that has fallen to 46 milliwatts gives 29. The difference between the two ceilings is 4.1 decibels, which is what the span lost in a night.",
         "derive": {
           "start": "P_signal ≤ P_pump × (E_signal/E_pump)",
           "goal": "the ceiling on added signal power, in milliwatts, and the loss if the pump has fallen",
@@ -2911,7 +2666,7 @@ export const CURRICULUM = {
       "scene": "Tanaka has a hundred points of spares and survey money left in the year and four things it could go on. The ship sails in the morning and the next charter is not until the spring.",
       "takeaway": "Evidence is worth what it would change about the next decision, not what it would add to the file.",
       "place": "Amplifier and Power Hall",
-      "guide": "What the station holds already: a pump output figure for repeater 6 that is four years old and was never re-measured; a slack figure that is an average over a whole route; an instrument whose index setting was wrong for eleven years and has now been corrected; and eleven mechanical joints on the shore end that are as old as the cable. The traffic is on a diverse route with no spare of its own.",
+      "guide": "What the station holds already. A pump output figure for repeater 6 that is four years old and was never re-measured. A slack figure that is an average over a whole route. An instrument whose index setting was wrong for eleven years and has now been corrected. And eleven mechanical joints on the shore end that are as old as the cable. The traffic is on a diverse route with no spare of its own.",
       "rules": "A hundred points, whole points, across the four. Spending is scored on what a measurement would change about a decision that gets made again: an instrument that turns an average into a measurement where the ship works, or a record of what a repeater is actually emitting, is worth more than a survey of something already inside its margin.",
       "story": "Tanaka has a hundred points of spares and survey money left in the year and four things it could go on. The ship sails in the morning and the next charter is not until the spring.",
       "game": {
@@ -2922,7 +2677,7 @@ export const CURRICULUM = {
         "task": "Spread a hundred points across the four.",
         "question": "Spread a hundred points across the four.",
         "answer": "",
-        "why": "The optical telemetry is the measurement whose absence cost this fortnight: a pump current told everybody nothing for three weeks, and the housing going to sea tomorrow is the only chance to add it. The slack survey turns the largest and least certain of the three corrections into a measurement where the ship will actually be working. Replacing the old joints is real work on eleven components that are past their design life and are not currently failing. A second instrument would halve the position uncertainty of a fault whose position is now dominated by slack rather than by the trace.",
+        "why": "The optical telemetry is the measurement whose absence cost this fortnight. A pump current told everybody nothing for three weeks. The housing going to sea tomorrow is the only chance to add it. The slack survey turns the largest and least certain of the three corrections into a measurement where the ship will actually be working. Replacing the old joints is real work on eleven components that are past their design life and are not currently failing. A second instrument would halve the position uncertainty of a fault whose position is now dominated by slack rather than by the trace.",
         "proposals": [
           {
             "label": "A",
@@ -2969,7 +2724,7 @@ export const CURRICULUM = {
       "guide": "Four cards, and the rail here is a clock. Start from the fact that nothing can be amplified until an atom is already waiting in the long-lived level. Ask of each card whether it puts an atom there, keeps it there, or spends it.",
       "background": [
         "Why one of the four levels is short-lived and one is not. The pump lands atoms on a level they leave almost at once, and they leave it downwards, to a level they sit on for milliseconds. Only a level atoms sit on can hold a population, which is why the pump wavelength and the signal wavelength are different.",
-        "What this chain has to do with a drive current. Nothing on the telemetry screen touches any of the four steps. A current says power is going into the pump diode, and how many atoms that power lands on the upper level is a question about the diode's optical output."
+        "What this chain has to do with a drive current. Nothing on the telemetry screen touches any of the four steps. A current says power is going into the pump diode. How many atoms that power lands on the upper level is a question about the diode's optical output."
       ],
       "story": "Bruno Salas, the power feed engineer, has a wall chart of the erbium levels taped up beside repeater 6's telemetry. Four things happen to one atom in that coil, and the chart has them in no particular order.",
       "game": {
@@ -2997,23 +2752,6 @@ export const CURRICULUM = {
       "assumes": [
         "an amplifier works by holding more atoms excited than not",
         "atomic energy levels, and the wavelengths they allow — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "ΔE = h·c/λ",
-          "c": "the wavelength a transition between two levels gives",
-          "v": [
-            [
-              "ΔE",
-              "the energy gap between the two levels, in electron volts"
-            ],
-            [
-              "λ",
-              "the wavelength emitted or absorbed, in nanometres"
-            ]
-          ],
-          "s": "An atom can only take or give the exact gap between two of its levels, so the wavelengths it works at are a property of the atom rather than a setting on the equipment."
-        }
       ],
       "takesAsRead": [
         {
@@ -3088,7 +2826,7 @@ export const CURRICULUM = {
         "task": "Count the arrivals in one bit",
         "question": "How many photons arrive in one bit at the receiver's sensitivity?",
         "answer": "",
-        "why": "About six thousand photons arrive in each bit. That is a large number of anything except a count: the spread of a count is about its square root, so six thousand arrivals carry a natural unevenness of about eighty, which is over one per cent. No improvement to the electronics touches it, because it is a property of light arriving in pieces. The two ways to get further are more photons — a better amplifier or a shorter span — or fewer bits a second.",
+        "why": "About six thousand photons arrive in each bit. That is a large number of anything except a count. The spread of a count is about its square root. So six thousand arrivals carry a natural unevenness of about eighty, which is over one per cent. No improvement to the electronics touches it, because it is a property of light arriving in pieces. The two ways to get further are more photons — a better amplifier or a shorter span — or fewer bits a second.",
         "givens": [],
         "relationship": "Arrivals a bit = the power arriving, divided by the energy of one photon, divided by the bits a second.",
         "calcKey": "RECV-2"
@@ -3096,31 +2834,6 @@ export const CURRICULUM = {
       "assumes": [
         "a stream of arrivals has a spread of about the square root of its count",
         "photons: energy, momentum and the quantum of light — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "E = h·f = h·c/λ",
-          "c": "the energy of one photon",
-          "v": [
-            [
-              "h",
-              "Planck's constant, 6.626 × 10⁻³⁴ J·s"
-            ],
-            [
-              "f",
-              "the frequency, in hertz"
-            ],
-            [
-              "λ",
-              "the wavelength, in metres"
-            ],
-            [
-              "E",
-              "the energy of a single photon, in joules or electron volts"
-            ]
-          ],
-          "s": "Light arrives in quanta whose energy depends only on the colour, so a bright beam is many photons and a blue photon carries more than a red one however dim the beam."
-        }
       ],
       "takesAsRead": [
         {
@@ -3143,11 +2856,11 @@ export const CURRICULUM = {
       "scene": "Osgood has the diode's measured efficiency on the bench — 82 charges for every hundred arrivals — and this morning's photon energy beside it. Duarte wants the current per watt.",
       "takeaway": "Responsivity is the efficiency times the charge divided by the energy of one arrival, and it grows with the wavelength.",
       "place": "Receiver Lab",
-      "guide": "You build the working a line at a time. A watt is a number of arrivals a second, and each arrival that is converted releases one charge, so the current is a count times the charge on one of them. Take the arrivals first, apply the efficiency, then attach the charge. The wavelength enters only through the energy of one arrival.",
+      "guide": "You build the working a line at a time. A watt is a number of arrivals a second. Each arrival that is converted releases one charge. So the current is a count times the charge on one of them. Take the arrivals first, apply the efficiency, then attach the charge. The wavelength enters only through the energy of one arrival.",
       "background": [
-        "Why the answer is close to one. At this wavelength a photon carries 0.80 electron volts, and an electron volt is exactly the energy an electron gains through a volt — so the current per watt comes out near the reciprocal of that number of volts. An efficiency of 0.8 and a photon energy of 0.8 electron volts happen to cancel, which is a coincidence and a useful one to notice.",
+        "Why the answer is close to one. At this wavelength a photon carries 0.80 electron volts. An electron volt is exactly the energy an electron gains through a volt. So the current per watt comes out near the reciprocal of that number of volts. An efficiency of 0.8 and a photon energy of 0.8 electron volts happen to cancel. That is a coincidence, and a useful one to notice.",
         "Why the responsivity rises with wavelength. Longer wavelengths mean less energy per arrival, so a watt is more arrivals, so more charges: the responsivity of a perfect detector is proportional to the wavelength. That continues only until the arrivals are too weak to free a charge at all, which is the cut-off.",
-        "What the ten per cent is worth. The difference between the sheet's 0.90 and the measured 0.82 is 0.4 decibels of sensitivity, which against 2.2 decibels of margin is a fifth of everything the span has spare. It is also the difference between a figure somebody measured and a figure somebody printed."
+        "What the ten per cent is worth. The difference between the sheet's 0.90 and the measured 0.82 is 0.4 decibels of sensitivity. Against 2.2 decibels of margin, that is a fifth of everything the span has spare. It is also the difference between a figure somebody measured and a figure somebody printed."
       ],
       "story": "Osgood has the diode's measured efficiency on the bench — 82 charges for every hundred arrivals — and this morning's photon energy beside it. Duarte wants the current per watt.",
       "game": {
@@ -3158,7 +2871,7 @@ export const CURRICULUM = {
         "task": "Get the current a watt of light produces",
         "question": "What current does one watt at this wavelength produce in this diode?",
         "answer": "About 1.03 A. A watt is 7.8 × 10¹⁸ arrivals a second, 82 per cent are converted, and each gives 1.602 × 10⁻¹⁹ C.",
-        "why": "One watt produces about 1.03 amps. A watt at 1550 nanometres is 7.8 × 10¹⁸ arrivals a second; 82 per cent of them free a charge; each charge is 1.602 × 10⁻¹⁹ coulombs. The product is a current, and dividing by the watt makes it a responsivity. Written as one expression it is the efficiency times the charge over the photon energy, which shows the wavelength dependence: at 1300 nanometres the same diode would give 0.86 amps a watt with no change to the diode at all.",
+        "why": "One watt produces about 1.03 amps. A watt at 1550 nanometres is 7.8 × 10¹⁸ arrivals a second. Of those, 82 per cent free a charge. Each charge is 1.602 × 10⁻¹⁹ coulombs. The product is a current, and dividing by the watt makes it a responsivity. Written as one expression it is the efficiency times the charge over the photon energy. That shows the wavelength dependence. At 1300 nanometres the same diode would give 0.86 amps a watt, with no change to the diode at all.",
         "derive": {
           "start": "R_λ = η·e/(h·f)",
           "goal": "the current per watt, in amps a watt",
@@ -3353,7 +3066,7 @@ export const CURRICULUM = {
       "scene": "Osgood has two sources on the bench and one diode. A dim source at 1550 nanometres gives a clean current. A source twenty times brighter at 2000 nanometres gives nothing at all.",
       "takeaway": "A threshold in wavelength is a statement about energy per arrival, so brightness cannot get past it.",
       "place": "Receiver Lab",
-      "guide": "Four accounts of why the brighter source does nothing. Ask of each whether it is about how much light arrives or about what each arrival carries, because the two make opposite predictions when the brightness is turned up. One of them says nothing will happen however bright it gets.",
+      "guide": "Four accounts of why the brighter source does nothing. Ask of each whether it is about how much light arrives, or about what each arrival carries. The two make opposite predictions when the brightness is turned up. One of them says nothing will happen however bright it gets.",
       "story": "Osgood has two sources on the bench and one diode. A dim source at 1550 nanometres gives a clean current. A source twenty times brighter at 2000 nanometres gives nothing at all.",
       "game": {
         "type": "CHOICE",
@@ -3363,7 +3076,7 @@ export const CURRICULUM = {
         "task": "Settle where a detector's cut-off comes from",
         "question": "Why does the brighter source at the longer wavelength give no current?",
         "answer": "Each arrival carries too little energy to free a charge",
-        "why": "Each arrival at 2000 nanometres carries 0.62 electron volts, and the diode's material needs 0.75 to free a charge. Brightness is the number of arrivals, and arrivals that individually cannot free a charge do not free one between them — so twenty times as many of them still gives nothing. That is the whole content of a threshold: it is about the energy of one piece of light, which depends only on the wavelength, and it is the reason a detector is chosen for a band rather than for a power.",
+        "why": "Each arrival at 2000 nanometres carries 0.62 electron volts, and the diode's material needs 0.75 to free a charge. Brightness is the number of arrivals. Arrivals that individually cannot free a charge do not free one between them. So twenty times as many of them still gives nothing. That is the whole content of a threshold. It is about the energy of one piece of light, which depends only on the wavelength. That is the reason a detector is chosen for a band rather than for a power.",
         "rebuttals": [
           "A reflected beam would show as a reduced current rather than none at all.",
           "Speed limits how fast a signal can change, and a steady source asks nothing of that.",
@@ -3421,7 +3134,7 @@ export const CURRICULUM = {
       "scene": "Duarte has two instruments running on the same fibre. One shows an interference pattern from two paths recombined. The other counts arrivals, one at a time, on a diode.",
       "takeaway": "A model is chosen for a purpose, and two incompatible-looking pictures can both be needed on one bench.",
       "place": "Receiver Lab",
-      "guide": "All four options are ways of holding the two results together. Ask of each whether it says light is one thing or the other, or says which description a particular measurement needs — because both instruments are working and neither is wrong.",
+      "guide": "All four options are ways of holding the two results together. Ask of each whether it says light is one thing or the other, or says which description a particular measurement needs. Both instruments are working and neither is wrong.",
       "story": "Duarte has two instruments running on the same fibre. One shows an interference pattern from two paths recombined. The other counts arrivals, one at a time, on a diode.",
       "game": {
         "type": "CHOICE",
@@ -3431,7 +3144,7 @@ export const CURRICULUM = {
         "task": "Ask Duarte which description of light she needs",
         "question": "How should the two results be held together?",
         "answer": "Each measurement needs the description that fits what it measures",
-        "why": "Each measurement needs the description that fits what it does. The interference pattern exists because two paths recombine with a path difference, which is a statement about a wave; the arrivals are counted one at a time on a diode, which is a statement about quanta. Both are true of the same light on the same fibre. What is not available is a picture in which light is only one of them, and a receiver's design needs both at once: a wavelength to be filtered and a count to set the error floor.",
+        "why": "Each measurement needs the description that fits what it does. The interference pattern exists because two paths recombine with a path difference, which is a statement about a wave. The arrivals are counted one at a time on a diode, which is a statement about quanta. Both are true of the same light on the same fibre. What is not available is a picture in which light is only one of them. A receiver's design needs both at once: a wavelength to be filtered, and a count to set the error floor.",
         "rebuttals": [
           "The counting is reproducible on any detector and its scatter follows the count, not the diode.",
           "A pattern with fringes in known places is not an accident of statistics; it is where the paths differ.",
@@ -3466,7 +3179,7 @@ export const CURRICULUM = {
       "place": "Receiver Lab",
       "guide": "Four observations and four accounts of what each one is a statement about. A wave has a wavelength, and everything the glass does to it on the way follows from that. A stream of arrivals has a count, and a count has a scatter of its own that nothing downstream removes. Two of these belong to each.",
       "background": [
-        "Why the distinction is worth making at a receiver. It decides what better equipment could change. A loss that belongs to the wavelength is fixed by choosing a different channel or a different glass; a limit that belongs to the count is fixed only by sending more light.",
+        "Why the distinction is worth making at a receiver. It decides what better equipment could change. A loss that belongs to the wavelength is fixed by choosing a different channel or a different glass. A limit that belongs to the count is fixed only by sending more light.",
         "Why both descriptions are needed at once. The wave picture says how the fibre treated the signal on the way and what the amplifier could do to it. The arrival picture says how steady the number reaching the diode is, which is what an error rate is a statement about."
       ],
       "story": "Karl Osgood, the photodiode technician, has four facts about the far end pinned over the bench, collected on different days by different people. None of them was written down with this fortnight's argument in mind.",
@@ -3515,7 +3228,7 @@ export const CURRICULUM = {
       "scene": "Farouk has three radiographs of the same weld on the bay bench, taken over two years. All three show the weld. Only one of them has anything written on its corner.",
       "takeaway": "A record without its conditions is a picture; with them it is a measurement that can be compared with another.",
       "place": "Radiography Bay",
-      "guide": "Each thing on the left is written on the corner of a good radiograph. Match it to what somebody comparing two films would use it for. What separates them is which of them is about the source, which about the geometry, and which about the film — because comparing two films means holding all three constant.",
+      "guide": "Each thing on the left is written on the corner of a good radiograph. Match it to what somebody comparing two films would use it for. What separates them is which of them is about the source, which about the geometry, and which about the film. Comparing two films means holding all three constant.",
       "story": "Farouk has three radiographs of the same weld on the bay bench, taken over two years. All three show the weld. Only one of them has anything written on its corner.",
       "game": {
         "type": "PROTOCOL",
@@ -3573,7 +3286,7 @@ export const CURRICULUM = {
       "guide": "You build the working a line at a time. Attenuation removes a fixed fraction per unit thickness, so the fraction remaining is an exponential in the thickness. Get that fraction first, then invert the same relation to find the thickness that halves the beam, then count how many of those the wall is worth.",
       "background": [
         "Why a half-value thickness is the useful form. A material has no thickness that stops a gamma beam; it has a thickness that halves it, and another one that halves it again. So shielding is quoted as that thickness, and a barrier is designed by counting how many of them are in the way.",
-        "Why the exponent and the count agree. Forty millimetres at 0.666 per centimetre is an exponent of 2.66, and 2.66 divided by the natural logarithm of two is 3.85 — so the wall is 3.85 half-value thicknesses, and two to the power of minus 3.85 is 0.069. The two routes are the same statement written in different bases.",
+        "Why the exponent and the count agree. Forty millimetres at 0.666 per centimetre is an exponent of 2.66. Divide 2.66 by the natural logarithm of two and you get 3.85. So the wall is 3.85 half-value thicknesses, and two to the power of minus 3.85 is 0.069. The two routes are the same statement written in different bases.",
         "What it costs Farouk. Seven per cent through means an exposure fourteen times longer than a film with nothing in the way, before any allowance for the source being eight months old. That second factor arrives tomorrow, and the two multiply."
       ],
       "story": "The housing wall is forty millimetres of steel and the source's beam is attenuated at 0.666 per centimetre in it. Farouk wants the fraction that reaches the film, and the thickness that would halve it.",
@@ -3585,7 +3298,7 @@ export const CURRICULUM = {
         "task": "Work out what gets through the housing",
         "question": "What fraction of the beam reaches the film through the housing wall?",
         "answer": "About 7 per cent. The exponent is 0.666 × 4.0 = 2.66, and the half-value thickness is ln2/0.666 = 1.04 cm, so the wall is 3.85 of them.",
-        "why": "About seven per cent gets through. The fraction remaining is e to the minus the coefficient times the thickness, which is e to the minus 2.66. The same coefficient gives a half-value thickness of 1.04 centimetres, and the wall is 3.85 of those — and two to the minus 3.85 is the same 0.069, because the two forms are one relation in different bases. Neither form contains a thickness that stops the beam, which is why a barrier is a distance as often as it is a slab.",
+        "why": "About seven per cent gets through. The fraction remaining is e to the minus the coefficient times the thickness, which is e to the minus 2.66. The same coefficient gives a half-value thickness of 1.04 centimetres, and the wall is 3.85 of those. And two to the minus 3.85 is the same 0.069. The two forms are one relation in different bases. Neither form contains a thickness that stops the beam. That is why a barrier is a distance as often as it is a slab.",
         "derive": {
           "start": "I = I₀·e^(−μx)",
           "goal": "the fraction through the wall, and the half-value thickness",
@@ -3757,9 +3470,9 @@ export const CURRICULUM = {
       "scene": "The source has a half-life of 73.8 days and was renewed 243 days ago. Farouk wants what fraction of its original strength is left and what that does to her exposures.",
       "takeaway": "A decay constant and a half-life are the same fact, and a source's schedule follows from either.",
       "place": "Radiography Bay",
-      "guide": "You build the working a line at a time. A half-life and a decay constant are two ways of writing the same fact, and the exponential is the same shape as yesterday's attenuation with time in place of thickness. Get the constant, then the fraction, then check it by counting half-lives — because the two routes have to agree.",
+      "guide": "You build the working a line at a time. A half-life and a decay constant are two ways of writing the same fact. The exponential is the same shape as yesterday's attenuation, with time in place of thickness. Get the constant, then the fraction, then check it by counting half-lives — because the two routes have to agree.",
       "background": [
-        "Why the two forms agree. e to the minus the constant times the time, and two to the minus the number of half-lives, are the same function written in different bases, and the logarithm of two is the conversion between them. Being able to move between them is what makes a decay estimable in the head.",
+        "Why the two forms agree. e to the minus the constant times the time, and two to the minus the number of half-lives, are the same function written in different bases. The logarithm of two is the conversion between them. Being able to move between them is what makes a decay estimable in the head.",
         "Why the exposure factor is the reciprocal. A film needs a certain number of arrivals whatever the rate they come at, so a source a tenth as strong needs ten times as long. Both factors multiply: a tenth of the source and seven per cent through the steel is a hundred and forty times a bare film's exposure.",
         "What the date beyond which is. At 73.8 days a half-life, this source loses another half every two and a half months, and the bay's working day sets a ceiling on the exposure. That ceiling arrives about eleven months in, which is why the renewal interval is what it is rather than being a matter of policy."
       ],
@@ -3772,7 +3485,7 @@ export const CURRICULUM = {
         "task": "Work out what the source is worth after eight months",
         "question": "What fraction of the source's original activity is left after 243 days?",
         "answer": "About 10 per cent. The constant is ln2/73.8 = 0.00939 a day, so the fraction is e^(−2.28), and 243 days is 3.29 half-lives.",
-        "why": "About a tenth is left. The decay constant is the logarithm of two divided by the half-life, which is 0.00939 per day, and the fraction remaining is e to the minus that times 243 days. The check is the other route: 243 days is 3.29 half-lives, and two to the minus 3.29 is the same 0.102. Both are the same statement about a nucleus having a fixed chance of decaying per second, and neither depends on how much source there was to start with.",
+        "why": "About a tenth is left. The decay constant is the logarithm of two divided by the half-life, which is 0.00939 per day. The fraction remaining is e to the minus that times 243 days. The check is the other route: 243 days is 3.29 half-lives, and two to the minus 3.29 is the same 0.102. Both are the same statement about a nucleus having a fixed chance of decaying per second, and neither depends on how much source there was to start with.",
         "derive": {
           "start": "A = A₀·e^(−λt),  λ = ln2/T½",
           "goal": "the fraction of the original activity left, and the factor on the exposure",
@@ -3968,7 +3681,7 @@ export const CURRICULUM = {
       "scene": "Whitlock has the dose rate measured at two metres from the pot and a limit for the boundary of the controlled area. He wants the distance at which the rate is inside the limit.",
       "takeaway": "Intensity from a small source falls as the square of distance, so the barrier is set by a square root rather than by a ratio.",
       "place": "Radiography Bay",
-      "guide": "Four quantities are offered and three of them make the answer. A small source spreads its output over a sphere, so the rate falls as the square of the distance, and the distance needed is the reference distance times the root of the ratio of the rates. The exposure time is on the list because it is not part of a rate at all.",
+      "guide": "Four quantities are offered and three of them make the answer. A small source spreads its output over a sphere, so the rate falls as the square of the distance. The distance needed is the reference distance times the root of the ratio of the rates. The exposure time is on the list because it is not part of a rate at all.",
       "story": "Whitlock has the dose rate measured at two metres from the pot and a limit for the boundary of the controlled area. He wants the distance at which the rate is inside the limit.",
       "game": {
         "type": "BALLPARK",
@@ -3978,7 +3691,7 @@ export const CURRICULUM = {
         "task": "Set the barrier for today's exposure with Whitlock",
         "question": "How far back does the barrier go for today's exposure?",
         "answer": "",
-        "why": "The barrier goes to about 18.5 metres. Intensity from a small source falls as the inverse square of the distance, so reducing a rate by a factor of 85 needs a distance greater by the square root of 85, which is 9.2. That is why distance is the cheap answer to a strong source and lead is the expensive one — and it is also why a collimated beam breaks the arithmetic entirely, because a beam that has been aimed is not spreading over a sphere.",
+        "why": "The barrier goes to about 18.5 metres. Intensity from a small source falls as the inverse square of the distance. So reducing a rate by a factor of 85 needs a distance greater by the square root of 85, which is 9.2. That is why distance is the cheap answer to a strong source and lead is the expensive one. It is also why a collimated beam breaks the arithmetic entirely. A beam that has been aimed is not spreading over a sphere.",
         "givens": [],
         "relationship": "Distance needed = the measured distance × the square root of the measured rate divided by the limit.",
         "calcKey": "RAD-4"
@@ -4008,7 +3721,7 @@ export const CURRICULUM = {
       "scene": "Farouk's source emits at two definite energies and nothing in between, however old it gets and however warm the bay is. Her film's exposure changes and the energies do not.",
       "takeaway": "A nucleus has fixed levels, so it emits fixed energies; how much is left changes only how often.",
       "place": "Radiography Bay",
-      "guide": "Each observation on the left has one explanation on the right. What separates them is which properties belong to the nucleus itself and which to how much of it is left, because ageing changes one of those and not the other.",
+      "guide": "Each observation on the left has one explanation on the right. What separates them is which properties belong to the nucleus itself, and which to how much of it is left. Ageing changes one of those and not the other.",
       "story": "Farouk's source emits at two definite energies and nothing in between, however old it gets and however warm the bay is. Her film's exposure changes and the energies do not.",
       "game": {
         "type": "CASEBOOK",
@@ -4018,7 +3731,7 @@ export const CURRICULUM = {
         "task": "Match each observation about the source to what explains it.",
         "question": "Match each observation about the source to what explains it.",
         "answer": "",
-        "why": "Four observations, one distinction. The energies come from the gaps between the nucleus's own states, which nothing available in a radiography bay can alter, so they are the same after eight months and the same when warm. The rate depends on how many nuclei are left, which is what has changed. The half-life belongs to that kind of nucleus and not to the pot, which is why it can be looked up rather than measured. And heat supplies fractions of an electron volt against nuclear energies of hundreds of thousands, which is why a nuclear source is the most stable thing on this site.",
+        "why": "Four observations, one distinction. The energies come from the gaps between the nucleus's own states, and nothing available in a radiography bay can alter those. So they are the same after eight months and the same when warm. The rate depends on how many nuclei are left, which is what has changed. The half-life belongs to that kind of nucleus and not to the pot, which is why it can be looked up rather than measured. And heat supplies fractions of an electron volt against nuclear energies of hundreds of thousands. That is why a nuclear source is the most stable thing on this site.",
         "scenarios": [
           "The two emitted energies are the same as they were eight months ago.",
           "The number of emissions a second is a tenth of what it was.",
@@ -4041,54 +3754,6 @@ export const CURRICULUM = {
       "assumes": [
         "a nucleus has a set of states with definite energies",
         "the nucleus, and the binding energy that holds it — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "E = h·f = h·c/λ",
-          "c": "the energy of one photon",
-          "v": [
-            [
-              "h",
-              "Planck's constant, 6.626 × 10⁻³⁴ J·s"
-            ],
-            [
-              "f",
-              "the frequency, in hertz"
-            ],
-            [
-              "λ",
-              "the wavelength, in metres"
-            ],
-            [
-              "E",
-              "the energy of a single photon, in joules or electron volts"
-            ]
-          ],
-          "s": "Light arrives in quanta whose energy depends only on the colour, so a bright beam is many photons and a blue photon carries more than a red one however dim the beam."
-        },
-        {
-          "e": "A = A₀·e^(−λt),  λ = ln2/T½",
-          "c": "radioactive decay and half-life",
-          "v": [
-            [
-              "A",
-              "the activity now"
-            ],
-            [
-              "A₀",
-              "the activity when the source was new"
-            ],
-            [
-              "λ",
-              "the decay constant, per day"
-            ],
-            [
-              "T½",
-              "the half-life"
-            ]
-          ],
-          "s": "A nucleus has a fixed chance of decaying in the next second whatever its history, and that alone produces a halving time which does not depend on how much is left."
-        }
       ],
       "takesAsRead": [
         {

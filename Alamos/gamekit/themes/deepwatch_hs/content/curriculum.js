@@ -58,27 +58,6 @@ export const CURRICULUM = {
       "assumes": [
         "passive sonar listens and does not transmit"
       ],
-      "equations": [
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "speed of sound in seawater, about 1500 metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
-        }
-      ],
       "concept": {
         "n": 23,
         "c": "Sound as a longitudinal wave: frequency, wavelength and speed",
@@ -359,33 +338,6 @@ export const CURRICULUM = {
           ],
           "s": "Stored energy goes as the square of the voltage, so halving the voltage leaves a quarter of the energy.",
           "computed": true
-        },
-        {
-          "e": "Q/t = kA·ΔT/L",
-          "c": "the rate heat conducts through a wall",
-          "v": [
-            [
-              "Q/t",
-              "heat flow, in watts"
-            ],
-            [
-              "k",
-              "thermal conductivity of the material"
-            ],
-            [
-              "A",
-              "area the heat crosses, in square metres"
-            ],
-            [
-              "ΔT",
-              "temperature difference across it, in kelvin"
-            ],
-            [
-              "L",
-              "thickness, in metres"
-            ]
-          ],
-          "s": "Heat crosses a wall in proportion to its area and the temperature difference, and inversely to its thickness."
         }
       ],
       "concept": {
@@ -449,25 +401,6 @@ export const CURRICULUM = {
           ],
           "s": "A contact closing on you raises the frequency you hear, by a fraction equal to the closing speed over the speed of sound.",
           "demanded": true
-        },
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "speed of sound in seawater, about 1500 metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
         }
       ],
       "concept": {
@@ -777,28 +710,6 @@ export const CURRICULUM = {
         "waves add when they arrive together",
         "sound speed is approximately the same for these two nearby frequencies"
       ],
-      "equations": [
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "speed of sound in seawater, about 1500 metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other.",
-          "demanded": true
-        }
-      ],
       "concept": {
         "n": 24,
         "c": "Superposition, interference and beats between two close tones",
@@ -862,27 +773,6 @@ export const CURRICULUM = {
       "assumes": [
         "passive sonar listens and does not transmit",
         "sound in seawater travels at about 1500 metres per second"
-      ],
-      "equations": [
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "speed of sound in seawater, about 1500 metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
-        }
       ],
       "concept": {
         "n": 23,
@@ -1472,25 +1362,6 @@ export const CURRICULUM = {
           ],
           "s": "A photon either has enough energy to free an electron or it does not, and brightness cannot make up the difference.",
           "computed": true
-        },
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "speed of sound in seawater, about 1500 metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
         }
       ],
       "concept": {
@@ -1597,27 +1468,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "sound in seawater travels at about 1500 metres per second"
-      ],
-      "equations": [
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "speed of sound in seawater, about 1500 metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
-        }
       ],
       "concept": {
         "n": 23,
@@ -2115,31 +1965,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an instruction has to be actable by the person who receives it"
-      ],
-      "equations": [
-        {
-          "e": "K_max = hf − φ",
-          "c": "the photoelectric equation",
-          "v": [
-            [
-              "K_max",
-              "the most kinetic energy an ejected electron can have, in joules"
-            ],
-            [
-              "h",
-              "Planck's constant, 6.63 × 10⁻³⁴ J s"
-            ],
-            [
-              "f",
-              "frequency of the light, in hertz"
-            ],
-            [
-              "φ",
-              "the work function of the surface, in joules"
-            ]
-          ],
-          "s": "A photon either has enough energy to free an electron or it does not, and brightness cannot make up the difference."
-        }
       ]
     },
     {
@@ -2252,35 +2077,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a fire needs fuel, oxygen and a source of energy"
-      ],
-      "equations": [
-        {
-          "e": "Q/t = kA·ΔT/L",
-          "c": "the rate heat conducts through a wall",
-          "v": [
-            [
-              "Q/t",
-              "heat flow, in watts"
-            ],
-            [
-              "k",
-              "thermal conductivity of the material"
-            ],
-            [
-              "A",
-              "area the heat crosses, in square metres"
-            ],
-            [
-              "ΔT",
-              "temperature difference across it, in kelvin"
-            ],
-            [
-              "L",
-              "thickness, in metres"
-            ]
-          ],
-          "s": "Heat crosses a wall in proportion to its area and the temperature difference, and inversely to its thickness."
-        }
       ],
       "concept": {
         "n": 6,
@@ -3144,27 +2940,6 @@ export const CURRICULUM = {
       "assumes": [
         "every structure has frequencies at which it prefers to vibrate"
       ],
-      "equations": [
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "speed of sound in seawater, about 1500 metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
-        }
-      ],
       "concept": {
         "n": 25,
         "c": "Standing waves and resonance: the drive frequency a structure answers",
@@ -3257,35 +3032,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the ion is singly charged and enters the field at right angles"
-      ],
-      "equations": [
-        {
-          "e": "r = mv / (qB)",
-          "c": "the radius a magnetic field bends a moving charge to",
-          "v": [
-            [
-              "r",
-              "radius of the path, in metres"
-            ],
-            [
-              "m",
-              "mass of the ion, in kilograms"
-            ],
-            [
-              "v",
-              "its speed, in metres per second"
-            ],
-            [
-              "q",
-              "its charge, in coulombs"
-            ],
-            [
-              "B",
-              "magnetic field strength, in tesla"
-            ]
-          ],
-          "s": "A heavier ion at the same speed and charge swings wider, which is how a mass spectrometer separates them."
-        }
       ],
       "concept": {
         "n": 16,
@@ -3925,27 +3671,6 @@ export const CURRICULUM = {
         "a finite yard slot spent on one refit cannot also be spent on another",
         "the patrol has both a stealth requirement and an old-chart navigation risk"
       ],
-      "equations": [
-        {
-          "e": "β = 10·log₁₀(I/I₀)",
-          "c": "the decibel, and why 3 dB is a doubling",
-          "v": [
-            [
-              "β",
-              "the level, in decibels"
-            ],
-            [
-              "I",
-              "the intensity being measured"
-            ],
-            [
-              "I₀",
-              "the reference intensity the scale is quoted against"
-            ]
-          ],
-          "s": "Ten decibels is a factor of ten in intensity and three decibels is a factor of two, because the scale is logarithmic."
-        }
-      ],
       "concept": {
         "n": 9,
         "c": "Capacitance and stored energy: the transducer as a capacitor",
@@ -4008,35 +3733,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "pressure rises about one atmosphere for every ten metres of depth"
-      ],
-      "equations": [
-        {
-          "e": "P = P₀ + ρgh",
-          "c": "pressure at a depth",
-          "v": [
-            [
-              "P",
-              "absolute pressure at depth, in pascals"
-            ],
-            [
-              "P₀",
-              "pressure at the surface, about 101 kPa"
-            ],
-            [
-              "ρ",
-              "density of seawater, 1025 kg per cubic metre"
-            ],
-            [
-              "g",
-              "9.8 metres per second squared"
-            ],
-            [
-              "h",
-              "depth below the surface, in metres"
-            ]
-          ],
-          "s": "Every ten metres of seawater adds about one atmosphere, on top of the atmosphere already there."
-        }
       ],
       "concept": {
         "n": 1,

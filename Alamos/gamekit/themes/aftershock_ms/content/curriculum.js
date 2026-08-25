@@ -35,27 +35,6 @@ export const CURRICULUM = {
       "assumes": [
         "the first wave travels faster than the strong shaking that follows it"
       ],
-      "equations": [
-        {
-          "e": "distance = speed × time",
-          "c": "how far away the earthquake was",
-          "v": [
-            [
-              "distance",
-              "to the fault, in kilometres"
-            ],
-            [
-              "speed",
-              "the wave speed, in kilometres per second"
-            ],
-            [
-              "time",
-              "the delay, in seconds"
-            ]
-          ],
-          "s": "The gap between the first wave and the strong shaking grows with distance, so timing it gives a distance."
-        }
-      ],
       "concept": {
         "n": 2,
         "c": "An earthquake sends waves through the ground, and some arrive first",
@@ -389,27 +368,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the first wave travels faster than the strong shaking behind it"
-      ],
-      "equations": [
-        {
-          "e": "distance = speed × time",
-          "c": "how far away the earthquake was",
-          "v": [
-            [
-              "distance",
-              "to the fault, in kilometres"
-            ],
-            [
-              "speed",
-              "the wave speed, in kilometres per second"
-            ],
-            [
-              "time",
-              "the delay, in seconds"
-            ]
-          ],
-          "s": "The gap between the first wave and the strong shaking grows with distance, so timing it gives a distance."
-        }
       ],
       "concept": {
         "n": 2,
@@ -1037,27 +995,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a habit taken up in an emergency has a cost that only shows later"
-      ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "a share of the buildings, or of the people",
-          "v": [
-            [
-              "part",
-              "how many that share comes to"
-            ],
-            [
-              "whole",
-              "the whole number of them"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
       ]
     }
   ],
@@ -1416,27 +1353,6 @@ export const CURRICULUM = {
       "assumes": [
         "ground can only go liquid if it is full of water"
       ],
-      "equations": [
-        {
-          "e": "load on each metre = total weight ÷ length",
-          "c": "what a wall or a footing is carrying",
-          "v": [
-            [
-              "load on each metre",
-              "in tonnes per metre"
-            ],
-            [
-              "total weight",
-              "in tonnes"
-            ],
-            [
-              "length",
-              "in metres"
-            ]
-          ],
-          "s": "Spreading a weight over more support means each part carries less of it."
-        }
-      ],
       "concept": {
         "n": 6,
         "c": "Wet sandy ground can behave like a liquid when it is shaken",
@@ -1592,27 +1508,6 @@ export const CURRICULUM = {
       "assumes": [
         "concrete strength is measured by crushing a sample of it"
       ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of repeated measurements",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the readings added up"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "Measuring the same thing several times and averaging pulls the random part of each reading toward zero."
-        }
-      ],
       "concept": {
         "n": 12,
         "c": "One sample is not the whole building",
@@ -1709,27 +1604,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "waiting has consequences, and they can be counted"
-      ],
-      "equations": [
-        {
-          "e": "how many times = bigger ÷ smaller",
-          "c": "comparing two shakings, or two strengths",
-          "v": [
-            [
-              "how many times",
-              "the ratio"
-            ],
-            [
-              "bigger",
-              "the larger measurement"
-            ],
-            [
-              "smaller",
-              "the one it is compared with"
-            ]
-          ],
-          "s": "Dividing one measurement by another says how many times bigger it is, which is usually the useful comparison."
-        }
       ],
       "concept": {
         "n": 6,
@@ -1838,25 +1712,6 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it.",
           "computed": true
-        },
-        {
-          "e": "how many times = bigger ÷ smaller",
-          "c": "comparing two shakings, or two strengths",
-          "v": [
-            [
-              "how many times",
-              "the ratio"
-            ],
-            [
-              "bigger",
-              "the larger measurement"
-            ],
-            [
-              "smaller",
-              "the one it is compared with"
-            ]
-          ],
-          "s": "Dividing one measurement by another says how many times bigger it is, which is usually the useful comparison."
         }
       ],
       "concept": {
@@ -1905,27 +1760,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a forecast covers a spread of outcomes, not just one"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of repeated measurements",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the readings added up"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "Measuring the same thing several times and averaging pulls the random part of each reading toward zero."
-        }
       ],
       "concept": {
         "n": 13,

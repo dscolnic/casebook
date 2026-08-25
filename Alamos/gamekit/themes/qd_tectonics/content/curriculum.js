@@ -163,27 +163,6 @@ export const CURRICULUM = {
         "a framework is judged by the evidence it leaves unexplained",
         "crust that is being made somewhere at a steady rate must be destroyed somewhere"
       ],
-      "equations": [
-        {
-          "e": "depth = distance inland x tan(dip)",
-          "c": "how steeply a descending slab is going down",
-          "v": [
-            [
-              "depth",
-              "how deep the earthquakes are, in kilometres"
-            ],
-            [
-              "distance inland",
-              "how far from the trench they are, in kilometres"
-            ],
-            [
-              "dip",
-              "the angle the slab makes with the horizontal"
-            ]
-          ],
-          "s": "Earthquakes mark the slab, so their depths against their distances from the trench trace a line whose slope is the angle it is descending at."
-        }
-      ],
       "concept": {
         "n": 9,
         "c": "One framework has to account for every layer of evidence",
@@ -299,27 +278,6 @@ export const CURRICULUM = {
       "assumes": [
         "rock records the direction of the magnetic field as it solidifies",
         "the Earth's magnetic field has reversed many times in the past"
-      ],
-      "equations": [
-        {
-          "e": "rate = distance / age",
-          "c": "the spreading rate of an ocean floor",
-          "v": [
-            [
-              "distance",
-              "how far a rock sample sits from the ridge, in kilometres"
-            ],
-            [
-              "age",
-              "how long ago that rock formed, in millions of years"
-            ],
-            [
-              "rate",
-              "how fast the floor is moving away from the ridge"
-            ]
-          ],
-          "s": "A piece of ocean floor made at the ridge and carried away has covered its distance in its own lifetime, so dividing one by the other gives the speed it travelled at."
-        }
       ],
       "concept": {
         "n": 5,
@@ -531,27 +489,6 @@ export const CURRICULUM = {
         "two plates in contact can only separate, converge, or slide past",
         "melting above a descending sheet produces a line of volcanoes"
       ],
-      "equations": [
-        {
-          "e": "depth = distance inland x tan(dip)",
-          "c": "how steeply a descending slab is going down",
-          "v": [
-            [
-              "depth",
-              "how deep the earthquakes are, in kilometres"
-            ],
-            [
-              "distance inland",
-              "how far from the trench they are, in kilometres"
-            ],
-            [
-              "dip",
-              "the angle the slab makes with the horizontal"
-            ]
-          ],
-          "s": "Earthquakes mark the slab, so their depths against their distances from the trench trace a line whose slope is the angle it is descending at."
-        }
-      ],
       "concept": {
         "n": 7,
         "c": "A boundary is classified by what the two plates do at it",
@@ -699,27 +636,6 @@ export const CURRICULUM = {
       "assumes": [
         "denser material sinks beneath less dense material",
         "a converging boundary bends one plate downward at the contact"
-      ],
-      "equations": [
-        {
-          "e": "rate = distance / age",
-          "c": "the spreading rate of an ocean floor",
-          "v": [
-            [
-              "distance",
-              "how far a rock sample sits from the ridge, in kilometres"
-            ],
-            [
-              "age",
-              "how long ago that rock formed, in millions of years"
-            ],
-            [
-              "rate",
-              "how fast the floor is moving away from the ridge"
-            ]
-          ],
-          "s": "A piece of ocean floor made at the ridge and carried away has covered its distance in its own lifetime, so dividing one by the other gives the speed it travelled at."
-        }
       ],
       "concept": {
         "n": 8,

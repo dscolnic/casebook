@@ -326,27 +326,6 @@ export const CURRICULUM = {
       "assumes": [
         "ice spreads outwards from the high points of an ice sheet"
       ],
-      "equations": [
-        {
-          "e": "years = depth ÷ thickness of one year",
-          "c": "turning a depth into an age",
-          "v": [
-            [
-              "years",
-              "how old the ice at that depth is"
-            ],
-            [
-              "depth",
-              "in metres"
-            ],
-            [
-              "thickness of one year",
-              "in metres of ice per year"
-            ]
-          ],
-          "s": "If each year leaves the same thickness, dividing depth by it gives an age — and the thickness shrinks with depth, which is why deep ice needs more care."
-        }
-      ],
       "concept": {
         "n": 2,
         "c": "Counting layers is counting years, and deeper means older",
@@ -654,27 +633,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measurement that averages over a stretch cannot show anything shorter than it"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of several years, or several samples",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the values added up"
-            ],
-            [
-              "how many",
-              "the number of them"
-            ]
-          ],
-          "s": "One year is noise. An average over many years is a climate."
-        }
       ],
       "concept": {
         "n": 8,
@@ -1485,25 +1443,6 @@ export const CURRICULUM = {
           ],
           "s": "If each year leaves the same thickness, dividing depth by it gives an age — and the thickness shrinks with depth, which is why deep ice needs more care.",
           "computed": true
-        },
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of several years, or several samples",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the values added up"
-            ],
-            [
-              "how many",
-              "the number of them"
-            ]
-          ],
-          "s": "One year is noise. An average over many years is a climate."
         }
       ],
       "concept": {
@@ -1643,27 +1582,6 @@ export const CURRICULUM = {
       "assumes": [
         "volcanic ash falls out of the sky within a year or two of the eruption"
       ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast the drill is going down",
-          "v": [
-            [
-              "speed",
-              "in metres per day"
-            ],
-            [
-              "distance",
-              "in metres"
-            ],
-            [
-              "time",
-              "in days"
-            ]
-          ],
-          "s": "A rate is an amount divided by the time it took, whether the amount is metres of ice or years of snow."
-        }
-      ],
       "concept": {
         "n": 4,
         "c": "A marker found in many places lets separate records be lined up",
@@ -1788,27 +1706,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a correction has to be predicted before it is applied, or it cannot be wrong"
-      ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast the drill is going down",
-          "v": [
-            [
-              "speed",
-              "in metres per day"
-            ],
-            [
-              "distance",
-              "in metres"
-            ],
-            [
-              "time",
-              "in days"
-            ]
-          ],
-          "s": "A rate is an amount divided by the time it took, whether the amount is metres of ice or years of snow."
-        }
       ],
       "concept": {
         "n": 9,
@@ -2051,27 +1948,6 @@ export const CURRICULUM = {
       "assumes": [
         "a number is only as strong as the weakest step between the ice and it"
       ],
-      "equations": [
-        {
-          "e": "years = depth ÷ thickness of one year",
-          "c": "turning a depth into an age",
-          "v": [
-            [
-              "years",
-              "how old the ice at that depth is"
-            ],
-            [
-              "depth",
-              "in metres"
-            ],
-            [
-              "thickness of one year",
-              "in metres of ice per year"
-            ]
-          ],
-          "s": "If each year leaves the same thickness, dividing depth by it gives an age — and the thickness shrinks with depth, which is why deep ice needs more care."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "Something measured today can stand in for something nobody measured then",
@@ -2214,27 +2090,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "snow forms in a cloud and falls to the ground some way below it"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of several years, or several samples",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the values added up"
-            ],
-            [
-              "how many",
-              "the number of them"
-            ]
-          ],
-          "s": "One year is noise. An average over many years is a climate."
-        }
       ],
       "concept": {
         "n": 6,
@@ -2416,27 +2271,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a claim is supported when the evidence would have come out differently if it were false"
-      ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "a share of a total, as a percentage",
-          "v": [
-            [
-              "part",
-              "how much that share comes to"
-            ],
-            [
-              "whole",
-              "the total"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
       ],
       "concept": {
         "n": 16,

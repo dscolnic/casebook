@@ -195,30 +195,6 @@ export const CURRICULUM = {
           ],
           "s": "A constant proportional change per step, which is a constant ratio rather than a constant difference.",
           "computed": true
-        },
-        {
-          "e": "aₙ = a₁ · rⁿ⁻¹",
-          "c": "the nth term of a geometric sequence",
-          "v": [
-            [
-              "aₙ",
-              "the term you want"
-            ],
-            [
-              "a₁",
-              "the first term"
-            ],
-            [
-              "r",
-              "the common ratio multiplied in each time"
-            ],
-            [
-              "n",
-              "which term it is"
-            ]
-          ],
-          "s": "A sequence that multiplies by the same factor each time grows or decays by a constant proportion.",
-          "card": false
         }
       ],
       "takesAsRead": [
@@ -813,29 +789,6 @@ export const CURRICULUM = {
           ],
           "s": "A larger coefficient inside the function squeezes the cycle, so the period is inversely proportional to it.",
           "demanded": true
-        },
-        {
-          "e": "y = A·sin(B(x − C)) + D",
-          "c": "a sinusoid and its four parameters",
-          "v": [
-            [
-              "A",
-              "amplitude, half the peak-to-peak height"
-            ],
-            [
-              "B",
-              "sets the period"
-            ],
-            [
-              "C",
-              "the phase shift, where the cycle starts"
-            ],
-            [
-              "D",
-              "the midline the wave sits on"
-            ]
-          ],
-          "s": "Four numbers describe any sine wave: how tall, how often, where it starts and what it is centred on."
         }
       ],
       "takesAsRead": [
@@ -1403,30 +1356,6 @@ export const CURRICULUM = {
           ],
           "s": "Ten decibels is a factor of ten in intensity and three decibels is a factor of two, because the scale is a logarithm.",
           "computed": true
-        },
-        {
-          "e": "aₙ = a₁ · rⁿ⁻¹",
-          "c": "the nth term of a geometric sequence",
-          "v": [
-            [
-              "aₙ",
-              "the term you want"
-            ],
-            [
-              "a₁",
-              "the first term"
-            ],
-            [
-              "r",
-              "the common ratio multiplied in each time"
-            ],
-            [
-              "n",
-              "which term it is"
-            ]
-          ],
-          "s": "A sequence that multiplies by the same factor each time grows or decays by a constant proportion.",
-          "card": false
         }
       ],
       "takesAsRead": [
@@ -1552,31 +1481,6 @@ export const CURRICULUM = {
         "the chase runs one full cycle per cue",
         "inverse trigonometric functions, and the range they are restricted to — taken as read",
         "period from the coefficient inside the function — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "y = A·sin(B(x − C)) + D",
-          "c": "a sinusoid and its four parameters",
-          "v": [
-            [
-              "A",
-              "amplitude, half the peak-to-peak height"
-            ],
-            [
-              "B",
-              "sets the period"
-            ],
-            [
-              "C",
-              "the phase shift, where the cycle starts"
-            ],
-            [
-              "D",
-              "the midline the wave sits on"
-            ]
-          ],
-          "s": "Four numbers describe any sine wave: how tall, how often, where it starts and what it is centred on."
-        }
       ],
       "takesAsRead": [
         {
@@ -1957,25 +1861,6 @@ export const CURRICULUM = {
           ],
           "s": "Two perpendicular components make a right triangle whose hypotenuse is the magnitude.",
           "computed": true
-        },
-        {
-          "e": "T = W ÷ (2·cos θ)",
-          "c": "the tension in two symmetric lines",
-          "v": [
-            [
-              "T",
-              "tension in each line"
-            ],
-            [
-              "W",
-              "the weight being carried"
-            ],
-            [
-              "θ",
-              "the angle each line makes with the vertical"
-            ]
-          ],
-          "s": "Only the vertical component of each line carries the load, so the further the lines lean, the harder both pull."
         }
       ],
       "takesAsRead": [
@@ -2031,27 +1916,6 @@ export const CURRICULUM = {
         "both lines lean by the same angle",
         "vectors: components, magnitude and direction — taken as read"
       ],
-      "equations": [
-        {
-          "e": "T = W ÷ (2·cos θ)",
-          "c": "the tension in two symmetric lines",
-          "v": [
-            [
-              "T",
-              "tension in each line"
-            ],
-            [
-              "W",
-              "the weight being carried"
-            ],
-            [
-              "θ",
-              "the angle each line makes with the vertical"
-            ]
-          ],
-          "s": "Only the vertical component of each line carries the load, so the further the lines lean, the harder both pull."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 27,
@@ -2099,27 +1963,6 @@ export const CURRICULUM = {
       "assumes": [
         "the two lines are symmetric and the piece hangs level",
         "vectors: components, magnitude and direction — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "T = W ÷ (2·cos θ)",
-          "c": "the tension in two symmetric lines",
-          "v": [
-            [
-              "T",
-              "tension in each line"
-            ],
-            [
-              "W",
-              "the weight being carried"
-            ],
-            [
-              "θ",
-              "the angle each line makes with the vertical"
-            ]
-          ],
-          "s": "Only the vertical component of each line carries the load, so the further the lines lean, the harder both pull."
-        }
       ],
       "takesAsRead": [
         {
@@ -2490,31 +2333,6 @@ export const CURRICULUM = {
         "the design's four per cent is per tread rather than overall",
         "average rate of change over an interval — taken as read"
       ],
-      "equations": [
-        {
-          "e": "aₙ = a₁ · rⁿ⁻¹",
-          "c": "the nth term of a geometric sequence",
-          "v": [
-            [
-              "aₙ",
-              "the term you want"
-            ],
-            [
-              "a₁",
-              "the first term"
-            ],
-            [
-              "r",
-              "the common ratio multiplied in each time"
-            ],
-            [
-              "n",
-              "which term it is"
-            ]
-          ],
-          "s": "A sequence that multiplies by the same factor each time grows or decays by a constant proportion."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 2,
@@ -2689,27 +2507,6 @@ export const CURRICULUM = {
       "assumes": [
         "the two movements start and finish together",
         "converting between polar and rectangular — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "s = rθ",
-          "c": "arc length in radians",
-          "v": [
-            [
-              "s",
-              "arc length, in the same units as r"
-            ],
-            [
-              "r",
-              "the radius"
-            ],
-            [
-              "θ",
-              "the angle at the centre, in radians"
-            ]
-          ],
-          "s": "An angle measured in radians is the arc it sweeps divided by the radius, which is why the formula has nothing else in it."
-        }
       ],
       "takesAsRead": [
         {
@@ -2979,27 +2776,6 @@ export const CURRICULUM = {
       "assumes": [
         "the 1958 alteration was symmetric about the centre line"
       ],
-      "equations": [
-        {
-          "e": "T = W ÷ (2·cos θ)",
-          "c": "the tension in two symmetric lines",
-          "v": [
-            [
-              "T",
-              "tension in each line"
-            ],
-            [
-              "W",
-              "the weight being carried"
-            ],
-            [
-              "θ",
-              "the angle each line makes with the vertical"
-            ]
-          ],
-          "s": "Only the vertical component of each line carries the load, so the further the lines lean, the harder both pull."
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "A function as a rule, its domain and what the domain rules out",
@@ -3060,50 +2836,6 @@ export const CURRICULUM = {
       "assumes": [
         "the proscenium edge is a straight vertical line at that distance from centre",
         "the unit circle, and sine and cosine as coordinates — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "aₙ = a₁ · rⁿ⁻¹",
-          "c": "the nth term of a geometric sequence",
-          "v": [
-            [
-              "aₙ",
-              "the term you want"
-            ],
-            [
-              "a₁",
-              "the first term"
-            ],
-            [
-              "r",
-              "the common ratio multiplied in each time"
-            ],
-            [
-              "n",
-              "which term it is"
-            ]
-          ],
-          "s": "A sequence that multiplies by the same factor each time grows or decays by a constant proportion."
-        },
-        {
-          "e": "tan θ = opposite ÷ adjacent",
-          "c": "an angle from two sides",
-          "v": [
-            [
-              "θ",
-              "the angle at the corner you are standing at"
-            ],
-            [
-              "opposite",
-              "the side across from it"
-            ],
-            [
-              "adjacent",
-              "the side beside it"
-            ]
-          ],
-          "s": "Two sides of a right triangle fix the angle between the third and the base, in either direction."
-        }
       ],
       "takesAsRead": [
         {
@@ -3218,26 +2950,6 @@ export const CURRICULUM = {
           ],
           "s": "Losing the same fraction each step leaves a curve that falls fast at first and never quite reaches zero.",
           "computed": true
-        },
-        {
-          "e": "L = 10·log₁₀(I / I₀)",
-          "c": "a level in decibels",
-          "v": [
-            [
-              "L",
-              "the level, in decibels"
-            ],
-            [
-              "I",
-              "the intensity being measured"
-            ],
-            [
-              "I₀",
-              "the reference intensity the scale is quoted against"
-            ]
-          ],
-          "s": "Ten decibels is a factor of ten in intensity and three decibels is a factor of two, because the scale is a logarithm.",
-          "card": false
         }
       ],
       "takesAsRead": [

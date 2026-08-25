@@ -115,23 +115,6 @@ export const CURRICULUM = {
         "a difference can only be measured between two things recorded the same way",
         "the moment of totality is fixed and lasts a few minutes"
       ],
-      "equations": [
-        {
-          "e": "degrees = arcseconds / 3600",
-          "c": "an angle in arcseconds written in degrees",
-          "v": [
-            [
-              "arcseconds",
-              "the angle as it is measured on the plate"
-            ],
-            [
-              "3600",
-              "the number of arcseconds in one degree"
-            ]
-          ],
-          "s": "A degree holds sixty arcminutes and each arcminute holds sixty arcseconds, so a degree holds three thousand six hundred of them."
-        }
-      ],
       "concept": {
         "n": 3,
         "c": "The measurement is differential: two plates, never one",
@@ -255,23 +238,6 @@ export const CURRICULUM = {
       "assumes": [
         "a ray is deflected most when it passes closest to the Sun",
         "the deflection falls off roughly as one over the distance from the centre"
-      ],
-      "equations": [
-        {
-          "e": "degrees = arcseconds / 3600",
-          "c": "an angle in arcseconds written in degrees",
-          "v": [
-            [
-              "arcseconds",
-              "the angle as it is measured on the plate"
-            ],
-            [
-              "3600",
-              "the number of arcseconds in one degree"
-            ]
-          ],
-          "s": "A degree holds sixty arcminutes and each arcminute holds sixty arcseconds, so a degree holds three thousand six hundred of them."
-        }
       ],
       "concept": {
         "n": 5,
@@ -572,38 +538,6 @@ export const CURRICULUM = {
         "a measurement tests between two values only if its band excludes one of them",
         "the gap between the two predictions is about nine tenths of an arcsecond"
       ],
-      "equations": [
-        {
-          "e": "degrees = arcseconds / 3600",
-          "c": "an angle in arcseconds written in degrees",
-          "v": [
-            [
-              "arcseconds",
-              "the angle as it is measured on the plate"
-            ],
-            [
-              "3600",
-              "the number of arcseconds in one degree"
-            ]
-          ],
-          "s": "A degree holds sixty arcminutes and each arcminute holds sixty arcseconds, so a degree holds three thousand six hundred of them."
-        },
-        {
-          "e": "weight = 1 / sigma^2",
-          "c": "how much a measurement counts when they are combined",
-          "v": [
-            [
-              "sigma",
-              "the uncertainty on that measurement"
-            ],
-            [
-              "weight",
-              "how strongly it pulls the combined answer"
-            ]
-          ],
-          "s": "A measurement contributes in proportion to one over the square of its own uncertainty, so halving an error bar makes a result count four times as much."
-        }
-      ],
       "concept": {
         "n": 7,
         "c": "A result is inconclusive when its band covers both predictions",
@@ -661,21 +595,6 @@ export const CURRICULUM = {
           ],
           "s": "A measurement contributes in proportion to one over the square of its own uncertainty, so halving an error bar makes a result count four times as much.",
           "computed": true
-        },
-        {
-          "e": "degrees = arcseconds / 3600",
-          "c": "an angle in arcseconds written in degrees",
-          "v": [
-            [
-              "arcseconds",
-              "the angle as it is measured on the plate"
-            ],
-            [
-              "3600",
-              "the number of arcseconds in one degree"
-            ]
-          ],
-          "s": "A degree holds sixty arcminutes and each arcminute holds sixty arcseconds, so a degree holds three thousand six hundred of them."
         }
       ],
       "concept": {

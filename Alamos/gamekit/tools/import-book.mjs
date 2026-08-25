@@ -28,8 +28,9 @@ import { resolve, dirname } from 'node:path';
 import { parseYaml } from './yaml-lite.mjs';
 import { themeDir } from '../engine/dev/registry.mjs';
 import { pathToFileURL } from 'node:url';
-import { claimedWords, claimsPhrase, conceptMatches, conceptZones, demandsEquation, deriveWork,
-  EQUATIONS, keywordHit, pickKeyConcept, SYLLABUS } from './syllabus.js';
+import { agreesWithPanel, claimedWords, claimsPhrase, conceptMatches, conceptZones,
+  demandsEquation, deriveWork, EQUATIONS, keywordHit, panelWork, pickKeyConcept,
+  SYLLABUS } from './syllabus.js';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const gamekit = resolve(here, '..');
@@ -229,11 +230,25 @@ function equationsFor(s, game, assumes){
   // supplies one.
   const shown = flat([game.answerText, game.answer, game.why, game.explanation, game.solution,
     ...(game.rebuttals ?? []).map(lbl), ...(game.choices ?? []).map(lbl)]);
+  // AND A DEMANDED CHIP HAS TO BE THE ONE THE PANEL WORKS.
+  //
+  // `demandsEquation`'s weak path is arithmetic on the card plus the equation's
+  // keyword somewhere on it, and on a stop that states its own relationship that
+  // is not enough: ContamCity's electrochemistry audit works
+  // "Q = It and n_metal = Q/(zF) = It/(zF)" and says "moles of electrons" while
+  // it does it, so `n = m / M` matched and was stamped. While the old day-based
+  // rule kept the zF chip too the card still showed the right equation; pruning
+  // to computed-or-demanded left four stops across the catalogue printing the
+  // chip that had survived rather than the one below it. `agreesWithPanel` is
+  // the same test `engine/dev/validateContent.mjs` fails the stop on — one rule,
+  // one function, in tools/syllabus.js.
+  const panel = panelWork(game);
   const out = [];
   for(const eq of list){
     const computed = eq.k.some(k => hit(formula, k));
     if(!computed && !eq.k.some(k => hit(text, k))) continue;
-    const demanded = !computed && demandsEquation(eq, shown);
+    const demanded = !computed && demandsEquation(eq, shown)
+      && (!panel.trim() || agreesWithPanel(eq, panel));
     // v and s ride along because the card has to define the symbols where it
     // shows the equation. A formula whose letters are never named teaches
     // nobody anything they did not already know.
@@ -385,6 +400,11 @@ function addLesson(s, at){
     ...(s.concept !== undefined ? { _conceptAuthored: authoredConcept(s.concept, at) } : {}),
     ...(s.takesAsRead !== undefined ? { _takesAsRead: { at, names: asList(s.takesAsRead) } } : {}),
     place: s.place ?? '',
+    // `at:` — which FIXTURE in the area this question is asked at. The room's
+    // object rather than the room. Resolved and checked by engine/dev/placement.mjs
+    // against `theme.fixtures`, and built on entry by engine/world/interiorFixtures.js.
+    // A stop with none is answered at the case stand exactly as before.
+    ...(s.at ? { at: String(s.at) } : {}),
     ...(guide ? { guide } : {}),
     ...(rules ? { rules } : {}),
     ...(background.length ? { background } : {}),
@@ -457,9 +477,16 @@ missions.forEach((m, mi) => {
     // `call` is the plan card's line for this stop where it differs from the
     // question's own instruction. One string served both in the hand-written
     // books; the docx games always had two.
+    //
+    // `reason` is the plan card's WHY THIS ONE clause under the call. Without a
+    // book key it is generated from the group's `desc`, which is the same
+    // sentence on every sol the day visits that area — true, and no reason to
+    // walk there *today*. A book that writes one gets it printed verbatim; see
+    // `reasonFor` in engine/core/app.js and gamekit/BRIEFING_PASS.md.
     return {
       group: s.group, lesson: day - 1, task: s.call ?? s.task ?? s.title ?? '',
       ...(s.motivation ? { why: s.motivation } : {}),
+      ...(s.reason ? { reason: s.reason } : {}),
     };
   });
 
@@ -535,13 +562,32 @@ missions.forEach((m, mi) => {
   for(const [group, lessons] of Object.entries(CURRICULUM)){
     lessons.forEach((l, li) => {
       if(!l.equations?.length) return;
-      const day = dayOfLesson.get(`${group}:${li}`) ?? Infinity;
+      // AN EQUATION APPEARS WHERE IT IS USED, AND NOWHERE ELSE.
+      //
+      // `equationsFor` attaches an equation to any stop whose prose MENTIONS it,
+      // and the header above admits that is wrong everywhere but a stop that uses
+      // it. Two softer rules used to contain the damage — drop it before the day
+      // it is first computed, cap at two — and they left 894 chips of 1,530 on
+      // cards that compute nothing: Faraday's law over a funding decision,
+      // residence time over a resin-breakthrough question, the boil-off formula
+      // over "why is the tank filled to 95%".
+      //
+      // The accessibility pass made it worse, which is what settled it. That pass
+      // writes glosses that deliberately cross-reference earlier cards — "Faraday's
+      // law makes that exact", "the overpotential you met in the hall" — and every
+      // one of those is a prose mention. Good teaching was being read as a claim
+      // that the card does arithmetic.
+      //
+      // So: `computed` (this stop works the numbers) or `demanded` (its options or
+      // verdict do — `demandsEquation` is the shared test). Nothing else.
+      //
+      // What this deliberately gives up: an equation on the syllabus that NO
+      // question anywhere computes now appears nowhere in the game. 43 of them
+      // across the catalogue. That is not a loss of teaching — a decorative chip
+      // taught nobody — it is the `curriculumDelivery` gap made visible instead of
+      // papered over.
       const kept = l.equations.filter(eq => {
-        if(eq.computed) return true;
-        const first = firstComputed.get(eq.e);
-        if(first === undefined) return true;      // never computed anywhere
-        if(day >= first) return true;
-        if(eq.demanded) return true;              // the card's own arithmetic uses it
+        if(eq.computed || eq.demanded) return true;
         dropped++;
         return false;
       });

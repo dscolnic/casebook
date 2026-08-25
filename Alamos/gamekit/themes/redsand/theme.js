@@ -20,6 +20,8 @@ import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
 import { INTERIORS } from './interiors.js';
+import { FIXTURES } from './fixtures.js';
+import { MINOR_INTERIORS } from './minors.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 
 export default {
@@ -37,6 +39,15 @@ export default {
   // thirty-nine minutes longer than a day — which is why the boil-off and the
   // electrolysis arithmetic in this game are all done over 88,800 seconds.
   dayNoun: 'Sol',
+  // The plan card's opening blurb is two sentences: the one thing that is true
+  // this morning, and the one thing the player does about it. The long form —
+  // ninety to a hundred and fifty words of who is arguing with whom and what it
+  // costs — was read fifteen times over a campaign and is where the player
+  // stopped reading. The cast, the argument and the consequences did not go
+  // away; they moved to the calls' own reasons, to the people, and to the day
+  // debrief. `engine/dev/checkStory.mjs` reads this and swaps the 90-word floor
+  // for a 30–70 word band. See gamekit/BRIEFING_PASS.md.
+  stakeStyle: 'brief',
   // What a non-person stop is called here. Nothing on this station is a room:
   // they are modules, buried to the eaves, and a player told to go to a room
   // looks for a building with windows.
@@ -69,7 +80,13 @@ export default {
   // What is inside each room the player walks into, from book.yml. Rooms are
   // built by engine/world/interiorBuilding.js on first entry, in a district
   // four kilometres from the town.
-  interiors: INTERIORS,
+  // The six areas' rooms, generated from the book, plus seven places that are not
+  // areas: five that stood closed until the placement pass, the pad office, and
+  // the ice cut. A minor room has no case and no board — see ./minors.js.
+  interiors: { ...INTERIORS, ...MINOR_INTERIORS },
+  // The objects the questions are asked at, built on entry from the open call.
+  // engine/world/interiorFixtures.js; catalogue in ./fixtures.js.
+  fixtures: FIXTURES,
   // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
   interiorStyle: 'steel',
@@ -87,40 +104,74 @@ export default {
   // that closes a day hands that piece over, and the board in the room named by
   // `where` is where all of them can be seen at once — engine/core/delivery.js.
   //
-  // One entry a sol, in the order the plant forced them. A handover states
-  // what is known, how well, and what was never established at all — so the
-  // entries carry their assays rather than their conclusions.
+  // THE DELIVERY IS THE FUEL, NOT A DOCUMENT ABOUT IT. This was `The Propellant
+  // Handover` for most of the game's life — fifteen findings, written up, handed
+  // to the next crew — and it was the wrong thing to be building. Nothing in a
+  // campaign about filling a rocket should make a stack of paperwork the object
+  // of the fortnight, and the ending card had already worked that out for itself:
+  // it closes on "The rocket lifts full. You are the one who filled it." The
+  // delivery was the only surface still counting pages.
+  //
+  // Two things fall out of the change and both are gains. The opening card no
+  // longer has to explain what a propellant handover is, because a full tank
+  // explains itself. And the board moves out of Plant Control and into the Cold
+  // End, where the liquid actually goes into the tanks — the piece a sol earns is
+  // now read standing next to the thing it went into.
+  //
+  // One entry a sol, in the order the plant forced them, and each one is a reason
+  // there is more in the tank than there would otherwise have been.
   delivery: {
-    name: 'The Propellant Handover',
-    what: 'What the next crew is handed: every batch signed against the assay it came with, the '
-      + 'plant\'s real limits, and what nobody here ever established.',
-    where: 'GIBBS',
+    name: 'A Full Tank',
+    // The HUD meter's label, above the bar that replaced "Mission 4 of 15". Two
+    // or three words, and it names the goal rather than the progress — the bar
+    // says how far along; the label says what it is filling.
+    meter: 'Fuel needed',
+    what: 'Six point six tonnes of methane and twenty-three of oxygen in the ascent vehicle tanks, '
+      + 'in time for the window — enough for six people to leave Mars and reach Earth.',
+    // THE PAD OFFICE, not an area. The board counts fuel and the fuel goes into
+    // the vehicle standing thirty metres outside this door — so the count is read
+    // in the one place where the thing it counts is visible through the window.
+    // It sat in Plant Control while the delivery was a document, then moved to the
+    // Cold End with the tanks; this is the end of the same argument.
+    where: 'PAD',
     pieces: [
-      'The rate and ceiling figures',
-      'The recycle loop argument',
-      'The chain bottleneck finding',
-      'The feed limit table',
-      'The temperature ceiling',
-      'The water plant priority',
-      'The nine-sol bed profile',
-      'The assay bench result',
-      'The spent charge analysis',
-      'The new charge procedure',
-      'The books, reconciled',
-      'The low-power decision',
-      'The ranked sol order',
-      'The loading decision',
-      'The handover, signed',
+      'The plant running at its real ceiling',
+      'The recycle loop earning its power',
+      'The cold line passing liquid again',
+      'The feed sized to the target',
+      'The bed held short of its ceiling',
+      'The water plant kept ahead of the loop',
+      'The dying bed caught before it stopped',
+      'Every batch measured instead of assumed',
+      'The poison found and cut off',
+      'The last spare charge brought in right',
+      'The plant\'s own numbers reconciled',
+      'The plant kept alive through the storm',
+      'The worst fault fixed first',
+      'The batch judged before the valve opened',
+      'The tank full, eleven sols early',
     ],
   },
+  // Four beats and nothing else: the situation, the job as authority, what the
+  // fortnight has to end with, and what it costs in people. The first version ran
+  // to 126 words and spent six sentences specifying the handover — the tonnage of
+  // methane and oxygen, what the plant has made so far, four clauses on what the
+  // document says and one on how often an entry goes in it. Every fact true, and
+  // all of it arriving before the reader has any reason to want it. The numbers
+  // the player needs are on the sol they matter.
+  //
+  // A draft in between spent a sentence glossing the delivery — "You also leave a
+  // propellant handover: what this plant can really do, and what it cannot" —
+  // because a proper noun with no explanation is not information, and the first
+  // reader's question was what a propellant handover is. That sentence is gone
+  // along with the document it explained. **A delivery that needs a gloss on the
+  // opening card is usually the wrong delivery**: a full tank needs none, and the
+  // card is 68 words instead of 126 because of it.
   opening: [
-    'The rocket on the pad leaves when Mars and Earth line up. It has to lift off full. It needs 6.6 '
-    + 'tonnes of methane and 23 of oxygen. All of that is made here, out of Martian air and ground. So '
-    + 'far the plant has made 3.9. You are the propellant lead at Arcadia Rise. Every kilogram loaded '
-    + 'aboard is signed for by you. In fifteen sols you write the propellant handover. The next crew '
-    + 'works from it. It says what the plant can really make. It says what slows the plant down. It '
-    + 'says what every batch was measured at before it went in the tank. One entry goes in a sol. Six '
-    + 'people leave on what the tank holds, or they wait twenty-six months.',
+    'The rocket on the pad leaves when Mars and Earth line up, and it has to lift off full. You are '
+    + 'the propellant lead at Arcadia Rise, and the fuel is made here out of Martian air and ground. '
+    + 'In fifteen sols you have to put enough of it in that tank to fly home. Six people go on what '
+    + 'the tank holds, or they wait twenty-six months.',
   ],
 
   // The last thing anybody reads. What happened, what it cost, what is left

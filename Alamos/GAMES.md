@@ -340,8 +340,8 @@ walking somewhere and looking.
 | The Trial | The Monitoring Board Pack | 15 | Regulatory & Reporting |
 | Headwater | The Ashfell Release Rules | 15 | Storage & Level |
 | Ice Core | The Vestri Record | 15 | Records & Reporting |
-| Wellmere | The Wellmere Season Record | 15 | Conservation & Viability |
-| Red Sand | The Propellant Handover | 15 | Plant Control |
+| Wellmere | The Season in the Ground | 15 | Heredity & Crossing |
+| Red Sand | A Full Tank | 15 | Cold End |
 | Safety Factor | The Corbin Park Certificate | 15 | The Drop Tower |
 | Sightline | The Ward Referral | 15 | Testing & Records |
 | Ground Truth | The Station 12 Season Report | 15 | Launch & Records |

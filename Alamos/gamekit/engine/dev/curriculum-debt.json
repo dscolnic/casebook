@@ -2,7 +2,6 @@
   "_comment": "Equations on a theme's syllabus that no question computes yet. engine/dev/curriculumDelivery.mjs fails a gap that is NOT listed here, and fails a listed gap that has since been fixed — so this file only shrinks. Delete a line when a stop starts computing it; never add one to silence a new gap without saying why in the commit.",
   "contamcity": [
     "ΔTf = i·Kf·m",
-    "n = It ÷ (zF)",
     "A = εlc",
     "Kₛₚ = [Aᵃ][Bᵇ]",
     "rate = k[A]ⁿ"
@@ -33,8 +32,7 @@
     "λ_max T = b"
   ],
   "blackout": [
-    "N₁/N₂ = V₁/V₂",
-    "ΔV ≈ I(R cos φ + X sin φ)"
+    "N₁/N₂ = V₁/V₂"
   ],
   "quantum": [
     "Δf = 1 / (2T)",

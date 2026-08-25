@@ -5515,7 +5515,11 @@ export const EQUATIONS = {
     { e: 'n = It ÷ (zF)', c: 'how much a current can deposit or remove',
       v: [['n', 'in moles'], ['I', 'in amperes'], ['t', 'in seconds'], ['z', 'electrons per ion'], ['F', "Faraday's constant"]],
       s: 'Charge is the currency: how much metal moves is set by how many electrons were pushed through.',
-      k: ['charge passed', 'electrochemical', 'electrolys', 'amperes for', 'coulomb'] },
+      // `zF` is the notation, and it is the key that works. The other five are
+      // words the SCENE says and the panel does not: this stop's panel is
+      // "Q = It and n_metal = Q/(zF) = It/(zF).", which contains no prose at
+      // all, so `computed` saw nothing and the card printed n = m / M instead.
+      k: ['charge passed', 'electrochemical', 'electrolys', 'amperes for', 'coulomb', 'zF'] },
     { e: 'q = mcΔT', c: 'calorimetry — heat from a temperature change',
       v: [['q', 'heat gained or lost, in joules'], ['m', 'mass being heated, in grams'], ['c', 'specific heat capacity, in joules per gram per kelvin'], ['ΔT', 'temperature change, in kelvin']],
       s: 'The heat that went in is the mass times how hard that substance is to warm times how far its temperature moved.',
@@ -6105,7 +6109,11 @@ export const EQUATIONS = {
       needs: ['V = IR', 'S = √(P² + Q²), pf = P/S'],
       v: [['ΔV', 'voltage drop along the line, in volts'], ['I', 'current, in amperes'], ['R', 'line resistance, in ohms'], ['X', 'line reactance, in ohms'], ['cos φ / sin φ', 'the power factor terms']],
       s: 'Voltage falls along a loaded line, and on a transmission line the reactance term dominates, which is why reactive power moves voltage.',
-      k: ['voltage drop', 'volt drop', 'voltage regulation', 'reactive support'] },
+      // `R cos` is the notation. The four phrases are what the SCENE calls this,
+      // and the panel calls it nothing at all — it states
+      // "line-to-line drop ≈ √3 × I × (R cos φ + X sin φ)", so `computed` never
+      // fired and the card printed V = IR and the power triangle instead.
+      k: ['voltage drop', 'volt drop', 'voltage regulation', 'reactive support', 'R cos'] },
     { e: 'peak = base peak + sensitivity × degrees below', c: 'how far cold moves an evening peak',
       v: [['peak', 'in MW'], ['base peak', 'in MW for that day and season'], ['sensitivity', 'in MW per degree'], ['degrees below', 'below the reference temperature']],
       s: 'Demand rises with cold at a rate measured from this system, not from a textbook.',
@@ -6996,7 +7004,7 @@ export const EQUATIONS = {
           ['t', 'time the current ran, in seconds'], ['z', 'electrons per ion in the half-reaction'],
           ['F', "Faraday's constant, 96485 coulombs per mole of electrons"]],
       s: 'Charge passed divided by the charge on a mole of electrons gives moles of electrons, and the half-reaction says how many of those each ion takes.',
-      k: ['charge passed', 'faraday', 'coulombs', 'current efficiency', 'electrons per ion'] },
+      k: ['charge passed', 'faraday', 'coulombs', 'current efficiency', 'electrons per ion', 'zF'] },
     { e: 'E°cell = E°cathode − E°anode', c: 'whether a redox treatment will run',
       v: [['E°cell', 'standard cell potential, in volts'],
           ['E°cathode', 'standard potential of the half-reaction being reduced'],
@@ -8194,6 +8202,67 @@ export function equationTerms(e){
   // cannot recover from the prose.
   if(terms.some(t => t.split(' ').some(w => w.length === 1))) return [];
   return [...new Set(terms)];
+}
+
+/**
+ * THE EQUATION ON THE CARD IS THE ONE THE STOP USES.
+ *
+ * The chip and the panel are two statements of the same thing, and nothing
+ * checked that they agreed. Bring Them Home's cabin-cooling stop printed
+ * "time = distance / speed" because its scene said "how long the crew has" and a
+ * syllabus key was the bare phrase "how long" — a navigation equation on a
+ * thermal card, in front of the player, while the panel below it divided joules.
+ *
+ * Agreement is looked for in two currencies, because the games write equations in
+ * both. A junior edition writes them in words, so words are compared; a senior one
+ * writes "df/dt = (P_gen - P_load) / 2H", so the symbols are compared as well —
+ * and against the whole panel (the relationship, the template and the worked
+ * solution), since that is where a symbolic law shows up.
+ *
+ * Lives here rather than in the checker that first wrote it because BOTH ends need
+ * it: `engine/dev/validateContent.mjs` fails a stop whose chip disagrees, and
+ * `tools/import-book.mjs` refuses to stamp such a chip in the first place. Two
+ * copies of that rule would drift the first time either was corrected.
+ */
+const AGREE_STOP = new Set(['this', 'that', 'with', 'from', 'into', 'each', 'over', 'than',
+  'then', 'they', 'what', 'when', 'much', 'many', 'have', 'been', 'were', 'lost',
+  'which', 'about', 'takes', 'gives', 'using', 'where', 'their', 'there']);
+// A symbol is anything that reads as one in an equation: P_gen, df/dt, I²R, ΔTf,
+// R_phase. Single letters are matched case-sensitively and standing alone, or every
+// equation containing "E" would match "the". An equation is symbolic when it is
+// written in symbols rather than in English, and only then are symbols worth
+// comparing: comparing them on a word equation matches "how" against every
+// relationship in the repo and the check stops finding anything. Sonar writes SL,
+// TL, NL and DT — two capitals each, no subscripts and no Greek, so a test that
+// only knew single capitals called that equation "written in words".
+const AGREE_SYMBOLIC = /[_√Δδλσρμ²³⁻₀-₉⁰-⁹]|\bd[A-Za-z]\/d[A-Za-z]|(?:^|[^A-Za-z])[A-Z]{1,3}(?![a-z])/;
+const agreeWords = (t) => (String(t).toLowerCase().match(/[a-z]{4,}/g) ?? [])
+  .filter(w => !AGREE_STOP.has(w));
+const agreeSymbols = (t) => (String(t).match(/[A-Za-zΔδλσρμΣΩ][A-Za-z_₀-₉⁰-⁹²³0-9]*(?:\/d?[A-Za-z]+)?/g) ?? [])
+  .filter(x => /[_₀-₉⁰-⁹²³0-9√Δδλσρμ\/]/.test(x) || (x.length <= 3 && /[A-Z]/.test(x)));
+
+/**
+ * The panel text an equation chip is judged against: the relationship, the
+ * template and the worked solution — the three places a stop states its
+ * arithmetic. The explanation and the tile labels are prose around it, and
+ * including them matched "same" and "times" out of an explanation and called
+ * that agreement.
+ */
+export function panelWork(game = {}, spec = {}){
+  return [spec.relationship ?? game.relationship, spec.template ?? game.template,
+    spec.solution ?? game.solution].filter(Boolean).join('  ');
+}
+
+/** Does this chip state the same arithmetic the panel works? */
+export function agreesWithPanel(eq, panelText){
+  const text = String(panelText ?? '');
+  if(!text.trim()) return false;
+  const hay = text.toLowerCase();
+  const chipText = [eq?.e, eq?.c, eq?.s, ...(eq?.v ?? []).flat()].filter(Boolean).join(' ');
+  if(agreeWords(chipText).some(w => hay.includes(w))) return true;
+  if(!AGREE_SYMBOLIC.test(String(eq?.e ?? ''))) return false;
+  return agreeSymbols(eq?.e).some(x =>
+    new RegExp(`(?<![A-Za-z])${x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![A-Za-z])`).test(text));
 }
 
 export function equationCoverage(theme, pages = [], hit = keywordHit){

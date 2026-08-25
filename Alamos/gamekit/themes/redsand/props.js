@@ -33,6 +33,12 @@ import { driveable } from '../../engine/world/driving.js';
 // The world's decorate context does not carry the site, and the berms are
 // placed off the same numbers the buildings are.
 import { site } from './site.js';
+// The vehicle's gauge reads the campaign's own progress, not the calendar — see
+// the state hook at the bottom of `ascentVehicle`. `delivery.js` is safe to import
+// here; `engine/core/theme.js` is NOT, because it resolves through the `@theme`
+// vite alias and the dev checks load this file in plain node. The theme arrives
+// through `decorate`'s context instead.
+import { deliveryProgress } from '../../engine/core/delivery.js';
 
 /** Regolith, in three shades. Dark on paper, because the sky IBL is tinted warm. */
 const DIRT = () => MATERIALS.paintedSteel(0x6f4a35);
@@ -352,7 +358,7 @@ function solarField(scene, groundAt, { x0, z0, cols, rows, pitch = 3.2, rand }){
  * works — the tanks are also the win condition, so the win condition is
  * something you can see from four hundred metres away.
  */
-function ascentVehicle(scene, x, z, y, { stateHooks, colliders } = {}){
+function ascentVehicle(scene, x, z, y, { stateHooks, colliders, theme } = {}){
   const g = new THREE.Group();
   const shell = LAGGING();
   const dark = MATERIALS.paintedSteel(0x3a3f45);
@@ -390,10 +396,39 @@ function ascentVehicle(scene, x, z, y, { stateHooks, colliders } = {}){
   const barMat = MATERIALS.emissive(0x5fd0a0, 1.6);
   const bar = box(g, 0.34, 1, 0.10, 0, 0, R + 0.10, barMat);
   const fullH = H * 0.52, base = H * 0.30 - fullH / 2;
+
+  // AND THE SAME READING AT 180 METRES. The gauge above is 34 cm wide, which is
+  // legible standing at the pad and invisible from anywhere else on the plain —
+  // and the pad is a thing the player looks at from the plant most sols. So the
+  // level is also a band right round the tank section, five metres across, that
+  // rises with it: the vehicle itself reads as filling up.
+  const RING_H = H * 0.52, RING_BASE = H * 0.30 - RING_H / 2;
+  const ring = new THREE.Mesh(
+    new THREE.CylinderGeometry(R * 1.008, R * 1.008, 1, 20, 1, true),
+    new THREE.MeshStandardMaterial({
+      color: 0x5fd0a0, emissive: 0x2f7f60, emissiveIntensity: 0.55,
+      roughness: 0.55, transparent: true, opacity: 0.85, side: THREE.DoubleSide }));
+  g.add(ring);
+  // A frost line at the top of the level, because a cryogenic tank shows where
+  // the liquid is from the outside and that is the whole reason this reads.
+  const frost = new THREE.Mesh(
+    new THREE.CylinderGeometry(R * 1.02, R * 1.02, 0.22, 20, 1, true),
+    new THREE.MeshStandardMaterial({ color: 0xeaf4f2, emissive: 0x9fd8cc,
+      emissiveIntensity: 0.5, roughness: 0.9, side: THREE.DoubleSide }));
+  g.add(frost);
+
   const setFill = (frac) => {
     const f = Math.max(0.04, Math.min(1, frac));
     bar.scale.y = fullH * f;
     bar.position.y = base + (fullH * f) / 2;
+    ring.scale.y = RING_H * f;
+    ring.position.y = RING_BASE + (RING_H * f) / 2;
+    frost.position.y = RING_BASE + RING_H * f;
+    // Full is a different colour, not a fuller bar: the last sol of a campaign
+    // that made its number should look different from the second to last.
+    const done = f >= 0.995;
+    ring.material.color.setHex(done ? 0x7fe0b4 : 0x5fd0a0);
+    ring.material.emissiveIntensity = done ? 0.95 : 0.55;
   };
   setFill(0.59);            // 3.9 t of the 6.6 t the vehicle needs, at sol 291
 
@@ -415,13 +450,20 @@ function ascentVehicle(scene, x, z, y, { stateHooks, colliders } = {}){
       new THREE.Vector3(x - 8.0, y, z - 0.6), new THREE.Vector3(x - 7.0, y + 22, z + 0.6)));
   }
 
-  // The fill, over the fifteen sols. Sol 291 opens at 3.9 tonnes of the 6.6 the
-  // vehicle needs and the campaign finishes it, so the bar is the story told in
-  // one dimension. Anything the player has not reached yet is a bar that has
-  // not moved.
+  // THE FILL IS WHAT WAS EARNED, NOT WHAT SOL IT IS.
+  //
+  // This read `state.week` and climbed on the calendar: a player who advanced
+  // four sols without settling a single call watched the rocket fill anyway,
+  // while the HUD's own meter — which counts pieces earned — sat at zero. Two
+  // readings of the same quantity, disagreeing, and the one on the biggest object
+  // in the world was the one telling the flattering lie.
+  //
+  // Sol 291 opens at 3.9 tonnes of the 6.6 the vehicle needs, so the campaign is
+  // the last 41%: `deliveryProgress` is the same source the HUD bar reads, and
+  // now the tank and the strip at the top of the screen cannot disagree.
   stateHooks?.push((state) => {
-    const sol = Math.max(1, Math.min(15, Number(state?.week) || 1));
-    setFill(0.59 + 0.41 * ((sol - 1) / 14));
+    const { got, total } = deliveryProgress(theme, state);
+    setFill(0.59 + 0.41 * (total ? got / total : 0));
   });
   return g;
 }
@@ -641,7 +683,7 @@ export function decorate(scene, ctx){
   // -------------------------------------------------------------- the vehicle
   // Beyond the tank farm, inside a broken ring of pushed-up ground.
   blastBerm(scene, at, { cx: 0, cz: -132, r: 30, rand, colliders });
-  ascentVehicle(scene, 0, -132, at(0, -132), { stateHooks, colliders });
+  ascentVehicle(scene, 0, -132, at(0, -132), { stateHooks, colliders, theme: ctx.theme });
 
   // ------------------------------------------------------------ the array
   // Six hundred panels east of the plant, the near third of them swept this

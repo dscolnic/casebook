@@ -224,16 +224,16 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Whether the river ever ran at it",
-      "scene": "Prowse has the published figure for the morning and the gauge trace beside it, and points out that no reading in the column is that number. Ekundayo has to say what the figure does and does not claim.",
+      "scene": "Prowse has the published figure for the morning and the gauge trace beside it, and points out one thing. No reading in the column is that number. Ekundayo has to say what the figure does and does not claim.",
       "takeaway": "A continuous rate attains its own average somewhere inside the interval, though not necessarily at any moment somebody happened to write down.",
       "place": "Catchment & Inflow Desk",
       "guide": "All four answers concede that no written-down reading equals the average. They differ on what that leaves: some instant, one particular instant, two instants, or nothing at all. Continuity is the fact doing the work here, not the arithmetic of the mean. Whether a published figure describes the morning or is only an artefact of division is what this distinction decides.",
       "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading. A step skipped. A quantity confused with a rate. A correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. That was 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That stays true until the day the approximation is what is being tested."
       ],
-      "story": "Prowse has the published figure for the morning and the gauge trace beside it, and points out that no reading in the column is that number. Ekundayo has to say what the figure does and does not claim.",
+      "story": "Prowse has the published figure for the morning and the gauge trace beside it, and points out one thing. No reading in the column is that number. Ekundayo has to say what the figure does and does not claim.",
       "game": {
         "type": "CHOICE",
         "title": "Whether the river ever ran at it",
@@ -387,23 +387,6 @@ export const CURRICULUM = {
       "assumes": [
         "a solved differential equation carries a constant that the equation itself does not fix",
         "two unknowns need two independent measurements"
-      ],
-      "equations": [
-        {
-          "e": "dh/dt = −k·√h  ⟹  h(t) = (√h₀ − k·t/2)²",
-          "c": "a separable equation whose solution actually reaches zero",
-          "v": [
-            [
-              "k",
-              "the drain constant, per unit time"
-            ],
-            [
-              "h₀",
-              "the head at the start"
-            ]
-          ],
-          "s": "Separating the variables puts every h on one side and every t on the other, and the square root is what makes the solution a parabola with a finishing time rather than an exponential without one."
-        }
       ],
       "concept": {
         "n": 20,
@@ -631,27 +614,6 @@ export const CURRICULUM = {
         "noise does not repeat, and a real feature of the river does",
         "the definite integral as an accumulation, and its units — taken as read"
       ],
-      "equations": [
-        {
-          "e": "dQ/dt = −k·Q  ⟹  Q(t) = Q₀·e^(−k·t),  t½ = ln 2 / k",
-          "c": "exponential decay, and the halving time that does not depend on where you started",
-          "v": [
-            [
-              "k",
-              "the recession constant, per unit time"
-            ],
-            [
-              "Q₀",
-              "the flow at the start"
-            ],
-            [
-              "t½",
-              "the time to fall by half"
-            ]
-          ],
-          "s": "A rate proportional to the quantity itself falls by the same fraction in every equal interval, so the halving time is a property of the constant alone and the starting value cancels out of it."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 15,
@@ -673,11 +635,11 @@ export const CURRICULUM = {
       "scene": "Ekundayo has the suspended load at the gauge as L(t) = 60t ÷ (t² + 4) tonnes an hour, with t measured from the peak. Rasmussen wants the four-hour total for the resurvey file.",
       "takeaway": "A substitution replaces the variable and its differential together, and the limits of integration have to travel with them.",
       "place": "Catchment & Inflow Desk",
-      "guide": "You build the working a line at a time, choosing at each step the expression the line above actually gives you. Every wrong branch is legal algebra, so you cannot spot the answer by looking for a malformed line. The total load over four hours is an integral of the rate, and the integrand here is the kind that wants a substitution rather than a rule.",
+      "guide": "You build the working a line at a time, choosing at each step the expression the line above actually gives you. Every wrong branch is legal algebra, so you cannot spot the answer by looking for a malformed line. The total load over four hours is an integral of the rate. The integrand here is the kind that wants a substitution rather than a rule.",
       "background": [
         "Why a total is an integral. The gauge reports a rate — tonnes an hour — and the file wants tonnes. Multiplying a rate by four hours would be right only if the rate held still, and this one falls away from the peak. Integrating is what adding up a changing rate means.",
         "Why substitution is the move. The numerator is a constant times t and the denominator is t² + 4, whose derivative is 2t. That is the shape that says one variable will do. Let u be the denominator, and the whole integrand collapses to du over u. The integral of that is a logarithm.",
-        "What the answer is for. A resurvey file needs the mass that went past, because that is what has left the catchment and arrived somewhere downstream. It is the number that will be compared against how much the reservoir actually silted up, so being able to defend the working matters more than the figure."
+        "What the answer is for. A resurvey file needs the mass that went past, because that is what has left the catchment and arrived somewhere downstream. It is the number that will be compared against how much the reservoir actually silted up. Being able to defend the working matters more than the figure."
       ],
       "story": "Ekundayo has the suspended load at the gauge as L(t) = 60t ÷ (t² + 4) tonnes an hour, with t measured from the peak. Rasmussen wants the four-hour total for the resurvey file.",
       "game": {
@@ -772,38 +734,6 @@ export const CURRICULUM = {
         "an integral can be rewritten in a new variable if the differential is converted with it",
         "the antiderivative of one over a quantity is the natural logarithm of it"
       ],
-      "equations": [
-        {
-          "e": "∫ₐᵇ f(t)dt = F(b) − F(a)",
-          "c": "the fundamental theorem, used to total a rate",
-          "v": [
-            [
-              "F",
-              "any antiderivative of f"
-            ],
-            [
-              "a, b",
-              "the two ends of the interval"
-            ]
-          ],
-          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists."
-        },
-        {
-          "e": "f(a + Δx) ≈ f(a) + f′(a)·Δx",
-          "c": "linear approximation, and the differential that computes it",
-          "v": [
-            [
-              "f′(a)",
-              "the slope at the point you are starting from"
-            ],
-            [
-              "Δx",
-              "the step away from it"
-            ]
-          ],
-          "s": "The tangent line is the best straight-line stand-in for a curve at one point, and the error grows with the curvature and with the square of the step."
-        }
-      ],
       "concept": {
         "n": 18,
         "c": "Substitution, and carrying the limits across with the variable",
@@ -834,7 +764,7 @@ export const CURRICULUM = {
         "task": "Get a signed rate out of two falling readings",
         "question": "Estimate the average rate of change of the Braith gauge across those 3 hours.",
         "answer": "About 5 cubic metres a second per hour downward, so a rate of −5 across the 3 hours.",
-        "why": "The slope of the line through 2 points does not care which way the river is going. Taking the later reading first puts the direction into the sign, and a negative average rate is a fall of about 5 cubic metres a second every hour. Reverse the subtraction and the arithmetic still works and the units still read correctly, so nothing on the sheet objects. A recession also bends, so the fall slackens and this slope carried forward overstates how quickly the tributary empties.\n",
+        "why": "The slope of the line through 2 points does not care which way the river is going. Taking the later reading first puts the direction into the sign. A negative average rate is a fall of about 5 cubic metres a second every hour. Reverse the subtraction and the arithmetic still works and the units still read correctly, so nothing on the sheet objects. A recession also bends, so the fall slackens and this slope carried forward overstates how quickly the tributary empties.\n",
         "givens": [
           "62 m³/s at 12:00, 47 m³/s at 15:00",
           "Three hours between the readings"
@@ -866,41 +796,6 @@ export const CURRICULUM = {
           ],
           "s": "The quotient is the slope of a line through two points on the curve, and letting the two points close together without ever meeting is what turns an average rate into an instantaneous one.",
           "computed": true
-        },
-        {
-          "e": "dQ/dt = −k·Q  ⟹  Q(t) = Q₀·e^(−k·t),  t½ = ln 2 / k",
-          "c": "exponential decay, and the halving time that does not depend on where you started",
-          "v": [
-            [
-              "k",
-              "the recession constant, per unit time"
-            ],
-            [
-              "Q₀",
-              "the flow at the start"
-            ],
-            [
-              "t½",
-              "the time to fall by half"
-            ]
-          ],
-          "s": "A rate proportional to the quantity itself falls by the same fraction in every equal interval, so the halving time is a property of the constant alone and the starting value cancels out of it."
-        },
-        {
-          "e": "ΔV = ∫ (I(t) − R(t)) dt",
-          "c": "the area between two rate curves, taken with its sign",
-          "v": [
-            [
-              "I, R",
-              "the two rates, in the same units"
-            ],
-            [
-              "ΔV",
-              "the net change over the interval"
-            ]
-          ],
-          "s": "Where the first rate runs above the second the integrand is positive and the store fills; where it runs below, the integral subtracts, which is what separates a net change from an unsigned area.",
-          "card": false
         }
       ],
       "concept": {
@@ -915,7 +810,7 @@ export const CURRICULUM = {
       "scene": "Ayo Ekundayo, the catchment hydrologist, has 5 readings off the overnight tape, and the recorder skipped twice. Two of the gaps are 90 minutes and 2 are half an hour. Sato has already totalled the column with the half-ends rule.",
       "takeaway": "The half-ends form is an arithmetic shortcut that assumed equal spacing, and the trapezia are what survive when the spacing goes.",
       "place": "Catchment & Inflow Desk",
-      "guide": "The 4 answers disagree about what the half-ends form actually is — a weighting of readings, or a shortcut that quietly assumed something about the clock. Ask what a single trapezium is made of before arguing about weights. Getting this wrong does not shift the total slightly. It multiplies most of the night by a width the tape never had.",
+      "guide": "The 4 answers disagree about what the half-ends form actually is. Is it a weighting of readings? Or a shortcut that quietly assumed something about the clock? Ask what a single trapezium is made of before arguing about weights. Getting this wrong does not shift the total slightly. It multiplies most of the night by a width the tape never had.",
       "background": [
         "What the half-ends form is a shortcut for. Add the 4 trapezia of a 5-reading tape and collect the terms. Every interior reading turns up in 2 of them and every end reading in 1. That is where the halves come from. That collection is only legal when the widths are equal, because it is the common width that was factored out.",
         "Why the fix is cheap. Nothing about a trapezium needs its neighbours to match it. Average the pair, multiply by the gap that separates that pair, and add the 4 results. It is more arithmetic than the shortcut and exactly as exact, which is why an uneven tape is an inconvenience rather than a lost measurement."
@@ -946,23 +841,6 @@ export const CURRICULUM = {
       "assumes": [
         "the area under a flow-against-time curve is a volume",
         "a trapezium's area is the average of its 2 parallel sides times its width"
-      ],
-      "equations": [
-        {
-          "e": "Volume ≈ Δt·(½f₀ + f₁ + … + ½f_n)",
-          "c": "the trapezoid rule, for a rate that exists only as readings",
-          "v": [
-            [
-              "Δt",
-              "the spacing between readings"
-            ],
-            [
-              "f₀ … f_n",
-              "the readings themselves"
-            ]
-          ],
-          "s": "Each adjacent pair is treated as a trapezium, which is why every interior reading is counted twice as heavily as an end one, and it is exact wherever the rate runs straight."
-        }
       ],
       "concept": {
         "n": 14,
@@ -1130,11 +1008,11 @@ export const CURRICULUM = {
       "day": 2,
       "title": "The curve that is already the answer",
       "scene": "Ferrand keeps a running total of everything that has arrived since Monday, plotted as one rising curve. Rasmussen, the survey engineer, asks what its slope at any point is, and whether that is a new measurement or an old one.",
-      "takeaway": "The slope of an accumulation curve at any instant is the rate that was arriving at that instant, so differentiating an integral returns what was integrated.",
+      "takeaway": "The slope of an accumulation curve at any instant is the rate that was arriving at that instant. Differentiating an integral returns what was integrated.",
       "place": "Storage & Level Board",
       "guide": "Every option here is a real quantity of this record. They differ in whether they name a total, a rate, an average, or a rate of a rate. A slope is a rate, so whatever answers this has to carry the units a rate carries. If the curve and the gauge are two views of one record, a disagreement between them is a bookkeeping error and not a flood.",
       "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading. A step skipped. A quantity confused with a rate. A correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. That was 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That stays true until the day the approximation is what is being tested."
       ],
@@ -1165,23 +1043,6 @@ export const CURRICULUM = {
         "an accumulation function reports the total of a rate from a fixed start up to a moving end",
         "a derivative reports the slope of a curve at a point",
         "the definite integral as an accumulation, and its units — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "∫ₐᵇ f(t)dt = F(b) − F(a)",
-          "c": "the fundamental theorem, used to total a rate",
-          "v": [
-            [
-              "F",
-              "any antiderivative of f"
-            ],
-            [
-              "a, b",
-              "the two ends of the interval"
-            ]
-          ],
-          "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists."
-        }
       ],
       "takesAsRead": [
         {
@@ -2000,38 +1861,6 @@ export const CURRICULUM = {
           "s": "A rate proportional to the quantity itself falls by the same fraction in every equal interval, so the halving time is a property of the constant alone and the starting value cancels out of it.",
           "computed": true,
           "card": false
-        },
-        {
-          "e": "f(a + Δx) ≈ f(a) + f′(a)·Δx",
-          "c": "linear approximation, and the differential that computes it",
-          "v": [
-            [
-              "f′(a)",
-              "the slope at the point you are starting from"
-            ],
-            [
-              "Δx",
-              "the step away from it"
-            ]
-          ],
-          "s": "The tangent line is the best straight-line stand-in for a curve at one point, and the error grows with the curvature and with the square of the step.",
-          "card": false
-        },
-        {
-          "e": "dh/dt = −k·√h  ⟹  h(t) = (√h₀ − k·t/2)²",
-          "c": "a separable equation whose solution actually reaches zero",
-          "v": [
-            [
-              "k",
-              "the drain constant, per unit time"
-            ],
-            [
-              "h₀",
-              "the head at the start"
-            ]
-          ],
-          "s": "Separating the variables puts every h on one side and every t on the other, and the square root is what makes the solution a parabola with a finishing time rather than an exponential without one.",
-          "card": false
         }
       ],
       "concept": {
@@ -2263,9 +2092,9 @@ export const CURRICULUM = {
       "scene": "Wilkes has the spillway rating on the wall, Q = C·L·H^(3/2) with C·L equal to 21.0. The head over the sill is 2.0 metres and rising, and the control room wants the discharge rate rather than the discharge.",
       "takeaway": "The power rule brings the exponent down and reduces it by one; the chain rule supplies the inner rate.",
       "place": "Gate Chamber",
-      "guide": "Build it a line at a time. The control room wants a rate of change of discharge, not a discharge, so this is a related-rates problem: differentiate the rating with respect to time and the chain rule brings dH/dt along. Evaluate what you derive at a head of two metres.",
+      "guide": "Build it a line at a time. The control room wants a rate of change of discharge, not a discharge. So this is a related-rates problem. Differentiate the rating with respect to time, and the chain rule brings dH/dt along. Evaluate what you derive at a head of two metres.",
       "background": [
-        "Why the chain rule is what appears. Q depends on H, and H depends on time, so Q's dependence on time runs through H. Differentiating the rating therefore produces a factor for how Q responds to H and a factor for how fast H is moving — and the second is the number the gauge is giving you.",
+        "Why the chain rule is what appears. Q depends on H, and H depends on time, so Q's dependence on time runs through H. Differentiating the rating therefore produces a factor for how Q responds to H. It also produces a factor for how fast H is moving. The second is the number the gauge is giving you.",
         "Why a gate is not a tap. A tap's flow is proportional to how far it is open. A spillway's discharge goes as head to the power of three halves, so the same centimetre of level does more the deeper the water over the sill. The rating is nonlinear, and the operator's intuition has to be too.",
         "What the control room does with a rate. A discharge tells you what is going out now. Its rate of change tells you how much time you have before it exceeds the channel downstream, and that is the number a warning is issued on."
       ],
@@ -2278,7 +2107,7 @@ export const CURRICULUM = {
         "task": "Differentiate the spillway relation",
         "question": "Derive how fast the discharge rises as the head rises, and evaluate it at 2.0 metres.",
         "answer": "dQ/dt ≈ 44.5·dH/dt — so a head rising at 0.02 m/min raises the discharge by about 0.9 cubic metres a second every minute.",
-        "why": "The exponent 3/2 is the whole behaviour of a spillway. The power rule brings it down as a factor and drops it to 1/2, so the sensitivity of discharge to head grows as the square root of the head — the last half metre does far more than the first. The chain rule then supplies dH/dt, because nothing here is a function of the head directly; it is a function of time through the head. Drop that factor and the answer is a slope with respect to the wrong variable, in units nobody checks.\n",
+        "why": "The exponent 3/2 is the whole behaviour of a spillway. The power rule brings it down as a factor and drops it to 1/2. So the sensitivity of discharge to head grows as the square root of the head. The last half metre does far more than the first. The chain rule then supplies dH/dt, because nothing here is a function of the head directly; it is a function of time through the head. Drop that factor and the answer is a slope with respect to the wrong variable, in units nobody checks.\n",
         "derive": {
           "start": "Q = C·L·H^(3/2)",
           "goal": "dQ/dt in terms of dH/dt",
@@ -2454,11 +2283,11 @@ export const CURRICULUM = {
       "scene": "Wilkes wants to know why the gate settings from this morning are already wrong. Berg, the flood engineer, puts the whole path on the board — rain, runoff, inflow, storage, level, head, discharge — and asks which step decides the answer.",
       "takeaway": "A related-rates problem is a chain, and the link with the smallest derivative governs how much of the rate arrives at the far end.",
       "place": "Gate Chamber",
-      "guide": "Put the transfers in the order the rate actually travels — rain to runoff to inflow to storage to level to head to discharge — and then name the one step that decides how much of it reaches the sill. Every relation on the path contributes a factor, and a path with a step missing is not a path. The largest number on the board is not automatically the governing link.",
+      "guide": "Put the transfers in the order the rate actually travels. That order is rain to runoff to inflow to storage to level to head to discharge. Then name the one step that decides how much of it reaches the sill. Every relation on the path contributes a factor, and a path with a step missing is not a path. The largest number on the board is not automatically the governing link.",
       "background": [
-        "Why the whole path is a product. Each step is a relation with its own gain: how much rain becomes runoff, how much runoff arrives as inflow, how much inflow becomes stored volume, how volume becomes level, how level becomes head. Multiply the gains and you have how a millimetre of rain becomes a cubic metre a second at the sill.",
+        "Why the whole path is a product. Each step is a relation with its own gain. How much rain becomes runoff. How much runoff arrives as inflow. How much inflow becomes stored volume. How volume becomes level. How level becomes head. Multiply the gains and you have how a millimetre of rain becomes a cubic metre a second at the sill.",
         "What 'governing' means. Not the biggest term — the one whose value the answer is most limited by. A step that passes on nearly everything is not deciding anything, however large the numbers flowing through it. A step that throttles the rate sets what everything downstream can be.",
-        "Why the morning's settings went wrong. A gate schedule is written from an assumed path. If one step's gain was assumed and is actually different — a catchment wetter than modelled, a level-to-head relation off by the sill's own geometry — every setting downstream of it inherits the error, which is what the board is for."
+        "Why the morning's settings went wrong. A gate schedule is written from an assumed path. One step's gain may have been assumed and be actually different. The catchment may be wetter than modelled. The level-to-head relation may be off by the sill's own geometry. Then every setting downstream of it inherits the error. That is what the board is for."
       ],
       "story": "Wilkes wants to know why the gate settings from this morning are already wrong. Berg, the flood engineer, puts the whole path on the board — rain, runoff, inflow, storage, level, head, discharge — and asks which step decides the answer.",
       "game": {
@@ -2469,7 +2298,7 @@ export const CURRICULUM = {
         "task": "Follow the rate from the hills to the sill",
         "question": "Put the transfers in the order the rate travels, then name the one that decides how much of it reaches the sill.",
         "answer": "Runoff, inflow, storage, level, head, discharge — governed by storage into level, where dividing by 2.6 million square metres cuts the rate by 6 orders of magnitude.",
-        "why": "Every link on this path multiplies the rate by its own derivative, and the product is what arrives. The spillway link is the one everybody watches because its exponent makes it dramatic, but three-halves of a square root is a factor near 40 and the storage-to-level link divides by a surface area of 2 and a half million. That single division is why a catchment can double its flow in a morning and the level move eight centimetres. It is also the link the resurvey is about to change, which is the reason it is worth naming now rather than in a week.\n",
+        "why": "Every link on this path multiplies the rate by its own derivative, and the product is what arrives. The spillway link is the one everybody watches because its exponent makes it dramatic. But three- halves of a square root is a factor near 40. The storage-to-level link divides by a surface area of 2 and a half million. That single division is why a catchment can double its flow in a morning and the level move eight centimetres. It is also the link the resurvey is about to change, which is the reason it is worth naming now rather than in a week.\n",
         "chain": {
           "links": [
             {
@@ -2521,62 +2350,6 @@ export const CURRICULUM = {
         "a rate reaches a distant quantity only through every relation that lies between them",
         "a chain of rates is limited by the link whose own derivative is smallest"
       ],
-      "equations": [
-        {
-          "e": "d/dt (t^n) = n·t^(n−1)",
-          "c": "the power rule, which every other differentiation here is built on",
-          "v": [
-            [
-              "n",
-              "the exponent, which may be a fraction"
-            ],
-            [
-              "t",
-              "the variable being differentiated with respect to"
-            ]
-          ],
-          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative."
-        },
-        {
-          "e": "dh/dt = (I − O) / A(h)",
-          "c": "the reservoir related-rates equation, with a non-constant area",
-          "v": [
-            [
-              "I, O",
-              "inflow and outflow, in cubic metres a second"
-            ],
-            [
-              "A(h)",
-              "the surface area at that level, in square metres"
-            ],
-            [
-              "dh/dt",
-              "the rate the level is moving, in metres per unit time"
-            ]
-          ],
-          "s": "The same net flow raises the level fast when the reservoir is narrow and slowly when it is wide, because the area it is spread over is itself a function of the level."
-        },
-        {
-          "e": "Q = C·L·H^(3/2),  dQ/dt = (3/2)·C·L·H^(1/2)·dH/dt",
-          "c": "a power law differentiated through time",
-          "v": [
-            [
-              "C·L",
-              "the discharge coefficient times the crest length"
-            ],
-            [
-              "H",
-              "the head over the sill, in metres"
-            ],
-            [
-              "dH/dt",
-              "how fast that head is rising"
-            ]
-          ],
-          "s": "The three-halves power is why the last half metre of head does far more than the first, and differentiating it is the power rule and the chain rule in one line.",
-          "card": false
-        }
-      ],
       "concept": {
         "n": 6,
         "c": "The chain rule and composite quantities",
@@ -2593,9 +2366,9 @@ export const CURRICULUM = {
       "scene": "Wilkes has this afternoon's ramp written as R(t) = 120 + 60t cubic metres a second, with t in hours from 2 o'clock. It runs for four hours and Berg wants the volume it will deliver before it starts.",
       "takeaway": "The fundamental theorem evaluates an accumulation as the difference of an antiderivative at the two ends, so no sum is needed when a formula exists.",
       "place": "Gate Chamber",
-      "guide": "Build it a line at a time. A volume is the integral of a flow over time, so the ramp's total is an integral of a linear function — and the units have to be reconciled on the way, since the flow is per second and the schedule is in hours. Finish with the volume in cubic metres.",
+      "guide": "Build it a line at a time. A volume is the integral of a flow over time. So the ramp's total is an integral of a linear function. The units have to be reconciled on the way. The flow is per second and the schedule is in hours. Finish with the volume in cubic metres.",
       "background": [
-        "Why integrate a straight line at all. The average of a linear ramp is its midpoint value, so this total can be had geometrically as the area of a trapezium. Doing it as an integral is worth the extra line because the same working survives a schedule that is not a straight line, which most real ones are not.",
+        "Why integrate a straight line at all. The average of a linear ramp is its midpoint value, so this total can be had geometrically as the area of a trapezium. Doing it as an integral is worth the extra line. The same working survives a schedule that is not a straight line. Most real ones are not.",
         "Where the units bite. R is in cubic metres a second and t is in hours, so integrating without converting gives an answer 3,600 times too small. The safe habit is to put the conversion into the integrand rather than remembering it at the end, where it looks like a factor somebody invented.",
         "Why Berg wants it before it runs. A four-hour release is a commitment of water that cannot be recalled. Knowing the volume beforehand is what lets it be checked against what the reservoir can spare and what the channel below can take."
       ],
@@ -2692,21 +2465,6 @@ export const CURRICULUM = {
           ],
           "s": "Because the constant of integration takes the same value at both ends and cancels, an accumulation becomes a subtraction and no sum is needed once a formula exists.",
           "computed": true
-        },
-        {
-          "e": "d/dt (t^n) = n·t^(n−1)",
-          "c": "the power rule, which every other differentiation here is built on",
-          "v": [
-            [
-              "n",
-              "the exponent, which may be a fraction"
-            ],
-            [
-              "t",
-              "the variable being differentiated with respect to"
-            ]
-          ],
-          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative."
         }
       ],
       "concept": {
@@ -2725,11 +2483,11 @@ export const CURRICULUM = {
       "scene": "Wilkes has yesterday's sensitivity, dQ/dH = 31.5·H^(1/2), and a head range the gates hold between 0.5 and 3.0 metres. He wants the head at which a centimetre of level does the most.",
       "takeaway": "A function with no critical point inside an interval still has a maximum, and it is at an end of the interval.",
       "place": "Gate Chamber",
-      "guide": "Build it a line at a time. The sensitivity rises with head and never turns over, so there is no critical point to find — which means the greatest value has to be at an end of the range the gates hold. Say which end and say why, because 'the derivative is zero somewhere' is the answer this stop is written to catch.",
+      "guide": "Build it a line at a time. The sensitivity rises with head and never turns over. So there is no critical point to find. The greatest value has to be at an end of the range the gates hold. Say which end and say why, because 'the derivative is zero somewhere' is the answer this stop is written to catch.",
       "background": [
-        "Why there is no critical point. dQ/dH goes as the square root of H, which is increasing everywhere on 0.5 to 3.0 metres. Its own derivative is never zero on that interval, so the usual routine — set the derivative to zero, solve, classify — produces nothing at all. The extreme value is still there; it is just on the boundary.",
+        "Why there is no critical point. dQ/dH goes as the square root of H, which is increasing everywhere on 0.5 to 3.0 metres. Its own derivative is never zero on that interval. So the usual routine — set the derivative to zero, solve, classify — produces nothing at all. The extreme value is still there; it is just on the boundary.",
         "What the theorem actually promises. A continuous function on a closed interval attains a maximum and a minimum. It does not promise they are interior. Candidates are the critical points *and* the endpoints, and half the exam marks lost on this topic are lost by checking only the first list.",
-        "What it means at the sill. The deeper the water over the crest, the more a centimetre of level is worth in discharge. So the gate operator's attention should be highest when the head is highest — the opposite of the intuition that a nearly empty spillway is the twitchy one."
+        "What it means at the sill. The deeper the water over the crest, the more a centimetre of level is worth in discharge. So the gate operator's attention should be highest when the head is highest. That is the opposite of the intuition that a nearly empty spillway is the twitchy one."
       ],
       "story": "Wilkes has yesterday's sensitivity, dQ/dH = 31.5·H^(1/2), and a head range the gates hold between 0.5 and 3.0 metres. He wants the head at which a centimetre of level does the most.",
       "game": {
@@ -2835,11 +2593,11 @@ export const CURRICULUM = {
       "day": 5,
       "title": "The exponent is not the whole story",
       "scene": "The spillway rating is quoted to three figures and Wilkes cannot defend it. The head is gauged, the crest length is surveyed, the coefficient came out of a handbook, and there is one calibration slot in the week.",
-      "takeaway": "A term contributes its own fractional width times its exponent, so a badly known factor with no power over it can outweigh a well-known one raised to three halves.",
+      "takeaway": "A term contributes its own fractional width times its exponent. So a badly known factor with no power over it can outweigh a well-known one raised to three halves.",
       "place": "Gate Chamber",
       "guide": "The panel shows an error budget: each input's own width, times the power it is raised to in the rating, contributes a bar. One calibration slot is affordable this week, so read the bars rather than the inputs and buy the measurement that shrinks the tallest one. A term with a big exponent and a small width may be contributing less than a modest term measured badly.",
       "background": [
-        "How the widths combine. In a product of powers, the fractional uncertainties add in quadrature, each multiplied by its exponent. Head enters at the power of three halves, so its fractional width counts one and a half times over; crest length enters linearly; the coefficient enters linearly too. The exponent is a multiplier on the width, not a substitute for it.",
+        "How the widths combine. In a product of powers, the fractional uncertainties add in quadrature, each multiplied by its exponent. Head enters at the power of three halves, so its fractional width counts one and a half times over. Crest length enters linearly. The coefficient enters linearly too. The exponent is a multiplier on the width, not a substitute for it.",
         "Why the exponent alone misleads. Head has the largest exponent and is gauged continuously, so its width may be small. The handbook coefficient has an exponent of one and a width nobody has ever measured on this structure. Which dominates is an arithmetic question, and it is exactly the question the bars answer.",
         "Why three figures was indefensible. A discharge quoted to three significant figures claims a fractional uncertainty under a per cent, and no combination of these inputs supports that. Finding which term is carrying the width is the first step to either measuring it or quoting fewer figures."
       ],
@@ -2852,7 +2610,7 @@ export const CURRICULUM = {
         "task": "Decide which measurement is worth buying",
         "question": "One calibration is affordable this week. Which of these is carrying the uncertainty in the discharge?",
         "answer": "The coefficient. It sits at the first power and is known to 15%, which beats a head at the three-halves power known to 4 — so the gauged calibration is the slot worth spending, and the discharge is a range rather than a figure.",
-        "why": "A factor contributes its exponent multiplied by its own fractional width. The head carries the three-halves that the whole spillway is famous for, and it is gauged well enough that 1 and a half times 4% is still small beside 1 times 15. Buying another head gauge therefore improves the term that was already good and barely moves the total. What makes this worth catching is that the shortcut — rank by exponent — is reasonable, teachable, and gives exactly the wrong answer here. The coefficient stays wide because nobody has ever calibrated this crest against a measured river.\n",
+        "why": "A factor contributes its exponent multiplied by its own fractional width. The head carries the three-halves that the whole spillway is famous for. It is gauged well enough that 1 and a half times 4% is still small beside 1 times 15. Buying another head gauge therefore improves the term that was already good and barely moves the total. What makes this worth catching is that the shortcut — rank by exponent — is reasonable, teachable, and gives exactly the wrong answer here. The coefficient stays wide because nobody has ever calibrated this crest against a measured river.\n",
         "propagate": {
           "output": {
             "label": "Spillway discharge",
@@ -2965,15 +2723,15 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "What the round is looking at now",
-      "scene": "The gate gallery inspection has more to look at than one round covers. The duty engineer sets the priority and changes it as the day does — after the level rises, after the trash rack blocks, after the outage window is confirmed.",
+      "scene": "The gate gallery inspection has more to look at than one round covers. The duty engineer sets the priority. It changes as the day does — after the level rises, after the trash rack blocks, after the outage window is confirmed.",
       "takeaway": "The cost of a withdrawn instruction is highest where the opportunity does not come round again soon.",
       "place": "Gate Gallery",
       "guide": "Inspect what the current priority wants and leave the rest for the next round. The priority in the gallery log changes during the day and nobody announces it. What is scored is the items either side of a change, because they are the only ones that show whether the round is reading the log.",
       "background": [
-        "Why the priority changes. On a normal day the round is about wear, because wear is what a scheduled inspection is for. When the level rises it is about anything that has to move under load. When an outage is confirmed it is about anything that can only be looked at with the water off, which is a list that is unavailable most of the year.",
+        "Why the priority changes. On a normal day the round is about wear, because wear is what a scheduled inspection is for. When the level rises it is about anything that has to move under load. When an outage is confirmed it is about anything that can only be looked at with the water off. That is a list that is unavailable most of the year.",
         "Why the changeover costs more here than most places. An outage window is measured in hours and comes round twice a year. An item not looked at during one is not looked at for six months, and nothing in the log says it was displaced rather than checked."
       ],
-      "story": "The gate gallery inspection has more to look at than one round covers. The duty engineer sets the priority and changes it as the day does — after the level rises, after the trash rack blocks, after the outage window is confirmed.",
+      "story": "The gate gallery inspection has more to look at than one round covers. The duty engineer sets the priority. It changes as the day does — after the level rises, after the trash rack blocks, after the outage window is confirmed.",
       "game": {
         "type": "SPOT",
         "title": "What the round is looking at now",
@@ -2982,7 +2740,7 @@ export const CURRICULUM = {
         "task": "Work the inspection round while the priority changes.",
         "question": "Inspect to the priority in the log, and keep watching the log.",
         "answer": "Read the log rather than the round sheet. Every change leaves a few minutes in which the old priority still looks like today's.",
-        "why": "Three priorities run across the day and each wants a different part of the gallery. Anything showing wear, then anything that has to move under load, then anything that can only be reached with the water off. An item can answer two at once, which is what makes the change cost real. The panel scores the window either side of each change, because most of the gallery is wanted by neither priority and is correctly left for next month by somebody who has read nothing. And this is the case where the cost is largest, because an outage window is a few hours twice a year: an item skipped during one is unavailable until the next, and the round sheet records only that the round was completed.",
+        "why": "Three priorities run across the day and each wants a different part of the gallery. Anything showing wear, then anything that has to move under load, then anything that can only be reached with the water off. An item can answer two at once, which is what makes the change cost real. The panel scores the window either side of each change. Most of the gallery is wanted by neither priority. It is correctly left for next month by somebody who has read nothing. And this is the case where the cost is largest. An outage window is a few hours twice a year. An item skipped during one is unavailable until the next. The round sheet records only that the round was completed.",
         "spot": {
           "targets": [
             {
@@ -3104,7 +2862,7 @@ export const CURRICULUM = {
         "task": "Total the window where the inflow ran clear",
         "question": "Estimate the volume the reservoir gained between eight and two.",
         "answer": "About 734,000 cubic metres gained between 10.",
-        "why": "Two curves and one integral: the storage gained is the area between them, which is the integral of the difference rather than the difference of two integrals worked separately — the same number, and much less arithmetic. On a window where both rates hold steady the integral collapses to a rectangle, and the only thing that can go wrong is integrating the inflow alone. That gives 2.07 million and describes a reservoir with no machines running and no gates open, which is not the one anybody is standing in.\n",
+        "why": "Two curves and one integral. The storage gained is the area between them. That is the integral of the difference rather than the difference of two integrals worked separately. It is the same number, and much less arithmetic. On a window where both rates hold steady the integral collapses to a rectangle, and the only thing that can go wrong is integrating the inflow alone. That gives 2.07 million and describes a reservoir with no machines running and no gates open, which is not the one anybody is standing in.\n",
         "givens": [
           "Inflow about 96 m³/s, release held at 62 m³/s",
           "The window ran six hours"
@@ -3154,16 +2912,16 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "The only trace on the screen",
-      "scene": "The level plot has not been drawn since Friday. What Wilkes has is the net-flow trace — positive and falling all morning, crossing zero at noon, negative all afternoon — and a handover to write.",
+      "scene": "The level plot has not been drawn since Friday. What Wilkes has is the net-flow trace, and a handover to write. The trace is positive and falling all morning, crossing zero at noon, negative all afternoon.",
       "takeaway": "A rate's graph carries the whole shape of what it built, and the rate's own peak is nowhere near the peak of the quantity.",
       "place": "Gate Chamber",
       "guide": "Every option is a shape the level might have taken, and each fits some part of the trace. What separates them is one rule: the sign of the net flow gives direction, and its size gives steepness. A falling positive trace is still a rising reservoir. The early morning is where this goes wrong most easily. The largest net flow sits furthest from the peak.",
       "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading. A step skipped. A quantity confused with a rate. A correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. That was 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That stays true until the day the approximation is what is being tested."
       ],
-      "story": "The level plot has not been drawn since Friday. What Wilkes has is the net-flow trace — positive and falling all morning, crossing zero at noon, negative all afternoon — and a handover to write.",
+      "story": "The level plot has not been drawn since Friday. What Wilkes has is the net-flow trace, and a handover to write. The trace is positive and falling all morning, crossing zero at noon, negative all afternoon.",
       "game": {
         "type": "CHOICE",
         "title": "The only trace on the screen",
@@ -3172,7 +2930,7 @@ export const CURRICULUM = {
         "task": "Say what the level did, from the rate alone",
         "question": "From the net-flow trace alone, what did the level do?",
         "answer": "Rose all morning, peaked at noon, fell all afternoon",
-        "why": "Positive net flow means the level is climbing, whatever the net flow is doing itself, so a falling positive trace is still a rising reservoir — climbing less eagerly, which is a statement about curvature and not about direction. The level turns over where the trace crosses zero and nowhere else. The trap is the early morning, where the net flow is at its largest: that is where the level is climbing fastest, which is the steepest part of the level curve and the furthest thing from its peak.\n",
+        "why": "Positive net flow means the level is climbing, whatever the net flow is doing itself. So a falling positive trace is still a rising reservoir, climbing less eagerly. That is a statement about curvature and not about direction. The level turns over where the trace crosses zero and nowhere else. The trap is the early morning, where the net flow is at its largest. That is where the level is climbing fastest. It is the steepest part of the level curve and the furthest thing from its peak.\n",
         "rebuttals": [
           "Falling and negative are different. The morning trace is falling and still above zero.",
           "After noon the net flow is negative, so the level is going down rather than up slowly.",
@@ -3210,7 +2968,7 @@ export const CURRICULUM = {
       "place": "Seepage & Uplift Bay",
       "guide": "The four answers differ in how confident they are willing to be. Two rank the totals against the truth, one refuses to rank them, one calls a total correct. What settles it is a fact already on the board: the seepage rose all shift. Ask what a rectangle built on a rising hour's first reading must do, and what one built on its last must do. Two totals that bracket the truth are worth more than one that is nearly right.",
       "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading. A step skipped. A quantity confused with a rate. A correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. That was 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That stays true until the day the approximation is what is being tested."
       ],
@@ -3253,11 +3011,11 @@ export const CURRICULUM = {
       "scene": "Zawadzka has the foundation relation as U² + 0.8·U·h = 640, tying uplift pressure to reservoir level. Nobody has ever solved it for U, and she wants the rate of uplift while the level is climbing.",
       "takeaway": "Implicit differentiation gets a rate out of a relation that cannot be rearranged, by differentiating both sides as they stand.",
       "place": "Seepage & Uplift Bay",
-      "guide": "Build it a line at a time. The relation ties U and h together and cannot be rearranged for U, so differentiate it as it stands — implicitly, with respect to time — and both dU/dt and dh/dt appear. Solve the result for dU/dt and evaluate it at the stated values.",
+      "guide": "Build it a line at a time. The relation ties U and h together and cannot be rearranged for U. So differentiate it as it stands, implicitly, with respect to time. Both dU/dt and dh/dt appear. Solve the result for dU/dt and evaluate it at the stated values.",
       "background": [
-        "Why implicit differentiation is not a trick. Every term is a function of time because U and h both are. Differentiating both sides therefore requires the product rule on the U·h term and the chain rule wherever U appears — and the outcome is one linear equation in dU/dt, which can be solved without ever solving for U.",
-        "Why this relation resists rearranging. U² + 0.8Uh = 640 is quadratic in U with a coefficient that depends on h, so U can be written in closed form only through the quadratic formula and a square root that must be tracked for sign. Differentiating first avoids all of that and gives the rate directly.",
-        "Why uplift is what she is asking about. Water working under a dam pushes upwards, and that pressure is subtracted from the weight holding the structure down. A rate of uplift as the reservoir climbs is therefore a rate at which the safety margin is being spent, which is why it is wanted while the level is still rising."
+        "Why implicit differentiation is not a trick. Every term is a function of time because U and h both are. Differentiating both sides therefore requires the product rule on the U·h term. It requires the chain rule wherever U appears. The outcome is one linear equation in dU/dt. That can be solved without ever solving for U.",
+        "Why this relation resists rearranging. U² + 0.8Uh = 640 is quadratic in U with a coefficient that depends on h. So U can be written in closed form only through the quadratic formula and a square root. That square root must be tracked for sign. Differentiating first avoids all of that and gives the rate directly.",
+        "Why uplift is what she is asking about. Water working under a dam pushes upwards, and that pressure is subtracted from the weight holding the structure down. A rate of uplift as the reservoir climbs is therefore a rate at which the safety margin is being spent. That is why it is wanted while the level is still rising."
       ],
       "story": "Zawadzka has the foundation relation as U² + 0.8·U·h = 640, tying uplift pressure to reservoir level. Nobody has ever solved it for U, and she wants the rate of uplift while the level is climbing.",
       "game": {
@@ -3398,7 +3156,7 @@ export const CURRICULUM = {
         "task": "Find the extent that makes the moment largest",
         "question": "Estimate the uplift extent at which the overturning moment is greatest.",
         "answer": "4 metres of uplift extent, for a moment of about 24 meganewton metres per metre.",
-        "why": "Differentiating gives 12 − 3a, and the 3 is the whole answer: the exponent 2 comes down as a factor and multiplies the 1.5 that was already there. Using the 1.5 instead puts the worst case at 8 metres, which is past the downstream toe and outside the wall entirely — an answer that is not merely wrong but physically impossible, and one nobody catches because the arithmetic is clean. The moment there is 24 against a true worst of 24 at 4 metres.\n",
+        "why": "Differentiating gives 12 − 3a, and the 3 is the whole answer. The exponent 2 comes down as a factor and multiplies the 1.5 that was already there. Using the 1.5 instead puts the worst case at 8 metres. That is past the downstream toe and outside the wall entirely. It is an answer that is not merely wrong but physically impossible. Nobody catches it, because the arithmetic is clean. The moment there is 24 against a true worst of 24 at 4 metres.\n",
         "givens": [
           "M(a) = 12a − 1.5a², in meganewton metres per metre of wall",
           "The base is 6.5 m from heel to toe"
@@ -3446,7 +3204,7 @@ export const CURRICULUM = {
       "place": "Seepage & Uplift Bay",
       "guide": "The options differ in how far the correction travels: everything, one path, one measurement, or nothing. The test is not importance but dependency. Ask of each result whether the corrected quantity appears anywhere in the calculation that produced it. A correction made by feel either spreads to numbers it never touched, or stops before it reaches one it did.",
       "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading. A step skipped. A quantity confused with a rate. A correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. That was 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That stays true until the day the approximation is what is being tested."
       ],
@@ -3459,7 +3217,7 @@ export const CURRICULUM = {
         "task": "Say which predictions the resurvey reaches",
         "question": "Which of these has to be recomputed after the resurvey?",
         "answer": "Every volume and every level forecast built from one",
-        "why": "The corrected quantity is the surface area, and it enters exactly two calculations: the volume, which integrates it, and the level forecast, which divides a net flow by it. Those move. The uplift relation takes the level as its input, and the level is read against a datum on the wall rather than computed from a volume, so nothing in the gallery changes — the reservoir is at the same height it was yesterday and pushes with the same pressure. Tracing which results used the corrected term is the whole of the recovery, and doing it by feel is how a correction either spreads too far or stops too early.\n",
+        "why": "The corrected quantity is the surface area. It enters exactly two calculations. The volume integrates it. The level forecast divides a net flow by it. Those move. The uplift relation takes the level as its input. The level is read against a datum on the wall rather than computed from a volume. So nothing in the gallery changes. The reservoir is at the same height it was yesterday and pushes with the same pressure. Tracing which results used the corrected term is the whole of the recovery. Doing it by feel is how a correction either spreads too far or stops too early.\n",
         "rebuttals": [
           "The uplift and the seepage take the level directly and never pass through the area curve.",
           "Uplift is measured, not derived from the curve; depth has nothing to do with what a correction reaches.",
@@ -3477,27 +3235,6 @@ export const CURRICULUM = {
         "a correction propagates only to quantities computed through the thing corrected",
         "the level is measured directly against a datum rather than derived from a volume"
       ],
-      "equations": [
-        {
-          "e": "dh/dt = (I − O) / A(h)",
-          "c": "the reservoir related-rates equation, with a non-constant area",
-          "v": [
-            [
-              "I, O",
-              "inflow and outflow, in cubic metres a second"
-            ],
-            [
-              "A(h)",
-              "the surface area at that level, in square metres"
-            ],
-            [
-              "dh/dt",
-              "the rate the level is moving, in metres per unit time"
-            ]
-          ],
-          "s": "The same net flow raises the level fast when the reservoir is narrow and slowly when it is wide, because the area it is spread over is itself a function of the level."
-        }
-      ],
       "concept": {
         "n": 27,
         "c": "Predicting, then measuring what you predicted",
@@ -3511,11 +3248,11 @@ export const CURRICULUM = {
       "day": 5,
       "title": "Nothing over nothing",
       "scene": "Zawadzka has the arriving fraction of a step release written as 1 − e^(−t/T), with T 4 hours. The initial rate of arrival is that fraction divided by t, and at t = 0 both parts are 0.",
-      "takeaway": "A limit in the form zero over zero is not zero and not one; differentiating the top and the bottom separately is what gets a value out of it.",
+      "takeaway": "A limit in the form zero over zero is not zero and not one. Differentiating the top and the bottom separately is what gets a value out of it.",
       "place": "Seepage & Uplift Bay",
-      "guide": "Build it a line at a time. Putting t = 0 into the expression gives nothing over nothing, so the value has to be got at as a limit rather than by substitution. Finish by saying what makes the method legitimate — the last step of this stop is naming the condition, not producing the number.",
+      "guide": "Build it a line at a time. Putting t = 0 into the expression gives nothing over nothing. So the value has to be got at as a limit rather than by substitution. Finish by saying what makes the method legitimate — the last step of this stop is naming the condition, not producing the number.",
       "background": [
-        "What zero over zero means. It is not a value and it is not an error: it is a statement that the expression's value depends on how the numerator and denominator approach zero relative to each other. Both go to zero here, and the ratio they approach is the thing being asked for.",
+        "What zero over zero means. It is not a value and it is not an error. It is a statement about the expression's value. That value depends on how the numerator and denominator approach zero relative to each other. Both go to zero here, and the ratio they approach is the thing being asked for.",
         "Two legitimate routes. L'Hôpital's rule applies because both parts are differentiable and both tend to zero — differentiate top and bottom separately and take the limit again. Or expand the exponential as a series: 1 − e^(−t/T) is t/T minus smaller terms, so dividing by t leaves 1/T plus terms that vanish. Both give the same number and the series shows why.",
         "Why naming the condition is the point. L'Hôpital's rule used without checking the indeterminate form is the most common way a correct-looking calculus answer turns out to be nonsense. A student who states the condition has the tool; one who applies it reflexively has a habit."
       ],
@@ -3640,7 +3377,7 @@ export const CURRICULUM = {
       "scene": "Three fits of the uplift against reservoir head are on Zawadzka's screen, within a tenth of a kilopascal of each other on the summary statistic. The residuals are plotted where each gauge actually sits under the wall.",
       "takeaway": "A low summary statistic with a pattern under it hides a term the model is missing, and it will bias every prediction the same way.",
       "place": "Seepage & Uplift Bay",
-      "guide": "Three fits, and their summary statistics sit within a tenth of a kilopascal of each other. The number underneath cannot choose between them. What can is the residual field: each stick is one uplift gauge, drawn where it sits under the wall, up for positive and down for negative. Look at all three fields, then carry the fit whose leftovers look like nothing in particular.",
+      "guide": "Three fits, and their summary statistics sit within a tenth of a kilopascal of each other. The number underneath cannot choose between them. What can is the residual field. Each stick is one uplift gauge, drawn where it sits under the wall. Up for positive and down for negative. Look at all three fields, then carry the fit whose leftovers look like nothing in particular.",
       "story": "Three fits of the uplift against reservoir head are on Zawadzka's screen, within a tenth of a kilopascal of each other on the summary statistic. The residuals are plotted where each gauge actually sits under the wall.",
       "game": {
         "type": "RESIDUAL",
@@ -3650,7 +3387,7 @@ export const CURRICULUM = {
         "task": "Say which fit you would carry forward",
         "question": "Look at each field before choosing. Which of these fits would you carry into next season?",
         "answer": "The one with the square term, at 0.26. The drift fit scores better and its residuals still change sign across the gallery, which means the drift parameter absorbed the curvature rather than removing it.",
-        "why": "Two of these three leave residuals that are positive on one side of the wall and negative on the other. That is not scatter; it is a quantity the model does not contain, and adding a free parameter that soaks it up improves the summary number while leaving the cause exactly where it was. It will then bias every extrapolation in the same direction, quietly, because nothing about the fit looks wrong afterwards. One large residual is a bad gauge; six small ones in a pattern are a missing term.\n",
+        "why": "Two of these three leave residuals that are positive on one side of the wall and negative on the other. That is not scatter. It is a quantity the model does not contain. Adding a free parameter that soaks it up improves the summary number. It leaves the cause exactly where it was. It will then bias every extrapolation in the same direction, quietly, because nothing about the fit looks wrong afterwards. One large residual is a bad gauge; six small ones in a pattern are a missing term.\n",
         "residual": {
           "fits": [
             {
@@ -3788,15 +3525,15 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Which end of the interval you believed — Review",
-      "scene": "Dr. Halina Zawadzka, the structural engineer, has 4 shifts of weir readings on the gallery board and the same 2 totals against each — one built on opening readings, one on closing. No shift behaved like the one before it.",
+      "scene": "Dr. Halina Zawadzka, the structural engineer, has 4 shifts of weir readings on the gallery board. The same 2 totals stand against each: one built on opening readings, one on closing. No shift behaved like the one before it.",
       "takeaway": "Which endpoint total is short is decided by the direction of the record, and a record that turns is bracketed by neither.",
       "place": "Seepage & Uplift Bay",
       "guide": "Four shifts and 4 verdicts, one each. What settles every pairing is the direction the seepage moved rather than how large the readings were. Take the 2 shifts that only go one way first, and the pair left over separates on whether the record turns. A total nobody can rank is worth less than 2 that bracket the answer between them.",
       "background": [
         "Why the direction is the whole of it. A rectangle one hour wide and as tall as the opening reading sits under the curve on a rising hour and over it on a falling one. The closing-reading rectangle does the reverse. Nothing else about the readings enters, which is why a shift can be ranked before its numbers are read.",
-        "What a bracket is worth. Two totals that are known to sit either side of the truth are a statement with a width, and the width is a measurement of how coarse the hourly tape is. One total that is nearly right and cannot be placed is not, which is the argument for keeping both rather than picking the better-looking one."
+        "What a bracket is worth. Two totals that are known to sit either side of the truth are a statement with a width. The width is a measurement of how coarse the hourly tape is. One total that is nearly right and cannot be placed is not, which is the argument for keeping both rather than picking the better-looking one."
       ],
-      "story": "Dr. Halina Zawadzka, the structural engineer, has 4 shifts of weir readings on the gallery board and the same 2 totals against each — one built on opening readings, one on closing. No shift behaved like the one before it.",
+      "story": "Dr. Halina Zawadzka, the structural engineer, has 4 shifts of weir readings on the gallery board. The same 2 totals stand against each: one built on opening readings, one on closing. No shift behaved like the one before it.",
       "game": {
         "type": "PROTOCOL",
         "title": "Which end of the interval you believed — Review",
@@ -3805,7 +3542,7 @@ export const CURRICULUM = {
         "task": "Say what each shift does to the 2 totals",
         "question": "Match each shift's record to what the 2 totals do.",
         "answer": "",
-        "why": "A rectangle built on an hour's opening reading sits under the curve wherever the rate is rising and over it wherever the rate is falling, and the closing-reading rectangle does the opposite. So the direction of the record decides which total is short, and the size of the readings never enters. A shift that only rises is bracketed one way and a shift that only falls the other way. A shift with a peak in it is bracketed by neither, because each total is short across half the shift and long across the rest. A flat shift has no error at all.\n",
+        "why": "A rectangle built on an hour's opening reading sits under the curve wherever the rate is rising. It sits over the curve wherever the rate is falling. The closing-reading rectangle does the opposite. So the direction of the record decides which total is short, and the size of the readings never enters. A shift that only rises is bracketed one way and a shift that only falls the other way. A shift with a peak in it is bracketed by neither, because each total is short across half the shift and long across the rest. A flat shift has no error at all.\n",
         "scenarios": [
           "Seepage climbed from the first hour of the shift to the last.",
           "Seepage fell all shift as the gallery drained.",
@@ -3861,7 +3598,7 @@ export const CURRICULUM = {
         "task": "Get one rate out of another through a fixed relation",
         "question": "Estimate how fast the machine output is rising, in kilowatts a day.",
         "answer": "About 123 kilowatts a day, entirely from the head.",
-        "why": "The output is 8.6·Q·H and the flow is not moving, so the first term of the product rule is 0 and the entire rate is 8.6·Q·(dH/dt). What survives is a multiplication, and the reason to write the product rule down anyway is that today's 0 is an accident of the gate settings: the moment anybody touches a gate the other term reappears and this number is wrong by more than it is right. It is also the rate that pays for the fortnight, which is why Halloran asks for it every morning.\n",
+        "why": "The output is 8.6·Q·H and the flow is not moving, so the first term of the product rule is 0 and the entire rate is 8.6·Q·(dH/dt). What survives is a multiplication. There is still a reason to write the product rule down. Today's 0 is an accident of the gate settings. The moment anybody touches a gate the other term reappears. Then this number is wrong by more than it is right. It is also the rate that pays for the fortnight, which is why Halloran asks for it every morning.\n",
         "givens": [
           "Output P = 8.6·Q·H kilowatts",
           "Q steady at 46 m³/s, head rising at 0.31 m a day"
@@ -3942,7 +3679,7 @@ export const CURRICULUM = {
       "guide": "Drag the flow. The readout is the output in megawatts, and higher is better; only the flows you stop at get plotted. The curve rises, turns over and comes back down, so the setting you want is somewhere inside the range rather than at either end of it. Sweep the whole range before deciding, then mark the flow you would run and commit.",
       "background": [
         "Where the head goes. Friction in the penstock rises roughly as the square of the flow, so doubling the flow costs four times as much head. The turbine is paid in head times flow, which means the two terms fight: one grows steadily, the other is eaten faster and faster.",
-        "Why the answer is in the interior. When two effects pull opposite ways and one accelerates, the total has a maximum somewhere in the middle, and at that maximum neither effect is at its own best. This is the shape behind most operating points in the plant, and the reason a plant has an operating point at all rather than a throttle you open fully.",
+        "Why the answer is in the interior. When two effects pull opposite ways and one accelerates, the total has a maximum somewhere in the middle. At that maximum neither effect is at its own best. This is the shape behind most operating points in the plant. It is the reason a plant has an operating point at all rather than a throttle you open fully.",
         "What the top of the curve is like. Near the maximum the output changes slowly with flow, which is why an operator can trade a little output for a steadier machine. Far from it the loss is quick: at the top of the range these machines make less than half of what they can."
       ],
       "story": "More water through a turbine is more power, up to a point. As the flow rises the penstock loses head, and eventually less head per cubic metre beats more cubic metres. Anand has the machines on manual, and wants the flow to run them at tonight found on the instrument rather than argued at the table.",
@@ -3954,7 +3691,7 @@ export const CURRICULUM = {
         "task": "Find the flow that makes the most power",
         "question": "Move the flow and watch the output. Where should the machines be run tonight?",
         "answer": "About 58 cubic metres a second, for a little over 20 megawatts. Driving harder past that costs more head than the extra flow is worth, and at 90 the machines make less than half of it.",
-        "why": "Output is flow times head, and the head is itself falling with the square of the flow, so the product climbs, flattens and turns over. Differentiating 8.6Q(61 − 0.006Q²) gives 8.6(61 − 0.018Q²), which is 0 near 58 — the same place the trace turns, found by calculus instead of by hunting. The shape is the lesson: near the top the curve is almost flat, so being a few cubic metres a second out costs almost nothing, while the same error low on the curve costs a great deal.\n",
+        "why": "Output is flow times head, and the head is itself falling with the square of the flow, so the product climbs, flattens and turns over. Differentiating 8.6Q(61 − 0.006Q²) gives 8.6(61 − 0.018Q²), which is 0 near 58 — the same place the trace turns, found by calculus instead of by hunting. The shape is the lesson. Near the top the curve is almost flat. Being a few cubic metres a second out costs almost nothing there. The same error low on the curve costs a great deal.\n",
         "sweep": {
           "mode": "peak",
           "axis": {
@@ -4109,11 +3846,11 @@ export const CURRICULUM = {
       "scene": "Mercy Anand writes the machine output as P = 8.6·Q·H, in kilowatts, with Q the flow through the turbines and H the head on them. Both are moving this afternoon, and the grid wants a rate of change of output.",
       "takeaway": "When two factors change at once the rate is the sum of two terms, each holding one factor still.",
       "place": "Powerhouse",
-      "guide": "Build it a line at a time. Output depends on flow and on head, and both are moving this afternoon, so differentiating with respect to time needs the product rule and produces a term for each. Evaluate with the afternoon's numbers, and notice that the two terms can pull in opposite directions.",
+      "guide": "Build it a line at a time. Output depends on flow and on head, and both are moving this afternoon. So differentiating with respect to time needs the product rule. It produces a term for each. Evaluate with the afternoon's numbers, and notice that the two terms can pull in opposite directions.",
       "background": [
-        "Why the product rule is the whole story. P is a constant times Q times H. Its rate of change is therefore the constant times the sum of two products: how fast Q is changing times the current H, plus how fast H is changing times the current Q. Neither term is meaningful alone, and the grid is asking about their sum.",
-        "Why the two terms fight. Opening the gates raises Q and lowers H, because more flow through the penstock costs head. So dQ/dt is positive while dH/dt is negative, and the output may rise or fall depending on which product is larger — which is the same trade the operating point on day three is chosen against.",
-        "Why the grid wants a rate. A generator's output is scheduled, and a deviation is priced. Knowing the rate at which output is drifting is what lets a schedule be met without chasing it, and it is a number the operator can produce from two gauges and one derivative."
+        "Why the product rule is the whole story. P is a constant times Q times H. Its rate of change is therefore the constant times the sum of two products. The first is how fast Q is changing times the current H. The second is how fast H is changing times the current Q. Neither term is meaningful alone, and the grid is asking about their sum.",
+        "Why the two terms fight. Opening the gates raises Q and lowers H, because more flow through the penstock costs head. So dQ/dt is positive while dH/dt is negative. The output may rise or fall depending on which product is larger. That is the same trade the operating point on day three is chosen against.",
+        "Why the grid wants a rate. A generator's output is scheduled, and a deviation is priced. Knowing the rate at which output is drifting is what lets a schedule be met without chasing it. It is a number the operator can produce from two gauges and one derivative."
       ],
       "story": "Mercy Anand writes the machine output as P = 8.6·Q·H, in kilowatts, with Q the flow through the turbines and H the head on them. Both are moving this afternoon, and the grid wants a rate of change of output.",
       "game": {
@@ -4124,7 +3861,7 @@ export const CURRICULUM = {
         "task": "Differentiate a product where both factors move",
         "question": "Derive the rate of change of output, and evaluate it with the afternoon's numbers.",
         "answer": "About 0.0044 kilowatts a second — roughly 16 kilowatts an hour, entirely from the head, with the gates untouched.",
-        "why": "A product of two changing quantities has two rates in it, and the product rule keeps them separate — one term with the flow moving and the head held, one the other way round. Today the first term is zero because nobody has touched a gate, which makes the whole rise a head effect: the machines are producing more because the reservoir is filling behind them. That is worth knowing before anybody credits the operators. Multiply the two derivatives together instead and the answer is not merely wrong, it is not power per unit time at all.\n",
+        "why": "A product of two changing quantities has two rates in it. The product rule keeps them separate. One term has the flow moving and the head held. The other is the other way round. Today the first term is zero because nobody has touched a gate. That makes the whole rise a head effect. The machines are producing more because the reservoir is filling behind them. That is worth knowing before anybody credits the operators. Multiply the two derivatives together instead and the answer is not merely wrong, it is not power per unit time at all.\n",
         "derive": {
           "start": "P = 8.6·Q·H",
           "goal": "dP/dt in terms of dQ/dt and dH/dt",
@@ -4256,8 +3993,8 @@ export const CURRICULUM = {
       "place": "Powerhouse",
       "guide": "Lock a prediction for the gain before anything is changed: the panel will not let you look first, and nothing about the prediction can be edited afterwards. Then raise the flow, and then spend the two hours of deck time on the traverse that measures what actually happened. Not measuring is an answer too, and a poor one.",
       "background": [
-        "Where the prediction comes from. The slope of the output curve at 46 cubic metres a second is 197 kilowatts per extra cubic metre a second. Multiplying that by the six-unit change is a tangent-line estimate — a linear approximation of a curve — and it will be an overestimate or an underestimate depending on which way the curve bends.",
-        "Why the tangent line is a promise with a range. A derivative is exact only at the point where it was taken. Six cubic metres a second is a long way along a curve that is bending, so the honest prediction carries a caveat about direction, and the measurement is what tells you the size of the error.",
+        "Where the prediction comes from. The slope of the output curve at 46 cubic metres a second is 197 kilowatts per extra cubic metre a second. Multiplying that by the six-unit change is a tangent-line estimate, a linear approximation of a curve. It will be an overestimate or an underestimate, depending on which way the curve bends.",
+        "Why the tangent line is a promise with a range. A derivative is exact only at the point where it was taken. Six cubic metres a second is a long way along a curve that is bending. So the honest prediction carries a caveat about direction. The measurement is what tells you the size of the error.",
         "Why the traverse costs and why that is the point. Two hours of deck time is real, and skipping it leaves a prediction standing as though it were a result. The format spends that cost deliberately: a prediction that is never checked cannot be wrong, which is precisely what makes it worthless."
       ],
       "story": "Anand is at 46 cubic metres a second through the machines and proposes 52. The slope of the output curve at 46 is 197 kilowatts for every extra cubic metre a second, and the tailrace traverse takes 2 hours of deck time.",
@@ -4353,7 +4090,7 @@ export const CURRICULUM = {
         "task": "Turn the constant into an hour",
         "question": "Estimate how long the recession takes to halve the flow.",
         "answer": "About 3.2 days until the flow has halved.",
-        "why": "Setting Q equal to half of Q₀ and taking logarithms cancels the starting flow entirely, so the halving time depends on the constant alone. That independence is the whole reason a recession is quoted as a constant — it says the same thing about a river at 400 cubic metres a second and at 40, which no absolute rate of fall does. It also gives the shape of the wait: the next halving takes exactly as long as this one, so the machines wait three days for the first and three more for the second.\n",
+        "why": "Setting Q equal to half of Q₀ and taking logarithms cancels the starting flow entirely, so the halving time depends on the constant alone. That independence is the whole reason a recession is quoted as a constant. It says the same thing about a river at 400 cubic metres a second and at 40. No absolute rate of fall does that. It also gives the shape of the wait. The next halving takes exactly as long as this one. So the machines wait three days for the first and three more for the second.\n",
         "givens": [
           "Recession constant 0.22 a day",
           "The window opens once the flow is half of today's"
@@ -4385,21 +4122,6 @@ export const CURRICULUM = {
           ],
           "s": "A rate proportional to the quantity itself falls by the same fraction in every equal interval, so the halving time is a property of the constant alone and the starting value cancels out of it.",
           "computed": true
-        },
-        {
-          "e": "d/dt (t^n) = n·t^(n−1)",
-          "c": "the power rule, which every other differentiation here is built on",
-          "v": [
-            [
-              "n",
-              "the exponent, which may be a fraction"
-            ],
-            [
-              "t",
-              "the variable being differentiated with respect to"
-            ]
-          ],
-          "s": "The exponent comes down in front as a factor and the power drops by one, and both halves matter — leaving the exponent alone or dropping the factor each produce a line that still looks like a derivative."
         }
       ],
       "concept": {
@@ -4421,7 +4143,7 @@ export const CURRICULUM = {
       "place": "Downstream Warning Desk",
       "guide": "The four answers disagree about one thing: whether a rate exists at that instant at all. Some assign it a value, large or zero, and some deny there is a value to assign. Decide that first, from the trace, before arguing about size. Sorting a discontinuity from a steep slope decides whether you need a better gauge or a different question.",
       "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading. A step skipped. A quantity confused with a rate. A correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. That was 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That stays true until the day the approximation is what is being tested."
       ],
@@ -4434,7 +4156,7 @@ export const CURRICULUM = {
         "task": "Say what the trace has no rate at",
         "question": "What is true of the discharge at two o'clock?",
         "answer": "The one-sided limits differ, so there is no rate of change at that instant",
-        "why": "Approaching 2 o'clock from the left, the discharge tends to 60. From the right it tends to 145. A derivative is the limit of a difference quotient taken across the instant. Here that quotient is a fixed jump divided by a shrinking interval, so it grows without bound. It never settles on a number. The trace has a good rate everywhere else, which is why asking for the rate of rise at two o'clock asks the record for something it does not hold.\n",
+        "why": "Approaching 2 o'clock from the left, the discharge tends to 60. From the right it tends to 145. A derivative is the limit of a difference quotient taken across the instant. Here that quotient is a fixed jump divided by a shrinking interval, so it grows without bound. It never settles on a number. The trace has a good rate everywhere else. That is why asking for the rate of rise at two o'clock asks the record for something it does not hold.\n",
         "rebuttals": [
           "A faster gauge shrinks the interval, and the quotient grows without bound rather than settling on a number.",
           "The discharge has one value at two o'clock, whichever side the log records it on. A jump is not an absence.",
@@ -4452,27 +4174,6 @@ export const CURRICULUM = {
         "a limit describes what a quantity approaches from one side, which need not be what it reaches",
         "a derivative is itself a limit, taken across the instant rather than up to it",
         "limits, one-sided limits, and where a limit fails to exist — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "f'(t) = lim (f(t + h) − f(t)) / h  as h → 0",
-          "c": "the derivative, from the definition rather than from a rule",
-          "v": [
-            [
-              "f(t)",
-              "the quantity, as a function of time"
-            ],
-            [
-              "h",
-              "the length of the interval, which is sent to zero"
-            ],
-            [
-              "f'(t)",
-              "the instantaneous rate of change at t"
-            ]
-          ],
-          "s": "The quotient is the slope of a line through two points on the curve, and letting the two points close together without ever meeting is what turns an average rate into an instantaneous one."
-        }
       ],
       "takesAsRead": [
         {
@@ -4492,16 +4193,16 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Which quantity is which",
-      "scene": "Baptiste has four expressions on the briefing sheet, all built from the same inflow record, and a committee this evening that will read whichever number is nearest the top. She wants each one labelled before it goes out.",
+      "scene": "Baptiste has four expressions on the briefing sheet, all built from the same inflow record. A committee this evening will read whichever number is nearest the top. She wants each one labelled before it goes out.",
       "takeaway": "A rate, its accumulation and the rate of the rate are three different measurements of the same record, and only their units tell them apart.",
       "place": "Downstream Warning Desk",
       "guide": "Four expressions, all built from one inflow record, and the units separate them before any argument does. Integrating a flow multiplies a rate by time; differentiating divides by it. Read the units off each expression first, and the pairing follows. A committee reads the top figure on a sheet and cannot tell a volume from a rate. The label is the whole safeguard.",
       "background": [
-        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
+        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation. Choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning."
       ],
-      "story": "Baptiste has four expressions on the briefing sheet, all built from the same inflow record, and a committee this evening that will read whichever number is nearest the top. She wants each one labelled before it goes out.",
+      "story": "Baptiste has four expressions on the briefing sheet, all built from the same inflow record. A committee this evening will read whichever number is nearest the top. She wants each one labelled before it goes out.",
       "game": {
         "type": "PROTOCOL",
         "title": "Which quantity is which",
@@ -4510,7 +4211,7 @@ export const CURRICULUM = {
         "task": "Say what each expression is a measurement of",
         "question": "Match each expression to the quantity it actually reports.",
         "answer": "",
-        "why": "These four are built from one record and answer four questions, and the units separate them before any argument does. Integrating a flow multiplies cubic metres a second by seconds and returns cubic metres. Dividing that back by the interval returns a flow again, which is the average value of the function and not the average of the readings unless they happen to be evenly spaced. Differentiating once gives the climb and twice gives the curvature — the quantity that says whether a flood is still accelerating, which is what the evening committee actually needs and is the one nobody puts on a sheet.\n",
+        "why": "These four are built from one record and answer four questions, and the units separate them before any argument does. Integrating a flow multiplies cubic metres a second by seconds and returns cubic metres. Dividing that back by the interval returns a flow again. That is the average value of the function. It is not the average of the readings, unless they happen to be evenly spaced. Differentiating once gives the climb and twice gives the curvature. Curvature is the quantity that says whether a flood is still accelerating. That is what the evening committee actually needs, and it is the one nobody puts on a sheet.\n",
         "scenarios": [
           "The integral of the inflow between six and noon",
           "The derivative of the inflow with respect to time",
@@ -4560,11 +4261,11 @@ export const CURRICULUM = {
       "scene": "Berg has this afternoon's schedule as Q(t) = 48 + 8t cubic metres a second, running 6 hours. She wants the flat release with the same total, to set beside the one she asked for on the first day.",
       "takeaway": "Reducing a schedule to one steady rate is integrating it and dividing, and the two ends only average correctly because the schedule is a straight line.",
       "place": "Downstream Warning Desk",
-      "guide": "Build it a line at a time. The steady flow with the same total is the ramp's average over the six hours — and the way to get it that survives a schedule which is not a straight line is to integrate the ramp and divide by the interval. Finish with a flow in cubic metres a second, so it can be set beside the one she asked for on day one.",
+      "guide": "Build it a line at a time. The steady flow with the same total is the ramp's average over the six hours. One way to get it survives a schedule that is not a straight line. Integrate the ramp and divide by the interval. Finish with a flow in cubic metres a second, so it can be set beside the one she asked for on day one.",
       "background": [
-        "What a mean value of a function is. The average of Q over an interval is the integral of Q across it divided by the length of the interval — the height of the rectangle with the same area as the curve. For a straight ramp that is the midpoint value, which is why this one can be checked in your head after the working is done.",
-        "Why the equivalence is worth writing down. A ramp and a flat release with the same total deliver the same water and do very different things to the channel below: one arrives gently and ends high, the other is constant. Being able to state the flat equivalent is how two schedules get compared on anything other than their shape.",
-        "What day one was about. The release Berg asked for on the first day was chosen without this arithmetic. Setting the equivalent flat flow beside it says whether the schedule that has been argued about all fortnight actually differs in the water it moves, or only in how it moves it."
+        "What a mean value of a function is. The average of Q over an interval is the integral of Q across it, divided by the length of the interval. That is the height of the rectangle with the same area as the curve. For a straight ramp that is the midpoint value, which is why this one can be checked in your head after the working is done.",
+        "Why the equivalence is worth writing down. A ramp and a flat release with the same total deliver the same water. They do very different things to the channel below. One arrives gently and ends high. The other is constant. Being able to state the flat equivalent is how two schedules get compared on anything other than their shape.",
+        "What day one was about. The release Berg asked for on the first day was chosen without this arithmetic. Setting the equivalent flat flow beside it settles one question. Does the schedule that has been argued about all fortnight actually differ in the water it moves? Or only in how it moves it?"
       ],
       "story": "Berg has this afternoon's schedule as Q(t) = 48 + 8t cubic metres a second, running 6 hours. She wants the flat release with the same total, to set beside the one she asked for on the first day.",
       "game": {
@@ -4575,7 +4276,7 @@ export const CURRICULUM = {
         "task": "Derive the steady release with the same total",
         "question": "Derive the steady flow that delivers the same six-hour total as the ramp.",
         "answer": "72 cubic metres a second, steady, for 6 hours — the same total the ramp delivers, and the mean of its ends only because the ramp is a straight line.",
-        "why": "Two steps and one trap. Integrating gives the total in the mixed units the formula was written in, and dividing by the interval turns it back into a rate; that is the definition of an average value and it works for any schedule at all. What does not work for any schedule is averaging the two ends, which happens to agree here because a straight line spends as long above its midline as below. Carry that habit onto tomorrow's curved release and the published figure is wrong in the direction the curvature points.\n",
+        "why": "Two steps and one trap. Integrating gives the total in the mixed units the formula was written in. Dividing by the interval turns it back into a rate. That is the definition of an average value. It works for any schedule at all. What does not work for any schedule is averaging the two ends. That happens to agree here, because a straight line spends as long above its midline as below. Carry that habit onto tomorrow's curved release and the published figure is wrong in the direction the curvature points.\n",
         "derive": {
           "start": "Q(t) = 48 + 8t",
           "goal": "the steady flow with the same six-hour total",
@@ -4689,16 +4390,16 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "What the level rise leaves out",
-      "scene": "The reservoir gained 1.06 million cubic metres overnight. Berg has the inflow record beside it and wants the total that arrived at the dam, not the part that stayed, before she sizes this afternoon's release.",
+      "scene": "The reservoir gained 1.06 million cubic metres overnight. Berg has the inflow record beside it. She wants the total that arrived at the dam, not the part that stayed, before she sizes this afternoon's release.",
       "takeaway": "A net change is the integral of a difference, so every removal term has to be added back before the arrival is known.",
       "place": "Downstream Warning Desk",
-      "guide": "Reading a stream costs nothing, so read them all. Then count only the ones that belong in the total she asked for — the volume that arrived at the dam over twelve hours, not the part that stayed. The level rise is what remained after everything that left, so anything already leaving has to go back into the sum. Report the total when the ledger closes.",
+      "guide": "Reading a stream costs nothing, so read them all. Then count only the ones that belong in the total she asked for. That total is the volume that arrived at the dam over twelve hours, not the part that stayed. The level rise is what remained after everything that left, so anything already leaving has to go back into the sum. Report the total when the ledger closes.",
       "background": [
         "Why the rise is not the arrival. The reservoir gained 1.06 million cubic metres, and it gained that while the turbines, the spillway and the compensation flow were all taking water out. What arrived is what stayed plus everything that left, which is why a balance is a ledger rather than a reading.",
-        "What counting a stream claims. Reading is free and neutral; adding a stream to the total says that this water is part of the quantity being asked for. Some streams on the board are not — a gauge upstream that also appears in the inflow record would be counted twice, and a rainfall figure over the reservoir surface may already be inside the level rise.",
-        "Why Berg wants arrivals before sizing a release. The release has to be set against what the catchment is actually delivering, not against what the reservoir happened to keep while the machines were running. Using the rise would size this afternoon's release against a number that already had this morning's releases baked into it."
+        "What counting a stream claims. Reading is free and neutral; adding a stream to the total says that this water is part of the quantity being asked for. Some streams on the board are not. A gauge upstream that also appears in the inflow record would be counted twice. A rainfall figure over the reservoir surface may already be inside the level rise.",
+        "Why Berg wants arrivals before sizing a release. The release has to be set against what the catchment is actually delivering. Not against what the reservoir happened to keep while the machines were running. Using the rise would size this afternoon's release against a number that already had this morning's releases baked into it."
       ],
-      "story": "The reservoir gained 1.06 million cubic metres overnight. Berg has the inflow record beside it and wants the total that arrived at the dam, not the part that stayed, before she sizes this afternoon's release.",
+      "story": "The reservoir gained 1.06 million cubic metres overnight. Berg has the inflow record beside it. She wants the total that arrived at the dam, not the part that stayed, before she sizes this afternoon's release.",
       "game": {
         "type": "BALANCE",
         "title": "What the level rise leaves out",
@@ -4707,7 +4408,7 @@ export const CURRICULUM = {
         "task": "Close the reservoir's ledger for the night",
         "question": "Read what you need and report the total volume that arrived over the 12 hours.",
         "answer": "About 2.16 million cubic metres arrived — the 1.06 that stayed, plus the 0.95 the machines passed and the 0.15 that seeped, both of which were leaving throughout.",
-        "why": "The storage change is the integral of inflow minus outflow, so recovering the inflow means integrating every outflow term back in. Two of them are easy to miss for the same reason — nothing on the panel moves when they run. The machines and the seepage are steady rates that were on for the whole 12 hours, and a steady rate integrates to rate times time without any further work. Report the 1.06 and the catchment's yield is understated by half, which is the number every forecast for the rest of the week is scaled from.\n",
+        "why": "The storage change is the integral of inflow minus outflow, so recovering the inflow means integrating every outflow term back in. Two of them are easy to miss for the same reason — nothing on the panel moves when they run. The machines and the seepage are steady rates that were on for the whole 12 hours. A steady rate integrates to rate times time without any further work. Report the 1.06 and the catchment's yield is understated by half. That yield is the number every forecast for the rest of the week is scaled from.\n",
         "balance": {
           "total": {
             "amount": 2160000,
@@ -4776,7 +4477,7 @@ export const CURRICULUM = {
       "place": "Downstream Warning Desk",
       "guide": "All four options name a moment that is genuinely visible on the traces. They differ in which curve is being watched: the inflow, the outflow, or the difference between them. Storage answers to the difference and to nothing else. Warning a reach on the strength of an upstream peak is wrong in the expensive direction. The highest water arrives after the news that it would not.",
       "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading. A step skipped. A quantity confused with a rate. A correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. That was 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That stays true until the day the approximation is what is being tested."
       ],
@@ -4837,7 +4538,7 @@ export const CURRICULUM = {
         "task": "Say when the outlet will have finished",
         "question": "Estimate how long the outlet takes to bring the head from 25 metres to 16.",
         "answer": "About 20 hours to bring the head from 25 metres to 16.",
-        "why": "The solution rearranges to t = 2(√h₀ − √h) ÷ k, which is the whole practical value of having solved it: a curve becomes an hour somebody can act on. The square roots are also where the surprise is — the first 9 metres of drawdown take 20 hours, and the next 9 take 26, because the head driving the outlet is falling the whole time. A warning built on the first nine metres and carried forward linearly arrives early, and being early is not free on a river with people beside it.\n",
+        "why": "The solution rearranges to t = 2(√h₀ − √h) ÷ k. That is the whole practical value of having solved it. A curve becomes an hour somebody can act on. The square roots are also where the surprise is. The first 9 metres of drawdown take 20 hours. The next 9 take 26. The head driving the outlet is falling the whole time. A warning built on the first nine metres and carried forward linearly arrives early, and being early is not free on a river with people beside it.\n",
         "givens": [
           "Head starts at 25 m, outlet shuts at 16 m",
           "Drain constant k ≈ 0.10 an hour"
@@ -4897,7 +4598,7 @@ export const CURRICULUM = {
         "task": "Sort the instrument readings before the morning report.",
         "question": "Send each overnight change to the bin that says what moved.",
         "answer": "Anything smooth, small and corroborated is the dam or the water. Anything instant, off scale, frozen or alone is the instrument.",
-        "why": "A dam is instrumented redundantly because a single number cannot be checked. Real movement is smooth, small and correlated: the piezometers follow the reservoir level with a lag, the plumblines swing with the daily temperature cycle, the seepage weir rises when the level does. A fault is none of those things. It steps instantly, parks past the end of its range, freezes while everything around it moves, or contradicts the second instrument in the same borehole. That is why the sort is by corroboration rather than by how alarming the number is — and why the frozen reading matters as much as the jumping one. Concrete moves with temperature every night of its life, so a plumbline that did not move is not reassuring; it is an instrument that has stopped reporting, on the one structure where nobody can afford to find that out later.",
+        "why": "A dam is instrumented redundantly because a single number cannot be checked. Real movement is smooth, small and correlated. The piezometers follow the reservoir level with a lag. The plumblines swing with the daily temperature cycle. The seepage weir rises when the level does. A fault is none of those things. It steps instantly, parks past the end of its range, freezes while everything around it moves, or contradicts the second instrument in the same borehole. That is why the sort is by corroboration rather than by how alarming the number is. It is also why the frozen reading matters as much as the jumping one. Concrete moves with temperature every night of its life. So a plumbline that did not move is not reassuring. It is an instrument that has stopped reporting. And this is the one structure where nobody can afford to find that out later.",
         "belt": {
           "left": {
             "name": "The dam or water"
@@ -5039,7 +4740,7 @@ export const CURRICULUM = {
       "place": "Downstream Warning Desk",
       "guide": "Three of the options describe the shaded region and one describes the integral, and today those are not the same object. The inflow runs above the release for part of the day and below it for the rest. Decide whether the quantity in question keeps its sign or throws it away. A caption that swaps the two overstates the day by exactly twice the afternoon.",
       "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading. A step skipped. A quantity confused with a rate. A correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. That was 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That stays true until the day the approximation is what is being tested."
       ],
@@ -5071,23 +4772,6 @@ export const CURRICULUM = {
         "an integrand that changes sign contributes negatively where it is negative",
         "the definite integral as an accumulation, and its units — taken as read"
       ],
-      "equations": [
-        {
-          "e": "ΔV = ∫ (I(t) − R(t)) dt",
-          "c": "the area between two rate curves, taken with its sign",
-          "v": [
-            [
-              "I, R",
-              "the two rates, in the same units"
-            ],
-            [
-              "ΔV",
-              "the net change over the interval"
-            ]
-          ],
-          "s": "Where the first rate runs above the second the integrand is positive and the store fills; where it runs below, the integral subtracts, which is what separates a net change from an unsigned area."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 15,
@@ -5110,9 +4794,9 @@ export const CURRICULUM = {
       "scene": "The night board is blank. Berg wants the farm clearance set against how fast the level is climbing rather than against how high it is, and signed before the eight o'clock update arrives.",
       "takeaway": "A rule written on a derivative fires while there is still time to act; the same rule written on the level fires when the level is already there.",
       "place": "Downstream Warning Desk",
-      "guide": "One rule, written on the rate the level is climbing rather than on the level itself, and fixed once the board is released. Moving stock and machinery off the flood plain takes five days from the moment it is called. Only the early updates arrive with five days left, so the line has to be low enough that one of them crosses it — and high enough that it would not have been crossed on a night the river was doing nothing.",
+      "guide": "One rule, written on the rate the level is climbing rather than on the level itself, and fixed once the board is released. Moving stock and machinery off the flood plain takes five days from the moment it is called. Only the early updates arrive with five days left. So the line has to be low enough that one of them crosses it. It also has to be high enough not to have been crossed on a night the river was doing nothing.",
       "background": [
-        "Why the rate rather than the level. A level threshold fires when the water is already there. A rate threshold fires while it is on its way, and the earlier warning is worth more than the certainty: a reservoir climbing fast at a moderate level is a different situation from a still one near the top, and a level rule cannot tell them apart.",
+        "Why the rate rather than the level. A level threshold fires when the water is already there. A rate threshold fires while it is on its way. The earlier warning is worth more than the certainty. A reservoir climbing fast at a moderate level is a different situation from a still one near the top. A level rule cannot tell them apart.",
         "What lead time means on a board like this. Every action has a duration — notifying downstream, opening gates in sequence, clearing the tailrace path. A stage set too close to the limit begins an action that cannot finish, which is worse than no rule because it is a rule somebody trusted.",
         "Why release before the updates. A threshold adjusted while the data comes in is not a threshold; it is a commentary on decisions already taken. Signing the board first is what makes the night's actions attributable to a rule rather than to whoever was awake."
       ],
@@ -5125,7 +4809,7 @@ export const CURRICULUM = {
         "task": "Write tonight's thresholds on the rate",
         "question": "At what rate of rise do you call the farm clearance, given it needs five days to happen?",
         "answer": "Call the clearance around 0.4 m a day. Only the first two updates arrive with the five days it needs, so a line above about 0.9 fires on Thursday with 72 hours left and the clearance can no longer happen.",
-        "why": "Two ways of getting this wrong look nothing alike and cost the same. A threshold set high never fires and the stage simply does not happen. A threshold set at a number that sounds serious fires on Thursday with 72 hours left, which is a correct rule for an action that needed 120 — so the rule is satisfied and the clearance is already impossible. Writing the board on the rate rather than on the level is what makes any of it reachable, because the rate crosses its threshold two days before the level crosses its own.\n",
+        "why": "Two ways of getting this wrong look nothing alike and cost the same. A threshold set high never fires and the stage simply does not happen. A threshold set at a number that sounds serious fires on Thursday with 72 hours left. That is a correct rule for an action that needed 120. So the rule is satisfied and the clearance is already impossible. Writing the board on the rate rather than on the level is what makes any of it reachable. The rate crosses its threshold two days before the level crosses its own.\n",
         "trigger": {
           "scale": {
             "label": "Rate the level is rising",
@@ -5228,23 +4912,6 @@ export const CURRICULUM = {
         "a staged action has a lead time that cannot be compressed once it has started",
         "the definite integral as an accumulation, and its units — taken as read"
       ],
-      "equations": [
-        {
-          "e": "ΔV = ∫ (I(t) − R(t)) dt",
-          "c": "the area between two rate curves, taken with its sign",
-          "v": [
-            [
-              "I, R",
-              "the two rates, in the same units"
-            ],
-            [
-              "ΔV",
-              "the net change over the interval"
-            ]
-          ],
-          "s": "Where the first rate runs above the second the integrand is positive and the store fills; where it runs below, the integral subtracts, which is what separates a net change from an unsigned area."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 15,
@@ -5264,17 +4931,17 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "What is worth writing down",
-      "scene": "The liaison committee sits at seven. Halloran has a fortnight of decisions to account for, Berg has a release she asked for on the first day, and the authority will fund one piece of work out of it.",
+      "scene": "The liaison committee sits at seven. Halloran has a fortnight of decisions to account for. Berg has a release she asked for on the first day. The authority will fund one piece of work out of it.",
       "takeaway": "What a fortnight establishes is whatever was measured well enough to be used again, and that is usually not the thing that was most argued about.",
       "place": "Downstream Warning Desk",
       "guide": "The provisional correction to the stage-storage curve is 11 per cent at working levels and rests on 11 transects. A full resurvey is four weeks of boat time. Every volume and every level forecast on this site divides by that curve; the uplift and the seepage do not. The spillway coefficient is still a handbook figure carrying 15 per cent. It is the widest term in the discharge and the one nobody has measured here. The upper catchment has two gauges, and the arrival times they fed were checked against the reach for the first time in nine years. The uplift relation has a fortnight of high-level data it has never been fitted on.",
       "rules": "Spread the hundred points across the 4 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
       "background": [
-        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely. It says what is worth hedging against. It says what is not worth pursuing at all. The last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
         "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
         "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
       ],
-      "story": "The liaison committee sits at seven. Halloran has a fortnight of decisions to account for, Berg has a release she asked for on the first day, and the authority will fund one piece of work out of it.",
+      "story": "The liaison committee sits at seven. Halloran has a fortnight of decisions to account for. Berg has a release she asked for on the first day. The authority will fund one piece of work out of it.",
       "game": {
         "type": "SCIENCETANK",
         "title": "What is worth writing down",
@@ -5283,7 +4950,7 @@ export const CURRICULUM = {
         "task": "Spend what the authority will release on what the fortnight showed was missing.",
         "question": "Spend what the authority will release on what the fortnight showed was missing.",
         "answer": "",
-        "why": "The two worth funding are the two that everything else is computed through. The area curve is the integrand of every volume and the divisor of every level forecast, so an 11% error in it is an 11% error in all of them at once, and 11 transects is a provisional number the room is already relying on. The coefficient is the widest term in the discharge by a long way, and improving the head gauge instead would refine the term that was already good. More gauges would improve a forecast that was not what failed, and the uplift re-fit is real work that can wait for a quiet quarter.\n",
+        "why": "The two worth funding are the two that everything else is computed through. The area curve is the integrand of every volume and the divisor of every level forecast. So an 11% error in it is an 11% error in all of them at once. And 11 transects is a provisional number the room is already relying on. The coefficient is the widest term in the discharge by a long way, and improving the head gauge instead would refine the term that was already good. More gauges would improve a forecast that was not what failed, and the uplift re-fit is real work that can wait for a quiet quarter.\n",
         "proposals": [
           {
             "label": "A",
@@ -5329,7 +4996,7 @@ export const CURRICULUM = {
       "guide": "The 4 answers mix 2 separate questions together: whether the trace breaks, and whether it has a slope. Settle the break first, from the readings either side of that instant. Then ask the slope question again from the left and from the right, as a second question with its own answer. Calling a corner a break sends a fault report about a gauge that is working.",
       "background": [
         "Two limits, not one. The limit of the discharge across an instant asks what value the trace approaches; the limit of the difference quotient asks what slope it approaches. They are separately capable of existing, and a corner is exactly the case where the first one does and the second one does not.",
-        "Why a corner is common and a jump is rare. Water has mass, so a discharge cannot teleport, and every genuine jump in this record is a gauge or a logging artefact. A corner needs nothing so dramatic — a hoist reaching its set position is enough, and the trace goes on being trustworthy on both sides of it."
+        "Why a corner is common and a jump is rare. Water has mass, so a discharge cannot teleport, and every genuine jump in this record is a gauge or a logging artefact. A corner needs nothing so dramatic. A hoist reaching its set position is enough. The trace goes on being trustworthy on both sides of it."
       ],
       "story": "Nadine Baptiste, the downstream warning officer, has Thursday's tailrace trace. Gate 2 was wound open across 4 minutes and then stopped dead. The discharge climbs the whole way and holds after. She wants the instant the winding stopped read off it.",
       "game": {
@@ -5340,7 +5007,7 @@ export const CURRICULUM = {
         "task": "Say whether a corner in the trace has a rate",
         "question": "What is true of the discharge at the instant the winding stopped?",
         "answer": "The trace is continuous there, and still has no rate of change at that instant",
-        "why": "Nothing jumps here. Both one-sided limits of the discharge are the same number, so the trace is continuous at that instant and a value can be read straight off it. The derivative is a different limit — of the difference quotient, taken across the instant — and it has 2 answers: a steep climb approaching from the left, and a flat line approaching from the right. Two one-sided slopes that disagree leave the 2-sided one undefined. Continuity buys the value and it never buys the rate.\n",
+        "why": "Nothing jumps here. Both one-sided limits of the discharge are the same number. So the trace is continuous at that instant, and a value can be read straight off it. The derivative is a different limit, of the difference quotient, taken across the instant. It has 2 answers. One is a steep climb approaching from the left. The other is a flat line approaching from the right. Two one-sided slopes that disagree leave the 2-sided one undefined. Continuity buys the value and it never buys the rate.\n",
         "rebuttals": [
           "Two one-sided slopes do not average into a derivative. A limit either exists or it does not.",
           "A corner is not a break. The discharge has 1 value there and the trace runs unbroken through it.",
@@ -5358,27 +5025,6 @@ export const CURRICULUM = {
         "a limit describes what a quantity approaches from one side",
         "a derivative is a limit of the difference quotient taken across the instant",
         "limits, one-sided limits, and where a limit fails to exist — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "f'(t) = lim (f(t + h) − f(t)) / h  as h → 0",
-          "c": "the derivative, from the definition rather than from a rule",
-          "v": [
-            [
-              "f(t)",
-              "the quantity, as a function of time"
-            ],
-            [
-              "h",
-              "the length of the interval, which is sent to zero"
-            ],
-            [
-              "f'(t)",
-              "the instantaneous rate of change at t"
-            ]
-          ],
-          "s": "The quotient is the slope of a line through two points on the curve, and letting the two points close together without ever meeting is what turns an average rate into an instantaneous one."
-        }
       ],
       "takesAsRead": [
         {

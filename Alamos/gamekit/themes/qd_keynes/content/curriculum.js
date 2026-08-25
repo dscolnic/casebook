@@ -295,23 +295,6 @@ export const CURRICULUM = {
         "the leakage is the share of each arriving pound that does not go round again",
         "the multiplier is one over that share"
       ],
-      "equations": [
-        {
-          "e": "k = 1 ÷ (1 − MPC)",
-          "c": "the multiplier in the simplest closed model",
-          "v": [
-            [
-              "MPC",
-              "the fraction of extra income that is spent"
-            ],
-            [
-              "k",
-              "the factor by which the initial change is amplified"
-            ]
-          ],
-          "s": "Rounds that each shrink by the same fraction sum to a finite total, and that total is the initial change divided by one minus the fraction."
-        }
-      ],
       "concept": {
         "n": 6,
         "c": "Leakages shrink the multiplier below the closed-model value",
@@ -410,27 +393,6 @@ export const CURRICULUM = {
       "assumes": [
         "each round is induced by the income created in the round before it",
         "households spend the same share of each extra pound whatever the round"
-      ],
-      "equations": [
-        {
-          "e": "Rₙ = ΔI × MPC ⁿ",
-          "c": "the size of the nth round of induced spending",
-          "v": [
-            [
-              "ΔI",
-              "the initial change in spending"
-            ],
-            [
-              "MPC",
-              "the fraction of extra income households spend"
-            ],
-            [
-              "n",
-              "which round it is"
-            ]
-          ],
-          "s": "Each round is the previous one multiplied by the fraction households spend, so the rounds fall away geometrically from the initial change."
-        }
       ],
       "concept": {
         "n": 4,

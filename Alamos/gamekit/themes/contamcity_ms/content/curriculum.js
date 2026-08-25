@@ -570,31 +570,6 @@ export const CURRICULUM = {
       "assumes": [
         "a gas has a state, and it also has a place, and those change for different reasons"
       ],
-      "equations": [
-        {
-          "e": "depth lost each year = mass lost ÷ (density × area)",
-          "c": "how fast a wall is thinning",
-          "v": [
-            [
-              "depth lost each year",
-              "in millimetres"
-            ],
-            [
-              "weight lost",
-              "in kilograms"
-            ],
-            [
-              "how heavy it is",
-              "kilograms in a cubic metre"
-            ],
-            [
-              "the area",
-              "in square metres"
-            ]
-          ],
-          "s": "A weight loss spread over a wide area is a thin loss; over a small one it is a hole."
-        }
-      ],
       "concept": {
         "n": 14,
         "c": "Gases spread out, and the wind decides where",
@@ -845,27 +820,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "each step down the acid scale means ten times more acid"
-      ],
-      "equations": [
-        {
-          "e": "concentration = amount ÷ volume",
-          "c": "how much of something is in how much water",
-          "v": [
-            [
-              "concentration",
-              "in milligrams per litre"
-            ],
-            [
-              "amount",
-              "in milligrams"
-            ],
-            [
-              "volume",
-              "in litres"
-            ]
-          ],
-          "s": "A concentration is an amount shared out over a volume, so the same amount in more water is a smaller number."
-        }
       ],
       "concept": {
         "n": 12,
@@ -1381,27 +1335,6 @@ export const CURRICULUM = {
         "the reading goes up in step with how much is in the sample",
         "watering something down by half halves what is in it"
       ],
-      "equations": [
-        {
-          "e": "concentration = amount ÷ volume",
-          "c": "how much of something is in how much water",
-          "v": [
-            [
-              "concentration",
-              "in milligrams per litre"
-            ],
-            [
-              "amount",
-              "in milligrams"
-            ],
-            [
-              "volume",
-              "in litres"
-            ]
-          ],
-          "s": "A concentration is an amount shared out over a volume, so the same amount in more water is a smaller number."
-        }
-      ],
       "concept": {
         "n": 16,
         "c": "Saying what you know and how well you know it",
@@ -1449,27 +1382,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a map is worth whatever the decisions made from it are worth"
-      ],
-      "equations": [
-        {
-          "e": "concentration = amount ÷ volume",
-          "c": "how much of something is in how much water",
-          "v": [
-            [
-              "concentration",
-              "in milligrams per litre"
-            ],
-            [
-              "amount",
-              "in milligrams"
-            ],
-            [
-              "volume",
-              "in litres"
-            ]
-          ],
-          "s": "A concentration is an amount shared out over a volume, so the same amount in more water is a smaller number."
-        }
       ],
       "concept": {
         "n": 10,
@@ -2255,50 +2167,6 @@ export const CURRICULUM = {
       "assumes": [
         "a rate only becomes a decision when it is compared with a thickness"
       ],
-      "equations": [
-        {
-          "e": "amount = concentration × volume",
-          "c": "how much is really there",
-          "v": [
-            [
-              "amount",
-              "in milligrams or kilograms"
-            ],
-            [
-              "concentration",
-              "per litre"
-            ],
-            [
-              "volume",
-              "in litres"
-            ]
-          ],
-          "s": "A small concentration in a very large volume can still be a large amount of material."
-        },
-        {
-          "e": "depth lost each year = mass lost ÷ (density × area)",
-          "c": "how fast a wall is thinning",
-          "v": [
-            [
-              "depth lost each year",
-              "in millimetres"
-            ],
-            [
-              "weight lost",
-              "in kilograms"
-            ],
-            [
-              "how heavy it is",
-              "kilograms in a cubic metre"
-            ],
-            [
-              "the area",
-              "in square metres"
-            ]
-          ],
-          "s": "A weight loss spread over a wide area is a thin loss; over a small one it is a hole."
-        }
-      ],
       "concept": {
         "n": 10,
         "c": "A sample stands for a place and a moment, and only those",
@@ -2483,27 +2351,6 @@ export const CURRICULUM = {
       "assumes": [
         "nothing simply disappears; it ends up somewhere",
         "water getting cleaner does not say where the chemical went"
-      ],
-      "equations": [
-        {
-          "e": "amount = concentration × volume",
-          "c": "how much is really there",
-          "v": [
-            [
-              "amount",
-              "in milligrams or kilograms"
-            ],
-            [
-              "concentration",
-              "per litre"
-            ],
-            [
-              "volume",
-              "in litres"
-            ]
-          ],
-          "s": "A small concentration in a very large volume can still be a large amount of material."
-        }
       ],
       "concept": {
         "n": 7,
@@ -2732,45 +2579,6 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it.",
           "computed": true
-        },
-        {
-          "e": "concentration = amount ÷ volume",
-          "c": "how much of something is in how much water",
-          "v": [
-            [
-              "concentration",
-              "in milligrams per litre"
-            ],
-            [
-              "amount",
-              "in milligrams"
-            ],
-            [
-              "volume",
-              "in litres"
-            ]
-          ],
-          "s": "A concentration is an amount shared out over a volume, so the same amount in more water is a smaller number."
-        },
-        {
-          "e": "amount = concentration × volume",
-          "c": "how much is really there",
-          "v": [
-            [
-              "amount",
-              "in milligrams or kilograms"
-            ],
-            [
-              "concentration",
-              "per litre"
-            ],
-            [
-              "volume",
-              "in litres"
-            ]
-          ],
-          "s": "A small concentration in a very large volume can still be a large amount of material.",
-          "card": false
         }
       ],
       "concept": {

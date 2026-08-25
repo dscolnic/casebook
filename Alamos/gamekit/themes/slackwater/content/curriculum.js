@@ -152,35 +152,6 @@ export const CURRICULUM = {
         "a cosine of angular speed ω has period 360° ÷ ω",
         "two terms are in step when their arguments differ by a whole number of turns"
       ],
-      "equations": [
-        {
-          "e": "h(t) = h₀ + ΣAₙcos(ωₙt − φₙ)",
-          "c": "the tide as a sum of periodic terms",
-          "v": [
-            [
-              "h(t)",
-              "the water level at time t, in metres above chart datum"
-            ],
-            [
-              "h₀",
-              "mean sea level, in metres"
-            ],
-            [
-              "Aₙ",
-              "the nth constituent's amplitude, in metres"
-            ],
-            [
-              "ωₙ",
-              "that constituent's angular speed, in degrees an hour"
-            ],
-            [
-              "φₙ",
-              "its phase lag at this station, in degrees"
-            ]
-          ],
-          "s": "A tide is not one wave but a sum of them, each with its own amplitude and its own speed, and the level at any hour is what all of them happen to add up to at that hour."
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "A quantity written as a sum of periodic terms",
@@ -226,35 +197,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a partial sum is what a sum comes to after a stated number of terms"
-      ],
-      "equations": [
-        {
-          "e": "h(t) = h₀ + ΣAₙcos(ωₙt − φₙ)",
-          "c": "the tide as a sum of periodic terms",
-          "v": [
-            [
-              "h(t)",
-              "the water level at time t, in metres above chart datum"
-            ],
-            [
-              "h₀",
-              "mean sea level, in metres"
-            ],
-            [
-              "Aₙ",
-              "the nth constituent's amplitude, in metres"
-            ],
-            [
-              "ωₙ",
-              "that constituent's angular speed, in degrees an hour"
-            ],
-            [
-              "φₙ",
-              "its phase lag at this station, in degrees"
-            ]
-          ],
-          "s": "A tide is not one wave but a sum of them, each with its own amplitude and its own speed, and the level at any hour is what all of them happen to add up to at that hour."
-        }
       ],
       "concept": {
         "n": 18,
@@ -427,33 +369,6 @@ export const CURRICULUM = {
           ],
           "s": "No cosine can exceed one, so the worst a dropped tail can do is the sum of its own amplitudes — which turns a truncation from an unknown into a number you can print beside the prediction.",
           "computed": true
-        },
-        {
-          "e": "h(t) = h₀ + ΣAₙcos(ωₙt − φₙ)",
-          "c": "the tide as a sum of periodic terms",
-          "v": [
-            [
-              "h(t)",
-              "the water level at time t, in metres above chart datum"
-            ],
-            [
-              "h₀",
-              "mean sea level, in metres"
-            ],
-            [
-              "Aₙ",
-              "the nth constituent's amplitude, in metres"
-            ],
-            [
-              "ωₙ",
-              "that constituent's angular speed, in degrees an hour"
-            ],
-            [
-              "φₙ",
-              "its phase lag at this station, in degrees"
-            ]
-          ],
-          "s": "A tide is not one wave but a sum of them, each with its own amplitude and its own speed, and the level at any hour is what all of them happen to add up to at that hour."
         }
       ],
       "takesAsRead": [
@@ -1778,42 +1693,6 @@ export const CURRICULUM = {
         "a fix is one position at one recorded time",
         "a rate is a change divided by the interval it happened over"
       ],
-      "equations": [
-        {
-          "e": "dy/dx = (dy/dt) / (dx/dt)",
-          "c": "the slope of a path from its two rates",
-          "v": [
-            [
-              "dx/dt",
-              "the eastward rate, in metres a second"
-            ],
-            [
-              "dy/dt",
-              "the northward rate, in metres a second"
-            ],
-            [
-              "dy/dx",
-              "the slope of the track on the chart, with no units"
-            ]
-          ],
-          "s": "The path has no formula in x and y, so its slope is the ratio of the two rates at that instant — and where the horizontal rate passes through zero the track has a vertical tangent rather than an error."
-        },
-        {
-          "e": "speed = √((dx/dt)² + (dy/dt)²)",
-          "c": "speed as the size of the velocity vector",
-          "v": [
-            [
-              "dx/dt, dy/dt",
-              "the two components of velocity, in metres a second"
-            ],
-            [
-              "speed",
-              "how fast the float is going along its path, in metres a second"
-            ]
-          ],
-          "s": "Velocity has a direction and speed does not: squaring both components, adding and taking the root throws the direction away and keeps the size."
-        }
-      ],
       "concept": {
         "n": 7,
         "c": "Parametric curves, and a path described by time rather than by x",
@@ -1867,21 +1746,6 @@ export const CURRICULUM = {
           ],
           "s": "The path has no formula in x and y, so its slope is the ratio of the two rates at that instant — and where the horizontal rate passes through zero the track has a vertical tangent rather than an error.",
           "computed": true
-        },
-        {
-          "e": "speed = √((dx/dt)² + (dy/dt)²)",
-          "c": "speed as the size of the velocity vector",
-          "v": [
-            [
-              "dx/dt, dy/dt",
-              "the two components of velocity, in metres a second"
-            ],
-            [
-              "speed",
-              "how fast the float is going along its path, in metres a second"
-            ]
-          ],
-          "s": "Velocity has a direction and speed does not: squaring both components, adding and taking the root throws the direction away and keeps the size."
         }
       ],
       "takesAsRead": [
@@ -1932,23 +1796,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an average over an interval is the accumulated quantity divided by the length of the interval"
-      ],
-      "equations": [
-        {
-          "e": "speed = √((dx/dt)² + (dy/dt)²)",
-          "c": "speed as the size of the velocity vector",
-          "v": [
-            [
-              "dx/dt, dy/dt",
-              "the two components of velocity, in metres a second"
-            ],
-            [
-              "speed",
-              "how fast the float is going along its path, in metres a second"
-            ]
-          ],
-          "s": "Velocity has a direction and speed does not: squaring both components, adding and taking the root throws the direction away and keeps the size."
-        }
       ],
       "concept": {
         "n": 3,
@@ -2358,23 +2205,6 @@ export const CURRICULUM = {
       "assumes": [
         "a velocity is two components, each a function of time"
       ],
-      "equations": [
-        {
-          "e": "speed = √((dx/dt)² + (dy/dt)²)",
-          "c": "speed as the size of the velocity vector",
-          "v": [
-            [
-              "dx/dt, dy/dt",
-              "the two components of velocity, in metres a second"
-            ],
-            [
-              "speed",
-              "how fast the float is going along its path, in metres a second"
-            ]
-          ],
-          "s": "Velocity has a direction and speed does not: squaring both components, adding and taking the root throws the direction away and keeps the size."
-        }
-      ],
       "concept": {
         "n": 10,
         "c": "Vector-valued functions, and acceleration as the derivative of velocity",
@@ -2501,11 +2331,11 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "The rate does not wait",
-      "scene": "Beke has the gate table on the desk. It says what to do at the top of each half hour, worked out from the flow at the moment the row was written. The flow through a part- open gate depends on the head, and the head is closing all the time.",
+      "scene": "Beke has the gate table on the desk. It says what to do at the top of each half hour. Each row was worked out from the flow at the moment it was written. The flow through a part-open gate depends on the head, and the head is closing all the time.",
       "takeaway": "A rate used over an interval is an assumption that it held for the interval, and it usually did not.",
       "place": "Sluice Control",
       "guide": "All four options describe something that happens over a half-hour row of the table. The question is what using a single instantaneous rate for a whole interval actually assumes about that interval. Then ask which way the resulting error goes when the rate is falling throughout.",
-      "story": "Beke has the gate table on the desk. It says what to do at the top of each half hour, worked out from the flow at the moment the row was written. The flow through a part- open gate depends on the head, and the head is closing all the time.",
+      "story": "Beke has the gate table on the desk. It says what to do at the top of each half hour. Each row was worked out from the flow at the moment it was written. The flow through a part-open gate depends on the head, and the head is closing all the time.",
       "game": {
         "type": "CHOICE",
         "title": "The rate does not wait",
@@ -2795,35 +2625,6 @@ export const CURRICULUM = {
       "assumes": [
         "a step that can be revised costs less than one that cannot"
       ],
-      "equations": [
-        {
-          "e": "h(t) = h₀ + ΣAₙcos(ωₙt − φₙ)",
-          "c": "the tide as a sum of periodic terms",
-          "v": [
-            [
-              "h(t)",
-              "the water level at time t, in metres above chart datum"
-            ],
-            [
-              "h₀",
-              "mean sea level, in metres"
-            ],
-            [
-              "Aₙ",
-              "the nth constituent's amplitude, in metres"
-            ],
-            [
-              "ωₙ",
-              "that constituent's angular speed, in degrees an hour"
-            ],
-            [
-              "φₙ",
-              "its phase lag at this station, in degrees"
-            ]
-          ],
-          "s": "A tide is not one wave but a sum of them, each with its own amplitude and its own speed, and the level at any hour is what all of them happen to add up to at that hour."
-        }
-      ],
       "concept": {
         "n": 34,
         "c": "A prediction, a bound and a measurement, and which of the three a decision rests on",
@@ -2839,7 +2640,7 @@ export const CURRICULUM = {
       "scene": "Oyelaran has both of Calloway's bounds in front of her and the surge forecast beside them. The forecast is half a metre of wind-driven water, arriving on the largest range of the year. It came from the weather service rather than from the constituent list.",
       "takeaway": "A bound is a statement about a model, so anything outside the model is outside the bound as well.",
       "place": "Sluice Control",
-      "guide": "Four readings of what a 0.19-metre bound covers. Ask of each what the bound was computed from. A ceiling can only be a ceiling on the terms that went into it. The distinction that matters is between a term that was dropped from the sum and a term that was never in the sum at all.",
+      "guide": "Four readings of what a 0.19-metre bound covers. Ask of each what the bound was computed from. A ceiling can only be a ceiling on the terms that went into it. The distinction that matters is between two kinds of term. One was dropped from the sum. The other was never in the sum at all.",
       "story": "Oyelaran has both of Calloway's bounds in front of her and the surge forecast beside them. The forecast is half a metre of wind-driven water, arriving on the largest range of the year. It came from the weather service rather than from the constituent list.",
       "game": {
         "type": "CHOICE",
@@ -2866,54 +2667,6 @@ export const CURRICULUM = {
       "assumes": [
         "a bound is computed from the terms of a particular model"
       ],
-      "equations": [
-        {
-          "e": "h(t) = h₀ + ΣAₙcos(ωₙt − φₙ)",
-          "c": "the tide as a sum of periodic terms",
-          "v": [
-            [
-              "h(t)",
-              "the water level at time t, in metres above chart datum"
-            ],
-            [
-              "h₀",
-              "mean sea level, in metres"
-            ],
-            [
-              "Aₙ",
-              "the nth constituent's amplitude, in metres"
-            ],
-            [
-              "ωₙ",
-              "that constituent's angular speed, in degrees an hour"
-            ],
-            [
-              "φₙ",
-              "its phase lag at this station, in degrees"
-            ]
-          ],
-          "s": "A tide is not one wave but a sum of them, each with its own amplitude and its own speed, and the level at any hour is what all of them happen to add up to at that hour."
-        },
-        {
-          "e": "f(x) ≈ f(a) + f′(a)(x − a) + f″(a)(x − a)²/2! + …",
-          "c": "a Taylor polynomial about a point",
-          "v": [
-            [
-              "a",
-              "the point the expansion is built at"
-            ],
-            [
-              "f′(a), f″(a)",
-              "the derivatives there"
-            ],
-            [
-              "n!",
-              "the factorial that keeps each term honest"
-            ]
-          ],
-          "s": "Every term is fixed by one derivative at a single point, which is why an expansion is excellent nearby and says progressively less the further you go from where it was built."
-        }
-      ],
       "concept": {
         "n": 34,
         "c": "A prediction, a bound and a measurement, and which of the three a decision rests on",
@@ -2926,16 +2679,16 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "When in the ebb the water went",
-      "scene": "Beke has the release profile for the first quarter of an ebb: the flow starts at its largest and falls away as a cosine, reaching nothing after 3.1 hours. The report wants the mean time of the release, weighted by the flow.",
+      "scene": "Beke has the release profile for the first quarter of an ebb. The flow starts at its largest and falls away as a cosine, reaching nothing after 3.1 hours. The report wants the mean time of the release, weighted by the flow.",
       "takeaway": "Parts trades one integral for another, and the trade is only worth making if the factor you differentiate disappears.",
       "place": "Sluice Control",
-      "guide": "You build the working a line at a time. The integral has a time multiplying a cosine, and neither factor is the derivative of anything convenient, so it has to be traded for a different integral. Which factor you choose to differentiate decides whether what comes back is easier or worse, and only one of the two choices makes progress.",
+      "guide": "You build the working a line at a time. The integral has a time multiplying a cosine, and neither factor is the derivative of anything convenient. So it has to be traded for a different integral. Which factor you choose to differentiate decides whether what comes back is easier or worse. Only one of the two choices makes progress.",
       "background": [
-        "Why the moment rather than the total. The total release is what came out; the moment says when. Two releases with the same total can put their water an hour apart in the ebb, and the turbines and the marsh both care which.",
-        "Why differentiate the time. Differentiating the time gives one, which removes it from the problem. Differentiating the cosine leaves a time multiplying a sine, which is exactly as hard as what you started with — the classic sign that the two factors were chosen the wrong way round.",
-        "What the answer means. The flow-weighted mean time comes out at about 1.13 hours into a 3.1-hour quarter, rather than at the middle. That is because the flow is largest at the start, so the water is weighted towards the beginning of the release, and a report that assumed the midpoint would put the whole release half an hour late."
+        "Why the moment rather than the total. The total release is what came out; the moment says when. Two releases with the same total can put their water an hour apart in the ebb. The turbines and the marsh both care which.",
+        "Why differentiate the time. Differentiating the time gives one, which removes it from the problem. Differentiating the cosine leaves a time multiplying a sine, which is exactly as hard as what you started with. That is the classic sign that the two factors were chosen the wrong way round.",
+        "What the answer means. The flow-weighted mean time comes out at about 1.13 hours into a 3.1-hour quarter, rather than at the middle. That is because the flow is largest at the start, so the water is weighted towards the beginning of the release. A report that assumed the midpoint would put the whole release half an hour late."
       ],
-      "story": "Beke has the release profile for the first quarter of an ebb: the flow starts at its largest and falls away as a cosine, reaching nothing after 3.1 hours. The report wants the mean time of the release, weighted by the flow.",
+      "story": "Beke has the release profile for the first quarter of an ebb. The flow starts at its largest and falls away as a cosine, reaching nothing after 3.1 hours. The report wants the mean time of the release, weighted by the flow.",
       "game": {
         "type": "DERIVE",
         "title": "When in the ebb the water went",
@@ -2944,7 +2697,7 @@ export const CURRICULUM = {
         "task": "Get the flow-weighted mean time of a release",
         "question": "What is the flow-weighted mean time of the release, in hours into the ebb?",
         "answer": "About 1.13 hours. The moment is (π/2 − 1)/ω² = 2.22 hour-squared and the total is 1/ω = 1.97 hours.",
-        "why": "The mean time is about 1.13 hours, not the 1.55 hours the midpoint would give. Parts turns the integral of a time times a cosine into a boundary term plus the integral of a sine, which comes out. Choosing to differentiate the time is what makes that happen: it becomes one and leaves. The moment divided by the total release is the mean, and it sits early in the quarter because the flow is largest at the start — which is the whole reason the quantity was asked for.",
+        "why": "The mean time is about 1.13 hours, not the 1.55 hours the midpoint would give. Parts turns the integral of a time times a cosine into a boundary term plus the integral of a sine, which comes out. Choosing to differentiate the time is what makes that happen: it becomes one and leaves. The moment divided by the total release is the mean. It sits early in the quarter because the flow is largest at the start, which is the whole reason the quantity was asked for.",
         "derive": {
           "start": "M = ∫₀^{T} t·q₀·cos(ωt) dt",
           "goal": "the flow-weighted mean time, in hours into the ebb",
@@ -3112,11 +2865,11 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "What the gate closes on",
-      "scene": "Oyelaran has four things on the desk and one signature to give. The programme goes to the gate crews at four o'clock, the marsh warning with it, and tomorrow is the largest range of the year.",
+      "scene": "Oyelaran has four things on the desk and one signature to give. The programme goes to the gate crews at four o'clock, and the marsh warning with it. Tomorrow is the largest range of the year.",
       "takeaway": "A prediction with a bound and a term added is still silent about anything that is not in the sum.",
       "place": "Sluice Control",
-      "guide": "Four readings of the same four pieces of paper. Look at every one of them before choosing, including the two that are not alarming: a bound that has been computed honestly and a fit that now contains a term it did not have. What separates the explanations is which of the four quantities on the desk the level tomorrow actually depends on.",
-      "story": "Oyelaran has four things on the desk and one signature to give. The programme goes to the gate crews at four o'clock, the marsh warning with it, and tomorrow is the largest range of the year.",
+      "guide": "Four readings of the same four pieces of paper. Look at every one of them before choosing, including the two that are not alarming. One is a bound that has been computed honestly. The other is a fit that now contains a term it did not have. What separates the explanations is which of the four quantities on the desk the level tomorrow actually depends on.",
+      "story": "Oyelaran has four things on the desk and one signature to give. The programme goes to the gate crews at four o'clock, and the marsh warning with it. Tomorrow is the largest range of the year.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "What the gate closes on",
@@ -3125,7 +2878,7 @@ export const CURRICULUM = {
         "task": "Which account fits all four pieces of paper on the desk?",
         "question": "Which account fits all four pieces of paper on the desk?",
         "answer": "The level tomorrow has a term in it that no bound on the desk covers",
-        "why": "Three of the four pieces of paper are in good order and the fourth is not on the same footing as them. The prediction is better than it has ever been and its bound is honestly computed; the shallow-water term is a real improvement fitted to real records. All of that is about terms that repeat. The surge does not repeat, so it is in none of those models and therefore in none of their bounds, and it is half a metre on the largest range of the year. The gate closes on the gauge, with the prediction deciding when somebody is standing at it.",
+        "why": "Three of the four pieces of paper are in good order. The fourth is not on the same footing as them. The prediction is better than it has ever been and its bound is honestly computed. The shallow-water term is a real improvement fitted to real records. All of that is about terms that repeat. The surge does not repeat, so it is in none of those models and therefore in none of their bounds. It is half a metre on the largest range of the year. The gate closes on the gauge, with the prediction deciding when somebody is standing at it.",
         "headline": "The prediction is better than it has ever been, and Oyelaran is still not closing on it.",
         "readings": [
           {
@@ -3176,35 +2929,6 @@ export const CURRICULUM = {
       "assumes": [
         "a decision has to name the quantity it is being made on"
       ],
-      "equations": [
-        {
-          "e": "h(t) = h₀ + ΣAₙcos(ωₙt − φₙ)",
-          "c": "the tide as a sum of periodic terms",
-          "v": [
-            [
-              "h(t)",
-              "the water level at time t, in metres above chart datum"
-            ],
-            [
-              "h₀",
-              "mean sea level, in metres"
-            ],
-            [
-              "Aₙ",
-              "the nth constituent's amplitude, in metres"
-            ],
-            [
-              "ωₙ",
-              "that constituent's angular speed, in degrees an hour"
-            ],
-            [
-              "φₙ",
-              "its phase lag at this station, in degrees"
-            ]
-          ],
-          "s": "A tide is not one wave but a sum of them, each with its own amplitude and its own speed, and the level at any hour is what all of them happen to add up to at that hour."
-        }
-      ],
       "concept": {
         "n": 28,
         "c": "Truncating a sum, and stating what was left out",
@@ -3219,11 +2943,11 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "The rate does not wait — Review",
-      "scene": "Tomas Beke, the sluice engineer, has one row of last Thursday's gate table beside the recorder trace for the same half hour. The row was written from the flow at the top of it. The trace says what the flow averaged instead.",
+      "scene": "Tomas Beke, the sluice engineer, has one row of last Thursday's gate table on the desk. Beside it is the recorder trace for the same half hour. The row was written from the flow at the top of it. The trace says what the flow averaged instead.",
       "takeaway": "What a rate costs when it is used over an interval is its gap from the average rate, multiplied by the interval.",
       "place": "Sluice Control",
-      "guide": "Four quantities are on the desk and three of them belong in the answer. The row assumed one flow held for the whole interval; the trace gives what the flow averaged across it. The gap between those two rates, run for the length of the interval, is the water the sheet claimed and the estuary did not supply. The impoundment level is on the desk because the row was written from it, and it plays no part here.",
-      "story": "Tomas Beke, the sluice engineer, has one row of last Thursday's gate table beside the recorder trace for the same half hour. The row was written from the flow at the top of it. The trace says what the flow averaged instead.",
+      "guide": "Four quantities are on the desk and three of them belong in the answer. The row assumed one flow held for the whole interval. The trace gives what the flow averaged across it. The gap between those two rates, run for the length of the interval, is the water the sheet claimed and the estuary did not supply. The impoundment level is on the desk because the row was written from it, and it plays no part here.",
+      "story": "Tomas Beke, the sluice engineer, has one row of last Thursday's gate table on the desk. Beside it is the recorder trace for the same half hour. The row was written from the flow at the top of it. The trace says what the flow averaged instead.",
       "game": {
         "type": "BALLPARK",
         "title": "The rate does not wait — Review",
@@ -3232,7 +2956,7 @@ export const CURRICULUM = {
         "task": "Price one row of the gate table against the trace of what happened",
         "question": "How much water does one row of the gate table claim that never passed?",
         "answer": "",
-        "why": "About 11,900 cubic metres, out of one row. Flow through a part-open gate follows the head, and the head closes while the water is passing, so the rate at the top of a half hour is the largest rate of that half hour. Using it for the whole interval charges the sheet the difference. Every stepped calculation carries that error, and it has two handles: how fast the rate is changing, which the estuary decides, and how long the step is, which the table decides.",
+        "why": "About 11,900 cubic metres, out of one row. Flow through a part-open gate follows the head, and the head closes while the water is passing. So the rate at the top of a half hour is the largest rate of that half hour. Using it for the whole interval charges the sheet the difference. Every stepped calculation carries that error, and it has two handles. One is how fast the rate is changing, which the estuary decides. The other is how long the step is, which the table decides.",
         "givens": [],
         "relationship": "Water overstated = (the rate the row assumed − the rate that actually held on average) × the length of the interval.",
         "calcKey": "SLUICE-9"
@@ -3255,7 +2979,7 @@ export const CURRICULUM = {
       "scene": "Ude has the eleven-day record of float 7 on the bench. The total of its ten-minute legs is 84 kilometres. She wants the other number: how far the last fix is from the first, in a straight line.",
       "takeaway": "The ratio of path length to displacement is how much of a fortnight's travel the tide simply undid.",
       "place": "Mud Laboratory",
-      "guide": "Four quantities are on the bench and two of them make the answer. Displacement is decided by the first and last fix and by nothing in between, so a total already accumulated along the path cannot contribute to it. The two changes in position are at right angles, which is what fixes how they combine.",
+      "guide": "Four quantities are on the bench and two of them make the answer. Displacement is decided by the first and last fix and by nothing in between. So a total already accumulated along the path cannot contribute to it. The two changes in position are at right angles, which is what fixes how they combine.",
       "story": "Ude has the eleven-day record of float 7 on the bench. The total of its ten-minute legs is 84 kilometres. She wants the other number: how far the last fix is from the first, in a straight line.",
       "game": {
         "type": "BALLPARK",
@@ -3265,7 +2989,7 @@ export const CURRICULUM = {
         "task": "Work out how far the float finished from where it started",
         "question": "How far is float 7's last fix from its first, in a straight line?",
         "answer": "",
-        "why": "The displacement is about 6,180 metres, against 84 kilometres of travel. The tide carries a float up the estuary and back down it twice a day, so almost all of that travel cancels and what is left over a fortnight is the small residual drift. Both numbers are real and they answer different questions: a mud particle is exposed to 84 kilometres of water and ends up six kilometres away. Using the second where the first belongs understates the transport by a factor of thirteen.",
+        "why": "The displacement is about 6,180 metres, against 84 kilometres of travel. The tide carries a float up the estuary and back down it twice a day. So almost all of that travel cancels, and what is left over a fortnight is the small residual drift. Both numbers are real and they answer different questions. A mud particle is exposed to 84 kilometres of water and ends up six kilometres away. Using the second where the first belongs understates the transport by a factor of thirteen.",
         "givens": [],
         "relationship": "Displacement = the straight-line gap between the first fix and the last, built from the two changes in position.",
         "calcKey": "FLATS-1"
@@ -3298,11 +3022,11 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "The gap between two roses",
-      "scene": "Ude has both figures on the bench with their squared reaches already integrated: the ebb rose and the flood rose, over the same half turn, on the same axes. She wants the transport asymmetry as one number.",
+      "scene": "Ude has both figures on the bench with their squared reaches already integrated. They are the ebb rose and the flood rose, over the same half turn, on the same axes. She wants the transport asymmetry as one number.",
       "takeaway": "The area between two polar curves comes from the difference of the squares, never from the square of the difference.",
       "place": "Mud Laboratory",
-      "guide": "Four quantities are on the bench and three of them belong in the answer. The region between two roses is the outer one's area with the inner one's taken out, so it is built from the two squares separately. The entry made by subtracting the reaches first and then squaring is there because that is the commonest way this is got wrong.",
-      "story": "Ude has both figures on the bench with their squared reaches already integrated: the ebb rose and the flood rose, over the same half turn, on the same axes. She wants the transport asymmetry as one number.",
+      "guide": "Four quantities are on the bench and three of them belong in the answer. The region between two roses is the outer one's area with the inner one's taken out. So it is built from the two squares separately. The entry made by subtracting the reaches first and then squaring is there because that is the commonest way this is got wrong.",
+      "story": "Ude has both figures on the bench with their squared reaches already integrated. They are the ebb rose and the flood rose, over the same half turn, on the same axes. She wants the transport asymmetry as one number.",
       "game": {
         "type": "BALLPARK",
         "title": "The gap between two roses",
@@ -3311,7 +3035,7 @@ export const CURRICULUM = {
         "task": "Compare the two roses as a single number",
         "question": "What is the area between the ebb rose and the flood rose over the half turn?",
         "answer": "",
-        "why": "The area between them is about 2.19, which is a third of the ebb figure. Each rose's area is half the integral of its own squared reach, so the region between them is half the integral of the difference of the squares. Squaring the difference instead gives 1.17 — the right units, the wrong region, and no way to tell from the number itself. The asymmetry is positive over this whole half turn, which is why the eastern flats are gaining and the western ones are not.",
+        "why": "The area between them is about 2.19, which is a third of the ebb figure. Each rose's area is half the integral of its own squared reach. So the region between them is half the integral of the difference of the squares. Squaring the difference instead gives 1.17 — the right units, the wrong region, and no way to tell from the number itself. The asymmetry is positive over this whole half turn. That is why the eastern flats are gaining and the western ones are not.",
         "givens": [],
         "relationship": "Area between the two = one half times the integral of the ebb reach squared minus the flood reach squared.",
         "calcKey": "FLATS-2"
@@ -3341,7 +3065,7 @@ export const CURRICULUM = {
       "scene": "Ude has the dye results from March on the bench. A third of the impoundment is exchanged on each tide, and the licence report claims the impoundment is clear after three of them. The dye was still detectable after nine.",
       "takeaway": "A fixed fraction removed each cycle leaves a fixed fraction behind each cycle, and that never reaches nothing.",
       "place": "Mud Laboratory",
-      "guide": "Each observation on the left has one explanation on the right that accounts for it. What separates them is whether the water leaving is replaced by new water or partly by water that has just left, because that is the difference between a total that runs out and a total that shrinks by a fixed fraction for ever.",
+      "guide": "Each observation on the left has one explanation on the right that accounts for it. What separates them is whether the water leaving is replaced by new water or partly by water that has just left. That is the difference between a total that runs out and a total that shrinks by a fixed fraction for ever.",
       "story": "Ude has the dye results from March on the bench. A third of the impoundment is exchanged on each tide, and the licence report claims the impoundment is clear after three of them. The dye was still detectable after nine.",
       "game": {
         "type": "CASEBOOK",
@@ -3351,7 +3075,7 @@ export const CURRICULUM = {
         "task": "Match each observation to the explanation that accounts for it.",
         "question": "Match each observation to the explanation that accounts for it.",
         "answer": "",
-        "why": "All four are the same arithmetic seen from different angles. A tide that exchanges a third leaves two thirds, so after n tides the fraction left is two thirds multiplied by itself n times: 0.67, 0.44, 0.30, and about 0.026 after nine. Each tide removes a third of a smaller quantity than the last, so the kilograms removed fall too. And some of the water that left is still just outside the gates when the flood begins, which is why the exchanged share is not the cleared share.",
+        "why": "All four are the same arithmetic seen from different angles. A tide that exchanges a third leaves two thirds. So after n tides the fraction left is two thirds multiplied by itself n times: 0.67, 0.44, 0.30, and about 0.026 after nine. Each tide removes a third of a smaller quantity than the last, so the kilograms removed fall too. And some of the water that left is still just outside the gates when the flood begins. That is why the exchanged share is not the cleared share.",
         "scenarios": [
           "Dye was still detectable after nine tides, at about two per cent of the first reading.",
           "The first three tides removed far less than the whole of the dye.",
@@ -3387,16 +3111,16 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "For ever, and forty-eight kilograms",
-      "scene": "Ude has the decay fitted: the dissolved load starts at 48 kilograms and falls by a fixed fraction each tide, with a decay time of 6.2 tides. The report wants the total exposure over the whole of the decay.",
+      "scene": "Ude has the decay fitted. The dissolved load starts at 48 kilograms and falls by a fixed fraction each tide, with a decay time of 6.2 tides. The report wants the total exposure over the whole of the decay.",
       "takeaway": "An improper integral is a limit, and the limit is where a tail either has a total or has not.",
       "place": "Mud Laboratory",
-      "guide": "You build the working a line at a time. An integral with no upper end is not evaluated at infinity; it is evaluated at a finite end and then that end is sent out, which is the step that decides whether there is an answer. The antiderivative is the ordinary one. What matters is what it does as the upper end grows.",
+      "guide": "You build the working a line at a time. An integral with no upper end is not evaluated at infinity. It is evaluated at a finite end, and then that end is sent out. That is the step that decides whether there is an answer. The antiderivative is the ordinary one. What matters is what it does as the upper end grows.",
       "background": [
-        "Why the upper end has to be a limit. Infinity is not a number that can be substituted, so the integral is defined as the value at a finite upper end together with what happens to that value as the end moves out. For this decay the term at the upper end goes to nothing, so a finite answer survives.",
-        "Why this tail has a total and some do not. A quantity falling by a fixed fraction per tide falls faster than any power of the time, so its area is finite. A quantity falling like one over the time does not: its integral grows like a logarithm and passes every value eventually, which is the same distinction that separates two sums with terms going to zero.",
+        "Why the upper end has to be a limit. Infinity is not a number that can be substituted. So the integral is defined as the value at a finite upper end, together with what happens to that value as the end moves out. For this decay the term at the upper end goes to nothing, so a finite answer survives.",
+        "Why this tail has a total and some do not. A quantity falling by a fixed fraction per tide falls faster than any power of the time, so its area is finite. A quantity falling like one over the time does not. Its integral grows like a logarithm and passes every value eventually. That is the same distinction that separates two sums with terms going to zero.",
         "What the units are. A load in kilograms accumulated over tides gives kilogram-tides, which is an exposure rather than a mass. It is the right quantity for the nutrient claim, because what harms the flats is how much was present for how long rather than how much arrived."
       ],
-      "story": "Ude has the decay fitted: the dissolved load starts at 48 kilograms and falls by a fixed fraction each tide, with a decay time of 6.2 tides. The report wants the total exposure over the whole of the decay.",
+      "story": "Ude has the decay fitted. The dissolved load starts at 48 kilograms and falls by a fixed fraction each tide, with a decay time of 6.2 tides. The report wants the total exposure over the whole of the decay.",
       "game": {
         "type": "DERIVE",
         "title": "For ever, and forty-eight kilograms",
@@ -3405,7 +3129,7 @@ export const CURRICULUM = {
         "task": "Take the exposure integral out to infinity",
         "question": "What is the total exposure over the whole decay, in kilogram-tides?",
         "answer": "About 298 kilogram-tides, from 48 × 6.2. The upper end is taken out as a limit and the exponential term there goes to nothing.",
-        "why": "The total is about 298 kilogram-tides. The integral is taken to a finite upper end, giving the decay time times the starting load times one minus a term at that end, and then the end is sent out. Because the load falls by a fixed fraction per tide, that end term goes to nothing and the whole tail contributes a finite amount. The answer is the starting load times the decay time, which is a useful thing to know: the exposure of a decaying discharge is what it would be if it held its initial value for one decay time.",
+        "why": "The total is about 298 kilogram-tides. The integral is taken to a finite upper end. That gives the decay time times the starting load times one minus a term at that end. Then the end is sent out. Because the load falls by a fixed fraction per tide, that end term goes to nothing and the whole tail contributes a finite amount. The answer is the starting load times the decay time, which is a useful thing to know. The exposure of a decaying discharge is what it would be if it held its initial value for one decay time.",
         "derive": {
           "start": "E = ∫₀^∞ 48·e^(−t/6.2) dt",
           "goal": "the total exposure, in kilogram-tides",
@@ -3553,11 +3277,11 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "One fraction, two denominators",
-      "scene": "Ude's silt model has the flats filling at a rate proportional both to how much silt is already there and to how much room is left. Separating it leaves one over a product of two brackets on the left, and the bench copy of the integral tables has nothing that fits.",
+      "scene": "Ude's silt model has the flats filling at a rate proportional both to how much silt is already there and to how much room is left. Separating it leaves one over a product of two brackets on the left. The bench copy of the integral tables has nothing that fits.",
       "takeaway": "Splitting a fraction changes nothing about its value and everything about whether it can be integrated.",
       "place": "Mud Laboratory",
-      "guide": "Four claims about splitting one over a product into a sum of two simpler fractions. Ask of each what the split makes possible that was not possible before, and whether it changes the value of the integral. One of the four confuses making an integral doable with making it smaller.",
-      "story": "Ude's silt model has the flats filling at a rate proportional both to how much silt is already there and to how much room is left. Separating it leaves one over a product of two brackets on the left, and the bench copy of the integral tables has nothing that fits.",
+      "guide": "Four claims about splitting one over a product into a sum of two simpler fractions. Ask of each what the split makes possible that was not possible before. Then ask whether it changes the value of the integral. One of the four confuses making an integral doable with making it smaller.",
+      "story": "Ude's silt model has the flats filling at a rate proportional both to how much silt is already there and to how much room is left. Separating it leaves one over a product of two brackets on the left. The bench copy of the integral tables has nothing that fits.",
       "game": {
         "type": "CHOICE",
         "title": "One fraction, two denominators",
@@ -3566,7 +3290,7 @@ export const CURRICULUM = {
         "task": "Settle what splitting the fraction buys",
         "question": "What does splitting one over the product of the two brackets achieve?",
         "answer": "Each piece has a standard antiderivative, and their sum is the same quantity",
-        "why": "It turns something with no standard antiderivative into two pieces that each have one, and each piece is a logarithm. The sum of the two fractions is identically equal to the original, so nothing about the quantity has changed: the same integral is being taken by a route that exists. Combined with separating the variables, that is what produces the S-shaped solution the flats actually follow, rising fastest when they are about half full.",
+        "why": "It turns something with no standard antiderivative into two pieces that each have one. Each piece is a logarithm. The sum of the two fractions is identically equal to the original, so nothing about the quantity has changed. The same integral is being taken by a route that exists. Combined with separating the variables, that is what produces the S-shaped solution the flats actually follow. It rises fastest when the flats are about half full.",
         "rebuttals": [
           "The value is untouched by the rewriting; only the form it is written in changes.",
           "The brackets are not integrated at all — the fractions built from them are.",
@@ -3604,11 +3328,11 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Twenty minutes past the turn",
-      "scene": "Fell has two years of notebook entries in the hut at the wall head. The gauge out here goes on rising for about twenty minutes after the level at the gates has turned, and it does it on every large tide.",
+      "scene": "Fell has two years of notebook entries in the hut at the wall head. The gauge out here goes on rising for about twenty minutes after the level at the gates has turned. It does it on every large tide.",
       "takeaway": "Something that arrives, returns and arrives again builds a running total, and the total is what is measured.",
       "place": "Wall Station",
-      "guide": "All four options are ways a level at one end of a wall could go on rising while the level at the other end has turned. Ask of each whether it would repeat on every large tide and whether it would build to something larger than the first arrival, because those two properties are what Fell's notebook actually records.",
-      "story": "Fell has two years of notebook entries in the hut at the wall head. The gauge out here goes on rising for about twenty minutes after the level at the gates has turned, and it does it on every large tide.",
+      "guide": "The level at one end of the wall goes on rising while the level at the other end has turned. All four options are ways that could happen. Ask of each whether it would repeat on every large tide. Then ask whether it would build to something larger than the first arrival. Those two properties are what Fell's notebook actually records.",
+      "story": "Fell has two years of notebook entries in the hut at the wall head. The gauge out here goes on rising for about twenty minutes after the level at the gates has turned. It does it on every large tide.",
       "game": {
         "type": "CHOICE",
         "title": "Twenty minutes past the turn",
@@ -3617,7 +3341,7 @@ export const CURRICULUM = {
         "task": "Ask Fell what the head gauge does after the turn",
         "question": "What kind of process would produce Fell's twenty minutes, on every large tide?",
         "answer": "A disturbance travelling out along the wall and coming back",
-        "why": "A disturbance running down the wall, reflecting off the hard end and coming back is the only one of these that repeats and that builds. Each return brings a fraction of the last one, and they arrive in step because the return trip takes about as long as the forcing period, so what the gauge reads is a running total rather than a single arrival. That total is a sum whose terms shrink, which is why it settles on a value instead of growing without limit.",
+        "why": "A disturbance runs down the wall, reflects off the hard end and comes back. That is the only one of these that repeats and that builds. Each return brings a fraction of the last one. They arrive in step, because the return trip takes about as long as the forcing period. So what the gauge reads is a running total rather than a single arrival. That total is a sum whose terms shrink, which is why it settles on a value instead of growing without limit.",
         "rebuttals": [
           "A slow well lags the water and never overshoots it, and Fell's gauge goes higher than the gates.",
           "Wind would arrive with the weather rather than on every large tide.",
@@ -3643,16 +3367,16 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Nine tenths out of a third",
-      "scene": "Grieve has the numbers from the head: a first arrival of 0.34 metres, and each return about 0.62 of the one before it, arriving in step with the next forcing. She wants what the chain adds up to.",
+      "scene": "Grieve has the numbers from the head. There is a first arrival of 0.34 metres, and each return is about 0.62 of the one before it, arriving in step with the next forcing. She wants what the chain adds up to.",
       "takeaway": "A geometric sum is set by the fraction that survives one round trip, not by the number of returns.",
       "place": "Wall Station",
-      "guide": "You build the working a line at a time. Write what the nth return is worth first, then the partial sum of the first few, then look at what the partial sums are doing. The step that decides the answer is the one that notices what kind of sum this is, because the closed form only exists for that kind and only when the returned fraction is less than one.",
+      "guide": "You build the working a line at a time. Write what the nth return is worth first, then the partial sum of the first few. Then look at what the partial sums are doing. The step that decides the answer is the one that notices what kind of sum this is. The closed form only exists for that kind, and only when the returned fraction is less than one.",
       "background": [
-        "Why the returns arrive in step. The round trip along three hundred metres of wall and back takes about as long as the forcing period at this station, so each return arrives with the crest of the next one rather than against it. If it arrived against them they would cancel and the head would read less than the first arrival, not more.",
-        "Why the sum is finite. Each return is a fixed fraction of the last, so the terms shrink geometrically and the partial sums close on a value. What decides the total is not how many returns there are but how much of each one survives the round trip: at 0.62 the total is 2.6 times the first arrival, and at 0.8 it would be five times.",
-        "What this changes about the armour. The last forty metres of armour was sized for the first arrival, which is the wave anybody standing at the gates would measure. The quantity the armour actually meets is the total, and the ratio between the two is decided by the returned fraction and by nothing else."
+        "Why the returns arrive in step. The round trip along three hundred metres of wall and back takes about as long as the forcing period at this station. So each return arrives with the crest of the next one rather than against it. If it arrived against them they would cancel, and the head would read less than the first arrival, not more.",
+        "Why the sum is finite. Each return is a fixed fraction of the last, so the terms shrink geometrically and the partial sums close on a value. What decides the total is not how many returns there are. It is how much of each one survives the round trip. At 0.62 the total is 2.6 times the first arrival, and at 0.8 it would be five times.",
+        "What this changes about the armour. The last forty metres of armour was sized for the first arrival, which is the wave anybody standing at the gates would measure. The quantity the armour actually meets is the total. The ratio between the two is decided by the returned fraction and by nothing else."
       ],
-      "story": "Grieve has the numbers from the head: a first arrival of 0.34 metres, and each return about 0.62 of the one before it, arriving in step with the next forcing. She wants what the chain adds up to.",
+      "story": "Grieve has the numbers from the head. There is a first arrival of 0.34 metres, and each return is about 0.62 of the one before it, arriving in step with the next forcing. She wants what the chain adds up to.",
       "game": {
         "type": "DERIVE",
         "title": "Nine tenths out of a third",
@@ -3661,7 +3385,7 @@ export const CURRICULUM = {
         "task": "Add up the chain of returns at the wall head",
         "question": "What does the chain of returns add up to at the wall head?",
         "answer": "About 0.89 m, from 0.34 ÷ (1 − 0.62). The chain is geometric with a ratio of 0.62, which is less than one, so the sum exists.",
-        "why": "The total is about 0.89 metres, against a first arrival of 0.34. The nth return is the first arrival times the returned fraction n times over, which makes the chain geometric. A geometric sum with a ratio smaller than one in size closes on the first term divided by one minus the ratio, and the ratio here is 0.62, so the total is 2.6 times the first arrival. The condition matters as much as the formula: at a ratio of one the chain has no total, and the algebra would still produce a number.",
+        "why": "The total is about 0.89 metres, against a first arrival of 0.34. The nth return is the first arrival times the returned fraction n times over, which makes the chain geometric. A geometric sum with a ratio smaller than one in size closes on the first term divided by one minus the ratio. The ratio here is 0.62, so the total is 2.6 times the first arrival. The condition matters as much as the formula. At a ratio of one the chain has no total, and the algebra would still produce a number.",
         "derive": {
           "start": "a₀ = 0.34 m,  each return = 0.62 × the one before it",
           "goal": "the total height at the wall head, in metres",
@@ -3818,11 +3542,11 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Two hundred and forty units",
-      "scene": "Grieve has the armour survey on the table in the hut: two hundred and forty units, each taking a share of the wave energy that reaches it, the share falling steadily along the wall towards the head.",
+      "scene": "Grieve has the armour survey on the table in the hut. There are two hundred and forty units, each taking a share of the wave energy that reaches it. The share falls steadily along the wall towards the head.",
       "takeaway": "A sum can be bounded by an integral through its own terms, which is what makes an unmeasured tail safe.",
       "place": "Wall Station",
-      "guide": "All four options are ways of getting a total out of a run of two hundred and forty terms. Ask of each whether it needs every term to be known, and what it would do if the wall were extended. The one that survives is the one that compares the terms with something already integrable.",
-      "story": "Grieve has the armour survey on the table in the hut: two hundred and forty units, each taking a share of the wave energy that reaches it, the share falling steadily along the wall towards the head.",
+      "guide": "All four options are ways of getting a total out of a run of two hundred and forty terms. Ask of each whether it needs every term to be known. Then ask what it would do if the wall were extended. The one that survives is the one that compares the terms with something already integrable.",
+      "story": "Grieve has the armour survey on the table in the hut. There are two hundred and forty units, each taking a share of the wave energy that reaches it. The share falls steadily along the wall towards the head.",
       "game": {
         "type": "CHOICE",
         "title": "Two hundred and forty units",
@@ -3831,7 +3555,7 @@ export const CURRICULUM = {
         "task": "Ask Grieve why the armour count is the same question",
         "question": "How can Grieve bound the total the unsurveyed units take without measuring them?",
         "answer": "By comparing the terms with the area under a curve drawn through them",
-        "why": "The terms fall steadily along the wall, so the sum of the unsurveyed ones is bounded by the area under a curve drawn through them, and that area is an ordinary integral. This is the integral test doing structural work: it converts a sum nobody can measure into an integral somebody can, and it gives a bound rather than an estimate. Adding up the surveyed units and scaling would assume the far units are like the near ones, which is the one thing the falling trend says they are not.",
+        "why": "The terms fall steadily along the wall. So the sum of the unsurveyed ones is bounded by the area under a curve drawn through them. That area is an ordinary integral. This is the integral test doing structural work. It converts a sum nobody can measure into an integral somebody can, and it gives a bound rather than an estimate. Adding up the surveyed units and scaling would assume the far units are like the near ones. That is the one thing the falling trend says they are not.",
         "rebuttals": [
           "Scaling assumes the unsurveyed units take the same share as the surveyed ones, which the trend denies.",
           "The largest share applied to every unit is a bound, and a bound six times too large is not usable.",
@@ -3871,7 +3595,7 @@ export const CURRICULUM = {
       "scene": "Grieve has a hundred points of survey money left in the year and four things she could spend it on. The licence review is in six weeks and will read whatever this fortnight produced.",
       "takeaway": "Evidence is worth what it would change about a decision, not what it would add to a record.",
       "place": "Wall Station",
-      "guide": "What the station holds already: a returned fraction of 0.62 worked out of a fortnight of gauge records rather than measured off the wall; a shallow-water term now in the prediction but fitted to six stations, two of which have not been levelled since commissioning; a stilling well at the outer face that needs forty minutes and is the reason the gate call cannot wait for a reading; and two flats stations that need the launch and were missed last quarter. The wall itself was last surveyed before the eastern gate was re-gated.",
+      "guide": "Four things the station could buy, and what it holds already. The returned fraction of 0.62 was worked out of a fortnight of gauge records rather than measured off the wall. The shallow-water term is now in the prediction, but it is fitted to six stations. Two of those have not been levelled since commissioning. The stilling well at the outer face needs forty minutes, and that is the reason the gate call cannot wait for a reading. Two flats stations need the launch and were missed last quarter. The wall itself was last surveyed before the eastern gate was re-gated.",
       "rules": "A hundred points, whole points, across the four. Spending is scored on what a proposal would change about a future decision rather than on what it would tell you: a measurement that would move the gate call, or that would turn a number worked out of records into one measured directly, is worth more than a refinement of something already inside its own bound.",
       "story": "Grieve has a hundred points of survey money left in the year and four things she could spend it on. The licence review is in six weeks and will read whatever this fortnight produced.",
       "game": {
@@ -3882,7 +3606,7 @@ export const CURRICULUM = {
         "task": "Spread a hundred points across the four.",
         "question": "Spread a hundred points across the four.",
         "answer": "",
-        "why": "The wall survey and the levelling both convert a number worked out of records into a measured one, and both feed decisions that are made repeatedly: the armour sizing and every future prediction at those stations. The fast sensor is worth something because the whole gate-timing argument rests on the well needing forty minutes, and a sensor that does not would remove the trade-off rather than sharpen it. The launch charter is real work and it improves a record rather than changing a decision, which is why it comes last.",
+        "why": "The wall survey and the levelling both convert a number worked out of records into a measured one. Both also feed decisions that are made repeatedly: the armour sizing, and every future prediction at those stations. The fast sensor is worth something, because the whole gate-timing argument rests on the well needing forty minutes. A sensor that did not need them would remove the trade-off rather than sharpen it. The launch charter is real work, and it improves a record rather than changing a decision. That is why it comes last.",
         "proposals": [
           {
             "label": "A",

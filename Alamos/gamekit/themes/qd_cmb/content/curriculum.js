@@ -678,27 +678,6 @@ export const CURRICULUM = {
         "an explanation accounts for the facts rather than restating them",
         "a thermal spectrum implies something was once in equilibrium"
       ],
-      "equations": [
-        {
-          "e": "T_now = T_then / (1 + z)",
-          "c": "how much expansion has cooled a thermal spectrum",
-          "v": [
-            [
-              "T_then",
-              "the temperature when the radiation was released, in kelvin"
-            ],
-            [
-              "z",
-              "the redshift of that moment"
-            ],
-            [
-              "T_now",
-              "the temperature the same radiation has today"
-            ]
-          ],
-          "s": "Expansion stretches every wavelength by one plus the redshift, and a thermal spectrum stretched that way is still thermal at a temperature lower by the same factor."
-        }
-      ],
       "concept": {
         "n": 9,
         "c": "One explanation that accounts for every clue at once",

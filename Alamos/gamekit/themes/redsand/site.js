@@ -54,8 +54,19 @@ export const site = {
   kind: 'outdoor',
   name: 'Arcadia Rise',
 
+  // The far ground opens on sol 5 rather than the default 4, so the ice cut does
+  // not share its opening with the atmosphere intake. Spreading WHEN each place
+  // is first needed is what makes the world read as growing rather than as
+  // arriving in two batches — engine/core/access.js.
+  orientation: { unlockDay: 5 },
+
   terrain: {
-    size: 900, segments: 300, playerLimit: 170,
+    // 380, up from 170. The ice cut stands 338 m out and the pad office 163, and
+    // a player limit shorter than the site is house rule 8 with extra steps: you
+    // walk toward a building you can see and stop at nothing. Raised with the
+    // places rather than in advance, so the number always says how far the world
+    // actually goes.
+    size: 900, segments: 300, playerLimit: 380,
     // Arcadia Planitia is one of the flattest large surfaces in the solar
     // system, which is most of why it is a landing site at all. What relief
     // there is comes from dunes and ejecta, and those are props rather than
@@ -101,6 +112,12 @@ export const site = {
     { cx: -34, cz: 44, w: 64, d: 7, worn: 4, tone: [0, -24, -40], lift: -34 },
     // The excavation ground north-west, cut over and over for ice.
     { cx: -74, cz: -30, w: 40, d: 46, worn: 9, tone: [0, -28, -44], lift: -30 },
+    // Out to the ice cut, and out to the pad. Both are long hauls on foot and
+    // both are what the rovers are for — a track is the only thing that says so
+    // before the player commits to the walk.
+    { cx: -90, cz: -170, w: 9, d: 230, worn: 8, tone: [0, -26, -42], lift: -28 },
+    { cx: -48, cz: -66, w: 80, d: 8, worn: 6, tone: [0, -26, -42], lift: -28 },
+    { cx: -16, cz: -122, w: 30, d: 8, worn: 6, tone: [0, -26, -42], lift: -28 },
   ],
 
   buildings: [
@@ -120,20 +137,67 @@ export const site = {
     { id: 'GIBBS', group: 'GIBBS', name: 'Plant Control',
       x: -6, z: 16, w: 16, d: 11, h: 5.2, facing: 0, colour: 0x8a7f92 },
 
-    // No group: the places that carry the station rather than a lesson.
-    { id: 'INTAKE', name: 'Atmosphere Intake', sub: 'Six millibars in, twelve bar out',
+    // No group, and now `enter:` — the places that carry the station rather than
+    // a lesson, and that you can walk into.
+    //
+    // These five were modelled, lit, walkable up to and SHUT, because in this
+    // engine an interior is keyed by area and none of them is an area. Every one
+    // of them is somewhere the questions already talk about: the intake is sol
+    // 4's feed, the array shed is sol 12's dust, the tank farm is sol 7's
+    // boil-off. `enter:` gives a building an interiors key without making it an
+    // area — a door, a room, no case stand and no delivery board. See
+    // gamekit/PLACEMENT_PASS.md, and themes/redsand/minors.js for what is inside.
+    { id: 'INTAKE', enter: 'INTAKE', name: 'Atmosphere Intake', sub: 'Six millibars in, twelve bar out',
       x: -30, z: 30, w: 16, d: 10, h: 4.8, facing: 0, colour: 0x87837c },
-    { id: 'HAB', name: 'Habitat', sub: 'Six people, nineteen degrees',
+    { id: 'HAB', enter: 'HAB', name: 'Habitat', sub: 'Six people, nineteen degrees',
       x: -58, z: 42, w: 26, d: 14, h: 5.8, facing: PI, colour: 0xa8a196 },
-    { id: 'GARAGE', name: 'Vehicle Bay', sub: 'Two rovers and everything that comes back in with them',
+    { id: 'GARAGE', enter: 'GARAGE', name: 'Vehicle Bay', sub: 'Two rovers and everything that comes back in with them',
       x: 48, z: 44, w: 20, d: 14, h: 6.0, facing: PI, colour: 0x8d8578 },
-    { id: 'ARRAY', name: 'Array Shed', sub: 'Eighteen hundred square metres of panel',
+    { id: 'ARRAY', enter: 'ARRAY', name: 'Array Shed', sub: 'Eighteen hundred square metres of panel',
       x: 80, z: 22, w: 12, d: 9, h: 4.2, facing: -PI / 2, colour: 0x7d8a90 },
     // East of the track rather than astride it. The first placement put the
     // tank farm and its three cryogenic tanks in the middle of the road, which
     // a straight-line route probe walked into and no check could see.
-    { id: 'TANKS', name: 'Tank Farm', sub: 'Everything the plant has made so far',
+    { id: 'TANKS', enter: 'TANKS', name: 'Tank Farm', sub: 'Everything the plant has made so far',
       x: 17, z: -72, w: 22, d: 14, h: 4.4, facing: 0, colour: 0xb0b4b6 },
+
+    // THE PAD, and the ice cut. Both new.
+    //
+    // The ascent vehicle has stood at (0, -132) behind its blast berm since the
+    // game shipped, as a PROP: the thing the entire fortnight is about, and the
+    // player filled it for fifteen sols without ever standing at it. The pad
+    // office is the door onto it.
+    // West of the blast berm, not tucked behind it. The first placement put the
+    // office at (-26, -120), whose door at (-26, -112) the walk check could not
+    // reach from the spawn: the berm is a 30 m ring at (0, -132) and the only
+    // approach ran through it. The berm is the thing that makes the pad read as
+    // a pad, so the office moved and the berm did not.
+    { id: 'PAD', enter: 'PAD', name: 'Pad Office', sub: 'The vehicle, and what has gone into it',
+      x: -46, z: -104, w: 14, d: 10, h: 4.6, facing: 0, colour: 0x9aa0a6 },
+    // The ice cut is where the water comes from. It is named in sols 6, 11 and
+    // 12 and it was nowhere on the plan — the one place the fiction has that the
+    // map did not. It is out at 268 m deliberately: see PLACEMENT_PASS.md, the
+    // site could not earn a far tier at its old extent, and this is what does it.
+    // 338 m out, and the distance is load-bearing rather than atmospheric.
+    // `tiersFor` splits a site at its largest distance gap and refuses the split
+    // under a ratio of 2 — a rule that exists so a place does not get a second
+    // orientation lap for being fifteen metres further along the same track. At
+    // z = -232 the cut sat at 300 m against the pad office at 163, ratio 1.84,
+    // and the site stayed one tier. This is what earns it: 338 / 163 = 2.07.
+    // FOUR MORE, added to spread WHEN the world opens rather than to add ground.
+    // Each one carries a question that genuinely belongs in it — a door with
+    // nothing behind it is scenery with extra steps. See engine/core/access.js.
+    { id: 'HSTORE', enter: 'HSTORE', name: 'Hydrogen Store', sub: 'Where the kilograms are counted',
+      x: 54, z: 8, w: 14, d: 10, h: 5.0, facing: PI, colour: 0x8e9ba2 },
+    { id: 'SHOP', enter: 'SHOP', name: 'Machine Shop', sub: 'A furnace, a lathe, and everything that gets made here',
+      x: 70, z: 50, w: 16, d: 11, h: 5.2, facing: PI, colour: 0x8b8378 },
+    { id: 'BATT', enter: 'BATT', name: 'Battery Bank', sub: 'What the array leaves behind for the night',
+      x: 76, z: -12, w: 14, d: 10, h: 4.6, facing: -PI / 2, colour: 0x79838a },
+    { id: 'ASSAY', enter: 'ASSAY', name: 'Assay Lab', sub: 'Nothing is signed for until it has been measured here',
+      x: -54, z: -14, w: 15, d: 11, h: 5.0, facing: 0, colour: 0x94897a },
+
+    { id: 'CUT', enter: 'CUT', name: 'The Ice Cut', sub: 'Where the water is dug',
+      x: -96, z: -272, w: 18, d: 12, h: 4.4, facing: 0, colour: 0x9d9a8f },
   ],
 
   board: { x: 9, z: 40, facing: PI, title: 'Sol board' },

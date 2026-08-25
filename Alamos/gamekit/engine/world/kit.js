@@ -147,6 +147,8 @@ export function sign(scene, text, { x, y, z, w = 3.2, h = 1.6, facing = 0, sub =
  * `facing` is the yaw the entrance faces, in quarter turns: 0 = +Z (south).
  */
 export function building(scene, opts){
+  /** The name plate, where this building has one. Returned so it can be blanked. */
+  let nameSign = null;
   const {
     x, z, w, d, h = 6.2, facing = 0, baseY = 0,
     colour = 0xd6d2c6, trim = 0x8d949a, accent = null,
@@ -251,7 +253,7 @@ export function building(scene, opts){
     let signW = Math.min(w * 0.72, 5.2);
     let signH = signW * 0.42;
     if(signH > headroom){ signH = Math.max(0.55, headroom); signW = signH / 0.42; }
-    sign(group, name, {
+    nameSign = sign(group, name, {
       x: 0, y: canopyTop + 0.15 + signH / 2, z: d / 2 + 0.30,
       w: signW, h: signH,
       sub, accent: accent ? `#${accent.toString(16).padStart(6, '0')}` : null,
@@ -274,7 +276,10 @@ export function building(scene, opts){
   const doorPos = new THREE.Vector3(x + fx * (d / 2 + 0.3), baseY + 1.4, z + fz * (d / 2 + 0.3));
   const entry = new THREE.Vector3(x + fx * (d / 2 + 3.2), baseY, z + fz * (d / 2 + 3.2));
 
-  return { group, door, collider, doorPos, entry, size: { w, d, h } };
+  // `nameSign` is handed back so a caller can take the name off a building that
+  // the campaign has not needed yet — see `sealBuilding` in outdoorTown.js. It is
+  // undefined where the building has no canopy to hang one under.
+  return { group, door, collider, doorPos, entry, sign: nameSign, size: { w, d, h } };
 }
 
 // ----------------------------------------------------------------- site props

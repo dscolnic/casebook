@@ -28,8 +28,16 @@ export const VIEWS = [
   { name: 'e-spawn', at: { x: 0, z: 155 }, yaw: N,
     note: 'where the day starts: vault and laboratory either side, rings beyond' },
   { name: 'f-compound-back', at: { x: 0, z: 150 }, yaw: S,
-    note: 'records, the threshing floor, and the causeway leaving south' },
-  { name: 'g-windsock', at: { x: 34, z: 158 }, yaw: E,
+    note: 'the yard, and the causeway leaving south past the end of it' },
+  // Both of these moved with the buildings. Passport Records and the threshing
+  // floor stood at z = 172, which on their bearings is eight metres past the
+  // cliff — they are on the yard now, one either side, facing in. The windsock
+  // was at (48, 152), which is the middle of the threshing floor's footprint.
+  { name: 'f2-yard-flanks', at: { x: 0, z: 158 }, yaw: W,
+    note: 'west across the yard: passport records, with the sea behind it' },
+  { name: 'f3-thresh', at: { x: 22, z: 150 }, yaw: E,
+    note: 'east across the yard: the threshing floor, and the windsock past it' },
+  { name: 'g-windsock', at: { x: 46, z: 132 }, yaw: -Math.PI * 0.35,
     note: 'the windsock, which points at the argument' },
 
   // -------------------------------------------------------- the trial ring
@@ -57,6 +65,12 @@ export const VIEWS = [
     note: 'the last buffer, and the crossing block alone at the middle of it' },
   { name: 'q-crossing', at: { x: 0, z: 22 }, yaw: N,
     note: 'the crossing block: the most isolated point on the site, by design' },
+  // The delivery, as an object. Fifteen canes in an arc inside the block, one
+  // per finding, each getting a bag as the season earns it — so this frame is
+  // the HUD meter standing in the ground it counts. On day 1 every cane is bare,
+  // which is the point; `--sol N` is how the rest of it is seen.
+  { name: 'q2-canes', at: { x: 0, z: 14 }, yaw: N,
+    note: "the season's canes, in the block: the delivery meter as a thing" },
   { name: 'r-centre-out', at: { x: 0, z: -12 }, yaw: N,
     note: 'from the centre looking out — rings, cliff, and sea past them' },
   { name: 's-centre-sea', at: { x: -8, z: 6 }, yaw: W,

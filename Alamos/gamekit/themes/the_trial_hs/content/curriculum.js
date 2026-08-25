@@ -245,31 +245,6 @@ export const CURRICULUM = {
       "assumes": [
         "the drug produces an early visible effect that the comparator does not"
       ],
-      "equations": [
-        {
-          "e": "P(X = k) = C(n,k)·pᵏ(1−p)ⁿ⁻ᵏ",
-          "c": "the binomial probability",
-          "v": [
-            [
-              "n",
-              "the fixed number of trials"
-            ],
-            [
-              "k",
-              "the number of successes asked about"
-            ],
-            [
-              "p",
-              "the chance of success on one trial"
-            ],
-            [
-              "C(n,k)",
-              "the number of ways k can fall among n"
-            ]
-          ],
-          "s": "Any one arrangement has probability pᵏ(1−p)ⁿ⁻ᵏ, and there are C(n,k) arrangements that count."
-        }
-      ],
       "concept": {
         "n": 15,
         "c": "Randomisation, control, blinding and replication as four separate jobs",
@@ -727,50 +702,6 @@ export const CURRICULUM = {
       "assumes": [
         "the adjudication committee never sees the arm"
       ],
-      "equations": [
-        {
-          "e": "s = √(Σ(x − x̄)² / (n − 1))",
-          "c": "the sample standard deviation",
-          "v": [
-            [
-              "s",
-              "sample standard deviation"
-            ],
-            [
-              "x − x̄",
-              "each distance from the mean"
-            ],
-            [
-              "n − 1",
-              "the degrees of freedom, one fewer than the count"
-            ]
-          ],
-          "s": "Square the distances so they cannot cancel, average them over n − 1, and take the root to get back to the original units."
-        },
-        {
-          "e": "P(X = k) = C(n,k)·pᵏ(1−p)ⁿ⁻ᵏ",
-          "c": "the binomial probability",
-          "v": [
-            [
-              "n",
-              "the fixed number of trials"
-            ],
-            [
-              "k",
-              "the number of successes asked about"
-            ],
-            [
-              "p",
-              "the chance of success on one trial"
-            ],
-            [
-              "C(n,k)",
-              "the number of ways k can fall among n"
-            ]
-          ],
-          "s": "Any one arrangement has probability pᵏ(1−p)ⁿ⁻ᵏ, and there are C(n,k) arrangements that count."
-        }
-      ],
       "concept": {
         "n": 3,
         "c": "Standard deviation as a typical distance from the mean",
@@ -854,73 +785,6 @@ export const CURRICULUM = {
           ],
           "s": "A residual is what the line missed by, and a pattern in the residuals means the line is the wrong shape.",
           "computed": true
-        },
-        {
-          "e": "s = √(Σ(x − x̄)² / (n − 1))",
-          "c": "the sample standard deviation",
-          "v": [
-            [
-              "s",
-              "sample standard deviation"
-            ],
-            [
-              "x − x̄",
-              "each distance from the mean"
-            ],
-            [
-              "n − 1",
-              "the degrees of freedom, one fewer than the count"
-            ]
-          ],
-          "s": "Square the distances so they cannot cancel, average them over n − 1, and take the root to get back to the original units."
-        },
-        {
-          "e": "ŷ = a + bx",
-          "c": "the least-squares line",
-          "v": [
-            [
-              "ŷ",
-              "the predicted value"
-            ],
-            [
-              "a",
-              "the intercept"
-            ],
-            [
-              "b",
-              "the slope, in y-units per x-unit"
-            ],
-            [
-              "x",
-              "the explanatory value you are predicting from"
-            ]
-          ],
-          "s": "The slope is what one more unit of x is worth in y, and the intercept is where the line crosses at x = 0.",
-          "card": false
-        },
-        {
-          "e": "P(X = k) = C(n,k)·pᵏ(1−p)ⁿ⁻ᵏ",
-          "c": "the binomial probability",
-          "v": [
-            [
-              "n",
-              "the fixed number of trials"
-            ],
-            [
-              "k",
-              "the number of successes asked about"
-            ],
-            [
-              "p",
-              "the chance of success on one trial"
-            ],
-            [
-              "C(n,k)",
-              "the number of ways k can fall among n"
-            ]
-          ],
-          "s": "Any one arrangement has probability pᵏ(1−p)ⁿ⁻ᵏ, and there are C(n,k) arrangements that count.",
-          "card": false
         }
       ],
       "concept": {
@@ -969,31 +833,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the symptom score is written by the treating doctor and the event is adjudicated"
-      ],
-      "equations": [
-        {
-          "e": "P(X = k) = C(n,k)·pᵏ(1−p)ⁿ⁻ᵏ",
-          "c": "the binomial probability",
-          "v": [
-            [
-              "n",
-              "the fixed number of trials"
-            ],
-            [
-              "k",
-              "the number of successes asked about"
-            ],
-            [
-              "p",
-              "the chance of success on one trial"
-            ],
-            [
-              "C(n,k)",
-              "the number of ways k can fall among n"
-            ]
-          ],
-          "s": "Any one arrangement has probability pᵏ(1−p)ⁿ⁻ᵏ, and there are C(n,k) arrangements that count."
-        }
       ],
       "concept": {
         "n": 12,
@@ -1218,31 +1057,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the board decides whether the trial continues"
-      ],
-      "equations": [
-        {
-          "e": "P(X = k) = C(n,k)·pᵏ(1−p)ⁿ⁻ᵏ",
-          "c": "the binomial probability",
-          "v": [
-            [
-              "n",
-              "the fixed number of trials"
-            ],
-            [
-              "k",
-              "the number of successes asked about"
-            ],
-            [
-              "p",
-              "the chance of success on one trial"
-            ],
-            [
-              "C(n,k)",
-              "the number of ways k can fall among n"
-            ]
-          ],
-          "s": "Any one arrangement has probability pᵏ(1−p)ⁿ⁻ᵏ, and there are C(n,k) arrangements that count."
-        }
       ],
       "concept": {
         "n": 15,
@@ -1779,21 +1593,6 @@ export const CURRICULUM = {
           ],
           "s": "Any one arrangement has probability pᵏ(1−p)ⁿ⁻ᵏ, and there are C(n,k) arrangements that count.",
           "computed": true
-        },
-        {
-          "e": "P(A|B) = P(A and B) / P(B)",
-          "c": "conditional probability",
-          "v": [
-            [
-              "P(A|B)",
-              "the chance of A given that B happened"
-            ],
-            [
-              "P(B)",
-              "the chance of the condition itself"
-            ]
-          ],
-          "s": "Conditioning narrows the population to the cases where B is true, and asks about A inside that."
         }
       ],
       "concept": {
@@ -1903,23 +1702,6 @@ export const CURRICULUM = {
       "assumes": [
         "the visible flush can reveal treatment assignment",
         "adjudication removes the arm and site before the committee rules"
-      ],
-      "equations": [
-        {
-          "e": "P(A|B) = P(A and B) / P(B)",
-          "c": "conditional probability",
-          "v": [
-            [
-              "P(A|B)",
-              "the chance of A given that B happened"
-            ],
-            [
-              "P(B)",
-              "the chance of the condition itself"
-            ]
-          ],
-          "s": "Conditioning narrows the population to the cases where B is true, and asks about A inside that."
-        }
       ],
       "concept": {
         "n": 12,
@@ -2071,37 +1853,6 @@ export const CURRICULUM = {
           ],
           "s": "Divide how far the observation sits from the claim by how far it would scatter if the claim were true.",
           "computed": true
-        },
-        {
-          "e": "P(A or B) = P(A) + P(B) − P(A and B)",
-          "c": "the addition rule",
-          "v": [
-            [
-              "P(A or B)",
-              "the chance at least one happens"
-            ],
-            [
-              "P(A and B)",
-              "the chance both do, subtracted so it is not counted twice"
-            ]
-          ],
-          "s": "Adding two chances counts the overlap twice, so it has to come back off once."
-        },
-        {
-          "e": "P(A|B) = P(A and B) / P(B)",
-          "c": "conditional probability",
-          "v": [
-            [
-              "P(A|B)",
-              "the chance of A given that B happened"
-            ],
-            [
-              "P(B)",
-              "the chance of the condition itself"
-            ]
-          ],
-          "s": "Conditioning narrows the population to the cases where B is true, and asks about A inside that.",
-          "card": false
         }
       ],
       "takesAsRead": [
@@ -2168,25 +1919,6 @@ export const CURRICULUM = {
           ],
           "s": "Each cell contributes its squared shortfall relative to what was expected there, so big cells do not dominate by being big.",
           "computed": true
-        },
-        {
-          "e": "x̄ = Σx / n",
-          "c": "the sample mean",
-          "v": [
-            [
-              "x̄",
-              "the sample mean"
-            ],
-            [
-              "Σx",
-              "the sum of the observations"
-            ],
-            [
-              "n",
-              "how many there are"
-            ]
-          ],
-          "s": "Add the values and divide by how many, which is why one extreme value can drag it."
         }
       ],
       "concept": {
@@ -2248,41 +1980,6 @@ export const CURRICULUM = {
           ],
           "s": "The difference between two means, measured in units of how much that difference would wobble by itself.",
           "computed": true
-        },
-        {
-          "e": "s = √(Σ(x − x̄)² / (n − 1))",
-          "c": "the sample standard deviation",
-          "v": [
-            [
-              "s",
-              "sample standard deviation"
-            ],
-            [
-              "x − x̄",
-              "each distance from the mean"
-            ],
-            [
-              "n − 1",
-              "the degrees of freedom, one fewer than the count"
-            ]
-          ],
-          "s": "Square the distances so they cannot cancel, average them over n − 1, and take the root to get back to the original units."
-        },
-        {
-          "e": "P(A|B) = P(A and B) / P(B)",
-          "c": "conditional probability",
-          "v": [
-            [
-              "P(A|B)",
-              "the chance of A given that B happened"
-            ],
-            [
-              "P(B)",
-              "the chance of the condition itself"
-            ]
-          ],
-          "s": "Conditioning narrows the population to the cases where B is true, and asks about A inside that.",
-          "card": false
         }
       ],
       "concept": {
@@ -2343,50 +2040,6 @@ export const CURRICULUM = {
       "assumes": [
         "the nine listed ages are the people actually randomised at Lisbon",
         "a distribution of one variable: shape, centre and spread — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "P(X = k) = C(n,k)·pᵏ(1−p)ⁿ⁻ᵏ",
-          "c": "the binomial probability",
-          "v": [
-            [
-              "n",
-              "the fixed number of trials"
-            ],
-            [
-              "k",
-              "the number of successes asked about"
-            ],
-            [
-              "p",
-              "the chance of success on one trial"
-            ],
-            [
-              "C(n,k)",
-              "the number of ways k can fall among n"
-            ]
-          ],
-          "s": "Any one arrangement has probability pᵏ(1−p)ⁿ⁻ᵏ, and there are C(n,k) arrangements that count."
-        },
-        {
-          "e": "χ² = Σ(O − E)² / E",
-          "c": "the chi-square statistic on a table of counts",
-          "v": [
-            [
-              "O",
-              "the count observed in a cell"
-            ],
-            [
-              "E",
-              "the count expected there if the null were true"
-            ],
-            [
-              "Σ",
-              "summed over every cell of the table"
-            ]
-          ],
-          "s": "Each cell contributes its squared shortfall relative to what was expected there, so big cells do not dominate by being big."
-        }
       ],
       "takesAsRead": [
         {
@@ -2963,31 +2616,6 @@ export const CURRICULUM = {
       "assumes": [
         "missing outcomes are most dangerous when the reason for missingness is tied to the outcome",
         "withdrawal of consent prevents further contact"
-      ],
-      "equations": [
-        {
-          "e": "P(X = k) = C(n,k)·pᵏ(1−p)ⁿ⁻ᵏ",
-          "c": "the binomial probability",
-          "v": [
-            [
-              "n",
-              "the fixed number of trials"
-            ],
-            [
-              "k",
-              "the number of successes asked about"
-            ],
-            [
-              "p",
-              "the chance of success on one trial"
-            ],
-            [
-              "C(n,k)",
-              "the number of ways k can fall among n"
-            ]
-          ],
-          "s": "Any one arrangement has probability pᵏ(1−p)ⁿ⁻ᵏ, and there are C(n,k) arrangements that count."
-        }
       ]
     },
     {
@@ -3165,23 +2793,6 @@ export const CURRICULUM = {
       "assumes": [
         "participants continue treatment and follow-up until the trial ends"
       ],
-      "equations": [
-        {
-          "e": "P(A|B) = P(A and B) / P(B)",
-          "c": "conditional probability",
-          "v": [
-            [
-              "P(A|B)",
-              "the chance of A given that B happened"
-            ],
-            [
-              "P(B)",
-              "the chance of the condition itself"
-            ]
-          ],
-          "s": "Conditioning narrows the population to the cases where B is true, and asks about A inside that."
-        }
-      ],
       "concept": {
         "n": 17,
         "c": "Conditional probability, and independence as something you test",
@@ -3293,45 +2904,6 @@ export const CURRICULUM = {
           ],
           "s": "A z-score is how many standard deviations from the mean a value sits, which makes two different scales comparable.",
           "computed": true
-        },
-        {
-          "e": "x̄ = Σx / n",
-          "c": "the sample mean",
-          "v": [
-            [
-              "x̄",
-              "the sample mean"
-            ],
-            [
-              "Σx",
-              "the sum of the observations"
-            ],
-            [
-              "n",
-              "how many there are"
-            ]
-          ],
-          "s": "Add the values and divide by how many, which is why one extreme value can drag it."
-        },
-        {
-          "e": "s = √(Σ(x − x̄)² / (n − 1))",
-          "c": "the sample standard deviation",
-          "v": [
-            [
-              "s",
-              "sample standard deviation"
-            ],
-            [
-              "x − x̄",
-              "each distance from the mean"
-            ],
-            [
-              "n − 1",
-              "the degrees of freedom, one fewer than the count"
-            ]
-          ],
-          "s": "Square the distances so they cannot cancel, average them over n − 1, and take the root to get back to the original units.",
-          "card": false
         }
       ],
       "concept": {
@@ -3380,23 +2952,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the entry criteria are part of the protocol and can be amended"
-      ],
-      "equations": [
-        {
-          "e": "P(A|B) = P(A and B) / P(B)",
-          "c": "conditional probability",
-          "v": [
-            [
-              "P(A|B)",
-              "the chance of A given that B happened"
-            ],
-            [
-              "P(B)",
-              "the chance of the condition itself"
-            ]
-          ],
-          "s": "Conditioning narrows the population to the cases where B is true, and asks about A inside that."
-        }
       ],
       "concept": {
         "n": 17,
@@ -3549,50 +3104,6 @@ export const CURRICULUM = {
           ],
           "s": "The slope is the correlation scaled by the two spreads, which is why r alone says nothing about units.",
           "computed": true
-        },
-        {
-          "e": "s = √(Σ(x − x̄)² / (n − 1))",
-          "c": "the sample standard deviation",
-          "v": [
-            [
-              "s",
-              "sample standard deviation"
-            ],
-            [
-              "x − x̄",
-              "each distance from the mean"
-            ],
-            [
-              "n − 1",
-              "the degrees of freedom, one fewer than the count"
-            ]
-          ],
-          "s": "Square the distances so they cannot cancel, average them over n − 1, and take the root to get back to the original units.",
-          "card": false
-        },
-        {
-          "e": "P(X = k) = C(n,k)·pᵏ(1−p)ⁿ⁻ᵏ",
-          "c": "the binomial probability",
-          "v": [
-            [
-              "n",
-              "the fixed number of trials"
-            ],
-            [
-              "k",
-              "the number of successes asked about"
-            ],
-            [
-              "p",
-              "the chance of success on one trial"
-            ],
-            [
-              "C(n,k)",
-              "the number of ways k can fall among n"
-            ]
-          ],
-          "s": "Any one arrangement has probability pᵏ(1−p)ⁿ⁻ᵏ, and there are C(n,k) arrangements that count.",
-          "card": false
         }
       ],
       "concept": {
@@ -3678,27 +3189,6 @@ export const CURRICULUM = {
       "assumes": [
         "a related trial can change the uncertainty that makes continued randomisation defensible",
         "an outside result does not rewrite a prespecified analysis plan"
-      ],
-      "equations": [
-        {
-          "e": "CI = statistic ± z*·SE",
-          "c": "a confidence interval",
-          "v": [
-            [
-              "statistic",
-              "the estimate from the sample"
-            ],
-            [
-              "z*",
-              "the critical value for the level, 1.96 at 95%"
-            ],
-            [
-              "SE",
-              "the standard error of that statistic"
-            ]
-          ],
-          "s": "The interval is the estimate plus and minus a margin, and the level decides how many standard errors wide that margin is."
-        }
       ],
       "concept": {
         "n": 23,
@@ -3886,46 +3376,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a registry records patients whose treatment was chosen by a clinician"
-      ],
-      "equations": [
-        {
-          "e": "P(A|B) = P(A and B) / P(B)",
-          "c": "conditional probability",
-          "v": [
-            [
-              "P(A|B)",
-              "the chance of A given that B happened"
-            ],
-            [
-              "P(B)",
-              "the chance of the condition itself"
-            ]
-          ],
-          "s": "Conditioning narrows the population to the cases where B is true, and asks about A inside that."
-        },
-        {
-          "e": "P(X = k) = C(n,k)·pᵏ(1−p)ⁿ⁻ᵏ",
-          "c": "the binomial probability",
-          "v": [
-            [
-              "n",
-              "the fixed number of trials"
-            ],
-            [
-              "k",
-              "the number of successes asked about"
-            ],
-            [
-              "p",
-              "the chance of success on one trial"
-            ],
-            [
-              "C(n,k)",
-              "the number of ways k can fall among n"
-            ]
-          ],
-          "s": "Any one arrangement has probability pᵏ(1−p)ⁿ⁻ᵏ, and there are C(n,k) arrangements that count."
-        }
       ],
       "concept": {
         "n": 14,

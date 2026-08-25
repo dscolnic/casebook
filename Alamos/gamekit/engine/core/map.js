@@ -12,6 +12,39 @@ import { getState } from './gameState.js';
 import { def, getCurrentMission, nextMissionStopIndex, openStopIndices, isPersonStopForIdx,
          getPersonIdForStop } from './simulation.js';
 import { npcsForEngine } from '../people/registry.js';
+import { tiersFor } from './orientation.js';
+import { openingSols, isOpen } from './access.js';
+
+/**
+ * Far places with no lesson in them, which the map keeps out of its own scale.
+ *
+ * Memoised on the site: `tiersFor` walks every building and sorts them, and the
+ * map's bounds are recomputed on every draw.
+ */
+const asideCache = new WeakMap();
+const openSolsCache = new WeakMap();
+/** Opening sols for this theme, memoised — `openingSols` walks every mission. */
+function openSolsFor(t){
+  if(!t || typeof t !== 'object') return {};
+  const hit = openSolsCache.get(t);
+  if(hit) return hit;
+  const v = openingSols(t);
+  openSolsCache.set(t, v);
+  return v;
+}
+/** The sol the map is being drawn on. 1 before a game exists. */
+function weekNow(){ return getState()?.week ?? 1; }
+
+function farAside(site){
+  if(!site || typeof site !== 'object') return new Set();
+  const hit = asideCache.get(site);
+  if(hit) return hit;
+  const tiers = tiersFor(site);
+  const areas = new Set((site.buildings ?? []).map(b => b.group).filter(Boolean));
+  const out = new Set((tiers.farPlaces ?? []).filter(id => !areas.has(id)));
+  asideCache.set(site, out);
+  return out;
+}
 import { getPosition, camera } from './player.js';
 import { esc } from './utils.js';
 
@@ -101,15 +134,48 @@ function bounds(site){
     xs.push(s.x0, s.x1);
     zs.push(s.z0, s.z1);
   }
+  // A FAR PLACE THAT CARRIES NO LESSON DOES NOT SET THE SCALE.
+  //
+  // The map auto-fits the whole site, which was the whole truth until a campaign
+  // could open a building three hundred metres out that nothing sends you to.
+  // Red Sand's ice cut is 338 m south; fitting to it squeezed the plant — every
+  // area, every call, the entire working day — into the bottom quarter of the
+  // frame, and gave the other three quarters to empty ground. A map is read
+  // forty times a campaign to choose a route between six buildings, and it was
+  // being scaled by the one place the route never visits.
+  //
+  // EVERY AREA IS STILL IN FRAME, always. Only a far place that is *not* an area
+  // is dropped from the fit and drawn as an edge marker instead — Planetary
+  // Defense's far ring is four real areas with stops in them, and clipping those
+  // would hide where the player is being sent.
   for(const b of site.buildings ?? []){
+    if(farAside(site).has(b.enter)) continue;
     xs.push(b.x - b.w / 2, b.x + b.w / 2);
     zs.push(b.z - b.d / 2, b.z + b.d / 2);
   }
-  for(const p of site.paths ?? []){
-    xs.push(p.cx - p.w / 2, p.cx + p.w / 2);
-    zs.push(p.cz - p.d / 2, p.cz + p.d / 2);
-  }
   if(site.spawn){ xs.push(site.spawn.x); zs.push(site.spawn.z); }
+  // PATHS ARE CLAMPED TO WHAT THE PLACES ALREADY COVER, not added to it.
+  //
+  // A track is drawn on the map and must not size it. Setting the ice cut aside
+  // above did nothing on its own, because the 230-metre track out to it was still
+  // in the fit and the map came out exactly as tall — the place was gone and the
+  // road to it was still there. A road that runs off the edge of a map reads
+  // correctly as a road that continues, which is also what it does on the ground.
+  if(xs.length){
+    const bx0 = Math.min(...xs), bx1 = Math.max(...xs);
+    const bz0 = Math.min(...zs), bz1 = Math.max(...zs);
+    const clampX = (v) => Math.max(bx0, Math.min(bx1, v));
+    const clampZ = (v) => Math.max(bz0, Math.min(bz1, v));
+    for(const p of site.paths ?? []){
+      xs.push(clampX(p.cx - p.w / 2), clampX(p.cx + p.w / 2));
+      zs.push(clampZ(p.cz - p.d / 2), clampZ(p.cz + p.d / 2));
+    }
+  } else {
+    for(const p of site.paths ?? []){
+      xs.push(p.cx - p.w / 2, p.cx + p.w / 2);
+      zs.push(p.cz - p.d / 2, p.cz + p.d / 2);
+    }
+  }
   if(!xs.length) return { x0: -100, x1: 100, z0: -100, z1: 100 };
   // Padding in world units has to be a fraction of the world. A flat 14 metres
   // is a sensible margin around a town three hundred metres across and a
@@ -480,19 +546,62 @@ export function renderMap(opts = {}){
     const r = plotRect(p.cx, p.cz, p.w, p.d);
     g += `<rect x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}" fill="#cfc9bb"/>`;
   }
+  // The far places the fit set aside, drawn on the frame edge with how far out
+  // they are. They are not on the map, and saying nothing about them would be
+  // worse than the scale problem: a player who drives to the ice cut on the sol-4
+  // lap and then cannot find it again has been told the world is smaller than it
+  // is. So the map keeps its useful scale AND still points.
+  const aside = farAside(site);
+  for(const bl of site.buildings ?? []){
+    if(!aside.has(bl.enter)) continue;
+    const sx = site.spawn?.x ?? 0, sz = site.spawn?.z ?? 0;
+    const metres = Math.round(Math.hypot(bl.x - sx, bl.z - sz));
+    // The point on the frame the place lies through, from the middle of the map.
+    const mx = (mapW) => mapW / 2;
+    const cx0 = mx(W), cy0 = H / 2;
+    const ex = px(bl.x, bl.z) - cx0, ey = py(bl.x, bl.z) - cy0;
+    const k = Math.min(Math.abs((W / 2 - 16) / (ex || 1e-6)), Math.abs((H / 2 - 16) / (ey || 1e-6)));
+    const ax = cx0 + ex * k, ay = cy0 + ey * k;
+    const ang = (Math.atan2(ey, ex) * 180) / Math.PI;
+    g += `<path d="M -9 -7 L 7 0 L -9 7 Z" fill="#4a453d" `
+       + `transform="translate(${ax.toFixed(1)},${ay.toFixed(1)}) rotate(${ang.toFixed(1)})"/>`;
+    // ON THE BIG MAP ONLY. The corner minimap is about 190 px across and reads at a
+    // glance; a name and a distance on it is four words nobody can resolve sitting
+    // on top of the plant. The arrow stays at both sizes, because a pointer is
+    // legible at any size and is the half that says "there is more that way".
+    if(W >= 320){
+      const lx = ax - (ex * k) * 0.06, ly = ay - (ey * k) * 0.06;
+      g += `<text x="${lx.toFixed(1)}" y="${(ly + (ey > 0 ? 17 : -9)).toFixed(1)}" text-anchor="middle" `
+         + `font-size="9.5" font-weight="700" fill="#4a453d">${esc(bl.name)} · ${metres} m</text>`;
+    }
+  }
+
   // Pass one: the footprints, which are also the obstacles the labels avoid.
   const plots = [];
   for(const bl of site.buildings ?? []){
+    if(aside.has(bl.enter)) continue;
     const area = bl.group ? def(bl.group) : null;
     const isTarget = !livePins().length && bl.group && targetGroups.has(bl.group);
     const fill = area ? area.color : '#9a958a';
     const r = plotRect(bl.x, bl.z, bl.w, bl.d);
     const x = r.x, y = r.y, w = r.w, h = r.h;
+    // Three weights, not two. An area is solid; a MINOR place — one you can walk
+    // into that carries no lesson, like the tank farm or the ice cut — sits
+    // between; scenery stays faint. Before minor places existed there were only
+    // two kinds of building and this drew them 0.92 and 0.55, which now reads as
+    // "the ice cut is a rock": the one place on the map 338 m out was drawn the
+    // same as a boulder. See gamekit/PLACEMENT_PASS.md.
+    // A SEALED BUILDING IS UNLABELLED ON THE MAP TOO. Naming a place the player
+    // cannot get into is the worst of both: it advertises a door that does not
+    // open. The footprint stays — the building is visibly there, it is not a
+    // secret — and it is drawn as faint as scenery until the sol it is needed.
+    const sealedHere = !isOpen(openSolsFor(theme), bl.group || bl.enter, weekNow());
+    const opacity = sealedHere ? 0.4 : area ? 0.92 : bl.enter ? 0.74 : 0.55;
     g += `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="3" fill="${fill}" `
-       + `opacity="${area ? 0.92 : 0.55}" stroke="${isTarget ? '#f2c14e' : 'rgba(0,0,0,.25)'}" `
+       + `opacity="${opacity}" stroke="${isTarget ? '#f2c14e' : bl.enter ? 'rgba(0,0,0,.4)' : 'rgba(0,0,0,.25)'}" `
        + `stroke-width="${isTarget ? 3 : 1}"/>`;
     taken.push({ x0: x, y0: y, x1: x + w, y1: y + h });
-    plots.push({ bl, x, y, w, h, isTarget, area });
+    plots.push({ bl, x, y, w, h, isTarget, area, sealed: sealedHere });
   }
   // The people first, so their names win the space: a building label can move,
   // and the name of somebody you have to find is the point of the map.
@@ -546,6 +655,10 @@ export function renderMap(opts = {}){
     // An open call's building is named come what may; everything else gives way.
     // The name is the one the HUD uses, so "Still open: Survey Telescope" and the
     // shape on the map are the same words.
+    // A sealed building has no name anywhere — on the door, or here. The
+    // footprint is still drawn, faint: the player can see there is a building
+    // and can walk right up to it, and what they cannot do is read it or go in.
+    if(p.sealed) continue;
     g += label(p.x + p.w / 2, p.y + p.h / 2, p.w / 2, p.h / 2, p.bl.name,
                { weight: p.isTarget ? 800 : 600, force: p.isTarget });
   }

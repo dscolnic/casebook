@@ -21,6 +21,7 @@ import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
 import { INTERIORS } from '../seedbank/interiors.js';
+import { MINOR_INTERIORS } from '../seedbank/minors.js';
 import { decorate, fitOutRoom, fitOutSpine } from '../seedbank/props.js';
 
 export default {
@@ -63,7 +64,12 @@ export default {
   // What is inside each room the player walks into, from book.yml. Rooms are
   // built by engine/world/interiorBuilding.js on first entry, in a district
   // four kilometres from the town.
-  interiors: INTERIORS,
+  // The base game's rooms, plus the five for the places that are not areas. The
+  // place is shared — `site.js` here is a re-export — so the three glasshouses,
+  // the records office and the threshing floor have doors in this edition too,
+  // and a door with no interiors entry behind it opens onto nothing. This
+  // edition sites no question in them: they are rooms to stand in and read.
+  interiors: { ...INTERIORS, ...MINOR_INTERIORS },
   // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
   interiorStyle: 'lab',

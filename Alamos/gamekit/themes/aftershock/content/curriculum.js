@@ -220,26 +220,6 @@ export const CURRICULUM = {
           ],
           "s": "Design treats the earthquake as a fraction of the building's own weight pushed sideways at its base.",
           "computed": true
-        },
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up.",
-          "card": false
         }
       ],
       "takesAsRead": [
@@ -381,27 +361,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a hazard that has occurred will occur again"
-      ],
-      "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        }
       ],
       "concept": {
         "n": 27,
@@ -566,26 +525,6 @@ export const CURRICULUM = {
           ],
           "s": "One unit of magnitude is about thirty-two times the energy, so a 7 is not a bit worse than a 6.",
           "demanded": true
-        },
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up.",
-          "card": false
         }
       ],
       "concept": {
@@ -650,42 +589,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a claim can rest on a measurement, on an inference, or on nothing yet"
-      ],
-      "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        },
-        {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
-          "v": [
-            [
-              "A_soft",
-              "shaking measured on the soft site"
-            ],
-            [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
-            ]
-          ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
-        }
       ],
       "concept": {
         "n": 30,
@@ -752,42 +655,6 @@ export const CURRICULUM = {
         "an instrument records the shaking where it stands",
         "distance costs a wave amplitude on the way"
       ],
-      "equations": [
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
-        },
-        {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
-          "v": [
-            [
-              "A_soft",
-              "shaking measured on the soft site"
-            ],
-            [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
-            ]
-          ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "Intensity against magnitude — one event, many shakings",
@@ -849,25 +716,6 @@ export const CURRICULUM = {
           ],
           "s": "The S wave travels slower than the P wave, so the gap between them grows with distance and one station can say how far away the source was.",
           "computed": true
-        },
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
         }
       ],
       "concept": {
@@ -1163,27 +1011,6 @@ export const CURRICULUM = {
       "assumes": [
         "a horizontal force has to travel through a building to reach the ground"
       ],
-      "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        }
-      ],
       "concept": {
         "n": 10,
         "c": "Load path, and what happens where it stops",
@@ -1409,27 +1236,6 @@ export const CURRICULUM = {
       "assumes": [
         "some parts of a building hold it up and some are carried by it"
       ],
-      "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        }
-      ],
       "concept": {
         "n": 10,
         "c": "Load path, and what happens where it stops",
@@ -1476,46 +1282,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a damaged element carries less than it used to"
-      ],
-      "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        },
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
-        }
       ],
       "concept": {
         "n": 19,
@@ -1576,27 +1342,6 @@ export const CURRICULUM = {
       "assumes": [
         "a crack runs across the direction of the tension that opened it",
         "stress, strain and the yield point — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        }
       ],
       "takesAsRead": [
         {
@@ -1726,27 +1471,6 @@ export const CURRICULUM = {
       "assumes": [
         "masonry is strong in compression and weak in tension"
       ],
-      "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        }
-      ],
       "concept": {
         "n": 14,
         "c": "Unreinforced masonry, and why it fails outward",
@@ -1795,46 +1519,6 @@ export const CURRICULUM = {
       "assumes": [
         "a shored building is being held rather than repaired",
         "p and S waves, and what the gap between them measures — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        },
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
-        }
       ],
       "takesAsRead": [
         {
@@ -1888,27 +1572,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a practice adopted under pressure has a cost that only shows later"
-      ],
-      "equations": [
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
-        }
       ],
       "concept": {
         "n": 28,
@@ -2090,46 +1753,6 @@ export const CURRICULUM = {
       "assumes": [
         "liquefied ground regains strength as pore pressure dissipates"
       ],
-      "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        },
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
-        }
-      ],
       "concept": {
         "n": 17,
         "c": "Lateral spreading toward a free face",
@@ -2197,27 +1820,6 @@ export const CURRICULUM = {
       "assumes": [
         "water pressure between grains reduces the strength of sandy ground"
       ],
-      "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        }
-      ],
       "concept": {
         "n": 18,
         "c": "Effective stress, and why water pressure matters",
@@ -2280,42 +1882,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a conclusion can rest on one measurement or on several"
-      ],
-      "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        },
-        {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
-          "v": [
-            [
-              "A_soft",
-              "shaking measured on the soft site"
-            ],
-            [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
-            ]
-          ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
-        }
       ],
       "concept": {
         "n": 14,
@@ -2424,27 +1990,6 @@ export const CURRICULUM = {
           "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town.",
           "computed": true,
           "card": false
-        },
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day.",
-          "demanded": true,
-          "card": false
         }
       ],
       "concept": {
@@ -2494,42 +2039,6 @@ export const CURRICULUM = {
       "assumes": [
         "liquefaction can be addressed in the ground or accommodated in the structure"
       ],
-      "equations": [
-        {
-          "e": "σ' = σ − u",
-          "c": "effective stress, and how liquefaction happens",
-          "v": [
-            [
-              "σ'",
-              "effective stress holding the grains together, in kilopascals"
-            ],
-            [
-              "σ",
-              "total stress from the weight above, in kilopascals"
-            ],
-            [
-              "u",
-              "pore water pressure between the grains, in kilopascals"
-            ]
-          ],
-          "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid."
-        },
-        {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
-          "v": [
-            [
-              "A_soft",
-              "shaking measured on the soft site"
-            ],
-            [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
-            ]
-          ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
-        }
-      ],
       "concept": {
         "n": 15,
         "c": "Liquefaction: when saturated fill stops behaving as a solid",
@@ -2576,42 +2085,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "ground can be loose without being wet"
-      ],
-      "equations": [
-        {
-          "e": "σ' = σ − u",
-          "c": "effective stress, and how liquefaction happens",
-          "v": [
-            [
-              "σ'",
-              "effective stress holding the grains together, in kilopascals"
-            ],
-            [
-              "σ",
-              "total stress from the weight above, in kilopascals"
-            ],
-            [
-              "u",
-              "pore water pressure between the grains, in kilopascals"
-            ]
-          ],
-          "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid."
-        },
-        {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
-          "v": [
-            [
-              "A_soft",
-              "shaking measured on the soft site"
-            ],
-            [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
-            ]
-          ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
-        }
       ],
       "concept": {
         "n": 15,
@@ -2746,25 +2219,6 @@ export const CURRICULUM = {
           ],
           "s": "Stress is force spread over area and strain is the stretch it causes; up to the yield point the material comes back, and past it the deformation stays.",
           "computed": true
-        },
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
         }
       ],
       "concept": {
@@ -2891,27 +2345,6 @@ export const CURRICULUM = {
       "assumes": [
         "a test can be destructive, semi-destructive or neither"
       ],
-      "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        }
-      ],
       "concept": {
         "n": 26,
         "c": "Retrofit: what is worth doing before the next one",
@@ -2952,63 +2385,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "CPT stands for cone penetration test: a standard cone is pushed into the ground and its resistance is recorded"
-      ],
-      "equations": [
-        {
-          "e": "σ' = σ − u",
-          "c": "effective stress, and how liquefaction happens",
-          "v": [
-            [
-              "σ'",
-              "effective stress holding the grains together, in kilopascals"
-            ],
-            [
-              "σ",
-              "total stress from the weight above, in kilopascals"
-            ],
-            [
-              "u",
-              "pore water pressure between the grains, in kilopascals"
-            ]
-          ],
-          "s": "Soil carries load through grain contact; when shaking drives the water pressure up to the total stress, the grains stop touching and the ground behaves as a liquid.",
-          "demanded": true
-        },
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        },
-        {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
-          "v": [
-            [
-              "A_soft",
-              "shaking measured on the soft site"
-            ],
-            [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
-            ]
-          ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town.",
-          "card": false
-        }
       ],
       "concept": {
         "n": 13,
@@ -3308,27 +2684,6 @@ export const CURRICULUM = {
         "peak ground acceleration and what a building feels — taken as read",
         "p and S waves, and what the gap between them measures — taken as read"
       ],
-      "equations": [
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 6,
@@ -3452,46 +2807,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a forecast is a distribution rather than a single value"
-      ],
-      "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        },
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
-        }
       ],
       "concept": {
         "n": 20,
@@ -3719,27 +3034,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a building can be used in part"
-      ],
-      "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        }
       ],
       "concept": {
         "n": 21,
@@ -4033,46 +3327,6 @@ export const CURRICULUM = {
       "assumes": [
         "an office decides which buildings are assessed first"
       ],
-      "equations": [
-        {
-          "e": "FoS = capacity / demand",
-          "c": "factor of safety as a ratio, not a feeling",
-          "v": [
-            [
-              "FoS",
-              "factor of safety, no units"
-            ],
-            [
-              "capacity",
-              "what the element can carry"
-            ],
-            [
-              "demand",
-              "what the earthquake asked of it, in the same units"
-            ]
-          ],
-          "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up."
-        },
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
-        }
-      ],
       "concept": {
         "n": 22,
         "c": "Rapid assessment against detailed evaluation",
@@ -4169,27 +3423,6 @@ export const CURRICULUM = {
       "assumes": [
         "a problem still growing is different from one that has finished"
       ],
-      "equations": [
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
-        }
-      ],
       "concept": {
         "n": 19,
         "c": "Aftershock decay as a power law",
@@ -4252,23 +3485,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a decision to require something is also a decision about who pays for it"
-      ],
-      "equations": [
-        {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
-          "v": [
-            [
-              "A_soft",
-              "shaking measured on the soft site"
-            ],
-            [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
-            ]
-          ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town."
-        }
       ]
     },
     {
@@ -4314,46 +3530,6 @@ export const CURRICULUM = {
       "assumes": [
         "a magnitude scale counts in factors rather than in equal steps",
         "a public notice is heard once, quickly, by somebody who is tired"
-      ],
-      "equations": [
-        {
-          "e": "M_w = ⅔ log₁₀ M₀ − 6.06",
-          "c": "moment magnitude, and why the scale is logarithmic",
-          "v": [
-            [
-              "M_w",
-              "moment magnitude, no units"
-            ],
-            [
-              "M₀",
-              "seismic moment, in newton metres"
-            ],
-            [
-              "⅔ and 6.06",
-              "constants that make the scale line up with the older ones"
-            ]
-          ],
-          "s": "One unit of magnitude is about thirty-two times the energy, so a 7 is not a bit worse than a 6."
-        },
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day."
-        }
       ],
       "concept": {
         "n": 3,

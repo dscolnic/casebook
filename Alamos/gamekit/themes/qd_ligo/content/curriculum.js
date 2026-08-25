@@ -676,27 +676,6 @@ export const CURRICULUM = {
         "the sweep rate of a chirp depends on a combination of the two masses",
         "the frequency at merger depends on the total mass"
       ],
-      "equations": [
-        {
-          "e": "radiated = M1 + M2 - Mfinal",
-          "c": "the mass that left as gravitational waves",
-          "v": [
-            [
-              "M1, M2",
-              "the two masses that spiralled together, in solar masses"
-            ],
-            [
-              "Mfinal",
-              "the mass of the single object left behind"
-            ],
-            [
-              "radiated",
-              "what went out as waves, in solar masses"
-            ]
-          ],
-          "s": "What went in and what came out do not balance, and the difference left the system as gravitational radiation — an energy, once it is multiplied by the speed of light squared."
-        }
-      ],
       "concept": {
         "n": 7,
         "c": "One observable across two masses fixes a combination",
@@ -808,27 +787,6 @@ export const CURRICULUM = {
       "assumes": [
         "a theory is supported by agreement and constrained rather than eliminated by it",
         "every measurement in the event carries an uncertainty"
-      ],
-      "equations": [
-        {
-          "e": "delay = separation / c",
-          "c": "the longest a wave can take between two sites",
-          "v": [
-            [
-              "separation",
-              "the straight-line distance between the two detectors, in km"
-            ],
-            [
-              "c",
-              "the speed of light, three hundred thousand km a second"
-            ],
-            [
-              "delay",
-              "the largest possible arrival-time difference"
-            ]
-          ],
-          "s": "A wave crossing the Earth travels at the speed of light, so the most it can arrive apart at two places is the time light takes to go from one to the other."
-        }
       ],
       "concept": {
         "n": 9,

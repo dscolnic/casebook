@@ -123,27 +123,6 @@ export const CURRICULUM = {
         "a sealed vessel exchanges no matter with the room",
         "a burning glass adds heat without adding any material"
       ],
-      "equations": [
-        {
-          "e": "m(oxide) = m(metal) + m(gas)",
-          "c": "the mass ledger of a metal burnt in air",
-          "v": [
-            [
-              "m(metal)",
-              "the mass of metal before heating"
-            ],
-            [
-              "m(gas)",
-              "the mass of the air component that combined with it"
-            ],
-            [
-              "m(oxide)",
-              "the mass of the solid product"
-            ]
-          ],
-          "s": "Nothing is created or destroyed, so the product weighs what went into it: the metal plus whatever was taken out of the air."
-        }
-      ],
       "concept": {
         "n": 2,
         "c": "In a sealed vessel the total does not change, though the parts do",
@@ -530,27 +509,6 @@ export const CURRICULUM = {
       "assumes": [
         "a chemical change conserves the total mass of everything taking part",
         "heat supplied by a lens adds no mass to a sealed system"
-      ],
-      "equations": [
-        {
-          "e": "m(oxide) = m(metal) + m(gas)",
-          "c": "the mass ledger of a metal burnt in air",
-          "v": [
-            [
-              "m(metal)",
-              "the mass of metal before heating"
-            ],
-            [
-              "m(gas)",
-              "the mass of the air component that combined with it"
-            ],
-            [
-              "m(oxide)",
-              "the mass of the solid product"
-            ]
-          ],
-          "s": "Nothing is created or destroyed, so the product weighs what went into it: the metal plus whatever was taken out of the air."
-        }
       ],
       "concept": {
         "n": 7,

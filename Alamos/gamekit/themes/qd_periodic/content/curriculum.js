@@ -507,21 +507,6 @@ export const CURRICULUM = {
           ],
           "s": "A prediction is judged by how far off it was relative to the size of the thing predicted, so the difference is divided by the measured value rather than reported bare.",
           "computed": true
-        },
-        {
-          "e": "x ≈ (x_above + x_below) ÷ 2",
-          "c": "a property at an empty position, by interpolation",
-          "v": [
-            [
-              "x_above, x_below",
-              "the property in the elements above and below the gap"
-            ],
-            [
-              "x",
-              "the predicted value at the gap"
-            ]
-          ],
-          "s": "A property that changes steadily down a family has a value at a vacant position lying between its neighbours, and the midpoint is the plainest estimate of it."
         }
       ],
       "concept": {

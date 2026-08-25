@@ -1,0 +1,4 @@
+{
+  "themes": {},
+  "_": "Equations on a course syllabus that NO question computes or is worked from. They appear nowhere in the game, which is correct — a decorative chip taught nobody — but the syllabus is promising something the campaign never teaches. engine/dev/equationPlacement.mjs fails a theme that GAINS one, and also fails a line that has since been fixed, naming it for deletion, so the file only shrinks. Give the equation a question that uses it, or take it off the syllabus in tools/syllabus.js."
+}

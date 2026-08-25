@@ -20,6 +20,8 @@ import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
 import { INTERIORS } from './interiors.js';
+import { MINOR_INTERIORS } from './minors.js';
+import { FIXTURES } from './fixtures.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 
 export default {
@@ -31,6 +33,14 @@ export default {
   id: 'seedbank',
   title: 'Wellmere',
   subtitle: 'Season Lead · Wellmere Seed Bank',
+
+  // The plan card's stake is a date stamp and two sentences, not a briefing.
+  // See gamekit/BRIEFING_PASS.md: the long form answered "what has been
+  // happening" as well as "what do I do", and the first half is three weeks of
+  // context read fifteen times. Setting this moves `checkStory`'s word band —
+  // no floor, a ceiling of 70 — and takes the delivery line off the card, which
+  // was the third block of prose standing between the player and the objectives.
+  stakeStyle: 'brief',
 
   // Each mission is one working day of the three weeks before sowing starts. The plan card prints this in front of the mission number.
   dayNoun: 'Day',
@@ -62,7 +72,14 @@ export default {
   // What is inside each room the player walks into, from book.yml. Rooms are
   // built by engine/world/interiorBuilding.js on first entry, in a district
   // four kilometres from the town.
-  interiors: INTERIORS,
+  // The generated rooms, plus the five hand-written ones for the places that are
+  // not areas — the three glasshouses, the records office and the threshing
+  // floor. `enter:` in site.js is what gives each of them a door.
+  interiors: { ...INTERIORS, ...MINOR_INTERIORS },
+  // Where each question is asked inside its room, and the four that are asked in
+  // a place that is not their own area. engine/world/interiorFixtures.js builds
+  // them from the open call; catalogue in ./fixtures.js.
+  fixtures: FIXTURES,
   // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
   interiorStyle: 'lab',
@@ -84,37 +101,53 @@ export default {
   // is chosen on the second-to-last day out of everything established before
   // it.
   delivery: {
-    name: 'The Wellmere Season Record',
-    what: 'What the next season lead opens on: every accession\'s state, what was grown out and '
-      + 'when, and the crossing block this season committed the next decade to.',
-    where: 'VAULT',
+    // THIS WAS "THE WELLMERE SEASON RECORD", and it was a document about the
+    // stakes rather than the stakes. The tell was on the opening card, which had
+    // to spend thirty words saying what a season record is — see the briefing
+    // pass: *a delivery that has to be glossed on the opening card is usually the
+    // wrong delivery*. Wellmere is about what is sown. The ending card had known
+    // that for the life of the game: "What is in the ground this year is what you
+    // put there." So the fortnight now builds the ground, the board moved to the
+    // Crossing Hall at the centre of every isolation ring, and the fifteen pieces
+    // are the reasons there is more in the ground than there would have been.
+    name: 'The Season in the Ground',
+    // The HUD meter's label, above the bar that replaced "Mission 4 of 15". Two
+    // or three words naming the GOAL, not the progress: the bar says how far
+    // along, the label says what is filling.
+    meter: 'Season sown',
+    what: 'Everything Wellmere commits to soil in three weeks: the trial drilled, the overdue '
+      + 'accessions regrown, the screening nursery inoculated, and eight crosses bagged in the '
+      + 'block at the centre. What is in the ground is what the next decade works from.',
+    // The Crossing Hall, at radius zero, because that is where the season ends up
+    // and it is the one place on the Point every isolation ring is measured from.
+    // It was the vault, which is where a record would have been kept.
+    where: 'CROSS',
     pieces: [
-      'The viability audit',
-      'The parents\' ratio finding',
-      'The population\'s frequencies',
-      'The delay-against-release note',
-      'The linked marker map',
-      'The sample size decision',
-      'The single-gene warning',
-      'The realised gain figure',
-      'The drifted accession list',
-      'The duplication gap',
-      'The quiet-week backlog',
-      'The rust response, from store',
-      'The ranked morning order',
-      'The crossing block, chosen',
-      'The regrowing schedule',
+      'Sixty accessions pulled for grow-out',
+      "The warm bay's four hundred, read",
+      'A duplicate slot handed back',
+      'The west ground allotted',
+      'The short lines kept anyway',
+      'Forty regrowing plots chosen',
+      'The rust screen aimed',
+      'Twenty plots carried into next year',
+      'Thirty accessions off the screening list',
+      "Fenn's four landraces drilled",
+      "The quiet week's backlog cleared",
+      'One clean source of the second gene',
+      'The drill sent out in the right order',
+      'Eight crosses bagged in the block',
+      'Fifteen years of regrowing, scheduled',
     ],
   },
   opening: [
     'A wheat disease is two hundred kilometres east, and the wind that would carry it here '
-    + 'comes in over the causeway. The breeding programme has exactly one gene that stands up '
-    + 'to it. You are Season Lead at Wellmere. You decide what is sown in the next three '
-    + 'weeks and what is grown out again while the old seed still comes up. In fifteen days '
-    + 'you hand over the season record, which is what the next lead opens on. It says which '
-    + 'samples are still alive, which were grown and when, and which parents go into the '
-    + 'crossing block that sets the next decade of wheat. One finding goes in a day. Anything '
-    + 'not sown in three weeks waits a full year.',
+    + 'comes in over the causeway. The breeding programme has one gene that stands up to it, '
+    + 'and one is not enough. You are Season Lead at Wellmere, which means what goes into the '
+    + 'ground in the next three weeks goes in because you said so. Three weeks is the whole of '
+    + 'it. Anything not sown by then waits a year, and the forty-one thousand samples in the '
+    + 'vault do not wait well. By the end of the third week the season is in the ground, and '
+    + 'nothing else goes in until next March.',
   ],
 
   // How it ends. Shown when the campaign closes, and the last thing the player

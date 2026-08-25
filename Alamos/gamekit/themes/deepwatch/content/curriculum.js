@@ -59,27 +59,6 @@ export const CURRICULUM = {
         "passive sonar listens and does not transmit",
         "sound as a wave: frequency, wavelength, speed — taken as read"
       ],
-      "equations": [
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "speed of sound in water, about 1500 metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 1,
@@ -150,31 +129,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "sound bends when it crosses water of a different temperature"
-      ],
-      "equations": [
-        {
-          "e": "sinθ₁ / v₁ = sinθ₂ / v₂",
-          "c": "Snell's law — why sound bends at a layer",
-          "v": [
-            [
-              "θ₁",
-              "angle in the first layer"
-            ],
-            [
-              "v₁",
-              "sound speed in that layer"
-            ],
-            [
-              "θ₂",
-              "angle in the second layer"
-            ],
-            [
-              "v₂",
-              "sound speed there"
-            ]
-          ],
-          "s": "Sound bends toward the slower water when it crosses a layer, which is what makes a shadow zone."
-        }
       ],
       "concept": {
         "n": 7,
@@ -304,31 +258,6 @@ export const CURRICULUM = {
       "assumes": [
         "a measurement can be meaningless without an earlier one to read it against"
       ],
-      "equations": [
-        {
-          "e": "sinθ₁ / v₁ = sinθ₂ / v₂",
-          "c": "Snell's law — why sound bends at a layer",
-          "v": [
-            [
-              "θ₁",
-              "angle in the first layer"
-            ],
-            [
-              "v₁",
-              "sound speed in that layer"
-            ],
-            [
-              "θ₂",
-              "angle in the second layer"
-            ],
-            [
-              "v₂",
-              "sound speed there"
-            ]
-          ],
-          "s": "Sound bends toward the slower water when it crosses a layer, which is what makes a shadow zone."
-        }
-      ],
       "concept": {
         "n": 18,
         "c": "Dependency order and interlocks",
@@ -390,74 +319,6 @@ export const CURRICULUM = {
       "assumes": [
         "a contact out in the water lies in some direction",
         "sound as a wave: frequency, wavelength, speed — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "speed of sound in water, about 1500 metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
-        },
-        {
-          "e": "Δf / f = v / c",
-          "c": "Doppler shift as a closing speed",
-          "v": [
-            [
-              "Δf",
-              "the shift in frequency, in hertz"
-            ],
-            [
-              "f",
-              "the frequency being transmitted"
-            ],
-            [
-              "v",
-              "closing speed along the line of sight"
-            ],
-            [
-              "c",
-              "speed of sound in water"
-            ]
-          ],
-          "s": "A contact closing on you raises the frequency you hear, by a fraction equal to the closing speed over the speed of sound."
-        },
-        {
-          "e": "sinθ₁ / v₁ = sinθ₂ / v₂",
-          "c": "Snell's law — why sound bends at a layer",
-          "v": [
-            [
-              "θ₁",
-              "angle in the first layer"
-            ],
-            [
-              "v₁",
-              "sound speed in that layer"
-            ],
-            [
-              "θ₂",
-              "angle in the second layer"
-            ],
-            [
-              "v₂",
-              "sound speed there"
-            ]
-          ],
-          "s": "Sound bends toward the slower water when it crosses a layer, which is what makes a shadow zone.",
-          "card": false
-        }
       ],
       "takesAsRead": [
         {
@@ -527,25 +388,6 @@ export const CURRICULUM = {
           ],
           "s": "A contact closing on you raises the frequency you hear, by a fraction equal to the closing speed over the speed of sound.",
           "demanded": true
-        },
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "speed of sound in water, about 1500 metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
         }
       ],
       "takesAsRead": [
@@ -754,26 +596,6 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "dB = 10·log₁₀(P/P₀)",
-          "c": "the decibel, and why 3 dB is a doubling",
-          "v": [
-            [
-              "dB",
-              "the level, in decibels"
-            ],
-            [
-              "P",
-              "the power being measured"
-            ],
-            [
-              "P₀",
-              "the reference power it is quoted against"
-            ]
-          ],
-          "s": "Decibels are a logarithm, so adding 3 dB is doubling the power and adding 10 dB is ten times it.",
-          "demanded": true
-        },
-        {
           "e": "SL − 2TL + TS − NL ≥ DT",
           "c": "the sonar equation as a detection budget",
           "v": [
@@ -800,27 +622,6 @@ export const CURRICULUM = {
           ],
           "s": "Detection is a budget: the echo has to survive two trips through the water and still stand above the noise.",
           "demanded": true
-        },
-        {
-          "e": "d = ½vt",
-          "c": "echo ranging on a two-way travel time",
-          "v": [
-            [
-              "d",
-              "range to the contact, in metres"
-            ],
-            [
-              "v",
-              "speed of sound in water"
-            ],
-            [
-              "t",
-              "the round-trip travel time, in seconds"
-            ]
-          ],
-          "s": "The ping goes out and comes back, so the range is half of what the travel time would otherwise give.",
-          "demanded": true,
-          "card": false
         }
       ],
       "takesAsRead": [
@@ -932,26 +733,6 @@ export const CURRICULUM = {
         "sound as a wave: frequency, wavelength, speed — taken as read"
       ],
       "equations": [
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "speed of sound in water, about 1500 metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other.",
-          "demanded": true
-        },
         {
           "e": "f_beat = |f₁ − f₂|",
           "c": "beats between two close frequencies",
@@ -1293,27 +1074,6 @@ export const CURRICULUM = {
         "an echo time is a round trip",
         "two displays that share one source can share one error"
       ],
-      "equations": [
-        {
-          "e": "d = ½vt",
-          "c": "echo ranging on a two-way travel time",
-          "v": [
-            [
-              "d",
-              "range to the contact, in metres"
-            ],
-            [
-              "v",
-              "speed of sound in water"
-            ],
-            [
-              "t",
-              "the round-trip travel time, in seconds"
-            ]
-          ],
-          "s": "The ping goes out and comes back, so the range is half of what the travel time would otherwise give."
-        }
-      ],
       "concept": {
         "n": 19,
         "c": "Instruments versus indicators: validating a reading",
@@ -1451,31 +1211,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a submarine holds depth by buoyancy and by the planes together"
-      ],
-      "equations": [
-        {
-          "e": "F_b = ρVg",
-          "c": "Archimedes — buoyancy from displaced volume",
-          "v": [
-            [
-              "F_b",
-              "buoyant force, in newtons"
-            ],
-            [
-              "ρ",
-              "density of the water"
-            ],
-            [
-              "V",
-              "volume of water displaced, in cubic metres"
-            ],
-            [
-              "g",
-              "9.81 metres per second squared"
-            ]
-          ],
-          "s": "The upward force equals the weight of the water pushed aside, so flooding a compartment removes buoyancy the boat was relying on."
-        }
       ],
       "concept": {
         "n": 19,
@@ -2599,31 +2334,6 @@ export const CURRICULUM = {
         "a fire inside a structure does not show you where it is",
         "sound as a wave: frequency, wavelength, speed — taken as read"
       ],
-      "equations": [
-        {
-          "e": "sinθ₁ / v₁ = sinθ₂ / v₂",
-          "c": "Snell's law — why sound bends at a layer",
-          "v": [
-            [
-              "θ₁",
-              "angle in the first layer"
-            ],
-            [
-              "v₁",
-              "sound speed in that layer"
-            ],
-            [
-              "θ₂",
-              "angle in the second layer"
-            ],
-            [
-              "v₂",
-              "sound speed there"
-            ]
-          ],
-          "s": "Sound bends toward the slower water when it crosses a layer, which is what makes a shadow zone."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 1,
@@ -2968,27 +2678,6 @@ export const CURRICULUM = {
       "assumes": [
         "every structure has frequencies at which it prefers to vibrate",
         "sound as a wave: frequency, wavelength, speed — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "speed of sound in water, about 1500 metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other."
-        }
       ],
       "takesAsRead": [
         {
@@ -3662,27 +3351,6 @@ export const CURRICULUM = {
       "assumes": [
         "a finite yard slot spent on one refit cannot also be spent on another",
         "the patrol has both a stealth requirement and an old-chart navigation risk"
-      ],
-      "equations": [
-        {
-          "e": "dB = 10·log₁₀(P/P₀)",
-          "c": "the decibel, and why 3 dB is a doubling",
-          "v": [
-            [
-              "dB",
-              "the level, in decibels"
-            ],
-            [
-              "P",
-              "the power being measured"
-            ],
-            [
-              "P₀",
-              "the reference power it is quoted against"
-            ]
-          ],
-          "s": "Decibels are a logarithm, so adding 3 dB is doubling the power and adding 10 dB is ten times it."
-        }
       ],
       "concept": {
         "n": 24,

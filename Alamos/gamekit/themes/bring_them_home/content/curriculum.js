@@ -164,27 +164,6 @@ export const CURRICULUM = {
         "kinematics — taken as read",
         "newton's laws and free-body reasoning — taken as read"
       ],
-      "equations": [
-        {
-          "e": "a_c = v² / r",
-          "c": "centripetal acceleration in circular motion",
-          "v": [
-            [
-              "a_c",
-              "centripetal acceleration, in metres per second squared"
-            ],
-            [
-              "v",
-              "speed along the circle"
-            ],
-            [
-              "r",
-              "radius of the circle, in metres"
-            ]
-          ],
-          "s": "Going round a curve is an acceleration even at constant speed, because the direction keeps changing."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 2,
@@ -286,30 +265,6 @@ export const CURRICULUM = {
           ],
           "s": "Acceleration is what a net force produces, and the same force moves a heavier object less.",
           "computed": true
-        },
-        {
-          "e": "J = FΔt = Δp",
-          "c": "impulse as the change in momentum",
-          "v": [
-            [
-              "J",
-              "impulse, in newton seconds"
-            ],
-            [
-              "F",
-              "force applied"
-            ],
-            [
-              "Δt",
-              "how long it acts for"
-            ],
-            [
-              "Δp",
-              "the resulting change in momentum"
-            ]
-          ],
-          "s": "A small force applied for a long time changes momentum as much as a large one applied briefly.",
-          "card": false
         }
       ],
       "takesAsRead": [
@@ -377,25 +332,6 @@ export const CURRICULUM = {
           ],
           "s": "Turning effect depends on where the force is applied as much as on how hard, and equilibrium needs the torques to cancel.",
           "computed": true
-        },
-        {
-          "e": "F = ma",
-          "c": "Newton's second law",
-          "v": [
-            [
-              "F",
-              "net force, in newtons"
-            ],
-            [
-              "m",
-              "mass, in kilograms"
-            ],
-            [
-              "a",
-              "acceleration, in metres per second squared"
-            ]
-          ],
-          "s": "Acceleration is what a net force produces, and the same force moves a heavier object less."
         }
       ],
       "takesAsRead": [
@@ -695,27 +631,6 @@ export const CURRICULUM = {
         "subtracting two measured numbers carries both of their errors into the answer",
         "waves: frequency, wavelength, speed — taken as read"
       ],
-      "equations": [
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "wave speed, in metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 12,
@@ -939,31 +854,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a battery has both a voltage and a current it can supply"
-      ],
-      "equations": [
-        {
-          "e": "P = IV = I²R",
-          "c": "electrical power, and an energy budget over time",
-          "v": [
-            [
-              "P",
-              "power, in watts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "V",
-              "voltage, in volts"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
-        }
       ],
       "concept": {
         "n": 20,
@@ -1486,31 +1376,6 @@ export const CURRICULUM = {
         "a pressure difference drives a flow and the path decides its rate",
         "newton's laws and free-body reasoning — taken as read"
       ],
-      "equations": [
-        {
-          "e": "P = IV = I²R",
-          "c": "electrical power, and an energy budget over time",
-          "v": [
-            [
-              "P",
-              "power, in watts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "V",
-              "voltage, in volts"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 3,
@@ -1895,70 +1760,6 @@ export const CURRICULUM = {
         "a torque is what makes something start or stop turning",
         "newton's laws and free-body reasoning — taken as read"
       ],
-      "equations": [
-        {
-          "e": "F = ma",
-          "c": "Newton's second law",
-          "v": [
-            [
-              "F",
-              "net force, in newtons"
-            ],
-            [
-              "m",
-              "mass, in kilograms"
-            ],
-            [
-              "a",
-              "acceleration, in metres per second squared"
-            ]
-          ],
-          "s": "Acceleration is what a net force produces, and the same force moves a heavier object less."
-        },
-        {
-          "e": "J = FΔt = Δp",
-          "c": "impulse as the change in momentum",
-          "v": [
-            [
-              "J",
-              "impulse, in newton seconds"
-            ],
-            [
-              "F",
-              "force applied"
-            ],
-            [
-              "Δt",
-              "how long it acts for"
-            ],
-            [
-              "Δp",
-              "the resulting change in momentum"
-            ]
-          ],
-          "s": "A small force applied for a long time changes momentum as much as a large one applied briefly."
-        },
-        {
-          "e": "τ = rF",
-          "c": "torque about an axis, and rotational equilibrium",
-          "v": [
-            [
-              "τ",
-              "torque, in newton metres"
-            ],
-            [
-              "r",
-              "distance from the axis, in metres"
-            ],
-            [
-              "F",
-              "force applied at that distance"
-            ]
-          ],
-          "s": "Turning effect depends on where the force is applied as much as on how hard, and equilibrium needs the torques to cancel.",
-          "card": false
-        }
-      ],
       "takesAsRead": [
         {
           "n": 3,
@@ -2019,27 +1820,6 @@ export const CURRICULUM = {
       "assumes": [
         "a slower signal needs less power to be read",
         "waves: frequency, wavelength, speed — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "wave speed, in metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion."
-        }
       ],
       "takesAsRead": [
         {
@@ -2105,45 +1885,6 @@ export const CURRICULUM = {
           ],
           "s": "An oscillator has a natural period set by its mass and stiffness, and driving it at that rate is what makes a resonance.",
           "computed": true
-        },
-        {
-          "e": "F = ma",
-          "c": "Newton's second law",
-          "v": [
-            [
-              "F",
-              "net force, in newtons"
-            ],
-            [
-              "m",
-              "mass, in kilograms"
-            ],
-            [
-              "a",
-              "acceleration, in metres per second squared"
-            ]
-          ],
-          "s": "Acceleration is what a net force produces, and the same force moves a heavier object less."
-        },
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "wave speed, in metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion.",
-          "card": false
         }
       ],
       "takesAsRead": [
@@ -2403,31 +2144,6 @@ export const CURRICULUM = {
         "a force acting on a mass produces an acceleration",
         "kinematics — taken as read"
       ],
-      "equations": [
-        {
-          "e": "J = FΔt = Δp",
-          "c": "impulse as the change in momentum",
-          "v": [
-            [
-              "J",
-              "impulse, in newton seconds"
-            ],
-            [
-              "F",
-              "force applied"
-            ],
-            [
-              "Δt",
-              "how long it acts for"
-            ],
-            [
-              "Δp",
-              "the resulting change in momentum"
-            ]
-          ],
-          "s": "A small force applied for a long time changes momentum as much as a large one applied briefly."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 2,
@@ -2504,27 +2220,6 @@ export const CURRICULUM = {
         "rotation continues after a thruster stops firing",
         "newton's laws and free-body reasoning — taken as read",
         "rotational kinematics — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "τ = rF",
-          "c": "torque about an axis, and rotational equilibrium",
-          "v": [
-            [
-              "τ",
-              "torque, in newton metres"
-            ],
-            [
-              "r",
-              "distance from the axis, in metres"
-            ],
-            [
-              "F",
-              "force applied at that distance"
-            ]
-          ],
-          "s": "Turning effect depends on where the force is applied as much as on how hard, and equilibrium needs the torques to cancel."
-        }
       ],
       "takesAsRead": [
         {
@@ -2746,31 +2441,6 @@ export const CURRICULUM = {
       "assumes": [
         "current through a resistance drops voltage and makes heat"
       ],
-      "equations": [
-        {
-          "e": "P = IV = I²R",
-          "c": "electrical power, and an energy budget over time",
-          "v": [
-            [
-              "P",
-              "power, in watts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "V",
-              "voltage, in volts"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
-        }
-      ],
       "concept": {
         "n": 14,
         "c": "Circuits: current, voltage, resistance, Ohm's law",
@@ -2859,31 +2529,6 @@ export const CURRICULUM = {
         "some loads can be duty-cycled while others must run continuously",
         "newton's laws and free-body reasoning — taken as read"
       ],
-      "equations": [
-        {
-          "e": "P = IV = I²R",
-          "c": "electrical power, and an energy budget over time",
-          "v": [
-            [
-              "P",
-              "power, in watts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "V",
-              "voltage, in volts"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 3,
@@ -2955,31 +2600,6 @@ export const CURRICULUM = {
       "assumes": [
         "a voltage difference between connected batteries drives current",
         "a current rating is a physical limit, not a suggestion"
-      ],
-      "equations": [
-        {
-          "e": "P = IV = I²R",
-          "c": "electrical power, and an energy budget over time",
-          "v": [
-            [
-              "P",
-              "power, in watts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "V",
-              "voltage, in volts"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
-        }
       ],
       "concept": {
         "n": 15,
@@ -3115,31 +2735,6 @@ export const CURRICULUM = {
       "assumes": [
         "a running motor does not guarantee useful flow",
         "air must pass through every required link in a closed loop"
-      ],
-      "equations": [
-        {
-          "e": "P = IV = I²R",
-          "c": "electrical power, and an energy budget over time",
-          "v": [
-            [
-              "P",
-              "power, in watts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "V",
-              "voltage, in volts"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
-        }
       ],
       "concept": {
         "n": 18,
@@ -3312,39 +2907,6 @@ export const CURRICULUM = {
         "energy is not destroyed, it is moved somewhere else",
         "newton's laws and free-body reasoning — taken as read"
       ],
-      "equations": [
-        {
-          "e": "W = Fd, KE = ½mv²",
-          "c": "work, kinetic energy and conservation of energy",
-          "v": [
-            [
-              "W",
-              "work done, in joules"
-            ],
-            [
-              "F",
-              "force along the motion, in newtons"
-            ],
-            [
-              "d",
-              "distance moved, in metres"
-            ],
-            [
-              "KE",
-              "kinetic energy, in joules"
-            ],
-            [
-              "m",
-              "mass"
-            ],
-            [
-              "v",
-              "speed"
-            ]
-          ],
-          "s": "Work done on something becomes its energy, and the total energy is bookkeeping that has to balance."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 3,
@@ -3417,31 +2979,6 @@ export const CURRICULUM = {
         "an uncertainty band describes a range of plausible states",
         "a narrower distribution puts more probability near its center"
       ],
-      "equations": [
-        {
-          "e": "P = IV = I²R",
-          "c": "electrical power, and an energy budget over time",
-          "v": [
-            [
-              "P",
-              "power, in watts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "V",
-              "voltage, in volts"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on."
-        }
-      ],
       "concept": {
         "n": 19,
         "c": "Measurement uncertainty and error propagation",
@@ -3498,46 +3035,6 @@ export const CURRICULUM = {
       "assumes": [
         "every structure has speeds at which it prefers to shake"
       ],
-      "equations": [
-        {
-          "e": "T = 2π√(m/k)",
-          "c": "the period of a simple harmonic oscillator, and resonance",
-          "v": [
-            [
-              "T",
-              "period, in seconds"
-            ],
-            [
-              "m",
-              "the oscillating mass, in kilograms"
-            ],
-            [
-              "k",
-              "stiffness of the spring, in newtons per metre"
-            ]
-          ],
-          "s": "An oscillator has a natural period set by its mass and stiffness, and driving it at that rate is what makes a resonance."
-        },
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "wave speed, in metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion."
-        }
-      ],
       "concept": {
         "n": 26,
         "c": "Static equilibrium and structural loads",
@@ -3586,46 +3083,6 @@ export const CURRICULUM = {
       "assumes": [
         "a resonance needs both a structure and something driving it",
         "newton's laws and free-body reasoning — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "T = 2π√(m/k)",
-          "c": "the period of a simple harmonic oscillator, and resonance",
-          "v": [
-            [
-              "T",
-              "period, in seconds"
-            ],
-            [
-              "m",
-              "the oscillating mass, in kilograms"
-            ],
-            [
-              "k",
-              "stiffness of the spring, in newtons per metre"
-            ]
-          ],
-          "s": "An oscillator has a natural period set by its mass and stiffness, and driving it at that rate is what makes a resonance."
-        },
-        {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "wave speed, in metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion."
-        }
       ],
       "takesAsRead": [
         {
@@ -3887,39 +3344,6 @@ export const CURRICULUM = {
         "two measurements that share a clock do not provide independent timing evidence",
         "an observation can be valuable even if it is less precise",
         "newton's laws and free-body reasoning — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "v = v₀ + at, x = x₀ + v₀t + ½at²",
-          "c": "kinematics at constant acceleration",
-          "v": [
-            [
-              "v",
-              "speed at time t, in metres per second"
-            ],
-            [
-              "v₀",
-              "speed at the start"
-            ],
-            [
-              "a",
-              "acceleration, in metres per second squared"
-            ],
-            [
-              "t",
-              "elapsed time, in seconds"
-            ],
-            [
-              "x",
-              "position"
-            ],
-            [
-              "x₀",
-              "starting position"
-            ]
-          ],
-          "s": "Under constant acceleration, speed grows in step with time and distance grows with the square of it."
-        }
       ],
       "takesAsRead": [
         {

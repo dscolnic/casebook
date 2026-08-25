@@ -119,42 +119,6 @@ export const CURRICULUM = {
         "the two traits are carried on different chromosomes",
         "each trait on its own shows three of one form to one of the other"
       ],
-      "equations": [
-        {
-          "e": "E = N × p",
-          "c": "how many offspring of a kind to expect",
-          "v": [
-            [
-              "N",
-              "the number of offspring counted"
-            ],
-            [
-              "p",
-              "the expected share of that kind, as a fraction"
-            ],
-            [
-              "E",
-              "the expected count"
-            ]
-          ],
-          "s": "An expected share applied to a real number of offspring gives the count a model predicts, which is the only form in which a ratio can be compared with a tally."
-        },
-        {
-          "e": "P(both) = p₁ × p₂",
-          "c": "the chance of two independent outcomes together",
-          "v": [
-            [
-              "p₁, p₂",
-              "the chance of each outcome on its own"
-            ],
-            [
-              "P(both)",
-              "the chance of both happening"
-            ]
-          ],
-          "s": "When one outcome tells you nothing about the other, the chance of getting both is the two chances multiplied, which is what independence means in arithmetic."
-        }
-      ],
       "concept": {
         "n": 8,
         "c": "Two traits on separate chromosomes are inherited independently",

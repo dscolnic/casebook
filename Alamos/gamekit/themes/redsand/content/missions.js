@@ -7,23 +7,26 @@ export const MISSIONS = [
     "title": "2700 kilograms short",
     "objective": "Establish what the plant is actually limited by before anybody changes a set point.",
     "briefing": "The tank reconciliation was read at breakfast and the plant does not reach the number.",
-    "stake": "Sol 291. The tally of the ascent vehicle's tanks was read out at breakfast this morning. 3.9 tonnes of methane are aboard. 6.6 tonnes have to be aboard by the sol the transfer window opens. That is 195 sols away. The plant's output today does not reach it. Ingrid Sundqvist, the plant production lead, wants the reactor set point raised 40 degrees tonight. Tomás Herrera owns the reactor loop and the specification the propellant has to meet. He says a hotter bed gives back less methane on every pass. Today you walk the loop end to end and decide what is holding the output down. Whatever the plant misses this fortnight falls on the sols that are left. There are 195 of those.",
+    "stake": "Sol 291. The tank holds 3.9 tonnes of methane and needs 6.6 before the window opens. Today you walk the loop end to end and find what holds the output down.",
     "takeaway": "A plant has a speed and a ceiling, and they are not the same limit.",
     "stops": [
       {
         "group": "EQUIL",
         "lesson": 0,
-        "task": "Match each change to the loop with what it does to the methane at equilibrium — the amount the mixture settles at."
+        "task": "Match each change to the loop with what it does to the methane at equilibrium — the amount the mixture settles at.",
+        "reason": "The methane is made here, so this is the first place a limit on the output could be hiding"
       },
       {
         "group": "KINET",
         "lesson": 0,
-        "task": "Say what 40 degrees actually buys"
+        "task": "Say what 40 degrees actually buys",
+        "reason": "She wants the reactor run hotter tonight, and whether that would raise the output at all is today's question"
       },
       {
         "group": "PHASE",
         "lesson": 0,
-        "task": "Say why the stream is cleaned before it is cooled"
+        "task": "Say why the stream is cleaned before it is cooled",
+        "reason": "Methane that never reaches a tank is not output, and the cold line is where it goes missing"
       }
     ]
   },
@@ -31,28 +34,32 @@ export const MISSIONS = [
     "title": "Run it hotter",
     "objective": "Find what else the same power could be doing, now that the bed is where it should have been.",
     "briefing": "The hot run made its number overnight, and the argument has moved to the electrolysis hall.",
-    "stake": "Sol 292. The bed went to 320 degrees overnight, on Sundqvist's authority. It made 11.4 kilograms of methane. The sol before it made 9.7. The recycle loop took back most of what the hotter pass gave away. So Sundqvist is right this sol. What she is right about is narrow. The bed had been running far below the temperature it was built for. And a loop that recycles can afford a poor pass. Today you go to the electrolysis hall and settle what one stack really converts. Hydrogen is the other half of every kilogram of methane. The heating hour the plant borrowed came off the habitat margin of Yusuf Demir, the life support officer. He has said so in the log.",
+    "stake": "Sol 292. The bed ran hot overnight and made 11.4 kilograms, against 9.7 the sol before. Today you settle what one stack really gives back, because half of each kilogram is hydrogen.",
     "takeaway": "A loop that recycles can afford a poor pass, and a plant with no hydrogen cannot afford anything.",
     "stops": [
       {
         "group": "KINET",
         "lesson": 1,
-        "task": "Work out how long the gas is in contact with the catalyst"
+        "task": "Work out how long the gas is in contact with the catalyst",
+        "reason": "Before the hot run gets the credit, find out how long the gas still touches the catalyst"
       },
       {
         "group": "ELEC",
         "lesson": 0,
-        "task": "Match each item on Achebe's board to what it does."
+        "task": "Match each item on Achebe's board to what it does.",
+        "reason": "This hall is the only source of hydrogen on the station, so start by learning how its cells work"
       },
       {
         "group": "GIBBS",
         "lesson": 0,
-        "task": "State which of the plant's steps have a bill"
+        "task": "State which of the plant's steps have a bill",
+        "reason": "The hot run borrowed power from somewhere, and nobody has said which steps cost energy and which give it back"
       },
       {
         "group": "SOIL",
         "lesson": 0,
-        "task": "Sort the regolith samples before the hopper is charged."
+        "task": "Sort the regolith samples before the hopper is charged.",
+        "reason": "Hydrogen starts as water in the ground, and only some of what the digger brought in is worth processing"
       }
     ]
   },
@@ -60,23 +67,26 @@ export const MISSIONS = [
     "title": "The line that stopped passing gas",
     "objective": "Find what closed the cold line, and what the hot run has to do with it.",
     "briefing": "The cold end stopped delivering liquid three hours into the hot run.",
-    "stake": "Sol 293. The cold end stopped delivering liquid 3 hours after the hot run began. The loop is still making methane. None of it is reaching a tank. The sol's production is standing in a pipe at 12 bar. Cho has a flow that fell away over three hours rather than stopping at once. That rules out most of the simple explanations. Herrera is right this sol. The hotter bed put more water into the product stream, and the water went somewhere. Today you find where the water went. You also work out why the hot pass gave back less methane, and follow the water back up the plant to the ground it came from. Nothing else runs while the cold end is blocked.",
+    "stake": "Sol 293. The cold end stopped passing liquid three hours after the hot run began. Today you find where the water went, and follow it back to the ground it came from.",
     "takeaway": "A plant is a chain, and the fastest step decides nothing on its own.",
     "stops": [
       {
         "group": "PHASE",
         "lesson": 1,
-        "task": "Which explanation fits every reading, not the loudest one?"
+        "task": "Which explanation fits every reading, not the loudest one?",
+        "reason": "The blockage is here and the pipe cannot be opened, so the gauges are the only way in"
       },
       {
         "group": "EQUIL",
         "lesson": 1,
-        "task": "Separate the thermodynamic temperature effect from the flow change in the hot run."
+        "task": "Separate the thermodynamic temperature effect from the flow change in the hot run.",
+        "reason": "He owns the loop that ran hot, and the water sitting in the cold line came out of that pass"
       },
       {
         "group": "SOIL",
         "lesson": 1,
-        "task": "Order the steps the water plant runs in."
+        "task": "Order the steps the water plant runs in.",
+        "reason": "The water started here, so the last stop is the step that let more of it through"
       }
     ]
   },
@@ -84,28 +94,32 @@ export const MISSIONS = [
     "title": "The loop that pays for itself",
     "objective": "Size the feed the plant needs, and find where the current is going.",
     "briefing": "With the cold line clear, the question is whether the feed can keep up with the bed.",
-    "stake": "Sol 294. The exchanger was warmed out overnight. The cold end took liquid again at six hours. That leaves the plant with the question it had two sols ago, and better information about it. Herrera's loop can convert two thirds of a pass and recycle the rest. What it cannot do is make methane out of carbon dioxide it has not been given. It cannot make it out of hydrogen the stacks have not made either. Today you size the feed the bed needs at the new rate. You also ask why Achebe's stacks return less hydrogen than the current says they should, and look at what the water carries with it. Abiola has been asking for a second polishing column since sol 240. He has not been given one.",
+    "stake": "Sol 294. The cold end took liquid again at six hours, so the feed question is back. Today you size the gas the bed needs, and find out where the current is going.",
     "takeaway": "A plant is limited by whichever feed runs out first, and it will not be the same one every sol.",
     "stops": [
       {
         "group": "EQUIL",
         "lesson": 2,
-        "task": "Size the carbon dioxide the bed needs each sol"
+        "task": "Size the carbon dioxide the bed needs each sol",
+        "reason": "The plant has a methane target every sol, and nobody has worked out the gas it takes to hit it"
       },
       {
         "group": "ELEC",
         "lesson": 1,
-        "task": "Close the hydrogen-equivalent charge ledger and identify the part of the current that did not become collected hydrogen."
+        "task": "Close the hydrogen-equivalent charge ledger and identify the part of the current that did not become collected hydrogen.",
+        "reason": "The stacks are billed for every amp, and less hydrogen comes out than the current says it should"
       },
       {
         "group": "SOIL",
         "lesson": 2,
-        "task": "Match each dissolved species to what it does downstream."
+        "task": "Match each dissolved species to what it does downstream.",
+        "reason": "The feed water carries more than water, and one polishing column stands between it and the stacks"
       },
       {
         "group": "EQUIL",
         "lesson": 3,
-        "task": "Hold the reactor while the feed varies."
+        "task": "Hold the reactor while the feed varies.",
+        "reason": "The feed rises and falls with the sun, and somebody has to hold the bed steady through it"
       }
     ]
   },
@@ -113,23 +127,26 @@ export const MISSIONS = [
     "title": "The ceiling on running hotter",
     "objective": "Put a number on how far the temperature argument can be taken.",
     "briefing": "Sundqvist has asked for another 40 degrees, and this time the question has an arithmetic answer.",
-    "stake": "Sol 295. Sundqvist has asked for another 40 degrees on the bed, 4 sols after the first 40 worked. Kaur will not sign for it. The last charge she pulled had grown its metal particles. A bed that has sintered does not come back. Demir wants to know where the heat is coming from. The reactor gives out heat, and the habitat is short of it. Today you put an arithmetic ceiling on the temperature argument. You also decide what a catalyst can and cannot change about it, and follow the product stream into the cold end. The number you work out settles a fortnight of argument, either way. Marion Wells, who commands the station, has said she will act on it the same evening.",
+    "stake": "Sol 295. Another 40 degrees has been asked for, four sols after the first 40 worked. Today you put a hard ceiling on the heat, and say what a catalyst can and cannot change.",
     "takeaway": "An argument that has an arithmetic answer should not be settled by seniority.",
     "stops": [
       {
         "group": "GIBBS",
         "lesson": 1,
-        "task": "Work out the free-energy change at the bed's temperature"
+        "task": "Work out the free-energy change at the bed's temperature",
+        "reason": "The heat argument needs a number, and the thermodynamic data to work one out is on this desk"
       },
       {
         "group": "KINET",
         "lesson": 2,
-        "task": "Say what the catalyst is and is not doing"
+        "task": "Say what the catalyst is and is not doing",
+        "reason": "Her case rests on a better catalyst lifting the ceiling, so find out whether one can do that at all"
       },
       {
         "group": "PHASE",
         "lesson": 2,
-        "task": "Order the stages of the cold end, warmest to coldest."
+        "task": "Order the stages of the cold end, warmest to coldest.",
+        "reason": "The cold end is being rebuilt after the blockage, and its stages go back in only one workable order"
       }
     ]
   },
@@ -137,23 +154,26 @@ export const MISSIONS = [
     "title": "Water is the whole plant",
     "objective": "Find the feed that actually caps the plant, and what it costs to clean.",
     "briefing": "The bed is fine and the stacks are fine, and the plant made 11 kilograms again.",
-    "stake": "Sol 296. For the third sol running the plant has made about 11 kilograms. The bed could do more. Sora Nakagawa, the drill and excavation operator, cuts the ground the water comes from. He has been working poorer ice for a week. It was 8% water by mass in the spring. It is four and a half this morning. The machine cannot go deeper fast enough to make that up. Abiola's holding tank holds brine, not water. It stays liquid at temperatures that ought to have frozen it solid. Today you work out how salty it has to be to do that. You also settle what the stacks do with the voltage above the minimum, and which way the loop is running right now. Everything downstream is waiting on one tank.",
+    "stake": "Sol 296. The ice being cut has been getting poorer since the spring, and is down to four percent water this morning. Today you work out how salty the tank is, and what the extra volts are doing.",
     "takeaway": "The step that limits a plant is not the step anybody is arguing about.",
     "stops": [
       {
         "group": "SOIL",
         "lesson": 3,
-        "task": "Work out how much salt the brine is carrying"
+        "task": "Work out how much salt the brine is carrying",
+        "reason": "The tank sat below freezing overnight and still drained as a liquid, which says what is dissolved in it"
       },
       {
         "group": "ELEC",
         "lesson": 2,
-        "task": "Account for the voltage above the thermodynamic minimum"
+        "task": "Account for the voltage above the thermodynamic minimum",
+        "reason": "The stacks run well above the voltage they actually need, and the array is paying the difference"
       },
       {
         "group": "EQUIL",
         "lesson": 4,
-        "task": "Calculate the reaction quotient from the snapshot and compare it with the equilibrium constant."
+        "task": "Calculate the reaction quotient from the snapshot and compare it with the equilibrium constant.",
+        "reason": "A frozen screen of the loop mid-settle is on the desk, and nobody has called which way it is heading"
       }
     ]
   },
@@ -161,23 +181,26 @@ export const MISSIONS = [
     "title": "The bed walks downstream",
     "objective": "Find out what is happening inside a bed nobody can see into.",
     "briefing": "The reactor's hot spot has moved 30 centimetres down the bed in 9 sols.",
-    "stake": "Sol 297. Kaur brought in 9 sols of temperature profiles this morning. The hot spot has moved 30 centimetres down the bed. Output is falling about 2% a sol, against a feed that has not changed. The assay bench has begun reporting carbon monoxide in the product. There was none of it in the spring. Élodie Moreau, the cryogenic fluids technician, has a boil-off log that has gone up as well. That may be the same problem or a different one. Today you decide what the bed is telling you. You also work out why a hot reactor makes a gas nobody asked for, and put a number on what the tank farm loses standing still. Kaur says the profile means the front of the bed is dead. Sundqvist says a bed that hot is doing what hot beds do.",
+    "stake": "Sol 297. The hot spot has moved 30 centimetres down the bed since the spring, and output is falling. Today you read what the bed is telling you, and price what the tanks lose standing still.",
     "takeaway": "A measurement taken every sol becomes evidence when somebody lays nine of them side by side.",
     "stops": [
       {
         "group": "PHASE",
         "lesson": 3,
-        "task": "Put a number on what the tank loses each sol"
+        "task": "Put a number on what the tank loses each sol",
+        "reason": "The oxygen tank loses liquid on sols when nothing is drawn from it, and nobody has put that in kilograms"
       },
       {
         "group": "GIBBS",
         "lesson": 2,
-        "task": "Explain the gas nobody asked for"
+        "task": "Explain the gas nobody asked for",
+        "reason": "Carbon monoxide climbs every time the bed is turned up, and the plant is losing carbon to it"
       },
       {
         "group": "KINET",
         "lesson": 3,
-        "task": "Which explanation fits every reading?"
+        "task": "Which explanation fits every reading?",
+        "reason": "Nine sols of heat profiles are pinned along the wall, and they are the only view anyone has inside the bed"
       }
     ]
   },
@@ -185,23 +208,26 @@ export const MISSIONS = [
     "title": "The assay bench",
     "objective": "Turn current into kilograms, and find out what is actually in the product.",
     "briefing": "Stern has run a full assay on the product stream for the first time since the spring.",
-    "stake": "Sol 298. Dana Stern, the analytical chemist, has run the first full product assay since the spring. The plant has been living on a two-line check instead. Four numbers came off the assay. One of them is a compound nobody had been asking about. So it has been in the stream for as long as nobody asked. Achebe wants her stack's output stated in kilograms, not in amps, for the same reason. Today you turn a sol of current into a mass of hydrogen. You also read the assay line by line, and look at how the polishing column behaves as it fills. Anaya Bhatt, the ascent vehicle systems engineer, has asked for all three. She will not countersign another batch into her tanks until she has them.",
+    "stake": "Sol 298. The first full assay since the spring came back with a compound nobody asked about. Today you turn a sol of current into kilograms, and read the assay line by line.",
     "takeaway": "A measurement nobody asks for is a measurement that arrives later at full size.",
     "stops": [
       {
         "group": "ELEC",
         "lesson": 3,
-        "task": "Turn a sol of current into kilograms of hydrogen"
+        "task": "Turn a sol of current into kilograms of hydrogen",
+        "reason": "The stacks report amps and the tank fills in kilograms, and nobody has turned one into the other"
       },
       {
         "group": "EQUIL",
         "lesson": 5,
-        "task": "Match each assay line to what it says about the loop."
+        "task": "Match each assay line to what it says about the loop.",
+        "reason": "The assay has four lines on it, and each says something about the loop that nobody has read yet"
       },
       {
         "group": "SOIL",
         "lesson": 4,
-        "task": "Say what a full polishing column does"
+        "task": "Say what a full polishing column does",
+        "reason": "The polishing column protects everything downstream, and no gauge on it says when it is full"
       }
     ]
   },
@@ -209,23 +235,26 @@ export const MISSIONS = [
     "title": "What the spent charge was carrying",
     "objective": "Find out what has been taking the bed apart, and for how long.",
     "briefing": "The spent catalyst charge came back from the assay bench this morning.",
-    "stake": "Sol 299. The spent charge Kaur pulled on sol 288 came back from Stern's bench an hour ago. It had sat in a sealed can for 11 sols. Nobody thought a dead catalyst would say anything a temperature profile had not. The result is one line long. It changes what the last fortnight was about. Abiola's outlet conductivity trace has been printed every sol since the plant started. Nobody has had a reason to read it. Today you work out what killed the bed and when it started. You also settle what the loop's poor conversion has really been telling everybody. Sundqvist and Herrera have argued about a set point for 8 sols. Eleven sols of production are gone while they did.",
+    "stake": "Sol 299. The dead catalyst charge came back from the bench an hour ago, and its one line changes the fortnight. Today you work out what killed the bed, and when it started.",
     "takeaway": "Two people can argue correctly for a fortnight about the wrong variable.",
     "stops": [
       {
         "group": "KINET",
         "lesson": 4,
-        "task": "Which explanation fits every finding?"
+        "task": "Which explanation fits every finding?",
+        "reason": "The dead charge was cut into three sections and assayed, and the findings are already on the board"
       },
       {
         "group": "SOIL",
         "lesson": 5,
-        "task": "Date the change in the water"
+        "task": "Date the change in the water",
+        "reason": "His outlet trace has been logged every sol since the plant started, and it can date what happened"
       },
       {
         "group": "EQUIL",
         "lesson": 6,
-        "task": "Hold temperature and pressure fixed, change one operating variable, reverse it, and determine whether the reactor is rate-limited."
+        "task": "Hold temperature and pressure fixed, change one operating variable, reverse it, and determine whether the reactor is rate-limited.",
+        "reason": "A fortnight of argument about the reactor gets one controlled run to settle it"
       }
     ]
   },
@@ -233,23 +262,26 @@ export const MISSIONS = [
     "title": "A new charge and a rule for the water",
     "objective": "Get a bed back into service and decide what stops this happening again.",
     "briefing": "There is one spare catalyst charge on the station and no second one coming.",
-    "stake": "Sol 300. The last spare catalyst charge came out of stores this morning. There is no second one on this planet. Whatever is done with it is done once. Kaur wants it qualified properly before it carries production. Sundqvist wants it making methane by the afternoon. This time Wells has come down on Kaur's side. Achebe has parts enough for one improvement to the water and power loop, and a list of four. Today you set the order the charge is brought into service. You also decide what the spare parts are spent on, and whether the methane tank's rising pressure is a leak or a temperature. Everything the plant does for the next 180 sols runs through a bed commissioned this afternoon.",
+    "stake": "Sol 300. The last spare charge on this planet came out of stores this morning. Today you set the order it goes into service, and spend the one set of spare parts.",
     "takeaway": "A part with no replacement is commissioned by procedure rather than by enthusiasm.",
     "stops": [
       {
         "group": "KINET",
         "lesson": 5,
-        "task": "Order the four operations for bringing the charge into service."
+        "task": "Order the four operations for bringing the charge into service.",
+        "reason": "The new charge is not a catalyst yet, and there is only one chance to bring it into service"
       },
       {
         "group": "ELEC",
         "lesson": 4,
-        "task": "Fund the change that would most alter what the plant does next."
+        "task": "Fund the change that would most alter what the plant does next.",
+        "reason": "There are parts and crew time for one change to the plant, and four things asking for them"
       },
       {
         "group": "PHASE",
         "lesson": 4,
-        "task": "Decide whether a rising pressure is a leak"
+        "task": "Decide whether a rising pressure is a leak",
+        "reason": "The methane tank has been climbing for four sols, and somebody is about to vent it"
       }
     ]
   },
@@ -257,23 +289,26 @@ export const MISSIONS = [
     "title": "The sol everything agreed",
     "objective": "Close the plant's own books while there is nothing to firefight.",
     "briefing": "The new charge ran to specification for a full sol and nobody quite believes it.",
-    "stake": "Sol 301. For the first time since the spring the plant has run a full 24 hours with nobody called out. The new charge is holding conversion at 71%. The polishing column is fresh. The sol's production came in at 14.1 kilograms against a target of 13.8. Wells has asked for the quiet sol to be spent on arithmetic, not on improvements. That is not a popular instruction. Today you close the energy ledger against what the array really delivered. You also settle how full a cryogenic tank may be filled, and follow the carbon through a full pass of the loop. Herrera's view is simple. A plant nobody understands on a good sol is a plant nobody can fix on a bad one.",
+    "stake": "Sol 301. The plant has run a full 24 hours with nobody called out. Today you close the energy books against what the array gave, and follow the carbon through one pass.",
     "takeaway": "The sol to check the books is the sol when nothing is going wrong.",
     "stops": [
       {
         "group": "GIBBS",
         "lesson": 3,
-        "task": "Put a number on what the hydrogen costs"
+        "task": "Put a number on what the hydrogen costs",
+        "reason": "The sol's energy ledger is open, and the stacks' share of the array has never been written down"
       },
       {
         "group": "PHASE",
         "lesson": 5,
-        "task": "Say how full a cryogenic tank may be filled"
+        "task": "Say how full a cryogenic tank may be filled",
+        "reason": "The loading procedure stops the tank short of full, and nobody has explained that to the people counting kilograms"
       },
       {
         "group": "EQUIL",
         "lesson": 7,
-        "task": "Close the 100-mole carbon ledger for 1 pass, then decide which carbon is lost and which is recycled."
+        "task": "Close the 100-mole carbon ledger for 1 pass, then decide which carbon is lost and which is recycled.",
+        "reason": "One pass of the carbon assay is pinned to the board, and it says what the loop loses"
       }
     ]
   },
@@ -281,23 +316,26 @@ export const MISSIONS = [
     "title": "40% of the sun",
     "objective": "Decide what the station stops doing when the power halves.",
     "briefing": "A regional dust storm arrived overnight and the array is delivering less than half.",
-    "stake": "Sol 302. A regional storm crossed the station overnight. The sky this morning is the colour of the ground. Iosif Petrov, the array technician, has the field delivering 430 kilowatt-hours. A clear sol gives 2000. Nobody can say whether this lasts 2 sols or 20. Everything on this plain runs off that array. The stacks, the refrigerators, the drill, and the habitat that Demir keeps at 19 degrees. Today you decide in what order the loads are shed. You also work out how much light is reaching the panels, and what the water plant does while the drill is stopped. Wells will sign whatever order you set. She has said she will not revisit it before the storm clears.",
+    "stake": "Sol 302. A storm crossed the station overnight and the array is down to a fifth of a clear sol. Today you work out how much light the panels get, and pick the order the loads are shed.",
     "takeaway": "A power cut on a plain with one array is a decision about what the station stops doing.",
     "stops": [
       {
         "group": "ELEC",
         "lesson": 5,
-        "task": "Work out how much sunlight is reaching the panels"
+        "task": "Work out how much sunlight is reaching the panels",
+        "reason": "Every decision today rests on how much sunlight the dust is still letting through"
       },
       {
         "group": "GIBBS",
         "lesson": 4,
-        "task": "Build a plan for the power there is"
+        "task": "Build a plan for the power there is",
+        "reason": "The sacrifices have to be written down and agreed before any breaker is opened"
       },
       {
         "group": "SOIL",
         "lesson": 6,
-        "task": "Decide what the water plant does with no drill"
+        "task": "Decide what the water plant does with no drill",
+        "reason": "The drill is off and the hopper is empty, so how long the tank lasts decides the rest"
       }
     ]
   },
@@ -305,28 +343,32 @@ export const MISSIONS = [
     "title": "Three things at once",
     "objective": "Rank three faults that arrived together, and act on them in that order.",
     "briefing": "The storm cleared and left three problems that were not there a week ago.",
-    "stake": "Sol 303. The storm blew itself out in the last hours of the night. It left three things behind. Moreau's oxygen tank is losing twice the boil-off it lost a fortnight ago. The new catalyst charge has never been checked against the sol-270 run. The storm took the power to do it. And the battery bank came down to 30% overnight. It has to be brought back up before the next dust event. Today you rank all three jobs against each other. You also work out what is wrong with the cold end, and what a fair test of the new charge looks like. Kaur, Moreau and Achebe each want theirs first. All three of them are being reasonable about it.",
+    "stake": "Sol 303. The storm blew out overnight and left a leaking oxygen tank, an untested charge, and a battery bank at 30 percent. Today you rank all three against each other, and find what is wrong with the cold end.",
     "takeaway": "Three reasonable people wanting to be first is a ranking problem rather than an argument.",
     "stops": [
       {
         "group": "PHASE",
         "lesson": 6,
-        "task": "Build the refrigerator heat path in order and identify the transfer that dust has made limiting."
+        "task": "Build the refrigerator heat path in order and identify the transfer that dust has made limiting.",
+        "reason": "Oxygen boil-off has more than doubled since the storm, and the fault is somewhere on the heat path"
       },
       {
         "group": "KINET",
         "lesson": 6,
-        "task": "Set the terms of a fair comparison"
+        "task": "Set the terms of a fair comparison",
+        "reason": "The new charge has to be judged against the old one, and the plant is not where it was then"
       },
       {
         "group": "GIBBS",
         "lesson": 5,
-        "task": "Rank three faults against each other"
+        "task": "Rank three faults against each other",
+        "reason": "There is power to fix one fault today, and the order has to go in the log with its grounds"
       },
       {
         "group": "GIBBS",
         "lesson": 6,
-        "task": "Work the load board while the power rule changes."
+        "task": "Work the load board while the power rule changes.",
+        "reason": "The power rule changes as the sol does, and the load board has to be worked live against it"
       }
     ]
   },
@@ -334,23 +376,26 @@ export const MISSIONS = [
     "title": "Loading is one way",
     "objective": "Decide whether this batch goes into the vehicle.",
     "briefing": "The batch is made, the assay is back, and one line of it is outside the specification.",
-    "stake": "Sol 304. The batch made since the new charge went in is standing in the transfer tank this morning. Its assay is beside it. The batch is 410 kilograms of methane, which is 3 sols of the season. One line of the assay sits outside what Bhatt's specification allows. Once it goes across into the vehicle it cannot be taken out again. It cannot be cleaned, and it cannot be tested by firing. Today you read the batch against the specification. You also work out what mass of oxygen the vehicle needs beside it, and whether the stacks can be pushed to close the gap that is left. Bhatt has said she will sign what the assay supports and nothing else. Sundqvist has counted how many sols are left.",
+    "stake": "Sol 304. A batch of 410 kilograms went into the transfer tank overnight, and one line of its assay is outside spec. Today you read the batch against the flight spec, knowing it cannot come back out.",
     "takeaway": "A decision that cannot be reversed is worth more care than one that costs more.",
     "stops": [
       {
         "group": "EQUIL",
         "lesson": 8,
-        "task": "Match each assay line to what it means for the vehicle."
+        "task": "Match each assay line to what it means for the vehicle.",
+        "reason": "The loading crew is waiting at the umbilical, and one assay line has to be judged before the valve opens"
       },
       {
         "group": "PHASE",
         "lesson": 7,
-        "task": "Work out how much oxygen goes with the methane"
+        "task": "Work out how much oxygen goes with the methane",
+        "reason": "Methane alone does not fly, and the oxygen going up beside it has to be checked independently"
       },
       {
         "group": "ELEC",
         "lesson": 6,
-        "task": "Say whether the stacks can be pushed harder"
+        "task": "Say whether the stacks can be pushed harder",
+        "reason": "Running the stacks harder would close the gap this batch leaves, if the cooling loop can take it"
       }
     ]
   },
@@ -358,23 +403,26 @@ export const MISSIONS = [
     "title": "What the next crew is told",
     "objective": "Say what is known, how well it is known, and what was never established.",
     "briefing": "The fortnight ends, and what survives it is what gets written down.",
-    "stake": "Sol 305 is the last sol of this rotation. The handover file has to be finished this morning. The plant is making 14.4 kilograms a sol against a target of 13.8. The tank stands at 4.3 tonnes of methane. The arithmetic now finishes the fill 11 sols before the window opens. None of that is the difficult part. Today you decide what is left funded and instrumented for the crew who arrive on the next vehicle. You also write the standing order for the water loop, and say plainly what is known about the catalyst and what is not. Wells has one instruction about the file. Somebody who was not here has to be able to act on it without asking anybody who was.",
+    "stake": "Sol 305. This is the last sol of the rotation, and the fill now finishes 11 sols before the window. Today you say what the next crew gets, and what is known about the bed and what is not.",
     "takeaway": "A handover states what is known, how well, and what was never established at all.",
     "stops": [
       {
         "group": "GIBBS",
         "lesson": 7,
-        "task": "Fund what the next crew should inherit."
+        "task": "Fund what the next crew should inherit.",
+        "reason": "Only two improvements can be left standing for a crew that arrives 300 sols from now"
       },
       {
         "group": "SOIL",
         "lesson": 7,
-        "task": "Set the warning and column-swap thresholds, then replay the historic conductivity rise without changing them."
+        "task": "Set the warning and column-swap thresholds, then replay the historic conductivity rise without changing them.",
+        "reason": "The water alarm is being set for a crew nobody here will meet, and it has to hold without them"
       },
       {
         "group": "KINET",
         "lesson": 7,
-        "task": "State what is known about the catalyst and what is not"
+        "task": "State what is known about the catalyst and what is not",
+        "reason": "The catalyst handover has to say what five sols of running proved, and what it did not"
       }
     ]
   }
@@ -389,6 +437,10 @@ export const WARMUPS = {
     "title": "Walk the plant while your suit is fresh",
     "why": "Nine modules buried to the eaves along one track, and an ascent vehicle four hundred metres past the last of them. Walk the whole line once early, on a clear sol, because the next time you do it will be in a dust storm on a suit that has been out for three hours already."
   },
+  "trial-far": {
+    "title": "The rover, and the three hundred metres to the ice cut",
+    "why": "The water this plant runs on is cut out of the ground 338 metres north-west, and until today nobody has asked you to go there. It is too far to walk in a suit and get any work done afterwards, which is what the rovers are for and why they are signed out this morning. Drive it once while the sky is clear, so you know the track before you need it in a storm."
+  },
   "follow": {
     "title": "Cho walks the cold end once",
     "why": "The liquefier's cold end is the part of the plant nobody has a diagram of at the level that matters — which joint frosts first, which line ticks when it is cooling. Cho, the cryogenics engineer, walks it once. Stay with her and keep off the lines; a boot on a cold transfer line is a leak you cannot weld out here."
@@ -399,6 +451,32 @@ export const WARMUPS = {
       "name": "regolith bin",
       "plural": "regolith bins"
     },
+    "at": [
+      {
+        "x": -58,
+        "z": 34
+      },
+      {
+        "x": 48,
+        "z": 36
+      },
+      {
+        "x": 25,
+        "z": -4
+      },
+      {
+        "x": -27,
+        "z": -28
+      },
+      {
+        "x": -31,
+        "z": 4
+      },
+      {
+        "x": -6,
+        "z": 22
+      }
+    ],
     "why": "The feedstock tally is what the whole propellant schedule is planned against, and two bins are not where it says they are. A bin nobody can find is either full and idle or empty and counted, and those two mean very different launch dates."
   },
   "canvass": {

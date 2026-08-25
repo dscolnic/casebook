@@ -67,35 +67,64 @@ const dist = (a, b) => Math.hypot((a.x ?? 0) - (b.x ?? 0), (a.z ?? 0) - (b.z ?? 
 export function tiersFor(site) {
   const spawn = site?.start ?? site?.spawn ?? { x: 0, z: 0 };
   const byGroup = {};
+  // MINOR PLACES COUNT TOWARD THE SPLIT, and did not used to.
+  //
+  // This ranked areas only, which was the whole truth until a building could be
+  // entered without being one. Red Sand opened seven — the tank farm, the array
+  // shed, the pad office, the ice cut — and the ice cut is 340 m out, three times
+  // further than anything that carries a lesson. Ranking areas alone said the
+  // site was one tier and one view, while the actual walkable world had a long
+  // haul in it that only a rover makes sensible.
+  //
+  // Nothing changes for a theme without `enter:` buildings, which today is every
+  // theme but one: `byPlace` is then identical to `byGroup` and every number
+  // below comes out the same. `near`/`far` still list GROUPS, because that is
+  // what `callableOn` gates and a place with no lesson has nothing to call.
+  const byPlace = {};
   for (const b of site?.buildings ?? []) {
-    if (!b.group) continue;
+    const key = b.group || b.enter;
+    if (!key) continue;
     // An area with more than one building is as far as its nearest door: the
     // player only has to reach one of them.
     const d = dist(b, spawn);
+    if (byPlace[key] == null || d < byPlace[key]) byPlace[key] = d;
+    if (!b.group) continue;
     if (byGroup[b.group] == null || d < byGroup[b.group]) byGroup[b.group] = d;
   }
+  const places = Object.entries(byPlace).sort((a, b) => a[1] - b[1]);
   const entries = Object.entries(byGroup).sort((a, b) => a[1] - b[1]);
-  const none = { hasFar: false, near: entries.map(([g]) => g), far: [], cut: Infinity, ratio: 1, byGroup };
-  if (entries.length < MIN_AREAS) return none;
+  const none = {
+    hasFar: false, near: entries.map(([g]) => g), far: [], cut: Infinity, ratio: 1,
+    byGroup, byPlace, nearPlaces: places.map(([p]) => p), farPlaces: [],
+  };
+  if (places.length < MIN_AREAS) return none;
 
-  // The largest gap between consecutive areas is the candidate split.
+  // The largest gap between consecutive places is the candidate split.
   let at = 0, gap = 0;
-  for (let i = 1; i < entries.length; i++) {
-    const g = entries[i][1] - entries[i - 1][1];
+  for (let i = 1; i < places.length; i++) {
+    const g = places[i][1] - places[i - 1][1];
     if (g > gap) { gap = g; at = i; }
   }
-  const lastNear = entries[at - 1][1];
-  const firstFar = entries[at][1];
+  const lastNear = places[at - 1][1];
+  const firstFar = places[at][1];
   const ratio = lastNear > 0 ? firstFar / lastNear : Infinity;
   if (ratio < FAR_RATIO || firstFar < MIN_FAR_METRES) return { ...none, ratio };
 
+  const cut = (lastNear + firstFar) / 2;
   return {
     hasFar: true,
-    near: entries.slice(0, at).map(([g]) => g),
-    far: entries.slice(at).map(([g]) => g),
-    cut: (lastNear + firstFar) / 2,
+    // Groups, for `callableOn`: the far ones are the stops the route may not send
+    // you to yet. A far ring made only of minor places leaves this empty, which is
+    // correct — nothing out there is called, and the ground is still worth a lap.
+    near: entries.filter(([, d]) => d < cut).map(([g]) => g),
+    far: entries.filter(([, d]) => d >= cut).map(([g]) => g),
+    // Every walkable place on each side, for the lap and for anything that wants
+    // to know how big the world actually is.
+    nearPlaces: places.slice(0, at).map(([p]) => p),
+    farPlaces: places.slice(at).map(([p]) => p),
+    cut,
     ratio,
-    byGroup,
+    byGroup, byPlace,
   };
 }
 
@@ -122,8 +151,10 @@ export function unlockDay(site) {
 export function lapFor(site, day) {
   const tiers = tiersFor(site);
   if (!tiers.hasFar) return null;
-  if (day === 1) return { tier: 'near', groups: tiers.near, unlocksVehicles: false };
-  if (day === unlockDay(site)) return { tier: 'far', groups: tiers.far, unlocksVehicles: true };
+  // `places` rather than `groups`: the far lap of a site whose far ring is the ice
+  // cut has no groups in it at all, and a lap of nothing is not a lap.
+  if (day === 1) return { tier: 'near', groups: tiers.near, places: tiers.nearPlaces ?? tiers.near, unlocksVehicles: false };
+  if (day === unlockDay(site)) return { tier: 'far', groups: tiers.far, places: tiers.farPlaces ?? tiers.far, unlocksVehicles: true };
   return null;
 }
 

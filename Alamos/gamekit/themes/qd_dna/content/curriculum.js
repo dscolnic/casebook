@@ -373,23 +373,6 @@ export const CURRICULUM = {
         "a chain whose two ends are chemically different has a direction",
         "each base pairs with one particular partner and not with the others"
       ],
-      "equations": [
-        {
-          "e": "%G = %C = (100 − 2·%A) / 2",
-          "c": "the remaining bases, from Chargaff's ratios",
-          "v": [
-            [
-              "%A",
-              "the adenine share of all four bases, as a percentage"
-            ],
-            [
-              "%G, %C",
-              "the guanine and cytosine shares, which are equal to each other"
-            ]
-          ],
-          "s": "Adenine and thymine arrive in equal amounts and so do guanine and cytosine, so naming one base names its partner and whatever is left of the hundred splits evenly between the other pair."
-        }
-      ],
       "concept": {
         "n": 8,
         "c": "The two strands run in opposite directions",
@@ -635,46 +618,6 @@ export const CURRICULUM = {
       "assumes": [
         "a candidate is eliminated by a specific clue rather than by preference",
         "independent clues can be applied in any order and all have to hold at once"
-      ],
-      "equations": [
-        {
-          "e": "%G = %C = (100 − 2·%A) / 2",
-          "c": "the remaining bases, from Chargaff's ratios",
-          "v": [
-            [
-              "%A",
-              "the adenine share of all four bases, as a percentage"
-            ],
-            [
-              "%G, %C",
-              "the guanine and cytosine shares, which are equal to each other"
-            ]
-          ],
-          "s": "Adenine and thymine arrive in equal amounts and so do guanine and cytosine, so naming one base names its partner and whatever is left of the hundred splits evenly between the other pair."
-        },
-        {
-          "e": "w(rung) = w(purine) + w(pyrimidine) + h",
-          "c": "the width of one rung across the helix",
-          "v": [
-            [
-              "w(rung)",
-              "the distance across one base pair, backbone to backbone, in ångström"
-            ],
-            [
-              "w(purine)",
-              "the width of a two-ring base — adenine or guanine"
-            ],
-            [
-              "w(pyrimidine)",
-              "the width of a one-ring base — thymine or cytosine"
-            ],
-            [
-              "h",
-              "the gap the hydrogen bonds hold open between the two bases"
-            ]
-          ],
-          "s": "Every rung of a helix with one diameter has to come to the same total, and a two-ring base beside a one-ring base is the only combination that reaches that total twice."
-        }
       ],
       "concept": {
         "n": 9,

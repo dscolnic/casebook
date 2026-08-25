@@ -92,6 +92,58 @@ export const FORMATS = new Set([
 ]);
 
 /**
+ * What KIND of place a format belongs in.
+ *
+ * Three answers, and the rule they encode is one line: **a question about a thing
+ * should be asked in front of that thing.**
+ *
+ *   · `decision`    — weighing options, defending a call, being talked round.
+ *                     Belongs to a PERSON. There is somebody whose job this is.
+ *   · `calculation` — working a number, ordering steps, closing a ledger.
+ *                     Belongs to a ROOM: a desk, a bench, a board.
+ *   · `operated`    — the player drives a control and it answers back.
+ *                     Belongs to a FIXTURE — the equipment itself.
+ *
+ * THIS IS NOT `isInstrument`, and the difference has already cost a wrong guess.
+ * `instruments.js` exports `isInstrument(kind)`, which asks *"does instruments.js
+ * render this?"* — a fact about a renderer. It answers true for DERIVE and BALANCE,
+ * which are a derivation and a ledger and belong at a desk, and for VALUE and
+ * ATTEST, which are judgements and belong to a person. Placement and rendering are
+ * different questions about the same word, so they get different functions, and
+ * this one lives here beside `FORMATS` because that is where the list of formats
+ * is. A second copy of either set would drift the first time a format is added.
+ *
+ * The default is `operated`. A format nobody has classified is far likelier to be
+ * one of the thirty-odd live instruments than a fourth kind of conversation, and
+ * the failure mode of the wrong default is a stop at a fixture instead of a
+ * person — visible, and much cheaper than a control panel driven at a colleague.
+ */
+export const DECISION_FORMATS = new Set([
+  'CHOICE', 'SCIENCETANK', 'CASEBOOK', 'TRIAGE',
+  // Judgements with an instrument's panel around them: what a measurement would
+  // be worth, whether a record proves a condition, who takes which job, which
+  // candidate survives an assumption's range. Every one of them is somebody's
+  // call, and the panel is how the call is put rather than a thing to drive.
+  'VALUE', 'ATTEST', 'DELEGATE', 'STRESS',
+]);
+
+export const CALCULATION_FORMATS = new Set([
+  'BALLPARK', 'PROTOCOL', 'SEQUENCE', 'BALANCE', 'DERIVE',
+  'PROPAGATE', 'TRIANGULATE', 'DEGENERACY',
+  // Reading a panel of numbers and naming what fits all of them. Inference from
+  // data at a board, not a control anybody drives and not a call put to a person.
+  'DIAGNOSIS',
+]);
+
+/** 'decision' | 'calculation' | 'operated', from a raw or canonical type. */
+export function stopKind(type){
+  const k = canonicalType(type);
+  if(DECISION_FORMATS.has(k)) return 'decision';
+  if(CALCULATION_FORMATS.has(k)) return 'calculation';
+  return 'operated';
+}
+
+/**
  * Formats that exist and may not be authored, with the reason.
  *
  * A suspended format keeps its entry in `FORMATS`, its panel in
@@ -548,16 +600,30 @@ export function primeMissions(missions = [], curriculum = {}, jargon = [], chang
  * all, and the player is expected to know the algebra without ever having seen it.
  */
 export function primeEquations(missions = [], curriculum = {}, changes = []){
-  const seen = new Set();
   let printed = 0;
   for(const m of missions){
     const lessons = (m.stops ?? []).map(s => curriculum[s.group]?.[s.lesson]).filter(Boolean);
     const rows = [];
+    // DEDUPED WITHIN THE DAY, NOT ACROSS THE CAMPAIGN.
+    //
+    // This used to carry one `seen` set for the whole fortnight, so an equation
+    // was printed on the plan of the first day that touched it and on no later
+    // one. A player working the same equation again on day 12 got a plan card
+    // that did not mention it, because day 8 had.
+    //
+    // The rule is now the plain one: a day card shows the equations that day's
+    // own questions use. Twice in a fortnight means twice on a plan card.
+    const seen = new Set();
     for(const l of lessons){
       for(const eq of l.equations ?? []){
+        // An equation reaches a plan card only if a question that day actually
+        // works numbers with it. A mention is not a use — see the note in
+        // `tools/import-book.mjs`, which no longer stamps mention-only chips at
+        // all, so this is belt as well as braces.
+        if(!eq?.e || !(eq.computed || eq.demanded)) continue;
         // `card: false` is the third and later equation on a stop that computes
         // several. It stays in the data for the checks and off the cards.
-        if(!eq?.e || eq.card === false || seen.has(eq.e)) continue;
+        if(eq.card === false || seen.has(eq.e)) continue;
         seen.add(eq.e);
         // v and s come through with it: the card that prints an equation is the
         // card that has to name its symbols, and dropping them here is what left
@@ -568,7 +634,7 @@ export function primeEquations(missions = [], curriculum = {}, changes = []){
     }
     if(rows.length){ m.equations = rows; printed += rows.length; }
   }
-  if(printed) changes.push(`${printed} course equation(s) placed on the day card that first needs them`);
+  if(printed) changes.push(`${printed} course equation(s) placed on the day card of a question that uses them`);
 }
 
 /**
@@ -820,12 +886,47 @@ export function shapeMissions(missions = [], curriculum = {}, changes = [], tier
     // the rosters carry three-paragraph teaching bios and a quiz each, and a
     // day with none never opens one. Leaving it to the old rule stacked the two
     // and made 34 of Riverton's 58 calls a person hunt.
+    //
+    // AND THE FORMAT DECIDES, not just the room. This rule used to look only at
+    // whether an area repeated, which is a rule about not walking into the same
+    // room twice and knows nothing about what is being asked there. Measured on
+    // Red Sand it put eight of fifteen person stops on a format that is not a
+    // decision, four of them live instruments — the worst of which had the player
+    // holding a reactor at temperature through a wandering feed while standing in
+    // a conversation with the analytical chemist. A control panel is not driven at
+    // a colleague. See gamekit/PLACEMENT_PASS.md.
+    const kindOfStop = (s) => stopKind(curriculum[s.group]?.[s.lesson]?.game?.type);
+    // NOT `=== 'decision'`, and the difference is 51 campaigns.
+    //
+    // The first version of this rule required a decision, which is the ideal and
+    // is not what the books were written against: it took the person stop off
+    // eight of Project Y's fifteen days and left 51 of 62 themes with a day where
+    // the roster is never met and no passage is read. A person stop is where the
+    // cast is met and where the money comes from, and deleting a third of them to
+    // enforce a preference is a worse game than the one being fixed.
+    //
+    // So the hard rule only, which is the one that was actually broken: an
+    // OPERATED format may not be a person stop, because a control panel is not
+    // driven at a colleague. A calculation at somebody's bench is a weaker match
+    // and an entirely ordinary thing to do, and `placement.mjs` reports those
+    // rather than failing them.
+    const canBePerson = (s) => kindOfStop(s) !== 'operated';
     const seen = new Set();
     for(const stop of mission.stops){
       if(seen.has(stop.group)){
-        if(stop.person !== true){
-          stop.person = true;
-          changes.push(`day ${day + 1}: second call on ${stop.group} becomes a person stop`);
+        // A repeat still may not be a second visit to the same room. Where the
+        // repeat is not a decision the day is better off three calls long: the
+        // callback below will find it a different area, and a fourth call that
+        // sends the player back through the same door is the thing this rule
+        // exists to stop.
+        if(canBePerson(stop)){
+          if(stop.person !== true){
+            stop.person = true;
+            changes.push(`day ${day + 1}: second call on ${stop.group} becomes a person stop`);
+          }
+        } else if(stop.person === true){
+          stop.person = false;
+          changes.push(`day ${day + 1}: second call on ${stop.group} is operated, so it stays a room`);
         }
       } else {
         seen.add(stop.group);
@@ -833,10 +934,20 @@ export function shapeMissions(missions = [], curriculum = {}, changes = [], tier
       }
     }
     if(!mission.stops.some(s => s.person)){
-      // The middle of the day, so it is neither the opening nor the close.
-      const at = Math.min(1, mission.stops.length - 1);
-      mission.stops[at].person = true;
-      changes.push(`day ${day + 1}: call ${at + 1} becomes the day's person stop`);
+      // The middle of the day, so it is neither the opening nor the close — but
+      // only among the calls that may be one at all. A day of three operated
+      // calls gets no person stop, and that is the right answer: the alternative
+      // is the defect this whole block was rewritten for.
+      const eligible = mission.stops
+        .map((s, i) => [s, i])
+        .filter(([s]) => canBePerson(s));
+      if(eligible.length){
+        const pick = eligible[Math.min(1, eligible.length - 1)];
+        pick[0].person = true;
+        changes.push(`day ${day + 1}: call ${pick[1] + 1} becomes the day's person stop`);
+      } else {
+        changes.push(`day ${day + 1}: no decision-format call, so the day has no person stop`);
+      }
     }
 
     // ---- the callback, from the third day on
@@ -888,6 +999,14 @@ export function shapeMissions(missions = [], curriculum = {}, changes = [], tier
           // of it is partly that the player goes somewhere else.
           person: false,
           callback: true,
+          // WHY THIS ONE, for a call no book wrote. Without it the plan card
+          // falls back to the area's `desc`, which is the same sentence every
+          // time the day visits that area and says nothing about why it is on
+          // *this* day's list — and on a campaign that authors `reason:` per
+          // stop, the callback would be the one line still reading as boilerplate.
+          reason: base?.title
+            ? `A second look at "${base.title}", with what you have learned since`
+            : 'Earlier work worth taking again with what you have learned since',
         });
         changes.push(`day ${day + 1}: callback to ${candidate.group} lesson ${lessonIdx}`);
       }

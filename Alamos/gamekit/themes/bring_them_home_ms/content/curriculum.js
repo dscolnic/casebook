@@ -365,27 +365,6 @@ export const CURRICULUM = {
       "assumes": [
         "a fix that removes a cause outlasts a fix that improves the response"
       ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "a share of a supply, or of a mixture",
-          "v": [
-            [
-              "part",
-              "how much that share comes to"
-            ],
-            [
-              "whole",
-              "the total"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
-      ],
       "concept": {
         "n": 16,
         "c": "Ordering work when several things are wrong at once",
@@ -1494,27 +1473,6 @@ export const CURRICULUM = {
         "a push changes how fast something turns",
         "it keeps turning after the thruster stops"
       ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is travelling",
-          "v": [
-            [
-              "speed",
-              "in kilometres per second"
-            ],
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        }
-      ],
       "concept": {
         "n": 11,
         "c": "Spinning things keep spinning, and a nudge takes a while to show",
@@ -1818,27 +1776,6 @@ export const CURRICULUM = {
         "an amp-hour is a current drawn for an hour",
         "some things can be switched on and off, and some cannot"
       ],
-      "equations": [
-        {
-          "e": "how long = amount ÷ rate",
-          "c": "how long a store lasts",
-          "v": [
-            [
-              "how long",
-              "in hours"
-            ],
-            [
-              "amount",
-              "what is in the store"
-            ],
-            [
-              "rate",
-              "how fast it is being used"
-            ]
-          ],
-          "s": "A store divided by the rate it is being drawn at gives the hours before it is empty."
-        }
-      ],
       "concept": {
         "n": 6,
         "c": "A budget: a finite store shared between competing demands",
@@ -1963,27 +1900,6 @@ export const CURRICULUM = {
       "assumes": [
         "a motor running does not prove any air is moving",
         "air has to pass through every part of a loop"
-      ],
-      "equations": [
-        {
-          "e": "amount = rate × time",
-          "c": "how much of a store gets used",
-          "v": [
-            [
-              "amount",
-              "amp hours, or litres"
-            ],
-            [
-              "rate",
-              "per hour"
-            ],
-            [
-              "time",
-              "in hours"
-            ]
-          ],
-          "s": "Anything drawn at a steady rate adds up in proportion to how long it is drawn for."
-        }
       ],
       "concept": {
         "n": 8,
@@ -2199,27 +2115,6 @@ export const CURRICULUM = {
       "assumes": [
         "a speed and a time give a distance",
         "a prediction is only a test if it is made before the result is known"
-      ],
-      "equations": [
-        {
-          "e": "change in position = change in speed × time",
-          "c": "why an early correction is worth more",
-          "v": [
-            [
-              "change in position",
-              "in kilometres"
-            ],
-            [
-              "change in speed",
-              "in metres per second"
-            ],
-            [
-              "time",
-              "how long it has to act"
-            ]
-          ],
-          "s": "A tiny change in speed moves a spacecraft hardly at all in an hour and a long way in a day."
-        }
       ],
       "concept": {
         "n": 13,

@@ -447,41 +447,6 @@ export const CURRICULUM = {
           ],
           "s": "How many years of savings pay for the change, which is the comparison that decides between two of them.",
           "computed": true
-        },
-        {
-          "e": "kWh = kW × h",
-          "c": "energy from power and time",
-          "v": [
-            [
-              "kWh",
-              "energy, in kilowatt-hours"
-            ],
-            [
-              "kW",
-              "power, in kilowatts"
-            ],
-            [
-              "h",
-              "hours it ran"
-            ]
-          ],
-          "s": "Power is the rate and energy is the amount; a kilowatt for an hour is one kilowatt-hour."
-        },
-        {
-          "e": "capacity factor = actual ÷ rated",
-          "c": "what a generator gives on average",
-          "v": [
-            [
-              "actual",
-              "energy actually generated over a period"
-            ],
-            [
-              "rated",
-              "what it would have made running flat out for the same period"
-            ]
-          ],
-          "s": "A turbine is named for its best hour and paid for its average one, and the ratio between them is the number that plans anything.",
-          "card": false
         }
       ],
       "concept": {
@@ -582,27 +547,6 @@ export const CURRICULUM = {
       "assumes": [
         "the recharge figure measured on day 2 stands as the pack's number",
         "exponential growth, and reading a doubling time off a rate — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "recharge = rainfall × area × coefficient",
-          "c": "what a catchment gives back to the aquifer",
-          "v": [
-            [
-              "rainfall",
-              "depth of rain, in metres a year"
-            ],
-            [
-              "area",
-              "catchment area, in square metres"
-            ],
-            [
-              "coefficient",
-              "the fraction that reaches the aquifer rather than running off or evaporating"
-            ]
-          ],
-          "s": "Only part of the rain that lands gets into the ground, and the rest is not available to a borehole."
-        }
       ],
       "takesAsRead": [
         {
@@ -855,25 +799,6 @@ export const CURRICULUM = {
           ],
           "s": "A big store with a small throughput responds slowly, which is why it recovers slowly too.",
           "computed": true
-        },
-        {
-          "e": "recharge = rainfall × area × coefficient",
-          "c": "what a catchment gives back to the aquifer",
-          "v": [
-            [
-              "rainfall",
-              "depth of rain, in metres a year"
-            ],
-            [
-              "area",
-              "catchment area, in square metres"
-            ],
-            [
-              "coefficient",
-              "the fraction that reaches the aquifer rather than running off or evaporating"
-            ]
-          ],
-          "s": "Only part of the rain that lands gets into the ground, and the rest is not available to a borehole."
         }
       ],
       "takesAsRead": [
@@ -929,27 +854,6 @@ export const CURRICULUM = {
       "assumes": [
         "the pump runs at roughly constant load when it is running",
         "energy against power: a kilowatt is not a kilowatt-hour — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "load = C × Q",
-          "c": "a pollutant load from a concentration and a flow",
-          "v": [
-            [
-              "load",
-              "mass per unit time, in kilograms a day"
-            ],
-            [
-              "C",
-              "concentration, in milligrams per litre"
-            ],
-            [
-              "Q",
-              "flow, in litres a day"
-            ]
-          ],
-          "s": "A concentration says how strong a discharge is and a load says how much of it there is; only the load adds up."
-        }
       ],
       "takesAsRead": [
         {
@@ -1101,27 +1005,6 @@ export const CURRICULUM = {
         "the sailing takes on water at the berth rather than at the mainland end",
         "carrying capacity, and what happens on the way past it — taken as read"
       ],
-      "equations": [
-        {
-          "e": "recharge = rainfall × area × coefficient",
-          "c": "what a catchment gives back to the aquifer",
-          "v": [
-            [
-              "rainfall",
-              "depth of rain, in metres a year"
-            ],
-            [
-              "area",
-              "catchment area, in square metres"
-            ],
-            [
-              "coefficient",
-              "the fraction that reaches the aquifer rather than running off or evaporating"
-            ]
-          ],
-          "s": "Only part of the rain that lands gets into the ground, and the rest is not available to a borehole."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 11,
@@ -1199,21 +1082,6 @@ export const CURRICULUM = {
           ],
           "s": "Four flows in and out of one stock, divided by the stock, is the rate that stock is changing at.",
           "computed": true
-        },
-        {
-          "e": "doubling time = 70 / r",
-          "c": "the rule of 70",
-          "v": [
-            [
-              "doubling time",
-              "years for the quantity to double"
-            ],
-            [
-              "r",
-              "growth rate, in per cent a year"
-            ]
-          ],
-          "s": "Anything growing at a steady percentage doubles in roughly seventy divided by that percentage."
         }
       ],
       "takesAsRead": [
@@ -1272,27 +1140,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the burns on Vellan run to the sea rather than into the aquifer"
-      ],
-      "equations": [
-        {
-          "e": "recharge = rainfall × area × coefficient",
-          "c": "what a catchment gives back to the aquifer",
-          "v": [
-            [
-              "rainfall",
-              "depth of rain, in metres a year"
-            ],
-            [
-              "area",
-              "catchment area, in square metres"
-            ],
-            [
-              "coefficient",
-              "the fraction that reaches the aquifer rather than running off or evaporating"
-            ]
-          ],
-          "s": "Only part of the rain that lands gets into the ground, and the rest is not available to a borehole."
-        }
       ],
       "concept": {
         "n": 4,
@@ -1532,27 +1379,6 @@ export const CURRICULUM = {
       "assumes": [
         "both holdings grow comparable crops under comparable cover",
         "agricultural methods, irrigation and the salt they leave behind — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "load = C × Q",
-          "c": "a pollutant load from a concentration and a flow",
-          "v": [
-            [
-              "load",
-              "mass per unit time, in kilograms a day"
-            ],
-            [
-              "C",
-              "concentration, in milligrams per litre"
-            ],
-            [
-              "Q",
-              "flow, in litres a day"
-            ]
-          ],
-          "s": "A concentration says how strong a discharge is and a load says how much of it there is; only the load adds up."
-        }
       ],
       "takesAsRead": [
         {
@@ -1862,86 +1688,6 @@ export const CURRICULUM = {
       "assumes": [
         "the four decisions of the fortnight are the pack's substance"
       ],
-      "equations": [
-        {
-          "e": "r = (B + I − D − E) ÷ N × 100",
-          "c": "a population growth rate",
-          "v": [
-            [
-              "B",
-              "births in the year"
-            ],
-            [
-              "I",
-              "people arriving"
-            ],
-            [
-              "D",
-              "deaths"
-            ],
-            [
-              "E",
-              "people leaving"
-            ],
-            [
-              "N",
-              "the population it is a rate for"
-            ]
-          ],
-          "s": "Four flows in and out of one stock, divided by the stock, is the rate that stock is changing at."
-        },
-        {
-          "e": "recharge = rainfall × area × coefficient",
-          "c": "what a catchment gives back to the aquifer",
-          "v": [
-            [
-              "rainfall",
-              "depth of rain, in metres a year"
-            ],
-            [
-              "area",
-              "catchment area, in square metres"
-            ],
-            [
-              "coefficient",
-              "the fraction that reaches the aquifer rather than running off or evaporating"
-            ]
-          ],
-          "s": "Only part of the rain that lands gets into the ground, and the rest is not available to a borehole."
-        },
-        {
-          "e": "capacity factor = actual ÷ rated",
-          "c": "what a generator gives on average",
-          "v": [
-            [
-              "actual",
-              "energy actually generated over a period"
-            ],
-            [
-              "rated",
-              "what it would have made running flat out for the same period"
-            ]
-          ],
-          "s": "A turbine is named for its best hour and paid for its average one, and the ratio between them is the number that plans anything.",
-          "card": false
-        },
-        {
-          "e": "payback = cost ÷ annual saving",
-          "c": "simple payback time",
-          "v": [
-            [
-              "cost",
-              "what the change costs to make, once"
-            ],
-            [
-              "annual saving",
-              "what it saves each year afterwards"
-            ]
-          ],
-          "s": "How many years of savings pay for the change, which is the comparison that decides between two of them.",
-          "card": false
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "An ecosystem as a budget: what comes in, what leaves, what stays",
@@ -2120,25 +1866,6 @@ export const CURRICULUM = {
           ],
           "s": "A concentration says how strong a discharge is and a load says how much of it there is; only the load adds up.",
           "computed": true
-        },
-        {
-          "e": "recharge = rainfall × area × coefficient",
-          "c": "what a catchment gives back to the aquifer",
-          "v": [
-            [
-              "rainfall",
-              "depth of rain, in metres a year"
-            ],
-            [
-              "area",
-              "catchment area, in square metres"
-            ],
-            [
-              "coefficient",
-              "the fraction that reaches the aquifer rather than running off or evaporating"
-            ]
-          ],
-          "s": "Only part of the rain that lands gets into the ground, and the rest is not available to a borehole."
         }
       ],
       "takesAsRead": [
@@ -2279,25 +2006,6 @@ export const CURRICULUM = {
           ],
           "s": "A litre of fresh water weighs about a kilogram, so a milligram in it is one part in a million.",
           "computed": true
-        },
-        {
-          "e": "load = C × Q",
-          "c": "a pollutant load from a concentration and a flow",
-          "v": [
-            [
-              "load",
-              "mass per unit time, in kilograms a day"
-            ],
-            [
-              "C",
-              "concentration, in milligrams per litre"
-            ],
-            [
-              "Q",
-              "flow, in litres a day"
-            ]
-          ],
-          "s": "A concentration says how strong a discharge is and a load says how much of it there is; only the load adds up."
         }
       ],
       "concept": {
@@ -2554,21 +2262,6 @@ export const CURRICULUM = {
           ],
           "s": "Emissions are not measured at the chimney here; they are counted from what went into the tank.",
           "computed": true
-        },
-        {
-          "e": "CO₂e = mass × GWP",
-          "c": "putting two greenhouse gases on one scale",
-          "v": [
-            [
-              "mass",
-              "mass of the gas released"
-            ],
-            [
-              "GWP",
-              "its global warming potential over a stated period, relative to carbon dioxide"
-            ]
-          ],
-          "s": "A kilogram of methane traps far more heat than a kilogram of carbon dioxide, so the two are compared by multiplying up to a common unit."
         }
       ],
       "concept": {
@@ -2637,27 +2330,6 @@ export const CURRICULUM = {
         "the three sample points are on the same stream above the tidal reach",
         "a watershed, and what a catchment collects — taken as read"
       ],
-      "equations": [
-        {
-          "e": "recharge = rainfall × area × coefficient",
-          "c": "what a catchment gives back to the aquifer",
-          "v": [
-            [
-              "rainfall",
-              "depth of rain, in metres a year"
-            ],
-            [
-              "area",
-              "catchment area, in square metres"
-            ],
-            [
-              "coefficient",
-              "the fraction that reaches the aquifer rather than running off or evaporating"
-            ]
-          ],
-          "s": "Only part of the rain that lands gets into the ground, and the rest is not available to a borehole."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 15,
@@ -2711,27 +2383,6 @@ export const CURRICULUM = {
       "assumes": [
         "the four years of half-hourly records cover the same load",
         "renewable and non-renewable, and what the cable is bringing — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "load = C × Q",
-          "c": "a pollutant load from a concentration and a flow",
-          "v": [
-            [
-              "load",
-              "mass per unit time, in kilograms a day"
-            ],
-            [
-              "C",
-              "concentration, in milligrams per litre"
-            ],
-            [
-              "Q",
-              "flow, in litres a day"
-            ]
-          ],
-          "s": "A concentration says how strong a discharge is and a load says how much of it there is; only the load adds up."
-        }
       ],
       "takesAsRead": [
         {
@@ -2899,27 +2550,6 @@ export const CURRICULUM = {
         "the transect method has not changed across the eleven springs",
         "concentration against load, and why a small pipe can matter — taken as read"
       ],
-      "equations": [
-        {
-          "e": "load = C × Q",
-          "c": "a pollutant load from a concentration and a flow",
-          "v": [
-            [
-              "load",
-              "mass per unit time, in kilograms a day"
-            ],
-            [
-              "C",
-              "concentration, in milligrams per litre"
-            ],
-            [
-              "Q",
-              "flow, in litres a day"
-            ]
-          ],
-          "s": "A concentration says how strong a discharge is and a load says how much of it there is; only the load adds up."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 28,
@@ -3016,25 +2646,6 @@ export const CURRICULUM = {
           ],
           "s": "What is left over has not disappeared: it has left as heat, which is where most of a fuel goes.",
           "computed": true
-        },
-        {
-          "e": "kWh = kW × h",
-          "c": "energy from power and time",
-          "v": [
-            [
-              "kWh",
-              "energy, in kilowatt-hours"
-            ],
-            [
-              "kW",
-              "power, in kilowatts"
-            ],
-            [
-              "h",
-              "hours it ran"
-            ]
-          ],
-          "s": "Power is the rate and energy is the amount; a kilowatt for an hour is one kilowatt-hour."
         }
       ],
       "concept": {
@@ -3095,25 +2706,6 @@ export const CURRICULUM = {
           ],
           "s": "A turbine is named for its best hour and paid for its average one, and the ratio between them is the number that plans anything.",
           "computed": true
-        },
-        {
-          "e": "kWh = kW × h",
-          "c": "energy from power and time",
-          "v": [
-            [
-              "kWh",
-              "energy, in kilowatt-hours"
-            ],
-            [
-              "kW",
-              "power, in kilowatts"
-            ],
-            [
-              "h",
-              "hours it ran"
-            ]
-          ],
-          "s": "Power is the rate and energy is the amount; a kilowatt for an hour is one kilowatt-hour."
         }
       ],
       "concept": {
@@ -3163,27 +2755,6 @@ export const CURRICULUM = {
       "assumes": [
         "the twenty-five-year specification cannot be revisited cheaply",
         "energy against power: a kilowatt is not a kilowatt-hour — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "load = C × Q",
-          "c": "a pollutant load from a concentration and a flow",
-          "v": [
-            [
-              "load",
-              "mass per unit time, in kilograms a day"
-            ],
-            [
-              "C",
-              "concentration, in milligrams per litre"
-            ],
-            [
-              "Q",
-              "flow, in litres a day"
-            ]
-          ],
-          "s": "A concentration says how strong a discharge is and a load says how much of it there is; only the load adds up."
-        }
       ],
       "takesAsRead": [
         {
@@ -3306,21 +2877,6 @@ export const CURRICULUM = {
           ],
           "s": "About a tenth of the energy at one level reaches the next, which is why food chains are short.",
           "computed": true
-        },
-        {
-          "e": "% change = (new − old) ÷ old × 100",
-          "c": "a percentage change",
-          "v": [
-            [
-              "new",
-              "the later value"
-            ],
-            [
-              "old",
-              "the earlier value it is compared with"
-            ]
-          ],
-          "s": "The difference divided by where it started, which is the only honest way to compare two years."
         }
       ],
       "takesAsRead": [
@@ -3376,27 +2932,6 @@ export const CURRICULUM = {
       "assumes": [
         "both species are taken by the same boats on the same ground",
         "carrying capacity, and what happens on the way past it — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "harvest = rK ÷ 4",
-          "c": "maximum sustainable yield",
-          "v": [
-            [
-              "r",
-              "the stock’s intrinsic growth rate, per year"
-            ],
-            [
-              "K",
-              "carrying capacity, in tonnes of fish"
-            ],
-            [
-              "harvest",
-              "the largest catch the stock can replace, in tonnes a year"
-            ]
-          ],
-          "s": "A stock grows fastest at half its carrying capacity, so the biggest catch it can replace is a quarter of r times K."
-        }
       ],
       "takesAsRead": [
         {
@@ -3751,27 +3286,6 @@ export const CURRICULUM = {
       "assumes": [
         "the pack's figures are the ones measured across the fortnight",
         "concentration against load, and why a small pipe can matter — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "recharge = rainfall × area × coefficient",
-          "c": "what a catchment gives back to the aquifer",
-          "v": [
-            [
-              "rainfall",
-              "depth of rain, in metres a year"
-            ],
-            [
-              "area",
-              "catchment area, in square metres"
-            ],
-            [
-              "coefficient",
-              "the fraction that reaches the aquifer rather than running off or evaporating"
-            ]
-          ],
-          "s": "Only part of the rain that lands gets into the ground, and the rest is not available to a borehole."
-        }
       ],
       "takesAsRead": [
         {

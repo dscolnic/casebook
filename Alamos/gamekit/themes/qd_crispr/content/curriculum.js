@@ -200,27 +200,6 @@ export const CURRICULUM = {
         "the enzyme in use engages only a site carrying its own short motif",
         "a longer exact match occurs in fewer places in a genome"
       ],
-      "equations": [
-        {
-          "e": "E = L ÷ 4ⁿ",
-          "c": "how often an n-base sequence occurs by chance in a genome",
-          "v": [
-            [
-              "L",
-              "the length of the genome, in bases"
-            ],
-            [
-              "n",
-              "the length of the sequence being matched"
-            ],
-            [
-              "E",
-              "how many times it is expected to occur by chance"
-            ]
-          ],
-          "s": "Each position of a random sequence has four possibilities, so a given run of n bases turns up about once every four-to-the-n bases, and a genome of length L holds that many chances."
-        }
-      ],
       "concept": {
         "n": 4,
         "c": "Complementarity and PAM are two separate constraints",
@@ -353,27 +332,6 @@ export const CURRICULUM = {
       "assumes": [
         "a rejoined break usually leaves a trace at the join",
         "thousands of molecules can be read across the same position"
-      ],
-      "equations": [
-        {
-          "e": "E = L ÷ 4ⁿ",
-          "c": "how often an n-base sequence occurs by chance in a genome",
-          "v": [
-            [
-              "L",
-              "the length of the genome, in bases"
-            ],
-            [
-              "n",
-              "the length of the sequence being matched"
-            ],
-            [
-              "E",
-              "how many times it is expected to occur by chance"
-            ]
-          ],
-          "s": "Each position of a random sequence has four possibilities, so a given run of n bases turns up about once every four-to-the-n bases, and a genome of length L holds that many chances."
-        }
       ],
       "concept": {
         "n": 5,
@@ -516,23 +474,6 @@ export const CURRICULUM = {
       "assumes": [
         "the enzyme engages only sites carrying its motif",
         "a site not sequenced returns no information rather than a clean result"
-      ],
-      "equations": [
-        {
-          "e": "efficiency = reads edited ÷ total reads",
-          "c": "how often the intended edit happened",
-          "v": [
-            [
-              "reads edited",
-              "the sequencing reads carrying the intended change"
-            ],
-            [
-              "total reads",
-              "all reads covering that position"
-            ]
-          ],
-          "s": "Editing is probabilistic, so what comes back is a population; the fraction of reads carrying the change is the measured efficiency rather than a yes or a no."
-        }
       ],
       "concept": {
         "n": 7,

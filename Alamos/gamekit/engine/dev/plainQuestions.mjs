@@ -23,6 +23,30 @@
 // to 5.84. So the count of over-long sentences is the number to watch during a
 // pass; the grade follows it.
 //
+// WHAT IS GATED, AND WHY IT IS NOT THE GRADE. Flesch-Kincaid is
+// 0.39 × (words/sentence) + 11.8 × (syllables/word) − 15.59. The syllable term
+// carries three times the weight, and on a question card those syllables ARE the
+// course: perchlorate, stoichiometry, equilibrium, electrolysis. So the grade a
+// technical card can reach is fixed by its vocabulary before a single sentence is
+// written. At syl/w 1.65 grade 6.5 needs sentences of 6.7 words; at 1.69 it needs
+// 5.5. Quantum sits at 1.69 — it got its over-28 count to zero and still has 42
+// of 52 cards above 6.5, and the only way to move them is to delete the terms the
+// pass exists to keep.
+//
+// A bar nobody can reach without breaking the rules is not a bar, it is an
+// invitation to cheat the measurement. So what this gate ratchets is:
+//
+//   over-28 sentences   must not rise. The lever that is free, and the one that
+//                       moved every theme in the pass.
+//   words/sentence      must not rise. The same thing as a mean.
+//   syllables/word      must not FALL. This is the anti-cheat: the one way to buy
+//                       a grade is to delete vocabulary, and this catches it.
+//                       Agents were told to self-police it; a gate is better.
+//
+// The grade, the count over 6.5 and the worst card are still REPORTED, because
+// they are what the tagline is about and a human should see them. They are not
+// failed on.
+//
 // WHAT IT CANNOT SEE. Flesch-Kincaid counts syllables and sentence length. It
 // cannot see a gloss. Keeping the official term and explaining it on the spot —
 // which is the rule the pass is written to — costs syllables and is CORRECT, so
@@ -276,7 +300,9 @@ for(const theme of wanted){
   const was = debt.themes?.[theme];
 
   if(writeDebt){
-    debt.themes[theme] = { over: t.over, long: t.long, worst: +t.worst.toFixed(1) };
+    debt.themes[theme] = { long: t.long, wps: +t.wps.toFixed(1), spw: +t.spw.toFixed(3),
+      // reported, not gated — see the header
+      grade: +t.grade.toFixed(2), over: t.over, worst: +t.worst.toFixed(1) };
     banked++;
     continue;
   }
@@ -299,28 +325,36 @@ for(const theme of wanted){
   // The ratchet: a theme may not gain a card over the bar, gain a sentence
   // pile-up, or make its worst card worse.
   const regressions = [];
-  if(t.over > was.over) regressions.push(`cards over ${BAR}: ${was.over} → ${t.over}`);
-  if(t.long > was.long) regressions.push(`over-${LONGEST} sentences: ${was.long} → ${t.long}`);
-  if(+t.worst.toFixed(1) > was.worst) regressions.push(`worst card: ${was.worst} → ${t.worst.toFixed(1)}`);
+  if(was.long !== undefined && t.long > was.long)
+    regressions.push(`over-${LONGEST} sentences: ${was.long} → ${t.long}`);
+  // A tenth of a word of slack, so re-wrapping a paragraph is not a failure.
+  if(was.wps !== undefined && +t.wps.toFixed(1) > was.wps + 0.1)
+    regressions.push(`words/sentence: ${was.wps} → ${t.wps.toFixed(1)}`);
+  // The anti-cheat. Vocabulary may rise freely; it may not be traded for a grade.
+  if(was.spw !== undefined && +t.spw.toFixed(3) < was.spw - 0.03)
+    regressions.push(`syllables/word FELL: ${was.spw} → ${t.spw.toFixed(3)}`
+      + ' — a grade bought by deleting course vocabulary is the one thing the pass forbids');
   if(regressions.length){
     console.log(`✗ ${head}`);
     for(const r of regressions) console.log(`    ✗ ${r}`);
-    const worstRows = rows.filter(r => r.grade > BAR).sort((a, b) => b.grade - a.grade).slice(0, 3);
-    for(const r of worstRows) console.log(`      ${r.id} ${r.grade.toFixed(1)}  ${r.title}`);
+    const worstRows = rows.filter(r => r.long > 0).sort((a, b) => b.longest - a.longest).slice(0, 3);
+    for(const r of worstRows) console.log(`      ${r.id} longest ${r.longest}w  ${r.title}`);
     failed++;
   } else {
-    const gain = (was.over - t.over) || (was.long - t.long);
+    const gain = (was.long ?? 0) - t.long;
     console.log(`✓ ${head}${gain > 0 ? '   (improved — re-bank with --write-debt)' : ''}`);
   }
 }
 
 if(writeDebt){
   debt.bar = BAR; debt.longest = LONGEST;
-  debt._comment = 'What each campaign still owes the tagline on its QUESTION cards: cards over grade '
-    + BAR + ', sentence pile-ups over ' + LONGEST + ' words, and its worst card. '
-    + 'engine/dev/plainQuestions.mjs FAILS a theme that gains one or gets worse. A card with no scene, '
-    + 'no guide or no verdict is a hard failure and is never banked. Rewrite cards down with the '
-    + 'accessibility pass and re-bank with --write-debt; the numbers only fall.';
+  debt._comment = 'GATED: `long` (sentences over ' + LONGEST + ' words) and `wps` may not rise, and '
+    + '`spw` may not fall — a grade bought by deleting course vocabulary is the one thing the '
+    + 'accessibility pass forbids. REPORTED ONLY: `grade`, `over` (cards over ' + BAR + ') and `worst`. '
+    + 'The grade is not gated because the syllable term carries three times the weight of sentence '
+    + 'length, so a technical card\u2019s reachable grade is fixed by its vocabulary: at syl/w 1.69, '
+    + 'grade ' + BAR + ' would need sentences of 5.5 words. A card with no scene, no guide or no '
+    + 'verdict is a hard failure and is never banked. Re-bank with --write-debt; long and wps only fall.';
   writeFileSync(DEBT_FILE, JSON.stringify(debt, null, 2) + '\n');
   console.log(`banked ${banked} theme(s) → ${DEBT_FILE.split('/').pop()}`);
   process.exit(0);

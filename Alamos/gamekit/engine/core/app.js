@@ -12,6 +12,7 @@
 // through its own. Nothing here reads a global.
 import { buildInteriorBuilding, DISTRICT_X } from '../world/interiorBuilding.js';
 import { addProbeStations } from '../world/interiorStations.js';
+import { addFixture, fixtureFor, sitedAt } from '../world/interiorFixtures.js';
 import { probeKey, probeReadsFor, setProbeSited, markProbeRead } from './questionUI.js';
 import { getState, getNextMissionStop, startDay, restartDay, tickDay, endDayNow, jumpToMission, save,
          spendReserve } from './gameState.js';
@@ -75,6 +76,20 @@ export function openCaseGroups(){
  * Derived in the engine rather than authored per theme, so all ten games get it
  * and there is nothing new to type in a book.
  */
+/**
+ * The lesson of the call open in this area, or null. Both `stationForOpenCall`
+ * and the fixture lookup need it, and they used to each find it their own way.
+ */
+function openLessonFor(theme, groupId){
+  const state = getState();
+  const m = state ? getCurrentMission(state) : null;
+  if(!m) return null;
+  const idx = openStopIndices(state).find(i => m.stops[i]?.group === groupId);
+  if(idx === undefined) return null;
+  const stop = m.stops[idx];
+  return theme.content?.CURRICULUM?.[groupId]?.[stop.lesson] ?? null;
+}
+
 function stationForOpenCall(theme, groupId, calcs){
   const state = getState();
   const m = state ? getCurrentMission(state) : null;
@@ -185,20 +200,35 @@ export function createInteriors({
     const spec = theme.interiors?.[id];
     if(!spec) return null;
     const d = def?.(id);
-    const order = (theme.content?.GROUPS ?? []).findIndex(g => g.id === id);
+    // The room's slot in the interior district, which is `DISTRICT_X + index * GAP`.
+    // TWO ROOMS MAY NOT SHARE AN INDEX. `findIndex` returns -1 for a minor place —
+    // one that is not an area — and the old `Math.max(0, order)` turned every one
+    // of those into slot 0, which is the first area's room: seven new rooms would
+    // have been built inside Electrolysis Hall, on top of each other. Nothing
+    // would have thrown and nothing would have looked wrong from outside.
+    const groups = theme.content?.GROUPS ?? [];
+    let order = groups.findIndex(g => g.id === id);
+    if(order < 0){
+      const minors = (theme.site?.buildings ?? []).map(b => b.enter).filter(Boolean);
+      const at = minors.indexOf(id);
+      order = groups.length + (at < 0 ? minors.length : at);
+    }
     const who = caseFor(id);
     // The name on the door, which is not the area's name: the area is "Discovery
     // & Imaging" and the building is the Survey Telescope. The room builder reads
     // it to decide what KIND of room to build, so the layout matches the place the
     // player walked into.
     const site = theme.site ?? {};
-    const place = (site.buildings ?? []).find(b => b.group === id)
+    const place = (site.buildings ?? []).find(b => b.group === id || b.enter === id)
                ?? (site.plan?.rooms ?? []).find(r => r.group === id);
     const room = buildInteriorBuilding(live(scene), {
-      id, index: Math.max(0, order),
+      id, index: order,
       name: d?.name ?? id, code: d?.code ?? '',
       placeName: place?.name ?? '',
       colour: d?.color,
+      // A place that is not an area: no case, no beacon, no delivery. The room
+      // builder needs to know before it registers its stand.
+      minor: !d,
       // How the room is *built* is the theme's, not the area's: a wartime
       // building on a mesa should not be a Riverton laboratory with different
       // numbers on the screen.
@@ -256,6 +286,90 @@ export function createInteriors({
           // its post too, so the room and the card never disagree.
           setProbeSited(probe.key, true, (sid) => chain.setRead(sid));
         }
+      }
+      // THE FIXTURE: the object this call is actually about, standing in the room.
+      // Same lifetime rule as the probe chain and for the same reason — which
+      // call is open here changes from day to day, so the room only ever holds
+      // today's object. The case stand stays where it is; this is a second way
+      // into the same call, so a player who cannot find the thing is never stuck.
+      // A MINOR place asks the other question: not "what is open in this area?"
+      // — it has no area — but "is any of today's calls sited here?". That is how
+      // the tank farm and the array shed carry a stop without being areas.
+      let fx = fixtureFor(theme, id, openLessonFor(theme, id));
+      let fxCaseId = null;
+      if(!fx){
+        const st = getState();
+        const mission = st ? getCurrentMission(st) : null;
+        for(const i of (st ? openStopIndices(st) : [])){
+          const stop = mission?.stops?.[i];
+          const lesson = stop && theme.content?.CURRICULUM?.[stop.group]?.[stop.lesson];
+          const sited = lesson && sitedAt(theme, stop.group, lesson);
+          if(sited && sited.place === id){ fx = sited.fixture; fxCaseId = stop.group; break; }
+        }
+      }
+      if(room.fixture?.key !== (fx?.id ?? null)){
+        if(room.fixture){
+          const drop = new Set(room.fixture.interactables);
+          for(let i = interactables.length - 1; i >= 0; i--)
+            if(drop.has(interactables[i])) interactables.splice(i, 1);
+          const ci = colliders.indexOf(room.fixture.collider);
+          if(ci >= 0) colliders.splice(ci, 1);
+          room.fixture.dispose();
+          room.fixture = null;
+        }
+        if(fx){
+          const built = addFixture(room, fx, { caseId: fxCaseId });
+          if(built){
+            built.key = fx.id;
+            room.fixture = built;
+            interactables.push(...built.interactables);
+            colliders.push(built.collider);
+          }
+        }
+      }
+      // THINGS THAT GET BUILT. A fixture with `from: <day>` is not there before
+      // that day and is there afterwards, whatever the open call is — the second
+      // polishing column that sol 10 spends the last spare parts on, the
+      // conductivity alarm wired four sols before the rotation ends. Both are
+      // already canon: the ending card has said for the life of the game that
+      // the lead-and-lag columns are plumbed and the alarm has never sounded,
+      // and the rooms never showed either.
+      //
+      // This is how the world grows without anything being locked. A player who
+      // walks into the Water Plant on sol 11 and finds a second column standing
+      // there has been told something no HUD can tell them — and on sol 9 there
+      // is no invisible wall, because there is no column. See PLACEMENT_PASS.md.
+      // `until:` is the same idea running the other way, and it is the half that
+      // makes a plant look unfinished rather than merely incomplete. A propellant
+      // plant racing a transfer window IS a construction site: capped stubs,
+      // strapped crates, scaffolding on the cold end. Those are there on sol 1 and
+      // gone by the sol the work that removed them is done, so the world fills in
+      // on ground the player already walks every day — which is a far stronger
+      // reading of "the world grew" than a building opening 300 m away.
+      const week = getState()?.week ?? 1;
+      const due = (theme.fixtures?.[id] ?? []).filter(f =>
+        (f.from || f.until) && week >= (f.from ?? 1) && week < (f.until ?? Infinity));
+      const dueKey = due.map(f => f.id).join(',');
+      if((room.standing?.key ?? '') !== dueKey){
+        for(const built of room.standing?.list ?? []){
+          const drop = new Set(built.interactables);
+          for(let i = interactables.length - 1; i >= 0; i--)
+            if(drop.has(interactables[i])) interactables.splice(i, 1);
+          const ci = colliders.indexOf(built.collider);
+          if(ci >= 0) colliders.splice(ci, 1);
+          built.dispose();
+        }
+        const list = [];
+        for(const f of due){
+          const built = addFixture(room, f,
+            { openPrompt: f.until ? 'Not finished yet' : 'Built this rotation' });
+          if(built){
+            list.push(built);
+            interactables.push(...built.interactables);
+            colliders.push(built.collider);
+          }
+        }
+        room.standing = { key: dueKey, list };
       }
       // Anything read earlier today is still read: the player walked out to think
       // and came back, which is not a reason to take six readings again.
@@ -785,6 +899,12 @@ export function createDay({
    * book's own `desc` on the group says. A book may still override it per stop
    * with `reason:`, and where one does, that wins.
    */
+  /** The minor place a stop is asked at, or null when it is asked at home. */
+  function siteOf(stop){
+    const lesson = theme.content?.CURRICULUM?.[stop?.group]?.[stop?.lesson];
+    return sitedAt(theme, stop?.group, lesson)?.place ?? null;
+  }
+
   function reasonFor(state, stop, idx, person){
     if(stop?.reason) return String(stop.reason);
     if(person){
@@ -836,7 +956,7 @@ export function createDay({
       const why = reasonFor(state, s, i, person);
       return `<div class="planCall${made ? ' planDone' : ''}">`
         + `<span class="planNum">${made ? '✓' : i + 1}</span>`
-        + `<span class="planCallText"><b>${esc(callLabel(person, s.group))}</b>`
+        + `<span class="planCallText"><b>${esc(callLabel(person, s.group, siteOf(s)))}</b>`
         + (why ? `<span class="planWhy">${esc(why)}</span>` : '')
         + `${made ? '<span class="planMade">made</span>' : ''}</span></div>`;
     }).join('');
@@ -847,7 +967,16 @@ export function createDay({
     // stake, because "why am I doing today at all" is a different question from
     // "what has happened" — and until the delivery existed the campaign answered
     // it with a week number in the corner of the HUD.
-    const deliverLine = deliveryPlanLine(theme, state, { dayNoun: DAY_NOUN });
+    //
+    // A brief plan card drops it. Read on its own it is a good line; read in
+    // place it is the third block of prose above the objectives, on a card whose
+    // whole point is now that the player gets to the objectives — and it is the
+    // same sentence with one noun and one number changed, fifteen mornings
+    // running. What it says is not lost: the delivery is named on the opening
+    // card, and `deliveryGainHTML` puts the count on the card that closes every
+    // day, which is where a running total belongs. See gamekit/BRIEFING_PASS.md.
+    const deliverLine = theme?.stakeStyle === 'brief'
+      ? '' : deliveryPlanLine(theme, state, { dayNoun: DAY_NOUN });
     return `<div class="planCard">`
       + continuityHTML(state)
       + `<div class="planStake">${esc(m.stake || m.objective || '')}</div>`

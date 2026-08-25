@@ -3,315 +3,501 @@
   "longest": 28,
   "themes": {
     "contamcity": {
-      "over": 52,
       "long": 78,
+      "wps": 15.1,
+      "spw": 1.675,
+      "grade": 8.15,
+      "over": 52,
       "worst": 10.5
     },
     "projecty": {
-      "over": 156,
       "long": 178,
+      "wps": 15,
+      "spw": 1.678,
+      "grade": 8.04,
+      "over": 156,
       "worst": 11.7
     },
     "hospital": {
-      "over": 3,
       "long": 111,
+      "wps": 9.9,
+      "spw": 1.419,
+      "grade": 3.42,
+      "over": 3,
       "worst": 7
     },
     "deepwatch": {
-      "over": 38,
       "long": 79,
+      "wps": 15,
+      "spw": 1.575,
+      "grade": 7.03,
+      "over": 38,
       "worst": 8.3
     },
     "bring_them_home": {
-      "over": 50,
       "long": 82,
+      "wps": 14.8,
+      "spw": 1.669,
+      "grade": 7.89,
+      "over": 50,
       "worst": 10.2
     },
     "outbreak_riverton": {
-      "over": 51,
       "long": 82,
+      "wps": 15.6,
+      "spw": 1.704,
+      "grade": 8.5,
+      "over": 51,
       "worst": 10.4
     },
     "planetary_defense": {
-      "over": 52,
       "long": 98,
+      "wps": 15.9,
+      "spw": 1.695,
+      "grade": 8.74,
+      "over": 52,
       "worst": 10.9
     },
     "blackout": {
-      "over": 50,
       "long": 94,
+      "wps": 15.2,
+      "spw": 1.621,
+      "grade": 7.66,
+      "over": 50,
       "worst": 9.5
     },
     "aftershock": {
-      "over": 52,
       "long": 128,
+      "wps": 16.2,
+      "spw": 1.635,
+      "grade": 8.19,
+      "over": 52,
       "worst": 9.7
     },
     "quantum": {
-      "over": 51,
-      "long": 158,
-      "worst": 11.2
+      "long": 0,
+      "wps": 13.9,
+      "spw": 1.692,
+      "grade": 7.96,
+      "over": 42,
+      "worst": 10.1
     },
     "instruments": {
-      "over": 33,
       "long": 85,
+      "wps": 17.1,
+      "spw": 1.544,
+      "grade": 7.54,
+      "over": 33,
       "worst": 9.1
     },
     "the_trial": {
-      "over": 51,
       "long": 116,
+      "wps": 16,
+      "spw": 1.637,
+      "grade": 8.39,
+      "over": 51,
       "worst": 10.3
     },
     "headwater": {
-      "over": 51,
-      "long": 156,
-      "worst": 10.4
+      "long": 0,
+      "wps": 13.7,
+      "spw": 1.571,
+      "grade": 6.62,
+      "over": 30,
+      "worst": 7.9
     },
     "icecore": {
-      "over": 52,
-      "long": 137,
-      "worst": 10.1
+      "long": 0,
+      "wps": 12.2,
+      "spw": 1.591,
+      "grade": 6.26,
+      "over": 23,
+      "worst": 7.8
     },
     "seedbank": {
-      "over": 47,
       "long": 114,
+      "wps": 16,
+      "spw": 1.643,
+      "grade": 8.39,
+      "over": 47,
       "worst": 10.3
     },
     "redsand": {
-      "over": 10,
-      "long": 2,
+      "long": 0,
+      "wps": 12.4,
+      "spw": 1.548,
+      "grade": 5.74,
+      "over": 7,
       "worst": 7.1
     },
     "midway": {
-      "over": 50,
       "long": 108,
+      "wps": 15.9,
+      "spw": 1.594,
+      "grade": 7.66,
+      "over": 50,
       "worst": 9.7
     },
     "planetary_defense_ms": {
-      "over": 0,
       "long": 37,
+      "wps": 12.5,
+      "spw": 1.485,
+      "grade": 4.96,
+      "over": 0,
       "worst": 6.1
     },
     "deepwatch_ms": {
-      "over": 0,
       "long": 29,
+      "wps": 12.5,
+      "spw": 1.45,
+      "grade": 4.52,
+      "over": 0,
       "worst": 5.7
     },
     "aftershock_ms": {
-      "over": 1,
       "long": 28,
+      "wps": 12.7,
+      "spw": 1.468,
+      "grade": 4.89,
+      "over": 1,
       "worst": 6.6
     },
     "icecore_ms": {
-      "over": 0,
       "long": 35,
+      "wps": 13.1,
+      "spw": 1.467,
+      "grade": 4.97,
+      "over": 0,
       "worst": 6.5
     },
     "sightline": {
-      "over": 56,
       "long": 144,
+      "wps": 15.8,
+      "spw": 1.666,
+      "grade": 8.72,
+      "over": 56,
       "worst": 11.3
     },
     "seedbank_ms": {
-      "over": 0,
       "long": 34,
+      "wps": 13.2,
+      "spw": 1.446,
+      "grade": 4.74,
+      "over": 0,
       "worst": 6.3
     },
     "outbreak_riverton_ms": {
-      "over": 0,
       "long": 30,
+      "wps": 12.6,
+      "spw": 1.484,
+      "grade": 4.96,
+      "over": 0,
       "worst": 6.4
     },
     "blackout_ms": {
-      "over": 1,
       "long": 33,
+      "wps": 12.7,
+      "spw": 1.49,
+      "grade": 5.28,
+      "over": 1,
       "worst": 6.6
     },
     "bring_them_home_ms": {
-      "over": 0,
       "long": 37,
+      "wps": 12.9,
+      "spw": 1.468,
+      "grade": 5.04,
+      "over": 0,
       "worst": 6.4
     },
     "contamcity_ms": {
-      "over": 0,
       "long": 34,
+      "wps": 12.5,
+      "spw": 1.486,
+      "grade": 5.05,
+      "over": 0,
       "worst": 6.4
     },
     "groundtruth": {
-      "over": 49,
       "long": 107,
+      "wps": 16,
+      "spw": 1.599,
+      "grade": 7.83,
+      "over": 49,
       "worst": 9.6
     },
     "blackout_fable": {
-      "over": 47,
       "long": 77,
+      "wps": 15,
+      "spw": 1.626,
+      "grade": 7.64,
+      "over": 47,
       "worst": 9.7
     },
     "yellowbay": {
-      "over": 49,
       "long": 75,
+      "wps": 18.4,
+      "spw": 1.616,
+      "grade": 8.92,
+      "over": 49,
       "worst": 10.8
     },
     "sightline_ms": {
-      "over": 25,
       "long": 47,
+      "wps": 13.8,
+      "spw": 1.543,
+      "grade": 6.85,
+      "over": 25,
       "worst": 8.6
     },
     "redsand_ms": {
-      "over": 34,
       "long": 58,
+      "wps": 15.1,
+      "spw": 1.553,
+      "grade": 7.25,
+      "over": 34,
       "worst": 8.4
     },
     "the_trial_ms": {
-      "over": 25,
       "long": 53,
+      "wps": 14.7,
+      "spw": 1.55,
+      "grade": 7.1,
+      "over": 25,
       "worst": 8.6
     },
     "deepwatch_hs": {
-      "over": 42,
       "long": 143,
+      "wps": 16.7,
+      "spw": 1.566,
+      "grade": 7.54,
+      "over": 42,
       "worst": 11.2
     },
     "contamcity_hs": {
-      "over": 50,
       "long": 90,
+      "wps": 15.7,
+      "spw": 1.665,
+      "grade": 8.3,
+      "over": 50,
       "worst": 10.5
     },
     "the_trial_hs": {
-      "over": 51,
       "long": 108,
+      "wps": 16.1,
+      "spw": 1.637,
+      "grade": 8.39,
+      "over": 51,
       "worst": 10.9
     },
     "carrying": {
-      "over": 25,
       "long": 0,
+      "wps": 14,
+      "spw": 1.567,
+      "grade": 6.56,
+      "over": 25,
       "worst": 8
     },
     "ghostlight": {
-      "over": 42,
       "long": 123,
+      "wps": 16.6,
+      "spw": 1.512,
+      "grade": 7.49,
+      "over": 42,
       "worst": 9.2
     },
     "changeover": {
-      "over": 44,
       "long": 94,
+      "wps": 16,
+      "spw": 1.544,
+      "grade": 7.79,
+      "over": 44,
       "worst": 9.4
     },
     "slackwater": {
-      "over": 38,
-      "long": 100,
-      "worst": 12.1
+      "long": 0,
+      "wps": 13.5,
+      "spw": 1.51,
+      "grade": 6.05,
+      "over": 10,
+      "worst": 8.7
     },
     "overwind": {
-      "over": 38,
-      "long": 98,
-      "worst": 10.2
+      "long": 0,
+      "wps": 13.1,
+      "spw": 1.487,
+      "grade": 5.75,
+      "over": 5,
+      "worst": 9
     },
     "darkfibre": {
-      "over": 38,
-      "long": 107,
-      "worst": 13.8
+      "long": 0,
+      "wps": 14.1,
+      "spw": 1.537,
+      "grade": 6.74,
+      "over": 24,
+      "worst": 9.6
     },
     "qd_accel": {
-      "over": 7,
       "long": 11,
+      "wps": 15.6,
+      "spw": 1.566,
+      "grade": 7.14,
+      "over": 7,
       "worst": 8.4
     },
     "qd_dna": {
-      "over": 6,
       "long": 30,
+      "wps": 16.5,
+      "spw": 1.518,
+      "grade": 6.76,
+      "over": 6,
       "worst": 7.6
     },
     "qd_nucleus": {
-      "over": 8,
       "long": 37,
+      "wps": 16.4,
+      "spw": 1.522,
+      "grade": 6.97,
+      "over": 8,
       "worst": 7.4
     },
     "qd_tectonics": {
-      "over": 6,
       "long": 18,
+      "wps": 15.7,
+      "spw": 1.533,
+      "grade": 6.6,
+      "over": 6,
       "worst": 7.5
     },
     "qd_higgs": {
-      "over": 8,
       "long": 29,
+      "wps": 16.5,
+      "spw": 1.553,
+      "grade": 7.6,
+      "over": 8,
       "worst": 8.7
     },
     "qd_eclipse": {
-      "over": 8,
       "long": 25,
+      "wps": 16,
+      "spw": 1.545,
+      "grade": 7.14,
+      "over": 8,
       "worst": 7.9
     },
     "qd_exo": {
-      "over": 5,
       "long": 23,
+      "wps": 16.1,
+      "spw": 1.495,
+      "grade": 6.84,
+      "over": 5,
       "worst": 8
     },
     "qd_ligo": {
-      "over": 9,
       "long": 30,
+      "wps": 16.8,
+      "spw": 1.557,
+      "grade": 7.41,
+      "over": 9,
       "worst": 8.4
     },
     "qd_cmb": {
-      "over": 8,
       "long": 35,
+      "wps": 15.9,
+      "spw": 1.573,
+      "grade": 7.37,
+      "over": 8,
       "worst": 8.1
     },
     "qd_hubble": {
-      "over": 7,
       "long": 29,
+      "wps": 16.2,
+      "spw": 1.578,
+      "grade": 7.4,
+      "over": 7,
       "worst": 8.7
     },
     "qd_penicillin": {
-      "over": 8,
       "long": 20,
+      "wps": 16.5,
+      "spw": 1.534,
+      "grade": 7.14,
+      "over": 8,
       "worst": 8.4
     },
     "qd_germ": {
-      "over": 5,
       "long": 22,
+      "wps": 15.7,
+      "spw": 1.53,
+      "grade": 6.67,
+      "over": 5,
       "worst": 8.1
     },
     "qd_mendel": {
-      "over": 7,
       "long": 21,
+      "wps": 15.9,
+      "spw": 1.515,
+      "grade": 6.77,
+      "over": 7,
       "worst": 7.6
     },
     "qd_crispr": {
-      "over": 9,
       "long": 30,
+      "wps": 16.8,
+      "spw": 1.573,
+      "grade": 7.33,
+      "over": 9,
       "worst": 8
     },
     "qd_oxygen": {
-      "over": 6,
       "long": 26,
+      "wps": 15.8,
+      "spw": 1.503,
+      "grade": 6.71,
+      "over": 6,
       "worst": 7.5
     },
     "qd_periodic": {
-      "over": 9,
       "long": 18,
+      "wps": 15.2,
+      "spw": 1.613,
+      "grade": 7.67,
+      "over": 9,
       "worst": 8.5
     },
     "qd_stroop": {
-      "over": 9,
       "long": 19,
+      "wps": 15.9,
+      "spw": 1.555,
+      "grade": 7.09,
+      "over": 9,
       "worst": 7.5
     },
     "qd_memory": {
-      "over": 8,
       "long": 18,
+      "wps": 15.3,
+      "spw": 1.579,
+      "grade": 7.11,
+      "over": 8,
       "worst": 8.4
     },
     "qd_keynes": {
-      "over": 6,
       "long": 22,
+      "wps": 16.3,
+      "spw": 1.531,
+      "grade": 6.85,
+      "over": 6,
       "worst": 7.8
     },
     "qd_bankrun": {
-      "over": 3,
       "long": 24,
+      "wps": 15.5,
+      "spw": 1.48,
+      "grade": 6.38,
+      "over": 3,
       "worst": 7
     }
   },
-  "_comment": "What each campaign still owes the tagline on its QUESTION cards: cards over grade 6.5, sentence pile-ups over 28 words, and its worst card. engine/dev/plainQuestions.mjs FAILS a theme that gains one or gets worse. A card with no scene, no guide or no verdict is a hard failure and is never banked. Rewrite cards down with the accessibility pass and re-bank with --write-debt; the numbers only fall."
+  "_comment": "GATED: `long` (sentences over 28 words) and `wps` may not rise, and `spw` may not fall — a grade bought by deleting course vocabulary is the one thing the accessibility pass forbids. REPORTED ONLY: `grade`, `over` (cards over 6.5) and `worst`. The grade is not gated because the syllable term carries three times the weight of sentence length, so a technical card’s reachable grade is fixed by its vocabulary: at syl/w 1.69, grade 6.5 would need sentences of 5.5 words. A card with no scene, no guide or no verdict is a hard failure and is never banked. Re-bank with --write-debt; long and wps only fall."
 }

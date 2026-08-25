@@ -220,23 +220,6 @@ export const CURRICULUM = {
         "the two groups were assigned from a sealed list and saw the same sequence",
         "a report of the sign is a mention of it in the participant's own account"
       ],
-      "equations": [
-        {
-          "e": "effect = p(misled) − p(neutral)",
-          "c": "what the wording added",
-          "v": [
-            [
-              "p(misled)",
-              "the share of the misled group later reporting the suggested detail"
-            ],
-            [
-              "p(neutral)",
-              "the share of the neutral group reporting it"
-            ]
-          ],
-          "s": "Both groups saw the same event, so anything by which their later reports differ was put there by the wording that differed between them."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "Post-event information changes what is later reported",
@@ -580,23 +563,6 @@ export const CURRICULUM = {
       "assumes": [
         "each participant rated their confidence at the time of reporting",
         "accuracy is judged against the recording everybody saw"
-      ],
-      "equations": [
-        {
-          "e": "effect = p(misled) − p(neutral)",
-          "c": "what the wording added",
-          "v": [
-            [
-              "p(misled)",
-              "the share of the misled group later reporting the suggested detail"
-            ],
-            [
-              "p(neutral)",
-              "the share of the neutral group reporting it"
-            ]
-          ],
-          "s": "Both groups saw the same event, so anything by which their later reports differ was put there by the wording that differed between them."
-        }
       ],
       "concept": {
         "n": 7,

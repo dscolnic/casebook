@@ -175,6 +175,38 @@ Three mechanisms in one breath. It wants to be four sentences. **A list of three
 things is three sentences, not three clauses.** Em-dash appositives and
 semicolon-joined independent clauses are where the words hide — count them.
 
+## What is measured, and what is GATED — they are not the same
+
+`npm run check` runs `engine/dev/plainQuestions.mjs` over every question card. It
+**gates three numbers and merely reports the grade**, and the reason is arithmetic.
+Flesch-Kincaid is `0.39 × (words/sentence) + 11.8 × (syllables/word) − 15.59`. The
+syllable term carries three times the weight, and on a question card those syllables
+*are* the course. So the grade a technical card can reach is fixed by its vocabulary
+before a sentence is written:
+
+| syllables/word | words/sentence needed for grade 6.5 |
+| --- | --- |
+| 1.48 | 11.9 |
+| 1.55 | 9.7 |
+| 1.65 | **6.7 — unreachable** |
+| 1.69 | **5.5 — unreachable** |
+
+Quantum sits at 1.69. It got its over-length count to zero and still has 42 of 52
+cards above 6.5, and the only way to move them is to delete the terms this pass
+exists to keep. A bar nobody can reach without breaking the rules is not a bar; it is
+an invitation to cheat the measurement. So:
+
+- **GATED — over-28 sentence count.** May not rise. The free lever.
+- **GATED — words per sentence.** May not rise (a tenth of slack for re-wrapping).
+- **GATED — syllables per word may not FALL.** This is the anti-cheat. The one way to
+  buy a grade is to delete vocabulary, and this catches it.
+- **REPORTED, not gated — the grade, the count over 6.5, the worst card.** Look at
+  them; a human should. Do not chase them.
+
+**Do not report `cards over 6.5` as a success criterion for a technical theme.** Red
+Sand has eight such cards that are syllable-bound — *perchlorate*, *stoichiometry*,
+*electrolysis* — and they are correct as they stand.
+
 Report **words-per-sentence and syllables-per-word alongside the grade**, per card, so
 this cannot drift again. Flesch-Kincaid alone will not show you which half moved:
 

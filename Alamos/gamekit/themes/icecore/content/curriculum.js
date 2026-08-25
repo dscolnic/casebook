@@ -7,7 +7,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Why the hole is on the dome",
-      "scene": "The drill engineer, Pär Lindqvist, has the hole at 2,040 metres and a map on the wall with 3 abandoned sites on it, all of them on slopes. Vestri Dome is the high point for 200 kilometres.",
+      "scene": "The drill engineer, Pär Lindqvist, has the hole at 2,040 metres. On the wall is a map with 3 abandoned sites on it, all of them on slopes. Vestri Dome is the high point for 200 kilometres.",
       "takeaway": "A core is a column of what fell above it only where the ice has not travelled sideways.",
       "place": "Drill Trench",
       "guide": "Four things a dome might buy, and three of them are about the ice being cold, thick or flat. Ask of each whether it is about where the ice came from. An ice sheet flows outward from its high points. On a slope the ice at a given depth arrived from upstream, so the record mixes one place's weather with a journey. Domes pay for that in thin layers.",
@@ -16,7 +16,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Before it was fixed, that was 88 per cent of passage quizzes here. It is now checked per game as a binomial tail. Length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them. Each is the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
-      "story": "The drill engineer, Pär Lindqvist, has the hole at 2,040 metres and a map on the wall with 3 abandoned sites on it, all of them on slopes. Vestri Dome is the high point for 200 kilometres.",
+      "story": "The drill engineer, Pär Lindqvist, has the hole at 2,040 metres. On the wall is a map with 3 abandoned sites on it, all of them on slopes. Vestri Dome is the high point for 200 kilometres.",
       "game": {
         "type": "CHOICE",
         "title": "Why the hole is on the dome",
@@ -25,7 +25,7 @@ export const CURRICULUM = {
         "task": "Say what the site was chosen for",
         "question": "What does drilling at the dome buy that a site on the slope cannot?",
         "answer": "The ice at each depth fell close to where it now sits, so the core is a column of one place's weather.",
-        "why": "An ice sheet flows outwards from its high points. On a slope the ice at a given depth arrived from somewhere upstream. So a core there mixes the weather of one place with the history of a journey. The two cannot be separated afterwards. Under a dome the flow is almost straight down, so the column below the drill is very nearly the snow that fell on it. Domes pay for that: they are high, cold and dry, which means thin layers and a long slow season.",
+        "why": "An ice sheet flows outwards from its high points. On a slope the ice at a given depth arrived from somewhere upstream. So a core there mixes the weather of one place with the history of a journey. The two cannot be separated afterwards. Under a dome the flow is almost straight down. So the column below the drill is very nearly the snow that fell on it. Domes pay for that: they are high, cold and dry, which means thin layers and a long slow season.",
         "rebuttals": [
           "Summit ice is colder, and cold ice is not what makes depth correspond to time",
           "Domes are the driest part of an ice sheet, not the snowiest — thin layers are the price paid here",
@@ -68,7 +68,7 @@ export const CURRICULUM = {
       "background": [
         "Why the order is graded whole. A sequence is a claim about dependency. Each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits. Partial credit would be credit for a sequence that does not work.",
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them. That usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply. What is left in the middle is where the actual judgement lives.",
-        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing. None of the steps has to happen at a particular hour."
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility. Reversibility puts every observation that leaves the sample as it was before any that consumes it. On those boards a chronological reading finds nothing. None of the steps has to happen at a particular hour."
       ],
       "story": "The barrel is at 780 metres, inside the depth range where the ice comes up cracked. The winch, the fluid and the storage are all set for ordinary ice and Lindqvist wants the order settled before the lift starts.",
       "game": {
@@ -79,7 +79,7 @@ export const CURRICULUM = {
         "task": "Bring a brittle section up whole",
         "question": "Bring a brittle section up whole",
         "answer": "",
-        "why": "Between about 500 and 1,200 metres the bubbles are at pressures the surface cannot support, and the ice around them fractures as it is brought up. Each step buys the next one. A slow lift reduces the shock. Resting the core at hole temperature lets the pressure equalise gradually. Logging the breaks fixes what depth each fragment came from before anything moves. Storing it for weeks lets it finish cracking. Cutting first destroys the depth information and cuts a section that is still moving.",
+        "why": "Between about 500 and 1,200 metres the bubbles are at pressures the surface cannot support. The ice around them fractures as it is brought up. Each step buys the next one. A slow lift reduces the shock. Resting the core at hole temperature lets the pressure equalise gradually. Logging the breaks fixes what depth each fragment came from before anything moves. Storing it for weeks lets it finish cracking. Cutting first destroys the depth information and cuts a section that is still moving.",
         "cards": [
           "Slow the winch through the depth band where bubbles are at their highest pressure",
           "Let the section rest in the trench at drill-hole temperature before it is handled",
@@ -117,16 +117,16 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "The level that holds the hole open",
-      "scene": "The borehole is three kilometres deep and the ice around it is trying to close it. The fluid column is what holds it open, and the level in the tower has to stay where the pressure balance needs it while the drill runs.",
+      "scene": "The borehole is three kilometres deep and the ice around it is trying to close it. The fluid column is what holds it open. The level in the tower has to stay where the pressure balance needs it while the drill runs.",
       "takeaway": "A hole is held open by a balance, and a balance is held by somebody.",
       "place": "Drill Tower",
-      "guide": "Hold the fluid level inside the band on the tower gauge. The band narrows as the hole deepens, because the deeper the hole the less margin there is between closing it and fracturing it. The pump between the tank and the hole is your control, and every run of the winch changes the balance until you answer it.",
+      "guide": "Hold the fluid level inside the band on the tower gauge. The band narrows as the hole deepens, because the deeper the hole the less margin there is between closing it and fracturing it. The pump between the tank and the hole is your control. Every run of the winch changes the balance until you answer it.",
       "background": [
-        "Why the hole needs holding at all. Ice at three kilometres is under enough pressure to flow, and it closes a borehole slowly and permanently. A column of fluid at close to the ice pressure holds it open, which is the only reason a deep hole can be re-entered at all.",
+        "Why the hole needs holding at all. Ice at three kilometres is under enough pressure to flow, and it closes a borehole slowly and permanently. A column of fluid at close to the ice pressure holds it open. That is the only reason a deep hole can be re-entered at all.",
         "Why too much is as bad as too little. Overpressure fractures the wall and takes fluid into the ice, which is both a lost hole and a contaminated record. The band is two-sided for that reason, and it is not symmetric in consequence.",
         "Why the drill itself moves it. Pulling the drill out displaces less than it did going in. Chips come up with fluid on them. Cold fluid coming off the reel is denser than what is in the hole. Each of them is a rate, not a step."
       ],
-      "story": "The borehole is three kilometres deep and the ice around it is trying to close it. The fluid column is what holds it open, and the level in the tower has to stay where the pressure balance needs it while the drill runs.",
+      "story": "The borehole is three kilometres deep and the ice around it is trying to close it. The fluid column is what holds it open. The level in the tower has to stay where the pressure balance needs it while the drill runs.",
       "game": {
         "type": "HOLD",
         "title": "The level that holds the hole open",
@@ -190,16 +190,16 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "From snowfall to sealed bubble",
-      "scene": "Lindqvist has the borehole's own record on the wall: five stages between a snowflake landing and air being locked away, with a measurement against each one.",
+      "scene": "Lindqvist has the borehole's own record on the wall. Five stages between a snowflake landing and air being locked away, with a measurement against each one.",
       "takeaway": "In a chain of stages, one of them sets the answer and the others follow it.",
       "place": "Drill Trench",
       "guide": "Put the five stages in the order a snowflake actually passes through them, from landing to being sealed in. Then name the stage that decides how much older the ice is than the air inside it. Each stage has a measurement against it, so read those rather than choosing the stage that sounds most important.",
       "background": [
-        "Why the ice and its air have different ages. Fresh snow is open to the atmosphere, and it stays open as it compacts. Air moves in and out of that layer for decades or centuries. Only when the pores finally pinch off is the air sealed, and by then the ice around it has been buried a long time.",
+        "Why the ice and its air have different ages. Fresh snow is open to the atmosphere, and it stays open as it compacts. Air moves in and out of that layer for decades or centuries. Only when the pores finally pinch off is the air sealed. By then the ice around it has been buried a long time.",
         "What sets the size of the gap. The depth at which the pores close, and how long the snow takes to get there. Both depend on temperature and on how much snow falls each year. That is why the gap is hundreds of years at a cold, dry site and much less at a warm, snowy one.",
-        "Why it matters more than it sounds. Every comparison between a gas record and an ice record has this offset in it. Read a carbon dioxide rise against a temperature change without correcting for it and you can get the order of events wrong, which is a claim about cause."
+        "Why it matters more than it sounds. Every comparison between a gas record and an ice record has this offset in it. Read a carbon dioxide rise against a temperature change without correcting for it and you can get the order of events wrong. That is a claim about cause."
       ],
-      "story": "Lindqvist has the borehole's own record on the wall: five stages between a snowflake landing and air being locked away, with a measurement against each one.",
+      "story": "Lindqvist has the borehole's own record on the wall. Five stages between a snowflake landing and air being locked away, with a measurement against each one.",
       "game": {
         "type": "CHAIN",
         "title": "From snowfall to sealed bubble",
@@ -208,7 +208,7 @@ export const CURRICULUM = {
         "task": "Name the step that fixes the offset",
         "question": "Which stage decides how much older the ice is than the air inside it?",
         "answer": "Pore close-off. The offset is the age of the ice at the depth where the pores seal, so everything above that depth is a firn column and everything below it is a bubble.",
-        "why": "Every stage moves something, but only one of them fixes the size of the offset. Air exchanges with the atmosphere all the way down the firn. So its age barely changes while the ice around it gets older year by year. The moment the pores seal is the moment that exchange stops. The age difference is then fixed at whatever the ice's age is at that depth. Mixing looks like the answer because it is the process that keeps the air young, but its effect is a decade against a difference of centuries.",
+        "why": "Every stage moves something, but only one of them fixes the size of the offset. Air exchanges with the atmosphere all the way down the firn. So its age barely changes while the ice around it gets older year by year. The moment the pores seal is the moment that exchange stops. The age difference is then fixed at whatever the ice's age is at that depth. Mixing looks like the answer because it is the process that keeps the air young. But its effect is a decade against a difference of centuries.",
         "chain": {
           "links": [
             {
@@ -258,31 +258,6 @@ export const CURRICULUM = {
       "assumes": [
         "a quantity that passes through several stages is limited by one of them"
       ],
-      "equations": [
-        {
-          "e": "Δage ≈ z_close × ρ̄ / b",
-          "c": "why the gas in a bubble is younger than the ice around it",
-          "v": [
-            [
-              "Δage",
-              "gas age minus ice age, in years"
-            ],
-            [
-              "z_close",
-              "the close-off depth, where the pores seal — 60 to 100 m"
-            ],
-            [
-              "ρ̄",
-              "the mean density of the firn above that depth, relative to ice"
-            ],
-            [
-              "b",
-              "accumulation in ice equivalent per year"
-            ]
-          ],
-          "s": "Air circulates freely through the firn until the pores seal, so the bubble is sealed centuries after the snow around it fell — and the colder and drier the site, the larger that offset becomes."
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "Why ice keeps a record at all: burial without melting",
@@ -293,7 +268,7 @@ export const CURRICULUM = {
       "day": 5,
       "title": "A year at 2400 metres",
       "scene": "The ice is 3,010 metres thick here and the barrel is at 2,400. At the surface a year is about 0.119 metres of ice equivalent, and Lindqvist wants to know what one is now.",
-      "takeaway": "A simple thinning model gets the direction right and the size wrong, which is why a counted record and a modelled one end in different places.",
+      "takeaway": "A simple thinning model gets the direction right and the size wrong. That is why a counted record and a modelled one end in different places.",
       "place": "Drill Trench",
       "guide": "Four numbers, and one of them is the close-off depth, which belongs to the firn rather than to the flow. Ask of each whether it describes the surface, this depth, or the whole sheet. The thinning depends on how much ice is left below, so what matters is the distance to the bed. That is what packs a hundred thousand years into the bottom kilometre.",
       "background": [
@@ -309,7 +284,7 @@ export const CURRICULUM = {
         "task": "Work out how thin a year is down there",
         "question": "What does simple thinning predict for one annual layer at 2,400 metres?",
         "answer": "About 0.024 metres — a fifth of a surface year, or 24 millimetres. The line measures 1.5 millimetres there, so the real thinning near the bed is sixteen times what uniform strain predicts.",
-        "why": "Ice flows outwards from the dome, and to keep going it has to stretch, so each layer thins as the weight above it grows. The simplest model treats the vertical strain as uniform. That makes a layer's thickness fall in proportion to the distance left to the bed. At four-fifths of the way down, a layer is one-fifth of what it was. That gives 24 millimetres here. The scanner reads 1.5. The model is not wrong about the direction. It is wrong about the size, because strain is not uniform near a bed the ice is being dragged over. That is the whole reason the counted record stops at 2,180 metres. The modelled one carries on to the bottom with an uncertainty attached.",
+        "why": "Ice flows outwards from the dome, and to keep going it has to stretch. So each layer thins as the weight above it grows. The simplest model treats the vertical strain as uniform. That makes a layer's thickness fall in proportion to the distance left to the bed. At four-fifths of the way down, a layer is one-fifth of what it was. That gives 24 millimetres here. The scanner reads 1.5. The model is not wrong about the direction. It is wrong about the size, because strain is not uniform near a bed the ice is being dragged over. That is the whole reason the counted record stops at 2,180 metres. The modelled one carries on to the bottom with an uncertainty attached.",
         "givens": [],
         "relationship": "λ(z) = λ₀ × (H − z) ÷ H — the layer's original thickness, scaled by how much of the ice sheet is left below it.",
         "calcKey": "DRILL-5"
@@ -342,49 +317,6 @@ export const CURRICULUM = {
           ],
           "s": "Ice spreads outwards under its own weight, so every layer is stretched thinner as it sinks — which is why the oldest ice is the thinnest and why a record ends before the bed does.",
           "demanded": true
-        },
-        {
-          "e": "b = λ × ρ_snow / ρ_ice",
-          "c": "accumulation, converted to ice equivalent",
-          "v": [
-            [
-              "b",
-              "accumulation in metres of ice equivalent per year"
-            ],
-            [
-              "λ",
-              "the measured thickness of one annual layer"
-            ],
-            [
-              "ρ_snow",
-              "the density of the snow as it fell"
-            ],
-            [
-              "ρ_ice",
-              "the density of solid ice, about 917 kg per cubic metre"
-            ]
-          ],
-          "s": "A metre of new snow is not a metre of ice, so an accumulation rate only means something once the layer has been converted to the ice it will become."
-        },
-        {
-          "e": "age(z) = Σ Δz / λ(z)",
-          "c": "building a depth–age scale by adding up layers",
-          "v": [
-            [
-              "age(z)",
-              "the age of the ice at depth z, in years before present"
-            ],
-            [
-              "Δz",
-              "a depth interval"
-            ],
-            [
-              "λ(z)",
-              "the annual layer thickness through that interval"
-            ]
-          ],
-          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it.",
-          "card": false
         }
       ],
       "takesAsRead": [
@@ -409,7 +341,7 @@ export const CURRICULUM = {
       "scene": "Lindqvist has nine drilling days before the station closes. De Vries has the fuel committed for those nine and no more, and four pieces of work want them.",
       "takeaway": "A plan is judged by which questions it can still answer, not by how much it fits in.",
       "place": "Drill Trench",
-      "guide": "Nine drilling days, fuel committed for exactly nine, and four jobs that want them. Watch the questions list rather than the depths: it shows which questions the current plan can still answer. Every day you spend is a question you can answer and one you have given up, and nothing can be added after the station closes.",
+      "guide": "Nine drilling days, fuel committed for exactly nine, and four jobs that want them. Watch the questions list rather than the depths: it shows which questions the current plan can still answer. Every day you spend is a question you can answer and one you have given up. Nothing can be added after the station closes.",
       "background": [
         "Why the fuel is the real constraint. Days can in principle be found; the fuel for those days cannot. It was committed before the season and there is no more, so the plan has to fit the fuel rather than the calendar.",
         "Why depth is not the same as value. Drilling deeper always produces more core, and the extra core answers a question only if it reaches something the record needs. A shallower job that closes a comparison can be worth more than a deeper one that extends a series nobody is arguing about.",
@@ -424,7 +356,7 @@ export const CURRICULUM = {
         "task": "Commit the last drilling days",
         "question": "Which questions can the last nine days still answer?",
         "answer": "Extending the deep section and cutting the replicate at the tephra horizon, on top of the fluid change the drill cannot run without. The firn re-drill and the borehole log are real work and neither answers a question this season needs.",
-        "why": "The two required questions are the ones this season exists to answer. Whether the deep section reaches older ice. And whether the horizon everything is now tied to appears in ice that shared the weather but not the drill. Together with the fluid change they use exactly the nine days available. The firn profile and the borehole log are both good work and both can be done next season by somebody who has not yet drilled to 2,400 metres. A plan that fits everything in is a plan that has not been asked what it is for.",
+        "why": "The two required questions are the ones this season exists to answer. Whether the deep section reaches older ice. And whether the horizon everything is now tied to appears in ice that shared the weather but not the drill. Together with the fluid change they use exactly the nine days available. The firn profile and the borehole log are both good work. Both can be done next season by somebody who has not yet drilled to 2,400 metres. A plan that fits everything in is a plan that has not been asked what it is for.",
         "allocate": {
           "pool": {
             "amount": 9,
@@ -495,31 +427,6 @@ export const CURRICULUM = {
       "assumes": [
         "a season ends on a date fixed by aircraft rather than by science"
       ],
-      "equations": [
-        {
-          "e": "Δage ≈ z_close × ρ̄ / b",
-          "c": "why the gas in a bubble is younger than the ice around it",
-          "v": [
-            [
-              "Δage",
-              "gas age minus ice age, in years"
-            ],
-            [
-              "z_close",
-              "the close-off depth, where the pores seal — 60 to 100 m"
-            ],
-            [
-              "ρ̄",
-              "the mean density of the firn above that depth, relative to ice"
-            ],
-            [
-              "b",
-              "accumulation in ice equivalent per year"
-            ]
-          ],
-          "s": "Air circulates freely through the firn until the pores seal, so the bubble is sealed centuries after the snow around it fell — and the colder and drier the site, the larger that offset becomes."
-        }
-      ],
       "concept": {
         "n": 22,
         "c": "Drilling: fluid, brittle ice and what damage costs the record",
@@ -532,7 +439,7 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "What comes back first",
-      "scene": "Power is back on one generator. Lindqvist, de Vries and Tanabe each want their own system restarted first, and the single generator will not carry all of them at once.",
+      "scene": "Power is back on one generator. Lindqvist, de Vries and Tanabe each want their own system restarted first. The single generator will not carry all of them at once.",
       "takeaway": "Restart in the order of what is still being lost, not in the order of who asked.",
       "place": "Drill Trench",
       "guide": "Four systems, and three of them are waiting. Ask of each whether the delay costs time or costs evidence. Ice above minus twenty starts losing gas from the bubbles near its cut faces, and nothing recovers it. A drilling day is a day. Queued samples are as good tomorrow. Order by what is still being lost.",
@@ -541,7 +448,7 @@ export const CURRICULUM = {
         "What to look for in the options. Two things separate them. Which is still changing, and which is a precondition for the others. A situation that is deteriorating has a cost per hour attached to it. A step that unblocks the rest multiplies the value of the hours after it. Everything else is a preference about where to start.",
         "Why only one answer is marked. In the situation these options describe, all of them eventually happen. What is being tested is the head of the queue, because that is where the reasoning is visible. The verdict names what each of the others was waiting on. That is worth reading even when the choice was right. The ordering behind the first place is the rest of the answer."
       ],
-      "story": "Power is back on one generator. Lindqvist, de Vries and Tanabe each want their own system restarted first, and the single generator will not carry all of them at once.",
+      "story": "Power is back on one generator. Lindqvist, de Vries and Tanabe each want their own system restarted first. The single generator will not carry all of them at once.",
       "game": {
         "type": "TRIAGE",
         "title": "What comes back first",
@@ -550,7 +457,7 @@ export const CURRICULUM = {
         "task": "Put the restart in order",
         "question": "What is restarted first?",
         "answer": "The core store. It is the only one of the 4 still losing something irreversibly, and every hour above minus 20 costs gas measurements that cannot be made again.",
-        "why": "Three of these are waiting and one is deteriorating. Ice above minus 20 starts losing gas from the bubbles near its cut faces. That loss cannot be undone or measured around. Every hour is more of the core that can no longer answer a gas question. A lost drilling day is a day, the queued samples are as good tomorrow as today, and a report sent six hours late is a report sent. Order by what is still being lost.",
+        "why": "Three of these are waiting and one is deteriorating. Ice above minus 20 starts losing gas from the bubbles near its cut faces. That loss cannot be undone or measured around. Every hour is more of the core that can no longer answer a gas question. A lost drilling day is a day. The queued samples are as good tomorrow as today. A report sent six hours late is a report sent. Order by what is still being lost.",
         "rebuttals": [
           "A drilling day is recoverable, and the drill is not losing anything while it stands idle",
           "Queued samples are in the store; if the store is warm they are the thing being lost, not the queue",
@@ -586,7 +493,7 @@ export const CURRICULUM = {
       "background": [
         "Why the order is graded whole. A sequence is a claim about dependency. Each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits. Partial credit would be credit for a sequence that does not work.",
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them. That usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply. What is left in the middle is where the actual judgement lives.",
-        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing. None of the steps has to happen at a particular hour."
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility. Reversibility puts every observation that leaves the sample as it was before any that consumes it. On those boards a chronological reading finds nothing. None of the steps has to happen at a particular hour."
       ],
       "story": "The core line technician, Sigrid Holt, has a section from 1,150 metres on the light table. Four teams are down on the request sheet for a piece of it. Nothing on the sheet says which of them goes first.",
       "game": {
@@ -597,7 +504,7 @@ export const CURRICULUM = {
         "task": "Order the work on a section that cannot be drilled again",
         "question": "Order the work on a section that cannot be drilled again",
         "answer": "",
-        "why": "Ice gets one reading, so the order of work on a section is decided by what each operation costs rather than by when anybody wants it. A photograph can be taken again next season. A non-contact scan reads the outside and leaves everything. A trim gives up the skin that handling and drill fluid have already reached, and keeps the core. A melt turns a length of ice into a number and nothing else, and a crush ends the section. Run that order backwards and no time is lost — the measurements the earlier steps would have made are.",
+        "why": "Ice gets one reading. So the order of work on a section is decided by what each operation costs, rather than by when anybody wants it. A photograph can be taken again next season. A non-contact scan reads the outside and leaves everything. A trim gives up the skin that handling and drill fluid have already reached, and keeps the core. A melt turns a length of ice into a number and nothing else, and a crush ends the section. Run that order backwards and no time is lost — the measurements the earlier steps would have made are.",
         "cards": [
           "Photograph the whole section on the light table, which touches nothing and can be repeated",
           "Log the breaks and read the density along its length with the non-contact scanner",
@@ -707,7 +614,7 @@ export const CURRICULUM = {
       "scene": "A section has arrived at the line with a broken depth mark. Holt can place it to within about four metres from the run sheet, and the isotope team has asked for it.",
       "takeaway": "A sample without a depth is a measurement of nothing in particular.",
       "place": "Core Line",
-      "guide": "Four options for a section that can only be placed within four metres. Ask of each what the depth is for. It is what turns a measurement into a statement about a year, and four metres here is thirty-odd years. Some work does not use depth at all. And note the real rule: the uncertainty has to travel with the sample, because the danger is somebody downstream who never hears about it.",
+      "guide": "Four options for a section that can only be placed within four metres. Ask of each what the depth is for. It is what turns a measurement into a statement about a year, and four metres here is thirty-odd years. Some work does not use depth at all. And note the real rule. The uncertainty has to travel with the sample, because the danger is somebody downstream who never hears about it.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading. A step skipped. A quantity confused with a rate. A correlation taken for a cause. Identifying which misreading each belongs to is where the learning is. The right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Before it was fixed, that was 88 per cent of passage quizzes here. It is now checked per game as a binomial tail. Length, hedging and specificity have had the signal taken out of them deliberately.",
@@ -756,7 +663,7 @@ export const CURRICULUM = {
       "place": "Core Line",
       "guide": "Drag the depth. The readout is the measured thickness of one year's layer there, in millimetres, and only the depths you stop at get plotted. You are not looking for a peak: you want the depth at which the thickness falls to the scanner's three-millimetre limit. Sweep down the core, find that crossing, then mark the depth and commit.",
       "background": [
-        "Why layers thin with depth. Ice under ice is compressed, and an ice sheet also spreads sideways under its own weight, stretching each buried layer thinner as it goes. Near the surface a year is centimetres of ice; two kilometres down the same year's snowfall may be a few millimetres.",
+        "Why layers thin with depth. Ice under ice is compressed. An ice sheet also spreads sideways under its own weight, stretching each buried layer thinner as it goes. Near the surface a year is centimetres of ice; two kilometres down the same year's snowfall may be a few millimetres.",
         "What the limit costs. Above the crossing, a year is a band somebody can point at, and the age of the ice is a count. Below it, two years arrive inside one scanner resolution and the count stops. The ages then come from a flow model instead, which is an inference with its own uncertainty rather than a tally.",
         "Why the crossing is a depth rather than a year. The thinning depends on the ice's own flow, so the same limit lands at different depths in different cores. It has to be measured in each one, which is why this reading is taken before any chronology is published."
       ],
@@ -769,7 +676,7 @@ export const CURRICULUM = {
         "task": "Find where the layers stop being countable",
         "question": "The line resolves bands three millimetres apart and no closer. At what depth does the annual layer thickness fall to that limit?",
         "answer": "About 2,180 metres. Below that the bands are closer together than the line can separate, and the ages have to come from the flow model.",
-        "why": "Ice spreads outwards under its own weight, so every layer is stretched thinner as it sinks, and the thinning compounds with depth. At Vestri the surface lays down about 12 centimetres a year in ice equivalent; 2 kilometres down the same year is a few millimetres. Where the layers close to within the resolution of the measurement, the count stops. Not because the years are gone, but because two of them can no longer be told apart. Everything deeper is dated by a flow model anchored to whatever dated events can still be found.",
+        "why": "Ice spreads outwards under its own weight, so every layer is stretched thinner as it sinks, and the thinning compounds with depth. At Vestri the surface lays down about 12 centimetres a year in ice equivalent. At 2 kilometres down the same year is a few millimetres. Where the layers close to within the resolution of the measurement, the count stops. Not because the years are gone, but because two of them can no longer be told apart. Everything deeper is dated by a flow model anchored to whatever dated events can still be found.",
         "sweep": {
           "mode": "peak",
           "axis": {
@@ -940,74 +847,6 @@ export const CURRICULUM = {
         "layers are stretched thinner as the ice below them spreads outwards",
         "accumulation rate, and what a site with little snow buys and costs — taken as read"
       ],
-      "equations": [
-        {
-          "e": "b = λ × ρ_snow / ρ_ice",
-          "c": "accumulation, converted to ice equivalent",
-          "v": [
-            [
-              "b",
-              "accumulation in metres of ice equivalent per year"
-            ],
-            [
-              "λ",
-              "the measured thickness of one annual layer"
-            ],
-            [
-              "ρ_snow",
-              "the density of the snow as it fell"
-            ],
-            [
-              "ρ_ice",
-              "the density of solid ice, about 917 kg per cubic metre"
-            ]
-          ],
-          "s": "A metre of new snow is not a metre of ice, so an accumulation rate only means something once the layer has been converted to the ice it will become."
-        },
-        {
-          "e": "λ(z) = λ₀ (H − z) / H",
-          "c": "layer thinning with depth, as ice flows outwards",
-          "v": [
-            [
-              "λ(z)",
-              "the thickness an annual layer has at depth z"
-            ],
-            [
-              "λ₀",
-              "the thickness it had when it fell"
-            ],
-            [
-              "z",
-              "depth below the surface"
-            ],
-            [
-              "H",
-              "the total thickness of the ice sheet"
-            ]
-          ],
-          "s": "Ice spreads outwards under its own weight, so every layer is stretched thinner as it sinks — which is why the oldest ice is the thinnest and why a record ends before the bed does."
-        },
-        {
-          "e": "age(z) = Σ Δz / λ(z)",
-          "c": "building a depth–age scale by adding up layers",
-          "v": [
-            [
-              "age(z)",
-              "the age of the ice at depth z, in years before present"
-            ],
-            [
-              "Δz",
-              "a depth interval"
-            ],
-            [
-              "λ(z)",
-              "the annual layer thickness through that interval"
-            ]
-          ],
-          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it.",
-          "card": false
-        }
-      ],
       "takesAsRead": [
         {
           "n": 2,
@@ -1044,7 +883,7 @@ export const CURRICULUM = {
         "task": "Log the core sections before the light goes.",
         "question": "Send each section to the bin that says what made the layer.",
         "answer": "Coarse-over-fine with bubbles is a year. Clear, dense and bubble-poor is melt, and counting it as a year ages everything beneath it.",
-        "why": "An annual layer is built by a season: coarse crystals from summer sun, fine wind-packed snow through winter, and air trapped as bubbles throughout. A melt layer is built by water. The surface thaws, and the water percolates down and refreezes in the pore space. What comes out on the light table is clear, dense and almost free of bubbles. Both are stripes in a core and only one of them is a year. The cost of confusing them is not local. Annual layer counting is the clock. So a melt layer counted as a year makes every date below it too old. A year missed makes every date too young, all the way to the bottom of the core. Melt also does something worse than miscount. Water moving down carries the chemistry with it. So the isotopes and the ions either side of the layer are smeared. That is why a site is chosen for how rarely its surface melts rather than for how much snow it gets.",
+        "why": "An annual layer is built by a season. Coarse crystals from summer sun. Fine wind-packed snow through winter. And air trapped as bubbles throughout. A melt layer is built by water. The surface thaws, and the water percolates down and refreezes in the pore space. What comes out on the light table is clear, dense and almost free of bubbles. Both are stripes in a core and only one of them is a year. The cost of confusing them is not local. Annual layer counting is the clock. So a melt layer counted as a year makes every date below it too old. A year missed makes every date too young, all the way to the bottom of the core. Melt also does something worse than miscount. Water moving down carries the chemistry with it. So the isotopes and the ions either side of the layer are smeared. That is why a site is chosen for how rarely its surface melts rather than for how much snow it gets.",
         "belt": {
           "left": {
             "name": "Annual layer"
@@ -1168,50 +1007,6 @@ export const CURRICULUM = {
       "assumes": [
         "snow builds up in layers and can melt and refreeze"
       ],
-      "equations": [
-        {
-          "e": "λ(z) = λ₀ (H − z) / H",
-          "c": "layer thinning with depth, as ice flows outwards",
-          "v": [
-            [
-              "λ(z)",
-              "the thickness an annual layer has at depth z"
-            ],
-            [
-              "λ₀",
-              "the thickness it had when it fell"
-            ],
-            [
-              "z",
-              "depth below the surface"
-            ],
-            [
-              "H",
-              "the total thickness of the ice sheet"
-            ]
-          ],
-          "s": "Ice spreads outwards under its own weight, so every layer is stretched thinner as it sinks — which is why the oldest ice is the thinnest and why a record ends before the bed does."
-        },
-        {
-          "e": "age(z) = Σ Δz / λ(z)",
-          "c": "building a depth–age scale by adding up layers",
-          "v": [
-            [
-              "age(z)",
-              "the age of the ice at depth z, in years before present"
-            ],
-            [
-              "Δz",
-              "a depth interval"
-            ],
-            [
-              "λ(z)",
-              "the annual layer thickness through that interval"
-            ]
-          ],
-          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "Annual layer counting, and where counting fails",
@@ -1227,7 +1022,7 @@ export const CURRICULUM = {
       "scene": "Okonkwo has the two records from the same depths on one plot. The ice record has features a few years wide. The gas record from the same interval has nothing narrower than a few decades.",
       "takeaway": "A record made by an averaging process cannot show a change faster than the averaging.",
       "place": "Core Line",
-      "guide": "Four explanations for a record with no sharp edges. Ask of each whether it is a property of the site or of the laboratory. Cutting smaller pieces would help one of them a little. The pores do not all close at once, so the air sealed in one layer is a mixture spanning the years that range covers. A wetter site closes them in a decade.",
+      "guide": "Four explanations for a record with no sharp edges. Ask of each whether it is a property of the site or of the laboratory. Cutting smaller pieces would help one of them a little. The pores do not all close at once. So the air sealed in one layer is a mixture spanning the years that range covers. A wetter site closes them in a decade.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading. A step skipped. A quantity confused with a rate. A correlation taken for a cause. Identifying which misreading each belongs to is where the learning is. The right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Before it was fixed, that was 88 per cent of passage quizzes here. It is now checked per game as a binomial tail. Length, hedging and specificity have had the signal taken out of them deliberately.",
@@ -1242,7 +1037,7 @@ export const CURRICULUM = {
         "task": "Explain the smoother record",
         "question": "Why is the gas record smoother than the ice record from the same depths?",
         "answer": "The air mixed through the whole firn column before it was sealed, so each bubble holds an average of several decades of atmosphere rather than one year of it.",
-        "why": "Air is in contact with the atmosphere throughout the open firn, and the pores do not all close at once. The closing happens across a depth range. So the bubbles sealed in one layer hold a mixture spanning the years that range represents. That smoothing is a property of the site: a high-accumulation site closes its pores in a decade and keeps sharp features, while this one takes several. Sample size makes a small contribution and could be reduced by cutting smaller pieces. The smoothing cannot.",
+        "why": "Air is in contact with the atmosphere throughout the open firn, and the pores do not all close at once. The closing happens across a depth range. So the bubbles sealed in one layer hold a mixture spanning the years that range represents. That smoothing is a property of the site. A high-accumulation site closes its pores in a decade and keeps sharp features. This one takes several. Sample size makes a small contribution and could be reduced by cutting smaller pieces. The smoothing cannot.",
         "rebuttals": [
           "Sample size is a choice and could be made smaller; the firn smoothing is fixed by the site",
           "Some atmospheric changes are genuinely fast, and this record could not show them either",
@@ -1259,74 +1054,6 @@ export const CURRICULUM = {
       "assumes": [
         "a measurement that averages over an interval cannot show anything shorter than it",
         "stable isotopes as a thermometer: δ¹⁸O and deuterium — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "b = λ × ρ_snow / ρ_ice",
-          "c": "accumulation, converted to ice equivalent",
-          "v": [
-            [
-              "b",
-              "accumulation in metres of ice equivalent per year"
-            ],
-            [
-              "λ",
-              "the measured thickness of one annual layer"
-            ],
-            [
-              "ρ_snow",
-              "the density of the snow as it fell"
-            ],
-            [
-              "ρ_ice",
-              "the density of solid ice, about 917 kg per cubic metre"
-            ]
-          ],
-          "s": "A metre of new snow is not a metre of ice, so an accumulation rate only means something once the layer has been converted to the ice it will become."
-        },
-        {
-          "e": "Δage ≈ z_close × ρ̄ / b",
-          "c": "why the gas in a bubble is younger than the ice around it",
-          "v": [
-            [
-              "Δage",
-              "gas age minus ice age, in years"
-            ],
-            [
-              "z_close",
-              "the close-off depth, where the pores seal — 60 to 100 m"
-            ],
-            [
-              "ρ̄",
-              "the mean density of the firn above that depth, relative to ice"
-            ],
-            [
-              "b",
-              "accumulation in ice equivalent per year"
-            ]
-          ],
-          "s": "Air circulates freely through the firn until the pores seal, so the bubble is sealed centuries after the snow around it fell — and the colder and drier the site, the larger that offset becomes."
-        },
-        {
-          "e": "age(z) = Σ Δz / λ(z)",
-          "c": "building a depth–age scale by adding up layers",
-          "v": [
-            [
-              "age(z)",
-              "the age of the ice at depth z, in years before present"
-            ],
-            [
-              "Δz",
-              "a depth interval"
-            ],
-            [
-              "λ(z)",
-              "the annual layer thickness through that interval"
-            ]
-          ],
-          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it.",
-          "card": false
-        }
       ],
       "takesAsRead": [
         {
@@ -1438,7 +1165,7 @@ export const CURRICULUM = {
         "task": "Identify the horizon",
         "question": "Identify the horizon",
         "answer": "The northern eruption, identified by the shard chemistry",
-        "why": "The shard chemistry is the only reading here that is independent of the timescale. It is the one that discriminates. Glass composition is a fingerprint of a particular magma and a particular volcano. The modelled age cannot choose between 2 candidates 90 years apart because its own uncertainty is larger than that gap. Sea-salt sulphate does not arrive with volcanic glass. And waiting for the layer count is waiting for something that stopped 460 metres higher, which is the reason a dated horizon matters here at all.",
+        "why": "The shard chemistry is the only reading here that is independent of the timescale. It is the one that discriminates. Glass composition is a fingerprint of a particular magma and a particular volcano. The modelled age cannot choose between 2 candidates 90 years apart because its own uncertainty is larger than that gap. Sea-salt sulphate does not arrive with volcanic glass. And waiting for the layer count is waiting for something that stopped 460 metres higher. That is the reason a dated horizon matters here at all.",
         "headline": "A sulphate spike at 1,642 m, with glass shards, and 2 candidate eruptions within a century of each other.",
         "readings": [
           {
@@ -1496,27 +1223,6 @@ export const CURRICULUM = {
       "assumes": [
         "volcanic glass carries the chemical composition of the volcano that erupted it"
       ],
-      "equations": [
-        {
-          "e": "age(z) = Σ Δz / λ(z)",
-          "c": "building a depth–age scale by adding up layers",
-          "v": [
-            [
-              "age(z)",
-              "the age of the ice at depth z, in years before present"
-            ],
-            [
-              "Δz",
-              "a depth interval"
-            ],
-            [
-              "λ(z)",
-              "the annual layer thickness through that interval"
-            ]
-          ],
-          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it."
-        }
-      ],
       "concept": {
         "n": 15,
         "c": "Volcanic sulphate horizons as dated tie points",
@@ -1564,27 +1270,6 @@ export const CURRICULUM = {
       "assumes": [
         "ice near the bed has flowed over rough ground for a long time"
       ],
-      "equations": [
-        {
-          "e": "age(z) = Σ Δz / λ(z)",
-          "c": "building a depth–age scale by adding up layers",
-          "v": [
-            [
-              "age(z)",
-              "the age of the ice at depth z, in years before present"
-            ],
-            [
-              "Δz",
-              "a depth interval"
-            ],
-            [
-              "λ(z)",
-              "the annual layer thickness through that interval"
-            ]
-          ],
-          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "Annual layer counting, and where counting fails",
@@ -1597,7 +1282,7 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "The clock that does not need layers",
-      "scene": "Okonkwo has a sample from the deep section and a radiometric result: the isotope in it has fallen to 0.55 of the amount it starts with. Its mean lifetime is on the bench.",
+      "scene": "Okonkwo has a sample from the deep section and a radiometric result. The isotope in it has fallen to 0.55 of the amount it starts with. Its mean lifetime is on the bench.",
       "takeaway": "Where counting has run out, a clock that runs on its own is the only independent date left.",
       "place": "Core Line",
       "guide": "Four numbers, and two of them are traps. One is the half-life of the same isotope, which is not the same as its average life. One is the ice thickness. Ask of each whether this clock depends on it. And note why the answer is worth having. The decay rate cares nothing about temperature, pressure or flow, so it owes nothing to the flow model.",
@@ -1605,7 +1290,7 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated. Nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. Then, whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label catches a unit mismatch before it is placed. It also catches a quantity belonging to a different part of the problem. That is the habit this format exists to build."
       ],
-      "story": "Okonkwo has a sample from the deep section and a radiometric result: the isotope in it has fallen to 0.55 of the amount it starts with. Its mean lifetime is on the bench.",
+      "story": "Okonkwo has a sample from the deep section and a radiometric result. The isotope in it has fallen to 0.55 of the amount it starts with. Its mean lifetime is on the bench.",
       "game": {
         "type": "BALLPARK",
         "title": "The clock that does not need layers",
@@ -1614,34 +1299,13 @@ export const CURRICULUM = {
         "task": "Date ice the counting cannot reach",
         "question": "Estimate the age of the sample from what is left of the isotope.",
         "answer": "About 4,900 years. Decay is the one clock in the core that does not depend on the flow model.",
-        "why": "Radioactive decay proceeds at a rate that no temperature, pressure or flow in the ice can change. That is what makes it usable where the layers have stopped being countable. The amount left falls exponentially with time, so taking the natural logarithm of the fraction remaining and multiplying by the mean lifetime gives the age directly. It carries its own uncertainties. How much was there to begin with, and whether anything was added or lost. None of them is the flow model, which is why the result is worth having.",
+        "why": "Radioactive decay proceeds at a rate that no temperature, pressure or flow in the ice can change. That is what makes it usable where the layers have stopped being countable. The amount left falls exponentially with time. So taking the natural logarithm of the fraction remaining and multiplying by the mean lifetime gives the age directly. It carries its own uncertainties. How much was there to begin with, and whether anything was added or lost. None of them is the flow model, which is why the result is worth having.",
         "givens": [],
         "relationship": "t = −τ × ln(N ÷ N₀) — the isotope's mean lifetime, times the logarithm of the fraction still remaining.",
         "calcKey": "CORE-9"
       },
       "assumes": [
         "a radioactive isotope decays at a rate nothing in the ice can change"
-      ],
-      "equations": [
-        {
-          "e": "N(t) = N₀ e^(−t/τ)",
-          "c": "radiometric dating, where nothing can be counted",
-          "v": [
-            [
-              "N(t)",
-              "how much of the isotope is left after time t"
-            ],
-            [
-              "N₀",
-              "how much there was to begin with"
-            ],
-            [
-              "τ",
-              "the mean lifetime, fixed by the isotope and nothing else"
-            ]
-          ],
-          "s": "Decay proceeds at a rate that no condition in the ice can change, which is what makes it a clock where layer counting has run out."
-        }
       ],
       "concept": {
         "n": 19,
@@ -1662,7 +1326,7 @@ export const CURRICULUM = {
       "background": [
         "Why the order is graded whole. A sequence is a claim about dependency. Each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits. Partial credit would be credit for a sequence that does not work.",
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them. That usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply. What is left in the middle is where the actual judgement lives.",
-        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing. None of the steps has to happen at a particular hour."
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility. Reversibility puts every observation that leaves the sample as it was before any that consumes it. On those boards a chronological reading finds nothing. None of the steps has to happen at a particular hour."
       ],
       "story": "Okonkwo has the sentence, the corrected records and a report that closes in the morning. Four things are outstanding and their order is not obvious.",
       "game": {
@@ -1692,50 +1356,6 @@ export const CURRICULUM = {
       "assumes": [
         "a result should be reproducible by somebody who was not present"
       ],
-      "equations": [
-        {
-          "e": "Δage ≈ z_close × ρ̄ / b",
-          "c": "why the gas in a bubble is younger than the ice around it",
-          "v": [
-            [
-              "Δage",
-              "gas age minus ice age, in years"
-            ],
-            [
-              "z_close",
-              "the close-off depth, where the pores seal — 60 to 100 m"
-            ],
-            [
-              "ρ̄",
-              "the mean density of the firn above that depth, relative to ice"
-            ],
-            [
-              "b",
-              "accumulation in ice equivalent per year"
-            ]
-          ],
-          "s": "Air circulates freely through the firn until the pores seal, so the bubble is sealed centuries after the snow around it fell — and the colder and drier the site, the larger that offset becomes."
-        },
-        {
-          "e": "age(z) = Σ Δz / λ(z)",
-          "c": "building a depth–age scale by adding up layers",
-          "v": [
-            [
-              "age(z)",
-              "the age of the ice at depth z, in years before present"
-            ],
-            [
-              "Δz",
-              "a depth interval"
-            ],
-            [
-              "λ(z)",
-              "the annual layer thickness through that interval"
-            ]
-          ],
-          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it."
-        }
-      ],
       "concept": {
         "n": 24,
         "c": "Replicate cores, and what agreement between them establishes",
@@ -1748,16 +1368,16 @@ export const CURRICULUM = {
     {
       "day": 11,
       "title": "What makes one year different from the next — Review",
-      "scene": "The chronology lead, Ines Okonkwo, has a metre from 540 metres on the light table. It is deeper than anything counted this week, and four features on it have to be attributed before the section is released to the teams.",
+      "scene": "The chronology lead, Ines Okonkwo, has a metre from 540 metres on the light table. It is deeper than anything counted this week. Four features on it have to be attributed before the section is released to the teams.",
       "takeaway": "A feature is a year only where whatever made it repeats every year.",
       "place": "Core Line",
-      "guide": "Four features and four things that could have made them. Pair them by asking two questions of each: what the feature is physically made of, and how long whatever made it went on for. An eruption lasts a season or two. A shift in the weather lasts decades. A surface lasts a summer. Only one of these four repeats on a yearly beat, and that is the one a count can be built on.",
+      "guide": "Four features and four things that could have made them. Pair them by asking two questions of each. What the feature is physically made of. And how long whatever made it went on for. An eruption lasts a season or two. A shift in the weather lasts decades. A surface lasts a summer. Only one of these four repeats on a yearly beat, and that is the one a count can be built on.",
       "background": [
         "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation. Choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
         "How to use the one-each rule. The responses are a set to be distributed rather than a list to be sampled. So every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation. That is exactly the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning."
       ],
-      "story": "The chronology lead, Ines Okonkwo, has a metre from 540 metres on the light table. It is deeper than anything counted this week, and four features on it have to be attributed before the section is released to the teams.",
+      "story": "The chronology lead, Ines Okonkwo, has a metre from 540 metres on the light table. It is deeper than anything counted this week. Four features on it have to be attributed before the section is released to the teams.",
       "game": {
         "type": "PROTOCOL",
         "title": "What makes one year different from the next — Review",
@@ -1766,7 +1386,7 @@ export const CURRICULUM = {
         "task": "Attribute four features on a deeper section",
         "question": "Attribute four features on a deeper section",
         "answer": "",
-        "why": "Attribution is the step before counting, and it runs on what a feature is made of and how long the thing that made it lasted. Acid arrives with an eruption and stops when the eruption does, so a pair of spikes is two events rather than two years. Sea salt is delivered by weather that shifts over decades. Coarse crystals with large bubbles are one surface that sat in the sun. Only the even banding is compression repeating on a yearly beat, and only that one can be counted.",
+        "why": "Attribution is the step before counting. It runs on what a feature is made of, and how long the thing that made it lasted. Acid arrives with an eruption and stops when the eruption does, so a pair of spikes is two events rather than two years. Sea salt is delivered by weather that shifts over decades. Coarse crystals with large bubbles are one surface that sat in the sun. Only the even banding is compression repeating on a yearly beat, and only that one can be counted.",
         "rebuttals": [
           "Sodium is carried in by weather rather than laid down by an eruption, and weather does not stop after a season",
           "A decade of stormier winters is a slow rise and fall, not a band of grown crystals",
@@ -1830,7 +1450,7 @@ export const CURRICULUM = {
         "task": "Find out where a signal came from",
         "question": "Find out where a signal came from",
         "answer": "Something in the laboratory entered the run and stayed",
-        "why": "The blank before the sample is ordinary and the blank after it is high, which places the contamination inside the run rather than in the ice. The trim was done to specification, so the outside of the section is ruled out. The replicate core holds the same year with no sodium in it. So the atmosphere is ruled out as well. Every clean reading here is doing work: what identifies the source is not the loud number but which of the quiet ones stayed quiet.",
+        "why": "The blank before the sample is ordinary and the blank after it is high. That places the contamination inside the run rather than in the ice. The trim was done to specification, so the outside of the section is ruled out. The replicate core holds the same year with no sodium in it. So the atmosphere is ruled out as well. Every clean reading here is doing work. What identifies the source is not the loud number, but which of the quiet ones stayed quiet.",
         "headline": "One sodium result is four times the run before it — and the blank that followed it is high too.",
         "readings": [
           {
@@ -1907,7 +1527,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Which year marker survives the depth",
-      "scene": "The isotope chemist, Yuki Tanabe, has 4 annual signals measured on the same stretch of core at 1,400 metres, where a year is about 26 millimetres thick.",
+      "scene": "The isotope chemist, Yuki Tanabe, has 4 annual signals measured on the same stretch of core at 1,400 metres. There a year is about 26 millimetres thick.",
       "takeaway": "A signal is only useful for counting while it is still sharper than the layer it marks.",
       "place": "Cold Laboratory",
       "guide": "Four annual signals, and a year here is twenty-six millimetres thick. Ask of each whether the thing being measured can move through the firn. Water molecules travel through open pores for decades, and that smooths anything thinner than about twice the distance they cover. Sea salt and mineral grains do not travel. And two of these fade for other reasons entirely.",
@@ -1916,7 +1536,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Before it was fixed, that was 88 per cent of passage quizzes here. It is now checked per game as a binomial tail. Length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them. Each is the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
-      "story": "The isotope chemist, Yuki Tanabe, has 4 annual signals measured on the same stretch of core at 1,400 metres, where a year is about 26 millimetres thick.",
+      "story": "The isotope chemist, Yuki Tanabe, has 4 annual signals measured on the same stretch of core at 1,400 metres. There a year is about 26 millimetres thick.",
       "game": {
         "type": "CHOICE",
         "title": "Which year marker survives the depth",
@@ -1925,7 +1545,7 @@ export const CURRICULUM = {
         "task": "Choose the signal to count with",
         "question": "At 1,400 metres, which signal is still able to separate 1 year from the next?",
         "answer": "The chemistry — sodium and dust — because those travel in the ice as particles and solutes rather than as water molecules, so firn diffusion never smoothed them.",
-        "why": "Water molecules move through the open pores of the firn for decades. That movement smooths the isotope record. Anything thinner than about twice the diffusion length is averaged away, and at this site that removes the yearly signal long before 1,400 metres. Sodium arrives as sea salt. Dust arrives as mineral grains. Neither travels through the pore space, so their yearly structure survives as far down as the measurement can read it. Visible layering fades once the bubbles are gone, and conductivity marks eruptions.",
+        "why": "Water molecules move through the open pores of the firn for decades. That movement smooths the isotope record. Anything thinner than about twice the diffusion length is averaged away. At this site that removes the yearly signal long before 1,400 metres. Sodium arrives as sea salt. Dust arrives as mineral grains. Neither travels through the pore space, so their yearly structure survives as far down as the measurement can read it. Visible layering fades once the bubbles are gone, and conductivity marks eruptions.",
         "rebuttals": [
           "The isotope swing is the largest at the surface and the first one diffusion removes",
           "Visible banding depends on bubbles, which are gone below the depth where they turn to clathrate",
@@ -1985,7 +1605,7 @@ export const CURRICULUM = {
         "task": "Say what one instrument removes",
         "question": "What does running both standards on this instrument establish?",
         "answer": "The size of any fixed offset between the two reporting scales, which would otherwise be read as a difference between the two sites.",
-        "why": "An isotope value is not an amount; it is a difference from a reference water, so it carries whatever that reference is worth. Two laboratories keep their own working standards, both traceable to the same international water and both slightly off it. Run side by side on one instrument, the two standards show the gap between the scales directly, in the same units the records are plotted in. Nothing else on the bench can separate that gap from a real difference between the sites, because both appear as a constant shift.",
+        "why": "An isotope value is not an amount; it is a difference from a reference water, so it carries whatever that reference is worth. Two laboratories keep their own working standards, both traceable to the same international water and both slightly off it. Run side by side on one instrument, the two standards show the gap between the scales directly. That gap comes out in the same units the records are plotted in. Nothing else on the bench can separate that gap from a real difference between the sites, because both appear as a constant shift.",
         "rebuttals": [
           "Storage matters and is a separate question, answered by the temperature log rather than the standard",
           "Precision is scatter between repeats; this compares where the two scales sit, not how tightly they repeat",
@@ -2006,7 +1626,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "What the ratio says in degrees",
-      "scene": "Tanabe has the isotope profile against depth, and the section covering the last cold interval sits 1.8 per mil below the modern surface value. The site's calibration slope is on the board.",
+      "scene": "Tanabe has the isotope profile against depth. The section covering the last cold interval sits 1.8 per mil below the modern surface value. The site's calibration slope is on the board.",
       "takeaway": "A slope converts a measurement into a claim, and it is measured rather than assumed.",
       "place": "Cold Laboratory",
       "guide": "Four numbers, and two of them belong elsewhere: a slope for a different isotope, and the years of mast overlap. Ask of each whether this conversion uses it. And note where the slope comes from. It is not a constant of physics but a fit to this site's own weather, measured over the years that have both records.",
@@ -2014,7 +1634,7 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated. Nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. Then, whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label catches a unit mismatch before it is placed. It also catches a quantity belonging to a different part of the problem. That is the habit this format exists to build."
       ],
-      "story": "Tanabe has the isotope profile against depth, and the section covering the last cold interval sits 1.8 per mil below the modern surface value. The site's calibration slope is on the board.",
+      "story": "Tanabe has the isotope profile against depth. The section covering the last cold interval sits 1.8 per mil below the modern surface value. The site's calibration slope is on the board.",
       "game": {
         "type": "BALLPARK",
         "title": "What the ratio says in degrees",
@@ -2023,7 +1643,7 @@ export const CURRICULUM = {
         "task": "Put the profile into degrees",
         "question": "Estimate the temperature change that isotope shift represents.",
         "answer": "About 2.7 degrees colder. The shift is 1.8 per mil and the site slope is 0.67 per mil for every degree.",
-        "why": "Water carrying the heavy isotope condenses first. Air that has cooled further has already lost more of it, so the snow falling last is the lightest. Over a useful range the ratio and the temperature move together in a straight line. The slope of that line is not a constant of physics. It belongs to this site's weather, and it is measured by comparing the isotope record with the mast during the years that have both. Dividing the shift by the slope gives the change in degrees.",
+        "why": "Water carrying the heavy isotope condenses first. Air that has cooled further has already lost more of it, so the snow falling last is the lightest. Over a useful range the ratio and the temperature move together in a straight line. The slope of that line is not a constant of physics. It belongs to this site's weather. It is measured by comparing the isotope record with the mast during the years that have both. Dividing the shift by the slope gives the change in degrees.",
         "givens": [],
         "relationship": "ΔT = Δδ¹⁸O ÷ α — the isotope shift in parts per thousand, divided by the site's calibration slope in parts per thousand per degree.",
         "calcKey": "COLD-4"
@@ -2109,7 +1729,7 @@ export const CURRICULUM = {
         "task": "Report a ratio the way everyone else does",
         "question": "Estimate the isotope value of this sample in parts per thousand.",
         "answer": "About −35 per mil. The sample holds 3.5% less heavy oxygen than ocean water, which is what a polar site looks like.",
-        "why": "Isotope ratios differ from one another in the fourth decimal place, so nobody reports them as ratios. The convention is to divide the sample's ratio by the ratio of one agreed water. Then subtract 1 so that the standard itself reads 0. Then multiply by 1000 so the numbers are convenient. What comes out is a difference in parts per thousand. It is always negative for polar snow, because every stage of the journey from the ocean has already removed some of the heavy isotope. The scale is a comparison, and it only means anything if everyone uses the same water.",
+        "why": "Isotope ratios differ from one another in the fourth decimal place, so nobody reports them as ratios. The convention is to divide the sample's ratio by the ratio of one agreed water. Then subtract 1 so that the standard itself reads 0. Then multiply by 1000 so the numbers are convenient. What comes out is a difference in parts per thousand. It is always negative for polar snow. Every stage of the journey from the ocean has already removed some of the heavy isotope. The scale is a comparison, and it only means anything if everyone uses the same water.",
         "givens": [],
         "relationship": "δ¹⁸O = (R_sample ÷ R_standard − 1) × 1000 — the sample's heavy-to-light ratio against ocean water's, in parts per thousand.",
         "calcKey": "COLD-5"
@@ -2151,15 +1771,15 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "What the saw is cutting for",
-      "scene": "Sections come to the saw with a cutting list, and the list is set by whichever analysis has priority. The chief scientist changes that priority as the season goes — after the gas request, after the dating problem, after the aircraft date is confirmed.",
+      "scene": "Sections come to the saw with a cutting list, and the list is set by whichever analysis has priority. The chief scientist changes that priority as the season goes. After the gas request. After the dating problem. After the aircraft date is confirmed.",
       "takeaway": "The cost of a withdrawn instruction is highest where the work cannot be repeated.",
       "place": "Cold Laboratory",
       "guide": "Cut the sections the current priority wants and leave the rest in the rack. The priority on the cold-room board is changed during the day and nobody announces it. What is scored is the sections either side of a change, because a section cut for the wrong analysis cannot be uncut.",
       "background": [
-        "Why the priority changes. Early the season is about the chronology, so the dating sections come first. When the gas laboratory's slot is confirmed the priority becomes anything for gas, which needs the core's centre and cannot use what has been near the wall. Before the aircraft it becomes anything that has to fly.",
+        "Why the priority changes. Early the season is about the chronology, so the dating sections come first. When the gas laboratory's slot is confirmed the priority becomes anything for gas. Gas needs the core's centre and cannot use what has been near the wall. Before the aircraft it becomes anything that has to fly.",
         "Why this is irreversible in a way most work is not. Every other mistake here can be repeated. A cut cannot. The section is gone. The depth it came from cannot be re-drilled. What was cut for one analysis is unavailable to the others for ever."
       ],
-      "story": "Sections come to the saw with a cutting list, and the list is set by whichever analysis has priority. The chief scientist changes that priority as the season goes — after the gas request, after the dating problem, after the aircraft date is confirmed.",
+      "story": "Sections come to the saw with a cutting list, and the list is set by whichever analysis has priority. The chief scientist changes that priority as the season goes. After the gas request. After the dating problem. After the aircraft date is confirmed.",
       "game": {
         "type": "SPOT",
         "title": "What the saw is cutting for",
@@ -2369,7 +1989,7 @@ export const CURRICULUM = {
       "background": [
         "Why the order is graded whole. A sequence is a claim about dependency. Each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits. Partial credit would be credit for a sequence that does not work.",
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them. That usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply. What is left in the middle is where the actual judgement lives.",
-        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing. None of the steps has to happen at a particular hour."
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility. Reversibility puts every observation that leaves the sample as it was before any that consumes it. On those boards a chronological reading finds nothing. None of the steps has to happen at a particular hour."
       ],
       "story": "Cruz has 16 samples to run and the instrument warmed up. Tanabe's rule is that a run has to be able to say afterwards whether it can be trusted.",
       "game": {
@@ -2380,7 +2000,7 @@ export const CURRICULUM = {
         "task": "Fix the order of a run",
         "question": "Fix the order of a run",
         "answer": "",
-        "why": "Every step here exists to make the run auditable. The blank establishes what the process adds before any ice is involved. The opening standard fixes the scale. The standards inside the run reveal drift while it is happening. The closing standard measures how far it moved overall. Only then can the samples be corrected. Both the raw and the corrected values are kept, because a correction is a claim about the instrument that somebody may want to check later.",
+        "why": "Every step here exists to make the run auditable. The blank establishes what the process adds before any ice is involved. The opening standard fixes the scale. The standards inside the run reveal drift while it is happening. The closing standard measures how far it moved overall. Only then can the samples be corrected. Both the raw and the corrected values are kept. A correction is a claim about the instrument that somebody may want to check later.",
         "cards": [
           "Run a blank, to see what the process contributes with no sample in it",
           "Run the working standard, to fix where the scale sits at the start",
@@ -2416,7 +2036,7 @@ export const CURRICULUM = {
       "place": "Cold Laboratory",
       "guide": "Six signed lines, two hours, and two of them can be verified properly. Open each claim and read what already backs it. A signature records that somebody took responsibility, not that anybody observed the thing. Hold what the backing does not support, and spend the two hours where being wrong would matter after the flight has gone.",
       "background": [
-        "Why the manifest deadline is the whole pressure. Once the flight closes, anything unverified stays unverified until next season, and the samples or the equipment it concerns are already off the ice. A claim checked next year is a claim about something nobody can revisit.",
+        "Why the manifest deadline is the whole pressure. Once the flight closes, anything unverified stays unverified until next season. The samples or the equipment it concerns are already off the ice. A claim checked next year is a claim about something nobody can revisit.",
         "What a night sheet is. A running record of what was done on shift, signed at the end. It is written by people who were tired, at the end of a working night. Its purpose is continuity rather than evidence. That is exactly why some lines on it are firmer than others.",
         "How to choose between two doubtful lines. Not by which is least likely to be true. By which one, if wrong, would change what somebody does with the material afterwards. That is consequence, and it is the judgement the two hours are for."
       ],
@@ -2525,7 +2145,7 @@ export const CURRICULUM = {
         "task": "Put a number on the finest event",
         "question": "Estimate the shortest event this record could still resolve, in years.",
         "answer": "About 1.3 years at the surface, and longer at every depth below it as the layers thin.",
-        "why": "Water molecules diffuse through the connected pores of the firn for as long as those pores are open, which averages each layer with its neighbours. The scale of that averaging is the diffusion length, and anything thinner than about twice it is smoothed away past recovery. Dividing that limit by the annual layer thickness gives the answer in years. At the surface this site can just about hold a single year. Deeper, where the layers have thinned, the same diffusion length covers many years. The annual signal is then gone for good.",
+        "why": "Water molecules diffuse through the connected pores of the firn for as long as those pores are open. That averages each layer with its neighbours. The scale of that averaging is the diffusion length, and anything thinner than about twice it is smoothed away past recovery. Dividing that limit by the annual layer thickness gives the answer in years. At the surface this site can just about hold a single year. Deeper, where the layers have thinned, the same diffusion length covers many years. The annual signal is then gone for good.",
         "givens": [],
         "relationship": "shortest event = 2σ ÷ λ — twice the diffusion length, divided by the thickness of 1 annual layer.",
         "calcKey": "COLD-10"
@@ -2569,54 +2189,6 @@ export const CURRICULUM = {
           ],
           "s": "Water molecules migrate through the firn before the ice closes, smoothing the isotope record — so a single warm summer can be present in the ice and unrecoverable from it.",
           "computed": true
-        },
-        {
-          "e": "b = λ × ρ_snow / ρ_ice",
-          "c": "accumulation, converted to ice equivalent",
-          "v": [
-            [
-              "b",
-              "accumulation in metres of ice equivalent per year"
-            ],
-            [
-              "λ",
-              "the measured thickness of one annual layer"
-            ],
-            [
-              "ρ_snow",
-              "the density of the snow as it fell"
-            ],
-            [
-              "ρ_ice",
-              "the density of solid ice, about 917 kg per cubic metre"
-            ]
-          ],
-          "s": "A metre of new snow is not a metre of ice, so an accumulation rate only means something once the layer has been converted to the ice it will become.",
-          "card": false
-        },
-        {
-          "e": "Δage ≈ z_close × ρ̄ / b",
-          "c": "why the gas in a bubble is younger than the ice around it",
-          "v": [
-            [
-              "Δage",
-              "gas age minus ice age, in years"
-            ],
-            [
-              "z_close",
-              "the close-off depth, where the pores seal — 60 to 100 m"
-            ],
-            [
-              "ρ̄",
-              "the mean density of the firn above that depth, relative to ice"
-            ],
-            [
-              "b",
-              "accumulation in ice equivalent per year"
-            ]
-          ],
-          "s": "Air circulates freely through the firn until the pores seal, so the bubble is sealed centuries after the snow around it fell — and the colder and drier the site, the larger that offset becomes.",
-          "card": false
         }
       ],
       "concept": {
@@ -2632,16 +2204,16 @@ export const CURRICULUM = {
     {
       "day": 11,
       "title": "The sample that was clean until it was handled — Review",
-      "scene": "The cold laboratory technician, Elena Cruz, has a calcium result twice the runs either side of it. Both blanks are ordinary, the outer centimetre was trimmed to specification, and the replicate core from the second hole doubles at the same depth.",
+      "scene": "The cold laboratory technician, Elena Cruz, has a calcium result twice the runs either side of it. Both blanks are ordinary and the outer centimetre was trimmed to specification. The replicate core from the second hole doubles at the same depth.",
       "takeaway": "A control that did not move is a measurement, not the absence of one.",
       "place": "Cold Laboratory",
       "guide": "Four readings of one panel, and the argument turns on what a control that did not move is worth. Ask of each option which reading it would need to have gone the other way. A blank is the process with no ice in it. So an ordinary blank speaks for everything the sample touched. A second hole speaks for everything this hole did.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading. A step skipped. A quantity confused with a rate. A correlation taken for a cause. Identifying which misreading each belongs to is where the learning is. The right answer alone can be reached on instinct and teach nothing.",
-        "Why a clean control is a result. A reading that stays where it always sits is easy to skip past, and it is the only kind of reading that can rule a mechanism out. The loud number is consistent with several explanations at once; the quiet ones are consistent with fewer, which is what makes them decisive.",
+        "Why a clean control is a result. A reading that stays where it always sits is easy to skip past. It is the only kind of reading that can rule a mechanism out. The loud number is consistent with several explanations at once; the quiet ones are consistent with fewer, which is what makes them decisive.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them. Each is the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
-      "story": "The cold laboratory technician, Elena Cruz, has a calcium result twice the runs either side of it. Both blanks are ordinary, the outer centimetre was trimmed to specification, and the replicate core from the second hole doubles at the same depth.",
+      "story": "The cold laboratory technician, Elena Cruz, has a calcium result twice the runs either side of it. Both blanks are ordinary and the outer centimetre was trimmed to specification. The replicate core from the second hole doubles at the same depth.",
       "game": {
         "type": "CHOICE",
         "title": "The sample that was clean until it was handled — Review",
@@ -2667,31 +2239,6 @@ export const CURRICULUM = {
       "assumes": [
         "a blank is run through the same process as a sample, with no sample in it",
         "what a proxy is: the chain between the thing and the number — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "ΔF = 5.35 ln(C / C₀)  W m⁻²",
-          "c": "turning a gas concentration into an energy imbalance",
-          "v": [
-            [
-              "ΔF",
-              "radiative forcing, in watts per square metre"
-            ],
-            [
-              "C",
-              "the carbon dioxide concentration now, in ppm"
-            ],
-            [
-              "C₀",
-              "the concentration it is being compared with"
-            ],
-            [
-              "5.35",
-              "the empirical coefficient for carbon dioxide"
-            ]
-          ],
-          "s": "The effect of carbon dioxide goes as the logarithm of its concentration, so each doubling adds about the same forcing — and a record of the gas becomes a record of the energy budget."
-        }
       ],
       "takesAsRead": [
         {
@@ -2731,7 +2278,7 @@ export const CURRICULUM = {
         "task": "Sort what a joint run can and cannot settle",
         "question": "Sort what a joint run can and cannot settle",
         "answer": "",
-        "why": "Only the first of these is fixed by sharing an instrument. A stretched timescale is a chronology problem and needs an event of known date present in both cores. A real climate difference is what is left once every other explanation has been removed, which is why it is established by elimination rather than measured directly. Melting in transit alters the outer ice more than the inner, so it leaves a signature in the profile across a section rather than in the average. Four differences, four different pieces of evidence.",
+        "why": "Only the first of these is fixed by sharing an instrument. A stretched timescale is a chronology problem and needs an event of known date present in both cores. A real climate difference is what is left once every other explanation has been removed. That is why it is established by elimination rather than measured directly. Melting in transit alters the outer ice more than the inner. So it leaves a signature in the profile across a section, rather than in the average. Four differences, four different pieces of evidence.",
         "rebuttals": [
           "A shared instrument removes instrument differences, and a stretched timescale is not one",
           "A tie point fixes two clocks to each other, which is a different question from what the ice contains",
@@ -2764,50 +2311,6 @@ export const CURRICULUM = {
         "two measurements of one quantity can differ for reasons that have nothing to do with the quantity",
         "accumulation rate, and what a site with little snow buys and costs — taken as read",
         "annual layer counting, and where counting fails — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "λ(z) = λ₀ (H − z) / H",
-          "c": "layer thinning with depth, as ice flows outwards",
-          "v": [
-            [
-              "λ(z)",
-              "the thickness an annual layer has at depth z"
-            ],
-            [
-              "λ₀",
-              "the thickness it had when it fell"
-            ],
-            [
-              "z",
-              "depth below the surface"
-            ],
-            [
-              "H",
-              "the total thickness of the ice sheet"
-            ]
-          ],
-          "s": "Ice spreads outwards under its own weight, so every layer is stretched thinner as it sinks — which is why the oldest ice is the thinnest and why a record ends before the bed does."
-        },
-        {
-          "e": "age(z) = Σ Δz / λ(z)",
-          "c": "building a depth–age scale by adding up layers",
-          "v": [
-            [
-              "age(z)",
-              "the age of the ice at depth z, in years before present"
-            ],
-            [
-              "Δz",
-              "a depth interval"
-            ],
-            [
-              "λ(z)",
-              "the annual layer thickness through that interval"
-            ]
-          ],
-          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it."
-        }
       ],
       "takesAsRead": [
         {
@@ -2919,7 +2422,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What a dated ash layer fixes",
-      "scene": "Adeyemi has the eruption date, the depth it sits at, and the carbon dioxide measurements from the bubbles in the same section of core.",
+      "scene": "Adeyemi has the eruption date and the depth it sits at. Beside them are the carbon dioxide measurements from the bubbles in the same section of core.",
       "takeaway": "A tie point dates the material it is in, and anything else has to be reached by a calculation.",
       "place": "Gas Laboratory",
       "guide": "Four things a dated ash layer might fix. Ask of each which of the two clocks in the core it belongs to. Ash falls on the surface and is buried with the snow. The air beside it was sealed centuries later and lower down. So a tie point fixes one clock and leaves the other to a calculation. That is why the age difference has to be estimated first.",
@@ -2928,7 +2431,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Before it was fixed, that was 88 per cent of passage quizzes here. It is now checked per game as a binomial tail. Length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them. Each is the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
-      "story": "Adeyemi has the eruption date, the depth it sits at, and the carbon dioxide measurements from the bubbles in the same section of core.",
+      "story": "Adeyemi has the eruption date and the depth it sits at. Beside them are the carbon dioxide measurements from the bubbles in the same section of core.",
       "game": {
         "type": "CHOICE",
         "title": "What a dated ash layer fixes",
@@ -2937,7 +2440,7 @@ export const CURRICULUM = {
         "task": "Say what the tie point does for the gas",
         "question": "What does the dated horizon fix?",
         "answer": "The age of the ice at that depth. The age of the gas in the same section still has to be reached by subtracting the age difference.",
-        "why": "Ash falls onto the surface and is buried with the snow, so it dates the ice it sits in. The air in the bubbles beside it was sealed centuries later, at the close-off depth, and it is that much younger. A tie point therefore fixes one of the two clocks in the core. The other one has to be reached by calculation. That is exactly why the age difference has to be estimated before any comparison between a gas record and an ice record can be made.",
+        "why": "Ash falls onto the surface and is buried with the snow, so it dates the ice it sits in. The air in the bubbles beside it was sealed centuries later, at the close-off depth, and it is that much younger. A tie point therefore fixes one of the two clocks in the core. The other one has to be reached by calculation. That is exactly why the age difference has to be estimated. It has to be done before any comparison between a gas record and an ice record can be made.",
         "rebuttals": [
           "The two clocks are in the same section and are not the same clock, which is what the age difference measures",
           "Ash arrives at the surface, and the air at that depth stopped moving centuries after it was buried",
@@ -2953,74 +2456,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "volcanic ash settles out of the atmosphere within a year or two of an eruption"
-      ],
-      "equations": [
-        {
-          "e": "b = λ × ρ_snow / ρ_ice",
-          "c": "accumulation, converted to ice equivalent",
-          "v": [
-            [
-              "b",
-              "accumulation in metres of ice equivalent per year"
-            ],
-            [
-              "λ",
-              "the measured thickness of one annual layer"
-            ],
-            [
-              "ρ_snow",
-              "the density of the snow as it fell"
-            ],
-            [
-              "ρ_ice",
-              "the density of solid ice, about 917 kg per cubic metre"
-            ]
-          ],
-          "s": "A metre of new snow is not a metre of ice, so an accumulation rate only means something once the layer has been converted to the ice it will become."
-        },
-        {
-          "e": "Δage ≈ z_close × ρ̄ / b",
-          "c": "why the gas in a bubble is younger than the ice around it",
-          "v": [
-            [
-              "Δage",
-              "gas age minus ice age, in years"
-            ],
-            [
-              "z_close",
-              "the close-off depth, where the pores seal — 60 to 100 m"
-            ],
-            [
-              "ρ̄",
-              "the mean density of the firn above that depth, relative to ice"
-            ],
-            [
-              "b",
-              "accumulation in ice equivalent per year"
-            ]
-          ],
-          "s": "Air circulates freely through the firn until the pores seal, so the bubble is sealed centuries after the snow around it fell — and the colder and drier the site, the larger that offset becomes."
-        },
-        {
-          "e": "age(z) = Σ Δz / λ(z)",
-          "c": "building a depth–age scale by adding up layers",
-          "v": [
-            [
-              "age(z)",
-              "the age of the ice at depth z, in years before present"
-            ],
-            [
-              "Δz",
-              "a depth interval"
-            ],
-            [
-              "λ(z)",
-              "the annual layer thickness through that interval"
-            ]
-          ],
-          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it.",
-          "card": false
-        }
       ],
       "concept": {
         "n": 15,
@@ -3083,25 +2518,6 @@ export const CURRICULUM = {
           ],
           "s": "The effect of carbon dioxide goes as the logarithm of its concentration, so each doubling adds about the same forcing — and a record of the gas becomes a record of the energy budget.",
           "computed": true
-        },
-        {
-          "e": "δ¹⁸O = (R_sample / R_standard − 1) × 1000 ‰",
-          "c": "an isotope ratio, written as a deviation from a standard",
-          "v": [
-            [
-              "δ¹⁸O",
-              "the isotope value, in parts per thousand (‰)"
-            ],
-            [
-              "R_sample",
-              "the ratio of ¹⁸O to ¹⁶O in the melted ice"
-            ],
-            [
-              "R_standard",
-              "the same ratio in mean ocean water, the agreed reference"
-            ]
-          ],
-          "s": "Isotope ratios differ from each other in the fourth decimal place, so they are always reported as a difference from one agreed water — which is why every δ value is a comparison rather than an amount."
         }
       ],
       "concept": {
@@ -3123,7 +2539,7 @@ export const CURRICULUM = {
       "background": [
         "What the correction does. Each site's gas is younger than the ice around it, by an amount that differs between sites. Putting each gas record on its own gas timescale removes that offset. Any difference remaining afterwards is a difference between the sites rather than between their chronologies.",
         "Why a prediction first. If you re-plot and then decide what you expected, any residual difference can be explained after the fact. Committing to a number is what makes the result capable of surprising you, which is the only way it can be evidence.",
-        "Why the tephra matters. A volcanic ash layer arrives at both sites within days and is dated by neither calculation, so it is a fixed point both records must agree on. If the correction is right, the ash lines up. If it does not, something in the correction is wrong."
+        "Why the tephra matters. A volcanic ash layer arrives at both sites within days and is dated by neither calculation. So it is a fixed point both records must agree on. If the correction is right, the ash lines up. If it does not, something in the correction is wrong."
       ],
       "story": "Adeyemi has the age difference for both sites and the machinery to re-plot both gas records on their own gas timescales. The tephra horizon is dated independently of either calculation.",
       "game": {
@@ -3134,7 +2550,7 @@ export const CURRICULUM = {
         "task": "Predict, correct, then check",
         "question": "What is left of the difference once both gas records are on their own gas timescales?",
         "answer": "About 0.15 per mil — most of the difference was the age offset, and what remains is inside both groups' stated uncertainties.",
-        "why": "Air keeps mixing with the atmosphere until the firn seals. So gas is younger than the ice around it. The amount is set by how deep the sealing is and how fast snow arrives. Skarv accumulates four times as fast, so its offset is a fraction of this station's. Plotting both gas records on ice timescales therefore shifts one curve much further than the other, and produces a difference that looks like climate and is arithmetic. What makes the corrected answer trustworthy is the tephra: a date neither calculation produced.",
+        "why": "Air keeps mixing with the atmosphere until the firn seals. So gas is younger than the ice around it. The amount is set by how deep the sealing is and how fast snow arrives. Skarv accumulates four times as fast, so its offset is a fraction of this station's. Plotting both gas records on ice timescales therefore shifts one curve much further than the other. It produces a difference that looks like climate and is arithmetic. What makes the corrected answer trustworthy is the tephra: a date neither calculation produced.",
         "verify": {
           "prediction": {
             "label": "Difference remaining after the correction",
@@ -3285,54 +2701,6 @@ export const CURRICULUM = {
       "assumes": [
         "a measurement made at one site can record a quantity that is the same everywhere"
       ],
-      "equations": [
-        {
-          "e": "b = λ × ρ_snow / ρ_ice",
-          "c": "accumulation, converted to ice equivalent",
-          "v": [
-            [
-              "b",
-              "accumulation in metres of ice equivalent per year"
-            ],
-            [
-              "λ",
-              "the measured thickness of one annual layer"
-            ],
-            [
-              "ρ_snow",
-              "the density of the snow as it fell"
-            ],
-            [
-              "ρ_ice",
-              "the density of solid ice, about 917 kg per cubic metre"
-            ]
-          ],
-          "s": "A metre of new snow is not a metre of ice, so an accumulation rate only means something once the layer has been converted to the ice it will become."
-        },
-        {
-          "e": "ΔF = 5.35 ln(C / C₀)  W m⁻²",
-          "c": "turning a gas concentration into an energy imbalance",
-          "v": [
-            [
-              "ΔF",
-              "radiative forcing, in watts per square metre"
-            ],
-            [
-              "C",
-              "the carbon dioxide concentration now, in ppm"
-            ],
-            [
-              "C₀",
-              "the concentration it is being compared with"
-            ],
-            [
-              "5.35",
-              "the empirical coefficient for carbon dioxide"
-            ]
-          ],
-          "s": "The effect of carbon dioxide goes as the logarithm of its concentration, so each doubling adds about the same forcing — and a record of the gas becomes a record of the energy budget."
-        }
-      ],
       "concept": {
         "n": 13,
         "c": "Carbon dioxide and methane records, and what a ppm is",
@@ -3409,7 +2777,7 @@ export const CURRICULUM = {
         "task": "Put a number on the firn's own clock",
         "question": "Estimate the age of the snow at the close-off depth.",
         "answer": "About 275 years. The firn column here holds nearly three centuries of snow that has not yet become ice.",
-        "why": "A depth–age scale is arithmetic on layer thicknesses: divide the depth by the thickness one year adds and you have the years it took to get there. In the firn the layers have not yet been thinned by flow, so the sum is a straight division. Deeper in the ice the same calculation has to be done interval by interval, as the layers get thinner. Nearly three centuries of snow sit above the close-off depth at Vestri, and every one of those years is still open to the atmosphere.",
+        "why": "A depth–age scale is arithmetic on layer thicknesses. Divide the depth by the thickness one year adds, and you have the years it took to get there. In the firn the layers have not yet been thinned by flow, so the sum is a straight division. Deeper in the ice the same calculation has to be done interval by interval, as the layers get thinner. Nearly three centuries of snow sit above the close-off depth at Vestri. Every one of those years is still open to the atmosphere.",
         "givens": [],
         "relationship": "age = depth ÷ annual layer thickness, valid while the layers have not yet been thinned by ice flow.",
         "calcKey": "FIELD-2"
@@ -3526,7 +2894,7 @@ export const CURRICULUM = {
         "task": "State the cooling with its uncertainty",
         "question": "Which work would let the summary state that the interval was more than two degrees colder? Place the bars to report the mean and its one-sigma uncertainty.",
         "answer": "Extending the overlap with the mast record. It narrows the calibration spread, which is what the claim needs; re-centring the slope moves the estimate without making it any surer.",
-        "why": "The reconstruction is a distribution, not a number: the slope was fitted to 11 years of overlap and it carries the scatter of that fit. A claim that the interval was more than two degrees colder is a claim about where the whole distribution sits. It is cleared by making the distribution narrower, rather than by moving its middle. More overlap years is the only action here that adds information; the source-region correction changes the central value and leaves the spread exactly as wide as it was.",
+        "why": "The reconstruction is a distribution, not a number. The slope was fitted to 11 years of overlap, and it carries the scatter of that fit. A claim that the interval was more than two degrees colder is a claim about where the whole distribution sits. It is cleared by making the distribution narrower, rather than by moving its middle. More overlap years is the only action here that adds information. The source-region correction changes the central value. It leaves the spread exactly as wide as it was.",
         "cloud": {
           "bounds": {
             "min": 2,
@@ -3620,54 +2988,6 @@ export const CURRICULUM = {
       "assumes": [
         "a measurement that cannot be repeated should be taken when it can be taken"
       ],
-      "equations": [
-        {
-          "e": "b = λ × ρ_snow / ρ_ice",
-          "c": "accumulation, converted to ice equivalent",
-          "v": [
-            [
-              "b",
-              "accumulation in metres of ice equivalent per year"
-            ],
-            [
-              "λ",
-              "the measured thickness of one annual layer"
-            ],
-            [
-              "ρ_snow",
-              "the density of the snow as it fell"
-            ],
-            [
-              "ρ_ice",
-              "the density of solid ice, about 917 kg per cubic metre"
-            ]
-          ],
-          "s": "A metre of new snow is not a metre of ice, so an accumulation rate only means something once the layer has been converted to the ice it will become."
-        },
-        {
-          "e": "Δage ≈ z_close × ρ̄ / b",
-          "c": "why the gas in a bubble is younger than the ice around it",
-          "v": [
-            [
-              "Δage",
-              "gas age minus ice age, in years"
-            ],
-            [
-              "z_close",
-              "the close-off depth, where the pores seal — 60 to 100 m"
-            ],
-            [
-              "ρ̄",
-              "the mean density of the firn above that depth, relative to ice"
-            ],
-            [
-              "b",
-              "accumulation in ice equivalent per year"
-            ]
-          ],
-          "s": "Air circulates freely through the firn until the pores seal, so the bubble is sealed centuries after the snow around it fell — and the colder and drier the site, the larger that offset becomes."
-        }
-      ],
       "concept": {
         "n": 2,
         "c": "Accumulation rate, and what a site with little snow buys and costs",
@@ -3698,7 +3018,7 @@ export const CURRICULUM = {
         "task": "Say what one stake is worth",
         "question": "What does the gain at that one stake establish?",
         "answer": "Almost nothing on its own. Snow moves sideways in wind, so a gain in one place and losses elsewhere is redistribution until the whole array is added up.",
-        "why": "Wind on this plateau moves far more snow horizontally than falls out of the sky in a fortnight. So any single stake is measuring snowfall and redistribution added together. It cannot separate them. The array can: snow moved from one place to another cancels when the whole array is summed, and what is left is what actually arrived. That is why 48 stakes are read rather than 1, and why the accumulation figure is a season's arithmetic rather than a reading.",
+        "why": "Wind on this plateau moves far more snow horizontally than falls out of the sky in a fortnight. So any single stake is measuring snowfall and redistribution added together. It cannot separate them. The array can. Snow moved from one place to another cancels when the whole array is summed. What is left is what actually arrived. That is why 48 stakes are read rather than 1, and why the accumulation figure is a season's arithmetic rather than a reading.",
         "rebuttals": [
           "Sheltering is a real effect and would have to be established across several fortnights, not one",
           "A fortnight's snowfall is what the whole array establishes, since drift cancels only in the sum",
@@ -3714,31 +3034,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "wind moves snow across a surface after it has fallen"
-      ],
-      "equations": [
-        {
-          "e": "b = λ × ρ_snow / ρ_ice",
-          "c": "accumulation, converted to ice equivalent",
-          "v": [
-            [
-              "b",
-              "accumulation in metres of ice equivalent per year"
-            ],
-            [
-              "λ",
-              "the measured thickness of one annual layer"
-            ],
-            [
-              "ρ_snow",
-              "the density of the snow as it fell"
-            ],
-            [
-              "ρ_ice",
-              "the density of solid ice, about 917 kg per cubic metre"
-            ]
-          ],
-          "s": "A metre of new snow is not a metre of ice, so an accumulation rate only means something once the layer has been converted to the ice it will become."
-        }
       ],
       "concept": {
         "n": 1,
@@ -3799,74 +3094,6 @@ export const CURRICULUM = {
       "assumes": [
         "a number is only as strong as the weakest step between the ice and it"
       ],
-      "equations": [
-        {
-          "e": "δ¹⁸O = (R_sample / R_standard − 1) × 1000 ‰",
-          "c": "an isotope ratio, written as a deviation from a standard",
-          "v": [
-            [
-              "δ¹⁸O",
-              "the isotope value, in parts per thousand (‰)"
-            ],
-            [
-              "R_sample",
-              "the ratio of ¹⁸O to ¹⁶O in the melted ice"
-            ],
-            [
-              "R_standard",
-              "the same ratio in mean ocean water, the agreed reference"
-            ]
-          ],
-          "s": "Isotope ratios differ from each other in the fourth decimal place, so they are always reported as a difference from one agreed water — which is why every δ value is a comparison rather than an amount."
-        },
-        {
-          "e": "b = λ × ρ_snow / ρ_ice",
-          "c": "accumulation, converted to ice equivalent",
-          "v": [
-            [
-              "b",
-              "accumulation in metres of ice equivalent per year"
-            ],
-            [
-              "λ",
-              "the measured thickness of one annual layer"
-            ],
-            [
-              "ρ_snow",
-              "the density of the snow as it fell"
-            ],
-            [
-              "ρ_ice",
-              "the density of solid ice, about 917 kg per cubic metre"
-            ]
-          ],
-          "s": "A metre of new snow is not a metre of ice, so an accumulation rate only means something once the layer has been converted to the ice it will become."
-        },
-        {
-          "e": "ΔF = 5.35 ln(C / C₀)  W m⁻²",
-          "c": "turning a gas concentration into an energy imbalance",
-          "v": [
-            [
-              "ΔF",
-              "radiative forcing, in watts per square metre"
-            ],
-            [
-              "C",
-              "the carbon dioxide concentration now, in ppm"
-            ],
-            [
-              "C₀",
-              "the concentration it is being compared with"
-            ],
-            [
-              "5.35",
-              "the empirical coefficient for carbon dioxide"
-            ]
-          ],
-          "s": "The effect of carbon dioxide goes as the logarithm of its concentration, so each doubling adds about the same forcing — and a record of the gas becomes a record of the energy budget.",
-          "card": false
-        }
-      ],
       "concept": {
         "n": 20,
         "c": "What a proxy is: the chain between the thing and the number",
@@ -3893,7 +3120,7 @@ export const CURRICULUM = {
         "task": "Put a second pit on the same axis as the first",
         "question": "Estimate the flank camp's accumulation in ice equivalent.",
         "answer": "About 0.30 metres of ice equivalent a year — roughly two and a half times what the dome lays down.",
-        "why": "Choosing a site is choosing between the detail a core carries and the span it covers. That trade only becomes visible once both sites are stated in the ice their snow will become. The flank camp catches more than twice the snow and lays it down denser, so its layers stay thick enough to count far deeper than the dome's. It pays at the bottom. The same three kilometres of ice is spent in a third of the time. The oldest year in it is a few thousand rather than tens of thousands.",
+        "why": "Choosing a site is choosing between the detail a core carries and the span it covers. That trade only becomes visible once both sites are stated in the ice their snow will become. The flank camp catches more than twice the snow and lays it down denser. So its layers stay thick enough to count far deeper than the dome's. It pays at the bottom. The same three kilometres of ice is spent in a third of the time. The oldest year in it is a few thousand rather than tens of thousands.",
         "givens": [],
         "relationship": "b = λ × ρ_snow ÷ ρ_ice — the snow layer λ scaled by the ratio of its own density to the density of solid ice.",
         "calcKey": "FIELD-7"
@@ -3901,31 +3128,6 @@ export const CURRICULUM = {
       "assumes": [
         "snow becomes ice by being compressed under the snow that falls on it",
         "accumulation rate, and what a site with little snow buys and costs — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "b = λ × ρ_snow / ρ_ice",
-          "c": "accumulation, converted to ice equivalent",
-          "v": [
-            [
-              "b",
-              "accumulation in metres of ice equivalent per year"
-            ],
-            [
-              "λ",
-              "the measured thickness of one annual layer"
-            ],
-            [
-              "ρ_snow",
-              "the density of the snow as it fell"
-            ],
-            [
-              "ρ_ice",
-              "the density of solid ice, about 917 kg per cubic metre"
-            ]
-          ],
-          "s": "A metre of new snow is not a metre of ice, so an accumulation rate only means something once the layer has been converted to the ice it will become."
-        }
       ],
       "takesAsRead": [
         {
@@ -3966,7 +3168,7 @@ export const CURRICULUM = {
         "task": "Spend the last day of access",
         "question": "Which four runs should the day buy?",
         "answer": "The paired standards and the overlap depths. Those are what would show a fixed offset between the two laboratories, which is the only explanation the comparison cannot rule out from here.",
-        "why": "Two laboratories measuring the same water can differ by a fixed amount, and a fixed amount looks exactly like a climate difference when it is plotted against depth. The standards measure that offset directly; the overlapping depths test it on real ice. Between them they either remove the explanation or establish it. The deepest sample is interesting and settles nothing, since nothing here overlaps it, and the density profile is already in the other group's published report. Repeating our own sample tests our line, which is not the thing in dispute.",
+        "why": "Two laboratories measuring the same water can differ by a fixed amount. A fixed amount looks exactly like a climate difference when it is plotted against depth. The standards measure that offset directly; the overlapping depths test it on real ice. Between them they either remove the explanation or establish it. The deepest sample is interesting and settles nothing, since nothing here overlaps it. The density profile is already in the other group's published report. Repeating our own sample tests our line, which is not the thing in dispute.",
         "value": {
           "budget": {
             "amount": 4,
@@ -4041,7 +3243,7 @@ export const CURRICULUM = {
         "task": "Say what the thermometer is a thermometer of",
         "question": "What does the isotope record most directly record?",
         "answer": "The condensation temperature of the air that made this snow, which is close to but not the same as the surface temperature here.",
-        "why": "The isotope ratio is set as water vapour condenses. So it records conditions in the cloud that produced this snow, weighted towards the seasons that deliver most of it. Getting from there to a surface temperature needs the relationship between cloud and ground, which is what the site calibration supplies. The ocean the water came from does leave a mark, which is why source-region corrections exist. The ice's own temperature is a separate measurement, taken with a thermometer in the borehole, and it says nothing about the year the snow fell.",
+        "why": "The isotope ratio is set as water vapour condenses. So it records conditions in the cloud that produced this snow, weighted towards the seasons that deliver most of it. Getting from there to a surface temperature needs the relationship between cloud and ground, which is what the site calibration supplies. The ocean the water came from does leave a mark, which is why source-region corrections exist. The ice's own temperature is a separate measurement, taken with a thermometer in the borehole. It says nothing about the year the snow fell.",
         "rebuttals": [
           "A single site records its own region; hemispheric averages are built by combining many sites",
           "Borehole thermometry measures the ice now, and is used to check the isotopes rather than to replace them",
@@ -4057,27 +3259,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "snow forms in a cloud and falls to a surface some distance below it"
-      ],
-      "equations": [
-        {
-          "e": "δ¹⁸O = (R_sample / R_standard − 1) × 1000 ‰",
-          "c": "an isotope ratio, written as a deviation from a standard",
-          "v": [
-            [
-              "δ¹⁸O",
-              "the isotope value, in parts per thousand (‰)"
-            ],
-            [
-              "R_sample",
-              "the ratio of ¹⁸O to ¹⁶O in the melted ice"
-            ],
-            [
-              "R_standard",
-              "the same ratio in mean ocean water, the agreed reference"
-            ]
-          ],
-          "s": "Isotope ratios differ from each other in the fourth decimal place, so they are always reported as a difference from one agreed water — which is why every δ value is a comparison rather than an amount."
-        }
       ],
       "concept": {
         "n": 20,
@@ -4095,7 +3276,7 @@ export const CURRICULUM = {
       "rules": "Spread the hundred points across the 4 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
       "background": [
         "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all. The last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
-        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
+        "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong. Funding it too thin to finish spends the money and buys nothing.",
         "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
       ],
       "story": "Halvorsen has one chemistry line, six weeks, and four proposals from three groups. The depth–age scale below 1,600 metres is the season's stated objective.",
@@ -4138,27 +3319,6 @@ export const CURRICULUM = {
         "random against systematic uncertainty — taken as read",
         "separating a trend from year-to-year noise — taken as read"
       ],
-      "equations": [
-        {
-          "e": "age(z) = Σ Δz / λ(z)",
-          "c": "building a depth–age scale by adding up layers",
-          "v": [
-            [
-              "age(z)",
-              "the age of the ice at depth z, in years before present"
-            ],
-            [
-              "Δz",
-              "a depth interval"
-            ],
-            [
-              "λ(z)",
-              "the annual layer thickness through that interval"
-            ]
-          ],
-          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 25,
@@ -4183,13 +3343,13 @@ export const CURRICULUM = {
       "day": 4,
       "title": "Which width the answer is made of",
       "scene": "Aalto has the dust flux from the cold interval and four quantities behind it, each with its own uncertainty. There is time to improve one of them before the season ends.",
-      "takeaway": "A term's contribution is its own width multiplied by the power it is raised to, and the largest power is not always the largest contribution.",
+      "takeaway": "A term's contribution is its own width multiplied by the power it is raised to. The largest power is not always the largest contribution.",
       "place": "Science Module",
       "guide": "The panel shows an error budget: each input's own width, times the power it carries in the calculation, contributes a bar. Read the bars rather than the inputs. There is time to improve one quantity before the season ends. So buy the measurement that shortens the tallest bar. Not the one that is easiest to improve.",
       "background": [
         "How the widths combine. In a product of quantities, the fractional uncertainties add in quadrature, each weighted by its exponent. A quantity raised to a power contributes that much more, and one measured badly can dominate even with an exponent of one.",
-        "Why the largest quantity is not the widest one. A big number measured precisely contributes little; a small one measured roughly can carry the whole budget. The bars are what separate those two, and the intuition to be resisted is the one that goes by the size of the number.",
-        "Why improving the wrong term is worse than doing nothing. It spends the last of the season and moves the total uncertainty by almost nothing, and it produces a report that looks more careful than it is."
+        "Why the largest quantity is not the widest one. A big number measured precisely contributes little; a small one measured roughly can carry the whole budget. The bars are what separate those two. The intuition to be resisted is the one that goes by the size of the number.",
+        "Why improving the wrong term is worse than doing nothing. It spends the last of the season and moves the total uncertainty by almost nothing. And it produces a report that looks more careful than it is."
       ],
       "story": "Aalto has the dust flux from the cold interval and four quantities behind it, each with its own uncertainty. There is time to improve one of them before the season ends.",
       "game": {
@@ -4200,7 +3360,7 @@ export const CURRICULUM = {
         "task": "Find the uncertainty worth reducing",
         "question": "Which measurement should the remaining time buy?",
         "answer": "The past accumulation rate. Its 30% uncertainty enters once and still dominates everything else on the board, including the grain diameter that is cubed.",
-        "why": "A term enters the result raised to some power, and its contribution to the width of the answer is that power multiplied by its own fractional uncertainty. The grain diameter is cubed, which makes it look like the term to fix, but it is known to 5%, so it contributes 15. The accumulation rate enters once and is known to 30, so it contributes twice as much on its own. Ranking by exponent is a reasonable habit and it picks the wrong measurement here.",
+        "why": "A term enters the result raised to some power. Its contribution to the width of the answer is that power multiplied by its own fractional uncertainty. The grain diameter is cubed, which makes it look like the term to fix. But it is known to 5%, so it contributes 15. The accumulation rate enters once and is known to 30, so it contributes twice as much on its own. Ranking by exponent is a reasonable habit and it picks the wrong measurement here.",
         "propagate": {
           "output": {
             "label": "Dust flux during the cold interval",
@@ -4270,31 +3430,6 @@ export const CURRICULUM = {
       "assumes": [
         "a quantity multiplied into a result carries its own uncertainty into that result"
       ],
-      "equations": [
-        {
-          "e": "b = λ × ρ_snow / ρ_ice",
-          "c": "accumulation, converted to ice equivalent",
-          "v": [
-            [
-              "b",
-              "accumulation in metres of ice equivalent per year"
-            ],
-            [
-              "λ",
-              "the measured thickness of one annual layer"
-            ],
-            [
-              "ρ_snow",
-              "the density of the snow as it fell"
-            ],
-            [
-              "ρ_ice",
-              "the density of solid ice, about 917 kg per cubic metre"
-            ]
-          ],
-          "s": "A metre of new snow is not a metre of ice, so an accumulation rate only means something once the layer has been converted to the ice it will become."
-        }
-      ],
       "concept": {
         "n": 16,
         "c": "Dust and tephra: aridity, wind and where the dust came from",
@@ -4313,7 +3448,7 @@ export const CURRICULUM = {
       "guide": "Open each piece of the comparison to see what it was computed from. Keep the ones that would still stand if the flow model were wrong, and untick the ones that run through it. Then name the shared dependency. A piece that survives is worth more than the number attached to it suggests.",
       "background": [
         "What a flow model does here. It converts depth into age by describing how the ice has thinned and moved since it fell. Almost every quantity that carries a date has passed through it, which is what makes it the most consequential assumption in the building.",
-        "Why some things survive it. Anything measured against a fixed marker — an ash layer, a known event, a directly counted section — is a claim about ice rather than about the model. Those hold whatever the model does, and they are how the model itself gets tested.",
+        "Why some things survive it. Anything measured against a fixed marker is a claim about ice rather than about the model. An ash layer, a known event, a directly counted section. Those hold whatever the model does, and they are how the model itself gets tested.",
         "Why the question is asked this way round. Nobody expects the flow model to be wrong outright. The question is which conclusions are hostages to it. So when it is revised — as it is every few years — the group knows exactly what has to be redone."
       ],
       "story": "Five pieces of the comparison are on Aalto's screen, each one computed from something. Okonkwo wants to know which of them would still stand if the flow model were wrong.",
@@ -4325,7 +3460,7 @@ export const CURRICULUM = {
         "task": "Find what the two records share",
         "question": "Which parts of this comparison would survive the flow model being wrong?",
         "answer": "The counted section and the tephra tie point. Everything below the counts on both sides was dated with the same flow model, so those two agreeing establishes nothing about it.",
-        "why": "Both groups counted layers as far as they could and then handed the rest to the same flow model, with the same assumption of uniform vertical strain. Below those counts the two age scales are not independent estimates that happen to agree; they are one calculation applied twice. What survives the model being wrong is the counted section, which is arithmetic on measured layers. The other is the tephra horizon, whose date came from a volcano and not from any ice. Those two are the comparison. The rest is a shared assumption.",
+        "why": "Both groups counted layers as far as they could. Then they handed the rest to the same flow model, with the same assumption of uniform vertical strain. Below those counts the two age scales are not independent estimates that happen to agree; they are one calculation applied twice. What survives the model being wrong is the counted section, which is arithmetic on measured layers. The other is the tephra horizon, whose date came from a volcano and not from any ice. Those two are the comparison. The rest is a shared assumption.",
         "trace": {
           "channels": [
             {
@@ -4388,27 +3523,6 @@ export const CURRICULUM = {
       "assumes": [
         "two results computed from one assumption fail together if that assumption fails"
       ],
-      "equations": [
-        {
-          "e": "age(z) = Σ Δz / λ(z)",
-          "c": "building a depth–age scale by adding up layers",
-          "v": [
-            [
-              "age(z)",
-              "the age of the ice at depth z, in years before present"
-            ],
-            [
-              "Δz",
-              "a depth interval"
-            ],
-            [
-              "λ(z)",
-              "the annual layer thickness through that interval"
-            ]
-          ],
-          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it."
-        }
-      ],
       "concept": {
         "n": 29,
         "c": "Model against data, and what a mismatch can mean",
@@ -4439,7 +3553,7 @@ export const CURRICULUM = {
         "task": "Say what the corrected comparison supports",
         "question": "What does the corrected comparison support?",
         "answer": "That the two records are consistent, and that most of the apparent difference was the gas–ice age offset rather than climate.",
-        "why": "What remains after the correction is smaller than either group's stated uncertainty, so there is no measured difference left to explain. That is a positive result rather than an absence of one: two independently drilled cores, once put on comparable clocks, record the same cooling. The correction does not weaken it — it was predicted before it was applied and then checked against a date that came from neither calculation. And nothing here makes Skarv wrong; both records were plotted on the wrong clock, and only one of them moved far.",
+        "why": "What remains after the correction is smaller than either group's stated uncertainty, so there is no measured difference left to explain. That is a positive result rather than an absence of one. Two independently drilled cores, once put on comparable clocks, record the same cooling. The correction does not weaken it. It was predicted before it was applied, and then checked against a date that came from neither calculation. And nothing here makes Skarv wrong; both records were plotted on the wrong clock, and only one of them moved far.",
         "rebuttals": [
           "A remaining difference below both uncertainties is not a disagreement of any size",
           "A correction that was predicted and then tested is evidence rather than a weakness",
@@ -4455,46 +3569,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a difference smaller than the uncertainty of either measurement is not a measured difference"
-      ],
-      "equations": [
-        {
-          "e": "δ¹⁸O = (R_sample / R_standard − 1) × 1000 ‰",
-          "c": "an isotope ratio, written as a deviation from a standard",
-          "v": [
-            [
-              "δ¹⁸O",
-              "the isotope value, in parts per thousand (‰)"
-            ],
-            [
-              "R_sample",
-              "the ratio of ¹⁸O to ¹⁶O in the melted ice"
-            ],
-            [
-              "R_standard",
-              "the same ratio in mean ocean water, the agreed reference"
-            ]
-          ],
-          "s": "Isotope ratios differ from each other in the fourth decimal place, so they are always reported as a difference from one agreed water — which is why every δ value is a comparison rather than an amount."
-        },
-        {
-          "e": "age(z) = Σ Δz / λ(z)",
-          "c": "building a depth–age scale by adding up layers",
-          "v": [
-            [
-              "age(z)",
-              "the age of the ice at depth z, in years before present"
-            ],
-            [
-              "Δz",
-              "a depth interval"
-            ],
-            [
-              "λ(z)",
-              "the annual layer thickness through that interval"
-            ]
-          ],
-          "s": "A depth–age scale is arithmetic on layer thicknesses, so every uncertainty in a layer count is carried down through everything deeper than it."
-        }
       ],
       "concept": {
         "n": 4,
@@ -4525,7 +3599,7 @@ export const CURRICULUM = {
         "task": "Say how tightly the mean can be quoted",
         "question": "Estimate the standard error of the thirty-year mean.",
         "answer": "About 0.26 degrees. A difference between two such means smaller than half a degree is not a difference at all.",
-        "why": "Individual years scatter because weather scatters, and averaging does not remove that scatter. It reduces the uncertainty of the average, and only as the square root of the number of years. 30 years of a record with 1.4 degrees of year-to-year variation give a mean known to about a quarter of a degree. Two such means half a degree apart are two standard errors apart, which is where a claim of difference starts becoming defensible and not before. Doubling the precision would take 120 years.",
+        "why": "Individual years scatter because weather scatters, and averaging does not remove that scatter. It reduces the uncertainty of the average, and only as the square root of the number of years. 30 years of a record with 1.4 degrees of year-to-year variation give a mean known to about a quarter of a degree. Two such means half a degree apart are two standard errors apart. That is where a claim of difference starts becoming defensible, and not before. Doubling the precision would take 120 years.",
         "givens": [],
         "relationship": "SE = s ÷ √n — the year-to-year scatter, divided by the square root of how many years were averaged.",
         "calcKey": "DATA-7"
@@ -4554,29 +3628,6 @@ export const CURRICULUM = {
           ],
           "s": "Scatter falls only as the square root of the number of years, so a decade of a noisy record says much less than a century — and a difference smaller than its own standard error is not a difference.",
           "computed": true
-        },
-        {
-          "e": "ΔF = 5.35 ln(C / C₀)  W m⁻²",
-          "c": "turning a gas concentration into an energy imbalance",
-          "v": [
-            [
-              "ΔF",
-              "radiative forcing, in watts per square metre"
-            ],
-            [
-              "C",
-              "the carbon dioxide concentration now, in ppm"
-            ],
-            [
-              "C₀",
-              "the concentration it is being compared with"
-            ],
-            [
-              "5.35",
-              "the empirical coefficient for carbon dioxide"
-            ]
-          ],
-          "s": "The effect of carbon dioxide goes as the logarithm of its concentration, so each doubling adds about the same forcing — and a record of the gas becomes a record of the energy budget."
         }
       ],
       "takesAsRead": [
@@ -4597,16 +3648,16 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Four sentences and a range",
-      "scene": "The correction removes somewhere between a tenth and four tenths of a per mil of the difference, depending on assumptions nobody can settle this season. Four sentences are on the board.",
+      "scene": "The correction removes somewhere between a tenth and four tenths of a per mil of the difference. That depends on assumptions nobody can settle this season. Four sentences are on the board.",
       "takeaway": "The claim to publish is the one that is still true at the least favourable end of what you assumed.",
       "place": "Science Module",
-      "guide": "The correction removes somewhere between a tenth and four tenths of a per mil, and nobody can settle which this season. Move it to the least favourable end before choosing between the four sentences. A sentence that is true at the middle of the range and false at the end of it is not a sentence the season summary can carry.",
+      "guide": "The correction removes somewhere between a tenth and four tenths of a per mil, and nobody can settle which this season. Move it to the least favourable end before choosing between the four sentences. A sentence can be true at the middle of the range and false at the end of it. That is not a sentence the season summary can carry.",
       "background": [
-        "Why the pessimistic end rather than the best estimate. A published sentence is read as a claim about the world, not about the middle of somebody's uncertainty. Choosing at the expected value means publishing something that has a real chance of being wrong, and the retraction costs more than the caution would have.",
-        "What makes one sentence survive and another not. Sentences that assert a direction usually survive; sentences that assert a size usually do not, because the size is exactly what the correction's range moves. A carefully weakened claim can be both true and useful.",
+        "Why the pessimistic end rather than the best estimate. A published sentence is read as a claim about the world, not about the middle of somebody's uncertainty. Choosing at the expected value means publishing something that has a real chance of being wrong. The retraction costs more than the caution would have.",
+        "What makes one sentence survive and another not. Sentences that assert a direction usually survive. Sentences that assert a size usually do not. The size is exactly what the correction's range moves. A carefully weakened claim can be both true and useful.",
         "Why this cannot wait for the assumptions to settle. The summary is written this season and the assumptions will not be settled for years. The professional move is to write the strongest sentence that survives the whole range rather than the strongest sentence full stop."
       ],
-      "story": "The correction removes somewhere between a tenth and four tenths of a per mil of the difference, depending on assumptions nobody can settle this season. Four sentences are on the board.",
+      "story": "The correction removes somewhere between a tenth and four tenths of a per mil of the difference. That depends on assumptions nobody can settle this season. Four sentences are on the board.",
       "game": {
         "type": "STRESS",
         "title": "Four sentences and a range",
@@ -4615,7 +3666,7 @@ export const CURRICULUM = {
         "task": "Choose the sentence that survives",
         "question": "Which sentence would still be true at the least favourable end of the correction's range?",
         "answer": "That part of the difference is chronological and the remainder is not yet explained. It is the only sentence that holds whether the correction removes a tenth of a per mil or four tenths.",
-        "why": "The correction is calculated from a firn model, and firn models disagree with each other by more than anybody would like, so what comes out is a range. A sentence is publishable when it is still true at the least favourable end of that range. Saying the records are consistent needs the correction to do most of the work, and at the low end it does not. Saying the difference is entirely chronological needs more than the correction can do at any end. The hedged sentence is the slowest to write and the only one that survives.",
+        "why": "The correction is calculated from a firn model. Firn models disagree with each other by more than anybody would like. So what comes out is a range. A sentence is publishable when it is still true at the least favourable end of that range. Saying the records are consistent needs the correction to do most of the work, and at the low end it does not. Saying the difference is entirely chronological needs more than the correction can do at any end. The hedged sentence is the slowest to write and the only one that survives.",
         "stress": {
           "candidates": [
             {
@@ -4687,50 +3738,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a correction estimated from a model carries a range rather than a single value"
-      ],
-      "equations": [
-        {
-          "e": "δ¹⁸O = (R_sample / R_standard − 1) × 1000 ‰",
-          "c": "an isotope ratio, written as a deviation from a standard",
-          "v": [
-            [
-              "δ¹⁸O",
-              "the isotope value, in parts per thousand (‰)"
-            ],
-            [
-              "R_sample",
-              "the ratio of ¹⁸O to ¹⁶O in the melted ice"
-            ],
-            [
-              "R_standard",
-              "the same ratio in mean ocean water, the agreed reference"
-            ]
-          ],
-          "s": "Isotope ratios differ from each other in the fourth decimal place, so they are always reported as a difference from one agreed water — which is why every δ value is a comparison rather than an amount."
-        },
-        {
-          "e": "Δage ≈ z_close × ρ̄ / b",
-          "c": "why the gas in a bubble is younger than the ice around it",
-          "v": [
-            [
-              "Δage",
-              "gas age minus ice age, in years"
-            ],
-            [
-              "z_close",
-              "the close-off depth, where the pores seal — 60 to 100 m"
-            ],
-            [
-              "ρ̄",
-              "the mean density of the firn above that depth, relative to ice"
-            ],
-            [
-              "b",
-              "accumulation in ice equivalent per year"
-            ]
-          ],
-          "s": "Air circulates freely through the firn until the pores seal, so the bubble is sealed centuries after the snow around it fell — and the colder and drier the site, the larger that offset becomes."
-        }
       ],
       "concept": {
         "n": 25,

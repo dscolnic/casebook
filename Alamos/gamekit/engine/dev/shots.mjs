@@ -352,6 +352,93 @@ try{
   }
   process.stdout.write('\n');
 
+  // ---- INSIDE A ROOM, on an outdoor game
+  //
+  //   node engine/dev/shots.mjs redsand --room KINET,EQUIL
+  //   node engine/dev/shots.mjs redsand --room all
+  //
+  // An outdoor game's rooms are four kilometres out in x, built on first entry
+  // and invisible until then, so nothing in `shots.js` can reach one: every view
+  // above is a point on the map. Until the placement pass that did not matter,
+  // because an area's room was the same room every day. It matters now — the
+  // fixture a question is asked at is built ON ENTRY from the open call, so the
+  // room is a different room each sol and the only way to see one is to walk in.
+  //
+  // Two shots each: from the door, and from the middle turned back toward it.
+  const roomArg = flag('room');
+  if(roomArg){
+    // `--sol N` — photograph a LATER day.
+    //
+    // Every shot this tool has ever taken was of day 1, which was the whole truth
+    // until a room stopped being the same room every day. Fixtures are built on
+    // entry from the open call, and `from:`/`until:` fixtures appear and go over
+    // the campaign, so a day-1 contact sheet cannot show a plant that starts
+    // unfinished and fills in — it can only show the first frame of it.
+    //
+    // The results are faked the same way `--case` fakes them: every stop of every
+    // earlier day marked answered, so the week advances and anything gated on
+    // progress is in the state it would really be in.
+    const sol = +flag('sol') || 1;
+    if(sol > 1){
+      await cdp.eval(`(() => {
+        const g = window.gamekit, st = g.getState && g.getState();
+        const M = (g.theme.content && g.theme.content.MISSIONS) || [];
+        if(!st) return false;
+        st.missionResults = st.missionResults || {};
+        for(let w = 1; w < ${sol}; w++){
+          ((M[w - 1] || {}).stops || []).forEach((s, i) => {
+            st.missionResults[w + '-' + i] = { group: s.group, lesson: s.lesson, correct: true };
+          });
+        }
+        st.week = ${sol};
+        return st.week;
+      })()`);
+      console.log(`  sol ${sol}: earlier days marked answered`);
+    }
+    const ids = roomArg === 'all'
+      ? await cdp.eval('Object.keys(window.gamekit.theme.interiors || {})')
+      : roomArg.split(',').map(s => s.trim()).filter(Boolean);
+    for(const id of ids){
+      const ok = await cdp.eval(`(() => {
+        const g = window.gamekit;
+        try { return !!(g.interiors && g.interiors.enter && g.interiors.enter(${JSON.stringify(id)})); }
+        catch(e){ return 'ERR ' + (e && e.message); }
+      })()`);
+      if(ok !== true){
+        console.log(`  room ${id}: could not enter${typeof ok === 'string' ? ` — ${ok}` : ''}`);
+        continue;
+      }
+      await wait(220);
+      // Where the player was actually put, so the shot follows the room rather
+      // than a coordinate this file would have to keep in step with the builder.
+      const p = await cdp.eval('(() => { const q = window.gamekit.getPosition();'
+        + ' return { x: q.x, z: q.z }; })()');
+      // FOUR WALLS, from the middle. `enterTransform` faces yaw PI, and forward
+      // here is (-sin yaw, -cos yaw) — so PI looks along +z, into the room.
+      //
+      // Two views from the door is what this did first, and it missed the thing
+      // it was built to see: a fixture stands against a side wall about 5.5 m off
+      // the centre line, which from the doorway is 68° off axis and outside the
+      // frame. Standing in the middle and turning all the way round is the only
+      // view that cannot miss a wall.
+      for(const [suffix, dx, dz, yaw] of [
+        ['back', 0, 4, Math.PI], ['left', 0, 4, Math.PI / 2],
+        ['door', 0, 4, 0], ['right', 0, 4, -Math.PI / 2],
+      ]){
+        await cdp.eval(`new Promise(ok => {
+          window.gamekit.teleport({x:${p.x + dx},z:${p.z + dz}}, ${yaw});
+          requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(() => ok(true), 70)));
+        })`);
+        if(!has('hud')) await cdp.eval(hideChrome);
+        const shot = await cdp.send('Page.captureScreenshot', { format: 'png' });
+        const file = `room-${id.toLowerCase()}-${suffix}${sol > 1 ? `-sol${sol}` : ''}.png`;
+        writeFileSync(resolve(outDir, file), Buffer.from(shot.data, 'base64'));
+        written.push({ name: `room ${id} (${suffix})${sol > 1 ? ` — sol ${sol}` : ''}`, file });
+      }
+      console.log(`  room ${id}: 2 shot(s)`);
+    }
+  }
+
   // ---- the delivery board, found in the running game rather than in the data
   //
   // WHY IT CANNOT BE A VIEW LIKE THE OTHERS. Every view above is computed from

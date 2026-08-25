@@ -1069,31 +1069,6 @@ export const CURRICULUM = {
         "a buffer is a chemical system that resists large pH changes when acid or base is added",
         "cell structure and function — taken as read"
       ],
-      "equations": [
-        {
-          "e": "pH = pKa + log([A⁻]/[HA])",
-          "c": "Henderson–Hasselbalch — buffering in a body",
-          "v": [
-            [
-              "pH",
-              "acidity of the blood"
-            ],
-            [
-              "pKa",
-              "the acid constant for that buffer pair, 6.1 for bicarbonate"
-            ],
-            [
-              "[A⁻]",
-              "concentration of the base form, bicarbonate"
-            ],
-            [
-              "[HA]",
-              "concentration of the acid form, dissolved carbon dioxide"
-            ]
-          ],
-          "s": "Blood pH is set by the ratio of base to acid rather than by either alone, which is why the lungs and the kidneys can compensate for each other."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 1,
@@ -1567,31 +1542,6 @@ export const CURRICULUM = {
         "an enzyme is a protein whose function depends on it keeping its shape",
         "cell structure and function — taken as read"
       ],
-      "equations": [
-        {
-          "e": "pH = pKa + log([A⁻]/[HA])",
-          "c": "Henderson–Hasselbalch — buffering in a body",
-          "v": [
-            [
-              "pH",
-              "acidity of the blood"
-            ],
-            [
-              "pKa",
-              "the acid constant for that buffer pair, 6.1 for bicarbonate"
-            ],
-            [
-              "[A⁻]",
-              "concentration of the base form, bicarbonate"
-            ],
-            [
-              "[HA]",
-              "concentration of the acid form, dissolved carbon dioxide"
-            ]
-          ],
-          "s": "Blood pH is set by the ratio of base to acid rather than by either alone, which is why the lungs and the kidneys can compensate for each other."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 1,
@@ -1654,31 +1604,6 @@ export const CURRICULUM = {
         "the immune system has a fast general response and a slower specific one",
         "cell structure and function — taken as read",
         "pathogens: viruses and bacteria — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "sensitivity = TP / (TP+FN)",
-          "c": "and specificity = TN / (TN+FP) — what a test misses",
-          "v": [
-            [
-              "TP",
-              "true positives, sick and testing positive"
-            ],
-            [
-              "FN",
-              "false negatives, sick and testing negative"
-            ],
-            [
-              "TN",
-              "true negatives"
-            ],
-            [
-              "FP",
-              "false positives"
-            ]
-          ],
-          "s": "Sensitivity is the share of sick people a test catches, and specificity the share of well people it clears; a test can be excellent at one and poor at the other."
-        }
       ],
       "takesAsRead": [
         {
@@ -1754,31 +1679,6 @@ export const CURRICULUM = {
       "assumes": [
         "who ends up in a dataset is decided by how the data was collected",
         "populations, transmission chains and exponential growth — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "PPV = (prev·sens) / (prev·sens + (1−prev)(1−spec))",
-          "c": "why a good test fails at low prevalence",
-          "v": [
-            [
-              "PPV",
-              "positive predictive value, the chance a positive is real"
-            ],
-            [
-              "prev",
-              "prevalence, how common the disease is"
-            ],
-            [
-              "sens",
-              "sensitivity"
-            ],
-            [
-              "spec",
-              "specificity"
-            ]
-          ],
-          "s": "When almost nobody has the disease, most positives come from the many well people tested, however good the test is."
-        }
       ],
       "takesAsRead": [
         {
@@ -2211,29 +2111,6 @@ export const CURRICULUM = {
           ],
           "s": "Sensitivity is the share of sick people a test catches, and specificity the share of well people it clears; a test can be excellent at one and poor at the other.",
           "computed": true
-        },
-        {
-          "e": "PPV = (prev·sens) / (prev·sens + (1−prev)(1−spec))",
-          "c": "why a good test fails at low prevalence",
-          "v": [
-            [
-              "PPV",
-              "positive predictive value, the chance a positive is real"
-            ],
-            [
-              "prev",
-              "prevalence, how common the disease is"
-            ],
-            [
-              "sens",
-              "sensitivity"
-            ],
-            [
-              "spec",
-              "specificity"
-            ]
-          ],
-          "s": "When almost nobody has the disease, most positives come from the many well people tested, however good the test is."
         }
       ],
       "concept": {
@@ -2391,31 +2268,6 @@ export const CURRICULUM = {
         "a sample represents the population it was drawn from",
         "a reservoir claim needs evidence that can distinguish persistence from spillback",
         "pathogens: viruses and bacteria — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "sensitivity = TP / (TP+FN)",
-          "c": "and specificity = TN / (TN+FP) — what a test misses",
-          "v": [
-            [
-              "TP",
-              "true positives, sick and testing positive"
-            ],
-            [
-              "FN",
-              "false negatives, sick and testing negative"
-            ],
-            [
-              "TN",
-              "true negatives"
-            ],
-            [
-              "FP",
-              "false positives"
-            ]
-          ],
-          "s": "Sensitivity is the share of sick people a test catches, and specificity the share of well people it clears; a test can be excellent at one and poor at the other."
-        }
       ],
       "takesAsRead": [
         {
@@ -3180,31 +3032,6 @@ export const CURRICULUM = {
       "assumes": [
         "a model's output is only as good as the assumptions it was given"
       ],
-      "equations": [
-        {
-          "e": "sensitivity = TP / (TP+FN)",
-          "c": "and specificity = TN / (TN+FP) — what a test misses",
-          "v": [
-            [
-              "TP",
-              "true positives, sick and testing positive"
-            ],
-            [
-              "FN",
-              "false negatives, sick and testing negative"
-            ],
-            [
-              "TN",
-              "true negatives"
-            ],
-            [
-              "FP",
-              "false positives"
-            ]
-          ],
-          "s": "Sensitivity is the share of sick people a test catches, and specificity the share of well people it clears; a test can be excellent at one and poor at the other."
-        }
-      ],
       "concept": {
         "n": 30,
         "c": "Epidemic modelling and projection",
@@ -3930,31 +3757,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "where you look decides what you can find"
-      ],
-      "equations": [
-        {
-          "e": "PPV = (prev·sens) / (prev·sens + (1−prev)(1−spec))",
-          "c": "why a good test fails at low prevalence",
-          "v": [
-            [
-              "PPV",
-              "positive predictive value, the chance a positive is real"
-            ],
-            [
-              "prev",
-              "prevalence, how common the disease is"
-            ],
-            [
-              "sens",
-              "sensitivity"
-            ],
-            [
-              "spec",
-              "specificity"
-            ]
-          ],
-          "s": "When almost nobody has the disease, most positives come from the many well people tested, however good the test is."
-        }
       ],
       "concept": {
         "n": 16,

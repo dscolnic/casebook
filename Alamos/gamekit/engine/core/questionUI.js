@@ -2012,7 +2012,14 @@ export function askCardHTML(who, lesson, ch, jargon=JARGON){
     + (!guide ? aboutRow(lesson) : '')
     // The equations this question is worked from, if any. See workedFromHTML: the
     // fold is right for context and wrong when the equation is the question.
-    + workedFromHTML(lesson)
+    // The equation used to be spelled out here on the face as well, for the one
+    // case where the equation IS the question (Blackout's day 1 steps 20 kV to
+    // 400 kV and its four options are that arithmetic). It now appears in the
+    // Background door only: an equation belongs on the day card of a question
+    // that uses it, and in that question's background. Nowhere else.
+    // `workedFromHTML` is kept for the moment so the Blackout case can be
+    // restored in one line if the face turns out to be the right home for it.
+    + ''
     // One row of doors, so the player sees at a glance everything that is one press
     // away. Three at most: how the panel is scored, what the course calls this, and
     // everything true but not urgent.

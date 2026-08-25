@@ -110,6 +110,11 @@ const TIME = new RegExp([
 // What the player will be asked to do today, in the second person.
 const TASK = /\b(today|this (shift|watch|stage|phase|day))\b[^.]{0,80}\byou\b/i;
 
+// The brief card style, opted into by the theme. Read once, used by the stake rule
+// and by the opening-card rule below — a second `manifest.stakeStyle === 'brief'`
+// in the other scope is a second description of the same decision.
+const briefStyle = manifest.stakeStyle === 'brief';
+
 const surnames = ROSTER.map(p => String(p.name ?? '').trim().split(/\s+/).pop()).filter(w => w && w.length > 2);
 
 /** Every answer string a day's stops can be spoiled by. */
@@ -126,7 +131,7 @@ function answersFor(mission){
 }
 
 // ——— the checks ————————————————————————————————————————————————————
-let named = 0, dated = 0, tasked = 0;
+let named = 0, dated = 0, tasked = 0, briefCards = 0;
 const lengths = [], grades = [];
 
 MISSIONS.forEach((m, i) => {
@@ -148,13 +153,29 @@ MISSIONS.forEach((m, i) => {
   //    sentences, read before *every* day — and a sixth grader has stopped
   //    reading well before the end of that. The four beats fit in seventy words
   //    when the sentences are short.
+  //
+  //    And a third style, opted into by the theme: `stakeStyle: 'brief'`. The
+  //    long card answers "what has been happening" as well as "what do I do",
+  //    and the first half is a fortnight of context read fifteen times. A brief
+  //    stake says the one thing that is true this morning and the one thing the
+  //    player does about it, in about two sentences — the cast, the argument and
+  //    the consequences moving out to the calls, the people and the debrief,
+  //    which is where the player meets them anyway.
+  //
+  //    A brief stake has NO floor. The floor was written against a card that had
+  //    to carry a fortnight of context, and the whole claim of the brief style is
+  //    that it does not: the shortest true version of "here is what happened and
+  //    here is what you do" is the target, and a number that says "not shorter
+  //    than this" is an instruction to pad. The ceiling stays, because the failure
+  //    the brief style is fixing is length.
   const junior = Number.isFinite(grade) && grade <= 8;
-  const floor = Number.isFinite(grade) && grade <= 4 ? 70 : junior ? 60 : 90;
-  const ceiling = junior ? 85 : 200;
+  const brief = briefStyle;
+  const floor = brief ? 0 : Number.isFinite(grade) && grade <= 4 ? 70 : junior ? 60 : 90;
+  const ceiling = brief ? 70 : junior ? 85 : 200;
   const n = words(stake).length;
   lengths.push(n);
   if(n < floor) fail(`${where}: stake is ${n} words — too short to say what happened, what you decide, and why`);
-  else if(n > ceiling && junior) fail(`${where}: stake is ${n} words — over ${ceiling} is more than this audience reads before every day`);
+  else if(n > ceiling && (junior || brief)) fail(`${where}: stake is ${n} words — over ${ceiling} is more than a ${brief ? 'brief stake carries; it is two sentences, not a briefing' : 'this audience reads before every day'}`);
   else if(n > ceiling) note(`${where}: stake is ${n} words`);
   // A pile-up is unreadable however plain its words, and the opening card rule
   // learned that already. Same number, applied to the card read every morning.
@@ -164,6 +185,7 @@ MISSIONS.forEach((m, i) => {
   // 3. Somebody is in it. A card with no people in it is a problem statement.
   const who = surnames.filter(s => stake.includes(s));
   if(who.length) named++;
+  briefCards += brief ? 1 : 0;
 
   // 4. A reader can tell when this is happening, from the first two sentences.
   const opening = sentences(stake).slice(0, 2).join(' ');
@@ -224,9 +246,19 @@ MISSIONS.forEach((m, i) => {
 
 // ——— campaign-level ————————————————————————————————————————————————
 const total = MISSIONS.length;
-if(named < Math.ceil(total * 0.8)){
+// A brief stake has no room for a name and is not meant to carry one: naming
+// one of thirteen people in forty words spends a quarter of the card on somebody
+// the player has not met yet, and the roster is met on the calls instead. So the
+// rule is suspended for a campaign that opted into the style — but only in the
+// direction that matters. A brief campaign that *does* name people everywhere is
+// still fine; one that names nobody anywhere and is NOT brief is the failure this
+// was written for.
+if(!briefCards && named < Math.ceil(total * 0.8)){
   fail(`only ${named} of ${total} cards name anybody from the ${ROSTER.length}-person roster — `
      + `a campaign of problem statements rather than a story`);
+} else if(briefCards && named < Math.ceil(total * 0.8)){
+  note(`${briefCards} of ${total} cards are brief stakes, so the roster is met on the calls `
+     + `and in the debrief rather than on the plan card (${named} of ${total} name anybody)`);
 }
 if(dated < Math.ceil(total * 0.8)){
   fail(`only ${dated} of ${total} cards say when they are happening in their first two sentences`);
@@ -334,7 +366,11 @@ if(!manifest.dayNoun){
     }
     // Thin cards cannot carry four beats; long ones stop being read. Outbreak's
     // was 41 words and said nothing about what being late costs.
-    const floor = Number.isFinite(grade) && grade <= 4 ? 55 : 70;
+    // No floor under the brief style, for the reason the stake has none: the four
+    // beats are a checklist of what must be *in* the card, and they are each
+    // checked directly below. A word count on top of them only ever says "say it
+    // at greater length", which is the thing being removed.
+    const floor = briefStyle ? 0 : Number.isFinite(grade) && grade <= 4 ? 55 : 70;
     if(n < floor) fail(`the opening is ${n} words — too short to say what has happened, what your job is, and what it costs`);
     else if(n > 180) note(`the opening is ${n} words`);
 

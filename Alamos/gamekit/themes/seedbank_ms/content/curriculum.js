@@ -104,27 +104,6 @@ export const CURRICULUM = {
       "assumes": [
         "seed is dried before it goes into store"
       ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "how many of a batch will do something",
-          "v": [
-            [
-              "part",
-              "how many"
-            ],
-            [
-              "whole",
-              "how many there are altogether"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
-      ],
       "concept": {
         "n": 2,
         "c": "A seed is alive, and it can be kept alive or let die",
@@ -301,27 +280,6 @@ export const CURRICULUM = {
         "germination is the share of seeds that actually grow",
         "a grow-out needs field space booked before it can start"
       ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "how many of a batch will do something",
-          "v": [
-            [
-              "part",
-              "how many"
-            ],
-            [
-              "whole",
-              "how many there are altogether"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
-      ],
       "concept": {
         "n": 2,
         "c": "A seed is alive, and it can be kept alive or let die",
@@ -425,27 +383,6 @@ export const CURRICULUM = {
       "assumes": [
         "a sample can support a statement about the group it came from"
       ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "how many of a batch will do something",
-          "v": [
-            [
-              "part",
-              "how many"
-            ],
-            [
-              "whole",
-              "how many there are altogether"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
-      ],
       "concept": {
         "n": 14,
         "c": "A label and a record are part of the seed",
@@ -489,46 +426,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a crop growing where a disease turns up is being tested by it every year"
-      ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "how many of a batch will do something",
-          "v": [
-            [
-              "part",
-              "how many"
-            ],
-            [
-              "whole",
-              "how many there are altogether"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        },
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of several plots or plants",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the values added up"
-            ],
-            [
-              "how many",
-              "the number of them"
-            ]
-          ],
-          "s": "One plant is an accident. An average over many is a property of the seed."
-        }
       ],
       "concept": {
         "n": 13,
@@ -580,27 +477,6 @@ export const CURRICULUM = {
       "assumes": [
         "seed is dried before it goes into store",
         "a seed is alive and slowly using itself up"
-      ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "how many of a batch will do something",
-          "v": [
-            [
-              "part",
-              "how many"
-            ],
-            [
-              "whole",
-              "how many there are altogether"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
       ],
       "concept": {
         "n": 2,
@@ -873,27 +749,6 @@ export const CURRICULUM = {
       "assumes": [
         "a breeding programme moves one generation at a time"
       ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of several plots or plants",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the values added up"
-            ],
-            [
-              "how many",
-              "the number of them"
-            ]
-          ],
-          "s": "One plant is an accident. An average over many is a property of the seed."
-        }
-      ],
       "concept": {
         "n": 16,
         "c": "Deciding with a season that does not come round again",
@@ -989,27 +844,6 @@ export const CURRICULUM = {
       "assumes": [
         "a cross ties up glasshouse space and staff for several seasons",
         "closely related parents share the same weaknesses"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of several plots or plants",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the values added up"
-            ],
-            [
-              "how many",
-              "the number of them"
-            ]
-          ],
-          "s": "One plant is an accident. An average over many is a property of the seed."
-        }
       ],
       "concept": {
         "n": 10,
@@ -1186,27 +1020,6 @@ export const CURRICULUM = {
         "this crop keeps pollen and seed on separate plants",
         "every seed has one parent on each side"
       ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "how many of a batch will do something",
-          "v": [
-            [
-              "part",
-              "how many"
-            ],
-            [
-              "whole",
-              "how many there are altogether"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
-      ],
       "concept": {
         "n": 13,
         "c": "How many plants you need to keep a kind going",
@@ -1306,46 +1119,6 @@ export const CURRICULUM = {
       "assumes": [
         "a result can depend on how something was handled, as well as on today's test",
         "evidence is only independent if it does not share the important step"
-      ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "how many of a batch will do something",
-          "v": [
-            [
-              "part",
-              "how many"
-            ],
-            [
-              "whole",
-              "how many there are altogether"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        },
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of several plots or plants",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the values added up"
-            ],
-            [
-              "how many",
-              "the number of them"
-            ]
-          ],
-          "s": "One plant is an accident. An average over many is a property of the seed."
-        }
       ],
       "concept": {
         "n": 1,
@@ -1856,25 +1629,6 @@ export const CURRICULUM = {
           ],
           "s": "One plant is an accident. An average over many is a property of the seed.",
           "computed": true
-        },
-        {
-          "e": "part = whole × share",
-          "c": "how many of a batch will do something",
-          "v": [
-            [
-              "part",
-              "how many"
-            ],
-            [
-              "whole",
-              "how many there are altogether"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
         }
       ],
       "concept": {
@@ -1920,27 +1674,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a trial's conclusions belong to the conditions it ran under"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of several plots or plants",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the values added up"
-            ],
-            [
-              "how many",
-              "the number of them"
-            ]
-          ],
-          "s": "One plant is an accident. An average over many is a property of the seed."
-        }
       ],
       "concept": {
         "n": 9,
@@ -2117,27 +1850,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a test predicts a trait by sitting near the gene, in the population it was worked out on"
-      ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "how many of a batch will do something",
-          "v": [
-            [
-              "part",
-              "how many"
-            ],
-            [
-              "whole",
-              "how many there are altogether"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
       ],
       "concept": {
         "n": 8,
@@ -2762,27 +2474,6 @@ export const CURRICULUM = {
       "assumes": [
         "a crop builds most of its grain from light caught after it flowers"
       ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of several plots or plants",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the values added up"
-            ],
-            [
-              "how many",
-              "the number of them"
-            ]
-          ],
-          "s": "One plant is an accident. An average over many is a property of the seed."
-        }
-      ],
       "concept": {
         "n": 8,
         "c": "A fair test needs a control and everything else kept the same",
@@ -2841,25 +2532,6 @@ export const CURRICULUM = {
           ],
           "s": "One plant is an accident. An average over many is a property of the seed.",
           "computed": true
-        },
-        {
-          "e": "how many times = bigger ÷ smaller",
-          "c": "comparing two yields, or two counts",
-          "v": [
-            [
-              "how many times",
-              "the ratio"
-            ],
-            [
-              "bigger",
-              "the larger number"
-            ],
-            [
-              "smaller",
-              "the one it is compared with"
-            ]
-          ],
-          "s": "Dividing one measurement by another says how many times bigger it is, which is usually the comparison worth making."
         }
       ],
       "concept": {
@@ -2909,27 +2581,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a wheat flower can take pollen from its own plant or from another one"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of several plots or plants",
-          "v": [
-            [
-              "average",
-              "the mean"
-            ],
-            [
-              "total",
-              "the values added up"
-            ],
-            [
-              "how many",
-              "the number of them"
-            ]
-          ],
-          "s": "One plant is an accident. An average over many is a property of the seed."
-        }
       ],
       "concept": {
         "n": 3,

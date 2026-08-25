@@ -13,6 +13,7 @@ import { resolve, dirname } from 'node:path';
 import { themeDir as resolveTheme } from './registry.mjs';
 import { ordinary, norm, TECHY } from '../../tools/common-words.mjs';
 import { fleschKincaid } from '../../tools/readability.js';
+import { agreesWithPanel, panelWork } from '../../tools/syllabus.js';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const themeName = process.argv[2];
@@ -196,7 +197,15 @@ if(!bespokeCrowd){
 const INTERIORS = T.interiors ?? null;
 if(INTERIORS){
   for(const [id, spec] of Object.entries(INTERIORS)){
-    if(!groupIds.has(id)) fail(`interiors names unknown group "${id}"`);
+    // An interiors key is an area id OR a building's `enter:` — a MINOR place,
+    // which is somewhere you can walk into that is not an area: the tank farm,
+    // the array shed, the pad office. Before those existed this could assume the
+    // two sets were the same, and an id in neither is still a room the player can
+    // never reach, which is what this line is really for.
+    const minorIds = new Set((T.site?.buildings ?? []).map(b => b.enter).filter(Boolean));
+    if(!groupIds.has(id) && !minorIds.has(id)){
+      fail(`interiors names "${id}", which is neither a group nor any building's enter:`);
+    }
     if(!spec.station) fail(`interiors["${id}"] has no station — the room would have no instrument`);
   }
   for(const id of groupIds){
@@ -722,36 +731,15 @@ for(const [group, lessons] of Object.entries(CURRICULUM)){
         // relationship, the template, the worked solution and the tile labels),
         // since that is where a symbolic law shows up.
         const eqs = l.equations ?? [];
-        // The relationship, the template and the worked solution: the three
-        // places the stop states its arithmetic. The explanation and the tile
-        // labels are prose around it, and including them matched "same" and
-        // "times" out of an explanation and called that agreement.
-        const panelText = [spec.relationship ?? g.relationship, spec.template, spec.solution]
-          .filter(Boolean).join('  ');
+        // `panelWork` and `agreesWithPanel` are the shared rule in
+        // tools/syllabus.js, because `import-book` has to apply the SAME test
+        // when it decides whether to stamp the chip at all. This checker owned
+        // both for one commit and the importer then pruned every chip a stop
+        // only mentioned — which left four stops printing the chip that had
+        // survived rather than the one the panel works.
+        const panelText = panelWork(g, spec);
         if(String(spec.relationship ?? g.relationship ?? '').trim() && eqs.length){
-          const STOP = new Set(['this', 'that', 'with', 'from', 'into', 'each', 'over', 'than',
-            'then', 'they', 'what', 'when', 'much', 'many', 'have', 'been', 'were', 'lost',
-            'which', 'about', 'takes', 'gives', 'using', 'where', 'their', 'there']);
-          const hay = panelText.toLowerCase();
-          const contentWords = (t) => (String(t).toLowerCase().match(/[a-z]{4,}/g) ?? []).filter(w => !STOP.has(w));
-          // A symbol is anything that reads as one in an equation: P_gen, df/dt,
-          // I²R, ΔTf, R_phase. Single letters are matched case-sensitively and
-          // standing alone, or every equation containing "E" would match "the".
-          // An equation is symbolic when it is written in symbols rather than in
-          // English, and only then are symbols worth comparing. Comparing them
-          // on a word equation matches "how" against every relationship in the
-          // repo and the check stops finding anything.
-          // Sonar writes SL, TL, NL and DT — two capitals each, no subscripts and
-          // no Greek, so a test that only knew single capitals called that
-          // equation "written in words" and compared it as English.
-          const isSymbolic = (e) => /[_√Δδλσρμ²³⁻₀-₉⁰-⁹]|\bd[A-Za-z]\/d[A-Za-z]|(?:^|[^A-Za-z])[A-Z]{1,3}(?![a-z])/.test(String(e));
-          const symbols = (t) => (String(t).match(/[A-Za-zΔδλσρμΣΩ][A-Za-z_₀-₉⁰-⁹²³0-9]*(?:\/d?[A-Za-z]+)?/g) ?? [])
-            .filter(x => /[_₀-₉⁰-⁹²³0-9√Δδλσρμ\/]/.test(x) || (x.length <= 3 && /[A-Z]/.test(x)));
-          const chipText = (eq) => [eq.e, eq.c, eq.s, ...(eq.v ?? []).flat()].filter(Boolean).join(' ');
-          const agrees = (eq) => contentWords(chipText(eq)).some(w => hay.includes(w))
-            || (isSymbolic(eq.e) && symbols(eq.e).some(x =>
-              new RegExp(`(?<![A-Za-z])${x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![A-Za-z])`).test(panelText)));
-          if(!eqs.some(agrees)){
+          if(!eqs.some(eq => agreesWithPanel(eq, panelText))){
             fail(`${at}: the card prints "${eqs.map(e => e.e).join('", "')}" and the panel works `
               + `"${String(spec.relationship ?? g.relationship).trim()}" — the equation shown is not the one the stop uses`);
           }

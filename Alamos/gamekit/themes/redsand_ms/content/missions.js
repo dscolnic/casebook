@@ -254,6 +254,10 @@ export const WARMUPS = {
     "title": "Walk the plant while your suit is fresh",
     "why": "Nine buildings along one track, and the vehicle four hundred metres past the last of them. Walk the whole line once now, on a clear sol, with a fresh suit. The next time you do it will be in a dust storm, three hours into a suit that is already tired."
   },
+  "trial-far": {
+    "title": "The rover, and the long drive to the ice cut",
+    "why": "The water this plant runs on is dug out of the ground a long way north-west. It is too far to walk in a suit. That is what the rovers are for, and they are signed out to you this morning. Drive the track once while the sky is clear. You do not want to learn it in a dust storm."
+  },
   "follow": {
     "title": "Cho walks the cold end once",
     "why": "The cold end is the part of the plant no diagram really covers. Which joint frosts first, which line ticks as it cools. Mei-Ling Cho, the cryogenics engineer, walks it once this morning. Stay with her and keep off the lines. A boot on a cold pipe is a leak nobody can weld out here."

@@ -217,27 +217,6 @@ export const CURRICULUM = {
       "assumes": [
         "reserve is held against what nobody knows, rather than against the forecast itself"
       ],
-      "equations": [
-        {
-          "e": "spare = what can be made − what is being used",
-          "c": "how much room is left on the system",
-          "v": [
-            [
-              "spare",
-              "in megawatts"
-            ],
-            [
-              "what can be made",
-              "the total that can be run up"
-            ],
-            [
-              "what is being used",
-              "the demand right now"
-            ]
-          ],
-          "s": "The gap between what the system can make and what it is being asked for is the whole of its safety margin."
-        }
-      ],
       "concept": {
         "n": 9,
         "c": "A graph of demand across a day, and why the peak matters",
@@ -296,27 +275,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "generators are normally run cheapest first"
-      ],
-      "equations": [
-        {
-          "e": "spare = what can be made − what is being used",
-          "c": "how much room is left on the system",
-          "v": [
-            [
-              "spare",
-              "in megawatts"
-            ],
-            [
-              "what can be made",
-              "the total that can be run up"
-            ],
-            [
-              "what is being used",
-              "the demand right now"
-            ]
-          ],
-          "s": "The gap between what the system can make and what it is being asked for is the whole of its safety margin."
-        }
       ],
       "concept": {
         "n": 8,
@@ -464,27 +422,6 @@ export const CURRICULUM = {
       "assumes": [
         "frequency falls when more power is used than is being made"
       ],
-      "equations": [
-        {
-          "e": "spare = what can be made − what is being used",
-          "c": "how much room is left on the system",
-          "v": [
-            [
-              "spare",
-              "in megawatts"
-            ],
-            [
-              "what can be made",
-              "the total that can be run up"
-            ],
-            [
-              "what is being used",
-              "the demand right now"
-            ]
-          ],
-          "s": "The gap between what the system can make and what it is being asked for is the whole of its safety margin."
-        }
-      ],
       "concept": {
         "n": 8,
         "c": "Supply has to match demand, minute by minute",
@@ -571,27 +508,6 @@ export const CURRICULUM = {
       "assumes": [
         "a bad problem that is not getting worse is different from a small one that is",
         "getting reserve in place takes time before the peak"
-      ],
-      "equations": [
-        {
-          "e": "spare = what can be made − what is being used",
-          "c": "how much room is left on the system",
-          "v": [
-            [
-              "spare",
-              "in megawatts"
-            ],
-            [
-              "what can be made",
-              "the total that can be run up"
-            ],
-            [
-              "what is being used",
-              "the demand right now"
-            ]
-          ],
-          "s": "The gap between what the system can make and what it is being asked for is the whole of its safety margin."
-        }
       ]
     },
     {
@@ -631,27 +547,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a habit taken up in an emergency has a cost that only shows later"
-      ],
-      "equations": [
-        {
-          "e": "spare = what can be made − what is being used",
-          "c": "how much room is left on the system",
-          "v": [
-            [
-              "spare",
-              "in megawatts"
-            ],
-            [
-              "what can be made",
-              "the total that can be run up"
-            ],
-            [
-              "what is being used",
-              "the demand right now"
-            ]
-          ],
-          "s": "The gap between what the system can make and what it is being asked for is the whole of its safety margin."
-        }
       ]
     },
     {
@@ -690,27 +585,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the whole grid runs at one speed, and that speed is what frequency measures"
-      ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "a share of the demand, or of the customers",
-          "v": [
-            [
-              "part",
-              "how much that share comes to"
-            ],
-            [
-              "whole",
-              "the total"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
       ],
       "concept": {
         "n": 8,
@@ -1136,27 +1010,6 @@ export const CURRICULUM = {
         "a line has a steady limit and a short-term one, and they are different",
         "moving generation about takes minutes, and shedding load is quick"
       ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "a share of the demand, or of the customers",
-          "v": [
-            [
-              "part",
-              "how much that share comes to"
-            ],
-            [
-              "whole",
-              "the total"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
-      ],
       "concept": {
         "n": 11,
         "c": "A safety device breaks the circuit before something is damaged",
@@ -1366,25 +1219,6 @@ export const CURRICULUM = {
           ],
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it.",
           "computed": true
-        },
-        {
-          "e": "spare = what can be made − what is being used",
-          "c": "how much room is left on the system",
-          "v": [
-            [
-              "spare",
-              "in megawatts"
-            ],
-            [
-              "what can be made",
-              "the total that can be run up"
-            ],
-            [
-              "what is being used",
-              "the demand right now"
-            ]
-          ],
-          "s": "The gap between what the system can make and what it is being asked for is the whole of its safety margin."
         }
       ],
       "concept": {
@@ -1430,27 +1264,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "current pushing along a wire uses up some of the voltage on the way"
-      ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "a share of the demand, or of the customers",
-          "v": [
-            [
-              "part",
-              "how much that share comes to"
-            ],
-            [
-              "whole",
-              "the total"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
       ],
       "concept": {
         "n": 4,
@@ -1558,46 +1371,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a small live system is upset far more by a given block of load than a big one"
-      ],
-      "equations": [
-        {
-          "e": "energy = power × time",
-          "c": "how much electricity something uses",
-          "v": [
-            [
-              "energy",
-              "in kilowatt hours"
-            ],
-            [
-              "power",
-              "in kilowatts"
-            ],
-            [
-              "time",
-              "in hours"
-            ]
-          ],
-          "s": "A kettle drawing two kilowatts for half an hour uses one kilowatt hour, and the bill is in those units."
-        },
-        {
-          "e": "part = whole × share",
-          "c": "a share of the demand, or of the customers",
-          "v": [
-            [
-              "part",
-              "how much that share comes to"
-            ],
-            [
-              "whole",
-              "the total"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
       ],
       "concept": {
         "n": 15,
@@ -2027,27 +1800,6 @@ export const CURRICULUM = {
       "assumes": [
         "putting energy into a store and taking it out again both waste some of it"
       ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "a share of the demand, or of the customers",
-          "v": [
-            [
-              "part",
-              "how much that share comes to"
-            ],
-            [
-              "whole",
-              "the total"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "Current through something makes heat, and that is why wires have limits",
@@ -2187,27 +1939,6 @@ export const CURRICULUM = {
       "assumes": [
         "a forecast covers a spread of outcomes, not just one"
       ],
-      "equations": [
-        {
-          "e": "spare = what can be made − what is being used",
-          "c": "how much room is left on the system",
-          "v": [
-            [
-              "spare",
-              "in megawatts"
-            ],
-            [
-              "what can be made",
-              "the total that can be run up"
-            ],
-            [
-              "what is being used",
-              "the demand right now"
-            ]
-          ],
-          "s": "The gap between what the system can make and what it is being asked for is the whole of its safety margin."
-        }
-      ],
       "concept": {
         "n": 9,
         "c": "A graph of demand across a day, and why the peak matters",
@@ -2297,27 +2028,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "power says how fast energy is being delivered, and energy is what actually gets used"
-      ],
-      "equations": [
-        {
-          "e": "how long = amount ÷ rate",
-          "c": "how long a store will last",
-          "v": [
-            [
-              "how long",
-              "in hours"
-            ],
-            [
-              "amount",
-              "the energy in store"
-            ],
-            [
-              "rate",
-              "how fast it is being drawn"
-            ]
-          ],
-          "s": "A store divided by the rate it is drawn at gives the time before it runs out."
-        }
       ],
       "concept": {
         "n": 6,

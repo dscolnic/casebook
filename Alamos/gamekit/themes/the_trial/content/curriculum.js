@@ -804,27 +804,6 @@ export const CURRICULUM = {
       "assumes": [
         "the symptom score is written by the treating doctor and the event is adjudicated"
       ],
-      "equations": [
-        {
-          "e": "P(at least one false positive) = 1 − (1 − α)^k",
-          "c": "multiplicity — what testing k things costs",
-          "v": [
-            [
-              "α",
-              "the error rate allowed for a single test, usually 0.05"
-            ],
-            [
-              "k",
-              "how many independent tests were run"
-            ],
-            [
-              "P",
-              "chance that at least one of them clears the line by luck alone"
-            ]
-          ],
-          "s": "Each test carries its own chance of a false positive, so fourteen subgroups tested at five per cent give better than even odds that one of them looks real when nothing is there."
-        }
-      ],
       "concept": {
         "n": 18,
         "c": "Subgroup analysis, and why a subgroup finding is a hypothesis",
@@ -871,106 +850,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the interval around an estimate says what the data are compatible with"
-      ],
-      "equations": [
-        {
-          "e": "CI ≈ estimate ± 1.96 × SE",
-          "c": "a confidence interval, and what its width says",
-          "v": [
-            [
-              "CI",
-              "the interval the result is reported as, rather than a single number"
-            ],
-            [
-              "estimate",
-              "the point estimate the trial measured"
-            ],
-            [
-              "SE",
-              "standard error of that estimate"
-            ],
-            [
-              "1.96",
-              "the multiplier that makes it a 95 per cent interval"
-            ]
-          ],
-          "s": "The interval is the point estimate plus and minus about two standard errors, and its width — not its centre — is what says how much is still unknown."
-        },
-        {
-          "e": "SE = √( p(1 − p) / n )",
-          "c": "why precision improves only as the square root of the sample",
-          "v": [
-            [
-              "SE",
-              "standard error of a measured proportion"
-            ],
-            [
-              "p",
-              "the proportion itself"
-            ],
-            [
-              "n",
-              "number of people it was measured on"
-            ]
-          ],
-          "s": "Precision answers to the square root of the sample, so halving the width of an interval costs four times the participants — which is why sample size is decided before the trial rather than during it."
-        },
-        {
-          "e": "t = events observed / events planned",
-          "c": "information fraction — how far through an event-driven trial is",
-          "v": [
-            [
-              "t",
-              "information fraction, between 0 and 1"
-            ],
-            [
-              "events observed",
-              "how many primary endpoint events have been adjudicated so far"
-            ],
-            [
-              "events planned",
-              "the event count the trial was powered on"
-            ]
-          ],
-          "s": "A trial powered on events is measured in events and not in months, so its progress is the share of the planned events already in hand — and that share is what decides when an interim look is due.",
-          "card": false
-        },
-        {
-          "e": "P(at least one false positive) = 1 − (1 − α)^k",
-          "c": "multiplicity — what testing k things costs",
-          "v": [
-            [
-              "α",
-              "the error rate allowed for a single test, usually 0.05"
-            ],
-            [
-              "k",
-              "how many independent tests were run"
-            ],
-            [
-              "P",
-              "chance that at least one of them clears the line by luck alone"
-            ]
-          ],
-          "s": "Each test carries its own chance of a false positive, so fourteen subgroups tested at five per cent give better than even odds that one of them looks real when nothing is there.",
-          "card": false
-        },
-        {
-          "e": "Σ α_spent ≤ α",
-          "c": "alpha spending — a budget for error that does not refill",
-          "v": [
-            [
-              "α_spent",
-              "the error rate consumed by each look at the endpoint"
-            ],
-            [
-              "α",
-              "the total error rate the whole trial is allowed, fixed in advance"
-            ]
-          ],
-          "s": "Every look at the endpoint spends part of a fixed error budget, so an unplanned look is not free: it is taken out of what the final analysis has left to spend.",
-          "card": false
-        }
       ],
       "concept": {
         "n": 31,
@@ -1019,50 +898,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a trial collects more than one measurement from each participant"
-      ],
-      "equations": [
-        {
-          "e": "SE = √( p(1 − p) / n )",
-          "c": "why precision improves only as the square root of the sample",
-          "v": [
-            [
-              "SE",
-              "standard error of a measured proportion"
-            ],
-            [
-              "p",
-              "the proportion itself"
-            ],
-            [
-              "n",
-              "number of people it was measured on"
-            ]
-          ],
-          "s": "Precision answers to the square root of the sample, so halving the width of an interval costs four times the participants — which is why sample size is decided before the trial rather than during it."
-        },
-        {
-          "e": "events ≈ 4 (z_{α/2} + z_β)² / (ln HR)²",
-          "c": "how many events a trial has to see to answer its question",
-          "v": [
-            [
-              "events",
-              "primary endpoint events required, not participants"
-            ],
-            [
-              "z_{α/2}",
-              "the false-positive tolerance, 1.96 at five per cent"
-            ],
-            [
-              "z_β",
-              "the false-negative tolerance, 0.84 at eighty per cent power"
-            ],
-            [
-              "HR",
-              "the hazard ratio the trial is powered to detect"
-            ]
-          ],
-          "s": "The number of events needed rises steeply as the effect being looked for gets smaller, which is why a trial hunting a modest benefit needs thousands of people and a trial hunting a large one does not."
-        }
       ],
       "concept": {
         "n": 8,
@@ -1216,27 +1051,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the board decides whether the trial continues"
-      ],
-      "equations": [
-        {
-          "e": "t = events observed / events planned",
-          "c": "information fraction — how far through an event-driven trial is",
-          "v": [
-            [
-              "t",
-              "information fraction, between 0 and 1"
-            ],
-            [
-              "events observed",
-              "how many primary endpoint events have been adjudicated so far"
-            ],
-            [
-              "events planned",
-              "the event count the trial was powered on"
-            ]
-          ],
-          "s": "A trial powered on events is measured in events and not in months, so its progress is the share of the planned events already in hand — and that share is what decides when an interim look is due."
-        }
       ],
       "concept": {
         "n": 19,
@@ -1454,27 +1268,6 @@ export const CURRICULUM = {
       "assumes": [
         "the board sees the trial's subgroup tables in closed session"
       ],
-      "equations": [
-        {
-          "e": "P(at least one false positive) = 1 − (1 − α)^k",
-          "c": "multiplicity — what testing k things costs",
-          "v": [
-            [
-              "α",
-              "the error rate allowed for a single test, usually 0.05"
-            ],
-            [
-              "k",
-              "how many independent tests were run"
-            ],
-            [
-              "P",
-              "chance that at least one of them clears the line by luck alone"
-            ]
-          ],
-          "s": "Each test carries its own chance of a false positive, so fourteen subgroups tested at five per cent give better than even odds that one of them looks real when nothing is there."
-        }
-      ],
       "concept": {
         "n": 18,
         "c": "Subgroup analysis, and why a subgroup finding is a hypothesis",
@@ -1532,42 +1325,6 @@ export const CURRICULUM = {
       "assumes": [
         "a monitoring board recommends and the sponsor decides",
         "sample size and statistical power — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "Σ α_spent ≤ α",
-          "c": "alpha spending — a budget for error that does not refill",
-          "v": [
-            [
-              "α_spent",
-              "the error rate consumed by each look at the endpoint"
-            ],
-            [
-              "α",
-              "the total error rate the whole trial is allowed, fixed in advance"
-            ]
-          ],
-          "s": "Every look at the endpoint spends part of a fixed error budget, so an unplanned look is not free: it is taken out of what the final analysis has left to spend."
-        },
-        {
-          "e": "conditional power = P(significant at the end | data so far)",
-          "c": "what a futility forecast is, and what it is not",
-          "v": [
-            [
-              "conditional power",
-              "chance the trial reaches significance if it runs to completion"
-            ],
-            [
-              "data so far",
-              "everything observed up to the interim look"
-            ],
-            [
-              "assumption",
-              "the effect size the remainder is assumed to run at — usually the one originally planned"
-            ]
-          ],
-          "s": "Conditional power forecasts what the study would probably do, given how it has gone so far; it is a statement about the trial finishing, not about whether the treatment works."
-        }
       ],
       "takesAsRead": [
         {
@@ -1812,30 +1569,6 @@ export const CURRICULUM = {
           ],
           "s": "Each test carries its own chance of a false positive, so fourteen subgroups tested at five per cent give better than even odds that one of them looks real when nothing is there.",
           "computed": true
-        },
-        {
-          "e": "events ≈ 4 (z_{α/2} + z_β)² / (ln HR)²",
-          "c": "how many events a trial has to see to answer its question",
-          "v": [
-            [
-              "events",
-              "primary endpoint events required, not participants"
-            ],
-            [
-              "z_{α/2}",
-              "the false-positive tolerance, 1.96 at five per cent"
-            ],
-            [
-              "z_β",
-              "the false-negative tolerance, 0.84 at eighty per cent power"
-            ],
-            [
-              "HR",
-              "the hazard ratio the trial is powered to detect"
-            ]
-          ],
-          "s": "The number of events needed rises steeply as the effect being looked for gets smaller, which is why a trial hunting a modest benefit needs thousands of people and a trial hunting a large one does not.",
-          "card": false
         }
       ],
       "concept": {
@@ -2509,25 +2242,6 @@ export const CURRICULUM = {
           ],
           "s": "A trial that waits for events cannot promise a date, because the rate belongs to the participants: the same event target takes half again as long in a group that turns out healthier than the design assumed.",
           "computed": true
-        },
-        {
-          "e": "ARR = p_control − p_treatment",
-          "c": "absolute risk reduction — the difference the treatment made",
-          "v": [
-            [
-              "ARR",
-              "absolute risk reduction, a difference between two proportions"
-            ],
-            [
-              "p_control",
-              "proportion of the control arm that had the event"
-            ],
-            [
-              "p_treatment",
-              "proportion of the treatment arm that had the event"
-            ]
-          ],
-          "s": "Subtract one arm's event rate from the other's: the answer is how many events per hundred people the treatment prevented, in the population that was actually enrolled."
         }
       ],
       "concept": {
@@ -3681,50 +3395,6 @@ export const CURRICULUM = {
         "a related trial can change the uncertainty that makes continued randomisation defensible",
         "an outside result does not rewrite a prespecified analysis plan"
       ],
-      "equations": [
-        {
-          "e": "CI ≈ estimate ± 1.96 × SE",
-          "c": "a confidence interval, and what its width says",
-          "v": [
-            [
-              "CI",
-              "the interval the result is reported as, rather than a single number"
-            ],
-            [
-              "estimate",
-              "the point estimate the trial measured"
-            ],
-            [
-              "SE",
-              "standard error of that estimate"
-            ],
-            [
-              "1.96",
-              "the multiplier that makes it a 95 per cent interval"
-            ]
-          ],
-          "s": "The interval is the point estimate plus and minus about two standard errors, and its width — not its centre — is what says how much is still unknown."
-        },
-        {
-          "e": "P(at least one false positive) = 1 − (1 − α)^k",
-          "c": "multiplicity — what testing k things costs",
-          "v": [
-            [
-              "α",
-              "the error rate allowed for a single test, usually 0.05"
-            ],
-            [
-              "k",
-              "how many independent tests were run"
-            ],
-            [
-              "P",
-              "chance that at least one of them clears the line by luck alone"
-            ]
-          ],
-          "s": "Each test carries its own chance of a false positive, so fourteen subgroups tested at five per cent give better than even odds that one of them looks real when nothing is there."
-        }
-      ],
       "concept": {
         "n": 32,
         "c": "External evidence, replication and how a new result is weighed",
@@ -3910,25 +3580,6 @@ export const CURRICULUM = {
           ],
           "s": "A ratio says the treatment arm had a third fewer events without saying whether that was thirty in a hundred or three in ten thousand, which is why the same result sounds far stronger stated this way.",
           "demanded": true
-        },
-        {
-          "e": "ARR = p_control − p_treatment",
-          "c": "absolute risk reduction — the difference the treatment made",
-          "v": [
-            [
-              "ARR",
-              "absolute risk reduction, a difference between two proportions"
-            ],
-            [
-              "p_control",
-              "proportion of the control arm that had the event"
-            ],
-            [
-              "p_treatment",
-              "proportion of the treatment arm that had the event"
-            ]
-          ],
-          "s": "Subtract one arm's event rate from the other's: the answer is how many events per hundred people the treatment prevented, in the population that was actually enrolled."
         }
       ],
       "concept": {

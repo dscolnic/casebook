@@ -178,23 +178,6 @@ export const CURRICULUM = {
       "assumes": [
         "only one person can go in first"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 20,
         "c": "Emergency assessment and triage",
@@ -242,23 +225,6 @@ export const CURRICULUM = {
       "assumes": [
         "a hospital has different rooms for different things"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 20,
         "c": "Emergency assessment and triage",
@@ -304,23 +270,6 @@ export const CURRICULUM = {
       "assumes": [
         "the next person was not there when it happened"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 19,
         "c": "Vital signs, measurement and normal ranges",
@@ -364,23 +313,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your body needs air all the time"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 20,
@@ -429,23 +361,6 @@ export const CURRICULUM = {
       "assumes": [
         "a tool can give you a number"
       ],
-      "equations": [
-        {
-          "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate",
-          "v": [
-            [
-              "beats in 15 seconds",
-              "how many beats you counted"
-            ],
-            [
-              "× 4",
-              "because there are four fifteen-second blocks in a minute"
-            ]
-          ],
-          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
-        }
-      ],
       "concept": {
         "n": 19,
         "c": "Vital signs, measurement and normal ranges",
@@ -487,23 +402,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "germs can travel on hands"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 18,
@@ -552,23 +450,6 @@ export const CURRICULUM = {
       "assumes": [
         "only one person can go in first"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 20,
         "c": "Emergency assessment and triage",
@@ -616,23 +497,6 @@ export const CURRICULUM = {
       "assumes": [
         "a hospital has different rooms for different things"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 20,
         "c": "Emergency assessment and triage",
@@ -678,23 +542,6 @@ export const CURRICULUM = {
       "assumes": [
         "the next person was not there when it happened"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 19,
         "c": "Vital signs, measurement and normal ranges",
@@ -738,23 +585,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your body needs air all the time"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 20,
@@ -803,23 +633,6 @@ export const CURRICULUM = {
       "assumes": [
         "a tool can give you a number"
       ],
-      "equations": [
-        {
-          "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate",
-          "v": [
-            [
-              "beats in 15 seconds",
-              "how many beats you counted"
-            ],
-            [
-              "× 4",
-              "because there are four fifteen-second blocks in a minute"
-            ]
-          ],
-          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
-        }
-      ],
       "concept": {
         "n": 19,
         "c": "Vital signs, measurement and normal ranges",
@@ -861,23 +674,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "germs can travel on hands"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 18,
@@ -926,23 +722,6 @@ export const CURRICULUM = {
       "assumes": [
         "only one person can go in first"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 20,
         "c": "Emergency assessment and triage",
@@ -990,23 +769,6 @@ export const CURRICULUM = {
       "assumes": [
         "a hospital has different rooms for different things"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 20,
         "c": "Emergency assessment and triage",
@@ -1052,23 +814,6 @@ export const CURRICULUM = {
       "assumes": [
         "the next person was not there when it happened"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 19,
         "c": "Vital signs, measurement and normal ranges",
@@ -1112,23 +857,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your body needs air all the time"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 20,
@@ -1177,23 +905,6 @@ export const CURRICULUM = {
       "assumes": [
         "a tool can give you a number"
       ],
-      "equations": [
-        {
-          "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate",
-          "v": [
-            [
-              "beats in 15 seconds",
-              "how many beats you counted"
-            ],
-            [
-              "× 4",
-              "because there are four fifteen-second blocks in a minute"
-            ]
-          ],
-          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
-        }
-      ],
       "concept": {
         "n": 19,
         "c": "Vital signs, measurement and normal ranges",
@@ -1235,23 +946,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "germs can travel on hands"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 18,
@@ -1300,23 +994,6 @@ export const CURRICULUM = {
       "assumes": [
         "only one person can go in first"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 20,
         "c": "Emergency assessment and triage",
@@ -1364,23 +1041,6 @@ export const CURRICULUM = {
       "assumes": [
         "a hospital has different rooms for different things"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 20,
         "c": "Emergency assessment and triage",
@@ -1426,23 +1086,6 @@ export const CURRICULUM = {
       "assumes": [
         "the next person was not there when it happened"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 19,
         "c": "Vital signs, measurement and normal ranges",
@@ -1486,23 +1129,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your body needs air all the time"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 20,
@@ -1673,23 +1299,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "muscles work harder when you climb stairs"
-      ],
-      "equations": [
-        {
-          "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate",
-          "v": [
-            [
-              "beats in 15 seconds",
-              "how many beats you counted"
-            ],
-            [
-              "× 4",
-              "because there are four fifteen-second blocks in a minute"
-            ]
-          ],
-          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
-        }
       ],
       "concept": {
         "n": 10,
@@ -1956,23 +1565,6 @@ export const CURRICULUM = {
       "assumes": [
         "blowing through a small gap makes a whistle"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "Levels of organisation: cells, tissues, organs, systems",
@@ -2196,23 +1788,6 @@ export const CURRICULUM = {
         "muscles work harder when you climb stairs",
         "resting muscles need less oxygen than working muscles"
       ],
-      "equations": [
-        {
-          "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate",
-          "v": [
-            [
-              "beats in 15 seconds",
-              "how many beats you counted"
-            ],
-            [
-              "× 4",
-              "because there are four fifteen-second blocks in a minute"
-            ]
-          ],
-          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
-        }
-      ],
       "concept": {
         "n": 10,
         "c": "Pulse and blood pressure",
@@ -2305,23 +1880,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "blowing through a small gap makes a whistle"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 1,
@@ -2527,23 +2085,6 @@ export const CURRICULUM = {
       "assumes": [
         "muscles work harder when you climb stairs"
       ],
-      "equations": [
-        {
-          "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate",
-          "v": [
-            [
-              "beats in 15 seconds",
-              "how many beats you counted"
-            ],
-            [
-              "× 4",
-              "because there are four fifteen-second blocks in a minute"
-            ]
-          ],
-          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
-        }
-      ],
       "concept": {
         "n": 10,
         "c": "Pulse and blood pressure",
@@ -2636,23 +2177,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "blowing through a small gap makes a whistle"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 1,
@@ -2857,23 +2381,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "muscles work harder when you climb stairs"
-      ],
-      "equations": [
-        {
-          "e": "beats in a minute = beats in 15 seconds × 4",
-          "c": "scaling a short count up to a rate",
-          "v": [
-            [
-              "beats in 15 seconds",
-              "how many beats you counted"
-            ],
-            [
-              "× 4",
-              "because there are four fifteen-second blocks in a minute"
-            ]
-          ],
-          "s": "Counting for a quarter of a minute and multiplying by four gives the rate for a whole minute."
-        }
       ],
       "concept": {
         "n": 10,
@@ -3099,23 +2606,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "you sweat when you run around"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 14,
@@ -3350,23 +2840,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "different body parts do different jobs"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 1,
@@ -3650,23 +3123,6 @@ export const CURRICULUM = {
       "assumes": [
         "different body parts do different jobs"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "Levels of organisation: cells, tissues, organs, systems",
@@ -3948,23 +3404,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "different body parts do different jobs"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 1,
@@ -4348,23 +3787,6 @@ export const CURRICULUM = {
       "assumes": [
         "your brain is in charge of your body"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 4,
         "c": "Muscles and movement",
@@ -4612,23 +4034,6 @@ export const CURRICULUM = {
       "assumes": [
         "skin covers the whole outside of you"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "Skin: barrier, healing, temperature",
@@ -4722,23 +4127,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "bones are hard and do not bend"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 3,
@@ -5050,23 +4438,6 @@ export const CURRICULUM = {
       "assumes": [
         "skin covers the whole outside of you"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "Skin: barrier, healing, temperature",
@@ -5160,23 +4531,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "bones are hard and do not bend"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 3,
@@ -5815,23 +5169,6 @@ export const CURRICULUM = {
       "assumes": [
         "your brain is inside your head"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 6,
         "c": "Nervous system and reflexes",
@@ -6110,23 +5447,6 @@ export const CURRICULUM = {
       "assumes": [
         "your brain is inside your head"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 6,
         "c": "Nervous system and reflexes",
@@ -6404,23 +5724,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "your brain is inside your head"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 6,
@@ -6959,23 +6262,6 @@ export const CURRICULUM = {
       "assumes": [
         "you cannot go long without breathing"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 20,
         "c": "Emergency assessment and triage",
@@ -7067,23 +6353,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "help takes time to arrive"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 29,
@@ -7256,23 +6525,6 @@ export const CURRICULUM = {
       "assumes": [
         "water dries up in the air"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 19,
         "c": "Vital signs, measurement and normal ranges",
@@ -7361,23 +6613,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "soap and water clean things"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 18,
@@ -7758,23 +6993,6 @@ export const CURRICULUM = {
       "assumes": [
         "you cannot go long without breathing"
       ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
-      ],
       "concept": {
         "n": 20,
         "c": "Emergency assessment and triage",
@@ -7866,23 +7084,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "help takes time to arrive"
-      ],
-      "equations": [
-        {
-          "e": "how far behind = what is needed − what was taken",
-          "c": "a running deficit",
-          "v": [
-            [
-              "what is needed",
-              "the amount the body should have had"
-            ],
-            [
-              "what was taken",
-              "the amount that actually went in"
-            ]
-          ],
-          "s": "The gap between what was needed and what was given is how far behind the patient is."
-        }
       ],
       "concept": {
         "n": 20,

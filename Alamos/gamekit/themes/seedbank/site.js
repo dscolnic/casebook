@@ -130,7 +130,17 @@ const AREA_BUILDINGS = [
 ];
 
 /**
- * Places with no lesson attached. They carry the place and the wayfinding.
+ * Places with no lesson of their own. They carry the place and the wayfinding —
+ * and since the placement pass, all five of them open.
+ *
+ * `enter:` gives a building an interiors key without making it an area: a door,
+ * a room, a caption and a panel, and no case stand, because nothing is *called*
+ * here. Four of the five have questions ASKED in them all the same — a lesson
+ * whose `at:` resolves under `GH1`, `GH3`, `RECORDS` or `THRESH` in fixtures.js
+ * is sited there, and the call reads "Go to Glasshouse 1". The question still
+ * belongs to its own area and is still about that area's subject; the player is
+ * sent to the warm bay to count a segregating generation because that is where
+ * the four hundred plants are standing. See gamekit/PLACEMENT_PASS.md.
  *
  * **The glasshouse range stands INSIDE the inner buffer, and that is the point.**
  * The buffer is a band where nothing may flower in the open, because anything
@@ -142,16 +152,24 @@ const AREA_BUILDINGS = [
  * exists to serve.
  */
 const LANDMARKS = [
-  { id: 'GH1', name: 'Glasshouse 1', sub: 'Warm bay · the crosses that cannot wait for spring',
+  { id: 'GH1', enter: 'GH1', name: 'Glasshouse 1', sub: 'Warm bay · the crosses that cannot wait for spring',
     ...at(30, 318), w: 12, d: 20, h: 5.2, facing: PI * 1.77, colour: 0x9db2ab, accent: 0x6f9487 },
-  { id: 'GH2', name: 'Glasshouse 2', sub: 'Cool bay · vernalisation',
+  { id: 'GH2', enter: 'GH2', name: 'Glasshouse 2', sub: 'Cool bay · vernalisation',
     ...at(31, 0), w: 12, d: 20, h: 5.2, facing: PI, colour: 0x9db2ab, accent: 0x6f9487 },
-  { id: 'GH3', name: 'Glasshouse 3', sub: 'Screening bay · rust nursery, kept apart',
+  { id: 'GH3', enter: 'GH3', name: 'Glasshouse 3', sub: 'Screening bay · rust nursery, kept apart',
     ...at(30, 42), w: 12, d: 20, h: 5.2, facing: PI * 0.23, colour: 0x9db2ab, accent: 0xb5502f },
-  { id: 'RECORDS', name: 'Passport Records', sub: 'Where every accession came from',
-    x: -30, z: 172, w: 15, d: 10, h: 4.8, facing: PI, colour: 0xa7a293 },
-  { id: 'THRESH', name: 'Threshing Floor', sub: 'Harvest in, chaff out',
-    x: 32, z: 172, w: 17, d: 11, h: 5.6, facing: PI, colour: 0x9c9384 },
+  // BOTH OF THESE STOOD EIGHT METRES OVER THE CLIFF, and everything about them
+  // rendered perfectly. At (-30, 172) the radius is 174.6 and the rim on that
+  // bearing — off the neck, so the plain circle — is 166 with the wobble in it,
+  // which put the back half of each shed in the air above the sea and its door
+  // exactly on the edge. `reachable.mjs` had been saying so for the life of the
+  // game, in the half of its output that is a note rather than a failure: "its
+  // door cannot be walked to from the spawn". They are on the yard now, one
+  // either side of it, facing in, with ten metres of margin to the drop.
+  { id: 'RECORDS', enter: 'RECORDS', name: 'Passport Records', sub: 'Where every accession came from',
+    x: -48, z: 148, w: 15, d: 10, h: 4.8, facing: PI / 2, colour: 0xa7a293 },
+  { id: 'THRESH', enter: 'THRESH', name: 'Threshing Floor', sub: 'Harvest in, chaff out',
+    x: 48, z: 148, w: 17, d: 11, h: 5.6, facing: -PI / 2, colour: 0x9c9384 },
   // THE GATE IS NOT HERE, and that is a map decision rather than a world one.
   // `engine/core/map.js` takes its bounds from `site.buildings`, so a gatehouse
   // 326 m down the causeway stretched the minimap into a vertical ribbon with

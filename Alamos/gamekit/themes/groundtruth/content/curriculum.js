@@ -752,31 +752,6 @@ export const CURRICULUM = {
         "charge in a conductor is free to move",
         "flux out of a closed surface counts the charge inside it"
       ],
-      "equations": [
-        {
-          "e": "∮E·dA = Q_enc/ε₀",
-          "c": "Gauss's law — flux out of a closed surface counts the charge inside it",
-          "v": [
-            [
-              "E",
-              "the electric field, in volts per metre"
-            ],
-            [
-              "dA",
-              "an element of the closed surface, pointing outward"
-            ],
-            [
-              "Q_enc",
-              "the charge inside that surface, in coulombs"
-            ],
-            [
-              "ε₀",
-              "the permittivity of free space, 8.85 × 10⁻¹² F/m"
-            ]
-          ],
-          "s": "The flux out of any closed surface depends only on the charge inside it, which turns a field problem into an arithmetic one wherever the surface can be chosen so the field is constant on it and along it."
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "Charge, and where it sits on a conductor",
@@ -822,27 +797,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "fields from separate charges add as vectors"
-      ],
-      "equations": [
-        {
-          "e": "E = σ / (2ε₀)",
-          "c": "the field of a charged layer, which does not fall off with distance",
-          "v": [
-            [
-              "E",
-              "field between the layer and the ground, in volts per metre"
-            ],
-            [
-              "σ",
-              "charge per unit area on the layer, in coulombs per square metre"
-            ],
-            [
-              "ε₀",
-              "the permittivity of free space"
-            ]
-          ],
-          "s": "A sheet of charge produces the same field however far away you stand, which is why a cloud base a kilometre up can be read from a meter on the ground and why the reading says nothing about the height."
-        }
       ],
       "concept": {
         "n": 4,
@@ -1952,27 +1906,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a capacitor holds its charge once the supply is removed"
-      ],
-      "equations": [
-        {
-          "e": "U = ½CV²",
-          "c": "the energy it took to charge it, and where the half comes from",
-          "v": [
-            [
-              "U",
-              "energy stored, in joules"
-            ],
-            [
-              "C",
-              "capacitance, in farads"
-            ],
-            [
-              "V",
-              "the final voltage across it"
-            ]
-          ],
-          "s": "Each extra charge has to be pushed against the voltage already there, so the work is the integral of q/C dq rather than QV — and the half is the whole difference between a bank that is safe to work on and one that is not."
-        }
       ],
       "concept": {
         "n": 1,

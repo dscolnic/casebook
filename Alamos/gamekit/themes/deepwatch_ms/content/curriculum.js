@@ -168,27 +168,6 @@ export const CURRICULUM = {
         "sound travels at different speeds through warmer and colder water",
         "sound bends toward the slower water"
       ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is moving",
-          "v": [
-            [
-              "speed",
-              "in metres per second"
-            ],
-            [
-              "distance",
-              "in metres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "Sound is a wave, and it travels through water as well as air",
@@ -236,27 +215,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measurement can mean nothing without an earlier one to read it against"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of repeated readings",
-          "v": [
-            [
-              "average",
-              "the mean reading"
-            ],
-            [
-              "total",
-              "the readings added up"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "Reading the same gauge several times and averaging pulls the random part of each reading toward zero."
-        }
       ],
       "concept": {
         "n": 5,
@@ -454,46 +412,6 @@ export const CURRICULUM = {
         "two sounds arriving together add up, and can also cancel",
         "hertz means how many times a second something repeats"
       ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is moving",
-          "v": [
-            [
-              "speed",
-              "in metres per second"
-            ],
-            [
-              "distance",
-              "in metres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        },
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of repeated readings",
-          "v": [
-            [
-              "average",
-              "the mean reading"
-            ],
-            [
-              "total",
-              "the readings added up"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "Reading the same gauge several times and averaging pulls the random part of each reading toward zero."
-        }
-      ],
       "concept": {
         "n": 3,
         "c": "Loud and quiet, high and low: what a sound tells you about its source",
@@ -673,27 +591,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "passive sonar gives a direction and no distance at all"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of repeated readings",
-          "v": [
-            [
-              "average",
-              "the mean reading"
-            ],
-            [
-              "total",
-              "the readings added up"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "Reading the same gauge several times and averaging pulls the random part of each reading toward zero."
-        }
       ],
       "concept": {
         "n": 4,
@@ -1036,27 +933,6 @@ export const CURRICULUM = {
       "assumes": [
         "a watch works to an order about which contacts are held"
       ],
-      "equations": [
-        {
-          "e": "distance = speed × time ÷ 2",
-          "c": "range from an echo, out and back",
-          "v": [
-            [
-              "distance",
-              "to the thing that echoed, in metres"
-            ],
-            [
-              "speed",
-              "the speed of sound in water, 1,500 metres a second"
-            ],
-            [
-              "time",
-              "the whole round trip, in seconds"
-            ]
-          ],
-          "s": "A ping travels out and back at a known speed, so the time it takes gives twice the distance."
-        }
-      ],
       "concept": {
         "n": 4,
         "c": "Listening from two places to find where a sound came from",
@@ -1121,66 +997,6 @@ export const CURRICULUM = {
       "assumes": [
         "how fast something is changing matters more than whether it looks odd"
       ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is moving",
-          "v": [
-            [
-              "speed",
-              "in metres per second"
-            ],
-            [
-              "distance",
-              "in metres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        },
-        {
-          "e": "part = whole × share",
-          "c": "a percentage of a mixture",
-          "v": [
-            [
-              "part",
-              "how much of the gas there is"
-            ],
-            [
-              "whole",
-              "the whole mixture"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        },
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of repeated readings",
-          "v": [
-            [
-              "average",
-              "the mean reading"
-            ],
-            [
-              "total",
-              "the readings added up"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "Reading the same gauge several times and averaging pulls the random part of each reading toward zero.",
-          "card": false
-        }
-      ],
       "concept": {
         "n": 15,
         "c": "Deciding under pressure: what can be undone, and what cannot",
@@ -1233,27 +1049,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a submarine is split into compartments that can be sealed off from each other"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of repeated readings",
-          "v": [
-            [
-              "average",
-              "the mean reading"
-            ],
-            [
-              "total",
-              "the readings added up"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "Reading the same gauge several times and averaging pulls the random part of each reading toward zero."
-        }
       ]
     },
     {
@@ -1320,27 +1115,6 @@ export const CURRICULUM = {
       "assumes": [
         "a rise in the bilge is what stayed behind, not what came in",
         "a pump that is running takes water out during the same minute"
-      ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is moving",
-          "v": [
-            [
-              "speed",
-              "in metres per second"
-            ],
-            [
-              "distance",
-              "in metres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        }
       ],
       "concept": {
         "n": 8,
@@ -1426,27 +1200,6 @@ export const CURRICULUM = {
       "assumes": [
         "some problems get worse on their own, and some do not"
       ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is moving",
-          "v": [
-            [
-              "speed",
-              "in metres per second"
-            ],
-            [
-              "distance",
-              "in metres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        }
-      ],
       "concept": {
         "n": 3,
         "c": "Loud and quiet, high and low: what a sound tells you about its source",
@@ -1506,27 +1259,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an instruction has to be something the person receiving it can act on alone"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of repeated readings",
-          "v": [
-            [
-              "average",
-              "the mean reading"
-            ],
-            [
-              "total",
-              "the readings added up"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "Reading the same gauge several times and averaging pulls the random part of each reading toward zero."
-        }
       ],
       "concept": {
         "n": 13,
@@ -1740,46 +1472,6 @@ export const CURRICULUM = {
         "how fast a problem is changing matters as much as how big it is",
         "a real handover names an owner, a first move and when to report back"
       ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is moving",
-          "v": [
-            [
-              "speed",
-              "in metres per second"
-            ],
-            [
-              "distance",
-              "in metres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        },
-        {
-          "e": "amount = rate × time",
-          "c": "how much has built up, or drained away",
-          "v": [
-            [
-              "amount",
-              "litres, or kilograms"
-            ],
-            [
-              "rate",
-              "per minute"
-            ],
-            [
-              "time",
-              "in minutes"
-            ]
-          ],
-          "s": "Anything arriving at a steady rate adds up in proportion to how long it has been arriving."
-        }
-      ],
       "concept": {
         "n": 15,
         "c": "Deciding under pressure: what can be undone, and what cannot",
@@ -1870,27 +1562,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a fire needs fuel, air and something to start it"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of repeated readings",
-          "v": [
-            [
-              "average",
-              "the mean reading"
-            ],
-            [
-              "total",
-              "the readings added up"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "Reading the same gauge several times and averaging pulls the random part of each reading toward zero."
-        }
       ],
       "concept": {
         "n": 9,
@@ -1999,27 +1670,6 @@ export const CURRICULUM = {
       "assumes": [
         "a machine can only clean the air that reaches it"
       ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "a percentage of a mixture",
-          "v": [
-            [
-              "part",
-              "how much of the gas there is"
-            ],
-            [
-              "whole",
-              "the whole mixture"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
-      ],
       "concept": {
         "n": 11,
         "c": "Air is a mixture, and the share of each gas matters",
@@ -2074,25 +1724,6 @@ export const CURRICULUM = {
           ],
           "s": "Anything arriving at a steady rate adds up in proportion to how long it has been arriving.",
           "computed": true
-        },
-        {
-          "e": "part = whole × share",
-          "c": "a percentage of a mixture",
-          "v": [
-            [
-              "part",
-              "how much of the gas there is"
-            ],
-            [
-              "whole",
-              "the whole mixture"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
         }
       ],
       "concept": {
@@ -2150,27 +1781,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "hot air rises and gathers at the top of a space"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of repeated readings",
-          "v": [
-            [
-              "average",
-              "the mean reading"
-            ],
-            [
-              "total",
-              "the readings added up"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "Reading the same gauge several times and averaging pulls the random part of each reading toward zero."
-        }
       ],
       "concept": {
         "n": 9,
@@ -2278,27 +1888,6 @@ export const CURRICULUM = {
       "assumes": [
         "everything has speeds at which it prefers to shake, the way a swing does"
       ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is moving",
-          "v": [
-            [
-              "speed",
-              "in metres per second"
-            ],
-            [
-              "distance",
-              "in metres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        }
-      ],
       "concept": {
         "n": 3,
         "c": "Loud and quiet, high and low: what a sound tells you about its source",
@@ -2403,27 +1992,6 @@ export const CURRICULUM = {
       "assumes": [
         "a system is only as separate as the parts it does not share"
       ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the mean of repeated readings",
-          "v": [
-            [
-              "average",
-              "the mean reading"
-            ],
-            [
-              "total",
-              "the readings added up"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "Reading the same gauge several times and averaging pulls the random part of each reading toward zero."
-        }
-      ],
       "concept": {
         "n": 11,
         "c": "Air is a mixture, and the share of each gas matters",
@@ -2485,27 +2053,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a submarine is balanced between its weight and the water it pushes aside"
-      ],
-      "equations": [
-        {
-          "e": "density = how heavy it is ÷ volume",
-          "c": "what decides floating and sinking",
-          "v": [
-            [
-              "density",
-              "kilograms in every cubic metre"
-            ],
-            [
-              "weight",
-              "mass, in kilograms"
-            ],
-            [
-              "volume",
-              "in cubic metres"
-            ]
-          ],
-          "s": "Something floats when it is less dense than the water it sits in, whatever it weighs."
-        }
       ],
       "concept": {
         "n": 8,
@@ -2648,27 +2195,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a cooler needs water moving on both sides to shift heat"
-      ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "a percentage of a mixture",
-          "v": [
-            [
-              "part",
-              "how much of the gas there is"
-            ],
-            [
-              "whole",
-              "the whole mixture"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
       ],
       "concept": {
         "n": 9,

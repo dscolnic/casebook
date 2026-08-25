@@ -805,9 +805,9 @@ export const CURRICULUM = {
       "day": 1,
       "title": "Where twelve seconds come from",
       "scene": "Marchetti has the two cycles side by side on the winder house desk, the present one and the one she wants. The full-speed section is the same length in both.",
-      "takeaway": "A cycle time is the sum of parts fixed by different things, and only some of them are anybody's to choose.",
+      "takeaway": "A cycle time is the sum of parts fixed by different things. Only some of them are anybody's to",
       "place": "Winder House",
-      "guide": "All four options are places a cycle could be shortened. Ask of each what it would change about the curve on the desk, and which parts of that curve the depth of the shaft has already fixed. Only one of the four has any seconds in it that are not already spoken for.",
+      "guide": "All four options are places a cycle could be shortened. Ask of each what it would change about the curve on the desk. Then ask which parts of that curve the depth of the shaft has already fixed. Only one of the four has any seconds in it that are not already spoken for.",
       "story": "Marchetti has the two cycles side by side on the winder house desk, the present one and the one she wants. The full-speed section is the same length in both.",
       "game": {
         "type": "CHOICE",
@@ -817,7 +817,7 @@ export const CURRICULUM = {
         "task": "Ask Marchetti what the twelve seconds are made of",
         "question": "Where do Marchetti's twelve seconds have to come from?",
         "answer": "The ramps and the crawl at the end",
-        "why": "They come out of the ramps and the crawl. The full-speed section is fixed by the depth of the shaft and the speed the winder is allowed to run at, so shortening it means winding faster rather than accelerating harder. The loading time at each landing is fixed by how long it takes men to get on and off. What is left is how hard the cage is accelerated and how long it spends creeping into the landing, which is why this proposal is a proposal about acceleration and about margin.",
+        "why": "They come out of the ramps and the crawl. The full-speed section is fixed by the depth of the shaft and the speed the winder may run at. Shortening it means winding faster, not accelerating harder. The loading time at each landing is fixed by how long men take to get on and off. What is left is how hard the cage is accelerated, and how long it spends creeping into the landing. That is why this proposal is a proposal about acceleration and about margin.",
         "rebuttals": [
           "The full-speed run is the depth divided by the speed, and both are set elsewhere.",
           "Loading is set by how long it takes men to get on and off, which no winder controls.",
@@ -845,13 +845,13 @@ export const CURRICULUM = {
       "day": 2,
       "title": "Eighteen tonnes, and where it sits",
       "scene": "The drum is a steel cylinder of eighteen tonnes, 2.1 metres to its outside and 1.9 to its bore, turning about its axis. Marchetti wants its moment of inertia from the drum itself rather than from the file.",
-      "takeaway": "A moment of inertia is an integral over the body, and two bodies of one mass can differ in it by a factor of two.",
+      "takeaway": "A moment of inertia is an integral over the body. Two bodies of one mass can differ in it by a",
       "place": "Winder House",
-      "guide": "You build the working a line at a time. The quantity wanted is a sum over the whole body of each piece of mass times the square of its distance from the axis, so the first decision is what a piece is. Choose it so that every part of the piece is the same distance out, and the integral becomes one in a single variable.",
+      "guide": "You build the working a line at a time. The quantity wanted is a sum over the whole body. Each piece contributes its mass times the square of its distance from the axis. So the first decision is what a piece is. Choose it so that every part of the piece is the same distance out. The integral then becomes one in a single variable.",
       "background": [
-        "Why a thin shell is the right element. Mass at different radii contributes differently, so an element has to be all at one radius. A thin cylindrical shell of radius r and thickness dr is exactly that, and its mass is the total mass times its share of the cross-sectional area.",
-        "Why the fourth powers collapse. Integrating r³ gives r⁴/4, so the shells leave a difference of fourth powers over a difference of squares — and that factors, because a difference of squares is what a difference of fourth powers is made of. What survives is the mean of the two squared radii, which is why the answer looks so simple.",
-        "Why this is not the mass. A solid cylinder of the same eighteen tonnes and the same outside radius has an inertia of 39,700 kilogram metres squared, against 72,200 for this one, because its mass is spread inward towards the axis where it counts for little. The two machines behave nothing alike and weigh the same."
+        "Why a thin shell is the right element. Mass at different radii contributes differently, so an element has to be all at one radius. A thin cylindrical shell of radius r and thickness dr is exactly that. Its mass is the total mass times its share of the cross-sectional area.",
+        "Why the fourth powers collapse. Integrating r³ gives r⁴/4. So the shells leave a difference of fourth powers over a difference of squares. That factors, because a difference of squares is what a difference of fourth powers is made of. What survives is the mean of the two squared radii, which is why the answer looks so simple.",
+        "Why this is not the mass. A solid cylinder of the same eighteen tonnes and the same outside radius has an inertia of 39,700 kilogram metres squared. This one comes out at 72,200. The solid drum's mass is spread inward towards the axis, where it counts for little. The two machines behave nothing alike and weigh the same."
       ],
       "story": "The drum is a steel cylinder of eighteen tonnes, 2.1 metres to its outside and 1.9 to its bore, turning about its axis. Marchetti wants its moment of inertia from the drum itself rather than from the file.",
       "game": {
@@ -862,7 +862,7 @@ export const CURRICULUM = {
         "task": "Take the drum's moment of inertia off its dimensions",
         "question": "What is the drum's moment of inertia about its own axis?",
         "answer": "About 72,200 kg·m². The shells give I = ½m(R₁² + R₂²), which is 9,000 × (3.61 + 4.41).",
-        "why": "The drum's inertia is about 72,200 kilogram metres squared. Taking a thin shell as the element is what makes the integral possible, because every part of a shell is the same distance from the axis. The shell's mass is the total mass times its share of the cross-section, so the integral is in r alone, and integrating r³ between the two radii leaves a difference of fourth powers that factors into the mean of the squares. A solid drum of the same mass would come out at about half of this.",
+        "why": "The drum's inertia is about 72,200 kilogram metres squared. Taking a thin shell as the element makes the integral possible. Every part of a shell is the same distance from the axis. The shell's mass is the total mass times its share of the cross-section, so the integral is in r alone. Integrating r³ between the two radii leaves a difference of fourth powers. That factors into the mean of the squares. A solid drum of the same mass would come out at about half of this.",
         "derive": {
           "start": "I = ∫r² dm",
           "goal": "the moment of inertia about the axis, in kilogram metres squared",
@@ -1032,11 +1032,11 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What the driver feels",
-      "scene": "Anand has driven this winder for twelve years. She says a hard ramp and a soft one of the same length feel like different machines, and that the difference is not in how fast the cage ends up going.",
-      "takeaway": "A rate can have a rate of its own, and a body standing on a floor feels the second one.",
+      "scene": "Anand has driven this winder for twelve years. She says a hard ramp and a soft one of the same length feel like different machines. The difference is not in how fast the cage ends up going.",
+      "takeaway": "A rate can have a rate of its own. A body standing on a floor feels the second one.",
       "place": "Winder House",
-      "guide": "All four options are quantities that change when a ramp is made harder. Ask of each whether it is what a passenger standing in a cage would actually notice, and which of them can be different in two ramps that reach the same speed in the same time.",
-      "story": "Anand has driven this winder for twelve years. She says a hard ramp and a soft one of the same length feel like different machines, and that the difference is not in how fast the cage ends up going.",
+      "guide": "All four options are quantities that change when a ramp is made harder. Ask of each whether it is what a passenger standing in a cage would actually notice. Then ask which of them can be different in two ramps that reach the same speed in the same time.",
+      "story": "Anand has driven this winder for twelve years. She says a hard ramp and a soft one of the same length feel like different machines. The difference is not in how fast the cage ends up going.",
       "game": {
         "type": "CHOICE",
         "title": "What the driver feels",
@@ -1045,7 +1045,7 @@ export const CURRICULUM = {
         "task": "Ask Anand what a hard ramp does",
         "question": "What is different between a hard ramp and a soft one that reach the same speed?",
         "answer": "How quickly the acceleration arrives and goes away",
-        "why": "It is how quickly the acceleration itself changes. Two ramps can reach the same speed over the same twelve seconds and get there differently: one switches to full acceleration at once and holds it, the other eases in and out. What a body feels is the force through the floor, so a sudden change in acceleration arrives as a jolt, and that rate of change is a quantity in its own right — the slope of the acceleration, one derivative below what the submission's curve shows.",
+        "why": "It is how quickly the acceleration itself changes. Two ramps can reach the same speed over the same twelve seconds and get there differently. One switches to full acceleration at once and holds it. The other eases in and out. What a body feels is the force through the floor. A sudden change in acceleration therefore arrives as a jolt. That rate of change is a quantity in its own right: the slope of the acceleration, one derivative below what the submission's curve shows.",
         "rebuttals": [
           "Both ramps are specified to reach the same speed, so that cannot be what separates them.",
           "The distance differs a little, and nobody standing in a cage can feel a distance.",
@@ -1075,16 +1075,16 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "What the motor is asked for",
-      "scene": "The drum is 2.1 metres to the rope, its inertia is 72,200 kilogram metres squared, and the tension at the start of the upward wind is 166 kilonewtons. Marchetti wants the torque the motor has to produce.",
-      "takeaway": "The torque a wind needs is the load torque plus the inertia torque, and the second is the smaller of the two.",
+      "scene": "The drum is 2.1 metres to the rope. Its inertia is 72,200 kilogram metres squared. The tension at the start of the upward wind is 166 kilonewtons. Marchetti wants the torque the motor has to produce.",
+      "takeaway": "The torque a wind needs is the load torque plus the inertia torque. The second is the smaller of the",
       "place": "Winder House",
-      "guide": "You build the working a line at a time. The drum is the body: two torques act on it, the motor's and the rope's, and their difference is what spins it up. The angular acceleration is not given, so it has to come from the cage's acceleration and the radius the rope leaves at. Watch which of the two torques opposes the other.",
+      "guide": "You build the working a line at a time. The drum is the body. Two torques act on it, the motor's and the rope's. Their difference is what spins it up. The angular acceleration is not given. It has to come from the cage's acceleration and the radius the rope leaves at. Watch which of the two torques opposes the other.",
       "background": [
-        "Why the load torque is the larger part. The rope pulls on the drum at 2.1 metres from the axis with 166 kilonewtons, which is 348 kilonewton metres before the drum is asked to change speed at all. The inertia term adds 41 on top of it: a tenth of the total, and the part that only exists while the ramp is running.",
-        "Why the two are tied. The rope does not slip on the drum, so the cage's speed is the drum's angular speed times the radius and the two accelerations are tied the same way. That is what turns one unknown into the other, and it is the only place the radius does two different jobs in one line.",
-        "What the answer settles and what it does not. The motor is rated at 480 kilonewton metres continuous, so 389 is inside it with room to spare, and Marchetti is right about the machine. Nothing in this calculation contains a period, a stretch or a rope that talks back, which is the argument that arrives on day nine."
+        "Why the load torque is the larger part. The rope pulls on the drum at 2.1 metres from the axis with 166 kilonewtons. That is 348 kilonewton metres before the drum is asked to change speed at all. The inertia term adds 41 on top of it. That is a tenth of the total, and the part that only exists while the ramp is running.",
+        "Why the two are tied. The rope does not slip on the drum. So the cage's speed is the drum's angular speed times the radius. The two accelerations are tied the same way. That is what turns one unknown into the other. It is the only place the radius does two different jobs in one line.",
+        "What the answer settles and what it does not. The motor is rated at 480 kilonewton metres continuous, so 389 is inside it with room to spare. Marchetti is right about the machine. Nothing in this calculation contains a period, a stretch or a rope that talks back, which is the argument that arrives on day nine."
       ],
-      "story": "The drum is 2.1 metres to the rope, its inertia is 72,200 kilogram metres squared, and the tension at the start of the upward wind is 166 kilonewtons. Marchetti wants the torque the motor has to produce.",
+      "story": "The drum is 2.1 metres to the rope. Its inertia is 72,200 kilogram metres squared. The tension at the start of the upward wind is 166 kilonewtons. Marchetti wants the torque the motor has to produce.",
       "game": {
         "type": "DERIVE",
         "title": "What the motor is asked for",
@@ -1093,7 +1093,7 @@ export const CURRICULUM = {
         "task": "Take the torque the ramp needs at its worst instant",
         "question": "What torque does the motor have to produce at the start of an upward wind?",
         "answer": "About 389 kN·m: 348 from the rope at 2.1 m and 41 from spinning the drum up at 0.571 rad/s².",
-        "why": "The motor has to produce about 389 kilonewton metres. Two torques act on the drum and the angular form of the second law says their difference equals the inertia times the angular acceleration, so the motor's torque is the rope's plus that product. The angular acceleration comes from the rope not slipping: the cage's 1.2 metres a second squared over the 2.1 metre radius. The load term dominates, which is why a bigger drum makes the problem worse rather than better on both counts.",
+        "why": "The motor has to produce about 389 kilonewton metres. Two torques act on the drum. The angular form of the second law says their difference equals the inertia times the angular acceleration. So the motor's torque is the rope's plus that product. The angular acceleration comes from the rope not slipping: the cage's 1.2 metres a second squared over the 2.1 metre radius. The load term dominates. That is why a bigger drum makes the problem worse rather than better on both counts.",
         "derive": {
           "start": "τ_motor − T·R = I·α",
           "goal": "the motor torque at the start of the upward wind, in kilonewton metres",
@@ -1276,9 +1276,9 @@ export const CURRICULUM = {
       "day": 5,
       "title": "Forty-nine of a hundred and sixteen",
       "scene": "Marchetti has the submission's energy line on the desk and the new total beside it. She wants the cage's own share computed on its own, so that the difference between the two figures is attributable rather than argued about.",
-      "takeaway": "Energy stored against gravity depends on the mass and the height and on nothing about the route or the speed.",
+      "takeaway": "Energy stored against gravity depends on the mass and the height. It depends on nothing about the",
       "place": "Winder House",
-      "guide": "Five quantities are offered and three of them make the answer. The body is the cage and its load, raised the full depth of the shaft. The rope's mass is on the list because it is what the other sixty-seven megajoules are, and the speed is there because energy against gravity does not depend on how fast anything was going.",
+      "guide": "Five quantities are offered and three of them make the answer. The body is the cage and its load, raised the full depth of the shaft. The rope's mass is on the list because it is what the other sixty-seven megajoules are. The speed is there because energy against gravity does not depend on how fast anything was going.",
       "story": "Marchetti has the submission's energy line on the desk and the new total beside it. She wants the cage's own share computed on its own, so that the difference between the two figures is attributable rather than argued about.",
       "game": {
         "type": "BALLPARK",
@@ -1288,7 +1288,7 @@ export const CURRICULUM = {
         "task": "Put the cage's own share beside the total",
         "question": "How much of the wind's work is the cage's own weight?",
         "answer": "",
-        "why": "The cage's share is 48.7 megajoules of 116, which is forty-two per cent. Gravity is a conservative force, so this depends only on the mass and the height and not on the route, the speed or the time — which is what lets it be computed as a product rather than as an integral. The rope cannot be treated the same way, because different parts of it are raised by different amounts, and that is the whole reason its contribution needed an integral this morning.",
+        "why": "The cage's share is 48.7 megajoules of 116, which is forty-two per cent. Gravity is a conservative force. So this depends only on the mass and the height, not on the route, the speed or the time. That is what lets it be computed as a product rather than as an integral. The rope cannot be treated the same way, because different parts of it are raised by different amounts. That is the whole reason its contribution needed an integral this morning.",
         "givens": [],
         "relationship": "Energy against gravity = mass × gravity × the height it is raised.",
         "calcKey": "WIND-5"
@@ -1318,7 +1318,7 @@ export const CURRICULUM = {
       "scene": "Marchetti has four instants of an upward wind written on the board and the motor's rating beside them. The electrical engineer wants them in order before he will sign anything.",
       "takeaway": "Ranking instants by power means multiplying at each one, because neither factor alone decides the order.",
       "place": "Winder House",
-      "guide": "Four instants, and the rail is not a clock — all four happen in one wind and you are ranking them, not sequencing them. What decides the order is the product of a force and a speed at each instant, so an instant with a large force and no speed can rank below one with a modest force and full speed.",
+      "guide": "Four instants, and the rail is not a clock. All four happen in one wind. You are ranking them, not sequencing them. What decides the order is the product of a force and a speed at each instant. So an instant with a large force and no speed can rank below one with a modest force and full speed.",
       "story": "Marchetti has four instants of an upward wind written on the board and the motor's rating beside them. The electrical engineer wants them in order before he will sign anything.",
       "game": {
         "type": "SEQUENCE",
@@ -1328,7 +1328,7 @@ export const CURRICULUM = {
         "task": "Order the four instants by the power the motor is supplying, largest first.",
         "question": "Order the four instants by the power the motor is supplying, largest first.",
         "answer": "",
-        "why": "Power is a product, so the order is not the order of either factor. Just past the ramp both are large: 142 kilonewtons at 7.2 metres a second, about 1.03 megawatts. Half way up the speed is the same and the tension has fallen to 93, giving 0.67. The first instant off the inset has the largest tension of the wind and a speed near zero, so its power is near zero too — which is why a winder can start a load it could not accelerate at speed. The crawl at the bank is small in both.",
+        "why": "Power is a product, so the order is not the order of either factor. Just past the ramp both are large: 142 kilonewtons at 7.2 metres a second, about 1.03 megawatts. Half way up the speed is the same and the tension has fallen to 93, giving 0.67. The first instant off the inset has the largest tension and a speed near zero. Its power is near zero too. That is why a winder can start a load it could not accelerate. The crawl at the bank is small in both.",
         "cards": [
           "Just past the end of the ramp, full speed and 1,182 m of rope hanging.",
           "Half way up, full speed and 620 m of rope hanging.",
@@ -1350,27 +1350,6 @@ export const CURRICULUM = {
       "assumes": [
         "a power is a force times a speed and has the units of both"
       ],
-      "equations": [
-        {
-          "e": "P = dW/dt = F·v",
-          "c": "power as the rate of doing work",
-          "v": [
-            [
-              "P",
-              "the power, in watts"
-            ],
-            [
-              "F",
-              "the force in the direction of travel, in newtons"
-            ],
-            [
-              "v",
-              "the speed at that instant, in metres a second"
-            ]
-          ],
-          "s": "Power is what a motor is rated at, and it is largest not where the force is largest but where the product of force and speed is."
-        }
-      ],
       "concept": {
         "n": 32,
         "c": "Units and dimensional bookkeeping through a derivative or an integral",
@@ -1385,9 +1364,9 @@ export const CURRICULUM = {
       "day": 7,
       "title": "What the brake has hold of",
       "scene": "Anand has been saying for eight months that the machine stopped and the cage did not. There is no instrument in the winder house that would show her either way.",
-      "takeaway": "A no-slip relation ties a drum to a rope, and it stops being a relation the moment the rope stretches.",
+      "takeaway": "A no-slip relation ties a drum to a rope. It stops being a relation the moment the rope stretches.",
       "place": "Winder House",
-      "guide": "All four options are bodies the brake could be said to stop. Ask of each what the brake is physically in contact with, and what has to happen for a body not in contact with it to slow down. The depth indicator is the detail that decides it: what it reads is one of the four and not the others.",
+      "guide": "All four options are bodies the brake could be said to stop. Ask of each what the brake is physically in contact with. Then ask what has to happen for a body not in contact with it to slow down. The depth indicator is the detail that decides it. What it reads is one of the four and not the others.",
       "story": "Anand has been saying for eight months that the machine stopped and the cage did not. There is no instrument in the winder house that would show her either way.",
       "game": {
         "type": "CHOICE",
@@ -1397,7 +1376,7 @@ export const CURRICULUM = {
         "task": "Ask Anand what the brake stops",
         "question": "What does the brake have hold of?",
         "answer": "The drum, and everything else only through the rope",
-        "why": "The pads clamp the drum flanges, so the brake stops the drum. Everything else slows down only through the rope, and the rope can stretch — so while the drum is being stopped the relation between drum position and cage position quietly stops holding. The depth indicator is driven off the drum shaft, which means it reads where the cage would be if the rope were rigid. In March it read the cage stopping at the mark, and the cage was a metre and six tenths past it.",
+        "why": "The pads clamp the drum flanges, so the brake stops the drum. Everything else slows down only through the rope, and the rope can stretch. So while the drum is being stopped, the relation between drum position and cage position quietly stops holding. The depth indicator is driven off the drum shaft. It reads where the cage would be if the rope were rigid. In March it read the cage stopping at the mark. The cage was a metre and six tenths past it.",
         "rebuttals": [
           "A rope that stretches 1.3 metres under load is not acting as a rigid link during a stop.",
           "Connected is not rigid, and everything in this failure happens in the connection.",
@@ -1430,11 +1409,11 @@ export const CURRICULUM = {
       "scene": "An emergency stop, with the cage going up and half way. It is making 8.4 metres a second. There are 620 metres of rope hanging. The drum is turning at 4.0 radians a second, and everything comes to rest in about 3.8 metres.",
       "takeaway": "The energy a stop must absorb is the rotation plus the motion plus or minus what gravity does over the distance.",
       "place": "Winder House",
-      "guide": "You build the working a line at a time. Three stores have to be emptied: the drum's rotation, the motion of everything travelling, and whatever gravity does over the stopping distance. The third one has a sign that depends on which way the cage is going, and it is the term the whole answer turns on.",
+      "guide": "You build the working a line at a time. Three stores have to be emptied. They are the drum's rotation, the motion of everything travelling, and whatever gravity does over the stopping distance. The third one has a sign that depends on which way the cage is going. It is the term the whole answer turns on.",
       "background": [
-        "Why the drum is the largest single store. Eighteen tonnes at two metres' radius has an inertia of 72,200 kilogram metres squared, and at 4.0 radians a second that is 578 kilojoules — more than the cage and its rope together. It is invisible on the plant drawings because nothing about it moves in a straight line.",
+        "Why the drum is the largest single store. Eighteen tonnes at two metres' radius has an inertia of 72,200 kilogram metres squared. At 4.0 radians a second that is 578 kilojoules. It is more than the cage and its rope together. It is invisible on the plant drawings because nothing about it moves in a straight line.",
         "Why the direction of travel decides the answer. Going up, gravity is taking energy out of the cage while the brake is, so the pads absorb less: 558 kilojoules. Going down, gravity is putting energy in, and the same stop asks the pads for 1.27 megajoules. The stop that destroyed a set of pads in March was a downward one.",
-        "What the rating means. Six hundred kilojoules a stop is the maker's figure for the pads fitted. An upward emergency stop is inside it and a downward one is twice it, which is not a fault in the pads and is a fact nobody at this shaft had written down."
+        "What the rating means. Six hundred kilojoules a stop is the maker's figure for the pads fitted. An upward emergency stop is inside it, and a downward one is twice it. That is not a fault in the pads. It is a fact nobody at this shaft had written down."
       ],
       "story": "An emergency stop, with the cage going up and half way. It is making 8.4 metres a second. There are 620 metres of rope hanging. The drum is turning at 4.0 radians a second, and everything comes to rest in about 3.8 metres.",
       "game": {
@@ -1445,7 +1424,7 @@ export const CURRICULUM = {
         "task": "Total the energy an emergency stop puts into the pads",
         "question": "How much energy does an upward emergency stop put into the pads?",
         "answer": "About 558 kJ: 578 in the drum, 336 in the cage and rope, less 355 taken out by gravity as the cage rises 3.8 m.",
-        "why": "The pads take about 558 kilojoules, against a rating of 600. Three stores are being emptied and the drum is the biggest of them, because a rotational energy is a half times the moment of inertia times the square of the angular velocity and this drum's inertia is large. Going up, gravity helps: the cage rises 3.8 metres while stopping, so 355 kilojoules leaves the system as height and the pads never see it. Going down the same term arrives with the opposite sign, and the total is 1.27 megajoules.",
+        "why": "The pads take about 558 kilojoules, against a rating of 600. Three stores are being emptied, and the drum is the biggest of them. A rotational energy is a half times the moment of inertia times the square of the angular velocity. This drum's inertia is large. Going up, gravity helps: the cage rises 3.8 metres while stopping. So 355 kilojoules leaves the system as height, and the pads never see it. Going down the same term arrives with the opposite sign, and the total is 1.27 megajoules.",
         "derive": {
           "start": "E_pads = K_rot + K_trans ± mgh",
           "goal": "the energy the pads absorb in an upward emergency stop, in kilojoules",
@@ -1608,26 +1587,6 @@ export const CURRICULUM = {
           ],
           "s": "A drum at speed holds energy nobody can see, and it all has to be taken out of it by whatever stops the wind.",
           "computed": true
-        },
-        {
-          "e": "I = ∫r² dm",
-          "c": "moment of inertia as an integral over the mass",
-          "v": [
-            [
-              "I",
-              "the moment of inertia about the axis, in kilogram metres squared"
-            ],
-            [
-              "r",
-              "the distance of an element of mass from the axis, in metres"
-            ],
-            [
-              "dm",
-              "that element of mass, in kilograms"
-            ]
-          ],
-          "s": "Two drums of the same mass do not have the same inertia: what counts is how far the mass is from the axis, and it counts as the square of that distance.",
-          "card": false
         }
       ],
       "concept": {
@@ -1647,7 +1606,7 @@ export const CURRICULUM = {
       "scene": "Marchetti has a hundred points of maintenance money left in the year and four things it could go on. The inspector reads whatever this fortnight produced, and the licence runs for three years.",
       "takeaway": "Evidence is worth what it would change about a decision, not what it would add to a record.",
       "place": "Winder House",
-      "guide": "What the plant holds already: a pad coefficient measured cold on a bench and quoted for winds; a rope stiffness computed from the maker's modulus and never measured on this rope; a cage position tape at the inset that is the only instrument that saw March, and nothing like it at the bank; and a drum inertia now taken off the drum's own dimensions. The arrestors above the bank have never been used and have never been tested.",
+      "guide": "What the plant holds already. A pad coefficient measured cold on a bench and quoted for winds. A rope stiffness computed from the maker's modulus and never measured on this rope. A cage position tape at the inset, the only instrument that saw March, and nothing like it at the bank. A drum inertia now taken off the drum's own dimensions. The arrestors above the bank have never been used and have never been tested.",
       "rules": "A hundred points, whole points, across the four. Spending is scored on what a measurement would change about a decision that gets made repeatedly, rather than on what it would add to a file: an instrument that would have seen March, or that turns a handbook number into a measured one, is worth more than a test of something already inside its own margin.",
       "story": "Marchetti has a hundred points of maintenance money left in the year and four things it could go on. The inspector reads whatever this fortnight produced, and the licence runs for three years.",
       "game": {
@@ -1658,7 +1617,7 @@ export const CURRICULUM = {
         "task": "Spread a hundred points across the four.",
         "question": "Spread a hundred points across the four.",
         "answer": "",
-        "why": "The position recorder is the instrument that would have seen March, and there is one end of the shaft where the same effect would be an overwind rather than a step down into a gap. Measuring the stiffness turns the number every overshoot in the submission rests on into a measured one. The hot friction rig is worth something because Craig's figure has been used in a place it does not apply, and that will happen again. The arrestor test is real work on equipment that is inside its margin and has never been called on.",
+        "why": "The position recorder is the instrument that would have seen March. There is one end of the shaft where the same effect would be an overwind, not a step down into a gap. Measuring the stiffness turns the number every overshoot rests on into a measured one. The hot friction rig is worth something because Craig's figure has been used where it does not apply. That will happen again. The arrestor test is real work on equipment that is inside its margin and has never been called on.",
         "proposals": [
           {
             "label": "A",
@@ -1699,11 +1658,11 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Where twelve seconds come from — Review",
-      "scene": "Ruth Anand, the winder driver, has the cycle sheet up in the winder house: eleven hundred and fifty metres of the wind are run at full speed, between the ramps at one end and the crawl at the other. Marchetti wants that part timed.",
-      "takeaway": "The longest part of a winding cycle is set by the depth and the permitted speed, so it is not a place where time can be found.",
+      "scene": "Ruth Anand, the winder driver, has the cycle sheet up in the winder house. Eleven hundred and fifty metres of the wind are run at full speed. The ramps are at one end and the crawl at the other. Marchetti wants that part timed.",
+      "takeaway": "The longest part of a winding cycle is set by the depth and the permitted speed. It is not a place",
       "place": "Winder House",
-      "guide": "Four quantities are offered and two of them belong in the sum. The section in question is the one where the winder is neither speeding up nor slowing down, so nothing has to be integrated and no ramp figure enters it. The other two numbers describe parts of the cycle that are not this one.",
-      "story": "Ruth Anand, the winder driver, has the cycle sheet up in the winder house: eleven hundred and fifty metres of the wind are run at full speed, between the ramps at one end and the crawl at the other. Marchetti wants that part timed.",
+      "guide": "Four quantities are offered and two of them belong in the sum. The section in question is the one where the winder is neither speeding up nor slowing down. So nothing has to be integrated, and no ramp figure enters it. The other two numbers describe parts of the cycle that are not this one.",
+      "story": "Ruth Anand, the winder driver, has the cycle sheet up in the winder house. Eleven hundred and fifty metres of the wind are run at full speed. The ramps are at one end and the crawl at the other. Marchetti wants that part timed.",
       "game": {
         "type": "BALLPARK",
         "title": "Where twelve seconds come from — Review",
@@ -1712,7 +1671,7 @@ export const CURRICULUM = {
         "task": "Time the part of the cycle nobody can shorten",
         "question": "How long does the full-speed section of one wind last?",
         "answer": "",
-        "why": "About a hundred and sixty seconds, and none of them are anybody's to give away. The full-speed run is a distance divided by a speed: the distance is the shaft less the ramps at each end, and the speed is what the licence allows. Neither moves because a ramp is made steeper. That is why the twelve seconds have to come out of the ramps and the crawl, which are the only parts of the cycle a winding engineer chooses.",
+        "why": "About a hundred and sixty seconds, and none of them are anybody's to give away. The full-speed run is a distance divided by a speed. The distance is the shaft less the ramps at each end. The speed is what the licence allows. Neither moves because a ramp is made steeper. That is why the twelve seconds have to come out of the ramps and the crawl. Those are the only parts of the cycle a winding engineer chooses.",
         "givens": [],
         "relationship": "At a steady speed, the time a section takes is its distance divided by that speed.",
         "calcKey": "WIND-10"
@@ -1733,9 +1692,9 @@ export const CURRICULUM = {
       "day": 1,
       "title": "Eleven tonnes, hung from what",
       "scene": "Otieno has the rope's own weight written on the shop board: about eleven tonnes with the cage at the inset. The submission's force calculation has it appearing in the cage's line and nowhere else.",
-      "takeaway": "A force belongs to whichever body it acts on, and choosing the body is the first move in every problem here.",
+      "takeaway": "A force belongs to whichever body it acts on. Choosing the body is the first move in every problem",
       "place": "Rope Shop",
-      "guide": "Four accounts of where the rope's weight is carried. Ask of each which body has been drawn round, because a force belongs to a diagram rather than to a site. The distinction that decides it is between what hangs below a point and what is held above it, and the answer changes as the cage moves.",
+      "guide": "Four accounts of where the rope's weight is carried. Ask of each which body has been drawn round. A force belongs to a diagram rather than to a site. The distinction that decides it is between what hangs below a point and what is held above it. The answer changes as the cage moves.",
       "story": "Otieno has the rope's own weight written on the shop board: about eleven tonnes with the cage at the inset. The submission's force calculation has it appearing in the cage's line and nowhere else.",
       "game": {
         "type": "CHOICE",
@@ -1745,7 +1704,7 @@ export const CURRICULUM = {
         "task": "Settle which body carries the rope",
         "question": "Whose free-body diagram does the hanging rope's weight belong in?",
         "answer": "The drum's, through the tension at the top of the rope",
-        "why": "It belongs to the drum, through the tension at the top of the rope. Each point of the rope carries everything below it, so the tension grows from the cappel at the bottom to the drum at the top and the eleven tonnes is fully accounted for only at the drum. The cage carries nothing of it: the rope pulls up on the cage, not down. This is why the tension in the submission has to be a function of where the cage is rather than a single number.",
+        "why": "It belongs to the drum, through the tension at the top of the rope. Each point of the rope carries everything below it. So the tension grows from the cappel at the bottom to the drum at the top. The eleven tonnes is fully accounted for only at the drum. The cage carries nothing of it: the rope pulls up on the cage, not down. This is why the tension in the submission has to be a function of where the cage is.",
         "rebuttals": [
           "The rope pulls up on the cage; the cage carries only itself and its load.",
           "Eleven tonnes acts on something, and leaving it out of every diagram loses a third of the tension.",
@@ -1777,11 +1736,11 @@ export const CURRICULUM = {
       "scene": "Otieno has the rope's mass per metre chalked on the shop board and the cage at the inset on the depth indicator. Marchetti's ramp accelerates it upward at 1.2 metres a second squared from there.",
       "takeaway": "Tension at the drum is the hanging mass times gravity plus the acceleration, and the hanging mass includes the rope.",
       "place": "Rope Shop",
-      "guide": "You build the working a line at a time. Draw round the cage and everything hanging with it, then ask what has to be true of the pull at the top of that body. Two things go into it: the weight of what is hanging, which depends on how much rope is out, and the extra the acceleration needs. Note which way the acceleration points.",
+      "guide": "You build the working a line at a time. Draw round the cage and everything hanging with it. Then ask what has to be true of the pull at the top of that body. Two things go into it. One is the weight of what is hanging, which depends on how much rope is out. The other is the extra the acceleration needs. Note which way the acceleration points.",
       "background": [
-        "Why the worst case is at the bottom of the shaft. The rope carries its own weight, so the tension at any point is set by everything below that point. With the cage at the inset, everything below the drum is the whole rope plus the cage; with the cage at the bank it is almost nothing.",
-        "Why the acceleration multiplies rather than adds. The body has to be given a net upward force, and every kilogram of it needs its share. So the acceleration acts on the rope's eleven tonnes as well as on the cage's four, which is where two thirds of the extra tension comes from.",
-        "What the number is for. The rope's breaking load is about 1,600 kilonewtons and the statutory factor of safety at this depth is eight, which puts the working limit at 200. The figure in the submission is 39 kilonewtons. Both of those are true statements about different points on the same rope."
+        "Why the worst case is at the bottom of the shaft. The rope carries its own weight, so the tension at any point is set by everything below that point. With the cage at the inset, everything below the drum is the whole rope plus the cage. With the cage at the bank it is almost nothing.",
+        "Why the acceleration multiplies rather than adds. The body has to be given a net upward force, and every kilogram of it needs its share. So the acceleration acts on the rope's eleven tonnes as well as on the cage's four. That is where two thirds of the extra tension comes from.",
+        "What the number is for. The rope's breaking load is about 1,600 kilonewtons. The statutory factor of safety at this depth is eight, which puts the working limit at 200. The figure in the submission is 39 kilonewtons. Both of those are true statements about different points on the same rope."
       ],
       "story": "Otieno has the rope's mass per metre chalked on the shop board and the cage at the inset on the depth indicator. Marchetti's ramp accelerates it upward at 1.2 metres a second squared from there.",
       "game": {
@@ -1792,7 +1751,7 @@ export const CURRICULUM = {
         "task": "Get the tension at the drum with the cage at the inset",
         "question": "What is the tension at the drum with the cage accelerating upward from the inset?",
         "answer": "About 166 kN. The hanging mass is 4,000 + 8.9 × 1,240 = 15,036 kg, and the tension is that times 9.81 + 1.2.",
-        "why": "The tension is about 166 kilonewtons, against the 39 in the submission. Drawing round the cage and the rope together makes the tension at the drum the only unknown force on that body, and the second law then fixes it: the hanging mass times gravity, plus the same mass times the acceleration. The rope contributes eleven of the fifteen tonnes. Accelerating upward increases the tension and decelerating reduces it, which is why the worst instant of a wind is the start of an upward one from the bottom.",
+        "why": "The tension is about 166 kilonewtons, against the 39 in the submission. Drawing round the cage and the rope together makes the tension at the drum the only unknown force on that body. The second law then fixes it: the hanging mass times gravity, plus the same mass times the acceleration. The rope contributes eleven of the fifteen tonnes. Accelerating upward increases the tension, and decelerating reduces it. That is why the worst instant of a wind is the start of an upward one from the bottom.",
         "derive": {
           "start": "ΣF = ma, on the cage and the hanging rope together",
           "goal": "the tension at the drum, in kilonewtons",
@@ -1979,9 +1938,9 @@ export const CURRICULUM = {
       "day": 3,
       "title": "Twelve hundred metres of spring",
       "scene": "Otieno has a length of rope in the shop clamped between two anchors and a dial gauge on it. Pull on it and it stretches; let go and it comes back and goes past.",
-      "takeaway": "A restoring force proportional to displacement is what makes an oscillation, and it gives it a period of its own.",
+      "takeaway": "A restoring force proportional to displacement is what makes an oscillation. It gives the motion a",
       "place": "Rope Shop",
-      "guide": "All four options describe something a long steel rope does. Ask of each whether it would produce a to-and-fro motion of the cage, and what would have to be true of the force for that motion to have a definite period rather than a shape that depends on how hard it was pulled.",
+      "guide": "All four options describe something a long steel rope does. Ask of each whether it would produce a to-and-fro motion of the cage. Then ask what the force would have to be like for that motion to have a definite period. The alternative is a shape that depends on how hard it was pulled.",
       "story": "Otieno has a length of rope in the shop clamped between two anchors and a dial gauge on it. Pull on it and it stretches; let go and it comes back and goes past.",
       "game": {
         "type": "CHOICE",
@@ -1991,7 +1950,7 @@ export const CURRICULUM = {
         "task": "Ask Otieno why he calls the rope a spring",
         "question": "What makes the rope behave like a spring rather than like a link?",
         "answer": "Its pull grows in proportion to how far it has been stretched",
-        "why": "The rope stretches in proportion to the pull, and its pull acts back towards where the cage started. That is what a spring is, and it is the condition for an oscillation with a period of its own: a restoring force proportional to displacement gives a to-and-fro motion whose period depends on the stiffness and the mass and not on how far it was pulled. A rigid link would move the cage exactly as the drum moved; twelve hundred metres of steel does not.",
+        "why": "The rope stretches in proportion to the pull, and its pull acts back towards where the cage started. That is what a spring is. It is the condition for an oscillation with a period of its own. A restoring force proportional to displacement gives a to-and-fro motion. That motion's period depends on the stiffness and the mass, not on how far it was pulled. A rigid link would move the cage exactly as the drum moved. Twelve hundred metres of steel does not.",
         "rebuttals": [
           "Weight decides the tension and says nothing about how the rope responds to being pulled.",
           "Returning to length is what makes it elastic rather than what gives it a period.",
@@ -2024,7 +1983,7 @@ export const CURRICULUM = {
       "scene": "Nowak has the rope record: the cappel has been re-capped four times in two years and each re-cap takes ten metres off. The rope is forty metres shorter than the file says and made of exactly the same steel.",
       "takeaway": "A property that depends on a length changes whenever the length does, whether or not anybody writes it down.",
       "place": "Rope Shop",
-      "guide": "Four claims about what shortening a rope changes. Ask of each whether it follows from the rope having less length or from it having less material, because those are different things here — the steel is unchanged and only its length has gone. One of the four is a property that depends on the length and is nowhere in the winder's paperwork.",
+      "guide": "Four claims about what shortening a rope changes. Ask of each whether it follows from the rope having less length, or from it having less material. Those are different things here. The steel is unchanged and only its length has gone. One of the four is a property that depends on the length and is nowhere in the winder's paperwork.",
       "story": "Nowak has the rope record: the cappel has been re-capped four times in two years and each re-cap takes ten metres off. The rope is forty metres shorter than the file says and made of exactly the same steel.",
       "game": {
         "type": "CHOICE",
@@ -2034,7 +1993,7 @@ export const CURRICULUM = {
         "task": "Settle what six months of shortening has done",
         "question": "What has forty metres of shortening changed that nobody has recorded?",
         "answer": "Its stiffness, and so how fast the cage bounces on it",
-        "why": "It has made the rope stiffer, and therefore made the cage bounce on it faster. Stiffness for the same steel goes inversely with length: a rope forty metres shorter out of twelve hundred and eighty is about three per cent stiffer, so the period of the cage on it is about one and a half per cent shorter. That is small, and it matters because the whole question on day nine is whether that period lands on a ramp time, and a period nobody has recomputed since the file was written is a period nobody knows.",
+        "why": "It has made the rope stiffer, and therefore made the cage bounce on it faster. Stiffness for the same steel goes inversely with length. A rope forty metres shorter out of twelve hundred and eighty is about three per cent stiffer. So the period of the cage on it is about one and a half per cent shorter. That is small, and it matters. The whole question on day nine is whether that period lands on a ramp time. A period nobody has recomputed since the file was written is a period nobody knows.",
         "rebuttals": [
           "Breaking load is a property of the cross-section, and the cross-section has not changed.",
           "The hanging length is set by where the cage is, and forty metres of it is three per cent.",
@@ -2051,31 +2010,6 @@ export const CURRICULUM = {
       "assumes": [
         "a shorter piece of the same material stretches less under the same pull"
       ],
-      "equations": [
-        {
-          "e": "T = (m_c + μy)(g + a)",
-          "c": "rope tension with the rope’s own weight in it",
-          "v": [
-            [
-              "m_c",
-              "the mass of the cage and its load, in kilograms"
-            ],
-            [
-              "μ",
-              "the mass of a metre of rope, in kilograms a metre"
-            ],
-            [
-              "y",
-              "how much rope is hanging, in metres"
-            ],
-            [
-              "a",
-              "the acceleration of the wind, upward positive"
-            ]
-          ],
-          "s": "A rope long enough to reach the bottom of this shaft weighs more than the cage it carries, so the tension at the drum depends on where the cage is as well as on what it is doing."
-        }
-      ],
       "concept": {
         "n": 26,
         "c": "The period of an oscillation, and what it does not depend on",
@@ -2088,16 +2022,16 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "A hundred and ten kilonewtons a metre",
-      "scene": "The rope has 1,140 square millimetres of steel in it, a modulus of 120 gigapascals as a locked coil, and 1,240 metres of length with the cage at the inset. Otieno wants the stiffness and the period the cage has on it.",
-      "takeaway": "Stiffness is the material times the area over the length, and the period the cage has on it follows from that and the mass.",
+      "scene": "The rope has 1,140 square millimetres of steel in it, and a modulus of 120 gigapascals as a locked coil. It is 1,240 metres long with the cage at the inset. Otieno wants the stiffness and the period the cage has on it.",
+      "takeaway": "Stiffness is the material times the area over the length. The period the cage has on it follows from",
       "place": "Rope Shop",
-      "guide": "You build the working a line at a time. Stiffness is how much pull it takes to stretch the rope by a metre, which comes from the material, the area and the length. Then the cage on the end of it is a mass on a spring, so the period follows from the stiffness and the mass. Watch where the length goes: a longer rope is a softer spring.",
+      "guide": "You build the working a line at a time. Stiffness is how much pull it takes to stretch the rope by a metre. It comes from the material, the area and the length. Then the cage on the end of it is a mass on a spring. The period follows from the stiffness and the mass. Watch where the length goes: a longer rope is a softer spring.",
       "background": [
-        "Why length divides. Doubling the length of a rope gives twice as much material to stretch under the same pull, so it stretches twice as far and the stiffness halves. That is why deep shafts have soft ropes and why a laboratory sample tells you nothing about the shaft unless the length is carried through.",
-        "Why the period does not depend on the load's weight in the way people expect. It depends on the mass hanging and on the stiffness, not on how far the rope is already stretched. So a cage with four tonnes in it and the same cage empty have different periods, and the same cage at the inset and at the bank have very different ones — the rope is ten times softer at the bottom.",
-        "What the static stretch is. Under an ordinary 147 kilonewtons this rope is stretched by about 1.3 metres. That is not a fault: it is a metre and a third of stored energy sitting in the rope on every wind, and it is the reason the next day's question exists at all."
+        "Why length divides. Doubling the length of a rope gives twice as much material to stretch under the same pull. So it stretches twice as far, and the stiffness halves. That is why deep shafts have soft ropes. A laboratory sample tells you nothing about the shaft unless the length is carried through.",
+        "Why the period does not depend on the load's weight in the way people expect. It depends on the mass hanging and on the stiffness, not on how far the rope is already stretched. So a cage with four tonnes in it and the same cage empty have different periods. The same cage at the inset and at the bank have very different ones. The rope is ten times softer at the bottom.",
+        "What the static stretch is. Under an ordinary 147 kilonewtons this rope is stretched by about 1.3 metres. That is not a fault. It is a metre and a third of stored energy sitting in the rope on every wind. It is the reason the next day's question exists at all."
       ],
-      "story": "The rope has 1,140 square millimetres of steel in it, a modulus of 120 gigapascals as a locked coil, and 1,240 metres of length with the cage at the inset. Otieno wants the stiffness and the period the cage has on it.",
+      "story": "The rope has 1,140 square millimetres of steel in it, and a modulus of 120 gigapascals as a locked coil. It is 1,240 metres long with the cage at the inset. Otieno wants the stiffness and the period the cage has on it.",
       "game": {
         "type": "DERIVE",
         "title": "A hundred and ten kilonewtons a metre",
@@ -2106,7 +2040,7 @@ export const CURRICULUM = {
         "task": "Get the rope's stiffness and the cage's period on it",
         "question": "What period does the cage have bouncing on the rope, with the cage at the inset?",
         "answer": "About 1.2 s. The stiffness is EA/L = 110 kN/m, so ω = √(k/m) = 5.25 rad/s and the period is 2π over that.",
-        "why": "The period is about 1.2 seconds. The rope's stiffness is its modulus times its steel area divided by its length, which comes out at 110 kilonewtons a metre — soft, because the rope is very long. A four-tonne cage on that spring has an angular frequency of 5.25 radians a second, and the period is 2π divided by it. Neither the stiffness nor the period depends on how far the rope is already stretched, which is what makes them properties of the installation rather than of a particular wind.",
+        "why": "The period is about 1.2 seconds. The rope's stiffness is its modulus times its steel area divided by its length. That comes out at 110 kilonewtons a metre — soft, because the rope is very long. A four-tonne cage on that spring has an angular frequency of 5.25 radians a second. The period is 2π divided by it. Neither the stiffness nor the period depends on how far the rope is already stretched. That makes them properties of the installation rather than of a particular wind.",
         "derive": {
           "start": "k = E·A/L,  ω = √(k/m)",
           "goal": "the period of the cage on the rope, in seconds",
@@ -2246,11 +2180,11 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Four records, one account",
-      "scene": "Everything from March is on the shop bench: the pad certificate, the drum's own record of when it stopped, the cage's position tape, and the pads that were replaced afterwards.",
-      "takeaway": "Pads wear from the energy they absorb, and a stop that goes on longer absorbs more of it at the same force.",
+      "scene": "Everything from March is on the shop bench. There is the pad certificate, and the drum's own record of when it stopped. There is the cage's position tape, and the pads that were replaced afterwards.",
+      "takeaway": "Pads wear from the energy they absorb. A stop that goes on longer absorbs more of it at the same",
       "place": "Rope Shop",
-      "guide": "Look at every record before choosing, including the two that are not alarming. The pad certificate is a good measurement and the drum record shows a stop made on time. What separates the accounts is whether they explain a cage that moved after the drum had stopped, and whether they explain pads that were worn out by a stop they were strong enough to make.",
-      "story": "Everything from March is on the shop bench: the pad certificate, the drum's own record of when it stopped, the cage's position tape, and the pads that were replaced afterwards.",
+      "guide": "Look at every record before choosing, including the two that are not alarming. The pad certificate is a good measurement and the drum record shows a stop made on time. What separates the accounts is whether they explain a cage that moved after the drum had stopped. The second test is pads worn out by a stop they were strong enough to make.",
+      "story": "Everything from March is on the shop bench. There is the pad certificate, and the drum's own record of when it stopped. There is the cage's position tape, and the pads that were replaced afterwards.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Four records, one account",
@@ -2259,7 +2193,7 @@ export const CURRICULUM = {
         "task": "Which account fits all four records?",
         "question": "Which account fits all four records?",
         "answer": "The drum stopped and the cage did not",
-        "why": "The drum record and the pad certificate are both in order, which rules out the two accounts that need one of them to be wrong. What is left has to explain a cage that travelled after the drum had stopped and pads worn through by a stop they were strong enough to make. A cage on a rope of 110 kilonewtons a metre overshoots a stopped drum by 1.6 metres at that speed, and the pads then take out the cage's energy as well as the drum's, arriving back through the rope over the following seconds rather than during the stop.",
+        "why": "The drum record and the pad certificate are both in order. That rules out the two accounts that need one of them to be wrong. What is left has to explain a cage that travelled after the drum had stopped, and pads worn through by a stop they were strong enough to make. A cage on a rope of 110 kilonewtons a metre overshoots a stopped drum by 1.6 metres at that speed. The pads then take out the cage's energy as well as the drum's. That energy arrives back through the rope over the following seconds, not during the stop.",
         "headline": "The brake was applied on time, at the right force, and the cage went past the landing.",
         "readings": [
           {
@@ -2323,11 +2257,11 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Eleven tonnes, hung from what — Review",
-      "scene": "Kit Nowak, the rope splicer, has the ore skip's rope on the shop board: four hundred metres of it hanging below the sheave, with the skip and its load on the end. The submission puts every one of those forces in one line.",
-      "takeaway": "Two forces acting at the same place can belong to different diagrams, and which body each acts on is what decides the pairing.",
+      "scene": "Kit Nowak, the rope splicer, has the ore skip's rope on the shop board. Four hundred metres of it hang below the sheave, with the skip and its load on the end. The submission puts every one of those forces in one line.",
+      "takeaway": "Two forces acting at the same place can belong to different diagrams. Which body each acts on is",
       "place": "Rope Shop",
-      "guide": "Four forces and four bodies, one each. Ask of every force which body it acts on rather than where on the plant it happens, because a force belongs to a diagram and not to a place. Two of the four act on the same body, and telling those two apart is what the pairing turns on.",
-      "story": "Kit Nowak, the rope splicer, has the ore skip's rope on the shop board: four hundred metres of it hanging below the sheave, with the skip and its load on the end. The submission puts every one of those forces in one line.",
+      "guide": "Four forces and four bodies, one each. Ask of every force which body it acts on, rather than where on the plant it happens. A force belongs to a diagram and not to a place. Two of the four act on the same body. Telling those two apart is what the pairing turns on.",
+      "story": "Kit Nowak, the rope splicer, has the ore skip's rope on the shop board. Four hundred metres of it hang below the sheave, with the skip and its load on the end. The submission puts every one of those forces in one line.",
       "game": {
         "type": "PROTOCOL",
         "title": "Eleven tonnes, hung from what — Review",
@@ -2336,7 +2270,7 @@ export const CURRICULUM = {
         "task": "Match each force to the body whose free-body diagram it belongs in.",
         "question": "Match each force to the body whose free-body diagram it belongs in.",
         "answer": "",
-        "why": "A force enters the equation of whichever body it acts on. The hanging rope pulls down on nothing that is below it: each point carries what hangs beneath, so the whole weight is accounted for only in the tension the drum holds. The rope pulls up on the skip and the ore presses down on it, and both belong to the skip's own line. The steelwork's push belongs to the sheave, which carries both rope ends and accelerates nowhere.",
+        "why": "A force enters the equation of whichever body it acts on. The hanging rope pulls down on nothing below it. Each point carries what hangs beneath, so the whole weight is accounted for only in the tension the drum holds. The rope pulls up on the skip, and the ore presses down on it. Both belong to the skip's own line. The steelwork's push belongs to the sheave, which carries both rope ends and accelerates nowhere.",
         "scenarios": [
           "The weight of the four hundred metres of rope hanging below the sheave.",
           "The upward pull of the rope at the skip's cappel.",
@@ -2358,31 +2292,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a rope's tension at a point carries everything hanging below that point"
-      ],
-      "equations": [
-        {
-          "e": "T = (m_c + μy)(g + a)",
-          "c": "rope tension with the rope’s own weight in it",
-          "v": [
-            [
-              "m_c",
-              "the mass of the cage and its load, in kilograms"
-            ],
-            [
-              "μ",
-              "the mass of a metre of rope, in kilograms a metre"
-            ],
-            [
-              "y",
-              "how much rope is hanging, in metres"
-            ],
-            [
-              "a",
-              "the acceleration of the wind, upward positive"
-            ]
-          ],
-          "s": "A rope long enough to reach the bottom of this shaft weighs more than the cage it carries, so the tension at the drum depends on where the cage is as well as on what it is doing."
-        }
       ],
       "concept": {
         "n": 5,
@@ -2411,7 +2320,7 @@ export const CURRICULUM = {
         "task": "Work out what the cage floor pushes with on the ramp",
         "question": "What force does the cage floor push up with at the peak of the ramp?",
         "answer": "",
-        "why": "The floor pushes with about 44 kilonewtons. Drawing the body is the whole of the work: once the cage and the men are one object, only two forces act on it and the second law fixes their difference. The floor therefore pushes with more than the weight while the cage is speeding up, which is what everybody in it feels, and with less than the weight on the way into the stop. Anything outside the drawn body — the rope, the drum, the headframe — belongs to a different free-body diagram.",
+        "why": "The floor pushes with about 44 kilonewtons. Drawing the body is the whole of the work. Once the cage and the men are one object, only two forces act on it. The second law fixes their difference. The floor therefore pushes with more than the weight while the cage is speeding up. That is what everybody in it feels. On the way into the stop it pushes with less than the weight. Anything outside the drawn body — the rope, the drum, the headframe — belongs to a different free-body diagram.",
         "givens": [],
         "relationship": "Net force equals mass times the acceleration, so the floor's push is the mass times gravity plus the acceleration.",
         "calcKey": "CAGE-1"
@@ -2450,11 +2359,11 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Eighty-two kilograms, going up and slowing",
-      "scene": "Rahimi wants the figure that goes in the men's notice: what somebody of eighty-two kilograms feels through the floor while the cage is rising and being retarded at 1.1 metres a second squared.",
+      "scene": "Rahimi wants the figure that goes in the men's notice. Somebody of eighty-two kilograms is standing on the floor. The cage is rising and being retarded at 1.1 metres a second squared. What does he feel through the floor?",
       "takeaway": "Going up and slowing down feels lighter, because the floor is pushing with less than the weight.",
       "place": "Shaft and Brake House",
       "guide": "Five quantities are offered and three of them make the answer. The body is the man, not the cage, so the cage's four tonnes is on the list to be left out. The retardation is the one to take, because the cage is going up and slowing down, and the sign of that is what the whole question turns on.",
-      "story": "Rahimi wants the figure that goes in the men's notice: what somebody of eighty-two kilograms feels through the floor while the cage is rising and being retarded at 1.1 metres a second squared.",
+      "story": "Rahimi wants the figure that goes in the men's notice. Somebody of eighty-two kilograms is standing on the floor. The cage is rising and being retarded at 1.1 metres a second squared. What does he feel through the floor?",
       "game": {
         "type": "BALLPARK",
         "title": "Eighty-two kilograms, going up and slowing",
@@ -2463,7 +2372,7 @@ export const CURRICULUM = {
         "task": "Work out what a man feels on the way into the stop",
         "question": "What does the floor push a man of eighty-two kilograms with, on the way into the stop?",
         "answer": "",
-        "why": "The floor pushes with about 714 newtons, against 804 while standing still: a man feels about eleven per cent lighter. Rising and slowing down means the acceleration points downward, so the floor has less to do than hold him up. The mistake worth avoiding is the one about bodies rather than the one about signs: the cage's four tonnes is carried by the rope and appears nowhere in the forces on a person standing inside it.",
+        "why": "The floor pushes with about 714 newtons, against 804 while standing still: a man feels about eleven per cent lighter. Rising and slowing down means the acceleration points downward, so the floor has less to do than hold him up. The mistake worth avoiding is the one about bodies rather than the one about signs. The cage's four tonnes is carried by the rope. It appears nowhere in the forces on a person standing inside it.",
         "givens": [],
         "relationship": "The floor's push is the man's mass times gravity less the retardation, because the cage is rising and slowing.",
         "calcKey": "CAGE-2"
@@ -2496,7 +2405,7 @@ export const CURRICULUM = {
         "task": "Settle what the brake's friction figure is a limit on",
         "question": "What does Craig's coefficient tell the winder house?",
         "answer": "The most the pads can hold, at the pressure and temperature she measured",
-        "why": "It gives the most the pads can hold, at the pressure and temperature she measured. Friction is not a fixed force: below the limit it supplies exactly what is needed and nothing more, and at the limit it slips. So a coefficient is a ceiling, and it is a ceiling under stated conditions — a hot drum at the end of a wind is not a cold plate on a bench. The inquiry quoted the number without the conditions, which turns a careful measurement into a claim it was never making.",
+        "why": "It gives the most the pads can hold, at the pressure and temperature she measured. Friction is not a fixed force: below the limit it supplies exactly what is needed and nothing more, and at the limit it slips. So a coefficient is a ceiling. It is a ceiling under stated conditions. A hot drum at the end of a wind is not a cold plate on a bench. The inquiry quoted the number without the conditions, which turns a careful measurement into a claim it was never making.",
         "rebuttals": [
           "Below its limit a friction contact supplies only what is asked of it, which is usually less.",
           "A retardation needs the mass and the tension as well, and those change through a wind.",
@@ -2528,11 +2437,11 @@ export const CURRICULUM = {
       "scene": "The cage weighs four tonnes loaded and the rope 8.9 kilograms a metre. As the cage rises, less rope hangs below the drum. Rahimi wants the total work for one wind from the inset to the bank.",
       "takeaway": "With a force that falls linearly, the work is the same as if the mean force had acted the whole way.",
       "place": "Shaft and Brake House",
-      "guide": "You build the working a line at a time. The force needed depends on how much rope is still hanging, so it is a function of position rather than a number, and work against it is an accumulation over the 1,240 metres. Write the hanging length in terms of how far the cage has come, then integrate. The wind is taken as steady, so no acceleration term appears.",
+      "guide": "You build the working a line at a time. The force needed depends on how much rope is still hanging. So it is a function of position rather than a number. Work against it is an accumulation over the 1,240 metres. Write the hanging length in terms of how far the cage has come, then integrate. The wind is taken as steady, so no acceleration term appears.",
       "background": [
         "Why the rope's share is a half rather than a whole. At the bottom of the wind the whole rope is hanging and at the top almost none of it is, and the hanging length falls linearly in between. Integrating a linear force gives the mean value times the distance, which is why the rope contributes as though half of it were being lifted the whole way.",
-        "Why the answer is the same by either route. Work against gravity is path-independent, so the same total comes out of asking how much each element of rope was raised: the element at the top of the shaft hardly moves and the one at the bottom is raised the whole depth. That is a different integral with the same answer, which is what makes gravity conservative.",
-        "What the number is for. 116 megajoules is what the motor puts in going up and what the brake has to take out coming down. At the shaft's four winds an hour it is also, divided by the cycle time, the plant's electricity bill — which is the other reason Marchetti wants the cycle shorter."
+        "Why the answer is the same by either route. Work against gravity is path-independent. So the same total comes out of asking how much each element of rope was raised. The element at the top of the shaft hardly moves. The one at the bottom is raised the whole depth. That is a different integral with the same answer, which is what makes gravity conservative.",
+        "What the number is for. 116 megajoules is what the motor puts in going up and what the brake has to take out coming down. At the shaft's four winds an hour, divided by the cycle time, it is also the plant's electricity bill. That is the other reason Marchetti wants the cycle shorter."
       ],
       "story": "The cage weighs four tonnes loaded and the rope 8.9 kilograms a metre. As the cage rises, less rope hangs below the drum. Rahimi wants the total work for one wind from the inset to the bank.",
       "game": {
@@ -2543,7 +2452,7 @@ export const CURRICULUM = {
         "task": "Take the work done lifting cage and rope from the inset to the bank",
         "question": "How much work does one wind from the inset to the bank do against gravity?",
         "answer": "About 116 MJ. The integral gives g[m_c·H + μH²/2] = 9.81 × (4.96 + 6.84) × 10⁶.",
-        "why": "The work is about 116 megajoules, of which the cage accounts for 49 and the rope for 67. The force is not constant: at the bottom of the wind the drum lifts the cage and 1,240 metres of rope, and at the top it lifts the cage and nothing. Writing the hanging length as the depth less the distance travelled turns the force into a linear function of position, and integrating it gives the cage's term plus half the rope's. The rope's own weight therefore does more of the work than the load does.",
+        "why": "The work is about 116 megajoules, of which the cage accounts for 49 and the rope for 67. The force is not constant. At the bottom of the wind the drum lifts the cage and 1,240 metres of rope. At the top it lifts the cage and nothing. Writing the hanging length as the depth less the distance travelled turns the force into a linear function of position. Integrating it gives the cage's term plus half the rope's. The rope's own weight therefore does more of the work than the load does.",
         "derive": {
           "start": "W = ∫₀^H F(y)·dy",
           "goal": "the work done against gravity for one wind, in megajoules",
@@ -2717,7 +2626,7 @@ export const CURRICULUM = {
         "task": "Settle who feels the other end of the arrestor's force",
         "question": "What is the relation between the force on the falling mass and the force on the arrestor?",
         "answer": "Equal and opposite, and on different bodies, so neither cancels the other",
-        "why": "They are one interaction seen from both ends: equal in size, opposite in direction, and acting on different bodies. That is why they do not cancel — a cancellation would need both forces on the same body. The mass's diagram has the arrestor pushing up on it and gravity pulling down, and the arrestor's diagram has the mass pushing down on it and the rig holding it up. Each is solved on its own, and the pair is what ties the two solutions together.",
+        "why": "They are one interaction seen from both ends: equal in size, opposite in direction, and acting on different bodies. That is why they do not cancel — a cancellation would need both forces on the same body. The mass's diagram has the arrestor pushing up on it and gravity pulling down. The arrestor's diagram has the mass pushing down on it and the rig holding it up. Each is solved on its own, and the pair is what ties the two solutions together.",
         "rebuttals": [
           "Two forces on one body would leave nothing to stop the mass, which plainly stopped.",
           "Being the moving body changes the momentum in play and not the size of a contact force.",
@@ -2749,7 +2658,7 @@ export const CURRICULUM = {
       "scene": "Craig has the pad wear records for two years. The pads last well on ordinary winds and the set after March had to be replaced. Nothing about the force the brake applies was different.",
       "takeaway": "A brake is sized by the energy it has to absorb, and by the force only in so far as that decides the distance.",
       "place": "Shaft and Brake House",
-      "guide": "All four options are ways of saying what a brake does. Ask of each whether it is a force, an energy or a rate, because those are three different quantities and the pads only wear out from one of them. The distinction that decides it is what has to be taken out of the cage rather than what has to be applied to it.",
+      "guide": "All four options are ways of saying what a brake does. Ask of each whether it is a force, an energy or a rate. Those are three different quantities. The pads only wear out from one of them. The distinction that decides it is what has to be taken out of the cage rather than what has to be applied to it.",
       "story": "Craig has the pad wear records for two years. The pads last well on ordinary winds and the set after March had to be replaced. Nothing about the force the brake applies was different.",
       "game": {
         "type": "CHOICE",
@@ -2759,7 +2668,7 @@ export const CURRICULUM = {
         "task": "Ask Craig what the brake is being asked to do",
         "question": "What decides how hard a stop is on the pads?",
         "answer": "The energy the cage has to have taken out of it",
-        "why": "It is the energy: whatever the cage has as motion and as height has to be turned into heat in the pads. The work–energy theorem says the net work on the cage is its change in kinetic energy, so the same energy can be taken out with a large force over a short distance or a small one over a long one, and the pads feel the total either way. That is why the March stop destroyed a set of pads while applying the same force as every other stop: it went on for longer and there was more to absorb.",
+        "why": "It is the energy: whatever the cage has as motion and as height has to be turned into heat in the pads. The work–energy theorem says the net work on the cage is its change in kinetic energy. So the same energy can be taken out with a large force over a short distance, or a small one over a long one. The pads feel the total either way. That is why the March stop destroyed a set of pads while applying the same force as every other stop. It went on for longer. There was more to absorb.",
         "rebuttals": [
           "The same force can take out any amount of energy, depending on how far the drum turns under it.",
           "A retardation is what the force produces on that mass and says nothing about the total.",
@@ -2776,27 +2685,6 @@ export const CURRICULUM = {
       "assumes": [
         "work done against a body's motion is a change in its kinetic energy"
       ],
-      "equations": [
-        {
-          "e": "W = ∫F·dx",
-          "c": "work as an accumulation of force over distance",
-          "v": [
-            [
-              "F",
-              "the force in the direction of travel, in newtons"
-            ],
-            [
-              "dx",
-              "an element of the displacement, in metres"
-            ],
-            [
-              "W",
-              "the work done, in joules"
-            ]
-          ],
-          "s": "A force that changes as the body moves cannot be multiplied by the distance, and the integral is what a force-distance graph has under it."
-        }
-      ],
       "concept": {
         "n": 11,
         "c": "Kinetic energy and the work–energy theorem",
@@ -2810,11 +2698,11 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "A metre and a third of stretch",
-      "scene": "Rahimi has the stretch figure on the board: a metre and a third under an ordinary load, measured against the guides and confirmed against the depth indicator on two winds.",
+      "scene": "Rahimi has the stretch figure on the board. It is a metre and a third under an ordinary load. It was measured against the guides and confirmed against the depth indicator on two winds.",
       "takeaway": "A stretched rope holds energy proportional to the square of its stretch, and it gives it back to whatever is on the end.",
       "place": "Shaft and Brake House",
-      "guide": "Four accounts of what that stretch means. Ask of each whether it describes something the rope is doing or something the rope is holding, and what would happen to it if whatever is pulling let go. One of the four is the reason a cage does not stop when the drum does.",
-      "story": "Rahimi has the stretch figure on the board: a metre and a third under an ordinary load, measured against the guides and confirmed against the depth indicator on two winds.",
+      "guide": "Four accounts of what that stretch means. Ask of each whether it describes something the rope is doing or something the rope is holding. Then ask what would happen to it if whatever is pulling let go. One of the four is the reason a cage does not stop when the drum does.",
+      "story": "Rahimi has the stretch figure on the board. It is a metre and a third under an ordinary load. It was measured against the guides and confirmed against the depth indicator on two winds.",
       "game": {
         "type": "CHOICE",
         "title": "A metre and a third of stretch",
@@ -2823,7 +2711,7 @@ export const CURRICULUM = {
         "task": "Settle what a stretched rope is holding",
         "question": "What is the rope holding while it is stretched by a metre and a third?",
         "answer": "Energy, which it will return to the cage as the stretch comes out",
-        "why": "It is holding energy, about a hundred kilojoules of it, and it will give that energy back to whatever is on the end of it. That is what a spring does: the work done stretching it is stored as the square of the stretch, and released as the stretch comes out. So a cage on a stretched rope is not a load on a link — it is a mass on a charged spring, and stopping the top of that spring does not stop the mass.",
+        "why": "It is holding energy, about a hundred kilojoules of it, and it will give that energy back to whatever is on the end of it. That is what a spring does: the work done stretching it is stored as the square of the stretch, and released as the stretch comes out. So a cage on a stretched rope is not a load on a link. It is a mass on a charged spring. Stopping the top of that spring does not stop the mass.",
         "rebuttals": [
           "The stretch is a consequence of the load and it is also a store; the work done to produce it went somewhere.",
           "Momentum belongs to something moving; a stretched rope holding still has none to give.",
@@ -2839,27 +2727,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a stretched spring holds energy that can be recovered"
-      ],
-      "equations": [
-        {
-          "e": "W = ∫F·dx",
-          "c": "work as an accumulation of force over distance",
-          "v": [
-            [
-              "F",
-              "the force in the direction of travel, in newtons"
-            ],
-            [
-              "dx",
-              "an element of the displacement, in metres"
-            ],
-            [
-              "W",
-              "the work done, in joules"
-            ]
-          ],
-          "s": "A force that changes as the body moves cannot be multiplied by the distance, and the integral is what a force-distance graph has under it."
-        }
       ],
       "concept": {
         "n": 27,
@@ -2879,9 +2746,9 @@ export const CURRICULUM = {
       "place": "Shaft and Brake House",
       "guide": "You build the working a line at a time. Take the drum as stopped and the cage as a mass on a spring anchored at the drum. All the cage's motion has to be turned into stretch, so the energy it arrives with is the energy the rope ends up holding. Solve for the stretch, and note what the answer depends on.",
       "background": [
-        "Why the answer is the speed over the angular frequency. Setting the cage's kinetic energy equal to the rope's stored energy and solving gives the stretch as the speed times the root of mass over stiffness, which is the speed divided by the angular frequency computed yesterday. So it is not an arbitrary quantity: it is one period's worth of travel, near enough, at the speed the cage was making.",
+        "Why the answer is the speed over the angular frequency. Set the cage's kinetic energy equal to the rope's stored energy and solve for the stretch. It comes out as the speed times the root of mass over stiffness. That is the speed divided by the angular frequency computed yesterday. So it is not an arbitrary quantity: it is one period's worth of travel, near enough, at the speed the cage was making.",
         "Why no brake could have prevented it. The brake acts on the drum. Whatever it does to the drum, the cage is a separate body attached through a spring, and its own momentum has to be taken out through that spring. A better pad stops the drum sooner and makes this worse rather than better, because the drum stopping is what starts the overshoot.",
-        "What the inquiry could not have seen. Craig's coefficient was correct. The retardation computed from it was correct for the drum. Every number in the finding was right and the model behind them had the cage and the drum as one rigid body, which twelve hundred metres of steel is not."
+        "What the inquiry could not have seen. Craig's coefficient was correct. The retardation computed from it was correct for the drum. Every number in the finding was right. The model behind them had the cage and the drum as one rigid body. Twelve hundred metres of steel is not."
       ],
       "story": "The drum was stopped from 8.4 metres a second in under a second, with the descending cage forty metres above the inset on twelve hundred metres of rope. Rahimi wants how much further the cage went.",
       "game": {
@@ -3034,25 +2901,6 @@ export const CURRICULUM = {
           ],
           "s": "The net work on a body is exactly its change in kinetic energy, which is why a stopping distance can be found without ever writing down a time.",
           "computed": true
-        },
-        {
-          "e": "W = ∫F·dx",
-          "c": "work as an accumulation of force over distance",
-          "v": [
-            [
-              "F",
-              "the force in the direction of travel, in newtons"
-            ],
-            [
-              "dx",
-              "an element of the displacement, in metres"
-            ],
-            [
-              "W",
-              "the work done, in joules"
-            ]
-          ],
-          "s": "A force that changes as the body moves cannot be multiplied by the distance, and the integral is what a force-distance graph has under it."
         }
       ],
       "concept": {
@@ -3071,7 +2919,7 @@ export const CURRICULUM = {
       "scene": "Marchetti has released the empty cage for one test wind this afternoon. Craig can apply the emergency brake from 8.4 metres a second and the drum recorder will trace what happens.",
       "takeaway": "A prediction locked before an intervention is a measurement of the model; the same number chosen afterwards is a description.",
       "place": "Shaft and Brake House",
-      "guide": "Lock a prediction for how long the drum takes to stop before the brake is applied. Nothing about it can be changed afterwards, which is the point of making it first. Then apply the brake, and then spend a test wind on reading the recorder — a stop that is confirmed to have happened and never measured establishes that the brake works and nothing about how fast.",
+      "guide": "Lock a prediction for how long the drum takes to stop before the brake is applied. Nothing about it can be changed afterwards, which is the point of making it first. Then apply the brake. Then spend a test wind on reading the recorder. A stop that is confirmed to have happened and never measured establishes that the brake works. It establishes nothing about how fast.",
       "story": "Marchetti has released the empty cage for one test wind this afternoon. Craig can apply the emergency brake from 8.4 metres a second and the drum recorder will trace what happens.",
       "game": {
         "type": "VERIFY",
@@ -3081,7 +2929,7 @@ export const CURRICULUM = {
         "task": "Predict the test wind's stop, then measure it",
         "question": "Predict how long the drum takes to stop, apply the brake, and report what happened.",
         "answer": "About nine tenths of a second — but only the recorder trace establishes it. A stop that happened is not a stop that has been measured.",
-        "why": "The stop takes about nine tenths of a second. It follows from the braking torque acting on the drum's inertia and on the translating mass through the rope, so a prediction is a test of the model rather than a guess — which is exactly why it has to be locked first. With the trace in hand, a number can be chosen that fits and the prediction will appear to have been right. The commoner failure is the other one: applying the brake, watching everything stop, and treating that as the result.",
+        "why": "The stop takes about nine tenths of a second. It follows from the braking torque acting on the drum's inertia and on the translating mass through the rope. So a prediction is a test of the model rather than a guess. That is exactly why it has to be locked first. With the trace in hand, a number can be chosen that fits and the prediction will appear to have been right. The commoner failure is the other one: applying the brake, watching everything stop, and treating that as the result.",
         "verify": {
           "prediction": {
             "label": "Predicted time for the drum to stop",
@@ -3117,27 +2965,6 @@ export const CURRICULUM = {
       "assumes": [
         "a retardation follows from the braking torque and the inertia it acts on"
       ],
-      "equations": [
-        {
-          "e": "τ = Iα",
-          "c": "the angular form of the second law",
-          "v": [
-            [
-              "τ",
-              "the torque about the axis, in newton metres"
-            ],
-            [
-              "I",
-              "the moment of inertia about that axis"
-            ],
-            [
-              "α",
-              "the angular acceleration, in radians a second squared"
-            ]
-          ],
-          "s": "Torque is to rotation what force is to motion in a straight line, and the inertia that resists it is the integral rather than the mass."
-        }
-      ],
       "concept": {
         "n": 33,
         "c": "Predicting, then measuring what was predicted",
@@ -3153,7 +2980,7 @@ export const CURRICULUM = {
       "scene": "Rahimi has four findings on the bench and one submission to write. The inspector will read it in the morning and the licence runs for three years after that.",
       "takeaway": "A submission is a list of limits, and each one has to name the quantity it constrains and the reason it exists.",
       "place": "Shaft and Brake House",
-      "guide": "Each finding on the left has one consequence on the right that the submission has to state. What separates them is which of the four is a limit on the machine, which is a limit on the rope, and which is a limit on how a stop may be made — because the licence is a set of limits and not a set of results.",
+      "guide": "Each finding on the left has one consequence on the right that the submission has to state. What separates them is which of the four is a limit on the machine. Which is a limit on the rope. And which is a limit on how a stop may be made. The licence is a set of limits, not a set of results.",
       "story": "Rahimi has four findings on the bench and one submission to write. The inspector will read it in the morning and the licence runs for three years after that.",
       "game": {
         "type": "CASEBOOK",
@@ -3186,27 +3013,6 @@ export const CURRICULUM = {
       "assumes": [
         "a limit is only useful if it names the quantity it limits"
       ],
-      "equations": [
-        {
-          "e": "τ = Iα",
-          "c": "the angular form of the second law",
-          "v": [
-            [
-              "τ",
-              "the torque about the axis, in newton metres"
-            ],
-            [
-              "I",
-              "the moment of inertia about that axis"
-            ],
-            [
-              "α",
-              "the angular acceleration, in radians a second squared"
-            ]
-          ],
-          "s": "Torque is to rotation what force is to motion in a straight line, and the inertia that resists it is the integral rather than the mass."
-        }
-      ],
       "concept": {
         "n": 14,
         "c": "Energy dissipated in a brake",
@@ -3228,8 +3034,8 @@ export const CURRICULUM = {
       "guide": "You build the working a line at a time. Consider the ore that lands in a short interval: it arrives with no forward speed and leaves with the belt's. Something has to have given it that momentum, and dividing the momentum given by the interval is the force. The rate has to be in kilograms a second before any of this works.",
       "background": [
         "Why this is not the weight of the ore on the belt. The weight is carried by the idlers and acts downward. The force computed here is horizontal, it exists only while ore is arriving, and it is what the drive has to supply on top of everything else.",
-        "Why a stream is not a series of loads. A four-tonne skip tipped into a bin is one event with one impulse. The same ore spread over an hour arrives continuously, and what the drive feels is not a series of jolts but a steady force equal to the rate times the speed change. Sizing the drive from the loads misses it entirely.",
-        "What the vertical part does. The ore also falls about three and a half metres before it lands, arriving at over eight metres a second downward, which the belt and its idlers stop. That is a larger force than the horizontal one and it is carried by the structure rather than by the drive, which is why the drive trips and the frame does not bend."
+        "Why a stream is not a series of loads. A four-tonne skip tipped into a bin is one event with one impulse. The same ore spread over an hour arrives continuously. What the drive feels is not a series of jolts. It is a steady force equal to the rate times the speed change. Sizing the drive from the loads misses it entirely.",
+        "What the vertical part does. The ore also falls about three and a half metres before it lands, arriving at over eight metres a second downward, which the belt and its idlers stop. That is a larger force than the horizontal one. It is carried by the structure rather than by the drive. That is why the drive trips and the frame does not bend."
       ],
       "story": "Ore leaves the chute onto the belt at 320 tonnes an hour with no forward speed of its own. The belt runs at 2.5 metres a second. Lindqvist wants the force that takes to keep the belt running.",
       "game": {
@@ -3240,7 +3046,7 @@ export const CURRICULUM = {
         "task": "Take the force the belt feels from the ore stream",
         "question": "What horizontal force does the ore stream put on the belt drive?",
         "answer": "About 222 N. The rate is 88.9 kg a second and the speed change is 2.5 m/s, so the force is their product.",
-        "why": "The force is about 222 newtons. Every kilogram of ore that lands has to be brought up to belt speed, which needs a momentum of 2.5 kilogram metres a second per kilogram, and 88.9 kilograms land every second. Dividing the momentum given per interval by the interval leaves the rate times the speed change, with the interval cancelling — which is why the answer does not depend on how the interval is chosen. It is a modest force and it is one nobody had included at all.",
+        "why": "The force is about 222 newtons. Every kilogram of ore that lands has to be brought up to belt speed. That needs a momentum of 2.5 kilogram metres a second per kilogram. And 88.9 kilograms land every second. Dividing the momentum given per interval by the interval leaves the rate times the speed change, with the interval cancelling. That is why the answer does not depend on how the interval is chosen. It is a modest force and it is one nobody had included at all.",
         "derive": {
           "start": "J = ∫F dt = Δp",
           "goal": "the horizontal force on the belt drive, in newtons",
@@ -3414,7 +3220,7 @@ export const CURRICULUM = {
         "task": "Ask Lindqvist what a skip and a bin have in common with a stop",
         "question": "What has to happen to the momentum the ore arrives with?",
         "answer": "The bin takes it, and passes it to its bolts as an impulse",
-        "why": "It has to be taken by the bin, and through the bin by its bolts. Ore and bin together are a system with nothing outside it but gravity and the bolts, so the momentum the ore loses appears as an impulse on the bolts — spread over however long the ore takes to stop. Twenty times a shift, at four tonnes arriving at seven metres a second, that is a real load and it was never in the bolt calculation, which was done for the weight of a full bin standing still.",
+        "why": "It has to be taken by the bin, and through the bin by its bolts. Ore and bin together are a system with nothing outside it but gravity and the bolts. So the momentum the ore loses appears as an impulse on the bolts. It is spread over however long the ore takes to stop. Twenty times a shift, at four tonnes arriving at seven metres a second, that is a real load. It was never in the bolt calculation. That calculation was done for the weight of a full bin standing still.",
         "rebuttals": [
           "Momentum does not disappear; something has to have taken it, and here the bolts are the only candidate.",
           "The skip has stopped tipping and has no forward motion to carry away.",
@@ -3470,7 +3276,7 @@ export const CURRICULUM = {
       "scene": "Adebayo has the field book open at the bench station. On the page: a reading, a time, an elevation. Then two more readings of the same reference station, taken hours apart at either end of the day.",
       "takeaway": "A reading becomes a measurement only once the instrument's own drift and the station's own height are accounted for.",
       "place": "Gravity Station",
-      "guide": "Each entry in the field book on the left is there to answer one question on the right. What separates them is which of them is about the ground and which is about the instrument, and the one about the instrument is the reason the same station is read twice.",
+      "guide": "Each entry in the field book on the left is there to answer one question on the right. What separates them is which of them is about the ground and which is about the instrument. The one about the instrument is the reason the same station is read twice.",
       "story": "Adebayo has the field book open at the bench station. On the page: a reading, a time, an elevation. Then two more readings of the same reference station, taken hours apart at either end of the day.",
       "game": {
         "type": "CASEBOOK",
@@ -3520,9 +3326,9 @@ export const CURRICULUM = {
       "place": "Gravity Station",
       "guide": "You build the working a line at a time. The shell theorem says a spherical shell of matter pulls nothing that is inside it, so at a radius part-way down only the sphere below counts. Write that sphere's mass in terms of the density, put it into the inverse-square law, and see what the r's do.",
       "background": [
-        "Why the shells above contribute nothing. Every part of a shell pulls you towards it, and for a point inside the shell those pulls cancel exactly — the nearer piece of shell is smaller and the further piece larger, in exactly compensating proportion. It is a result about geometry rather than about gravity, and it is what makes the inside of a planet tractable at all.",
-        "Why the inverse square becomes a straight line. Only the mass below counts, and that mass falls as the cube of the radius while the inverse-square law divides by the square. A cube over a square is a first power, so gravity inside a uniform sphere is proportional to how far out you are and reaches zero at the centre.",
-        "What the disagreement is worth. The prediction for a uniform earth is a fall of 191 milligals over this shaft; the measurement is a rise of 105. The earth is not uniform — most of its mass is far in — and locally what the difference constrains is the density of the rock between the two stations, which is the number the exploration people have been assuming rather than measuring."
+        "Why the shells above contribute nothing. Every part of a shell pulls you towards it. For a point inside the shell those pulls cancel exactly. The nearer piece of shell is smaller and the further piece larger, in exactly compensating proportion. It is a result about geometry rather than about gravity, and it is what makes the inside of a planet tractable at all.",
+        "Why the inverse square becomes a straight line. Only the mass below counts, and that mass falls as the cube of the radius while the inverse-square law divides by the square. A cube over a square is a first power. So gravity inside a uniform sphere is proportional to how far out you are. It reaches zero at the centre.",
+        "What the disagreement is worth. The prediction for a uniform earth is a fall of 191 milligals over this shaft; the measurement is a rise of 105. The earth is not uniform. Most of its mass is far in. Locally, what the difference constrains is the density of the rock between the two stations. That is the number the exploration people have been assuming rather than measuring."
       ],
       "story": "Sokol has the shell theorem written on the hut wall and two readings on the bench: one at the surface, one 1,240 metres down. She wants the prediction for a uniform earth first, and then the disagreement.",
       "game": {
@@ -3533,7 +3339,7 @@ export const CURRICULUM = {
         "task": "Derive what gravity does as you go down inside a uniform sphere",
         "question": "What should gravity do over the 1,240 metres of this shaft, for a uniform earth?",
         "answer": "Fall by about 191 milligals: g(r) = g₀·r/R, so the change is g₀ × 1,240 ÷ 6,371,000. The measurement is a rise of 105, so the earth is not uniform.",
-        "why": "A uniform earth would give a fall of about 191 milligals. The shell theorem removes everything above the measurement point, so what pulls is a sphere whose mass goes as the cube of the radius, and dividing that by the square of the radius leaves a straight line through the centre. The measurement is a rise of 105 milligals instead, which is not an error: the real earth has most of its mass concentrated far inside, and the local rock is less dense than the average. The disagreement is the measurement.",
+        "why": "A uniform earth would give a fall of about 191 milligals. The shell theorem removes everything above the measurement point. So what pulls is a sphere whose mass goes as the cube of the radius. Dividing that by the square of the radius leaves a straight line through the centre. The measurement is a rise of 105 milligals instead. That is not an error. The real earth has most of its mass concentrated far inside. The local rock is less dense than the average. The disagreement is the measurement.",
         "derive": {
           "start": "g(r) = G·M(r)/r²",
           "goal": "the predicted change in g over the depth of the shaft, in milligals",
@@ -3718,7 +3524,7 @@ export const CURRICULUM = {
         "task": "Get the rock density out of the disagreement with Sokol",
         "question": "What density does the measured gradient give for the rock above the inset?",
         "answer": "",
-        "why": "The rock comes out at about 2.67 grams a cubic centimetre, which is granite. Going down a shaft does two things at once: it takes you closer to the centre, which is the free-air term, and it puts rock above you that was below you, which removes that rock's upward pull twice over. The measured gradient is the difference between them, so the density is what is left when one is taken from the other. It says nothing whatever about what lies below the inset — that is left entirely free.",
+        "why": "The rock comes out at about 2.67 grams a cubic centimetre, which is granite. Going down a shaft does two things at once. It takes you closer to the centre, which is the free-air term. And it puts rock above you that was below you. That removes that rock's upward pull twice over. The measured gradient is the difference between them, so the density is what is left when one is taken from the other. It says nothing whatever about what lies below the inset — that is left entirely free.",
         "givens": [],
         "relationship": "Density = the free-air gradient less the measured gradient, divided by twice the plate coefficient.",
         "calcKey": "GRAV-3"

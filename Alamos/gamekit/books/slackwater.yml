@@ -1180,10 +1180,10 @@ missions:
           84 kilometres. She wants the other number: how far the last fix is from the first, in a
           straight line.
         guide: >-
-          Four quantities are on the bench and two of them make the answer. Displacement is decided
-          by the first and last fix and by nothing in between, so a total already accumulated along
-          the path cannot contribute to it. The two changes in position are at right angles, which
-          is what fixes how they combine.
+          Four quantities are on the bench and two of them make the answer. Displacement is
+          decided by the first and last fix and by nothing in between. So a total already
+          accumulated along the path cannot contribute to it. The two changes in position are at
+          right angles, which is what fixes how they combine.
         takesAsRead:
           - Arc length of a parametric path
           - Vector-valued functions, and acceleration as the derivative of velocity
@@ -1219,12 +1219,12 @@ missions:
             Putting it into a displacement counts the same water twice, once going and once coming
             back.
         why: >-
-          The displacement is about 6,180 metres, against 84 kilometres of travel. The tide carries
-          a float up the estuary and back down it twice a day, so almost all of that travel cancels
-          and what is left over a fortnight is the small residual drift. Both numbers are real and
-          they answer different questions: a mud particle is exposed to 84 kilometres of water and
-          ends up six kilometres away. Using the second where the first belongs understates the
-          transport by a factor of thirteen.
+          The displacement is about 6,180 metres, against 84 kilometres of travel. The tide
+          carries a float up the estuary and back down it twice a day. So almost all of that
+          travel cancels, and what is left over a fortnight is the small residual drift. Both
+          numbers are real and they answer different questions. A mud particle is exposed to 84
+          kilometres of water and ends up six kilometres away. Using the second where the first
+          belongs understates the transport by a factor of thirteen.
       - group: SLUICE
         task: Ask Beke what happens to a rate while it is being used
         title: The rate does not wait
@@ -1232,9 +1232,9 @@ missions:
         place: Sluice Control
         person: true
         scene: >-
-          Beke has the gate table on the desk. It says what to do at the top of each half hour,
-          worked out from the flow at the moment the row was written. The flow through a part-
-          open gate depends on the head, and the head is closing all the time.
+          Beke has the gate table on the desk. It says what to do at the top of each half hour.
+          Each row was worked out from the flow at the moment it was written. The flow through a
+          part-open gate depends on the head, and the head is closing all the time.
         guide: >-
           All four options describe something that happens over a half-hour row of the table.
           The question is what using a single instantaneous rate for a whole interval actually
@@ -1694,14 +1694,14 @@ missions:
         concept: Area between two polar curves, and which one is outside
         place: Mud Laboratory
         scene: >-
-          Ude has both figures on the bench with their squared reaches already integrated: the ebb
-          rose and the flood rose, over the same half turn, on the same axes. She wants the transport
-          asymmetry as one number.
+          Ude has both figures on the bench with their squared reaches already integrated. They
+          are the ebb rose and the flood rose, over the same half turn, on the same axes. She
+          wants the transport asymmetry as one number.
         guide: >-
           Four quantities are on the bench and three of them belong in the answer. The region
-          between two roses is the outer one's area with the inner one's taken out, so it is built
-          from the two squares separately. The entry made by subtracting the reaches first and then
-          squaring is there because that is the commonest way this is got wrong.
+          between two roses is the outer one's area with the inner one's taken out. So it is
+          built from the two squares separately. The entry made by subtracting the reaches first
+          and then squaring is there because that is the commonest way this is got wrong.
         takesAsRead:
           - Area of a polar region as half the integral of r squared
         assumes:
@@ -1736,11 +1736,11 @@ missions:
             and cannot be repaired by scaling. The two areas are each built from a square, so the
             subtraction happens after the squaring.
         why: >-
-          The area between them is about 2.19, which is a third of the ebb figure. Each rose's area
-          is half the integral of its own squared reach, so the region between them is half the
-          integral of the difference of the squares. Squaring the difference instead gives 1.17 —
-          the right units, the wrong region, and no way to tell from the number itself. The
-          asymmetry is positive over this whole half turn, which is why the eastern flats are
+          The area between them is about 2.19, which is a third of the ebb figure. Each rose's
+          area is half the integral of its own squared reach. So the region between them is half
+          the integral of the difference of the squares. Squaring the difference instead gives
+          1.17 — the right units, the wrong region, and no way to tell from the number itself.
+          The asymmetry is positive over this whole half turn. That is why the eastern flats are
           gaining and the western ones are not.
       - group: WALL
         task: Ask Fell what the head gauge does after the turn
@@ -1750,25 +1750,25 @@ missions:
         person: true
         scene: >-
           Fell has two years of notebook entries in the hut at the wall head. The gauge out here
-          goes on rising for about twenty minutes after the level at the gates has turned, and it
+          goes on rising for about twenty minutes after the level at the gates has turned. It
           does it on every large tide.
         guide: >-
-          All four options are ways a level at one end of a wall could go on rising while the level
-          at the other end has turned. Ask of each whether it would repeat on every large tide and
-          whether it would build to something larger than the first arrival, because those two
-          properties are what Fell's notebook actually records.
+          The level at one end of the wall goes on rising while the level at the other end has
+          turned. All four options are ways that could happen. Ask of each whether it would
+          repeat on every large tide. Then ask whether it would build to something larger than
+          the first arrival. Those two properties are what Fell's notebook actually records.
         assumes:
           - a disturbance takes time to travel the length of a wall and back
         takeaway: Something that arrives, returns and arrives again builds a running total, and the total is what is measured.
         format: CHOICE
         question: What kind of process would produce Fell's twenty minutes, on every large tide?
         why: >-
-          A disturbance running down the wall, reflecting off the hard end and coming back is the
-          only one of these that repeats and that builds. Each return brings a fraction of the last
-          one, and they arrive in step because the return trip takes about as long as the forcing
-          period, so what the gauge reads is a running total rather than a single arrival. That total
-          is a sum whose terms shrink, which is why it settles on a value instead of growing without
-          limit.
+          A disturbance runs down the wall, reflects off the hard end and comes back. That is
+          the only one of these that repeats and that builds. Each return brings a fraction of
+          the last one. They arrive in step, because the return trip takes about as long as the
+          forcing period. So what the gauge reads is a running total rather than a single
+          arrival. That total is a sum whose terms shrink, which is why it settles on a value
+          instead of growing without limit.
         choices:
           - A disturbance travelling out along the wall and coming back
           - A gauge whose stilling well is slow to follow the water outside it
@@ -1800,29 +1800,32 @@ missions:
         concept: Geometric series, and the sum of a reflection chain
         place: Wall Station
         scene: >-
-          Grieve has the numbers from the head: a first arrival of 0.34 metres, and each return
-          about 0.62 of the one before it, arriving in step with the next forcing. She wants what
-          the chain adds up to.
+          Grieve has the numbers from the head. There is a first arrival of 0.34 metres, and
+          each return is about 0.62 of the one before it, arriving in step with the next
+          forcing. She wants what the chain adds up to.
         guide: >-
-          You build the working a line at a time. Write what the nth return is worth first, then the
-          partial sum of the first few, then look at what the partial sums are doing. The step that
-          decides the answer is the one that notices what kind of sum this is, because the closed
-          form only exists for that kind and only when the returned fraction is less than one.
+          You build the working a line at a time. Write what the nth return is worth first, then
+          the partial sum of the first few. Then look at what the partial sums are doing. The
+          step that decides the answer is the one that notices what kind of sum this is. The
+          closed form only exists for that kind, and only when the returned fraction is less
+          than one.
         background:
           - >-
-            Why the returns arrive in step. The round trip along three hundred metres of wall and
-            back takes about as long as the forcing period at this station, so each return arrives
-            with the crest of the next one rather than against it. If it arrived against them they
-            would cancel and the head would read less than the first arrival, not more.
+            Why the returns arrive in step. The round trip along three hundred metres of wall
+            and back takes about as long as the forcing period at this station. So each return
+            arrives with the crest of the next one rather than against it. If it arrived against
+            them they would cancel, and the head would read less than the first arrival, not
+            more.
           - >-
-            Why the sum is finite. Each return is a fixed fraction of the last, so the terms shrink
-            geometrically and the partial sums close on a value. What decides the total is not how
-            many returns there are but how much of each one survives the round trip: at 0.62 the
-            total is 2.6 times the first arrival, and at 0.8 it would be five times.
+            Why the sum is finite. Each return is a fixed fraction of the last, so the terms
+            shrink geometrically and the partial sums close on a value. What decides the total
+            is not how many returns there are. It is how much of each one survives the round
+            trip. At 0.62 the total is 2.6 times the first arrival, and at 0.8 it would be five
+            times.
           - >-
-            What this changes about the armour. The last forty metres of armour was sized for the
-            first arrival, which is the wave anybody standing at the gates would measure. The
-            quantity the armour actually meets is the total, and the ratio between the two is
+            What this changes about the armour. The last forty metres of armour was sized for
+            the first arrival, which is the wave anybody standing at the gates would measure.
+            The quantity the armour actually meets is the total. The ratio between the two is
             decided by the returned fraction and by nothing else.
         assumes:
           - each return arrives in step with the next forcing rather than against it
@@ -1834,11 +1837,11 @@ missions:
           is less than one, so the sum exists.
         why: >-
           The total is about 0.89 metres, against a first arrival of 0.34. The nth return is the
-          first arrival times the returned fraction n times over, which makes the chain geometric.
-          A geometric sum with a ratio smaller than one in size closes on the first term divided by
-          one minus the ratio, and the ratio here is 0.62, so the total is 2.6 times the first
-          arrival. The condition matters as much as the formula: at a ratio of one the chain has no
-          total, and the algebra would still produce a number.
+          first arrival times the returned fraction n times over, which makes the chain
+          geometric. A geometric sum with a ratio smaller than one in size closes on the first
+          term divided by one minus the ratio. The ratio here is 0.62, so the total is 2.6 times
+          the first arrival. The condition matters as much as the formula. At a ratio of one the
+          chain has no total, and the algebra would still produce a number.
         derive:
           hint: Each line has to follow from the one above it, and each one is licensed by a rule.
           start: a₀ = 0.34 m,  each return = 0.62 × the one before it
@@ -2244,9 +2247,9 @@ missions:
           tide, and the licence report claims the impoundment is clear after three of them. The dye was
           still detectable after nine.
         guide: >-
-          Each observation on the left has one explanation on the right that accounts for it. What
-          separates them is whether the water leaving is replaced by new water or partly by water
-          that has just left, because that is the difference between a total that runs out and a
+          Each observation on the left has one explanation on the right that accounts for it.
+          What separates them is whether the water leaving is replaced by new water or partly by
+          water that has just left. That is the difference between a total that runs out and a
           total that shrinks by a fixed fraction for ever.
         assumes:
           - what leaves an estuary on the ebb is partly what comes back on the flood
@@ -2265,12 +2268,12 @@ missions:
           - Part of what left on the ebb is still outside the gates and returns on the next flood.
         mapping: [0, 1, 2, 3]
         why: >-
-          All four are the same arithmetic seen from different angles. A tide that exchanges a third
-          leaves two thirds, so after n tides the fraction left is two thirds multiplied by itself n
-          times: 0.67, 0.44, 0.30, and about 0.026 after nine. Each tide removes a third of a smaller
-          quantity than the last, so the kilograms removed fall too. And some of the water that left
-          is still just outside the gates when the flood begins, which is why the exchanged share is
-          not the cleared share.
+          All four are the same arithmetic seen from different angles. A tide that exchanges a
+          third leaves two thirds. So after n tides the fraction left is two thirds multiplied
+          by itself n times: 0.67, 0.44, 0.30, and about 0.026 after nine. Each tide removes a
+          third of a smaller quantity than the last, so the kilograms removed fall too. And some
+          of the water that left is still just outside the gates when the flood begins. That is
+          why the exchanged share is not the cleared share.
   # ---------------------------------------------------------------- day 8
   - title: The tail nobody measures
     objective: Decide when the far end of a long process is worth a number.
@@ -2292,26 +2295,26 @@ missions:
         concept: Improper integrals, and when a tail has finite area
         place: Mud Laboratory
         scene: >-
-          Ude has the decay fitted: the dissolved load starts at 48 kilograms and falls by a fixed
-          fraction each tide, with a decay time of 6.2 tides. The report wants the total exposure
-          over the whole of the decay.
+          Ude has the decay fitted. The dissolved load starts at 48 kilograms and falls by a
+          fixed fraction each tide, with a decay time of 6.2 tides. The report wants the total
+          exposure over the whole of the decay.
         guide: >-
-          You build the working a line at a time. An integral with no upper end is not evaluated at
-          infinity; it is evaluated at a finite end and then that end is sent out, which is the step
-          that decides whether there is an answer. The antiderivative is the ordinary one. What
-          matters is what it does as the upper end grows.
+          You build the working a line at a time. An integral with no upper end is not evaluated
+          at infinity. It is evaluated at a finite end, and then that end is sent out. That is
+          the step that decides whether there is an answer. The antiderivative is the ordinary
+          one. What matters is what it does as the upper end grows.
         background:
           - >-
-            Why the upper end has to be a limit. Infinity is not a number that can be substituted,
-            so the integral is defined as the value at a finite upper end together with what happens
-            to that value as the end moves out. For this decay the term at the upper end goes to
-            nothing, so a finite answer survives.
+            Why the upper end has to be a limit. Infinity is not a number that can be
+            substituted. So the integral is defined as the value at a finite upper end, together
+            with what happens to that value as the end moves out. For this decay the term at the
+            upper end goes to nothing, so a finite answer survives.
           - >-
-            Why this tail has a total and some do not. A quantity falling by a fixed fraction per
-            tide falls faster than any power of the time, so its area is finite. A quantity falling
-            like one over the time does not: its integral grows like a logarithm and passes every
-            value eventually, which is the same distinction that separates two sums with terms going
-            to zero.
+            Why this tail has a total and some do not. A quantity falling by a fixed fraction
+            per tide falls faster than any power of the time, so its area is finite. A quantity
+            falling like one over the time does not. Its integral grows like a logarithm and
+            passes every value eventually. That is the same distinction that separates two sums
+            with terms going to zero.
           - >-
             What the units are. A load in kilograms accumulated over tides gives kilogram-tides,
             which is an exposure rather than a mass. It is the right quantity for the nutrient
@@ -2328,12 +2331,13 @@ missions:
           About 298 kilogram-tides, from 48 × 6.2. The upper end is taken out as a limit and the
           exponential term there goes to nothing.
         why: >-
-          The total is about 298 kilogram-tides. The integral is taken to a finite upper end, giving
-          the decay time times the starting load times one minus a term at that end, and then the
-          end is sent out. Because the load falls by a fixed fraction per tide, that end term goes to
-          nothing and the whole tail contributes a finite amount. The answer is the starting load
-          times the decay time, which is a useful thing to know: the exposure of a decaying
-          discharge is what it would be if it held its initial value for one decay time.
+          The total is about 298 kilogram-tides. The integral is taken to a finite upper end.
+          That gives the decay time times the starting load times one minus a term at that end.
+          Then the end is sent out. Because the load falls by a fixed fraction per tide, that
+          end term goes to nothing and the whole tail contributes a finite amount. The answer is
+          the starting load times the decay time, which is a useful thing to know. The exposure
+          of a decaying discharge is what it would be if it held its initial value for one decay
+          time.
         derive:
           hint: Each line has to follow from the one above it, and each one is licensed by a rule.
           start: E = ∫₀^∞ 48·e^(−t/6.2) dt
@@ -2481,14 +2485,14 @@ missions:
         place: Wall Station
         person: true
         scene: >-
-          Grieve has the armour survey on the table in the hut: two hundred and forty units, each
-          taking a share of the wave energy that reaches it, the share falling steadily along the
-          wall towards the head.
+          Grieve has the armour survey on the table in the hut. There are two hundred and forty
+          units, each taking a share of the wave energy that reaches it. The share falls
+          steadily along the wall towards the head.
         guide: >-
-          All four options are ways of getting a total out of a run of two hundred and forty terms.
-          Ask of each whether it needs every term to be known, and what it would do if the wall were
-          extended. The one that survives is the one that compares the terms with something already
-          integrable.
+          All four options are ways of getting a total out of a run of two hundred and forty
+          terms. Ask of each whether it needs every term to be known. Then ask what it would do
+          if the wall were extended. The one that survives is the one that compares the terms
+          with something already integrable.
         takesAsRead:
           - The harmonic series and p-series
         assumes:
@@ -2497,12 +2501,12 @@ missions:
         format: CHOICE
         question: How can Grieve bound the total the unsurveyed units take without measuring them?
         why: >-
-          The terms fall steadily along the wall, so the sum of the unsurveyed ones is bounded by the
-          area under a curve drawn through them, and that area is an ordinary integral. This is the
-          integral test doing structural work: it converts a sum nobody can measure into an integral
-          somebody can, and it gives a bound rather than an estimate. Adding up the surveyed units
-          and scaling would assume the far units are like the near ones, which is the one thing the
-          falling trend says they are not.
+          The terms fall steadily along the wall. So the sum of the unsurveyed ones is bounded
+          by the area under a curve drawn through them. That area is an ordinary integral. This
+          is the integral test doing structural work. It converts a sum nobody can measure into
+          an integral somebody can, and it gives a bound rather than an estimate. Adding up the
+          surveyed units and scaling would assume the far units are like the near ones. That is
+          the one thing the falling trend says they are not.
         choices:
           - By comparing the terms with the area under a curve drawn through them
           - By scaling the surveyed total up in proportion to the number of units
@@ -2965,8 +2969,8 @@ missions:
         guide: >-
           Four readings of what a 0.19-metre bound covers. Ask of each what the bound was
           computed from. A ceiling can only be a ceiling on the terms that went into it. The
-          distinction that matters is between a term that was dropped from the sum and a term
-          that was never in the sum at all.
+          distinction that matters is between two kinds of term. One was dropped from the sum.
+          The other was never in the sum at all.
         assumes:
           - a bound is computed from the terms of a particular model
         takeaway: A bound is a statement about a model, so anything outside the model is outside the bound as well.
@@ -3047,29 +3051,29 @@ missions:
         concept: Integration by parts
         place: Sluice Control
         scene: >-
-          Beke has the release profile for the first quarter of an ebb: the flow starts at its
-          largest and falls away as a cosine, reaching nothing after 3.1 hours. The report wants the
-          mean time of the release, weighted by the flow.
+          Beke has the release profile for the first quarter of an ebb. The flow starts at its
+          largest and falls away as a cosine, reaching nothing after 3.1 hours. The report wants
+          the mean time of the release, weighted by the flow.
         guide: >-
-          You build the working a line at a time. The integral has a time multiplying a cosine, and
-          neither factor is the derivative of anything convenient, so it has to be traded for a
-          different integral. Which factor you choose to differentiate decides whether what comes back
-          is easier or worse, and only one of the two choices makes progress.
+          You build the working a line at a time. The integral has a time multiplying a cosine,
+          and neither factor is the derivative of anything convenient. So it has to be traded
+          for a different integral. Which factor you choose to differentiate decides whether
+          what comes back is easier or worse. Only one of the two choices makes progress.
         background:
           - >-
-            Why the moment rather than the total. The total release is what came out; the moment says
-            when. Two releases with the same total can put their water an hour apart in the ebb, and
-            the turbines and the marsh both care which.
+            Why the moment rather than the total. The total release is what came out; the moment
+            says when. Two releases with the same total can put their water an hour apart in the
+            ebb. The turbines and the marsh both care which.
           - >-
-            Why differentiate the time. Differentiating the time gives one, which removes it from the
-            problem. Differentiating the cosine leaves a time multiplying a sine, which is exactly as
-            hard as what you started with — the classic sign that the two factors were chosen the
-            wrong way round.
+            Why differentiate the time. Differentiating the time gives one, which removes it
+            from the problem. Differentiating the cosine leaves a time multiplying a sine, which
+            is exactly as hard as what you started with. That is the classic sign that the two
+            factors were chosen the wrong way round.
           - >-
-            What the answer means. The flow-weighted mean time comes out at about 1.13 hours into a
-            3.1-hour quarter, rather than at the middle. That is because the flow is largest at the
-            start, so the water is weighted towards the beginning of the release, and a report that
-            assumed the midpoint would put the whole release half an hour late.
+            What the answer means. The flow-weighted mean time comes out at about 1.13 hours
+            into a 3.1-hour quarter, rather than at the middle. That is because the flow is
+            largest at the start, so the water is weighted towards the beginning of the release.
+            A report that assumed the midpoint would put the whole release half an hour late.
         takesAsRead:
           - The fundamental theorem, and the antiderivative it rests on
         assumes:
@@ -3081,12 +3085,12 @@ missions:
           About 1.13 hours. The moment is (π/2 − 1)/ω² = 2.22 hour-squared and the total is 1/ω =
           1.97 hours.
         why: >-
-          The mean time is about 1.13 hours, not the 1.55 hours the midpoint would give. Parts turns
-          the integral of a time times a cosine into a boundary term plus the integral of a sine,
-          which comes out. Choosing to differentiate the time is what makes that happen: it becomes
-          one and leaves. The moment divided by the total release is the mean, and it sits early in
-          the quarter because the flow is largest at the start — which is the whole reason the
-          quantity was asked for.
+          The mean time is about 1.13 hours, not the 1.55 hours the midpoint would give. Parts
+          turns the integral of a time times a cosine into a boundary term plus the integral of
+          a sine, which comes out. Choosing to differentiate the time is what makes that happen:
+          it becomes one and leaves. The moment divided by the total release is the mean. It
+          sits early in the quarter because the flow is largest at the start, which is the whole
+          reason the quantity was asked for.
         derive:
           hint: Each line has to follow from the one above it, and each one is licensed by a rule.
           start: M = ∫₀^{T} t·q₀·cos(ωt) dt
@@ -3193,13 +3197,13 @@ missions:
         place: Mud Laboratory
         scene: >-
           Ude's silt model has the flats filling at a rate proportional both to how much silt is
-          already there and to how much room is left. Separating it leaves one over a product of two
-          brackets on the left, and the bench copy of the integral tables has nothing that fits.
+          already there and to how much room is left. Separating it leaves one over a product of
+          two brackets on the left. The bench copy of the integral tables has nothing that fits.
         guide: >-
-          Four claims about splitting one over a product into a sum of two simpler fractions. Ask of
-          each what the split makes possible that was not possible before, and whether it changes the
-          value of the integral. One of the four confuses making an integral doable with making it
-          smaller.
+          Four claims about splitting one over a product into a sum of two simpler fractions.
+          Ask of each what the split makes possible that was not possible before. Then ask
+          whether it changes the value of the integral. One of the four confuses making an
+          integral doable with making it smaller.
         takesAsRead:
           - The fundamental theorem, and the antiderivative it rests on
         assumes:
@@ -3208,11 +3212,12 @@ missions:
         format: CHOICE
         question: What does splitting one over the product of the two brackets achieve?
         why: >-
-          It turns something with no standard antiderivative into two pieces that each have one, and
-          each piece is a logarithm. The sum of the two fractions is identically equal to the
-          original, so nothing about the quantity has changed: the same integral is being taken by a
-          route that exists. Combined with separating the variables, that is what produces the
-          S-shaped solution the flats actually follow, rising fastest when they are about half full.
+          It turns something with no standard antiderivative into two pieces that each have one.
+          Each piece is a logarithm. The sum of the two fractions is identically equal to the
+          original, so nothing about the quantity has changed. The same integral is being taken
+          by a route that exists. Combined with separating the variables, that is what produces
+          the S-shaped solution the flats actually follow. It rises fastest when the flats are
+          about half full.
         choices:
           - Each piece has a standard antiderivative, and their sum is the same quantity
           - The integral becomes smaller and therefore easier to bound
@@ -3432,12 +3437,13 @@ missions:
           spend it on. The licence review is in six weeks and will read whatever this fortnight
           produced.
         guide: >-
-          What the station holds already: a returned fraction of 0.62 worked out of a fortnight of
-          gauge records rather than measured off the wall; a shallow-water term now in the prediction
-          but fitted to six stations, two of which have not been levelled since commissioning; a
-          stilling well at the outer face that needs forty minutes and is the reason the gate call
-          cannot wait for a reading; and two flats stations that need the launch and were missed last
-          quarter. The wall itself was last surveyed before the eastern gate was re-gated.
+          Four things the station could buy, and what it holds already. The returned fraction of
+          0.62 was worked out of a fortnight of gauge records rather than measured off the wall.
+          The shallow-water term is now in the prediction, but it is fitted to six stations. Two
+          of those have not been levelled since commissioning. The stilling well at the outer
+          face needs forty minutes, and that is the reason the gate call cannot wait for a
+          reading. Two flats stations need the launch and were missed last quarter. The wall
+          itself was last surveyed before the eastern gate was re-gated.
         rules: >-
           A hundred points, whole points, across the four. Spending is scored on what a proposal
           would change about a future decision rather than on what it would tell you: a measurement
@@ -3457,11 +3463,12 @@ missions:
         recommended: { A: 40, B: 30, C: 20 }
         why: >-
           The wall survey and the levelling both convert a number worked out of records into a
-          measured one, and both feed decisions that are made repeatedly: the armour sizing and every
-          future prediction at those stations. The fast sensor is worth something because the whole
-          gate-timing argument rests on the well needing forty minutes, and a sensor that does not
-          would remove the trade-off rather than sharpen it. The launch charter is real work and it
-          improves a record rather than changing a decision, which is why it comes last.
+          measured one. Both also feed decisions that are made repeatedly: the armour sizing,
+          and every future prediction at those stations. The fast sensor is worth something,
+          because the whole gate-timing argument rests on the well needing forty minutes. A
+          sensor that did not need them would remove the trade-off rather than sharpen it. The
+          launch charter is real work, and it improves a record rather than changing a decision.
+          That is why it comes last.
       - group: SLUICE
         task: Settle with Oyelaran what the eastern gate closes on
         title: What the gate closes on
@@ -3469,14 +3476,15 @@ missions:
         place: Sluice Control
         person: true
         scene: >-
-          Oyelaran has four things on the desk and one signature to give. The programme goes to the
-          gate crews at four o'clock, the marsh warning with it, and tomorrow is the largest range of
-          the year.
+          Oyelaran has four things on the desk and one signature to give. The programme goes to
+          the gate crews at four o'clock, and the marsh warning with it. Tomorrow is the largest
+          range of the year.
         guide: >-
-          Four readings of the same four pieces of paper. Look at every one of them before choosing,
-          including the two that are not alarming: a bound that has been computed honestly and a fit
-          that now contains a term it did not have. What separates the explanations is which of the
-          four quantities on the desk the level tomorrow actually depends on.
+          Four readings of the same four pieces of paper. Look at every one of them before
+          choosing, including the two that are not alarming. One is a bound that has been
+          computed honestly. The other is a fit that now contains a term it did not have. What
+          separates the explanations is which of the four quantities on the desk the level
+          tomorrow actually depends on.
         assumes:
           - a decision has to name the quantity it is being made on
         takeaway: A prediction with a bound and a term added is still silent about anything that is not in the sum.
@@ -3495,12 +3503,13 @@ missions:
           - { label: The shallow-water term makes the surge unnecessary to consider, mechanism: The overtide already carries the asymmetry the surge would produce. }
         answer: The level tomorrow has a term in it that no bound on the desk covers
         why: >-
-          Three of the four pieces of paper are in good order and the fourth is not on the same
-          footing as them. The prediction is better than it has ever been and its bound is honestly
-          computed; the shallow-water term is a real improvement fitted to real records. All of that
-          is about terms that repeat. The surge does not repeat, so it is in none of those models and
-          therefore in none of their bounds, and it is half a metre on the largest range of the year.
-          The gate closes on the gauge, with the prediction deciding when somebody is standing at it.
+          Three of the four pieces of paper are in good order. The fourth is not on the same
+          footing as them. The prediction is better than it has ever been and its bound is
+          honestly computed. The shallow-water term is a real improvement fitted to real
+          records. All of that is about terms that repeat. The surge does not repeat, so it is
+          in none of those models and therefore in none of their bounds. It is half a metre on
+          the largest range of the year. The gate closes on the gauge, with the prediction
+          deciding when somebody is standing at it.
 
 interiors:
   PRED:
@@ -3751,15 +3760,15 @@ lessons:
     concept: A rate of change, and the derivative as a rate
     place: Sluice Control
     scene: >-
-      Tomas Beke, the sluice engineer, has one row of last Thursday's gate table beside the
-      recorder trace for the same half hour. The row was written from the flow at the top of it.
-      The trace says what the flow averaged instead.
+      Tomas Beke, the sluice engineer, has one row of last Thursday's gate table on the desk.
+      Beside it is the recorder trace for the same half hour. The row was written from the flow
+      at the top of it. The trace says what the flow averaged instead.
     guide: >-
-      Four quantities are on the desk and three of them belong in the answer. The row assumed one
-      flow held for the whole interval; the trace gives what the flow averaged across it. The gap
-      between those two rates, run for the length of the interval, is the water the sheet claimed
-      and the estuary did not supply. The impoundment level is on the desk because the row was
-      written from it, and it plays no part here.
+      Four quantities are on the desk and three of them belong in the answer. The row assumed
+      one flow held for the whole interval. The trace gives what the flow averaged across it.
+      The gap between those two rates, run for the length of the interval, is the water the
+      sheet claimed and the estuary did not supply. The impoundment level is on the desk because
+      the row was written from it, and it plays no part here.
     assumes:
       - a rate quoted at an instant is the rate at that instant only
       - a volume is a rate multiplied by the time that rate ran for
@@ -3794,11 +3803,11 @@ lessons:
         a year.
     why: >-
       About 11,900 cubic metres, out of one row. Flow through a part-open gate follows the head,
-      and the head closes while the water is passing, so the rate at the top of a half hour is the
-      largest rate of that half hour. Using it for the whole interval charges the sheet the
-      difference. Every stepped calculation carries that error, and it has two handles: how fast
-      the rate is changing, which the estuary decides, and how long the step is, which the table
-      decides.
+      and the head closes while the water is passing. So the rate at the top of a half hour is
+      the largest rate of that half hour. Using it for the whole interval charges the sheet the
+      difference. Every stepped calculation carries that error, and it has two handles. One is
+      how fast the rate is changing, which the estuary decides. The other is how long the step
+      is, which the table decides.
 
   - group: ROSE
     title: The slope of a track with no formula — Review

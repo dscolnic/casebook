@@ -54,29 +54,6 @@ export const CURRICULUM = {
           ],
           "s": "Forces do not cause motion, they cause changes of motion — and the sum is what counts, which is why a free-body diagram with one arrow missing gives an answer that is wrong rather than approximate.",
           "computed": true
-        },
-        {
-          "e": "v² = v₀² + 2aΔx",
-          "c": "the constant-acceleration relation with no time in it",
-          "v": [
-            [
-              "v",
-              "the speed at the end, in metres a second"
-            ],
-            [
-              "v₀",
-              "the speed at the start"
-            ],
-            [
-              "a",
-              "the acceleration, taken as constant"
-            ],
-            [
-              "Δx",
-              "the distance travelled while it acts"
-            ]
-          ],
-          "s": "This is the one to reach for whenever a problem gives a distance and asks for a speed, or gives a speed and asks over what distance it can be removed — which is a fall and a brake run written the same way."
         }
       ],
       "takesAsRead": [
@@ -433,31 +410,6 @@ export const CURRICULUM = {
         "a test is only evidence if the conditions are known before it runs",
         "test weights can stand in for passengers"
       ],
-      "equations": [
-        {
-          "e": "v² = v₀² + 2aΔx",
-          "c": "the constant-acceleration relation with no time in it",
-          "v": [
-            [
-              "v",
-              "the speed at the end, in metres a second"
-            ],
-            [
-              "v₀",
-              "the speed at the start"
-            ],
-            [
-              "a",
-              "the acceleration, taken as constant"
-            ],
-            [
-              "Δx",
-              "the distance travelled while it acts"
-            ]
-          ],
-          "s": "This is the one to reach for whenever a problem gives a distance and asks for a speed, or gives a speed and asks over what distance it can be removed — which is a fall and a brake run written the same way."
-        }
-      ],
       "concept": {
         "n": 3,
         "c": "The constant-acceleration relations, and which one has no time in it",
@@ -607,25 +559,6 @@ export const CURRICULUM = {
           ],
           "s": "A margin is a ratio and it means nothing until both of its numbers are named — which is why a requirement that turns out to have been computed from the wrong drawing changes the margin without anything physical changing at all.",
           "computed": true
-        },
-        {
-          "e": "v_min = √(gr) at the crown of a loop",
-          "c": "the limiting case a rail cannot get out of",
-          "v": [
-            [
-              "v_min",
-              "the least speed the train can cross the crown at"
-            ],
-            [
-              "g",
-              "the acceleration due to gravity"
-            ],
-            [
-              "r",
-              "the radius of the loop at its crown"
-            ]
-          ],
-          "s": "A rail can push and cannot pull, so the limit is where it has stopped pushing and gravity alone bends the train round — and the mass cancels, which is why the limit is the same for a full train and an empty one."
         }
       ],
       "concept": {
@@ -742,42 +675,6 @@ export const CURRICULUM = {
         "a claim is limited by the conditions the working was done under",
         "a margin is a ratio between what is available and what is required"
       ],
-      "equations": [
-        {
-          "e": "v_min = √(gr) at the crown of a loop",
-          "c": "the limiting case a rail cannot get out of",
-          "v": [
-            [
-              "v_min",
-              "the least speed the train can cross the crown at"
-            ],
-            [
-              "g",
-              "the acceleration due to gravity"
-            ],
-            [
-              "r",
-              "the radius of the loop at its crown"
-            ]
-          ],
-          "s": "A rail can push and cannot pull, so the limit is where it has stopped pushing and gravity alone bends the train round — and the mass cancels, which is why the limit is the same for a full train and an empty one."
-        },
-        {
-          "e": "safety factor = capacity ÷ demand",
-          "c": "the number this whole job is about",
-          "v": [
-            [
-              "capacity",
-              "what the part or the ride can take"
-            ],
-            [
-              "demand",
-              "what it is actually asked to take"
-            ]
-          ],
-          "s": "A margin is a ratio and it means nothing until both of its numbers are named — which is why a requirement that turns out to have been computed from the wrong drawing changes the margin without anything physical changing at all."
-        }
-      ],
       "concept": {
         "n": 35,
         "c": "Safety factor: what a part can take over what it is asked to take",
@@ -837,29 +734,6 @@ export const CURRICULUM = {
           ],
           "s": "Forces do not cause motion, they cause changes of motion — and the sum is what counts, which is why a free-body diagram with one arrow missing gives an answer that is wrong rather than approximate.",
           "computed": true
-        },
-        {
-          "e": "v² = v₀² + 2aΔx",
-          "c": "the constant-acceleration relation with no time in it",
-          "v": [
-            [
-              "v",
-              "the speed at the end, in metres a second"
-            ],
-            [
-              "v₀",
-              "the speed at the start"
-            ],
-            [
-              "a",
-              "the acceleration, taken as constant"
-            ],
-            [
-              "Δx",
-              "the distance travelled while it acts"
-            ]
-          ],
-          "s": "This is the one to reach for whenever a problem gives a distance and asks for a speed, or gives a speed and asks over what distance it can be removed — which is a fall and a brake run written the same way."
         }
       ],
       "concept": {
@@ -1121,31 +995,6 @@ export const CURRICULUM = {
         "lifting a mass stores energy equal to its weight times the height",
         "power is work divided by the time taken"
       ],
-      "equations": [
-        {
-          "e": "mgh + ½mv² = constant",
-          "c": "the energy books for anything on a track",
-          "v": [
-            [
-              "m",
-              "the mass, which divides out of every term"
-            ],
-            [
-              "h",
-              "the height above whatever datum is chosen"
-            ],
-            [
-              "v",
-              "the speed at that height"
-            ],
-            [
-              "g",
-              "the acceleration due to gravity"
-            ]
-          ],
-          "s": "Dividing by the mass is the step worth remembering: it is why a loaded train and an empty one arrive together, and why the answer is a statement about the track rather than about the load."
-        }
-      ],
       "concept": {
         "n": 18,
         "c": "Power as work each second, and what a motor rating is",
@@ -1314,26 +1163,6 @@ export const CURRICULUM = {
           ],
           "s": "Steady speed on a curve is still acceleration, because the direction is changing — and the force that supplies it is always something real: a rail, a chain, a pole or a seat.",
           "demanded": true
-        },
-        {
-          "e": "ΣF = ma",
-          "c": "what a net force is for",
-          "v": [
-            [
-              "ΣF",
-              "the sum of every force on the body, with direction"
-            ],
-            [
-              "m",
-              "its mass"
-            ],
-            [
-              "a",
-              "the acceleration that results"
-            ]
-          ],
-          "s": "Forces do not cause motion, they cause changes of motion — and the sum is what counts, which is why a free-body diagram with one arrow missing gives an answer that is wrong rather than approximate.",
-          "card": false
         }
       ],
       "concept": {
@@ -1385,82 +1214,6 @@ export const CURRICULUM = {
         "friction losses grow as wheels and bearings wears",
         "a margin can be watched by measuring something easier than the quantity itself"
       ],
-      "equations": [
-        {
-          "e": "v_min = √(gr) at the crown of a loop",
-          "c": "the limiting case a rail cannot get out of",
-          "v": [
-            [
-              "v_min",
-              "the least speed the train can cross the crown at"
-            ],
-            [
-              "g",
-              "the acceleration due to gravity"
-            ],
-            [
-              "r",
-              "the radius of the loop at its crown"
-            ]
-          ],
-          "s": "A rail can push and cannot pull, so the limit is where it has stopped pushing and gravity alone bends the train round — and the mass cancels, which is why the limit is the same for a full train and an empty one."
-        },
-        {
-          "e": "mgh + ½mv² = constant",
-          "c": "the energy books for anything on a track",
-          "v": [
-            [
-              "m",
-              "the mass, which divides out of every term"
-            ],
-            [
-              "h",
-              "the height above whatever datum is chosen"
-            ],
-            [
-              "v",
-              "the speed at that height"
-            ],
-            [
-              "g",
-              "the acceleration due to gravity"
-            ]
-          ],
-          "s": "Dividing by the mass is the step worth remembering: it is why a loaded train and an empty one arrive together, and why the answer is a statement about the track rather than about the load."
-        },
-        {
-          "e": "W_net = ΔK",
-          "c": "the work–energy theorem, and where the losses show up",
-          "v": [
-            [
-              "W_net",
-              "the net work done on the body, in joules"
-            ],
-            [
-              "ΔK",
-              "the change in its kinetic energy"
-            ]
-          ],
-          "s": "Friction does negative work along the whole path, so the gap between the ideal speed and the measured one is a measurement of the friction — which is the only way this park has of counting it.",
-          "card": false
-        },
-        {
-          "e": "safety factor = capacity ÷ demand",
-          "c": "the number this whole job is about",
-          "v": [
-            [
-              "capacity",
-              "what the part or the ride can take"
-            ],
-            [
-              "demand",
-              "what it is actually asked to take"
-            ]
-          ],
-          "s": "A margin is a ratio and it means nothing until both of its numbers are named — which is why a requirement that turns out to have been computed from the wrong drawing changes the margin without anything physical changing at all.",
-          "card": false
-        }
-      ],
       "concept": {
         "n": 35,
         "c": "Safety factor: what a part can take over what it is asked to take",
@@ -1509,27 +1262,6 @@ export const CURRICULUM = {
       "assumes": [
         "the morning reading stands in for a speed at the top of the loop nobody measures",
         "rolling resistance changes with temperature and with wet track"
-      ],
-      "equations": [
-        {
-          "e": "v_min = √(gr) at the crown of a loop",
-          "c": "the limiting case a rail cannot get out of",
-          "v": [
-            [
-              "v_min",
-              "the least speed the train can cross the crown at"
-            ],
-            [
-              "g",
-              "the acceleration due to gravity"
-            ],
-            [
-              "r",
-              "the radius of the loop at its crown"
-            ]
-          ],
-          "s": "A rail can push and cannot pull, so the limit is where it has stopped pushing and gravity alone bends the train round — and the mass cancels, which is why the limit is the same for a full train and an empty one."
-        }
       ],
       "concept": {
         "n": 8,
@@ -1608,27 +1340,6 @@ export const CURRICULUM = {
       "assumes": [
         "the wheel is the only ride still missing a certification decision",
         "the coaster drawing has already been shown wrong at the top of the loop"
-      ],
-      "equations": [
-        {
-          "e": "v_min = √(gr) at the crown of a loop",
-          "c": "the limiting case a rail cannot get out of",
-          "v": [
-            [
-              "v_min",
-              "the least speed the train can cross the crown at"
-            ],
-            [
-              "g",
-              "the acceleration due to gravity"
-            ],
-            [
-              "r",
-              "the radius of the loop at its crown"
-            ]
-          ],
-          "s": "A rail can push and cannot pull, so the limit is where it has stopped pushing and gravity alone bends the train round — and the mass cancels, which is why the limit is the same for a full train and an empty one."
-        }
       ]
     },
     {
@@ -1675,42 +1386,6 @@ export const CURRICULUM = {
       "assumes": [
         "energy stored in height can be turned back into motion",
         "friction turns mechanical energy into heat and does not return it"
-      ],
-      "equations": [
-        {
-          "e": "v_min = √(gr) at the crown of a loop",
-          "c": "the limiting case a rail cannot get out of",
-          "v": [
-            [
-              "v_min",
-              "the least speed the train can cross the crown at"
-            ],
-            [
-              "g",
-              "the acceleration due to gravity"
-            ],
-            [
-              "r",
-              "the radius of the loop at its crown"
-            ]
-          ],
-          "s": "A rail can push and cannot pull, so the limit is where it has stopped pushing and gravity alone bends the train round — and the mass cancels, which is why the limit is the same for a full train and an empty one."
-        },
-        {
-          "e": "W_net = ΔK",
-          "c": "the work–energy theorem, and where the losses show up",
-          "v": [
-            [
-              "W_net",
-              "the net work done on the body, in joules"
-            ],
-            [
-              "ΔK",
-              "the change in its kinetic energy"
-            ]
-          ],
-          "s": "Friction does negative work along the whole path, so the gap between the ideal speed and the measured one is a measurement of the friction — which is the only way this park has of counting it."
-        }
       ],
       "concept": {
         "n": 16,
@@ -1919,25 +1594,6 @@ export const CURRICULUM = {
           ],
           "s": "Steady speed on a curve is still acceleration, because the direction is changing — and the force that supplies it is always something real: a rail, a chain, a pole or a seat.",
           "computed": true
-        },
-        {
-          "e": "ΣF = ma",
-          "c": "what a net force is for",
-          "v": [
-            [
-              "ΣF",
-              "the sum of every force on the body, with direction"
-            ],
-            [
-              "m",
-              "its mass"
-            ],
-            [
-              "a",
-              "the acceleration that results"
-            ]
-          ],
-          "s": "Forces do not cause motion, they cause changes of motion — and the sum is what counts, which is why a free-body diagram with one arrow missing gives an answer that is wrong rather than approximate."
         }
       ],
       "concept": {
@@ -2003,25 +1659,6 @@ export const CURRICULUM = {
           ],
           "s": "Steady speed on a curve is still acceleration, because the direction is changing — and the force that supplies it is always something real: a rail, a chain, a pole or a seat.",
           "computed": true
-        },
-        {
-          "e": "ΣF = ma",
-          "c": "what a net force is for",
-          "v": [
-            [
-              "ΣF",
-              "the sum of every force on the body, with direction"
-            ],
-            [
-              "m",
-              "its mass"
-            ],
-            [
-              "a",
-              "the acceleration that results"
-            ]
-          ],
-          "s": "Forces do not cause motion, they cause changes of motion — and the sum is what counts, which is why a free-body diagram with one arrow missing gives an answer that is wrong rather than approximate."
         }
       ],
       "concept": {
@@ -2112,27 +1749,6 @@ export const CURRICULUM = {
       "assumes": [
         "a drive works harder when the load on it is greater",
         "a bearing that is failing takes more torque to turn"
-      ],
-      "equations": [
-        {
-          "e": "τ = Fd,  Στ = 0",
-          "c": "turning effect, and what balancing means",
-          "v": [
-            [
-              "τ",
-              "the torque, in newton-metres"
-            ],
-            [
-              "F",
-              "the force applied"
-            ],
-            [
-              "d",
-              "the perpendicular distance from the pivot to the line of the force"
-            ]
-          ],
-          "s": "The distance is measured across the force rather than along the member carrying it, which is the single commonest error in the subject and the reason a crane can lift more with its boom raised."
-        }
       ]
     },
     {
@@ -2234,27 +1850,6 @@ export const CURRICULUM = {
       "assumes": [
         "a load has to be taken off a bearing before its support height can be adjusted",
         "a repair is finished when the original problem is measured again"
-      ],
-      "equations": [
-        {
-          "e": "τ = Fd,  Στ = 0",
-          "c": "turning effect, and what balancing means",
-          "v": [
-            [
-              "τ",
-              "the torque, in newton-metres"
-            ],
-            [
-              "F",
-              "the force applied"
-            ],
-            [
-              "d",
-              "the perpendicular distance from the pivot to the line of the force"
-            ]
-          ],
-          "s": "The distance is measured across the force rather than along the member carrying it, which is the single commonest error in the subject and the reason a crane can lift more with its boom raised."
-        }
       ],
       "concept": {
         "n": 22,
@@ -2488,27 +2083,6 @@ export const CURRICULUM = {
       "assumes": [
         "a torque is needed to change how fast something turns",
         "the same mass can be arranged near an axle or far from it"
-      ],
-      "equations": [
-        {
-          "e": "τ = Fd,  Στ = 0",
-          "c": "turning effect, and what balancing means",
-          "v": [
-            [
-              "τ",
-              "the torque, in newton-metres"
-            ],
-            [
-              "F",
-              "the force applied"
-            ],
-            [
-              "d",
-              "the perpendicular distance from the pivot to the line of the force"
-            ]
-          ],
-          "s": "The distance is measured across the force rather than along the member carrying it, which is the single commonest error in the subject and the reason a crane can lift more with its boom raised."
-        }
       ],
       "concept": {
         "n": 24,
@@ -2865,23 +2439,6 @@ export const CURRICULUM = {
         "a claim is limited by the working that supports it",
         "an unresolved question is not the same as a negative finding"
       ],
-      "equations": [
-        {
-          "e": "safety factor = capacity ÷ demand",
-          "c": "the number this whole job is about",
-          "v": [
-            [
-              "capacity",
-              "what the part or the ride can take"
-            ],
-            [
-              "demand",
-              "what it is actually asked to take"
-            ]
-          ],
-          "s": "A margin is a ratio and it means nothing until both of its numbers are named — which is why a requirement that turns out to have been computed from the wrong drawing changes the margin without anything physical changing at all."
-        }
-      ],
       "concept": {
         "n": 35,
         "c": "Safety factor: what a part can take over what it is asked to take",
@@ -2934,27 +2491,6 @@ export const CURRICULUM = {
         "kinetic energy depends on the square of the speed",
         "velocity against speed: direction is part of the quantity — taken as read",
         "newton's second law as the definition of a net force — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "m₁u₁ + m₂u₂ = (m₁ + m₂)v",
-          "c": "momentum through a collision that ends locked together",
-          "v": [
-            [
-              "m₁, m₂",
-              "the two masses"
-            ],
-            [
-              "u₁, u₂",
-              "their velocities before, counted with direction"
-            ],
-            [
-              "v",
-              "the velocity of the pair afterwards"
-            ]
-          ],
-          "s": "Momentum is conserved in any collision where nothing outside pushes on the pair, and kinetic energy is not — the difference between those two facts is most of what a bumper car is for."
-        }
       ],
       "takesAsRead": [
         {
@@ -3372,54 +2908,6 @@ export const CURRICULUM = {
         "a change in momentum needs a force acting over a time",
         "a body and the seat it sits in can change speed over different times"
       ],
-      "equations": [
-        {
-          "e": "m₁u₁ + m₂u₂ = (m₁ + m₂)v",
-          "c": "momentum through a collision that ends locked together",
-          "v": [
-            [
-              "m₁, m₂",
-              "the two masses"
-            ],
-            [
-              "u₁, u₂",
-              "their velocities before, counted with direction"
-            ],
-            [
-              "v",
-              "the velocity of the pair afterwards"
-            ]
-          ],
-          "s": "Momentum is conserved in any collision where nothing outside pushes on the pair, and kinetic energy is not — the difference between those two facts is most of what a bumper car is for."
-        },
-        {
-          "e": "P = ρgh,  F_b = ρVg",
-          "c": "pressure with depth, and what holds a boat up",
-          "v": [
-            [
-              "P",
-              "the gauge pressure at that depth"
-            ],
-            [
-              "ρ",
-              "the density of the liquid"
-            ],
-            [
-              "h",
-              "the depth below the surface"
-            ],
-            [
-              "F_b",
-              "the buoyant force"
-            ],
-            [
-              "V",
-              "the volume of liquid displaced"
-            ]
-          ],
-          "s": "Pressure depends on how deep the column is and not how wide, and a floating body settles until the water it has pushed aside weighs exactly what it does."
-        }
-      ],
       "concept": {
         "n": 21,
         "c": "Impulse: force times time, and why a longer stop is a gentler one",
@@ -3697,31 +3185,6 @@ export const CURRICULUM = {
         "a fault on one bumper car can be isolated without closing the whole floor",
         "velocity against speed: direction is part of the quantity — taken as read"
       ],
-      "equations": [
-        {
-          "e": "mgh + ½mv² = constant",
-          "c": "the energy books for anything on a track",
-          "v": [
-            [
-              "m",
-              "the mass, which divides out of every term"
-            ],
-            [
-              "h",
-              "the height above whatever datum is chosen"
-            ],
-            [
-              "v",
-              "the speed at that height"
-            ],
-            [
-              "g",
-              "the acceleration due to gravity"
-            ]
-          ],
-          "s": "Dividing by the mass is the step worth remembering: it is why a loaded train and an empty one arrive together, and why the answer is a statement about the track rather than about the load."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 1,
@@ -3778,27 +3241,6 @@ export const CURRICULUM = {
       "assumes": [
         "a pendulum has a restoring force toward its lowest point",
         "Newton's second law connects net force, mass and acceleration"
-      ],
-      "equations": [
-        {
-          "e": "ΣF = ma",
-          "c": "what a net force is for",
-          "v": [
-            [
-              "ΣF",
-              "the sum of every force on the body, with direction"
-            ],
-            [
-              "m",
-              "its mass"
-            ],
-            [
-              "a",
-              "the acceleration that results"
-            ]
-          ],
-          "s": "Forces do not cause motion, they cause changes of motion — and the sum is what counts, which is why a free-body diagram with one arrow missing gives an answer that is wrong rather than approximate."
-        }
       ],
       "concept": {
         "n": 26,
@@ -4095,27 +3537,6 @@ export const CURRICULUM = {
         "a push in step with an oscillation adds energy and an out-of-step push can remove it",
         "the small-angle pendulum formula is approximate at a 48-degree swing"
       ],
-      "equations": [
-        {
-          "e": "T = 2π√(L/g)",
-          "c": "the pendulum period, and the mass that is not in it",
-          "v": [
-            [
-              "T",
-              "the time for one complete swing"
-            ],
-            [
-              "L",
-              "the length from the pivot to the centre of mass"
-            ],
-            [
-              "g",
-              "the acceleration due to gravity"
-            ]
-          ],
-          "s": "A heavier boat is pulled back harder in exactly the same proportion as it is harder to accelerate, so the mass cancels — which also makes this the easiest accurate way to measure gravity anywhere."
-        }
-      ],
       "concept": {
         "n": 29,
         "c": "Resonance and damping: driving an oscillator in step or out of it",
@@ -4163,27 +3584,6 @@ export const CURRICULUM = {
       "assumes": [
         "a push in step with an oscillation adds energy and an out-of-step push can remove it",
         "the operating period can differ from the small-angle estimate at large amplitude"
-      ],
-      "equations": [
-        {
-          "e": "T = 2π√(L/g)",
-          "c": "the pendulum period, and the mass that is not in it",
-          "v": [
-            [
-              "T",
-              "the time for one complete swing"
-            ],
-            [
-              "L",
-              "the length from the pivot to the centre of mass"
-            ],
-            [
-              "g",
-              "the acceleration due to gravity"
-            ]
-          ],
-          "s": "A heavier boat is pulled back harder in exactly the same proportion as it is harder to accelerate, so the mass cancels — which also makes this the easiest accurate way to measure gravity anywhere."
-        }
       ],
       "concept": {
         "n": 29,
@@ -4247,25 +3647,6 @@ export const CURRICULUM = {
           ],
           "s": "Steady speed on a curve is still acceleration, because the direction is changing — and the force that supplies it is always something real: a rail, a chain, a pole or a seat.",
           "demanded": true
-        },
-        {
-          "e": "ΣF = ma",
-          "c": "what a net force is for",
-          "v": [
-            [
-              "ΣF",
-              "the sum of every force on the body, with direction"
-            ],
-            [
-              "m",
-              "its mass"
-            ],
-            [
-              "a",
-              "the acceleration that results"
-            ]
-          ],
-          "s": "Forces do not cause motion, they cause changes of motion — and the sum is what counts, which is why a free-body diagram with one arrow missing gives an answer that is wrong rather than approximate."
         }
       ],
       "concept": {
@@ -4316,27 +3697,6 @@ export const CURRICULUM = {
       "assumes": [
         "the boat is pulled back toward its lowest point whenever it is displaced",
         "a longer path covered in the same time means a higher average speed"
-      ],
-      "equations": [
-        {
-          "e": "T = 2π√(L/g)",
-          "c": "the pendulum period, and the mass that is not in it",
-          "v": [
-            [
-              "T",
-              "the time for one complete swing"
-            ],
-            [
-              "L",
-              "the length from the pivot to the centre of mass"
-            ],
-            [
-              "g",
-              "the acceleration due to gravity"
-            ]
-          ],
-          "s": "A heavier boat is pulled back harder in exactly the same proportion as it is harder to accelerate, so the mass cancels — which also makes this the easiest accurate way to measure gravity anywhere."
-        }
       ],
       "concept": {
         "n": 26,
@@ -4924,35 +4284,6 @@ export const CURRICULUM = {
       "assumes": [
         "a thrown or fired thing rises and falls under gravity"
       ],
-      "equations": [
-        {
-          "e": "P = ρgh,  F_b = ρVg",
-          "c": "pressure with depth, and what holds a boat up",
-          "v": [
-            [
-              "P",
-              "the gauge pressure at that depth"
-            ],
-            [
-              "ρ",
-              "the density of the liquid"
-            ],
-            [
-              "h",
-              "the depth below the surface"
-            ],
-            [
-              "F_b",
-              "the buoyant force"
-            ],
-            [
-              "V",
-              "the volume of liquid displaced"
-            ]
-          ],
-          "s": "Pressure depends on how deep the column is and not how wide, and a floating body settles until the water it has pushed aside weighs exactly what it does."
-        }
-      ],
       "concept": {
         "n": 4,
         "c": "Free fall: everything falls at the same rate whatever its mass",
@@ -5001,35 +4332,6 @@ export const CURRICULUM = {
       "assumes": [
         "a floating boat sits at whatever depth displaces its own weight",
         "the drop at the end of the flume throws up a wave the boat meets"
-      ],
-      "equations": [
-        {
-          "e": "P = ρgh,  F_b = ρVg",
-          "c": "pressure with depth, and what holds a boat up",
-          "v": [
-            [
-              "P",
-              "the gauge pressure at that depth"
-            ],
-            [
-              "ρ",
-              "the density of the liquid"
-            ],
-            [
-              "h",
-              "the depth below the surface"
-            ],
-            [
-              "F_b",
-              "the buoyant force"
-            ],
-            [
-              "V",
-              "the volume of liquid displaced"
-            ]
-          ],
-          "s": "Pressure depends on how deep the column is and not how wide, and a floating body settles until the water it has pushed aside weighs exactly what it does."
-        }
       ],
       "concept": {
         "n": 33,

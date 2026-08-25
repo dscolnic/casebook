@@ -553,22 +553,6 @@ export const CURRICULUM = {
           ],
           "s": "Concentration is how many moles are dissolved in each litre of solution.",
           "computed": true
-        },
-        {
-          "e": "yield % = actual / theoretical × 100",
-          "c": "percent yield",
-          "v": [
-            [
-              "actual",
-              "what was recovered, in grams or moles"
-            ],
-            [
-              "theoretical",
-              "what the mole ratio says was available"
-            ]
-          ],
-          "s": "Divide what you got by what the balanced equation entitled you to, and the gap is the question.",
-          "card": false
         }
       ],
       "concept": {
@@ -634,27 +618,6 @@ export const CURRICULUM = {
       "assumes": [
         "a molar mass is what turns a mass into a number of particles"
       ],
-      "equations": [
-        {
-          "e": "n = m / M",
-          "c": "moles from a mass and a molar mass",
-          "v": [
-            [
-              "n",
-              "number of moles, in mol"
-            ],
-            [
-              "m",
-              "mass of the sample, in grams"
-            ],
-            [
-              "M",
-              "molar mass of the substance, in grams per mole"
-            ]
-          ],
-          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "The mole as a count, and molar mass as the bridge to a mass",
@@ -709,46 +672,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "some measurements leave the sample as they found it and some use it up"
-      ],
-      "equations": [
-        {
-          "e": "C₁V₁ = C₂V₂",
-          "c": "dilution, and carrying a factor back",
-          "v": [
-            [
-              "C₁",
-              "concentration before dilution"
-            ],
-            [
-              "V₁",
-              "volume taken of the stronger solution"
-            ],
-            [
-              "C₂",
-              "concentration after dilution"
-            ],
-            [
-              "V₂",
-              "final volume, in the same units as V₁"
-            ]
-          ],
-          "s": "Diluting adds solvent and not solute, so the product of concentration and volume is unchanged."
-        },
-        {
-          "e": "yield % = actual / theoretical × 100",
-          "c": "percent yield",
-          "v": [
-            [
-              "actual",
-              "what was recovered, in grams or moles"
-            ],
-            [
-              "theoretical",
-              "what the mole ratio says was available"
-            ]
-          ],
-          "s": "Divide what you got by what the balanced equation entitled you to, and the gap is the question."
-        }
       ],
       "concept": {
         "n": 8,
@@ -901,54 +824,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a gas has a state and also a place, and they change for different reasons"
-      ],
-      "equations": [
-        {
-          "e": "n = m / M",
-          "c": "moles from a mass and a molar mass",
-          "v": [
-            [
-              "n",
-              "number of moles, in mol"
-            ],
-            [
-              "m",
-              "mass of the sample, in grams"
-            ],
-            [
-              "M",
-              "molar mass of the substance, in grams per mole"
-            ]
-          ],
-          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
-        },
-        {
-          "e": "PV = nRT",
-          "c": "the ideal gas law",
-          "v": [
-            [
-              "P",
-              "pressure, in pascals"
-            ],
-            [
-              "V",
-              "volume, in cubic metres"
-            ],
-            [
-              "n",
-              "moles of gas"
-            ],
-            [
-              "R",
-              "8.314 J per mole per kelvin"
-            ],
-            [
-              "T",
-              "absolute temperature, in kelvin"
-            ]
-          ],
-          "s": "For a gas, pressure times volume is fixed by how much gas there is and how hot it is."
-        }
       ],
       "concept": {
         "n": 24,
@@ -1959,46 +1834,6 @@ export const CURRICULUM = {
           ],
           "s": "A buffer sits at its pKa when the two forms are equal, and moves one pH unit per tenfold change in the ratio.",
           "demanded": true
-        },
-        {
-          "e": "pH = −log₁₀[H⁺]",
-          "c": "pH as a logarithm of concentration",
-          "v": [
-            [
-              "pH",
-              "the pH, with no units"
-            ],
-            [
-              "[H⁺]",
-              "hydrogen ion concentration, in mol per litre"
-            ]
-          ],
-          "s": "Each pH unit is a factor of ten in hydrogen ion concentration, so two units is a hundredfold.",
-          "card": false
-        },
-        {
-          "e": "MaVa = MbVb",
-          "c": "moles matched at the equivalence point",
-          "v": [
-            [
-              "Ma",
-              "concentration of the acid"
-            ],
-            [
-              "Va",
-              "volume of acid"
-            ],
-            [
-              "Mb",
-              "concentration of the base"
-            ],
-            [
-              "Vb",
-              "volume of base added to reach equivalence"
-            ]
-          ],
-          "s": "At equivalence the moles of acid and base have matched, which is what makes a titration a measurement.",
-          "card": false
         }
       ],
       "takesAsRead": [
@@ -2309,29 +2144,6 @@ export const CURRICULUM = {
           ],
           "s": "Q below K means the reaction still runs forward; Q above it means it runs back, and Q equal to it means nothing moves.",
           "computed": true
-        },
-        {
-          "e": "Ksp = [A⁺]ᵃ[B⁻]ᵇ",
-          "c": "the solubility product of a sparingly soluble salt",
-          "v": [
-            [
-              "Ksp",
-              "the solubility product"
-            ],
-            [
-              "[A⁺]",
-              "cation concentration at saturation"
-            ],
-            [
-              "[B⁻]",
-              "anion concentration at saturation"
-            ],
-            [
-              "a, b",
-              "their coefficients in the dissolution equation"
-            ]
-          ],
-          "s": "A saturated solution holds its ions at a fixed product, so adding one of them forces the other out."
         }
       ],
       "takesAsRead": [
@@ -2599,29 +2411,6 @@ export const CURRICULUM = {
           ],
           "s": "In any aqueous solution the two multiply to the same number, so knowing one gives the other.",
           "computed": true
-        },
-        {
-          "e": "C₁V₁ = C₂V₂",
-          "c": "dilution, and carrying a factor back",
-          "v": [
-            [
-              "C₁",
-              "concentration before dilution"
-            ],
-            [
-              "V₁",
-              "volume taken of the stronger solution"
-            ],
-            [
-              "C₂",
-              "concentration after dilution"
-            ],
-            [
-              "V₂",
-              "final volume, in the same units as V₁"
-            ]
-          ],
-          "s": "Diluting adds solvent and not solute, so the product of concentration and volume is unchanged."
         }
       ],
       "concept": {
@@ -3093,27 +2882,6 @@ export const CURRICULUM = {
       "assumes": [
         "a balanced equation says how many of one thing react with how many of another"
       ],
-      "equations": [
-        {
-          "e": "n = m / M",
-          "c": "moles from a mass and a molar mass",
-          "v": [
-            [
-              "n",
-              "number of moles, in mol"
-            ],
-            [
-              "m",
-              "mass of the sample, in grams"
-            ],
-            [
-              "M",
-              "molar mass of the substance, in grams per mole"
-            ]
-          ],
-          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "A balanced equation as a ratio of amounts",
@@ -3171,25 +2939,6 @@ export const CURRICULUM = {
           ],
           "s": "Divide what you got by what the balanced equation entitled you to, and the gap is the question.",
           "computed": true
-        },
-        {
-          "e": "n = m / M",
-          "c": "moles from a mass and a molar mass",
-          "v": [
-            [
-              "n",
-              "number of moles, in mol"
-            ],
-            [
-              "m",
-              "mass of the sample, in grams"
-            ],
-            [
-              "M",
-              "molar mass of the substance, in grams per mole"
-            ]
-          ],
-          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
         }
       ],
       "concept": {
@@ -3240,31 +2989,6 @@ export const CURRICULUM = {
         "temperature in ΔG = ΔH − TΔS must be in kelvin",
         "a negative ΔG means the forward reaction is thermodynamically favored",
         "endothermic and exothermic, and what temperature does to an equilibrium — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "ΔG = ΔH − TΔS",
-          "c": "free energy, and which way a change runs",
-          "v": [
-            [
-              "ΔG",
-              "change in free energy, in kJ per mole"
-            ],
-            [
-              "ΔH",
-              "change in enthalpy"
-            ],
-            [
-              "T",
-              "absolute temperature, in kelvin"
-            ],
-            [
-              "ΔS",
-              "change in entropy, in kJ per mole per kelvin"
-            ]
-          ],
-          "s": "A change runs on its own when the free-energy change is negative, and temperature decides which term wins."
-        }
       ],
       "takesAsRead": [
         {
@@ -3627,54 +3351,6 @@ export const CURRICULUM = {
       "assumes": [
         "a trend says something a single reading cannot"
       ],
-      "equations": [
-        {
-          "e": "C₁V₁ = C₂V₂",
-          "c": "dilution, and carrying a factor back",
-          "v": [
-            [
-              "C₁",
-              "concentration before dilution"
-            ],
-            [
-              "V₁",
-              "volume taken of the stronger solution"
-            ],
-            [
-              "C₂",
-              "concentration after dilution"
-            ],
-            [
-              "V₂",
-              "final volume, in the same units as V₁"
-            ]
-          ],
-          "s": "Diluting adds solvent and not solute, so the product of concentration and volume is unchanged."
-        },
-        {
-          "e": "q = mcΔT",
-          "c": "heat from a temperature change",
-          "v": [
-            [
-              "q",
-              "heat, in joules"
-            ],
-            [
-              "m",
-              "mass of the solution, in grams"
-            ],
-            [
-              "c",
-              "specific heat capacity, 4.18 J per gram per kelvin for water"
-            ],
-            [
-              "ΔT",
-              "temperature change, in kelvin"
-            ]
-          ],
-          "s": "The heat a reaction released is read off the water it warmed, not off the reaction itself."
-        }
-      ],
       "concept": {
         "n": 4,
         "c": "Dilution, and carrying a factor back to the sample",
@@ -3789,31 +3465,6 @@ export const CURRICULUM = {
       "assumes": [
         "a reaction goes faster when it is hotter",
         "le Chatelier: a stress, and the shift that answers it — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "q = mcΔT",
-          "c": "heat from a temperature change",
-          "v": [
-            [
-              "q",
-              "heat, in joules"
-            ],
-            [
-              "m",
-              "mass of the solution, in grams"
-            ],
-            [
-              "c",
-              "specific heat capacity, 4.18 J per gram per kelvin for water"
-            ],
-            [
-              "ΔT",
-              "temperature change, in kelvin"
-            ]
-          ],
-          "s": "The heat a reaction released is read off the water it warmed, not off the reaction itself."
-        }
       ],
       "takesAsRead": [
         {
@@ -3963,27 +3614,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a reaction stops when one ingredient runs out"
-      ],
-      "equations": [
-        {
-          "e": "n = m / M",
-          "c": "moles from a mass and a molar mass",
-          "v": [
-            [
-              "n",
-              "number of moles, in mol"
-            ],
-            [
-              "m",
-              "mass of the sample, in grams"
-            ],
-            [
-              "M",
-              "molar mass of the substance, in grams per mole"
-            ]
-          ],
-          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
-        }
       ],
       "concept": {
         "n": 6,
@@ -4334,23 +3964,6 @@ export const CURRICULUM = {
       "assumes": [
         "a filter can only remove something that is already a solid",
         "ions in solution, and net ionic equations — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "Kw = [H⁺][OH⁻] = 1.0 × 10⁻¹⁴",
-          "c": "the water constant at 25 °C",
-          "v": [
-            [
-              "[H⁺]",
-              "hydrogen ion concentration, in mol per litre"
-            ],
-            [
-              "[OH⁻]",
-              "hydroxide ion concentration, in mol per litre"
-            ]
-          ],
-          "s": "In any aqueous solution the two multiply to the same number, so knowing one gives the other."
-        }
       ],
       "takesAsRead": [
         {

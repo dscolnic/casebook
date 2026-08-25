@@ -990,10 +990,16 @@ export function buildInteriorBuilding(scene, spec){
   const standHit = add(new THREE.Mesh(
     new THREE.BoxGeometry(TABLE_W + 0.3, 1.5, TABLE_D + 0.3), new THREE.MeshBasicMaterial({ visible: false })));
   standHit.position.set(standX, 0.85, standZ);
-  interactables.push({
-    mesh: standHit, type: 'case', id: spec.id,
-    prompt: `E — Take the case in ${spec.name}`,
-  });
+  // A MINOR room has no case. These are the places that were facades until the
+  // placement pass opened them — the tank farm, the array shed, the pad — and
+  // nothing is ever called there, so a stand registered as `type: 'case'` would
+  // hand `openVisit()` an id that is not an area. It reads instead.
+  interactables.push(spec.minor
+    ? { mesh: standHit, type: 'info', id: spec.id,
+        prompt: `E — Read about ${spec.placeName || spec.name}`,
+        info: spec.caption ?? '' }
+    : { mesh: standHit, type: 'case', id: spec.id,
+        prompt: `E — Take the case in ${spec.name}` });
   // The table is the only thing in the room that starts a question, and from
   // the doorway it is a table with paper on it. Mark it.
   const beacon = addCaseBeacon(group, {
@@ -1186,6 +1192,17 @@ export function buildInteriorBuilding(scene, spec){
   return {
     id: spec.id,
     group, colliders, interactables, light, screen, plate, chart, beacon, stationLane,
+    /**
+     * The room's own dimensions, for anything built into it after the fact.
+     *
+     * `interiorFixtures.js` places an object against a named wall and has to know
+     * where the walls are. It could be handed the theme's metrics instead, and
+     * that is the second copy of a number this repo keeps paying for: `P` is
+     * already three merged sources deep by the time the room is built, and a
+     * fixture placed from the theme's declared `w` would sit inside the plaster
+     * on every room whose layout overrode it.
+     */
+    bounds: { w: P.w, d: P.d, x0, x1, z0, z1, wall: P.wall, flip },
     /** The campaign's own product, in the one room that keeps it. Absent elsewhere. */
     delivery,
     /** Light the marker only while there is actually a case waiting here. */

@@ -168,27 +168,6 @@ export const CURRICULUM = {
         "features can be described without the person being identifiable",
         "the same face was used at every distance"
       ],
-      "equations": [
-        {
-          "e": "θ = s / d",
-          "c": "angular size — how large a detail is at the eye, in radians",
-          "v": [
-            [
-              "θ",
-              "the angle the detail subtends at the eye, in radians"
-            ],
-            [
-              "s",
-              "the size of the detail itself, in metres"
-            ],
-            [
-              "d",
-              "how far away it is, in metres"
-            ]
-          ],
-          "s": "A detail arrives at the eye as an angle rather than as a size, so the same face is a smaller thing to see the further off it is — twice the distance is half the angle."
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "Acuity as an angle: what the eye can resolve falls off with distance",
@@ -372,27 +351,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the eye adjusts to the general level of light it is in"
-      ],
-      "equations": [
-        {
-          "e": "E = I / d²",
-          "c": "illuminance falling off with the square of the distance",
-          "v": [
-            [
-              "E",
-              "illuminance on the scene, in lux"
-            ],
-            [
-              "I",
-              "the luminous intensity of the source, in candela"
-            ],
-            [
-              "d",
-              "distance from the source, in metres"
-            ]
-          ],
-          "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
-        }
       ],
       "concept": {
         "n": 4,
@@ -586,27 +544,6 @@ export const CURRICULUM = {
       "assumes": [
         "illuminance falls off with the square of the distance from a source"
       ],
-      "equations": [
-        {
-          "e": "E = I / d²",
-          "c": "illuminance falling off with the square of the distance",
-          "v": [
-            [
-              "E",
-              "illuminance on the scene, in lux"
-            ],
-            [
-              "I",
-              "the luminous intensity of the source, in candela"
-            ],
-            [
-              "d",
-              "distance from the source, in metres"
-            ]
-          ],
-          "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
-        }
-      ],
       "concept": {
         "n": 2,
         "c": "Illuminance, and the light a scene actually had",
@@ -651,46 +588,6 @@ export const CURRICULUM = {
       "assumes": [
         "a claim about a place can be checked without the people who were there"
       ],
-      "equations": [
-        {
-          "e": "s_min = θ_min × d",
-          "c": "the smallest detail an eye can resolve at a given distance",
-          "v": [
-            [
-              "s_min",
-              "the smallest detail that can be told apart at that distance, in metres"
-            ],
-            [
-              "θ_min",
-              "the eye's resolution limit as an angle — about 1 arc minute, 0.0003 radians, in good light"
-            ],
-            [
-              "d",
-              "the distance to the face, in metres"
-            ]
-          ],
-          "s": "Turn the resolution limit around and it says what a distance costs: at ten metres the eye separates about three millimetres, and at thirty-four it separates about a centimetre, which is wider than most of what tells two faces apart."
-        },
-        {
-          "e": "E = I / d²",
-          "c": "illuminance falling off with the square of the distance",
-          "v": [
-            [
-              "E",
-              "illuminance on the scene, in lux"
-            ],
-            [
-              "I",
-              "the luminous intensity of the source, in candela"
-            ],
-            [
-              "d",
-              "distance from the source, in metres"
-            ]
-          ],
-          "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "Acuity as an angle: what the eye can resolve falls off with distance",
@@ -734,46 +631,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "illuminance depends on the distance from the source to the surface being lit"
-      ],
-      "equations": [
-        {
-          "e": "θ = s / d",
-          "c": "angular size — how large a detail is at the eye, in radians",
-          "v": [
-            [
-              "θ",
-              "the angle the detail subtends at the eye, in radians"
-            ],
-            [
-              "s",
-              "the size of the detail itself, in metres"
-            ],
-            [
-              "d",
-              "how far away it is, in metres"
-            ]
-          ],
-          "s": "A detail arrives at the eye as an angle rather than as a size, so the same face is a smaller thing to see the further off it is — twice the distance is half the angle."
-        },
-        {
-          "e": "E = I / d²",
-          "c": "illuminance falling off with the square of the distance",
-          "v": [
-            [
-              "E",
-              "illuminance on the scene, in lux"
-            ],
-            [
-              "I",
-              "the luminous intensity of the source, in candela"
-            ],
-            [
-              "d",
-              "distance from the source, in metres"
-            ]
-          ],
-          "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
-        }
       ],
       "concept": {
         "n": 2,
@@ -1341,27 +1198,6 @@ export const CURRICULUM = {
         "work that cannot change a conclusion is not evidence for it",
         "some evidence is used up by being collected"
       ],
-      "equations": [
-        {
-          "e": "FS = m / k",
-          "c": "functional size — how many members of a lineup were real alternatives",
-          "v": [
-            [
-              "FS",
-              "functional size, an effective number of members"
-            ],
-            [
-              "m",
-              "how many mock witnesses were asked, having read only the description"
-            ],
-            [
-              "k",
-              "how many of them picked the suspect without ever having seen the crime"
-            ]
-          ],
-          "s": "Give the description to people who were not there and see who they choose: if far more than a fair share land on the suspect, the other members were never alternatives and the lineup is smaller than it looks."
-        }
-      ],
       "concept": {
         "n": 20,
         "c": "Functional size: how many of them were real alternatives",
@@ -1408,27 +1244,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "attention selects part of a scene at a time"
-      ],
-      "equations": [
-        {
-          "e": "s_min = θ_min × d",
-          "c": "the smallest detail an eye can resolve at a given distance",
-          "v": [
-            [
-              "s_min",
-              "the smallest detail that can be told apart at that distance, in metres"
-            ],
-            [
-              "θ_min",
-              "the eye's resolution limit as an angle — about 1 arc minute, 0.0003 radians, in good light"
-            ],
-            [
-              "d",
-              "the distance to the face, in metres"
-            ]
-          ],
-          "s": "Turn the resolution limit around and it says what a distance costs: at ten metres the eye separates about three millimetres, and at thirty-four it separates about a centimetre, which is wider than most of what tells two faces apart."
-        }
       ],
       "concept": {
         "n": 8,
@@ -1614,27 +1429,6 @@ export const CURRICULUM = {
       "assumes": [
         "a lineup is built to be consistent with the description already given",
         "how a lineup is built: fillers, and the ones nobody would pick — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "FS = m / k",
-          "c": "functional size — how many members of a lineup were real alternatives",
-          "v": [
-            [
-              "FS",
-              "functional size, an effective number of members"
-            ],
-            [
-              "m",
-              "how many mock witnesses were asked, having read only the description"
-            ],
-            [
-              "k",
-              "how many of them picked the suspect without ever having seen the crime"
-            ]
-          ],
-          "s": "Give the description to people who were not there and see who they choose: if far more than a fair share land on the suspect, the other members were never alternatives and the lineup is smaller than it looks."
-        }
       ],
       "takesAsRead": [
         {
@@ -2007,27 +1801,6 @@ export const CURRICULUM = {
       "assumes": [
         "a limit on what could be seen is not evidence about who was there",
         "storage and forgetting: the curve is steep at the start — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "E = I / d²",
-          "c": "illuminance falling off with the square of the distance",
-          "v": [
-            [
-              "E",
-              "illuminance on the scene, in lux"
-            ],
-            [
-              "I",
-              "the luminous intensity of the source, in candela"
-            ],
-            [
-              "d",
-              "distance from the source, in metres"
-            ]
-          ],
-          "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
-        }
       ],
       "takesAsRead": [
         {
@@ -2875,27 +2648,6 @@ export const CURRICULUM = {
       "assumes": [
         "rods are sensitive, coarse and colour-blind"
       ],
-      "equations": [
-        {
-          "e": "E = I / d²",
-          "c": "illuminance falling off with the square of the distance",
-          "v": [
-            [
-              "E",
-              "illuminance on the scene, in lux"
-            ],
-            [
-              "I",
-              "the luminous intensity of the source, in candela"
-            ],
-            [
-              "d",
-              "distance from the source, in metres"
-            ]
-          ],
-          "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
-        }
-      ],
       "concept": {
         "n": 27,
         "c": "Reliability: the same measurement twice, and two people measuring once",
@@ -3351,27 +3103,6 @@ export const CURRICULUM = {
       "assumes": [
         "a reader gives most weight to what they read first"
       ],
-      "equations": [
-        {
-          "e": "E = I / d²",
-          "c": "illuminance falling off with the square of the distance",
-          "v": [
-            [
-              "E",
-              "illuminance on the scene, in lux"
-            ],
-            [
-              "I",
-              "the luminous intensity of the source, in candela"
-            ],
-            [
-              "d",
-              "distance from the source, in metres"
-            ]
-          ],
-          "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
-        }
-      ],
       "concept": {
         "n": 2,
         "c": "Illuminance, and the light a scene actually had",
@@ -3489,27 +3220,6 @@ export const CURRICULUM = {
       "assumes": [
         "a review works to a stated question that somebody can change"
       ],
-      "equations": [
-        {
-          "e": "E = I / d²",
-          "c": "illuminance falling off with the square of the distance",
-          "v": [
-            [
-              "E",
-              "illuminance on the scene, in lux"
-            ],
-            [
-              "I",
-              "the luminous intensity of the source, in candela"
-            ],
-            [
-              "d",
-              "distance from the source, in metres"
-            ]
-          ],
-          "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
-        }
-      ],
       "concept": {
         "n": 23,
         "c": "Post-identification feedback and confidence inflation",
@@ -3563,27 +3273,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "claims of different kinds cannot be defended in the same way"
-      ],
-      "equations": [
-        {
-          "e": "FS = m / k",
-          "c": "functional size — how many members of a lineup were real alternatives",
-          "v": [
-            [
-              "FS",
-              "functional size, an effective number of members"
-            ],
-            [
-              "m",
-              "how many mock witnesses were asked, having read only the description"
-            ],
-            [
-              "k",
-              "how many of them picked the suspect without ever having seen the crime"
-            ]
-          ],
-          "s": "Give the description to people who were not there and see who they choose: if far more than a fair share land on the suspect, the other members were never alternatives and the lineup is smaller than it looks."
-        }
       ]
     },
     {
@@ -3623,31 +3312,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a standard agreed in advance can be compared against afterwards"
-      ],
-      "equations": [
-        {
-          "e": "z = (X − μ) / σ",
-          "c": "a standard score — one person against the norms",
-          "v": [
-            [
-              "z",
-              "the standard score, in standard deviations"
-            ],
-            [
-              "X",
-              "the score this person got"
-            ],
-            [
-              "μ",
-              "the mean of the norm group"
-            ],
-            [
-              "σ",
-              "the standard deviation of the norm group"
-            ]
-          ],
-          "s": "A raw score says nothing on its own; subtracting the norm group's mean and dividing by its spread says how unusual it is, which is the only form in which one person's result can be compared with anybody else's."
-        }
       ]
     }
   ],
@@ -3774,27 +3438,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measurement can be repeated by somebody else and a description cannot"
-      ],
-      "equations": [
-        {
-          "e": "E = I / d²",
-          "c": "illuminance falling off with the square of the distance",
-          "v": [
-            [
-              "E",
-              "illuminance on the scene, in lux"
-            ],
-            [
-              "I",
-              "the luminous intensity of the source, in candela"
-            ],
-            [
-              "d",
-              "distance from the source, in metres"
-            ]
-          ],
-          "s": "Light from one lamp spreads over an area that grows as the square of the distance, so a corner twice as far from the streetlight has a quarter of the light on it — which is the difference between a face and a shape."
-        }
       ],
       "concept": {
         "n": 2,

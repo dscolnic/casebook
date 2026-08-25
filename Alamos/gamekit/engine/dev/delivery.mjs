@@ -178,9 +178,16 @@ export function checkTheme(theme, { debt = [] } = {}){
 
   // ---- where it is kept
   const groups = theme?.content?.GROUPS ?? [];
+  // An area, OR a minor place — one of the buildings a theme opens with `enter:`
+  // that carries no lesson. Red Sand's board belongs at the Pad Office, because
+  // the thing it counts is the fuel and the fuel goes into the vehicle standing
+  // outside that door. A board in the room the thing ends up in is worth more than
+  // a board in the room nearest the questions. What still has to hold is the half
+  // that was ever load-bearing: somewhere to walk in and stand.
   const group = groups.find(g => g.id === d.where);
+  const minor = (theme?.site?.buildings ?? []).some(b => b.enter === d.where);
   if(!d.where) problems.push('`delivery.where` is empty: the pieces are gathered nowhere');
-  else if(!group) problems.push(`\`delivery.where\` is "${d.where}", which is not one of this campaign's areas`);
+  else if(!group && !minor) problems.push(`\`delivery.where\` is "${d.where}", which is neither one of this campaign's areas nor a place it opens with \`enter:\``);
   else if(!roomFor(theme, d.where)){
     problems.push(`\`delivery.where\` is "${d.where}", which is an area with nowhere to stand:`
       + ' no interior behind a door and no room of its own on the plan, so the board would be'
@@ -215,7 +222,11 @@ export function checkTheme(theme, { debt = [] } = {}){
   }
 
   notes.push(`${pieces.length} piece(s)`);
-  if(group) notes.push(`kept in ${group.name}`);
+  // The place's own name, not the area's: a minor place has no area to name, and
+  // reporting nothing there reads as a board kept nowhere.
+  const keptIn = group?.name
+    ?? (theme?.site?.buildings ?? []).find(b => b.enter === d.where)?.name;
+  if(keptIn) notes.push(`kept in ${keptIn}`);
   return { problems, notes, pieces: pieces.length, name: d.name };
 }
 

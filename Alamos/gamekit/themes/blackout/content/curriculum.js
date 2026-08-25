@@ -196,35 +196,6 @@ export const CURRICULUM = {
         "synchronous machines and synchronisation — taken as read",
         "electrical power and energy over time — taken as read"
       ],
-      "equations": [
-        {
-          "e": "df/dt = f₀(P_gen − P_load) / 2H",
-          "c": "frequency as the running balance of supply and demand",
-          "v": [
-            [
-              "df/dt",
-              "how fast frequency is moving, in hertz per second"
-            ],
-            [
-              "f₀",
-              "nominal frequency, in hertz — 50 on this system"
-            ],
-            [
-              "P_gen",
-              "total generation, in megawatts"
-            ],
-            [
-              "P_load",
-              "total demand, in megawatts"
-            ],
-            [
-              "H",
-              "stored kinetic energy of the machines online, in megawatt-seconds"
-            ]
-          ],
-          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it, and scaled by the frequency the system runs at."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 18,
@@ -437,27 +408,6 @@ export const CURRICULUM = {
         "reserve is held against uncertainty rather than only the forecast centre",
         "storage power and storage deliverability are separate claims",
         "electrical power and energy over time — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "η = E_out / E_in",
-          "c": "round-trip efficiency of storage",
-          "v": [
-            [
-              "η",
-              "round-trip efficiency, between 0 and 1"
-            ],
-            [
-              "E_out",
-              "energy you get back out"
-            ],
-            [
-              "E_in",
-              "energy you put in"
-            ]
-          ],
-          "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate."
-        }
       ],
       "takesAsRead": [
         {
@@ -694,31 +644,6 @@ export const CURRICULUM = {
         "the large station needs electrical auxiliaries before it can start",
         "the hydro unit can start without an outside electrical supply"
       ],
-      "equations": [
-        {
-          "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives",
-          "v": [
-            [
-              "P",
-              "power, in watts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "V",
-              "voltage, in volts"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
-        }
-      ],
       "concept": {
         "n": 26,
         "c": "Islanding, black start and restoration order",
@@ -784,50 +709,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a conclusion can depend on one input or on several"
-      ],
-      "equations": [
-        {
-          "e": "V = IR",
-          "c": "Ohm's law, on a conductor and on a whole network",
-          "v": [
-            [
-              "V",
-              "voltage across it, in volts"
-            ],
-            [
-              "I",
-              "current through it, in amperes"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Current through a resistance produces a voltage across it, in proportion."
-        },
-        {
-          "e": "P = IV, and P = I²R",
-          "c": "power delivered, and the loss that never arrives",
-          "v": [
-            [
-              "P",
-              "power, in watts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "V",
-              "voltage, in volts"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Power delivered is current times voltage, and the power wasted as heat in a conductor rises with the square of the current."
-        }
       ],
       "concept": {
         "n": 26,
@@ -1010,35 +891,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "frequency falls when demand exceeds generation"
-      ],
-      "equations": [
-        {
-          "e": "df/dt = f₀(P_gen − P_load) / 2H",
-          "c": "frequency as the running balance of supply and demand",
-          "v": [
-            [
-              "df/dt",
-              "how fast frequency is moving, in hertz per second"
-            ],
-            [
-              "f₀",
-              "nominal frequency, in hertz — 50 on this system"
-            ],
-            [
-              "P_gen",
-              "total generation, in megawatts"
-            ],
-            [
-              "P_load",
-              "total demand, in megawatts"
-            ],
-            [
-              "H",
-              "stored kinetic energy of the machines online, in megawatt-seconds"
-            ]
-          ],
-          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it, and scaled by the frequency the system runs at."
-        }
       ],
       "concept": {
         "n": 19,
@@ -1626,35 +1478,6 @@ export const CURRICULUM = {
         "stored kinetic energy affects the initial rate of frequency change",
         "inverter-connected generation may add power without adding synchronous inertia"
       ],
-      "equations": [
-        {
-          "e": "df/dt = f₀(P_gen − P_load) / 2H",
-          "c": "frequency as the running balance of supply and demand",
-          "v": [
-            [
-              "df/dt",
-              "how fast frequency is moving, in hertz per second"
-            ],
-            [
-              "f₀",
-              "nominal frequency, in hertz — 50 on this system"
-            ],
-            [
-              "P_gen",
-              "total generation, in megawatts"
-            ],
-            [
-              "P_load",
-              "total demand, in megawatts"
-            ],
-            [
-              "H",
-              "stored kinetic energy of the machines online, in megawatt-seconds"
-            ]
-          ],
-          "s": "Frequency falls at a rate set by how far generation is short, divided by the spinning inertia there to absorb it, and scaled by the frequency the system runs at."
-        }
-      ],
       "concept": {
         "n": 19,
         "c": "Frequency as the balance of supply and demand",
@@ -1715,27 +1538,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "power has to have a path to where it is used"
-      ],
-      "equations": [
-        {
-          "e": "η = E_out / E_in",
-          "c": "round-trip efficiency of storage",
-          "v": [
-            [
-              "η",
-              "round-trip efficiency, between 0 and 1"
-            ],
-            [
-              "E_out",
-              "energy you get back out"
-            ],
-            [
-              "E_in",
-              "energy you put in"
-            ]
-          ],
-          "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate."
-        }
       ],
       "concept": {
         "n": 22,
@@ -2147,35 +1949,6 @@ export const CURRICULUM = {
         "a conductor warms up as current passes through it",
         "electrical power and energy over time — taken as read"
       ],
-      "equations": [
-        {
-          "e": "ΔV ≈ I(R cos φ + X sin φ)",
-          "c": "voltage drop along a line, and why reactive power moves it",
-          "v": [
-            [
-              "ΔV",
-              "voltage drop along the line, in volts"
-            ],
-            [
-              "I",
-              "current, in amperes"
-            ],
-            [
-              "R",
-              "line resistance, in ohms"
-            ],
-            [
-              "X",
-              "line reactance, in ohms"
-            ],
-            [
-              "cos φ / sin φ",
-              "the power factor terms"
-            ]
-          ],
-          "s": "Voltage falls along a loaded line, and on a transmission line the reactance term dominates, which is why reactive power moves voltage."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 5,
@@ -2231,42 +2004,6 @@ export const CURRICULUM = {
       "assumes": [
         "an alternating voltage changes continuously through each cycle",
         "aC waveforms: frequency, period and phase — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "V = IR",
-          "c": "Ohm's law, on a conductor and on a whole network",
-          "v": [
-            [
-              "V",
-              "voltage across it, in volts"
-            ],
-            [
-              "I",
-              "current through it, in amperes"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Current through a resistance produces a voltage across it, in proportion."
-        },
-        {
-          "e": "V_rms = V_peak / √2",
-          "c": "why an AC quantity needs saying which one you mean",
-          "v": [
-            [
-              "V_rms",
-              "the root-mean-square value a meter reports"
-            ],
-            [
-              "V_peak",
-              "the highest instantaneous value a scope shows"
-            ]
-          ],
-          "s": "An alternating voltage has no single value, so a reading is meaningless until it says which one is meant."
-        }
       ],
       "takesAsRead": [
         {
@@ -2356,23 +2093,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a short circuit leaves almost no impedance in the path"
-      ],
-      "equations": [
-        {
-          "e": "V_rms = V_peak / √2",
-          "c": "why an AC quantity needs saying which one you mean",
-          "v": [
-            [
-              "V_rms",
-              "the root-mean-square value a meter reports"
-            ],
-            [
-              "V_peak",
-              "the highest instantaneous value a scope shows"
-            ]
-          ],
-          "s": "An alternating voltage has no single value, so a reading is meaningless until it says which one is meant."
-        }
       ],
       "concept": {
         "n": 24,
@@ -2721,27 +2441,6 @@ export const CURRICULUM = {
         "a circuit can be connected end to end or side by side",
         "kirchhoff's laws and nodal analysis — taken as read"
       ],
-      "equations": [
-        {
-          "e": "V = IR",
-          "c": "Ohm's law, on a conductor and on a whole network",
-          "v": [
-            [
-              "V",
-              "voltage across it, in volts"
-            ],
-            [
-              "I",
-              "current through it, in amperes"
-            ],
-            [
-              "R",
-              "resistance, in ohms"
-            ]
-          ],
-          "s": "Current through a resistance produces a voltage across it, in proportion."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 3,
@@ -2837,30 +2536,6 @@ export const CURRICULUM = {
           "computed": true
         },
         {
-          "e": "P = √3 · V_L · I_L · cos φ",
-          "c": "three-phase power from line quantities",
-          "v": [
-            [
-              "P",
-              "three-phase power, in watts"
-            ],
-            [
-              "V_L",
-              "line-to-line voltage, in volts"
-            ],
-            [
-              "I_L",
-              "line current, in amperes"
-            ],
-            [
-              "cos φ",
-              "power factor"
-            ]
-          ],
-          "s": "Three-phase power from line quantities carries a √3 because line and phase values differ.",
-          "card": false
-        },
-        {
           "e": "ΔV ≈ I(R cos φ + X sin φ)",
           "c": "voltage drop along a line, and why reactive power moves it",
           "v": [
@@ -2886,6 +2561,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Voltage falls along a loaded line, and on a transmission line the reactance term dominates, which is why reactive power moves voltage.",
+          "computed": true,
           "card": false
         }
       ],
@@ -4130,31 +3806,6 @@ export const CURRICULUM = {
         "aC waveforms: frequency, period and phase — taken as read",
         "charge, current, voltage and resistance — taken as read"
       ],
-      "equations": [
-        {
-          "e": "N₁/N₂ = V₁/V₂",
-          "c": "the transformer ratio, and why transmission is at high voltage",
-          "v": [
-            [
-              "N₁",
-              "turns on the primary winding"
-            ],
-            [
-              "N₂",
-              "turns on the secondary"
-            ],
-            [
-              "V₁",
-              "primary voltage"
-            ],
-            [
-              "V₂",
-              "secondary voltage"
-            ]
-          ],
-          "s": "A transformer trades voltage for current in the ratio of its turns, which is what makes long-distance transmission affordable."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 6,
@@ -4231,50 +3882,6 @@ export const CURRICULUM = {
         "energy can be stored in a spinning mass, in a magnetic field or in a chemical cell",
         "aC waveforms: frequency, period and phase — taken as read",
         "charge, current, voltage and resistance — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "N₁/N₂ = V₁/V₂",
-          "c": "the transformer ratio, and why transmission is at high voltage",
-          "v": [
-            [
-              "N₁",
-              "turns on the primary winding"
-            ],
-            [
-              "N₂",
-              "turns on the secondary"
-            ],
-            [
-              "V₁",
-              "primary voltage"
-            ],
-            [
-              "V₂",
-              "secondary voltage"
-            ]
-          ],
-          "s": "A transformer trades voltage for current in the ratio of its turns, which is what makes long-distance transmission affordable."
-        },
-        {
-          "e": "η = E_out / E_in",
-          "c": "round-trip efficiency of storage",
-          "v": [
-            [
-              "η",
-              "round-trip efficiency, between 0 and 1"
-            ],
-            [
-              "E_out",
-              "energy you get back out"
-            ],
-            [
-              "E_in",
-              "energy you put in"
-            ]
-          ],
-          "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate."
-        }
       ],
       "takesAsRead": [
         {
@@ -4469,27 +4076,6 @@ export const CURRICULUM = {
       "assumes": [
         "a report claim can be measured, inferred or still assumed",
         "verification time is limited before the report closes"
-      ],
-      "equations": [
-        {
-          "e": "η = E_out / E_in",
-          "c": "round-trip efficiency of storage",
-          "v": [
-            [
-              "η",
-              "round-trip efficiency, between 0 and 1"
-            ],
-            [
-              "E_out",
-              "energy you get back out"
-            ],
-            [
-              "E_in",
-              "energy you put in"
-            ]
-          ],
-          "s": "Storage returns less than it takes, so the reserve it is counted as is smaller than its nameplate."
-        }
       ],
       "concept": {
         "n": 29,

@@ -229,26 +229,6 @@ export const CURRICULUM = {
           ],
           "s": "The photon energy is known and the electron energy is measured, so the difference is how hard the atom was holding on: a spectrum of peaks is a direct picture of the shells.",
           "computed": true
-        },
-        {
-          "e": "Z_eff ≈ Z − S",
-          "c": "the charge an outer electron actually feels",
-          "v": [
-            [
-              "Z_eff",
-              "the effective nuclear charge, in units of the proton charge"
-            ],
-            [
-              "Z",
-              "the number of protons in the nucleus"
-            ],
-            [
-              "S",
-              "the shielding: roughly the number of electrons closer in than this one"
-            ]
-          ],
-          "s": "The inner electrons cancel part of the nucleus, so an outer electron is held by what is left over — which is why the same shell is held far more tightly in phosphorus than in aluminium.",
-          "card": false
         }
       ],
       "concept": {
@@ -296,27 +276,6 @@ export const CURRICULUM = {
       "assumes": [
         "a peak position is a binding energy and a peak area is a quantity",
         "an electronegative neighbour draws electron density away from an atom"
-      ],
-      "equations": [
-        {
-          "e": "KE = hν − BE",
-          "c": "a photoelectron spectrum read as an energy ledger",
-          "v": [
-            [
-              "KE",
-              "the kinetic energy the ejected electron leaves with"
-            ],
-            [
-              "hν",
-              "the energy of the incoming photon, known exactly"
-            ],
-            [
-              "BE",
-              "the binding energy — how tightly that electron was held"
-            ]
-          ],
-          "s": "The photon energy is known and the electron energy is measured, so the difference is how hard the atom was holding on: a spectrum of peaks is a direct picture of the shells."
-        }
       ],
       "concept": {
         "n": 18,
@@ -1140,27 +1099,6 @@ export const CURRICULUM = {
       "assumes": [
         "a fraction is a comparison between two amounts of the same kind"
       ],
-      "equations": [
-        {
-          "e": "n = m / M",
-          "c": "a mass on a balance turned into a count of atoms",
-          "v": [
-            [
-              "n",
-              "the amount, in moles"
-            ],
-            [
-              "m",
-              "the mass weighed out, in grams"
-            ],
-            [
-              "M",
-              "the molar mass, in grams per mole"
-            ]
-          ],
-          "s": "A balance reads grams and a reaction happens in atoms, so every quantity in this building passes through this one division before it means anything."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "Parts per billion: what a purity specification actually claims",
@@ -1208,27 +1146,6 @@ export const CURRICULUM = {
         "removing an electron from a positive ion is harder than from a neutral atom",
         "inner shells lie closer to the nucleus than outer ones",
         "effective nuclear charge, and shielding by the inner shells — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "Z_eff ≈ Z − S",
-          "c": "the charge an outer electron actually feels",
-          "v": [
-            [
-              "Z_eff",
-              "the effective nuclear charge, in units of the proton charge"
-            ],
-            [
-              "Z",
-              "the number of protons in the nucleus"
-            ],
-            [
-              "S",
-              "the shielding: roughly the number of electrons closer in than this one"
-            ]
-          ],
-          "s": "The inner electrons cancel part of the nucleus, so an outer electron is held by what is left over — which is why the same shell is held far more tightly in phosphorus than in aluminium."
-        }
       ],
       "takesAsRead": [
         {
@@ -1389,31 +1306,6 @@ export const CURRICULUM = {
         "conduction requires electrons that are free to move",
         "an electron in a covalent bond is held by two nuclei at once"
       ],
-      "equations": [
-        {
-          "e": "E = hc / λ",
-          "c": "the energy one photon carries",
-          "v": [
-            [
-              "E",
-              "the energy of a single photon, in joules"
-            ],
-            [
-              "h",
-              "Planck's constant, 6.63 × 10⁻³⁴ J s"
-            ],
-            [
-              "c",
-              "the speed of light, 3.00 × 10⁸ m/s"
-            ],
-            [
-              "λ",
-              "the wavelength of the light, in metres"
-            ]
-          ],
-          "s": "Energy per photon rises as wavelength falls, and a photon either carries enough for a given job or contributes nothing at all — which is why one lamp exposes a resist and a longer-wavelength one is safe to work under."
-        }
-      ],
       "concept": {
         "n": 31,
         "c": "Semiconductors: a gap a photon or a temperature can clear",
@@ -1554,31 +1446,6 @@ export const CURRICULUM = {
         "a dopant atom brings an electron that was never in a bond",
         "conduction requires charge free to move"
       ],
-      "equations": [
-        {
-          "e": "E = hc / λ",
-          "c": "the energy one photon carries",
-          "v": [
-            [
-              "E",
-              "the energy of a single photon, in joules"
-            ],
-            [
-              "h",
-              "Planck's constant, 6.63 × 10⁻³⁴ J s"
-            ],
-            [
-              "c",
-              "the speed of light, 3.00 × 10⁸ m/s"
-            ],
-            [
-              "λ",
-              "the wavelength of the light, in metres"
-            ]
-          ],
-          "s": "Energy per photon rises as wavelength falls, and a photon either carries enough for a given job or contributes nothing at all — which is why one lamp exposes a resist and a longer-wavelength one is safe to work under."
-        }
-      ],
       "concept": {
         "n": 31,
         "c": "Semiconductors: a gap a photon or a temperature can clear",
@@ -1631,27 +1498,6 @@ export const CURRICULUM = {
       "assumes": [
         "temperature is a measure of the average kinetic energy of the particles",
         "a molar mass can be read off a chemical formula"
-      ],
-      "equations": [
-        {
-          "e": "n = m / M",
-          "c": "a mass on a balance turned into a count of atoms",
-          "v": [
-            [
-              "n",
-              "the amount, in moles"
-            ],
-            [
-              "m",
-              "the mass weighed out, in grams"
-            ],
-            [
-              "M",
-              "the molar mass, in grams per mole"
-            ]
-          ],
-          "s": "A balance reads grams and a reaction happens in atoms, so every quantity in this building passes through this one division before it means anything."
-        }
       ],
       "concept": {
         "n": 4,
@@ -1713,25 +1559,6 @@ export const CURRICULUM = {
           ],
           "s": "Pressure, volume, amount and temperature are locked together, so a gauge reading and a chamber volume are a count of molecules — which is what makes a vacuum specification a statement about how much is still in there.",
           "computed": true
-        },
-        {
-          "e": "n = m / M",
-          "c": "a mass on a balance turned into a count of atoms",
-          "v": [
-            [
-              "n",
-              "the amount, in moles"
-            ],
-            [
-              "m",
-              "the mass weighed out, in grams"
-            ],
-            [
-              "M",
-              "the molar mass, in grams per mole"
-            ]
-          ],
-          "s": "A balance reads grams and a reaction happens in atoms, so every quantity in this building passes through this one division before it means anything."
         }
       ],
       "concept": {
@@ -2175,35 +2002,6 @@ export const CURRICULUM = {
         "every step in a sequence has to carry what the step before it delivers",
         "a reaction that takes energy in needs a source of it"
       ],
-      "equations": [
-        {
-          "e": "λ_mfp = kT / (√2 π d² P)",
-          "c": "how far a molecule gets before it meets another one",
-          "v": [
-            [
-              "λ_mfp",
-              "the mean free path, in metres"
-            ],
-            [
-              "k",
-              "Boltzmann's constant, 1.38 × 10⁻²³ J/K"
-            ],
-            [
-              "T",
-              "the absolute temperature, in kelvin"
-            ],
-            [
-              "d",
-              "the diameter of the molecule, in metres"
-            ],
-            [
-              "P",
-              "the pressure, in pascals"
-            ]
-          ],
-          "s": "At low enough pressure a molecule crosses the whole chamber untouched, and that distance is what decides whether a process is a clean arrival at a surface or a reaction happening in mid-flight."
-        }
-      ],
       "concept": {
         "n": 23,
         "c": "Bond enthalpy, and the energy ledger of breaking and making bonds",
@@ -2272,27 +2070,6 @@ export const CURRICULUM = {
       "assumes": [
         "a film's composition can be measured as a percentage by mass",
         "a stated compound implies a definite composition"
-      ],
-      "equations": [
-        {
-          "e": "% by mass = (n × M_element) / M_compound × 100",
-          "c": "what a film is actually made of, against what its formula claims",
-          "v": [
-            [
-              "n",
-              "how many atoms of that element the formula gives per formula unit"
-            ],
-            [
-              "M_element",
-              "the molar mass of the element"
-            ],
-            [
-              "M_compound",
-              "the molar mass of the whole formula unit"
-            ]
-          ],
-          "s": "A formula is a claim about proportions, so a measured composition either matches it or names how far off it is — which is the difference between the film the recipe asked for and one with the same two elements in the wrong ratio."
-        }
       ],
       "concept": {
         "n": 9,
@@ -2494,46 +2271,6 @@ export const CURRICULUM = {
         "boiling separates molecules from one another without breaking bonds inside them",
         "a polar molecule has a permanent positive and negative end"
       ],
-      "equations": [
-        {
-          "e": "n = m / M",
-          "c": "a mass on a balance turned into a count of atoms",
-          "v": [
-            [
-              "n",
-              "the amount, in moles"
-            ],
-            [
-              "m",
-              "the mass weighed out, in grams"
-            ],
-            [
-              "M",
-              "the molar mass, in grams per mole"
-            ]
-          ],
-          "s": "A balance reads grams and a reaction happens in atoms, so every quantity in this building passes through this one division before it means anything."
-        },
-        {
-          "e": "ΔH = Σ BE(broken) − Σ BE(formed)",
-          "c": "the energy ledger of a reaction, bond by bond",
-          "v": [
-            [
-              "ΔH",
-              "the heat taken in or given out, in kilojoules per mole"
-            ],
-            [
-              "BE(broken)",
-              "the enthalpy of each bond that has to be broken"
-            ],
-            [
-              "BE(formed)",
-              "the enthalpy of each bond made in its place"
-            ]
-          ],
-          "s": "Breaking costs and making returns, so a reaction is the difference between two sums — which is why a precursor held together by a stronger bond needs a hotter wafer before anything grows at all."
-        }
-      ],
       "concept": {
         "n": 27,
         "c": "Intermolecular forces: dispersion, dipole and hydrogen bonding",
@@ -2577,27 +2314,6 @@ export const CURRICULUM = {
       "assumes": [
         "dissolving replaces attractions between like molecules with attractions between unlike ones",
         "exposure changes the resist chemically rather than removing it"
-      ],
-      "equations": [
-        {
-          "e": "n = m / M",
-          "c": "a mass on a balance turned into a count of atoms",
-          "v": [
-            [
-              "n",
-              "the amount, in moles"
-            ],
-            [
-              "m",
-              "the mass weighed out, in grams"
-            ],
-            [
-              "M",
-              "the molar mass, in grams per mole"
-            ]
-          ],
-          "s": "A balance reads grams and a reaction happens in atoms, so every quantity in this building passes through this one division before it means anything."
-        }
       ],
       "concept": {
         "n": 32,
@@ -2694,31 +2410,6 @@ export const CURRICULUM = {
         "the energy of one photon is set by its wavelength",
         "the power of a lamp sets how many photons arrive each second"
       ],
-      "equations": [
-        {
-          "e": "E = hc / λ",
-          "c": "the energy one photon carries",
-          "v": [
-            [
-              "E",
-              "the energy of a single photon, in joules"
-            ],
-            [
-              "h",
-              "Planck's constant, 6.63 × 10⁻³⁴ J s"
-            ],
-            [
-              "c",
-              "the speed of light, 3.00 × 10⁸ m/s"
-            ],
-            [
-              "λ",
-              "the wavelength of the light, in metres"
-            ]
-          ],
-          "s": "Energy per photon rises as wavelength falls, and a photon either carries enough for a given job or contributes nothing at all — which is why one lamp exposes a resist and a longer-wavelength one is safe to work under."
-        }
-      ],
       "concept": {
         "n": 3,
         "c": "Photons: energy, wavelength and what light does to matter",
@@ -2764,31 +2455,6 @@ export const CURRICULUM = {
       "assumes": [
         "light of a given wavelength arrives in packets of a fixed energy",
         "Planck's constant and the speed of light do not vary between lamps"
-      ],
-      "equations": [
-        {
-          "e": "E = hc / λ",
-          "c": "the energy one photon carries",
-          "v": [
-            [
-              "E",
-              "the energy of a single photon, in joules"
-            ],
-            [
-              "h",
-              "Planck's constant, 6.63 × 10⁻³⁴ J s"
-            ],
-            [
-              "c",
-              "the speed of light, 3.00 × 10⁸ m/s"
-            ],
-            [
-              "λ",
-              "the wavelength of the light, in metres"
-            ]
-          ],
-          "s": "Energy per photon rises as wavelength falls, and a photon either carries enough for a given job or contributes nothing at all — which is why one lamp exposes a resist and a longer-wavelength one is safe to work under."
-        }
       ],
       "concept": {
         "n": 3,
@@ -3127,27 +2793,6 @@ export const CURRICULUM = {
       "assumes": [
         "a contamination figure is an average over whatever the instrument sampled",
         "a wafer is about three-quarters of a millimetre thick and a device layer a few nanometres"
-      ],
-      "equations": [
-        {
-          "e": "KE = hν − BE",
-          "c": "a photoelectron spectrum read as an energy ledger",
-          "v": [
-            [
-              "KE",
-              "the kinetic energy the ejected electron leaves with"
-            ],
-            [
-              "hν",
-              "the energy of the incoming photon, known exactly"
-            ],
-            [
-              "BE",
-              "the binding energy — how tightly that electron was held"
-            ]
-          ],
-          "s": "The photon energy is known and the electron energy is measured, so the difference is how hard the atom was holding on: a spectrum of peaks is a direct picture of the shells."
-        }
       ],
       "concept": {
         "n": 11,

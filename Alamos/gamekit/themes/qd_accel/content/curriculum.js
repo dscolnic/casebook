@@ -99,23 +99,6 @@ export const CURRICULUM = {
       "assumes": [
         "a residual is the measurement minus the model prediction"
       ],
-      "equations": [
-        {
-          "e": "z = (λ_obs − λ_rest) / λ_rest",
-          "c": "redshift from a spectral line",
-          "v": [
-            [
-              "λ_obs",
-              "the wavelength the line is measured at"
-            ],
-            [
-              "λ_rest",
-              "the wavelength that line has in the laboratory"
-            ]
-          ],
-          "s": "A line that has moved to a longer wavelength has moved by a fraction of its own rest wavelength, and that fraction is the redshift."
-        }
-      ],
       "concept": {
         "n": 4,
         "c": "A magnitude residual is a comparison against a stated model",
@@ -167,23 +150,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a lower matter density means less deceleration"
-      ],
-      "equations": [
-        {
-          "e": "z = (λ_obs − λ_rest) / λ_rest",
-          "c": "redshift from a spectral line",
-          "v": [
-            [
-              "λ_obs",
-              "the wavelength the line is measured at"
-            ],
-            [
-              "λ_rest",
-              "the wavelength that line has in the laboratory"
-            ]
-          ],
-          "s": "A line that has moved to a longer wavelength has moved by a fraction of its own rest wavelength, and that fraction is the redshift."
-        }
       ],
       "concept": {
         "n": 7,
@@ -310,23 +276,6 @@ export const CURRICULUM = {
       "assumes": [
         "dust scatters blue light more strongly than red"
       ],
-      "equations": [
-        {
-          "e": "z = (λ_obs − λ_rest) / λ_rest",
-          "c": "redshift from a spectral line",
-          "v": [
-            [
-              "λ_obs",
-              "the wavelength the line is measured at"
-            ],
-            [
-              "λ_rest",
-              "the wavelength that line has in the laboratory"
-            ]
-          ],
-          "s": "A line that has moved to a longer wavelength has moved by a fraction of its own rest wavelength, and that fraction is the redshift."
-        }
-      ],
       "concept": {
         "n": 6,
         "c": "Dust reddens as well as dims, and that is what separates it",
@@ -441,23 +390,6 @@ export const CURRICULUM = {
       "assumes": [
         "matter attracts, and there is nothing else in this model to push"
       ],
-      "equations": [
-        {
-          "e": "z = (λ_obs − λ_rest) / λ_rest",
-          "c": "redshift from a spectral line",
-          "v": [
-            [
-              "λ_obs",
-              "the wavelength the line is measured at"
-            ],
-            [
-              "λ_rest",
-              "the wavelength that line has in the laboratory"
-            ]
-          ],
-          "s": "A line that has moved to a longer wavelength has moved by a fraction of its own rest wavelength, and that fraction is the redshift."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "A universe with matter only must decelerate",
@@ -569,23 +501,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the campaign has measured distances and redshifts and nothing else"
-      ],
-      "equations": [
-        {
-          "e": "z = (λ_obs − λ_rest) / λ_rest",
-          "c": "redshift from a spectral line",
-          "v": [
-            [
-              "λ_obs",
-              "the wavelength the line is measured at"
-            ],
-            [
-              "λ_rest",
-              "the wavelength that line has in the laboratory"
-            ]
-          ],
-          "s": "A line that has moved to a longer wavelength has moved by a fraction of its own rest wavelength, and that fraction is the redshift."
-        }
       ],
       "concept": {
         "n": 8,

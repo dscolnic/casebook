@@ -41,6 +41,13 @@ for(const theme of wanted){
                      // and `bookParity` could not see it — the content is byte-identical
                      // either way, which is `export-book`'s `takesAsRead` blind spot.
                      'deriveRules.mjs',
+                     // Is each question asked in the right KIND of place? `shapeMissions`
+                     // chose the day's person stop by asking whether an area repeated —
+                     // a rule about not walking into the same room twice, blind to what
+                     // is being asked there. Eight of Red Sand's fifteen person stops
+                     // were not decisions and four were live instruments, the plainest
+                     // being a HOLD driven at the analytical chemist.
+                     'placement.mjs',
                      // A numeral-normalisation pass over the books replaced spelled-out
                      // numbers with digits and could not tell a count from a pronoun, so
                      // 27 books shipped sentences like "She is the 1 who keeps saying so"
@@ -87,6 +94,15 @@ for(const theme of wanted){
                      // 400×" over four options with P = IV printed nowhere and
                      // computed three days later, and every other check was green.
                      'equationSupply.mjs',
+                     // equationSupply asks whether the player HAS the equation a card's
+                     // arithmetic uses. This asks the other direction, which nothing
+                     // asked: does a card carry an equation it does not use? 894 chips
+                     // of 1,530 did — Faraday's law over a funding decision — because
+                     // `equationsFor` stamps any stop whose prose MENTIONS one, and the
+                     // accessibility pass's cross-referencing glosses made that worse.
+                     // Also ratchets the equations a syllabus promises and no question
+                     // teaches, against engine/dev/equation-placement-debt.json.
+                     'equationPlacement.mjs',
                      'formatMix.mjs',
                      // How many calls a day makes, and whether any of them is a
                      // card the player has already answered. Every other checker
@@ -198,6 +214,11 @@ if(!process.argv[2]){
                      // so the question is still answerable. Failing those 44 steps is
                      // what the first version did, and it hid the real defect under them.
                      'deriveRules.mjs --selftest',
+                     // And the placement gate. The case that has to PASS is the SAME
+                     // operated format standing in a room — it is the person that is
+                     // wrong and not the format, and a gate that failed on the format
+                     // alone would fire on every instrument stop in the repo.
+                     'placement.mjs --selftest',
                      // And the thirteenth. Eleven of its fifteen cases have to PASS:
                      // "Day 1 had 96 events", "1 of 600 allowed solutions", "about 1
                      // litre a day", "e^(−t/T) goes to 1 at t = 0", "a 3 : 1 fit". A gate
@@ -258,7 +279,12 @@ if(!process.argv[2]){
                      // well shortens every segment, so a 38-word pile-up reads as two
                      // of 19 and the cap never fires — which is why Red Sand was
                      // reported at zero over-long sentences when it had three.
-                     'plainQuestions.mjs --selftest']){
+                     'plainQuestions.mjs --selftest',
+                     // And it knows a `demanded` chip from a decorative one. A first
+                     // version tested `computed` alone and would have reported every
+                     // worked-from equation in the catalogue as decoration — 286 false
+                     // findings, which is how a gate stops being read.
+                     'equationPlacement.mjs --selftest']){
     const [file, ...flags] = tool.split(' ');
     const res = spawnSync(process.execPath, [resolve(here, file), ...flags],
       { stdio: 'inherit', cwd: resolve(here, '../..') });

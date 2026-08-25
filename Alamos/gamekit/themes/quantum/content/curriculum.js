@@ -221,35 +221,6 @@ export const CURRICULUM = {
       "assumes": [
         "a system in thermal contact settles toward the temperature around it"
       ],
-      "equations": [
-        {
-          "e": "E = hf,  compare with  kT",
-          "c": "why a superconducting qubit needs millikelvin",
-          "v": [
-            [
-              "E",
-              "energy of one quantum, in joules"
-            ],
-            [
-              "h",
-              "Planck's constant, 6.63 × 10⁻³⁴ J s"
-            ],
-            [
-              "f",
-              "transition frequency, in hertz"
-            ],
-            [
-              "k",
-              "Boltzmann's constant, 1.38 × 10⁻²³ J per kelvin"
-            ],
-            [
-              "T",
-              "temperature, in kelvin"
-            ]
-          ],
-          "s": "A qubit only stays in its ground state if the thermal energy around it is well below the energy of one quantum, which for a 5 GHz qubit means tens of millikelvin."
-        }
-      ],
       "concept": {
         "n": 2,
         "c": "Thermal energy against level spacing — why a qubit needs millikelvin",
@@ -386,23 +357,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a figure can be current or inherited"
-      ],
-      "equations": [
-        {
-          "e": "t_π = 1 / (2 f_Rabi)",
-          "c": "drive strength to pulse length",
-          "v": [
-            [
-              "t_π",
-              "length of a pulse that flips the qubit, in seconds"
-            ],
-            [
-              "f_Rabi",
-              "Rabi frequency, set by how hard you drive, in hertz"
-            ]
-          ],
-          "s": "Driving harder makes the qubit turn over faster, so the pulse that flips it gets shorter in proportion."
-        }
       ],
       "concept": {
         "n": 5,
@@ -650,74 +604,6 @@ export const CURRICULUM = {
       "assumes": [
         "a qubit's frequency can depend on its surroundings"
       ],
-      "equations": [
-        {
-          "e": "E = hf,  compare with  kT",
-          "c": "why a superconducting qubit needs millikelvin",
-          "v": [
-            [
-              "E",
-              "energy of one quantum, in joules"
-            ],
-            [
-              "h",
-              "Planck's constant, 6.63 × 10⁻³⁴ J s"
-            ],
-            [
-              "f",
-              "transition frequency, in hertz"
-            ],
-            [
-              "k",
-              "Boltzmann's constant, 1.38 × 10⁻²³ J per kelvin"
-            ],
-            [
-              "T",
-              "temperature, in kelvin"
-            ]
-          ],
-          "s": "A qubit only stays in its ground state if the thermal energy around it is well below the energy of one quantum, which for a 5 GHz qubit means tens of millikelvin."
-        },
-        {
-          "e": "P(t) = e^(−t/T₁)",
-          "c": "relaxation, as a decay you fit",
-          "v": [
-            [
-              "P(t)",
-              "chance the qubit is still excited after time t"
-            ],
-            [
-              "t",
-              "time since the pulse, in microseconds"
-            ],
-            [
-              "T₁",
-              "relaxation time, in microseconds"
-            ]
-          ],
-          "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third."
-        },
-        {
-          "e": "1/T₂ = 1/(2T₁) + 1/T_φ",
-          "c": "why dephasing is usually the harder number",
-          "v": [
-            [
-              "T₂",
-              "coherence time, in microseconds"
-            ],
-            [
-              "T₁",
-              "relaxation time, in microseconds"
-            ],
-            [
-              "T_φ",
-              "pure dephasing time, from noise that scrambles phase without taking energy"
-            ]
-          ],
-          "s": "Coherence is limited both by energy leaving and by phase being scrambled, and T₂ can never be more than twice T₁ however quiet the phase noise is.",
-          "card": false
-        }
-      ],
       "concept": {
         "n": 11,
         "c": "Where decoherence comes from: two-level defects, photons, flux noise",
@@ -810,27 +696,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a material can contain flaws that behave as small two-state systems"
-      ],
-      "equations": [
-        {
-          "e": "P(t) = e^(−t/T₁)",
-          "c": "relaxation, as a decay you fit",
-          "v": [
-            [
-              "P(t)",
-              "chance the qubit is still excited after time t"
-            ],
-            [
-              "t",
-              "time since the pulse, in microseconds"
-            ],
-            [
-              "T₁",
-              "relaxation time, in microseconds"
-            ]
-          ],
-          "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third."
-        }
       ],
       "concept": {
         "n": 11,
@@ -943,46 +808,6 @@ export const CURRICULUM = {
       "assumes": [
         "a source that takes energy from the qubit shows up in the relaxation time as well as the coherence time"
       ],
-      "equations": [
-        {
-          "e": "P(t) = e^(−t/T₁)",
-          "c": "relaxation, as a decay you fit",
-          "v": [
-            [
-              "P(t)",
-              "chance the qubit is still excited after time t"
-            ],
-            [
-              "t",
-              "time since the pulse, in microseconds"
-            ],
-            [
-              "T₁",
-              "relaxation time, in microseconds"
-            ]
-          ],
-          "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third."
-        },
-        {
-          "e": "1/T₂ = 1/(2T₁) + 1/T_φ",
-          "c": "why dephasing is usually the harder number",
-          "v": [
-            [
-              "T₂",
-              "coherence time, in microseconds"
-            ],
-            [
-              "T₁",
-              "relaxation time, in microseconds"
-            ],
-            [
-              "T_φ",
-              "pure dephasing time, from noise that scrambles phase without taking energy"
-            ]
-          ],
-          "s": "Coherence is limited both by energy leaving and by phase being scrambled, and T₂ can never be more than twice T₁ however quiet the phase noise is."
-        }
-      ],
       "concept": {
         "n": 11,
         "c": "Where decoherence comes from: two-level defects, photons, flux noise",
@@ -1033,35 +858,6 @@ export const CURRICULUM = {
       "assumes": [
         "some measurements depend on temperature and some do not",
         "energy quantisation, and why a level spacing sets everything else — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "E = hf,  compare with  kT",
-          "c": "why a superconducting qubit needs millikelvin",
-          "v": [
-            [
-              "E",
-              "energy of one quantum, in joules"
-            ],
-            [
-              "h",
-              "Planck's constant, 6.63 × 10⁻³⁴ J s"
-            ],
-            [
-              "f",
-              "transition frequency, in hertz"
-            ],
-            [
-              "k",
-              "Boltzmann's constant, 1.38 × 10⁻²³ J per kelvin"
-            ],
-            [
-              "T",
-              "temperature, in kelvin"
-            ]
-          ],
-          "s": "A qubit only stays in its ground state if the thermal energy around it is well below the energy of one quantum, which for a 5 GHz qubit means tens of millikelvin."
-        }
       ],
       "takesAsRead": [
         {
@@ -1196,35 +992,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a system absorbs energy strongly only near its own transition frequency"
-      ],
-      "equations": [
-        {
-          "e": "E = hf,  compare with  kT",
-          "c": "why a superconducting qubit needs millikelvin",
-          "v": [
-            [
-              "E",
-              "energy of one quantum, in joules"
-            ],
-            [
-              "h",
-              "Planck's constant, 6.63 × 10⁻³⁴ J s"
-            ],
-            [
-              "f",
-              "transition frequency, in hertz"
-            ],
-            [
-              "k",
-              "Boltzmann's constant, 1.38 × 10⁻²³ J per kelvin"
-            ],
-            [
-              "T",
-              "temperature, in kelvin"
-            ]
-          ],
-          "s": "A qubit only stays in its ground state if the thermal energy around it is well below the energy of one quantum, which for a 5 GHz qubit means tens of millikelvin."
-        }
       ],
       "concept": {
         "n": 8,
@@ -1504,27 +1271,6 @@ export const CURRICULUM = {
       "assumes": [
         "a measurement produces a distribution rather than a single value"
       ],
-      "equations": [
-        {
-          "e": "n_phys ≈ d²  per logical qubit",
-          "c": "what error correction costs",
-          "v": [
-            [
-              "n_phys",
-              "physical qubits used for one logical qubit"
-            ],
-            [
-              "d",
-              "code distance, how many errors the code can survive"
-            ],
-            [
-              "p_threshold",
-              "the physical error rate below which adding qubits helps rather than hurts"
-            ]
-          ],
-          "s": "Error correction only works below a threshold error rate, and above it every qubit you add makes the logical qubit worse rather than better."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "Measurement collapses the state and returns one outcome",
@@ -1653,27 +1399,6 @@ export const CURRICULUM = {
       "assumes": [
         "two systems at the same frequency can exchange energy"
       ],
-      "equations": [
-        {
-          "e": "P(t) = e^(−t/T₁)",
-          "c": "relaxation, as a decay you fit",
-          "v": [
-            [
-              "P(t)",
-              "chance the qubit is still excited after time t"
-            ],
-            [
-              "t",
-              "time since the pulse, in microseconds"
-            ],
-            [
-              "T₁",
-              "relaxation time, in microseconds"
-            ]
-          ],
-          "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third."
-        }
-      ],
       "concept": {
         "n": 9,
         "c": "Relaxation time T1 — energy leaving the system",
@@ -1735,21 +1460,6 @@ export const CURRICULUM = {
           ],
           "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep.",
           "computed": true
-        },
-        {
-          "e": "δB ∝ 1 / √N",
-          "c": "the standard quantum limit, and what squeezing buys",
-          "v": [
-            [
-              "δB",
-              "smallest field change you can resolve"
-            ],
-            [
-              "N",
-              "number of independent measurements or atoms"
-            ]
-          ],
-          "s": "Averaging independent measurements improves a sensor only as the square root of their number, which is the wall entanglement is used to get past."
         }
       ],
       "concept": {
@@ -1816,27 +1526,6 @@ export const CURRICULUM = {
       "assumes": [
         "an experiment's conclusion depends on conditions its apparatus may not meet"
       ],
-      "equations": [
-        {
-          "e": "S = E(a,b) − E(a,b′) + E(a′,b) + E(a′,b′),  |S| ≤ 2",
-          "c": "the Bell test, as a measured number",
-          "v": [
-            [
-              "S",
-              "the CHSH quantity, computed from four correlation measurements"
-            ],
-            [
-              "E(a,b)",
-              "correlation between the two detectors at settings a and b"
-            ],
-            [
-              "2",
-              "the largest value any shared instruction agreed in advance can produce"
-            ]
-          ],
-          "s": "No pre-agreed instruction set can push S above 2, so measuring more than that rules out the whole class of explanations rather than supporting one."
-        }
-      ],
       "concept": {
         "n": 20,
         "c": "The Bell inequality as a number you measure",
@@ -1884,27 +1573,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a small system can be simulated exactly and a large one cannot"
-      ],
-      "equations": [
-        {
-          "e": "R = 1 − 2h(e)",
-          "c": "the key rate left after error correction and privacy amplification",
-          "v": [
-            [
-              "R",
-              "secret key bits per sifted bit"
-            ],
-            [
-              "e",
-              "quantum bit error rate, the fraction of test bits that disagree"
-            ],
-            [
-              "h(e)",
-              "the binary entropy of that error rate"
-            ]
-          ],
-          "s": "Every error might be an eavesdropper, so the protocol throws away enough key to cover it, and above about eleven per cent errors nothing is left."
-        }
       ],
       "concept": {
         "n": 3,
@@ -2097,27 +1765,6 @@ export const CURRICULUM = {
         "a labelled calibration set is a sample, and a sample has features of its own",
         "a percentage measured on four hundred shots carries about a point of counting noise"
       ],
-      "equations": [
-        {
-          "e": "n_phys ≈ d²  per logical qubit",
-          "c": "what error correction costs",
-          "v": [
-            [
-              "n_phys",
-              "physical qubits used for one logical qubit"
-            ],
-            [
-              "d",
-              "code distance, how many errors the code can survive"
-            ],
-            [
-              "p_threshold",
-              "the physical error rate below which adding qubits helps rather than hurts"
-            ]
-          ],
-          "s": "Error correction only works below a threshold error rate, and above it every qubit you add makes the logical qubit worse rather than better."
-        }
-      ],
       "concept": {
         "n": 14,
         "c": "Readout, discriminators, and how a classifier can cheat",
@@ -2166,27 +1813,6 @@ export const CURRICULUM = {
       "assumes": [
         "an automated procedure optimises the quantity it was given",
         "resonance, detuning, and finding a qubit frequency — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "R = 1 − 2h(e)",
-          "c": "the key rate left after error correction and privacy amplification",
-          "v": [
-            [
-              "R",
-              "secret key bits per sifted bit"
-            ],
-            [
-              "e",
-              "quantum bit error rate, the fraction of test bits that disagree"
-            ],
-            [
-              "h(e)",
-              "the binary entropy of that error rate"
-            ]
-          ],
-          "s": "Every error might be an eavesdropper, so the protocol throws away enough key to cover it, and above about eleven per cent errors nothing is left."
-        }
       ],
       "takesAsRead": [
         {
@@ -2513,35 +2139,6 @@ export const CURRICULUM = {
       "assumes": [
         "a flux-tunable qubit's frequency depends on the magnetic flux through its loop"
       ],
-      "equations": [
-        {
-          "e": "E = hf,  compare with  kT",
-          "c": "why a superconducting qubit needs millikelvin",
-          "v": [
-            [
-              "E",
-              "energy of one quantum, in joules"
-            ],
-            [
-              "h",
-              "Planck's constant, 6.63 × 10⁻³⁴ J s"
-            ],
-            [
-              "f",
-              "transition frequency, in hertz"
-            ],
-            [
-              "k",
-              "Boltzmann's constant, 1.38 × 10⁻²³ J per kelvin"
-            ],
-            [
-              "T",
-              "temperature, in kelvin"
-            ]
-          ],
-          "s": "A qubit only stays in its ground state if the thermal energy around it is well below the energy of one quantum, which for a 5 GHz qubit means tens of millikelvin."
-        }
-      ],
       "concept": {
         "n": 8,
         "c": "Resonance, detuning, and finding a qubit frequency",
@@ -2561,9 +2158,9 @@ export const CURRICULUM = {
       "place": "Error & Verification",
       "guide": "Drag the delay. Both curves are plotted wherever you stop, and each readout gives that curve's value there. You want the delay at which the phase curve, the Ramsey contrast, has fallen to about a third of its starting value. Read it off the plot rather than working it out, then mark that delay and commit. Only the position you mark is graded.",
       "background": [
-        "What the two curves are. One is energy: a qubit in the excited state eventually gives its energy away, and the excited population decays as it does. The other is phase. A qubit can keep all of its energy and still lose the phase relationship that makes it useful for computing, because the phase advances at a rate set by its frequency, and anything that shifts that frequency between repetitions scrambles it. The two are separate losses with separate cures.",
-        "Why they are read at the same place. A decay is described by the time it takes to fall to about a third of its starting value — one factor of e — and reading both curves at the same fraction is what makes the two times comparable. Read one at a third and the other at a half and the ratio between them means nothing.",
-        "Why the ratio is the point. Energy loss also destroys phase, so the phase time can never be much more than twice the energy time. If it is far shorter than that ceiling, something is scrambling phase without taking any energy — and that something is usually noise slow enough to look like a small frequency shift from one repetition to the next."
+        "What the two curves are. One is energy: a qubit in the excited state eventually gives its energy away, and the excited population decays as it does. The other is phase. A qubit can keep all of its energy and still lose the phase relationship that makes it useful for computing. The phase advances at a rate set by its frequency. Anything that shifts that frequency between repetitions scrambles it. The two are separate losses with separate cures.",
+        "Why they are read at the same place. A decay is described by the time it takes to fall to about a third of its starting value — one factor of e. Reading both curves at the same fraction is what makes the two times comparable. Read one at a third and the other at a half and the ratio between them means nothing.",
+        "Why the ratio is the point. Energy loss also destroys phase, so the phase time can never be much more than twice the energy time. If it is far shorter than that ceiling, something is scrambling phase without taking any energy. That something is usually noise slow enough to look like a small frequency shift from one repetition to the next."
       ],
       "story": "Two measurements run at every delay. One asks how much excitation is left in the qubit. The other asks how much phase coherence is left. Both start near one and fall as the delay grows. By convention a decay time is read where a quantity has dropped to about a third of where it started, and Holm needs the phase curve's time.",
       "game": {
@@ -2574,7 +2171,7 @@ export const CURRICULUM = {
         "task": "Say what the two numbers mean together",
         "question": "Both curves fall, and not together. At what delay has the phase coherence dropped to a third of where it started?",
         "answer": "About 32 microseconds. The population is still at 0.70 there, and does not reach a third until about 90 — so T2 is 32 microseconds against a T1 of 90.",
-        "why": "Read at the same place on both curves, the two times come out a factor of three apart, and that gap is the diagnosis. Energy is leaving slowly; something is scrambling phase three times faster without taking any energy at all, which is what slow noise shifting the qubit's frequency between repetitions does. The two have different cures — energy loss is materials and fridge, dephasing is usually wiring — so the ratio decides who spends the week. It is also a bound worth carrying: coherence can never exceed twice the relaxation time, so this device could have reached 180 and is managing a fifth of that.",
+        "why": "Read at the same place on both curves, the two times come out a factor of three apart, and that gap is the diagnosis. Energy is leaving slowly. Something is scrambling phase three times faster, without taking any energy at all. That is what slow noise shifting the qubit's frequency between repetitions does. The two have different cures — energy loss is materials and fridge, dephasing is usually wiring — so the ratio decides who spends the week. It is also a bound worth carrying. Coherence can never exceed twice the relaxation time. So this device could have reached 180 and is managing a fifth of that.",
         "sweep": {
           "mode": "boundary",
           "axis": {
@@ -2793,27 +2390,6 @@ export const CURRICULUM = {
       "assumes": [
         "errors from independent sources combine"
       ],
-      "equations": [
-        {
-          "e": "R = 1 − 2h(e)",
-          "c": "the key rate left after error correction and privacy amplification",
-          "v": [
-            [
-              "R",
-              "secret key bits per sifted bit"
-            ],
-            [
-              "e",
-              "quantum bit error rate, the fraction of test bits that disagree"
-            ],
-            [
-              "h(e)",
-              "the binary entropy of that error rate"
-            ]
-          ],
-          "s": "Every error might be an eavesdropper, so the protocol throws away enough key to cover it, and above about eleven per cent errors nothing is left."
-        }
-      ],
       "concept": {
         "n": 12,
         "c": "Gate fidelity, and how error compounds with depth",
@@ -2933,27 +2509,6 @@ export const CURRICULUM = {
       "assumes": [
         "a process change can improve one measure and damage another"
       ],
-      "equations": [
-        {
-          "e": "P(t) = e^(−t/T₁)",
-          "c": "relaxation, as a decay you fit",
-          "v": [
-            [
-              "P(t)",
-              "chance the qubit is still excited after time t"
-            ],
-            [
-              "t",
-              "time since the pulse, in microseconds"
-            ],
-            [
-              "T₁",
-              "relaxation time, in microseconds"
-            ]
-          ],
-          "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third."
-        }
-      ],
       "concept": {
         "n": 18,
         "c": "Materials and fabrication: junctions, oxide and yield",
@@ -2971,9 +2526,9 @@ export const CURRICULUM = {
       "place": "Error & Verification",
       "guide": "Drag the sequence length. The readout is the fraction of runs that came back, and only the lengths you stop at get plotted. You want the length at which half the runs fail to return — where the curve crosses one half. Read it off the plot, mark it and commit. The error per gate follows from that length afterwards, and is not what you report.",
       "background": [
-        "Why a length rather than a single measurement. If the survival per gate is p, then the fraction returning after n gates is p multiplied by itself n times. A readout error adds a constant offset to every point on that curve — it shifts the whole thing down — but it does not change how fast the curve falls. So a number read from the trend survives an offset that would swamp any single reading, which is the whole reason this experiment is run at many lengths instead of one.",
+        "Why a length rather than a single measurement. If the survival per gate is p, then the fraction returning after n gates is p multiplied by itself n times. A readout error adds a constant offset to every point on that curve. It shifts the whole thing down. But it does not change how fast the curve falls. So a number read from the trend survives an offset that would swamp any single reading. That is the whole reason this experiment is run at many lengths instead of one.",
         "Why the sequence ends by inverting itself. The final gate is chosen to undo everything before it, so a perfect qubit would always come back and the only thing being measured is the error. It also means the answer is the same whatever the sequence was, which is what lets the runs be averaged together.",
-        "What this is called and where it goes. Sequences of random gates that invert at the end are the standard benchmark for gate quality, because the number they produce can be compared between laboratories that share no hardware. It is the number a customer asks for."
+        "What this is called and where it goes. Sequences of random gates that invert at the end are the standard benchmark for gate quality. The number they produce can be compared between laboratories that share no hardware. It is the number a customer asks for."
       ],
       "story": "Every run applies a sequence of gates and finishes with one that should return the qubit to where it started. So each run either comes back or does not. Errors accumulate along the way: the longer the sequence, the smaller the fraction that returns. Holm can run any length from a single gate up to a few hundred.",
       "game": {
@@ -2984,7 +2539,7 @@ export const CURRICULUM = {
         "task": "Say what benchmarking measures",
         "question": "How many gates can this qubit take before half the runs fail to come back?",
         "answer": "Around 57 gates. Half the runs lost after 57 gates means about 98.8% per gate, because 0.988 multiplied by itself 57 times is close to a half.",
-        "why": "Every gate in the sequence has to work for the qubit to come back, so the probabilities multiply and the curve falls exponentially rather than in a straight line. That makes the half-way length a per-gate error measurement: the length itself says how much each gate costs, and 57 gates to lose half of them works out at a bit over 1% each. It is also why the shape matters more than any single point. A readout that mislabels a fixed fraction of shots pulls the whole curve down without changing how fast it falls, so a number read from the decay survives an offset that would ruin a number read from one sequence — which is the difference between the two figures on the board.\n",
+        "why": "Every gate in the sequence has to work for the qubit to come back. So the probabilities multiply. The curve falls exponentially rather than in a straight line. That makes the half-way length a per-gate error measurement. The length itself says how much each gate costs. 57 gates to lose half of them works out at a bit over 1% each. It is also why the shape matters more than any single point. A readout that mislabels a fixed fraction of shots pulls the whole curve down. It does not change how fast the curve falls. So a number read from the decay survives an offset that would ruin a number read from one sequence. That is the difference between the two figures on the board.\n",
         "sweep": {
           "mode": "peak",
           "axis": {
@@ -3135,7 +2690,7 @@ export const CURRICULUM = {
         "task": "Say which number belongs beside the threshold",
         "question": "Say which number belongs beside the threshold",
         "answer": "",
-        "why": "\"For *this stated simplified model*, the 1.2% randomized-benchmarking error is the intended comparison and it lies above the 1% line. The 0.4% direct figure is a best-case measurement of 1 gate under a different procedure, so using it would answer a different question. In real fault-tolerance work, even an average benchmarking error may not be enough: coherent and correlated errors can make the worst-case behaviour relevant to a code much worse than the average infidelity. The careful sentence therefore names both the metric and the model instead of declaring that the machine is simply 'above threshold'.\"\n",
+        "why": "\"For *this stated simplified model*, the 1.2% randomized-benchmarking error is the intended comparison and it lies above the 1% line. The 0.4% direct figure is a best-case measurement of 1 gate under a different procedure, so using it would answer a different question. In real fault-tolerance work, even an average benchmarking error may not be enough. Coherent and correlated errors can make the worst-case behaviour relevant to a code much worse than the average infidelity. The careful sentence therefore names both the metric and the model instead of declaring that the machine is simply 'above threshold'.\"\n",
         "rebuttals": [
           "This is the intended comparison only because the code study has defined a compatible stochastic per-gate metric; that assumption belongs in the sentence.",
           "A best-case direct gate measurement and an average sequence benchmark are different procedures and need not answer the same fault-tolerance question.",
@@ -3168,46 +2723,6 @@ export const CURRICULUM = {
       "assumes": [
         "a threshold is a comparison against a defined quantity"
       ],
-      "equations": [
-        {
-          "e": "F_total ≈ F^n",
-          "c": "gate fidelity compounding over circuit depth",
-          "v": [
-            [
-              "F_total",
-              "chance the whole circuit is right"
-            ],
-            [
-              "F",
-              "fidelity of one gate, between 0 and 1"
-            ],
-            [
-              "n",
-              "number of gates in the circuit"
-            ]
-          ],
-          "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep."
-        },
-        {
-          "e": "n_phys ≈ d²  per logical qubit",
-          "c": "what error correction costs",
-          "v": [
-            [
-              "n_phys",
-              "physical qubits used for one logical qubit"
-            ],
-            [
-              "d",
-              "code distance, how many errors the code can survive"
-            ],
-            [
-              "p_threshold",
-              "the physical error rate below which adding qubits helps rather than hurts"
-            ]
-          ],
-          "s": "Error correction only works below a threshold error rate, and above it every qubit you add makes the logical qubit worse rather than better."
-        }
-      ],
       "concept": {
         "n": 21,
         "c": "Quantum error correction and the threshold idea",
@@ -3223,11 +2738,11 @@ export const CURRICULUM = {
       "scene": "Two entangled qubits, four analyser settings. Every shot returns two outcomes, and they either agree or disagree. A correlation is how often they agree minus how often they disagree, so it runs from minus one to plus one. Four of those combine into one statistic. The review deck has a blank line where that number goes.",
       "takeaway": "The CHSH statistic combines four measured correlations; the classical bound and quantum prediction are comparisons made after the data are combined.",
       "place": "Error & Verification",
-      "guide": "The trace is the statistic as the shots came in, and the question is where it converges. Early movement is the sample size, not the physics. Each row also carries its own spread, which falls as one over the square root of that row's shots, so the row with the widest spread is the one still moving the total. Twenty-four batches is the whole stop. Report the value you had when you said it had stopped moving.",
+      "guide": "The trace is the statistic as the shots came in, and the question is where it converges. Early movement is the sample size, not the physics. Each row also carries its own spread. It falls as one over the square root of that row's shots. So the row with the widest spread is the one still moving the total. Twenty-four batches is the whole stop. Report the value you had when you said it had stopped moving.",
       "background": [
-        "How the four go together. The statistic adds three of the correlations and subtracts one. The signs are not a convention: they are chosen so that any explanation in which each qubit carries its own predetermined answers has a hard ceiling on the total, whatever those answers are. Getting a sign wrong measures a different quantity that means nothing.",
-        "Why the number wanders at first. Each correlation is a proportion measured from a finite number of shots, and a proportion scatters around its true value by about 1 over the square root of the number of trials. Four of them combined scatter a little more. Two hundred shots gives a number that will still move; a few thousand gives one that will not.",
-        "What the comparison afterwards is for. The ceiling for any local, predetermined explanation is 2. The experiment exists to find out which side of that the measured statistic falls on, and that comparison is only worth making once the number has stopped moving — which is the decision this panel actually asks you to make."
+        "How the four go together. The statistic adds three of the correlations and subtracts one. The signs are not a convention. They are chosen to put a hard ceiling on the total. That ceiling holds for any explanation in which each qubit carries its own predetermined answers, whatever those answers are. Getting a sign wrong measures a different quantity that means nothing.",
+        "Why the number wanders at first. Each correlation is a proportion measured from a finite number of shots. A proportion scatters around its true value by about 1 over the square root of the number of trials. Four of them combined scatter a little more. Two hundred shots gives a number that will still move; a few thousand gives one that will not.",
+        "What the comparison afterwards is for. The ceiling for any local, predetermined explanation is 2. The experiment exists to find out which side of that the measured statistic falls on. That comparison is only worth making once the number has stopped moving. That is the decision this panel actually asks you to make."
       ],
       "story": "Two entangled qubits, four analyser settings. Every shot returns two outcomes, and they either agree or disagree. A correlation is how often they agree minus how often they disagree, so it runs from minus one to plus one. Four of those combine into one statistic. The review deck has a blank line where that number goes.",
       "game": {
@@ -3238,7 +2753,7 @@ export const CURRICULUM = {
         "task": "Compute the quantity",
         "question": "Acquire the four correlations yourself and combine them. How large is the statistic, and how many shots did it take before it stopped moving?",
         "answer": "About 2.78, once every setting pair has several hundred shots behind it. Above the local-realist bound of 2, below the quantum ceiling of 2√2 ≈ 2.83.",
-        "why": "A correlation here is not the fraction of trials that agree; it is that fraction minus the fraction that disagree, which is why it runs from −1 to +1 and why a pair that almost always disagrees contributes a large negative number. Every one of those 4 values is a proportion from a finite number of shots, so each carries its own scatter, and the scatter shrinks as the square root of the count — which is why 100 shots per setting can put the combination either side of two, and 600 shots usually does not. The bound of 2 belongs to local models satisfying the Bell assumptions; quantum mechanics allows up to 2√2, about 2.83. The arithmetic is trivial. Knowing when the number has stopped moving is the measurement.",
+        "why": "A correlation here is not the fraction of trials that agree. It is that fraction minus the fraction that disagree. That is why it runs from −1 to +1. And why a pair that almost always disagrees contributes a large negative number. Every one of those 4 values is a proportion from a finite number of shots. So each carries its own scatter. The scatter shrinks as the square root of the count. That is why 100 shots per setting can put the combination either side of two, and 600 shots usually does not. The bound of 2 belongs to local models satisfying the Bell assumptions; quantum mechanics allows up to 2√2, about 2.83. The arithmetic is trivial. Knowing when the number has stopped moving is the measurement.",
         "tally": {
           "settings": [
             {
@@ -3340,7 +2855,7 @@ export const CURRICULUM = {
         "task": "Separate the two halves of the claim",
         "question": "Separate the two halves of the claim",
         "answer": "",
-        "why": "The quantum device's sampled data are experimental observations. The fidelity estimate is partly model-dependent because at sizes beyond exact classical simulation one cannot simply calculate the full ideal distribution and compare every outcome. The quoted classical runtime is conditional on algorithms, implementation choices and available hardware; a better classical method can change that estimate without changing the quantum experiment at all. The useful reading habit is therefore to ask which part is measured, which part is inferred, and which part is a statement about the current state of competing computation.\n",
+        "why": "The quantum device's sampled data are experimental observations. The fidelity estimate is partly model-dependent because at sizes beyond exact classical simulation one cannot simply calculate the full ideal distribution and compare every outcome. The quoted classical runtime is conditional on algorithms, implementation choices and available hardware; a better classical method can change that estimate without changing the quantum experiment at all. The useful reading habit is therefore to ask which part is measured. Which part is inferred. And which part is a statement about the current state of competing computation.\n",
         "rebuttals": [
           "The sampled distribution is a measurement of their device, and it either reproduces or it does not.",
           "A classical runtime estimate is conditional on the algorithms and hardware considered; a new method can change it without exposing experimental misconduct.",
@@ -3373,27 +2888,6 @@ export const CURRICULUM = {
       "assumes": [
         "a comparison has a measured side and a modelled side"
       ],
-      "equations": [
-        {
-          "e": "F_total ≈ F^n",
-          "c": "gate fidelity compounding over circuit depth",
-          "v": [
-            [
-              "F_total",
-              "chance the whole circuit is right"
-            ],
-            [
-              "F",
-              "fidelity of one gate, between 0 and 1"
-            ],
-            [
-              "n",
-              "number of gates in the circuit"
-            ]
-          ],
-          "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep."
-        }
-      ],
       "concept": {
         "n": 22,
         "c": "What a quantum advantage claim actually claims",
@@ -3425,7 +2919,7 @@ export const CURRICULUM = {
         "task": "Sort the fortnight's numbers",
         "question": "Sort the fortnight's numbers",
         "answer": "",
-        "why": "\"The discriminator converts analogue readout records into bits, so quantities built directly from classified outcomes — including the reported readout fidelity, circuit outcome probabilities and the Bell correlations — must be reconsidered. T1 and T2 are extracted mainly from how a signal changes with delay, so an approximately stable affine readout error often changes the amplitude or offset more than the fitted decay constant; those fits should still be checked, but they are not automatically invalid. Standard randomized benchmarking has a similar designed insensitivity to fixed state-preparation and measurement terms in its decay parameter. The rule is dependency, not prestige: rerun or reanalyse anything for which the faulty classification can change the quantity of interest.\"\n",
+        "why": "\"The discriminator converts analogue readout records into bits. So quantities built directly from classified outcomes must be reconsidered. Those include the reported readout fidelity, circuit outcome probabilities and the Bell correlations. T1 and T2 are extracted mainly from how a signal changes with delay. So an approximately stable affine readout error often changes the amplitude or offset more than the fitted decay constant. Those fits should still be checked, but they are not automatically invalid. Standard randomized benchmarking has a similar designed insensitivity to fixed state-preparation and measurement terms in its decay parameter. The rule is dependency, not prestige: rerun or reanalyse anything for which the faulty classification can change the quantity of interest.\"\n",
         "rebuttals": [
           "Circuit outcome probabilities are downstream of the discriminator, so the classifier can bias them directly.",
           "A stable readout offset often changes the scale or baseline of a relaxation/coherence trace more than its decay rate, but stability should be checked rather than assumed.",
@@ -3458,86 +2952,6 @@ export const CURRICULUM = {
       "assumes": [
         "a fault in one step affects only what depends on that step"
       ],
-      "equations": [
-        {
-          "e": "P(t) = e^(−t/T₁)",
-          "c": "relaxation, as a decay you fit",
-          "v": [
-            [
-              "P(t)",
-              "chance the qubit is still excited after time t"
-            ],
-            [
-              "t",
-              "time since the pulse, in microseconds"
-            ],
-            [
-              "T₁",
-              "relaxation time, in microseconds"
-            ]
-          ],
-          "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third."
-        },
-        {
-          "e": "1/T₂ = 1/(2T₁) + 1/T_φ",
-          "c": "why dephasing is usually the harder number",
-          "v": [
-            [
-              "T₂",
-              "coherence time, in microseconds"
-            ],
-            [
-              "T₁",
-              "relaxation time, in microseconds"
-            ],
-            [
-              "T_φ",
-              "pure dephasing time, from noise that scrambles phase without taking energy"
-            ]
-          ],
-          "s": "Coherence is limited both by energy leaving and by phase being scrambled, and T₂ can never be more than twice T₁ however quiet the phase noise is."
-        },
-        {
-          "e": "F_total ≈ F^n",
-          "c": "gate fidelity compounding over circuit depth",
-          "v": [
-            [
-              "F_total",
-              "chance the whole circuit is right"
-            ],
-            [
-              "F",
-              "fidelity of one gate, between 0 and 1"
-            ],
-            [
-              "n",
-              "number of gates in the circuit"
-            ]
-          ],
-          "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep.",
-          "card": false
-        },
-        {
-          "e": "S = E(a,b) − E(a,b′) + E(a′,b) + E(a′,b′),  |S| ≤ 2",
-          "c": "the Bell test, as a measured number",
-          "v": [
-            [
-              "S",
-              "the CHSH quantity, computed from four correlation measurements"
-            ],
-            [
-              "E(a,b)",
-              "correlation between the two detectors at settings a and b"
-            ],
-            [
-              "2",
-              "the largest value any shared instruction agreed in advance can produce"
-            ]
-          ],
-          "s": "No pre-agreed instruction set can push S above 2, so measuring more than that rules out the whole class of explanations rather than supporting one.",
-          "card": false
-        }
-      ],
       "concept": {
         "n": 4,
         "c": "Superposition as an amplitude, not a mixture",
@@ -3553,7 +2967,7 @@ export const CURRICULUM = {
       "scene": "The night produced two hundred thousand shots and the fit runs at eight. Some of the structure in them is the qubit. The rest is the measurement chain, and both arrive as numbers in the same file.",
       "takeaway": "A feature that does not depend on the qubit was not made by the qubit.",
       "place": "Verification Bench",
-      "guide": "Two bins. Something the qubit did depends on what the qubit was asked to do — it moves with the drive, the delay, the frequency. Something the chain did does not: it is there when the drive is off, it tracks the room, or it sits at a fixed frequency whatever the qubit is doing. Sort on what it depends on.",
+      "guide": "Two bins. Something the qubit did depends on what the qubit was asked to do — it moves with the drive, the delay, the frequency. Something the chain did does not. It is there when the drive is off. It tracks the room. Or it sits at a fixed frequency whatever the qubit is doing. Sort on what it depends on.",
       "background": [
         "Why this is the first question of every measurement. A readout chain has amplifiers, mixers, cables and a room around them, and every one of them can produce structure that looks like physics. The test is dependence: change what the qubit is doing and see whether the feature follows.",
         "What chain artifacts look like. A feature at the same frequency whatever the qubit is tuned to. A drift that follows the room temperature. A rate that changes when somebody opens a door. Something present with the drive switched off entirely."
@@ -3567,7 +2981,7 @@ export const CURRICULUM = {
         "task": "Sort the night's shots before the fit runs.",
         "question": "Send each feature to the bin that says what produced it.",
         "answer": "Anything that follows the drive, the delay or the frequency is the qubit. Anything present with the drive off, fixed in frequency or tracking the room is the chain.",
-        "why": "Everything in the file has been through the readout chain, so the only way to tell the physics from the instrument is dependence. A real qubit feature moves when you change what the qubit is asked to do: an oscillation whose rate follows drive amplitude, a decay whose time constant is the same on repeat, a resonance that moves when the flux bias moves. Chain artifacts do not care. A spur sits at the same frequency whatever the qubit is tuned to; an amplifier's gain ripple is there with the drive switched off; a slow drift follows the room's air conditioning rather than anything on the chip. That is why the discipline is to change one thing and look, rather than to fit first and interpret afterwards — a good fit to an artifact is the most convincing wrong result a laboratory can produce, and the fit will not tell you.",
+        "why": "Everything in the file has been through the readout chain, so the only way to tell the physics from the instrument is dependence. A real qubit feature moves when you change what the qubit is asked to do. An oscillation whose rate follows drive amplitude. A decay whose time constant is the same on repeat. A resonance that moves when the flux bias moves. Chain artifacts do not care. A spur sits at the same frequency whatever the qubit is tuned to. An amplifier's gain ripple is there with the drive switched off. A slow drift follows the room's air conditioning rather than anything on the chip. That is why the discipline is to change one thing and look, rather than to fit first and interpret afterwards. A good fit to an artifact is the most convincing wrong result a laboratory can produce. And the fit will not tell you.",
         "belt": {
           "left": {
             "name": "The qubit"
@@ -3691,23 +3105,6 @@ export const CURRICULUM = {
       "assumes": [
         "a measurement passes through an instrument before it becomes a number"
       ],
-      "equations": [
-        {
-          "e": "t_π = 1 / (2 f_Rabi)",
-          "c": "drive strength to pulse length",
-          "v": [
-            [
-              "t_π",
-              "length of a pulse that flips the qubit, in seconds"
-            ],
-            [
-              "f_Rabi",
-              "Rabi frequency, set by how hard you drive, in hertz"
-            ]
-          ],
-          "s": "Driving harder makes the qubit turn over faster, so the pulse that flips it gets shorter in proportion."
-        }
-      ],
       "concept": {
         "n": 14,
         "c": "Readout, discriminators, and how a classifier can cheat",
@@ -3739,7 +3136,7 @@ export const CURRICULUM = {
         "task": "Say what the correction has to contain",
         "question": "Say what the correction has to contain",
         "answer": "",
-        "why": "Changing only the headline number leaves other groups unable to recognise the same failure mode in their own analysis. Naming the mechanism — fitting and evaluating the discriminator on the same data — makes the correction actionable. Defining the scope matters just as much because readers need to know which Ridgeway results passed through that step and which did not. The rerun can be labelled preliminary or in progress; completeness is valuable, but waiting past a hard correction deadline would preserve a number the group already knows is biased.",
+        "why": "Changing only the headline number leaves other groups unable to recognise the same failure mode in their own analysis. Naming the mechanism — fitting and evaluating the discriminator on the same data — makes the correction actionable. Defining the scope matters just as much because readers need to know which Ridgeway results passed through that step and which did not. The rerun can be labelled preliminary or in progress. Completeness is valuable. But waiting past a hard correction deadline would preserve a number the group already knows is biased.",
         "rebuttals": [
           "The number has to be corrected, but a changed number alone does not tell readers what failure mode to look for.",
           "Naming the mechanism makes the correction actionable because another group can test whether its own analysis has the same dependency.",
@@ -3836,66 +3233,6 @@ export const CURRICULUM = {
       "assumes": [
         "a claim can rest on a measurement, an inference, or a projection"
       ],
-      "equations": [
-        {
-          "e": "F_total ≈ F^n",
-          "c": "gate fidelity compounding over circuit depth",
-          "v": [
-            [
-              "F_total",
-              "chance the whole circuit is right"
-            ],
-            [
-              "F",
-              "fidelity of one gate, between 0 and 1"
-            ],
-            [
-              "n",
-              "number of gates in the circuit"
-            ]
-          ],
-          "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep."
-        },
-        {
-          "e": "S = E(a,b) − E(a,b′) + E(a′,b) + E(a′,b′),  |S| ≤ 2",
-          "c": "the Bell test, as a measured number",
-          "v": [
-            [
-              "S",
-              "the CHSH quantity, computed from four correlation measurements"
-            ],
-            [
-              "E(a,b)",
-              "correlation between the two detectors at settings a and b"
-            ],
-            [
-              "2",
-              "the largest value any shared instruction agreed in advance can produce"
-            ]
-          ],
-          "s": "No pre-agreed instruction set can push S above 2, so measuring more than that rules out the whole class of explanations rather than supporting one."
-        },
-        {
-          "e": "n_phys ≈ d²  per logical qubit",
-          "c": "what error correction costs",
-          "v": [
-            [
-              "n_phys",
-              "physical qubits used for one logical qubit"
-            ],
-            [
-              "d",
-              "code distance, how many errors the code can survive"
-            ],
-            [
-              "p_threshold",
-              "the physical error rate below which adding qubits helps rather than hurts"
-            ]
-          ],
-          "s": "Error correction only works below a threshold error rate, and above it every qubit you add makes the logical qubit worse rather than better.",
-          "card": false
-        }
-      ],
       "concept": {
         "n": 21,
         "c": "Quantum error correction and the threshold idea",
@@ -3925,7 +3262,7 @@ export const CURRICULUM = {
         "task": "Read a second chip's pair of numbers",
         "question": "On the spare chip, T1 is 20 µs and T2 is 38 µs. What do the two numbers say together?",
         "answer": "Energy relaxation sets the limit, and there is very little pure dephasing left to remove.",
-        "why": "Thirty-eight against a ceiling of forty is the whole answer. Relaxation destroys phase as well as energy, so coherence can never exceed twice the relaxation time, and this chip is within five per cent of that. Almost nothing is scrambling phase for free. That reverses the week's work list: on the first chip the coherence time was a third of its ceiling and the wiring was worth chasing, and here the wiring is already as good as it can usefully be. What is left is energy leaving the qubit, which is surfaces, materials and the fridge.",
+        "why": "Thirty-eight against a ceiling of forty is the whole answer. Relaxation destroys phase as well as energy, so coherence can never exceed twice the relaxation time, and this chip is within five per cent of that. Almost nothing is scrambling phase for free. That reverses the week's work list. On the first chip the coherence time was a third of its ceiling, and the wiring was worth chasing. Here the wiring is already as good as it can usefully be. What is left is energy leaving the qubit, which is surfaces, materials and the fridge.",
         "rebuttals": [
           "A coherence time larger than a relaxation time is the ordinary case, and it is the distance from the ceiling rather than the ordering that says which loss dominates.",
           "The ceiling is twice the relaxation time, not the relaxation time, so 38 against a T1 of 20 is inside what the physics allows.",
@@ -3942,46 +3279,6 @@ export const CURRICULUM = {
       "assumes": [
         "relaxation destroys phase as well as energy, so it sets a ceiling on the coherence time"
       ],
-      "equations": [
-        {
-          "e": "P(t) = e^(−t/T₁)",
-          "c": "relaxation, as a decay you fit",
-          "v": [
-            [
-              "P(t)",
-              "chance the qubit is still excited after time t"
-            ],
-            [
-              "t",
-              "time since the pulse, in microseconds"
-            ],
-            [
-              "T₁",
-              "relaxation time, in microseconds"
-            ]
-          ],
-          "s": "An excited qubit loses its energy at random, so the population falls by the same fraction in every equal interval and T₁ is the time it takes to fall to about a third."
-        },
-        {
-          "e": "1/T₂ = 1/(2T₁) + 1/T_φ",
-          "c": "why dephasing is usually the harder number",
-          "v": [
-            [
-              "T₂",
-              "coherence time, in microseconds"
-            ],
-            [
-              "T₁",
-              "relaxation time, in microseconds"
-            ],
-            [
-              "T_φ",
-              "pure dephasing time, from noise that scrambles phase without taking energy"
-            ]
-          ],
-          "s": "Coherence is limited both by energy leaving and by phase being scrambled, and T₂ can never be more than twice T₁ however quiet the phase noise is."
-        }
-      ],
       "concept": {
         "n": 9,
         "c": "Relaxation time T1 — energy leaving the system",
@@ -3997,7 +3294,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What goes out on Friday",
-      "scene": "Elena Barros, who runs Ridgeway's sensing group and ships calibrated numbers to a hospital every month, has the least romantic view of the Delft offer: if somebody else will depend on Ridgeway's work, the method has to leave the building before the opportunity does.",
+      "scene": "Elena Barros runs Ridgeway's sensing group and ships calibrated numbers to a hospital every month. She has the least romantic view of the Delft offer. If somebody else will depend on Ridgeway's work, the method must leave the building before the opportunity does.",
       "takeaway": "Sharing a reproducible method before the final claim is settled can create evidence without committing to the final answer.",
       "place": "Quantum Sensing",
       "guide": "Delft's window begins in ten days and the next is a quarter away. Their device is a different design, which is the whole reason a second run counts as independent. Ridgeway's result has been measured on one device by one group. Delft has asked for sequences, not for results. Knowing the expected number before freezing an analysis changes every choice made along the way. The external review follows soon after the run. A result published first is one the second run is compared against rather than tested against.",
@@ -4007,7 +3304,7 @@ export const CURRICULUM = {
         "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
         "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
       ],
-      "story": "Elena Barros, who runs Ridgeway's sensing group and ships calibrated numbers to a hospital every month, has the least romantic view of the Delft offer: if somebody else will depend on Ridgeway's work, the method has to leave the building before the opportunity does.",
+      "story": "Elena Barros runs Ridgeway's sensing group and ships calibrated numbers to a hospital every month. She has the least romantic view of the Delft offer. If somebody else will depend on Ridgeway's work, the method must leave the building before the opportunity does.",
       "game": {
         "type": "SCIENCETANK",
         "title": "What goes out on Friday",
@@ -4082,7 +3379,7 @@ export const CURRICULUM = {
         "task": "Find the noise floor",
         "question": "Averaging for longer buys resolution, until it does not. How long should she average, and what stops her going further?",
         "answer": "About 35 seconds, resolving roughly 2.6 picotesla. Averaging for a minute is worse than averaging for half of one, so the extra hour of instrument time buys nothing.",
-        "why": "Random noise averages down as the square root of the number of independent measurements, so the first factor of 10 in resolution is cheap and the next costs 100 times the time — the reason sensing is a patience problem rather than a precision problem. Three things then fight. Averaging improves the number only while the measurements are independent, and past about half a minute the instrument itself has drifted, so later measurements are of a slightly different machine. Beyond the knee the curve turns back up and more data makes the answer worse. That is also why the hour does not help: the limit is drift, not the number of shots available.\n",
+        "why": "Random noise averages down as the square root of the number of independent measurements. So the first factor of 10 in resolution is cheap. The next costs 100 times the time. That is the reason sensing is a patience problem rather than a precision problem. Three things then fight. Averaging improves the number only while the measurements are independent. Past about half a minute the instrument itself has drifted. So later measurements are of a slightly different machine. Beyond the knee the curve turns back up and more data makes the answer worse. That is also why the hour does not help: the limit is drift, not the number of shots available.\n",
         "sweep": {
           "mode": "peak",
           "axis": {
@@ -4282,7 +3579,7 @@ export const CURRICULUM = {
         "task": "Read a comparison that is behaving",
         "question": "What information does an in-family calibration result add to the measurements taken since the previous comparison?",
         "answer": "It bounds the drift since the last one, which is what makes the readings between usable.",
-        "why": "If the present comparison agrees with the reference within uncertainty, then any drift of the calibrated scale over the interval is bounded at roughly that level, subject to the assumptions of the calibration schedule. That bound is what lets measurements from different months be compared on the same scale. A passing calibration does not prove perfect accuracy and does not guarantee the instrument behaved continuously between checks; it converts an untested interval into one with a stated constraint.\n",
+        "why": "Suppose the present comparison agrees with the reference within uncertainty. Then any drift of the calibrated scale over the interval is bounded at roughly that level. That holds subject to the assumptions of the calibration schedule. That bound is what lets measurements from different months be compared on the same scale. A passing calibration does not prove perfect accuracy. It does not guarantee the instrument behaved continuously between checks. It converts an untested interval into one with a stated constraint.\n",
         "rebuttals": [
           "A null result is what licenses every measurement taken in the interval, so plenty follows from it.",
           "Agreement within uncertainty bounds the error; it does not prove the instrument right.",
@@ -4318,7 +3615,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Everything measured against it",
-      "scene": "If the clock really has drifted, every frequency measured in the building since the last comparison is off by the same fraction — including the qubit frequencies in the review pack.",
+      "scene": "If the clock really has drifted, every frequency measured in the building since the last comparison is off by the same fraction. That includes the qubit frequencies in the review pack.",
       "takeaway": "A shared-reference error is dangerous because it can move many instruments coherently while leaving their internal comparisons apparently consistent.",
       "place": "Quantum Sensing",
       "guide": "All four options give a reason a shared drift is hard to see, and only one is about the mechanism rather than the size. Ask what the building's own cross-checks are comparing against. A common reference does not add scatter; it moves everything the same way. That is why an internal comparison can stay perfectly consistent while every number in it is displaced together.",
@@ -4327,7 +3624,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
-      "story": "If the clock really has drifted, every frequency measured in the building since the last comparison is off by the same fraction — including the qubit frequencies in the review pack.",
+      "story": "If the clock really has drifted, every frequency measured in the building since the last comparison is off by the same fraction. That includes the qubit frequencies in the review pack.",
       "game": {
         "type": "CHOICE",
         "title": "Everything measured against it",
@@ -4353,27 +3650,6 @@ export const CURRICULUM = {
       "assumes": [
         "a measurement is a ratio against a reference",
         "resonance, detuning, and finding a qubit frequency — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "F_total ≈ F^n",
-          "c": "gate fidelity compounding over circuit depth",
-          "v": [
-            [
-              "F_total",
-              "chance the whole circuit is right"
-            ],
-            [
-              "F",
-              "fidelity of one gate, between 0 and 1"
-            ],
-            [
-              "n",
-              "number of gates in the circuit"
-            ]
-          ],
-          "s": "Errors multiply rather than add, so a gate that is right 99.9 per cent of the time is useless a few thousand gates deep."
-        }
       ],
       "takesAsRead": [
         {
@@ -4428,23 +3704,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a delivered number is used by somebody who cannot check it"
-      ],
-      "equations": [
-        {
-          "e": "δB ∝ 1 / √N",
-          "c": "the standard quantum limit, and what squeezing buys",
-          "v": [
-            [
-              "δB",
-              "smallest field change you can resolve"
-            ],
-            [
-              "N",
-              "number of independent measurements or atoms"
-            ]
-          ],
-          "s": "Averaging independent measurements improves a sensor only as the square root of their number, which is the wall entanglement is used to get past."
-        }
       ],
       "concept": {
         "n": 26,
@@ -4508,7 +3767,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Numbers that leave the building",
-      "scene": "Sadiq points out that his key link has the same property: somebody else's system depends on it, so its failures have to be visible to them rather than only to him.",
+      "scene": "Sadiq points out that his key link has the same property. Somebody else's system depends on it. Its failures have to be visible to them rather than only to him.",
       "takeaway": "Once another person acts on a measurement, uncertainty, alarms and change history become part of the information you are delivering.",
       "place": "Networks & Security",
       "guide": "The left column is four things a delivered measurement has to carry with it. The right column is four ways a user gets hurt. Pair them by asking which failure each obligation makes impossible, not which one sounds most responsible. None of these makes the instrument more sensitive. They decide whether somebody outside the building can tell when the sensitivity has stopped applying.",
@@ -4517,7 +3776,7 @@ export const CURRICULUM = {
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning."
       ],
-      "story": "Sadiq points out that his key link has the same property: somebody else's system depends on it, so its failures have to be visible to them rather than only to him.",
+      "story": "Sadiq points out that his key link has the same property. Somebody else's system depends on it. Its failures have to be visible to them rather than only to him.",
       "game": {
         "type": "PROTOCOL",
         "title": "Numbers that leave the building",
@@ -4526,7 +3785,7 @@ export const CURRICULUM = {
         "task": "Say what a delivered number obliges you to",
         "question": "Say what a delivered number obliges you to",
         "answer": "",
-        "why": "A research measurement can be repeated before anybody acts on it. A delivered measurement may already have changed a decision, so the user needs enough context to recognize when the service is outside its validated state. An uncertainty supports decisions about significance; a calibration interval supports comparisons through time; a visible fault flag prevents silent use of known-bad data; and a change log makes later re-analysis possible. None of these substitutes for better sensitivity, but they determine whether the sensitivity is usable.\n",
+        "why": "A research measurement can be repeated before anybody acts on it. A delivered measurement may already have changed a decision, so the user needs enough context to recognize when the service is outside its validated state. An uncertainty supports decisions about significance. A calibration interval supports comparisons through time. A visible fault flag prevents silent use of known-bad data. A change log makes later re-analysis possible. None of these substitutes for better sensitivity, but they determine whether the sensitivity is usable.\n",
         "rebuttals": [
           "An uncertainty on every number is what lets the user judge whether a change is real.",
           "A calibration interval is what makes this year's readings comparable with last year's.",
@@ -4559,23 +3818,6 @@ export const CURRICULUM = {
       "assumes": [
         "a service somebody relies on has different obligations from an experiment",
         "superposition as an amplitude, not a mixture — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "δB ∝ 1 / √N",
-          "c": "the standard quantum limit, and what squeezing buys",
-          "v": [
-            [
-              "δB",
-              "smallest field change you can resolve"
-            ],
-            [
-              "N",
-              "number of independent measurements or atoms"
-            ]
-          ],
-          "s": "Averaging independent measurements improves a sensor only as the square root of their number, which is the wall entanglement is used to get past."
-        }
       ],
       "takesAsRead": [
         {
@@ -4613,7 +3855,7 @@ export const CURRICULUM = {
         "task": "Say what the number excludes",
         "question": "Assuming locality and measurement independence for the moment, what would S = 2.78 exclude?",
         "answer": "That no locally pre-fixed set of outcomes explains these correlations.",
-        "why": "Under the CHSH assumptions, a local hidden-variable model in which outcomes are determined by pre-existing variables cannot produce |S| > 2. The measured value would therefore exclude that class of models. It does not imply faster-than-light signalling, and it does not prove quantum mechanics uniquely correct. On Ridgeway's chip, however, the qubits are close enough that the locality condition is not physically enforced. That means the on-chip result is a strong demonstration of nonclassical correlations and, within quantum theory, entanglement — but the stronger loophole-free statement about local realism requires the conditions examined in the next scene.\n",
+        "why": "Under the CHSH assumptions, a local hidden-variable model in which outcomes are determined by pre-existing variables cannot produce |S| > 2. The measured value would therefore exclude that class of models. It does not imply faster-than-light signalling, and it does not prove quantum mechanics uniquely correct. On Ridgeway's chip, however, the qubits are close enough that the locality condition is not physically enforced. That means the on-chip result is a strong demonstration of nonclassical correlations and, within quantum theory, entanglement. But the stronger loophole-free statement about local realism requires the conditions examined in the next scene.\n",
         "rebuttals": [
           "Bell correlations do not provide a controllable signalling channel; each local outcome remains individually random.",
           "If communication between the systems is allowed during the trial, the locality assumption has been dropped and the CHSH bound no longer has the same force.",
@@ -4629,27 +3871,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a measurement can rule out a class of explanations without confirming one"
-      ],
-      "equations": [
-        {
-          "e": "S = E(a,b) − E(a,b′) + E(a′,b) + E(a′,b′),  |S| ≤ 2",
-          "c": "the Bell test, as a measured number",
-          "v": [
-            [
-              "S",
-              "the CHSH quantity, computed from four correlation measurements"
-            ],
-            [
-              "E(a,b)",
-              "correlation between the two detectors at settings a and b"
-            ],
-            [
-              "2",
-              "the largest value any shared instruction agreed in advance can produce"
-            ]
-          ],
-          "s": "No pre-agreed instruction set can push S above 2, so measuring more than that rules out the whole class of explanations rather than supporting one."
-        }
       ],
       "concept": {
         "n": 20,
@@ -4683,7 +3904,7 @@ export const CURRICULUM = {
         "task": "Decide what Ridgeway says publicly",
         "question": "Decide what Ridgeway says publicly",
         "answer": "",
-        "why": "\"Ridgeway cannot determine the true best classical runtime for the sixty-seven-qubit experiment with its twelve-qubit processor. What it can contribute is a validation study of the estimator: compare it with exact results at tractable sizes, inject controlled errors, and map where the estimator remains trustworthy. That evidence could support, qualify or challenge future advantage claims without requiring Ridgeway to endorse or dismiss this paper's headline. A public method is more durable than a public posture.\"\n",
+        "why": "\"Ridgeway cannot determine the true best classical runtime for the sixty-seven-qubit experiment with its twelve-qubit processor. What it can contribute is a validation study of the estimator. Compare it with exact results at tractable sizes. Inject controlled errors. Map where the estimator remains trustworthy. That evidence could support, qualify or challenge future advantage claims without requiring Ridgeway to endorse or dismiss this paper's headline. A public method is more durable than a public posture.\"\n",
         "proposals": [
           {
             "label": "A",
@@ -4742,7 +3963,7 @@ export const CURRICULUM = {
         "task": "Decide what the group does first",
         "question": "What gets the group's attention first?",
         "answer": "The clock — everything since the last comparison is unbounded.",
-        "why": "\"The fibre cut has stopped the QKD link and cannot be repaired by the laboratory this afternoon; the unfinished block is not yet secret key and can be quarantined. The review pack has a hard deadline but a known workflow and reruns already in progress. The clock discrepancy is different: if the reference has drifted, every new frequency measurement made against it inherits the same scale error, so the affected set grows until the reference is checked or isolated. A repeat comparison can bound that risk quickly, which puts the clock first.\"",
+        "why": "\"The fibre cut has stopped the QKD link. The laboratory cannot repair it this afternoon. The unfinished block is not yet secret key, and can be quarantined. The review pack has a hard deadline but a known workflow and reruns already in progress. The clock discrepancy is different. If the reference has drifted, every new frequency measurement made against it inherits the same scale error. So the affected set grows until the reference is checked or isolated. A repeat comparison can bound that risk quickly, which puts the clock first.\"",
         "rebuttals": [
           "The unfinished QKD data are not automatically compromised by the cut; they simply cannot be called secret key until the protocol's authenticated post-processing establishes security.",
           "A deadline matters, but the clock can contaminate additional measurements every hour and can be checked quickly.",
@@ -4758,27 +3979,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a problem still developing is different from one that has finished"
-      ],
-      "equations": [
-        {
-          "e": "R = 1 − 2h(e)",
-          "c": "the key rate left after error correction and privacy amplification",
-          "v": [
-            [
-              "R",
-              "secret key bits per sifted bit"
-            ],
-            [
-              "e",
-              "quantum bit error rate, the fraction of test bits that disagree"
-            ],
-            [
-              "h(e)",
-              "the binary entropy of that error rate"
-            ]
-          ],
-          "s": "Every error might be an eavesdropper, so the protocol throws away enough key to cover it, and above about eleven per cent errors nothing is left."
-        }
       ],
       "concept": {
         "n": 27,
@@ -4811,7 +4011,7 @@ export const CURRICULUM = {
         "task": "Distinguish raw key material from usable secret key",
         "question": "What is the scientifically correct status of the partial data after the link fails?",
         "answer": "Nothing. Without the error estimate there is no bound on the leak.",
-        "why": "\"The stored bits are not yet usable secret key. QKD security comes from the full authenticated protocol: parameter estimation bounds the relevant error statistics and possible information leakage, error correction reconciles the two strings, and privacy amplification shortens the result to the length justified by that bound. A fibre interruption does not create a universal law that every partial bit must be destroyed; whether a completed subset can be processed depends on the protocol and its finite-size security rules. Ridgeway's safe action is to quarantine the raw block and use only data that can still pass the protocol's defined post-processing as a self-contained block.\"\n",
+        "why": "\"The stored bits are not yet usable secret key. QKD security comes from the full authenticated protocol. Parameter estimation bounds the relevant error statistics and possible information leakage. Error correction reconciles the two strings. Privacy amplification shortens the result to the length justified by that bound. A fibre interruption does not create a universal law that every partial bit must be destroyed. Whether a completed subset can be processed depends on the protocol and its finite-size security rules. Ridgeway's safe action is to quarantine the raw block and use only data that can still pass the protocol's defined post-processing as a self-contained block.\"\n",
         "rebuttals": [
           "Quantum transmission creates correlated raw material, not a secrecy guarantee by itself; the post-processing establishes the bound used for the final key.",
           "Whether data from separated periods can be combined is protocol-dependent; the finite-size and channel assumptions cannot simply be ignored.",
@@ -4827,46 +4027,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "raw or sifted key material is not yet secret key; the protocol's security proof specifies how parameter estimation and privacy amplification are performed"
-      ],
-      "equations": [
-        {
-          "e": "n_phys ≈ d²  per logical qubit",
-          "c": "what error correction costs",
-          "v": [
-            [
-              "n_phys",
-              "physical qubits used for one logical qubit"
-            ],
-            [
-              "d",
-              "code distance, how many errors the code can survive"
-            ],
-            [
-              "p_threshold",
-              "the physical error rate below which adding qubits helps rather than hurts"
-            ]
-          ],
-          "s": "Error correction only works below a threshold error rate, and above it every qubit you add makes the logical qubit worse rather than better."
-        },
-        {
-          "e": "R = 1 − 2h(e)",
-          "c": "the key rate left after error correction and privacy amplification",
-          "v": [
-            [
-              "R",
-              "secret key bits per sifted bit"
-            ],
-            [
-              "e",
-              "quantum bit error rate, the fraction of test bits that disagree"
-            ],
-            [
-              "h(e)",
-              "the binary entropy of that error rate"
-            ]
-          ],
-          "s": "Every error might be an eavesdropper, so the protocol throws away enough key to cover it, and above about eleven per cent errors nothing is left."
-        }
       ],
       "concept": {
         "n": 27,
@@ -4899,7 +4059,7 @@ export const CURRICULUM = {
         "task": "Decide what the group commits to",
         "question": "Decide what the group commits to",
         "answer": "",
-        "why": "Correcting now costs a smaller headline, an awkward explanation and the possibility that the final rerun moves the number again. Not correcting preserves a value the group already has evidence is biased and lets the correction deadline expire; Delft also has independent data that could surface the issue later. The asymmetry is not simply embarrassment versus no embarrassment. One path preserves the ability to update the scientific record while stating what is still provisional; the other deliberately gives up that option.",
+        "why": "Correcting now costs a smaller headline, an awkward explanation and the possibility that the final rerun moves the number again. Not correcting preserves a value the group already has evidence is biased. It also lets the correction deadline expire. Delft has independent data that could surface the issue later. The asymmetry is not simply embarrassment versus no embarrassment. One path preserves the ability to update the scientific record while stating what is still provisional; the other deliberately gives up that option.",
         "rebuttals": [
           "A prompt correction can state what is provisional; the cost is visible uncertainty now rather than loss of the ability to correct later.",
           "Silence is not cost-free once the deadline closes, because the group would later have to explain both the biased number and the decision to leave it.",

@@ -59,6 +59,7 @@ export const CURRICULUM = {
       "scene": "Kaur wants the contact time worked out at the new flow before anything else is changed. The bed holds 340 litres of packed catalyst and the loop is passing 85 litres a minute through it.",
       "takeaway": "Conversion depends on how fast the reaction runs and on how long it is given to run for.",
       "place": "Catalyst Bay",
+      "at": "bed",
       "guide": "Kaur is asking for a contact time. Contact time is the same thing as residence time: how long a molecule stays inside the bed. A volume and a flow through the bed will give you that. Five numbers are on the board and they are not all about the bed's size. Some describe the conditions in the loop instead. Ask of each whether a length of time could possibly depend on it.",
       "background": [
         "What residence time is, and what it is not. It is the time a molecule spends inside the packed bed: its volume divided by the flow through the bed. It says nothing about how quickly the reaction itself runs. A slow reaction given a long contact and a fast one given a short contact can convert the same amount. Conversion is the two of them together.",
@@ -162,46 +163,6 @@ export const CURRICULUM = {
         "a catalyst offers a reaction an easier path",
         "equilibrium is where the forward and reverse rates match"
       ],
-      "equations": [
-        {
-          "e": "ΔG = ΔH − TΔS",
-          "c": "which way a change runs, and what it costs to make it run the other way",
-          "v": [
-            [
-              "ΔG",
-              "the free-energy change; negative means it can run on its own"
-            ],
-            [
-              "ΔH",
-              "the heat given out or taken in at constant pressure"
-            ],
-            [
-              "T",
-              "the absolute temperature, in kelvin"
-            ],
-            [
-              "ΔS",
-              "the entropy change — how much more or less spread out the matter ends up"
-            ]
-          ],
-          "s": "Direction is a competition between heat and disorder with the temperature setting the odds, so a reaction that gives out heat and makes fewer molecules is spontaneous up to a temperature and not above it."
-        },
-        {
-          "e": "Q compared with K",
-          "c": "reading which way a mixture will move from what is in it now",
-          "v": [
-            [
-              "Q",
-              "the reaction quotient, worked out from the amounts present at this moment"
-            ],
-            [
-              "K",
-              "the equilibrium constant, the value that same expression takes at balance"
-            ]
-          ],
-          "s": "Two numbers from one expression: one describes the vessel now and the other describes where it is going, and the comparison between them gives the direction without saying anything at all about the speed."
-        }
-      ],
       "concept": {
         "n": 11,
         "c": "What a catalyst does, and the two things it cannot do",
@@ -217,6 +178,7 @@ export const CURRICULUM = {
       "scene": "Nine sols of profiles are pinned along the wall in order. On the first, the hot spot sits 4 centimetres into the bed. On the last it sits at 34. The peak temperature is about the same on every one.",
       "takeaway": "Where a bed is hot is where it is still working.",
       "place": "Catalyst Bay",
+      "at": "bed",
       "guide": "Nine sols of profiles are on the wall and something is moving. But look at what is not moving. The peak temperature is the same on every one. The pressure drop across the bed has not changed. Neither has the feed. Those three are your evidence, not the hot spot. Take each candidate and ask how many of the five readings it fits. And ask one more thing: which end of a bed meets the strongest feed?",
       "background": [
         "Why a hot spot marks where the work is happening. The reaction gives off its heat exactly where it occurs. Dead catalyst does no reacting, so it gives off no heat — gas passes through it unchanged and unwarmed. The hot spot therefore sits at the first place the gas meets catalyst that still works. Move that boundary and the hot spot moves with it.",
@@ -346,35 +308,6 @@ export const CURRICULUM = {
         "a catalyst can lose activity by heat or by a substance binding to it",
         "heat makes small metal particles merge into larger ones"
       ],
-      "equations": [
-        {
-          "e": "m = (I t / nF) × M",
-          "c": "Faraday's law: charge into kilograms",
-          "v": [
-            [
-              "I",
-              "the current, in amps"
-            ],
-            [
-              "t",
-              "the time it flows for, in seconds"
-            ],
-            [
-              "n",
-              "the electrons needed per molecule of product — two for hydrogen"
-            ],
-            [
-              "F",
-              "Faraday's constant, 96,485 coulombs per mole of electrons"
-            ],
-            [
-              "M",
-              "the molar mass of the product"
-            ]
-          ],
-          "s": "Electrons are countable, so an electrolysis cell is the one place in a chemical plant where the arithmetic is exact — everything else about the cell changes what the product costs rather than how much of it there is."
-        }
-      ],
       "concept": {
         "n": 13,
         "c": "Sintering: losing surface to heat",
@@ -390,6 +323,7 @@ export const CURRICULUM = {
       "scene": "The fresh charge arrives as nickel oxide on alumina, which is not a catalyst yet. Kaur has four operations written out and wants them in an order she can hand to a technician at three in the morning.",
       "takeaway": "A part that cannot be replaced is proved at low rate before it is trusted at full rate.",
       "place": "Catalyst Bay",
+      "at": "reduction-furnace",
       "guide": "What arrives in the can is nickel oxide. Nickel oxide is not a catalyst. All four operations will happen, so the question is what each one makes possible, or safe. Two things to hold on to. Hydrogen and oxygen together at 350 °C is not something you want inside a reactor. And nobody hands full production feed to a charge whose activity is still unknown.",
       "background": [
         "Why the charge has to be reduced before it works. Nickel does the work here, and what ships in the can is nickel oxide. That is nickel with oxygen attached. Pass hot hydrogen over it and the oxygen leaves as water, and nickel metal is left behind. This is reduction, the same word as ever: something gained electrons. Until it happens there is no catalyst in the reactor. Only its ingredients.",
@@ -422,35 +356,6 @@ export const CURRICULUM = {
       "assumes": [
         "nickel oxide has to be reduced to nickel metal before it is active",
         "hydrogen at temperature will reduce a metal oxide"
-      ],
-      "equations": [
-        {
-          "e": "m = (I t / nF) × M",
-          "c": "Faraday's law: charge into kilograms",
-          "v": [
-            [
-              "I",
-              "the current, in amps"
-            ],
-            [
-              "t",
-              "the time it flows for, in seconds"
-            ],
-            [
-              "n",
-              "the electrons needed per molecule of product — two for hydrogen"
-            ],
-            [
-              "F",
-              "Faraday's constant, 96,485 coulombs per mole of electrons"
-            ],
-            [
-              "M",
-              "the molar mass of the product"
-            ]
-          ],
-          "s": "Electrons are countable, so an electrolysis cell is the one place in a chemical plant where the arithmetic is exact — everything else about the cell changes what the product costs rather than how much of it there is."
-        }
       ],
       "concept": {
         "n": 11,
@@ -500,35 +405,6 @@ export const CURRICULUM = {
         "conversion depends on temperature, pressure, flow and the catalyst together",
         "a comparison is only about the variable that was deliberately changed",
         "stoichiometry as a feed rate: turning a production target into kilograms in — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "m = (I t / nF) × M",
-          "c": "Faraday's law: charge into kilograms",
-          "v": [
-            [
-              "I",
-              "the current, in amps"
-            ],
-            [
-              "t",
-              "the time it flows for, in seconds"
-            ],
-            [
-              "n",
-              "the electrons needed per molecule of product — two for hydrogen"
-            ],
-            [
-              "F",
-              "Faraday's constant, 96,485 coulombs per mole of electrons"
-            ],
-            [
-              "M",
-              "the molar mass of the product"
-            ]
-          ],
-          "s": "Electrons are countable, so an electrolysis cell is the one place in a chemical plant where the arithmetic is exact — everything else about the cell changes what the product costs rather than how much of it there is."
-        }
       ],
       "takesAsRead": [
         {
@@ -586,35 +462,6 @@ export const CURRICULUM = {
         "a poison accumulates over time rather than acting at once",
         "rate constants, and how steeply they climb with temperature — taken as read"
       ],
-      "equations": [
-        {
-          "e": "m = (I t / nF) × M",
-          "c": "Faraday's law: charge into kilograms",
-          "v": [
-            [
-              "I",
-              "the current, in amps"
-            ],
-            [
-              "t",
-              "the time it flows for, in seconds"
-            ],
-            [
-              "n",
-              "the electrons needed per molecule of product — two for hydrogen"
-            ],
-            [
-              "F",
-              "Faraday's constant, 96,485 coulombs per mole of electrons"
-            ],
-            [
-              "M",
-              "the molar mass of the product"
-            ]
-          ],
-          "s": "Electrons are countable, so an electrolysis cell is the one place in a chemical plant where the arithmetic is exact — everything else about the cell changes what the product costs rather than how much of it there is."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 9,
@@ -670,46 +517,6 @@ export const CURRICULUM = {
         "heating raises the fraction of collisions that clear the barrier",
         "an exothermic reaction's balance is pushed back by heating"
       ],
-      "equations": [
-        {
-          "e": "CO₂ + 4H₂ → CH₄ + 2H₂O,  ΔH = −165 kJ per mole",
-          "c": "the reaction the whole plant is built around",
-          "v": [
-            [
-              "CO₂",
-              "carbon dioxide, taken from the atmosphere at six millibars"
-            ],
-            [
-              "H₂",
-              "hydrogen, made by splitting water"
-            ],
-            [
-              "CH₄",
-              "methane, the fuel"
-            ],
-            [
-              "ΔH",
-              "the heat given out per mole of methane made"
-            ]
-          ],
-          "s": "Five molecules of gas go in and three come out, and a great deal of heat comes with them — which is why pressure helps this reaction and heat hinders it, and why every argument in this plant is about those two facts pulling opposite ways."
-        },
-        {
-          "e": "Q compared with K",
-          "c": "reading which way a mixture will move from what is in it now",
-          "v": [
-            [
-              "Q",
-              "the reaction quotient, worked out from the amounts present at this moment"
-            ],
-            [
-              "K",
-              "the equilibrium constant, the value that same expression takes at balance"
-            ]
-          ],
-          "s": "Two numbers from one expression: one describes the vessel now and the other describes where it is going, and the comparison between them gives the direction without saying anything at all about the speed."
-        }
-      ],
       "concept": {
         "n": 22,
         "c": "The temperature at which a spontaneous reaction stops being one",
@@ -724,16 +531,17 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What the loop settles at",
-      "scene": "The loading projection is still 2,700 kilograms short. Herrera will not accept ‘run it hotter’ as a plan. Four changes to the loop are on the reactor board, and he wants each effect agreed before anyone touches a valve.",
+      "scene": "The loading projection is still 2,700 kilograms short. Tomás Herrera, the reactor and yield lead, will not accept ‘run it hotter’ as a plan. Four changes to the loop are on the reactor board, and he wants each effect agreed before anyone touches a valve.",
       "takeaway": "Four changes, four different effects on an equilibrium. One of the four does not act on it at all.",
       "place": "Reactor Hall",
+      "at": "skid",
       "guide": "Herrera's point is that these four are not four different rules. They are one rule — Le Châtelier's principle — landing on four different quantities. So work out what each change actually touches. The number of gas molecules on each side? The heat, which is one of the products here? The partial pressure of something taking part, meaning that gas's own share of the total? Or nothing the reaction cares about?",
       "background": [
         "What Le Châtelier's principle says. An equilibrium is a mixture that has stopped changing overall, because the forward reaction and the back reaction are running at the same speed. Disturb it and it shifts in whichever direction undoes part of the disturbance. That is one rule, and all four of these changes are that rule applied to a different quantity.",
         "Why pressure and temperature are not the same kind of change. Squeezing the loop does not touch the equilibrium constant K — the fixed ratio the mixture settles at for a given temperature. It changes the partial pressures, and the mixture re-settles to that same K with more of the smaller side. Temperature changes K itself. Heat is the only one of these four that moves the ceiling rather than the position along it.",
         "Why an inert gas does nothing. Argon takes no part in the reaction, so adding it raises the total pressure and leaves every partial pressure exactly where it was. Nothing in the ratio the mixture settles at has moved, so nothing shifts. It is a real change on the gauge and no change at all to the chemistry."
       ],
-      "story": "The loading projection is still 2,700 kilograms short. Herrera will not accept ‘run it hotter’ as a plan. Four changes to the loop are on the reactor board, and he wants each effect agreed before anyone touches a valve.",
+      "story": "The loading projection is still 2,700 kilograms short. Tomás Herrera, the reactor and yield lead, will not accept ‘run it hotter’ as a plan. Four changes to the loop are on the reactor board, and he wants each effect agreed before anyone touches a valve.",
       "game": {
         "type": "PROTOCOL",
         "title": "What the loop settles at",
@@ -778,16 +586,17 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Why the hotter pass gave less",
-      "scene": "The hot run’s assay is on Herrera’s desk. Conversion per pass fell from 71% to 64% while throughput rose. He wants the reason written down before anyone argues for another temperature increase.",
-      "takeaway": "Heating an exothermic reaction lowers its equilibrium product yield, while the observed reactor conversion can also depend on kinetics and residence time.",
+      "scene": "The hot run’s assay is on Herrera’s desk. Conversion per pass fell from 71% to 64%. Throughput rose. He wants the reason written down before anyone argues for another temperature increase.",
+      "takeaway": "Heating an exothermic reaction lowers its equilibrium product yield. The observed reactor conversion can also depend on kinetics and residence time.",
       "place": "Reactor Hall",
-      "guide": "Herrera wants this settled with a number instead of an argument, and the assay gives him one. The reaction quotient Q is built exactly like the equilibrium constant K. Each gas's partial pressure goes in raised to its coefficient in the balanced equation, products over reactants. The difference is that Q is worked out wherever the mixture happens to be right now. Compare Q with K and you have the direction. Two tiles are the raw pressures with no exponent applied, so read the labels.",
+      "at": "analyser",
+      "guide": "Herrera wants this settled with a number instead of an argument. The assay gives him one. The reaction quotient Q is built exactly like the equilibrium constant K. Each gas's partial pressure goes in raised to its coefficient in the balanced equation. Products over reactants. The difference is that Q is worked out at the mixture's own conditions. Wherever it happens to be right now. Compare Q with K and you have the direction. Two tiles are the raw pressures with no exponent applied. So read the labels.",
       "background": [
-        "What Q is, and what it is not. Q is built exactly like K, but it is worked out wherever the mixture happens to be. So it describes the present, not a fixed property of the reaction. Comparing the two tells you which way the reaction still has to go. It tells you nothing about how fast it will get there. That is a different question with a different answer.",
-        "Why the exponents are not decoration. Every partial pressure goes in raised to its coefficient from the balanced equation, and hydrogen's is four. Leave that out and Q changes by two orders of magnitude here. That is the difference between a mixture already past its ceiling and one nowhere near it.",
-        "Why the hot run had two things wrong with it. Temperature moved the ceiling, and the higher throughput moved the contact time, and one assay cannot separate them. What it can settle is the ceiling: K at the hotter temperature is smaller, and this outlet mixture is already above it."
+        "What Q is, and what it is not. Q is built exactly like K. But it is worked out wherever the mixture happens to be. So it describes the present. Not a fixed property of the reaction. Comparing the two tells you one thing. Which way the reaction still has to go. It tells you nothing about how fast it will get there. That is a different question with a different answer.",
+        "Why the exponents are not decoration. Every partial pressure goes in raised to its coefficient from the balanced equation. Hydrogen's is four. Leave that out and Q changes by two orders of magnitude here. One mixture is already past its ceiling. The other is nowhere near it. That is the difference.",
+        "Why the hot run had two things wrong with it. Temperature moved the ceiling. The higher throughput moved the contact time. One assay cannot separate them. What it can settle is the ceiling. K at the hotter temperature is smaller. This outlet mixture is already above it."
       ],
-      "story": "The hot run’s assay is on Herrera’s desk. Conversion per pass fell from 71% to 64% while throughput rose. He wants the reason written down before anyone argues for another temperature increase.",
+      "story": "The hot run’s assay is on Herrera’s desk. Conversion per pass fell from 71% to 64%. Throughput rose. He wants the reason written down before anyone argues for another temperature increase.",
       "game": {
         "type": "BALLPARK",
         "title": "Why the hotter pass gave less",
@@ -796,7 +605,7 @@ export const CURRICULUM = {
         "task": "Separate the thermodynamic temperature effect from the flow change in the hot run.",
         "question": "Work out the reaction quotient Q at the hot run's outlet, and say which way that mixture still has to go.",
         "answer": "Q ≈ 282. K is 192 at the hot temperature and about 1,350 at the cooler one, so the outlet is past the hot ceiling and would run backwards there, while the same mixture is well short of the cooler ceiling.",
-        "why": "The Sabatier reaction is CO₂ + 4H₂ → CH₄ + 2H₂O, so Q = p(CH₄) × p(H₂O)² ÷ (p(CO₂) × p(H₂)⁴). At the hot outlet that is 0.42 × 0.7056 ÷ (0.10 × 0.0105) ≈ 282. K is 192 at 573 K and about 1,350 at 533 K. Smaller when hotter, because this reaction gives off heat. So at the hot setting the outlet mixture sits above the ceiling. Q is bigger than K, and the reactor would have to run backwards to reach balance. At the cooler setting it is comfortably below. That settles the thermodynamic half of Herrera's question, and not the kinetic half. The higher throughput also cut the contact time. Only a flow test at fixed temperature and pressure can separate those two.",
+        "why": "The Sabatier reaction is CO₂ + 4H₂ → CH₄ + 2H₂O. So Q = p(CH₄) × p(H₂O)² ÷ (p(CO₂) × p(H₂)⁴). At the hot outlet that is 0.42 × 0.7056 ÷ (0.10 × 0.0105) ≈ 282. K is 192 at 573 K. It is about 1,350 at 533 K. Smaller when hotter, because this reaction gives off heat. So at the hot setting the outlet mixture sits above the ceiling. Q is bigger than K. The reactor would have to run backwards to reach balance. At the cooler setting it is comfortably below. That settles the thermodynamic half of Herrera's question. Not the kinetic half. The higher throughput also cut the contact time. Only a flow test can separate those two. It has to hold temperature and pressure fixed.",
         "givens": [
           "outlet partial pressures 0.42, 0.84, 0.10 and 0.32 bar",
           "K = 190 at 573 K and about 1,050 at 533 K"
@@ -882,6 +691,7 @@ export const CURRICULUM = {
       "scene": "The plant has to average 13.8 kilograms of methane a sol from here to the window. Herrera wants the carbon dioxide that implies before the intake compressors are asked for anything.",
       "takeaway": "Stoichiometry turns a production target into a feed rate, and the feed rate is what the intake has to meet.",
       "place": "Reactor Hall",
+      "at": "compressors",
       "guide": "Herrera has a production target and wants the feed it implies. This is stoichiometry, which is mole bookkeeping. The balanced equation does the work. One carbon atom leaves each carbon dioxide and arrives in one methane. So by moles the two go one for one. By mass they do not, because a carbon dioxide molecule is heavier than a methane one. Five numbers are on the board and two belong to other parts of the equation. Ask of each whether carbon bookkeeping needs it.",
       "background": [
         "What a mole is doing in this sum. A mole is a fixed count of molecules. Think of the chemist's dozen, only very much larger. Balanced equations are written in moles because reactions happen molecule by molecule. So the equation says one carbon dioxide gives one methane, whether you are handling grams or tonnes.",
@@ -964,6 +774,7 @@ export const CURRICULUM = {
       "scene": "The Sabatier bed has to sit at its working temperature while the electrolysis stacks feed it. The stacks follow the array, the array follows the sun, and the bed heats itself whenever it is making methane.",
       "takeaway": "A process that heats itself is held by whoever is watching the cooling.",
       "place": "Reactor Hall",
+      "at": "skid",
       "guide": "You are holding the bed at its working temperature, inside the band on the panel. Watch what the band does. It narrows as the sol goes on, because the tank has a filling rate to make. A bed wandering ten degrees is not making it. Your control is the cooling-loop valve. One thing to carry in with you: the bed heats itself whenever it is working. This is not a temperature that stays put on its own.",
       "background": [
         "Why the bed heats itself. Assembling methane gives off heat, so a bed that is working is a bed that is warming. And a bed that warms converts less on each pass, because the ceiling falls as the temperature rises. The reaction and the cooling are in a loop with each other. Neither settles without the other.",
@@ -1015,31 +826,6 @@ export const CURRICULUM = {
       "assumes": [
         "a reaction that gives out heat warms what it is running in"
       ],
-      "equations": [
-        {
-          "e": "CO₂ + 4H₂ → CH₄ + 2H₂O,  ΔH = −165 kJ per mole",
-          "c": "the reaction the whole plant is built around",
-          "v": [
-            [
-              "CO₂",
-              "carbon dioxide, taken from the atmosphere at six millibars"
-            ],
-            [
-              "H₂",
-              "hydrogen, made by splitting water"
-            ],
-            [
-              "CH₄",
-              "methane, the fuel"
-            ],
-            [
-              "ΔH",
-              "the heat given out per mole of methane made"
-            ]
-          ],
-          "s": "Five molecules of gas go in and three come out, and a great deal of heat comes with them — which is why pressure helps this reaction and heat hinders it, and why every argument in this plant is about those two facts pulling opposite ways."
-        }
-      ],
       "concept": {
         "n": 4,
         "c": "The equilibrium constant, and that temperature is what moves it",
@@ -1055,6 +841,7 @@ export const CURRICULUM = {
       "scene": "Herrera freezes the 09:40 gas-analyser screen before the loop has settled. 4 partial pressures sit beside the equilibrium constant for 593 K. He wants the direction called before anyone changes a valve.",
       "takeaway": "Q < K drives the reaction forward, Q > K drives it backward, and Q = K is equilibrium.",
       "place": "Reactor Hall",
+      "at": "skid",
       "guide": "Herrera has frozen the screen before the loop settled, which is exactly when Q is worth having. Build Q the same shape as K: each partial pressure raised to its coefficient, products over reactants. The difference is that Q uses the mixture on the screen right now. Then compare the two. Six numbers are on the board and two are not partial pressures at all. And be clear what the comparison gives you. It gives a direction. It says nothing about speed.",
       "background": [
         "How to read Q against K. If Q is smaller than K, the mixture is short of products, so the forward reaction wins until the two meet. If Q is bigger, there is too much product and the reaction runs backwards. If they are equal, the mixture is at equilibrium and nothing changes overall. Three cases, one comparison.",
@@ -1114,21 +901,6 @@ export const CURRICULUM = {
           ],
           "s": "Five molecules of gas go in and three come out, and a great deal of heat comes with them — which is why pressure helps this reaction and heat hinders it, and why every argument in this plant is about those two facts pulling opposite ways.",
           "computed": true
-        },
-        {
-          "e": "Q compared with K",
-          "c": "reading which way a mixture will move from what is in it now",
-          "v": [
-            [
-              "Q",
-              "the reaction quotient, worked out from the amounts present at this moment"
-            ],
-            [
-              "K",
-              "the equilibrium constant, the value that same expression takes at balance"
-            ]
-          ],
-          "s": "Two numbers from one expression: one describes the vessel now and the other describes where it is going, and the comparison between them gives the direction without saying anything at all about the speed."
         }
       ],
       "concept": {
@@ -1146,6 +918,7 @@ export const CURRICULUM = {
       "scene": "Stern's assay of the product stream has four lines on it. Herrera wants each one matched to what it implies about the loop before anybody argues about a set point again.",
       "takeaway": "An assay is a statement about the process, not only about the bottle it came from.",
       "place": "Reactor Hall",
+      "at": "assay",
       "guide": "Stern's assay has four lines, and Herrera wants each one placed before anybody argues about a set point again. Take them one at a time. Ask which part of the plant each line is reporting on. The bed? The recycle loop? The drier? And ask which line tells you least, because on an assay the biggest number usually does.",
       "background": [
         "Why the biggest number tells you least. A stream that is 96.4 per cent methane is a stream doing its job. Every plant's headline figure looks like that when nothing is badly wrong. The arguments live in the few per cent left over, because that is where anything unexpected has to be. Read the small lines first.",
@@ -1207,6 +980,7 @@ export const CURRICULUM = {
       "scene": "Herrera and Sundqvist have argued for a fortnight about whether the hot reactor is at equilibrium or simply short of reaction time. Stern gives them one controlled run before the production schedule resumes.",
       "takeaway": "Changing residence time at fixed temperature and pressure changes kinetic approach to equilibrium without moving the equilibrium ceiling.",
       "place": "Reactor Hall",
+      "at": "skid",
       "guide": "The number you are watching is conversion — how much of the gas that went in came out as product. Two explanations are on the table. Either the gas leaves before the reaction has finished, or it has hit a ceiling the equilibrium sets. Three settings can be changed and only one of them tells those apart. Think about which. A response only counts if it beats the assay's own scatter. So change one setting, run it, put it back, and name the one conversion follows.",
       "background": [
         "What the argument is actually about. A reaction that has not finished and a reaction that has hit its limit both give a low conversion. On one measurement they read exactly the same. The difference is what they answer to. More time helps the first and does nothing at all for the second. So the test has to be a change in time.",
@@ -1258,23 +1032,6 @@ export const CURRICULUM = {
         "rate constants, and how steeply they climb with temperature — taken as read",
         "stoichiometry as a feed rate: turning a production target into kilograms in — taken as read"
       ],
-      "equations": [
-        {
-          "e": "residence time = V / Q",
-          "c": "how long the reaction is given to happen in",
-          "v": [
-            [
-              "V",
-              "the volume of the packed catalyst bed"
-            ],
-            [
-              "Q",
-              "the volume of gas passing through it each minute, at reactor conditions"
-            ]
-          ],
-          "s": "Conversion needs a rate and a contact, and this is the contact — which is why pushing more gas through a reactor to raise throughput can lower the fraction of it that reacts."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 9,
@@ -1301,6 +1058,7 @@ export const CURRICULUM = {
       "scene": "Herrera pins one pass of the carbon assay to the board: 100 moles of carbon dioxide entered. Methane and carbon monoxide are measured at the outlet, and the recycle meter records the unreacted return stream.",
       "takeaway": "Per-pass conversion counts what reacts now; overall conversion counts what is eventually recovered after unreacted feed is recycled.",
       "place": "Reactor Hall",
+      "at": "skid",
       "guide": "A hundred moles of carbon went into the bed, so a hundred moles have to come out of it somewhere. Methane and carbon monoxide are measured at the outlet. The recycle meter records what came back unreacted. Read every stream, then count only the carbon that belongs to this pass. And keep one distinction in mind as you go: carbon that comes back is not the same as carbon that is gone.",
       "background": [
         "Why one pass is not the yield. A single pass converts part of the feed. The rest comes back and goes round again. So the overall yield after many passes can be far higher than the conversion on any one of them. That holds as long as nothing is lost on each circuit — which is what makes the recycle number worth checking.",
@@ -1375,7 +1133,8 @@ export const CURRICULUM = {
       "scene": "The loading crew is waiting at the methane umbilical. Bhatt has four assay lines beside four flight limits. Three are inside specification; one is not. Herrera wants the consequence named before the transfer valve opens.",
       "takeaway": "A specification is a list of chemical limits tied to different downstream consequences, not a single purity score.",
       "place": "Reactor Hall",
-      "guide": "A specification is not one purity score. It is four separate limits, and each one is there to protect something different. So take the lines one at a time. Compare each against its own limit first. Then, for anything that is over, ask the question that actually matters: where does that substance end up as the stream gets colder, and does that place have moving parts in it?",
+      "at": "spec-bench",
+      "guide": "A specification is not one purity score. It is four separate limits, and each one is there to protect something different. So take the lines one at a time. Compare each against its own limit first. Then, for anything that is over, ask the question that actually matters. Where does that substance end up as the stream gets colder? And does that place have moving parts in it?",
       "background": [
         "Why a specification is a list and not a score. Each line guards a different piece of hardware against a different failure. There is no way to average them. Being well inside three limits earns nothing against being outside the fourth, because the fourth is the one protecting the valve. A single purity number would hide exactly the information the loading crew needs.",
         "Why the same amount of a substance can be harmless or fatal. It depends where it ends up. Carbon dioxide freezes out in the tank, sitting still, doing nothing. Water freezes at a far higher temperature, so it turns solid in the plumbing that the valves live in. Same physics, different address. One is ballast and the other stops a valve moving.",
@@ -1475,31 +1234,6 @@ export const CURRICULUM = {
         "a reaction that gives out heat has its balance pushed back by heating",
         "fewer gas molecules on one side makes that side favoured by pressure"
       ],
-      "equations": [
-        {
-          "e": "CO₂ + 4H₂ → CH₄ + 2H₂O,  ΔH = −165 kJ per mole",
-          "c": "the reaction the whole plant is built around",
-          "v": [
-            [
-              "CO₂",
-              "carbon dioxide, taken from the atmosphere at six millibars"
-            ],
-            [
-              "H₂",
-              "hydrogen, made by splitting water"
-            ],
-            [
-              "CH₄",
-              "methane, the fuel"
-            ],
-            [
-              "ΔH",
-              "the heat given out per mole of methane made"
-            ]
-          ],
-          "s": "Five molecules of gas go in and three come out, and a great deal of heat comes with them — which is why pressure helps this reaction and heat hinders it, and why every argument in this plant is about those two facts pulling opposite ways."
-        }
-      ],
       "concept": {
         "n": 3,
         "c": "Equilibrium as a balance still running both ways",
@@ -1547,46 +1281,6 @@ export const CURRICULUM = {
       "assumes": [
         "the equilibrium constant depends on temperature and on nothing else",
         "this reaction gives out heat"
-      ],
-      "equations": [
-        {
-          "e": "CO₂ + 4H₂ → CH₄ + 2H₂O,  ΔH = −165 kJ per mole",
-          "c": "the reaction the whole plant is built around",
-          "v": [
-            [
-              "CO₂",
-              "carbon dioxide, taken from the atmosphere at six millibars"
-            ],
-            [
-              "H₂",
-              "hydrogen, made by splitting water"
-            ],
-            [
-              "CH₄",
-              "methane, the fuel"
-            ],
-            [
-              "ΔH",
-              "the heat given out per mole of methane made"
-            ]
-          ],
-          "s": "Five molecules of gas go in and three come out, and a great deal of heat comes with them — which is why pressure helps this reaction and heat hinders it, and why every argument in this plant is about those two facts pulling opposite ways."
-        },
-        {
-          "e": "Q compared with K",
-          "c": "reading which way a mixture will move from what is in it now",
-          "v": [
-            [
-              "Q",
-              "the reaction quotient, worked out from the amounts present at this moment"
-            ],
-            [
-              "K",
-              "the equilibrium constant, the value that same expression takes at balance"
-            ]
-          ],
-          "s": "Two numbers from one expression: one describes the vessel now and the other describes where it is going, and the comparison between them gives the direction without saying anything at all about the speed."
-        }
       ],
       "concept": {
         "n": 8,
@@ -1661,6 +1355,7 @@ export const CURRICULUM = {
       "scene": "Five readings are up on the cold end panel. Two are alarming and three are entirely ordinary. Cho says the ordinary ones are the reason most of the obvious answers do not survive.",
       "takeaway": "The readings that are normal are what rule an explanation out.",
       "place": "Cold End",
+      "at": "coldline",
       "guide": "Cho's point is the one worth taking. Two readings are shouting and three are perfectly ordinary, and it is the ordinary three that will do the work. A reading that has not moved is a positive result — it rules out every explanation that would have moved it. So take each candidate in turn and ask how many of the five it actually fits. And look at the shape of the flow trace, not only its value. A flow that dies away over three hours is not telling the same story as one that stops.",
       "background": [
         "Why water is the suspect and not the methane. The cold line falls from about 10 degrees to 115 kelvin. Water turns solid at 273 K, right at the top of that run. Methane does not become liquid until about 112 K, at the very bottom. So water that gets past the drier has hundreds of degrees of pipe to freeze in. All of it comes before the methane end.",
@@ -1758,6 +1453,7 @@ export const CURRICULUM = {
       "scene": "Cho is rebuilding the cold end's written procedure after the blockage, and wants the four stages back in the order the stream meets them. 2 of the 4 exist because of what happened on sol 293.",
       "takeaway": "Cleaning a stream is cheapest at the warmest temperature that will do it.",
       "place": "Cold End",
+      "at": "coldline",
       "guide": "All four stages exist in Cho's plant, so this is not about which ones to keep. It is about what each one takes out before the next one gets the stream. So ask of each: what would this stage's leftovers do to the colder stage after it? Three of the four are removals at a particular temperature. One is different in kind — compression raises the temperature at which everything else condenses, which is a favour done to every stage below it.",
       "background": [
         "Why compressing the gas first helps everything after it. A substance condenses at a higher temperature when the pressure is higher. Squeeze a gas and it turns to liquid sooner on the way down. So compression at the top lets every stage below it work at a warmer temperature. And warmer refrigeration is cheaper refrigeration. That is the whole reason it goes first.",
@@ -1816,16 +1512,17 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "What the tank farm loses standing still",
-      "scene": "Moreau's log shows the oxygen tank losing liquid on sols when nothing is drawn from it. The tank's insulation lets about 30 watts through, and she wants that expressed in kilograms rather than in watts.",
+      "scene": "Élodie Moreau, the cryogenic fluids technician, logs the oxygen tank losing liquid on sols when nothing is drawn from it. The tank's insulation lets about 30 watts through, and she wants that expressed in kilograms rather than in watts.",
       "takeaway": "Heat reaching a cryogenic tank is paid for in kilograms rather than in degrees.",
       "place": "Cold End",
+      "at": "farm-gauges",
       "guide": "Moreau wants a leak stated in kilograms, so this is a heat sum turned into a mass. Here is the piece to hold on to. A liquid already sitting at its boiling point cannot get any warmer. So heat arriving is spent boiling it away instead. The energy each kilogram needs is the latent heat of vaporisation. Two of the five numbers belong to other questions. And notice that 30 watts sounds small but acts every second of the sol.",
       "background": [
         "Why heat into a boiling liquid is a mass and not a temperature. Warming something normally raises its temperature. A liquid at its boiling point is the exception. Every joule arriving goes into tearing molecules out of the liquid instead. The tank stays at 90 K all sol and gets lighter. That is what boil-off is.",
         "What latent heat of vaporisation means. It is the energy needed to turn one kilogram of a liquid into gas, with no change of temperature at all. For liquid oxygen it is 213,000 joules a kilogram. Divide the heat that arrived by that number and you have the kilograms that left.",
         "Why 30 watts is not a small number. A watt is a joule every second, and a sol is 88,800 seconds long. So 30 watts delivers about 2.7 million joules a sol — enough to boil away 12.5 kg of oxygen. Nobody drew a drop from the tank. The insulation did it."
       ],
-      "story": "Moreau's log shows the oxygen tank losing liquid on sols when nothing is drawn from it. The tank's insulation lets about 30 watts through, and she wants that expressed in kilograms rather than in watts.",
+      "story": "Élodie Moreau, the cryogenic fluids technician, logs the oxygen tank losing liquid on sols when nothing is drawn from it. The tank's insulation lets about 30 watts through, and she wants that expressed in kilograms rather than in watts.",
       "game": {
         "type": "BALLPARK",
         "title": "What the tank farm loses standing still",
@@ -1921,27 +1618,6 @@ export const CURRICULUM = {
         "a liquid in a closed tank sits under the pressure of its own vapour",
         "vapour pressure rises steeply with temperature"
       ],
-      "equations": [
-        {
-          "e": "boil-off = Q t / ΔHvap",
-          "c": "heat into a cryogenic tank, paid in kilograms",
-          "v": [
-            [
-              "Q",
-              "the heat reaching the liquid, in watts"
-            ],
-            [
-              "t",
-              "the time it reaches it for, in seconds"
-            ],
-            [
-              "ΔHvap",
-              "the energy needed to vaporise one kilogram — 213 kJ for oxygen"
-            ]
-          ],
-          "s": "A boiling liquid cannot get warmer, so heat arriving turns it to vapour instead — which makes insulation a production question and thirty watts a loss of twelve kilograms a sol."
-        }
-      ],
       "concept": {
         "n": 27,
         "c": "Vapour pressure, and reading a cryogenic tank by it",
@@ -1954,7 +1630,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "The space left at the top",
-      "scene": "Bhatt's loading procedure stops the methane tank at 95% by volume. Moreau has been asked why the remaining 5% is not simply more propellant, with the window as close as it is.",
+      "scene": "Anaya Bhatt, the ascent vehicle systems engineer, stops the methane tank at 95% by volume. Moreau has been asked why the remaining 5% is not simply more propellant, with the window as close as it is.",
       "takeaway": "A cryogenic tank is designed around what happens to it between filling and use.",
       "place": "Cold End",
       "guide": "The window is close and 5 per cent of a tank is a lot of propellant, so Moreau's answer had better be a good one. Think about what happens to that tank between filling and launch. Nobody draws from it. Heat still reaches it. So ask of each option whether it is really about the liquid, or about the gas above the liquid. That gas space has a name, by the way. It is called the ullage.",
@@ -1963,7 +1639,7 @@ export const CURRICULUM = {
         "What happens to a tank filled to the brim. Vapour still forms, and now there is nowhere for it to go. Gas that cannot expand raises the pressure instead, and it does so fast. The relief valve opens and starts throwing propellant overboard to protect the tank. A small heat leak has become a loss of fuel, and the vehicle has not burned a gram.",
         "Why 5 per cent rather than 1 or 20. The ullage has to swallow every kilogram that boils off between filling and launch, without the pressure reaching the relief setting. Estimate the boil-off rate. Multiply by the wait. Add margin for a bad sol. The answer comes out at a few per cent. It is a calculation, not a habit."
       ],
-      "story": "Bhatt's loading procedure stops the methane tank at 95% by volume. Moreau has been asked why the remaining 5% is not simply more propellant, with the window as close as it is.",
+      "story": "Anaya Bhatt, the ascent vehicle systems engineer, stops the methane tank at 95% by volume. Moreau has been asked why the remaining 5% is not simply more propellant, with the window as close as it is.",
       "game": {
         "type": "CHOICE",
         "title": "The space left at the top",
@@ -1990,27 +1666,6 @@ export const CURRICULUM = {
         "a liquid at its boiling point turns to vapour when heat reaches it",
         "a closed vessel has a pressure it is rated to"
       ],
-      "equations": [
-        {
-          "e": "boil-off = Q t / ΔHvap",
-          "c": "heat into a cryogenic tank, paid in kilograms",
-          "v": [
-            [
-              "Q",
-              "the heat reaching the liquid, in watts"
-            ],
-            [
-              "t",
-              "the time it reaches it for, in seconds"
-            ],
-            [
-              "ΔHvap",
-              "the energy needed to vaporise one kilogram — 213 kJ for oxygen"
-            ]
-          ],
-          "s": "A boiling liquid cannot get warmer, so heat arriving turns it to vapour instead — which makes insulation a production question and thirty watts a loss of twelve kilograms a sol."
-        }
-      ],
       "concept": {
         "n": 28,
         "c": "Boil-off: heat into a boiling liquid is a mass, not a temperature",
@@ -2027,6 +1682,7 @@ export const CURRICULUM = {
       "scene": "Oxygen boil-off has jumped from 12 to 26 kilograms a sol since the storm. Moreau opens the refrigeration schematic beside the tank. Jacket pressure is normal, while the compressor is already at its current limit.",
       "takeaway": "A refrigerator can lose capacity because heat cannot leave its warm end, even when the compressor and insulation are intact.",
       "place": "Cold End",
+      "at": "fridge",
       "guide": "Boil-off has doubled and nothing has broken, which means something in the heat path has changed. So follow the heat. It starts in the liquid oxygen and has to end up somewhere outside the station. Every step between is a handover from one thing to the next. Build that path in order first. Then ask which single step is now holding the whole chain up. Two readings are evidence about that, so use them.",
       "background": [
         "Why boil-off is a heat measurement in disguise. Liquid oxygen sits at its boiling point, so every joule reaching it turns some into gas. Nothing warms up. Something evaporates instead. So 12 kilograms a sol becoming 26 says heat is arriving about twice as fast as it was. The tank has not changed. What reaches it has.",
@@ -2093,74 +1749,6 @@ export const CURRICULUM = {
         "a refrigerator has to reject its heat somewhere",
         "dust settles on any surface left out in a storm"
       ],
-      "equations": [
-        {
-          "e": "m = (I t / nF) × M",
-          "c": "Faraday's law: charge into kilograms",
-          "v": [
-            [
-              "I",
-              "the current, in amps"
-            ],
-            [
-              "t",
-              "the time it flows for, in seconds"
-            ],
-            [
-              "n",
-              "the electrons needed per molecule of product — two for hydrogen"
-            ],
-            [
-              "F",
-              "Faraday's constant, 96,485 coulombs per mole of electrons"
-            ],
-            [
-              "M",
-              "the molar mass of the product"
-            ]
-          ],
-          "s": "Electrons are countable, so an electrolysis cell is the one place in a chemical plant where the arithmetic is exact — everything else about the cell changes what the product costs rather than how much of it there is."
-        },
-        {
-          "e": "boil-off = Q t / ΔHvap",
-          "c": "heat into a cryogenic tank, paid in kilograms",
-          "v": [
-            [
-              "Q",
-              "the heat reaching the liquid, in watts"
-            ],
-            [
-              "t",
-              "the time it reaches it for, in seconds"
-            ],
-            [
-              "ΔHvap",
-              "the energy needed to vaporise one kilogram — 213 kJ for oxygen"
-            ]
-          ],
-          "s": "A boiling liquid cannot get warmer, so heat arriving turns it to vapour instead — which makes insulation a production question and thirty watts a loss of twelve kilograms a sol."
-        },
-        {
-          "e": "I = I₀ e^(−τ)",
-          "c": "what a dusty sky leaves of a beam",
-          "v": [
-            [
-              "I",
-              "the beam reaching the ground"
-            ],
-            [
-              "I₀",
-              "the beam above the dust"
-            ],
-            [
-              "τ",
-              "the optical depth — how much dust stands in the way"
-            ]
-          ],
-          "s": "Attenuation multiplies rather than subtracts, so each unit of optical depth costs a further factor of about 2.7 and a storm at τ = 2.4 leaves under a tenth of the direct beam.",
-          "card": false
-        }
-      ],
       "concept": {
         "n": 28,
         "c": "Boil-off: heat into a boiling liquid is a mass, not a temperature",
@@ -2177,6 +1765,7 @@ export const CURRICULUM = {
       "scene": "Bhatt wants the oxygen mass checked independently before the loading order is written. Methane burns with oxygen 2 moles to 1, and the vehicle carries 6.6 tonnes of fuel.",
       "takeaway": "A mole ratio is not a mass ratio until both molar masses have been applied.",
       "place": "Cold End",
+      "at": "umbilical",
       "guide": "Bhatt wants a mass, and the balanced equation gives moles. That gap is the whole question. Two moles of oxygen burn one mole of methane. But a mole of oxygen weighs 32 grams and a mole of methane only 16. So the mass ratio is not 2. Let the molar masses do the converting. Five numbers are on the board and two belong to other questions. And note in passing that a real engine runs away from this ratio on purpose.",
       "background": [
         "Why a mole ratio is never a mass ratio. Balanced equations count molecules, because that is how reactions happen. Tanks are filled by mass, because that is what a pump moves. The two only line up if the molecules weigh the same, and they almost never do. So a 2-to-1 mole ratio here comes out as 4-to-1 by mass, and the factor of two is the difference in molar mass.",
@@ -2359,27 +1948,6 @@ export const CURRICULUM = {
         "a refrigerator at its set point is doing its job",
         "carbon dioxide deposits as a solid near 195 K"
       ],
-      "equations": [
-        {
-          "e": "boil-off = Q t / ΔHvap",
-          "c": "heat into a cryogenic tank, paid in kilograms",
-          "v": [
-            [
-              "Q",
-              "the heat reaching the liquid, in watts"
-            ],
-            [
-              "t",
-              "the time it reaches it for, in seconds"
-            ],
-            [
-              "ΔHvap",
-              "the energy needed to vaporise one kilogram — 213 kJ for oxygen"
-            ]
-          ],
-          "s": "A boiling liquid cannot get warmer, so heat arriving turns it to vapour instead — which makes insulation a production question and thirty watts a loss of twelve kilograms a sol."
-        }
-      ],
       "concept": {
         "n": 26,
         "c": "Deposition: gas straight to solid, with no liquid in between",
@@ -2398,6 +1966,7 @@ export const CURRICULUM = {
       "scene": "The hall runs two kinds of cell: one splits water, the other splits carbon dioxide at 800 degrees. Rosalind Achebe, the power and electrolysis engineer, has the four parts listed on the board.",
       "takeaway": "The two halves of one electron transfer can be run in separate places, so long as something carries an ion between them.",
       "place": "Electrolysis Hall",
+      "at": "stack",
       "guide": "Achebe's board is really one question asked four times: what is this item for? Two of them are electrodes. An electrode is named by which way electrons move there. In means reduction, a gain of electrons. Out means oxidation, a loss. One item is the electrolyte sitting between the two, and it has a job of its own. The last is not part of the cell at all, so ask whether it settles a direction or an amount.",
       "background": [
         "Why an electron transfer always has two halves. Each of these reactions is one substance losing electrons and another gaining them. The two always happen together. Nothing loses electrons with nobody there to take them. Oxidation is the losing half; reduction is the gaining half. A cell's trick is to make those two halves happen a few centimetres apart.",
@@ -2459,6 +2028,7 @@ export const CURRICULUM = {
       "scene": "The cell held 640 amps for a full sol. Faraday’s law predicts about 594 grams of hydrogen, but the separator collected only 546. Achebe has already checked the collection-line pressure and the hydrogen inventory downstream.",
       "takeaway": "Faraday’s law fixes the theoretical product from charge; current efficiency measures how much of that charge reached the intended reaction.",
       "place": "Electrolysis Hall",
+      "at": "stack",
       "guide": "Achebe has done the sensible checks already, so start where she left off. Faraday's law turns charge into a mass of product. 640 amps held for a sol should give about 594 grams of hydrogen. The separator collected 546. She has cleared the collection line and the inventory downstream, so nothing is hiding in a pipe. Read every stream on the ledger. Then count only what genuinely belongs in it.",
       "background": [
         "What Faraday's law claims. Every electron that crosses the cell makes a fixed amount of hydrogen — two electrons for each molecule of H₂. So the predicted mass is arithmetic on the charge. It is an upper bound rather than a forecast. It assumes every single electron did the job it was sent to do.",
@@ -2567,7 +2137,7 @@ export const CURRICULUM = {
       "background": [
         "What the first 1.23 volts is for. Splitting water is uphill. It needs about 237 kJ per mole of free energy supplied from outside, and 1.23 volts is what that works out to per electron. Below that voltage the reaction simply does not run. This part of the bill is set by the chemistry and cannot be negotiated.",
         "What overpotential is, and why it is not optional. Real electrodes are not perfect. Current has to be pushed through the electrolyte, which resists it. Molecules have to be persuaded onto and off the electrode surface, and those steps are slow. Both need voltage above the minimum to happen at any useful rate. That excess is the overpotential, and it grows as you push more current.",
-        "Why the hydrogen is the same either way. A hydrogen molecule made at 1.75 volts is identical to one made at 1.23. It holds the same energy, because that energy lives in the molecule and not in the cell that produced it. So the extra half- volt cannot be in the product. It leaves as heat, which is why the stack needs a cooling loop at all."
+        "Why the hydrogen is the same either way. A hydrogen molecule made at 1.75 volts is identical to one made at 1.23. It holds the same energy, because that energy lives in the molecule and not in the cell that produced it. So the extra half-volt cannot be in the product. It leaves as heat, which is why the stack needs a cooling loop at all."
       ],
       "story": "The water stack needs 1.23 volts a cell in principle and Achebe runs it at 1.75. The difference is half a kilowatt across the stack, and Demir wants to know whether that energy ends up in the hydrogen.",
       "game": {
@@ -2611,6 +2181,7 @@ export const CURRICULUM = {
       "scene": "1 cell in the water stack carried 640 amps for the whole sol. Achebe wants the hydrogen that represents, worked out from the charge rather than from what the collection line reported.",
       "takeaway": "Charge and moles are one measurement in two units, once the electrons per molecule are known.",
       "place": "Electrolysis Hall",
+      "at": "store-scales",
       "guide": "Achebe wants the hydrogen worked out from the charge, not from what the collection line reported. That is Faraday's law, and it is bookkeeping. Current times time gives charge, in coulombs. Divide by the charge one mole of product needs and you have moles. Multiply by the molar mass and you have grams. Five numbers are on the board, and one is the cell voltage, which belongs to the energy bill rather than to the amount. And note what this answer assumes: every electron doing the job it was sent to do. The real figure will be lower.",
       "background": [
         "What Faraday's law actually says. Charge is counted in coulombs, and one mole of electrons carries 96,485 of them. That number is the Faraday constant. Making one molecule of hydrogen takes two electrons, so one mole of hydrogen takes two moles of them: 192,970 coulombs. Charge and moles are the same measurement in different units.",
@@ -2734,35 +2305,6 @@ export const CURRICULUM = {
         "the plant has no spare catalyst charge after this one",
         "stoichiometry as a feed rate: turning a production target into kilograms in — taken as read"
       ],
-      "equations": [
-        {
-          "e": "m = (I t / nF) × M",
-          "c": "Faraday's law: charge into kilograms",
-          "v": [
-            [
-              "I",
-              "the current, in amps"
-            ],
-            [
-              "t",
-              "the time it flows for, in seconds"
-            ],
-            [
-              "n",
-              "the electrons needed per molecule of product — two for hydrogen"
-            ],
-            [
-              "F",
-              "Faraday's constant, 96,485 coulombs per mole of electrons"
-            ],
-            [
-              "M",
-              "the molar mass of the product"
-            ]
-          ],
-          "s": "Electrons are countable, so an electrolysis cell is the one place in a chemical plant where the arithmetic is exact — everything else about the cell changes what the product costs rather than how much of it there is."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 1,
@@ -2782,16 +2324,17 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "What the dust leaves of the sun",
-      "scene": "Petrov has the optical depth from the station's own sun sensor: 2.4, against 0.4 on a clear sol. Above the dust the beam would deliver 490 watts to each square metre of panel.",
+      "scene": "Iosif Petrov, the array technician, has the optical depth from the station's own sun sensor: 2.4, against 0.4 on a clear sol. Above the dust the beam would deliver 490 watts to each square metre of panel.",
       "takeaway": "Dust does not dim a beam in proportion; it multiplies it down, so each unit of depth costs more than the last.",
       "place": "Electrolysis Hall",
+      "at": "sun-sensor",
       "guide": "Optical depth is a measure of how much is in the way. Here is the part worth getting right. Dust does not subtract from a beam. It multiplies it down. Each unit of depth divides what is left by a further factor of about 2.7. So the formula has e in it rather than a minus sign. Five numbers are on the board and three belong to the array rather than to the beam. And be clear what you are working out: the direct beam, not the array's output.",
       "background": [
         "Why attenuation multiplies rather than subtracts. Picture the dust as a stack of thin layers. Each layer stops the same fraction of whatever light reaches it — not the same amount. So the first layer takes a lot and the tenth takes a little, because there is less left for it to take. Repeated fractions of fractions is what an exponential is.",
         "What optical depth means as a number. Depth 1 leaves about a third of the beam. Depth 2 leaves about a tenth. Depth 2.4 leaves about a twelfth. So going from a clear sol at 0.4 to a storm at 2.4 is not five times worse. It is roughly sevenfold, because the two extra units of depth each divide again.",
         "Why the direct beam is not the array's output. What e^(−τ) describes is light that came straight through untouched. Dust also scatters light sideways, and some of that still lands on a panel from the sky. So the array does better than the direct beam alone suggests. It does not do anything like as well as a clear sol."
       ],
-      "story": "Petrov has the optical depth from the station's own sun sensor: 2.4, against 0.4 on a clear sol. Above the dust the beam would deliver 490 watts to each square metre of panel.",
+      "story": "Iosif Petrov, the array technician, has the optical depth from the station's own sun sensor: 2.4, against 0.4 on a clear sol. Above the dust the beam would deliver 490 watts to each square metre of panel.",
       "game": {
         "type": "BALLPARK",
         "title": "What the dust leaves of the sun",
@@ -2886,35 +2429,6 @@ export const CURRICULUM = {
         "the product a cell makes is proportional to the charge it passes",
         "the voltage above the minimum leaves the cell as heat"
       ],
-      "equations": [
-        {
-          "e": "m = (I t / nF) × M",
-          "c": "Faraday's law: charge into kilograms",
-          "v": [
-            [
-              "I",
-              "the current, in amps"
-            ],
-            [
-              "t",
-              "the time it flows for, in seconds"
-            ],
-            [
-              "n",
-              "the electrons needed per molecule of product — two for hydrogen"
-            ],
-            [
-              "F",
-              "Faraday's constant, 96,485 coulombs per mole of electrons"
-            ],
-            [
-              "M",
-              "the molar mass of the product"
-            ]
-          ],
-          "s": "Electrons are countable, so an electrolysis cell is the one place in a chemical plant where the arithmetic is exact — everything else about the cell changes what the product costs rather than how much of it there is."
-        }
-      ],
       "concept": {
         "n": 19,
         "c": "Overpotential: the voltage above the minimum, and where it goes",
@@ -2983,16 +2497,17 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What has to be paid for",
-      "scene": "Demir has the sol’s energy ledger open on the desk. The reactor releases heat while it runs, while electrolysis takes most of the array output. He wants the difference stated plainly in the log.",
+      "scene": "Yusuf Demir, the life support officer, has the sol’s energy ledger open. The reactor releases heat while it runs, while electrolysis takes most of the array output. He wants the difference stated plainly in the log.",
       "takeaway": "Whether a change runs on its own and how fast it goes are two separate questions, and one of them has a bill.",
       "place": "Plant Control",
+      "at": "ledger",
       "guide": "Demir wants the direction written down as a number, and the number is the free-energy change: ΔG = ΔH − TΔS. Splitting water has a known enthalpy change, ΔH. That is the heat it takes in. It has a known entropy change too, ΔS, which is how much more spread out things end up. A positive ΔG means the change will not run on its own. One warning before you place the tiles. One is in joules and the others in kilojoules, so it wants converting rather than adding.",
       "background": [
         "What the two terms are doing. The enthalpy term, ΔH, is the heat the change takes in or gives out. The entropy term, ΔS, is how much more spread out the matter and its energy end up — and it is multiplied by the temperature. That multiplication is why heating something can turn a change that will not run into one that will.",
         "Why a positive answer is a bill. A positive free-energy change means the products sit higher than the reactants, so the energy has to come from outside the reaction. Here it comes from the solar array, through the cell, at a price in kilowatt-hours that the ledger on Demir's desk has to carry.",
         "Why the reverse is free. Making methane is water splitting run backwards, and it gives out what the splitting takes in. That is one number with two signs, not two separate facts. It is why this plant can run one step on its own and never the other."
       ],
-      "story": "Demir has the sol’s energy ledger open on the desk. The reactor releases heat while it runs, while electrolysis takes most of the array output. He wants the difference stated plainly in the log.",
+      "story": "Yusuf Demir, the life support officer, has the sol’s energy ledger open. The reactor releases heat while it runs, while electrolysis takes most of the array output. He wants the difference stated plainly in the log.",
       "game": {
         "type": "BALLPARK",
         "title": "What has to be paid for",
@@ -3054,6 +2569,7 @@ export const CURRICULUM = {
       "scene": "Demir has thermodynamic data for the Sabatier reaction on the desk. The sheet lists its enthalpy and entropy changes per mole of methane. He wants ΔG evaluated at the present bed temperature.",
       "takeaway": "With fixed tabulated ΔH and ΔS, ΔG = ΔH − TΔS predicts the temperature where spontaneity changes sign.",
       "place": "Plant Control",
+      "at": "ledger",
       "guide": "Demir has the data sheet and wants ΔG at the bed's own temperature. So this is ΔG = ΔH − TΔS with real numbers in it. Both terms here happen to be negative, and they pull against each other once the temperature multiplies the second one. That is the interesting part. As the bed gets hotter the second term grows, so somewhere up the scale the whole thing changes sign. Five numbers are on the board and two belong to other calculations. Ask of each whether this one needs it.",
       "background": [
         "Why both terms are negative here, and why that matters. Making methane gives off heat, so ΔH is negative and the reaction is favoured on those grounds. But five gas molecules go in and three come out. The mixture ends up less spread out than it started, so ΔS is negative too. Subtracting a negative TΔS adds a positive amount. Entropy is working against this reaction, not for it.",
@@ -3102,29 +2618,6 @@ export const CURRICULUM = {
           ],
           "s": "Direction is a competition between heat and disorder with the temperature setting the odds, so a reaction that gives out heat and makes fewer molecules is spontaneous up to a temperature and not above it.",
           "computed": true
-        },
-        {
-          "e": "CO₂ + 4H₂ → CH₄ + 2H₂O,  ΔH = −165 kJ per mole",
-          "c": "the reaction the whole plant is built around",
-          "v": [
-            [
-              "CO₂",
-              "carbon dioxide, taken from the atmosphere at six millibars"
-            ],
-            [
-              "H₂",
-              "hydrogen, made by splitting water"
-            ],
-            [
-              "CH₄",
-              "methane, the fuel"
-            ],
-            [
-              "ΔH",
-              "the heat given out per mole of methane made"
-            ]
-          ],
-          "s": "Five molecules of gas go in and three come out, and a great deal of heat comes with them — which is why pressure helps this reaction and heat hinders it, and why every argument in this plant is about those two facts pulling opposite ways."
         }
       ],
       "concept": {
@@ -3176,46 +2669,6 @@ export const CURRICULUM = {
         "a reaction that takes in heat has a positive enthalpy change",
         "rate constants, and how steeply they climb with temperature — taken as read"
       ],
-      "equations": [
-        {
-          "e": "ΔG = ΔH − TΔS",
-          "c": "which way a change runs, and what it costs to make it run the other way",
-          "v": [
-            [
-              "ΔG",
-              "the free-energy change; negative means it can run on its own"
-            ],
-            [
-              "ΔH",
-              "the heat given out or taken in at constant pressure"
-            ],
-            [
-              "T",
-              "the absolute temperature, in kelvin"
-            ],
-            [
-              "ΔS",
-              "the entropy change — how much more or less spread out the matter ends up"
-            ]
-          ],
-          "s": "Direction is a competition between heat and disorder with the temperature setting the odds, so a reaction that gives out heat and makes fewer molecules is spontaneous up to a temperature and not above it."
-        },
-        {
-          "e": "Q compared with K",
-          "c": "reading which way a mixture will move from what is in it now",
-          "v": [
-            [
-              "Q",
-              "the reaction quotient, worked out from the amounts present at this moment"
-            ],
-            [
-              "K",
-              "the equilibrium constant, the value that same expression takes at balance"
-            ]
-          ],
-          "s": "Two numbers from one expression: one describes the vessel now and the other describes where it is going, and the comparison between them gives the direction without saying anything at all about the speed."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 9,
@@ -3238,6 +2691,7 @@ export const CURRICULUM = {
       "scene": "Demir is closing the sol’s energy ledger. The stacks made 6.9 kg of hydrogen. He wants their electrical energy use written beside the array output before he signs the sheet.",
       "takeaway": "What a product costs to make and what it stores are two different numbers, and the gap is the price of running at a rate.",
       "place": "Plant Control",
+      "at": "cell-stacks",
       "guide": "Demir wants what the stacks spent, not what the hydrogen holds. Those are two different numbers and both are on the board. A kilogram of hydrogen stores about 39.4 kWh. This stack spends about 55 kWh to make one. The gap is real, and it is the overpotential you met in the hall — voltage above the minimum, leaving as heat. So ask of each tile which of the two questions it answers.",
       "background": [
         "Why a kilogram of hydrogen has two energy numbers. One is what it stores: burn it, or run it through a fuel cell, and about 39.4 kWh comes back out. The other is what it cost to make: about 55 kWh through this stack. Both are correct. They answer different questions, and a ledger wants the second.",
@@ -3275,16 +2729,17 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What the station stops doing",
-      "scene": "The dust storm has cut the sol from about 2,000 kilowatt-hours to 600. Tank refrigeration is already drawing power, and six other demands are queued. Demir and Wells want the sacrifices written down before breakers are opened.",
+      "scene": "The dust storm has cut the sol from about 2,000 kilowatt-hours to 600. Tank refrigeration is already drawing power, and six other demands are queued. Marion Wells, who commands the station, wants the sacrifices written down before breakers are opened.",
       "takeaway": "Loads are ranked by what stopping them costs to undo, rather than by what they draw.",
       "place": "Plant Control",
+      "at": "loadboard",
       "guide": "Six hundred kilowatt-hours for the whole sol, against about two thousand on a clear one. Watch the answers list rather than the equipment. It shows what the station can still say at the end of the sol under your plan. The habitat is not a load and comes out first. After that, rank what is left by one question: if you stop this, can you get it back? Some of these you can. One of them you cannot.",
       "background": [
         "Why reversibility is the ranking, not power drawn. Digging can wait — the ground will still be there. Batteries can recharge on the next clear sol. Electrolysis can be made up later if there is schedule margin left. None of those losses is permanent. Refrigeration is different in kind, and that is what puts it at the top rather than its 210 kWh.",
         "Why stopping the refrigerator costs more power than it saves. Propellant already in the tanks took sols of array output to make. Stop cooling it and heat keeps arriving, so it boils away. The only way to get it back is to make it again, from the beginning, with power you do not have during a storm. Saving 210 kWh today to spend a thousand next week is not a saving.",
         "Why writing the sacrifices down matters. Breakers opened without a record become an argument afterwards about what was agreed. Demir and Wells want the list because the storm will outlast everybody's memory of the reasoning. A plan that names what it gave up can be defended. A plan that only names what it kept cannot."
       ],
-      "story": "The dust storm has cut the sol from about 2,000 kilowatt-hours to 600. Tank refrigeration is already drawing power, and six other demands are queued. Demir and Wells want the sacrifices written down before breakers are opened.",
+      "story": "The dust storm has cut the sol from about 2,000 kilowatt-hours to 600. Tank refrigeration is already drawing power, and six other demands are queued. Marion Wells, who commands the station, wants the sacrifices written down before breakers are opened.",
       "game": {
         "type": "ALLOCATE",
         "title": "What the station stops doing",
@@ -3381,46 +2836,6 @@ export const CURRICULUM = {
         "stopping a process can be reversible or costly to reverse",
         "a cryogenic tank warms up when its refrigerator stops"
       ],
-      "equations": [
-        {
-          "e": "boil-off = Q t / ΔHvap",
-          "c": "heat into a cryogenic tank, paid in kilograms",
-          "v": [
-            [
-              "Q",
-              "the heat reaching the liquid, in watts"
-            ],
-            [
-              "t",
-              "the time it reaches it for, in seconds"
-            ],
-            [
-              "ΔHvap",
-              "the energy needed to vaporise one kilogram — 213 kJ for oxygen"
-            ]
-          ],
-          "s": "A boiling liquid cannot get warmer, so heat arriving turns it to vapour instead — which makes insulation a production question and thirty watts a loss of twelve kilograms a sol."
-        },
-        {
-          "e": "I = I₀ e^(−τ)",
-          "c": "what a dusty sky leaves of a beam",
-          "v": [
-            [
-              "I",
-              "the beam reaching the ground"
-            ],
-            [
-              "I₀",
-              "the beam above the dust"
-            ],
-            [
-              "τ",
-              "the optical depth — how much dust stands in the way"
-            ]
-          ],
-          "s": "Attenuation multiplies rather than subtracts, so each unit of optical depth costs a further factor of about 2.7 and a storm at τ = 2.4 leaves under a tenth of the direct beam."
-        }
-      ],
       "concept": {
         "n": 23,
         "c": "An energy ledger: what a station spends and what it collects",
@@ -3470,54 +2885,6 @@ export const CURRICULUM = {
         "propellant vented from a tank cannot be recovered",
         "a comparison run and a battery charge can both be done later"
       ],
-      "equations": [
-        {
-          "e": "m = (I t / nF) × M",
-          "c": "Faraday's law: charge into kilograms",
-          "v": [
-            [
-              "I",
-              "the current, in amps"
-            ],
-            [
-              "t",
-              "the time it flows for, in seconds"
-            ],
-            [
-              "n",
-              "the electrons needed per molecule of product — two for hydrogen"
-            ],
-            [
-              "F",
-              "Faraday's constant, 96,485 coulombs per mole of electrons"
-            ],
-            [
-              "M",
-              "the molar mass of the product"
-            ]
-          ],
-          "s": "Electrons are countable, so an electrolysis cell is the one place in a chemical plant where the arithmetic is exact — everything else about the cell changes what the product costs rather than how much of it there is."
-        },
-        {
-          "e": "boil-off = Q t / ΔHvap",
-          "c": "heat into a cryogenic tank, paid in kilograms",
-          "v": [
-            [
-              "Q",
-              "the heat reaching the liquid, in watts"
-            ],
-            [
-              "t",
-              "the time it reaches it for, in seconds"
-            ],
-            [
-              "ΔHvap",
-              "the energy needed to vaporise one kilogram — 213 kJ for oxygen"
-            ]
-          ],
-          "s": "A boiling liquid cannot get warmer, so heat arriving turns it to vapour instead — which makes insulation a production question and thirty watts a loss of twelve kilograms a sol."
-        }
-      ],
       "concept": {
         "n": 28,
         "c": "Boil-off: heat into a boiling liquid is a mass, not a temperature",
@@ -3534,6 +2901,7 @@ export const CURRICULUM = {
       "scene": "Loads come up on the board through the sol. The station runs to one power rule at a time. Demir changes it as the sol does: after the dust thickens, after the tank pressure rises, after the window gets closer.",
       "takeaway": "The cost of a withdrawn instruction is paid by whoever is still working to it.",
       "place": "Plant Control",
+      "at": "loadboard",
       "guide": "Keep the loads the current rule protects, and let the rest drop. One thing to know before you start. The rule at the top of the board changes during the sol, and nobody announces it. What gets scored is the loads either side of a change. Those are the only ones that show whether you are reading the rule, or working to the last one you saw.",
       "background": [
         "Why the rule changes at all. On a clear sol the plant protects production, because the tank has a schedule to meet. In a storm it protects the crew and the propellant already made, because neither can be remade. Close to the window it protects whatever the launch depends on. Three situations, three lists, and the same eight loads on the board.",
@@ -3641,54 +3009,6 @@ export const CURRICULUM = {
       "assumes": [
         "a station with limited power keeps some loads and drops others"
       ],
-      "equations": [
-        {
-          "e": "m = (I t / nF) × M",
-          "c": "Faraday's law: charge into kilograms",
-          "v": [
-            [
-              "I",
-              "the current, in amps"
-            ],
-            [
-              "t",
-              "the time it flows for, in seconds"
-            ],
-            [
-              "n",
-              "the electrons needed per molecule of product — two for hydrogen"
-            ],
-            [
-              "F",
-              "Faraday's constant, 96,485 coulombs per mole of electrons"
-            ],
-            [
-              "M",
-              "the molar mass of the product"
-            ]
-          ],
-          "s": "Electrons are countable, so an electrolysis cell is the one place in a chemical plant where the arithmetic is exact — everything else about the cell changes what the product costs rather than how much of it there is."
-        },
-        {
-          "e": "I = I₀ e^(−τ)",
-          "c": "what a dusty sky leaves of a beam",
-          "v": [
-            [
-              "I",
-              "the beam reaching the ground"
-            ],
-            [
-              "I₀",
-              "the beam above the dust"
-            ],
-            [
-              "τ",
-              "the optical depth — how much dust stands in the way"
-            ]
-          ],
-          "s": "Attenuation multiplies rather than subtracts, so each unit of optical depth costs a further factor of about 2.7 and a storm at τ = 2.4 leaves under a tenth of the direct beam."
-        }
-      ],
       "concept": {
         "n": 23,
         "c": "An energy ledger: what a station spends and what it collects",
@@ -3710,7 +3030,7 @@ export const CURRICULUM = {
       "background": [
         "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says three things at once: what you think is likely, what is worth hedging against, and what is not worth doing at all. Most of the information is in the last two. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. The small numbers count as much as the big one.",
         "What the three numbers are for. Thirty-five is what makes a lead a lead. Below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
-        "Why a measurement is not a control. Conductivity was measured all season. What was missing was the pair of things that turn a number into an action: something that shouts when the number moves, and something that says what to do when it shouts. An alarm without a written order leaves the next crew a noise. An order without an alarm leaves them a page nobody reads. Neither half works alone."
+        "Why a measurement is not a control. Conductivity was measured all season. What was missing was the pair of things that turn a number into an action. One shouts when the number moves. The other says what to do when it shouts. An alarm without a written order leaves the next crew a noise. An order without an alarm leaves them a page nobody reads. Neither half works alone."
       ],
       "story": "Only 2 improvements can be left in place for the crew arriving 300 sols from now. Wells and Demir have four candidates on the final board. The failed catalyst charge is on the floor beside them.",
       "game": {
@@ -3750,35 +3070,6 @@ export const CURRICULUM = {
         "the fault that cost this season went undetected because nothing measured it",
         "the next crew arrives without anybody from this one"
       ],
-      "equations": [
-        {
-          "e": "m = (I t / nF) × M",
-          "c": "Faraday's law: charge into kilograms",
-          "v": [
-            [
-              "I",
-              "the current, in amps"
-            ],
-            [
-              "t",
-              "the time it flows for, in seconds"
-            ],
-            [
-              "n",
-              "the electrons needed per molecule of product — two for hydrogen"
-            ],
-            [
-              "F",
-              "Faraday's constant, 96,485 coulombs per mole of electrons"
-            ],
-            [
-              "M",
-              "the molar mass of the product"
-            ]
-          ],
-          "s": "Electrons are countable, so an electrolysis cell is the one place in a chemical plant where the arithmetic is exact — everything else about the cell changes what the product costs rather than how much of it there is."
-        }
-      ],
       "concept": {
         "n": 29,
         "c": "Solutions: what dissolves out of frozen ground, and what each solute fouls",
@@ -3791,16 +3082,16 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "What has to be paid for — Review",
-      "scene": "Demir has four of the station's processes on the board and wants them sorted before the quarterly energy plan is written. Two of them run downhill and two have to be pushed.",
-      "takeaway": "Sorting a station's processes by direction is what says which of them have a bill nobody can design away.",
+      "scene": "Demir has four of the station's processes on the board. She wants them sorted before the quarterly energy plan is written. Two of them run downhill. Two have to be pushed.",
+      "takeaway": "Direction is what sorts a station's processes. It says which of them have a bill nobody can design away.",
       "place": "Plant Control",
-      "guide": "Two questions of each process, in this order. First: does it run downhill on its own, or does something have to push it? That is the one that decides whether there is a bill at all. Second, for the ones that do need pushing: is the bill chemical or physical? And watch out for the one that runs downhill so willingly that stopping it is what costs money.",
+      "guide": "Two questions of each process, in this order. First: does it run downhill on its own? Or does something have to push it? That question decides whether there is a bill at all. Second, take the ones that do need pushing. Is the bill chemical or physical? And watch out for one process here. It runs downhill so willingly that stopping it is what costs money.",
       "background": [
-        "Why direction and speed are separate questions. A negative free-energy change says a process can run on its own. It says nothing whatever about when. Making methane is downhill and would still take years without a catalyst. So \"it runs on its own\" and \"it runs\" are two different claims, and only the first one is about thermodynamics.",
-        "Why the same reaction appears twice on this board. Splitting water and making methane are close to being one reaction read in two directions. One is uphill and has to be paid for electrically. The other is downhill and pays out. That is one number with two signs, which is why this station can run one step for free and never the other.",
-        "Why stopping something downhill costs money. Boiling is downhill: heat arrives and liquid becomes gas without anyone helping. So keeping oxygen liquid means fighting a process that wants to happen, every second, forever. That is what the refrigerator is for. A downhill process is not always the cheap one — it is only cheap if you wanted it to happen."
+        "Why direction and speed are separate questions. A negative free-energy change says a process can run on its own. It says nothing whatever about when. Making methane is downhill. It would still take years without a catalyst. So \"it runs on its own\" and \"it runs\" are two different claims. Only the first one is about thermodynamics.",
+        "Why the same reaction appears twice on this board. Splitting water and making methane are close to one reaction. It is read in two directions. One is uphill and has to be paid for electrically. The other is downhill and pays out. That is one number with two signs. So this station can run one step for free and never the other.",
+        "Why stopping something downhill costs money. Boiling is downhill. Heat arrives and liquid becomes gas without anyone helping. So keeping oxygen liquid means fighting a process that wants to happen. Every second, forever. That is what the refrigerator is for. A downhill process is not always the cheap one. It is only cheap if you wanted it to happen."
       ],
-      "story": "Demir has four of the station's processes on the board and wants them sorted before the quarterly energy plan is written. Two of them run downhill and two have to be pushed.",
+      "story": "Demir has four of the station's processes on the board. She wants them sorted before the quarterly energy plan is written. Two of them run downhill. Two have to be pushed.",
       "game": {
         "type": "CASEBOOK",
         "title": "What has to be paid for — Review",
@@ -3809,7 +3100,7 @@ export const CURRICULUM = {
         "task": "Match each process to what it needs from the station.",
         "question": "Match each process to what it needs from the station.",
         "answer": "",
-        "why": "Direction and speed are separate questions, and only direction says whether there is a bill. Making methane runs downhill and runs slowly, which is exactly what a catalyst is for. Splitting water is close to the same reaction backwards, so it runs uphill, and the bill is the free-energy difference paid in electricity. Boiling runs downhill too — which is why keeping oxygen liquid costs work, every second, to stop something that wants to happen. Compression is uphill and physical rather than chemical, and it is paid for at the compressor.",
+        "why": "Direction and speed are separate questions. Only direction says whether there is a bill. Making methane runs downhill, and it runs slowly. That is exactly what a catalyst is for. Splitting water is close to the same reaction backwards. So it runs uphill, and the bill is the free-energy difference paid in electricity. Boiling runs downhill too. That is why keeping oxygen liquid costs work, every second, to stop something that wants to happen. Compression is uphill, and physical rather than chemical. It is paid for at the compressor.",
         "scenarios": [
           "Methane assembling from carbon dioxide and hydrogen over the bed.",
           "Water splitting into hydrogen and oxygen in the stack.",
@@ -3833,54 +3124,6 @@ export const CURRICULUM = {
         "a negative free-energy change means a process can run on its own",
         "running on its own says nothing about how fast a process goes"
       ],
-      "equations": [
-        {
-          "e": "CO₂ + 4H₂ → CH₄ + 2H₂O,  ΔH = −165 kJ per mole",
-          "c": "the reaction the whole plant is built around",
-          "v": [
-            [
-              "CO₂",
-              "carbon dioxide, taken from the atmosphere at six millibars"
-            ],
-            [
-              "H₂",
-              "hydrogen, made by splitting water"
-            ],
-            [
-              "CH₄",
-              "methane, the fuel"
-            ],
-            [
-              "ΔH",
-              "the heat given out per mole of methane made"
-            ]
-          ],
-          "s": "Five molecules of gas go in and three come out, and a great deal of heat comes with them — which is why pressure helps this reaction and heat hinders it, and why every argument in this plant is about those two facts pulling opposite ways."
-        },
-        {
-          "e": "ΔG = ΔH − TΔS",
-          "c": "which way a change runs, and what it costs to make it run the other way",
-          "v": [
-            [
-              "ΔG",
-              "the free-energy change; negative means it can run on its own"
-            ],
-            [
-              "ΔH",
-              "the heat given out or taken in at constant pressure"
-            ],
-            [
-              "T",
-              "the absolute temperature, in kelvin"
-            ],
-            [
-              "ΔS",
-              "the entropy change — how much more or less spread out the matter ends up"
-            ]
-          ],
-          "s": "Direction is a competition between heat and disorder with the temperature setting the odds, so a reaction that gives out heat and makes fewer molecules is spontaneous up to a temperature and not above it."
-        }
-      ],
       "concept": {
         "n": 21,
         "c": "Free energy: enthalpy against entropy, and which way a change runs",
@@ -3898,6 +3141,7 @@ export const CURRICULUM = {
       "scene": "The hopper takes one charge at a time and the digging arm has brought in more than it can process. Some of what is out there gives up water when it is heated. The rest costs the same power and returns nothing.",
       "takeaway": "Every charge costs the same energy, so what is in it is the whole decision.",
       "place": "Regolith Yard",
+      "at": "hopper",
       "guide": "You have more material than the hopper can take, so the whole job is deciding what is worth heating. One thing decides it: whether heat gets water back out of the sample. Hydrated minerals will, because they have water locked into the crystal itself, and so will buried ice. Dry basaltic dust will not, however promising it looks. Judge each sample on what it gives up, not on where the arm found it.",
       "background": [
         "Why this is the plant's first decision. Every charge costs the same heating energy whatever is in it, and energy is the thing this station has least of. A hopper charged with dry dust has spent a sol's margin on nothing.",
@@ -4059,6 +3303,7 @@ export const CURRICULUM = {
       "scene": "Femi Abiola, the regolith and water lead, has the plant’s four steps written on cards. The morning crew disagreed about where the extra water appeared. He wants the cards restored to process order.",
       "takeaway": "Every step in the water plant fixes something the step after it cannot survive.",
       "place": "Water Plant",
+      "at": "hopper",
       "guide": "Abiola's four cards will all happen; the only question is what each one needs from the step above it, so ask that of each. Ice that melts loose in the bucket runs straight into the ground. Vapour let go outside a sealed vessel joins an atmosphere at six millibars and is gone. And an ion-exchange bed — the column that swaps unwanted ions out of the water and onto a resin — can only be fed liquid. Put them out of order and each step finds nothing to work on.",
       "background": [
         "Why the water leaves as vapour and not as liquid. At six millibars — under a hundredth of the pressure at sea level on Earth — water has almost no liquid range at all. Warm ice-bearing ground in the open and the ice goes straight to vapour and disperses. That is why the hopper is sealed before it is warmed. The same warming then has nowhere to send the vapour except onto the chilled plate.",
@@ -4114,6 +3359,7 @@ export const CURRICULUM = {
       "scene": "The holding tank's analysis is on Abiola's bench: four dissolved species, none of them water. Each one has somewhere downstream that it matters, and the plant has one polishing column between them and everything else.",
       "takeaway": "Water from the ground is a solution, and every solute has an address downstream.",
       "place": "Water Plant",
+      "at": "columns",
       "guide": "Abiola has four dissolved species on the bench and one polishing column to spend. So for each one, ask where it ends up and what it touches when it gets there. A catalyst's nickel surface? The hot faces inside a cell, where something can come back out of solution as scale? A packed bed it can physically clog? Or somewhere the plant does not much mind, because not every impurity is equally dangerous.",
       "background": [
         "What dissolving actually does. A salt in water does not sit there as a lump. It comes apart into ions — charged pieces that move about independently — and perchlorate salts give up chloride that way. This is why a filter cannot catch them: there is nothing left to catch, only ions the size of single atoms travelling with the water.",
@@ -4172,16 +3418,17 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "The tank that will not freeze",
-      "scene": "The holding tank sat at minus 40 overnight and drained as a liquid this morning. Abiola has the analysis: magnesium perchlorate, and a great deal of it. He wants the freezing point that concentration implies.",
-      "takeaway": "In the ideal colligative model, freezing-point depression scales with the number of dissolved particles, not their chemical identity.",
+      "scene": "The holding tank sat at minus 40 overnight. It drained as a liquid this morning. Abiola has the analysis. It is magnesium perchlorate, and a great deal of it. He wants the freezing point that concentration implies.",
+      "takeaway": "In the ideal colligative model, freezing-point depression scales with the number of dissolved particles. Not with their chemical identity.",
       "place": "Water Plant",
-      "guide": "A tank that drained as a liquid at minus 40 is telling you something about how much salt is in it. The rule is freezing-point depression: ΔTf = i × Kf × m. Molality m is moles of salt per kilogram of water. Kf is a constant belonging to water itself. And i is the particle count — how many separate ions one formula unit breaks into. That count is what matters here, not how heavy the salt is. Two of the five numbers belong to other questions.",
+      "at": "brinetank",
+      "guide": "This tank drained as a liquid at minus 40. That tells you something about how much salt is in it. The rule is freezing-point depression. ΔTf = i × Kf × m. Molality m is moles of salt per kilogram of water. Kf is a constant belonging to water itself. And i is the particle count. It is how many separate ions one formula unit breaks into. That count is what matters here. Not how heavy the salt is. Two of the five numbers belong to other questions.",
       "background": [
-        "Why dissolved particles lower a freezing point at all. Ice can only form when water molecules line up into a crystal. Dissolved particles get in the way of that. They do not stop it, but they make it happen at a lower temperature than it otherwise would. This is called a colligative property: it depends on how many particles are dissolved, not on what they are.",
-        "Why the particle count is the whole trick. Magnesium perchlorate is Mg(ClO₄)₂. Put it in water and it does not stay whole. It breaks into one magnesium ion and two perchlorate ions — three separate particles from one formula unit. So it depresses the freezing point three times as much as something that dissolves in one piece. That factor of three is i, the van 't Hoff factor.",
-        "Why 45 K is a magnitude and not a measurement. The rule assumes dissolved particles ignore each other. At 8 moles per kilogram they cannot — the tank is packed, and real ions attract and crowd. So treat 45 K as showing why this brine is still liquid at minus 40, rather than as its true freezing point."
+        "Why dissolved particles lower a freezing point at all. Ice can only form one way. Water molecules line up into a crystal. Dissolved particles get in the way of that. They do not stop it. They make it happen at a lower temperature than it otherwise would. This is called a colligative property. It depends on how many particles are dissolved. Not on what they are.",
+        "Why the particle count is the whole trick. Magnesium perchlorate is Mg(ClO₄)₂. Put it in water and it does not stay whole. It breaks into one magnesium ion and two perchlorate ions. That is three separate particles from one formula unit. Something that dissolves in one piece gives one particle. So this salt depresses the freezing point three times as much. That factor of three is i, the van 't Hoff factor.",
+        "Why 45 K is a magnitude. Not a measurement. The rule assumes dissolved particles ignore each other. At 8 moles per kilogram they cannot. The tank is packed, and real ions attract and crowd. So treat 45 K as showing why this brine is still liquid at minus 40. It is not its true freezing point."
       ],
-      "story": "The holding tank sat at minus 40 overnight and drained as a liquid this morning. Abiola has the analysis: magnesium perchlorate, and a great deal of it. He wants the freezing point that concentration implies.",
+      "story": "The holding tank sat at minus 40 overnight. It drained as a liquid this morning. Abiola has the analysis. It is magnesium perchlorate, and a great deal of it. He wants the freezing point that concentration implies.",
       "game": {
         "type": "BALLPARK",
         "title": "The tank that will not freeze",
@@ -4190,7 +3437,7 @@ export const CURRICULUM = {
         "task": "Work out how much salt the brine is carrying",
         "question": "Estimate how far this brine's freezing point falls below that of pure water.",
         "answer": "",
-        "why": "Dissolved particles get in the way of water molecules lining up into ice. So freezing happens at a lower temperature. How far it drops depends on the number of particles, not on what they are. Magnesium perchlorate breaks into three ions per formula unit, so i is three. That gives ΔTf = 3 × 1.86 × 8.0 ≈ 45 K. At 8 moles per kilogram the tank is packed, and real ions do interact, so 45 K is a magnitude rather than a value. It is still enough to explain a tank that drained as a liquid at minus 40.",
+        "why": "Dissolved particles get in the way. Water molecules cannot line up into ice. So freezing happens at a lower temperature. How far it drops depends on the number of particles. Not on what they are. Magnesium perchlorate breaks into three ions per formula unit. So i is three. That gives ΔTf = 3 × 1.86 × 8.0 ≈ 45 K. At 8 moles per kilogram the tank is packed. Real ions do interact. So 45 K is a magnitude rather than a value. It is still enough to explain this tank. It drained as a liquid at minus 40.",
         "givens": [],
         "relationship": "ΔTf = i × Kf × m: the freezing point drops by the particle count i times the water constant Kf times the molality m.",
         "calcKey": "SOIL-4"
@@ -4274,23 +3521,6 @@ export const CURRICULUM = {
         "a packed bed holds a finite number of ions",
         "rate constants, and how steeply they climb with temperature — taken as read",
         "stoichiometry as a feed rate: turning a production target into kilograms in — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "residence time = V / Q",
-          "c": "how long the reaction is given to happen in",
-          "v": [
-            [
-              "V",
-              "the volume of the packed catalyst bed"
-            ],
-            [
-              "Q",
-              "the volume of gas passing through it each minute, at reactor conditions"
-            ]
-          ],
-          "s": "Conversion needs a rate and a contact, and this is the contact — which is why pushing more gas through a reactor to raise throughput can lower the fraction of it that reacts."
-        }
       ],
       "takesAsRead": [
         {
@@ -4448,6 +3678,7 @@ export const CURRICULUM = {
       "scene": "Abiola is writing a rule for a crew he will never meet. He loads last season’s conductivity trace into the alarm simulator. Once the replay starts, the thresholds are locked and the values run forward.",
       "takeaway": "A breakthrough threshold must be written before the rise and early enough to cover the action’s lead time.",
       "place": "Water Plant",
+      "at": "columns",
       "guide": "One rule, written before the trace moves, and fixed the moment you release it. Two numbers set it. The changeover takes one update to complete once it is called. And past 3 × baseline the feed water is outside what the reactor will accept. So work backwards from 3 by however far this trace climbs in a single update. Then check the other direction too. Set the line too low and a perfectly good bed gets swapped out for a reading that meant nothing.",
       "background": [
         "Why conductivity is the signal to write the rule on. It climbs as the column runs out of capacity and starts letting ions through. So it moves *before* the water is out of specification, not after. That gap is the only reason a rule is possible at all. A measurement that only told you after the damage would be a record, not a warning.",
@@ -4614,7 +3845,7 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "Getting water out of frozen ground — Review",
-      "scene": "A load has come in at 3% water instead of eight, and the same four operations have to run on it. Nakagawa wants the order confirmed before the hopper is sealed.",
+      "scene": "A load has come in at 3% water instead of eight, and the same four operations have to run on it. Sora Nakagawa, the drill and excavation operator, wants the order confirmed before the hopper is sealed.",
       "takeaway": "A poorer load changes the yield of a process and not the order of it.",
       "place": "Water Plant",
       "guide": "Same four operations, a much poorer load. So ask a different question this time: what would you be unable to tell apart if a step were missing? A lean load gives little water. So does a broken plant. Something on this list is what separates those two. And note that the warming has a ceiling as well as a floor, because perchlorate salts come apart when they are heated hard.",
@@ -4623,7 +3854,7 @@ export const CURRICULUM = {
         "Why the warming has a ceiling. Perchlorate salts do not simply sit there when heated hard. They decompose, and what comes off includes chlorine compounds that end up in the vapour and then in the water. Chloride is exactly what kills the catalyst. So the hopper is held below that temperature — hot enough to drive the water off, cool enough to leave the salts intact.",
         "Why the order is the same on a poor load as on a good one. A leaner load carries the same salts in less water. It does not change what depends on what: still sealed before warmed, still condensed before polished. What changes is the yield, and the value of having predicted it. A poorer load changes the numbers and not the sequence."
       ],
-      "story": "A load has come in at 3% water instead of eight, and the same four operations have to run on it. Nakagawa wants the order confirmed before the hopper is sealed.",
+      "story": "A load has come in at 3% water instead of eight, and the same four operations have to run on it. Sora Nakagawa, the drill and excavation operator, wants the order confirmed before the hopper is sealed.",
       "game": {
         "type": "SEQUENCE",
         "title": "Getting water out of frozen ground — Review",

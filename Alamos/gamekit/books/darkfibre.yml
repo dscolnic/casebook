@@ -1190,12 +1190,12 @@ missions:
           About 1555 nm, at 0.19 dB/km. The rise at 1385 is absorption by water in the glass rather
           than scattering, which is why the curve is not smooth.
         why: >-
-          The loss is lowest near 1555 nanometres, at about 0.19 decibels a kilometre. Two things are
-          happening at once. Scattering by the tiny irregularities of the glass falls steeply as the
-          wavelength grows — as the fourth power of it — which is the whole downward slope. Absorption
-          by the glass itself rises at the long end. Between them is a window, and the narrow spike in
-          the middle is water trapped in the glass absorbing at its own wavelength, which is a
-          property of the molecule and not of the fibre's quality.
+          The loss is lowest near 1555 nanometres, at about 0.19 decibels a kilometre. Two things
+          are happening at once. Scattering by the tiny irregularities of the glass falls steeply as
+          the wavelength grows, as the fourth power of it. That is the whole downward slope.
+          Absorption by the glass itself rises at the long end. Between them is a window. The narrow
+          spike in the middle is water trapped in the glass, absorbing at its own wavelength. That
+          is a property of the molecule, not of the fibre's quality.
       - group: AMP
         task: Ask Tanaka what the pump telemetry reports
         title: Current, and not light
@@ -1206,9 +1206,9 @@ missions:
           Tanaka has repeater 6's telemetry on the screen: a pump current, a case temperature and a
           supply voltage, four years of them, all inside limits.
         guide: >-
-          All four options are things the telemetry could be evidence of. Ask of each what would have
-          to be true for a current to establish it, given that everything the amplifier does depends
-          on how many atoms are held in the upper state at any moment. One of the four is what a
+          All four options are things the telemetry could be evidence of. Ask of each what would
+          have to be true for a current to establish it. Everything the amplifier does depends on
+          how many atoms are held in the upper state at any moment. One of the four is what a
           current cannot reach.
         takesAsRead:
           - Atomic energy levels, and the wavelengths they allow
@@ -1219,11 +1219,11 @@ missions:
         question: What does four years of good pump telemetry establish?
         why: >-
           It establishes that the pump laser is being driven. Gain depends on the population
-          inversion — on more erbium atoms being in the upper state than the lower — and that depends
-          on the pump's optical output rather than on its drive current. A laser diode's output falls
-          with age at a constant current, which is exactly the failure that leaves telemetry looking
-          perfect. Nothing on that screen reaches the number that matters, which is why the last
-          fortnight has been spent inferring it from the far end of a fibre.
+          inversion — on more erbium atoms being in the upper state than the lower. And the
+          inversion depends on the pump's optical output, not on its drive current. A laser diode's
+          output falls with age at a constant current. That is exactly the failure that leaves
+          telemetry looking perfect. Nothing on that screen reaches the number that matters. That is
+          why the last fortnight has been spent inferring it from the far end of a fibre.
         choices:
           - That the pump laser is being driven, and nothing about its output
           - That the amplifier is producing its designed gain
@@ -1260,10 +1260,10 @@ missions:
           0.15 each, and the new event at 4.1. Sarraf wants the total against the receiver's
           allowance of 24 decibels.
         guide: >-
-          You build the working a line at a time. Every loss here is quoted in decibels, and decibels
-          are logarithms, so the stages add rather than multiply. Take the span first, then the
-          joints, then the event, and only at the end turn the total into a power ratio — because that
-          is where the size of what has happened becomes visible.
+          You build the working a line at a time. Every loss here is quoted in decibels, and
+          decibels are logarithms, so the stages add rather than multiply. Take the span first, then
+          the joints, then the event. Only at the end turn the total into a power ratio. That is
+          where the size of what has happened becomes visible.
         background:
           - >-
             Why a logarithm makes a sum. Each stage multiplies the power by a fraction, and the
@@ -1271,12 +1271,13 @@ missions:
             an addition of fifteen numbers, which is the whole reason the unit exists.
           - >-
             What 21.8 decibels is as a ratio. It is a factor of 151: for every hundred and fifty-one
-            photons launched, one arrives. The receiver's allowance of 24 decibels is a factor of 251,
-            so what is left is a margin of 2.2 decibels, which is a factor of 1.66 and is not much.
+            photons launched, one arrives. The receiver's allowance of 24 decibels is a factor of
+            251. What is left is a margin of 2.2 decibels. That is a factor of 1.66, and it is not
+            much.
           - >-
-            Why this settles today's argument. With 2.2 decibels of margin the span is working and it
-            is one small event away from not working. That is an argument for sending the ship on the
-            best number available rather than for spending a week refining it — which is Sarraf's
+            Why this settles today's argument. With 2.2 decibels of margin the span is working, and
+            it is one small event away from not working. That is an argument for sending the ship on
+            the best number available, rather than for spending a week refining it. That is Sarraf's
             position, and on today's numbers she is right.
         assumes:
           - a loss in decibels is ten times the logarithm of the power ratio
@@ -1287,10 +1288,11 @@ missions:
           21.8 dB, leaving 2.2 dB of the 24 dB allowance. That total is a factor of 151 in power.
         why: >-
           The span loses 21.8 decibels and has 2.2 left. Decibels are logarithms of power ratios, so
-          the fifteen stages add: 16.1 for the fibre itself, 1.65 for the eleven joints and 4.1 for
-          the new event. Converting the total back gives a factor of 151, against the receiver's
-          allowance of a factor of 251. A margin of 2.2 decibels is a third of one bad joint, which is
-          why the traffic was moved on the night and why a week of refinement is a week of exposure.
+          the fifteen stages add. That is 16.1 for the fibre itself, 1.65 for the eleven joints and
+          4.1 for the new event. Converting the total back gives a factor of 151, against the
+          receiver's allowance of a factor of 251. A margin of 2.2 decibels is a third of one bad
+          joint. That is why the traffic was moved on the night. And it is why a week of refinement
+          is a week of exposure.
         derive:
           hint: Each line has to follow from the one above it, and each one is licensed by a rule.
           start: loss(dB) = 10·log₁₀(P_in/P_out)
@@ -1400,9 +1402,9 @@ missions:
           eightieth take out the same amount?
         guide: >-
           Four readings of what a loss quoted per kilometre asserts. Ask of each whether it is about
-          an amount of power or a fraction of it, because the difference decides whether a long span
-          ends with a little light or with none, and whether adding an amplifier half way is worth
-          anything.
+          an amount of power or a fraction of it. The difference decides whether a long span ends
+          with a little light or with none. It also decides whether adding an amplifier half way is
+          worth anything.
         takesAsRead:
           - Power in decibels, and why a loss budget adds
         assumes:
@@ -1412,11 +1414,11 @@ missions:
         question: What does 0.19 decibels a kilometre assert about the eightieth kilometre?
         why: >-
           It asserts that the eightieth kilometre takes the same fraction as the first, which is
-          about 4.3 per cent, and therefore far less power. That is what a constant figure in decibels
-          means: equal lengths remove equal fractions, so the power falls exponentially. It never
-          reaches zero, which is why the limit on a span is the receiver's sensitivity rather than the
-          fibre running out of light, and why an amplifier half way along is worth exactly the loss
-          it makes up.
+          about 4.3 per cent, and therefore far less power. That is what a constant figure in
+          decibels means: equal lengths remove equal fractions, so the power falls exponentially. It
+          never reaches zero. So the limit on a span is the receiver's sensitivity, not the fibre
+          running out of light. And an amplifier half way along is worth exactly the loss it makes
+          up.
         choices:
           - It removes the same fraction as the first kilometre, and so less power
           - It removes the same amount of power as the first kilometre
@@ -1439,8 +1441,8 @@ missions:
         guide: >-
           Each thing on the left is written on the corner of a good radiograph. Match it to what
           somebody comparing two films would use it for. What separates them is which of them is
-          about the source, which about the geometry, and which about the film — because comparing
-          two films means holding all three constant.
+          about the source, which about the geometry, and which about the film. Comparing two films
+          means holding all three constant.
         takesAsRead:
           - Power in decibels, and why a loss budget adds
         assumes:
@@ -1498,17 +1500,19 @@ missions:
         background:
           - >-
             Why the wavelength divides. Frequency and wavelength are inversely related through the
-            speed of light, so a longer wavelength is a lower frequency and a smaller energy. A photon
-            at 980 nanometres carries 1.27 electron volts against 0.80 at 1550, which is the whole
-            reason an amplifier can be pumped at the shorter wavelength and give out at the longer.
+            speed of light, so a longer wavelength is a lower frequency and a smaller energy. A
+            photon at 980 nanometres carries 1.27 electron volts, against 0.80 at 1550. That is the
+            whole reason an amplifier can be pumped at the shorter wavelength and give out at the
+            longer.
           - >-
-            Why the electron volt is the natural unit. A joule is a household quantity and a photon is
-            not: 1.28 × 10⁻¹⁹ joules is hard to hold in the head, and 0.80 electron volts can be
-            compared straight away with the band gaps of the materials a detector is made of.
+            Why the electron volt is the natural unit. A joule is a household quantity and a photon
+            is not. A photon's 1.28 × 10⁻¹⁹ joules is hard to hold in the head. Its 0.80 electron
+            volts can be compared straight away with the band gaps of the materials a detector is
+            made of.
           - >-
             What the arrival rate is for. A milliwatt is 7.8 × 10¹⁵ photons a second, which sounds
-            like an inexhaustible supply until it is divided by ten billion bits a second and reduced
-            by a factor of 151 along the span. Then it is a few thousand a bit, and a few thousand of
+            like an inexhaustible supply. Divide it by ten billion bits a second, and reduce it by a
+            factor of 151 along the span. Then it is a few thousand a bit, and a few thousand of
             anything counted has a scatter.
         assumes:
           - light of one wavelength arrives only in whole quanta of a fixed energy
@@ -1518,12 +1522,12 @@ missions:
         answerText: >-
           1.28 × 10⁻¹⁹ J, which is 0.80 eV. A milliwatt is 7.8 × 10¹⁵ of them a second.
         why: >-
-          A photon at 1550 nanometres carries 1.28 × 10⁻¹⁹ joules, or 0.80 electron volts, and a
-          milliwatt is 7.8 × 10¹⁵ of them a second. The energy comes from Planck's constant times the
-          frequency, and the frequency from the speed of light over the wavelength — so the two
-          constants arrive together as hc, which is 1.99 × 10⁻²⁵ joule metres and worth remembering.
-          Dividing a power by the energy of one photon is what turns watts into a count, and the count
-          is what the receiver's limit is really about.
+          A photon at 1550 nanometres carries 1.28 × 10⁻¹⁹ joules, or 0.80 electron volts. A
+          milliwatt is 7.8 × 10¹⁵ of them a second. The energy comes from Planck's constant times
+          the frequency, and the frequency from the speed of light over the wavelength. So the two
+          constants arrive together as hc. That is 1.99 × 10⁻²⁵ joule metres, and worth remembering.
+          Dividing a power by the energy of one photon is what turns watts into a count. And the
+          count is what the receiver's limit is really about.
         derive:
           hint: Each line has to follow from the one above it, and each one is licensed by a rule.
           start: E = h·f = h·c/λ
@@ -1669,7 +1673,7 @@ missions:
             difference between a comfortable link and one at its limit.
         why: >-
           About six thousand photons arrive in each bit. That is a large number of anything except a
-          count: the spread of a count is about its square root, so six thousand arrivals carry a
+          count. The spread of a count is about its square root. So six thousand arrivals carry a
           natural unevenness of about eighty, which is over one per cent. No improvement to the
           electronics touches it, because it is a property of light arriving in pieces. The two ways
           to get further are more photons — a better amplifier or a shorter span — or fewer bits a
@@ -1686,21 +1690,21 @@ missions:
           along it.
         guide: >-
           All four options are things that could broaden a pulse over eighty-four kilometres. Ask of
-          each whether it would broaden the pulse or weaken it, because those are different faults
-          with different cures, and one of them is a property of the glass that no amount of care in
-          the termination can remove.
+          each whether it would broaden the pulse or weaken it. Those are different faults with
+          different cures. And one of them is a property of the glass that no amount of care in the
+          termination can remove.
         assumes:
           - a pulse of light contains a small range of wavelengths rather than one exactly
         takeaway: A pulse is not one wavelength, and anything that depends on wavelength therefore acts on its shape.
         format: CHOICE
         question: Why does the pulse arrive wider than it left?
         why: >-
-          Because the pulse is not one wavelength but a narrow band of them, and the index of the
-          glass is slightly different for each — so the parts of the pulse arrive at slightly
-          different times and it spreads. That is dispersion, and it is a property of the material.
-          It is why a long span has a bit rate limit as well as a power limit, and why the fibre's
-          own index is not quite the number a pulse travels at, which is the correction the ship's
-          chart is missing.
+          Because the pulse is not one wavelength but a narrow band of them. And the index of the
+          glass is slightly different for each. So the parts of the pulse arrive at slightly
+          different times, and it spreads. That is dispersion, a property of the material. It is why
+          a long span has a bit rate limit as well as a power limit. It is also why the fibre's own
+          index is not quite the number a pulse travels at. That is the correction the ship's chart
+          is missing.
         choices:
           - Its colours travel at slightly different speeds in the glass
           - Light has been lost, so the pulse is weaker and looks broader
@@ -1739,17 +1743,17 @@ missions:
           Osgood has the diode's measured efficiency on the bench — 82 charges for every hundred
           arrivals — and this morning's photon energy beside it. Duarte wants the current per watt.
         guide: >-
-          You build the working a line at a time. A watt is a number of arrivals a second, and each
-          arrival that is converted releases one charge, so the current is a count times the charge on
-          one of them. Take the arrivals first, apply the efficiency, then attach the charge. The
+          You build the working a line at a time. A watt is a number of arrivals a second. Each
+          arrival that is converted releases one charge. So the current is a count times the charge
+          on one of them. Take the arrivals first, apply the efficiency, then attach the charge. The
           wavelength enters only through the energy of one arrival.
         background:
           - >-
-            Why the answer is close to one. At this wavelength a photon carries 0.80 electron volts,
-            and an electron volt is exactly the energy an electron gains through a volt — so the
-            current per watt comes out near the reciprocal of that number of volts. An efficiency of
-            0.8 and a photon energy of 0.8 electron volts happen to cancel, which is a coincidence and
-            a useful one to notice.
+            Why the answer is close to one. At this wavelength a photon carries 0.80 electron volts.
+            An electron volt is exactly the energy an electron gains through a volt. So the current
+            per watt comes out near the reciprocal of that number of volts. An efficiency of 0.8 and
+            a photon energy of 0.8 electron volts happen to cancel. That is a coincidence, and a
+            useful one to notice.
           - >-
             Why the responsivity rises with wavelength. Longer wavelengths mean less energy per
             arrival, so a watt is more arrivals, so more charges: the responsivity of a perfect
@@ -1757,7 +1761,7 @@ missions:
             weak to free a charge at all, which is the cut-off.
           - >-
             What the ten per cent is worth. The difference between the sheet's 0.90 and the measured
-            0.82 is 0.4 decibels of sensitivity, which against 2.2 decibels of margin is a fifth of
+            0.82 is 0.4 decibels of sensitivity. Against 2.2 decibels of margin, that is a fifth of
             everything the span has spare. It is also the difference between a figure somebody
             measured and a figure somebody printed.
         assumes:
@@ -1770,10 +1774,10 @@ missions:
           gives 1.602 × 10⁻¹⁹ C.
         why: >-
           One watt produces about 1.03 amps. A watt at 1550 nanometres is 7.8 × 10¹⁸ arrivals a
-          second; 82 per cent of them free a charge; each charge is 1.602 × 10⁻¹⁹ coulombs. The
+          second. Of those, 82 per cent free a charge. Each charge is 1.602 × 10⁻¹⁹ coulombs. The
           product is a current, and dividing by the watt makes it a responsivity. Written as one
-          expression it is the efficiency times the charge over the photon energy, which shows the
-          wavelength dependence: at 1300 nanometres the same diode would give 0.86 amps a watt with
+          expression it is the efficiency times the charge over the photon energy. That shows the
+          wavelength dependence. At 1300 nanometres the same diode would give 0.86 amps a watt, with
           no change to the diode at all.
         derive:
           hint: Each line has to follow from the one above it, and each one is licensed by a rule.
@@ -1883,9 +1887,9 @@ missions:
           trace beside each. Every one of them lost light and no two of them look alike.
         guide: >-
           Each fault on the left has one signature on the right. What separates them is whether the
-          light that is lost comes back towards the instrument or leaves the fibre altogether, and
-          whether the loss is at one point or spread along a length. Two of the four look identical in
-          how much they lose and nothing alike in what returns.
+          light that is lost comes back towards the instrument or leaves the fibre altogether. It
+          also matters whether the loss is at one point or spread along a length. Two of the four
+          look identical in how much they lose and nothing alike in what returns.
         assumes:
           - an instrument sees only the light that returns to it
         takeaway: Two faults can lose the same light and be told apart by what comes back, which is why a trace has a shape as well as a step.
@@ -1920,19 +1924,19 @@ missions:
           minutes. The same measurement with a thousand takes ten seconds.
         guide: >-
           All four options describe what averaging many traces does. Ask of each whether it acts on
-          something that changes from trace to trace or on something that is the same in every one,
-          because averaging only helps with the first — and how much it helps follows from the count.
+          something that changes from trace to trace, or on something that is the same in every one.
+          Averaging only helps with the first. And how much it helps follows from the count.
         assumes:
           - independent measurements of the same thing average towards it
         takeaway: Averaging reduces what varies between measurements as the root of their number, and does nothing at all to what does not.
         format: CHOICE
         question: What does averaging sixty-five thousand traces buy?
         why: >-
-          It reduces the part of the trace that varies from one pulse to the next, and it does so as
-          the square root of the number averaged: sixty-five times more traces than a thousand buys a
-          factor of eight, which is nine decibels. Sixty-four times the time for nine decibels is the
-          bargain on offer. What it cannot touch is anything the same in every trace — a reflection
-          from a connector, the instrument's own dead zone — because averaging identical things
+          It reduces the part of the trace that varies from one pulse to the next. It does so as the
+          square root of the number averaged. Sixty-five times more traces than a thousand buys a
+          factor of eight, which is nine decibels. Sixty-four times the time for nine decibels is
+          the bargain on offer. What it cannot touch is anything the same in every trace. A
+          reflection from a connector, or the instrument's own dead zone. Averaging identical things
           returns the thing.
         choices:
           - Nine decibels of reach, for sixty-four times the time
@@ -1983,9 +1987,9 @@ missions:
             them are in the way.
           - >-
             Why the exponent and the count agree. Forty millimetres at 0.666 per centimetre is an
-            exponent of 2.66, and 2.66 divided by the natural logarithm of two is 3.85 — so the wall
-            is 3.85 half-value thicknesses, and two to the power of minus 3.85 is 0.069. The two routes
-            are the same statement written in different bases.
+            exponent of 2.66. Divide 2.66 by the natural logarithm of two and you get 3.85. So the
+            wall is 3.85 half-value thicknesses, and two to the power of minus 3.85 is 0.069. The
+            two routes are the same statement written in different bases.
           - >-
             What it costs Farouk. Seven per cent through means an exposure fourteen times longer than
             a film with nothing in the way, before any allowance for the source being eight months old.
@@ -1999,12 +2003,12 @@ missions:
           About 7 per cent. The exponent is 0.666 × 4.0 = 2.66, and the half-value thickness is
           ln2/0.666 = 1.04 cm, so the wall is 3.85 of them.
         why: >-
-          About seven per cent gets through. The fraction remaining is e to the minus the coefficient
-          times the thickness, which is e to the minus 2.66. The same coefficient gives a half-value
-          thickness of 1.04 centimetres, and the wall is 3.85 of those — and two to the minus 3.85 is
-          the same 0.069, because the two forms are one relation in different bases. Neither form
-          contains a thickness that stops the beam, which is why a barrier is a distance as often as
-          it is a slab.
+          About seven per cent gets through. The fraction remaining is e to the minus the
+          coefficient times the thickness, which is e to the minus 2.66. The same coefficient gives
+          a half-value thickness of 1.04 centimetres, and the wall is 3.85 of those. And two to the
+          minus 3.85 is the same 0.069. The two forms are one relation in different bases. Neither
+          form contains a thickness that stops the beam. That is why a barrier is a distance as
+          often as it is a slab.
         derive:
           hint: Each line has to follow from the one above it, and each one is licensed by a rule.
           start: I = I₀·e^(−μx)
@@ -2154,20 +2158,19 @@ missions:
           the other.
         guide: >-
           All four options are ways a coating could reduce a reflection. Ask of each whether it
-          removes light or redirects it or cancels it, because only one of those needs a second
-          reflection to work with — and the thickness of the coating is the clue that says which.
+          removes light, or redirects it, or cancels it. Only one of those needs a second reflection
+          to work with. The thickness of the coating is the clue that says which.
         assumes:
           - two waves arriving out of step by half a wavelength cancel
         takeaway: Two reflections separated by the right path difference arrive out of step and cancel, which removes a reflection without absorbing anything.
         format: CHOICE
         question: How does a coating on a connector face reduce its reflection?
         why: >-
-          The coating makes two reflections instead of one — from its front face and its back face —
-          and if the extra path between them is half a wavelength the two arrive out of step and
-          cancel. Nothing is absorbed: the light that would have come back goes forward instead. That
-          is why the thickness matters and why it is a quarter of a wavelength rather than any old
-          thin layer, and it is the same arithmetic as the gel in a mechanical joint reached a
-          different way.
+          The coating makes two reflections instead of one, from its front face and its back face. If
+          the extra path between them is half a wavelength, the two arrive out of step and cancel.
+          Nothing is absorbed: the light that would have come back goes forward instead. That is why
+          the thickness matters, and why it is a quarter of a wavelength rather than any old thin
+          layer. It is the same arithmetic as the gel in a mechanical joint, reached a different way.
         choices:
           - It makes a second reflection that arrives out of step with the first
           - It absorbs the part of the light that would have been reflected
@@ -2206,8 +2209,8 @@ missions:
         guide: >-
           You build the working a line at a time. A coating makes two reflections, one at each of its
           faces, and the question is what thickness puts them exactly out of step. Count the path
-          difference in the film, remember that the wave travels more slowly in it, and then ask what
-          index makes the two reflections the same size — because cancelling needs both.
+          difference in the film. Remember that the wave travels more slowly in it. Then ask what
+          index makes the two reflections the same size, because cancelling needs both.
         background:
           - >-
             Why the film is a quarter of a wavelength and not a half. The extra path is twice the
@@ -2220,9 +2223,9 @@ missions:
             thickness that matters is therefore λ over four n, not λ over four.
           - >-
             Why the index is a geometric mean. Cancelling needs the two reflections equal as well as
-            opposite, and the two step sizes are equal when the film's index is the root of the
-            product of the two either side. That is 1.212 here, which is close to magnesium fluoride,
-            which is what is actually used.
+            opposite. The two step sizes are equal when the film's index is the root of the product
+            of the two either side. That is 1.212 here, which is close to magnesium fluoride, which
+            is what is actually used.
         assumes:
           - a wave reflected at each face of a film travels an extra distance of twice the thickness
         takeaway: A coating cancels a reflection when its thickness gives a half-wavelength path difference and its index equalises the two reflections.
@@ -2233,8 +2236,8 @@ missions:
           product of the two either side.
         why: >-
           The film should be about 320 nanometres thick with an index of 1.212. Two reflections leave
-          it, and the second travels twice the thickness further, so a thickness of a quarter of the
-          wavelength inside the film puts them half a wavelength apart and they cancel. The wavelength
+          it, and the second travels twice the thickness further. So a thickness of a quarter of the
+          wavelength inside the film puts them half a wavelength apart, and they cancel. The wavelength
           inside the film is the vacuum wavelength divided by the film's index, which is why the
           thickness depends on that index as well. And they only cancel completely if they are the
           same size, which happens when the film's index is the geometric mean of its neighbours'.
@@ -2348,9 +2351,9 @@ missions:
           clean current. A source twenty times brighter at 2000 nanometres gives nothing at all.
         guide: >-
           Four accounts of why the brighter source does nothing. Ask of each whether it is about how
-          much light arrives or about what each arrival carries, because the two make opposite
-          predictions when the brightness is turned up. One of them says nothing will happen however
-          bright it gets.
+          much light arrives, or about what each arrival carries. The two make opposite predictions
+          when the brightness is turned up. One of them says nothing will happen however bright it
+          gets.
         assumes:
           - a charge is freed by one arrival rather than by several together
         takeaway: A threshold in wavelength is a statement about energy per arrival, so brightness cannot get past it.
@@ -2358,10 +2361,10 @@ missions:
         question: Why does the brighter source at the longer wavelength give no current?
         why: >-
           Each arrival at 2000 nanometres carries 0.62 electron volts, and the diode's material needs
-          0.75 to free a charge. Brightness is the number of arrivals, and arrivals that individually
-          cannot free a charge do not free one between them — so twenty times as many of them still
-          gives nothing. That is the whole content of a threshold: it is about the energy of one piece
-          of light, which depends only on the wavelength, and it is the reason a detector is chosen for
+          0.75 to free a charge. Brightness is the number of arrivals. Arrivals that individually
+          cannot free a charge do not free one between them. So twenty times as many of them still
+          gives nothing. That is the whole content of a threshold. It is about the energy of one piece
+          of light, which depends only on the wavelength. That is the reason a detector is chosen for
           a band rather than for a power.
         choices:
           - Each arrival carries too little energy to free a charge
@@ -2384,9 +2387,9 @@ missions:
           loss of each written beside it. None of them is damaged and all four lose light.
         guide: >-
           Each observation on the left has one explanation on the right. What separates them is what
-          happens to the angle a ray makes with the core boundary when the fibre is bent, because the
-          condition for staying in the core is an angle rather than a strength — and a bend changes
-          angles without changing anything else.
+          happens to the angle a ray makes with the core boundary when the fibre is bent. The
+          condition for staying in the core is an angle rather than a strength. A bend changes angles
+          without changing anything else.
         assumes:
           - light stays in a core only while it meets the boundary beyond the critical angle
         takeaway: A bend changes the angle a ray meets the boundary at, so light leaves without anything having been damaged.
@@ -2405,8 +2408,8 @@ missions:
         mapping: [0, 1, 2, 3]
         why: >-
           A bend does not damage anything; it changes the angles. On the outside of a tight bend the
-          boundary is tilted relative to the rays, so some of them arrive inside the critical angle and
-          refract out instead of reflecting. A gentle bend tilts it too little to matter. Longer
+          boundary is tilted relative to the rays. Some of them then arrive inside the critical angle
+          and refract out instead of reflecting. A gentle bend tilts it too little to matter. Longer
           wavelengths spread further into the cladding and so leave first, which is exactly the test
           that separates a bend from a break. And a bend has no index step anywhere in it, so nothing
           comes back — which is the other half of the same test.
@@ -2437,15 +2440,15 @@ missions:
           fraction of its original strength is left and what that does to her exposures.
         guide: >-
           You build the working a line at a time. A half-life and a decay constant are two ways of
-          writing the same fact, and the exponential is the same shape as yesterday's attenuation with
+          writing the same fact. The exponential is the same shape as yesterday's attenuation, with
           time in place of thickness. Get the constant, then the fraction, then check it by counting
           half-lives — because the two routes have to agree.
         background:
           - >-
             Why the two forms agree. e to the minus the constant times the time, and two to the minus
-            the number of half-lives, are the same function written in different bases, and the
-            logarithm of two is the conversion between them. Being able to move between them is what
-            makes a decay estimable in the head.
+            the number of half-lives, are the same function written in different bases. The logarithm
+            of two is the conversion between them. Being able to move between them is what makes a
+            decay estimable in the head.
           - >-
             Why the exposure factor is the reciprocal. A film needs a certain number of arrivals
             whatever the rate they come at, so a source a tenth as strong needs ten times as long. Both
@@ -2466,7 +2469,7 @@ missions:
           and 243 days is 3.29 half-lives.
         why: >-
           About a tenth is left. The decay constant is the logarithm of two divided by the half-life,
-          which is 0.00939 per day, and the fraction remaining is e to the minus that times 243 days.
+          which is 0.00939 per day. The fraction remaining is e to the minus that times 243 days.
           The check is the other route: 243 days is 3.29 half-lives, and two to the minus 3.29 is the
           same 0.102. Both are the same statement about a nucleus having a fixed chance of decaying
           per second, and neither depends on how much source there was to start with.
@@ -2581,9 +2584,9 @@ missions:
           of the controlled area. He wants the distance at which the rate is inside the limit.
         guide: >-
           Four quantities are offered and three of them make the answer. A small source spreads its
-          output over a sphere, so the rate falls as the square of the distance, and the distance
-          needed is the reference distance times the root of the ratio of the rates. The exposure time
-          is on the list because it is not part of a rate at all.
+          output over a sphere, so the rate falls as the square of the distance. The distance needed
+          is the reference distance times the root of the ratio of the rates. The exposure time is on
+          the list because it is not part of a rate at all.
         assumes:
           - a small source spreads its output evenly over a sphere
         takeaway: Intensity from a small source falls as the square of distance, so the barrier is set by a square root rather than by a ratio.
@@ -2617,10 +2620,10 @@ missions:
             gives 171 metres, which is off the site.
         why: >-
           The barrier goes to about 18.5 metres. Intensity from a small source falls as the inverse
-          square of the distance, so reducing a rate by a factor of 85 needs a distance greater by the
+          square of the distance. So reducing a rate by a factor of 85 needs a distance greater by the
           square root of 85, which is 9.2. That is why distance is the cheap answer to a strong source
-          and lead is the expensive one — and it is also why a collimated beam breaks the arithmetic
-          entirely, because a beam that has been aimed is not spreading over a sphere.
+          and lead is the expensive one. It is also why a collimated beam breaks the arithmetic
+          entirely. A beam that has been aimed is not spreading over a sphere.
       - group: AMP
         task: Settle where the pump's extra energy goes
         title: Two wavelengths, one atom
@@ -2631,9 +2634,9 @@ missions:
           1550. Every pump arrival that does its job ends up as a signal arrival, and the two do not
           carry the same energy.
         guide: >-
-          Four accounts of what happens to the difference. Ask of each whether it conserves energy and
-          whether it conserves the number of arrivals, because an amplifier conserves the second and
-          not the first — one arrival in, one arrival out, and less energy in the one that leaves.
+          Four accounts of what happens to the difference. Ask of each whether it conserves energy.
+          Then ask whether it conserves the number of arrivals. An amplifier conserves the second and
+          not the first. One arrival in, one arrival out, and less energy in the one that leaves.
         assumes:
           - an excited atom can be made to release its energy into a passing wave
         takeaway: A pump arrival is more energetic than the signal arrival it produces, and the difference has to leave as heat.
@@ -2641,8 +2644,8 @@ missions:
         question: What becomes of the difference between a pump arrival and a signal arrival?
         why: >-
           It ends up as heat in the glass. A pump arrival at 980 nanometres carries 1.27 electron
-          volts and lifts an erbium atom to a state it drops from, quickly and silently, to the level
-          the signal works from — and that drop is 0.47 electron volts that never becomes light. What
+          volts. It lifts an erbium atom to a state it drops from, quickly and silently, to the level
+          the signal works from. That drop is 0.47 electron volts that never becomes light. What
           is conserved is the count: one pump arrival can produce at most one signal arrival. That
           ceiling is what sets an amplifier's maximum output at the pump power times the ratio of the
           two wavelengths, whatever else is done to it.
@@ -2683,26 +2686,26 @@ missions:
           cable than route.
         guide: >-
           You build the working a line at a time. Three corrections, each a small ratio, and each one
-          in a definite direction: the instrument used too small an index, the fibre is longer than the
-          cable it is in, and the cable is longer than the route it lies on. Get the sign of each right
+          in a definite direction. The instrument used too small an index. The fibre is longer than the
+          cable it is in. The cable is longer than the route it lies on. Get the sign of each right
           before touching the arithmetic, because two of the three go the same way and one does not.
         background:
           - >-
             Why the group index is the right one. A pulse is a band of wavelengths, and what travels at
             c over the core's index is a single wavelength. The pulse — the thing whose arrival is
-            timed — travels a little more slowly, at c over the group index, so the same delay
+            timed — travels a little more slowly, at c over the group index. So the same delay
             corresponds to a slightly shorter distance.
           - >-
             Why the fibre is longer than the cable. The fibres are laid up helically round the cable's
-            core so that bending the cable does not stretch them, which means a metre of cable contains
+            core so that bending the cable does not stretch them. So a metre of cable contains
             slightly more than a metre of fibre. It is a fixed property of the cable's construction and
             it is on the maker's data sheet.
           - >-
             Why the slack is the largest term and the least certain. A cable is paid out faster than
             the ship advances so that it lies on the bottom rather than bridging the high spots. 1.5
-            per cent over 84 kilometres is 1.25 kilometres, and it is an average over a route whose
-            slack was not uniform — which is exactly why Okonkwo will not offer a position without a
-            tolerance on it.
+            per cent over 84 kilometres is 1.25 kilometres. It is an average over a route whose slack
+            was not uniform. That is exactly why Okonkwo will not offer a position without a tolerance
+            on it.
         assumes:
           - a cable laid with slack is longer than the route it lies along
         takeaway: Three ratios separate an optical distance from a position, and all three have to be applied with their own signs.
@@ -2714,8 +2717,8 @@ missions:
         why: >-
           The event is about 82.9 kilometres along the route, 1.7 kilometres closer than the trace
           reads. The instrument's index was too small, so its distance was too large: correcting it
-          takes off 207 metres. The fibre is 0.3 per cent longer than the cable and the cable 1.5 per
-          cent longer than the route, and both of those are divisions rather than multiplications. The
+          takes off 207 metres. The fibre is 0.3 per cent longer than the cable, and the cable 1.5 per
+          cent longer than the route. Both of those are divisions rather than multiplications. The
           total is more than three times the grapnel window, which is what makes it the difference
           between finding the fault and dragging past it.
         derive:
@@ -2831,8 +2834,9 @@ missions:
         guide: >-
           Lock a prediction for how much the received power will rise before the switch is made.
           Nothing about it can be changed afterwards, which is the point of making it first. Then
-          switch, and then spend the measurement — because a switch that is confirmed to have happened
-          and never measured establishes that the relay works and nothing whatever about the pump.
+          switch, and then spend the measurement. A switch that is confirmed to have happened and
+          never measured establishes that the relay works. It establishes nothing whatever about the
+          pump.
         assumes:
           - an amplifier's gain follows the optical power of its pump
         takeaway: A prediction locked before an intervention is a test of the model; the same number chosen afterwards is a description of the outcome.
@@ -2863,11 +2867,11 @@ missions:
           switch and nothing else.
         why: >-
           The received power rises about 3.6 decibels. An amplifier's gain follows its pump's optical
-          power, and a pump that has aged puts out less at the same current: if the original is down
-          to 40 per cent of the 118 milliwatts it was logged at, a fresh one restores a factor of two
-          and a half, which is 4 decibels of gain less what the amplifier itself gives back. That is most of
-          the 4.1 decibels the span lost. The failure specific to this decision is finishing without
-          measuring: the telemetry will confirm the switch whatever the light does.
+          power. A pump that has aged puts out less at the same current. If the original is down to
+          40 per cent of the 118 milliwatts it was logged at, a fresh one restores a factor of two
+          and a half. That is 4 decibels of gain, less what the amplifier itself gives back. That is
+          most of the 4.1 decibels the span lost. The failure specific to this decision is finishing
+          without measuring: the telemetry will confirm the switch whatever the light does.
       - group: RECV
         task: Ask Duarte which description of light she needs
         title: Both, on the same bench
@@ -2879,8 +2883,8 @@ missions:
           two paths recombined. The other counts arrivals, one at a time, on a diode.
         guide: >-
           All four options are ways of holding the two results together. Ask of each whether it says
-          light is one thing or the other, or says which description a particular measurement needs —
-          because both instruments are working and neither is wrong.
+          light is one thing or the other, or says which description a particular measurement needs.
+          Both instruments are working and neither is wrong.
         assumes:
           - a description of light is chosen for a measurement rather than for all time
         takeaway: A model is chosen for a purpose, and two incompatible-looking pictures can both be needed on one bench.
@@ -2889,10 +2893,10 @@ missions:
         why: >-
           Each measurement needs the description that fits what it does. The interference pattern
           exists because two paths recombine with a path difference, which is a statement about a
-          wave; the arrivals are counted one at a time on a diode, which is a statement about quanta.
-          Both are true of the same light on the same fibre. What is not available is a picture in which
-          light is only one of them, and a receiver's design needs both at once: a wavelength to be
-          filtered and a count to set the error floor.
+          wave. The arrivals are counted one at a time on a diode, which is a statement about quanta.
+          Both are true of the same light on the same fibre. What is not available is a picture in
+          which light is only one of them. A receiver's design needs both at once: a wavelength to be
+          filtered, and a count to set the error floor.
         choices:
           - Each measurement needs the description that fits what it measures
           - Light is a wave, and the counting is an artefact of the diode
@@ -2933,24 +2937,24 @@ missions:
         guide: >-
           You build the working a line at a time. The ceiling is a count: each pump arrival can end up
           as at most one signal arrival, and the signal arrival carries less energy. So the largest
-          possible added signal power is the pump power times the ratio of the two energies — which is
+          possible added signal power is the pump power times the ratio of the two energies. That is
           the ratio of the two wavelengths the other way up. Then compare it with what the span lost.
         background:
           - >-
             Why the ceiling is a ratio of wavelengths. A pump arrival at 980 nanometres carries hc over
             980; a signal arrival carries hc over 1550. So the same number of arrivals a second carries
-            980 over 1550 as much power, which is 0.632 — and 118 milliwatts of pump can therefore add
-            at most 74.6 milliwatts of signal.
+            980 over 1550 as much power, which is 0.632. 118 milliwatts of pump can therefore add at
+            most 74.6 milliwatts of signal.
           - >-
             Why nothing gets past it. Every route from pump to signal goes through one excited atom
             releasing one arrival. There is no mechanism in this glass by which one pump arrival
-            produces two signal arrivals, so the ceiling is a statement about counting rather than about
-            engineering, and a better amplifier design approaches it rather than exceeding it.
+            produces two signal arrivals. So the ceiling is a statement about counting rather than
+            about engineering. A better amplifier design approaches it rather than exceeding it.
           - >-
             What it says about repeater 6. A pump down to 46 milliwatts has a ceiling of 29 milliwatts
-            against the original's 74.6, which is 4.1 decibels of gain lost — the number the span lost
-            in one night, arrived at from the pump's own physics rather than from the trace. That is the
-            end of the fortnight's argument.
+            against the original's 74.6. That is 4.1 decibels of gain lost. It is the number the span
+            lost in one night, arrived at from the pump's own physics rather than from the trace. That
+            is the end of the fortnight's argument.
         assumes:
           - each pump arrival can produce at most one signal arrival
         takeaway: The most an amplifier can add is its pump power scaled by the ratio of the two wavelengths, because arrivals are conserved and energies are not.
@@ -2961,11 +2965,11 @@ missions:
           4.1 dB less.
         why: >-
           At most 74.6 milliwatts. The pump's power is a number of arrivals a second, each carrying
-          1.27 electron volts, and every one of them can produce at most one signal arrival carrying
+          1.27 electron volts. Every one of them can produce at most one signal arrival carrying
           0.80. So the power that can be added is the pump power times the ratio of those energies,
           which is the ratio of the wavelengths inverted. Applying the same ceiling to a pump that has
-          fallen to 46 milliwatts gives 29, and the difference between the two ceilings is 4.1
-          decibels — which is what the span lost in a night.
+          fallen to 46 milliwatts gives 29. The difference between the two ceilings is 4.1 decibels,
+          which is what the span lost in a night.
         derive:
           hint: Each line has to follow from the one above it, and each one is licensed by a rule.
           start: P_signal ≤ P_pump × (E_signal/E_pump)
@@ -3077,8 +3081,8 @@ missions:
           comparison, the power feed's log, and Friday's switch to the spare pump.
         guide: >-
           Look at every record before choosing, including the two that are not alarming. The power feed
-          is in order and the two-wavelength comparison shows the same loss at both, which is the
-          record that does most of the work here: a bend loses more at the longer wavelength and a
+          is in order. The two-wavelength comparison shows the same loss at both, and that is the
+          record that does most of the work here. A bend loses more at the longer wavelength. A
           repeater's gain does not care which wavelength it is amplifying.
         assumes:
           - a bend loses more at longer wavelengths and an amplifier's gain does not
@@ -3099,12 +3103,12 @@ missions:
         answer: The pump in repeater 6 has aged
         why: >-
           Three of the four records point the same way once the quiet ones are read. A bend and a crush
-          both lose more at 1625 nanometres than at 1550, and the comparison shows the same loss at
-          both — which rules out anything that works by light leaving the core. A dried joint would
-          have put a reflection on the step and would not have been mended by switching a pump three
-          kilometres further out. The pump's decline accounts for a loss equal at both wavelengths, at
-          the position of the repeater, with the feed in order, and for 3.6 of the 4.1 decibels coming
-          back when a fresh pump was switched in.
+          both lose more at 1625 nanometres than at 1550. The comparison shows the same loss at both.
+          That rules out anything that works by light leaving the core. A dried joint would have put a
+          reflection on the step, and would not have been mended by switching a pump three kilometres
+          further out. The pump's decline accounts for a loss equal at both wavelengths, at the
+          position of the repeater, with the feed in order. It also accounts for 3.6 of the 4.1
+          decibels coming back when a fresh pump was switched in.
       - group: SPLICE
         task: Ask Ramnarine how the two wavelengths are compared
         title: One fibre, two colours
@@ -3116,8 +3120,8 @@ missions:
           plate in the instrument's own head that Ramnarine has never had open.
         guide: >-
           All four options are ways of separating two wavelengths that arrive on the same fibre. Ask of
-          each whether it separates them or merely selects one, and what physical quantity does the
-          separating — because one of the four uses a path difference that depends on the wavelength.
+          each whether it separates them or merely selects one. Then ask what physical quantity does
+          the separating. One of the four uses a path difference that depends on the wavelength.
         assumes:
           - waves from many evenly spaced sources reinforce only in particular directions
         takeaway: Separating a mixture and selecting one part of it are different operations with different costs.
@@ -3125,11 +3129,11 @@ missions:
         question: How does a grating separate two wavelengths arriving together?
         why: >-
           Light from each of the grating's many lines travels a slightly different distance to any
-          given direction, and the directions where all of them reinforce depend on the wavelength.
+          given direction. The directions where all of them reinforce depend on the wavelength.
           So each wavelength leaves at its own angle, and the two arrive at different places on a
-          detector: separation rather than selection. A filter would pass one and throw the other away,
-          which is a different instrument and a different measurement — you would have to make it twice
-          and hope nothing changed in between.
+          detector: separation rather than selection. A filter would pass one and throw the other
+          away. That is a different instrument and a different measurement. You would have to make it
+          twice and hope nothing changed in between.
         choices:
           - Each wavelength reinforces in a different direction
           - It absorbs one wavelength and passes the other
@@ -3168,17 +3172,17 @@ missions:
           You build the working a line at a time. Take the budget as it stood before the event, add
           what the pump's decline accounts for, and see what is left unexplained. A budget that closes
           to within a tenth of a decibel is a different kind of statement from one that closes to
-          within a decibel, and the difference decides what the ship is told to look for.
+          within a decibel. The difference decides what the ship is told to look for.
         background:
           - >-
             Why the residue matters more than the total. Half a decibel unaccounted for could be a
-            second cause, or it could be the amplifier giving slightly less gain at the higher input, or it
+            second cause. It could be the amplifier giving slightly less gain at the higher input. It
             could be the measurement. Saying which is what the last two days have been for, and saying
             it is not the same as having no residue at all.
           - >-
             Why the ship still sails. A pump on the seabed cannot be replaced from shore. The spare is
-            now the working pump and there is no second spare, so repeater 6 has one failure left in
-            it before the span goes down with the traffic already diverted — which is why a housing has
+            now the working pump and there is no second spare. So repeater 6 has one failure left in
+            it before the span goes down, with the traffic already diverted. That is why a housing has
             been radiographed and is on the deck.
           - >-
             What the chart says now. 82.9 kilometres along the route, at the repeater rather than
@@ -3194,11 +3198,11 @@ missions:
           its input changes, and needs no second cause.
         why: >-
           The pump accounts for 3.6 decibels of the 4.1, leaving 0.5. That residue is inside what an
-          amplifier does when its input changes and it gives a little less gain, so it needs no second cause — but saying
-          so is a judgement rather than an arithmetic result, and it is recorded as such. The budget
-          is now 21.3 decibels against an allowance of 24, which is 2.7 of margin: better than before
-          the switch and worse than the span had when it was new, because the fresh pump is the last
-          one in that housing.
+          amplifier does when its input changes and it gives a little less gain, so it needs no second
+          cause. But saying so is a judgement rather than an arithmetic result, and it is recorded as
+          such. The budget is now 21.3 decibels against an allowance of 24, which is 2.7 of margin.
+          That is better than before the switch, and worse than the span had when it was new. The
+          fresh pump is the last one in that housing.
         derive:
           hint: Each line has to follow from the one above it, and each one is licensed by a rule.
           start: total = span + joints + event
@@ -3287,9 +3291,9 @@ missions:
           Tanaka has a hundred points of spares and survey money left in the year and four things it
           could go on. The ship sails in the morning and the next charter is not until the spring.
         guide: >-
-          What the station holds already: a pump output figure for repeater 6 that is four years old
-          and was never re-measured; a slack figure that is an average over a whole route; an
-          instrument whose index setting was wrong for eleven years and has now been corrected; and
+          What the station holds already. A pump output figure for repeater 6 that is four years old
+          and was never re-measured. A slack figure that is an average over a whole route. An
+          instrument whose index setting was wrong for eleven years and has now been corrected. And
           eleven mechanical joints on the shore end that are as old as the cable. The traffic is on a
           diverse route with no spare of its own.
         rules: >-
@@ -3309,8 +3313,8 @@ missions:
           - { label: D, text: "A second reflectometer, so a trace can be taken from both ends at once." }
         recommended: { A: 40, B: 30, C: 20 }
         why: >-
-          The optical telemetry is the measurement whose absence cost this fortnight: a pump current
-          told everybody nothing for three weeks, and the housing going to sea tomorrow is the only
+          The optical telemetry is the measurement whose absence cost this fortnight. A pump current
+          told everybody nothing for three weeks. The housing going to sea tomorrow is the only
           chance to add it. The slack survey turns the largest and least certain of the three
           corrections into a measurement where the ship will actually be working. Replacing the old
           joints is real work on eleven components that are past their design life and are not
@@ -3329,8 +3333,8 @@ missions:
           and however warm the bay is. Her film's exposure changes and the energies do not.
         guide: >-
           Each observation on the left has one explanation on the right. What separates them is which
-          properties belong to the nucleus itself and which to how much of it is left, because ageing
-          changes one of those and not the other.
+          properties belong to the nucleus itself, and which to how much of it is left. Ageing changes
+          one of those and not the other.
         assumes:
           - a nucleus has a set of states with definite energies
         takeaway: A nucleus has fixed levels, so it emits fixed energies; how much is left changes only how often.
@@ -3349,12 +3353,12 @@ missions:
         mapping: [0, 1, 2, 3]
         why: >-
           Four observations, one distinction. The energies come from the gaps between the nucleus's
-          own states, which nothing available in a radiography bay can alter, so they are the same
+          own states, and nothing available in a radiography bay can alter those. So they are the same
           after eight months and the same when warm. The rate depends on how many nuclei are left,
-          which is what has changed. The half-life belongs to that kind of nucleus and not to the pot, which is
-          why it can be looked up rather than measured. And heat supplies fractions of an electron
-          volt against nuclear energies of hundreds of thousands, which is why a nuclear source is the
-          most stable thing on this site.
+          which is what has changed. The half-life belongs to that kind of nucleus and not to the pot,
+          which is why it can be looked up rather than measured. And heat supplies fractions of an
+          electron volt against nuclear energies of hundreds of thousands. That is why a nuclear
+          source is the most stable thing on this site.
 
 interiors:
   TERM:
@@ -3560,7 +3564,7 @@ lessons:
     background:
       - >-
         Why the answer is close to the span's own and still worth taking. The two glasses differ in
-        the third decimal place, which is under one per cent of a speed and about seven hundred metres
+        the third decimal place. That is under one per cent of a speed, and about seven hundred metres
         over a span of this length. That is inside a grapnel run and outside the tolerance the ship is
         being given.
       - >-
@@ -3623,7 +3627,7 @@ lessons:
       - >-
         Why the distinction is worth making at a receiver. It decides what better equipment could
         change. A loss that belongs to the wavelength is fixed by choosing a different channel or a
-        different glass; a limit that belongs to the count is fixed only by sending more light.
+        different glass. A limit that belongs to the count is fixed only by sending more light.
       - >-
         Why both descriptions are needed at once. The wave picture says how the fibre treated the
         signal on the way and what the amplifier could do to it. The arrival picture says how steady
@@ -3672,8 +3676,8 @@ lessons:
         signal wavelength are different.
       - >-
         What this chain has to do with a drive current. Nothing on the telemetry screen touches any of
-        the four steps. A current says power is going into the pump diode, and how many atoms that
-        power lands on the upper level is a question about the diode's optical output.
+        the four steps. A current says power is going into the pump diode. How many atoms that power
+        lands on the upper level is a question about the diode's optical output.
     takesAsRead:
       - Atomic energy levels, and the wavelengths they allow
     assumes:

@@ -26,11 +26,23 @@ import {
   plantScrub, updateOutdoorTimeOfDay, onPath,
 } from './outdoorSite.js';
 import { building, sign, displayBoard, post, bench, bin, MATERIALS } from './kit.js';
+import { openingSols, isOpen } from '../core/access.js';
 import { mat, tuneRendererForDevice } from './materials.js';
 
 export const colliders = [];
 export const softColliders = [];
 export const interactables = [];
+/**
+ * placeId -> the handles needed to seal or open a building.
+ *
+ * A building the campaign has not needed yet stands with no name on it and a door
+ * that does not open. See engine/core/access.js for the rule, and for why this
+ * seals DOORS and never ground.
+ */
+const sealable = new Map();
+/** Memoised opening sols; the theme does not change inside a run. */
+let openSols = null;
+
 /** groupId -> { id, name, pos, entry, door, sign } — one per mission destination. */
 export const stopMeshes = new Map();
 
@@ -196,13 +208,25 @@ export function initWorld(canvas, activeTheme){
     });
     colliders.push(built.collider);
 
-    interactables.push({
+    // `enter:` opens a building that is not an area. The five that stood closed
+    // on Arcadia Rise — the tank farm, the array shed, the habitat — were
+    // modelled, lit and walkable up to, and shut, because an interior is keyed
+    // by area and they are not areas. A minor place is a door with an interiors
+    // key and no case: somewhere the questions talk about that the player can
+    // now stand inside. See gamekit/PLACEMENT_PASS.md.
+    const opens = b.group || b.enter;
+    const hit = {
       mesh: built.door,
-      type: b.group ? 'door' : 'info',
-      id: b.group ?? b.id,
-      prompt: b.group ? `E — Enter ${b.name}` : `E — Read about ${b.name}`,
+      type: opens ? 'door' : 'info',
+      id: opens ?? b.id,
+      prompt: opens ? `E — Enter ${b.name}` : `E — Read about ${b.name}`,
       info: theme.content?.COPY?.[b.id] ?? '',
-    });
+    };
+    interactables.push(hit);
+    // Everything needed to seal this building and to open it again, kept per
+    // building rather than looked up: `updateWorldFromState` runs every frame the
+    // day changes on, and it must not search the site for a name.
+    if(opens) sealable.set(opens, { hit, built, name: b.name, door: built.door });
 
     if(b.group){
       stopMeshes.set(b.group, {
@@ -252,6 +276,12 @@ export function initWorld(canvas, activeTheme){
   theme.decorate?.(scene, {
     groundHeight, colliders, softColliders, interactables, blocked, sign, MATERIALS,
     lightPanels, areaScreens, stateHooks,
+    // The theme itself, so a prop can read the campaign it belongs to without
+    // importing `engine/core/theme.js`. That module resolves through the `@theme`
+    // vite alias, and a theme's props.js is loaded by the dev checks in plain
+    // node where the alias does not exist — importing it there took every one of
+    // redsand's 32 checks down with "Cannot find package '@theme/theme.js'".
+    theme,
   });
 
   // 8. The people. Every third mission stop is a person stop, so this is
@@ -294,6 +324,31 @@ export function updateWorldFromState(state, nextStopId = null, pct = () => 0){
   for(const hook of stateHooks){
     try{ hook(state); }catch(err){ console.warn('[world] a state hook failed', err); }
   }
+  // ---- sealed until needed
+  //
+  // Recomputed from `state.week` rather than remembered, so it is right after a
+  // load, after a debug day jump, and on the frame the day turns over. `openingSols`
+  // is memoised on the theme; the loop below is a dozen map lookups.
+  if(!openSols) openSols = openingSols(theme);
+  const week = state.week ?? 1;
+  for(const [id, h] of sealable){
+    const open = isOpen(openSols, id, week);
+    if(h.open === open) continue;
+    h.open = open;
+    if(h.built.sign) h.built.sign.visible = open;
+    h.hit.type = open ? 'door' : 'info';
+    h.hit.prompt = open
+      ? `E — Enter ${h.name}`
+      : 'E — Sealed. Nothing here is needed yet';
+    h.hit.info = open ? h.hit.info
+      : 'This building is shut. Nothing the plant is doing today happens in here,'
+        + ' and it opens on the sol something does.';
+    if(h.door?.material){
+      h.door.material.color.multiplyScalar(open ? 1 : 0.45);
+      h.door.userData.sealedTint = !open;
+    }
+  }
+
   const groups = theme?.content?.GROUPS ?? [];
   for(const [id, stop] of stopMeshes){
     const g = groups.find(x => x.id === id);
@@ -303,7 +358,10 @@ export function updateWorldFromState(state, nextStopId = null, pct = () => 0){
     // A finished area's door brightens toward its own colour; an untouched one
     // sits darker. Same hue throughout, and never transparent — a see-through
     // building reads as a rendering bug, not as a hint.
-    stop.door.material.color.copy(base).multiplyScalar(0.5 + 0.5 * done);
+    // A sealed door keeps its own dimming: the readiness tint below would light it
+    // back up on the first frame and the building would read as open.
+    const sealed = sealable.get(id) && sealable.get(id).open === false;
+    stop.door.material.color.copy(base).multiplyScalar(sealed ? 0.28 : 0.5 + 0.5 * done);
   }
   // An unresolved call turns that area's readout red and holds it there until
   // the player goes back and settles it. Answering used to change nothing

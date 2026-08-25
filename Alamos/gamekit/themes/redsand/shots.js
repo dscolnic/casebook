@@ -33,6 +33,14 @@ export const shots = [
   { name: 'the-rim-to-the-north', at: { x: 0, z: -96 }, yaw: 0 },
   { name: 'the-empty-side', at: { x: 0, z: 66 }, yaw: 180 },
   { name: 'habitat-and-garage', at: { x: -20, z: 44 }, yaw: 270 },
+
+  // The places the placement pass opened, and the two it added. Five of these
+  // stood closed for the life of the game — the point of the shot is that there
+  // is now a door in the shot.
+  { name: 'pad-office', at: { x: -46, z: -88 }, yaw: 0 },
+  { name: 'the-long-walk-to-the-cut', at: { x: -90, z: -160 }, yaw: 0 },
+  { name: 'the-ice-cut', at: { x: -96, z: -252 }, yaw: 0 },
+  { name: 'the-cut-looking-back', at: { x: -96, z: -256 }, yaw: 180 },
 ];
 
 export default shots;

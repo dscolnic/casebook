@@ -53,8 +53,16 @@ export function destinationLabel(group){
  * @param person  the character for a person stop, or null for a room stop
  * @param group   the area the call is about
  */
-export function callLabel(person, group){
+export function callLabel(person, group, sitedPlace = null){
   if(person) return `Talk to ${person.name ?? 'your colleague'}`;
+  // A SITED call: the question belongs to its area and is asked somewhere else,
+  // so the instruction has to name where the player actually walks. "Go to Cold
+  // End" for a question answered at the tank farm is the same defect as naming
+  // the subject instead of the place, one level out.
+  if(sitedPlace){
+    const at = (theme.site?.buildings ?? []).find(b => b.enter === sitedPlace);
+    if(at) return `Go to ${at.name}`;
+  }
   // The PLACE only. `destinationLabel` appends the subject when the two names
   // differ, which is right for a line about what a stop is and wrong for an
   // instruction: "Go to Coordination Office — Survey & Response" names two things

@@ -21,6 +21,10 @@ import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
 import { INTERIORS } from '../redsand/interiors.js';
+// The junior edition shares the base game's site, so it inherits the seven places
+// the placement pass opened. Without the minor interiors their doors would be
+// registered and open nothing — see themes/redsand/minors.js.
+import { MINOR_INTERIORS } from '../redsand/minors.js';
 import { decorate, fitOutRoom, fitOutSpine } from '../redsand/props.js';
 
 export default {
@@ -70,7 +74,7 @@ export default {
   // What is inside each room the player walks into, from book.yml. Rooms are
   // built by engine/world/interiorBuilding.js on first entry, in a district
   // four kilometres from the town.
-  interiors: INTERIORS,
+  interiors: { ...INTERIORS, ...MINOR_INTERIORS },
   // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
   interiorStyle: 'steel',

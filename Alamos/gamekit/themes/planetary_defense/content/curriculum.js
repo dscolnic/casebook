@@ -311,27 +311,6 @@ export const CURRICULUM = {
       "assumes": [
         "a commanded pointing shift moves the whole sky across the sensor by a known amount"
       ],
-      "equations": [
-        {
-          "e": "θ = s / d",
-          "c": "the small-angle formula — angular size to physical size",
-          "v": [
-            [
-              "θ",
-              "angular size, in radians"
-            ],
-            [
-              "s",
-              "true size across, in kilometres"
-            ],
-            [
-              "d",
-              "distance to it, in kilometres"
-            ]
-          ],
-          "s": "For small angles the angle an object subtends is simply its size divided by its distance."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "Telescopes: aperture, resolution, signal-to-noise",
@@ -417,23 +396,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "measurements only combine if they are in the same frame and the same clock"
-      ],
-      "equations": [
-        {
-          "e": "d = baseline / parallax angle",
-          "c": "distance from a parallax shift",
-          "v": [
-            [
-              "baseline",
-              "separation between the two observing points, in kilometres"
-            ],
-            [
-              "parallax angle",
-              "the shift in apparent position, in radians"
-            ]
-          ],
-          "s": "Watching an object from two places shifts it against the background, and the size of that shift gives the distance."
-        }
       ],
       "concept": {
         "n": 12,
@@ -586,27 +548,6 @@ export const CURRICULUM = {
         "a planet's gravity changes the path of anything that passes close to it",
         "scientific notation and unit conversion — taken as read"
       ],
-      "equations": [
-        {
-          "e": "F = L / 4πd²",
-          "c": "inverse-square brightness, and the size–albedo degeneracy",
-          "v": [
-            [
-              "F",
-              "flux received here, in watts per square metre"
-            ],
-            [
-              "L",
-              "how much light the object sends out, in watts"
-            ],
-            [
-              "d",
-              "distance, in metres"
-            ]
-          ],
-          "s": "Brightness at the telescope is the emitted light spread over a sphere, which is why a small bright object and a large dark one can look identical."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 17,
@@ -680,46 +621,6 @@ export const CURRICULUM = {
         "momentum transfer sets a lower-bound deflection scale",
         "ejecta can change the momentum transferred to the asteroid",
         "momentum conservation in collisions — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "p = mv",
-          "c": "momentum, and momentum transfer in a deflection",
-          "v": [
-            [
-              "p",
-              "momentum, in kilogram metres per second"
-            ],
-            [
-              "m",
-              "mass, in kilograms"
-            ],
-            [
-              "v",
-              "speed, in metres per second"
-            ]
-          ],
-          "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
-        },
-        {
-          "e": "v² = v∞² + v_esc²",
-          "c": "gravitational focusing of impact speed",
-          "v": [
-            [
-              "v",
-              "impact speed, in kilometres per second"
-            ],
-            [
-              "v∞",
-              "speed far from Earth, before it is pulled in"
-            ],
-            [
-              "v_esc",
-              "Earth's escape speed, 11.2 kilometres per second"
-            ]
-          ],
-          "s": "Earth's gravity accelerates anything falling toward it, so nothing can arrive slower than escape speed."
-        }
       ],
       "takesAsRead": [
         {
@@ -805,27 +706,6 @@ export const CURRICULUM = {
         "a signed record and an independently verified condition are different things",
         "verification capacity is limited"
       ],
-      "equations": [
-        {
-          "e": "p = mv",
-          "c": "momentum, and momentum transfer in a deflection",
-          "v": [
-            [
-              "p",
-              "momentum, in kilogram metres per second"
-            ],
-            [
-              "m",
-              "mass, in kilograms"
-            ],
-            [
-              "v",
-              "speed, in metres per second"
-            ]
-          ],
-          "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
-        }
-      ],
       "concept": {
         "n": 15,
         "c": "Momentum transfer and deflection",
@@ -862,27 +742,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an arcminute is 60 arcseconds"
-      ],
-      "equations": [
-        {
-          "e": "θ = s / d",
-          "c": "the small-angle formula — angular size to physical size",
-          "v": [
-            [
-              "θ",
-              "angular size, in radians"
-            ],
-            [
-              "s",
-              "true size across, in kilometres"
-            ],
-            [
-              "d",
-              "distance to it, in kilometres"
-            ]
-          ],
-          "s": "For small angles the angle an object subtends is simply its size divided by its distance."
-        }
       ],
       "concept": {
         "n": 1,
@@ -1074,46 +933,6 @@ export const CURRICULUM = {
         "reflected brightness depends on both size and albedo",
         "a thermal spectrum carries temperature information",
         "apparent and absolute magnitude; inverse-square brightness — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "F = L / 4πd²",
-          "c": "inverse-square brightness, and the size–albedo degeneracy",
-          "v": [
-            [
-              "F",
-              "flux received here, in watts per square metre"
-            ],
-            [
-              "L",
-              "how much light the object sends out, in watts"
-            ],
-            [
-              "d",
-              "distance, in metres"
-            ]
-          ],
-          "s": "Brightness at the telescope is the emitted light spread over a sphere, which is why a small bright object and a large dark one can look identical."
-        },
-        {
-          "e": "λ_max T = b",
-          "c": "Wien's law — a temperature read off a thermal spectrum",
-          "v": [
-            [
-              "λ_max",
-              "wavelength where the emission peaks, in metres"
-            ],
-            [
-              "T",
-              "temperature, in kelvin"
-            ],
-            [
-              "b",
-              "Wien's constant, 2.898 × 10⁻³ metre kelvin"
-            ]
-          ],
-          "s": "Hotter things peak at shorter wavelengths, so the colour of thermal emission is a thermometer."
-        }
       ],
       "takesAsRead": [
         {
@@ -1367,27 +1186,6 @@ export const CURRICULUM = {
         "absolute magnitude is apparent magnitude with the two distances taken out of it",
         "scientific notation and unit conversion — taken as read"
       ],
-      "equations": [
-        {
-          "e": "F = L / 4πd²",
-          "c": "inverse-square brightness, and the size–albedo degeneracy",
-          "v": [
-            [
-              "F",
-              "flux received here, in watts per square metre"
-            ],
-            [
-              "L",
-              "how much light the object sends out, in watts"
-            ],
-            [
-              "d",
-              "distance, in metres"
-            ]
-          ],
-          "s": "Brightness at the telescope is the emitted light spread over a sphere, which is why a small bright object and a large dark one can look identical."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 17,
@@ -1532,31 +1330,6 @@ export const CURRICULUM = {
       "assumes": [
         "radar sends a signal out and measures what comes back",
         "scientific notation and unit conversion — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "Δλ / λ = v / c",
-          "c": "Doppler shift as a line-of-sight speed",
-          "v": [
-            [
-              "Δλ",
-              "shift in wavelength"
-            ],
-            [
-              "λ",
-              "the unshifted wavelength"
-            ],
-            [
-              "v",
-              "speed along the line of sight"
-            ],
-            [
-              "c",
-              "the speed of light"
-            ]
-          ],
-          "s": "Motion toward or away stretches or squeezes the light by a fraction equal to the speed as a fraction of light speed."
-        }
       ],
       "takesAsRead": [
         {
@@ -1878,27 +1651,6 @@ export const CURRICULUM = {
         "a small velocity change accumulates into a large displacement over time",
         "momentum conservation in collisions — taken as read"
       ],
-      "equations": [
-        {
-          "e": "p = mv",
-          "c": "momentum, and momentum transfer in a deflection",
-          "v": [
-            [
-              "p",
-              "momentum, in kilogram metres per second"
-            ],
-            [
-              "m",
-              "mass, in kilograms"
-            ],
-            [
-              "v",
-              "speed, in metres per second"
-            ]
-          ],
-          "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 26,
@@ -2097,23 +1849,6 @@ export const CURRICULUM = {
         "parallax can constrain distance",
         "angular size and the small-angle formula — taken as read"
       ],
-      "equations": [
-        {
-          "e": "d = baseline / parallax angle",
-          "c": "distance from a parallax shift",
-          "v": [
-            [
-              "baseline",
-              "separation between the two observing points, in kilometres"
-            ],
-            [
-              "parallax angle",
-              "the shift in apparent position, in radians"
-            ]
-          ],
-          "s": "Watching an object from two places shifts it against the background, and the size of that shift gives the distance."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 21,
@@ -2185,46 +1920,6 @@ export const CURRICULUM = {
         "different measurements constrain different parts of an orbit",
         "kepler's laws — taken as read"
       ],
-      "equations": [
-        {
-          "e": "d = baseline / parallax angle",
-          "c": "distance from a parallax shift",
-          "v": [
-            [
-              "baseline",
-              "separation between the two observing points, in kilometres"
-            ],
-            [
-              "parallax angle",
-              "the shift in apparent position, in radians"
-            ]
-          ],
-          "s": "Watching an object from two places shifts it against the background, and the size of that shift gives the distance."
-        },
-        {
-          "e": "Δλ / λ = v / c",
-          "c": "Doppler shift as a line-of-sight speed",
-          "v": [
-            [
-              "Δλ",
-              "shift in wavelength"
-            ],
-            [
-              "λ",
-              "the unshifted wavelength"
-            ],
-            [
-              "v",
-              "speed along the line of sight"
-            ],
-            [
-              "c",
-              "the speed of light"
-            ]
-          ],
-          "s": "Motion toward or away stretches or squeezes the light by a fraction equal to the speed as a fraction of light speed."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 7,
@@ -2278,23 +1973,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an orbit narrows only when new evidence arrives"
-      ],
-      "equations": [
-        {
-          "e": "d = baseline / parallax angle",
-          "c": "distance from a parallax shift",
-          "v": [
-            [
-              "baseline",
-              "separation between the two observing points, in kilometres"
-            ],
-            [
-              "parallax angle",
-              "the shift in apparent position, in radians"
-            ]
-          ],
-          "s": "Watching an object from two places shifts it against the background, and the size of that shift gives the distance."
-        }
       ],
       "concept": {
         "n": 11,
@@ -2782,27 +2460,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the widest term in a product dominates the uncertainty of the result"
-      ],
-      "equations": [
-        {
-          "e": "KE = ½mv²",
-          "c": "impact energy, and why speed dominates it",
-          "v": [
-            [
-              "KE",
-              "kinetic energy, in joules"
-            ],
-            [
-              "m",
-              "mass, in kilograms"
-            ],
-            [
-              "v",
-              "speed, in metres per second"
-            ]
-          ],
-          "s": "Impact energy rises with the square of speed, so a body arriving twice as fast carries four times the energy."
-        }
       ],
       "concept": {
         "n": 11,
@@ -3331,31 +2988,6 @@ export const CURRICULUM = {
       "assumes": [
         "Kepler's third law relates the size of an orbit to the time it takes"
       ],
-      "equations": [
-        {
-          "e": "v = √(GM / r)",
-          "c": "orbital speed, and the energy that goes with it",
-          "v": [
-            [
-              "v",
-              "orbital speed, in metres per second"
-            ],
-            [
-              "G",
-              "the gravitational constant"
-            ],
-            [
-              "M",
-              "mass of the body being orbited, in kilograms"
-            ],
-            [
-              "r",
-              "orbital radius, in metres"
-            ]
-          ],
-          "s": "An orbit is a balance between speed and distance, so a closer orbit has to be a faster one."
-        }
-      ],
       "concept": {
         "n": 7,
         "c": "Kepler's laws",
@@ -3399,50 +3031,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "an object in orbit is moving at tens of kilometres a second"
-      ],
-      "equations": [
-        {
-          "e": "p = mv",
-          "c": "momentum, and momentum transfer in a deflection",
-          "v": [
-            [
-              "p",
-              "momentum, in kilogram metres per second"
-            ],
-            [
-              "m",
-              "mass, in kilograms"
-            ],
-            [
-              "v",
-              "speed, in metres per second"
-            ]
-          ],
-          "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
-        },
-        {
-          "e": "v = √(GM / r)",
-          "c": "orbital speed, and the energy that goes with it",
-          "v": [
-            [
-              "v",
-              "orbital speed, in metres per second"
-            ],
-            [
-              "G",
-              "the gravitational constant"
-            ],
-            [
-              "M",
-              "mass of the body being orbited, in kilograms"
-            ],
-            [
-              "r",
-              "orbital radius, in metres"
-            ]
-          ],
-          "s": "An orbit is a balance between speed and distance, so a closer orbit has to be a faster one."
-        }
       ],
       "concept": {
         "n": 15,
@@ -3758,27 +3346,6 @@ export const CURRICULUM = {
       "assumes": [
         "a conclusion is only as strong as the evidence under it"
       ],
-      "equations": [
-        {
-          "e": "p = mv",
-          "c": "momentum, and momentum transfer in a deflection",
-          "v": [
-            [
-              "p",
-              "momentum, in kilogram metres per second"
-            ],
-            [
-              "m",
-              "mass, in kilograms"
-            ],
-            [
-              "v",
-              "speed, in metres per second"
-            ]
-          ],
-          "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
-        }
-      ],
       "concept": {
         "n": 11,
         "c": "Uncertainty, error bars and covariance",
@@ -3822,27 +3389,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "warning time is produced by finding things, not by planning for them"
-      ],
-      "equations": [
-        {
-          "e": "p = mv",
-          "c": "momentum, and momentum transfer in a deflection",
-          "v": [
-            [
-              "p",
-              "momentum, in kilogram metres per second"
-            ],
-            [
-              "m",
-              "mass, in kilograms"
-            ],
-            [
-              "v",
-              "speed, in metres per second"
-            ]
-          ],
-          "s": "Momentum is conserved, so whatever a deflection pushes away pushes back on the object by the same amount."
-        }
       ],
       "concept": {
         "n": 29,

@@ -106,6 +106,8 @@ function stopOf(group, lesson, stop){
     })()),
     takeaway: lesson.takeaway ?? '',
     ...(stop?.why ? { motivation: stop.why } : {}),
+    ...(stop?.reason ? { reason: stop.reason } : {}),
+    ...(lesson.at ? { at: lesson.at } : {}),
     format,
     ...(g.why ? { why: g.why } : {}),
     ...(g.rebuttals?.length ? { rebuttals: g.rebuttals } : {}),

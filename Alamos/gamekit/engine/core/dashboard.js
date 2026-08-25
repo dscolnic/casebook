@@ -6,6 +6,10 @@ import { formatCountdown } from './day.js';
 import { GROUP_DEFS } from './divisions.js';
 import { HISTORIC_CHARACTERS } from './historicCharacters.js';
 import { callLabel } from './place.js';
+import theme from './theme.js';
+import { deliveryProgress } from './delivery.js';
+import { sitedAt } from '../world/interiorFixtures.js';
+import { CURRICULUM } from './curriculum.js';
 import { WEEKS, HINT_COST, RETRY_COST, FUND_COST } from './constants.js';
 import { PASSAGE_REWARD } from './personQuiz.js';
 import { TOTAL_DAYS } from './time.js';
@@ -191,37 +195,73 @@ export function updateHUD(){
     if(cls!==undefined) el.className=cls;
   };
 
-  // 1. the day's countdown  2. what is still open  3. mission x of y
+  // 1. the day's countdown  2. the delivery meter  3. money left
+  //
+  // "Calls — 2 of 3" used to sit second. #objective, immediately below this
+  // strip, already names every open call in full — "Still open: Go to Reactor
+  // Hall · Talk to Ingrid Sundqvist" — so the box was a count of a list the
+  // player can read whole, nine pixels away.
   //
   // This used to be a running campaign clock and a count of days left. Neither
   // told the player the thing they actually need while walking: how much of
   // *today* is left, and how many calls they still owe.
   updateDayClock();
-  const open = openStopIndices(state).length;
-  const total = getCurrentMission(state)?.stops?.length ?? 0;
-  set('hudDaysLeft', open ? `${open} of ${total}` : 'all made');
-  const missionNo=Math.min(WEEKS, state.week||1);
-  set('hudMission', `${missionNo} of ${WEEKS}`);
 
-  // 4. projection, as a word. The percentage it comes from is inspectable on
-  //    the command board; while walking, the player needs to know whether the
-  //    campaign is on course, and a number does not answer that at a glance.
-  //    Wrong calls cost readiness and time, so this slides Great -> Good -> Bad.
-  // forecastReadiness projects the *final* readiness if the player carries on
-  // as they are, so absolute bands are meaningful — measured across plausible
-  // states it runs ~6% (neglected) to 100% (late and well run), with a healthy
-  // mid-campaign around 77%. Before the first mission closes there is no trend
-  // to extrapolate from, so it says nothing rather than opening on 'Bad'.
-  const started = (state.week||1) > 1 || completedMissionStops(state).length > 0;
-  if(!started){
-    set('hudProjection', '—', '');
+  // 3. THE DELIVERY METER, and it replaces "Mission 4 of 15".
+  //
+  // That box counted the game. A player reading it learns how far through a
+  // fifteen-part thing they are, which is the same fact a chapter number gives
+  // and carries none of the reason they are playing — and this repo had already
+  // decided what the fortnight is for: `theme.delivery` is the one named thing a
+  // campaign builds, a piece a day. The meter is that arithmetic said as the
+  // thing at stake filling up, with the campaign's own word for it above the bar
+  // (`delivery.meter`, falling back to the delivery's name).
+  //
+  // `got` counts pieces EARNED, not days elapsed, which is the point: a day
+  // whose calls went badly still advances `state.week` and does not fill the
+  // tank. So the bar can lag the calendar, and that is the reading the old box
+  // could not give at any width.
+  //
+  // A campaign with no delivery keeps the count. The ten Quick Discoveries have
+  // no `delivery` — nine stops in one sitting builds nothing over a fortnight —
+  // and a meter of nothing is worse than a chapter number.
+  // No figure beside it, deliberately. The bar IS the reading; "4 of 15" printed
+  // next to it is the chapter number coming back in through the side door, and
+  // the exact count is on the board in the room where the pieces are kept.
+  const meterEl = document.getElementById('hudDeliverMeter');
+  const fillEl = document.getElementById('hudDeliverFill');
+  const figureEl = document.getElementById('hudMission');
+  const spec = theme?.delivery;
+  if(spec?.pieces?.length){
+    const { got, total: pieces } = deliveryProgress(theme, state);
+    set('hudDeliverLabel', spec.meter || spec.name);
+    if(figureEl) figureEl.hidden = true;
+    if(meterEl) meterEl.hidden = false;
+    if(fillEl){
+      fillEl.style.width = `${pieces ? Math.round((got / pieces) * 100) : 0}%`;
+      fillEl.className = got && got >= pieces ? 'full' : '';
+    }
   } else {
-    const projected=forecastReadiness(state).overall;
-    const band = projected>=75 ? ['Great','great'] : projected>=40 ? ['Good','good'] : ['Bad','bad'];
-    set('hudProjection', band[0], band[1]);
+    const missionNo=Math.min(WEEKS, state.week||1);
+    set('hudDeliverLabel', 'Mission');
+    set('hudMission', `${missionNo} of ${WEEKS}`);
+    if(figureEl) figureEl.hidden = false;
+    if(meterEl) meterEl.hidden = true;
   }
 
-  // 5. money left
+  // 4. money left
+  //
+  // THE PROJECTION READING IS GONE. It printed Great / Good / Bad from
+  // `forecastReadiness`, and it was the one item on this strip that was not a
+  // fact the player needs in order to act: the clock says how long is left, the
+  // calls say what is owed, the meter says what has been built and the funds say
+  // what can be spent, and every one of those changes what you do next. A verdict
+  // on the campaign changes nothing you do at half past two on sol 4 — it only
+  // tells you how you are being marked, permanently, over the top of the world.
+  //
+  // It is still computed and still readable: `renderStats` puts the forecast on
+  // the command board, which is where a player who wants the verdict can go and
+  // ask for it. `forecastReadiness` keeps both of its other callers in this file.
   set('hudMoney', `$${fmt(state.reserve)}`);
 
   // ---- the instruction: where to go, and why it matters
@@ -258,7 +298,9 @@ export function updateHUD(){
       // "Go to the Survey Telescope" / "Talk to Dr. Nguyen" — an instruction, and
       // the same words the plan card and the map use. It used to print the area's
       // subject name, which is on no door and no map label.
-      return callLabel(person, stop.group);
+      // The same sited-call rule as the plan card: name where the player walks.
+      const lesson = CURRICULUM?.[stop.group]?.[stop.lesson];
+      return callLabel(person, stop.group, sitedAt(theme, stop.group, lesson)?.place ?? null);
     };
     whereEl.textContent = open.length === 1
       ? `Still open: ${label(open[0])}`

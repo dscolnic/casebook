@@ -218,23 +218,6 @@ export const CURRICULUM = {
         "heating raises the fraction of collisions that clear the barrier",
         "an exothermic reaction's balance is pushed back by heating"
       ],
-      "equations": [
-        {
-          "e": "amount = rate × time",
-          "c": "a daily figure turned into a total",
-          "v": [
-            [
-              "rate",
-              "how much is made in each hour or sol"
-            ],
-            [
-              "time",
-              "how many hours or sols it runs for"
-            ]
-          ],
-          "s": "Every deadline in this plant is this sum done twice — once for what the plant makes and once for what the schedule needs — and the gap between the two is the whole campaign."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "Temperature is how fast the particles are moving",
@@ -399,21 +382,6 @@ export const CURRICULUM = {
           ],
           "s": "Atoms are not created or destroyed, so the two sides have to match — and when they do not, the missing kilograms are somewhere nobody has looked yet.",
           "computed": true
-        },
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "the amount you are asking about"
-            ],
-            [
-              "whole",
-              "the amount it came out of"
-            ]
-          ],
-          "s": "Two batches of different sizes cannot be compared until both are put in the same form, and a percentage is that form."
         }
       ],
       "concept": {
@@ -541,23 +509,6 @@ export const CURRICULUM = {
         "the loop returns unreacted gas to the reactor inlet",
         "the product stream is dried before it is cooled"
       ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "the amount you are asking about"
-            ],
-            [
-              "whole",
-              "the amount it came out of"
-            ]
-          ],
-          "s": "Two batches of different sizes cannot be compared until both are put in the same form, and a percentage is that form."
-        }
-      ],
       "concept": {
         "n": 15,
         "c": "Pure enough: what a specification really claims",
@@ -609,54 +560,6 @@ export const CURRICULUM = {
       "assumes": [
         "water freezes at a temperature the vehicle's valves reach in use",
         "carbon monoxide does not burn to give the energy methane does"
-      ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "the amount you are asking about"
-            ],
-            [
-              "whole",
-              "the amount it came out of"
-            ]
-          ],
-          "s": "Two batches of different sizes cannot be compared until both are put in the same form, and a percentage is that form."
-        },
-        {
-          "e": "average = total ÷ how many",
-          "c": "what several readings of one thing come to",
-          "v": [
-            [
-              "total",
-              "all the readings added together"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "One reading of a plant that wanders can say anything you like, so anything worth arguing about gets measured several times and averaged."
-        },
-        {
-          "e": "energy = power × time",
-          "c": "what a machine spends out of the day",
-          "v": [
-            [
-              "power",
-              "how fast the machine uses electricity, in kilowatts"
-            ],
-            [
-              "time",
-              "how many hours it runs"
-            ]
-          ],
-          "s": "A plant with one solar array has one pot of energy a sol, so every machine is asking for a share of it and the arithmetic decides who gets one.",
-          "card": false
-        }
       ],
       "concept": {
         "n": 15,
@@ -942,38 +845,6 @@ export const CURRICULUM = {
         "a liquid in a closed tank sits under the pressure of its own vapour",
         "vapour pressure rises steeply with temperature"
       ],
-      "equations": [
-        {
-          "e": "mass out = mass in",
-          "c": "nothing leaves a process it did not enter",
-          "v": [
-            [
-              "mass in",
-              "everything fed in, in kilograms"
-            ],
-            [
-              "mass out",
-              "everything collected, in kilograms"
-            ]
-          ],
-          "s": "Atoms are not created or destroyed, so the two sides have to match — and when they do not, the missing kilograms are somewhere nobody has looked yet."
-        },
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "the amount you are asking about"
-            ],
-            [
-              "whole",
-              "the amount it came out of"
-            ]
-          ],
-          "s": "Two batches of different sizes cannot be compared until both are put in the same form, and a percentage is that form."
-        }
-      ],
       "concept": {
         "n": 13,
         "c": "A gas in a closed tank pushes on its walls",
@@ -1012,23 +883,6 @@ export const CURRICULUM = {
       "assumes": [
         "burning fuel needs oxygen, and out here it has to be carried",
         "a recipe counts particles while a tank is filled by weight"
-      ],
-      "equations": [
-        {
-          "e": "mass out = mass in",
-          "c": "nothing leaves a process it did not enter",
-          "v": [
-            [
-              "mass in",
-              "everything fed in, in kilograms"
-            ],
-            [
-              "mass out",
-              "everything collected, in kilograms"
-            ]
-          ],
-          "s": "Atoms are not created or destroyed, so the two sides have to match — and when they do not, the missing kilograms are somewhere nobody has looked yet."
-        }
       ],
       "concept": {
         "n": 3,
@@ -1081,23 +935,6 @@ export const CURRICULUM = {
       "assumes": [
         "each substance leaves the gas phase at its own temperature",
         "stronger attractions between molecules mean a higher condensation temperature"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "what several readings of one thing come to",
-          "v": [
-            [
-              "total",
-              "all the readings added together"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "One reading of a plant that wanders can say anything you like, so anything worth arguing about gets measured several times and averaged."
-        }
       ],
       "concept": {
         "n": 11,
@@ -1331,22 +1168,6 @@ export const CURRICULUM = {
           ],
           "s": "Atoms are not created or destroyed, so the two sides have to match — and when they do not, the missing kilograms are somewhere nobody has looked yet.",
           "computed": true
-        },
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "the amount you are asking about"
-            ],
-            [
-              "whole",
-              "the amount it came out of"
-            ]
-          ],
-          "s": "Two batches of different sizes cannot be compared until both are put in the same form, and a percentage is that form.",
-          "demanded": true
         }
       ],
       "concept": {
@@ -1397,23 +1218,6 @@ export const CURRICULUM = {
       "assumes": [
         "a cell has a minimum voltage set by the thermodynamics of the reaction",
         "electrical power is current times voltage"
-      ],
-      "equations": [
-        {
-          "e": "energy = power × time",
-          "c": "what a machine spends out of the day",
-          "v": [
-            [
-              "power",
-              "how fast the machine uses electricity, in kilowatts"
-            ],
-            [
-              "time",
-              "how many hours it runs"
-            ]
-          ],
-          "s": "A plant with one solar array has one pot of energy a sol, so every machine is asking for a share of it and the arithmetic decides who gets one."
-        }
       ],
       "concept": {
         "n": 14,
@@ -1470,37 +1274,6 @@ export const CURRICULUM = {
           ],
           "s": "A plant with one solar array has one pot of energy a sol, so every machine is asking for a share of it and the arithmetic decides who gets one.",
           "computed": true
-        },
-        {
-          "e": "amount = rate × time",
-          "c": "a daily figure turned into a total",
-          "v": [
-            [
-              "rate",
-              "how much is made in each hour or sol"
-            ],
-            [
-              "time",
-              "how many hours or sols it runs for"
-            ]
-          ],
-          "s": "Every deadline in this plant is this sum done twice — once for what the plant makes and once for what the schedule needs — and the gap between the two is the whole campaign."
-        },
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "the amount you are asking about"
-            ],
-            [
-              "whole",
-              "the amount it came out of"
-            ]
-          ],
-          "s": "Two batches of different sizes cannot be compared until both are put in the same form, and a percentage is that form.",
-          "card": false
         }
       ],
       "concept": {
@@ -1722,23 +1495,6 @@ export const CURRICULUM = {
         "reduction happens where electrons are pushed in",
         "the electrolyte carries ions and not electrons"
       ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "the amount you are asking about"
-            ],
-            [
-              "whole",
-              "the amount it came out of"
-            ]
-          ],
-          "s": "Two batches of different sizes cannot be compared until both are put in the same form, and a percentage is that form."
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "Everything is made of atoms, and atoms are never lost",
@@ -1891,23 +1647,6 @@ export const CURRICULUM = {
         "stopping a process can be reversible or costly to reverse",
         "a cryogenic tank warms up when its refrigerator stops"
       ],
-      "equations": [
-        {
-          "e": "energy = power × time",
-          "c": "what a machine spends out of the day",
-          "v": [
-            [
-              "power",
-              "how fast the machine uses electricity, in kilowatts"
-            ],
-            [
-              "time",
-              "how many hours it runs"
-            ]
-          ],
-          "s": "A plant with one solar array has one pot of energy a sol, so every machine is asking for a share of it and the arithmetic decides who gets one."
-        }
-      ],
       "concept": {
         "n": 14,
         "c": "A day has an energy budget, and everything spends from it",
@@ -1969,23 +1708,6 @@ export const CURRICULUM = {
         "the fault that cost this season went undetected because nothing measured it",
         "the next crew arrives without anybody from this one"
       ],
-      "equations": [
-        {
-          "e": "energy = power × time",
-          "c": "what a machine spends out of the day",
-          "v": [
-            [
-              "power",
-              "how fast the machine uses electricity, in kilowatts"
-            ],
-            [
-              "time",
-              "how many hours it runs"
-            ]
-          ],
-          "s": "A plant with one solar array has one pot of energy a sol, so every machine is asking for a share of it and the arithmetic decides who gets one."
-        }
-      ],
       "concept": {
         "n": 16,
         "c": "Change one thing at a time and see what moves",
@@ -2038,54 +1760,6 @@ export const CURRICULUM = {
         "a negative free-energy change means a process can run on its own",
         "running on its own says nothing about how fast a process goes"
       ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "the amount you are asking about"
-            ],
-            [
-              "whole",
-              "the amount it came out of"
-            ]
-          ],
-          "s": "Two batches of different sizes cannot be compared until both are put in the same form, and a percentage is that form."
-        },
-        {
-          "e": "average = total ÷ how many",
-          "c": "what several readings of one thing come to",
-          "v": [
-            [
-              "total",
-              "all the readings added together"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "One reading of a plant that wanders can say anything you like, so anything worth arguing about gets measured several times and averaged."
-        },
-        {
-          "e": "energy = power × time",
-          "c": "what a machine spends out of the day",
-          "v": [
-            [
-              "power",
-              "how fast the machine uses electricity, in kilowatts"
-            ],
-            [
-              "time",
-              "how many hours it runs"
-            ]
-          ],
-          "s": "A plant with one solar array has one pot of energy a sol, so every machine is asking for a share of it and the arithmetic decides who gets one.",
-          "card": false
-        }
-      ],
       "concept": {
         "n": 4,
         "c": "A rate is an amount every hour, and it adds up",
@@ -2131,23 +1805,6 @@ export const CURRICULUM = {
       "assumes": [
         "warming ice-bearing soil releases water as vapour at low pressure",
         "dissolved salts stay behind when water evaporates"
-      ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "the amount you are asking about"
-            ],
-            [
-              "whole",
-              "the amount it came out of"
-            ]
-          ],
-          "s": "Two batches of different sizes cannot be compared until both are put in the same form, and a percentage is that form."
-        }
       ],
       "concept": {
         "n": 2,
@@ -2201,23 +1858,6 @@ export const CURRICULUM = {
         "salts dissolve into ions in water",
         "an electrolysis cell and a catalyst bed both have surfaces that can be fouled"
       ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "the amount you are asking about"
-            ],
-            [
-              "whole",
-              "the amount it came out of"
-            ]
-          ],
-          "s": "Two batches of different sizes cannot be compared until both are put in the same form, and a percentage is that form."
-        }
-      ],
       "concept": {
         "n": 10,
         "c": "Something in the way: how a catalyst gets poisoned",
@@ -2256,23 +1896,6 @@ export const CURRICULUM = {
       "assumes": [
         "a dissolved salt separates into ions in water",
         "the freezing point of pure water is 273 K"
-      ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "the amount you are asking about"
-            ],
-            [
-              "whole",
-              "the amount it came out of"
-            ]
-          ],
-          "s": "Two batches of different sizes cannot be compared until both are put in the same form, and a percentage is that form."
-        }
       ],
       "concept": {
         "n": 11,
@@ -2323,23 +1946,6 @@ export const CURRICULUM = {
         "an ion-exchange bed swaps unwanted ions for harmless ones",
         "a packed bed holds a finite number of ions"
       ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "the amount you are asking about"
-            ],
-            [
-              "whole",
-              "the amount it came out of"
-            ]
-          ],
-          "s": "Two batches of different sizes cannot be compared until both are put in the same form, and a percentage is that form."
-        }
-      ],
       "concept": {
         "n": 10,
         "c": "Something in the way: how a catalyst gets poisoned",
@@ -2388,23 +1994,6 @@ export const CURRICULUM = {
       "assumes": [
         "the reactor's water demand is met from a holding tank rather than from the drill directly",
         "the Sabatier reaction makes water as well as methane"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "what several readings of one thing come to",
-          "v": [
-            [
-              "total",
-              "all the readings added together"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "One reading of a plant that wanders can say anything you like, so anything worth arguing about gets measured several times and averaged."
-        }
       ],
       "concept": {
         "n": 3,
@@ -2622,38 +2211,6 @@ export const CURRICULUM = {
       "assumes": [
         "warming ice-bearing soil releases water as vapour at low pressure",
         "a leaner load carries the same salts in less water"
-      ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "turning a count into a share out of a hundred",
-          "v": [
-            [
-              "part",
-              "the amount you are asking about"
-            ],
-            [
-              "whole",
-              "the amount it came out of"
-            ]
-          ],
-          "s": "Two batches of different sizes cannot be compared until both are put in the same form, and a percentage is that form."
-        },
-        {
-          "e": "average = total ÷ how many",
-          "c": "what several readings of one thing come to",
-          "v": [
-            [
-              "total",
-              "all the readings added together"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "One reading of a plant that wanders can say anything you like, so anything worth arguing about gets measured several times and averaged."
-        }
       ],
       "concept": {
         "n": 2,

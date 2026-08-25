@@ -1097,27 +1097,6 @@ export const CURRICULUM = {
         "a rate counts cases against how many people there are and how long it took",
         "the system only sees the patients who reached a hospital"
       ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "a percentage of a group",
-          "v": [
-            [
-              "part",
-              "how many that share comes to"
-            ],
-            [
-              "whole",
-              "the whole group"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
-      ],
       "concept": {
         "n": 10,
         "c": "Repeats and numbers: a handful of cases proves little",
@@ -1214,27 +1193,6 @@ export const CURRICULUM = {
       "assumes": [
         "three hospitals can only be added together if they counted the same way"
       ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "a percentage of a group",
-          "v": [
-            [
-              "part",
-              "how many that share comes to"
-            ],
-            [
-              "whole",
-              "the whole group"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
-      ],
       "concept": {
         "n": 16,
         "c": "Deciding while the answer is still unknown",
@@ -1319,46 +1277,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "how good a test is does not change with how common the illness is"
-      ],
-      "equations": [
-        {
-          "e": "rate = cases ÷ people",
-          "c": "how common something is, rather than how many",
-          "v": [
-            [
-              "rate",
-              "cases for every thousand people"
-            ],
-            [
-              "cases",
-              "how many fell ill"
-            ],
-            [
-              "people",
-              "how many there are altogether"
-            ]
-          ],
-          "s": "Two towns of different sizes can only be compared once the counts are turned into rates."
-        },
-        {
-          "e": "part = whole × share",
-          "c": "a percentage of a group",
-          "v": [
-            [
-              "part",
-              "how many that share comes to"
-            ],
-            [
-              "whole",
-              "the whole group"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it."
-        }
       ],
       "concept": {
         "n": 8,
@@ -2413,27 +2331,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "where you look decides what you can find"
-      ],
-      "equations": [
-        {
-          "e": "rate = cases ÷ people",
-          "c": "how common something is, rather than how many",
-          "v": [
-            [
-              "rate",
-              "cases for every thousand people"
-            ],
-            [
-              "cases",
-              "how many fell ill"
-            ],
-            [
-              "people",
-              "how many there are altogether"
-            ]
-          ],
-          "s": "Two towns of different sizes can only be compared once the counts are turned into rates."
-        }
       ],
       "concept": {
         "n": 13,

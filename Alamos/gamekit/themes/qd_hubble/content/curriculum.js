@@ -276,27 +276,6 @@ export const CURRICULUM = {
         "measurements computed from a common source share that source's error",
         "different elements have spectral lines at unrelated wavelengths"
       ],
-      "equations": [
-        {
-          "e": "v = c (lambda_obs - lambda_rest) / lambda_rest",
-          "c": "a recession speed from a shifted line",
-          "v": [
-            [
-              "lambda_obs",
-              "the wavelength the line is measured at"
-            ],
-            [
-              "lambda_rest",
-              "the wavelength it has in the laboratory"
-            ],
-            [
-              "c",
-              "the speed of light, three hundred thousand kilometres a second"
-            ]
-          ],
-          "s": "A line moved by a fraction of its own wavelength means the source is receding at that same fraction of the speed of light, which holds while the fraction is small."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "One line is an identification; several lines agreeing is a redshift",
@@ -451,27 +430,6 @@ export const CURRICULUM = {
       "assumes": [
         "a term contributes its fractional width multiplied by the power it enters at",
         "widths from separate quantities add in quadrature rather than simply"
-      ],
-      "equations": [
-        {
-          "e": "v = c (lambda_obs - lambda_rest) / lambda_rest",
-          "c": "a recession speed from a shifted line",
-          "v": [
-            [
-              "lambda_obs",
-              "the wavelength the line is measured at"
-            ],
-            [
-              "lambda_rest",
-              "the wavelength it has in the laboratory"
-            ],
-            [
-              "c",
-              "the speed of light, three hundred thousand kilometres a second"
-            ]
-          ],
-          "s": "A line moved by a fraction of its own wavelength means the source is receding at that same fraction of the speed of light, which holds while the fraction is small."
-        }
       ],
       "concept": {
         "n": 6,
@@ -735,26 +693,6 @@ export const CURRICULUM = {
           ],
           "s": "A speed divided by a distance has units of one over a time, so turning the slope upside down gives roughly how long ago everything was in one place.",
           "computed": true
-        },
-        {
-          "e": "v = c (lambda_obs - lambda_rest) / lambda_rest",
-          "c": "a recession speed from a shifted line",
-          "v": [
-            [
-              "lambda_obs",
-              "the wavelength the line is measured at"
-            ],
-            [
-              "lambda_rest",
-              "the wavelength it has in the laboratory"
-            ],
-            [
-              "c",
-              "the speed of light, three hundred thousand kilometres a second"
-            ]
-          ],
-          "s": "A line moved by a fraction of its own wavelength means the source is receding at that same fraction of the speed of light, which holds while the fraction is small.",
-          "card": false
         }
       ],
       "concept": {
@@ -806,42 +744,6 @@ export const CURRICULUM = {
       "assumes": [
         "a relation can be tested by imagining the same measurement made elsewhere",
         "a special place in a theory is something that has to be explained"
-      ],
-      "equations": [
-        {
-          "e": "v = c (lambda_obs - lambda_rest) / lambda_rest",
-          "c": "a recession speed from a shifted line",
-          "v": [
-            [
-              "lambda_obs",
-              "the wavelength the line is measured at"
-            ],
-            [
-              "lambda_rest",
-              "the wavelength it has in the laboratory"
-            ],
-            [
-              "c",
-              "the speed of light, three hundred thousand kilometres a second"
-            ]
-          ],
-          "s": "A line moved by a fraction of its own wavelength means the source is receding at that same fraction of the speed of light, which holds while the fraction is small."
-        },
-        {
-          "e": "t = 1 / H0",
-          "c": "the time the slope implies",
-          "v": [
-            [
-              "H0",
-              "the slope, as a speed divided by a distance"
-            ],
-            [
-              "t",
-              "the time, once the units are converted"
-            ]
-          ],
-          "s": "A speed divided by a distance has units of one over a time, so turning the slope upside down gives roughly how long ago everything was in one place."
-        }
       ],
       "concept": {
         "n": 9,

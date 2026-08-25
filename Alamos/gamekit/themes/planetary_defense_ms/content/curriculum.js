@@ -252,46 +252,6 @@ export const CURRICULUM = {
       "assumes": [
         "the stars stay in the same places across one night"
       ],
-      "equations": [
-        {
-          "e": "change in speed = momentum ÷ how heavy it is",
-          "c": "what a push does to something heavy",
-          "v": [
-            [
-              "change in speed",
-              "in metres per second"
-            ],
-            [
-              "momentum",
-              "what the push handed over"
-            ],
-            [
-              "weight",
-              "the mass it landed on, in kilograms"
-            ]
-          ],
-          "s": "The same push spread over more mass makes less change in speed, in exact proportion."
-        },
-        {
-          "e": "change in position = change in speed × time",
-          "c": "why a deflection works better early",
-          "v": [
-            [
-              "change in position",
-              "how far it has moved off its old path, in kilometres"
-            ],
-            [
-              "change in speed",
-              "in kilometres per second"
-            ],
-            [
-              "time",
-              "how long before it arrives, in seconds"
-            ]
-          ],
-          "s": "A tiny change in speed moves an object hardly at all in a week and a long way in ten years, so the same push is worth far more the earlier it is given."
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "Telling a real object from an artefact, by repeating the observation",
@@ -489,46 +449,6 @@ export const CURRICULUM = {
       "assumes": [
         "a planet's gravity bends the path of anything that passes close to it"
       ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is moving",
-          "v": [
-            [
-              "speed",
-              "in kilometres per second"
-            ],
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        },
-        {
-          "e": "distance = speed × time",
-          "c": "distance from a radar echo",
-          "v": [
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "speed",
-              "the speed of light, 300,000 kilometres per second"
-            ],
-            [
-              "time",
-              "the round trip, in seconds"
-            ]
-          ],
-          "s": "A radar pulse travels out and back at a known speed, so the time it takes gives the distance — halved, because it went twice."
-        }
-      ],
       "concept": {
         "n": 11,
         "c": "Radar: distance from an echo, using speed and time",
@@ -594,66 +514,6 @@ export const CURRICULUM = {
       "assumes": [
         "the momentum sum gives the smallest change in speed to expect",
         "material thrown off the surface can add to the push"
-      ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is moving",
-          "v": [
-            [
-              "speed",
-              "in kilometres per second"
-            ],
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        },
-        {
-          "e": "momentum = how heavy it is × speed",
-          "c": "what a collision hands over",
-          "v": [
-            [
-              "momentum",
-              "in kilogram metres per second"
-            ],
-            [
-              "weight",
-              "mass, in kilograms"
-            ],
-            [
-              "speed",
-              "in metres per second"
-            ]
-          ],
-          "s": "A small thing moving fast can carry as much momentum as a big thing moving slowly, and a collision passes it on."
-        },
-        {
-          "e": "change in speed = momentum ÷ how heavy it is",
-          "c": "what a push does to something heavy",
-          "v": [
-            [
-              "change in speed",
-              "in metres per second"
-            ],
-            [
-              "momentum",
-              "what the push handed over"
-            ],
-            [
-              "weight",
-              "the mass it landed on, in kilograms"
-            ]
-          ],
-          "s": "The same push spread over more mass makes less change in speed, in exact proportion.",
-          "card": false
-        }
       ],
       "concept": {
         "n": 14,
@@ -784,27 +644,6 @@ export const CURRICULUM = {
       "assumes": [
         "a signature records that somebody approved something",
         "checking costs time, and there is not enough of it for everything"
-      ],
-      "equations": [
-        {
-          "e": "change in speed = momentum ÷ how heavy it is",
-          "c": "what a push does to something heavy",
-          "v": [
-            [
-              "change in speed",
-              "in metres per second"
-            ],
-            [
-              "momentum",
-              "what the push handed over"
-            ],
-            [
-              "weight",
-              "the mass it landed on, in kilograms"
-            ]
-          ],
-          "s": "The same push spread over more mass makes less change in speed, in exact proportion."
-        }
       ],
       "concept": {
         "n": 16,
@@ -1267,46 +1106,6 @@ export const CURRICULUM = {
         "radar sends a radio pulse out and listens for what comes back",
         "a shift in the pitch of an echo tells you how fast something moves toward or away"
       ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is moving",
-          "v": [
-            [
-              "speed",
-              "in kilometres per second"
-            ],
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        },
-        {
-          "e": "distance = speed × time",
-          "c": "distance from a radar echo",
-          "v": [
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "speed",
-              "the speed of light, 300,000 kilometres per second"
-            ],
-            [
-              "time",
-              "the round trip, in seconds"
-            ]
-          ],
-          "s": "A radar pulse travels out and back at a known speed, so the time it takes gives the distance — halved, because it went twice."
-        }
-      ],
       "concept": {
         "n": 11,
         "c": "Radar: distance from an echo, using speed and time",
@@ -1371,66 +1170,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a dish has to be pointed at something to receive from it"
-      ],
-      "equations": [
-        {
-          "e": "distance = speed × time",
-          "c": "distance from a radar echo",
-          "v": [
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "speed",
-              "the speed of light, 300,000 kilometres per second"
-            ],
-            [
-              "time",
-              "the round trip, in seconds"
-            ]
-          ],
-          "s": "A radar pulse travels out and back at a known speed, so the time it takes gives the distance — halved, because it went twice."
-        },
-        {
-          "e": "change in speed = momentum ÷ how heavy it is",
-          "c": "what a push does to something heavy",
-          "v": [
-            [
-              "change in speed",
-              "in metres per second"
-            ],
-            [
-              "momentum",
-              "what the push handed over"
-            ],
-            [
-              "weight",
-              "the mass it landed on, in kilograms"
-            ]
-          ],
-          "s": "The same push spread over more mass makes less change in speed, in exact proportion."
-        },
-        {
-          "e": "change in position = change in speed × time",
-          "c": "why a deflection works better early",
-          "v": [
-            [
-              "change in position",
-              "how far it has moved off its old path, in kilometres"
-            ],
-            [
-              "change in speed",
-              "in kilometres per second"
-            ],
-            [
-              "time",
-              "how long before it arrives, in seconds"
-            ]
-          ],
-          "s": "A tiny change in speed moves an object hardly at all in a week and a long way in ten years, so the same push is worth far more the earlier it is given.",
-          "card": false
-        }
       ],
       "concept": {
         "n": 11,
@@ -1531,86 +1270,6 @@ export const CURRICULUM = {
         "momentum is weight multiplied by speed, and a collision passes it on",
         "the same push shared over more weight makes less change in speed"
       ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is moving",
-          "v": [
-            [
-              "speed",
-              "in kilometres per second"
-            ],
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        },
-        {
-          "e": "momentum = how heavy it is × speed",
-          "c": "what a collision hands over",
-          "v": [
-            [
-              "momentum",
-              "in kilogram metres per second"
-            ],
-            [
-              "weight",
-              "mass, in kilograms"
-            ],
-            [
-              "speed",
-              "in metres per second"
-            ]
-          ],
-          "s": "A small thing moving fast can carry as much momentum as a big thing moving slowly, and a collision passes it on."
-        },
-        {
-          "e": "change in speed = momentum ÷ how heavy it is",
-          "c": "what a push does to something heavy",
-          "v": [
-            [
-              "change in speed",
-              "in metres per second"
-            ],
-            [
-              "momentum",
-              "what the push handed over"
-            ],
-            [
-              "weight",
-              "the mass it landed on, in kilograms"
-            ]
-          ],
-          "s": "The same push spread over more mass makes less change in speed, in exact proportion.",
-          "card": false
-        },
-        {
-          "e": "change in position = change in speed × time",
-          "c": "why a deflection works better early",
-          "v": [
-            [
-              "change in position",
-              "how far it has moved off its old path, in kilometres"
-            ],
-            [
-              "change in speed",
-              "in kilometres per second"
-            ],
-            [
-              "time",
-              "how long before it arrives, in seconds"
-            ]
-          ],
-          "s": "A tiny change in speed moves an object hardly at all in a week and a long way in ten years, so the same push is worth far more the earlier it is given.",
-          "card": false
-        }
-      ],
       "concept": {
         "n": 14,
         "c": "Changing motion with a push, and why an early push does more",
@@ -1670,86 +1329,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a tiny change in speed adds up to a large change in position over years"
-      ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is moving",
-          "v": [
-            [
-              "speed",
-              "in kilometres per second"
-            ],
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        },
-        {
-          "e": "momentum = how heavy it is × speed",
-          "c": "what a collision hands over",
-          "v": [
-            [
-              "momentum",
-              "in kilogram metres per second"
-            ],
-            [
-              "weight",
-              "mass, in kilograms"
-            ],
-            [
-              "speed",
-              "in metres per second"
-            ]
-          ],
-          "s": "A small thing moving fast can carry as much momentum as a big thing moving slowly, and a collision passes it on."
-        },
-        {
-          "e": "change in speed = momentum ÷ how heavy it is",
-          "c": "what a push does to something heavy",
-          "v": [
-            [
-              "change in speed",
-              "in metres per second"
-            ],
-            [
-              "momentum",
-              "what the push handed over"
-            ],
-            [
-              "weight",
-              "the mass it landed on, in kilograms"
-            ]
-          ],
-          "s": "The same push spread over more mass makes less change in speed, in exact proportion.",
-          "card": false
-        },
-        {
-          "e": "change in position = change in speed × time",
-          "c": "why a deflection works better early",
-          "v": [
-            [
-              "change in position",
-              "how far it has moved off its old path, in kilometres"
-            ],
-            [
-              "change in speed",
-              "in kilometres per second"
-            ],
-            [
-              "time",
-              "how long before it arrives, in seconds"
-            ]
-          ],
-          "s": "A tiny change in speed moves an object hardly at all in a week and a long way in ten years, so the same push is worth far more the earlier it is given.",
-          "card": false
-        }
       ],
       "concept": {
         "n": 14,
@@ -1876,46 +1455,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the reference stars in a picture are a check on the picture itself, because they do not move"
-      ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is moving",
-          "v": [
-            [
-              "speed",
-              "in kilometres per second"
-            ],
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        },
-        {
-          "e": "change in speed = momentum ÷ how heavy it is",
-          "c": "what a push does to something heavy",
-          "v": [
-            [
-              "change in speed",
-              "in metres per second"
-            ],
-            [
-              "momentum",
-              "what the push handed over"
-            ],
-            [
-              "weight",
-              "the mass it landed on, in kilograms"
-            ]
-          ],
-          "s": "The same push spread over more mass makes less change in speed, in exact proportion."
-        }
       ],
       "concept": {
         "n": 14,
@@ -2145,46 +1684,6 @@ export const CURRICULUM = {
       "assumes": [
         "a measurement made one way can be wrong in the same way every time"
       ],
-      "equations": [
-        {
-          "e": "change in speed = momentum ÷ how heavy it is",
-          "c": "what a push does to something heavy",
-          "v": [
-            [
-              "change in speed",
-              "in metres per second"
-            ],
-            [
-              "momentum",
-              "what the push handed over"
-            ],
-            [
-              "weight",
-              "the mass it landed on, in kilograms"
-            ]
-          ],
-          "s": "The same push spread over more mass makes less change in speed, in exact proportion."
-        },
-        {
-          "e": "change in position = change in speed × time",
-          "c": "why a deflection works better early",
-          "v": [
-            [
-              "change in position",
-              "how far it has moved off its old path, in kilometres"
-            ],
-            [
-              "change in speed",
-              "in kilometres per second"
-            ],
-            [
-              "time",
-              "how long before it arrives, in seconds"
-            ]
-          ],
-          "s": "A tiny change in speed moves an object hardly at all in a week and a long way in ten years, so the same push is worth far more the earlier it is given."
-        }
-      ],
       "concept": {
         "n": 12,
         "c": "Rotation, and a pattern that repeats in a measurement",
@@ -2242,25 +1741,6 @@ export const CURRICULUM = {
           ],
           "s": "Speed is how much ground is covered divided by how long it took.",
           "computed": true
-        },
-        {
-          "e": "distance = speed × time",
-          "c": "distance from a radar echo",
-          "v": [
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "speed",
-              "the speed of light, 300,000 kilometres per second"
-            ],
-            [
-              "time",
-              "the round trip, in seconds"
-            ]
-          ],
-          "s": "A radar pulse travels out and back at a known speed, so the time it takes gives the distance — halved, because it went twice."
         }
       ],
       "concept": {
@@ -2310,46 +1790,6 @@ export const CURRICULUM = {
       "assumes": [
         "the energy of a moving thing uses its speed twice over"
       ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is moving",
-          "v": [
-            [
-              "speed",
-              "in kilometres per second"
-            ],
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        },
-        {
-          "e": "KE = ½ × m × v²",
-          "c": "the energy an impact carries",
-          "v": [
-            [
-              "KE",
-              "kinetic energy, in joules"
-            ],
-            [
-              "m",
-              "mass, in kilograms"
-            ],
-            [
-              "v",
-              "speed, in metres per second"
-            ]
-          ],
-          "s": "Doubling the mass doubles the energy; doubling the speed multiplies it by four, which is why speed is the number that matters most."
-        }
-      ],
       "concept": {
         "n": 13,
         "c": "Impact energy: mass and speed, and why speed matters more",
@@ -2396,46 +1836,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a number that is multiplied in three times spreads any error three times as wide"
-      ],
-      "equations": [
-        {
-          "e": "speed = distance ÷ time",
-          "c": "how fast something is moving",
-          "v": [
-            [
-              "speed",
-              "in kilometres per second"
-            ],
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "time",
-              "in seconds"
-            ]
-          ],
-          "s": "Speed is how much ground is covered divided by how long it took."
-        },
-        {
-          "e": "distance = speed × time",
-          "c": "distance from a radar echo",
-          "v": [
-            [
-              "distance",
-              "in kilometres"
-            ],
-            [
-              "speed",
-              "the speed of light, 300,000 kilometres per second"
-            ],
-            [
-              "time",
-              "the round trip, in seconds"
-            ]
-          ],
-          "s": "A radar pulse travels out and back at a known speed, so the time it takes gives the distance — halved, because it went twice."
-        }
       ],
       "concept": {
         "n": 9,
@@ -2686,27 +2086,6 @@ export const CURRICULUM = {
         "the chance of impact moves as new measurements arrive",
         "preparations take time to set up, and some of them can be undone"
       ],
-      "equations": [
-        {
-          "e": "part = whole × share",
-          "c": "a percentage of a population",
-          "v": [
-            [
-              "part",
-              "how many that share comes to"
-            ],
-            [
-              "whole",
-              "the whole population"
-            ],
-            [
-              "share",
-              "the percentage, written as a decimal"
-            ]
-          ],
-          "s": "A percentage is a share out of a hundred, so it has to become a decimal before anything is multiplied by it."
-        }
-      ],
       "concept": {
         "n": 15,
         "c": "Deciding what to tell people, and when",
@@ -2939,46 +2318,6 @@ export const CURRICULUM = {
       "assumes": [
         "warning time comes from finding things early, not from planning for them"
       ],
-      "equations": [
-        {
-          "e": "change in speed = momentum ÷ how heavy it is",
-          "c": "what a push does to something heavy",
-          "v": [
-            [
-              "change in speed",
-              "in metres per second"
-            ],
-            [
-              "momentum",
-              "what the push handed over"
-            ],
-            [
-              "weight",
-              "the mass it landed on, in kilograms"
-            ]
-          ],
-          "s": "The same push spread over more mass makes less change in speed, in exact proportion."
-        },
-        {
-          "e": "change in position = change in speed × time",
-          "c": "why a deflection works better early",
-          "v": [
-            [
-              "change in position",
-              "how far it has moved off its old path, in kilometres"
-            ],
-            [
-              "change in speed",
-              "in kilometres per second"
-            ],
-            [
-              "time",
-              "how long before it arrives, in seconds"
-            ]
-          ],
-          "s": "A tiny change in speed moves an object hardly at all in a week and a long way in ten years, so the same push is worth far more the earlier it is given."
-        }
-      ],
       "concept": {
         "n": 15,
         "c": "Deciding what to tell people, and when",
@@ -3026,27 +2365,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "repeated readings of the same thing scatter around a middle value"
-      ],
-      "equations": [
-        {
-          "e": "change in speed = momentum ÷ how heavy it is",
-          "c": "what a push does to something heavy",
-          "v": [
-            [
-              "change in speed",
-              "in metres per second"
-            ],
-            [
-              "momentum",
-              "what the push handed over"
-            ],
-            [
-              "weight",
-              "the mass it landed on, in kilograms"
-            ]
-          ],
-          "s": "The same push spread over more mass makes less change in speed, in exact proportion."
-        }
       ],
       "concept": {
         "n": 3,

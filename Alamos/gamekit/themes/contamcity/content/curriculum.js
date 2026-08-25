@@ -700,31 +700,6 @@ export const CURRICULUM = {
         "the volatile fraction of a warm sample sits in the air above it",
         "some measurements leave the sample as they found it and some use it up"
       ],
-      "equations": [
-        {
-          "e": "C₁V₁ = C₂V₂",
-          "c": "dilution, and carrying a dilution factor back",
-          "v": [
-            [
-              "C₁",
-              "concentration before dilution"
-            ],
-            [
-              "V₁",
-              "volume taken of the stronger solution"
-            ],
-            [
-              "C₂",
-              "concentration after dilution"
-            ],
-            [
-              "V₂",
-              "final volume, in the same units as V₁"
-            ]
-          ],
-          "s": "Diluting adds solvent and not solute, so moles before equal moles after and the product of concentration and volume is unchanged."
-        }
-      ],
       "concept": {
         "n": 8,
         "c": "Kinetic molecular theory, diffusion and volatility",
@@ -883,54 +858,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a gas has a state and also a place, and they change for different reasons"
-      ],
-      "equations": [
-        {
-          "e": "n = m / M",
-          "c": "moles from a mass and a molar mass",
-          "v": [
-            [
-              "n",
-              "number of moles, in mol"
-            ],
-            [
-              "m",
-              "mass of the sample, in grams"
-            ],
-            [
-              "M",
-              "molar mass of the substance, in grams per mole"
-            ]
-          ],
-          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
-        },
-        {
-          "e": "PV = nRT",
-          "c": "the ideal gas law",
-          "v": [
-            [
-              "P",
-              "pressure, in pascals"
-            ],
-            [
-              "V",
-              "volume, in cubic metres"
-            ],
-            [
-              "n",
-              "moles of gas"
-            ],
-            [
-              "R",
-              "the gas constant, 8.314 J per mole per kelvin"
-            ],
-            [
-              "T",
-              "absolute temperature, in kelvin"
-            ]
-          ],
-          "s": "For a gas, pressure times volume is fixed by how much gas there is and how hot it is."
-        }
       ],
       "concept": {
         "n": 8,
@@ -1571,27 +1498,6 @@ export const CURRICULUM = {
         "a saturated solution is in equilibrium with a 1:1 solid",
         "Ksp stays constant when temperature stays fixed"
       ],
-      "equations": [
-        {
-          "e": "Kₛₚ = [Aᵃ][Bᵇ]",
-          "c": "the solubility product and the common-ion effect",
-          "v": [
-            [
-              "Kₛₚ",
-              "solubility product, a constant for that salt at that temperature"
-            ],
-            [
-              "[Aᵃ]",
-              "concentration of one ion raised to its coefficient"
-            ],
-            [
-              "[Bᵇ]",
-              "concentration of the other ion raised to its coefficient"
-            ]
-          ],
-          "s": "A salt keeps dissolving until the product of its ion concentrations reaches a fixed value, which is why adding one of those ions pushes the rest back out."
-        }
-      ],
       "concept": {
         "n": 25,
         "c": "Solubility product and the common-ion effect",
@@ -1752,25 +1658,6 @@ export const CURRICULUM = {
           ],
           "s": "pH is the negative logarithm of hydrogen ion concentration, so one pH unit is a tenfold change in acid.",
           "computed": true
-        },
-        {
-          "e": "n = m / M",
-          "c": "moles from a mass and a molar mass",
-          "v": [
-            [
-              "n",
-              "number of moles, in mol"
-            ],
-            [
-              "m",
-              "mass of the sample, in grams"
-            ],
-            [
-              "M",
-              "molar mass of the substance, in grams per mole"
-            ]
-          ],
-          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
         }
       ],
       "concept": {
@@ -2151,23 +2038,6 @@ export const CURRICULUM = {
         "the mixed-tank pH reading lags a pump change by one sampling interval",
         "pH is logarithmic, so equal pH steps do not represent equal amounts of hydrogen ion"
       ],
-      "equations": [
-        {
-          "e": "pH = −log[H⁺]",
-          "c": "acidity on a logarithmic scale",
-          "v": [
-            [
-              "pH",
-              "the acidity scale, no units"
-            ],
-            [
-              "[H⁺]",
-              "hydrogen ion concentration, in moles per litre"
-            ]
-          ],
-          "s": "pH is the negative logarithm of hydrogen ion concentration, so one pH unit is a tenfold change in acid."
-        }
-      ],
       "concept": {
         "n": 11,
         "c": "Acids, bases and pH",
@@ -2220,23 +2090,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "material is conserved — a shift moves it, it does not destroy it"
-      ],
-      "equations": [
-        {
-          "e": "pH = −log[H⁺]",
-          "c": "acidity on a logarithmic scale",
-          "v": [
-            [
-              "pH",
-              "the acidity scale, no units"
-            ],
-            [
-              "[H⁺]",
-              "hydrogen ion concentration, in moles per litre"
-            ]
-          ],
-          "s": "pH is the negative logarithm of hydrogen ion concentration, so one pH unit is a tenfold change in acid."
-        }
       ],
       "concept": {
         "n": 13,
@@ -2301,23 +2154,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a system at equilibrium responds to a change by partly offsetting it"
-      ],
-      "equations": [
-        {
-          "e": "pH = −log[H⁺]",
-          "c": "acidity on a logarithmic scale",
-          "v": [
-            [
-              "pH",
-              "the acidity scale, no units"
-            ],
-            [
-              "[H⁺]",
-              "hydrogen ion concentration, in moles per litre"
-            ]
-          ],
-          "s": "pH is the negative logarithm of hydrogen ion concentration, so one pH unit is a tenfold change in acid."
-        }
       ],
       "concept": {
         "n": 13,
@@ -2392,25 +2228,6 @@ export const CURRICULUM = {
           ],
           "s": "Only the number of dissolved particles matters, which is why a salt that splits in two counts twice.",
           "demanded": true
-        },
-        {
-          "e": "n = m / M",
-          "c": "moles from a mass and a molar mass",
-          "v": [
-            [
-              "n",
-              "number of moles, in mol"
-            ],
-            [
-              "m",
-              "mass of the sample, in grams"
-            ],
-            [
-              "M",
-              "molar mass of the substance, in grams per mole"
-            ]
-          ],
-          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
         }
       ],
       "concept": {
@@ -2563,54 +2380,6 @@ export const CURRICULUM = {
       "assumes": [
         "Beer–Lambert gives A proportional to concentration when path length and absorptivity are fixed",
         "a 1:1 dilution halves concentration"
-      ],
-      "equations": [
-        {
-          "e": "C₁V₁ = C₂V₂",
-          "c": "dilution, and carrying a dilution factor back",
-          "v": [
-            [
-              "C₁",
-              "concentration before dilution"
-            ],
-            [
-              "V₁",
-              "volume taken of the stronger solution"
-            ],
-            [
-              "C₂",
-              "concentration after dilution"
-            ],
-            [
-              "V₂",
-              "final volume, in the same units as V₁"
-            ]
-          ],
-          "s": "Diluting adds solvent and not solute, so moles before equal moles after and the product of concentration and volume is unchanged."
-        },
-        {
-          "e": "A = εlc",
-          "c": "Beer–Lambert, and the calibration curve it justifies",
-          "v": [
-            [
-              "A",
-              "absorbance, no units"
-            ],
-            [
-              "ε",
-              "molar absorptivity, how strongly the compound absorbs"
-            ],
-            [
-              "l",
-              "path length through the sample, in centimetres"
-            ],
-            [
-              "c",
-              "concentration, in moles per litre"
-            ]
-          ],
-          "s": "How much light a sample absorbs rises in step with concentration, which is what lets a calibration curve turn a reading into a number."
-        }
       ],
       "concept": {
         "n": 19,
@@ -3012,27 +2781,6 @@ export const CURRICULUM = {
       "assumes": [
         "a balanced equation says how many of one thing react with how many of another"
       ],
-      "equations": [
-        {
-          "e": "n = m / M",
-          "c": "moles from a mass and a molar mass",
-          "v": [
-            [
-              "n",
-              "number of moles, in mol"
-            ],
-            [
-              "m",
-              "mass of the sample, in grams"
-            ],
-            [
-              "M",
-              "molar mass of the substance, in grams per mole"
-            ]
-          ],
-          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "The mole, molar mass and stoichiometry",
@@ -3163,31 +2911,6 @@ export const CURRICULUM = {
       "assumes": [
         "temperature in ΔG = ΔH − TΔS must be in kelvin",
         "a negative ΔG means the forward reaction is thermodynamically favored"
-      ],
-      "equations": [
-        {
-          "e": "rate = k[A]ⁿ",
-          "c": "a rate law, and the order it asserts",
-          "v": [
-            [
-              "rate",
-              "how fast the reaction goes, in moles per litre per second"
-            ],
-            [
-              "k",
-              "the rate constant for that reaction at that temperature"
-            ],
-            [
-              "[A]",
-              "concentration of the reactant, in moles per litre"
-            ],
-            [
-              "n",
-              "the order, how strongly rate answers to concentration"
-            ]
-          ],
-          "s": "Reaction rate depends on concentration raised to a power that has to be measured rather than assumed."
-        }
       ],
       "concept": {
         "n": 17,
@@ -3530,54 +3253,6 @@ export const CURRICULUM = {
       "assumes": [
         "a trend says something a single reading cannot"
       ],
-      "equations": [
-        {
-          "e": "C₁V₁ = C₂V₂",
-          "c": "dilution, and carrying a dilution factor back",
-          "v": [
-            [
-              "C₁",
-              "concentration before dilution"
-            ],
-            [
-              "V₁",
-              "volume taken of the stronger solution"
-            ],
-            [
-              "C₂",
-              "concentration after dilution"
-            ],
-            [
-              "V₂",
-              "final volume, in the same units as V₁"
-            ]
-          ],
-          "s": "Diluting adds solvent and not solute, so moles before equal moles after and the product of concentration and volume is unchanged."
-        },
-        {
-          "e": "q = mcΔT",
-          "c": "calorimetry — heat from a temperature change",
-          "v": [
-            [
-              "q",
-              "heat gained or lost, in joules"
-            ],
-            [
-              "m",
-              "mass being heated, in grams"
-            ],
-            [
-              "c",
-              "specific heat capacity, in joules per gram per kelvin"
-            ],
-            [
-              "ΔT",
-              "temperature change, in kelvin"
-            ]
-          ],
-          "s": "The heat that went in is the mass times how hard that substance is to warm times how far its temperature moved."
-        }
-      ],
       "concept": {
         "n": 16,
         "c": "Thermochemistry: enthalpy, calorimetry, energy balance",
@@ -3722,54 +3397,6 @@ export const CURRICULUM = {
       "assumes": [
         "a reaction goes faster when it is hotter"
       ],
-      "equations": [
-        {
-          "e": "q = mcΔT",
-          "c": "calorimetry — heat from a temperature change",
-          "v": [
-            [
-              "q",
-              "heat gained or lost, in joules"
-            ],
-            [
-              "m",
-              "mass being heated, in grams"
-            ],
-            [
-              "c",
-              "specific heat capacity, in joules per gram per kelvin"
-            ],
-            [
-              "ΔT",
-              "temperature change, in kelvin"
-            ]
-          ],
-          "s": "The heat that went in is the mass times how hard that substance is to warm times how far its temperature moved."
-        },
-        {
-          "e": "rate = k[A]ⁿ",
-          "c": "a rate law, and the order it asserts",
-          "v": [
-            [
-              "rate",
-              "how fast the reaction goes, in moles per litre per second"
-            ],
-            [
-              "k",
-              "the rate constant for that reaction at that temperature"
-            ],
-            [
-              "[A]",
-              "concentration of the reactant, in moles per litre"
-            ],
-            [
-              "n",
-              "the order, how strongly rate answers to concentration"
-            ]
-          ],
-          "s": "Reaction rate depends on concentration raised to a power that has to be measured rather than assumed."
-        }
-      ],
       "concept": {
         "n": 14,
         "c": "Reaction kinetics, rate laws and activation energy",
@@ -3872,31 +3499,6 @@ export const CURRICULUM = {
       "assumes": [
         "heat generation tracks reaction rate over these compared operating points",
         "a plan is infeasible when heat generation exceeds available cooling"
-      ],
-      "equations": [
-        {
-          "e": "rate = k[A]ⁿ",
-          "c": "a rate law, and the order it asserts",
-          "v": [
-            [
-              "rate",
-              "how fast the reaction goes, in moles per litre per second"
-            ],
-            [
-              "k",
-              "the rate constant for that reaction at that temperature"
-            ],
-            [
-              "[A]",
-              "concentration of the reactant, in moles per litre"
-            ],
-            [
-              "n",
-              "the order, how strongly rate answers to concentration"
-            ]
-          ],
-          "s": "Reaction rate depends on concentration raised to a power that has to be measured rather than assumed."
-        }
       ]
     },
     {
@@ -3952,25 +3554,6 @@ export const CURRICULUM = {
           ],
           "s": "Yield measures what you actually collected against what the reaction could have produced at best.",
           "computed": true
-        },
-        {
-          "e": "n = m / M",
-          "c": "moles from a mass and a molar mass",
-          "v": [
-            [
-              "n",
-              "number of moles, in mol"
-            ],
-            [
-              "m",
-              "mass of the sample, in grams"
-            ],
-            [
-              "M",
-              "molar mass of the substance, in grams per mole"
-            ]
-          ],
-          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding."
         }
       ],
       "concept": {
@@ -4041,23 +3624,6 @@ export const CURRICULUM = {
       "assumes": [
         "pH measures how acidic or basic a solution is"
       ],
-      "equations": [
-        {
-          "e": "pH = −log[H⁺]",
-          "c": "acidity on a logarithmic scale",
-          "v": [
-            [
-              "pH",
-              "the acidity scale, no units"
-            ],
-            [
-              "[H⁺]",
-              "hydrogen ion concentration, in moles per litre"
-            ]
-          ],
-          "s": "pH is the negative logarithm of hydrogen ion concentration, so one pH unit is a tenfold change in acid."
-        }
-      ],
       "concept": {
         "n": 11,
         "c": "Acids, bases and pH",
@@ -4121,35 +3687,6 @@ export const CURRICULUM = {
       "assumes": [
         "oxidation is losing electrons and reduction is gaining them",
         "atomic structure, ions and electron configuration — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "n = It ÷ (zF)",
-          "c": "how much a current can deposit or remove",
-          "v": [
-            [
-              "n",
-              "in moles"
-            ],
-            [
-              "I",
-              "in amperes"
-            ],
-            [
-              "t",
-              "in seconds"
-            ],
-            [
-              "z",
-              "electrons per ion"
-            ],
-            [
-              "F",
-              "Faraday's constant"
-            ]
-          ],
-          "s": "Charge is the currency: how much metal moves is set by how many electrons were pushed through."
-        }
       ],
       "takesAsRead": [
         {
@@ -4388,23 +3925,6 @@ export const CURRICULUM = {
       "assumes": [
         "a filter can only remove something that is already a solid"
       ],
-      "equations": [
-        {
-          "e": "pH = −log[H⁺]",
-          "c": "acidity on a logarithmic scale",
-          "v": [
-            [
-              "pH",
-              "the acidity scale, no units"
-            ],
-            [
-              "[H⁺]",
-              "hydrogen ion concentration, in moles per litre"
-            ]
-          ],
-          "s": "pH is the negative logarithm of hydrogen ion concentration, so one pH unit is a tenfold change in acid."
-        }
-      ],
       "concept": {
         "n": 10,
         "c": "Solubility, precipitation and complexation",
@@ -4567,26 +4087,6 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "n = m / M",
-          "c": "moles from a mass and a molar mass",
-          "v": [
-            [
-              "n",
-              "number of moles, in mol"
-            ],
-            [
-              "m",
-              "mass of the sample, in grams"
-            ],
-            [
-              "M",
-              "molar mass of the substance, in grams per mole"
-            ]
-          ],
-          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding.",
-          "demanded": true
-        },
-        {
           "e": "n = It ÷ (zF)",
           "c": "how much a current can deposit or remove",
           "v": [
@@ -4611,7 +4111,8 @@ export const CURRICULUM = {
               "Faraday's constant"
             ]
           ],
-          "s": "Charge is the currency: how much metal moves is set by how many electrons were pushed through."
+          "s": "Charge is the currency: how much metal moves is set by how many electrons were pushed through.",
+          "computed": true
         }
       ],
       "concept": {

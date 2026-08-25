@@ -26,6 +26,12 @@ import {
   VEHICLE_DRIVE, bicycleRack, BICYCLE_DRIVE, clearSpot,
 } from '../../engine/world/kit.js';
 import { driveable } from '../../engine/world/driving.js';
+// The theme arrives through `decorate`'s context as `ctx.theme` — see the call in
+// engine/world/outdoorTown.js. `deliveryProgress` is safe to import directly
+// because engine/core/delivery.js is a pure function of (theme, state); what may
+// NOT be imported here is engine/core/theme.js, which resolves through the
+// `@theme` vite alias that the dev checks running in plain node do not have.
+import { deliveryProgress } from '../../engine/core/delivery.js';
 import { RINGS, rimAt } from './site.js';
 
 const TAU = Math.PI * 2;
@@ -426,6 +432,68 @@ function shelterbelt(scene, y, soft){
  * Decorate the Point. `ctx` is the outdoor world's, after ground, buildings and
  * site furniture.
  */
+/**
+ * The season's canes, in the crossing block — the delivery meter as an object.
+ *
+ * `theme.delivery` is what this fortnight builds and the HUD carries a bar for
+ * it. On a campaign whose delivery is a physical thing, the placement pass says
+ * to put the progress on the thing: Red Sand's ascent vehicle wears the fill of
+ * its own tank. Wellmere's delivery is **The Season in the Ground**, and the
+ * ground it means is the block at radius zero that every isolation ring on this
+ * headland is measured out from.
+ *
+ * So: fifteen canes in an arc inside the block, and a glassine bag goes on one
+ * of them for every piece the season has earned. It reads at fifty metres as the
+ * row filling up and at five as fifteen crosses with names on them, and it
+ * cannot disagree with the strip at the top of the screen because both of them
+ * are reading `deliveryProgress`.
+ *
+ * **It counts what was earned, not what day it is.** A day whose calls went badly
+ * still advances `state.week` and puts no bag on a cane. Red Sand's rocket had a
+ * gauge that read the calendar for the life of the game, filling itself while the
+ * HUD meter beside it sat at zero, and the flattering one was the one on the
+ * biggest object in the world.
+ */
+function seasonCanes(scene, ctx, y){
+  const { theme, stateHooks, softColliders } = ctx;
+  const pieces = theme?.delivery?.pieces?.length ?? 0;
+  if(!pieces) return;
+
+  // Inside the block's own plots, on the arc that faces the ring road in — which
+  // is the bearing the player arrives on, every time, from the compound.
+  const R = 7.6, SPAN = Math.PI * 0.62, mid = Math.PI;   // due south, toward the road
+  const cane = MATERIALS.paintedSteel(0x8a7f63);
+  const bagMat = new THREE.MeshStandardMaterial({
+    color: 0xe8e4d6, roughness: 0.86, metalness: 0, envMapIntensity: 0.4,
+    side: THREE.DoubleSide,
+  });
+  const bags = [];
+  for(let i = 0; i < pieces; i++){
+    const a = mid - SPAN / 2 + (SPAN * i) / Math.max(1, pieces - 1);
+    const p = pol(R, a);
+    const g = y(p.x, p.z);
+    // `cyl` takes (x, z, y) with the ground last. Written (x, y, z) once in this
+    // repo it put six display boards sixteen metres in the air.
+    cyl(scene, 0.022, 1.15, p.x, g + 0.575, p.z, cane);
+    const bag = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.055, 0.30, 7, 1, true), bagMat);
+    bag.position.set(p.x, g + 1.02, p.z);
+    bag.rotation.y = a;
+    bag.visible = false;
+    scene.add(bag);
+    bags.push(bag);
+  }
+  // A cane is 22 mm of steel: a hard collider round each one would be a fence
+  // across the block. One soft circle round the arc keeps the player out of the
+  // canes without stopping them walking the row.
+  softColliders?.push({ x: 0, z: R, r: 1.2 });
+
+  stateHooks?.push((state) => {
+    const { got, total } = deliveryProgress(theme, state);
+    const on = total ? Math.round((got / total) * bags.length) : 0;
+    bags.forEach((b, i) => { b.visible = i < on; });
+  });
+}
+
 export function decorate(scene, ctx){
   const { groundHeight, colliders, softColliders } = ctx;
   const y = (x, z) => groundHeight(x, z);
@@ -447,6 +515,10 @@ export function decorate(scene, ctx){
   });
   // The crossing block's own ground: a handful of bagged rows at the centre.
   ringPlots(scene, y, { r0: 9, r1: 17, plotW: 2.6, plotD: 3, gap: 1.4, seed: 3 });
+  // And the season's own canes standing in it, one for each of the fifteen
+  // findings the season is made of. See below: this is the delivery meter, on
+  // the ground the delivery is.
+  seasonCanes(scene, ctx, y);
 
   // The boundaries, which are what make the empty bands mean anything.
   ringMarkers(scene, y, RINGS.buffer1.r0, 'ISOLATION 18 M — nothing in flower beyond this line',
@@ -517,13 +589,27 @@ export function decorate(scene, ctx){
   colliders.push(vehicle(scene, -14, 160, y(-14, 160), { facing: 0.3, colour: 0x2f6a3f, box: false }));
   colliders.push(vehicle(scene, 18, 163, y(18, 163), { facing: -0.5, colour: 0xa8481f, box: true }));
 
-  soft(crateStack(scene, 24, 182, y(24, 182), { rows: 3, colour: 0x9a8b6a }));
-  soft(crateStack(scene, 28, 184, y(28, 184), { rows: 2, colour: 0x8d7f61 }));
-  soft(tank(scene, -50, 152, y(-50, 152), { r: 3.0, h: 7.5, colour: 0xb6bcb2 }));
+  // ALL THREE OF THESE HAVE MOVED, and two of them were in the sea.
+  //
+  // The crate stacks stood at (24, 182) and (28, 184) — radius 184 and 186 on a
+  // bearing whose rim is 166, so they were eighteen and twenty metres past the
+  // cliff, sitting on the drop face or hanging over the water. Nothing said so:
+  // they render, they light, they collide, and `groundHeight` obligingly returns
+  // a height on the slope. They are in the yard now, where a crate stack is.
+  //
+  // The tank was standing inside the records office, which is a defect this pass
+  // created — Passport Records moved onto the yard from over the same cliff, and
+  // the tank was where its west end now is.
+  soft(crateStack(scene, 26, 156, y(26, 156), { rows: 3, colour: 0x9a8b6a }));
+  soft(crateStack(scene, 30, 158, y(30, 158), { rows: 2, colour: 0x8d7f61 }));
+  soft(tank(scene, -62, 146, y(-62, 146), { r: 3.0, h: 7.5, colour: 0xb6bcb2 }));
 
-  // The windsock, on the bearing everything else on this site is about.
+  // The windsock, on the bearing everything else on this site is about. It stood
+  // at (48, 152), which is the middle of the threshing floor's footprint since
+  // that building came in off the cliff; it is east of it now, still in clear
+  // air and still the first thing read from the yard.
   {
-    const p = { x: 48, z: 152 };
+    const p = { x: 60, z: 140 };
     const g = y(p.x, p.z);
     cyl(scene, 0.12, 8, p.x, g + 4, p.z, MATERIALS.paintedSteel(0x8d949a));
     const sock = new THREE.Mesh(

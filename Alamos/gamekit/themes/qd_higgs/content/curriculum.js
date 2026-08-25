@@ -556,21 +556,6 @@ export const CURRICULUM = {
           ],
           "s": "A count of B events wobbles by about the square root of B, so dividing the excess by that wobble says how many wobbles out of the ordinary the window is.",
           "computed": true
-        },
-        {
-          "e": "m = E1 + E2 when the two photons go back to back",
-          "c": "the invariant mass of a photon pair",
-          "v": [
-            [
-              "m",
-              "the mass of whatever the two photons came from, in GeV"
-            ],
-            [
-              "E1, E2",
-              "the energy each photon carries, in GeV"
-            ]
-          ],
-          "s": "Two massless particles flying in exactly opposite directions carry no net momentum between them, so all of their energy is the mass of the thing that made them."
         }
       ],
       "concept": {
@@ -773,27 +758,6 @@ export const CURRICULUM = {
         "a significance is computed assuming background only",
         "a statement's support is what stands behind it, not who wrote it"
       ],
-      "equations": [
-        {
-          "e": "significance = (N - B) / sqrt(B)",
-          "c": "how surprising an excess of events is",
-          "v": [
-            [
-              "N",
-              "how many events were counted in the window"
-            ],
-            [
-              "B",
-              "how many the frozen background predicts there"
-            ],
-            [
-              "significance",
-              "the excess measured in units of its own expected wobble"
-            ]
-          ],
-          "s": "A count of B events wobbles by about the square root of B, so dividing the excess by that wobble says how many wobbles out of the ordinary the window is."
-        }
-      ],
       "concept": {
         "n": 8,
         "c": "A p-value is a statement about the background model, not about the theory",
@@ -843,42 +807,6 @@ export const CURRICULUM = {
       "assumes": [
         "an identification requires the properties that distinguish one candidate from another",
         "a claim survives by not depending on measurements nobody has made"
-      ],
-      "equations": [
-        {
-          "e": "m = E1 + E2 when the two photons go back to back",
-          "c": "the invariant mass of a photon pair",
-          "v": [
-            [
-              "m",
-              "the mass of whatever the two photons came from, in GeV"
-            ],
-            [
-              "E1, E2",
-              "the energy each photon carries, in GeV"
-            ]
-          ],
-          "s": "Two massless particles flying in exactly opposite directions carry no net momentum between them, so all of their energy is the mass of the thing that made them."
-        },
-        {
-          "e": "significance = (N - B) / sqrt(B)",
-          "c": "how surprising an excess of events is",
-          "v": [
-            [
-              "N",
-              "how many events were counted in the window"
-            ],
-            [
-              "B",
-              "how many the frozen background predicts there"
-            ],
-            [
-              "significance",
-              "the excess measured in units of its own expected wobble"
-            ]
-          ],
-          "s": "A count of B events wobbles by about the square root of B, so dividing the excess by that wobble says how many wobbles out of the ordinary the window is."
-        }
       ],
       "concept": {
         "n": 9,

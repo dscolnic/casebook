@@ -42,23 +42,6 @@ export const CURRICULUM = {
         "nothing has been announced since Thursday",
         "the short-run trade-off between inflation and unemployment — taken as read"
       ],
-      "equations": [
-        {
-          "e": "old notes = mass ÷ mass per note",
-          "c": "counting a withdrawn currency by weight",
-          "v": [
-            [
-              "mass",
-              "the weighed mass of notes received"
-            ],
-            [
-              "mass per note",
-              "the mass of one note of that denomination"
-            ]
-          ],
-          "s": "A currency coming out of circulation is easier to weigh than to count, and the count is what the money supply figure needs."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 27,
@@ -189,21 +172,6 @@ export const CURRICULUM = {
           ],
           "s": "Dividing by the price level takes the price change out, leaving what the money would actually buy.",
           "computed": true
-        },
-        {
-          "e": "index = (basket now ÷ basket in the base year) × 100",
-          "c": "a price index",
-          "v": [
-            [
-              "basket now",
-              "what the fixed basket costs this month"
-            ],
-            [
-              "basket in the base year",
-              "what the same basket cost in the base period"
-            ]
-          ],
-          "s": "Price the same list of goods twice and the ratio is what prices have done, with the basket held still on purpose."
         }
       ],
       "takesAsRead": [
@@ -839,23 +807,6 @@ export const CURRICULUM = {
         "the stall prices and the queue are representative of household spending",
         "gross domestic product, and the four things it adds up — taken as read"
       ],
-      "equations": [
-        {
-          "e": "index = (basket now ÷ basket in the base year) × 100",
-          "c": "a price index",
-          "v": [
-            [
-              "basket now",
-              "what the fixed basket costs this month"
-            ],
-            [
-              "basket in the base year",
-              "what the same basket cost in the base period"
-            ]
-          ],
-          "s": "Price the same list of goods twice and the ratio is what prices have done, with the basket held still on purpose."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 5,
@@ -991,54 +942,6 @@ export const CURRICULUM = {
         "the index is the only price series available",
         "a price index, and the basket it is an index of — taken as read"
       ],
-      "equations": [
-        {
-          "e": "index = (basket now ÷ basket in the base year) × 100",
-          "c": "a price index",
-          "v": [
-            [
-              "basket now",
-              "what the fixed basket costs this month"
-            ],
-            [
-              "basket in the base year",
-              "what the same basket cost in the base period"
-            ]
-          ],
-          "s": "Price the same list of goods twice and the ratio is what prices have done, with the basket held still on purpose."
-        },
-        {
-          "e": "real = nominal ÷ (index ÷ 100)",
-          "c": "deflating a nominal figure",
-          "v": [
-            [
-              "nominal",
-              "the figure as measured, in the money of the day"
-            ],
-            [
-              "index",
-              "the price index for that period, base 100"
-            ]
-          ],
-          "s": "Dividing by the price level takes the price change out, leaving what the money would actually buy."
-        },
-        {
-          "e": "real rate = nominal rate − inflation",
-          "c": "the real interest rate",
-          "v": [
-            [
-              "nominal rate",
-              "the rate written in the contract"
-            ],
-            [
-              "inflation",
-              "the rate prices are rising at over the same period"
-            ]
-          ],
-          "s": "What a lender actually earns is the rate less what the money lost in value, which is why unexpected inflation moves wealth from lenders to borrowers.",
-          "card": false
-        }
-      ],
       "takesAsRead": [
         {
           "n": 7,
@@ -1164,23 +1067,6 @@ export const CURRICULUM = {
         "the conversion rate is applied to the whole series",
         "gross domestic product, and the four things it adds up — taken as read"
       ],
-      "equations": [
-        {
-          "e": "index = (basket now ÷ basket in the base year) × 100",
-          "c": "a price index",
-          "v": [
-            [
-              "basket now",
-              "what the fixed basket costs this month"
-            ],
-            [
-              "basket in the base year",
-              "what the same basket cost in the base period"
-            ]
-          ],
-          "s": "Price the same list of goods twice and the ratio is what prices have done, with the basket held still on purpose."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 5,
@@ -1303,23 +1189,6 @@ export const CURRICULUM = {
         "the statements are read as published rather than explained",
         "a price index, and the basket it is an index of — taken as read"
       ],
-      "equations": [
-        {
-          "e": "index = (basket now ÷ basket in the base year) × 100",
-          "c": "a price index",
-          "v": [
-            [
-              "basket now",
-              "what the fixed basket costs this month"
-            ],
-            [
-              "basket in the base year",
-              "what the same basket cost in the base period"
-            ]
-          ],
-          "s": "Price the same list of goods twice and the ratio is what prices have done, with the basket held still on purpose."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 7,
@@ -1388,23 +1257,6 @@ export const CURRICULUM = {
       "assumes": [
         "the wholesale list is held fixed between the two months",
         "each item enters the index in proportion to its weight"
-      ],
-      "equations": [
-        {
-          "e": "index = (basket now ÷ basket in the base year) × 100",
-          "c": "a price index",
-          "v": [
-            [
-              "basket now",
-              "what the fixed basket costs this month"
-            ],
-            [
-              "basket in the base year",
-              "what the same basket cost in the base period"
-            ]
-          ],
-          "s": "Price the same list of goods twice and the ratio is what prices have done, with the basket held still on purpose."
-        }
       ],
       "concept": {
         "n": 7,
@@ -1561,23 +1413,6 @@ export const CURRICULUM = {
       "assumes": [
         "both counts cover the same returns",
         "a price index, and the basket it is an index of — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "old notes = mass ÷ mass per note",
-          "c": "counting a withdrawn currency by weight",
-          "v": [
-            [
-              "mass",
-              "the weighed mass of notes received"
-            ],
-            [
-              "mass per note",
-              "the mass of one note of that denomination"
-            ]
-          ],
-          "s": "A currency coming out of circulation is easier to weigh than to count, and the count is what the money supply figure needs."
-        }
       ],
       "takesAsRead": [
         {
@@ -1805,23 +1640,6 @@ export const CURRICULUM = {
         "all four are circulating in Halvern during the changeover fortnight",
         "demand, supply and the price that clears a market — taken as read"
       ],
-      "equations": [
-        {
-          "e": "old notes = mass ÷ mass per note",
-          "c": "counting a withdrawn currency by weight",
-          "v": [
-            [
-              "mass",
-              "the weighed mass of notes received"
-            ],
-            [
-              "mass per note",
-              "the mass of one note of that denomination"
-            ]
-          ],
-          "s": "A currency coming out of circulation is easier to weigh than to count, and the count is what the money supply figure needs."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 3,
@@ -2026,22 +1844,6 @@ export const CURRICULUM = {
           ],
           "s": "What a lender actually earns is the rate less what the money lost in value, which is why unexpected inflation moves wealth from lenders to borrowers.",
           "computed": true
-        },
-        {
-          "e": "inflation = (index₂ − index₁) ÷ index₁ × 100",
-          "c": "an inflation rate from two index values",
-          "v": [
-            [
-              "index₁",
-              "the earlier index value"
-            ],
-            [
-              "index₂",
-              "the later one"
-            ]
-          ],
-          "s": "Inflation is the rate the price level is changing at, which is a percentage change in an index rather than the index itself.",
-          "card": false
         }
       ],
       "takesAsRead": [
@@ -2220,54 +2022,6 @@ export const CURRICULUM = {
         "the deposit and application figures are for the same period",
         "the money market: a rate that clears the demand for money — taken as read"
       ],
-      "equations": [
-        {
-          "e": "inflation = (index₂ − index₁) ÷ index₁ × 100",
-          "c": "an inflation rate from two index values",
-          "v": [
-            [
-              "index₁",
-              "the earlier index value"
-            ],
-            [
-              "index₂",
-              "the later one"
-            ]
-          ],
-          "s": "Inflation is the rate the price level is changing at, which is a percentage change in an index rather than the index itself."
-        },
-        {
-          "e": "real = nominal ÷ (index ÷ 100)",
-          "c": "deflating a nominal figure",
-          "v": [
-            [
-              "nominal",
-              "the figure as measured, in the money of the day"
-            ],
-            [
-              "index",
-              "the price index for that period, base 100"
-            ]
-          ],
-          "s": "Dividing by the price level takes the price change out, leaving what the money would actually buy."
-        },
-        {
-          "e": "real rate = nominal rate − inflation",
-          "c": "the real interest rate",
-          "v": [
-            [
-              "nominal rate",
-              "the rate written in the contract"
-            ],
-            [
-              "inflation",
-              "the rate prices are rising at over the same period"
-            ]
-          ],
-          "s": "What a lender actually earns is the rate less what the money lost in value, which is why unexpected inflation moves wealth from lenders to borrowers.",
-          "card": false
-        }
-      ],
       "takesAsRead": [
         {
           "n": 21,
@@ -2321,19 +2075,6 @@ export const CURRICULUM = {
         "the three banks cannot raise capital externally this week",
         "fractional reserve banking: a deposit is somebody else’s loan — taken as read",
         "the spending multiplier, and why one round is not the total — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "money multiplier = 1 ÷ reserve ratio",
-          "c": "the money multiplier",
-          "v": [
-            [
-              "reserve ratio",
-              "the fraction of deposits a bank must hold rather than lend"
-            ]
-          ],
-          "s": "A pound of reserves supports several pounds of deposits, and the reserve requirement is what caps how many."
-        }
       ],
       "takesAsRead": [
         {
@@ -2708,38 +2449,6 @@ export const CURRICULUM = {
         "the debt is denominated in old marks at a fixed rate",
         "the spending multiplier, and why one round is not the total — taken as read"
       ],
-      "equations": [
-        {
-          "e": "real = nominal ÷ (index ÷ 100)",
-          "c": "deflating a nominal figure",
-          "v": [
-            [
-              "nominal",
-              "the figure as measured, in the money of the day"
-            ],
-            [
-              "index",
-              "the price index for that period, base 100"
-            ]
-          ],
-          "s": "Dividing by the price level takes the price change out, leaving what the money would actually buy."
-        },
-        {
-          "e": "real rate = nominal rate − inflation",
-          "c": "the real interest rate",
-          "v": [
-            [
-              "nominal rate",
-              "the rate written in the contract"
-            ],
-            [
-              "inflation",
-              "the rate prices are rising at over the same period"
-            ]
-          ],
-          "s": "What a lender actually earns is the rate less what the money lost in value, which is why unexpected inflation moves wealth from lenders to borrowers."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 16,
@@ -2792,38 +2501,6 @@ export const CURRICULUM = {
       "assumes": [
         "the output and price figures are for the same month",
         "short-run aggregate supply, and what a cost shock does to it — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "inflation = (index₂ − index₁) ÷ index₁ × 100",
-          "c": "an inflation rate from two index values",
-          "v": [
-            [
-              "index₁",
-              "the earlier index value"
-            ],
-            [
-              "index₂",
-              "the later one"
-            ]
-          ],
-          "s": "Inflation is the rate the price level is changing at, which is a percentage change in an index rather than the index itself."
-        },
-        {
-          "e": "output gap = (actual − potential) ÷ potential × 100",
-          "c": "the output gap",
-          "v": [
-            [
-              "actual",
-              "real output now"
-            ],
-            [
-              "potential",
-              "what the economy can produce at full employment"
-            ]
-          ],
-          "s": "How far the economy is from its capacity, which is what says whether the problem is demand or supply."
-        }
       ],
       "takesAsRead": [
         {
@@ -2893,19 +2570,6 @@ export const CURRICULUM = {
       "assumes": [
         "the board has functioning markets in government paper",
         "the money market: a rate that clears the demand for money — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "money multiplier = 1 ÷ reserve ratio",
-          "c": "the money multiplier",
-          "v": [
-            [
-              "reserve ratio",
-              "the fraction of deposits a bank must hold rather than lend"
-            ]
-          ],
-          "s": "A pound of reserves supports several pounds of deposits, and the reserve requirement is what caps how many."
-        }
       ],
       "takesAsRead": [
         {
@@ -3177,34 +2841,6 @@ export const CURRICULUM = {
         "the file passes to the next board intact",
         "a price index, and the basket it is an index of — taken as read"
       ],
-      "equations": [
-        {
-          "e": "index = (basket now ÷ basket in the base year) × 100",
-          "c": "a price index",
-          "v": [
-            [
-              "basket now",
-              "what the fixed basket costs this month"
-            ],
-            [
-              "basket in the base year",
-              "what the same basket cost in the base period"
-            ]
-          ],
-          "s": "Price the same list of goods twice and the ratio is what prices have done, with the basket held still on purpose."
-        },
-        {
-          "e": "money multiplier = 1 ÷ reserve ratio",
-          "c": "the money multiplier",
-          "v": [
-            [
-              "reserve ratio",
-              "the fraction of deposits a bank must hold rather than lend"
-            ]
-          ],
-          "s": "A pound of reserves supports several pounds of deposits, and the reserve requirement is what caps how many."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 7,
@@ -3330,27 +2966,6 @@ export const CURRICULUM = {
         "the import share of extra spending is similar to the average",
         "gross domestic product, and the four things it adds up — taken as read"
       ],
-      "equations": [
-        {
-          "e": "current account = X − M + net income + transfers",
-          "c": "the current account",
-          "v": [
-            [
-              "X − M",
-              "the trade balance"
-            ],
-            [
-              "net income",
-              "earnings on assets abroad, less those paid out"
-            ],
-            [
-              "transfers",
-              "remittances and aid, in and out"
-            ]
-          ],
-          "s": "A deficit on the current account has to be paid for by selling assets or running down reserves, which is what makes it a constraint."
-        }
-      ],
       "takesAsRead": [
         {
           "n": 5,
@@ -3416,25 +3031,6 @@ export const CURRICULUM = {
           ],
           "s": "Defending a rate means buying your own currency with reserves every day the market disagrees, so the reserve stock is a clock.",
           "computed": true
-        },
-        {
-          "e": "current account = X − M + net income + transfers",
-          "c": "the current account",
-          "v": [
-            [
-              "X − M",
-              "the trade balance"
-            ],
-            [
-              "net income",
-              "earnings on assets abroad, less those paid out"
-            ],
-            [
-              "transfers",
-              "remittances and aid, in and out"
-            ]
-          ],
-          "s": "A deficit on the current account has to be paid for by selling assets or running down reserves, which is what makes it a constraint."
         }
       ],
       "takesAsRead": [

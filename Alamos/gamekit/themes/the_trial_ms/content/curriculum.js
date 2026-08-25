@@ -142,34 +142,6 @@ export const CURRICULUM = {
       "assumes": [
         "both arms receive kit that looks identical"
       ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "a count turned into a share of a hundred",
-          "v": [
-            [
-              "part",
-              "how many it happened to"
-            ],
-            [
-              "whole",
-              "how many there were altogether"
-            ]
-          ],
-          "s": "Two groups are almost never the same size, so counts cannot be compared until both are written as a share of their own group."
-        },
-        {
-          "e": "how many needed = 100 ÷ the difference in shares",
-          "c": "how many people you have to treat for one of them to benefit",
-          "v": [
-            [
-              "the difference in shares",
-              "the gap between the two groups, in people per hundred"
-            ]
-          ],
-          "s": "Turning a difference upside down says how many people have to take a treatment for one extra person to be helped, which is the form a patient can actually use."
-        }
-      ],
       "concept": {
         "n": 1,
         "c": "A fair test changes one thing and keeps the rest the same",
@@ -212,19 +184,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "participants are assigned to arms by chance rather than by choice"
-      ],
-      "equations": [
-        {
-          "e": "chance of a fluke = 1 ÷ how many things you tested",
-          "c": "how easily something looks special when you test a lot of things",
-          "v": [
-            [
-              "how many things you tested",
-              "the number of separate comparisons that were made"
-            ]
-          ],
-          "s": "Every extra comparison is another go at the same coin, so a striking result in a long list needs a different explanation before it needs a scientific one."
-        }
       ],
       "concept": {
         "n": 1,
@@ -508,21 +467,6 @@ export const CURRICULUM = {
           ],
           "s": "Turning a difference upside down says how many people have to take a treatment for one extra person to be helped, which is the form a patient can actually use.",
           "demanded": true
-        },
-        {
-          "e": "average = total ÷ how many",
-          "c": "the middle of a set of readings",
-          "v": [
-            [
-              "total",
-              "all the readings added together"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "One person tells you about one person, and the average of a group is the first number that can be compared with another group at all."
         }
       ],
       "concept": {
@@ -573,34 +517,6 @@ export const CURRICULUM = {
       "assumes": [
         "an event is only counted once the committee has ruled on it"
       ],
-      "equations": [
-        {
-          "e": "difference = one group − the other group",
-          "c": "how much better one group did",
-          "v": [
-            [
-              "one group",
-              "the share it happened to in the treated group"
-            ],
-            [
-              "the other group",
-              "the share in the group that did not get it"
-            ]
-          ],
-          "s": "Subtracting one share from the other gives the size of the effect in the plainest form there is — how many people in a hundred it changes anything for."
-        },
-        {
-          "e": "how many needed = 100 ÷ the difference in shares",
-          "c": "how many people you have to treat for one of them to benefit",
-          "v": [
-            [
-              "the difference in shares",
-              "the gap between the two groups, in people per hundred"
-            ]
-          ],
-          "s": "Turning a difference upside down says how many people have to take a treatment for one extra person to be helped, which is the form a patient can actually use."
-        }
-      ],
       "concept": {
         "n": 10,
         "c": "People who drop out take their answers with them",
@@ -649,34 +565,6 @@ export const CURRICULUM = {
       "assumes": [
         "the symptom score is written by the treating doctor and the event is adjudicated"
       ],
-      "equations": [
-        {
-          "e": "difference = one group − the other group",
-          "c": "how much better one group did",
-          "v": [
-            [
-              "one group",
-              "the share it happened to in the treated group"
-            ],
-            [
-              "the other group",
-              "the share in the group that did not get it"
-            ]
-          ],
-          "s": "Subtracting one share from the other gives the size of the effect in the plainest form there is — how many people in a hundred it changes anything for."
-        },
-        {
-          "e": "how many needed = 100 ÷ the difference in shares",
-          "c": "how many people you have to treat for one of them to benefit",
-          "v": [
-            [
-              "the difference in shares",
-              "the gap between the two groups, in people per hundred"
-            ]
-          ],
-          "s": "Turning a difference upside down says how many people have to take a treatment for one extra person to be helped, which is the form a patient can actually use."
-        }
-      ],
       "concept": {
         "n": 9,
         "c": "Look at enough things and something looks special by luck",
@@ -724,66 +612,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the interval around an estimate says what the data are compatible with"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the middle of a set of readings",
-          "v": [
-            [
-              "total",
-              "all the readings added together"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "One person tells you about one person, and the average of a group is the first number that can be compared with another group at all."
-        },
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "a count turned into a share of a hundred",
-          "v": [
-            [
-              "part",
-              "how many it happened to"
-            ],
-            [
-              "whole",
-              "how many there were altogether"
-            ]
-          ],
-          "s": "Two groups are almost never the same size, so counts cannot be compared until both are written as a share of their own group."
-        },
-        {
-          "e": "difference = one group − the other group",
-          "c": "how much better one group did",
-          "v": [
-            [
-              "one group",
-              "the share it happened to in the treated group"
-            ],
-            [
-              "the other group",
-              "the share in the group that did not get it"
-            ]
-          ],
-          "s": "Subtracting one share from the other gives the size of the effect in the plainest form there is — how many people in a hundred it changes anything for.",
-          "card": false
-        },
-        {
-          "e": "chance of a fluke = 1 ÷ how many things you tested",
-          "c": "how easily something looks special when you test a lot of things",
-          "v": [
-            [
-              "how many things you tested",
-              "the number of separate comparisons that were made"
-            ]
-          ],
-          "s": "Every extra comparison is another go at the same coin, so a striking result in a long list needs a different explanation before it needs a scientific one.",
-          "card": false
-        }
       ],
       "concept": {
         "n": 13,
@@ -924,19 +752,6 @@ export const CURRICULUM = {
       "assumes": [
         "the board decides whether the trial continues"
       ],
-      "equations": [
-        {
-          "e": "how many needed = 100 ÷ the difference in shares",
-          "c": "how many people you have to treat for one of them to benefit",
-          "v": [
-            [
-              "the difference in shares",
-              "the gap between the two groups, in people per hundred"
-            ]
-          ],
-          "s": "Turning a difference upside down says how many people have to take a treatment for one extra person to be helped, which is the form a patient can actually use."
-        }
-      ],
       "concept": {
         "n": 13,
         "c": "Say what was found, how well, and what was not",
@@ -984,23 +799,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the board sees the trial's subgroup tables in closed session"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the middle of a set of readings",
-          "v": [
-            [
-              "total",
-              "all the readings added together"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "One person tells you about one person, and the average of a group is the first number that can be compared with another group at all."
-        }
       ],
       "concept": {
         "n": 9,
@@ -1249,34 +1047,6 @@ export const CURRICULUM = {
         "the visible flush can reveal treatment assignment",
         "adjudication removes the arm and site before the committee rules"
       ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "a count turned into a share of a hundred",
-          "v": [
-            [
-              "part",
-              "how many it happened to"
-            ],
-            [
-              "whole",
-              "how many there were altogether"
-            ]
-          ],
-          "s": "Two groups are almost never the same size, so counts cannot be compared until both are written as a share of their own group."
-        },
-        {
-          "e": "how many needed = 100 ÷ the difference in shares",
-          "c": "how many people you have to treat for one of them to benefit",
-          "v": [
-            [
-              "the difference in shares",
-              "the gap between the two groups, in people per hundred"
-            ]
-          ],
-          "s": "Turning a difference upside down says how many people have to take a treatment for one extra person to be helped, which is the form a patient can actually use."
-        }
-      ],
       "concept": {
         "n": 4,
         "c": "Not knowing who got what, and why that helps",
@@ -1346,22 +1116,6 @@ export const CURRICULUM = {
           ],
           "s": "Every extra comparison is another go at the same coin, so a striking result in a long list needs a different explanation before it needs a scientific one.",
           "computed": true
-        },
-        {
-          "e": "difference = one group − the other group",
-          "c": "how much better one group did",
-          "v": [
-            [
-              "one group",
-              "the share it happened to in the treated group"
-            ],
-            [
-              "the other group",
-              "the share in the group that did not get it"
-            ]
-          ],
-          "s": "Subtracting one share from the other gives the size of the effect in the plainest form there is — how many people in a hundred it changes anything for.",
-          "card": false
         }
       ],
       "concept": {
@@ -1418,33 +1172,6 @@ export const CURRICULUM = {
           ],
           "s": "Two groups are almost never the same size, so counts cannot be compared until both are written as a share of their own group.",
           "computed": true
-        },
-        {
-          "e": "average = total ÷ how many",
-          "c": "the middle of a set of readings",
-          "v": [
-            [
-              "total",
-              "all the readings added together"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "One person tells you about one person, and the average of a group is the first number that can be compared with another group at all."
-        },
-        {
-          "e": "how many needed = 100 ÷ the difference in shares",
-          "c": "how many people you have to treat for one of them to benefit",
-          "v": [
-            [
-              "the difference in shares",
-              "the gap between the two groups, in people per hundred"
-            ]
-          ],
-          "s": "Turning a difference upside down says how many people have to take a treatment for one extra person to be helped, which is the form a patient can actually use.",
-          "card": false
         }
       ],
       "concept": {
@@ -1728,23 +1455,6 @@ export const CURRICULUM = {
         "missing outcomes are most dangerous when the reason for missingness is tied to the outcome",
         "withdrawal of consent prevents further contact"
       ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "a count turned into a share of a hundred",
-          "v": [
-            [
-              "part",
-              "how many it happened to"
-            ],
-            [
-              "whole",
-              "how many there were altogether"
-            ]
-          ],
-          "s": "Two groups are almost never the same size, so counts cannot be compared until both are written as a share of their own group."
-        }
-      ],
       "concept": {
         "n": 5,
         "c": "Say what you are measuring before you look",
@@ -1789,19 +1499,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "participants are told about problems that affect their own treatment"
-      ],
-      "equations": [
-        {
-          "e": "how many needed = 100 ÷ the difference in shares",
-          "c": "how many people you have to treat for one of them to benefit",
-          "v": [
-            [
-              "the difference in shares",
-              "the gap between the two groups, in people per hundred"
-            ]
-          ],
-          "s": "Turning a difference upside down says how many people have to take a treatment for one extra person to be helped, which is the form a patient can actually use."
-        }
       ],
       "concept": {
         "n": 14,
@@ -1943,19 +1640,6 @@ export const CURRICULUM = {
       "assumes": [
         "participants continue treatment and follow-up until the trial ends"
       ],
-      "equations": [
-        {
-          "e": "how many needed = 100 ÷ the difference in shares",
-          "c": "how many people you have to treat for one of them to benefit",
-          "v": [
-            [
-              "the difference in shares",
-              "the gap between the two groups, in people per hundred"
-            ]
-          ],
-          "s": "Turning a difference upside down says how many people have to take a treatment for one extra person to be helped, which is the form a patient can actually use."
-        }
-      ],
       "concept": {
         "n": 13,
         "c": "Say what was found, how well, and what was not",
@@ -2001,23 +1685,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the protocol states what should happen at each visit"
-      ],
-      "equations": [
-        {
-          "e": "average = total ÷ how many",
-          "c": "the middle of a set of readings",
-          "v": [
-            [
-              "total",
-              "all the readings added together"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "One person tells you about one person, and the average of a group is the first number that can be compared with another group at all."
-        }
       ],
       "concept": {
         "n": 2,
@@ -2193,23 +1860,6 @@ export const CURRICULUM = {
         "a deviation record is evidence for later review",
         "a signed statement records what someone asserts, not necessarily what the underlying records show"
       ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "a count turned into a share of a hundred",
-          "v": [
-            [
-              "part",
-              "how many it happened to"
-            ],
-            [
-              "whole",
-              "how many there were altogether"
-            ]
-          ],
-          "s": "Two groups are almost never the same size, so counts cannot be compared until both are written as a share of their own group."
-        }
-      ],
       "concept": {
         "n": 13,
         "c": "Say what was found, how well, and what was not",
@@ -2250,23 +1900,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a locked file cannot be changed by anybody"
-      ],
-      "equations": [
-        {
-          "e": "percentage = part ÷ whole × 100",
-          "c": "a count turned into a share of a hundred",
-          "v": [
-            [
-              "part",
-              "how many it happened to"
-            ],
-            [
-              "whole",
-              "how many there were altogether"
-            ]
-          ],
-          "s": "Two groups are almost never the same size, so counts cannot be compared until both are written as a share of their own group."
-        }
       ],
       "concept": {
         "n": 5,
@@ -2403,38 +2036,6 @@ export const CURRICULUM = {
           ],
           "s": "Turning a difference upside down says how many people have to take a treatment for one extra person to be helped, which is the form a patient can actually use.",
           "demanded": true
-        },
-        {
-          "e": "average = total ÷ how many",
-          "c": "the middle of a set of readings",
-          "v": [
-            [
-              "total",
-              "all the readings added together"
-            ],
-            [
-              "how many",
-              "the number of readings"
-            ]
-          ],
-          "s": "One person tells you about one person, and the average of a group is the first number that can be compared with another group at all.",
-          "card": false
-        },
-        {
-          "e": "difference = one group − the other group",
-          "c": "how much better one group did",
-          "v": [
-            [
-              "one group",
-              "the share it happened to in the treated group"
-            ],
-            [
-              "the other group",
-              "the share in the group that did not get it"
-            ]
-          ],
-          "s": "Subtracting one share from the other gives the size of the effect in the plainest form there is — how many people in a hundred it changes anything for.",
-          "card": false
         }
       ],
       "concept": {

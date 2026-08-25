@@ -100,7 +100,7 @@ export function deliveryRoom(theme){
   if(!where) return null;
   const group = (theme?.content?.GROUPS ?? []).find(g => g.id === where) ?? null;
   const site = theme?.site ?? {};
-  const place = (site.buildings ?? []).find(b => b.group === where)
+  const place = (site.buildings ?? []).find(b => b.group === where || b.enter === where)
              ?? (site.plan?.rooms ?? []).find(r => r.group === where)
              ?? null;
   return { id: where, group, place, name: place?.name || group?.name || where };

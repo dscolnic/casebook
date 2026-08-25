@@ -250,27 +250,6 @@ export const CURRICULUM = {
         "the loans are worth what they were worth yesterday if held to maturity",
         "deposits are owed in full and on demand"
       ],
-      "equations": [
-        {
-          "e": "equity = assets − liabilities",
-          "c": "what is left for the owners",
-          "v": [
-            [
-              "assets",
-              "reserves plus loans and anything else owned"
-            ],
-            [
-              "liabilities",
-              "deposits and other money owed"
-            ],
-            [
-              "equity",
-              "the difference, which is the buffer against losses"
-            ]
-          ],
-          "s": "The two sides of a balance sheet are made equal by the owners' stake, so that stake is whatever the assets are worth beyond what is owed — and it is what absorbs a loss before a depositor does."
-        }
-      ],
       "concept": {
         "n": 4,
         "c": "Solvency is about value; liquidity is about timing",
@@ -330,25 +309,6 @@ export const CURRICULUM = {
           ],
           "s": "Selling in a hurry means selling at whatever is bid, so the cash raised is the face value of what was sold multiplied by the price it fetched rather than by what it was worth.",
           "computed": true
-        },
-        {
-          "e": "equity = assets − liabilities",
-          "c": "what is left for the owners",
-          "v": [
-            [
-              "assets",
-              "reserves plus loans and anything else owned"
-            ],
-            [
-              "liabilities",
-              "deposits and other money owed"
-            ],
-            [
-              "equity",
-              "the difference, which is the buffer against losses"
-            ]
-          ],
-          "s": "The two sides of a balance sheet are made equal by the owners' stake, so that stake is whatever the assets are worth beyond what is owed — and it is what absorbs a loss before a depositor does."
         }
       ],
       "concept": {
@@ -534,27 +494,6 @@ export const CURRICULUM = {
       "assumes": [
         "the guarantee is announced credibly and reaches most depositors overnight",
         "a depositor who expects to be paid in full has no reason to be early"
-      ],
-      "equations": [
-        {
-          "e": "equity = assets − liabilities",
-          "c": "what is left for the owners",
-          "v": [
-            [
-              "assets",
-              "reserves plus loans and anything else owned"
-            ],
-            [
-              "liabilities",
-              "deposits and other money owed"
-            ],
-            [
-              "equity",
-              "the difference, which is the buffer against losses"
-            ]
-          ],
-          "s": "The two sides of a balance sheet are made equal by the owners' stake, so that stake is whatever the assets are worth beyond what is owed — and it is what absorbs a loss before a depositor does."
-        }
       ],
       "concept": {
         "n": 7,
