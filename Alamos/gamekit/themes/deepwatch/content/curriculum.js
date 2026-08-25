@@ -596,6 +596,26 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
+          "e": "dB = 10·log₁₀(P/P₀)",
+          "c": "the decibel, and why 3 dB is a doubling",
+          "v": [
+            [
+              "dB",
+              "the level, in decibels"
+            ],
+            [
+              "P",
+              "the power being measured"
+            ],
+            [
+              "P₀",
+              "the reference power it is quoted against"
+            ]
+          ],
+          "s": "Decibels are a logarithm, so adding 3 dB is doubling the power and adding 10 dB is ten times it.",
+          "demanded": true
+        },
+        {
           "e": "SL − 2TL + TS − NL ≥ DT",
           "c": "the sonar equation as a detection budget",
           "v": [
@@ -622,6 +642,27 @@ export const CURRICULUM = {
           ],
           "s": "Detection is a budget: the echo has to survive two trips through the water and still stand above the noise.",
           "demanded": true
+        },
+        {
+          "e": "d = ½vt",
+          "c": "echo ranging on a two-way travel time",
+          "v": [
+            [
+              "d",
+              "range to the contact, in metres"
+            ],
+            [
+              "v",
+              "speed of sound in water"
+            ],
+            [
+              "t",
+              "the round-trip travel time, in seconds"
+            ]
+          ],
+          "s": "The ping goes out and comes back, so the range is half of what the travel time would otherwise give.",
+          "demanded": true,
+          "card": false
         }
       ],
       "takesAsRead": [
@@ -733,6 +774,26 @@ export const CURRICULUM = {
         "sound as a wave: frequency, wavelength, speed — taken as read"
       ],
       "equations": [
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "speed of sound in water, about 1500 metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other.",
+          "demanded": true
+        },
         {
           "e": "f_beat = |f₁ − f₂|",
           "c": "beats between two close frequencies",

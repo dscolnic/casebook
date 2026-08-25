@@ -230,25 +230,11 @@ function equationsFor(s, game, assumes){
   // supplies one.
   const shown = flat([game.answerText, game.answer, game.why, game.explanation, game.solution,
     ...(game.rebuttals ?? []).map(lbl), ...(game.choices ?? []).map(lbl)]);
-  // AND A DEMANDED CHIP HAS TO BE THE ONE THE PANEL WORKS.
-  //
-  // `demandsEquation`'s weak path is arithmetic on the card plus the equation's
-  // keyword somewhere on it, and on a stop that states its own relationship that
-  // is not enough: ContamCity's electrochemistry audit works
-  // "Q = It and n_metal = Q/(zF) = It/(zF)" and says "moles of electrons" while
-  // it does it, so `n = m / M` matched and was stamped. While the old day-based
-  // rule kept the zF chip too the card still showed the right equation; pruning
-  // to computed-or-demanded left four stops across the catalogue printing the
-  // chip that had survived rather than the one below it. `agreesWithPanel` is
-  // the same test `engine/dev/validateContent.mjs` fails the stop on — one rule,
-  // one function, in tools/syllabus.js.
-  const panel = panelWork(game);
   const out = [];
   for(const eq of list){
     const computed = eq.k.some(k => hit(formula, k));
     if(!computed && !eq.k.some(k => hit(text, k))) continue;
-    const demanded = !computed && demandsEquation(eq, shown)
-      && (!panel.trim() || agreesWithPanel(eq, panel));
+    const demanded = !computed && demandsEquation(eq, shown);
     // v and s ride along because the card has to define the symbols where it
     // shows the equation. A formula whose letters are never named teaches
     // nobody anything they did not already know.
@@ -586,7 +572,7 @@ missions.forEach((m, mi) => {
       // across the catalogue. That is not a loss of teaching — a decorative chip
       // taught nobody — it is the `curriculumDelivery` gap made visible instead of
       // papered over.
-      const kept = l.equations.filter(eq => {
+      let kept = l.equations.filter(eq => {
         if(eq.computed || eq.demanded) return true;
         dropped++;
         return false;
@@ -595,6 +581,35 @@ missions.forEach((m, mi) => {
       // because the two-per-stop cap turns the third chip into `card: false`, and
       // capping away the equation the question is worked from is the defect this
       // exception was added to fix.
+      // AND WHAT SURVIVES HAS TO INCLUDE THE EQUATION THE PANEL WORKS.
+      //
+      // The prune above is per-equation and cannot see what it leaves behind. On
+      // four stops it left the wrong one standing alone: ContamCity's
+      // electrochemistry audit works "Q = It and n_metal = Q/(zF) = It/(zF)" and
+      // says "moles of electrons" while it does it, so `demandsEquation`'s weak
+      // path — arithmetic plus a keyword — stamped `n = m / M`, and that was the
+      // only chip with a flag. The card then printed a molar-mass formula over a
+      // Faraday's-law question, which is what `engine/dev/validateContent.mjs`
+      // fails a stop for.
+      //
+      // The test is "something here agrees", not "every chip agrees", and the
+      // stricter version was written first and was wrong. A card may legitimately
+      // need a supporting equation its headline relationship does not state: Deep
+      // Watch's sonar budget works "SNR = SL − TL − (NL − AG)" and computes a
+      // decibel and a two-way range on the way, and dropping those took away the
+      // only supply `equationSupply` could see — three unsupplied equations in a
+      // theme that had none. So a disagreeing chip goes only when nothing else on
+      // the stop agrees, and `computed` is never dropped: a stop that works the
+      // numbers has worked them whatever its relationship line says.
+      //
+      // `agreesWithPanel` and `panelWork` are shared from tools/syllabus.js,
+      // because validateContent fails on this exact condition and two copies of
+      // one rule drift the first time either is corrected.
+      const panel = panelWork(l.game ?? {});
+      if(panel.trim() && kept.length && !kept.some(eq => agreesWithPanel(eq, panel))){
+        for(const eq of kept.filter(eq => !eq.computed)) dropped++;
+        kept = kept.filter(eq => eq.computed);
+      }
       const rank = (eq) => (eq.computed ? 2 : eq.demanded ? 1 : 0);
       kept.sort((a, b) => rank(b) - rank(a));
       if(kept.length > 2){ capped += kept.length - 2; }

@@ -1990,6 +1990,27 @@ export const CURRICULUM = {
           "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town.",
           "computed": true,
           "card": false
+        },
+        {
+          "e": "n(t) = K / (c + t)^p",
+          "c": "aftershock rate, falling as a power law",
+          "v": [
+            [
+              "n(t)",
+              "aftershocks per day at time t"
+            ],
+            [
+              "t",
+              "days since the mainshock"
+            ],
+            [
+              "K, c, p",
+              "constants fitted to this sequence, with p usually near 1"
+            ]
+          ],
+          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day.",
+          "demanded": true,
+          "card": false
         }
       ],
       "concept": {

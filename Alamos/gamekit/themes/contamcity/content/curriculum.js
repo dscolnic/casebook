@@ -4113,6 +4113,26 @@ export const CURRICULUM = {
           ],
           "s": "Charge is the currency: how much metal moves is set by how many electrons were pushed through.",
           "computed": true
+        },
+        {
+          "e": "n = m / M",
+          "c": "moles from a mass and a molar mass",
+          "v": [
+            [
+              "n",
+              "number of moles, in mol"
+            ],
+            [
+              "m",
+              "mass of the sample, in grams"
+            ],
+            [
+              "M",
+              "molar mass of the substance, in grams per mole"
+            ]
+          ],
+          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding.",
+          "demanded": true
         }
       ],
       "concept": {

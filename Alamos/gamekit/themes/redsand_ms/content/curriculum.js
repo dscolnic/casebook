@@ -1168,6 +1168,22 @@ export const CURRICULUM = {
           ],
           "s": "Atoms are not created or destroyed, so the two sides have to match — and when they do not, the missing kilograms are somewhere nobody has looked yet.",
           "computed": true
+        },
+        {
+          "e": "percentage = part ÷ whole × 100",
+          "c": "turning a count into a share out of a hundred",
+          "v": [
+            [
+              "part",
+              "the amount you are asking about"
+            ],
+            [
+              "whole",
+              "the amount it came out of"
+            ]
+          ],
+          "s": "Two batches of different sizes cannot be compared until both are put in the same form, and a percentage is that form.",
+          "demanded": true
         }
       ],
       "concept": {
