@@ -42,7 +42,7 @@ body{overflow:hidden;margin:0;background:#0e1113;color:var(--ink);
    be seen anywhere but on the device: the HUD's five readings rendered UNDER
    the island, with the clock and the money clipped, and every check was green.
    The touch layer had it from the start; the HUD it sits under did not. */
-/* Status: five readings, top left, over the world rather than above it. */
+/* Status: three readings, top left, over the world rather than above it. */
 #hudStatus{position:fixed;top:calc(10px + env(safe-area-inset-top));
   left:calc(12px + env(safe-area-inset-left));z-index:4;display:flex;gap:0;
   background:rgba(251,249,244,.92);backdrop-filter:blur(10px);border:1px solid var(--line);
@@ -52,9 +52,15 @@ body{overflow:hidden;margin:0;background:#0e1113;color:var(--ink);
 .hudStat:last-child{border-right:0}
 .hudLabel{font:700 .58rem/1 Inter,system-ui;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
 .hudStat b{font:800 .92rem/1.1 Inter,system-ui;font-variant-numeric:tabular-nums;color:var(--ink)}
-#hudProjection.great{color:#0a8a0a}
-#hudProjection.good{color:#b0762a}
-#hudProjection.bad{color:#c0392b}
+/* The meter is the width of the reading above it, not of the box: a bar that
+   grows the strip as it fills would shuffle Projection and Funds sideways every
+   day. Fixed 78px, and the box keeps its own min-width. */
+.hudStatMeter{min-width:88px;justify-content:center}
+.hudMeter{display:block;width:78px;height:7px;margin-top:3px;border-radius:4px;
+  background:rgba(0,0,0,.13);overflow:hidden}
+.hudMeter i{display:block;height:100%;width:0;border-radius:4px;background:var(--accent,#b0762a);
+  transition:width .5s ease}
+.hudMeter i.full{background:#0a8a0a}
 #hudClock.low{color:#b0762a}
 #hudClock.urgent{color:#c0392b}
 
@@ -196,10 +202,11 @@ body.touch #turnInBar .btn small{display:none}
 @media (max-width:820px){ #touchLook{top:calc(48px + env(safe-area-inset-top))}
   .touchBtn.big{min-width:82px;height:82px} }
 
-/* PHONE WIDTHS. The HUD was laid out for a desktop frame: five readings at a
-   74px floor each is 370px before padding, which on a 393pt phone runs the
-   Funds box off the right edge and puts #hudTools straight on top of the last
-   two. Both were only ever visible on a device — the layout is identical and
+/* PHONE WIDTHS. The HUD was laid out for a desktop frame: it was five readings
+   at a 74px floor each, 370px before padding, which on a 393pt phone ran the
+   Funds box off the right edge and put #hudTools straight on top of the last
+   two. It is four now and the arithmetic is easier, but the rules below still
+   earn their place on a narrow phone. Both were only ever visible on a device — the layout is identical and
    correct at 820px, which is where it was looked at.
 
    What changes here is size and wrapping, not what is on screen: a reading the
@@ -216,6 +223,8 @@ body.touch #turnInBar .btn small{display:none}
   .hudStat{min-width:0;padding:5px 9px}
   .hudLabel{font-size:.52rem;letter-spacing:.06em}
   .hudStat b{font-size:.84rem}
+  .hudStatMeter{min-width:0}
+  .hudMeter{width:60px;height:6px}
   /* Two rows of readings, so the objective cannot sit at 66px. */
   #objective{top:calc(96px + env(safe-area-inset-top));max-width:calc(100vw - 24px)}
   .hudBtn{padding:8px 10px;font-size:0}
@@ -243,7 +252,7 @@ body.touch #turnInBar .btn small{display:none}
 
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
-  <script type="module" crossorigin src="./assets/index-xSzacEj0.js"></script>
+  <script type="module" crossorigin src="./assets/index-DM_YjObj.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-C_1kU4jz.css">
 </head>
 <body>
@@ -251,14 +260,34 @@ body.touch #turnInBar .btn small{display:none}
 <div id="crosshair"></div>
 <div id="prompt" class="hidden"></div>
 
-<!-- Five readings and one instruction. The full-width toolbar that was here
+<!-- Three readings and one instruction. The full-width toolbar that was here
      carried the mission name, the route chips, a "Why:" line and a timeline,
-     which is a briefing document stapled over the game. -->
+     which is a briefing document stapled over the game.
+
+     There were five. "Projection" printed Great / Good / Bad — a verdict on how
+     the campaign is going, standing over the world at all times, derived from a
+     forecast of final readiness. It is still on the command board, where a
+     player who wants to know can go and look. What it was doing here was
+     grading the player while they walked, which is a different thing from
+     telling them what they need.
+
+     "Calls — 2 of 3" went for a plainer reason: #objective, directly below this
+     strip, already lists every open call by name ("Still open: Go to Reactor
+     Hall · Talk to Ingrid Sundqvist"). The box was a count of a list the player
+     can read in full nine pixels away.
+
+     And the meter carries no figure. A bar that fills is the reading; "4 of 15"
+     beside it is the chapter number coming back in through the side door. -->
 <div id="hudStatus">
-  <div class="hudStat"><span class="hudLabel">Time left</span><b id="hudClock">—</b></div>
-  <div class="hudStat"><span class="hudLabel">Calls</span><b id="hudDaysLeft">—</b></div>
-  <div class="hudStat"><span class="hudLabel">Mission</span><b id="hudMission">—</b></div>
-  <div class="hudStat"><span class="hudLabel">Projection</span><b id="hudProjection">—</b></div>
+  <div class="hudStat"><span class="hudLabel">Time left today</span><b id="hudClock">—</b></div>
+  <!-- The delivery meter, where the campaign builds something. It replaces a
+       "Mission 4 of 15" that counted the game rather than the work: the same
+       arithmetic, said as the thing at stake filling up. A campaign with no
+       `theme.delivery` (the Quick Discoveries) keeps the count — see
+       engine/core/dashboard.js. -->
+  <div class="hudStat hudStatMeter"><span class="hudLabel" id="hudDeliverLabel">Mission</span>
+    <b id="hudMission" hidden>—</b>
+    <span class="hudMeter" id="hudDeliverMeter" hidden><i id="hudDeliverFill"></i></span></div>
   <div class="hudStat"><span class="hudLabel">Funds</span><b id="hudMoney">—</b></div>
 </div>
 
