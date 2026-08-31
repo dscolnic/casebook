@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "The building that looks worst",
     "objective": "Separate what frightens people from what is actually holding the building up.",
     "briefing": "Marina Court is leaning eight degrees and its structure is undamaged. The queue outside it is not about engineering.",
-    "stake": "Monday, and Marina Court is on the front page. Six storeys of flats leaning over the marina, photographed from the water. That photograph has frightened the town more than anything the office has said. Elena Navarro has been under it. The slab is uncracked and the frame is straight. Okonkwo will not sign the demolition of a sound building on the strength of a photograph. Today you work out what actually failed.",
+    "stake": "Monday, and Marina Court is on the front page. Six storeys of flats leaning over the marina, photographed from the water. That photograph has frightened the town more than anything the office has said. Elena Navarro, the geotechnical engineer, has been under it. The slab is uncracked and the frame is straight. Okonkwo will not sign the demolition of a sound building. Not on the strength of a photograph. Today you work out what actually failed.",
     "takeaway": "A building can fail without breaking, and the thing that failed may be the ground it stands on.",
     "stops": [
       {

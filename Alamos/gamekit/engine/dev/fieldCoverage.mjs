@@ -276,7 +276,7 @@ async function scan(themeName){
   const theme = (await import(pathToFileURL(resolve(dir, 'theme.js')).href)).default;
   const { normalizeContent } = await import('../content/normalize.js');
   const content = theme.content ?? {};
-  normalizeContent(content);
+  normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
 
   const drift = [];                // authored text that has drifted from its rendered twin
   const inert = new Map();         // format -> field -> count

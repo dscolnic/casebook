@@ -18,14 +18,19 @@
 // reading fifteen against each other, which is what this does.
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { resolve, dirname } from 'node:path';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { themeDir as resolveTheme } from './registry.mjs';
+import { hasTurn, turnSelftest } from './turnRule.mjs';
+import { dayBlurb, blurbSentenceCount } from './dayCard.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 
-const themeName = process.argv[2];
+const argv = process.argv.slice(2);
+const themeName = argv.find(a => !a.startsWith('--'));
+const writeDebt = argv.includes('--write-debt');
+if(argv.includes('--selftest')){ turnSelftest(); process.exit(0); }
 if(!themeName){
-  console.error('usage: node engine/dev/checkStory.mjs <theme|path-to-theme-dir>');
+  console.error('usage: node engine/dev/checkStory.mjs <theme|path-to-theme-dir> [--write-debt] [--selftest]');
   process.exit(2);
 }
 const themeDir = resolveTheme(themeName);
@@ -74,7 +79,7 @@ normalizeContent({
   JARGON: currMod?.JARGON ?? [], BALLPARK_CALCS: currMod?.BALLPARK_CALCS ?? {},
   GROUPS: manifest?.content?.GROUPS ?? [],
   DIAGNOSIS_PACKS: currMod?.DIAGNOSIS_PACKS ?? manifest?.content?.DIAGNOSIS_PACKS ?? {},
-});
+}, manifest?.site ?? null, manifest?.fixtures ?? {});
 
 // ——— helpers ————————————————————————————————————————————————————————
 const plain = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
@@ -130,8 +135,77 @@ function answersFor(mission){
   return out.filter(a => words(a).length >= 4);
 }
 
+// A campaign this short is one sitting, same reasoning as `WARMUP_MIN_DAYS` in
+// `engine/core/warmups.js`: nine stops in one sitting has no "tomorrow" for a
+// segue to reach toward, so coverage is reported rather than gated below it.
+const SEGUE_MIN_DAYS = 4;
+// The one phrase this whole rule exists to make unnecessary. Matches loosely
+// on purpose — "And then, the next day" or "and, then," both read as the same
+// list-of-events defect this is checking for.
+const AND_THEN = /\band\b[,\s]*\bthen\b/i;
+
+// ——— rule 11's own gate: the closing card must push, not park ————————
+//
+// A segue that reads fine in isolation can still be a science recap with a
+// "But" bolted on, or the next day's stake said in different words. Four
+// checks, each mechanical rather than a literary judgement, because the
+// judgement itself stays in `STORY_SPEC.md` rule 10 for a human to read:
+//
+//   TURN        the card turns — a complication or a forced consequence —
+//               in whatever words say it (`hasTurn`, in `turnRule.mjs`). Not
+//               the literal word "But" or "Therefore": the idea.
+//   CONSEQUENCE something concrete is now at risk — a number, a clock, a
+//               named person — not just an abstract "this changes everything"
+//   NOT AN ECHO the next mission's stake does not already say the same thing
+//   NOT THE TAKEAWAY the segue is not the day's own principle restated
+//
+// This is new, and most of the campaign catalogue has not had a drama pass
+// yet — the debt file below is exactly `curriculum-debt.json`'s shape: a
+// gap not listed fails now, a listed gap that has since been fixed fails too
+// (with the line to delete named), so the list can only shrink.
+const CONSEQUENCE = new RegExp('\\d|\\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve'
+  + '|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million|billion|dozen'
+  + '|percent|per cent)\\b', 'i');
+// A first-plus-last-name pair — "Elias Webb" — for a recurring figure who is
+// deliberately NOT on the checked roster (see the three-pass brief's mandate
+// on this: keeping such a figure off the roster avoids ever colliding with
+// `checkNames`'s first-mention rule). A roster surname alone already counts,
+// below; this catches everyone else with a human stake in the sentence.
+const PROPER_NAME = /\b[A-Z][a-z]+ [A-Z][a-z]+\b/;
+const SEGUE_DEBT_FILE = resolve(HERE, 'segue-drama-debt.json');
+const readSegueDebt = () => existsSync(SEGUE_DEBT_FILE)
+  ? JSON.parse(readFileSync(SEGUE_DEBT_FILE, 'utf8')) : { _comment: '', themes: {} };
+const segueDebt = readSegueDebt();
+const debtList = new Set(segueDebt.themes?.[themeName] ?? []);
+const segueDramaGaps = [];
+
+/** The longest run of `n` words shared verbatim between two texts, or null. */
+function sharedRun(a, b, n){
+  const strip = (t) => String(t ?? '').toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
+  const wa = strip(a).split(' '), wb = strip(b).split(' ');
+  if(wa.length < n || wb.length < n) return null;
+  const runs = new Set();
+  for(let k = 0; k + n <= wb.length; k++) runs.add(wb.slice(k, k + n).join(' '));
+  for(let k = 0; k + n <= wa.length; k++){
+    const r = wa.slice(k, k + n).join(' ');
+    if(runs.has(r)) return r;
+  }
+  return null;
+}
+
+// ——— the debt ledgers ————————————————————————————————————————————————
+//
+// Declared here rather than beside the rules they serve, because the task-clause
+// gate below is in this first pass and the other four are in the second, and one
+// reader shared between them is one description of the ratchet.
+const readListDebt = (file) => existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : { _comment: '', themes: {} };
+const TASK_DEBT_FILE = resolve(HERE, 'taskclause-debt.json');
+const taskDebt = readListDebt(TASK_DEBT_FILE);
+const taskDebtList = new Set(taskDebt.themes?.[themeName] ?? []);
+const taskGaps = [];
+
 // ——— the checks ————————————————————————————————————————————————————
-let named = 0, dated = 0, tasked = 0, briefCards = 0;
+let named = 0, dated = 0, tasked = 0, briefCards = 0, segued = 0;
 const lengths = [], grades = [];
 
 MISSIONS.forEach((m, i) => {
@@ -192,8 +266,75 @@ MISSIONS.forEach((m, i) => {
   if(TIME.test(opening)) dated++;
 
   // 5. It says what the player will be asked to do.
-  if(TASK.test(stake)) tasked++;
-  else fail(`${where}: never says what the player decides — no "Today you …" clause`);
+  //
+  // Ratcheted like the other four card gates. A campaign re-authored in the
+  // imperative — "Derive the speed in glass yourself" — says what the player
+  // decides in words this regex cannot see, and the regex is the rule's
+  // spelling rather than the rule. So a day listed in the ledger is a recorded
+  // gap; a day not listed fails now if it regresses; and a listed day that has
+  // since been written the long way fails too, naming the line to delete.
+  if(TASK.test(stake)){
+    tasked++;
+    if(taskDebtList.has(where)){
+      fail(`${where}: ${TASK_DEBT_FILE.split('/').pop()} lists this stake as owing the task clause, `
+         + 'and it now has one — delete the line');
+    }
+  } else {
+    if(taskDebtList.has(where)) note(`${where}: no "Today you …" clause (recorded debt)`);
+    else fail(`${where}: never says what the player decides — no "Today you …" clause`);
+    taskGaps.push(where);
+  }
+
+  // 5b. See rule 11: the debrief segue, checked wherever one is authored.
+  // Coverage across the campaign is reported below, not gated here — a short
+  // campaign is not asked for one at all, and a long one earns the note
+  // rather than the fail so the file can be picked up gradually.
+  const segue = String(m.segue ?? '').trim();
+  if(segue){
+    segued++;
+    if(AND_THEN.test(segue)){
+      fail(`${where}: the segue reads "…${segue.match(AND_THEN)[0]}…" — an And Then is the one `
+         + `connective this rule bans; make it a But (a complication) or a Therefore (a forced `
+         + `consequence) — in any wording, the literal words are not required`);
+    }
+    if(words(segue).length < 6){
+      fail(`${where}: the segue is ${words(segue).length} word(s) — too short to say what happened and what it forces next`);
+    }
+
+    // The drama gate: does the closing card actually push the story, per
+    // STORY_SPEC rule 10/11 and the three-pass brief's mandate 5. Debt-gated —
+    // see the constants above.
+    const next = MISSIONS[i + 1];
+    const dramaProblems = [];
+    if(!hasTurn(segue)){
+      dramaProblems.push('does not turn — it carries no complication and no forced consequence, '
+        + 'which is the But-or-Therefore rule 11 is named for (any wording will do: "yet", '
+        + '"however", clause-initial "so" or "now", "that leaves" — the idea, not the word)');
+    }
+    if(!CONSEQUENCE.test(segue) && !surnames.some(s => segue.includes(s)) && !PROPER_NAME.test(segue)){
+      dramaProblems.push('names no number, clock or person — nothing concrete is at risk in it');
+    }
+    if(next){
+      const echo = sharedRun(segue, String(next.stake ?? ''), 6);
+      if(echo) dramaProblems.push(`shares "…${echo}…" with the next stake verbatim — it previews `
+        + 'the next card instead of bridging to it');
+    }
+    const takeawayEcho = sharedRun(segue, String(m.takeaway ?? ''), 6);
+    if(takeawayEcho) dramaProblems.push(`shares "…${takeawayEcho}…" with this day's own takeaway — `
+      + 'the segue is drama, the takeaway is the principle, and they are not the same job');
+
+    if(dramaProblems.length){
+      if(debtList.has(where)){
+        note(`${where}: segue owes its drama gate (recorded debt) — ${dramaProblems.join('; ')}`);
+      } else {
+        fail(`${where}: the segue ${dramaProblems.join('; ')}`);
+      }
+      segueDramaGaps.push(where);
+    } else if(debtList.has(where)){
+      fail(`${where}: ${SEGUE_DEBT_FILE.split('/').pop()} lists this segue as owing the drama gate, `
+         + 'and it now passes — delete the line');
+    }
+  }
 
   // 6. It does not answer the day's own questions. This is the one that
   //    silently ruins a stop: the player reads the answer on the plan card and
@@ -244,6 +385,109 @@ MISSIONS.forEach((m, i) => {
   }
 });
 
+// ——— day-card shape: brief, and names live on the calls ————————————————
+//
+// The complaint this exists for: the opening blurb (stake + any distinct
+// briefing) had grown past what a player reads before every stop, and it and
+// the closing card were carrying "who said what" cast business that belongs
+// on the calls — a stake or a segue is the event and its turn, not a roll
+// call. Ratcheted the same way as the drama gate above: a mission not listed
+// in the debt file fails now if it violates; one listed there that has since
+// been fixed fails too, naming the line to delete.
+const STAKE_LENGTH_DEBT_FILE = resolve(HERE, 'stakelength-debt.json');
+const NAMEFREE_DEBT_FILE = resolve(HERE, 'namefree-debt.json');
+const REASON_DEBT_FILE = resolve(HERE, 'reasoncoverage-debt.json');
+const SEGUE_GRADE_DEBT_FILE = resolve(HERE, 'seguegrade-debt.json');
+const stakeLengthDebt = readListDebt(STAKE_LENGTH_DEBT_FILE);
+const nameFreeDebt = readListDebt(NAMEFREE_DEBT_FILE);
+const reasonDebt = readListDebt(REASON_DEBT_FILE);
+const segueGradeDebt = readListDebt(SEGUE_GRADE_DEBT_FILE);
+const stakeLengthDebtList = new Set(stakeLengthDebt.themes?.[themeName] ?? []);
+const nameFreeDebtList = new Set(nameFreeDebt.themes?.[themeName] ?? []);
+const reasonDebtList = new Set(reasonDebt.themes?.[themeName] ?? []);
+const segueGradeDebtList = new Set(segueGradeDebt.themes?.[themeName] ?? []);
+const stakeLengthGaps = [];
+const nameFreeGaps = [];
+const reasonGaps = [];
+const segueGradeGaps = [];
+// A flat grade-6.5 ceiling, not the campaign's own `audience.grade` — the
+// closing card is a motivating beat between missions, not the taught content,
+// so it is held to the same "hard concepts explained for sixth graders" bar
+// as everything else this repo authors for a reader rather than a curriculum.
+// Flesch-Kincaid alone would pass "watched in silence by the crew who set
+// them by feel for forty-one years" — short words, one clause — so this is a
+// necessary-but-not-sufficient gate: it catches long/heavy prose, not passive
+// or abstract phrasing, which stays a human judgement call.
+const SEGUE_GRADE_CEILING = 6.5;
+
+// Only a roster surname counts here, deliberately narrower than the drama
+// gate's own "First Last" pattern above — that pattern matches "Mast Base" or
+// "Sluice Control" just as readily as it matches a person, which is fine when
+// the gate is looking for *any* concrete anchor but not fine when the gate is
+// asking "does this name a person" and expects the answer to be reliable.
+const namesSomebody = (text) => {
+  const t = String(text ?? '');
+  return surnames.some((s) => new RegExp(`(^|[^A-Za-z])${s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([^A-Za-z]|$)`).test(t));
+};
+
+MISSIONS.forEach((m, i) => {
+  const where = `${manifest.dayNoun ?? 'Day'} ${i + 1} (${m.title})`;
+
+  const blurbLen = blurbSentenceCount(m);
+  if(blurbLen > 4){
+    if(stakeLengthDebtList.has(where)) note(`${where}: opening blurb runs ${blurbLen} sentences (recorded debt)`);
+    else fail(`${where}: opening blurb (stake + briefing) runs ${blurbLen} sentences — four is the limit`);
+    stakeLengthGaps.push(where);
+  } else if(stakeLengthDebtList.has(where)){
+    fail(`${where}: ${STAKE_LENGTH_DEBT_FILE.split('/').pop()} lists this stake as owing the length gate, `
+       + 'and it now passes — delete the line');
+  }
+
+  const { stake: blurbStake, briefing: blurbBriefing } = dayBlurb(m);
+  const blurbText = [blurbStake, blurbBriefing].filter(Boolean).join(' ');
+  const segueText = String(m.segue ?? '').trim();
+  const namedOn = [];
+  if(namesSomebody(blurbText)) namedOn.push('the opening blurb');
+  if(segueText && namesSomebody(segueText)) namedOn.push('the closing card');
+  if(namedOn.length){
+    if(nameFreeDebtList.has(where)) note(`${where}: ${namedOn.join(' and ')} name somebody (recorded debt)`);
+    else fail(`${where}: ${namedOn.join(' and ')} name somebody — that belongs on the call's own reason, `
+       + 'not the plan card or the debrief');
+    nameFreeGaps.push(where);
+  } else if(nameFreeDebtList.has(where)){
+    fail(`${where}: ${NAMEFREE_DEBT_FILE.split('/').pop()} lists this day as naming somebody on the blurb `
+       + 'or segue, and it now does not — delete the line');
+  }
+
+  if(segueText){
+    const sg = fk(segueText);
+    if(sg != null && sg > SEGUE_GRADE_CEILING){
+      if(segueGradeDebtList.has(where)) note(`${where}: closing card reads at grade ${sg.toFixed(1)} (recorded debt)`);
+      else fail(`${where}: closing card reads at grade ${sg.toFixed(1)} — ${SEGUE_GRADE_CEILING} is the ceiling, `
+         + 'direct sentences a sixth grader reads easily, not literary ones');
+      segueGradeGaps.push(where);
+    } else if(segueGradeDebtList.has(where)){
+      fail(`${where}: ${SEGUE_GRADE_DEBT_FILE.split('/').pop()} lists this closing card as owing the `
+         + 'reading-grade gate, and it now passes — delete the line');
+    }
+  }
+
+  for(const stop of m.stops ?? []){
+    const lesson = CURRICULUM[stop.group]?.[stop.lesson];
+    if(!lesson?.game) continue;
+    const stopWhere = `${where} — "${stop.title ?? lesson.title ?? ''}"`;
+    if(!String(stop.reason ?? '').trim()){
+      if(reasonDebtList.has(stopWhere)) note(`${stopWhere}: no reason (recorded debt)`);
+      else fail(`${stopWhere}: no reason — every call needs one line saying why it matters today, since `
+         + 'names now live there instead of the plan card');
+      reasonGaps.push(stopWhere);
+    } else if(reasonDebtList.has(stopWhere)){
+      fail(`${stopWhere}: ${REASON_DEBT_FILE.split('/').pop()} lists this stop as missing a reason, and it `
+         + 'now has one — delete the line');
+    }
+  }
+});
+
 // ——— campaign-level ————————————————————————————————————————————————
 const total = MISSIONS.length;
 // A brief stake has no room for a name and is not meant to carry one: naming
@@ -265,6 +509,13 @@ if(dated < Math.ceil(total * 0.8)){
 }
 if(!manifest.dayNoun){
   note(`no dayNoun in the manifest, so the plan card says "Day N" — right only if a mission really is a day`);
+}
+if(total >= SEGUE_MIN_DAYS){
+  // The last day never carries one (rule 11, same as the takeaway), so it is
+  // excluded from the denominator rather than counted as a miss forever.
+  const eligible = Math.max(0, total - 1);
+  note(`${segued}/${eligible} day(s) carry a debrief segue (rule 11) — `
+     + (segued === eligible ? 'every one that can have one does' : 'coverage, not a gate, while this rule is adopted'));
 }
 
 // ——— the scaffold's own words ————————————————————————————————————————
@@ -463,6 +714,50 @@ if(!manifest.dayNoun){
          + '"you checked the instruments the decisions rested on" is the beat');
     }
   }
+}
+
+// ——— write the segue-drama debt, instead of reporting ————————————————
+if(writeDebt){
+  segueDebt._comment = segueDebt._comment || 'Closing-card segues that do not yet pass the rule 10/11 '
+    + 'drama gate (checkStory.mjs): no turn (neither complication nor forced consequence, in any '
+    + 'wording), nothing concrete at risk, or an echo of the next '
+    + 'stake or this day\'s own takeaway. A day not listed here fails immediately if it regresses; a '
+    + 'day listed here that now passes fails too, naming the line to delete. Shrinks as the three-pass '
+    + 'brief (THREE_PASS_BRIEF.md) reaches each campaign.';
+  segueDebt.themes = segueDebt.themes ?? {};
+  if(segueDramaGaps.length) segueDebt.themes[themeName] = segueDramaGaps;
+  else delete segueDebt.themes[themeName];
+  writeFileSync(SEGUE_DEBT_FILE, JSON.stringify(segueDebt, null, 2) + '\n');
+  console.log(`wrote ${SEGUE_DEBT_FILE}: ${themeName} owes the drama gate on `
+    + `${segueDramaGaps.length} of ${segued} segue(s)`);
+
+  const writeListDebt = (file, debt, comment, gaps) => {
+    debt._comment = debt._comment || comment;
+    debt.themes = debt.themes ?? {};
+    if(gaps.length) debt.themes[themeName] = gaps;
+    else delete debt.themes[themeName];
+    writeFileSync(file, JSON.stringify(debt, null, 2) + '\n');
+    console.log(`wrote ${file}: ${themeName} owes ${gaps.length}`);
+  };
+  writeListDebt(TASK_DEBT_FILE, taskDebt,
+    'Missions whose stake does not say what the player decides in the "Today you …" shape '
+    + '(checkStory.mjs). A campaign written in the imperative says it in words the rule\'s regex '
+    + 'cannot see. Same ratchet as the other debt files here.', taskGaps);
+  writeListDebt(STAKE_LENGTH_DEBT_FILE, stakeLengthDebt,
+    'Missions whose opening blurb (stake + any distinct briefing) runs past four sentences '
+    + '(checkStory.mjs). A day not listed fails now if it regresses; one listed here that has '
+    + 'since been fixed fails too, naming the line to delete.', stakeLengthGaps);
+  writeListDebt(NAMEFREE_DEBT_FILE, nameFreeDebt,
+    'Missions whose opening blurb or closing card names somebody (checkStory.mjs) — names belong '
+    + "on the call's own reason instead. Same ratchet as the other debt files here.", nameFreeGaps);
+  writeListDebt(REASON_DEBT_FILE, reasonDebt,
+    'Stops with no authored `reason` (checkStory.mjs) — every call needs one line saying why it '
+    + 'matters today. Same ratchet as the other debt files here.', reasonGaps);
+  writeListDebt(SEGUE_GRADE_DEBT_FILE, segueGradeDebt,
+    `Closing cards reading above grade ${SEGUE_GRADE_CEILING} (checkStory.mjs) — a flat ceiling, not `
+    + "the campaign's own audience grade, since the closing card motivates rather than teaches. Same "
+    + 'ratchet as the other debt files here.', segueGradeGaps);
+  process.exit(0);
 }
 
 // ——— report ————————————————————————————————————————————————————————

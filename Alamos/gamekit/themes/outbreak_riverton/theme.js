@@ -20,6 +20,8 @@ import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
 import { INTERIORS } from './interiors.js';
+import { FIXTURES } from './fixtures.js';
+import { MINOR_INTERIORS } from './minors.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 
 export default {
@@ -33,6 +35,16 @@ export default {
   // days.
   dayNoun: 'Stage',
 
+  // The plan card's opening blurb is a date stamp and two sentences: the one
+  // thing that is true this morning, and the one thing the player does about
+  // it. The long form — a name, a job title, an argument between two leads,
+  // and what it costs — was read fifteen times over a campaign and buried the
+  // one line that changes every stage under a paragraph that did not. The
+  // cast, the argument and the stakes did not go away; they moved to the
+  // calls' own `reason:` lines, to the people themselves, and to the day
+  // debrief. `engine/dev/checkStory.mjs` reads this and swaps the 90-word
+  // floor for a 30–70 word ceiling-only band. See gamekit/BRIEFING_PASS.md.
+  stakeStyle: 'brief',
 
   id: 'outbreak_riverton',
   title: 'Outbreak: Riverton',
@@ -66,10 +78,13 @@ export default {
     extras: 48,
   },
 
-  // What is inside each room the player walks into, from book.yml. Rooms are
-  // built by engine/world/interiorBuilding.js on first entry, in a district
-  // four kilometres from the town.
-  interiors: INTERIORS,
+  // What is inside each room the player walks into, from book.yml, plus City
+  // Health Command — the one facade promoted past the two-stop bar. See
+  // ./minors.js and gamekit/PLACEMENT_PASS.md.
+  interiors: { ...INTERIORS, ...MINOR_INTERIORS },
+  // The objects the questions are asked at, built on entry from the open call.
+  // engine/world/interiorFixtures.js; catalogue in ./fixtures.js.
+  fixtures: FIXTURES,
   // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
   interiorStyle: 'lab',
@@ -92,8 +107,12 @@ export default {
   // against.
   delivery: {
     name: 'The Riverton Outbreak File',
-    what: 'The file the city and the state both act on: what the agent is, how it moves between '
-      + 'people, who it makes sickest, and what actually stops it.',
+    // The HUD meter's label, above the bar that replaced "Mission N of M". Two
+    // or three words, and it names the goal rather than the progress — the bar
+    // says how far along; the label says what is filling it.
+    meter: 'Findings confirmed',
+    what: 'The evidence file Riverton acts on: what is causing the outbreak, how it spreads, '
+      + 'which patients are in danger, what can stop it, and which uncertainties still matter.',
     where: 'POP',
     pieces: [
       'The case definition',
@@ -114,28 +133,24 @@ export default {
     ],
   },
   opening: [
-    'Three hospitals in one river city saw the same strange illness. All three reported it inside a '
-    + 'day of each other. Seven patients. Four days. The same four symptoms in every one of them. You '
-    + 'are the scientific response director. You choose what gets measured. The city then acts on '
-    + 'whatever comes back. Over fifteen stages you build the Riverton outbreak file. It says what the '
-    + 'illness is. It says how it passes from one person to the next. It says who it makes sickest. It '
-    + 'says what actually stops it. One settled fact goes in at each stage. Nothing goes in that only '
-    + 'one test supports. An outbreak can be stopped while it is small. This one has been running for '
-    + 'four days.',
+    'Three Riverton hospitals have admitted seven people with the same fast-moving illness in four days. '
+    + 'Elias Webb is already on oxygen, and no one knows what is making him sick or how it is spreading. '
+    + 'You are the scientific response director, and what you build is the Riverton Outbreak File. '
+    + 'Find what is causing this, how it moves, and what will '
+    + 'stop it before the hospitals fill.',
   ],
 
   // How it ends. Shown when the campaign closes and printed as the book's last page.
   ending: [
-    'Forty-two days with no new case, and the outbreak was declared over on a Tuesday afternoon. '
-    + 'The treatment works. The case definition held from the third week to the last. The animal '
-    + 'reservoir was settled in the end — not by the briefing, but by the survey the briefing said '
-    + 'was still needed.',
-    'The clinics stayed open, the surveillance stayed funded, and the curve that made the city '
-    + 'frightened in March is now a figure in a report somebody else will learn from.',
-    'That curve was bent by somebody, and it was you. You built a case definition that '
-    + 'survived from the third week to the last, you tested what would change a decision rather '
-    + 'than what was easy to test, and you told a frightened city the truth while it was still '
-    + 'frightening. A city stopped an outbreak. You are the reason it could.',
+    'At 4:07 p.m., the mayor reads the briefing you signed. Riverton acts on the transmission route the '
+    + 'evidence supports, keeps the treatment under follow-up, leaves the river-animal reservoir marked '
+    + 'unresolved, and protects the integrated surveillance system instead of declaring the science finished.',
+    'Six weeks later, the city reaches forty-two days with no new case and ends the emergency. Elias Webb is '
+    + 'home. Later field sampling settles the reservoir question using the comparison sites and repeat survey '
+    + 'your briefing required.',
+    'The outbreak did not end because every uncertainty disappeared. It ended because you kept separating '
+    + 'measurement from inference, tested the explanations that would change a decision, and acted at the '
+    + 'strength the evidence could support. Riverton could make the right calls because you made the science usable.',
   ],
   look: {
     fov: 66,            // a 72° field distorts badly down a straight street

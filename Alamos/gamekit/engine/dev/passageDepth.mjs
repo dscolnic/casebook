@@ -118,7 +118,7 @@ async function rosterOf(themeName){
   const theme = (await import(pathToFileURL(resolve(themeDir(themeName), 'theme.js')).href)).default;
   const { normalizeContent } = await import('../content/normalize.js');
   const content = theme.content ?? {};
-  normalizeContent(content);
+  normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
   const R = content.ROSTER ?? [];
   return Array.isArray(R) ? R : Object.values(R).filter(Array.isArray).flat();
 }

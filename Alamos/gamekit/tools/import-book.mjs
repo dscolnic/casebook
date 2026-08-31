@@ -485,6 +485,11 @@ missions.forEach((m, mi) => {
     // plan card between the calls and the map.
     ...(Array.isArray(m.primer) ? { primer: m.primer } : {}),
     takeaway: m.takeaway ?? '',
+    // What happened today, and what it forces tomorrow — a But/Therefore beat,
+    // never an "and then." Printed on the debrief card before the compliment.
+    // See gamekit/STORY_SPEC.md rule 11. Optional: a campaign without one keeps
+    // today's card exactly as it was.
+    ...(m.segue ? { segue: String(m.segue) } : {}),
     stops: outStops,
   });
 });

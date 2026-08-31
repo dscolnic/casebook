@@ -7,7 +7,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Forty people, and what they have heard",
-      "scene": "Okonjo's queue was eleven people on Friday and forty this morning. Nothing has been announced. The board has not met since Thursday.",
+      "scene": "The counter supervisor Okonjo's queue was eleven people on Friday and forty this morning. Nothing has been announced. The board has not met since Thursday.",
       "takeaway": "Expectations move before policy does, and a silence is read as information.",
       "place": "Counter Room",
       "guide": "A queue is a measurement of what people expect rather than of what has happened. Ask what would make somebody move today rather than next week, and which of the four explanations on offer is consistent with nothing having been announced.",
@@ -15,7 +15,7 @@ export const CURRICULUM = {
         "Why expectations are a policy variable rather than a mood. People act on what they think the rate will be, so the belief changes behaviour before any policy does. A rumour is therefore a monetary event, and the board's silence is a statement whether it means to be or not.",
         "What the counter measures that the index cannot. The index reports prices already charged. The queue reports what people think prices will do, which is the variable the board can actually move on Friday."
       ],
-      "story": "Okonjo's queue was eleven people on Friday and forty this morning. Nothing has been announced. The board has not met since Thursday.",
+      "story": "The counter supervisor Okonjo's queue was eleven people on Friday and forty this morning. Nothing has been announced. The board has not met since Thursday.",
       "game": {
         "type": "CHOICE",
         "title": "Forty people, and what they have heard",
@@ -60,15 +60,15 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "A rate that fell in a bad month",
-      "scene": "Prentice has 41,000 unemployed out of a labour force of 486,000, down from 44,000 out of 502,000. Three factories shut during the month.",
+      "scene": "Della Prentice, the labour statistician, has 41,000 unemployed out of a labour force of 486,000, down from 44,000 out of 502,000. Three factories shut during the month.",
       "takeaway": "A rate can fall because its denominator shrank rather than because its numerator did.",
       "place": "Counter Room",
-      "guide": "Work out both rates and compare them. Then look at what happened to the denominator, because the labour force fell by sixteen thousand in a month when three factories closed, and that is the whole of the story.",
+      "guide": "Work out both rates and compare them. Then look at what happened to the denominator. The labour force fell by sixteen thousand in a month when three factories closed, and that is the whole of the story.",
       "background": [
         "Who is in the labour force. People working, and people not working who are looking for work. Somebody who stops looking is in neither category and leaves the calculation entirely, which lowers the numerator and the denominator at once.",
         "Why a falling rate can be bad news. If people leave the labour force faster than they find work, the rate falls while fewer people are working. The figure that does not have this problem is the participation rate, which is why it is published beside it."
       ],
-      "story": "Prentice has 41,000 unemployed out of a labour force of 486,000, down from 44,000 out of 502,000. Three factories shut during the month.",
+      "story": "Della Prentice, the labour statistician, has 41,000 unemployed out of a labour force of 486,000, down from 44,000 out of 502,000. Three factories shut during the month.",
       "game": {
         "type": "BALLPARK",
         "title": "A rate that fell in a bad month",
@@ -77,7 +77,7 @@ export const CURRICULUM = {
         "task": "Say what the labour figure counts",
         "question": "Estimate this month's unemployment rate.",
         "answer": "About 8.4 per cent, down from 8.8 — while the labour force shrank by 16,000.",
-        "why": "Forty-one thousand over 486,000 is 8.4 per cent, against 8.8 last month, so the published rate improves. The labour force fell by sixteen thousand in the same month, which is where the improvement came from: people who stop looking are in neither the numerator nor the denominator, so they leave the rate rather than raising it. Three factories closing and a rate falling are consistent, and that is the point. Using last month's labour force with this month's unemployed gives 8.2, which mixes two months and makes the fall look larger.\n",
+        "why": "Forty-one thousand over 486,000 is 8.4 per cent, against 8.8 last month, so the published rate improves. The labour force fell by sixteen thousand in the same month, and that is where the improvement came from. People who stop looking are in neither the numerator nor the denominator. So they leave the rate rather than raising it. Three factories closing and a rate falling are consistent, and that is the point. Using last month's labour force with this month's unemployed gives 8.2, which mixes two months and makes the fall look larger.\n",
         "rebuttals": [
           "Using last month's labour force with this month's unemployed mixes two periods.",
           "The change in the labour force is the explanation rather than the rate being asked for."
@@ -143,7 +143,7 @@ export const CURRICULUM = {
         "task": "Say what the wage actually buys",
         "question": "Estimate the drivers' current wage in base-year terms.",
         "answer": "About 793 base-year marks, against 890 before — eleven per cent worse off.",
-        "why": "Dividing 2,180 by the price level of 2.75 gives 793 base-year marks, against 890 in the base year: the drivers are about eleven per cent worse off while their nominal wage has more than doubled. That is the whole reason the distinction exists, and it is what makes the wage claim arguable rather than greedy — 2,600 is 945 in real terms, six per cent above where they started. Multiplying by the index instead of dividing gives 5,995, which is the error that makes any historical comparison absurd in the flattering direction.\n",
+        "why": "Dividing 2,180 by the price level of 2.75 gives 793 base-year marks, against 890 in the base year. The drivers are about eleven per cent worse off, and their nominal wage has more than doubled. That is the whole reason the distinction exists. It is also what makes the wage claim arguable rather than greedy. In real terms 2,600 is 945, six per cent above where they started. Multiplying by the index instead of dividing gives 5,995, which is the error that makes any historical comparison absurd in the flattering direction.\n",
         "rebuttals": [
           "Multiplying by the price level inflates a figure that is already in today's money.",
           "Comparing the two nominal wages directly compares two different currencies of the same name."
@@ -209,7 +209,7 @@ export const CURRICULUM = {
         "task": "Say what the counter tells the board about Friday",
         "question": "What has the queue already decided?",
         "answer": "That the old currency will be worth less later",
-        "why": "Eighty-one people in a hundred took the maximum they were allowed, which is a bet that waiting costs them — that the old currency buys less later than now. That is a statement about the expected rate rather than about the counter, and eighty-one in a hundred makes it a distribution rather than a rumour. It matters this afternoon because a rate set above what people expect is believed and one set below it is tested with reserves. Closing hours would change when people come rather than how much they take. A shortage of new notes would show as people taking less. And a board expected to set no rate would produce hoarding of goods rather than a queue for currency.\n",
+        "why": "Eighty-one people in a hundred took the maximum they were allowed. That is a bet that waiting costs them, and that the old currency buys less later than now. That is a statement about the expected rate rather than about the counter, and eighty-one in a hundred makes it a distribution rather than a rumour. It matters this afternoon because a rate set above what people expect is believed and one set below it is tested with reserves. Closing hours would change when people come rather than how much they take. A shortage of new notes would show as people taking less. And a board expected to set no rate would produce hoarding of goods rather than a queue for currency.\n",
         "rebuttals": [
           "Closing hours change when people arrive rather than how much each of them takes.",
           "Expecting a shortage of new notes would make people take less, not more.",
@@ -244,25 +244,25 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "A number with a reason",
-      "scene": "Farr has a draft announcement with the rate in it and nothing else. Okonjo has forty people who will read it in the morning and decide what to do.",
+      "title": "A number is not yet a promise",
+      "scene": "Farr has a draft page with “4.15” in large type and nothing underneath it. Okonjo has forty people who will decide whether to hold the new currency or spend it as soon as the counter opens.",
       "takeaway": "A rate announced with its reason can be checked; one announced alone can only be believed.",
       "place": "Counter Room",
-      "guide": "A rate is a number and an announcement is an instrument. Decide what the statement has to carry beyond the figure, given that the people reading it are choosing whether to hold the new currency or spend it at once.",
+      "guide": "A rate is a number and an announcement is an instrument. Decide what the statement has to carry beyond the figure. The people reading it are choosing whether to hold the new currency or spend it at once.",
       "background": [
         "Why the reason travels further than the number. A rate announced with the reserve position behind it can be checked, and a rate announced alone can only be believed or not. What people are deciding is whether the rate will hold, which is a question about the reserves rather than about the figure.",
         "What must not be in it. Anything the board might have to correct. A single revision costs more credibility than any sentence buys, which is Farr's one rule and the reason the statement is short."
       ],
-      "story": "Farr has a draft announcement with the rate in it and nothing else. Okonjo has forty people who will read it in the morning and decide what to do.",
+      "story": "Farr has a draft page with “4.15” in large type and nothing underneath it. Okonjo has forty people who will decide whether to hold the new currency or spend it as soon as the counter opens.",
       "game": {
         "type": "TRIAGE",
-        "title": "A number with a reason",
+        "title": "A number is not yet a promise",
         "setup": "Counter Room",
-        "play": "Say what the announcement has to contain",
-        "task": "Say what the announcement has to contain",
-        "question": "What has to be in the announcement besides the rate?",
+        "play": "Say what evidence must travel with any final rate",
+        "task": "Say what evidence must travel with any final rate",
+        "question": "What evidence has to be printed beside any final rate?",
         "answer": "The reserve position the rate is held with",
-        "why": "What the queue is deciding is whether the rate will hold, and that is a question about reserves rather than about the number. Publishing the position lets anybody check the promise instead of taking it, which is what makes it hold. A price forecast is exactly the figure the board might have to correct, and one revision costs more than the forecast buys. An assurance that the rate will never change is a promise the board cannot keep and will be tested on. Naming the votes is a transparency measure about the board rather than evidence about the currency, and it moves nobody in the queue.\n",
+        "why": "The public cannot check the board’s confidence, but it can check the reserve position and the defence arithmetic. Printing those makes the promise falsifiable rather than merely reassuring. A price forecast is a different claim and may be revised. “Never change” is a promise the board cannot guarantee. Vote names improve governance transparency but do not show whether the currency can be defended.",
         "rebuttals": [
           "A price forecast is the one figure most likely to need correcting, and a correction is expensive.",
           "A permanent promise cannot be kept, and the market will test it rather than believe it.",
@@ -301,9 +301,9 @@ export const CURRICULUM = {
       "scene": "Of 41,000 unemployed: about 9,000 between jobs, about 14,000 whose trades have gone, and the rest laid off since the changeover began.",
       "takeaway": "Only cyclical unemployment answers to a demand policy.",
       "place": "Counter Room",
-      "guide": "Sort the three groups by what would put each of them back to work. One responds to demand, one to time, and one to training or to moving — and only one of the three is what a monetary or fiscal decision this fortnight can touch.",
+      "guide": "Sort the three groups by what would put each of them back to work. One responds to demand, one to time, and one to training or to moving. Only one of the three is what a monetary or fiscal decision this fortnight can touch.",
       "background": [
-        "Why the natural rate is not zero. People between jobs and people whose trades have gone exist in any healthy economy, which is why full employment is defined at about five per cent here rather than at nought.",
+        "Why the natural rate is not zero. People between jobs and people whose trades have gone exist in any healthy economy. That is why full employment is defined at about five per cent here rather than at nought.",
         "What the board can actually move. The 18,000 laid off since the changeover are cyclical: demand fell and they went with it, and demand returning brings them back. The other two groups need time or retraining, and no rate decision reaches them."
       ],
       "story": "Of 41,000 unemployed: about 9,000 between jobs, about 14,000 whose trades have gone, and the rest laid off since the changeover began.",
@@ -315,7 +315,7 @@ export const CURRICULUM = {
         "task": "Match each group to what would put them back to work.",
         "question": "Match each group to what would put them back to work.",
         "answer": "Frictional needs time, structural needs retraining, cyclical needs demand — and the natural rate is what the first two add up to.",
-        "why": "Three kinds of unemployment and three different answers. Nine thousand between jobs need time and information; that is frictional and it exists in any healthy economy. Fourteen thousand whose trades have closed need retraining or somewhere else to live, and no rate decision reaches them within a fortnight. Eighteen thousand laid off since the changeover are cyclical — demand fell and they went with it — and they are the group a policy this month can actually move. The five per cent is not a fourth group: it is where the first two sit, which is why full employment is defined above zero.\n",
+        "why": "Three kinds of unemployment and three different answers. Nine thousand between jobs need time and information; that is frictional and it exists in any healthy economy. Fourteen thousand whose trades have closed need retraining or somewhere else to live, and no rate decision reaches them within a fortnight. Eighteen thousand laid off since the changeover are cyclical: demand fell and they went with it. They are the group a policy this month can actually move. The five per cent is not a fourth group: it is where the first two sit, which is why full employment is defined above zero.\n",
         "rebuttals": [
           "People between jobs need time and information rather than stimulus.",
           "A closed trade is structural: the jobs are gone, so the answer is retraining or moving.",
@@ -366,37 +366,37 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "Savers, and importers",
-      "scene": "At 4.15 rather than the 3.60 savers wanted, somebody holding 10,000 old marks gets 2,410 new ones instead of 2,778. The reserves hold 4.15 for 134 days and 3.60 for 36.",
-      "takeaway": "Two groups pay for any rate, and one of them pays later and more.",
+      "title": "Fewer new units is not the whole loss",
+      "scene": "At 4.15, 10,000 old marks convert to about 2,410 new marks; at 3.60 they would convert to about 2,778. The reserve clock says 4.15 can be defended for about 134 days while 3.60 lasts about 36.",
+      "takeaway": "Redenomination changes units; the real distributional effects come from relative prices, external value, inflation and whether the promise holds.",
       "place": "Counter Room",
-      "guide": "Work out who is worse off at 4.15 than at 3.60, and who is worse off if the rate is set at 3.60 and then abandoned in five weeks. Both groups are real people and the second group is larger, which is the argument.",
+      "guide": "Do not call the smaller number of new units a purchasing-power loss by itself. Ask what happens to domestic prices that are converted at the same factor, and separately what happens to imported goods and to confidence if the peg fails.",
       "background": [
         "What savers lose at the weaker rate. About thirteen per cent of what they held, immediately and visibly, which is why 3.60 is what the queue wants and what the board cannot hold.",
-        "What everybody loses if a peg fails. The rate goes wherever the market puts it, which is past 4.80 on Sarkis's numbers, and everybody who held the new currency because the board promised 3.60 takes that loss instead. The saver loses more, later, along with everybody else."
+        "What everybody loses if a peg fails. The rate goes wherever the market puts it, which is past 4.80 on Sarkis's numbers. Everybody who took the new currency because the board promised 3.60 takes that loss instead. The saver loses more, later, along with everybody else."
       ],
-      "story": "At 4.15 rather than the 3.60 savers wanted, somebody holding 10,000 old marks gets 2,410 new ones instead of 2,778. The reserves hold 4.15 for 134 days and 3.60 for 36.",
+      "story": "At 4.15, 10,000 old marks convert to about 2,410 new marks; at 3.60 they would convert to about 2,778. The reserve clock says 4.15 can be defended for about 134 days while 3.60 lasts about 36.",
       "game": {
         "type": "CHOICE",
-        "title": "Savers, and importers",
+        "title": "Fewer new units is not the whole loss",
         "setup": "Counter Room",
-        "play": "Say who the rate costs",
-        "task": "Say who the rate costs",
-        "question": "What is the honest way to put 4.15 to the queue?",
-        "answer": "Worse than 3.60 for savers, and it holds",
-        "why": "Both halves have to be said. At 4.15 a saver holding ten thousand old marks gets 368 new marks less than at 3.60, which is a real loss and the reason the queue wanted the other number. And 3.60 lasts thirty-six days against ninety-six needed, after which the rate goes past 4.80 and the same saver loses more, along with everybody who held the new currency on the strength of the promise. Calling 4.15 the fairest rate available is a claim about fairness the board cannot support. Saying it will improve later is a promise nobody can keep. And the market has not chosen it; the reserves have.\n",
+        "play": "Say what 4.15 costs—and what conversion alone does not cost",
+        "task": "Say what 4.15 costs—and what conversion alone does not cost",
+        "question": "What is the honest way to explain the 4.15 candidate?",
+        "answer": "It converts balances into fewer new units than 3.60, and it also survives the reserve test.",
+        "why": "Ten thousand old marks becoming 2,410 rather than 2,778 new marks is a nominal difference between two conversion factors. If domestic prices and claims are converted consistently, that arithmetic alone does not tell you the change in real purchasing power. The meaningful comparison is what each candidate does to imported prices, reserve losses, inflation expectations and the risk of a forced devaluation. 3.60 fails the 96-day reserve test; 4.15 survives it. Calling the smaller new-number balance an immediate real loss confuses a unit change with the economic consequences of the chosen external value.",
         "rebuttals": [
-          "Fairness is not what the reserves decided; affordability is, and saying otherwise invites the wrong argument.",
-          "Promising improvement later is a commitment the board cannot keep and will be tested on.",
-          "The market's rate is past 4.80; 4.15 is what the reserves can hold against it."
+          "A smaller number of new currency units is not by itself a smaller real balance if prices and claims convert by the same factor.",
+          "Reserve longevity is a constraint, not a complete measure of fairness.",
+          "The board cannot promise a later improvement it may not be able to defend."
         ],
         "choices": [
-          "Worse than 3.60 for savers, and it holds",
-          "The fairest rate available to the board",
-          "A temporary rate that will improve later",
-          "The rate the market has already chosen"
+          "It converts balances into fewer new units than 3.60, and it also survives the reserve test.",
+          "It makes every saver about 13 per cent poorer the instant the counter opens.",
+          "It is the fairest rate available, because it maximizes how long the reserves last.",
+          "It is only a temporary rate, and the board can promise a better one later on."
         ],
-        "correctChoice": "Worse than 3.60 for savers, and it holds"
+        "correctChoice": "It converts balances into fewer new units than 3.60, and it also survives the reserve test."
       },
       "assumes": [
         "the reserve figures hold at each rate",
@@ -443,7 +443,7 @@ export const CURRICULUM = {
         "task": "Say what the counter should do at nine",
         "question": "What should the counter do at nine?",
         "answer": "Publish the float and set no limit",
-        "why": "The float covers the week comfortably on Sarkis's figures, and that is the fact that stops a run rather than a limit. A limit protects the money and announces that the board expects the money to need protecting, which is a reason to join the queue — the protection and the signal arrive together and cannot be separated. Setting a limit and publishing the float contradicts itself: if the float is sufficient, the limit is unexplained. Opening late concedes the point before anybody has asked the question, and the queue at ten to nine is already the length it is going to be.\n",
+        "why": "The float covers the week comfortably on Sarkis's figures, and that is the fact that stops a run rather than a limit. A limit protects the money. It also announces that the board expects the money to need protecting, which is a reason to join the queue. The protection and the signal arrive together and cannot be separated. Setting a limit and publishing the float contradicts itself: if the float is sufficient, the limit is unexplained. Opening late concedes the point before anybody has asked the question, and the queue at ten to nine is already the length it is going to be.\n",
         "rebuttals": [
           "A limit with no explanation is read as the board expecting to run short.",
           "A limit alongside a sufficient float contradicts itself and invites the question anyway.",
@@ -482,7 +482,7 @@ export const CURRICULUM = {
       "scene": "Ngozi Okonjo, the counter supervisor, has a rumour on the plaza that the counter shuts at noon on Friday. It is not true. The queue has doubled again since eight and nobody at the window can say otherwise.",
       "takeaway": "A statement people can check afterwards moves expectations; one they cannot is noise.",
       "place": "Counter Room",
-      "guide": "Four things the board could put on the plaza, and each is a statement about the future that the queue will act on this morning. Ask of each whether it gives people something they can check afterwards, and what it costs the board on the fifteenth if the thing they checked turns out to have been wrong.",
+      "guide": "Four things the board could put on the plaza, and each is a statement about the future that the queue will act on this morning. Ask of each whether it gives people something they can check afterwards. Then ask what it costs the board on the fifteenth if the thing they checked turns out to have been wrong.",
       "background": [
         "Why a promise is an instrument rather than a courtesy. People queue on what they expect, so the belief moves before any policy does. A statement that can be checked later either earns the board a cheaper way to move expectations next time or spends one it already had.",
         "Why silence is not neutral. The plaza will have an expectation whether or not the board supplies one, and it will be supplied by whoever is talking. The choice is not between saying something and saying nothing; it is between the board's account and the rumour's."
@@ -496,7 +496,7 @@ export const CURRICULUM = {
         "task": "Decide what the board says to the plaza",
         "question": "What should the board put on the plaza this morning?",
         "answer": "Publish the closing times for every day to the fifteenth",
-        "why": "A denial is a claim about a rumour rather than about the counter, and it leaves people with nothing to hold the board to. A dated schedule does: anybody can check it on Friday, and a promise that survives being checked is what makes the next one worth acting on. Open as long as there is a queue cannot be kept on a day like the fifteenth, and a promise broken once costs more than the silence it replaced. Waiting concedes the plaza to whoever is talking.",
+        "why": "A denial is a claim about a rumour rather than about the counter, and it leaves people with nothing to hold the board to. A dated schedule does: anybody can check it on Friday, and a promise that survives being checked is what makes the next one worth acting on. Open as long as there is a queue cannot be kept on a day like the fifteenth. A promise broken once costs more than the silence it replaced. Waiting concedes the plaza to whoever is talking.",
         "rebuttals": [
           "A denial gives the queue nothing to check on Friday, so it cannot earn the board any credit.",
           "A promise the counter cannot keep on the fifteenth spends credibility instead of building it.",
@@ -534,7 +534,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The same list, twice",
-      "scene": "Radic has the fixed basket priced twice. It cost 84 marks in the base year and 231 marks this month. The board wants an index number for Friday.",
+      "scene": "Emil Radic, the chief statistician, has the fixed basket priced twice. It cost 84 marks in the base year and 231 marks this month. The board wants an index number for Friday.",
       "takeaway": "An index is a ratio to a base year, multiplied by a hundred.",
       "place": "Price Room",
       "guide": "An index is a ratio dressed as a number. Divide what the basket costs now by what the same basket cost in the base year, then multiply by a hundred so the base year reads as 100. Work it out, and note what the result does and does not say about anybody's cost of living.",
@@ -542,7 +542,7 @@ export const CURRICULUM = {
         "Why the basket is held fixed. If the list changed with the prices, a rise could be hidden by substituting something cheaper, and the index would measure the substitution rather than the prices. Holding it still is what makes two years comparable.",
         "What holding it still costs. A basket fixed years ago prices a city that has changed — which is Radic's objection. Both facts are true at once: the basket has to be fixed to be an index, and it has to be revised to be about anybody."
       ],
-      "story": "Radic has the fixed basket priced twice. It cost 84 marks in the base year and 231 marks this month. The board wants an index number for Friday.",
+      "story": "Emil Radic, the chief statistician, has the fixed basket priced twice. It cost 84 marks in the base year and 231 marks this month. The board wants an index number for Friday.",
       "game": {
         "type": "BALLPARK",
         "title": "The same list, twice",
@@ -619,7 +619,7 @@ export const CURRICULUM = {
       "scene": "The month's figures: households spent 412 million, firms invested 96, the government spent 178, exports were 64 and imports 121. The board's draft adds the imports in.",
       "takeaway": "Imports are subtracted because they are spending on somebody else's output.",
       "place": "Price Room",
-      "guide": "Add what was spent on final goods by each of the four buyers, and subtract imports rather than adding them — because an import is spending that went to somebody else's output. Work out the figure the board should publish, then say what the draft's error does to it.",
+      "guide": "Add what was spent on final goods by each of the four buyers, and subtract imports rather than adding them. An import is spending that went to somebody else's output. Work out the figure the board should publish, then say what the draft's error does to it.",
       "background": [
         "Why imports are subtracted. Household spending already includes what households bought from abroad, so leaving imports in counts foreign output as Halvern's. Subtracting them removes exactly that, which is why the term is exports less imports rather than exports.",
         "Why the flour is a different error. Counting flour sold to a bakery and then the bread counts the same wheat twice. Only final goods go in, which is why intermediate sales are excluded rather than being a separate component."
@@ -633,7 +633,7 @@ export const CURRICULUM = {
         "task": "Add up the output without counting anything twice",
         "question": "Estimate the month's output figure.",
         "answer": "629 million marks — the draft's version overstates it by 242 million.",
-        "why": "The four components add to 750 and imports of 121 come off, leaving 629 million. Adding imports instead of subtracting them is not a small slip: it moves the figure by twice the import total, 242 million, because the error is in the direction as well as the term. The reason imports are subtracted is that household spending already contains them, so leaving them in counts another country's output as Halvern's. The flour is a separate error of the same family — an intermediate good counted once as flour and again as bread — and it is excluded rather than netted off.\n",
+        "why": "The four components add to 750 and imports of 121 come off, leaving 629 million. Adding imports instead of subtracting them is not a small slip. It moves the figure by twice the import total, 242 million, because the error is in the direction as well as the term. The reason imports are subtracted is that household spending already contains them, so leaving them in counts another country's output as Halvern's. The flour is a separate error of the same family: an intermediate good counted once as flour and again as bread. It is excluded rather than netted off.\n",
         "rebuttals": [
           "Adding imports counts foreign output as Halvern's, and does so twice over because the spending is already in the consumption figure.",
           "Leaving imports out entirely ignores that the consumption figure already contains them."
@@ -707,7 +707,7 @@ export const CURRICULUM = {
         "task": "Turn two index numbers into a rate",
         "question": "Estimate the month's inflation rate.",
         "answer": "About 10.9 per cent for the month, where the draft said 275.",
-        "why": "The change is 27 index points on a base of 248, which is 10.9 per cent for the month. The draft's 275 is the index level, and quoting it as a rate overstates inflation by a factor of twenty-five. The error always runs that way — a level is a much bigger number than the rate that produced it — and it is the direction that raises the expectations the board is trying to hold down. Eleven per cent a month is the honest figure and it is not comforting: compounded it is about 250 per cent a year, which is what the statement should say instead.\n",
+        "why": "The change is 27 index points on a base of 248, so the measured inflation rate for this month is 10.9 per cent. The draft’s 275 is an index level, not a rate. It would also be misleading to publish one bad month as though a full year had already happened: 10.9 per cent every month for twelve months would compound to roughly 246 per cent, but that is a conditional annualized pace, not an observed annual rate. The file therefore records 10.9 per cent for the month and keeps the period attached to the number.",
         "rebuttals": [
           "The index level is 2.75 times the base year and says nothing about this month.",
           "The difference in index points is a change without a base, so it cannot be a rate."
@@ -772,7 +772,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Coal, and imported flour",
-      "scene": "The current basket gives coal a fifth of its weight and imported flour nothing. Novotny's stall and the counter queue both say the opposite is now true.",
+      "scene": "The current basket gives coal a fifth of its weight and imported flour nothing. The market trader Novotny's stall and the counter queue both say the opposite is now true.",
       "takeaway": "The weights are the claim an index makes about how people live.",
       "place": "Price Room",
       "guide": "A basket is a set of weights, and the weights are supposed to be what households actually spend on. Work out what the present weights get wrong, and pick the change that fixes the index rather than the change that flatters it.",
@@ -780,7 +780,7 @@ export const CURRICULUM = {
         "What a revision costs. A basket changed between two months makes those two months incomparable, so a revision needs both baskets priced in an overlap month. That is real work and it is the reason revisions are rare and overdue.",
         "What refusing to revise costs. An index whose weights are wrong reports the price of a household that does not exist. Coal at a fifth of spending understates a city that now buys electricity and imported flour, and it does so in whichever direction coal happens to move."
       ],
-      "story": "The current basket gives coal a fifth of its weight and imported flour nothing. Novotny's stall and the counter queue both say the opposite is now true.",
+      "story": "The current basket gives coal a fifth of its weight and imported flour nothing. The market trader Novotny's stall and the counter queue both say the opposite is now true.",
       "game": {
         "type": "TRIAGE",
         "title": "Coal, and imported flour",
@@ -789,7 +789,7 @@ export const CURRICULUM = {
         "task": "Decide what the basket should price",
         "question": "What should be done about the basket before Friday?",
         "answer": "Reweight it and price both baskets this month",
-        "why": "Both objections are real: a basket has to be fixed for two months to be comparable, and this one has weights from a city that has changed. Pricing both baskets in the same month settles it — the overlap is what links the old series to the new one, and it costs one month of double work rather than the whole series. Keeping it preserves comparability with a figure nobody should be comparing. Dropping coal without reweighting leaves the remaining weights summing to four fifths, so every number afterwards is wrong by a quarter. And one stall is one household's basket, which is the error the index exists to avoid.\n",
+        "why": "Both objections are real: a basket has to be fixed for two months to be comparable, and this one has weights from a city that has changed. Pricing both baskets in the same month settles it. The overlap is what links the old series to the new one. It costs one month of double work rather than the whole series. Keeping it preserves comparability with a figure nobody should be comparing. Dropping coal without reweighting leaves the remaining weights summing to four fifths, so every number afterwards is wrong by a quarter. And one stall is one household's basket, which is the error the index exists to avoid.\n",
         "rebuttals": [
           "Comparability with a wrong basket preserves the error rather than the series.",
           "Removing a fifth of the weight without reweighting inflates every remaining item by a quarter.",
@@ -826,7 +826,7 @@ export const CURRICULUM = {
       "day": 5,
       "title": "One over one minus it",
       "scene": "The propensity to consume is 0.75. The treasury's payment is 84 million marks. Mbeya's paper describes the effect on demand as 84 million.",
-      "takeaway": "A multiplier is the sum of a series, so the first round is a fraction of the total.",
+      "takeaway": "The simple spending multiplier is a benchmark; imports, taxes, saving behavior and time reduce what lands domestically.",
       "place": "Price Room",
       "guide": "The payment is spent, becomes somebody's income, and three quarters of it is spent again. Work out the total using the multiplier, then compare it with the paper's figure. The difference is not a correction; it is most of the effect.",
       "background": [
@@ -841,8 +841,8 @@ export const CURRICULUM = {
         "play": "Work out the total effect on demand",
         "task": "Work out the total effect on demand",
         "question": "Estimate the total effect on demand.",
-        "answer": "About 336 million marks — four times the payment, where the paper counted one round.",
-        "why": "At a propensity of 0.75 the multiplier is one over a quarter, which is four, so 84 million becomes 336. The paper's figure is the first round of spending and nothing else, and the rounds after it are three times as large again. That is the difference between a payment and its effect on demand, and it is the number that has to be in front of the board before it votes. Multiplying by the propensity instead gives 63 million, which is the second round on its own. The honest caveat is time: the multiplier is the eventual total, and how much of it lands inside fourteen days is a further question.\n",
+        "answer": "336 million marks is the closed-economy, no-tax upper-bound calculation from MPC = 0.75; the domestic effect will be smaller once leakages and timing are included.",
+        "why": "With only saving as a leakage, MPC = 0.75 gives 1 ÷ (1 − 0.75) = 4, and 84 million × 4 = 336 million. That is the textbook benchmark, not a guaranteed fourteen-day increase in Halvern’s demand. Imports and taxes leak spending out of the domestic rounds, behavior can change during the panic, and later rounds take time. Mbeya’s 84 million counts only the first payment; 336 million is the closed-economy upper bound that tells the board how large the feedback could be.",
         "rebuttals": [
           "Multiplying by the propensity gives the second round of spending rather than the total.",
           "Dividing by the propensity to save without the payment leaves a multiplier rather than an amount."
@@ -912,7 +912,7 @@ export const CURRICULUM = {
       "place": "Price Room",
       "guide": "The index is an average over one basket. Ask what that makes it good for and what it cannot settle, then choose the honest way to use it on eleven books that face different prices.",
       "background": [
-        "What a single index is good for. Comparing one period with another on a consistent basis. That is exactly what deflating a loan book needs, and it is why the index is the right tool even though it is not the right basket for anybody in particular.",
+        "What a single index is good for. Comparing one period with another on a consistent basis. That is exactly what deflating a loan book needs. It is why the index is the right tool even though it is not the right basket for anybody in particular.",
         "What it cannot settle. Whether a particular bank's borrowers face those prices. A farmer selling grain into a rising market and an importer buying flour in a falling currency are on opposite sides of the same index."
       ],
       "story": "Iyer wants to deflate eleven loan books by the index. Radic points out that the index is one basket, and a bank lending to farmers is not lending to the same prices as a bank lending to importers.",
@@ -924,7 +924,7 @@ export const CURRICULUM = {
         "task": "Say what the index cannot tell the banks",
         "question": "How should the index be used on the eleven loan books?",
         "answer": "Deflate them all with it, and state that it is one basket",
-        "why": "The index is the right tool for the job it is being asked to do — comparing one period with another on a consistent basis — and the wrong basket for any particular borrower. So the honest use is to apply it consistently and say what it is: one basket, an average, not a statement about farmers or importers specifically. Deflating only some books makes them incomparable with the others. Eleven separate indices is a year of work Radic does not have and would produce eleven series nobody can add up. And using nominal figures avoids the caveat by discarding the correction entirely, which is worse than an imperfect one.\n",
+        "why": "The index is the right tool for the job it is being asked to do, which is comparing one period with another on a consistent basis. It is the wrong basket for any particular borrower. So the honest use is to apply it consistently and say what it is: one basket, an average, not a statement about farmers or importers specifically. Deflating only some books makes them incomparable with the others. Eleven separate indices is a year of work Radic does not have and would produce eleven series nobody can add up. And using nominal figures avoids the caveat by discarding the correction entirely, which is worse than an imperfect one.\n",
         "rebuttals": [
           "Deflating only some books makes the eleven incomparable with each other.",
           "Eleven bespoke indices is a year of work and produces series that cannot be aggregated.",
@@ -963,7 +963,7 @@ export const CURRICULUM = {
       "scene": "Real output is running at 629 million a month. Radic's estimate of potential, at full employment, is 712 million. Unemployment is 8.4 per cent against a natural rate of 5.",
       "takeaway": "A negative output gap and unemployment above its natural rate are two views of one thing.",
       "place": "Price Room",
-      "guide": "Work out how far actual output is from potential as a percentage of potential. Then check it against the labour figures, because a gap in output and a gap in unemployment should tell the same story and here they can be compared directly.",
+      "guide": "Work out how far actual output is from potential as a percentage of potential. Then check it against the labour figures. A gap in output and a gap in unemployment should tell the same story, and here they can be compared directly.",
       "background": [
         "What potential output is. What the economy could produce with everybody employed who wants to be, at the capital and skills it has. It is an estimate rather than a measurement, and Radic's has a range on it he will quote if asked.",
         "Why the two gaps agree. Three and a half points of unemployment above the natural rate is a lot of idle labour, and idle labour is missing output. The two figures being consistent is the strongest evidence either of them is right."
@@ -977,7 +977,7 @@ export const CURRICULUM = {
         "task": "Work out the output gap",
         "question": "Estimate the output gap.",
         "answer": "About −11.7 per cent: Halvern is producing nearly twelve per cent under capacity.",
-        "why": "Eighty-three million short of 712 is 11.7 per cent below capacity. The figure matters because it is consistent with the labour data: unemployment is 3.4 points above its natural rate, and idle labour on that scale is missing output on this scale. Two independent estimates agreeing is the best evidence either is right. Dividing by actual rather than potential gives 13.2 per cent, which measures the shortfall against the smaller number and overstates it — the gap is conventionally a fraction of what the economy could do, not of what it is doing.\n",
+        "why": "Actual output is 83 million below the 712 million estimate of potential, so the output gap is (629 − 712) ÷ 712 ≈ −11.7 per cent. Unemployment being above the estimated natural rate points in the same broad direction—unused resources—but the two estimates are not independent proof of each other. Potential output and the natural rate are themselves model estimates. The safe conclusion is that the two indicators are consistent with substantial slack, not that their agreement guarantees either number.",
         "rebuttals": [
           "Dividing by actual output measures the shortfall against the smaller figure and overstates the gap.",
           "The difference in millions has no denominator, so it cannot be compared with a labour rate."
@@ -1033,11 +1033,11 @@ export const CURRICULUM = {
       "day": 8,
       "title": "One basket, two currencies",
       "scene": "On the fifteenth the same basket will be priced in new marks. Radic has to decide what happens to the series that has been running in old marks for eleven years.",
-      "takeaway": "An index is a ratio, so a currency change cancels if it is applied to both halves.",
+      "takeaway": "A pure currency-unit conversion cancels in an index ratio if both comparison periods are converted consistently.",
       "place": "Price Room",
-      "guide": "The basket is not changing and the currency is. Decide what has to happen to the index so that a month before the changeover can be compared with a month after it, and say what the alternative costs.",
+      "guide": "The basket is not changing and the currency is. Decide what has to happen to the index so that a month before the changeover can be compared with a month after it. Then say what the alternative costs.",
       "background": [
-        "Why the index can survive a currency change. An index is a ratio, and a ratio is unitless. Prices in new marks divided by base-year prices converted at the same rate give the same index, so the series continues if the conversion is applied consistently to both.",
+        "Why the index can survive a currency change. An index is a ratio, and a ratio is unitless. Prices in new marks divided by base-year prices converted at the same rate give the same index. So the series continues if the conversion is applied consistently to both.",
         "What breaks it. Converting this month's prices and not the base year's, which changes the index by the rate rather than by any price movement. That would print a 76 per cent fall in prices on the fifteenth and nothing would have happened."
       ],
       "story": "On the fifteenth the same basket will be priced in new marks. Radic has to decide what happens to the series that has been running in old marks for eleven years.",
@@ -1049,7 +1049,7 @@ export const CURRICULUM = {
         "task": "Say what the index does on the fifteenth",
         "question": "What has to happen to the index on the fifteenth?",
         "answer": "Convert both this month and the base year, so the ratio is unchanged",
-        "why": "An index is a ratio and a ratio has no units, so a currency change cancels — provided it is applied to both halves. Convert this month's basket and the base year's at the same rate and the index is exactly what it was, and eleven years of series survives. Converting only this month divides the index by 4.15 and would print a 76 per cent fall in prices on a day when nothing happened, which is the error that would end the series' credibility. Starting again at 100 throws away eleven years for no reason. Publishing both invites everybody to quote whichever suits them.\n",
+        "why": "An index is a ratio and a ratio has no units, so a currency change cancels — provided it is applied to both halves. Convert this month's basket and the base year's at the same rate and the index is exactly what it was, and eleven years of series survives. Converting only this month divides the index by 4.15. It would print a 76 per cent fall in prices on a day when nothing happened. That is the error that would end the series' credibility. Starting again at 100 throws away eleven years for no reason. Publishing both invites everybody to quote whichever suits them.\n",
         "rebuttals": [
           "Restarting at 100 discards eleven years of comparison for a change that cancels.",
           "Converting one side only prints a 76 per cent price fall on a day when nothing happened.",
@@ -1102,7 +1102,7 @@ export const CURRICULUM = {
         "task": "Say what Halvern is actually better at",
         "question": "Which good should Halvern specialise in?",
         "answer": "Flour, because it gives up less cloth to make it",
-        "why": "The neighbour is better at both in absolute terms, and that is not the comparison. In Halvern a tonne of flour costs 4.4 bolts of cloth foregone; across the border it costs 6. So flour is cheaper in Halvern in the only sense that matters — what has to be given up — and both countries gain if Halvern makes flour and buys cloth. Being worse at everything does not exclude a country from trade, which is the whole point of the idea, and making both is what a country does when it cannot trade rather than when it can.\n",
+        "why": "The neighbour is better at both in absolute terms, and that is not the comparison. In Halvern a tonne of flour costs 4.4 bolts of cloth foregone; across the border it costs 6. So flour is cheaper in Halvern in the only sense that matters, which is what has to be given up. Both countries gain if Halvern makes flour and buys cloth. Being worse at everything does not exclude a country from trade, which is the whole point of the idea. Making both is what a country does when it cannot trade rather than when it can.\n",
         "rebuttals": [
           "The neighbour making more flour is an absolute comparison and not the one that decides.",
           "Being worse at both is exactly the case comparative advantage was formulated for.",
@@ -1138,15 +1138,15 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "What the file supports",
-      "scene": "Four statements are drafted for this morning. Two are measurements with their conditions attached and two are not, and all four will be quoted for a year.",
+      "scene": "Four statements are drafted for this morning. Three are observed or administratively fixed facts with their conditions attached, and one is a forecast. All four will be quoted for a year.",
       "takeaway": "A projection published as a measurement is the one figure that will be quoted back.",
       "place": "Price Room",
       "guide": "Read each statement against what was actually done. A measurement carries the conditions it was taken under; a projection carries the assumptions it was computed from. Both can be published and only one can be relied on afterwards.",
       "background": [
-        "What the fortnight measured. A reweighted basket priced in an overlap month, a money supply reconciled across three counts, a reserve position with a daily outflow, and an output gap consistent with the labour data.",
-        "What it did not measure. What prices will do next month, which depends on the money supply being held and on what people expect — neither of which is a measurement of anything yet."
+        "What the fortnight measured. A reweighted basket priced in an overlap month. A money supply reconciled across three counts. A reserve position with a daily outflow. An output gap consistent with the labour data.",
+        "What it did not measure. What prices will do next month. That depends on the money supply being held, and on what people expect. Neither of those is a measurement of anything yet."
       ],
-      "story": "Four statements are drafted for this morning. Two are measurements with their conditions attached and two are not, and all four will be quoted for a year.",
+      "story": "Four statements are drafted for this morning. Three are observed or administratively fixed facts with their conditions attached, and one is a forecast. All four will be quoted for a year.",
       "game": {
         "type": "PROTOCOL",
         "title": "What the file supports",
@@ -1154,7 +1154,7 @@ export const CURRICULUM = {
         "play": "Match each statement to what stands behind it.",
         "task": "Match each statement to what stands behind it.",
         "question": "Match each statement to what stands behind it.",
-        "answer": "Three measurements with their conditions attached, and one projection that rests on the money supply being held.",
+        "answer": "Three observed/published facts with their conditions attached, and one projection that rests on assumptions about policy and expectations.",
         "why": "Three of the four are measurements and each carries its conditions. The price figure sits on a reweighted basket, priced both ways in one overlap month. The money supply is three counts reconciled, with the interbank double-count taken out. The rate is published with the reserves behind it. The fourth is a projection. What it rests on is a decision rather than a measurement: whether the money supply is held, and what people expect. Publish it with the assumptions beside it. Do not publish it in the same voice as the other three. It is the one that will be quoted back.\n",
         "rebuttals": [
           "The price figure is a measured month on a basket priced both ways in the overlap.",
@@ -1208,12 +1208,12 @@ export const CURRICULUM = {
       "day": 11,
       "title": "The same list, twice — Review",
       "scene": "Emil Radic, the chief statistician, keeps a second index for the port: a fixed list of wholesale goods, priced monthly. Four things happened to it this month, and the board wants each one accounted for separately.",
-      "takeaway": "An index moves only for prices on its own list, and only in proportion to their weight.",
+      "takeaway": "A fixed-weight index sees the prices and weights in its own basket; reweighting and substitution change what the index represents.",
       "place": "Price Room",
-      "guide": "Four events and four effects, on an index that prices something else entirely. Pair them by asking one question of each event: does it move a price on the list, a price off the list, or the year the ratio is measured from? Where a listed price moves, its weight decides how much of that movement reaches the number.",
+      "guide": "Four events and four effects, on an index that prices something else entirely. Pair them by asking one question of each event. Does it move a price on the list, a price off the list, or the year the ratio is measured from? Where a listed price moves, its weight decides how much of that movement reaches the number.",
       "background": [
         "Why weight is the whole of it. An index is one number standing for a list, and each item enters in proportion to what households or firms spend on it. A fifth of the weight carries a fifth of its own price change into the index, which is why arguing about the weights is arguing about the figure.",
-        "What re-basing is and is not. Setting the base year to this month divides every future cost by this month's cost instead of the old one, so the series reads 100 again without a single price having moved. It changes what the number is measured from and never what it is measuring."
+        "What re-basing is and is not. Setting the base year to this month divides every future cost by this month's cost instead of the old one. So the series reads 100 again without a single price having moved. It changes what the number is measured from and never what it is measuring."
       ],
       "story": "Emil Radic, the chief statistician, keeps a second index for the port: a fixed list of wholesale goods, priced monthly. Four things happened to it this month, and the board wants each one accounted for separately.",
       "game": {
@@ -1224,7 +1224,7 @@ export const CURRICULUM = {
         "task": "Match each event to what it does to the wholesale index.",
         "question": "Match each event to what it does to the wholesale index.",
         "answer": "Coal carries a fifth of its doubling in; flour off the list does nothing; re-basing returns the index to 100 with no price moved; and the substitution goes unseen, which is what a fixed list costs.",
-        "why": "Only a price on the list can move the number, and it moves it in proportion to its weight, so coal at a fifth of the basket carries a fifth of its own doubling into the index. A price the list does not name is invisible however far it moves. Re-basing changes nothing except where the ratio is measured from, so the index reads a hundred again with every price where it was. And substitution the fixed list cannot see is the cost of holding it fixed.",
+        "why": "A price outside the basket cannot directly move this particular index. A listed price contributes according to its weight in the simplified exercise. Re-basing changes the reference point, not the underlying prices. And when buyers substitute away from a relatively expensive item, a strict fixed-basket measure can overstate the cost increase they actually experience. The lesson is to keep “price change” separate from “which basket and weights are being priced.”",
         "rebuttals": [
           "A listed price enters in proportion to its weight, so a fifth of the list carries a fifth of the change.",
           "An index prices its own list, so a good that is not on the list cannot move it however far its price runs.",
@@ -1275,10 +1275,10 @@ export const CURRICULUM = {
       "scene": "Tulloch has 214 kilograms of returned notes on the platform scale. A sample says the mix averages 0.94 grams a note. The board needs a count for the money supply figure.",
       "takeaway": "A weighed count is a count of notes, and their value needs a sampled mix as well.",
       "place": "Note Room",
-      "guide": "Counting this many notes by hand is not possible, so the count comes from a mass and a mass per note. Divide, mind the units, and then ask what the answer depends on that is not on the scale — because the sample is doing as much work here as the weighing is.",
+      "guide": "Counting this many notes by hand is not possible, so the count comes from a mass and a mass per note. Divide, mind the units, and then ask what the answer depends on that is not on the scale. The sample is doing as much work here as the weighing is.",
       "background": [
         "What the sample decides. Notes of different denominations weigh nearly the same, so the mass gives a count of notes and says nothing about their value. The denomination mix comes from a sample, and the value of the return is the count multiplied by that mix.",
-        "Why the count matters to the board. The money supply figure is what the rate is argued against, and the part of it that is cash is exactly this: what was issued, less what has come back and been burnt under two signatures."
+        "Why the count matters to the board. The money supply figure is what the rate is argued against. The part of it that is cash is exactly this: what was issued, less what has come back and been burnt under two signatures."
       ],
       "story": "Tulloch has 214 kilograms of returned notes on the platform scale. A sample says the mix averages 0.94 grams a note. The board needs a count for the money supply figure.",
       "game": {
@@ -1289,7 +1289,7 @@ export const CURRICULUM = {
         "task": "Turn a weight of notes into a count",
         "question": "Predict the count from the weight, then hand-count a bundle and check it.",
         "answer": "Predicted about 228,000 notes from 0.94 grams each; the hand-counted bundle gives 0.98 grams and 218,000 — four per cent fewer, because the mix is heavier than the sample said.",
-        "why": "Two hundred and fourteen kilograms at 0.94 grams a note is about 228,000 notes. One bundle hand-counted says the notes average 0.98 grams, so the true count is nearer 218,000 — four per cent fewer, and the error is in the sample rather than in the scale. That matters twice over. The count feeds the money supply figure, and the same sample supplies the denomination mix that turns a count into a value, so a mix wrong by four per cent is a value wrong by about the same. Notes of different denominations weigh almost the same, which is why the scale can give a count and can never give an amount of money.\n",
+        "why": "Two hundred and fourteen kilograms at 0.94 grams a note is about 228,000 notes. One bundle hand-counted says the notes average 0.98 grams, so the true count is nearer 218,000. That is four per cent fewer, and the error is in the sample rather than in the scale. That matters twice over. The count feeds the money supply figure. The same sample supplies the denomination mix that turns a count into a value. So a mix wrong by four per cent is a value wrong by about the same. Notes of different denominations weigh almost the same, which is why the scale can give a count and can never give an amount of money.\n",
         "relationship": "Counting a withdrawn currency by weight: old notes = mass ÷ mass per note.",
         "verify": {
           "prediction": {
@@ -1380,7 +1380,7 @@ export const CURRICULUM = {
         "task": "Match each explanation to what it predicts about the two counts.",
         "question": "Match each explanation to what it predicts about the two counts.",
         "answer": "A high mass per note makes the weighed count low; a double count inflates the ledger; both being right means the difference left the building; a low scale is a constant proportional error.",
-        "why": "Four explanations, and each predicts something different that can be checked without arguing. A sampled mass per note set too high divides the same mass into too few notes, so the weighed figure is low and a recount of one region settles it. A region counting twice inflates the ledger and its own dispatch note will not match its tally. If both methods are right, the thirteen thousand notes left between the branch and the centre, which is a matter for somebody other than the statisticians. And a scale reading low would show as the same proportional gap on every weighing this fortnight, which is a single test on this morning's returns.\n",
+        "why": "Four explanations, and each predicts something different that can be checked without arguing. A sampled mass per note set too high divides the same mass into too few notes. So the weighed figure is low, and a recount of one region settles it. A region counting twice inflates the ledger and its own dispatch note will not match its tally. If both methods are right, the thirteen thousand notes left between the branch and the centre, which is a matter for somebody other than the statisticians. And a scale reading low would show as the same proportional gap on every weighing this fortnight, which is a single test on this morning's returns.\n",
         "rebuttals": [
           "A mass per note set too high divides the same mass into too few notes, so the weighed count is low.",
           "A region counting twice inflates the ledger, and its dispatch note will disagree with its tally.",
@@ -1435,7 +1435,7 @@ export const CURRICULUM = {
       "scene": "Issued old currency: 1.42 billion marks. Returned and burnt: 214 million. Held in the vault, never issued: 96 million. Bank deposits: 2.4 billion.",
       "takeaway": "Printed and unissued currency is paper; issued and unreturned currency is money.",
       "place": "Note Room",
-      "guide": "Money is what people can spend: cash in hands plus what banks owe on demand. Read the panel and report the figure, remembering that two of these numbers are not money in the public's hands at all — and one of them is easy to add by mistake.",
+      "guide": "Money is what people can spend: cash in hands plus what banks owe on demand. Read the panel and report the figure. Two of these numbers are not money in the public's hands at all, and one of them is easy to add by mistake.",
       "background": [
         "Why the vault holding is not money. Currency printed and never issued is paper. It becomes money when it leaves the vault, and counting it beforehand overstates the supply by whatever is in stock.",
         "Why the burnt notes come off. They were money and are not any more, so the cash in hands is what was issued less what has come back and been destroyed. Notes returned and not yet burnt are the awkward case and are counted as withdrawn once they are in the office."
@@ -1449,7 +1449,7 @@ export const CURRICULUM = {
         "task": "Count the money supply without counting anything twice",
         "question": "Read what you need and report the money supply.",
         "answer": "About 3,524 million marks: 1,420 issued less the 214 burnt, plus 2,400 of deposits, less the 82 million the banks hold with each other and have both counted.",
-        "why": "Money is what can be spent: cash in the public's hands plus deposits repayable on demand. That is 1,420 million issued, less the 214 million burnt, plus 2,400 million of deposits. The term that does not announce itself is interbank: 82 million of the deposit total is banks holding accounts with each other, which appears on two balance sheets and is one deposit, so it comes off. Two more figures are traps in opposite directions. The vault stock has been printed and never issued, so it is paper and adding it overstates the supply. The notes in the note room are already counted as withdrawn, so subtracting them again double-counts.\n",
+        "why": "Money is what can be spent: cash in the public's hands plus deposits repayable on demand. That is 1,420 million issued, less the 214 million burnt, plus 2,400 million of deposits. The term that does not announce itself is interbank. Of the deposit total, 82 million is banks holding accounts with each other. That appears on two balance sheets and is one deposit, so it comes off. Two more figures are traps in opposite directions. The vault stock has been printed and never issued, so it is paper and adding it overstates the supply. The notes in the note room are already counted as withdrawn, so subtracting them again double-counts.\n",
         "balance": {
           "total": {
             "amount": 3524,
@@ -1529,7 +1529,7 @@ export const CURRICULUM = {
       "guide": "Work out how many notes have come back and compare it with how many were issued. What is left outside is the part the board will still be honouring next year, and it is the number the closing statement has to carry.",
       "background": [
         "What is left out is not lost. Notes held abroad, notes in mattresses and notes destroyed by accident all stay on the board's books as a liability until they are presented or the period expires.",
-        "Why the count matters on the fifteenth. The board has to say how much old currency is still outstanding, because that is what it may still have to convert — and a figure that turns out to be a third wrong is a figure it will be asked about for years."
+        "Why the count matters on the fifteenth. The board has to say how much old currency is still outstanding, because that is what it may still have to convert. A figure that turns out to be a third wrong is a figure it will be asked about for years."
       ],
       "story": "Tulloch has weighed 986 kilograms of returns in total, at 0.94 grams a note. The board issued 1.42 billion marks in notes averaging 340 marks each.",
       "game": {
@@ -1540,7 +1540,7 @@ export const CURRICULUM = {
         "task": "Say what has actually come back",
         "question": "Estimate how many notes are still outstanding.",
         "answer": "About 3.1 million notes, roughly a billion marks, still to be presented.",
-        "why": "Nine hundred and eighty-six kilograms at 0.94 grams a note is about 1,049,000 notes returned, against 4,176,000 issued — so 3.1 million are still out, which at 340 marks each is around a billion marks. That is a liability rather than a saving: every one of them may still be presented, and the board's closing statement has to say so. Dividing the return by the average note value instead of by its mass mixes a weight with a price and gives a number that is not a count of anything. What the weighing cannot tell anybody is the mix, which is why the average note value is sampled and quoted with the figure.\n",
+        "why": "Nine hundred and eighty-six kilograms at 0.94 grams a note is about 1,049,000 notes returned, against 4,176,000 issued. So 3.1 million are still out. At 340 marks each that is around a billion marks. That is a liability rather than a saving: every one of them may still be presented, and the board's closing statement has to say so. Dividing the return by the average note value instead of by its mass mixes a weight with a price. The result is not a count of anything. What the weighing cannot tell anybody is the mix, which is why the average note value is sampled and quoted with the figure.\n",
         "rebuttals": [
           "Dividing a mass by a note's value mixes grams with marks and counts nothing.",
           "The return alone is what has come back rather than what is still outstanding."
@@ -1595,7 +1595,7 @@ export const CURRICULUM = {
       "guide": "Money has three jobs: it settles a payment, it holds value between now and later, and it is the ruler prices are quoted in. Take each of the four in turn and ask which job it is doing and which it is failing. Nothing here fails all three, and one of them is failing none.",
       "background": [
         "Why the three jobs are listed separately. Most of the time one thing does all three and nobody has cause to tell them apart. A changeover pulls them apart for a fortnight, which is why a currency board is the one place the distinction is operational rather than academic.",
-        "Which job fails first under inflation. Holding value goes before settling payments does: people keep taking the notes and stop keeping them, so the same money changes hands faster while nobody wants to be holding it at the end of the week."
+        "Which job fails first under inflation. Holding value goes before settling payments does. People keep taking the notes and stop keeping them. So the same money changes hands faster while nobody wants to be holding it at the end of the week."
       ],
       "story": "Femi Adeyinka, the vault officer, has four things in front of him that Halvern is using as money this fortnight. Only one of them was issued by the board. Tulloch wants each one placed against the jobs money has to do.",
       "game": {
@@ -1677,7 +1677,7 @@ export const CURRICULUM = {
         "task": "Say what a deposit actually is",
         "question": "What is true of the 2.4 billion in deposits?",
         "answer": "Most of it was created by lending",
-        "why": "Sixty-two million of reserves stands behind 2.4 billion of deposits, which tells you at once that the deposits are not cash in a vault — there is not remotely enough cash for that. They exist because banks lent, and a loan credited to somebody's account is a deposit. That is what makes the money supply something the banking system created rather than something the board issued, and it is why deposits can exceed issued currency by a wide margin. The board's reserves do not guarantee them either; sixty-two million against 2.4 billion would be a guarantee of about two and a half per cent.\n",
+        "why": "Sixty-two million of reserves stands behind 2.4 billion of deposits, which tells you at once that the deposits are not cash in a vault. There is not remotely enough cash for that. They exist because banks lent, and a loan credited to somebody's account is a deposit. That is what makes the money supply something the banking system created rather than something the board issued. It is why deposits can exceed issued currency by a wide margin. The board's reserves do not guarantee them either; sixty-two million against 2.4 billion would be a guarantee of about two and a half per cent.\n",
         "rebuttals": [
           "There are 62 million of reserves against 2.4 billion of deposits, so almost none of it is cash in a vault.",
           "Reserves of 62 million cannot guarantee 2.4 billion; they cover about two and a half per cent of it.",
@@ -1714,9 +1714,9 @@ export const CURRICULUM = {
       "day": 2,
       "title": "One over the ratio",
       "scene": "The requirement is two per cent. Iyer wants eight. Haldane's bank holds 21 million of reserves against 780 million of deposits.",
-      "takeaway": "The multiplier is the reciprocal of the reserve ratio, so a small change is a large one.",
+      "takeaway": "In the simplified model, a higher required reserve ratio lowers the maximum deposit expansion.",
       "place": "Ledger Hall",
-      "guide": "Work out the multiplier at each requirement and compare them. Then look at Haldane's own numbers, because a bank already lent up against a two per cent requirement is a bank that has to find reserves or unwind loans when the requirement moves.",
+      "guide": "Use the simplified multiplier to compare the two reserve rules, then check Haldane’s actual balance sheet. Treat the result as a ceiling under the model—not a prediction that banks will automatically lend to it.",
       "background": [
         "Why one over the ratio. Each pound of reserves can support deposits up to the point where the required fraction of them equals that pound, so the maximum is the reciprocal. At two per cent a pound supports fifty; at eight it supports twelve and a half.",
         "Why the timing is Iyer's whole argument. Raising the requirement before the new notes go out constrains lending that has not happened. Raising it afterwards forces banks to call in loans already made, which contracts the money supply exactly when the board is trying to stabilise it."
@@ -1730,12 +1730,12 @@ export const CURRICULUM = {
         "task": "Work out what the requirement caps",
         "question": "Estimate the money multiplier at each requirement.",
         "answer": "12.5 at eight per cent, against 50 at two — the multiplier falls to a quarter.",
-        "why": "One over 0.08 is 12.5, and one over 0.02 is 50: quadrupling the requirement cuts the multiplier to a quarter of what it was. That is why a change that sounds small — six percentage points — is the largest single lever on the money supply the board has. It also settles Iyer's timing argument. Haldane's bank holds 21 million against 780 million of deposits, which is 2.7 per cent, so at eight per cent she is 41 million short and has to find reserves or call in loans. Doing that before the new notes are issued constrains lending that has not happened yet; doing it after contracts the money supply during a changeover.\n",
+        "why": "In the simplified AP-style model, 1 ÷ 0.08 = 12.5 and 1 ÷ 0.02 = 50, so the maximum multiplier falls to one quarter. The bank's own sheet shows 21 million of reserves behind 780 million of deposits, or about 2.7 per cent. An 8 per cent rule would require 62.4 million, leaving a 41.4 million shortfall if applied at once. The model does not say banks will actually create fifty times every new reserve mark: borrowers, excess reserves, cash holdings and the banking rules all matter. What it does give the board is a stress-test ceiling and a clear picture of how abrupt the proposed rule would be for Haldane today.",
         "rebuttals": [
           "Using the current two per cent gives the multiplier the board is trying to move away from.",
           "The deposit total is what the multiplier applies to rather than an input to the multiplier."
         ],
-        "relationship": "The money multiplier = 1 ÷ reserve ratio, which is what a reserve requirement caps.",
+        "relationship": "In the simplified deposit-multiplier model used here: maximum multiplier = 1 ÷ required reserve ratio.",
         "givens": [],
         "calcKey": "BANKS-2"
       },
@@ -1743,20 +1743,6 @@ export const CURRICULUM = {
         "banks lend up to the limit the requirement allows",
         "fractional reserve banking: a deposit is somebody else’s loan — taken as read",
         "the spending multiplier, and why one round is not the total — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "money multiplier = 1 ÷ reserve ratio",
-          "c": "the money multiplier",
-          "v": [
-            [
-              "reserve ratio",
-              "the fraction of deposits a bank must hold rather than lend"
-            ]
-          ],
-          "s": "A pound of reserves supports several pounds of deposits, and the reserve requirement is what caps how many.",
-          "computed": true
-        }
       ],
       "takesAsRead": [
         {
@@ -1780,35 +1766,35 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "Nine a year, against eleven a month",
-      "scene": "Haldane's loan book is written at 9 per cent a year. Prices are rising at 10.9 per cent a month, which is about 250 per cent a year.",
-      "takeaway": "An unexpected rise in prices moves wealth from lenders to borrowers.",
+      "title": "Nine a year, against eleven in one month",
+      "scene": "Haldane’s loan book earns 9 per cent a year. That is about 0.72 per cent for one month. Prices rose 10.9 per cent over that same month.",
+      "takeaway": "Unexpected inflation lowers the real return on a fixed nominal loan; at high inflation, use the exact Fisher relation rather than the subtraction shortcut.",
       "place": "Ledger Hall",
-      "guide": "Subtract inflation from the nominal rate over the same period, and mind that the two figures are quoted on different clocks — one is annual and one is monthly. Then say who is better off for the difference, because the money does not vanish.",
+      "guide": "Put both rates on the same one-month clock. Because inflation is very large, do not use the usual real ≈ nominal − inflation shortcut as though it were exact. Compare the lender’s purchasing power before and after the month.",
       "background": [
-        "Why the period has to match. Nine per cent a year against 10.9 per cent a month is not a subtraction until both are on the same basis. Compounded, 10.9 per cent a month is about 250 per cent a year, and that is the figure the nominal rate has to be set against.",
-        "Who gains. The borrower repays in money worth far less than the money borrowed, so the lender's real return is deeply negative and the borrower's real cost is too. Unexpected inflation transfers wealth from lenders to borrowers, and Haldane's depositors are the lenders here."
+        "Why the period has to match. A 9 per cent annual nominal rate is about 0.72 per cent for one month. The price level rose 10.9 per cent in that same month, so the two returns can now be compared on one clock.",
+        "Why the usual subtraction is only an approximation. For small rates, nominal minus inflation is close enough. Here the exact gross real return is the nominal payoff divided by the price increase. That keeps a one-period real loss above the impossible −100 per cent floor."
       ],
-      "story": "Haldane's loan book is written at 9 per cent a year. Prices are rising at 10.9 per cent a month, which is about 250 per cent a year.",
+      "story": "Haldane’s loan book earns 9 per cent a year. That is about 0.72 per cent for one month. Prices rose 10.9 per cent over that same month.",
       "game": {
         "type": "BALLPARK",
-        "title": "Nine a year, against eleven a month",
+        "title": "Nine a year, against eleven in one month",
         "setup": "Ledger Hall",
         "play": "Work out what the lender is actually earning",
         "task": "Work out what the lender is actually earning",
-        "question": "Estimate the real interest rate on the loan book.",
-        "answer": "About −241 per cent a year: the loan book is being repaid in money worth a fraction of what it lent.",
-        "why": "Nine per cent a year against 250 per cent inflation is a real rate of about minus 241 per cent. Every loan in the book is being repaid in money worth a fraction of what was borrowed, so the borrowers are hugely better off and Haldane's depositors — the ultimate lenders — carry the whole loss. That is what unexpected inflation does: it does not destroy the money, it moves it, and always in that direction. Subtracting the monthly figure from the annual one gives minus 1.9 per cent, which mixes two clocks and makes a catastrophe look like a rounding error.\n",
+        "question": "Estimate the lender’s real return over this month.",
+        "answer": "About −9.2 per cent for the month: the lender receives slightly more marks, but those marks buy substantially less.",
+        "why": "A 9 per cent effective annual return is about 0.72 per cent for one month, so 100 marks becomes about 100.72. The price level rises from 100 to 110.9. Dividing 100.72 by 110.9 gives about 0.908, or a real one-month return of roughly −9.2 per cent. Borrowers on fixed nominal contracts gain relative to lenders when the inflation was unexpected, but the transfer is about purchasing power—not money literally moving one-for-one from every lender to every borrower.",
         "rebuttals": [
           "Subtracting a monthly rate from an annual one compares two different periods.",
           "Adding inflation to the nominal rate describes what a lender would need to charge, not what it is earning."
         ],
-        "relationship": "The real interest rate = nominal rate − inflation, over the same period.",
+        "relationship": "Exact real return over one period: (1 + nominal return) ÷ (1 + inflation) − 1. The subtraction rule is an approximation for small rates.",
         "givens": [],
         "calcKey": "BANKS-3"
       },
       "assumes": [
-        "the monthly inflation rate persists for the year",
+        "the 9 per cent contract rate is an effective annual rate for this calculation",
         "the loanable funds market, and where saving meets investment — taken as read",
         "nominal against real: taking the price change out of a figure — taken as read"
       ],
@@ -1827,22 +1813,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Dividing by the price level takes the price change out, leaving what the money would actually buy.",
-          "computed": true
-        },
-        {
-          "e": "real rate = nominal rate − inflation",
-          "c": "the real interest rate",
-          "v": [
-            [
-              "nominal rate",
-              "the rate written in the contract"
-            ],
-            [
-              "inflation",
-              "the rate prices are rising at over the same period"
-            ]
-          ],
-          "s": "What a lender actually earns is the rate less what the money lost in value, which is why unexpected inflation moves wealth from lenders to borrowers.",
           "computed": true
         }
       ],
@@ -1870,7 +1840,7 @@ export const CURRICULUM = {
       "day": 4,
       "title": "Two per cent, or eight",
       "scene": "The requirement is two per cent. Iyer wants eight before Thursday. Haldane's bank holds 2.7 per cent and three of the eleven hold less than four.",
-      "takeaway": "A requirement caps creation immediately and forces adjustment over time.",
+      "takeaway": "In this scenario, the staged requirement reduces the model’s deposit-expansion ceiling while giving weak banks time to meet the new rule.",
       "place": "Ledger Hall",
       "guide": "Work out what the change asks of the banks that are furthest from it, then decide the timing. Raising the requirement caps what the system can create and forces anybody below the new figure to find reserves — and the two things happen at once.",
       "background": [
@@ -1886,7 +1856,7 @@ export const CURRICULUM = {
         "task": "Set the requirement, and say what it costs",
         "question": "What should the board do about the requirement?",
         "answer": "Raise it in steps, starting before Thursday",
-        "why": "The requirement does two things at once, and they have different clocks. Capping what the system can create matters immediately, before 12 million of reserves becomes 600 million of deposits. Making eleven banks hold more reserves takes time, because three of them would have to find tens of millions by selling assets nobody is buying. Steps do the first straight away and give the second time to happen out of new deposits. Going to eight at once risks three bank failures during a changeover. Leaving it until afterwards forces the contraction at the worst possible moment. And a different requirement for weak banks rewards being weak and tells the market which three they are.\n",
+        "why": "The board is using the reserve requirement as a fictional transition rule, and it has two effects that must be separated. In the game’s simplified multiplier model, a higher ratio lowers the maximum deposit expansion immediately. But an existing bank below the new ratio cannot conjure reserves instantly; it must raise reserves, shrink assets, or receive support. A staged rule reduces the modeled expansion ceiling while giving the three weak banks time to adjust. The simple 1/RR multiplier is a teaching model, not a claim that real-world bank lending is mechanically fixed by one ratio.",
         "rebuttals": [
           "Eight at once forces three banks to find tens of millions in a fortnight with no market to sell into.",
           "Waiting until after the changeover means unwinding loans already made, which contracts the money supply at the worst moment.",
@@ -1945,7 +1915,7 @@ export const CURRICULUM = {
         "task": "Say when the requirement actually bites",
         "question": "Which lag decides when the requirement is felt?",
         "answer": "The impact lag, and it is about a month",
-        "why": "Recognition and decision are almost nothing here — the board is meeting daily and the data are its own — so the delay is all impact. A requirement raised on Thursday applies from the next reporting date, which is the first of next month, and the loan book it eventually constrains runs nine months. So the cap on new lending is a month away and the adjustment of existing lending is most of a year. That is why the vote has to happen before the new notes go out rather than after: the effect the board wants is a month behind whatever it decides today.\n",
+        "why": "Recognition and decision are almost nothing here — the board is meeting daily and the data are its own — so the delay is all impact. A requirement raised on Thursday applies from the next reporting date, which is the first of next month, and the loan book it eventually constrains runs nine months. So the cap on new lending is a month away and the adjustment of existing lending is most of a year. That is why the vote has to happen before the new notes go out rather than after. The effect the board wants is a month behind whatever it decides today.\n",
         "rebuttals": [
           "The data here are the board's own and are days old, so recognition is not the delay.",
           "The board is meeting daily, so deciding costs hours rather than weeks.",
@@ -1988,12 +1958,12 @@ export const CURRICULUM = {
       "day": 6,
       "title": "The rate that clears it",
       "scene": "Iyer has deposits rising as people put new marks in and loan applications at a third of last year's. The board's borrowing rate is unchanged.",
-      "takeaway": "Saving is supply and investment is demand, and the real rate is what clears them.",
+      "takeaway": "In the loanable-funds model the interest rate is a price, and it moves when the supply of saving or the demand to borrow moves.",
       "place": "Ledger Hall",
       "guide": "Two quantities are moving in opposite directions in a market where a price is supposed to clear them. Say what the price is, which way it should move, and what is stopping it.",
       "background": [
         "What the market is. Saving is the supply of funds and investment is the demand, and the real interest rate is what clears them. More saving and less borrowing means the clearing rate has fallen.",
-        "Why the observed rate has not moved. It is fixed by the board, which is a decision rather than a market outcome — and with inflation at eleven per cent a month the real rate is deeply negative anyway, which is why nobody is saving for the return."
+        "Why the observed rate has not moved. It is fixed by the board, which is a decision rather than a market outcome. And with inflation at eleven per cent a month the real rate is deeply negative anyway. That is why nobody is saving for the return."
       ],
       "story": "Iyer has deposits rising as people put new marks in and loan applications at a third of last year's. The board's borrowing rate is unchanged.",
       "game": {
@@ -2002,9 +1972,9 @@ export const CURRICULUM = {
         "setup": "Ledger Hall",
         "play": "Say where saving meets borrowing",
         "task": "Say where saving meets borrowing",
-        "question": "What do rising deposits and falling loan applications imply?",
+        "question": "Absent another major shift, what do rising deposits and falling loan applications suggest?",
         "answer": "The rate that would clear the market has fallen",
-        "why": "More funds offered and less borrowing wanted is a supply rising against a demand falling, and in any market that means the clearing price has come down. Here the price is the real interest rate. The board's nominal rate has not moved, so the market is not clearing at the posted figure. Banks refusing to lend would show as applications made and declined rather than as fewer applications. Patience is not what is happening: with inflation at eleven per cent a month the real return on a deposit is deeply negative, and people are holding new marks because the alternative was worse. And the money supply is rising rather than contracting.\n",
+        "why": "In the loanable-funds model, higher saving shifts the supply of funds right while fewer investment loan applications shift demand left. Both movements point toward a lower equilibrium real rate. The observed deposit and application data do not prove that one rate “must” clear the market—credit risk, bank standards and expectations can move too—but they are evidence in the same direction under the model.",
         "rebuttals": [
           "Refusal would show as applications declined, and the applications are not being made.",
           "A deeply negative real return is not a reward for patience; people are holding money for want of anything better.",
@@ -2043,7 +2013,7 @@ export const CURRICULUM = {
       "scene": "The requirement steps to four per cent on the first and six on the first of next month. Three banks hold between 2.6 and 3.1 per cent and cannot raise capital this week.",
       "takeaway": "A reserve requirement and a defended rate compete for the same reserves.",
       "place": "Ledger Hall",
-      "guide": "Work out what the first step asks of the three banks furthest from it, and decide what the board should do given that lending them reserves and letting them fail are both real options with real costs. The step was chosen to be reachable; check whether it is.",
+      "guide": "Work out what the first step asks of the three banks furthest from it. Then decide what the board should do. Lending them reserves and letting them fail are both real options with real costs. The step was chosen to be reachable; check whether it is.",
       "background": [
         "What four per cent asks. A bank at 2.6 per cent has to find nearly a percentage and a half of its deposits in reserves inside a fortnight. For the largest of the three that is about eleven million marks.",
         "What lending it to them costs. Fifty-eight million of the reserve pool, which is the same pool the rate is defended with. The two uses compete directly, which is why yesterday's allocation and today's question are the same decision seen twice."
@@ -2057,7 +2027,7 @@ export const CURRICULUM = {
         "task": "Say which banks meet the requirement on the first",
         "question": "What should the board do about the three banks?",
         "answer": "Lend them reserves and take it out of the defence",
-        "why": "The three banks hold about a third of Halvern's deposits between them, so letting them fail in the first week of a new currency is not a supervisory outcome, it is a bank run with a changeover attached. Lending them reserves costs 58 million out of the same pool the rate is defended with, which is the real price and has to be said out loud: a narrower defence and a shorter peg. Exempting them tells the market exactly which three are weak and produces the run without the cost. Raising the requirement on the strong eight caps the multiplier while leaving the weakest banks untouched, which is the opposite of what a requirement is for.\n",
+        "why": "The three banks hold about a third of Halvern's deposits between them. So letting them fail in the first week of a new currency is not a supervisory outcome. It is a bank run with a changeover attached. Lending them reserves costs 58 million out of the same pool the rate is defended with. That is the real price and has to be said out loud: a narrower defence and a shorter peg. Exempting them tells the market exactly which three are weak and produces the run without the cost. Raising the requirement on the strong eight caps the multiplier while leaving the weakest banks untouched, which is the opposite of what a requirement is for.\n",
         "rebuttals": [
           "Letting three banks holding a third of deposits fail in week one is a run rather than a supervisory outcome.",
           "An exemption identifies the weak three to the market and produces the run anyway.",
@@ -2100,11 +2070,11 @@ export const CURRICULUM = {
       "day": 8,
       "title": "Somebody else's loan — Review",
       "scene": "Ruth Haldane, who manages the largest of the eleven regional banks, has a single ten-thousand-mark deposit walked in this morning. Iyer wants the four ledger entries it produces set out in the order they happen.",
-      "takeaway": "A loan is written as a deposit, which is why lending and deposits grow together.",
+      "takeaway": "In the simplified bank-ledger sequence, lending creates a deposit; the reserve rule constrains the model but does not mechanically determine every real-world loan.",
       "place": "Ledger Hall",
       "guide": "Four entries from one deposit. Order them in time, and settle each by asking what has to have been written before it can be written at all. Three of the four are on Haldane's own ledger and one is not, which is a hint about where the last of them belongs.",
       "background": [
-        "Why only one of the four is a decision. The deposit arriving and the payment leaving are things that happen to the bank. The split between what is held and what is lent is the one entry somebody chooses, which is exactly why a reserve requirement is a policy tool and the other three entries are not.",
+        "Why only one of the four is a decision. The deposit arriving and the payment leaving are things that happen to the bank. The split between what is held and what is lent is the one entry somebody chooses. That is exactly why a reserve requirement is a policy tool and the other three entries are not.",
         "What the third entry actually creates. A loan is not handed over in cash; it is credited to an account, and an account balance is a deposit. So the borrower has money that did not exist that morning, and the bank's books balance because the loan is an asset against it."
       ],
       "story": "Ruth Haldane, who manages the largest of the eleven regional banks, has a single ten-thousand-mark deposit walked in this morning. Iyer wants the four ledger entries it produces set out in the order they happen.",
@@ -2116,7 +2086,7 @@ export const CURRICULUM = {
         "task": "Put the four ledger entries in the order they are written.",
         "question": "Put the four ledger entries in the order they are written.",
         "answer": "The deposit, then the split into reserves and lendable funds, then the loan credited to the builder's account, then the same money arriving as a deposit at a second bank.",
-        "why": "Nothing can be set aside out of money the bank does not yet hold, so the deposit is written first. The split into reserves and lendable funds comes next, and it is the only entry that is a decision rather than a consequence. The loan follows, and the thing worth noticing is that it is credited as a deposit: the builder now has an account balance that did not exist this morning. When he spends it, the same balance turns up at a second bank.",
+        "why": "Nothing can be set aside out of money the bank does not yet hold, so the deposit is written first. The split into reserves and lendable funds comes next, and it is the only entry that is a decision rather than a consequence. The loan follows, and the thing worth noticing is that it is credited as a deposit. The builder now has an account balance that did not exist this morning. When he spends it, the same balance turns up at a second bank.",
         "cards": [
           "The ten thousand is written up as a deposit, and the bank's cash rises by the same amount.",
           "A fraction of it is set aside as reserves, and the rest is recorded as lendable.",
@@ -2169,7 +2139,7 @@ export const CURRICULUM = {
         "task": "Say which curve the board has moved",
         "question": "Which explanation fits prices up, output down and unemployment up?",
         "answer": "A cost shock, arriving through import prices",
-        "why": "Demand-driven inflation raises prices and output together and lowers unemployment, because more spending pulls on both. Here output is falling and unemployment rising while prices rise, which is the opposite pattern and the signature of costs: the same production is more expensive, so less of it happens at a higher price. Halvern imports flour and fuel and the exchange rate has moved, so the mechanism is on the wires rather than in the shops. A rise in capacity would lower prices, and a fall in the money supply would lower them too — both are the wrong direction on the one number nobody disputes.\n",
+        "why": "Demand-driven inflation raises prices and output together and lowers unemployment, because more spending pulls on both. Here output is falling and unemployment rising while prices rise. That is the opposite pattern, and the signature of costs. The same production is more expensive, so less of it happens at a higher price. Halvern imports flour and fuel and the exchange rate has moved, so the mechanism is on the wires rather than in the shops. A rise in capacity would lower prices, and a fall in the money supply would lower them too. Both are the wrong direction on the one number nobody disputes.\n",
         "rebuttals": [
           "Excess demand raises output as well as prices, and output has fallen.",
           "More capacity puts downward pressure on prices rather than upward.",
@@ -2212,7 +2182,7 @@ export const CURRICULUM = {
       "day": 2,
       "title": "Twelve million, or six hundred",
       "scene": "The treasury wants 12 million of reserves put into the banks to keep wages paid through the changeover. The requirement is still two per cent.",
-      "takeaway": "An injection times the multiplier is a ceiling on the money it can become.",
+      "takeaway": "A multiplier calculation is a model ceiling until lending demand and bank behavior make it real.",
       "place": "Rate Room",
       "guide": "Work out what twelve million of reserves can become in deposits at the current requirement, and then at Iyer's proposed one. The gap between the two answers is the argument the board is about to have, and it is much larger than the injection itself.",
       "background": [
@@ -2227,13 +2197,13 @@ export const CURRICULUM = {
         "play": "Work out what an injection would become",
         "task": "Work out what an injection would become",
         "question": "Estimate the deposits 12 million of reserves could create at two per cent.",
-        "answer": "Up to 600 million marks — or 150 million if the requirement goes to eight first.",
-        "why": "Twelve million times a multiplier of fifty is 600 million marks of deposits, which is fifty times the injection and about a quarter of Halvern's entire deposit base. At Iyer's eight per cent the same twelve million supports 150 million, and the difference — 450 million — is the whole of the argument about timing. It is a ceiling rather than a forecast: banks only lend to the limit if there are borrowers, and in this fortnight there may not be. But a board that injects reserves without knowing the ceiling has decided something it has not calculated.\n",
+        "answer": "Up to 600 million marks in the simplified 2 per cent model, versus 150 million at 8 per cent; neither number is a forecast of actual lending.",
+        "why": "With the game’s simplified 2 per cent reserve model, twelve million times fifty gives a maximum deposit expansion of 600 million. At 8 per cent the corresponding ceiling is 150 million. The 450 million gap shows why timing matters in this fictional board’s framework, but neither total is guaranteed. Banks must find willing borrowers, may hold excess reserves, and households may hold currency rather than redeposit it. The board is using the calculation to bound a risk, not to predict an automatic chain.",
         "rebuttals": [
           "The multiplier at eight per cent answers what the injection becomes after the requirement is raised.",
           "The reserve ratio is what the multiplier is built from rather than something to multiply by."
         ],
-        "relationship": "The deposits an injection can create: ΔM = new reserves × money multiplier.",
+        "relationship": "Simplified upper bound: potential deposit expansion = new reserves × textbook money multiplier.",
         "givens": [],
         "calcKey": "RATE-2"
       },
@@ -2252,22 +2222,6 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A pound of reserves supports several pounds of deposits, and the reserve requirement is what caps how many.",
-          "computed": true
-        },
-        {
-          "e": "ΔM = new reserves × money multiplier",
-          "c": "the deposits a reserve injection can create",
-          "v": [
-            [
-              "new reserves",
-              "reserves added to the banking system"
-            ],
-            [
-              "money multiplier",
-              "one over the reserve ratio"
-            ]
-          ],
-          "s": "What the banking system can create out of an injection, if every bank lends everything it may.",
           "computed": true
         }
       ],
@@ -2292,10 +2246,10 @@ export const CURRICULUM = {
       "scene": "Prentice's household survey: when disposable income rose 40 marks a month last year, measured consumption rose 30. Mbeya's plan pays out 84 million.",
       "takeaway": "The propensity to consume is a measured behaviour rather than a constant.",
       "place": "Rate Room",
-      "guide": "The fraction of an extra mark that gets spent rather than saved is what makes a multiplier large or small. Work it out from the survey, and note that the rest of it is not lost — it is saved, which matters for the loanable funds argument later in the fortnight.",
+      "guide": "The fraction of an extra mark that gets spent rather than saved is what makes a multiplier large or small. Work it out from the survey. Note that the rest of it is not lost but saved, which matters for the loanable funds argument later in the fortnight.",
       "background": [
-        "Why it is measured rather than assumed. A propensity to consume is a behaviour and it changes with who is being paid and what they expect. During a changeover people spend more of an extra mark than usual, because holding the old currency is a losing bet.",
-        "Why the survey is the weak point. Last year's behaviour at a stable price level is not this fortnight's. The figure is the best available and the board should be told it is a lower bound rather than an estimate."
+        "Why it is measured rather than assumed. A propensity to consume is a behaviour and it changes with who is being paid and what they expect. During a changeover households may spend faster, save more for precaution, or shift what they buy; the direction is empirical.",
+        "Why the survey is the weak point. Last year's behaviour at a stable price level is not this fortnight's. The figure is the best available estimate, and the board should publish the period and uncertainty instead of pretending it is a constant."
       ],
       "story": "Prentice's household survey: when disposable income rose 40 marks a month last year, measured consumption rose 30. Mbeya's plan pays out 84 million.",
       "game": {
@@ -2306,7 +2260,7 @@ export const CURRICULUM = {
         "task": "Work out how much of an extra mark gets spent",
         "question": "Estimate the marginal propensity to consume.",
         "answer": "0.75 — three quarters of an extra mark is spent and a quarter saved.",
-        "why": "Thirty over forty is 0.75, so three quarters of every extra mark is spent. The remaining quarter is saved rather than lost, which is what the loanable funds market later in the fortnight is about. The number matters because it sets the multiplier: at 0.75 the multiplier is four, and at 0.6 it would be two and a half — so a survey figure is doing a great deal of work. It is also the weakest link. Last year's behaviour at stable prices is not this fortnight's, when holding the old currency is a losing bet, so 0.75 is a lower bound and the board should be told so.\n",
+        "why": "Thirty over forty is 0.75, so in last year’s survey three quarters of an extra mark of disposable income was spent and one quarter saved. That measured behavior is useful for a first estimate, but it is not a constant and not a lower bound. During a currency panic households could spend more quickly, save more precautionarily, or shift spending toward imports. The board should therefore write 0.75 as the survey estimate it actually has, with the period beside it.",
         "rebuttals": [
           "The saved portion over the income rise is the propensity to save, which is one minus this.",
           "The treasury's payment is what the propensity will be applied to rather than an input to it."
@@ -2354,11 +2308,11 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "Not the rate anybody wants",
+      "title": "Only one candidate clears ninety-six days",
       "scene": "Three candidate rates: 3.60 old marks to the new, 4.15, and 4.80. The outflow at each is 5.2, 1.4 and nil million a day. The reserves are 187 million.",
-      "takeaway": "A rate that cannot be defended is a promise with its own expiry inside it.",
+      "takeaway": "Reserve cover can eliminate an impossible promise before the board argues about who bears the cost.",
       "place": "Rate Room",
-      "guide": "Work out how long the reserves hold at each candidate and compare it with the ninety-six days the rate has to survive. Then choose, and say what the chosen rate costs the people it lands on — because two of the three are affordable and they are not equally fair.",
+      "guide": "Calculate reserve cover at each candidate and compare it with ninety-six days. This stop is a feasibility screen, not the final policy choice: surviving the reserve test is necessary, not sufficient.",
       "background": [
         "Why a weaker rate costs less to defend. Setting the new currency cheaper against foreign money means the market is not pushing against the peg, so nothing has to be bought to hold it. The cost moves from the reserves to the households buying imported flour.",
         "Who each rate falls on. At 3.60 savers keep more of what they had and importers pay more of the difference through a devaluation later. At 4.80 importers pay immediately and anybody holding old marks takes the loss now."
@@ -2366,13 +2320,13 @@ export const CURRICULUM = {
       "story": "Three candidate rates: 3.60 old marks to the new, 4.15, and 4.80. The outflow at each is 5.2, 1.4 and nil million a day. The reserves are 187 million.",
       "game": {
         "type": "TRIAGE",
-        "title": "Not the rate anybody wants",
+        "title": "Only one candidate clears ninety-six days",
         "setup": "Rate Room",
-        "play": "Choose the rate the reserves can hold",
-        "task": "Choose the rate the reserves can hold",
-        "question": "Which rate should the board announce?",
+        "play": "Find which candidate survives the reserve test",
+        "task": "Find which candidate survives the reserve test",
+        "question": "Which candidate is the strongest rate that still survives the reserve test?",
         "answer": "4.15, which holds for 134 days",
-        "why": "At 3.60 the reserves last thirty-six days against ninety-six needed, so that rate is an announcement with its own failure date in it. At 4.15 the outflow is 1.4 million a day and 187 million lasts about 134 days, which covers the period with a margin. At 4.80 nothing has to be defended and the whole adjustment lands immediately on everybody buying imported flour, which is affordable for the board and expensive for the city. Floating is defensible and gives up the one thing the fortnight is for: something for wages and contracts to be written against. The choice is the affordable rate that costs the least to the people it lands on.\n",
+        "why": "At 3.60, 187 million divided by 5.2 million a day gives only about 36 days, far short of the required 96. At 4.15, the 1.4 million daily defence outflow gives about 134 days, so it clears the test with a margin. At 4.80 no defence outflow is assumed, so it also survives—but it is a weaker old-mark conversion than the board needs if 4.15 can be defended. The calculation therefore does not “set the rate” today. It removes 3.60 and leaves 4.15 as the strongest candidate that meets the reserve condition.",
         "rebuttals": [
           "3.60 is what savers expect and the reserves hold it for 36 of the 96 days needed.",
           "4.80 costs the board nothing and puts the whole adjustment on households at once.",
@@ -2415,12 +2369,12 @@ export const CURRICULUM = {
       "day": 5,
       "title": "The same debt, in different money",
       "scene": "The treasury owes 340 million marks at a fixed 7 per cent, borrowed before the changeover. Mbeya wants to know whether that is now cheap.",
-      "takeaway": "Inflating away a debt works once, because the next lender prices it in.",
+      "takeaway": "Unexpected inflation can reduce the real burden of fixed nominal debt; future lenders can demand compensation once the inflation is expected.",
       "place": "Rate Room",
       "guide": "Ask what the debt is denominated in and what has happened to that money. Then say what follows for the treasury and for whoever holds the debt, and whether the answer is a reason to borrow more.",
       "background": [
         "Why the debt has become cheap. It is fixed in old marks and old marks are worth far less than when it was borrowed, so the real burden has collapsed. The treasury gains exactly what the holders of the debt lose.",
-        "Why that is not a strategy. It works once and only because it was unexpected. The next lender prices in what just happened, so the government borrows at a nominal rate that contains the inflation, and the trick is not available a second time."
+        "Why that is not a strategy. It works once and only because it was unexpected. The next lender prices in what just happened, so the government borrows at a nominal rate that contains the inflation. The trick is not available a second time."
       ],
       "story": "The treasury owes 340 million marks at a fixed 7 per cent, borrowed before the changeover. Mbeya wants to know whether that is now cheap.",
       "game": {
@@ -2431,7 +2385,7 @@ export const CURRICULUM = {
         "task": "Say what the treasury's borrowing has become",
         "question": "What has happened to the treasury's borrowing, and what follows?",
         "answer": "It has become cheap, and cannot be repeated",
-        "why": "The debt is fixed in old marks and old marks have lost most of their value, so the real burden has collapsed — the treasury gains precisely what the holders of the debt lose. What does not follow is borrowing more. The gain came from the inflation being unexpected, and the next lender prices in what has just happened, so new borrowing carries a nominal rate with the inflation inside it. A fixed nominal rate is exactly what makes the real cost fall, so \"unchanged\" has it backwards, and rising prices make a fixed-rate debt cheaper rather than dearer.\n",
+        "why": "The treasury debt is fixed in old marks, so an unexpected rise in the price level reduces its real burden and reduces the real value received by the bondholders. That does not create a repeatable free lunch. Once lenders expect high inflation they can demand higher nominal yields, shorten maturities or refuse the contract. The lesson is about the difference between nominal and real obligations, not a policy recommendation to “inflate away” debt.",
         "rebuttals": [
           "Borrowing more is the trap: the next lender prices in the inflation that just happened.",
           "A fixed nominal rate is what lets the real cost fall when prices rise.",
@@ -2484,7 +2438,7 @@ export const CURRICULUM = {
         "task": "Say which side the problem is on",
         "question": "Which reading fits both figures?",
         "answer": "A supply shock, with demand weak as well",
-        "why": "Deficient demand alone would put output below capacity and prices flat or falling. Halvern has output eleven per cent down and prices up eleven per cent a month, which is the supply pattern: the same production costs more, so less of it happens at a higher price. Demand is weak too — that is what the output gap says — but the price behaviour is coming from costs, so a stimulus alone would raise prices further without restoring capacity. Excess demand would have output above capacity, not below. And the figures are not inconsistent; they are the signature of the case both readings were trying to simplify.\n",
+        "why": "A pure negative-demand shock would normally push output below potential and reduce inflation pressure. Halvern instead has a large negative output gap alongside rapidly rising prices, which is consistent with an adverse supply shock plus weak demand. That does not prove one unique cause: the board has several moving shocks and noisy estimates. It does rule out the simple story that “demand is too high” or that stimulus alone can restore lost capacity without inflation risk.",
         "rebuttals": [
           "Deficient demand alone would show prices flat or falling, and they are rising eleven per cent a month.",
           "Excess demand puts output above capacity, and Halvern is eleven per cent below it.",
@@ -2537,7 +2491,7 @@ export const CURRICULUM = {
         "task": "Match each tool to what it moves.",
         "question": "Match each tool to what it moves.",
         "answer": "Open market operations move reserves, the requirement moves the multiplier, the borrowing rate moves the price of reserves, and an announcement moves expectations.",
-        "why": "The three conventional tools act on different quantities. Buying paper hands reserves straight to a bank, which changes the supply directly and can be done in any amount and undone next week. The requirement changes what every bank may lend against what it holds, so it moves the multiplier rather than the reserves — bluntly, and for everybody at once, which is why it is rarely used and right this fortnight. The borrowing rate changes what reserves cost and therefore what banks choose to hold. And the fourth item is the one nobody lists as a tool and which acts fastest: an announcement moves expectations before any of the other three have taken effect.\n",
+        "why": "In the AP-style framework used by the board, buying government paper adds reserves, the reserve rule changes the simplified deposit-expansion ceiling, and the board’s lending rate changes the cost of borrowing reserves. Communication can move expectations before any balance-sheet tool has its full effect. Real central-bank operating systems can work differently; the point here is to distinguish the channels in the model the player is being asked to use.",
         "rebuttals": [
           "Buying paper hands reserves to the seller, which is the most direct way to change the supply.",
           "The requirement changes how much each bank may lend against what it holds, which is the multiplier.",
@@ -2589,15 +2543,15 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Four fifteen to the old",
-      "scene": "The rate is 4.15 old marks to one new. The tram drivers earn 2,180 old marks a month. Okonjo needs the figure for the counter notice by four.",
-      "takeaway": "A rate is a price with a direction, and the direction inverts every conclusion.",
+      "scene": "For the rehearsal, use 4.15 old marks to one new. The tram drivers earn 2,180 old marks a month. Okonjo needs the test conversion before the counter opens on Monday.",
+      "takeaway": "A conversion factor changes the numerical unit; its real consequences depend on how prices, wages and external values move around it.",
       "place": "Rate Room",
-      "guide": "Divide or multiply, and be sure which. The rate is quoted as old marks per new one, so a wage in old marks becomes a smaller number of new ones. Work it out, then say what the direction of the quote does to anybody who gets it the wrong way round.",
+      "guide": "This is a rehearsal of the surviving candidate, not the final signature. Divide or multiply according to the quoted direction, then check the result using the reciprocal rate.",
       "background": [
         "Why the direction matters more than the arithmetic. A rate quoted as 4.15 old to one new and a rate quoted as 0.241 new to one old are the same rate. Multiplying when you should divide gives a wage seventeen times too large, and the counter notice is read by nine hundred thousand people.",
         "What the new figure means. A wage of 525 new marks buys what 2,180 old ones bought this morning, so nobody is better or worse off at the moment of conversion. Everything that happens afterwards depends on what prices do in the new currency."
       ],
-      "story": "The rate is 4.15 old marks to one new. The tram drivers earn 2,180 old marks a month. Okonjo needs the figure for the counter notice by four.",
+      "story": "For the rehearsal, use 4.15 old marks to one new. The tram drivers earn 2,180 old marks a month. Okonjo needs the test conversion before the counter opens on Monday.",
       "game": {
         "type": "BALLPARK",
         "title": "Four fifteen to the old",
@@ -2606,7 +2560,7 @@ export const CURRICULUM = {
         "task": "Convert the rate into what a wage becomes",
         "question": "Estimate the drivers' wage in new marks.",
         "answer": "About 525 new marks a month, where multiplying would have printed 9,047.",
-        "why": "The rate is old marks per new one, so old marks are divided by it: 2,180 over 4.15 is 525 new marks. Multiplying gives 9,047, which is the same rate applied in the wrong direction and a figure seventeen times too large on a notice nine hundred thousand people will read. The other route to the same answer is the reciprocal — 2,180 times 0.241 is 525 — and having both on the notice is how the direction is made unmistakable. At the moment of conversion nobody is better or worse off; everything that happens next depends on prices in the new currency.\n",
+        "why": "The quote is old marks per new mark, so 2,180 ÷ 4.15 ≈ 525 new marks. The reciprocal route gives the same result. If every domestic wage, account balance and posted domestic price were converted by the same factor at the same instant, the unit change alone would not alter purchasing power. The real stakes come from what happens to imported prices, inflation, reserves, and any contracts that are not converted symmetrically. Today’s job is to make the arithmetic operationally correct before the board decides whether to sign 4.15 at all.",
         "rebuttals": [
           "Multiplying by old marks per new applies the rate in the wrong direction and inflates the wage seventeenfold.",
           "The price index converts across time rather than across currencies."
@@ -2652,6 +2606,23 @@ export const CURRICULUM = {
           ],
           "s": "Price the same list of goods twice and the ratio is what prices have done, with the basket held still on purpose.",
           "demanded": true
+        },
+        {
+          "e": "real = nominal ÷ (index ÷ 100)",
+          "c": "deflating a nominal figure",
+          "v": [
+            [
+              "nominal",
+              "the figure as measured, in the money of the day"
+            ],
+            [
+              "index",
+              "the price index for that period, base 100"
+            ]
+          ],
+          "s": "Dividing by the price level takes the price change out, leaving what the money would actually buy.",
+          "demanded": true,
+          "card": false
         }
       ],
       "takesAsRead": [
@@ -2678,11 +2649,11 @@ export const CURRICULUM = {
       "day": 9,
       "title": "What the first week has to cover",
       "scene": "187 million of reserves. Six calls on them in the first week, and the total asked for is more than there is.",
-      "takeaway": "A reserve spent on everything defensible defends nothing in particular.",
+      "takeaway": "A finite reserve stock forces explicit trade-offs: every protected use has an opportunity cost elsewhere.",
       "place": "Rate Room",
       "guide": "Everything on this list is a real claim and the reserves will not cover them all. Two of the six are what the rate itself is held with, so they are not optional. Spend the pool, and know what the plan cannot answer once it is spent.",
       "background": [
-        "What defending the rate costs in week one. At 4.15 the outflow is 1.4 million a day, so a week is about ten million — and the first week of a changeover is the week most likely to test it.",
+        "What defending the rate costs in week one. At 4.15 the outflow is 1.4 million a day, so a week is about ten million. And the first week of a changeover is the week most likely to test it.",
         "Why the note float is not negotiable. If the counter cannot pay out new marks on the fifteenth, the rate is irrelevant: the failure everybody remembers is a closed counter with a queue outside it."
       ],
       "story": "187 million of reserves. Six calls on them in the first week, and the total asked for is more than there is.",
@@ -2694,7 +2665,7 @@ export const CURRICULUM = {
         "task": "Spend the last of the reserves",
         "question": "187 million of reserves. Build the first week, and know what it stops you being able to do.",
         "answer": "The float is protected and the defence is what the rate is held with. That leaves 135 million against four jobs, and the three banks and the early wages come to 142 million between them — so the decision is which of those two is not funded.",
-        "why": "The float is not a choice: a counter that cannot pay out new marks on the fifteenth makes every other decision irrelevant. Defending the rate for the first week costs ten million and is what the announcement was made with, so it is the second thing bought. Flour is the one item on the list the public will notice within days, and a buffer is what makes week two possible at all. That leaves the three weak banks or the early wages, and not both — which is the decision. The honest form is to say which one is not being funded rather than to plan for both and discover it on Thursday.\n",
+        "why": "The first-week counter float and the ten-million reserve defence are the two commitments that make the currency promise operational. After those 52 million, 135 million remains. Funding all four remaining claims would require 218 million, so no plan can satisfy everything. The allocation game is not asking for one universally correct social ranking; it makes the player state what is protected and what risk is accepted. Any final rate must be judged against the reserves left after that decision, not against the headline 187 million as though none had other jobs.",
         "allocate": {
           "pool": {
             "amount": 187,
@@ -2800,59 +2771,49 @@ export const CURRICULUM = {
     },
     {
       "day": 10,
-      "title": "Four figures that used to be opinions",
-      "scene": "Verhoeven has the four things that changed this fortnight on one page. She wants them in an order the next board can act on.",
-      "takeaway": "An agreed figure and a measured one can be the same number and are not the same evidence.",
+      "title": "Which rate book do you sign?",
+      "scene": "The candidate is 4.15 old marks to one new. At the modeled defence outflow it covers about 134 days against a required 96. The 3.60 candidate covers only 36 days. The staged reserve rule and the first-week reserve allocation are written beside the rate, and the three weak banks still need bridge reserves.",
+      "takeaway": "The defensible decision is a rate plus the evidence, assumptions and review conditions that make the promise testable.",
       "place": "Rate Room",
-      "guide": "Look for what the four have in common rather than what each says. In every case a figure that had been agreed was replaced by one that was measured, with a period or a condition attached. Order them by what the next board needs first.",
+      "guide": "This is not a vote on the prettiest number. Decide whether the evidence supports making a promise, then make sure the signature says what that promise depends on. A rate without its conditions is not the same decision as the rate you have spent fifteen days testing.",
       "background": [
-        "What each replaced. A basket from another decade, a money supply that double-counted the interbank deposits, a rate chosen for fairness rather than for what reserves could hold, and a multiplier nobody had computed.",
-        "Why the order is by urgency. The next board inherits the file and needs first what it cannot work without: the index, then the money supply figure, then the reserve arithmetic, then the requirement schedule."
+        "What 4.15 has going for it. It is the strongest candidate in the scenario that clears the ninety-six-day reserve test, and the conversion arithmetic, price-index treatment and first-week plan have all been rehearsed against it.",
+        "What it does not settle. The defence outflow can change, the weak banks still need a capital plan, and future inflation is a forecast rather than a measured consequence of the rate. Those conditions belong on the signed page."
       ],
-      "story": "Verhoeven has the four things that changed this fortnight on one page. She wants them in an order the next board can act on.",
+      "story": "The candidate is 4.15 old marks to one new. At the modeled defence outflow it covers about 134 days against a required 96. The 3.60 candidate covers only 36 days. The staged reserve rule and the first-week reserve allocation are written beside the rate, and the three weak banks still need bridge reserves.",
       "game": {
-        "type": "SEQUENCE",
-        "title": "Four figures that used to be opinions",
+        "type": "CHOICE",
+        "title": "Which rate book do you sign?",
         "setup": "Rate Room",
-        "play": "Say what the fortnight replaced",
-        "task": "Say what the fortnight replaced",
-        "question": "Put the four in the order the next board needs them.",
-        "answer": "The index first, because everything else is deflated by it; then the money supply, the reserve arithmetic and the requirement schedule.",
-        "why": "The order is by what stops work rather than by what matters most. Nothing can be said about wages, output or debt without the index, because every real figure is deflated by it. The money supply comes next: it is what the price path is argued from, and its interbank correction is the part that will be forgotten first. The reserve arithmetic is needed when the rate is questioned, which is weeks away rather than days. The requirement schedule is last because it is already in force and runs itself. All four are the same move — an agreed figure replaced by a measured one with its conditions written beside it — and that is what the next board is really inheriting.\n",
-        "cards": [
-          "The index, on a basket reweighted and priced both ways",
-          "The money supply, reconciled across three counts",
-          "The reserve arithmetic behind the rate, in days",
-          "The reserve requirement schedule, in steps"
+        "play": "Sign—or refuse—the conversion rate",
+        "task": "Sign—or refuse—the conversion rate",
+        "question": "Which rate book do you sign?",
+        "answer": "Sign 4.15 with its conditions: it is not perfect, but it is the strongest candidate that clears the reserve test and has an operational first-week plan behind it.",
+        "why": "The fifteen days have not proved that 4.15 is uniquely “fair.” They have shown that 3.60 cannot be defended for the promised period under the scenario’s outflow, while 4.15 can. Moving all the way to 4.80 would impose a larger immediate external-price adjustment than the reserve constraint requires. Floating would avoid reserve defence but abandons the scenario’s central need for a conversion value for wages and contracts. The earned decision is therefore 4.15 with the reserve position, staged bank rule, first-week allocation and review conditions written on the same page. If those conditions change, the promise must be reviewed rather than defended by pretending the assumptions never moved.",
+        "rebuttals": [
+          "3.60 fails the ninety-six-day reserve test even though it converts balances into more new units.",
+          "4.80 conserves reserves but shifts farther than the stress test requires; reserve cost is not the only objective.",
+          "Floating is a legitimate regime in general, but it does not satisfy the fictional changeover mandate the board has been given."
         ],
-        "order": [
-          0,
-          1,
-          2,
-          3
+        "choices": [
+          "Sign 4.15, with the reserve position, staged bank rule and review conditions printed beside it.",
+          "Sign 3.60, because it converts each old-mark balance into more new units.",
+          "Sign 4.80, because a rate that costs no reserves must be the safest rate for the country.",
+          "Refuse any fixed rate and float immediately, even though wages and contracts have been prepared for a conversion rate."
         ],
-        "axis": "which the next board needs first",
-        "ends": [
-          "needed first",
-          "needed last"
-        ]
+        "correctChoice": "Sign 4.15, with the reserve position, staged bank rule and review conditions printed beside it."
       },
       "assumes": [
-        "the file passes to the next board intact",
-        "a price index, and the basket it is an index of — taken as read"
-      ],
-      "takesAsRead": [
-        {
-          "n": 7,
-          "c": "A price index, and the basket it is an index of"
-        }
+        "the modeled 1.4 million daily defence outflow remains a reasonable stress-case input",
+        "the first-week reserve allocation and staged bank requirement are implemented as written"
       ],
       "concept": {
-        "n": 32,
-        "c": "Reading an economic statistic: what it counts, over what period, and revised how often",
+        "n": 30,
+        "c": "An exchange rate as a price, and what moves it",
         "of": 32,
         "rests": [
-          "A price index, and the basket it is an index of"
+          "The balance of payments: the current account and its mirror",
+          "Demand, supply and the price that clears a market"
         ]
       }
     }
@@ -2867,7 +2828,7 @@ export const CURRICULUM = {
       "guide": "Add the four flows with their signs. Two of them are the trade balance and two are the parts people forget, and one of those is large enough here to change the conclusion. Then say what a deficit on this account has to be financed by, because that is what makes it a constraint rather than a statistic.",
       "background": [
         "What remittances do to a small economy. Halvern has people working abroad and sending money home, and 19 million a month is a third of the trade gap. An analysis that looks only at exports and imports understates the country's position by exactly that.",
-        "Why the account is a constraint. A deficit means the country is buying more from abroad than it is selling, and the difference has to be paid for — by borrowing, by selling assets, or by running down reserves. On the fifteenth it will be reserves."
+        "Why the account is a constraint. A deficit means the country is buying more from abroad than it is selling. The difference has to be paid for: by borrowing, by selling assets, or by running down reserves. On the fifteenth it will be reserves."
       ],
       "story": "Levon Sarkis, the trade and reserves officer, has the month's wires: exports 64 million, imports 121, net income from abroad minus 8, and remittances in of 19.",
       "game": {
@@ -2878,7 +2839,7 @@ export const CURRICULUM = {
         "task": "Work out what the trade position actually is",
         "question": "Estimate the month's current account balance.",
         "answer": "A deficit of about 46 million marks, where the trade balance alone says 57.",
-        "why": "Exports less imports is a gap of 57 million, and the two terms people leave out change it substantially: eight million paid abroad in income makes it worse, and nineteen million of remittances makes it better, for a deficit of 46. That is a third of the gap closed by money Halvern's own people send home, and an analysis that stops at trade misses it entirely. The reason the number matters on Friday is what a deficit has to be financed by. There is no borrowing available, so it is reserves, and reserves divided by 46 million a month is a number of months rather than an opinion.\n",
+        "why": "Exports less imports is a gap of 57 million. The two terms people leave out change it substantially. Eight million paid abroad in income makes it worse, and nineteen million of remittances makes it better, for a deficit of 46. That is a third of the gap closed by money Halvern's own people send home, and an analysis that stops at trade misses it entirely. The reason the number matters on Friday is what a deficit has to be financed by. There is no borrowing available, so it is reserves, and reserves divided by 46 million a month is a number of months rather than an opinion.\n",
         "rebuttals": [
           "Exports less imports is the trade balance, which is only two of the four flows.",
           "Remittances come in and net income goes out, so their signs are opposite."
@@ -2948,7 +2909,7 @@ export const CURRICULUM = {
         "task": "Say what the payment does to the trade position",
         "question": "What does the import share do to the treasury's plan?",
         "answer": "Shrinks the multiplier and widens the deficit",
-        "why": "A mark spent on imported flour becomes income abroad, so it does not return for another round of domestic spending — the multiplier is smaller than one over one minus the propensity to consume suggests. The same mark also appears as an import in the current account, which widens the deficit. Both effects run the same way and both matter on the fifteenth, because the deficit is financed by the reserves that would otherwise be defending a rate. The plan therefore does less for demand and more to the account than the paper says, which is a stronger objection than either half on its own.\n",
+        "why": "A mark spent on imported flour becomes income abroad. So it does not return for another round of domestic spending. The multiplier is smaller than one over one minus the propensity to consume suggests. The same mark also appears as an import in the current account, which widens the deficit. Both effects run the same way and both matter on the fifteenth, because the deficit is financed by the reserves that would otherwise be defending a rate. The plan therefore does less for demand and more to the account than the paper says, which is a stronger objection than either half on its own.\n",
         "rebuttals": [
           "Extra imports widen the deficit rather than narrowing it; the spending goes out.",
           "The leak is what shrinks the multiplier, so it cannot be unchanged.",
@@ -2984,15 +2945,15 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "A stock over an outflow",
-      "scene": "Sarkis has 187 million marks of foreign reserves. At the rate Verhoeven wants, the net outflow is running at 5.2 million a day.",
+      "scene": "Sarkis has 187 million marks of foreign reserves. At the rate Ada Verhoeven, the board chair, wants, the net outflow is running at 5.2 million a day.",
       "takeaway": "A reserve stock divided by a daily outflow is how long a promise can be kept.",
       "place": "Wire Room",
       "guide": "Divide the stock by the daily outflow to get a number of days, then count how many days the rate has to hold for. A peg that lasts less than the period it is promised for is worse than no peg, because the abandonment is a policy event of its own.",
       "background": [
         "Why defending costs reserves daily. Holding a rate the market disagrees with means buying your own currency with foreign reserves every day, at whatever volume is offered. The outflow is not a fee; it is the price of the promise.",
-        "What abandoning one costs. Everybody who held the currency on the strength of the promise loses, and the next promise is not believed. Farr's point is that credibility is spent once, so a rate should only be announced if it can be held."
+        "What abandoning one costs. Everybody who held the currency on the strength of the promise loses, and the next promise is not believed. Douglas Farr, the press officer, argues that credibility is spent once, so a rate should only be announced if it can be held."
       ],
-      "story": "Sarkis has 187 million marks of foreign reserves. At the rate Verhoeven wants, the net outflow is running at 5.2 million a day.",
+      "story": "Sarkis has 187 million marks of foreign reserves. At the rate Ada Verhoeven, the board chair, wants, the net outflow is running at 5.2 million a day.",
       "game": {
         "type": "BALLPARK",
         "title": "A stock over an outflow",
@@ -3001,7 +2962,7 @@ export const CURRICULUM = {
         "task": "Work out how long the reserves last",
         "question": "Estimate how many days the reserves would hold the rate.",
         "answer": "About 36 days, against the 96 the rate has to hold — the peg fails in November.",
-        "why": "One hundred and eighty-seven million over 5.2 million a day is thirty-six days, and the rate has to hold for ninety-six. So the peg Verhoeven wants is not a policy, it is a policy with a date on it, and the date is inside the period it was announced for. That is the argument against announcing it: the abandonment is itself an event, everybody who held the currency on the strength of the promise loses, and the next promise is discounted. Using the monthly deficit as the outflow gives four years and is the wrong quantity — the deficit is financed partly by other flows, and the defence outflow is what the peg specifically costs.\n",
+        "why": "One hundred and eighty-seven million over 5.2 million a day is thirty-six days, and the rate has to hold for ninety-six. So the peg Verhoeven wants is not a policy. It is a policy with a date on it, and the date is inside the period it was announced for. That is the argument against announcing it. The abandonment is itself an event. Everybody who took the currency on the strength of the promise loses, and the next promise is discounted. Using the monthly deficit as the outflow gives four years, and it is the wrong quantity. The deficit is financed partly by other flows. The defence outflow is what the peg specifically costs.\n",
         "rebuttals": [
           "The monthly current account deficit is a different flow from what defending the rate costs each day.",
           "Dividing the days needed by the outflow gives days per million, which is not a period."
@@ -3056,7 +3017,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Money, output and prices",
-      "scene": "The money supply is 3,606 million and would be 4,206 if the treasury's reserves became deposits at the current requirement. Real output is falling four per cent.",
+      "scene": "The reconciled money supply is 3,524 million marks. In the board’s simplified scenario, a 12 million reserve injection at the old requirement could support up to 600 million more deposits, taking the modeled total to 4,124 million. Real output is falling four per cent.",
       "takeaway": "If money grows faster than output and turnover holds, the difference lands in prices.",
       "place": "Wire Room",
       "guide": "Put the money supply, its turnover, the price level and real output in one relationship and see what has to give. If money grows and output does not, and turnover holds steady, the adjustment happens in prices. Work out the size of it.",
@@ -3064,7 +3025,7 @@ export const CURRICULUM = {
         "What velocity is and why it is assumed. How many times a unit of money is spent in a period. It is not constant, and in a changeover it rises because nobody wants to hold the old currency — which makes the price effect worse rather than better.",
         "What the relationship does and does not prove. It is an identity: the four terms are defined so that it holds. What makes it useful is the assumption about velocity, and that assumption is where every argument about it actually is."
       ],
-      "story": "The money supply is 3,606 million and would be 4,206 if the treasury's reserves became deposits at the current requirement. Real output is falling four per cent.",
+      "story": "The reconciled money supply is 3,524 million marks. In the board’s simplified scenario, a 12 million reserve injection at the old requirement could support up to 600 million more deposits, taking the modeled total to 4,124 million. Real output is falling four per cent.",
       "game": {
         "type": "CHOICE",
         "title": "Money, output and prices",
@@ -3073,7 +3034,7 @@ export const CURRICULUM = {
         "task": "Say what money growth does if velocity holds",
         "question": "What does a 17 per cent rise in the money supply do, with output falling?",
         "answer": "Prices rise by more than 17 per cent",
-        "why": "The relationship holds money times its turnover equal to prices times real output. If money rises 17 per cent and turnover holds, the right-hand side must rise 17 per cent too — and real output is falling four per cent, so prices have to rise by more than 17 to make up the difference. That is the arithmetic, and the real situation is worse: velocity rises in a changeover because nobody wants to hold the currency, which adds to the left-hand side again. Prices rising by exactly the money growth requires output to be flat. Nothing here makes output recover; money does not create capacity.\n",
+        "why": "The reconciled money count is 3,524 million, not the unreconciled 3,606. Adding the model’s 600 million maximum deposit expansion gives 4,124 million, about 17 per cent higher. Under MV = PY, if velocity were unchanged and real output fell four per cent, the price level would have to rise by more than the money growth alone. That is a conditional model result. Velocity need not be constant, the 600 million is a ceiling rather than a forecast, and money growth does not by itself identify the cause of inflation.",
         "rebuttals": [
           "Prices rising by exactly the money growth assumes output is flat, and output is falling.",
           "Falling output makes the price effect larger rather than cancelling it.",
@@ -3159,7 +3120,7 @@ export const CURRICULUM = {
         "task": "Say what the trade-off looks like in the short run",
         "question": "What does the board face this fortnight?",
         "answer": "A worse trade-off: the curve itself has moved",
-        "why": "In an ordinary month the board would be choosing a point: more demand for lower unemployment and higher prices, or less for the reverse. A cost shock does something different — it moves the whole relationship, so every available combination is worse than it was and no point on the old curve exists any more. That is why Mbeya's plan and Iyer's requirement are both defensible and neither is a solution: one buys jobs with prices and the other buys prices with jobs, and the shock has made both prices worse than either would have been. It matters now rather than later because the impact lag is a month.\n",
+        "why": "In an ordinary month the board would be choosing a point: more demand for lower unemployment and higher prices, or less for the reverse. A cost shock does something different. It moves the whole relationship, so every available combination is worse than it was, and no point on the old curve exists any more. That is why Mbeya's plan and Iyer's requirement are both defensible, and neither is a solution. One buys jobs with prices; the other buys prices with jobs. The shock has left both worse than either would have been. It matters now rather than later because the impact lag is a month.\n",
         "rebuttals": [
           "A straightforward choice would be available if the curve had not moved, and it has.",
           "Both cannot improve together while the shock is raising costs.",
@@ -3218,7 +3179,7 @@ export const CURRICULUM = {
         "task": "Say what a weaker rate does to each side",
         "question": "Why can the rate not be set for either industry?",
         "answer": "Both effects are one fact, so helping either harms the other",
-        "why": "A weaker currency means each unit of foreign money buys more marks, so Halvern's cloth is cheaper abroad and foreign flour is dearer here. Those are not two effects to be balanced; they are one fact seen from either side of the border, and a rate chosen to help the mills is necessarily chosen against the bakeries. The two industries are not equally sized — imports are 121 million against exports of 64 — so the flour effect touches more of the economy, which is a reason to be careful rather than a reason to pick the other side. The board's mandate is not what is in question, and the rate is being fixed rather than floated.\n",
+        "why": "A weaker currency means each unit of foreign money buys more marks, so Halvern's cloth is cheaper abroad and foreign flour is dearer here. Those are not two effects to be balanced. They are one fact seen from either side of the border. A rate chosen to help the mills is necessarily chosen against the bakeries. The two industries are not equally sized: imports are 121 million against exports of 64. So the flour effect touches more of the economy. That is a reason to be careful rather than a reason to pick the other side. The board's mandate is not what is in question, and the rate is being fixed rather than floated.\n",
         "rebuttals": [
           "The board's mandate covers the rate; what is in question is which side it lands on.",
           "The two are not equally sized: imports run at nearly twice exports.",
@@ -3381,7 +3342,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.8,
     "units": "% a month",
     "solution": "(275 − 248) ÷ 248 × 100 = 10.9 % for the month.",
-    "explanation": "Eleven per cent a month, not 275 — and eleven per cent a month is about 250 per cent a year, which is the figure worth publishing."
+    "explanation": "About 10.9 per cent for this month. If that same monthly pace somehow persisted for twelve months it would compound to roughly 246 per cent, but that is a scenario, not a measured annual inflation rate."
   },
   "COUNTER-3": {
     "prompt": "2,180 marks a month now, with the index at 275. They earned 890 in the base year.",
@@ -3586,32 +3547,32 @@ export const BALLPARK_CALCS = {
     "explanation": "Thirty-six days against ninety-six needed. The rate Verhoeven wants cannot be held, at this outflow."
   },
   "BANKS-3": {
-    "prompt": "Loans at 9 per cent a year; inflation at 10.9 per cent a month, which compounds to about 250 per cent a year.",
-    "question": "Estimate the real interest rate on the loan book.",
+    "prompt": "A 9 per cent annual loan earns about 0.72 per cent this month; prices rose 10.9 per cent this month.",
+    "question": "Estimate the lender’s real return over this month.",
     "labels": [
-      "9  (nominal rate, per cent a year)",
-      "250  (inflation, per cent a year)",
-      "10.9  (inflation, per cent a month)",
-      "100  (to keep the units in per cent)"
+      "100.72  (nominal value of 100 after one month)",
+      "110.9  (price level after 10.9 per cent inflation)",
+      "9  (annual nominal rate, per cent)",
+      "10.9  (monthly inflation rate, per cent)"
     ],
     "values": [
+      100.72,
+      110.9,
       9,
-      250,
-      10.9,
-      100
+      10.9
     ],
     "slots": 2,
-    "template": "{0} − {1}",
-    "formula": "a-b",
+    "template": "{0} ÷ {1} × 100 − 100",
+    "formula": "a/b*100-100",
     "correct": [
       0,
       1
     ],
-    "target": -241,
-    "tolerance": 15,
-    "units": "% a year",
-    "solution": "9 − 250 = −241 per cent a year in real terms.",
-    "explanation": "Minus 241 per cent. The bank is being repaid in money worth a fraction of what it lent, and the borrower is the one better off."
+    "target": -9.2,
+    "tolerance": 1,
+    "units": "% for the month",
+    "solution": "100.72 ÷ 110.9 × 100 − 100 ≈ −9.2 % for the month.",
+    "explanation": "About −9.2 per cent in purchasing power for the month. The familiar subtraction shortcut would give about −10.2 per cent here; the exact Fisher calculation matters because inflation is so large."
   },
   "PRICES-7": {
     "prompt": "Actual output 629 million a month; potential 712 million. Radic wants it as a percentage.",
@@ -3708,7 +3669,7 @@ export const JARGON = [
       "money supply",
       "quantity of money"
     ],
-    "def": "How much money there is to spend: cash people hold, and what banks owe them on demand."
+    "def": "Spendable money held by the public: currency in circulation plus the deposit balances included in the chosen money measure, without double-counting interbank claims."
   },
   {
     "name": "Reserve requirement",
@@ -3717,7 +3678,7 @@ export const JARGON = [
       "reserve ratio",
       "reserves"
     ],
-    "def": "The share of deposits a bank must keep rather than lend. It is the cap on how much money the banking system can create."
+    "def": "The ratio of a bank's reserves to its deposits — the share it must hold back — set by the rule. In the simplified deposit-multiplier model used in this game, a higher ratio lowers the maximum deposit expansion."
   },
   {
     "name": "Deposit",
@@ -3734,7 +3695,7 @@ export const JARGON = [
       "index",
       "consumer price index"
     ],
-    "def": "What one unchanging shopping basket costs now, set against what it cost in a base year.",
+    "def": "A weighted basket repriced over time and compared with a base period. The weights say whose spending pattern the index is meant to represent.",
     "core": true
   },
   {

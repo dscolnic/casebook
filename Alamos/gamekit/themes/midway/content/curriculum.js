@@ -6,55 +6,34 @@ export const CURRICULUM = {
   "TOWER": [
     {
       "day": 1,
-      "title": "What a mass being stopped pushes back with",
-      "scene": "The drop test runs with 640 kilograms of ballast in the carriage instead of people. Vey wants the force the copper fins have to make while they take it to a stop, before he will witness anything.",
+      "title": "What the brakes themselves must push with",
+      "scene": "The drop test uses 640 kilograms of ballast. In the nine-metre braking section the carriage's acceleration is 45.8 m/s² upward while gravity still pulls downward at 9.8 m/s². Vey, the county ride inspector, wants the upward force the magnetic fins themselves must provide.",
       "takeaway": "A force is a mass times the rate its motion is changing, and every other force in this park is that statement with a different acceleration in it.",
       "place": "The Drop Tower",
-      "guide": "Five numbers, and three of them belong to the fall rather than to the stop: the drop height, gravity, and the speed at the bottom. Ask of each whether the force on a body depends on it. A force is what it takes to change a motion, so what matters is the mass and the rate the motion is changing at, and nothing else on this board.",
+      "at": "fin-stack",
+      "guide": "Five numbers, and three of them belong to the fall rather than to the stop: the drop height, gravity, and the speed at the bottom. Ask of each whether the force on a body depends on it. A force is what it takes to change a motion. So what matters is the mass and the rate the motion is changing at. Nothing else on this board comes into it.",
       "background": [
         "Why this is the equation everything else here is built out of. Every certified number in this park comes back to it: the loop's minimum speed, the swing's period, the wheel's bolt load, the bumper collision's push on a neck. They are all the same statement with a different acceleration in it. Getting it once, on a mass being stopped by a brake, is what makes the other twelve derivations arithmetic rather than new physics.",
         "Why a kilogram is not a newton. The ballast is quoted in kilograms because that is what it weighs on a bench. What the fins push against is a force, and turning one into the other is the multiplication below. A rider's own weight is a second force on the same body, which is why the number they *feel* is larger than this one."
       ],
-      "story": "The drop test runs with 640 kilograms of ballast in the carriage instead of people. Vey wants the force the copper fins have to make while they take it to a stop, before he will witness anything.",
+      "story": "The drop test uses 640 kilograms of ballast. In the nine-metre braking section the carriage's acceleration is 45.8 m/s² upward while gravity still pulls downward at 9.8 m/s². Vey, the county ride inspector, wants the upward force the magnetic fins themselves must provide.",
       "game": {
         "type": "BALLPARK",
-        "title": "What a mass being stopped pushes back with",
+        "title": "What the brakes themselves must push with",
         "setup": "The Drop Tower",
-        "play": "Get the force the brake fins have to make",
-        "task": "Get the force the brake fins have to make",
-        "question": "Estimate the force the fins have to make on the ballast carriage.",
-        "answer": "About 29 kilonewtons — 640 kilograms slowed at 45.8 metres per second squared.",
-        "why": "A net force is a mass times an acceleration, and that is a definition rather than a result: it is what fixes the size of a newton. Here the mass is the 640 kilograms of ballast and the acceleration is the 45.8 metres per second squared the fins produce over nine metres, so the force is about 29 kilonewtons. The drop height, gravity and the entry speed all belong to the fall, and the fall is over by the time this force exists. Note what the rider feels is not this: their own weight is still acting, so the seat pushes with the sum of the two, which is why the drop test is judged in multiples of g rather than in newtons.",
+        "play": "Find the force the magnetic fins must exert on the carriage",
+        "task": "Find the force the magnetic fins must exert on the carriage",
+        "question": "Estimate the upward force the magnetic fins must exert on the ballast carriage.",
+        "answer": "About 35.6 kilonewtons upward — enough to produce the 45.8 m/s² net deceleration while also overcoming the carriage’s weight.",
+        "why": "The measured 45.8 m/s² is the carriage's net upward acceleration while it slows. Newton's second law says F_fins",
         "givens": [],
-        "relationship": "A net force is a mass times its acceleration, ΣF = ma.",
+        "relationship": "F_fins - mg = ma, so F_fins = m(a + g) for an upward braking acceleration.",
         "calcKey": "TOWER-1"
       },
       "assumes": [
         "a net force on a body is that body's mass times its acceleration",
         "slowing down is an acceleration with the sign reversed",
         "acceleration as the rate a velocity changes, whichever part of it changes — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "ΣF = ma",
-          "c": "what a net force is for",
-          "v": [
-            [
-              "ΣF",
-              "the sum of every force on the body, with direction"
-            ],
-            [
-              "m",
-              "its mass"
-            ],
-            [
-              "a",
-              "the acceleration that results"
-            ]
-          ],
-          "s": "Forces do not cause motion, they cause changes of motion — and the sum is what counts, which is why a free-body diagram with one arrow missing gives an answer that is wrong rather than approximate.",
-          "computed": true
-        }
       ],
       "takesAsRead": [
         {
@@ -77,11 +56,12 @@ export const CURRICULUM = {
       "scene": "The tower drops its carriage 42 metres before the brakes begin. An old engineering notebook gives the bottom speed as 'about 29' and nothing else. The safety engineer wants the working written underneath.",
       "takeaway": "Choose the constant-acceleration relation that contains the quantities you know and omits the one you do not.",
       "place": "The Drop Tower",
+      "at": "drop-log",
       "guide": "You build the derivation a line at a time. The starting relation is on the rail, and at each step you choose the expression the line above actually gives you. Every wrong branch is algebraically legal, so you cannot find the answer by spotting the malformed one — you have to know which operation the previous line licenses. Work down to the speed at the bottom of the fall.",
       "background": [
         "Why derive it rather than look it up. The notebook says 'about 29' and nothing else, which cannot be checked, cannot be corrected for a different drop height, and cannot be defended to an inspector. A derivation is the same number plus the reason it is that number, and the reason is what transfers to the next ride.",
         "What the starting relation says. v² = v₀² + 2aΔx is a statement about constant acceleration with the time taken out of it. That is exactly the convenient form here, because the question asks about a distance fallen and says nothing about how long the fall lasted.",
-        "What is being assumed. Released from rest makes v₀ zero, and treating a as g assumes the fins do nothing until they engage and that drag on the carriage is small over 42 metres. Both are stated on the card rather than hidden, because the number is only as defensible as the assumptions it was computed under."
+        "What is being assumed. Released from rest makes v₀ zero. Treating a as g assumes two things: that the fins do nothing until they engage, and that drag on the carriage is small over 42 metres. Both are stated on the card rather than hidden, because the number is only as defensible as the assumptions it was computed under."
       ],
       "story": "The tower drops its carriage 42 metres before the brakes begin. An old engineering notebook gives the bottom speed as 'about 29' and nothing else. The safety engineer wants the working written underneath.",
       "game": {
@@ -240,10 +220,11 @@ export const CURRICULUM = {
       "scene": "The carriage reaches the brakes at 28.7 metres a second and stops 9 metres later. The tower technician wants that turned into an acceleration before anyone argues about whether the stop feels acceptable.",
       "takeaway": "A stopping distance and a speed are enough to fix the acceleration, with no time measured at all.",
       "place": "The Drop Tower",
+      "at": "fin-stack",
       "guide": "Five numbers, and two of them belong to the fall rather than the stop: the free-fall height above, and gravity. Ask of each whether the braking depends on it. And note the square on the entry speed. Halve the stopping distance and the average deceleration doubles, which is why a small rise in entry speed costs so much brake.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. The second half is whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label catches a unit mismatch before it is placed. It also catches a quantity belonging to a different part of the problem. That is the habit this format exists to build."
       ],
       "story": "The carriage reaches the brakes at 28.7 metres a second and stops 9 metres later. The tower technician wants that turned into an acceleration before anyone argues about whether the stop feels acceptable.",
       "game": {
@@ -304,6 +285,7 @@ export const CURRICULUM = {
       "scene": "The tower's magnetic brake is set from the console and the car has to come down inside the deceleration band the certificate names. The car's mass changes with every load, and the brake does not know how many people are in it.",
       "takeaway": "The same force is a different ride, because what the rider feels is force divided by mass.",
       "place": "The Drop Tower",
+      "at": "brake-desk",
       "guide": "Hold the deceleration inside the band on the console. The band narrows toward the bottom, because the last stretch is where a rider's neck takes whatever the brake does. The brake current is your control, and every change in load changes what the same current produces.",
       "background": [
         "Why the same brake gives a different ride. A net force divided by mass is the acceleration, so the same braking force decelerates a heavy car less than a light one. The brake current sets the force; the riders set the mass; the certificate is written about the acceleration, which is the ratio.",
@@ -377,6 +359,7 @@ export const CURRICULUM = {
       "scene": "The safety engineer must observe and sign off on the tower's annual drop test. The tower technician has the test weights, the accelerometer and four operations on a whiteboard. They are written in the order he thought of them.",
       "takeaway": "A test is designed backwards from the number it has to produce.",
       "place": "The Drop Tower",
+      "at": "bench-notebooks",
       "guide": "All four operations will happen, so ask what each one has to be true for. A measured acceleration belongs to a stated mass, so the mass has to be recorded first. An instrument fitted after the drop measures nothing. And the brake only meets its real entry speed from full height. The last card is what turns a demonstration into evidence.",
       "background": [
         "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
@@ -421,68 +404,44 @@ export const CURRICULUM = {
     },
     {
       "day": 6,
-      "title": "Measuring gravity with a boat",
-      "scene": "The ship's low-angle maintenance period is 5.90 seconds with an 8.60 metre effective length. The safety engineer notes that the tower calculations use a local value of g nobody at this park has measured directly.",
-      "takeaway": "A physical constant measured by one system can calibrate another when both use a valid model of the same place.",
+      "title": "Can the ship measure gravity?",
+      "scene": "The pirate ship takes 5.90 seconds per low-angle cycle. The distance from pivot to the boat's centre of mass is 8.60 metres. The safety engineer asks whether those two measurements alone can be inserted into T = 2π√(L/g) to measure local gravity.",
+      "takeaway": "An equation is useful only when the object satisfies the model behind it.",
       "place": "The Drop Tower",
       "guide": "Four options, and two of them agree on the number and disagree on where it applies. Ask of each what the measurement is a property of: the ship, or the place. Length and time are what went in, and neither mentions the boat. One option gets the algebra wrong in a way that produces a plausible-looking small number.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
-      "story": "The ship's low-angle maintenance period is 5.90 seconds with an 8.60 metre effective length. The safety engineer notes that the tower calculations use a local value of g nobody at this park has measured directly.",
+      "story": "The pirate ship takes 5.90 seconds per low-angle cycle. The distance from pivot to the boat's centre of mass is 8.60 metres. The safety engineer asks whether those two measurements alone can be inserted into T = 2π√(L/g) to measure local gravity.",
       "game": {
         "type": "CHOICE",
-        "title": "Measuring gravity with a boat",
+        "title": "Can the ship measure gravity?",
         "setup": "The Drop Tower",
-        "play": "Get the local strength of gravity out of a period",
-        "task": "Get the local strength of gravity out of a period",
-        "question": "What value of g follows from the low-angle period, and why can the tower use it?",
-        "answer": "About 9.75 m/s²; the tower shares the same local gravity.",
-        "why": "Rearrange the small-angle period relation to g = 4π²L/T². The inputs are a length and a time, both easy to measure over many cycles. Using 8.60 m and 5.90 s gives about 9.75 m/s². That value belongs to the location, not to the ship, so it can be used in the tower, coaster and flume calculations. The low-angle condition matters because the simple pendulum relation is the model being used.",
+        "play": "Decide whether the simple-pendulum model is valid for the ride",
+        "task": "Decide whether the simple-pendulum model is valid for the ride",
+        "question": "Can those two measurements alone give a trustworthy value of local g?",
+        "answer": "No. The ship is a physical pendulum, so its rotational inertia is also needed.",
+        "why": "Not from the simple-pendulum formula. A pirate ship is a distributed rigid body, so it is a physical pendulum: its period depends on its rotational inertia as well as the distance from the pivot to its centre of mass. Using 8.60 m as though all the mass sat at one point happens to give about 9.75 m/s², but that agreement does not validate the model. The park should use an independently established local value of g for the other ride calculations, and use the ship's measured period to set its drive timing.",
         "rebuttals": [
-          "Gravity is shared by every ride at the same location; the ship is only the measuring device.",
-          "Mass cancels from the small-angle period relation, so it is not an input to this measurement.",
-          "Leaving out the factor 4π² changes the result by nearly fortyfold."
+          "That calculation treats the whole boat as a point mass at its centre of mass; the ride is not built that way.",
+          "Load changes forces, but mass is not the missing ingredient in this period model.",
+          "Emptying the boat does not turn a distributed rigid structure into a simple pendulum."
         ],
         "choices": [
-          "About 9.75 m/s²; the tower shares the same local gravity.",
-          "About 9.75 m/s²; the result belongs only to the ship that measured it.",
-          "No value follows until the boat's mass is included.",
-          "About 2.4 m/s²; using L/T² is enough once the period is measured."
+          "No. The ship is a physical pendulum, so its rotational inertia is also needed.",
+          "Yes. T = 2π√(L/g) gives about 9.75 m/s², so no other information matters.",
+          "No. Rider mass must be inserted, because a heavier load lengthens the period.",
+          "Yes, but not while anybody is aboard."
         ],
-        "correctChoice": "About 9.75 m/s²; the tower shares the same local gravity."
+        "correctChoice": "No. The ship is a physical pendulum, so its rotational inertia is also needed."
       },
       "assumes": [
         "the pendulum period depends on the length and on g alone",
         "an expression can be rearranged to make any of its quantities the subject"
       ],
       "equations": [
-        {
-          "e": "mgh + ½mv² = constant",
-          "c": "the energy books for anything on a track",
-          "v": [
-            [
-              "m",
-              "the mass, which divides out of every term"
-            ],
-            [
-              "h",
-              "the height above whatever datum is chosen"
-            ],
-            [
-              "v",
-              "the speed at that height"
-            ],
-            [
-              "g",
-              "the acceleration due to gravity"
-            ]
-          ],
-          "s": "Dividing by the mass is the step worth remembering: it is why a loaded train and an empty one arrive together, and why the answer is a statement about the track rather than about the load.",
-          "demanded": true
-        },
         {
           "e": "T = 2π√(L/g)",
           "c": "the pendulum period, and the mass that is not in it",
@@ -515,71 +474,14 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "What a safety factor says",
-      "scene": "The inspection file gives the coaster a margin of 1.38 using the old loop drawing. The measured top of the loop reduces it to 1.20. The park manager wants to know whether that still counts as a pass.",
-      "takeaway": "A margin is a ratio, and it means nothing until both of its numbers are named.",
-      "place": "The Drop Tower",
-      "guide": "Four readings of a margin that fell from 1.38 to 1.20. Ask of each whether it puts the change in the ride or in the knowledge of it. A margin is capacity divided by demand, and only one of those moved. Nothing about the train changed over the winter. And a smaller known margin is safer than a larger imaginary one, because it can drive an operating rule.",
-      "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
-      ],
-      "story": "The inspection file gives the coaster a margin of 1.38 using the old loop drawing. The measured top of the loop reduces it to 1.20. The park manager wants to know whether that still counts as a pass.",
-      "game": {
-        "type": "BALLPARK",
-        "title": "What a safety factor says",
-        "setup": "The Drop Tower",
-        "play": "Say what a margin is a statement about",
-        "task": "Say what a margin is a statement about",
-        "question": "Recompute the margin at the top of the loop from the speed the train has and the speed the crown demands.",
-        "answer": "About 1.20 — 8.5 metres a second in hand against 8.5 demanded is not the 1.38 the file has carried since 1974.",
-        "why": "A safety margin is capacity divided by demand, and only one of them moved. The train still crosses the crown at about 10.2 metres a second, which is what it did last season and the season before. The measured radius raised the *demand* from 7.4 metres a second to 8.5, so the ratio falls from 1.38 to 1.20. The ride was already in this state before anybody measured it correctly: what changed today is the park's knowledge, and a smaller known margin is safer than a larger imaginary one because it can drive an operating rule. Note which two numbers the board wants — the drawing's 7.4 is the old demand and belongs to the comparison, not to the margin.",
-        "givens": [],
-        "relationship": "A safety factor is capacity divided by demand — here the speed the train has, over the speed the crown requires.",
-        "calcKey": "TOWER-7"
-      },
-      "assumes": [
-        "a margin is a ratio between what is available and what is required",
-        "a requirement can be recomputed when the geometry it rests on changes"
-      ],
-      "equations": [
-        {
-          "e": "safety factor = capacity ÷ demand",
-          "c": "the number this whole job is about",
-          "v": [
-            [
-              "capacity",
-              "what the part or the ride can take"
-            ],
-            [
-              "demand",
-              "what it is actually asked to take"
-            ]
-          ],
-          "s": "A margin is a ratio and it means nothing until both of its numbers are named — which is why a requirement that turns out to have been computed from the wrong drawing changes the margin without anything physical changing at all.",
-          "computed": true
-        }
-      ],
-      "concept": {
-        "n": 35,
-        "c": "Safety factor: what a part can take over what it is asked to take",
-        "of": 36,
-        "rests": [
-          "Newton's second law as the definition of a net force",
-          "Static equilibrium: forces and torques both adding to zero"
-        ]
-      }
-    },
-    {
-      "day": 8,
       "title": "What the drop test has to show",
       "scene": "Thursday's official drop test has one afternoon to produce a number the safety engineer can compare with the certificate. The tower technician has test weights, a recording accelerometer and the full tower before the inspectors leave.",
-      "takeaway": "A test is only evidence about a claim that was written down before it ran.",
+      "takeaway": "Know what the instrument measures before comparing its number with a calculation.",
       "place": "The Drop Tower",
-      "guide": "Lock a prediction for the peak deceleration before the drop happens: the panel will not let you look first. Then run the test and read what the accelerometer actually recorded. The last step costs something — you have to say what the comparison settles, and a measurement you interpret after seeing it can be made to agree with anything.",
+      "at": "brake-desk",
+      "guide": "Lock a prediction for the peak deceleration before the drop happens: the panel will not let you look first. Then run the test and read what the accelerometer actually recorded. The last step costs something. You have to say what the comparison settles. A measurement you interpret after seeing it can be made to agree with anything.",
       "background": [
-        "Why the prediction is locked. A number written down afterwards is not a prediction, and the way it fails is not dishonesty but memory: with a recording in front of you it is genuinely hard to recall how confident you were. Committing first is a procedure that protects you from yourself, which is why it is enforced by the panel rather than recommended.",
+        "Why the prediction is locked. A number written down afterwards is not a prediction. The way it fails is not dishonesty but memory. With a recording in front of you it is genuinely hard to recall how confident you were. Committing first is a procedure that protects you from yourself, which is why it is enforced by the panel rather than recommended.",
         "What the test can and cannot settle. It can tell you whether the brakes produce the deceleration the certificate claims, on this tower, with these weights, today. It cannot tell you what a loaded carriage of nervous people will do differently, and the inspectors will ask about the difference.",
         "Why one afternoon is the constraint. The inspectors leave, so a test that produces an ambiguous result is a test that cannot be repeated in time. That is the reason for deciding beforehand what result would count as agreement — the alternative is discovering the criterion after the data arrives."
       ],
@@ -590,21 +492,21 @@ export const CURRICULUM = {
         "setup": "The Drop Tower",
         "play": "Prove the brake rather than assert it",
         "task": "Prove the brake rather than assert it",
-        "question": "Predict the peak deceleration the brakes will produce, run the drop, and say what the measurement settles.",
-        "answer": "Expect a peak near 5.4 g, above the 4.7 g average. The instrument must show whether the real magnetic-brake peak stays inside the certified limit.",
-        "why": "Day two gave the average deceleration from the speed and the distance. It is not the number a rider meets. A magnetic brake makes force in proportion to speed, so it bites hardest at the entry and eases as the carriage slows. The peak is therefore above the average, and the only way to know by how much is to fit an instrument and drop it. Predicting first is what makes the drop a measurement rather than a demonstration.",
+        "question": "Predict the peak accelerometer load in the brakes, run the drop, and say what the measurement settles.",
+        "answer": "Expect a peak near 5.9 g on the carriage accelerometer, just above the roughly 5.8 g average support load implied by the witnessed stop and below the 6.0 g test criterion.",
+        "why": "Stopping distance gives the carriage's net kinematic acceleration. An accelerometer measures non- gravitational specific force. So in a vertical stop it also carries the support that holds up the weight. For the witnessed 8.7 m stop the average accelerometer load is about 5.8 g. That makes a measured 5.9 g peak plausible for this brake profile. The test checks the brake model and the carriage load at the stated ballast. It does not reproduce every rider-body or restraint load.",
         "verify": {
           "prediction": {
-            "label": "Predicted peak deceleration in the fins",
+            "label": "Predicted peak carriage accelerometer load",
             "unit": "g",
             "min": 2,
             "max": 8,
             "step": 0.1
           },
-          "truth": 5.4,
+          "truth": 5.9,
           "passRatio": [
             0.93,
-            1.15
+            1.1
           ],
           "intervention": {
             "label": "The witnessed drop",
@@ -612,7 +514,7 @@ export const CURRICULUM = {
             "outcome": "Drop completed. Carriage stopped 8.7 m into the braked section with the fins warm."
           },
           "measurement": {
-            "label": "Logged peak from the carriage accelerometer",
+            "label": "Logged peak specific force from the carriage accelerometer",
             "note": "Downloaded on the platform, in front of the inspector, before the carriage is moved.",
             "cost": 1,
             "costUnit": "drops"
@@ -628,10 +530,18 @@ export const CURRICULUM = {
       "assumes": [
         "a prediction made before a test is worth more than an explanation offered after it",
         "an instrument records what happens at the place it is fitted"
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "The constant-acceleration relations, and which one has no time in it",
+        "of": 36,
+        "rests": [
+          "Acceleration as the rate a velocity changes, whichever part of it changes"
+        ]
+      }
     },
     {
-      "day": 9,
+      "day": 8,
       "title": "Seven rides and what can be claimed",
       "scene": "The safety engineer's file has one line for each ride. Four are ready to be filled in. The wording matters because the sentence on a certificate is the sentence an insurer or court will later read.",
       "takeaway": "A certificate is a set of conditions with a number attached, and the conditions are the harder half.",
@@ -640,7 +550,7 @@ export const CURRICULUM = {
       "background": [
         "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
         "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning."
       ],
       "story": "The safety engineer's file has one line for each ride. Four are ready to be filled in. The wording matters because the sentence on a certificate is the sentence an insurer or court will later read.",
       "game": {
@@ -651,18 +561,18 @@ export const CURRICULUM = {
         "task": "Match each ride to the claim its working actually supports.",
         "question": "Match each ride to the claim its working actually supports.",
         "answer": "",
-        "why": "Each certificate claim has to match the evidence that supports it. An observed tower test supports only the conditions actually tested. The coaster can be certified with a morning speed condition because its margin changes with performance. The carousel limit is different because the controller enforces it directly. The wheel has a known load but an unresolved defect capacity. That does not make the calculation useless. It identifies the exact missing piece that prevents certification.",
+        "why": "Each certificate claim has to match the evidence that supports it. The witnessed tower drop supports only the tested ballast and release condition. The coaster can carry a daily operating condition because its station-speed surrogate was checked against crown speed. The carousel controller directly enforces its derived setting. The wheel has a modeled joint load and a measured flaw, but no allowable damaged-joint capacity. That missing capacity, not the existence of a calculation, is what prevents certification.",
         "scenarios": [
-          "The drop tower, with an observed test at 5.4 g peak against a 6.0 g limit.",
-          "The coaster, with a top-of-loop margin of 1.20 and a morning reading rule.",
-          "The swing carousel, derived at 31° and limited by an automatic speed cutoff at 10 turns a minute.",
-          "The wheel, with the number-nine bolt load computed and the crack-like mark at the weld still unresolved."
+          "The drop tower, with a witnessed 5.9 g carriage-accelerometer peak against a 6.0 g test criterion.",
+          "The coaster, with an operational crown-speed ratio of 1.20 and a calibrated morning station-speed rule.",
+          "The swing carousel, derived at about 31° and limited by an automatic speed cutoff at 10 turns a minute.",
+          "The wheel, with the number-nine joint load estimated and the crack-like indication measured but its allowable damaged capacity unresolved."
         ],
         "choices": [
-          "Certified as tested, with the test weight and the release height named in the entry.",
-          "Certified with a condition: it opens only on mornings the station reading is met.",
-          "Certified without conditions, the limit being enforced by the machine rather than by a person.",
-          "Not certified: the load is known and whether the joint can carry it is not yet settled."
+          "Certified as tested, with ballast mass, release height and instrument criterion named.",
+          "Certified with a condition: it opens only when the calibrated morning station-speed minimum is met.",
+          "Certified to the controller-enforced speed setting supported by the derivation.",
+          "Not certified: the damaged joint’s allowable capacity is still unknown."
         ],
         "mapping": [
           0,
@@ -674,6 +584,44 @@ export const CURRICULUM = {
       "assumes": [
         "a claim is limited by the conditions the working was done under",
         "a margin is a ratio between what is available and what is required"
+      ]
+    },
+    {
+      "day": 9,
+      "title": "Which certificate do you sign?",
+      "scene": "The inspection is complete. The tower passed its instrumented drop. The coaster has a measured loop and a daily speed condition. The carousel, ship, bumper floor and flume have derived operating limits. The Ferris wheel has a computed joint load and a measured crack-like indication, but no fracture assessment.",
+      "takeaway": "The final engineering act is deciding what the evidence is sufficient to authorize — and what it is not.",
+      "place": "The Drop Tower",
+      "at": "brake-desk",
+      "guide": "The final choice is not which calculation looks best. It is what the evidence allows you to authorize. Separate conditions that can be managed operationally from an unresolved structural question that requires specialist evidence.",
+      "story": "The inspection is complete. The tower passed its instrumented drop. The coaster has a measured loop and a daily speed condition. The carousel, ship, bumper floor and flume have derived operating limits. The Ferris wheel has a computed joint load and a measured crack-like indication, but no fracture assessment.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Which certificate do you sign?",
+        "setup": "The Drop Tower",
+        "play": "Sign the park certificate",
+        "task": "Sign the park certificate",
+        "question": "Which certificate do you sign?",
+        "answer": "Open six rides under their written limits and conditions; keep the Ferris wheel shut pending the fracture assessment.",
+        "why": "The certificate should be as broad as the evidence, and no broader. Six rides now have calculations tied to measurements, operating limits and, where needed, verification tests. The wheel does not: its joint load is estimated and the crack-like indication is measured, but nobody has established the damaged joint's allowable capacity. A lighter passenger load is not a substitute for that assessment because the load path, crack behavior and required margin remain unresolved. Signing six and withholding one is the decision the fortnight's work supports.",
+        "rebuttals": [
+          "A calculation somewhere in a file is not the same as evidence that closes the ride-specific safety question.",
+          "Uncertainty should be isolated to the ride it affects when the other six have independent, defensible evidence.",
+          "Reducing load invents an allowable value that the missing fracture assessment is supposed to determine."
+        ],
+        "choices": [
+          "Open six rides under their written limits and conditions; keep the Ferris wheel shut pending the fracture assessment.",
+          "Open all seven because every ride now has at least one calculation behind it.",
+          "Keep all seven shut because one unresolved wheel question means the park as a whole is uncertifiable.",
+          "Open the Ferris wheel but reduce its passenger load until the crack assessment is finished."
+        ],
+        "correctChoice": "Open six rides under their written limits and conditions; keep the Ferris wheel shut pending the fracture assessment."
+      },
+      "assumes": [
+        "a certificate distinguishes measured results, model-based limits and unresolved structural questions",
+        "the instrumented tower test passed the written criterion",
+        "the coaster daily surrogate was calibrated against paired crown-speed measurements",
+        "the wheel crack-strength assessment cannot be completed before opening"
       ],
       "concept": {
         "n": 35,
@@ -689,12 +637,13 @@ export const CURRICULUM = {
       "day": 10,
       "title": "What a mass being stopped pushes back with — Review",
       "scene": "Rafael Santos, who maintains the tower brakes, has rigged the emergency arrestor for its annual proof test. It catches a 980 kilogram test sled rather than the passenger carriage, and Vey wants the force on the arrestor before he will watch it.",
-      "takeaway": "Change the mass, change the deceleration, and the force changes with them; the rule that turns one pair into the other is the same on every ride in the park.",
+      "takeaway": "Change the mass or the deceleration and the force changes with them. The rule that turns one pair into the other is the same on every ride in the park.",
       "place": "The Drop Tower",
-      "guide": "Five numbers, and three of them describe how the sled arrived rather than what the arrestor has to make: the entry speed, the length of the catch, and gravity. Ask of each whether a force on a body depends on it. What survives that question is the mass and the rate the motion is being changed at.",
+      "at": "fin-stack",
+      "guide": "Five numbers, and three of them describe how the sled arrived rather than what the arrestor has to make. Those three are the entry speed, the length of the catch, and gravity. Ask of each whether a force on a body depends on it. What survives that question is the mass and the rate the motion is being changed at.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. The second half is whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label catches a unit mismatch before it is placed. It also catches a quantity belonging to a different part of the problem. That is the habit this format exists to build."
       ],
       "story": "Rafael Santos, who maintains the tower brakes, has rigged the emergency arrestor for its annual proof test. It catches a 980 kilogram test sled rather than the passenger carriage, and Vey wants the force on the arrestor before he will watch it.",
       "game": {
@@ -753,11 +702,12 @@ export const CURRICULUM = {
       "scene": "Marta Kovač walks the track every morning. On the workshop wall she has four places chalked out. They are the lift hill, top of the first hill, bottom of the first drop, and final braking section.",
       "takeaway": "Mechanical energy trades between height and motion, while motors add it and friction or brakes remove it.",
       "place": "The Coaster",
+      "at": "profile-drawing",
       "guide": "Four places on the circuit, and four statements about energy. Pair them by asking two things of each. Where is the energy sitting, in height or in motion? And is any being added or removed there? Only one place on the whole circuit adds energy. One removes it and never gives it back. That is why no later hill reaches the height of the first.",
       "background": [
         "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning."
       ],
       "story": "Marta Kovač walks the track every morning. On the workshop wall she has four places chalked out. They are the lift hill, top of the first hill, bottom of the first drop, and final braking section.",
       "game": {
@@ -808,11 +758,12 @@ export const CURRICULUM = {
       "scene": "The train leaves the top of the first hill at 26 metres and reaches the bottom of the first drop 2 metres above the station. Kovač's wheel says 21.4 metres a second at the bottom, and an ideal circuit says more.",
       "takeaway": "The gap between the ideal speed and the measured one is a measurement of the friction.",
       "place": "The Coaster",
-      "guide": "You build the derivation a line at a time, choosing at each step the expression the line above gives you. Every wrong branch is legal algebra, so the malformed-line trick will not help. Work the energy statement down to the speed at the foot of the drop with no losses — and then say what Kovač's measured 21.4 metres a second implies about the difference.",
+      "at": "station-wheel",
+      "guide": "You build the derivation a line at a time, choosing at each step the expression the line above gives you. Every wrong branch is legal algebra, so the malformed-line trick will not help. Work the energy statement down to the speed at the foot of the drop with no losses. Then say what Kovač's measured 21.4 metres a second implies about the difference.",
       "background": [
         "What the starting statement says. Energy at the crest equals energy at the bottom plus whatever friction took. Written out, that is height and speed at the top against height and speed at the bottom, with one term for the losses. Nothing about the shape of the track appears, which is why energy is the tool of choice here rather than forces.",
         "Why the mass cancels, and when it does not. Every term in the ideal statement carries m, so it divides out and the ideal speed is independent of how loaded the train is. The friction term is not proportional to m in the same way, so the moment losses enter, the loaded and empty trains stop agreeing.",
-        "What the gap is worth. The difference between the ideal speed and 21.4 is the energy the circuit lost on the way down, expressed as a speed. Turning that into joules and then into a percentage is how a maintenance decision gets made: a lap that does not come back is a wheel, a bearing or a brake dragging."
+        "What the gap is worth. The difference between the ideal speed and 21.4 is the energy the circuit lost on the way down, expressed as a speed. Turning that into joules, and then into a percentage, is how a maintenance decision gets made. A lap that does not come back is a wheel, a bearing or a brake dragging."
       ],
       "story": "The train leaves the top of the first hill at 26 metres and reaches the bottom of the first drop 2 metres above the station. Kovač's wheel says 21.4 metres a second at the bottom, and an ideal circuit says more.",
       "game": {
@@ -889,7 +840,7 @@ export const CURRICULUM = {
                 {
                   "text": "v₁ ≈ 21.7 m/s, so the measured speed shows the circuit is very nearly ideal",
                   "rule": "evaluation",
-                  "why": "The arithmetic drops the starting speed and the difference looks like nothing. Compare energies rather than speeds and the same gap is 130 kilojoules a lap — the square is what makes a small speed difference a large energy 1.",
+                  "why": "The arithmetic drops the starting speed and the difference looks like nothing. Compare energies rather than speeds and the same gap is about 130 kilojoules a lap — the square is what makes a small speed difference a large energy loss.",
                   "survives": true
                 },
                 {
@@ -956,13 +907,12 @@ export const CURRICULUM = {
         }
       ],
       "concept": {
-        "n": 17,
-        "c": "Friction as negative work, and measuring it as the gap between ideal and actual",
+        "n": 16,
+        "c": "Conservation of mechanical energy, and dividing the mass out of it",
         "of": 36,
         "rests": [
-          "Work as a force times a distance along it",
-          "Conservation of mechanical energy, and dividing the mass out of it",
-          "Friction as a force along a surface, and the coefficient that bounds it"
+          "Kinetic energy, and why the square matters",
+          "Gravitational potential energy as weight times height"
         ]
       }
     },
@@ -972,10 +922,11 @@ export const CURRICULUM = {
       "scene": "The chain hauls a loaded train of 4,800 kilograms up to 26 metres in 52 seconds. Kovač has the motor's plate rating and wants to know how much of it the lift actually uses.",
       "takeaway": "A motor is rated in power, and what a job needs is an energy and a time.",
       "place": "The Coaster",
+      "at": "lift-panel",
       "guide": "Five numbers, and one of them is the speed at the foot of the drop, which belongs to a different question. Ask of each whether the lift's work depends on it. Power is energy each second, so the answer needs both the energy stored and the time taken. Note what follows: nothing adds energy after the top, so every later hill fits inside what the lift paid for.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. The second half is whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label catches a unit mismatch before it is placed. It also catches a quantity belonging to a different part of the problem. That is the habit this format exists to build."
       ],
       "story": "The chain hauls a loaded train of 4,800 kilograms up to 26 metres in 52 seconds. Kovač has the motor's plate rating and wants to know how much of it the lift actually uses.",
       "game": {
@@ -1010,11 +961,12 @@ export const CURRICULUM = {
       "scene": "At the top of the loop the track is above the train and the rider is upside down. Kovač's tape gives a radius of 7.4 metres there, against 5.6 on the drawing everyone has been working from.",
       "takeaway": "The limiting case is the one where a part stops doing anything, and it sets the number.",
       "place": "The Coaster",
-      "guide": "Build the force statement at the crown of the loop down to a minimum speed, one line at a time. Then evaluate it twice — once for the 7.4 metres Kovač taped and once for the 5.6 on the drawing — because the point of the derivation is that it lets you answer for a radius nobody measured when the ride was designed.",
+      "at": "profile-drawing",
+      "guide": "Build the force statement at the crown of the loop down to a minimum speed, one line at a time. Then evaluate it twice: once for the 7.4 metres Kovač taped, once for the 5.6 on the drawing. That is the point of the derivation. It lets you answer for a radius nobody measured when the ride was designed.",
       "background": [
-        "Why the crown is the critical point. Upside down at the top, both the track's push and the rider's weight point the same way: towards the centre of the loop. That is the one place on the circuit where gravity is helping to turn the train, so it is the place where the least speed is needed to stay on the track — and below that speed the train does not fall off, the track has to pull, which it cannot.",
+        "Why the crown is the critical point. Upside down at the top, both the track's push and the rider's weight point the same way: towards the centre of the loop. That is the one place on the circuit where gravity is helping to turn the train. So it is the place where the least speed is needed to stay on the track. Below that speed the train does not fall off. The track has to pull instead, and it cannot.",
         "What the minimum condition means. Setting the track force to zero is not a design target; it is the boundary of the possible. A real ride is engineered well above it, and the margin is the whole safety case. The derivation gives you the boundary, and the certificate gives you the margin.",
-        "Why two radii matter so much. The minimum speed goes as the square root of the radius, so a loop that is actually 7.4 metres across the crown demands more speed than a 5.6-metre one — and every calculation done from the drawing has been demanding too little. That is a paperwork problem with a physical consequence."
+        "Why two radii matter so much. The minimum speed goes as the square root of the radius. So a loop that is actually 7.4 metres across the crown demands more speed than a 5.6-metre one. Every calculation done from the drawing has been demanding too little. That is a paperwork problem with a physical consequence."
       ],
       "story": "At the top of the loop the track is above the train and the rider is upside down. Kovač's tape gives a radius of 7.4 metres there, against 5.6 on the drawing everyone has been working from.",
       "game": {
@@ -1048,7 +1000,7 @@ export const CURRICULUM = {
                 {
                   "text": "Set N = mg, so the rider feels normal weight at the crown",
                   "rule": "dynamics",
-                  "why": "A perfectly sensible design condition and not the minimum. It gives a speed 40% higher than the limit, which is a comfort criterion being mistaken for a safety 1 — and if the ride is judged against it, a train that is safe reads as a failure.",
+                  "why": "A perfectly sensible design condition and not the minimum. It gives a speed about 40% higher than the contact limit, which is a comfort criterion being mistaken for the minimum safety condition.",
                   "survives": true
                 },
                 {
@@ -1177,17 +1129,76 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
+      "title": "What the speed margin really says",
+      "scene": "The train crosses the loop crown at about 10.2 m/s. The old drawing said the crown needed 7.4 m/s; the measured radius raises the minimum contact speed to about 8.5 m/s.",
+      "takeaway": "A dimensionless operating margin is useful only when its numerator, denominator and model are stated.",
+      "place": "The Drop Tower",
+      "at": "station-wheel",
+      "guide": "Four readings of a margin that fell from 1.38 to 1.20. Ask of each whether it puts the change in the ride or in the knowledge of it. A margin is capacity divided by demand, and only one of those moved. Nothing about the train changed over the winter. And a smaller known margin is safer than a larger imaginary one, because it can drive an operating rule.",
+      "background": [
+        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
+      ],
+      "story": "The train crosses the loop crown at about 10.2 m/s. The old drawing said the crown needed 7.4 m/s; the measured radius raises the minimum contact speed to about 8.5 m/s.",
+      "game": {
+        "type": "BALLPARK",
+        "title": "What the speed margin really says",
+        "setup": "The Drop Tower",
+        "play": "Compute the coaster’s operational crown-speed margin",
+        "task": "Compute the coaster’s operational crown-speed margin",
+        "question": "Recompute the operational crown-speed margin using the measured loop.",
+        "answer": "About 1.20 — 10.2 m/s available divided by 8.5 m/s required.",
+        "why": "For this certificate the park is using an operational speed margin: actual crown speed divided by the minimum speed needed to maintain contact in the simplified loop model. That ratio falls from about 1.38 to 1.20 when the measured radius replaces the old drawing. It is useful, but it is not a structural factor of safety and it does not by itself certify the track, train or restraints. What changed today is the park's knowledge, not the coaster's geometry.",
+        "givens": [],
+        "relationship": "Operational crown-speed margin = measured crown speed ÷ minimum crown speed required by the contact model.",
+        "calcKey": "COASTER-5"
+      },
+      "assumes": [
+        "a margin is a ratio between what is available and what is required",
+        "a requirement can be recomputed when the geometry it rests on changes"
+      ],
+      "equations": [
+        {
+          "e": "safety factor = capacity ÷ demand",
+          "c": "the number this whole job is about",
+          "v": [
+            [
+              "capacity",
+              "what the part or the ride can take"
+            ],
+            [
+              "demand",
+              "what it is actually asked to take"
+            ]
+          ],
+          "s": "A margin is a ratio and it means nothing until both of its numbers are named — which is why a requirement that turns out to have been computed from the wrong drawing changes the margin without anything physical changing at all.",
+          "computed": true
+        }
+      ],
+      "concept": {
+        "n": 35,
+        "c": "Safety factor: what a part can take over what it is asked to take",
+        "of": 36,
+        "rests": [
+          "Newton's second law as the definition of a net force",
+          "Static equilibrium: forces and torques both adding to zero"
+        ]
+      }
+    },
+    {
+      "day": 6,
       "title": "A margin that moves",
-      "scene": "The top-of-loop margin is 1.20. Marta Kovač's clipboard shows station return speed falling about 0.3 metres a second each season. Each spring measurement used the same wheel and the same method.",
+      "scene": "The crown-speed margin is 1.20. Over the test runs, paired measurements show that a lower station return speed tracks a lower crown speed under the same train and operating conditions. Marta Kovač's seasonal records also show station return speed drifting downward.",
       "takeaway": "A quantity nobody can measure daily is watched through one that can be.",
       "place": "The Coaster",
       "guide": "Four candidate rules, and the quantity that matters is hard to measure every morning. Ask of each whether the crew could actually do it before opening, every day. Station return speed is easy and consistent, and the ride's own losses link it to the speed at the top. A yearly recalculation cannot catch a decline soon after it starts.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
-      "story": "The top-of-loop margin is 1.20. Marta Kovač's clipboard shows station return speed falling about 0.3 metres a second each season. Each spring measurement used the same wheel and the same method.",
+      "story": "The crown-speed margin is 1.20. Over the test runs, paired measurements show that a lower station return speed tracks a lower crown speed under the same train and operating conditions. Marta Kovač's seasonal records also show station return speed drifting downward.",
       "game": {
         "type": "CHOICE",
         "title": "A margin that moves",
@@ -1196,7 +1207,7 @@ export const CURRICULUM = {
         "task": "Turn a shrinking margin into something measurable each morning",
         "question": "What should the certificate require, given a margin that falls a little each season?",
         "answer": "Set a minimum station return speed for each morning.",
-        "why": "The quantity that matters at the loop is speed at the top of the loop, but measuring it every morning would be difficult. Station return speed is easy to measure consistently. The two are linked by the ride's energy losses, so one can serve as a practical stand-in for the other. A daily minimum catches a decline soon after it begins. A yearly recalculation does not. The rule turns a hidden margin into a number the opening crew can actually watch.",
+        "why": "The quantity the loop model needs is crown speed. Permanent crown instrumentation would be best. The paired test runs are the next thing: under controlled conditions they tie crown speed to the easier station return measurement. That lets the certificate set a conservative daily station-speed minimum in its place. It also requires a fresh check if the train, the track or the braking changes. A stand-in is only useful because somebody checked what it stands for.",
         "rebuttals": [
           "An annual check is the interval that let a 1998 track alteration go unnoticed for 25 years.",
           "The train's mass cancels out of every limit computed this fortnight, so reweighing settles nothing.",
@@ -1225,7 +1236,7 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 6,
+      "day": 7,
       "title": "A tenth of a metre a second",
       "scene": "The new morning rule sets a minimum station return speed. Today's reading is a tenth of a metre a second below yesterday's and still above the minimum, on a cold morning after rain.",
       "takeaway": "A rule with a limit needs a way of telling a trend from a Tuesday.",
@@ -1233,8 +1244,8 @@ export const CURRICULUM = {
       "guide": "Four options, and the reading is below yesterday's and above the minimum. Ask of each whether it answers the limit question or the trend question. A limit says whether the ride may run today. A trend needs several mornings. One cold wet morning can move rolling resistance without proving wear. Two of these options make the rule unusable or the trend invisible.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
       "story": "The new morning rule sets a minimum station return speed. Today's reading is a tenth of a metre a second below yesterday's and still above the minimum, on a cold morning after rain.",
       "game": {
@@ -1274,16 +1285,16 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 7,
+      "day": 8,
       "title": "What to spend the winter on",
       "scene": "There is money for only two winter jobs before next season. The park manager, Marta Kovač and the safety engineer each have a proposal. The Ferris wheel still has no final answer on its number-nine wheel joint.",
       "takeaway": "The best investigation is the one that can change a decision, not the one that merely adds detail to something already understood.",
       "place": "The Coaster",
-      "guide": "Two winter slots, three proposals. Open each one to see what its result could change: a certification, a design decision, or an argument nobody has to settle before reopening. Buy the two whose answers change what the park can decide, not the two that study the most interesting problem. The wheel joint has no final answer yet, which is a decision still open.",
+      "guide": "Two winter slots, three proposals. Open each one to see what its result could change: 'a certification, a design decision, or an argument nobody has to settle before reopening. Buy the two whose answers change what the park can decide, not the two that study the most interesting problem. The wheel joint has no final answer yet, which is a decision still open.'",
       "background": [
-        "What makes a piece of work worth funding. Not how much it would teach — how much it would change. Work that confirms something already certified produces a tidy report and no decision, and work that investigates a fault nobody can act on until next season can wait a season.",
+        "What makes a piece of work worth funding. Not how much it would teach — how much it would change. Work that confirms something already certified produces a tidy report and no decision. Work on a fault nobody can act on until next season can wait a season.",
         "Why the wheel joint is the one to watch. An unanswered question about a joint that carries load is a question the park cannot reopen around. That makes information about it worth more than information about anything already signed off, whatever the relative engineering interest.",
-        "Why only two. A budget is what makes this a decision rather than a wish list, and the third proposal is not wrong — it is simply the one whose answer can arrive later without costing anything. Saying that out loud is the part that a manager has to be able to defend in spring."
+        "Why only two. A budget is what makes this a decision rather than a wish list. The third proposal is not wrong. It is simply the one whose answer can arrive later without costing anything. Saying that out loud is the part that a manager has to be able to defend in spring."
       ],
       "story": "There is money for only two winter jobs before next season. The park manager, Marta Kovač and the safety engineer each have a proposal. The Ferris wheel still has no final answer on its number-nine wheel joint.",
       "game": {
@@ -1343,18 +1354,19 @@ export const CURRICULUM = {
       ]
     },
     {
-      "day": 8,
+      "day": 9,
       "title": "Reading a circuit as energy — Review",
-      "scene": "Marta Kovač, the maintenance lead, has chalked the far half of the circuit on the workshop wall this morning: the loop crown, the trim brakes, the second hill and the station. She wants the energy read off it the same way.",
+      "scene": "Marta Kovač, the maintenance lead, has chalked the far half of the circuit on the workshop wall this morning. On it: the loop crown, the trim brakes, the second hill and the station. She wants the energy read off it the same way.",
       "takeaway": "Past the lift hill every height the train reaches again is bought out of its speed, less whatever friction has already taken.",
       "place": "The Coaster",
+      "at": "profile-drawing",
       "guide": "Four places and four statements, all of them past the first drop. Pair them by asking the same two questions of each. Where is the energy sitting, in height or in motion? And is any being added or taken out here? Nothing beyond the lift hill adds any, so every join is about where it sits and what is being removed.",
       "background": [
         "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning."
       ],
-      "story": "Marta Kovač, the maintenance lead, has chalked the far half of the circuit on the workshop wall this morning: the loop crown, the trim brakes, the second hill and the station. She wants the energy read off it the same way.",
+      "story": "Marta Kovač, the maintenance lead, has chalked the far half of the circuit on the workshop wall this morning. On it: the loop crown, the trim brakes, the second hill and the station. She wants the energy read off it the same way.",
       "game": {
         "type": "PROTOCOL",
         "title": "Reading a circuit as energy — Review",
@@ -1363,7 +1375,7 @@ export const CURRICULUM = {
         "task": "Match each place on the far half of the circuit to what is true of the train's energy there.",
         "question": "Match each place on the far half of the circuit to what is true of the train's energy there.",
         "answer": "",
-        "why": "The energy books close over the whole circuit rather than point by point. At the crown the train holds a large share in height and still enough in motion to stay on the rail, which is why a loop is placed early. The trim brakes take a measured amount out as heat deliberately, so the speed into the second half is a setting. The second hill is lower because friction has been taking a cut since the lift, and the station brakes remove what is left.",
+        "why": "The energy books close over the whole circuit rather than point by point. At the crown the train holds a large share in height. It still holds enough in motion to stay on the rail, which is why a loop is placed early. The trim brakes take a measured amount out as heat deliberately, so the speed into the second half is a setting. The second hill is lower because friction has been taking a cut since the lift, and the station brakes remove what is left.",
         "scenarios": [
           "The train is at the crown of the loop, upside down and still travelling fast.",
           "The train is passing through the trim brakes half way round the circuit.",
@@ -1408,8 +1420,8 @@ export const CURRICULUM = {
       "guide": "Four options, and two of them agree on the size and disagree on the direction. Ask what is changing when a speed stays constant. Velocity carries a direction as well as a size, and on a circle the direction changes every instant. So decide which way the acceleration points before worrying about its value. One option needs a mass the question never gives.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
       "story": "The carousel turns at eight revolutions a minute and has done so since the previous engineer set it. Bisi Adeyemi, the ride electrician, is wiring a new controller and wants the outer-horse acceleration put on paper.",
       "game": {
@@ -1461,10 +1473,11 @@ export const CURRICULUM = {
       "scene": "The swing carousel turns at ten revolutions a minute. Its chains are 4.5 metres long and hang from a hub 3.0 metres from the axis. An old chalk mark shows where the seats once reached.",
       "takeaway": "Resolving one force into components can remove unknowns and reveal which variables actually control the motion.",
       "place": "The Carousel and Swings",
+      "at": "chain-rig",
       "guide": "Two force equations start you off — one for the horizontal pull and one for the vertical. Build down a line at a time to a relation for the angle the chains hang at. Then read the relation itself: the useful part of this derivation is which quantities survive to the end and which cancel on the way.",
       "background": [
         "Why two equations. A seat on a chain travels a horizontal circle at constant speed, so the net force on it points at the axis and has no vertical part. Splitting the tension into its horizontal and vertical components gives one equation for each direction, and dividing one by the other eliminates the tension nobody measured.",
-        "What falls out, and why it matters at the gate. The mass cancels: a heavy rider and a light rider hang at the same angle, which is why the operator does not sort the queue by weight and why the old chalk mark is a mark about speed rather than about who was sitting there.",
+        "What falls out, and why it matters at the gate. The mass cancels. A heavy rider and a light rider hang at the same angle. That is why the operator does not sort the queue by weight. It is also why the old chalk mark is a mark about speed rather than about who was sitting there.",
         "What the angle does depend on. The rotation rate and the geometry — chain length and hub radius, which together set the radius of the circle the seat travels in. So a carousel running slightly fast shows it in the angle, and the chalk mark is a record of what fast used to look like."
       ],
       "story": "The swing carousel turns at ten revolutions a minute. Its chains are 4.5 metres long and hang from a hub 3.0 metres from the axis. An old chalk mark shows where the seats once reached.",
@@ -1612,10 +1625,11 @@ export const CURRICULUM = {
       "scene": "An outer horse carries a 78 kilogram rider 6.2 metres from the axis. The carousel is turning at eight revolutions a minute. Bisi Adeyemi wants the sideways force before anyone raises the controller setting.",
       "takeaway": "Circular-force problems often hide the needed speed inside a rotation rate, so convert the motion before applying F = mv²/r.",
       "place": "The Carousel and Swings",
+      "at": "pole-jig",
       "guide": "Five numbers, and two of them belong to earlier or other steps: the turns a minute, and gravity. Ask of each whether this force depends on it. Turns a minute is not a speed, so one number here is already the conversion done for you. And note the square: nine turns instead of eight is twelve per cent more speed and a quarter more force.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. The second half is whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label catches a unit mismatch before it is placed. It also catches a quantity belonging to a different part of the problem. That is the habit this format exists to build."
       ],
       "story": "An outer horse carries a 78 kilogram rider 6.2 metres from the axis. The carousel is turning at eight revolutions a minute. Bisi Adeyemi wants the sideways force before anyone raises the controller setting.",
       "game": {
@@ -1676,10 +1690,11 @@ export const CURRICULUM = {
       "scene": "The carousel drive has drawn uneven current since winter. Bisi Adeyemi has five readings from the control panel and the ring survey beside them. Two look alarming. Three are stubbornly ordinary.",
       "takeaway": "The readings that are normal are what rule an explanation out.",
       "place": "The Carousel and Swings",
+      "at": "drive-panel",
       "guide": "Five readings, and the three ordinary ones do the work. The temperature has not moved. The speed is exactly where it was set. The average current is normal. Ask of each candidate how many of the five it covers. Something that peaks once per revolution is something fixed on the ground being met by something turning.",
       "background": [
-        "Why the unremarkable readings decide it. The salient reading is what draws attention, and it is usually consistent with several explanations at once, which is why it rarely settles anything. The readings that discriminate are the ones a candidate predicts should have moved and which have not: a normal value is a positive result against every mechanism that would have disturbed it.",
-        "How to work the candidates. Take each mechanism and predict the panel it implies before you look at the panel again — which readings it drives, in which direction, and by roughly how much. Then compare. Working that way round is what separates a diagnosis from a rationalisation, because the prediction is made before the data is consulted.",
+        "Why the unremarkable readings decide it. The salient reading is what draws attention, and it is usually consistent with several explanations at once, which is why it rarely settles anything. The readings that discriminate are the ones a candidate predicts should have moved and which have not. A normal value is a positive result against every mechanism that would have disturbed it.",
+        "How to work the candidates. Take each mechanism and predict the panel it implies before you look at the panel again. Which readings it drives, in which direction, and by roughly how much. Then compare. Working that way round is what separates a diagnosis from a rationalisation, because the prediction is made before the data is consulted.",
         "Why only one candidate survives. Several will account for part of the panel, deliberately so, and a partial fit is exactly what a confident wrong answer feels like from the inside. When two remain, look for the reading on which their predictions differ and let it decide. If no reading separates them you have not finished reading the panel."
       ],
       "story": "The carousel drive has drawn uneven current since winter. Bisi Adeyemi has five readings from the control panel and the ring survey beside them. Two look alarming. Three are stubbornly ordinary.",
@@ -1760,8 +1775,8 @@ export const CURRICULUM = {
       "guide": "Four ways to wire a limit, and all four record something. Ask of each whether the machine enforces the number or a person does. An alarm still leaves the choice with the operator. A log arrives after the exceedance. And rounded inputs are not a licence to add ten per cent, because the clearance that produced the limit has not moved.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
       "story": "The derived limit for the swings is ten turns a minute. Adeyemi has to wire what happens when the controller is asked for 11, and there are 4 ways to do it.",
       "game": {
@@ -1818,6 +1833,7 @@ export const CURRICULUM = {
       "scene": "The carousel platform sits 11 millimetres low at one bearing. Marta Kovač has one night to lift the ring, add thin spacer plates under the support and prove the repair before the morning opening check.",
       "takeaway": "A repair procedure is a chain of physical dependencies, not just a list of tasks.",
       "place": "The Carousel and Swings",
+      "at": "platform-jacks",
       "guide": "All four operations will happen tonight, so ask what each needs first. A bearing cannot be adjusted while the ring is pressing down on it. Spacer thickness comes from the measured level rather than from counting plates. And the last card is the test: if the once-a-revolution peak has gone, the measurement that started this is answered.",
       "background": [
         "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
@@ -1867,10 +1883,11 @@ export const CURRICULUM = {
       "scene": "Bisi Adeyemi, the ride electrician, has the new controller in and wants the inner ring on paper as well. Those horses sit 3.1 metres from the axis and go round on the same shaft at the same eight revolutions a minute.",
       "takeaway": "One shaft turns every radius at the same rate, so both the speed and the acceleration of a seat are set by how far out it is.",
       "place": "The Carousel and Swings",
+      "at": "chain-rig",
       "guide": "Five numbers, and two of them belong to the outer ring rather than this one. Ask of each which circle it describes. The turns a minute are shared by both rings, so the speed on each has already been worked out for you. And note where the square sits: it is on the speed and not on the radius.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. The second half is whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label catches a unit mismatch before it is placed. It also catches a quantity belonging to a different part of the problem. That is the habit this format exists to build."
       ],
       "story": "Bisi Adeyemi, the ride electrician, has the new controller in and wants the inner ring on paper as well. Those horses sit 3.1 metres from the axis and go round on the same shaft at the same eight revolutions a minute.",
       "game": {
@@ -1881,7 +1898,7 @@ export const CURRICULUM = {
         "task": "Get the acceleration on the inner ring of horses",
         "question": "Estimate the acceleration of a horse on the inner ring.",
         "answer": "About 2.2 metres per second squared, pointing at the axle.",
-        "why": "Every point on the platform turns at the same rate, so a horse half as far out moves half as fast. Both terms of the ratio change together and the square sits on only one of them, which is what makes the acceleration fall in proportion to the radius rather than with its square. Here 2.6 metres a second on a 3.1 metre radius gives about 2.2 metres per second squared, still pointing at the axle. That is why a speed limit for this ride is written for the outer horses.",
+        "why": "Every point on the platform turns at the same rate, so a horse half as far out moves half as fast. Both terms of the ratio change together, and the square sits on only one of them. That is what makes the acceleration fall in proportion to the radius rather than with its square. Here 2.6 metres a second on a 3.1 metre radius gives about 2.2 metres per second squared, still pointing at the axle. That is why a speed limit for this ride is written for the outer horses.",
         "givens": [],
         "relationship": "Centripetal acceleration is the speed squared over the radius, a_c = v²/r.",
         "calcKey": "CAROUSEL-7"
@@ -1944,8 +1961,8 @@ export const CURRICULUM = {
       "guide": "Four distances, and only one of them is perpendicular to the line the load pulls along. Ask of each which direction it runs in. The load hangs straight down, so the arm that matters runs horizontally. The steel is six metres long and not all of it counts. Raising the arm shortens the horizontal distance, so the same load twists the pivot less.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
       "story": "Jan Novák has a six-metre crane arm raised 30 degrees above horizontal near the Ferris wheel. A load hangs vertically from its end. His lifting plan and the shop sketch disagree about the distance used to calculate torque.",
       "game": {
@@ -1990,10 +2007,11 @@ export const CURRICULUM = {
       "scene": "Passengers board passenger cabins at the bottom, six at a time. During loading, one side of the wheel can carry much more passenger mass than the other. Priya Raman, the structures engineer, wants the worst temporary imbalance put on paper.",
       "takeaway": "A wheel is balanced by its own symmetry, and loading is what breaks the symmetry.",
       "place": "The Ferris Wheel",
+      "at": "hub-schedule",
       "guide": "Five numbers, and one of them is the radius of the wheel rather than the average distance the loaded cabins sit from the axle. Ask which distance the torque uses. An empty wheel nearly balances, because opposite cabins cancel. What the drive and brake have to hold is not the heaviest load but the most uneven one.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. The second half is whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label catches a unit mismatch before it is placed. It also catches a quantity belonging to a different part of the problem. That is the habit this format exists to build."
       ],
       "story": "Passengers board passenger cabins at the bottom, six at a time. During loading, one side of the wheel can carry much more passenger mass than the other. Priya Raman, the structures engineer, wants the worst temporary imbalance put on paper.",
       "game": {
@@ -2054,8 +2072,8 @@ export const CURRICULUM = {
       "guide": "Two wheels of the same total mass, and four options. Ask of each whether it appeals to where the mass sits, or only to how much there is. Each piece counts in proportion to the square of its distance from the axis. So a kilogram at the rim is worth many at the hub. Two of these options get the direction of that backwards.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
       "story": "Novák is quoting a replacement drive and the supplier wants the wheel's rotational inertia. Two wheels of the same total mass are on the table, one with heavy passenger cabins and one with a heavier center hub.",
       "game": {
@@ -2099,11 +2117,12 @@ export const CURRICULUM = {
       "scene": "The loading imbalance reaches 177 kilonewton-metres. Each support arm joins the wheel center through eight bolts, each 0.42 metres from the center. Priya Raman points to number nine and asks what force one bolt must carry.",
       "takeaway": "A moment becomes a force the moment somebody asks what distance is resisting it.",
       "place": "The Ferris Wheel",
-      "guide": "Build the torque statement down to the force in one bolt, one line at a time. The last line is not a number: you have to state the load-sharing assumption you just used, because the arithmetic only holds if the eight bolts carry equal shares — and Raman is asking about a specific bolt, number nine.",
+      "at": "hub-schedule",
+      "guide": "Build the torque statement down to the force in one bolt, one line at a time. The last line is not a number. You have to state the load-sharing assumption you just used. The arithmetic only holds if the eight bolts carry equal shares, and Raman is asking about one specific bolt, number nine.",
       "background": [
         "What the balance says. The applied moment has to be carried by the bolts' forces acting at their distance from the centre. Eight bolts on a circle of radius 0.42 metres therefore share the job, and each one's contribution is its force times that radius. Setting the total against 177 kilonewton-metres gives the force per bolt.",
         "Why the assumption is the answer's fine print. Equal sharing needs the bolts equally tight, equally fitted and the joint stiff enough not to favour some over others. A slack or worn bolt sheds its share onto its neighbours, so the number you compute is a lower bound on what the worst bolt is really carrying.",
-        "Why number nine. It is the one nobody has a final answer about, which makes it the one where the assumption matters most: if the equal-share assumption fails anywhere it fails there, and the computed force is exactly the number the certification will quote."
+        "Why number nine. It is the one nobody has a final answer about, which makes it the one where the assumption matters most. If the equal-share assumption fails anywhere, it fails there. And the computed force is exactly the number the certification will quote."
       ],
       "story": "The loading imbalance reaches 177 kilonewton-metres. Each support arm joins the wheel center through eight bolts, each 0.42 metres from the center. Priya Raman points to number nine and asks what force one bolt must carry.",
       "game": {
@@ -2246,10 +2265,11 @@ export const CURRICULUM = {
       "scene": "A passenger cabin presents about 4.2 square metres side-on. Raman wants the force on 1 at the 22 metres a second the county's rule names, before anybody argues about the limit.",
       "takeaway": "A wind limit is a force limit in disguise, and the square is why the last few metres a second matter most.",
       "place": "The Ferris Wheel",
+      "at": "gondola-shell",
       "guide": "Six numbers, and one of them is the number of cabins on the wheel, which belongs to a later total. Ask of each whether the force on one cabin depends on it. And note the square on the wind speed. Twenty-two to thirty metres a second is nearly twice the force, which is why a rule watches gusts rather than the daily mean.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. The second half is whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label catches a unit mismatch before it is placed. It also catches a quantity belonging to a different part of the problem. That is the habit this format exists to build."
       ],
       "story": "A passenger cabin presents about 4.2 square metres side-on. Raman wants the force on 1 at the 22 metres a second the county's rule names, before anybody argues about the limit.",
       "game": {
@@ -2282,16 +2302,17 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Stopping a wheel takes time",
-      "scene": "Emptying the wheel takes about eight minutes and clearing the queue takes longer. Raman has the forecast updates on the board and wants the queue threshold set before the gusts arrive rather than during them.",
+      "scene": "The wheel takes about eight minutes to unload after the last riders board, and clearing the existing queue takes about two hours. Raman wants the queue trigger fixed before a fast-moving front arrives.",
       "takeaway": "A threshold has to fire early enough for the action behind it to finish.",
       "place": "The Ferris Wheel",
-      "guide": "One rule, written before the forecast updates arrive and fixed once released. Closing the queue and clearing the people already standing in it takes two hours, and at 22 m/s the wheel must not be carrying anybody. So the line goes back from 22 by however far the gusts climb in two hours — and not so far back that the ride is shut on a breezy afternoon.",
+      "at": "brake-drum",
+      "guide": "One rule, written before the forecast updates arrive and fixed once released. Closing the queue and clearing the people already standing in it takes two hours, and at 22 m/s the wheel must not be carrying anybody. So the line goes back from 22 by however far the gusts climb in two hours. And not so far back that the ride is shut on a breezy afternoon.",
       "background": [
         "Why a threshold is not a limit. The structural limit is where the wheel must already be stopped. The threshold is where you start stopping, and the gap between them is the time the action needs. Setting the threshold at the limit means beginning the evacuation at the moment it should have finished.",
-        "Why the two thresholds differ. Emptying the wheel and clearing the queue are different jobs with different durations and different consequences if they overrun. Two actions with the same lead time would be one rule; the reason there are two numbers to set is that one of them takes longer than the other.",
-        "Why the board is released rather than adjusted. Gusts arrive as a series of forecast updates, and adjusting a rule while the updates come in is how an operator ends up justifying whatever they have already done. Writing both numbers first is what makes them a rule instead of a commentary."
+        "Why the two thresholds differ. Emptying the wheel and clearing the queue are different jobs with different durations and different consequences if they overrun. Two actions with the same lead time would be one rule. There are two numbers to set because one of them takes longer than the other.",
+        "Why the board is released rather than adjusted. Gusts arrive as a series of forecast updates. Adjusting a rule while the updates come in is how an operator ends up justifying whatever they have already done. Writing both numbers first is what makes them a rule instead of a commentary."
       ],
-      "story": "Emptying the wheel takes about eight minutes and clearing the queue takes longer. Raman has the forecast updates on the board and wants the queue threshold set before the gusts arrive rather than during them.",
+      "story": "The wheel takes about eight minutes to unload after the last riders board, and clearing the existing queue takes about two hours. Raman wants the queue trigger fixed before a fast-moving front arrives.",
       "game": {
         "type": "TRIGGER",
         "title": "Stopping a wheel takes time",
@@ -2299,8 +2320,8 @@ export const CURRICULUM = {
         "play": "Write the wind rules with their lead time",
         "task": "Write the wind rules with their lead time",
         "question": "At what gust speed do you close the queue, given clearing the people already in it takes two hours?",
-        "answer": "Close the queue on the 12 m/s update. It fires with the two hours clearing needs; the next update is 18 m/s with two hours to the limit and nobody moved yet.",
-        "why": "A wind threshold is useful only if the action behind it can finish before conditions become unsafe. Those two jobs take an eight-minute unload and rather more than that to run the queue down, and both have to be over before the gusts arrive. Their lead times force the first triggers well below the 22 m/s structural limit. Wind force is also rising as speed squared during the same interval. Waiting until the limit is nearly reached leaves too little time. The rule must be written before the forecast stream arrives, not improvised afterward.",
+        "answer": "Close the queue on the 12 m/s update. The next update leaves only two hours before the structural limit — not enough for the two-hour queue clear plus the final unload.",
+        "why": "The trigger must leave enough time for the action it starts to finish. Clearing the queue takes about two hours and the final unload adds roughly eight minutes, so the 18 m/s update with two hours remaining is already too late. The preceding 12 m/s update leaves four hours. This is a forecast-and-lead-time rule for this scenario, not a claim that 12 m/s is a universal Ferris-wheel wind limit.",
         "trigger": {
           "scale": {
             "label": "Gust speed",
@@ -2335,28 +2356,28 @@ export const CURRICULUM = {
           ],
           "stream": [
             {
-              "at": "11:00",
-              "update": "steady westerly, forecast rising through the afternoon",
+              "at": "660",
+              "update": "steady westerly; the front is still well away",
               "value": 8,
               "hoursLeft": 6
             },
             {
-              "at": "13:00",
-              "update": "gusts building; the queue is at 90 minutes",
+              "at": "780",
+              "update": "gusts building; forecast still reaches the limit this afternoon",
               "value": 12,
               "hoursLeft": 4
             },
             {
-              "at": "15:00",
-              "update": "gusting hard enough to move the empty gondolas",
+              "at": "900",
+              "update": "only two hours remain before the forecast reaches the structural limit",
               "value": 18,
               "hoursLeft": 2
             },
             {
-              "at": "16:00",
-              "update": "past the structural limit; the wheel should already be standing",
+              "at": "1020",
+              "update": "the structural limit has been crossed; the wheel must already be empty and stopped",
               "value": 23,
-              "hoursLeft": 1
+              "hoursLeft": 0
             }
           ],
           "rehearsal": {
@@ -2409,8 +2430,8 @@ export const CURRICULUM = {
       "guide": "Four sentences for the board, and two of them claim a result nobody has produced. Ask of each which of the two facts it rests on: the load, or what the flawed joint can carry. The first is computed. The second needs an assessment nobody has done. Eighty-one seasons of service is not a margin, and the narrow version is what tells the specialist what to answer.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
       "story": "Priya Raman has the computed bolt load. The inspector has the crack-like mark's measured length and depth. Nobody has the crack-strength assessment. The park manager needs one sentence for the board and insurers before the meeting ends.",
       "game": {
@@ -2420,34 +2441,25 @@ export const CURRICULUM = {
         "play": "State what can be claimed about the wheel",
         "task": "State what can be claimed about the wheel",
         "question": "What is the honest sentence about the wheel this afternoon?",
-        "answer": "The joint load is known, but the crack-like mark's allowable load is not.",
-        "why": "The file already establishes the joint load and the size of the crack-like mark. It does not establish the crack's allowable load. Calling the wheel unsafe would claim a result the crack-strength assessment has not produced. Calling it safe would treat 81 years of service as proof of margin. Both overreach. The accurate statement keeps the two known facts and names the one unresolved question. That narrow uncertainty is useful because it tells the winter specialist exactly what must be answered.",
+        "answer": "The joint load is estimated, the crack-like indication is measured, and its allowable capacity is still unknown.",
+        "why": "The file supports two different kinds of statement. The joint load is a model-based estimate resting on load-sharing assumptions; the crack-like indication is a measurement. Neither supplies the damaged joint's allowable capacity. Calling the wheel safe or unsafe would therefore outrun the evidence. The useful conclusion is narrow: the unresolved capacity question is exactly what the specialist fracture assessment must answer.",
         "rebuttals": [
-          "A crack in a joint is a finding about the joint, and its importance needs the load it is under.",
-          "81 seasons is exactly the evidence this whole fortnight has been about not accepting.",
-          "The load and the crack size are both established, and pretending otherwise wastes them."
+          "A flaw matters in relation to load, geometry, material and crack behavior; its presence alone does not establish imminent failure.",
+          "Past survival is evidence of history, not a quantified margin for the damaged joint.",
+          "The estimated load and measured indication remain useful because they define the question the specialist must answer."
         ],
         "choices": [
-          "The joint load is known, but the crack-like mark's allowable load is not.",
-          "The wheel is unsafe because a measured crack exists in a loaded joint.",
-          "The wheel is safe because it has carried the load for 81 seasons.",
-          "Nothing useful can be said until the crack-strength assessment is complete."
+          "The joint load is estimated, the crack-like indication is measured, and its allowable capacity is still unknown.",
+          "The wheel is unsafe because any crack-like indication in a loaded joint proves failure is imminent.",
+          "The wheel is safe because it has carried passengers for 81 seasons.",
+          "Nothing useful can be said until the fracture assessment is complete."
         ],
-        "correctChoice": "The joint load is known, but the crack-like mark's allowable load is not."
+        "correctChoice": "The joint load is estimated, the crack-like indication is measured, and its allowable capacity is still unknown."
       },
       "assumes": [
         "a claim is limited by the working that supports it",
         "an unresolved question is not the same as a negative finding"
-      ],
-      "concept": {
-        "n": 35,
-        "c": "Safety factor: what a part can take over what it is asked to take",
-        "of": 36,
-        "rests": [
-          "Newton's second law as the definition of a net force",
-          "Static equilibrium: forces and torques both adding to zero"
-        ]
-      }
+      ]
     }
   ],
   "BUMPER": [
@@ -2460,8 +2472,8 @@ export const CURRICULUM = {
       "guide": "Four options, and each keeps or discards two quantities. Ask of each what the collision does to the outside world in a tenth of a second. Almost no outside push arrives, which protects one of the two. The cars leave together, deformed and warm, which does not protect the other. That difference is what soft bumpers are for.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
       "story": "Wei Chen, the controls and telemetry, has accelerometers in three bumper cars and 400 impacts logged from last season. In one clean test, a moving car hits a stationary car and the pair travel together for an instant after contact.",
       "game": {
@@ -2472,7 +2484,7 @@ export const CURRICULUM = {
         "task": "Count what survives a collision and what does not",
         "question": "A 320 kg car at 3.1 m/s strikes a stationary 290 kg car and they move off together. What is conserved?",
         "answer": "Momentum only; kinetic energy is transformed.",
-        "why": "Total momentum stays the same because the pair receives almost no external impulse during the brief collision. Kinetic energy does not. The cars leave together at about 1.63 m/s, carrying roughly 810 J of kinetic energy after starting with about 1,540 J. The missing mechanical energy became deformation, sound and heat. That distinction separates an inelastic collision from an elastic one and explains why soft bumpers reduce rebound.",
+        "why": "Total momentum stays the same because almost no outside push — no external impulse — reaches the pair in that tenth of a second. Kinetic energy does not. The cars leave together at about 1.63 m/s, carrying roughly 810 J of kinetic energy after starting with about 1,540 J. The missing mechanical energy became deformation, sound and heat. That distinction separates an inelastic collision from an elastic one and explains why soft bumpers reduce rebound.",
         "rebuttals": [
           "A collision that returned all its energy would send the cars apart again, which these do not do.",
           "Kinetic energy is the quantity that goes missing here; nearly half of it does.",
@@ -2518,7 +2530,8 @@ export const CURRICULUM = {
       "scene": "The certificate needs every complaint on the log classified before it is written. Some of what the riders describe is the ride going fast. The rest is the ride turning, and a rider cannot tell the difference from the seat.",
       "takeaway": "What a rider feels is acceleration, and a turn supplies it without going any faster.",
       "place": "The Bumper Cars",
-      "guide": "Two bins. What a rider feels in a turn is the seat pushing them toward the centre, and it depends on speed squared over radius — so a tight slow turn can beat a fast straight. Sort each complaint on whether it is about how fast or about how sharply.",
+      "at": "car-on-stands",
+      "guide": "Two bins. What a rider feels in a turn is the seat pushing them toward the centre. It depends on speed squared over radius. So a tight slow turn can beat a fast straight. Sort each complaint on whether it is about how fast or about how sharply.",
       "background": [
         "Why riders cannot tell. A body has no sense that measures speed. What it senses is acceleration, which is what a seat, a rail or a harness has to supply. On a straight at constant speed there is nothing to feel at all, however fast it is.",
         "Why the radius does the work. The acceleration in a turn is the speed squared divided by the radius, so halving the radius doubles it while nothing about the speed has changed. That is why the tightest bend, not the fastest section, is where a ride hurts people."
@@ -2532,7 +2545,7 @@ export const CURRICULUM = {
         "task": "Sort the ride log before the certificate is written.",
         "question": "Send each complaint to the bin that says what actually produced it.",
         "answer": "Anything about being thrown sideways or crushed into a seat is the turn. Anything about how fast it went is usually not the thing they felt.",
-        "why": "A rider has no organ that measures speed. What the body senses is acceleration, which is what the seat, the harness or the rail has to supply — so a straight run at constant speed produces no sensation at all however fast it is, and a tight bend at walking pace can be unpleasant. The acceleration in a turn is the speed squared over the radius, which is why the radius carries so much of the blame: halve it and the rider feels twice as much with the ride going exactly as fast as before. That is the classification the certificate needs. Complaints about being thrown against the door, crushed into the seat or unable to lift an arm are all the turn, and they are fixed by geometry or by a speed limit through that geometry. Complaints about the ride being too fast are usually about something else — noise, duration, or the drop — and slowing the whole ride to answer them fixes nothing anybody actually felt.",
+        "why": "A rider has no organ that measures speed. What the body senses is acceleration, which is what the seat, the harness or the rail has to supply. So a straight run at constant speed produces no sensation at all, however fast it is. A tight bend at walking pace can be unpleasant. The acceleration in a turn is the speed squared over the radius. That is why the radius carries so much of the blame. Halve it and the rider feels twice as much, with the ride going exactly as fast as before. That is the classification the certificate needs. Complaints about being thrown against the door, crushed into the seat or unable to lift an arm are all the turn. They are fixed by geometry, or by a speed limit through that geometry. Complaints about the ride being too fast are usually about something else: noise, duration, or the drop. Slowing the whole ride to answer them fixes nothing anybody actually felt.",
         "belt": {
           "left": {
             "name": "The turn"
@@ -2679,11 +2692,12 @@ export const CURRICULUM = {
       "scene": "A 320 kilogram car and rider at 3.1 metres a second strikes a stationary 290 kilogram car and rider. They stay in contact and move off together, which the telemetry confirms.",
       "takeaway": "For a perfectly inelastic collision, momentum fixes the shared speed while kinetic energy tells how much mechanical energy was transformed.",
       "place": "The Bumper Cars",
+      "at": "car-on-stands",
       "guide": "Build the momentum statement down to the speed the pair leaves at, one line at a time. Then answer the second half: work out what fraction of the kinetic energy is still there afterwards. Momentum and energy behave differently in this collision, and the derivation is how you find out that they do.",
       "background": [
-        "Why momentum is the one that survives. In the moment of contact the two cars push on each other equally and oppositely, so whatever momentum one gains the other loses and the total is unchanged. That holds whatever happens inside the bumpers, which is why the momentum statement can be written before knowing anything about them.",
-        "Why the energy is not conserved. The cars stay in contact and move off together, which means the collision is perfectly inelastic — the maximum energy that can go into deformation, heat and noise for the given masses. The fraction remaining follows from the masses alone, and it is a fixed number rather than a measurement.",
-        "What the ride is doing with it. A bumper car is designed to lose that energy in the rubber rather than in the rider's neck, so the missing fraction is the whole safety argument of the attraction. Telemetry that confirms the pair moved off together is confirming which case of the algebra applies."
+        "Why momentum is the one that survives. In the moment of contact the two cars push on each other equally and oppositely. So whatever momentum one gains the other loses, and the total is unchanged. That holds whatever happens inside the bumpers, which is why the momentum statement can be written before knowing anything about them.",
+        "Why the energy is not conserved. The cars stay in contact and move off together, which means the collision is perfectly inelastic. That is the maximum energy that can go into deformation, heat and noise for the given masses. The fraction remaining follows from the masses alone, and it is a fixed number rather than a measurement.",
+        "What the ride is doing with it. A bumper car is designed to lose that energy in the rubber rather than in the rider's neck. So the missing fraction is the whole safety argument of the attraction. Telemetry that confirms the pair moved off together is confirming which case of the algebra applies."
       ],
       "story": "A 320 kilogram car and rider at 3.1 metres a second strikes a stationary 290 kilogram car and rider. They stay in contact and move off together, which the telemetry confirms.",
       "game": {
@@ -2694,7 +2708,7 @@ export const CURRICULUM = {
         "task": "Derive the speed the pair leaves at",
         "question": "Work the momentum statement down to the speed the pair leaves at, and then say what happened to the energy.",
         "answer": "v = (320 × 3.1) ÷ 610 ≈ 1.63 m/s, and about 47% of the kinetic energy has gone into rubber, heat and noise.",
-        "why": "With negligible external impulse, total momentum is conserved during the collision. Because the cars leave together, one shared speed describes the pair afterward. Solving the momentum equation gives about 1.63 m/s. Kinetic energy is different. It falls because this collision is inelastic. The missing mechanical energy becomes deformation, sound and heat in the bumpers and bodies. Soft structures are useful precisely because they absorb energy instead of returning it as rebound.",
+        "why": "Almost no outside push reaches the two cars while they are touching — a negligible external impulse — so the total momentum of the pair is conserved. Conserved means the total is the same after the bang as it was before it. Because the cars leave together, one shared speed describes the pair afterward. Solving the momentum equation gives about 1.63 m/s. Kinetic energy is different. It falls because this collision is inelastic. The missing mechanical energy becomes deformation, sound and heat in the bumpers and bodies. Soft structures are useful precisely because they absorb energy instead of returning it as rebound.",
         "derive": {
           "start": "m₁u₁ + m₂u₂ = (m₁ + m₂)v",
           "goal": "the speed of the pair after impact, and the fraction of the kinetic energy left",
@@ -2872,16 +2886,16 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "The tenth of a second that matters",
-      "scene": "Wei Chen's accelerometers show the car changing speed in about 0.10 seconds and the rider's head in about 0.18. The safety lead wants to know which interval belongs in a rule about rider force.",
+      "scene": "Wei Chen's accelerometers show the car changing speed in about 0.10 seconds, while the restrained rider's torso changes speed over about 0.18 seconds. The safety lead wants to know which interval belongs in a rule about average force on the rider.",
       "takeaway": "The same speed change over a longer time is a smaller force, and the time is a design choice.",
       "place": "The Bumper Cars",
       "guide": "Four options, and two intervals on the trace. Ask of each whose momentum change the time belongs to. The car takes a tenth of a second. The rider takes longer, because padding and belt stretch let them arrive at the new speed gradually. Using the car's interval describes the car. That is also why safety design lengthens rather than shortens the time.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
-      "story": "Wei Chen's accelerometers show the car changing speed in about 0.10 seconds and the rider's head in about 0.18. The safety lead wants to know which interval belongs in a rule about rider force.",
+      "story": "Wei Chen's accelerometers show the car changing speed in about 0.10 seconds, while the restrained rider's torso changes speed over about 0.18 seconds. The safety lead wants to know which interval belongs in a rule about average force on the rider.",
       "game": {
         "type": "CHOICE",
         "title": "The tenth of a second that matters",
@@ -2890,7 +2904,7 @@ export const CURRICULUM = {
         "task": "Say what a collision does to a neck",
         "question": "Which time should the force on a rider be computed over, and why?",
         "answer": "Use 0.18 s, the interval over which the rider changes momentum.",
-        "why": "Impulse connects force, time and momentum change. The correct time interval belongs to the body whose force you want. The rider's head and torso take about 0.18 s to match the car's new speed, longer than the bumper contact itself. Using 0.10 s would describe the car more closely and would overstate the rider force. Safety systems work by lengthening the rider's stopping time through padding, belt stretch and controlled seat motion.",
+        "why": "Impulse connects force, time and momentum change. The time interval must belong to the body whose force you are estimating. The restrained rider changes momentum over about 0.18 s, longer than the bumper contact itself. Using 0.10 s would describe the car more closely and would overstate the rider's average force. Padding, belt stretch and controlled seat motion can lower average force by spreading the rider's momentum change over more time.",
         "rebuttals": [
           "The car's time gives the force on the car, which is a question about the chassis rather than the rider.",
           "Designing against the largest number sounds prudent and here it is simply the wrong body's number.",
@@ -2924,7 +2938,13 @@ export const CURRICULUM = {
       "scene": "The rider's own speed change in Wei Chen's telemetry is 1.47 metres a second over 0.18 seconds. The safety lead wants that turned into a force and then compared with the rider's weight.",
       "takeaway": "A force from a collision is a momentum change divided by the time somebody was given to make it.",
       "place": "The Bumper Cars",
+      "at": "dummy-rig",
       "guide": "Build the impulse statement down to an average force on a sixty-kilogram rider, one line at a time. Then express that force as a multiple of the rider's own weight. In newtons the number means nothing to the safety lead; as a multiple of body weight it is a comparison they can use.",
+      "background": [
+        "Why the car and the rider get different times. Chen's whole reason for instrumenting this ride is that a car changes speed in about a tenth of a second, and the rider strapped into it does not. The seat, the belt and the rider's own neck take longer to catch up, and that longer time is the one the force on a person actually depends on.",
+        "Why a newton means nothing and a multiple of weight does. 490 newtons is a number nobody carries a feel for. Divided by the rider's own weight it becomes a comparison anybody already understands: about eight tenths of a g, milder than standing up too fast on a bus. That is the number Hart, the midway supervisor, can hand an operator without a calculator.",
+        "Why time is the lever a designer actually has. The momentum change is fixed by the collision, but the time it happens over is not. Stretch it — with padding, a compliant restraint, a longer crush distance — and the average force drops in the same proportion. That is the whole argument for building a car to give a little rather than to be rigid."
+      ],
       "story": "The rider's own speed change in Wei Chen's telemetry is 1.47 metres a second over 0.18 seconds. The safety lead wants that turned into a force and then compared with the rider's weight.",
       "game": {
         "type": "DERIVE",
@@ -3064,7 +3084,7 @@ export const CURRICULUM = {
       "scene": "A cracked chassis rail on 1 car, a coaster reading a tenth low, a carousel platform 11 millimetres down. One crew, two days, and Kovač wants the order in writing.",
       "takeaway": "Urgency depends on how a fault changes and whether it can be isolated, not on how dramatic it looks.",
       "place": "The Bumper Cars",
-      "guide": "Three faults, one crew, two days. Keep the one that needs your own judgement, and for each of the others choose an owner, the first thing they will do, and the reading or event that brings it back to you. Compare the three on trend, containment and consequence rather than on how bad each one sounds.",
+      "guide": "Three faults, one crew, two days. Keep the one that needs your own judgement. For each of the others, choose an owner, the first thing they will do, and the reading or event that brings it back to you. Compare the three on trend, containment and consequence rather than on how bad each one sounds.",
       "background": [
         "What the three axes are. Trend is whether it is getting worse while you decide. Containment is whether the fault is already isolated from the public. Consequence is what happens if it is not dealt with. A cracked chassis rail, a coaster reading a tenth low and a platform eleven millimetres down score very differently on each.",
         "Why the loudest is not the first. A fault that is already contained — the car taken out of service — is not getting worse, whatever its consequence would have been. A drift of a tenth in a reading is small now and is evidence of something that may not be small next week.",
@@ -3144,99 +3164,43 @@ export const CURRICULUM = {
         "a fault can be contained by removing only the affected equipment",
         "a passing limit and a worsening trend are different kinds of information"
       ]
-    },
-    {
-      "day": 7,
-      "title": "A rule for the four-hundredth cycle",
-      "scene": "The bumper-floor supervisor is writing a standing order for operators who will not have read this fortnight's calculations. Four recurring conditions are on the sheet. Each needs a response that can survive a busy shift.",
-      "takeaway": "A standing order should turn a physical limit into an action that a new operator can carry out without reconstructing the calculation.",
-      "place": "The Bumper Cars",
-      "guide": "Four instructions, and each answers a different failure. Ask of each what would go wrong if it came later. A floor speed set too high raises the energy of every collision on the cycle, so it belongs before the gate. An unlatched belt is one seat. A car that stops taking power is one car. And a record is what stops the next shift returning it to service.",
-      "background": [
-        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
-        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
-        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
-      ],
-      "story": "The bumper-floor supervisor is writing a standing order for operators who will not have read this fortnight's calculations. Four recurring conditions are on the sheet. Each needs a response that can survive a busy shift.",
-      "game": {
-        "type": "SEQUENCE",
-        "title": "A rule for the four-hundredth cycle",
-        "setup": "The Bumper Cars",
-        "play": "Order the four instructions for one cycle on the bumper floor.",
-        "task": "Order the four instructions for one cycle on the bumper floor.",
-        "question": "Order the four instructions for one cycle on the bumper floor.",
-        "answer": "Control the shared speed at the console and the restraint at the seat. Isolate the electrical-contact fault, and keep removed-car faults in the shift log.",
-        "why": "Each response belongs to a different failure. Excess floor speed raises collision energy because kinetic energy scales with v², so the common setting must be corrected before dispatch. An unsecured restraint is a rider-level problem and that seat cannot run. An intermittent electrical-contact fault belongs to one car, which can be isolated. A removed car also needs a persistent record. Otherwise the next shift can unknowingly return a known fault to service.",
-        "cards": [
-          "Check the floor speed setting against the card on the console before the gate opens.",
-          "Seat riders one to a car and confirm each lap belt is latched.",
-          "Run the cycle to the timer, watching for a car that stops taking power.",
-          "Enter the cycle count and any car taken out of service in the floor log."
-        ],
-        "order": [
-          0,
-          1,
-          2,
-          3
-        ]
-      },
-      "assumes": [
-        "kinetic energy grows with the square of speed",
-        "a fault on one bumper car can be isolated without closing the whole floor",
-        "velocity against speed: direction is part of the quantity — taken as read"
-      ],
-      "takesAsRead": [
-        {
-          "n": 1,
-          "c": "Velocity against speed: direction is part of the quantity"
-        }
-      ],
-      "concept": {
-        "n": 14,
-        "c": "Kinetic energy, and why the square matters",
-        "of": 36,
-        "rests": [
-          "Work as a force times a distance along it",
-          "Velocity against speed: direction is part of the quantity"
-        ]
-      }
     }
   ],
   "SHIP": [
     {
       "day": 1,
-      "title": "60 people and the same 5 seconds",
-      "scene": "Sam Idowu, the senior ride operator, has run the pirate ship for 20 years. During low-angle maintenance swings, a full boat and an empty one both take 5.9 seconds. He wants to know why loading changes the force on the pivot bearings but not that timing.",
-      "takeaway": "A variable can disappear from a motion when it scales both the restoring force and the inertia in the same way.",
+      "title": "Sixty riders, nearly the same clock",
+      "scene": "Sam Idowu, the senior ride operator, has run the pirate ship for 20 years. In low-angle maintenance tests, empty and full runs both come back close to 5.9 seconds per cycle. Loading changes the forces in the structure, but the timing barely moves.",
+      "takeaway": "A model should identify which properties matter, not merely which quantity got larger.",
       "place": "The Pirate Ship",
       "guide": "All four options explain a period that does not move when the boat fills. Ask of each whether it names a cancellation or an accident. The restoring pull is the boat's own weight, and the inertia resisting it grows in the same proportion. So they cancel, and length and gravity are what remain. Note the limit too: this holds at small angles, and the ride swings 48 degrees.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
-      "story": "Sam Idowu, the senior ride operator, has run the pirate ship for 20 years. During low-angle maintenance swings, a full boat and an empty one both take 5.9 seconds. He wants to know why loading changes the force on the pivot bearings but not that timing.",
+      "story": "Sam Idowu, the senior ride operator, has run the pirate ship for 20 years. In low-angle maintenance tests, empty and full runs both come back close to 5.9 seconds per cycle. Loading changes the forces in the structure, but the timing barely moves.",
       "game": {
         "type": "CHOICE",
-        "title": "60 people and the same 5 seconds",
+        "title": "Sixty riders, nearly the same clock",
         "setup": "The Pirate Ship",
-        "play": "Say what the swing's period depends on",
-        "task": "Say what the swing's period depends on",
-        "question": "Why does adding riders leave the low-angle period essentially unchanged?",
+        "play": "Separate total mass from the quantities that actually set the ship’s timing",
+        "task": "Separate total mass from the quantities that actually set the ship’s timing",
+        "question": "Why is adding riders by itself not enough to predict a longer period?",
         "answer": "At small angles, the extra restoring force and extra inertia scale together, so mass cancels from the period.",
-        "why": "The restoring force comes from the boat's own weight. Add mass and that force grows in the same proportion as the inertia resisting acceleration. Those factors cancel, so the small-angle period does not depend on mass. Length and local gravity remain. This statement has a limit: the simple period formula assumes a small swing angle. At the ride's 48-degree operating swing, the period is a little longer. Loading still barely changes it, but amplitude now matters.",
+        "why": "Pendulum timing is not set by total mass alone. In the simple-pendulum model mass cancels exactly; for the real pirate ship, which is a physical pendulum, the period depends on rotational inertia and where the combined centre of mass lies relative to the pivot. Adding riders can change those quantities, but merely saying 'more mass' does not determine the direction or size of the timing change. The park's own measured periods therefore matter more than a mass-only argument.",
         "rebuttals": [
-          "Riders sit along the whole boat, and where they sit would matter to the period if mass mattered at all.",
-          "The drive gives a push at the end of each swing and does not set the rate the boat returns at.",
-          "The log shows 5.9 seconds on empty cycles and on full ones separately, not as a mean."
+          "Local gravity does not decrease when riders board the boat.",
+          "The drive can force motion, but it does not redefine the structure’s natural dynamics.",
+          "Mass clearly affects structural forces; the issue is that total mass alone does not determine the period."
         ],
         "choices": [
-          "Extra mass is pulled back harder in the same proportion, so the acceleration is unchanged.",
-          "The extra riders sit near the pivot, where they have little effect on the swing.",
-          "The drive motor holds the rate constant whatever the boat happens to weigh that cycle.",
-          "Extra mass does slow it, and 5.9 seconds is the average of full and empty."
+          "Because period is controlled by geometry and mass distribution, not by total mass alone.",
+          "Because heavier riders make gravity weaker by the same amount that inertia grows.",
+          "Because the drive motor forces every load to have exactly the same natural period.",
+          "Because mass affects only speed, never forces or timing."
         ],
-        "correctChoice": "Extra mass is pulled back harder in the same proportion, so the acceleration is unchanged."
+        "correctChoice": "Because period is controlled by geometry and mass distribution, not by total mass alone."
       },
       "assumes": [
         "a pendulum has a restoring force toward its lowest point",
@@ -3255,24 +3219,25 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "What the swing is worth at the bottom",
-      "scene": "The pirate ship reaches 48 degrees on a full cycle. Idowu wants the speed through the bottom before the bearing work is quoted. The loaded boat's centre sits 8.6 metres below the pivot.",
+      "scene": "During a drive-off maintenance coast-down, the pirate ship reaches a 48° turning point. Its centre of mass is 8.6 metres from the pivot. Idowu wants the ideal gravity-only speed through the bottom before comparing it with the speed sensor.",
       "takeaway": "A swing is a fall along a curve, and the height it falls through is the only part that matters.",
       "place": "The Pirate Ship",
+      "at": "arm-trestles",
       "guide": "Five numbers, and two of them belong to other questions: the pivot-to-centre length, and the period. Ask of each whether the speed at the bottom depends on it. Energy answers to the change in height and not to the shape of the path. So the height risen is the term that matters, and the length is how it was worked out.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. The second half is whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label catches a unit mismatch before it is placed. It also catches a quantity belonging to a different part of the problem. That is the habit this format exists to build."
       ],
-      "story": "The pirate ship reaches 48 degrees on a full cycle. Idowu wants the speed through the bottom before the bearing work is quoted. The loaded boat's centre sits 8.6 metres below the pivot.",
+      "story": "During a drive-off maintenance coast-down, the pirate ship reaches a 48° turning point. Its centre of mass is 8.6 metres from the pivot. Idowu wants the ideal gravity-only speed through the bottom before comparing it with the speed sensor.",
       "game": {
         "type": "BALLPARK",
         "title": "What the swing is worth at the bottom",
         "setup": "The Pirate Ship",
         "play": "Get the speed at the bottom of the swing",
         "task": "Get the speed at the bottom of the swing",
-        "question": "Estimate the speed of the boat through the bottom of its swing.",
+        "question": "Estimate the ideal gravity-only speed through the bottom from a 48° turning point.",
         "answer": "",
-        "why": "The ship is a body falling along a curved path. Mechanical energy depends on the change in height, not on the shape of that path. At 48 degrees, the centre of mass rises about 2.85 m above the bottom. Turning that height into kinetic energy gives about 7.5 m/s. The tower reaches the same square-root form by kinematics. The shared result is useful because both situations convert gravitational potential energy into motion.",
+        "why": "From 48°, the centre of mass is about 2.85 m above its lowest position. If the drive is off and losses are neglected, gravitational potential energy becomes kinetic energy, giving v = √(2gh) ≈ 7.5 m/s. That is a model prediction for the coast-down test, not a claim that the powered ride conserves mechanical energy exactly. Comparing the sensor with it tells the team how much damping and drive work matter.",
         "givens": [],
         "relationship": "v = √(2gh): the speed at the bottom of a swing comes from the height fallen through, whatever path the body took to fall.",
         "calcKey": "SHIP-2"
@@ -3293,25 +3258,31 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "Why the mass falls out",
-      "scene": "The boat hangs 8.6 metres below its pivot. In a low-angle maintenance test, Idowu logs 5.9 seconds per cycle whether the boat is full or empty. Nobody at the park can produce the expression that predicts it.",
-      "takeaway": "An approximation can preserve the right physical dependencies while becoming quantitatively wrong outside its valid range.",
+      "title": "The simple model first",
+      "scene": "The old manual treats the ship as though its mass were concentrated at one point a distance L below the pivot. Idowu's low-angle maintenance log is about 5.9 seconds per cycle. Today you derive what that simplified model predicts before deciding whether the actual ride satisfies it.",
+      "takeaway": "Derive the simple model first; then test whether the real machine deserves it.",
       "place": "The Pirate Ship",
-      "guide": "Build the small-angle period from the restoring force, a line at a time. Then finish the job properly and state where the small-angle result stops being exact. Idowu's 5.9 seconds was logged in a low-angle test, and the ride does not run at low angles.",
-      "story": "The boat hangs 8.6 metres below its pivot. In a low-angle maintenance test, Idowu logs 5.9 seconds per cycle whether the boat is full or empty. Nobody at the park can produce the expression that predicts it.",
+      "at": "arm-trestles",
+      "guide": "Build the simple-pendulum result line by line. The goal is not to prove the pirate ship is simple; it is to know what the model predicts and which assumptions tomorrow's decision would depend on.",
+      "background": [
+        "For a point-mass pendulum at small angle, sinθ ≈ θ in radians. That turns the restoring force into one proportional to displacement, the defining form of simple harmonic motion.",
+        "In that simplified model the mass multiplies both the restoring force and the inertia term, so it cancels. The result depends on length and gravity, not on total mass.",
+        "The real pirate ship is a rigid body with mass spread through a boat, frame and riders. Its period therefore requires a physical-pendulum model or direct measurement. Deriving the simple formula is still useful because it exposes exactly what would have to be true for the shortcut to work."
+      ],
+      "story": "The old manual treats the ship as though its mass were concentrated at one point a distance L below the pivot. Idowu's low-angle maintenance log is about 5.9 seconds per cycle. Today you derive what that simplified model predicts before deciding whether the actual ride satisfies it.",
       "game": {
         "type": "DERIVE",
-        "title": "Why the mass falls out",
+        "title": "The simple model first",
         "setup": "The Pirate Ship",
-        "play": "Derive the period from the restoring force",
-        "task": "Derive the period from the restoring force",
-        "question": "Derive the small-angle period from the restoring force, then state when that result should not be treated as exact.",
-        "answer": "For small angles, T = 2π√(L/g) ≈ 5.9 s. Mass cancels; a 48° operating swing needs a measured period because the approximation is no longer exact.",
-        "why": "For a small angle, sinθ is close to θ, so the restoring force becomes proportional to displacement. That is the condition for simple harmonic motion. Mass appears in both the restoring force and ma, then cancels. The result is T = 2π√(L/g), which gives about 5.9 s for 8.6 m. The ride operates near 48 degrees, well outside the small-angle range. Its operating period must therefore be measured rather than assumed from this formula.",
+        "play": "Derive the simple-pendulum prediction before testing whether it fits the ride",
+        "task": "Derive the simple-pendulum prediction before testing whether it fits the ride",
+        "question": "Derive the small-angle period for the simple-pendulum model, then state what remains to be checked before using it on the ride.",
+        "answer": "For a simple point-mass pendulum, T = 2π√(L/g). The real ship is not a point mass, so its operating period must be measured or modeled with its rotational inertia.",
+        "why": "For the simple model, sinθ ≈ θ makes the restoring force proportional to displacement. Mass cancels from Newton's second law and gives T = 2π√(L/g). That is a valid derivation for a simple pendulum, not automatic proof about a pirate ship. The ride has distributed mass and a large operating amplitude, so its actual timing has to come from a physical-pendulum model or measurement.",
         "derive": {
           "start": "F = −mg sinθ",
-          "goal": "an expression for the period, and the quantities it contains",
-          "startNote": "the component of the boat's weight along the arc, pulling it back to the middle",
+          "goal": "the small-angle period predicted by the simple model, and the assumptions behind it",
+          "startNote": "candidate simple-pendulum model: a point mass at distance L from the pivot",
           "rules": [],
           "steps": [
             {
@@ -3367,28 +3338,28 @@ export const CURRICULUM = {
               ]
             },
             {
-              "ask": "Turn that into a period and evaluate it.",
+              "ask": "Turn that into the model period and state what it means.",
               "answer": 1,
               "candidates": [
                 {
-                  "text": "T = 2π√(g/L) ≈ 6.7 s",
+                  "text": "T = 2π√(g/L), so a longer pendulum has a shorter period",
                   "rule": "evaluation",
-                  "why": "The ratio is inverted. As written, a longer pendulum would swing faster, and the units come out as seconds to the minus one."
+                  "why": "The ratio is inverted; the units are also those of inverse time rather than time."
                 },
                 {
-                  "text": "T = 2π√(L/g) ≈ 5.9 s",
+                  "text": "T = 2π√(L/g) for the simple-pendulum model",
                   "rule": "evaluation"
                 },
                 {
-                  "text": "T = 2π√(L/g) ≈ 5.9 s, provided the boat is not loaded",
+                  "text": "T = 2π√(L/g), therefore the real pirate ship must have that exact period",
                   "rule": "comparison",
-                  "why": "The expression is right and the condition is imaginary: the mass cancelled two lines ago. Attaching it means every future use of this result waits for a load figure nobody needs.",
+                  "why": "The algebra is right and the conclusion outruns the model. A rigid ride is a physical pendulum, not a point mass on a massless string.",
                   "survives": true
                 },
                 {
-                  "text": "T = √(L/g) ≈ 0.94 s",
+                  "text": "T = √(L/g), because 2π only matters for circular motion",
                   "rule": "evaluation",
-                  "why": "The 2π is what converts an angular rate into a time for a whole cycle. Without it the answer is the time to swing about a sixth of the way."
+                  "why": "The 2π converts angular frequency into the time for one full oscillation and cannot be dropped."
                 }
               ]
             }
@@ -3461,12 +3432,13 @@ export const CURRICULUM = {
       "day": 4,
       "title": "Idowu was right",
       "scene": "The drive pushes the boat at a fixed interval set years ago. A low-angle test gives 5.9 seconds, while the 48° operating swing measures about 6.15. Five console readings are available and three look ordinary.",
-      "takeaway": "Resonance depends on phase, so the useful period is the one the operating system actually follows.",
+      "takeaway": "Resonance depends on phase — on the push arriving at the right moment in the swing — so the useful period is the one the ride actually swings at.",
       "place": "The Pirate Ship",
+      "at": "drive-console",
       "guide": "Five readings, and the ordinary ones matter. The bearing temperature is normal. The drive delivers its rated push. Ask of each candidate how many of the five it covers. The deciding reading is the operating period, which at 48 degrees is not the small-angle figure the drive was set to. Heavy loads expose a timing mismatch sooner, because they need more good pushes.",
       "background": [
-        "Why the unremarkable readings decide it. The salient reading is what draws attention, and it is usually consistent with several explanations at once, which is why it rarely settles anything. The readings that discriminate are the ones a candidate predicts should have moved and which have not: a normal value is a positive result against every mechanism that would have disturbed it.",
-        "How to work the candidates. Take each mechanism and predict the panel it implies before you look at the panel again — which readings it drives, in which direction, and by roughly how much. Then compare. Working that way round is what separates a diagnosis from a rationalisation, because the prediction is made before the data is consulted.",
+        "Why the unremarkable readings decide it. The salient reading is what draws attention, and it is usually consistent with several explanations at once, which is why it rarely settles anything. The readings that discriminate are the ones a candidate predicts should have moved and which have not. A normal value is a positive result against every mechanism that would have disturbed it.",
+        "How to work the candidates. Take each mechanism and predict the panel it implies before you look at the panel again. Which readings it drives, in which direction, and by roughly how much. Then compare. Working that way round is what separates a diagnosis from a rationalisation, because the prediction is made before the data is consulted.",
         "Why only one candidate survives. Several will account for part of the panel, deliberately so, and a partial fit is exactly what a confident wrong answer feels like from the inside. When two remain, look for the reading on which their predictions differ and let it decide. If no reading separates them you have not finished reading the panel."
       ],
       "story": "The drive pushes the boat at a fixed interval set years ago. A low-angle test gives 5.9 seconds, while the 48° operating swing measures about 6.15. Five console readings are available and three look ordinary.",
@@ -3478,7 +3450,7 @@ export const CURRICULUM = {
         "task": "Which explanation fits every reading?",
         "question": "Which explanation fits the full set of readings, including the operating period?",
         "answer": "The drive interval does not match the boat's operating period.",
-        "why": "The operating period is the deciding reading. At 48 degrees the small-angle estimate is no longer exact, and the measured cycle is about 6.15 s. The bearing temperature is normal, so extra damping from drag is not the main loss. The drive also delivers its rated push. The remaining problem is timing. Each early push reaches the boat at the wrong phase and transfers less useful energy. Heavy loads expose the mismatch sooner because they need more well-timed pushes to reach angle.",
+        "why": "The decisive fact is the measured operating period: the boat is cycling at about 6.15 s while the drive pushes every 5.85 s. Bearing temperature and play are normal, and the drive produces its commanded push, so a simple friction or weak-drive explanation does not fit all the evidence. The timing mismatch means the pushes arrive at the wrong phase. A full boat can expose that mismatch more strongly because the same actuator impulse produces a different angular response, even though total mass alone does not determine the natural period.",
         "headline": "Light loads nearly reach the set angle. Heavy loads fall short, while the measured operating period stays about 6.15 s.",
         "readings": [
           {
@@ -3555,8 +3527,8 @@ export const CURRICULUM = {
       "guide": "Four options, and three of them change the machine to preserve a setting. Ask of each whether it acts on the period or on the drive. The period comes from geometry, gravity and amplitude. The interval is a number somebody typed. Pushing harder at the wrong phase adds load without fixing anything, and mass mostly cancels from the period.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
       "story": "The drive pushes every 5.85 seconds while the 48° operating swing measures about 6.15. Sam Idowu, the structural engineer and the manufacturer's manual disagree, and the ride is already on the reopening poster.",
       "game": {
@@ -3600,10 +3572,11 @@ export const CURRICULUM = {
       "scene": "At the bottom of the swing, the seat must support a rider and bend their path upward toward the pivot. The structural engineer wants the certified angle tied to seat force rather than to appearance.",
       "takeaway": "An angle is certified by the force it produces, not by the angle it looks like.",
       "place": "The Pirate Ship",
+      "at": "seat-frame",
       "guide": "Five numbers, and one of them is the period, which does not enter this force. Ask of each whether the seat's job depends on it. At the bottom the seat carries the weight and bends the path upward as well, so the answer has two parts. And note how it grows: bottom speed rises with angle, so the seat force outruns the angle itself.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. The second half is whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label catches a unit mismatch before it is placed. It also catches a quantity belonging to a different part of the problem. That is the habit this format exists to build."
       ],
       "story": "At the bottom of the swing, the seat must support a rider and bend their path upward toward the pivot. The structural engineer wants the certified angle tied to seat force rather than to appearance.",
       "game": {
@@ -3663,13 +3636,13 @@ export const CURRICULUM = {
       "day": 7,
       "title": "60 people and the same 5 seconds — Review",
       "scene": "Sam Idowu, the senior ride operator, has been timing maintenance swings on an empty boat. Pushed out two degrees it takes 5.9 seconds, and pushed out four degrees it still takes 5.9. He wants that written down properly.",
-      "takeaway": "Amplitude drops out of a harmonic period, which is what makes an oscillator usable as a clock and useless as a record of how hard it was set going.",
+      "takeaway": "Amplitude drops out of a harmonic period. That is what makes an oscillator usable as a clock, and useless as a record of how hard it was set going.",
       "place": "The Pirate Ship",
       "guide": "All four options explain a timing that does not move when the push gets bigger. Ask of each whether it names a cancellation or an excuse. A wider swing is a longer journey, so for the time to hold, the boat has to make it faster. Look for the option that says why the extra speed arrives, and note the limit: this holds at small angles and the ride swings 48 degrees.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
       "story": "Sam Idowu, the senior ride operator, has been timing maintenance swings on an empty boat. Pushed out two degrees it takes 5.9 seconds, and pushed out four degrees it still takes 5.9. He wants that written down properly.",
       "game": {
@@ -3680,7 +3653,7 @@ export const CURRICULUM = {
         "task": "Say why the amplitude drops out of the period at small angles",
         "question": "At small angles, why does pushing the empty boat out further not lengthen the swing?",
         "answer": "The restoring pull grows in proportion to the displacement, so the wider swing is also the faster one.",
-        "why": "At small angles the pull back toward the bottom grows very nearly in proportion to how far the boat has been displaced. Push it twice as far and it is pulled twice as hard, so it covers twice the distance at twice the average speed and arrives in the same time. That proportionality is what harmonic motion means, and a period that ignores amplitude is its signature. It stops holding as the angle opens: at the ride's 48 degrees the swing runs slightly slow, which is why the maintenance timings are taken small.",
+        "why": "At small angles the pull back toward the bottom grows very nearly in proportion to how far the boat has been displaced. Push it twice as far and it is pulled twice as hard. So it covers twice the distance at twice the average speed, and arrives in the same time. That proportionality is what harmonic motion means, and a period that ignores amplitude is its signature. It stops holding as the angle opens: at the ride's 48 degrees the swing runs slightly slow, which is why the maintenance timings are taken small.",
         "rebuttals": [
           "The drive gives one push at the end of each swing, and it does not set the rate the boat returns at.",
           "Doubling the angle doubles the distance, which a stopwatch at this length would show if the speed did not double with it.",
@@ -3716,10 +3689,11 @@ export const CURRICULUM = {
       "scene": "The water surface in the elevated tank is 9.4 metres above its outlet. Kelechi Abara, the pumps and water systems, has a pressure gauge on that outlet and an old notebook value that does not match the reading.",
       "takeaway": "Depth sets pressure, and the width of the tank has nothing to do with it.",
       "place": "The Log Flume",
+      "at": "header-gauge",
       "guide": "Five numbers, and two of them describe the tank rather than the water above the outlet: the diameter, and the flow through it. Ask of each whether pressure depends on it. A narrow pipe of the same height gives the same pressure, which is why the width is offered and not needed. The outlet answers to the depth above it, however big the tank looks.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. The second half is whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label catches a unit mismatch before it is placed. It also catches a quantity belonging to a different part of the problem. That is the habit this format exists to build."
       ],
       "story": "The water surface in the elevated tank is 9.4 metres above its outlet. Kelechi Abara, the pumps and water systems, has a pressure gauge on that outlet and an old notebook value that does not match the reading.",
       "game": {
@@ -3791,11 +3765,12 @@ export const CURRICULUM = {
       "scene": "The flume's sluice gate is held by a hydraulic ram. A two-centimetre piston at the hand pump drives a nine-centimetre piston at the gate. An old note beside the drawing says only 'plenty.'",
       "takeaway": "An ideal machine can trade force for distance, but it cannot create work.",
       "place": "The Log Flume",
-      "guide": "Build Pascal's principle down to the force at the gate, one line at a time. Then state the cost: a hydraulic system multiplies force and gives something else away, and the derivation shows you exactly what, which is more use than the note on the drawing that says only 'plenty'.",
+      "at": "gate-ram",
+      "guide": "Build Pascal's principle down to the force at the gate, one line at a time. Then state the cost. A hydraulic system multiplies force and gives something else away, and the derivation shows you exactly what. That is more use than a note on the drawing reading only 'plenty'.",
       "background": [
-        "What the principle says. Pressure applied to a confined fluid is the same everywhere in it, so the small piston and the large one see the same pressure. Force is pressure times area, and area goes as the square of the diameter — which is why a two-centimetre piston driving a nine-centimetre one multiplies the hand force by about twenty.",
+        "What the principle says. Pressure applied to a confined fluid is the same everywhere in it, so the small piston and the large one see the same pressure. Force is pressure times area, and area goes as the square of the diameter. That is why a two-centimetre piston driving a nine-centimetre one multiplies the hand force by about twenty.",
         "What is given up. Volume is conserved: the fluid pushed out of the small cylinder is the fluid arriving in the large one. So the gate piston moves as much less distance as it gains force, and the work in equals the work out. Nothing has been created, and the pump handle has to travel a long way.",
-        "Why 'plenty' is not an answer. A number is what tells you whether the ram closes the gate against a head of water, how many strokes it takes, and what happens as the seals wear. The old note was true and useless, which is the difference this stop is about."
+        "Why 'plenty' is not an answer. A number is what tells you whether the ram closes the gate against a head of water. It also says how many strokes it takes, and what happens as the seals wear. The old note was true and useless, which is the difference this stop is about."
       ],
       "story": "The flume's sluice gate is held by a hydraulic ram. A two-centimetre piston at the hand pump drives a nine-centimetre piston at the gate. An old note beside the drawing says only 'plenty.'",
       "game": {
@@ -3983,10 +3958,11 @@ export const CURRICULUM = {
       "scene": "Fiona McCarthy, the flume operator, loads the boats by eye and still follows an inherited four-adult rule. The moulded hulls replaced the timber boats two seasons ago. Each new hull is 2.9 metres by 1.1 and weighs 180 kilograms.",
       "takeaway": "A floating body settles until the water it has pushed aside weighs what it does.",
       "place": "The Log Flume",
+      "at": "hull-scales",
       "guide": "Five numbers, and one of them is the depth of the hull side, which belongs to the freeboard question rather than to this one. Ask of each whether the sinking depends on it. A boat settles until it has pushed aside its own mass of water. So the answer needs a mass and an area, and the side height decides what happens next.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. The second half is whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label catches a unit mismatch before it is placed. It also catches a quantity belonging to a different part of the problem. That is the habit this format exists to build."
       ],
       "story": "Fiona McCarthy, the flume operator, loads the boats by eye and still follows an inherited four-adult rule. The moulded hulls replaced the timber boats two seasons ago. Each new hull is 2.9 metres by 1.1 and weighs 180 kilograms.",
       "game": {
@@ -4022,10 +3998,11 @@ export const CURRICULUM = {
       "scene": "The flume returns 0.42 cubic metres of water a second to an elevated tank 9.4 metres up. Abara's pump is rated at 55 kilowatts, and he has never known whether that leaves much spare capacity.",
       "takeaway": "Power sizing needs the useful lifting power and the efficiency loss before anybody can say what is left over.",
       "place": "The Log Flume",
+      "at": "motor-plate",
       "guide": "Six numbers, and one of them is the pump's rated capacity, which the answer is compared against rather than built from. Ask of each whether the power depends on it. Efficiency divides rather than multiplies, so getting it the wrong way round makes the pump look comfortable. It is rated at 55 kilowatts.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. The second half is whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label catches a unit mismatch before it is placed. It also catches a quantity belonging to a different part of the problem. That is the habit this format exists to build."
       ],
       "story": "The flume returns 0.42 cubic metres of water a second to an elevated tank 9.4 metres up. Abara's pump is rated at 55 kilowatts, and he has never known whether that leaves much spare capacity.",
       "game": {
@@ -4058,12 +4035,13 @@ export const CURRICULUM = {
       "day": 5,
       "title": "The same square root, from a different law",
       "scene": "The chute outlet is 4.2 metres below the surface of the water standing in the top pond. Abara has a figure from the manufacturer and no derivation, and both surfaces are open to the air.",
-      "takeaway": "A height drop can become speed in a falling object or in a flowing liquid because both are energy conversions.",
+      "takeaway": "The same energy model can predict an ideal speed in water and in free fall, but real flow losses still have to be measured.",
       "place": "The Log Flume",
-      "guide": "Build the energy statement for the flow down to the speed at the outlet, one line at a time. Then say what it has in common with the drop tower on day one — the same square root arrives from a different law, and noticing that is the point of putting the two stops in one campaign.",
+      "at": "header-gauge",
+      "guide": "Build the energy statement for the flow down to the speed at the outlet, one line at a time. Then say what it has in common with the drop tower on day one. The same square root arrives from a different law. Noticing that is the point of putting the two stops in one campaign.",
       "background": [
-        "Why the pressures cancel. Both surfaces are open to the air, so the pressure term is the same at each end and drops out. What is left relates the height difference to the speed, and the result is the same √(2gh) the falling carriage gave — because in both cases gravitational energy is being turned into motion with nothing else taking a share.",
-        "What is being assumed. Steady flow, no viscosity, and a pond surface large enough that its own level barely moves. Real chutes lose to friction and turbulence, so the derived speed is an upper bound, and the manufacturer's figure being lower is what you would expect rather than a contradiction.",
+        "Why the pressures cancel. Both surfaces are open to the air, so the pressure term is the same at each end and drops out. What is left relates the height difference to the speed. The result is the same √(2gh) the falling carriage gave. In both cases gravitational energy is being turned into motion, with nothing else taking a share.",
+        "What is being assumed. Steady flow, no viscosity, and a pond surface large enough that its own level barely moves. Real chutes lose to friction and turbulence, so the derived speed is an upper bound. The manufacturer's figure being lower is what you would expect rather than a contradiction.",
         "Why the same answer twice matters. A student who derives √(2gh) from kinematics and again from an energy statement about a fluid has met the same physics wearing two different notations. That recognition is worth more than either result, and it is why the flume is on the syllabus at all."
       ],
       "story": "The chute outlet is 4.2 metres below the surface of the water standing in the top pond. Abara has a figure from the manufacturer and no derivation, and both surfaces are open to the air.",
@@ -4073,9 +4051,9 @@ export const CURRICULUM = {
         "setup": "The Log Flume",
         "play": "Derive the speed the water leaves the chute at",
         "task": "Derive the speed the water leaves the chute at",
-        "question": "Work the energy statement for the flow down to the outlet speed, and say what it has in common with the drop tower.",
+        "question": "Derive the ideal outlet speed, and say what the calculation can and cannot certify.",
         "answer": "The outlet speed is v₂ = √(2 × 9.8 × 4.2) ≈ 9.1 m/s. It matches the speed gained by a body falling through the same height.",
-        "why": "Write the fluid's mechanical energy per unit mass between the upper surface and the outlet. Both points are open to air, so atmospheric pressure cancels. Continuity says the broad pond surface moves much more slowly than water in the narrow chute, so its kinetic term is negligible. The 4.2 m height drop then gives v = √(2gh). The tower reached the same expression through kinematics. Both cases turn gravitational potential energy into motion.",
+        "why": "Between the broad upper pond and the outlet, atmospheric pressure cancels and the pond-surface speed is small. Neglecting viscous and turbulence losses gives the ideal result v = √(2gh). That is the same square-root form the tower reached from gravity. But a real flume loses energy in bends, rough surfaces and contractions, so this result is a prediction or upper benchmark, not a substitute for measuring the operating flow.",
         "derive": {
           "start": "P₁ + ½ρv₁² + ρgh₁ = P₂ + ½ρv₂² + ρgh₂",
           "goal": "the speed the water leaves the chute at",
@@ -4199,27 +4177,19 @@ export const CURRICULUM = {
           "computed": true
         },
         {
-          "e": "mgh + ½mv² = constant",
-          "c": "the energy books for anything on a track",
+          "e": "W_net = ΔK",
+          "c": "the work–energy theorem, and where the losses show up",
           "v": [
             [
-              "m",
-              "the mass, which divides out of every term"
+              "W_net",
+              "the net work done on the body, in joules"
             ],
             [
-              "h",
-              "the height above whatever datum is chosen"
-            ],
-            [
-              "v",
-              "the speed at that height"
-            ],
-            [
-              "g",
-              "the acceleration due to gravity"
+              "ΔK",
+              "the change in its kinetic energy"
             ]
           ],
-          "s": "Dividing by the mass is the step worth remembering: it is why a loaded train and an empty one arrive together, and why the answer is a statement about the track rather than about the load.",
+          "s": "Friction does negative work along the whole path, so the gap between the ideal speed and the measured one is a measurement of the friction — which is the only way this park has of counting it.",
           "demanded": true
         }
       ],
@@ -4239,10 +4209,11 @@ export const CURRICULUM = {
       "scene": "The old midway stall has a water cannon and three targets across the pond. The pressure dial is unmarked, the pump is thirty years old, and nobody has a number for what it delivers.",
       "takeaway": "Some quantities are read off an instrument, and a few are found by trying them.",
       "place": "The Log Flume",
-      "guide": "Set the angle and the charge, and fire. Three marks, working outward. The dial is relative and the pump is worn, so nothing here tells you the launch speed — the way to find it is to fire, watch, and put the next shot between two you have seen.",
+      "at": "stall-cannon",
+      "guide": "Set the angle and the charge, and fire. Three marks, working outward. The dial is relative and the pump is worn, so nothing here tells you the launch speed. The way to find it is to fire, watch, and put the next shot between two you have seen.",
       "background": [
-        "Why there is no calculation to do first. Every other stop in this park hands you a number and asks what follows from it. This one hands you a dial with no units on a pump nobody has tested, which is the honest situation and the reason a fairground game is learned rather than solved.",
-        "What the flight tells you anyway. Once the water leaves the nozzle, gravity is the only thing acting on it downward, and it pulls the same whatever the jet weighs. Time in the air is set by the vertical part of the launch and nothing else, so a steeper shot hangs longer and lands shorter at the same charge.",
+        "Why there is no calculation to do first. Every other stop in this park hands you a number and asks what follows from it. This one hands you a dial with no units, on a pump nobody has tested. That is the honest situation, and the reason a fairground game is learned rather than solved.",
+        "What the flight tells you anyway. Once the water leaves the nozzle, gravity is the only thing acting on it downward, and it pulls the same whatever the jet weighs. Time in the air is set by the vertical part of the launch and nothing else. So a steeper shot hangs longer, and lands shorter at the same charge.",
         "Why past forty-five degrees it gets worse. Aim higher and more of the same charge goes into height instead of distance. The far mark wants a flatter shot than the near one, which is the opposite of what everybody tries first."
       ],
       "story": "The old midway stall has a water cannon and three targets across the pond. The pressure dial is unmarked, the pump is thirty years old, and nobody has a number for what it delivers.",
@@ -4254,7 +4225,7 @@ export const CURRICULUM = {
         "task": "Set the water cannon on the midway stall.",
         "question": "Land the jet on each mark, working outward.",
         "answer": "Bracket each mark with a short shot and a long one, then put the third between them. The far mark needs a flatter angle than it looks, not more charge.",
-        "why": "There is no number to start from, and that is the point of this stall. The dial is unmarked, the pump is worn, and the only honest method is bracketing: fire short, fire long, and put the third shot between two settings you have actually watched. What the flights teach while you do it is the physics the rest of the park is built on. Once the water is in the air, gravity acts downward and nothing else does, and it pulls at the same rate whatever the jet weighs — so the time in the air is set by the vertical part of the launch alone. That is why a steeper shot hangs longer and still lands shorter at the same charge, and why past forty-five degrees the extra effort goes into height rather than distance. The far mark wants a flatter shot, which is the opposite of what everybody tries, and finding that out by firing is the fastest anybody ever learns it.",
+        "why": "There is no number to start from, and that is the point of this stall. The dial is unmarked and the pump is worn, so the only honest method is bracketing. Fire short, fire long, and put the third shot between two settings you have actually watched. What the flights teach while you do it is the physics the rest of the park is built on. Once the water is in the air, gravity acts downward and nothing else does. It pulls at the same rate whatever the jet weighs. So the time in the air is set by the vertical part of the launch alone. That is why a steeper shot hangs longer and still lands shorter at the same charge. Past forty-five degrees the extra effort goes into height rather than distance. The far mark wants a flatter shot, which is the opposite of what everybody tries, and finding that out by firing is the fastest anybody ever learns it.",
         "lob": {
           "targets": [
             {
@@ -4297,16 +4268,16 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Four adults, and why not five",
-      "scene": "Fiona McCarthy still uses an inherited four-adult rule. The hulls changed two seasons ago. The certificate now has to state what a boat may carry, not simply what the old boats happened to carry.",
+      "scene": "The new hull is 0.30 m deep. Four adults put it about 0.154 m into calm water; five put it about 0.179 m in. Instrumented splash-down tests show the waterline can rise about 0.13 m up the side above its calm position. The certificate must now state the passenger limit.",
       "takeaway": "A floating body can still fail if too little of its side remains above the water.",
       "place": "The Log Flume",
       "guide": "Four options, and one of them says nothing limits it at all. Ask of each whether floating and having enough side above the water are the same question. Five adults still float. What each one costs is height of hull above the waterline, and at splash-down the water rises to meet it. The old rule came from boats that no longer exist.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. Here it was 88 per cent of passage quizzes, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason is indistinguishable from a sound one. That holds until the day the approximation is what is being tested."
       ],
-      "story": "Fiona McCarthy still uses an inherited four-adult rule. The hulls changed two seasons ago. The certificate now has to state what a boat may carry, not simply what the old boats happened to carry.",
+      "story": "The new hull is 0.30 m deep. Four adults put it about 0.154 m into calm water; five put it about 0.179 m in. Instrumented splash-down tests show the waterline can rise about 0.13 m up the side above its calm position. The certificate must now state the passenger limit.",
       "game": {
         "type": "CHOICE",
         "title": "Four adults, and why not five",
@@ -4314,20 +4285,20 @@ export const CURRICULUM = {
         "play": "Set what a boat may carry",
         "task": "Set what a boat may carry",
         "question": "What actually limits the number of adults in one of these boats?",
-        "answer": "The hull height left above the water at splash-down.",
-        "why": "Floating is not the same as having enough hull above the water. Five adults still displace enough water to float, so buoyancy alone does not set the operating limit. Each added passenger lowers the hull and leaves less side height above the water. At splash-down, the boat meets a wave and the water rises relative to the side. The useful limit therefore comes from that remaining height during the splash, not simply from whether the boat floats in calm water.",
+        "answer": "Four adults: the measured splash rise still fits inside the remaining freeboard.",
+        "why": "The operating limit comes from freeboard during splash-down, not from whether the boat merely floats. With four adults, calm-water freeboard is about 0.146 m, leaving roughly 0.016 m above the measured 0.13 m splash rise. With five adults, freeboard falls to about 0.121 m, so the same splash can overtop the side. The four-adult rule is therefore supported by the measured hull and splash data rather than by habit.",
         "rebuttals": [
-          "The maker's plate is a structural figure and it is well above five adults.",
-          "Grounding is a real limit on some flumes, and this channel runs deeper than the loaded depth in the water.",
-          "Four is a physical limit and it is set at the splash-down rather than in the flat water."
+          "Floating is necessary but not sufficient; water can overtop a boat that is still buoyant.",
+          "The old rule is evidence to investigate, not a derivation for a different hull.",
+          "Structural capacity and freeboard are different limits, and the smaller usable limit controls operation."
         ],
         "choices": [
-          "The hull height left above the water at splash-down.",
-          "The total mass, since the hull carries a maximum load figure stamped on it by its maker.",
-          "How deep the boat sits in the flat sections, where the hull must still clear the channel floor.",
-          "Nothing physical; four is a comfort figure and five would float perfectly well."
+          "Four adults: the measured splash rise still fits inside the remaining freeboard.",
+          "Five adults: buoyancy proves the boat is safe as long as it continues to float.",
+          "Four adults only because that was the inherited rule on the old timber boats.",
+          "Any load below the manufacturer’s structural mass limit, regardless of splash-down freeboard."
         ],
-        "correctChoice": "The hull height left above the water at splash-down."
+        "correctChoice": "Four adults: the measured splash rise still fits inside the remaining freeboard."
       },
       "assumes": [
         "a floating boat sits at whatever depth displaces its own weight",
@@ -4348,13 +4319,13 @@ export const CURRICULUM = {
 
 export const BALLPARK_CALCS = {
   "TOWER-1": {
-    "prompt": "The ballast carriage is 640 kg and the fins slow it at about 45.8 m/s² over the braked section.",
-    "question": "Estimate the force the fins have to make.",
+    "prompt": "The ballast carriage is 640 kg. During braking its net acceleration is 45.8 m/s² upward, while gravity is 9.8 m/s² downward.",
+    "question": "Estimate the upward force the magnetic fins themselves must exert.",
     "labels": [
       "640 kg  (mass of the ballast carriage)",
-      "45.8 m/s²  (deceleration in the fins)",
+      "45.8 m/s²  (net upward acceleration while braking)",
       "42 m  (the free fall above the brakes)",
-      "9.8 m/s²  (g)",
+      "9.8 m/s²  (downward gravitational acceleration)",
       "28.7 m/s  (speed entering the fins)"
     ],
     "values": [
@@ -4364,18 +4335,19 @@ export const BALLPARK_CALCS = {
       9.8,
       28.7
     ],
-    "slots": 2,
-    "template": "{0} × {1}",
-    "formula": "a*b",
+    "slots": 3,
+    "template": "{0} × ({1} + {2})",
+    "formula": "a*(b+c)",
     "correct": [
       0,
-      1
+      1,
+      3
     ],
-    "target": 29312,
-    "tolerance": 2000,
-    "units": "N (about 29 kN)",
-    "solution": "640 × 45.8 ≈ 29,300 N, or about 29 kilonewtons.",
-    "explanation": "Mass times acceleration, and nothing else. The height, gravity and the entry speed describe the fall, which has finished by the time the fins are doing anything."
+    "target": 35584,
+    "tolerance": 2200,
+    "units": "N (about 35.6 kN)",
+    "solution": "F_fins = m(a + g) = 640 × (45.8 + 9.8) ≈ 35,600 N, or 35.6 kN upward.",
+    "explanation": "The 45.8 m/s² is already the net acceleration. Gravity points downward, so the upward brake force must be larger than ma."
   },
   "TOWER-3": {
     "prompt": "The carriage enters the fins at 28.7 m/s and stops in 9.0 m of travel.",
@@ -4440,8 +4412,8 @@ export const BALLPARK_CALCS = {
     "explanation": "The tank's diameter does not appear. A narrow vertical pipe of the same height pushes just as hard, which is the part people refuse to believe."
   },
   "SHIP-2": {
-    "prompt": "The boat rises 2.85 m above its lowest point at 48°. Energy is conserved through the swing.",
-    "question": "Estimate the speed of the boat through the bottom of its swing.",
+    "prompt": "Drive off; centre of mass falls 2.85 m from the 48° turning point. Neglect losses for the ideal prediction.",
+    "question": "Estimate the ideal gravity-only speed through the bottom.",
     "labels": [
       "2  (the factor in v = √(2gh))",
       "9.8 m/s²  (g)",
@@ -4468,7 +4440,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.6,
     "units": "m/s",
     "solution": "v = √(2 × 9.8 × 2.85) ≈ 7.5 m/s at the bottom.",
-    "explanation": "The length and the period fix how long the swing takes and not how fast it goes; the height risen is what becomes speed."
+    "explanation": "This is the loss-free benchmark for a coast-down test; the measured powered-ride speed need not equal it exactly."
   },
   "WHEEL-2": {
     "prompt": "4 passenger cabins on 1 side each carry 470 kg of passengers, at an average perpendicular distance of 9.6 m from the axle.",
@@ -4597,9 +4569,9 @@ export const BALLPARK_CALCS = {
     "solution": "Volume displaced = 492 ÷ 1000 = 0.492 m³; over 3.19 m² of hull that is 0.154 m deep in the water.",
     "explanation": "The hull height left above the water is a separate safety margin used later; it is not part of this calculation."
   },
-  "TOWER-7": {
+  "COASTER-5": {
     "prompt": "The train crosses the crown at about 10.2 m/s. The measured radius demands 8.5 m/s; the 1974 drawing implied 7.4.",
-    "question": "Estimate the margin at the top of the loop against the measured requirement.",
+    "question": "Estimate the operational crown-speed margin against the measured requirement.",
     "labels": [
       "10.2 m/s  (speed the train actually has at the crown)",
       "8.5 m/s  (speed the measured crown demands)",
@@ -4623,9 +4595,9 @@ export const BALLPARK_CALCS = {
     ],
     "target": 1.2,
     "tolerance": 0.06,
-    "units": "(ratio)",
-    "solution": "10.2 ÷ 8.5 = 1.20, against 10.2 ÷ 7.4 = 1.38 on the old drawing.",
-    "explanation": "Capacity over demand, and both have to be speeds at the same point on the track. The old drawing's figure is the comparison rather than the margin, and the radius and the certificate value are the inputs to the other two numbers rather than to this one."
+    "units": "(speed ratio)",
+    "solution": "10.2 ÷ 8.5 = 1.20. The old drawing would have given 10.2 ÷ 7.4 ≈ 1.38.",
+    "explanation": "This is a ride-specific speed margin, not a structural factor of safety."
   },
   "FLUME-4": {
     "prompt": "0.42 m³/s of water lifted 9.4 m, water at 1,000 kg per cubic metre, pump 72% efficient.",
@@ -4792,6 +4764,16 @@ export const BALLPARK_CALCS = {
 };
 
 export const JARGON = [
+  {
+    "name": "Calibration",
+    "aliases": [
+      "calibration",
+      "calibrate",
+      "calibrated",
+      "calibrating"
+    ],
+    "def": "Checking an instrument against something already known, so its readings can be trusted."
+  },
   {
     "name": "Acceleration",
     "aliases": [
@@ -5150,10 +5132,8 @@ export const JARGON = [
   {
     "name": "Safety factor",
     "aliases": [
-      "margin",
       "factor of safety"
     ],
-    "def": "What a part can take, divided by what it is asked to take. A margin of one is a part that fails at its working load.",
-    "core": true
+    "def": "A structural factor of safety compares an allowable or failure capacity with the working demand. It should not be confused with every dimensionless operating ratio; the coaster's crown-speed ratio is labeled separately."
   }
 ];

@@ -13,9 +13,9 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Ortiz read vital signs as a delivery chain rather than as separate numbers?",
-        "a": "Oxygen reaching tissue depends on every link, so one normal reading does not clear the chain",
+        "a": "Oxygen reaching tissue depends on every link, so one normal reading clears nothing",
         "wrong": [
-          "Vital signs all come off one monitor, so they share whatever error it has",
+          "Vital signs all come off one monitor, so an error in it moves every number together",
           "Only the chain as a whole is recorded in the notes",
           "Individual readings are too imprecise to interpret"
         ]
@@ -28,7 +28,7 @@ export const ROSTER = [
     "role": "Cell Biology Lead",
     "division": "CELL",
     "color": "#4b775f",
-    "bio": "<p>Heads the cell bench in the second container lab, on the question of why this agent takes some tissue and leaves the rest of it alone.</p><p>Her answer is at the membrane. Two cells sitting in the same bloodstream carry a different set of doors — the receptors on them, and the proteins that haul things across — so a dose arriving everywhere in the blood is only taken up in some places — which is how a lung is destroyed while the kidney beside it is untouched. She will not accept more blood flow as an explanation without a receptor to go with it.</p>",
+    "bio": "<p>Heads the cell bench in the second container lab, on the question of why this agent damages some tissues and leaves others comparatively spared.</p><p>Her first suspect is the membrane. Two cells in the same patient can display very different receptors and transport proteins, so exposure to the same agent does not mean equal entry. Receptor expression is one part of tissue vulnerability, not the whole explanation, and she will not call it causal until changing the receptor changes entry.</p>",
     "quiz": [
       {
         "q": "Why can one agent damage one tissue and leave another alone?",
@@ -51,9 +51,9 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "What does Patel mean by treating a molecular signal as a claim?",
-        "a": "It has to survive its controls, a second method and a known provenance before it means anything",
+        "a": "It has to survive its controls, a second method and a known provenance",
         "wrong": [
-          "Every result has to be published in some form before anybody may act on it",
+          "Every result has to be written up and published somewhere before anybody may act on it",
           "A signal is only valid if the same laboratory repeats it",
           "Molecular methods are less reliable than culture"
         ]
@@ -85,13 +85,13 @@ export const ROSTER = [
     "role": "Epidemiology Lead",
     "division": "POP",
     "color": "#9a741d",
-    "bio": "<p>Owns the case numbers, which is harder than it sounds in a fortnight when the testing tents have moved twice.</p><p>Every figure she puts on a screen carries its comparison group, because a count on its own cannot separate more disease from more swabbing. Cases doubled and testing doubled is not an outbreak growing. She has spent this outbreak refusing to show a curve without the denominator underneath it.</p>",
+    "bio": "<p>Owns the case numbers, which is harder than it sounds in an outbreak where testing sites and rules keep changing.</p><p>Every figure she puts on a screen carries its denominator and comparison group, because a count on its own cannot separate more disease from more searching. If cases double while testing doubles, that alone does not prove transmission increased. She refuses to show a curve without showing how the curve was built.</p>",
     "quiz": [
       {
         "q": "What is Morales's comparison group actually for?",
-        "a": "Without it a change in the numbers cannot be told from a change in who was tested",
+        "a": "Without it, a rise in cases cannot be told from a rise in testing",
         "wrong": [
-          "It doubles the size of the sample and narrows the confidence interval",
+          "It doubles the size of the sample, which narrows the confidence interval around the estimate",
           "It is required before any result can be published",
           "It identifies which hospital reported first"
         ]
@@ -107,10 +107,10 @@ export const ROSTER = [
     "bio": "<p>Works the ground outside the fence — the drains, the market, the animals people live beside — and reports into the same morning meeting as the ward teams.</p><p>He will not call an animal finding a transmission route. An animal carrying the agent may well have picked it up from people instead. What separates the two stories is how common it is among the animals, how much contact people have with them, and which of the two appeared first. A positive swab is where the looking starts.</p>",
     "quiz": [
       {
-        "q": "Why does Singh refuse to call an animal finding a transmission route?",
-        "a": "The animal may have caught it from people, and prevalence and exposure are what separate the two",
+        "q": "Singh has a positive animal swab. Why will he not yet call it a transmission route?",
+        "a": "The animal may have caught it from people rather than given it to them",
         "wrong": [
-          "Animal samples cannot be sequenced to the same depth as human ones",
+          "Animal samples cannot be sequenced to the depth a human sample can, so the comparison is never fair",
           "Transmission routes can only be confirmed experimentally",
           "Wildlife sampling is never representative"
         ]
@@ -127,9 +127,9 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Nakamura warn against describing the disease from her unit alone?",
-        "a": "The sickest patients are the tail of the distribution, not a sample of it",
+        "a": "The sickest patients are the tail of the distribution, not a sample",
         "wrong": [
-          "Intensive care records are less accurate than ward records",
+          "Intensive care records are less accurate than the records kept on the general wards",
           "Severe cases are treated before they can be measured",
           "Her unit only admits patients with confirmed tests"
         ]
@@ -161,13 +161,13 @@ export const ROSTER = [
     "role": "Genomic Epidemiologist",
     "division": "MOL",
     "color": "#704f88",
-    "bio": "<p>Reads sequences for what they say about transmission — who infected whom, how long the chain has been running, and whether two clusters are one outbreak or two.</p><p>Genetic distance is her main tool and her main trap. Two sequences being close is evidence of a recent common ancestor, not evidence that one patient infected the other, and the difference matters for every control decision.</p>",
+    "bio": "<p>Reads pathogen sequences for what they can and cannot say about transmission — whether cases are closely related, whether clusters may share a recent ancestor, and how lineages are changing over time.</p><p>Genetic distance is her main tool and her main trap. Two sequences being close is evidence of recent common ancestry, not proof that one patient infected the other. Direction still needs timing, contact, and other epidemiological evidence.</p>",
     "quiz": [
       {
         "q": "What does Bergström say two nearly identical sequences establish?",
-        "a": "A recent common ancestor, which is not the same as one patient infecting the other",
+        "a": "A recent common ancestor, which is not one patient infecting the other",
         "wrong": [
-          "The direction of transmission between the two patients",
+          "The direction of transmission between the two patients, once the dates are lined up",
           "That both patients were infected on the same day",
           "That the pathogen is not mutating"
         ]
@@ -218,15 +218,15 @@ export const ROSTER = [
     "role": "Wildlife Veterinarian",
     "division": "FIELD",
     "color": "#3d6f52",
-    "bio": "<p>Samples the animals people live alongside, which is where most new human pathogens were living before they were human pathogens.</p><p>Finding the organism in a species proves that species can carry it. Showing it is a reservoir needs prevalence, the exposure pattern of the human cases, and comparison sites where the illness never appeared — otherwise a bystander that caught it from people gets blamed and culled.</p>",
+    "bio": "<p>Samples the animals people live alongside, because many emerging human infections have animal origins and the wrong animal can be blamed very quickly.</p><p>Detecting the agent in one animal shows that the agent was found there; it does not by itself make that species the reservoir. Establishing a reservoir needs evidence that the pathogen is maintained in a host population or environment, plus exposure and comparison data that separate a true source from spillback or a bystander.</p>",
     "quiz": [
       {
         "q": "Why is finding the pathogen in an animal not enough to declare a reservoir?",
-        "a": "The animal may have caught it from people, and prevalence separates the two",
+        "a": "The animal may be a bystander, and a reservoir has to maintain the agent",
         "wrong": [
           "Field samples are always contaminated by human handling",
           "A reservoir must contain a higher viral load than any patient",
-          "The organism has to be found in more than one individual animal at the site"
+          "The organism has to be found in more than one individual animal at the site before anything counts"
         ]
       }
     ]

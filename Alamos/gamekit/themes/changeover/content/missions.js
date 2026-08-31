@@ -4,362 +4,421 @@
 
 export const MISSIONS = [
   {
-    "title": "Fourteen days and no rate",
+    "title": "The board has numbers. None agree",
     "objective": "Establish what the board measures and what it can defend.",
     "briefing": "Three weeks of prices, a basket from another decade, and a rate due Friday.",
-    "stake": "Monday, fourteen days out. Ada Verhoeven, the board chair, wants a rate on Friday. Wages and contracts have to be written against something. Emil Radic, the chief statistician, has been handed a basket of goods fixed years ago. Half of Halvern heated with coal back then. He will not certify an index built on it. Ngozi Okonjo has forty people at her counter. They are asking what a note will be worth on Monday. Today you settle what the board actually measures. Every figure has to say what it is a measure of, and over what period. A figure the board cannot defend on the fifteenth comes back in six months as a fact.",
+    "stake": "Monday, fourteen days out. The board wants a conversion rate, but its price basket is stale, the counter queue has tripled and the note count depends on a sample. Today you decide which numbers are measurements and which are guesses before anybody argues about the rate.",
     "takeaway": "Every economic statistic counts something specific, over a specific period.",
+    "segue": "The rate book's first page goes in tonight, with three numbers on it. But not one of them would survive Friday's meeting. The board now knows what it doesn't know, and it has thirteen days left to fix that.",
     "stops": [
       {
         "group": "PRICES",
         "lesson": 0,
-        "task": "Work out what the basket costs now"
+        "task": "Work out what the basket costs now",
+        "reason": "Emil Radic needs a defensible index number before he will even consider certifying anything for Friday."
       },
       {
         "group": "COUNTER",
         "lesson": 0,
-        "task": "Say what the queue is telling you"
+        "task": "Say what the queue is telling you",
+        "reason": "Ngozi Okonjo's queue is forty people deep this morning with nothing announced behind it, and she wants to know what that means before the board does."
       },
       {
         "group": "NOTES",
         "lesson": 0,
-        "task": "Turn a weight of notes into a count"
+        "task": "Turn a weight of notes into a count",
+        "reason": "Bram Tulloch has 214 kilograms of returned notes on the scale and needs an actual count before the money supply figure can be trusted."
       }
     ]
   },
   {
-    "title": "What Halvern actually makes",
+    "title": "The economy shrank while the jobless rate fell",
     "objective": "Add up the output and count who is working, without double-counting either.",
     "briefing": "The board's own output figure has flour in it twice.",
-    "stake": "Tuesday. The board has an output figure it cannot defend. Radic found the flour counted twice. It went in once as a sale to the bakery. Then it went in again inside the bread. Della Prentice, the labour statistician, has a problem of her own. Her unemployment rate fell in a month when three factories shut. Verhoeven needs both numbers before the rate can be argued about at all. Today you work out what the output figure should really be. You also say what the labour figure is actually counting. Two statistics that move the wrong way are usually measuring something other than what their names say.",
+    "stake": "Tuesday. One bag of flour was counted twice, and the unemployment rate fell in a month when three factories closed. If the board cannot say what output and unemployment actually count, every later policy choice starts from the wrong economy.",
     "takeaway": "An aggregate is a sum of specific things, and what it excludes is a decision.",
+    "segue": "The jobless rate will print at 8.4 per cent tonight. Sixteen thousand of that drop is people who gave up looking for work, not people who found it. The output figure is solid now. But the newspapers will only quote the six o'clock draft, and nobody has fixed that sentence yet.",
     "stops": [
       {
         "group": "PRICES",
         "lesson": 1,
-        "task": "Add up the output without counting anything twice"
+        "task": "Add up the output without counting anything twice",
+        "reason": "Emil Radic caught the flour counted twice, once as a sale to the bakery and again inside the bread, and wants the corrected total before the board trusts it."
       },
       {
         "group": "COUNTER",
         "lesson": 1,
-        "task": "Say what the labour figure counts"
+        "task": "Say what the labour figure counts",
+        "reason": "Della Prentice's jobless rate fell the same month three factories shut, and she wants the board to know what the number is actually counting before it gets quoted as good news."
       },
       {
         "group": "BANKS",
         "lesson": 0,
-        "task": "Say what a deposit actually is"
+        "task": "Say what a deposit actually is",
+        "reason": "Sunita Iyer and Ruth Haldane have the eleven banks' reserves and deposits on the table, and the gap between the two is the shape of the money problem the board hasn't named yet."
       }
     ]
   },
   {
-    "title": "A level and a rate are different things",
+    "title": "The same wage buys less",
     "objective": "Turn two index numbers into an inflation rate, and a wage into what it buys.",
     "briefing": "The board keeps quoting the index and calling it inflation.",
-    "stake": "Wednesday. The board's draft statement uses the word inflation for the index level. Those are two different things. Radic will not have it published that way. Douglas Farr, the press officer, agrees for his own reason. A correction costs more than the sentence saves. Meanwhile the tram drivers have a wage claim written in marks. Nobody has said what those marks buy. Today you turn the index level into a rate, and the wage into real terms. A level quoted as a rate is the commonest error in a money statement. It always points the alarming way.",
+    "stake": "Wednesday. The board has called an index level “inflation,” while tram drivers say their doubled wage buys less than it used to. Today you separate levels from rates and nominal money from what that money can actually buy.",
     "takeaway": "An index is a level; inflation is what the level did between two dates.",
+    "segue": "The newspaper printed the tram drivers' raise as nineteen per cent. It is really six. That correction goes out tonight. But every number in it still rests on an index nobody has signed yet.",
     "stops": [
       {
         "group": "PRICES",
         "lesson": 2,
-        "task": "Turn two index numbers into a rate"
+        "task": "Turn two index numbers into a rate",
+        "reason": "Emil Radic needs the index turned into an actual rate before the board's draft calls a level of 275 \"inflation\" in print."
       },
       {
         "group": "COUNTER",
         "lesson": 2,
-        "task": "Say what the wage actually buys"
+        "task": "Say what the wage actually buys",
+        "reason": "Ngozi Okonjo needs a straight answer for the tram drivers waiting at her counter: is their wage claim fair, or already ahead of prices?"
       },
       {
         "group": "RATE",
         "lesson": 0,
-        "task": "Say which curve the board has moved"
+        "task": "Say which curve the board has moved",
+        "reason": "Josiah Mbeya has drafted a statement blaming excess demand, and the rate room needs to know whether the numbers actually back him up before it goes out."
       }
     ]
   },
   {
-    "title": "The city the basket prices",
+    "title": "The basket prices a vanished city",
     "objective": "Fix the basket before the index built on it is certified.",
-    "briefing": "Radic will not sign, and he is right about why.",
-    "stake": "Thursday. Radic has refused to certify for the second time. This is the day he is right about. The basket was fixed when half of Halvern heated with coal. Nobody bought imported flour then. So it prices a city that has stopped existing. Verhoeven needs a certified figure to set a rate against on Friday. Kata Novotny has three weeks of stall prices. They are the only real check on any new basket. Today you decide what the basket should hold, and what changing it costs. Fixing a basket is what makes an index comparable over time. Refusing to ever revise it is what makes it wrong.",
+    "briefing": "The chief statistician still won't sign, and he's right about why.",
+    "stake": "Thursday. Radic refuses to certify a basket that still gives heavy weight to coal and none to imported flour. The city changed; the index did not. Today you decide how to preserve a usable time series without pretending an old spending pattern is still current.",
     "takeaway": "A basket has to be fixed to be comparable and revised to be about anybody.",
+    "segue": "The market stall's own prices went into the new weights, and the index is finally signed. It goes out tonight with the list printed right beside it. But the vault still can't say which count of the notes is real. The two methods are thirteen thousand notes apart.",
     "stops": [
       {
         "group": "PRICES",
         "lesson": 3,
-        "task": "Decide what the basket should price"
+        "task": "Decide what the basket should price",
+        "reason": "Emil Radic won't certify the index until the basket's weights match how the city actually spends today, not eleven years ago."
       },
       {
         "group": "TRADE",
         "lesson": 0,
-        "task": "Work out what the trade position actually is"
+        "task": "Work out what the trade position actually is",
+        "reason": "Levon Sarkis has this month's wires in front of him, and the board needs the real trade position before Friday's rate gets argued from half a number."
       },
       {
         "group": "NOTES",
         "lesson": 1,
-        "task": "Match each explanation to what it predicts about the two counts."
+        "task": "Match each explanation to what it predicts about the two counts.",
+        "reason": "Femi Adeyinka won't sign either count of the returned notes until somebody explains why they are thirteen thousand apart."
       }
     ]
   },
   {
-    "title": "A column that multiplies",
+    "title": "Twelve million that could become six hundred",
     "objective": "Work out what the banking system can create, and what caps it.",
-    "briefing": "Iyer wants the reserve requirement raised before the new notes go out.",
-    "stake": "Friday, and the board meets at four. Sunita Iyer has argued the same point all week. The reserve requirement has to rise before the new currency goes out, not after. Ruth Haldane has the arithmetic for either timing. She can say what each one does to her loan book. Verhoeven still wants a rate today. Today you work out what a reserve injection can grow into, and what a requirement caps it at. The money supply is not a quantity anybody chose. It is what the banks made. The requirement is the only part of it the board holds.",
+    "briefing": "The banking supervisor wants the reserve requirement raised before the new notes go out.",
+    "stake": "Friday. The treasury wants twelve million marks pushed into the banks. Under the board’s simple reserve model, that could support hundreds of millions in deposits. Before the money moves, you calculate the ceiling and what a higher reserve requirement would change.",
     "takeaway": "A pound of reserves supports several pounds of deposits, and the requirement sets how many.",
+    "segue": "At four o'clock the board finally got a number. At two per cent, twelve million marks of reserves can grow into six hundred million. The board still has no rate. So it knows what one mark becomes inside a bank. Nobody has asked yet what one mark becomes inside a paycheck.",
     "stops": [
       {
         "group": "BANKS",
         "lesson": 1,
-        "task": "Work out what the requirement caps"
+        "task": "Work out what the requirement caps",
+        "reason": "Sunita Iyer wants the reserve requirement raised from two per cent to eight before the new notes go out, and Ruth Haldane's bank is the test case for what that would cost."
       },
       {
         "group": "RATE",
         "lesson": 1,
-        "task": "Work out what an injection would become"
+        "task": "Work out what an injection would become",
+        "reason": "The treasury wants twelve million in reserves put into the banks to keep wages paid, and the board needs to know what that could turn into before it agrees."
       },
       {
         "group": "COUNTER",
         "lesson": 3,
-        "task": "Say what the counter tells the board about Friday"
+        "task": "Say what the counter tells the board about Friday",
+        "reason": "Ngozi Okonjo's queue is still holding at forty, and what people do there this afternoon is the closest thing the board has to a vote on today's rate."
       }
     ]
   },
   {
-    "title": "What the wages become",
+    "title": "The wage payment does not stop at wages",
     "objective": "Work the spending multiplier and say which curve the treasury's plan moves.",
     "briefing": "The treasury wants to pay wages early, and every option moves demand.",
-    "stake": "Saturday. Josiah Mbeya has brought the treasury's plan. Pay two weeks of public wages early, so that nobody goes unpaid across the changeover. He is straightforward about it. It is the right thing to do, and it makes the inflation figure worse. Radic wants the size of that effect before the board votes. Today you work out what the payment becomes once it has been spent and respent. You also say which curve it moves. Money paid out once is spent several times over. The several times is the part that shows up in a price index.",
+    "stake": "Saturday. The treasury wants to pay wages early, but the first payment is not the whole demand effect. Today you measure how much households spend, how repeated rounds amplify it, and how imports make the domestic effect smaller than the closed-economy headline.",
     "takeaway": "A pound spent becomes income and is partly spent again, so one round is not the total.",
+    "segue": "The treasury got its vote. The new paper says 336 million, not the 84 million it started with. Everyone gets paid. Prices get worse. Now the board still wants its rate fixed by Sunday. Only one ledger says what that would actually cost.",
     "stops": [
       {
         "group": "RATE",
         "lesson": 2,
-        "task": "Work out how much of an extra mark gets spent"
+        "task": "Work out how much of an extra mark gets spent",
+        "reason": "Della Prentice's household survey is what the treasury's wage plan gets measured against, and the board needs the real spending fraction before it multiplies the payment by guesswork."
       },
       {
         "group": "PRICES",
         "lesson": 4,
-        "task": "Work out the total effect on demand"
+        "task": "Work out the total effect on demand",
+        "reason": "Josiah Mbeya's paper treats the wage payment as its own total effect on demand, and the price room needs the real multiplier before that number reaches the board."
       },
       {
         "group": "TRADE",
         "lesson": 1,
-        "task": "Say what the payment does to the trade position"
+        "task": "Say what the payment does to the trade position",
+        "reason": "Levon Sarkis wants to know how much of the treasury's payment leaks out as imports before the wire room signs off on the demand estimate."
       }
     ]
   },
   {
-    "title": "What the reserves can hold",
+    "title": "The chair's rate fails the reserve clock",
     "objective": "Price the currency and say how long a defended rate lasts.",
-    "briefing": "Verhoeven wants a fixed rate and Sarkis has the reserve position.",
-    "stake": "Sunday, and the board sits again at six. Verhoeven wants a fixed rate announced with the new notes. Levon Sarkis has the reserve book. He will not give her a number without a period attached to it. Farr points out the risk. A rate announced and then abandoned costs more than never fixing one at all. Today you choose the rate the reserves can actually hold. That means turning the reserve stock into a number of days at each candidate rate. It also means settling what the announcement has to carry beyond the figure. A stock divided by a daily outflow is a deadline. A peg is a promise with that deadline already inside it.",
+    "briefing": "The board wants a fixed rate, and the reserve book says what it would cost.",
+    "stake": "Sunday. Verhoeven, the board chair, wants 3.60 old marks to one new because the queue will like it. Sarkis says the reserves would be gone in thirty-six days, while the promise has to last ninety-six. Today you eliminate the rates the board cannot keep.",
     "takeaway": "Defending a rate spends reserves daily, so the stock is a clock.",
+    "segue": "At 4.15 the reserves last 134 days. At the 3.60 savers wanted, they'd last only thirty-six. The announcement finally has a reason printed beside the number. Anyone can check it. But upstairs, a loan book just landed on the desk. Every rate in it was set before any of this started.",
     "stops": [
       {
         "group": "TRADE",
         "lesson": 2,
-        "task": "Work out how long the reserves last"
+        "task": "Work out how long the reserves last",
+        "reason": "Levon Sarkis has the reserve book, and the board can't choose a rate until someone turns his stock-and-outflow numbers into an actual number of days."
       },
       {
         "group": "RATE",
         "lesson": 3,
-        "task": "Choose the rate the reserves can hold"
+        "task": "Find which candidate survives the reserve test",
+        "reason": "Ada Verhoeven wants 3.60, but the board has not signed anything. Your job is to remove any candidate that cannot survive the full ninety-six-day defence period before politics enters the room."
       },
       {
         "group": "COUNTER",
         "lesson": 4,
-        "task": "Say what the announcement has to contain"
+        "task": "Say what evidence must travel with any final rate",
+        "reason": "Farr is drafting the page that could be released on the fifteenth. The candidate rate is useless if the public cannot see the reserve arithmetic that makes it believable."
       }
     ]
   },
   {
-    "title": "Who the difference falls on",
+    "title": "The loan book changes sides",
     "objective": "Work the real interest rate and say who gains and loses from it.",
     "briefing": "Eleven banks have loan books written at rates set before the changeover.",
-    "stake": "Monday. Ruth Haldane has brought her loan book upstairs. Every loan in it was written at a nominal rate. All of those rates were agreed before prices started moving. Eleven per cent a month has turned careful lending into something else. Iyer wants to know which of the eleven banks is solvent on Friday. Mbeya wants to know whether the treasury's own borrowing has got cheaper. Today you work out the real rate and say who it moves money between. Inflation nobody expected does not destroy money. It moves it, and it moves it one way rather than the other.",
+    "stake": "Monday. A loan book written before the price surge is being repaid in money with sharply less purchasing power. Today you put the nominal and inflation rates on the same clock and identify who gains and who loses when inflation was not priced into the contract.",
     "takeaway": "The real rate is the nominal rate less inflation, and the difference has an owner.",
+    "segue": "Somewhere in the city, a family is paying off a flat in marks that shrink every week. One bank is eating that loss. Nobody chose it, and nobody can undo it either. So for eight days the board has argued about money it has never once added up.",
     "stops": [
       {
         "group": "BANKS",
         "lesson": 2,
-        "task": "Work out what the lender is actually earning"
+        "task": "Work out what the lender is actually earning",
+        "reason": "Ruth Haldane's loan book is written at nine per cent a year, and Sunita Iyer needs the real return on it before she can say which banks survive the changeover."
       },
       {
         "group": "RATE",
         "lesson": 4,
-        "task": "Say what the treasury's borrowing has become"
+        "task": "Say what the treasury's borrowing has become",
+        "reason": "Josiah Mbeya wants to know whether the treasury's own borrowing just got cheaper, and the answer decides whether he recommends borrowing more."
       },
       {
         "group": "PRICES",
         "lesson": 5,
-        "task": "Say what the index cannot tell the banks"
+        "task": "Say what the index cannot tell the banks",
+        "reason": "Sunita Iyer wants to deflate all eleven loan books by one index, and Emil Radic has to say what that index can and can't actually tell her."
       }
     ]
   },
   {
-    "title": "How much money there is",
+    "title": "Eighty-two million counted twice",
     "objective": "Reconcile the money supply and decide the requirement.",
     "briefing": "The weighed returns, the ledgers and the deposits have to add up to one figure.",
-    "stake": "Tuesday. The board publishes a money supply figure on Thursday. There are three counts to work from. Tulloch has weighed returns from the note room. Adeyinka has the vault ledger. Iyer has eleven bank balance sheets. The three of them overlap, and nobody has added them up without counting something twice. Iyer still wants the requirement raised before the new notes go out. This is the day she gets a number for it. Today you count the money and decide what caps it. A money supply figure that counts a vault holding twice is a figure the board will be asked about for a year.",
+    "stake": "Tuesday. The first money-supply total is 82 million too high because banks counted deposits they hold with each other. Today you reconcile the count before the board uses that number to argue about inflation and reserve policy.",
     "takeaway": "The money supply is cash in hands plus deposits, and neither counts twice.",
+    "segue": "The vault's gap wasn't an accounting error. The sample was wrong. The six ledgers were right. Some of the returned notes never reached the scales at all. So more old money is still loose in Halvern than any count the board has. And the new eight per cent requirement now caps a number. The board has been quoting it wrong for nine days.",
     "stops": [
       {
         "group": "NOTES",
         "lesson": 2,
-        "task": "Count the money supply without counting anything twice"
+        "task": "Count the money supply without counting anything twice",
+        "reason": "Bram Tulloch's weighed returns are one of three counts the board has to reconcile today, and the vault holding is the trap most likely to overstate the total."
       },
       {
         "group": "BANKS",
         "lesson": 3,
-        "task": "Set the requirement, and say what it costs"
+        "task": "Set the requirement, and say what it costs",
+        "reason": "Sunita Iyer wants the requirement at eight per cent before Thursday, and Ruth Haldane's bank is the test of whether that is a step or a shock."
       },
       {
         "group": "TRADE",
         "lesson": 3,
-        "task": "Say what money growth does if velocity holds"
+        "task": "Say what money growth does if velocity holds",
+        "reason": "Levon Sarkis wants to know what a 17 per cent jump in the money supply does to prices while output is still falling, before the board treats the injection as free."
       }
     ]
   },
   {
-    "title": "How far from capacity",
+    "title": "Prices up, output down",
     "objective": "Measure the gap between what Halvern makes and what it could.",
     "briefing": "Two people are reading the same figures as opposite problems.",
-    "stake": "Wednesday. The board has to say in writing what Halvern's problem is. Is it demand, or is it supply? The two call for opposite policies. Prentice has the labour figures. Radic has the output series. Verhoeven has to sign whichever sentence the numbers support. Mbeya's wage plan is a demand answer. Iyer's requirement is a supply constraint. Today you measure the gap between actual output and potential output, and say what it implies. A policy aimed at the wrong side of the diagram makes the problem it was aimed at worse.",
+    "stake": "Wednesday. Output is nearly twelve per cent below estimated capacity while prices are rising fast. Demand weakness alone cannot explain both. Today you decide what combination of shocks the evidence actually supports and which unemployed workers policy can reach.",
     "takeaway": "Where output sits relative to capacity is what says which problem you have.",
+    "segue": "The board signed the sentence. Output is 11.7 per cent under capacity, and a cost shock is making it worse. Both sides of the argument were half right. That's the worst answer for a board that has to pick just one policy. But of the 41,000 people out of work, only about 9,000 are the kind any demand policy can even reach.",
     "stops": [
       {
         "group": "PRICES",
         "lesson": 6,
-        "task": "Work out the output gap"
+        "task": "Work out the output gap",
+        "reason": "Emil Radic's output estimate and Della Prentice's labour numbers are about to be compared directly, and whether they agree decides which side of the argument holds up."
       },
       {
         "group": "RATE",
         "lesson": 5,
-        "task": "Say which side the problem is on"
+        "task": "Say which side the problem is on",
+        "reason": "Josiah Mbeya and Sunita Iyer are reading the same figures as two different problems, and the rate room has to say which one Halvern actually has."
       },
       {
         "group": "COUNTER",
         "lesson": 5,
-        "task": "Match each group to what would put them back to work."
+        "task": "Match each group to what would put them back to work.",
+        "reason": "Della Prentice's 41,000 unemployed are not one problem, and the board needs to know how many of them a policy this fortnight can actually reach."
       }
     ]
   },
   {
-    "title": "Three tools and a lag",
+    "title": "A policy that lands after the crisis",
     "objective": "Choose the instrument, and know when it lands.",
     "briefing": "Everything the board can do arrives after the day it was decided.",
-    "stake": "Thursday. The board has three instruments and eleven days. Farr wants an announcement. Iyer wants the requirement raised. Mbeya wants the wages paid. Verhoeven has to put those three in an order. Sarkis points out the awkward part. Whatever is chosen lands after the fifteenth rather than before it. Today you match each tool to the thing it actually moves. That means working out how long the requirement takes to bite. It also means saying what the short-run trade-off looks like once a cost shock has moved it. A correct policy that arrives after the event lands on the recovery instead of on the problem.",
+    "stake": "Thursday. The board has three textbook tools, but the changeover is days away and some effects arrive weeks or months later. Today you separate what a policy changes from when it changes it, so a correct tool does not arrive after the crisis it was meant to solve.",
     "takeaway": "A policy has a lag, and the lag decides what it actually lands on.",
+    "segue": "Nothing went wrong today. That's what makes it the worst day of the fortnight. The board picked the requirement. It drafted the announcement. It priced the wage payment. None of it touches anything before Monday, when the counter opens. So the rate is the only tool of the four that still works the same day it's used. There are eleven days left to prove that's enough.",
     "stops": [
       {
         "group": "RATE",
         "lesson": 6,
-        "task": "Match each tool to what it moves."
+        "task": "Match each tool to what it moves.",
+        "reason": "Levon Sarkis has laid out the board's three real instruments, and the rate room has to know which one actually moves the money supply before Thursday's vote."
       },
       {
         "group": "BANKS",
         "lesson": 4,
-        "task": "Say when the requirement actually bites"
+        "task": "Say when the requirement actually bites",
+        "reason": "Ruth Haldane wants to know when a Thursday decision on the requirement would actually reach her loan book, since \"Thursday\" and \"this month\" are not the same date."
       },
       {
         "group": "TRADE",
         "lesson": 4,
-        "task": "Say what the trade-off looks like in the short run"
+        "task": "Say what the trade-off looks like in the short run",
+        "reason": "Josiah Mbeya's wage plan and Sunita Iyer's requirement pull in opposite directions, and Levon Sarkis wants the trade-off stated plainly before the board has to pick one."
       }
     ]
   },
   {
-    "title": "A number, and what it is written against",
+    "title": "Rehearse 4.15 before you sign it",
     "objective": "Fix the rate and say what it costs whom.",
-    "briefing": "Verhoeven is right today, and the number has to be defensible anyway.",
-    "stake": "Friday, and the rate is announced at four whatever happens. This is the day Verhoeven is right about. Another week without a number means wages, rents and contracts written against a guess. That is its own kind of inflation. Sarkis has the reserve arithmetic that rules out the rate savers want. Farr has one page to fill. Today you fix the rate. You then convert a wage into the new currency for the notice at the counter. You state what the rate is held with, and say plainly who pays for it. A rate is a price. Every price has somebody standing on each side of it who did not choose it.",
+    "briefing": "The board chair is right today, and the number still has to be defensible.",
+    "stake": "Friday, three days before the changeover. The 4.15 candidate survived the reserve test, but no one has signed it. Today the counter rehearses the conversion, the price room checks what redenomination does to the index, and you look for any reason 4.15 still cannot be defended.",
     "takeaway": "A rate that can be held is worth more than a rate that is fair and cannot be.",
+    "segue": "The notice went up at four: 4.15 old marks to one new. One saver's tin at the counter is worth 2,410 new marks now, not the 2,778 it was worth that morning. She is one of nine hundred thousand people paying for a rate that will last 134 days. But by six, the mills and the bakeries had both wired in. One said the rate was too weak. The other said it was too strong.",
     "stops": [
       {
         "group": "RATE",
         "lesson": 7,
-        "task": "Convert the rate into what a wage becomes"
+        "task": "Convert the rate into what a wage becomes",
+        "reason": "Ngozi Okonjo needs the counter software tested against the surviving 4.15 candidate before Monday. A direction error would make every converted wage wrong even if the final rate itself is correct."
       },
       {
         "group": "COUNTER",
         "lesson": 6,
-        "task": "Say who the rate costs"
+        "task": "Say what 4.15 costs—and what conversion alone does not cost",
+        "reason": "Okonjo will be asked why 10,000 old marks become fewer new units at 4.15 than at 3.60. The answer has to separate a change of unit from the real effects of choosing a different external value."
       },
       {
         "group": "PRICES",
         "lesson": 7,
-        "task": "Say what the index does on the fifteenth"
+        "task": "Say what the index does on the fifteenth",
+        "reason": "Emil Radic has to say what the index does the moment the currency itself changes underneath it, before the fifteenth makes the question unavoidable."
       }
     ]
   },
   {
-    "title": "What the wires say",
+    "title": "One rate, two industries",
     "objective": "Work out what the rate does to trade, and who is better at what.",
     "briefing": "The mills want a weaker rate and the importers want a stronger one.",
-    "stake": "Saturday. The two industries left in Halvern want opposite things. The textile mills export, and they want the new mark cheap. The bakeries import flour, and they want it dear. Sarkis has the wires and the reserve position. Mbeya has a delegation from each side waiting downstairs. Verhoeven wants one paragraph on why the rate cannot be set for either of them. Today you work out what the rate does to each side. You also say what Halvern is actually better at making. Then you read what the deposit and lending figures say about the rate that would clear the market. One rate is one price, and it lands on two industries in exactly opposite directions.",
+    "stake": "Saturday. The mills and bakeries want opposite things from the same currency. Today you trace the exchange-rate effect on exports and imports, then separate absolute advantage from comparative advantage before either lobby gets to call its preference “the national interest.”",
     "takeaway": "A weaker currency helps exporters and taxes anybody who buys from abroad.",
+    "segue": "Both delegations went home with the same one-page answer. One price, two industries, and a board that can't set it for just one side. Flour still costs 15 per cent more from the fifteenth on. Now the reserve book has six urgent calls on next week's money. There's only enough to cover four.",
     "stops": [
       {
         "group": "TRADE",
         "lesson": 5,
-        "task": "Say what a weaker rate does to each side"
+        "task": "Say what a weaker rate does to each side",
+        "reason": "Levon Sarkis has the wire traffic from both delegations downstairs, and the board needs the actual numbers before it can tell either the mills or the bakeries no."
       },
       {
         "group": "PRICES",
         "lesson": 8,
-        "task": "Say what Halvern is actually better at"
+        "task": "Say what Halvern is actually better at",
+        "reason": "Emil Radic wants Halvern's real trade advantage stated plainly, since the mills and the bakeries are each arguing from what the country is worse at rather than what it should specialise in."
       },
       {
         "group": "BANKS",
         "lesson": 5,
-        "task": "Say where saving meets borrowing"
+        "task": "Say where saving meets borrowing",
+        "reason": "Sunita Iyer has watched deposits climb and loan applications collapse for weeks, and the ledger hall needs to say what that is telling the board about its own borrowing rate."
       }
     ]
   },
   {
-    "title": "The day before the fifteenth",
+    "title": "The reserves cannot pay for everything",
     "objective": "Spend the last of the reserves, the last of the notes and the last of the time.",
     "briefing": "Everything that has not been decided gets decided today.",
-    "stake": "Sunday. The counter closes at six for the last time in old marks. Tulloch has notes still coming in. His furnace takes four hours a load. Sarkis has reserves that have to cover a first week of unknown demand. Iyer has three banks sitting below the new requirement. Verhoeven wants one page for the morning. Today you decide how what is left of the reserves gets spent. You also count what is still out there in old notes. Then you settle what happens to the three banks below the requirement. A plan for the fifteenth that assumes the fifteenth goes well is not a plan. By six this evening there is no time left to make another one.",
+    "stake": "Sunday. There are 187 million marks of reserves and more legitimate first-week claims than that. Funding one job means refusing another. Today you build a plan that can open the counter, defend the candidate rate and survive a bad first week.",
     "takeaway": "A finite reserve spent against an unknown first week is a decision about what is not covered.",
+    "segue": "The counter shut at six. The last person in line made it through with ten minutes to spare. The furnace has four loads left and eleven hours to burn them. Three of the eleven banks are still short of the requirement. So whatever isn't covered for them tonight can't be fixed in the morning.",
     "stops": [
       {
         "group": "RATE",
         "lesson": 8,
-        "task": "Spend the last of the reserves"
+        "task": "Spend the last of the reserves",
+        "reason": "Levon Sarkis's reserve pool has six real claims on it and money for maybe four, and the board has to decide tonight which ones go unfunded."
       },
       {
         "group": "NOTES",
         "lesson": 3,
-        "task": "Say what has actually come back"
+        "task": "Say what has actually come back",
+        "reason": "Bram Tulloch needs a real count of what's still outstanding in old notes, since that number is a liability the board will still be honouring next year."
       },
       {
         "group": "BANKS",
         "lesson": 6,
-        "task": "Say which banks meet the requirement on the first"
+        "task": "Say which banks meet the requirement on the first",
+        "reason": "Sunita Iyer has three banks below the new requirement and no time left to raise capital, and the board has to decide tonight whether to lend them reserves or let the step apply."
       }
     ]
   },
   {
-    "title": "The fifteenth",
+    "title": "Sign the rate",
     "objective": "Open in the new currency and say what the fortnight established.",
     "briefing": "The counter opens at nine in new marks and everything either measures or it does not.",
-    "stake": "Monday the fifteenth. The counter opens at nine in new marks. The old ones stop being money at midnight. Nine hundred thousand people find out this morning what their wages are. Verhoeven has one page to publish. Radic has an index that has to survive the changeover. Sarkis has a rate to defend for ninety-six days. Today you close the last three figures and say what the fortnight actually established. Everything in this building is now one of two things. It is either a measurement with a period on it, or it is somebody's recollection. What is published today decides which of the two the next board inherits.",
+    "stake": "Monday, the fifteenth. The old mark stops being money tonight. The index, money-supply count, reserve clock and banking conditions are finally on one page. Today you decide whether 4.15 is a promise the board can honestly sign—and if so, exactly what conditions must be printed beside it.",
     "takeaway": "A measured figure with its conditions stated is worth more than an agreed one.",
     "stops": [
       {
         "group": "PRICES",
         "lesson": 9,
-        "task": "Match each statement to what stands behind it."
+        "task": "Match each statement to what stands behind it.",
+        "reason": "Emil Radic has four statements drafted for this morning, and only he can say which are measurements and which are guesses dressed the same way."
       },
       {
         "group": "COUNTER",
         "lesson": 7,
-        "task": "Say what the counter should do at nine"
+        "task": "Say what the counter should do at nine",
+        "reason": "Ngozi Okonjo has forty-two people outside at ten to nine and one float to last the week, and what she announces at the window decides whether it does."
       },
       {
         "group": "RATE",
         "lesson": 9,
-        "task": "Say what the fortnight replaced"
+        "task": "Sign—or refuse—the conversion rate",
+        "reason": "Ada Verhoeven has the signature page open. Every earlier number now matters at once: the price index, the reconciled money supply, the reserve clock, the bank transition and the first-week allocation."
       }
     ]
   }
@@ -367,8 +426,8 @@ export const MISSIONS = [
 
 export const WARMUPS = {
   "greet": {
-    "title": "Nine hundred thousand people and forty of them at the counter",
-    "why": "These four floors were an insurance company a month ago and the people on them were hired last week from four different departments. Ngozi Okonjo, who runs the exchange counter, wants you known to as many of them as you can get round before the doors open downstairs, because a figure you asked somebody for is worth three you found in a file."
+    "title": "Get round the four floors before the counter opens",
+    "why": "Ngozi Okonjo, the counter supervisor, wants you known to as many of the people on these four floors as you can get round this morning."
   },
   "trial-near": {
     "title": "Walk floor forty-five before you sign anything",

@@ -518,8 +518,9 @@ missions:
         task: Say what a cross is for
         title: Two parents, and what you are asking of them
         place: Crossing Hall
+        at: goals-note
         question: What is the programme actually asking for by crossing these two?
-        scene: Volpe has two parents pinned above the bench. One is a high-yielding modern variety. The other is a low-yielding landrace that survived the 2018 drought. Otto Bengtsson, the glasshouse manager, asks what combination the programme is trying to create.
+        scene: Volpe, the head breeder, has two parents pinned above the bench. One is a high-yielding modern variety. The other is a low-yielding landrace that survived the 2018 drought. Otto Bengtsson, the glasshouse manager, asks what combination the programme is trying to create.
         guide: >-
           Bengtsson is asking what the cross is for, which is not the same question as what
           it will produce. Two parents, each holding something the other lacks: yield in the
@@ -549,6 +550,7 @@ missions:
         task: Read the trial ground
         title: Why the same line is sown four times
         place: Field Laboratory
+        at: trial-plan-copy
         question: What does sowing each line in four randomised plots buy?
         scene: "Meera Quiroga, the field trials manager, has the plot map on the wall: 240 plots, with each line appearing 4 times across 4 blocks. The order is randomised, and the north end of the field is visibly wetter than the south."
         guide: >-
@@ -733,7 +735,7 @@ missions:
         answerText: The first result permits several mixes of recombination and marker error. Direct-gene PCR removes the assay-error explanation, leaving linkage and about 4% recombination.
         why: PCR copies a chosen DNA region through repeated denaturation, primer annealing, and extension. Gel electrophoresis can then separate the resulting DNA fragments by size. Here that tool reads a marker near the resistance gene, not the gene itself. Marker–trait disagreement can therefore come from recombination or assay error. One disagreement rate cannot separate those causes. A second PCR assay aimed inside the resistance gene adds independent evidence. When it confirms the gene call, linkage and recombination remain.
       - group: DRY
-        at: weighbridge
+        at: weighbridge-copy
         reason: >-
           Eleven tonnes came off one field last week and the trainees think it came out of the
           soil
@@ -821,7 +823,7 @@ missions:
     takeaway: A population is a set of frequencies, and everything the vault protects is in those numbers.
     stops:
       - group: POP
-        at: genotype-board
+        at: genotype-copy
         reason: >-
           The landrace from that 1994 field is genotyped and written up as numbers nobody has
           read yet
@@ -934,8 +936,8 @@ missions:
       - group: TRIAL
         at: plot-table
         reason: >-
-          A duplicate would be worth freeing only if the trial's own layout can tell a line from
-          the ground it stood on
+          A yield difference between two lines proves nothing until the ground under them
+          is ruled out
         task: Hold the wheat line fixed, change one field variable at a time, then reverse the change.
         title: Move the line, not the story
         place: Field Laboratory
@@ -1069,7 +1071,7 @@ missions:
         title: What a season costs
         place: Crossing Hall
         scene: |-
-          Volpe has the pipeline on the board: cross to release is 7 years, and every stage behind WM-712 moves back with it. Qureshi asks, reasonably, what a year of a wheat variety is worth.
+          Volpe has the pipeline on the board: cross to release is 7 years, and every stage behind WM-712 moves back with it. Qureshi, the collection curator, asks what a year of a wheat variety is worth.
         guide: >-
           Four accounts of what a season costs. Ask of each whether it is about this
           line or about the queue behind it. A programme shares seasons, ground and
@@ -3415,8 +3417,7 @@ missions:
           target: wm311
       - group: LAB
         reason: >-
-          Some of the eight can be proved by DNA and some only by growing a plant and infecting
-          it, and today decides which
+          A marker only proves the gene arrived, not that it still stops the disease
         task: Decide what to screen early and what the finished line must still prove
         title: DNA present, resistance working?
         place: Molecular Laboratory
@@ -3480,8 +3481,8 @@ missions:
       - group: VAULT
         at: passport-run
         reason: >-
-          The board will be told what the collection holds, and the passport run is where that
-          claim is either true or not
+          Thirty accessions have already drifted from what their own paperwork says, and
+          nobody has checked the rest in years
         task: Say what the season established about the collection
         title: What the catalogue says and what is there
         place: Seed Vault

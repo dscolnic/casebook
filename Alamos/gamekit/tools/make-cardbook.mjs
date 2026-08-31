@@ -73,7 +73,7 @@ async function build(themeName) {
   const theme = (await import(pathToFileURL(resolve(dir, 'theme.js')).href)).default;
   const { normalizeContent } = await import('../engine/content/normalize.js');
   const content = theme.content ?? {};
-  normalizeContent(content, theme);
+  normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
 
   const CURRICULUM = content.CURRICULUM ?? {};
   const MISSIONS = content.MISSIONS ?? [];

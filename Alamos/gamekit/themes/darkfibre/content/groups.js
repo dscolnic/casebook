@@ -10,7 +10,7 @@ export const GROUPS = [
     "color": "#4f7fa8",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "Where the sea cable becomes glass you can put light into.",
+    "desc": "Where the island cable comes ashore and light is launched into its glass fibres.",
     "defaultLeader": "okonkwo",
     "budget": 70,
     "milestones": [
@@ -51,7 +51,7 @@ export const GROUPS = [
     "color": "#c2703f",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "A pulse, a delay and a logarithm, and eighty-four kilometres of guesswork.",
+    "desc": "Where pulses are sent down the cable and the returning light becomes evidence.",
     "defaultLeader": "sarraf",
     "budget": 70,
     "milestones": [
@@ -92,7 +92,7 @@ export const GROUPS = [
     "color": "#8a8f4a",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "Two ends of glass, an index step, and the reflection it makes or does not.",
+    "desc": "Where old joints are tested to see whether they could be stealing or reflecting light.",
     "defaultLeader": "ramnarine",
     "budget": 70,
     "milestones": [
@@ -133,7 +133,7 @@ export const GROUPS = [
     "color": "#8a6fb0",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "Erbium in a coil of fibre, a pump laser, and a level scheme that decides everything.",
+    "desc": "Where the team studies the laser pumps that keep the cable signal strong across the ocean floor.",
     "defaultLeader": "tanaka",
     "budget": 70,
     "milestones": [
@@ -174,7 +174,7 @@ export const GROUPS = [
     "color": "#3f8f7a",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "Where photons become electrons, and where the counting starts.",
+    "desc": "Where the faint light from the far end becomes electrical current and data.",
     "defaultLeader": "duarte",
     "budget": 70,
     "milestones": [
@@ -215,7 +215,7 @@ export const GROUPS = [
     "color": "#6f6a86",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "Three hundred metres out in the dunes, because of what is in the pot.",
+    "desc": "Where the replacement repeater housing is X-rayed before the ship is allowed to take it to sea.",
     "defaultLeader": "farouk",
     "budget": 70,
     "milestones": [

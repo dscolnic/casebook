@@ -4,362 +4,422 @@
 
 export const MISSIONS = [
   {
-    "title": "What the wafer is, before anybody argues about it",
-    "objective": "Establish what is actually on the floor and what the paperwork claims about it.",
-    "briefing": "Four wafers in ten are failing and two leads have opposite explanations.",
-    "stake": "Monday. The qualification lot runs in fifteen days, whatever anybody has worked out by then. Four wafers in ten have failed final test since the second week of March. Simone Hale, the fab manager, has stopped taking explanations that are not measurements. She wants numbers. Hana Ferreira wants every incoming lot held at the door. Ruben Ostrowski wants the line running while the recipes are checked. Both cannot happen. Today you count how many atoms are really in one lot of wafers. You also settle what makes one atom a different element from another. Then you read a purity limit and say what it claims. Nine hundred people work here. None of the arguing has produced a number anybody can act on.",
-    "takeaway": "Every claim in this building reduces to a count of atoms, and a count is something you can check.",
+    "title": "Is the silicon itself wrong?",
+    "objective": "Decide what the incoming silicon certificate actually proves — and what it does not.",
+    "briefing": "Ferreira blames the incoming wafers. Ostrowski blames the factory process. Hale, the fab manager, will not let either side stop the line on instinct.",
+    "stake": "Monday. Before anyone tears apart a machine, the raw-material case has to survive basic chemistry. Count what is in one wafer, define what makes an element itself, and translate the supplier's impurity limit into the claim it really makes.",
+    "takeaway": "A supplier certificate is evidence only for the properties it actually measured.",
+    "segue": "Every certificate still passes. That does not clear the silicon; it only tells you what the paperwork checked. On day 2 you start on the other side of the argument: what the factory's light, gases and atomic energies can physically change.",
     "stops": [
       {
         "group": "WAFER",
         "lesson": 0,
-        "task": "Turn a box of wafers into a number of atoms"
+        "task": "Turn the mass of one silicon wafer into a particle count",
+        "reason": "The supplier limit is written as parts per billion. Before anyone can call that small, Hale needs to know the scale of one wafer in atoms."
       },
       {
         "group": "ATOM",
         "lesson": 0,
-        "task": "Say what makes two atoms different elements"
+        "task": "Identify the one number that fixes an element's identity",
+        "reason": "Ferreira sees an unexpected element in a failed wafer. Before the team calls it contamination, they need to be precise about what makes one atom a different element."
       },
       {
         "group": "DOPE",
         "lesson": 0,
-        "task": "Read a purity limit for what it constrains"
+        "task": "Translate the supplier's purity limit into the claim it actually makes",
+        "reason": "Every certificate passes the five-parts-per-billion limit, but the team is treating that one number as if it describes each wafer completely."
       }
     ]
   },
   {
-    "title": "Light with a threshold, and gas that never stops moving",
-    "objective": "Establish what the light in this building can do and what the gas in the chambers is doing.",
-    "briefing": "The yellow bay is lit amber for a reason nobody on the shift can state.",
-    "stake": "Tuesday. The first re-run of the failing layer goes into the yellow bay this afternoon. Yuki Tanabe, who runs lithography, has been asked twice this week why her bay is lit amber. Twice she has given an answer that satisfied nobody. That matters more than it sounds. The same argument decides which lamps she may change. Ostrowski wants the deposition chamber opened between runs and closed again. That would save four hours a run. Today you settle what light of one wavelength can and cannot do to a wafer. You work out what the gas inside a chamber is doing while nothing seems to happen. Then you look at how tightly an atom holds the electrons that decide both. Four hours a run adds up to a whole day of the fifteen.",
-    "takeaway": "Light delivers energy in packets with a threshold, and a gas is particles whose speeds follow from their masses.",
+    "title": "Why Yellow Bay is yellow",
+    "objective": "Put numbers on the energy and particle motion behind the processes being blamed.",
+    "briefing": "The amber room light, the gases in the chambers and the electrons in the wafer all obey energy thresholds the team can calculate.",
+    "stake": "Tuesday. If the factory is causing the failures, the mechanism has to be physically possible. Use photon energy, molecular motion and electrostatic attraction to test three pieces of the process instead of arguing from habit.",
+    "takeaway": "A process can only happen when particles have the right energy, and that energy can be calculated.",
+    "segue": "The amber lighting is doing its job. The gas-motion question is now quantitative. But the simple calculation for how tightly silicon holds an electron is far too strong. Wednesday you find the missing physics: the electrons between the nucleus and the outside.",
     "stops": [
       {
         "group": "LITHO",
         "lesson": 0,
-        "task": "Work out what one photon carries"
+        "task": "Use photon energy to explain why amber room light does not expose the resist",
+        "reason": "If the room lighting can trigger the light-sensitive coating before the exposure tool does, Yellow Bay itself could be creating defects."
       },
       {
         "group": "DEP",
         "lesson": 0,
-        "task": "Order the four gases in the chamber by average speed."
+        "task": "Rank the four chamber gases from slowest to fastest at the same temperature. Which one would spread through a leak first?",
+        "reason": "A leak is one possible process fault. Vance needs to know which gas spreads fastest before using arrival time as a clue to where it entered."
       },
       {
         "group": "ATOM",
         "lesson": 1,
-        "task": "Put a number on how hard an atom holds an electron"
+        "task": "Estimate the attraction between a nucleus and an outer electron",
+        "reason": "The surface spectrometer identifies atoms through electron energies. Ferreira wants the simplest physical model on the board before those energies become evidence."
       }
     ]
   },
   {
-    "title": "What the inner shells do to everything outside them",
-    "objective": "Correct yesterday's arithmetic for the electrons that sit in the way.",
-    "briefing": "The attraction calculated yesterday is too large for every element on the wafer.",
-    "stake": "Wednesday. The first data from the re-qualification comes back at four. Yesterday's sums say something odd. They say silicon should hold its outer electron about eleven hundred times more tightly than hydrogen holds its own. The measured energy is nothing like that. Dorsey has the table of measured values. Ferreira has the sums. Neither of them will move until the gap is explained. Today you work out what sits between an outer electron and the nucleus. You read a table of energies, one electron pulled off at a time, for what it says about shells. Then you settle how deep a probe may go and still be reading the surface. The argument over that gap does not end until all three are settled.",
-    "takeaway": "An outer electron is held by what is left of the nuclear charge once the inner electrons have cancelled part of it.",
+    "title": "When a correct measurement answers the wrong question",
+    "objective": "Use electron shielding and measurement depth to decide which evidence can reveal a hidden wafer problem.",
+    "briefing": "The simple atom calculation failed, and a clean bulk measurement still does not match the failure map.",
+    "stake": "Wednesday. You need to know whether the contradiction is bad chemistry or the wrong measurement. Correct the nuclear charge, read the jumps in ionisation energy, and decide whether a bulk test can ever clear a contaminated surface.",
+    "takeaway": "A measurement can be perfectly accurate and still answer the wrong question.",
+    "segue": "Now the team knows how an apparently clean wafer can hide a bad surface, and how electron energies encode the atoms beneath it. The next suspect is the deposition chamber itself. Thursday is the only shift this week when it can be opened.",
     "stops": [
       {
         "group": "ATOM",
         "lesson": 2,
-        "task": "Correct the nuclear charge for the electrons in the way"
+        "task": "Correct the nuclear charge for shielding by inner electrons",
+        "reason": "Yesterday's simple model held the outer electron far too tightly. The missing physics has to be fixed before electron energies can be trusted as clues."
       },
       {
         "group": "DOPE",
         "lesson": 1,
-        "task": "Match each ladder of ionisation energies to what it says about the atom."
+        "task": "Match each ionisation-energy ladder to the number of electrons in the atom's outer shell.",
+        "reason": "Ganesan has an unlabelled dopant species. Whether it donates an electron or accepts one changes how the finished chip conducts."
       },
       {
         "group": "WET",
         "lesson": 0,
-        "task": "Decide how deep a measurement has to go"
+        "task": "Choose a measurement that samples the part of the wafer where the failure lives",
+        "reason": "Aubrey has a wafer that passes bulk purity and still fails around its edge. The team has to decide whether those two measurements really contradict each other."
       }
     ]
   },
   {
-    "title": "What is in the chamber, and what a peak at 28 could be",
-    "objective": "Count what is in a chamber from a gauge, and read a mass spectrum honestly.",
-    "briefing": "The residual gas analyser has a peak that two people are reading two ways.",
-    "stake": "Thursday. Vance has the chamber down for eight hours. It is the only window this week to find out what is inside it. The residual gas analyser shows a peak at mass twenty-eight. Ostrowski reads that peak as harmless carrier gas. Ferreira reads it as air leaking in. The two readings mean different repairs, on different days. Today you turn a pressure gauge into a number of molecules. You decide what one mass peak can and cannot prove on its own. Then you count each element's valence electrons, the outer ones that do the bonding. Eight hours of chamber time is the most expensive thing in the fortnight. It is being spent today.",
-    "takeaway": "A gauge counts molecules and a mass spectrum weighs them, and neither of them names what is there on its own.",
+    "title": "Is something wrong inside the chamber?",
+    "objective": "Test what the vacuum and mass spectrum can actually prove about contamination in the deposition chamber.",
+    "briefing": "A suspicious mass peak has two possible identities, and choosing the wrong one would send the investigation after the wrong leak.",
+    "stake": "Thursday. The chamber is offline for one shift. Work out how many molecules remain even in a vacuum, decide what a mass peak can identify on its own, and count the outer electrons that determine which gases can react.",
+    "takeaway": "An instrument reading becomes evidence only after you know what else could produce the same reading.",
+    "segue": "The chamber goes back online without a smoking gun. The peak at mass 28 fits more than one gas, so nobody gets to call the chamber guilty. Friday you finally get the surface-analysis slot on a wafer that actually failed.",
     "stops": [
       {
         "group": "DEP",
         "lesson": 1,
-        "task": "Turn a vacuum gauge into a count of molecules"
+        "task": "Turn the chamber pressure into a count of molecules",
+        "reason": "The chamber is casually called empty, but even a tiny pressure can mean enough molecules to react with a wafer."
       },
       {
         "group": "WAFER",
         "lesson": 1,
-        "task": "Say what one mass peak can establish"
+        "task": "Decide what one mass-spectrometer peak can and cannot prove",
+        "reason": "One engineer calls the peak nitrogen and another calls it carbon monoxide. Picking one without evidence could send the team after the wrong leak."
       },
       {
         "group": "LITHO",
         "lesson": 1,
-        "task": "Match each element to its outer shell and what that lets it do."
+        "task": "Match each process element to its outer-shell electron count and what that lets it do in bonding.",
+        "reason": "Interpreting the chamber gas requires knowing which atoms can actually form the bonds that make or break during deposition."
       }
     ]
   },
   {
-    "title": "The spectrum that is a picture of the shells",
-    "objective": "Read a photoelectron spectrum, and use the table to predict rather than to look up.",
-    "briefing": "The surface measurement everybody has been waiting for runs this morning.",
-    "stake": "Friday. The photoelectron spectrometer has the first failing wafer on it at nine. It is the one instrument here that answers what is on the surface and what it is bonded to. Ferreira has waited eleven days for the slot. Ostrowski has asked for the chamber back by three. Vance cannot pump it down twice in one day. Today you turn a spectrum into binding energies. You predict how an element you have not measured should behave, from where it sits in the table. Then you work out how far a molecule travels in that chamber before it hits another one. Whatever the spectrum says decides which argument gets funded on Monday.",
-    "takeaway": "A photon of known energy in and an electron of measured energy out is a direct reading of how tightly an atom was holding on.",
+    "title": "The first failed wafer under the spectrometer",
+    "objective": "Read the failed surface at the electron level and test whether a proposed vacuum shortcut could create defects.",
+    "briefing": "For the first time, the investigation has an atomic-scale spectrum from the surface that actually failed.",
+    "stake": "Friday. Use the energy going into and out of one electron to read the spectrum, use the periodic table to make a prediction before buying material, and decide whether shortening the vacuum step would make molecules collide before reaching the wafer.",
+    "takeaway": "A spectrum becomes useful when every measured energy is tied to a physical mechanism.",
+    "segue": "The surface spectrum is real evidence, but it still does not explain why some incoming lots fail and others do not. Over the weekend Ferreira and Twill trace every supposedly independent substrate measurement back to the thing it was compared against.",
     "stops": [
       {
         "group": "ATOM",
         "lesson": 3,
-        "task": "Turn a measured electron energy into a binding energy"
+        "task": "Turn a photoelectron measurement into a binding energy",
+        "reason": "The first failed wafer is finally in the surface spectrometer. Dorsey needs to know where the silicon electron should appear before a shifted peak can mean anything."
       },
       {
         "group": "DOPE",
         "lesson": 2,
-        "task": "Predict an element you have not measured"
+        "task": "Use periodic-table position to predict how gallium should behave in silicon",
+        "reason": "Ganesan can substitute gallium for boron, but the plant should predict the electrical effect before buying a cylinder or touching a wafer."
       },
       {
         "group": "DEP",
         "lesson": 2,
-        "task": "Work out how far a molecule gets"
+        "task": "Calculate how far precursor molecules travel between collisions",
+        "reason": "Ostrowski wants to shorten pump-down by four minutes. If molecules collide before they reach the wafer, they can react in flight and land as particles instead of film."
       }
     ]
   },
   {
-    "title": "Four numbers that agree, and one that does not",
-    "objective": "Find out why every measurement of the substrate agrees and the wafers still fail.",
-    "briefing": "Every incoming measurement is consistent, and the lots are behaving differently.",
-    "stake": "Monday. The second week opens with four measurements of the substrate that look independent. They all agree to within a few per cent. A yield map says two of the lots are not the same material. Twill has the certificates. Ferreira has the mapped results. Hale has told them both that agreement is not the same as evidence. Today you open those four numbers and find what each of them was measured against. You turn a purity limit into a count of atoms. Then you draw the first molecule this process is built out of. If the substrate is wrong, every recipe argument of the last three weeks was about the wrong thing.",
-    "takeaway": "Numbers computed against a common reference agree with each other whatever that reference is doing.",
+    "title": "How four measurements agreed and all misled us",
+    "objective": "Find out whether the incoming-wafer measurements were truly independent.",
+    "briefing": "Four substrate checks agree beautifully. The failing lots disagree with all four.",
+    "stake": "Monday. Agreement should be reassuring; here it is suspicious. Trace what each result was compared against, then use dopant counts and bonding to understand why the missing property can matter to a chip.",
+    "takeaway": "Several measurements can agree and still be wrong when they inherit the same hidden assumption.",
+    "segue": "The first major fault is real: some wafers arrived with the opposite electrical type, and the certificate had no field that could reveal it. Two suspect lots are pulled. Then two wafers from verified lots fail anyway. Ferreira was right — but she was not the whole answer.",
     "stops": [
       {
         "group": "WAFER",
         "lesson": 2,
-        "task": "Find what every measurement was compared against"
+        "task": "Trace every substrate result back to the reference it depended on",
+        "reason": "The substrate data agree almost perfectly while the wafers behave differently. If those readings share one reference, their agreement may be the clue rather than the reassurance."
       },
       {
         "group": "DOPE",
         "lesson": 3,
-        "task": "Turn a purity limit into atoms per cubic centimetre"
+        "task": "Convert the purity limit to dopant atoms per cubic centimetre",
+        "reason": "Now that wafer type matters, the team needs to see why a tiny-looking impurity fraction can still change the electrical behaviour of silicon."
       },
       {
         "group": "DEP",
         "lesson": 3,
-        "task": "Match each precursor to what its Lewis structure must contain."
+        "task": "Match each precursor molecule to the Lewis structure its valence electrons require.",
+        "reason": "The raw-material fault is real, but failures remain on good wafers. Ostrowski's process theory now depends on how the precursor molecules are actually bonded."
       }
     ]
   },
   {
-    "title": "Shapes, shifts and a sea of electrons",
-    "objective": "Read what a peak position says about bonding, and name what holds each material together.",
-    "briefing": "The substrate finding has changed which questions are worth asking.",
-    "stake": "Tuesday. The substrate finding has been on Hale's desk since eight. Two lots go back to the supplier. Thirteen do not. The failures on those thirteen are still unexplained, and eight days are left to explain them. Ostrowski has taken the finding as proof he was right all along. He wants the recipe review to start this afternoon. Today you read a peak in a spectrum for what it says about bonding, not about how much is there. You work out what shape each precursor molecule is forced into. Then you name what actually holds a metal together. The recipe review cannot tell a wrong film from a merely different one until all three are settled.",
-    "takeaway": "A peak that has moved and a molecule that is bent are both statements about bonding rather than about amount.",
+    "title": "The supplier was wrong. Something else is too.",
+    "objective": "Use bonding clues to start testing the process side of the failure.",
+    "briefing": "Bad incoming silicon explains some failures, but verified wafers are still dying inside the factory.",
+    "stake": "Tuesday. The investigation turns inward. Read whether an atom's bonding environment changed, predict how molecular shape changes behaviour, and use metallic bonding to explain what the copper layer should survive.",
+    "takeaway": "The same element can behave differently when its bonding environment changes.",
+    "segue": "Verified wafers still fail. At the afternoon recipe review, two engineers cannot even agree on the structure of one precursor molecule. Until chemistry settles that picture, every argument about temperature is guesswork.",
     "stops": [
       {
         "group": "ATOM",
         "lesson": 4,
-        "task": "Read a peak that has moved"
+        "task": "Use a shifted photoelectron peak to identify a change in chemical environment",
+        "reason": "A failed wafer shows two silicon peaks. If both are silicon, the energy difference is a clue to bonding rather than to how much silicon is present."
       },
       {
         "group": "DEP",
         "lesson": 4,
-        "task": "Match each molecule to the shape its electron domains force."
+        "task": "Match each precursor to the three-dimensional shape forced by its bonds and lone pairs.",
+        "reason": "Ostrowski's temperature argument depends on how precursor molecules approach and react at the surface. Their three-dimensional shape is part of that mechanism."
       },
       {
         "group": "WET",
         "lesson": 1,
-        "task": "Say what holds a metal together"
+        "task": "Use metallic bonding to explain both conductivity and deformation",
+        "reason": "The qualification stack includes copper that has to carry current and survive being polished flat. One bonding model should explain both behaviours."
       }
     ]
   },
   {
-    "title": "Which structure is right, and what it costs to pull a solid apart",
-    "objective": "Choose between structures that both satisfy the octet, and rank what holds solids together.",
-    "briefing": "Two structures for the same molecule imply two different processes.",
-    "stake": "Wednesday. The recipe review has stalled on a molecule that can be drawn two ways. Vance needs a purchase decision on the precursor by Friday. The two drawings mean different handling, different lines and a different temperature. Meanwhile Twill has three ceramic liners quoted at three prices. All three are sold as equivalent. Today you settle which of the two drawings is the better description. You work out whether the molecules on the board are polar. Then you rank three solids by what it takes to pull them apart. Buying the wrong precursor would cost eleven days. There are only fifteen in the fortnight, so that is the rest of it.",
-    "takeaway": "A structure that satisfies the octet may still be the worse description, and what a solid costs to take apart follows from its charges and their spacing.",
+    "title": "Turn the recipe argument into predictions",
+    "objective": "Use molecular structure, polarity and lattice attraction to make process choices that can be tested.",
+    "briefing": "The process team is arguing from two different pictures of the same molecule.",
+    "stake": "Wednesday. Choose the better Lewis structure, decide when molecular bond pulls cancel, and rank candidate solids by how strongly their ions are held. These are not drawings for their own sake; they determine what the recipe and its hardware should do.",
+    "takeaway": "A structural model earns its place when it predicts something the process can test.",
+    "segue": "The molecule and materials are finally pinned down. Then a handwritten furnace notebook appears at the integration desk: two actual temperature readings every shift since the controller was replaced in March. On day 9 you compare the chemistry with the temperatures the wafers really saw.",
     "stops": [
       {
         "group": "DEP",
         "lesson": 5,
-        "task": "Match each proposed structure to what its formal charges say."
+        "task": "Match each proposed structure to what its formal charges say about whether it is a good description.",
+        "reason": "Two process engineers are arguing from different structures for the same molecule. Both fill the octets, so the decision has to come from where the charges end up."
       },
       {
         "group": "LITHO",
         "lesson": 2,
-        "task": "Decide which molecules are polar"
+        "task": "Use molecular shape to decide whether a whole molecule is polar",
+        "reason": "The developer choice depends on polarity. Two molecules can contain the same polar bonds and still behave differently if those bond pulls cancel in space."
       },
       {
         "group": "WAFER",
         "lesson": 3,
-        "task": "Order the four ionic solids by how much energy it takes to pull them apart."
+        "task": "Rank the candidate ionic solids from easiest to hardest to pull apart. Which liner should tolerate the most heat?",
+        "reason": "Twill has several chamber liners quoted as equivalent. The furnace temperature makes that claim testable through the charge and spacing of the ions."
       }
     ]
   },
   {
-    "title": "The ledger of breaking and making",
-    "objective": "Establish what a temperature has to be high enough to break, and what the film is made of.",
-    "briefing": "The nitride film is the right two elements in the wrong proportion.",
-    "stake": "Thursday. The film analysis came back overnight. It shows the composition Ostrowski predicted three weeks ago, when nobody would pay for the measurement. The nitride on the failing lots has the right two elements in the wrong proportion. The furnace log adds one more fact. The deposition temperature has been running eighteen degrees below its setpoint since a controller was replaced in February. Today you work out how much energy it takes to break the precursor apart. You compute what the film should be made of if the recipe were followed exactly. Then you settle what holds one molecule to the next. This is the day Ostrowski turns out to have been right as well.",
-    "takeaway": "A temperature has a job to do, and a film with the right elements in the wrong ratio is a temperature that did not do it.",
+    "title": "The furnace was running cold",
+    "objective": "Determine whether the furnace supplied enough energy to make the film the recipe claims.",
+    "briefing": "The failing film contains the right elements in the wrong proportion, and the handwritten temperature record changes in the same week the failures began.",
+    "stake": "Thursday. Use bond energies to price the precursor reaction, calculate what a correct silicon-nitride film should contain, and explain why similar solvents can behave very differently. The first two decide whether Ostrowski's theory survives.",
+    "takeaway": "A recipe temperature is not just a setting; it has to supply the energy required by the chemistry.",
+    "segue": "The second major fault is real. The controller change lowered the actual furnace temperature, and the film changed with it. The supplier and the process were both wrong in different ways. With five days left, you stop hunting for one culprit and start proving the corrected line can safely run the customer batch.",
     "stops": [
       {
         "group": "DEP",
         "lesson": 6,
-        "task": "Work out what the temperature has to break"
+        "task": "Use bond energies to test whether the cooler furnace can explain the bad film",
+        "reason": "The temperature notebook shows the furnace ran cooler after the March controller change. Ostrowski needs to know whether the precursor chemistry is sensitive enough for that to matter."
       },
       {
         "group": "WAFER",
         "lesson": 4,
-        "task": "Compute what the film should be made of"
+        "task": "Calculate the mass composition implied by the film's chemical formula",
+        "reason": "The failing film reads sixty-six percent silicon by mass. Before that number can convict the furnace, the team needs the composition a correct silicon-nitride film should have."
       },
       {
         "group": "LITHO",
         "lesson": 3,
-        "task": "Rank what holds one molecule to the next"
+        "task": "Connect intermolecular forces to boiling point",
+        "reason": "Two developer solvents are similar in size but boil ninety degrees apart. Tanabe wants the difference explained before the backup solvent is qualified."
       }
     ]
   },
   {
-    "title": "What each material is held together by",
-    "objective": "Name what holds each of these materials together, and find where the gas line breaks.",
-    "briefing": "Two causes are established and the layer stack has to be understood as materials.",
-    "stake": "Friday. Two causes are established, with five working days spent to get them. The substrate was not what everybody took it to be. The furnace has been running cold. Hale wants the layer stack itself understood before the qualification recipe is written. A stack is four materials, and the same polish treats all four differently. Vance has a moisture reading somewhere in six hundred metres of gas line. He has one shift to find it. Today you name what holds each material in the stack together. You settle what makes silicon switchable at all. Then you walk the gas line until the pattern breaks. Five days are left after this one.",
-    "takeaway": "What a material does when heated, polished or wetted follows from what holds it together.",
+    "title": "Clear the rest of the line",
+    "objective": "Check the material stack and gas delivery for any remaining failure that could spoil the proving batch.",
+    "briefing": "Two root causes are known, but the customer will judge the whole process, not just those two repairs.",
+    "stake": "Friday. Identify what holds the important materials together, explain why silicon can switch between conducting and not conducting, and trace the moisture reading down the gas line before the weekend shutdown.",
+    "takeaway": "A process fault has to match the bonding and electronic behaviour of the material it is supposed to damage.",
+    "segue": "The moisture is found at a service-line joint and fixed, but its pattern does not match the failures that began in March. The big remaining risk is now the wafer surface between wet clean and coating — a surface that can change even when nobody touches it.",
     "stops": [
       {
         "group": "WAFER",
         "lesson": 5,
-        "task": "Name what holds each material in the stack together"
+        "task": "Identify the bonding that gives each material its characteristic behaviour",
+        "reason": "The customer will qualify the whole layer stack. Twill needs the team to connect each material's heat and polish behaviour to what holds its particles together."
       },
       {
         "group": "DOPE",
         "lesson": 4,
-        "task": "Order the four situations by how much conduction each produces."
+        "task": "Order the four silicon conditions from least to most conduction using the band-gap picture.",
+        "reason": "Ganesan's undoped wafer conducts poorly in the dark, better when warmed, and better under light. One energy picture should explain all three observations."
       },
       {
         "group": "DEP",
         "lesson": 7,
-        "task": "Walk the gas line and find where it breaks"
+        "task": "Use measurements along the line to locate the first contaminated section",
+        "reason": "The chamber sees moisture that is absent at the cylinder. Finding the first point where the reading changes is the only way to distinguish a bad source from a bad line."
       }
     ]
   },
   {
-    "title": "A clean surface is an event, not a state",
-    "objective": "Find out what is putting oxide back on the wafer, and what a solvent will lift.",
-    "briefing": "The bare surface the next step needs is not bare by the time it gets there.",
-    "stake": "Monday, with four working days left. Aubrey has wafers that leave her bench bare and reach the coater with an oxide on them. The process does not allow that oxide. There are four candidate causes between the two rooms. Park has the queue times for every wafer for six weeks. Nobody has yet compared them against the failures. Today you find out which of the four steps is putting the oxide back. You decide which solvent will lift the resist and leave the layer underneath it. Then you read a spectrum with two things wrong with it at once. A wafer that waits is a wafer that changes.",
-    "takeaway": "A freshly cleaned surface has unsatisfied bonds and the air satisfies them, so every step after a clean is racing a clock.",
+    "title": "The wafer changes while it waits",
+    "objective": "Find why a clean wafer reaches the next step with oxide back on it, and turn the cause into a process rule.",
+    "briefing": "The wet bench sends out a bare silicon surface. The coater receives an oxidised one.",
+    "stake": "Monday, four days left. Test the February changes one at a time, choose a developer from its chemistry rather than habit, and read a deliberately delayed wafer for more than one surface fault.",
+    "takeaway": "A clean surface is temporary: exposed bonds react with the environment, so time between steps is a process variable.",
+    "segue": "The failure follows queue time, not a broken machine. A maximum wait is added to the process. The two March root causes are fixed and the surface risk is controlled, but only three days remain to decide which other uncertainties are worth measuring.",
     "stops": [
       {
         "group": "WET",
         "lesson": 2,
-        "task": "Find out which step puts the oxide back"
+        "task": "Identify which process change lets oxide regrow before coating",
+        "reason": "The wet bench proves the wafer leaves clean, while the coater proves oxide has returned. The failure must happen in the time and environment between them."
       },
       {
         "group": "LITHO",
         "lesson": 4,
-        "task": "Choose the solvent by what it resembles"
+        "task": "Choose the developer from the polarity change in the resist",
+        "reason": "The developer must dissolve the exposed regions without attacking the unexposed pattern underneath. 'Like dissolves like' turns that into a chemistry decision."
       },
       {
         "group": "ATOM",
         "lesson": 5,
-        "task": "Which explanation fits every panel, not just the loudest one?"
+        "task": "Use every panel in the spectrum to identify both surface faults. Do not force two signatures into one cause.",
+        "reason": "Ferreira deliberately leaves a wafer waiting too long. The expected oxide appears — along with a second feature that could still threaten Friday's batch."
       }
     ]
   },
   {
-    "title": "Inside the limits, and worth knowing",
-    "objective": "Bring the implant dose inside specification, and buy only the measurements that decide something.",
-    "briefing": "Three days left and more things worth knowing than there is time to know them.",
-    "stake": "Tuesday. The qualification recipe has to be frozen on Thursday morning. Ganesan's implanter is delivering a dose whose spread is wider than the customer allows. She can re-aim the beam. She can also measure the dose better. Those are not the same choice. Ferreira has six hours of spectrometer time left in the fortnight and four proposals for it. Aubrey wants to know whether the copper is alloyed or pure before the fill step is written. Today you settle all three of those questions. Hale is signing whatever comes out of today. What is not decided today is not in the lot.",
-    "takeaway": "Re-aiming moves a distribution and only new information narrows it, and a measurement is worth what the decision it changes is worth.",
+    "title": "Three days left: measure only what matters",
+    "objective": "Bring the implant distribution under control and spend the last measurement time only where it can change a decision.",
+    "briefing": "There is now more worth knowing than time left to measure it.",
+    "stake": "Tuesday. The implant distribution is off centre and too wide, the spectrometer has six hours left, and the copper source is still disputed. Separate what can be fixed by re-aiming from what requires new information.",
+    "takeaway": "Moving a process changes its centre; measuring it better changes what you know about its spread.",
+    "segue": "Re-aiming fixes the centre but does not shrink the spread. That distinction removes two useless proposals from the schedule. The final spectrometer time goes where it can still change the qualification decision. Wednesday is process-freeze day.",
     "stops": [
       {
         "group": "DOPE",
         "lesson": 5,
-        "task": "Get the dose distribution inside the specification"
+        "task": "Separate an off-centre dose from a dose distribution that is too broad",
+        "reason": "Ganesan's implant is shifted and too wide. Re-aiming can move the centre, but it cannot magically make the underlying spread narrower."
       },
       {
         "group": "ATOM",
         "lesson": 6,
-        "task": "Spend the last spectrometer time on what changes a decision"
+        "task": "Spend the remaining spectrometer time on the result that can still change the qualification decision",
+        "reason": "Four measurements would all be interesting. Only one can still change what the fab does before the recipe freezes."
       },
       {
         "group": "WET",
         "lesson": 3,
-        "task": "Decide whether the copper is alloyed"
+        "task": "Decide what a small amount of alloying does to the metal",
+        "reason": "Two copper sources meet the composition paperwork but will not behave the same under polishing if one contains enough foreign atoms to disrupt the lattice."
       }
     ]
   },
   {
-    "title": "Which step decides whether the film grows",
-    "objective": "Find the step that governs the whole sequence, and spend what is left of the budget.",
-    "briefing": "Every step in the deposition sequence has a number against it except one.",
-    "stake": "Wednesday. The recipe goes to Hale tomorrow morning. Ostrowski has five steps between a gas cylinder and a finished film. He wants to know which of the five decides the outcome. That is the step the recipe has to guarantee. Twill has money for two more pieces of work and four things the fab would like to know. Park has a queue-time rule to write. Every shift will have to follow it without him standing there. Today you settle all three of those. Tomorrow is the last day anything can be measured. After that the recipe is only what is already written down.",
-    "takeaway": "A sequence is governed by whichever required step is slowest or weakest, whatever the steps either side of it can do.",
+    "title": "Freeze the process",
+    "objective": "Lock the order, rate-limiting step and surface-timing rule for the recipe that will run Friday.",
+    "briefing": "The corrected process is almost frozen, but one step still decides whether the film grows correctly.",
+    "stake": "Wednesday. Put the deposition sequence in physical order, identify the step that limits the whole chain, fund the last checks that could have caught these failures, and write the queue-time rule so every shift can follow it.",
+    "takeaway": "A chain is controlled by the required step that cannot keep up, not by the steps with extra capacity.",
+    "segue": "The process is defined well enough to test. One thing is still missing: nobody has written down what the corrected film should measure before seeing the result. Thursday becomes a dress rehearsal, not another investigation.",
     "stops": [
       {
         "group": "DEP",
         "lesson": 8,
-        "task": "Name the step the whole sequence is limited by"
+        "task": "Find the rate-limiting step in the deposition sequence",
+        "reason": "The corrected recipe has five required steps. Four have measured rates; the step changed by the furnace controller is the only one still capable of limiting the whole sequence."
       },
       {
         "group": "WAFER",
         "lesson": 6,
-        "task": "Fund the checks that would catch a failure before the lot runs."
+        "task": "Choose the two final checks that would have been most likely to catch the failures before wafers were lost.",
+        "reason": "Twill can pay for two more controls before Friday. The best choices are the ones that would have exposed the actual failure modes before wafers were lost."
       },
       {
         "group": "LITHO",
         "lesson": 5,
-        "task": "Order the four steps so the surface is bare when the resist lands."
+        "task": "Put clean, transfer, coat and expose in the order that keeps the surface bare when the resist arrives.",
+        "reason": "The queue-time fix only works if a night shift can follow it without knowing the whole investigation."
       }
     ]
   },
   {
-    "title": "Predict it, change it, then measure it",
-    "objective": "Commit to what the corrected recipe will produce, and then find out.",
-    "briefing": "The recipe change is written and nobody has said in advance what it should do.",
-    "stake": "Thursday. The qualification recipe is signed at noon. The temperature correction is written into it, and Ostrowski is sure it will work. That is exactly when a fab stops measuring. Aubrey has a copper fill that failed its polish on two wafers overnight, and three panels of data about it. Ganesan has a customer question about why the finished device conducts at all. Today you write down what the corrected recipe should produce, before it runs. Then you find out what actually happened. You also answer for those two failures, which are not what this fortnight has been about. Tomorrow the lot runs on whatever is signed today.",
-    "takeaway": "An intervention is verified by measuring what it changed, not by confirming that it was made.",
+    "title": "The dress rehearsal",
+    "objective": "Predict the corrected process before running it, then test whether the result matches.",
+    "briefing": "The line has been changed. Now it has to prove that those changes cause the result everyone expects.",
+    "stake": "Thursday. Lock the predicted film composition before the furnace runs, test the corrected recipe, and clear two final device-level questions before tomorrow's customer batch.",
+    "takeaway": "A fix is convincing when it makes a prediction that succeeds, not merely when the result looks better afterward.",
+    "segue": "The film comes back within one percentage point of the prediction. For the first time since March, the process behaves as the chemistry says it should. Friday at 10:00 the qualification batch starts. No more tuning is allowed once it goes in.",
     "stops": [
       {
         "group": "DEP",
         "lesson": 9,
-        "task": "Commit to a prediction, then measure it"
+        "task": "Lock a quantitative prediction, run the corrected furnace, then compare",
+        "reason": "Ostrowski believes the furnace correction will work. That is exactly why the expected result has to be written down before the measurement appears."
       },
       {
         "group": "WET",
         "lesson": 4,
-        "task": "Which explanation fits every panel, not just the failure?"
+        "task": "Choose the polish mechanism that explains the failed wide features, the surviving narrow features and the quiet panel.",
+        "reason": "Two wafers fail only in wide copper features while narrow ones survive. The geometry is a clue to which force or material property is responsible."
       },
       {
         "group": "DOPE",
         "lesson": 6,
-        "task": "Match each customer statement to what it actually describes."
+        "task": "Match each customer statement to the piece of semiconductor physics that makes it true or false.",
+        "reason": "The customer's engineer asks four basic questions about why the device conducts. The final answer should connect the chemistry taught across the whole line."
       }
     ]
   },
   {
-    "title": "The lot runs",
-    "objective": "Release the substrate, hand over what is known, and say what the light can be trusted to do.",
-    "briefing": "The qualification lot goes in this morning and the handover goes out this afternoon.",
-    "stake": "Friday. The qualification lot goes into the yellow bay at ten. Twill has the substrate release form waiting for a signature. There are two lots he will not sign for. The customer's team arrives on Monday. They will read a fortnight of work in twenty minutes, and none of them was here for any of it. Tanabe has one last question about the lamps, sent up by the maintenance contractor. Today you release the substrate for the lot. You decide what goes at the top of the handover. Then you settle what the light in this building can be trusted to do. Nine hundred jobs ride on what goes in at ten.",
-    "takeaway": "A handover states what is known, how well it is known, and what was never established.",
+    "title": "The batch that decides the plant",
+    "objective": "Make the final release decision and hand the customer the evidence behind it.",
+    "briefing": "The qualification batch that decides the contract starts at 10:00.",
+    "stake": "Friday. Fifteen lots are waiting. Before the line starts, you must release the silicon, decide what the customer needs to see first, and sign off the light sources that can touch the resist without changing it.",
+    "takeaway": "A qualification decision should state what is known, how it was tested, and what uncertainty remains.",
+    "segue": "At 10:00 you sign the release. The wafers enter Yellow Bay under the corrected process. There are no more measurements to add and no more explanations to change. The next number is the yield.",
     "stops": [
       {
         "group": "WAFER",
         "lesson": 7,
-        "task": "Release the substrate for the lot"
+        "task": "Release only substrate lots whose electrical type has actually been checked",
+        "reason": "The original certificate missed the property that caused the first major fault. Friday's release cannot repeat that mistake."
       },
       {
         "group": "ATOM",
         "lesson": 7,
-        "task": "Decide what the receiving team reads first"
+        "task": "Put the findings that change the customer's decision at the top of the handover",
+        "reason": "The customer will have twenty minutes on Monday. A pile of correct measurements is useless if the two root causes, the fixes and the remaining risks are buried in it."
       },
       {
         "group": "LITHO",
         "lesson": 6,
-        "task": "Match each lamp to what it can be trusted to do."
+        "task": "Match each proposed lamp to what its photon energy says it can safely do around the resist.",
+        "reason": "The qualification lot is physically in Yellow Bay. A maintenance lamp that can expose the resist would undo the process after every other fault has been fixed."
       }
     ]
   }
@@ -367,8 +427,8 @@ export const MISSIONS = [
 
 export const WARMUPS = {
   "greet": {
-    "title": "Twelve people, two of whom disagree about everything",
-    "why": "Every argument this fortnight runs between Hana Ferreira, who runs surface analysis, and Ruben Ostrowski, who runs deposition, and you will be standing between them from Monday. Get round as many of the twelve as you can while nobody is under pressure yet, because the first time you ask somebody a question should not be the morning you need the answer."
+    "title": "Twelve people, two wings, one floor",
+    "why": "Twelve people work these two wings, so get round as many of them as you can now, while nobody is under pressure and no clock is running on any of it."
   },
   "trial-near": {
     "title": "Walk the bay once while it is quiet",
@@ -379,12 +439,51 @@ export const WARMUPS = {
     "why": "Delphine Aubrey, who runs the wet benches and the metal fill, walks her line once a week and does not slow down for anybody. The sequence from strip to rinse to dry is the part of this process that no diagram records at the level that matters. Stay with her and keep clear of the tanks."
   },
   "hunt": {
-    "title": "Six retained boxes, and the log says four",
+    "title": "Six retained boxes that settle the substrate argument",
     "item": {
       "name": "retained box",
       "plural": "retained boxes"
     },
-    "why": "Twill keeps a sealed sample of every incoming lot, and those boxes are the only material in this building that has never been through a tool. Six of them are out on the floor and the log accounts for four. A box nobody can find is either the evidence that settles an argument or a box somebody has already opened."
+    "at": [
+      {
+        "x": -18.6,
+        "z": 11.5
+      },
+      {
+        "x": -21.2,
+        "z": 34
+      },
+      {
+        "x": -9.4,
+        "z": 2.5
+      },
+      {
+        "x": -6.8,
+        "z": 21.5
+      },
+      {
+        "x": -9.4,
+        "z": 34.5
+      },
+      {
+        "x": 6.8,
+        "z": 2.5
+      },
+      {
+        "x": 9.4,
+        "z": 25.5
+      },
+      {
+        "x": 21.2,
+        "z": 1.5
+      },
+      {
+        "x": 18.6,
+        "z": 29.5
+      }
+    ],
+    "target": 6,
+    "why": "Twill keeps a sealed sample of every incoming lot, and those boxes are the only material in this building that has never been through a tool. Nine of them are out on the floor and the log accounts for six. Six will settle the substrate argument, so stop at six; a box nobody can find is either evidence or a box somebody has already opened."
   },
   "canvass": {
     "title": "Who has actually seen the February controller change",

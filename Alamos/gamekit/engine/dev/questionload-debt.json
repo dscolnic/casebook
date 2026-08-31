@@ -1,5 +1,5 @@
 {
-  "_": "Rows where a stop asks more of a grade-8-or-younger reader than the four questionLoad numbers allow. Hospital Heroes is grade 2 and was the only theme this gate ever reported and the one theme it could not fail, because the rule was 'is this a derived edition' rather than 'how old is the reader'. Fifty-one of these are one decision: a four-card SEQUENCE graded as one exact permutation with no feedback is a one-in-twenty-four guess at grade 2, and dropping a card takes it to one in six. That is a decision for a person, so it is recorded rather than forced. Only shrinks: a new row fails, and a row fixed since it was recorded also fails, naming the line to delete.",
+  "_": "Rows where a stop asks more of a grade-8-or-younger reader than the four questionLoad numbers allow. Hospital Heroes is grade 2 and was the only theme this gate ever reported and the one theme it could not fail, because the rule was 'is this a derived edition' rather than 'how old is the reader'. Fifty-one of these are one decision: a four-card SEQUENCE graded as one exact permutation with no feedback is a one-in-twenty-four guess at grade 2, and dropping a card takes it to one in six. That is a decision for a person, so it is recorded rather than forced. Only shrinks: a new row fails, and a row fixed since it was recorded also fails, naming the line to delete. The planetary_defense_ms row appeared when the checkers started normalising with the site: `nearFirst` trades a far call out of the opening days, so the two judgement stops land on the same day in the game and were read as separate days before. Paying it means re-daying a stop, which is the sequencing pass's job, not this gate's.",
   "hospital": [
     "TRI[0] \"Who Needs You First?\": names 3 people (Ava, Ben, Maya) — 2 is the limit before a stop is also a memory test",
     "TRI[3] \"Six Patients, One First Room\": names 4 people (DeShawn, Fatima, Mei, Alvarez) — 2 is the limit before a stop is also a memory test",
@@ -16,5 +16,8 @@
     "BRAIN[22] \"Match the Sense — Review 4\": names 3 people (Patel, Caleb, Mina) — 2 is the limit before a stop is also a memory test",
     "day 3 \"X-Ray Day\": 5 people named across its stops (Ava, Ben, Eli, Maya, Bell) — 4 is the limit",
     "day 15 \"The Super Shift\": 5 people named across its stops (DeShawn, Fatima, Jordan, Mei, Alvarez) — 4 is the limit"
+  ],
+  "planetary_defense_ms": [
+    "day 3 \"How Large Is It?\": 2 stops that ask for judgement rather than an answer (What this pass does to the next one; Settle the size) — 1 a day is the limit"
   ]
 }

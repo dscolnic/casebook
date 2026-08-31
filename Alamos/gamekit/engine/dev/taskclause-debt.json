@@ -1,0 +1,87 @@
+{
+  "_comment": "Missions whose stake does not say what the player decides in the \"Today you …\" shape (checkStory.mjs). A campaign written in the imperative says it in words the rule's regex cannot see. Same ratchet as the other debt files here.",
+  "themes": {
+    "carrying": [
+      "Day 1 (What does Vellan actually depend on?)",
+      "Day 4 (The salt warning)",
+      "Day 11 (What the diesel is really costing)"
+    ],
+    "changeover": [
+      "Day 2 (The economy shrank while the jobless rate fell)",
+      "Day 5 (Twelve million that could become six hundred)",
+      "Day 12 (Rehearse 4.15 before you sign it)"
+    ],
+    "darkfibre": [
+      "Day 1 (Is the problem here, or out at sea?)",
+      "Day 2 (Turn the echo into a distance)",
+      "Day 3 (Is the cable actually broken?)",
+      "Day 4 (How close is the link to failing?)",
+      "Day 5 (Can you trust the weak signal?)",
+      "Day 6 (Calibrate the instruments)",
+      "Day 7 (Choose the tests before the ship arrives)",
+      "Day 8 (Build the test that separates the suspects)",
+      "Day 9 (Make the replacement ready)",
+      "Day 10 (Where exactly should the ship go?)",
+      "Day 11 (Make one diagnosis fit every clue)",
+      "Day 12 (Give the captain one repair order)"
+    ],
+    "groundtruth": [
+      "Day 1 (Write the rule before the storm)",
+      "Day 4 (Why the mast starts hissing)",
+      "Day 5 (How much can the storm hold?)",
+      "Day 6 (What 1,500 joules can do)",
+      "Day 7 (Four instruments agree. Do they?)",
+      "Day 8 (What 30 kA does two metres away)",
+      "Day 10 (Why six metres of copper can still be dangerous)",
+      "Day 11 (Where did eleven kiloamps go?)",
+      "Day 12 (The rule fails on a fast cell)",
+      "Day 13 (What the instruments missed)",
+      "Day 14 (One shot left)",
+      "Day 15 (Sign what the season can prove)"
+    ],
+    "headwater": [
+      "Day 1 (88%)",
+      "Day 2 (The same water, moving faster)",
+      "Day 3 (What fell, and what arrived)",
+      "Day 4 (The release that could have been smaller)",
+      "Day 5 (The last half metre)",
+      "Day 6 (Has it peaked?)",
+      "Day 7 (What the wall is carrying)",
+      "Day 8 (The release that just clears it)",
+      "Day 9 (The ledger that will not close)",
+      "Day 10 (Every number again)",
+      "Day 11 (A day when nothing happens)",
+      "Day 13 (Three things before nine)",
+      "Day 14 (The last reversible moment)",
+      "Day 15 (Sign the rules)"
+    ],
+    "midway": [
+      "Day 15 (The signature)"
+    ],
+    "outbreak_riverton": [
+      "Stage 1 (The First Cluster)",
+      "Stage 2 (What Kind of Agent?)",
+      "Stage 3 (Why the Lungs?)",
+      "Stage 5 (A Test Before Morning)",
+      "Stage 7 (When Defense Becomes Damage)",
+      "Stage 10 (A Variant Rises)"
+    ],
+    "yellowbay": [
+      "Day 1 (Is the silicon itself wrong?)",
+      "Day 2 (Why Yellow Bay is yellow)",
+      "Day 3 (When a correct measurement answers the wrong question)",
+      "Day 4 (Is something wrong inside the chamber?)",
+      "Day 5 (The first failed wafer under the spectrometer)",
+      "Day 6 (How four measurements agreed and all misled us)",
+      "Day 7 (The supplier was wrong. Something else is too.)",
+      "Day 8 (Turn the recipe argument into predictions)",
+      "Day 9 (The furnace was running cold)",
+      "Day 10 (Clear the rest of the line)",
+      "Day 11 (The wafer changes while it waits)",
+      "Day 12 (Three days left: measure only what matters)",
+      "Day 13 (Freeze the process)",
+      "Day 14 (The dress rehearsal)",
+      "Day 15 (The batch that decides the plant)"
+    ]
+  }
+}

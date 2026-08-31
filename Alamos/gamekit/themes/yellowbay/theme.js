@@ -25,10 +25,18 @@ import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 export default {
   id: 'yellowbay',
   title: 'Yellow Bay',
-  subtitle: 'Process Integration Lead · Ardley Fab 7',
+  subtitle: 'Semiconductor Process Engineer · Ardley Fab 7 · fifteen days to the proving batch',
 
   // Each mission is one working day before the proving batch runs. The plan card prints this in front of the mission number.
   dayNoun: 'Day',
+
+  // The plan card's opening blurb is two sentences: the one thing that is true
+  // this morning, and the one thing the player does about it. The cast, the
+  // argument and the consequences move to the calls' own reasons, to the
+  // people, and to the day debrief instead of living on the plan card.
+  // `engine/dev/checkStory.mjs` reads this and drops the word ceiling to 70
+  // with no floor. See gamekit/BRIEFING_PASS.md.
+  stakeStyle: 'brief',
 
   audience: { grade: 12 },
 
@@ -82,58 +90,53 @@ export default {
   // certificate is questioned early and the recipe late, and which of the two
   // was wrong is the whole fortnight.
   delivery: {
-    name: 'The Proving Batch File',
-    what: 'What the customer\'s auditor reads beside the lot itself: every claim about this '
-      + 'process reduced to something countable, and what nobody ever established.',
+    name: 'The Qualification Case',
+    what: 'The evidence the customer will judge beside Friday\'s test batch: what caused the failures, '
+      + 'what was changed, and why the corrected process should now work.',
     where: 'ATOM',
     pieces: [
-      'The atom count, checked',
-      'The photon threshold figures',
-      'The shielding calculation',
-      'The chamber\'s mass spectrum',
-      'The photoelectron reading',
-      'The common-reference finding',
-      'The bonding shift result',
-      'The lattice energy comparison',
-      'The temperature ledger',
-      'The materials\' bonding table',
-      'The post-clean clock',
-      'The re-aimed distribution',
-      'The rate-limiting step',
-      'The verified intervention',
-      'The handover, signed',
+      'What the silicon certificate proves',
+      'Why Yellow Bay is safe under amber light',
+      'Which measurements can see the failing surface',
+      'What the chamber readings identify',
+      'The first failed-wafer spectrum',
+      'The hidden substrate-type error',
+      'The bonding clue on verified wafers',
+      'The recipe turned into predictions',
+      'The cold-furnace fault',
+      'The rest of the material stack cleared',
+      'The surface queue-time limit',
+      'The implant distribution brought under control',
+      'The rate-limiting step and final process rules',
+      'The corrected recipe predicted and verified',
+      'The qualification release',
     ],
   },
+  // Five sentences: what this factory makes, what has gone wrong, what happens if the
+  // proving batch fails, the two competing explanations, and the player's chemistry mission.
+  // Jargon such as qualification lot, process integration and wafer type comes after the
+  // reader has a concrete picture of chips, silicon discs and a factory at risk.
   opening: [
-    'Since March, four wafers in ten come out of Ardley Fab 7 too poor to sell. Nobody agrees why. In '
-    + 'fifteen days the plant runs a proving batch. One customer buys sixty per cent of everything '
-    + 'Ardley makes. That customer will read the batch and then accept or refuse a whole contract. You '
-    + 'are the process integration lead. The proving batch file that goes with the lot is yours to '
-    + 'sign. It has to say what this process really does. What is in the chamber. What the film is made '
-    + 'of. Which step decides the yield. You settle one claim a day. A claim with no measurement under '
-    + 'it does not go in the file. One customer is large enough to close a plant with nine hundred '
-    + 'people in it.',
+    'Ardley Fab 7 is a factory that builds computer chips on thin, round silicon wafers. '
+    + 'Since March, four wafers in ten have come off the line with too many bad chips to sell. '
+    + 'In fifteen days the plant must run a test batch for the customer that buys most of its output; if the batch fails, the customer can move the work and the nine-hundred-person plant may close. '
+    + 'Two senior engineers disagree about the cause. Ferreira, the surface analysis lead, says the silicon arriving at the factory is wrong. '
+    + 'Ostrowski, the deposition engineering lead, says the chemistry inside the production line has drifted. '
+    + 'You are the process integration lead, and you must use chemistry — atoms, electrons, bonds, gases and surfaces — to find what is failing, prove the fix, and decide whether the batch is ready to run. '
+    + 'Fifteen days of evidence go into one document, the Qualification Case, and nine hundred people wait on it.',
   ],
 
   ending: [
-    'The qualification lot went in at ten on the Friday and came out at ninety-one per cent, which '
-    + 'is two points above the number the customer had written into the contract and four above what '
-    + 'Fab 7 was managing before March. Two substrate lots went back to the supplier, who added a '
-    + 'type field to the certificate the following quarter for every customer they have. The furnace '
-    + 'controller was replaced again, and a second thermocouple now reports beside it on a separate '
-    + 'logger.',
-    'What it cost: eleven weeks of wafers written off before anybody measured the right thing, a '
-    + 'supplier relationship that will be cooler for a year, and four days of spectrometer time that '
-    + 'went on wafers already scrapped. What is unfinished: the carbon layer under the nitride has a '
-    + 'source nobody has found, the queue-time rule is a piece of paper rather than an interlock, and '
-    + 'the copper is still being bought against a specification that has been met at a tenth of its '
-    + 'stated value twice.',
-    'And the reason there was a lot to run at all is that you would not let one explanation stand for '
-    + 'two faults. You opened the four measurements that agreed and found what they had all been '
-    + 'compared against; you took the furnace seriously after the substrate had already been proved '
-    + 'wrong; and you predicted what the corrected recipe would produce before you ran it, which is '
-    + 'the only reason anybody can say it worked. Nine hundred people came back on the Monday. That '
-    + 'was your fortnight.',
+    'The qualification batch comes out at ninety-one per cent good chips, two points above the customer\'s requirement and far above the sixty per cent yield that put Ardley in danger. '
+    + 'The customer keeps the contract. The plant stays open.',
+    'There was never one culprit. Some incoming wafers were the opposite electrical type from what the process assumed, and four apparently independent checks all inherited that mistake from the same reference wafer. '
+    + 'The furnace controller had also been running the deposition step too cold, so the film contained the right elements in the wrong proportion. '
+    + 'The long wait between cleaning and coating was a third risk: a bare silicon surface was quietly growing oxide again while it sat in air.',
+    'The new process does not rely on those assumptions. Incoming lots get a direct polarity check, the furnace has an independent temperature reading, and the clean-to-coat wait has a hard limit. '
+    + 'The unresolved carbon feature and the copper specification remain in the handover because a successful batch does not turn an unanswered question into an answer.',
+    'You did not save the line by choosing Ferreira or Ostrowski. You used the chemistry to show where each explanation worked, where it failed, and what measurement could separate them. '
+    + 'Then you predicted what the corrected recipe would produce before the test wafer ran, and it did. '
+    + 'When you signed Friday\'s release, the customer was not being asked to trust a story. They were being shown a process that had made and passed its own predictions. That was your call.',
   ],
 
   look: {

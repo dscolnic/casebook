@@ -21,6 +21,13 @@ if(!wanted.length){
 let failed = 0;
 for(const theme of wanted){
   for(const tool of ['validateContent.mjs', 'smokeCampaign.mjs', 'probeQuestions.mjs', 'personStops.mjs',
+                     // checkStory also gates rule 10/11's closing card: a segue that does not turn,
+                     // nothing concrete at risk, or an echo of the next stake or the day's own takeaway
+                     // fails immediately unless it is on record in engine/dev/segue-drama-debt.json —
+                     // Planetary Defense shipped eight such segues, found the day the gate went in.
+                     // "Does not turn" is a sense test, not a spelling one: turnRule.mjs accepts a
+                     // complication or a forced consequence however it is worded, so the literal words
+                     // "But" and "Therefore" are never required — see its --selftest below.
                      'checkStory.mjs', 'checkNames.mjs', 'checkJargon.mjs', 'jargonDepth.mjs', 'answerShape.mjs', 'checkVoice.mjs', 'placeStory.mjs',
                      // answerShape asks whether the key is identifiable by its shape.
                      // This asks the flatter question nothing was asking: is the key the
@@ -251,6 +258,24 @@ if(!process.argv[2]){
                      // card has to score the same, or every number it prints compares two
                      // different measurements.
                      'plainCards.mjs --selftest',
+                     // And checkNames', whose silent inversion is a schedule rather than a
+                     // word: the warm-up cards it reads come off the near/far tiers, so a
+                     // campaign normalised without its site read as one-tier and this check
+                     // read the GREET card the engine never runs — hiding fifteen people
+                     // introduced only on a card nobody is shown.
+                     'checkNames.mjs --selftest',
+                     // And the source check that keeps the whole class shut: a checker that
+                     // calls normalizeContent without its theme's site has no tiers, so
+                     // `nearFirst` never trades a far call out of the opening days and the
+                     // checker asserts against days the game does not run. Seven themes shape
+                     // differently — aftershock on nine of its fifteen days.
+                     'siteNormalize.mjs --selftest',
+                     'siteNormalize.mjs',
+                     // And the turn rule's, which is the equality case again in prose: the same
+                     // beat written with "But" and written with "yet" — or with "Therefore" and
+                     // with a clause-initial "So" — has to score the same, or rule 11's gate is a
+                     // spelling test that a "But" bolted onto a science recap buys off.
+                     'turnRule.mjs --selftest',
                      // And the eleventh, whose silent inversion is an abbreviation: every
                      // unprotected `Dr.` turns a one-sentence stub into a two-sentence
                      // passage, and all eighteen bios it was written for name a doctor.
@@ -284,7 +309,15 @@ if(!process.argv[2]){
                      // version tested `computed` alone and would have reported every
                      // worked-from equation in the catalogue as decoration — 286 false
                      // findings, which is how a gate stops being read.
-                     'equationPlacement.mjs --selftest']){
+                     'equationPlacement.mjs --selftest',
+                     // And the book reader itself, which is the worst place in the repo
+                     // for a silent inversion: whatever it hands back is a valid value of
+                     // some shape. A flow map its writer wrapped at a column limit came
+                     // back as the *string* the first line spelled, so `choices` was still
+                     // a four-item list and only the importer's "the answer names a
+                     // candidate that is not on the list" ever saw it. Its case is an
+                     // equality: wrapped and unwrapped parse the same.
+                     '../../tools/yaml-lite.mjs --selftest']){
     const [file, ...flags] = tool.split(' ');
     const res = spawnSync(process.execPath, [resolve(here, file), ...flags],
       { stdio: 'inherit', cwd: resolve(here, '../..') });

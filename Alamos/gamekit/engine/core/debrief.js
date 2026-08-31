@@ -32,11 +32,18 @@
 //      the same failure this repo has already paid for nine times: the prose
 //      comes down and the demand stays where it was.
 //
-// Nothing here is authored per day, deliberately. The alternative was a `praise:`
-// key on every mission — 435 lines of writing across 29 campaigns, and a new
-// book key that `import-book.mjs` would have to map or silently drop. What makes
-// a generated line specific is that every slot in it is a fact about the day
-// just played: who was in the area, what the call was called, how many held.
+// The compliment is not authored per day, deliberately. The alternative was a
+// `praise:` key on every mission — 435 lines of writing across 29 campaigns, and
+// a new book key that `import-book.mjs` would have to map or silently drop. What
+// makes a generated line specific is that every slot in it is a fact about the
+// day just played: who was in the area, what the call was called, how many held.
+//
+// `segue` is the one exception, and it is a different kind of content: not
+// praise, which the engine can compose from `missionResults`, but story — what
+// happened and what it forces tomorrow, which no formula can compose because the
+// engine does not know the plot. See rule 11 in STORY_SPEC.md. It is optional
+// and read first, before the compliment; a mission with none keeps this card
+// exactly as it always was.
 import { esc, seeded } from './utils.js';
 
 // The line between "a young player" and "everybody else", and the same number
@@ -374,11 +381,19 @@ export function dayDebrief(content, state, opts = {}){
   // lede here is a claim about calls that were made. `tierOf` calls it clean
   // because there is nothing wrong with it, which is not the same as somebody
   // having done well — so the card carries the day's own lesson and no praise.
+  // What happened today, and what it forces tomorrow — authored, and read
+  // first, before a word of compliment. See rule 11 in STORY_SPEC.md: a segue
+  // is a But or a Therefore, never an "and then", and the thing pushing back
+  // is the situation the player is in, never another named person.
+  const segue = !opts.lastDay ? String(mission?.segue ?? '').trim() : '';
+  const segueHTML = segue ? `<p class="debriefSegue">${esc(segue)}</p>` : '';
+
   if(!total){
     const only = carryFits(mission?.takeaway, reg) && !opts.lastDay
       ? `Carry this into ${day} ${week + 1}: ${mission.takeaway}` : '';
-    return { tier, right: 0, total: 0, lede: '', quotes: [], carry: only,
-             html: only ? `<div class="briefBox debrief debrief-${tier}"><p class="debriefCarry">${esc(only)}</p></div>` : '' };
+    const body = segueHTML + (only ? `<p class="debriefCarry">${esc(only)}</p>` : '');
+    return { tier, right: 0, total: 0, lede: '', quotes: [], carry: only, segue,
+             html: body ? `<div class="briefBox debrief debrief-${tier}">${body}</div>` : '' };
   }
 
   const lede = fill(LEDE[reg][tier]);
@@ -422,6 +437,7 @@ export function dayDebrief(content, state, opts = {}){
 
   const html =
     `<div class="briefBox debrief debrief-${tier}">`
+    + segueHTML
     + `<p class="debriefLede">${esc(lede)}</p>`
     + quotes.map(q =>
         `<blockquote class="debriefQuote"><p>${esc(q.line)}</p>`
@@ -429,5 +445,5 @@ export function dayDebrief(content, state, opts = {}){
     + (carry ? `<p class="debriefCarry">${esc(carry)}</p>` : '')
     + `</div>`;
 
-  return { tier, right, total, lede, quotes, carry, html };
+  return { tier, right, total, lede, quotes, carry, segue, html };
 }

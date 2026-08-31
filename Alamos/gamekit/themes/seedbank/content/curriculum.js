@@ -771,11 +771,12 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Two parents, and what you are asking of them",
-      "scene": "Volpe has two parents pinned above the bench. One is a high-yielding modern variety. The other is a low-yielding landrace that survived the 2018 drought. Otto Bengtsson, the glasshouse manager, asks what combination the programme is trying to create.",
+      "scene": "Volpe, the head breeder, has two parents pinned above the bench. One is a high-yielding modern variety. The other is a low-yielding landrace that survived the 2018 drought. Otto Bengtsson, the glasshouse manager, asks what combination the programme is trying to create.",
       "takeaway": "A cross is a request for a combination, and it takes generations to find out whether it was granted.",
       "place": "Crossing Hall",
+      "at": "goals-note",
       "guide": "Bengtsson is asking what the cross is for, which is not the same question as what it will produce. Two parents, each holding something the other lacks: yield in the modern variety, drought survival in the landrace. Follow the chromosomes. The F1 gets one set from each parent, and then meiosis reshuffles those sets in the generation after. So ask of each option whether it names something a breeder could actually select for once that reshuffling has happened.",
-      "story": "Volpe has two parents pinned above the bench. One is a high-yielding modern variety. The other is a low-yielding landrace that survived the 2018 drought. Otto Bengtsson, the glasshouse manager, asks what combination the programme is trying to create.",
+      "story": "Volpe, the head breeder, has two parents pinned above the bench. One is a high-yielding modern variety. The other is a low-yielding landrace that survived the 2018 drought. Otto Bengtsson, the glasshouse manager, asks what combination the programme is trying to create.",
       "game": {
         "type": "CHOICE",
         "title": "Two parents, and what you are asking of them",
@@ -886,7 +887,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What a season costs",
-      "scene": "Volpe has the pipeline on the board: cross to release is 7 years, and every stage behind WM-712 moves back with it. Qureshi asks, reasonably, what a year of a wheat variety is worth.",
+      "scene": "Volpe has the pipeline on the board: cross to release is 7 years, and every stage behind WM-712 moves back with it. Qureshi, the collection curator, asks what a year of a wheat variety is worth.",
       "takeaway": "The cost of holding something back is rarely paid by the thing being held back.",
       "place": "Crossing Hall",
       "guide": "Four accounts of what a season costs. Ask of each whether it is about this line or about the queue behind it. A programme shares seasons, ground and staff. Holding one line delays its seed increase, the trial that would have used the ground, and the crosses waiting. That cost lands on lines nobody was arguing about.",
@@ -895,7 +896,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Volpe has the pipeline on the board: cross to release is 7 years, and every stage behind WM-712 moves back with it. Qureshi asks, reasonably, what a year of a wheat variety is worth.",
+      "story": "Volpe has the pipeline on the board: cross to release is 7 years, and every stage behind WM-712 moves back with it. Qureshi, the collection curator, asks what a year of a wheat variety is worth.",
       "game": {
         "type": "CHOICE",
         "title": "What a season costs",
@@ -1316,7 +1317,7 @@ export const CURRICULUM = {
       "scene": "Ivanescu, the population geneticist, has 100 plants from the 1994 accession scored at 1 locus. 36 are AA, 48 are Aa and 16 are aa. He asks for the allele frequency, then points to Hardy–Weinberg as the comparison model.",
       "takeaway": "A frequency describes the population; a genotype describes one plant, and they answer different questions.",
       "place": "Genetic Resources Office",
-      "at": "genotype-board",
+      "at": "genotype-copy",
       "guide": "Five numbers, and two of them count plants rather than allele copies: the sample size, and the recessive homozygotes. Ask of each whether this frequency needs it. A hundred diploid plants carry two hundred copies, and a heterozygote contributes one of them. Genotype counts and allele counts are different arithmetic on the same plants.",
       "background": [
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
@@ -2072,6 +2073,7 @@ export const CURRICULUM = {
       "scene": "Meera Quiroga, the field trials manager, has the plot map on the wall: 240 plots, with each line appearing 4 times across 4 blocks. The order is randomised, and the north end of the field is visibly wetter than the south.",
       "takeaway": "A field is not uniform, so a single plot measures the plot as much as the line in it.",
       "place": "Field Laboratory",
+      "at": "trial-plan-copy",
       "guide": "Quiroga has told you the thing that matters: the north end of the field is visibly wetter than the south. So the field is not one place, it is many. Sow a line once and its yield is the line plus whichever patch of ground it landed on, with no way to pull those apart afterwards. Ask of each option what replication and randomising actually buy. Be careful — more than one of these is a genuine benefit of something else.",
       "story": "Meera Quiroga, the field trials manager, has the plot map on the wall: 240 plots, with each line appearing 4 times across 4 blocks. The order is randomised, and the north end of the field is visibly wetter than the south.",
       "game": {
@@ -3076,7 +3078,7 @@ export const CURRICULUM = {
       "scene": "Toft, the agronomist, has 11 tonnes from 1 field on the weighbridge slip and a trainee who has just said the crop got it from the soil. He would like that answered before it goes further.",
       "takeaway": "A harvest weighs what it weighs because of something that was not there when it started.",
       "place": "Drying & Processing Hall",
-      "at": "weighbridge",
+      "at": "weighbridge-copy",
       "guide": "Close the ledger. The rows are what the field took up or gave off over the season, and the total is the eleven tonnes of dry matter on the slip. Count the ones that are actually part of that dry weight and leave out the one that is a different quantity altogether. Reading a row costs nothing; counting it is the claim.",
       "background": [
         "What dry matter is. Grain is weighed at fifteen per cent moisture and the ledger is kept dry, so the water in the standing crop is not in the total at all. About nine tenths of what remains is carbohydrate built from carbon dioxide.",

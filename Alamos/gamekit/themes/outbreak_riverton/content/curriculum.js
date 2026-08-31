@@ -7,16 +7,17 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What kind of agent fits the whole panel?",
-      "scene": "Pathology has four results from the same positive specimens and still cannot name the agent class. The samples are waiting under the hood. Dr. Lena Ortiz needs a defensible broad classification before the diagnostic team commits its overnight run.",
-      "takeaway": "Agent classification should combine cellular structure, host dependence, molecular evidence, and controls rather than rely on one striking image.",
+      "scene": "Elias Webb is on a ventilator, and nobody can tell his family what is attacking him. Pathology has four test results from the same samples, and still can't name the agent — the kind of germ causing the illness. Dr. Lena Ortiz, the clinical physiology lead, needs a safe, broad answer before the team commits to its overnight run.",
+      "takeaway": "Naming what you are dealing with takes more than one dramatic result. Weigh the cell evidence, the need for a host, the molecular result and the controls together, not one at a time.",
       "place": "Hospital Pathology Suite",
-      "guide": "Five readings, and three of them are negatives doing the classification. No cellular forms. No bacterial marker. No fungal wall. Ask of each candidate how many of the five it covers. The signal rises only with living host cells, and the extraction blank is clean. Note what this cannot reach: which nucleic acid, or which agent.",
+      "at": "pathology-bench",
+      "guide": "Look at five readings. Three of them are negative — no cells, no bacterial marker, no fungal wall. For each guess, check how many of the five readings it fits. The signal only rises when live host cells are nearby. The extraction blank is a test run with nothing in it, meant to catch germs that snuck in by accident. It comes back clean. Notice what none of this can tell you: which exact virus, or which exact agent.",
       "background": [
-        "Why the unremarkable readings decide it. The salient reading is what draws attention, and it is usually consistent with several explanations at once, which is why it rarely settles anything. The readings that discriminate are the ones a candidate predicts should have moved and which have not: a normal value is a positive result against every mechanism that would have disturbed it.",
-        "How to work the candidates. Take each mechanism and predict the panel it implies before you look at the panel again — which readings it drives, in which direction, and by roughly how much. Then compare. Working that way round is what separates a diagnosis from a rationalisation, because the prediction is made before the data is consulted.",
-        "Why only one candidate survives. Several will account for part of the panel, deliberately so, and a partial fit is exactly what a confident wrong answer feels like from the inside. When two remain, look for the reading on which their predictions differ and let it decide. If no reading separates them you have not finished reading the panel."
+        "Why the quiet readings matter most. The reading that jumps out is not always the one that decides the case. It usually fits several guesses at once, so it rarely settles anything by itself. The readings that decide are the ones a guess predicts should move — and that stayed normal instead. A normal reading is real evidence. It counts against every guess that would have pushed it off normal.",
+        "How to test each guess. First, picture what each guess would do to the whole panel. Which readings would it push, which way, and by how much? Write that down before you look at the panel again. Then compare your guess to what actually happened. Doing it in that order is what makes it a real diagnosis, not just a story that fits after the fact. The prediction has to come before you look at the data — never after.",
+        "Why only one guess survives. Several guesses will explain part of the panel — that's on purpose, so a partial fit can feel just as convincing as the right answer. When two guesses are left, find the one reading where their predictions disagree. Let that reading decide. If no reading tells them apart, you haven't finished reading the panel yet."
       ],
-      "story": "Pathology has four results from the same positive specimens and still cannot name the agent class. The samples are waiting under the hood. Dr. Lena Ortiz needs a defensible broad classification before the diagnostic team commits its overnight run.",
+      "story": "Elias Webb is on a ventilator, and nobody can tell his family what is attacking him. Pathology has four test results from the same samples, and still can't name the agent — the kind of germ causing the illness. Dr. Lena Ortiz, the clinical physiology lead, needs a safe, broad answer before the team commits to its overnight run.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "What kind of agent fits the whole panel?",
@@ -25,11 +26,11 @@ export const CURRICULUM = {
         "task": "Which explanation fits every reading, including the quiet negative controls?",
         "question": "Which explanation fits every reading, including the quiet negative controls?",
         "answer": "A virus-like agent",
-        "why": "The negative cellular tests do most of the classification work. No cellular forms are seen, the bacterial marker is absent, and the fungal-wall assay is negative. The signal rises only with living host cells, which supports an agent that depends on host machinery. A clean extraction blank makes laboratory carryover less likely. Together these observations support a virus-like class. They do not establish whether the genome is RNA or DNA, and they do not identify the exact agent.",
+        "why": "The quiet negative results do most of the classification work. No intact cellular forms are seen, common bacterial and fungal markers are negative, and the signal rises only when living host cells are present. With a clean extraction blank, a virus-like agent is the leading broad classification. It is still provisional: the panel does not identify the exact virus or even whether its genome is RNA or DNA.",
         "rebuttals": [
-          "A bacterium is a cell and would leave cellular evidence — a marker, a wall, something under the microscope. Three separate looks for that came back empty.",
-          "A fungus would show cell-wall material on the stain built to find it. That stain is negative, and it is a stain that rarely misses.",
-          "Contamination is the right suspicion whenever a signal appears from nowhere, and it is checked by the blank. This blank is clean, so the signal came in with the specimens."
+          "A bacterium is a cell. It would leave cell evidence behind — a marker, a wall, something visible under the microscope. Three separate checks for that came back empty.",
+          "A fungus would show cell-wall material on the stain built to find it. That stain came back negative, and this stain rarely misses.",
+          "Contamination is the right suspicion whenever a signal comes from nowhere, and the extraction blank checks for exactly that. This blank is clean, so the signal came in with the samples themselves."
         ],
         "headline": "Pathology has several clues from the same positive specimens.",
         "readings": [
@@ -102,24 +103,25 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "What the marquee is taking now",
-      "scene": "Arrivals come through the marquee all afternoon. The triage rule is on a whiteboard by the entrance, and the clinical lead rewrites it as the ward state changes — after the beds fill, after the swab results land, after the second ambulance.",
-      "takeaway": "The cost of a withdrawn instruction is paid by whoever is still working to it.",
+      "scene": "Patients keep arriving while the triage rule changes as beds fill and reliable swab results return. The cost of a rule change is not the words on the whiteboard; it is the patient who gets routed under yesterday’s rule for the few minutes before everyone updates.",
+      "takeaway": "When a rule is quietly replaced, whoever hasn't heard yet pays the cost of still following it.",
       "place": "Triage Marquee",
-      "guide": "Take the arrivals the current rule wants and leave the rest. The rule on the whiteboard is replaced during the afternoon and nobody calls it out. What is scored is the arrivals either side of a change, because they are the only ones that show whether the marquee is reading the board or working from the last hour.",
+      "at": "triage-board",
+      "guide": "Sort each arrival the way the current rule says — and leave the rest alone. The rule on the whiteboard changes during the afternoon, and nobody announces it. Watch the arrivals right around each change. They are the ones that show whether you are reading the board, or just going by the last hour.",
       "background": [
-        "Why a triage rule changes at all. Early in a shift the rule sorts by how ill somebody is. Once isolation beds run out it sorts by who can be safely sent home to wait. After the swabs come back it sorts by who is confirmed, because a confirmed case and a suspected one no longer belong in the same queue.",
-        "Why the changeover is where harm happens. A marquee working to the old rule for ten more minutes routes confirmed cases into the queue the new rule was written to empty, and nothing on the board records that it happened."
+        "Why a triage rule changes at all. Early in a shift, the rule sorts people by how sick they are. Isolation beds are the rooms that keep sick patients away from others. Once those run out, the rule sorts by who can safely wait at home instead. Once swab test results come back, it sorts by who is confirmed sick. A confirmed case and a suspected one no longer belong in the same line.",
+        "Why the moment of change is where harm happens. If the marquee keeps using the old rule for ten more minutes, it can send confirmed cases into the wrong line. That line is the one the new rule was written to clear. And nothing on the board shows that this happened."
       ],
-      "story": "Arrivals come through the marquee all afternoon. The triage rule is on a whiteboard by the entrance, and the clinical lead rewrites it as the ward state changes — after the beds fill, after the swab results land, after the second ambulance.",
+      "story": "Patients keep arriving while the triage rule changes as beds fill and reliable swab results return. The cost of a rule change is not the words on the whiteboard; it is the patient who gets routed under yesterday’s rule for the few minutes before everyone updates.",
       "game": {
         "type": "SPOT",
         "title": "What the marquee is taking now",
         "setup": "Triage Marquee",
         "play": "Work the arrivals board while the triage rule changes.",
         "task": "Work the arrivals board while the triage rule changes.",
-        "question": "Sort arrivals to the rule on the whiteboard, and keep watching the whiteboard.",
-        "answer": "Read the board rather than the patient in front of you. Every rewrite leaves a few minutes in which the old rule still feels like the right one.",
-        "why": "Three rules run across the afternoon and each wants a different part of the board. Anybody short of breath, then anybody who cannot isolate at home, then anybody with a confirmed swab. A patient can answer two of those at once, which is what makes the switch cost real rather than notional. What the panel scores is the window either side of each change, because most arrivals are wanted by neither rule and are handled correctly by somebody who has read nothing. The marquee's own version of this is the quarter of an hour after the isolation beds fill: the rule has changed, and the people already being walked down the corridor are being walked there under the rule that was in force when somebody set off.",
+        "question": "Sort arrivals by the current rule on the whiteboard, and keep watching that whiteboard for changes.",
+        "answer": "Read the whiteboard, not just the patient standing in front of you. Every time the rule changes, there are a few minutes when the old rule still feels right.",
+        "why": "Three rules run through the afternoon, and each wants a different group. First, anybody short of breath. Then, anybody who can't isolate at home. Then, anybody with a confirmed swab. One patient can match two rules at once, which is what makes a switch cost real. The panel scores the few minutes right around each change, since most arrivals fit neither rule and get sorted correctly anyway. Right after isolation beds fill, patients already walking the corridor are still walking under the old rule.",
         "spot": {
           "targets": [
             {
@@ -223,25 +225,26 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Locate the oxygen-delivery failure",
-      "scene": "A patient’s oxygenation is worsening while Dr. Lena Ortiz reviews the bedside console. It shows PaCO₂ 39 mmHg, low arterial oxygen, haemoglobin 14 g/dL, cardiac output 5.2 L/min and new lung imaging. The team needs the bottleneck before rounds.",
-      "takeaway": "A transport chain is localized by tracing every required handoff and using normal links to narrow where the bottleneck lies.",
+      "scene": "Elias Webb's oxygen is dropping while Dr. Lena Ortiz watches the bedside monitor, and rounds start in minutes. It shows PaCO₂ 39, low blood oxygen, haemoglobin 14, cardiac output 5.2, and new lung scans. The team needs to find the blocked step before rounds.",
+      "takeaway": "To find where a delivery chain breaks, trace every handoff in order, and let the normal links rule themselves out one by one.",
       "place": "Intensive Care Unit",
-      "guide": "Build the path oxygen takes, in order, from the air in the room to the tissue that uses it. Then name the link where this patient's chain fails. Read the panel rather than the diagnosis: the haemoglobin, the cardiac output and the carbon dioxide are each telling you that a particular link is working, and only one of them is not.",
+      "at": "icu-monitor",
+      "guide": "Build the path that oxygen takes, step by step, from the air in the room to the tissue that finally uses it. Then find the one link where this patient's chain breaks down. Read the numbers, not the diagnosis on the chart. PaCO₂ is the carbon dioxide level in the blood — it tells you about breathing. Haemoglobin is the protein in blood that carries oxygen. Cardiac output is how much blood the heart pumps each minute. Each of these numbers is telling you that one particular link is working. Only one link is not.",
       "background": [
-        "What the chain is. Air reaches the alveoli by ventilation, oxygen crosses into the blood by diffusion, haemoglobin carries it, the heart delivers it, and the tissue takes it up. Each step can fail on its own, and the treatment for each is different — which is why 'low oxygen' is a symptom rather than a diagnosis.",
-        "How to read the panel as evidence about links. A normal carbon dioxide says the patient is moving air, so ventilation is not the failure. Haemoglobin of 14 says the carrying capacity is there. A cardiac output of 5.2 litres a minute says delivery is working. Each normal value eliminates a link.",
-        "Why the imaging matters most here. New changes in the lungs point at the step between the alveolus and the blood. That is the one link the other measurements cannot exonerate, and it is the one whose treatment differs most from what would be given for the others."
+        "What the chain is. Air reaches the alveoli — the tiny air sacs deep in the lungs — through breathing, a step called ventilation. Oxygen then crosses from the alveoli into the blood, a step called diffusion. Haemoglobin carries that oxygen through the blood. The heart pumps the blood to deliver it. Finally, the body's tissue takes the oxygen up and uses it. Each step can fail on its own, and each failure needs a different treatment. That is why 'low oxygen' is a symptom, not a diagnosis by itself.",
+        "How to read the numbers as clues about each link. A normal PaCO₂ means the patient is moving air in and out — so ventilation is not the failed link. Haemoglobin of 14 means the blood has enough oxygen-carrying protein. A cardiac output of 5.2 litres a minute means the heart is pumping enough blood. Each normal number rules out one link in the chain.",
+        "Why the lung scans matter most here. New changes on the scans point to the step between the alveoli and the blood — the diffusion step. That is the one link none of the other numbers can clear. It is also the link whose treatment looks most different from the others."
       ],
-      "story": "A patient’s oxygenation is worsening while Dr. Lena Ortiz reviews the bedside console. It shows PaCO₂ 39 mmHg, low arterial oxygen, haemoglobin 14 g/dL, cardiac output 5.2 L/min and new lung imaging. The team needs the bottleneck before rounds.",
+      "story": "Elias Webb's oxygen is dropping while Dr. Lena Ortiz watches the bedside monitor, and rounds start in minutes. It shows PaCO₂ 39, low blood oxygen, haemoglobin 14, cardiac output 5.2, and new lung scans. The team needs to find the blocked step before rounds.",
       "game": {
         "type": "CHAIN",
         "title": "Locate the oxygen-delivery failure",
         "setup": "Intensive Care Unit",
         "play": "Assemble the oxygen path from air to tissue, then name the link that the full panel makes most likely to be limiting.",
         "task": "Assemble the oxygen path from air to tissue, then name the link that the full panel makes most likely to be limiting.",
-        "question": "Where does the oxygen-delivery chain most likely fail in this panel?",
-        "answer": "The leading bottleneck is gas exchange at the air–blood interface. PaCO₂ near normal makes isolated global hypoventilation less likely, haemoglobin is adequate, and measured cardiac output is not low. Low arterial oxygen plus diffuse alveolar disease points most strongly to the lung handoff.",
-        "why": "Oxygen delivery is a chain, so no single normal value proves the patient is safe. Near-normal PaCO₂ makes isolated global hypoventilation less likely. Haemoglobin of 14 g/dL is adequate for carriage, and a cardiac output of 5.2 L/min does not support a simple low-flow explanation. The abnormal evidence sits at the lung handoff: arterial oxygen is low and imaging shows diffuse alveolar involvement. Mixed disorders remain possible, so the next step is to measure downstream consequences rather than treat one normal link as a complete clearance.",
+        "question": "Which link in the oxygen-delivery chain most likely fails, based on these numbers?",
+        "answer": "The most likely blocked link is gas exchange — where air meets blood inside the lungs. PaCO₂ close to normal makes a simple breathing failure less likely. Haemoglobin is enough. Cardiac output is not low. Low blood oxygen plus the lung scan findings both point straight at the lung handoff.",
+        "why": "Oxygen delivery is a chain, so one normal number clears nothing. A near-normal PaCO₂ makes simple global hypoventilation less likely. Haemoglobin of 14 g/dL does not suggest an oxygen-carrying deficit. Cardiac output of 5.2 L/min does not support a low-flow explanation. Low arterial oxygen with new diffuse lung findings makes impaired pulmonary gas exchange the leading bottleneck. That still leaves room for more than one process.",
         "chain": {
           "links": [
             {
@@ -310,24 +313,26 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "Read the downstream acid–base signal",
-      "scene": "The oxygen-delivery panel points toward a lung bottleneck, but the team still needs a downstream consequence. Arterial bicarbonate is 14 mmol/L and PaCO₂ is 31 mmHg; lactate is still pending.",
-      "takeaway": "Acid–base status reflects both bicarbonate and carbon dioxide, so one number should not be interpreted alone.",
+      "title": "Does the blood chemistry fit the failure?",
+      "scene": "Guess wrong here, and the team treats the wrong organ. The real damage keeps spreading. The oxygen-delivery panel points toward a lung bottleneck. But the team still needs a downstream consequence. Arterial bicarbonate is 14 mmol/L and PaCO₂ is 31 mmHg; lactate is still pending.",
+      "takeaway": "Blood pH depends on both bicarbonate and carbon dioxide together, so neither number should be read alone.",
       "place": "Clinical Chemistry Bench",
-      "guide": "Six numbers, and two of them are normal values rather than this patient's: a middle-of-range pH, and a normal carbon dioxide. Ask of each whether the relationship uses it. The dissolved gas is the carbon dioxide times its solubility, so those two go together. And note what the answer settles: a disturbance and a compensation, not a cause.",
+      "guide": "You have six numbers, and two of them are normal values, not this patient's: a middle-of-range pH, and a normal carbon dioxide. For each one, ask whether the relationship actually uses it. Dissolved carbon dioxide is PaCO₂ times its solubility, so those two go together. And notice what the answer settles: that there's a problem and the body is compensating for it — not what caused it.",
       "background": [
-        "What this number settles, and what it does not. A pH of 7.28 with a low bicarbonate and a low carbon dioxide is acidaemia with a metabolic cause and a respiratory compensation — the lungs are already working on it. What it does not say is where the acid is coming from. Arterial oxygenation and carbon dioxide are on the chart from the earlier panel, so measuring them again is precision about a number nobody is disputing. Cardiac output reports the pump, and the pump has already read normal. And three devices agreeing on the same blood-oxygen reading tells you the devices agree, not anything new about the patient. The missing measurement is tissue lactate: it is the one that says whether the acid is coming from tissue that is not getting enough blood, whatever the pump is reporting."
+        "Why this is an estimate, not a full calculation. Every number on the board is already measured or given — nothing has to be worked out from scratch. What's being tested is whether you can pick the right numbers for the relationship, and whether your answer's size makes sense once they're in.",
+        "Why each tile carries a label. A bare number can't be checked against the relationship it's going into. Reading the label is how you catch a mismatched unit. It also catches a number that belongs to a different part of the problem, before you place it. That checking habit is exactly what this format is built to teach.  Was a second, complete CHOICE grafted onto this card — four options, a key and   # three rebuttals about *what to measure next* — sitting above an estimate block   # that computes a pH. Two questions on one card, and the CHOICE's key gave away   # what the estimate is for. The teaching in those four lines is kept here.",
+        "What this number settles, and what it doesn't. A pH of about 7.28 with low bicarbonate means acidemia with a metabolic component; the low PaCO₂ is consistent with respiratory compensation. The calculation does not identify why bicarbonate fell. Lactate would be useful because an elevated value can support tissue hypoperfusion or other causes of increased lactate production, but it is not by itself proof that tissue lacked blood flow. Interpret it with the rest of the clinical picture."
       ],
-      "story": "The oxygen-delivery panel points toward a lung bottleneck, but the team still needs a downstream consequence. Arterial bicarbonate is 14 mmol/L and PaCO₂ is 31 mmHg; lactate is still pending.",
+      "story": "Guess wrong here, and the team treats the wrong organ. The real damage keeps spreading. The oxygen-delivery panel points toward a lung bottleneck. But the team still needs a downstream consequence. Arterial bicarbonate is 14 mmol/L and PaCO₂ is 31 mmHg; lactate is still pending.",
       "game": {
         "type": "BALLPARK",
-        "title": "Read the downstream acid–base signal",
+        "title": "Does the blood chemistry fit the failure?",
         "setup": "Clinical Chemistry Bench",
         "play": "Use the blood-buffer relationship to estimate arterial pH and interpret what the pair of values supports.",
         "task": "Use the blood-buffer relationship to estimate arterial pH and interpret what the pair of values supports.",
-        "question": "Estimate the pH from bicarbonate 14 mmol/L and PaCO₂ 31 mmHg.",
-        "answer": "The estimate is about pH 7.28. The low bicarbonate drives the pH downward, while the lower PaCO₂ partly compensates. The acid–base result supports a metabolic component but does not identify its cause by itself.",
-        "why": "For the blood bicarbonate buffer, dissolved carbon dioxide is proportional to PaCO₂. The useful clinical form is pH = 6.1 + log₁₀([HCO₃⁻]/(0.03×PaCO₂)). With bicarbonate 14 and PaCO₂ 31, the ratio is about 15 and the pH is about 7.28. The low bicarbonate supports a metabolic acid–base disturbance, while the reduced PaCO₂ moves pH upward as respiratory compensation. The calculation does not identify the cause by itself; the pending lactate and the rest of the oxygen-delivery evidence still matter.",
+        "question": "Estimate the pH of the blood, given bicarbonate at 14 mmol/L and PaCO₂ at 31 mmHg.",
+        "answer": "The estimate is about pH 7.28. Low bicarbonate drives the acidemia, while the lower PaCO₂ partly compensates. The numbers are consistent with a metabolic acidosis with respiratory compensation; they do not identify the cause. The pending lactate and the rest of the oxygen-delivery evidence are still needed.",
+        "why": "In blood, dissolved carbon dioxide is proportional to PaCO₂. The formula here is pH = 6.1 + log₁₀([HCO₃⁻] ÷ (0.03 × PaCO₂)). With bicarbonate at 14 and PaCO₂ at 31, that ratio is about 15, giving a pH near 7.28. The low bicarbonate points to a metabolic problem; the lower PaCO₂ is the lungs compensating, pulling the pH back up a little. The math alone doesn't say what caused it — the pending lactate result, and the rest of the oxygen-delivery evidence, still matter.",
         "givens": [],
         "relationship": "pH = 6.1 + log10([HCO₃⁻] ÷ (0.03 × PaCO₂)).",
         "calcKey": "CLIN-4"
@@ -335,32 +340,6 @@ export const CURRICULUM = {
       "assumes": [
         "bicarbonate is the major measured base in this buffer pair",
         "PaCO₂ is the arterial carbon-dioxide pressure in mmHg"
-      ],
-      "equations": [
-        {
-          "e": "pH = pKa + log([A⁻]/[HA])",
-          "c": "Henderson–Hasselbalch — buffering in a body",
-          "v": [
-            [
-              "pH",
-              "acidity of the blood"
-            ],
-            [
-              "pKa",
-              "the acid constant for that buffer pair, 6.1 for bicarbonate"
-            ],
-            [
-              "[A⁻]",
-              "concentration of the base form, bicarbonate"
-            ],
-            [
-              "[HA]",
-              "concentration of the acid form, dissolved carbon dioxide"
-            ]
-          ],
-          "s": "Blood pH is set by the ratio of base to acid rather than by either alone, which is why the lungs and the kidneys can compensate for each other.",
-          "demanded": true
-        }
       ],
       "concept": {
         "n": 25,
@@ -374,16 +353,17 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Protective response or runaway inflammation?",
-      "scene": "Several patients began to worsen after the amount of detectable pathogen had already started to fall. The panel from the last 48 hours is on the screen, and the ward wants to know what it is treating.",
-      "takeaway": "A biological response can become part of the problem. The strongest explanation must account for timing as well as the direction of each measurement.",
+      "scene": "Elias Webb has less measured viral signal than yesterday and worse oxygenation. Across several patients, viral burden is falling while inflammatory markers rise. The ward needs to decide which explanation best fits the timing before it chooses between stronger antiviral pressure and anti-inflammatory treatment.",
+      "takeaway": "The body's own defence can become part of the problem. The best explanation has to fit the timing of every reading, not just its direction.",
       "place": "Intensive Care Unit",
-      "guide": "Five readings, and the timing is the discriminator. Ask of each candidate whether it would have the pathogen curve rising or falling while the patient worsens. If the agent were driving this, the two would climb together. Neutralising antibody being present says the specific response has arrived. The negative cultures remove the rival explanation for a late deterioration.",
+      "at": "icu-monitor",
+      "guide": "Five readings, and timing is what tells them apart. For each guess, ask: would it make the amount of pathogen rise or fall while the patient gets worse? If the pathogen itself were driving this, the pathogen level and the harm would climb together. A neutralising antibody — a defence protein that can disable the pathogen — being present means the body's specific defence has already arrived. The negative cultures rule out the other likely explanation for a late decline: a new infection.",
       "background": [
-        "Why the unremarkable readings decide it. The salient reading is what draws attention, and it is usually consistent with several explanations at once, which is why it rarely settles anything. The readings that discriminate are the ones a candidate predicts should have moved and which have not: a normal value is a positive result against every mechanism that would have disturbed it.",
-        "How to work the candidates. Take each mechanism and predict the panel it implies before you look at the panel again — which readings it drives, in which direction, and by roughly how much. Then compare. Working that way round is what separates a diagnosis from a rationalisation, because the prediction is made before the data is consulted.",
-        "Why only one candidate survives. Several will account for part of the panel, deliberately so, and a partial fit is exactly what a confident wrong answer feels like from the inside. When two remain, look for the reading on which their predictions differ and let it decide. If no reading separates them you have not finished reading the panel."
+        "Why the quiet readings matter most. The reading that jumps out is not always the one that decides the case. It usually fits several guesses at once, so it rarely settles anything by itself. The readings that decide are the ones a guess predicts should move — and that stayed normal instead. A normal reading is real evidence. It counts against every guess that would have pushed it off normal.",
+        "How to test each guess. First, picture what each guess would do to the whole panel. Which readings would it push, which way, and by how much? Write that down before you look at the panel again. Then compare your guess to what actually happened. Doing it in that order is what makes it a real diagnosis, not just a story that fits after the fact. The prediction has to come before you look at the data — never after.",
+        "Why only one guess survives. Several guesses will explain part of the panel — that's on purpose, so a partial fit can feel just as convincing as the right answer. When two guesses are left, find the one reading where their predictions disagree. Let that reading decide. If no reading tells them apart, you haven't finished reading the panel yet."
       ],
-      "story": "Several patients began to worsen after the amount of detectable pathogen had already started to fall. The panel from the last 48 hours is on the screen, and the ward wants to know what it is treating.",
+      "story": "Elias Webb has less measured viral signal than yesterday and worse oxygenation. Across several patients, viral burden is falling while inflammatory markers rise. The ward needs to decide which explanation best fits the timing before it chooses between stronger antiviral pressure and anti-inflammatory treatment.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Protective response or runaway inflammation?",
@@ -391,12 +371,12 @@ export const CURRICULUM = {
         "play": "Which mechanism best explains the reversal in the full panel?",
         "task": "Which mechanism best explains the reversal in the full panel?",
         "question": "Which mechanism best explains the reversal in the full panel?",
-        "answer": "Inflammation out of control",
-        "why": "Timing is the discriminator. If the agent were driving this, its curve and the damage would rise together — instead the pathogen signal is falling while inflammatory signals climb and the patient gets worse. That is a response that has outlived its cause. Neutralising antibody being present says the specific response has arrived, and the negative bacterial cultures remove the rival that would otherwise explain a late deterioration.",
+        "answer": "Immune-driven inflammation is the leading explanation",
+        "why": "The timing makes immune-driven injury the leading explanation, not a proven fact. Viral burden is falling while inflammatory markers and tissue dysfunction rise, so direct viral replication no longer tracks the deterioration. Negative bacterial cultures weaken one alternative. The correct next move is to use this pattern to guide and monitor treatment while continuing to check that the pathogen is not rebounding elsewhere.",
         "rebuttals": [
-          "Uncontrolled replication would show a rising pathogen signal. This one is falling, over 48 hours, while the patient declines.",
-          "A second, bacterial infection on top of the first is the classic late deterioration, and it is the reason cultures were sent. They are negative.",
-          "Measurement noise does not move four readings in a coherent direction at once, and the antibody result is not noise."
+          "If the pathogen were multiplying out of control, its level would be rising. Here it's falling over 48 hours, even as the patient gets worse.",
+          "A second, bacterial infection on top of the first is the classic reason for a late decline, which is exactly why cultures were sent. They came back negative.",
+          "Random noise in the readings would not push four different readings in the same direction at once. The antibody result is not noise."
         ],
         "headline": "Several patients begin to worsen after the amount of detectable pathogen has started to fall.",
         "readings": [
@@ -442,7 +422,7 @@ export const CURRICULUM = {
             "mechanism": "The agent is multiplying faster and directly increasing tissue injury."
           },
           {
-            "label": "Inflammation out of control",
+            "label": "Immune-driven inflammation is the leading explanation",
             "mechanism": "The immune response remains strongly activated and damages tissue even as pathogen burden falls."
           },
           {
@@ -454,7 +434,7 @@ export const CURRICULUM = {
             "mechanism": "The apparent changes are unrelated fluctuations without a shared mechanism."
           }
         ],
-        "correctChoice": "Inflammation out of control"
+        "correctChoice": "Immune-driven inflammation is the leading explanation"
       },
       "assumes": [
         "the immune response can damage tissue while it clears an infection",
@@ -483,113 +463,30 @@ export const CURRICULUM = {
     },
     {
       "day": 6,
-      "title": "Treat the mechanism, not the marker",
-      "scene": "Dr. Nia Okafor, the immunology lead, has one rapid laboratory slot before tonight’s treatment conference. Patients are worsening late, and four measurements from archived samples could return on different timescales.",
-      "takeaway": "The most valuable measurement is the one whose possible outcomes separate competing mechanisms that would lead to different actions.",
-      "place": "Pathology Archive",
-      "guide": "One laboratory slot before tonight's conference, and four measurements that return on different timescales. Open each and ask what mechanism its result would establish, not how interesting the number is. Patients are worsening late, which narrows what a useful answer looks like. Buy the one that changes what the team treats.",
-      "background": [
-        "Why late worsening is the clue. Deterioration after the peak of viral replication points away from the virus itself and towards the response to it. Those imply different treatments — antiviral versus immune-modulating — and giving the wrong one late is worse than giving nothing.",
-        "Why timescale is part of the value. A measurement that returns after the conference cannot change tonight's decision. That is not a reason to prefer fast and useless, but it does mean the slot has to be spent on something that both discriminates and arrives.",
-        "What a marker is and is not. A number that rises with severity tells you how ill somebody is. A number that identifies which process is driving the illness tells you what to do about it. Only the second is a mechanism, and only the second changes the treatment."
-      ],
-      "story": "Dr. Nia Okafor, the immunology lead, has one rapid laboratory slot before tonight’s treatment conference. Patients are worsening late, and four measurements from archived samples could return on different timescales.",
-      "game": {
-        "type": "VALUE",
-        "title": "Treat the mechanism, not the marker",
-        "setup": "Pathology Archive",
-        "play": "Spend the rapid slot on the evidence that best separates ongoing agent-driven injury from a host response that has outlasted it.",
-        "task": "Spend the rapid slot on the evidence that best separates ongoing agent-driven injury from a host response that has outlasted it.",
-        "question": "Which measurement most changes the mechanism the team should carry into tonight’s treatment discussion?",
-        "answer": "Use the rapid slot for paired agent-burden and inflammatory-marker measurements across time. The key evidence is direction. Falling burden with rising inflammation supports a host-driven late phase more strongly than one high inflammatory value. It also separates the mechanism better than a detailed picture of where injury occurred.",
-        "why": "A single inflammatory value can be high while the agent is still driving disease or after the immune response becomes the main source of injury. The mechanisms separate when their trajectories separate. If agent burden falls while inflammatory markers continue rising, the host-driven explanation gains support. If both rise together, ongoing agent activity remains plausible. Cell-state profiling and pathology add useful detail, but they do not answer the urgent causal question as directly. The most valuable measurement is the one that splits the live hypotheses before the decision.",
-        "value": {
-          "budget": {
-            "amount": 1,
-            "unit": "rapid laboratory slot"
-          },
-          "decision": "Choose which mechanism—continuing agent activity or host-driven inflammation—has the stronger time-course support.",
-          "options": [
-            {
-              "id": "paired_trends",
-              "label": "Paired agent burden and inflammatory markers across two time points",
-              "cost": 1,
-              "axis": "causal direction over time",
-              "reveals": "Whether agent burden and inflammation rise together or separate as burden falls while inflammation continues upward.",
-              "decisive": true
-            },
-            {
-              "id": "single_marker",
-              "label": "Repeat one inflammatory marker now",
-              "cost": 1,
-              "axis": "current inflammatory level",
-              "reveals": "Whether inflammation is high at this moment, without showing whether it is following or outlasting agent burden."
-            },
-            {
-              "id": "cell_states",
-              "label": "Deep immune-cell state profiling",
-              "cost": 1,
-              "axis": "immune-cell phenotype",
-              "reveals": "Which immune-cell programs are active, but not a rapid paired trajectory for the immediate mechanism question."
-            },
-            {
-              "id": "pathology",
-              "label": "Detailed tissue pathology",
-              "cost": 1,
-              "axis": "location and pattern of injury",
-              "reveals": "Where tissue injury is occurring, without by itself establishing whether continuing agent activity or the host response is driving it."
-            }
-          ],
-          "hint": "You can get one result before tonight. Open each option to see what it would reveal about the two competing mechanisms, then spend the slot.",
-          "commit": "Commit the decision"
-        }
-      },
-      "assumes": [
-        "the same bedside deterioration can arise from different mechanisms",
-        "a trend over time can distinguish mechanisms that overlap at one time point",
-        "innate and adaptive immunity — taken as read"
-      ],
-      "takesAsRead": [
-        {
-          "n": 13,
-          "c": "Innate and adaptive immunity"
-        }
-      ],
-      "concept": {
-        "n": 14,
-        "c": "Vaccination and treatment",
-        "of": 30,
-        "rests": [
-          "Innate and adaptive immunity"
-        ]
-      }
-    },
-    {
-      "day": 7,
       "title": "Did the comparison stay fair?",
-      "scene": "One large trial site enrolled much younger patients than the others. It also supplies much of the apparent benefit. The original analysis plan already includes site-stratified estimates and a treatment-by-site check. The health ministry wants an answer today.",
-      "takeaway": "Randomization protects the treatment comparison on average; an imbalanced site pattern should be examined with pre-specified analyses.",
+      "scene": "The drug that might end this outbreak could also be a headline built on one lopsided hospital. One large trial site signed up much younger patients than the other sites did, and that site accounts for most of the treatment's apparent benefit. The health ministry wants an answer today.",
+      "takeaway": "Randomisation protects a comparison on average, not site by site. An uneven pattern like this should be checked using the analysis plan written before the results came in.",
       "place": "Clinical Physiology Suite",
-      "guide": "Four ways to handle one imbalanced site. Ask of each whether the choice was made before or after the outcomes were seen. Randomisation makes groups comparable in expectation, not identical in every subgroup. Two of these options would let the analysis depend on the result. The plan already contains the tools, which is what makes this decidable.",
+      "guide": "Four ways to handle one lopsided site. For each one, ask: was this choice made before the results came in, or after? Randomisation — randomly assigning patients to groups — makes groups similar on average, but not identical in every small group. Watch for any choice that lets the analysis change depending on what the results show. The study's original plan already has the right tools built in, which is what makes this decidable.",
       "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the wrong choices are worth studying. Each wrong choice is written to look right under one specific mistake. That mistake might be skipping a step, mixing up a number with a rate, or mistaking a correlation for a cause. Finding which mistake each one matches is where the real learning happens. Picking the right answer by instinct alone teaches nothing.",
+        "Why the shape of a choice tells you nothing. A correct choice often collects extra detail and units, which can make it longer. In the past, the correct choice used to be the longest option far more often than chance — across a whole game. That happened 88 percent of the time in these quizzes, before it was fixed. Now every game is checked for this pattern, so length, hedging, and extra detail no longer give away the answer.",
+        "What the verdict adds. Every wrong choice gets its own rebuttal, printed in the verdict — the reason that choice fails, not just a repeat of the right answer. Read them even after answering correctly. A right choice made for a shaky reason looks the same as one made for a solid reason. That's true until the day the shaky reason is exactly what's being tested."
       ],
-      "story": "One large trial site enrolled much younger patients than the others. It also supplies much of the apparent benefit. The original analysis plan already includes site-stratified estimates and a treatment-by-site check. The health ministry wants an answer today.",
+      "story": "The drug that might end this outbreak could also be a headline built on one lopsided hospital. One large trial site signed up much younger patients than the other sites did, and that site accounts for most of the treatment's apparent benefit. The health ministry wants an answer today.",
       "game": {
         "type": "CHOICE",
         "title": "Did the comparison stay fair?",
         "setup": "Clinical Physiology Suite",
         "play": "One site enrolled younger patients and contributes much of the apparent benefit. What should the trial team do before attributing the difference to treatment?",
         "task": "One site enrolled younger patients and contributes much of the apparent benefit. What should the trial team do before attributing the difference to treatment?",
-        "question": "How should the team handle the site imbalance without choosing the analysis after seeing the outcome?",
+        "question": "How should the team handle this uneven site, without picking their analysis after already seeing the result?",
         "answer": "Use the pre-specified site-stratified analysis and test whether treatment effects differ materially by site.",
-        "why": "Randomization makes treatment groups comparable in expectation, not identical in every subgroup. A site that enrolled younger participants can create a pattern worth checking. That matters especially when the site carries much of the apparent effect. Use the site-stratified and interaction analyses specified before outcomes were seen. Then inspect consistency and data quality, and report the heterogeneity. Dropping the inconvenient site or inventing a new subgroup after seeing the result would make the analysis depend on the outcome.",
+        "why": "Randomisation makes treatment groups similar on average, not identical in every small group. A site that enrolled younger patients can create a pattern worth checking, especially when it accounts for most of the apparent benefit. The right move is the by-site and interaction analyses written into the plan before anyone saw the results. Then check whether the pattern is consistent, check the data quality, and report any differences found. Dropping the inconvenient site, or inventing a subgroup after seeing the result, would let the analysis depend on the outcome.",
         "rebuttals": [
-          "Removing a site because of its result makes inclusion depend on the outcome and can bias the estimate.",
-          "Randomization does not guarantee perfect balance inside every site or subgroup; heterogeneity still needs to be examined.",
-          "Post-hoc subgroup hunting can manufacture apparently stable stories. Pre-specified analyses preserve the meaning of the comparison."
+          "Removing a site because you don't like its result makes inclusion depend on the outcome. That can bias the estimate.",
+          "Randomisation does not guarantee perfect balance inside every site or small group. Differences between sites still need to be checked.",
+          "Hunting for a subgroup after seeing the results can manufacture a story that looks solid but isn't. Using the plan written beforehand protects what the comparison actually means."
         ],
         "choices": [
           "Use the pre-specified site-stratified analysis and test whether treatment effects differ materially by site.",
@@ -610,29 +507,29 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 8,
-      "title": "Hospital capacity threshold",
-      "scene": "The region has 120 staffed critical-care beds, and 90 are already full. Severe cases are arriving at about eight a day. The transfer centre is calling neighbouring hospitals while the council asks how many days remain.",
-      "takeaway": "Simple bounds can reveal which missing data are decision-critical.",
+      "day": 7,
+      "title": "How many days of beds are left?",
+      "scene": "The region's critical-care unit is 90 of 120 beds deep, and eight more patients like Elias Webb are arriving every day. The transfer centre is calling nearby hospitals for help, while the local council asks how many days are left.",
+      "takeaway": "A simple worst-case number can show you exactly which missing piece of data actually matters for the decision.",
       "place": "Hospital Capacity Center",
-      "guide": "Five numbers, and two of them belong to other questions: the total staffed beds, and the average stay. Ask of each whether this bound depends on it. The answer assumes nobody leaves, which is the point of a bound. What it shows is what is missing: the discharge rate nobody is collecting.",
+      "guide": "You have five numbers, and two of them belong to a different question: the total staffed beds, and the average stay. For each number, ask whether this bound — the worst case, the outer limit — actually depends on it. The answer assumes nobody ever leaves, which is exactly what makes it a bound. What it shows is what's missing: nobody is tracking the discharge rate — how fast patients leave.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why this is an estimate, not a full calculation. Every number on the board is already measured or given — nothing has to be worked out from scratch. What's being tested is whether you can pick the right numbers for the relationship, and whether your answer's size makes sense once they're in.",
+        "Why each tile carries a label. A bare number can't be checked against the relationship it's going into. Reading the label is how you catch a mismatched unit. It also catches a number that belongs to a different part of the problem, before you place it. That checking habit is exactly what this format is built to teach."
       ],
-      "story": "The region has 120 staffed critical-care beds, and 90 are already full. Severe cases are arriving at about eight a day. The transfer centre is calling neighbouring hospitals while the council asks how many days remain.",
+      "story": "The region's critical-care unit is 90 of 120 beds deep, and eight more patients like Elias Webb are arriving every day. The transfer centre is calling nearby hospitals for help, while the local council asks how many days are left.",
       "game": {
         "type": "BALLPARK",
-        "title": "Hospital capacity threshold",
+        "title": "How many days of beds are left?",
         "setup": "Hospital Capacity Center",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the upper bound on time to capacity, assuming nobody is discharged.",
+        "question": "Estimate the outer-limit time until the region runs out of beds, assuming nobody is ever discharged.",
         "answer": "",
-        "why": "A bound is worth computing early because of what it shows is missing. Here it says the decision turns on a discharge rate nobody is collecting.",
+        "why": "A crude bound is useful here because it exposes what the team does not know. With 30 open beds and about eight severe admissions per day, a no-discharge scenario fills the remaining capacity in about 3.75 days. Real occupancy also depends on discharges and transfers, so the result is not a forecast; it is the maximum urgency case used to set lead times.",
         "givens": [],
         "relationship": "Time to fill = beds free ÷ arrivals per day.",
-        "calcKey": "CLIN-8"
+        "calcKey": "CLIN-7"
       },
       "assumes": [
         "a bound is what you can say before the missing number arrives"
@@ -651,26 +548,27 @@ export const CURRICULUM = {
   "CELL": [
     {
       "day": 1,
-      "title": "Crossing the cellular boundary",
-      "scene": "Only some cell types in the respiratory tissue are affected, and the culture wing has four cards describing what happens when something crosses into a cell. Nobody has put them in order yet, and the therapy meeting is at four.",
-      "takeaway": "Membranes are selective interfaces whose proteins can determine cell vulnerability.",
+      "title": "What has to happen before the virus gets inside?",
+      "scene": "Elias Webb's lungs are failing while his kidneys work fine, and nobody can say why one organ falls and another survives. Only some cell types in the respiratory tissue are affected. The culture wing has four cards showing what happens when something crosses into a cell, and nobody has put them in order yet. The therapy meeting is at four.",
+      "takeaway": "A cell membrane acts like a gatekeeper — the proteins on it decide which cells can be entered.",
       "place": "Cell Culture Wing",
+      "at": "culture-wing-bench",
       "guide": "These four are one physical chain, so ask what has to happen before each can. Nothing enters until something on the surface is recognised, and a cell without the right protein cannot be infected however much material arrives. That is why only some cell types are affected. Everything the cell then does wrongly is downstream of a barrier already crossed.",
       "background": [
-        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
-        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
-        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+        "Why the order is graded whole. A sequence claims one step depends on the step before it. Each step happens because the step before it already happened, or had to happen first. Moving just one pair out of place breaks that claim, no matter where it sits. So partial credit would be credit for an order that does not actually work.",
+        "Why the ends are the place to start. The first and last cards have nothing before or after them. That usually makes them the two you can settle just from the scene. Once those two are pinned down, the rest of the order narrows fast. What is left in the middle is where the real judgment happens.",
+        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can also run on cost, on risk, or on reversibility. A reversible step is one that leaves the sample as it was. That kind of step can be ordered before a step that uses the sample up. On boards like that, a timeline finds nothing. None of the steps has to happen at a particular hour."
       ],
-      "story": "Only some cell types in the respiratory tissue are affected, and the culture wing has four cards describing what happens when something crosses into a cell. Nobody has put them in order yet, and the therapy meeting is at four.",
+      "story": "Elias Webb's lungs are failing while his kidneys work fine, and nobody can say why one organ falls and another survives. Only some cell types in the respiratory tissue are affected. The culture wing has four cards showing what happens when something crosses into a cell, and nobody has put them in order yet. The therapy meeting is at four.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Crossing the cellular boundary",
+        "title": "What has to happen before the virus gets inside?",
         "setup": "Cell Culture Wing",
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "The order is physical, and it is why the tissue pattern is predictable. Nothing enters until something on the surface is recognised, and a cell without the right protein cannot be infected however much material reaches it. Recognition comes first, the membrane rearranges second because that is what binding triggers, material crosses third, and everything the cell then does wrongly is downstream of a barrier that has already been crossed.",
+        "why": "For this agent, the evidence points to a receptor-dependent entry route. Surface recognition comes first; then membrane fusion or wrapping can begin; then viral material crosses into the cell or an intracellular compartment. The downstream takeover happens only after entry. That order is specific to the entry model being tested here, not a rule that every pathogen uses the same route.",
         "rebuttals": [
           "Binding first: it is the step that decides which cells are even candidates, which is what makes some cell types vulnerable and others not.",
           "The membrane bends because something bound to it. Fusion is a consequence of recognition, not a step that happens on its own.",
@@ -711,26 +609,26 @@ export const CURRICULUM = {
     },
     {
       "day": 2,
-      "title": "Choose the membrane mechanism",
-      "scene": "Four observations from the culture bench each describe something moving across a membrane. The cell biologist wants each one named by its mechanism before the entry model goes further, without guessing from the molecule names.",
-      "takeaway": "Transport mechanisms are inferred from constraints, not memorized from molecule names alone.",
+      "title": "How did each thing cross the membrane?",
+      "scene": "Get this wrong and the therapy meeting builds a treatment for the wrong cells. Four observations from the culture bench each describe something moving across a membrane. The cell biologist wants each one named by its mechanism before the entry model goes further, without guessing from the molecule names.",
+      "takeaway": "You can tell how something crosses a membrane by testing it against the rules, not by knowing the molecule's name.",
       "place": "Membrane Biology Lab",
-      "guide": "Four observations and four mechanisms, and the name of the molecule tells you nothing. Pair them on three tests. Which way does it go, downhill or uphill? Is a protein involved, or does it cross the lipid directly? And is it too big for any channel? The ATP being consumed is the receipt for one of those answers.",
+      "guide": "Four observations, four mechanisms — the different ways a molecule can cross a membrane. The molecule's own name will not tell you which one to pick. Sort each observation using three tests instead. Which way does it move, downhill or uphill? Does a protein carry it, or does it cross the fatty membrane layer on its own? And is it too big to fit through any channel? Wherever ATP gets used up, treat that as a clue, not as the answer by itself. Check it against the three tests above.",
       "background": [
-        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
-        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why this is a matching board, not four separate questions. Each response on a board like this is written to sound plausible for more than one situation. Choosing them one at a time lets a nearly-right answer slip through unexamined. Having to place every response forces a real comparison. The question is not is this reasonable here, but is it more right here than there.",
+        "How to use the one-each rule. The four responses are a set to be handed out, not a list to sample from. Because of that, every match you make narrows down the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation. That is exactly the distinction this stop is testing.",
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made earlier and stopped questioning."
       ],
-      "story": "Four observations from the culture bench each describe something moving across a membrane. The cell biologist wants each one named by its mechanism before the entry model goes further, without guessing from the molecule names.",
+      "story": "Get this wrong and the therapy meeting builds a treatment for the wrong cells. Four observations from the culture bench each describe something moving across a membrane. The cell biologist wants each one named by its mechanism before the entry model goes further, without guessing from the molecule names.",
       "game": {
         "type": "PROTOCOL",
-        "title": "Choose the membrane mechanism",
+        "title": "How did each thing cross the membrane?",
         "setup": "Membrane Biology Lab",
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "",
-        "why": "Three constraints tell these apart and none of them is the name of the molecule. Which way it goes: downhill needs no energy, uphill does, and the ATP consumption is the receipt. Whether a protein is involved: a small nonpolar molecule crosses the lipid directly, an ion cannot and needs a pore. And how big it is: a bound particle too large for any channel is taken in by the membrane wrapping it.",
+        "why": "Three constraints tell these apart, and none is the molecule's name. Direction: downhill needs no energy, uphill does, and ATP use is the receipt. Whether a protein is involved: a small nonpolar molecule crosses the lipid directly, but an ion cannot and needs a pore. Size: a bound particle too large for any channel gets taken in by the membrane wrapping around it.",
         "rebuttals": [
           "Downhill and needing no protein is simple diffusion — the molecule is small and nonpolar enough to cross the lipid itself.",
           "Downhill but through a selective pore is facilitated diffusion. Still no energy spent; the protein supplies the selectivity, not the push.",
@@ -783,25 +681,26 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Separate binding from entry",
-      "scene": "Dr. Maya Chen, the cell biology lead, has a simulated labelled-particle entry assay on vulnerable airway cells. Three perturbations are ready, and the therapy meeting needs evidence about the first physical step.",
-      "takeaway": "A causal mechanism is stronger when changing one proposed link changes the response and reversing that change restores it.",
+      "scene": "A treatment aimed at the wrong step could do nothing, or do harm. Dr. Maya Chen, the cell biology lead, is running a simulated test that counts how many labelled particles get inside vulnerable airway cells. Three changes are ready to try, and the therapy meeting needs evidence about the first physical step.",
+      "takeaway": "Evidence for a cause is strongest when changing it moves the result, and undoing the change brings the result back.",
       "place": "Structural Biology Room",
-      "guide": "The number you are watching is the entry signal: how much labelled particle ends up inside the cells. Three things can be changed, and only one of them acts on the step the meeting is asking about. A response counts only if it is larger than the well-to-well scatter of the assay. Change one, run it, restore it, and name the change the entry signal follows.",
+      "at": "binding-rig",
+      "guide": "The number you are watching is the entry signal — how much labelled particle ends up inside the cells. Three things can be changed. Only one of them acts on the step the meeting is asking about. A change only counts as real if it is bigger than the normal noise between test wells. Change one thing, run the test, put it back, and name the change the entry signal follows.",
       "background": [
-        "What the assay measures, and what it does not. The label reports particles that have got inside the cell, not particles stuck to the outside. That distinction is the whole point of the experiment: binding to the surface and entering the cell are separate steps, and a therapy that blocks one may do nothing about the other.",
-        "Why a matched antibody is in the list. It is there to be changed and produce nothing. An antibody of the same class that does not target the receptor controls for everything handling an antibody involves — the buffer, the incubation, the washing — so a response to the real blocker means something only if this one gives none.",
-        "Why the dose is in the list too. Give more particles and more get in, which moves the number without saying anything about the mechanism. It is the plausible confound: a change that moves the readout for a reason that has nothing to do with the step being asked about."
+        "What the test measures, and what it does not. The label reports particles that have already gotten inside the cell. It does not count particles that are just stuck to the outside. That difference is the whole point of the experiment. Binding to the surface and entering the cell are two separate steps. A therapy that blocks one step may do nothing about the other.",
+        "Why a matched control antibody is on the list. It is there to be changed and produce nothing. This second antibody is the same type, but it does not target the receptor. Handling any antibody involves the same buffer, the same incubation, the same washing steps. The matched antibody controls for all of that handling. So a response to the real blocker means something only if this matched one gives no response at all.",
+        "Why the dose is in the list too. Give more particles and more get in. That moves the number without saying anything about the mechanism. It is a confound — a change that moves the number for a reason that has nothing to do with the step being tested."
       ],
-      "story": "Dr. Maya Chen, the cell biology lead, has a simulated labelled-particle entry assay on vulnerable airway cells. Three perturbations are ready, and the therapy meeting needs evidence about the first physical step.",
+      "story": "A treatment aimed at the wrong step could do nothing, or do harm. Dr. Maya Chen, the cell biology lead, is running a simulated test that counts how many labelled particles get inside vulnerable airway cells. Three changes are ready to try, and the therapy meeting needs evidence about the first physical step.",
       "game": {
         "type": "CONTROL",
         "title": "Separate binding from entry",
         "setup": "Structural Biology Room",
         "play": "Change one condition at a time, reverse the strongest effect, and decide whether the surface-receptor step is causally required for entry.",
         "task": "Change one condition at a time, reverse the strongest effect, and decide whether the surface-receptor step is causally required for entry.",
-        "question": "Which single change makes the entry signal follow the receptor interaction rather than exposure or antibody handling?",
-        "answer": "The entry signal follows the receptor-blocking perturbation. It falls from about 100 to 22 units when the interaction is blocked. After washout it returns to about 96. The matched antibody does not reproduce the drop, so ordinary antibody handling does not explain it.",
-        "why": "Receptor abundance is only an indirect clue. A causal test asks whether the proposed interaction is required for entry. Blocking that interaction while keeping dose and handling fixed sharply lowers the entry signal. A matched antibody leaves the signal unchanged, which controls for adding an antibody at all. Washing the blocker away restores entry, so the effect follows the manipulated link in both directions. Doubling exposure changes signal size but does not explain why the receptor-specific perturbation removes entry under otherwise matched conditions.",
+        "question": "Which single change makes the entry signal follow binding to the receptor, rather than exposure or antibody handling?",
+        "answer": "The entry signal follows the change that blocks binding to the receptor. It falls from about 100 to 22 units when binding is blocked. After washout, it returns to about 96. The matched antibody does not reproduce that drop, so ordinary antibody handling does not explain it.",
+        "why": "How many receptors a cell has is only an indirect clue. A causal test asks whether binding the receptor is required for entry. Blocking that binding, with dose and handling held fixed, sharply lowers the entry signal. A matched antibody leaves it unchanged, controlling for adding any antibody at all. Washing the blocker away restores entry, so the effect runs both directions. Doubling exposure changes the signal's size, but it doesn't explain why blocking the receptor removes entry.",
         "control": {
           "observable": {
             "label": "Reading",
@@ -853,27 +752,28 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "How many by morning",
-      "scene": "The culture starts at 500 cells and the line divides every 40 minutes in this medium. The bench needs a number for eight hours from now, before it decides how much medium to prepare.",
-      "takeaway": "Division doubles a population, so growth is exponential and its rate is a doubling time.",
+      "title": "How fast can hidden spread grow?",
+      "scene": "Contact tracing and wastewater together suggest roughly 60 infectious people are currently outside isolation. Under the present conditions, that hidden pool is doubling about every three days. The number will not grow this way forever, but Riverton needs a short-horizon consequence if nothing changes for the next twelve days.",
+      "takeaway": "A few missed doubling times can turn a small hidden chain into a much larger one, which is why earlier surveillance can change the response.",
       "place": "Cell Biology Laboratory",
-      "guide": "Six numbers, and two of them are the same eight hours in different units, with the conversion between them offered as a third. Ask of each whether the exponent needs it. The shape matters more than the answer. Ninety more minutes adds two more doublings, which quadruples the total. The same arithmetic is frightening when the thing doubling is cases.",
+      "at": "growth-board",
+      "guide": "Six numbers are on the board. Two of them are the same eight hours, just in different units. The conversion between those units is offered as a third number. For each number, ask whether the exponent needs it. The shape matters more than the answer. Ninety more minutes adds two more doublings. That quadruples the total. The same arithmetic is frightening when the thing doubling is cases.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. It is also whether the size of your answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how you catch a mistake before you place a tile. The mistake might be a wrong unit, or a number that belongs to a different part of the problem. Catching it early is the habit this format is built to teach."
       ],
-      "story": "The culture starts at 500 cells and the line divides every 40 minutes in this medium. The bench needs a number for eight hours from now, before it decides how much medium to prepare.",
+      "story": "Contact tracing and wastewater together suggest roughly 60 infectious people are currently outside isolation. Under the present conditions, that hidden pool is doubling about every three days. The number will not grow this way forever, but Riverton needs a short-horizon consequence if nothing changes for the next twelve days.",
       "game": {
         "type": "BALLPARK",
-        "title": "How many by morning",
+        "title": "How fast can hidden spread grow?",
         "setup": "Cell Biology Laboratory",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the number of cells after eight hours.",
+        "question": "Estimate how many infectious people would be outside isolation after 12 days if the hidden pool kept doubling every 3 days.",
         "answer": "",
-        "why": "8 hours is 480 minutes. That is 12 doubling times. 12 doublings is a factor of about 4,100, so 500 cells become about 2 million. The shape matters more than the number. Add 90 minutes and you add 2 more doublings, which quadruples the answer. That is why a culture left overnight runs out of medium. It is also why the same arithmetic is frightening when the thing doubling is cases.",
+        "why": "Twelve days contains four three-day doubling times. Four doublings multiply a population by 16, so 60 becomes about 960. This is a scenario, not a forecast: behavior, immunity, depletion of susceptible contacts, and interventions can change the doubling time. Its value is showing why a signal that arrives several days earlier can matter enormously during early exponential growth.",
         "givens": [],
-        "relationship": "Final number = starting number × 2 raised to (time ÷ doubling time).",
+        "relationship": "Projected number = starting number × 2 raised to (time ÷ doubling time).",
         "calcKey": "CELL-4"
       },
       "assumes": [
@@ -916,34 +816,34 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "The same genome, different cells",
-      "scene": "Staining shows the receptor on airway cells at high density and absent from the muscle cells two millimetres away — same patient, same section, same genome in every nucleus. Both tissues were fixed and stained together.",
-      "takeaway": "Every cell carries the same instructions and reads a different part of them.",
+      "title": "Why is the receptor here but not there?",
+      "scene": "Surveillance now shows that some people shed virus before severe symptoms. Tissue staining gives the next clue: the entry receptor is abundant on airway cells and absent from nearby muscle cells processed in the same batch. Both cell types carry the same genome. Why do they display different amounts of the receptor?",
+      "takeaway": "Cells carry the same genome but regulate different genes; receptor expression helps determine which tissues an agent can enter and where shedding can begin.",
       "place": "Cell Biology Laboratory",
-      "guide": "Four options, and both tissues came from one patient and one section, stained together. Ask of each whether having a gene and using it are the same thing. Every nucleus holds the whole genome. So what has to differ is which genes are read, and that difference is what makes an airway cell an airway cell. It also decides which illness this becomes.",
+      "guide": "Four options are here, and both tissues came from the same patient, the same section, stained side by side. Check each option against one fact: every cell in this body carries the exact same genome. Then ask what having a gene and reading a gene have in common, and where they differ. Whatever explains this pattern is also why this agent causes a respiratory illness rather than a different kind.",
       "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the wrong options are the interesting ones. Each wrong option is written to look right under one specific mistake in reading. Maybe a step gets skipped. Maybe a quantity gets confused with a rate. Maybe a correlation gets mistaken for a cause. Finding which mistake each wrong option belongs to is where the real learning happens. The right answer alone can be picked by instinct, and picking it that way teaches nothing.",
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. Across a whole game, the correct answer used to be the longest option far more often than chance. That happened in 88 percent of passage quizzes here, before it was fixed. It is now checked with a statistical test for every game, so length, hedging, and being specific do not give away the answer anymore.",
+        "What the verdict adds. Every wrong option carries its own rebuttal. The verdict prints each one — the reason that option fails, not a restatement of the right answer. They are worth reading even after you pick the correct answer. A right choice made for an approximate reason looks the same as a sound one. That stops being true on the day the approximation is exactly what gets tested."
       ],
-      "story": "Staining shows the receptor on airway cells at high density and absent from the muscle cells two millimetres away — same patient, same section, same genome in every nucleus. Both tissues were fixed and stained together.",
+      "story": "Surveillance now shows that some people shed virus before severe symptoms. Tissue staining gives the next clue: the entry receptor is abundant on airway cells and absent from nearby muscle cells processed in the same batch. Both cell types carry the same genome. Why do they display different amounts of the receptor?",
       "game": {
         "type": "CHOICE",
-        "title": "The same genome, different cells",
+        "title": "Why is the receptor here but not there?",
         "setup": "Cell Biology Laboratory",
         "play": "Every cell has the same genome. Why do only some of them make the receptor?",
         "task": "Every cell has the same genome. Why do only some of them make the receptor?",
         "question": "Every cell has the same genome. Why do only some of them make the receptor?",
         "answer": "The gene is expressed in some cell types and switched off in others.",
-        "why": "Every nucleus holds the whole genome, so having a gene explains nothing about where its protein appears. Gene regulation decides it: transcription factors and the state of the chromatin decide which genes are read in which cell type, and that regulation is what makes an airway cell an airway cell. For an outbreak it is the practical point — tissue tropism follows the expression pattern of the receptor, which is why this agent causes a respiratory illness rather than a muscular one.",
+        "why": "Every nucleus holds the whole genome, so having a gene explains nothing about where its protein shows up. What decides that is gene regulation: proteins that switch genes on or off, plus how tightly the DNA is packed. That's what makes an airway cell an airway cell instead of a muscle cell. For an outbreak, this is the practical point: tropism, which tissues an agent can enter, follows where the receptor gets made. That's why this agent causes a lung illness, not a muscle one.",
         "rebuttals": [
-          "Cells do not discard genes as they specialise; the genome is the same in both.",
-          "Staining shows the protein absent from the muscle tissue, not merely unreachable.",
+          "Cells do not throw away genes as they specialize. The genome is the same in both tissues.",
+          "The staining shows the receptor is missing from the muscle tissue, not just hidden from the antibody.",
           "The receptor is a human protein. The agent exploits it and does not supply it."
         ],
         "choices": [
           "The gene is expressed in some cell types and switched off in others.",
-          "Only airway cells carry that gene; the muscle cells have lost it.",
+          "Only airway cells carry that gene. The muscle cells have lost it.",
           "The muscle cells make the receptor too, but the antibody cannot reach them.",
           "The receptor is made by the agent, not by the cell."
         ],
@@ -1032,41 +932,42 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "When heat changes an enzyme assay",
-      "scene": "A separate reporter-enzyme assay runs normally after a 37-degree pre-incubation and loses most activity after the same enzyme is held at 55 degrees. Substrate, buffer and reading method are unchanged.",
-      "takeaway": "A controlled comparison can show which part of an assay is sensitive to changed conditions.",
+      "scene": "A citywide test rides on one small enzyme doing its job at the right temperature. A reporter enzyme — a protein catalyst that gives off a signal you can measure — works fine warmed to 37°C first. Warmed to 55°C first, it barely works. The chemicals and the way the signal is read stay the same.",
+      "takeaway": "A controlled comparison shows exactly which part of a test reacts when conditions change.",
       "place": "Molecular Diagnostics Bench",
-      "guide": "Four options, and only one thing changed between the two runs. Ask of each option whether it names something that was actually varied. Substrate, buffer and readout are the same. The patient sample and the target sequence were not heated. So the answer has to be about the thing that was, and the two temperatures pull in opposite directions on it.",
+      "guide": "Four choices, and only one thing was different between the two runs. Check each choice: does it name something that really changed? The chemicals, the buffer — the liquid that holds the acidity steady — and how the signal was read all stayed the same. The patient's sample was never heated, and neither was its target DNA — the molecule the test copies. So the answer must be about the one thing that was heated — and the two temperatures pull it in opposite directions.",
       "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the wrong choices matter. Each wrong choice looks right under one kind of mistake. Maybe a step gets skipped. Maybe an amount gets mixed up with a rate. Maybe a pattern gets mistaken for a cause. Finding which mistake each wrong choice matches is where the real learning happens. Picking the right answer on instinct, without knowing why the others fail, teaches nothing.",
+        "Why the shape of a choice tells you nothing. A correct choice often has extra detail — an exact unit, or a clause that qualifies it. In many games here, the correct choice used to be the longest one far more often than chance allows. That was true in 88 percent of passage quizzes, before it was fixed. Now each game is checked with a statistical test, so length, hedging, and detail no longer give the answer away.",
+        "What the verdict adds. Every wrong choice gets its own rebuttal, and the verdict shows all of them. Each rebuttal explains why that choice fails — it does not just repeat the right answer. Read the rebuttals even when you got the answer right. A right answer for a shaky reason looks the same as a right answer for a solid reason, until a question tests the shaky part."
       ],
-      "story": "A separate reporter-enzyme assay runs normally after a 37-degree pre-incubation and loses most activity after the same enzyme is held at 55 degrees. Substrate, buffer and reading method are unchanged.",
+      "story": "A citywide test rides on one small enzyme doing its job at the right temperature. A reporter enzyme — a protein catalyst that gives off a signal you can measure — works fine warmed to 37°C first. Warmed to 55°C first, it barely works. The chemicals and the way the signal is read stay the same.",
       "game": {
         "type": "CHOICE",
         "title": "When heat changes an enzyme assay",
         "setup": "Molecular Diagnostics Bench",
         "play": "A reporter enzyme works after 37 °C pre-incubation and loses most activity after 55 °C. What is the strongest interpretation?",
         "task": "A reporter enzyme works after 37 °C pre-incubation and loses most activity after 55 °C. What is the strongest interpretation?",
-        "question": "What does the temperature comparison show about the catalyst?",
-        "answer": "The higher temperature disrupted the enzyme’s functional structure.",
-        "why": "Enzyme activity depends on both molecular motion and protein structure. Modest warming can speed collisions, but enough heat can disrupt the shape that creates the active site. Here the same reporter enzyme, substrate, buffer and readout are used after two pre-incubation temperatures. The cleanest interpretation is loss of enzyme activity at the higher temperature. This is not a PCR cycling rule, and it does not show that a target nucleic acid was destroyed. The experiment is specifically about the catalyst.",
+        "question": "What does comparing the two temperatures show about the enzyme?",
+        "answer": "The higher temperature disrupted or destabilized the enzyme’s active structure, reducing its activity.",
+        "why": "The two runs differ in the enzyme’s pre-incubation temperature. The sharp activity loss after 55 °C is therefore evidence that the higher temperature disrupted or destabilized the enzyme’s active structure. The comparison does not show that the target genetic material was destroyed, and it does not by itself tell whether the structural change would reverse after cooling.",
         "rebuttals": [
-          "Reaction rates can rise with temperature only while the catalyst remains functional. Protein stability puts a limit on that trend.",
-          "The variable here is the reporter enzyme’s pre-incubation temperature, not a different patient sample.",
-          "The assay isolates enzyme activity; it does not establish destruction of a nucleic-acid target."
+          "A reaction's rate rises with heat only while the enzyme still works. Once heat breaks the enzyme's shape, that rise stops.",
+          "The only thing that changed here was the reporter enzyme's temperature, not the patient's sample.",
+          "This test only measures enzyme activity. It cannot show that the target DNA was destroyed."
         ],
         "choices": [
-          "The higher temperature disrupted the enzyme’s functional structure.",
-          "Because the reaction absorbs heat, increasing temperature must always increase its rate.",
-          "The patient sample degraded even though this assay used the same reporter enzyme.",
-          "The target sequence was destroyed by 55 °C even though the target was not the variable being heated."
+          "The higher temperature disrupted or destabilized the enzyme’s active structure, reducing its activity.",
+          "The higher temperature sped the reaction up, so the enzyme worked faster.",
+          "The patient's sample broke down at 55°C, so there was less left to detect.",
+          "The target DNA was destroyed at 55°C, so there was nothing left to copy."
         ],
-        "correctChoice": "The higher temperature disrupted the enzyme’s functional structure."
+        "correctChoice": "The higher temperature disrupted or destabilized the enzyme’s active structure, reducing its activity."
       },
       "assumes": [
         "a protein's function depends on it keeping its shape",
         "a buffer is a chemical system that resists large pH changes when acid or base is added",
+        "DNA is the molecule an organism carries its instructions in",
         "cell structure and function — taken as read"
       ],
       "takesAsRead": [
@@ -1086,37 +987,38 @@ export const CURRICULUM = {
     },
     {
       "day": 2,
-      "title": "From genetic information to protein",
-      "scene": "Affected cells are making RNA and proteins the sequencing centre does not recognise. Four cards describe how a cell gets from a gene to something that does a job. Nobody can say where the change is until the chain is on the board in order.",
-      "takeaway": "Changes in protein abundance can arise at several distinct stages of gene expression.",
+      "title": "How did the cell make forty times more protein?",
+      "scene": "Infected airway cells contain one familiar human protein at about forty times its normal amount. That could start with more messenger RNA, or happen later. Four cards show the normal path from an accessible host gene to a working protein. Put the chain in order before anyone points to the step that changed.",
+      "takeaway": "A protein's amount can change at more than one stage of gene expression.",
       "place": "Sequencing Center",
-      "guide": "These four are one chain, and abundance can change at any stage independently. That is why the order is worth stating rather than treating expression as one event. Ask what each card needs to exist first. A template has to be reachable. A transcript has to exist. And a chain of amino acids does nothing at all until it folds.",
+      "at": "sequencer",
+      "guide": "These four cards form one chain. At any step, the amount of something can change on its own. That is why the order matters, instead of treating gene expression as one single event. For each card, ask: what does this step need before it can happen? Use that question on every card, not just the ones you feel sure about.",
       "background": [
-        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
-        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
-        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+        "Why the whole order is graded together. A sequence is a claim about what depends on what. Each step is here because the step before it already happened, or had to happen first. Swap any two steps, and that claim breaks — wherever the swap sits. Partial credit would mean giving credit for a chain that does not actually work.",
+        "Why the two ends are the place to start. The first card has nothing before it. The last card has nothing after it. That usually lets you place both just from the scene alone. Once those two are pinned down, far fewer arrangements are left. The real judgment call is what goes in the middle.",
+        "What else an order can be based on. Time is the usual axis, but it is not the only one. An order can also run on cost, on risk, or on how reversible each step is — every step that leaves the sample untouched comes before any step that uses it up. On boards like that, reading for time finds nothing, because no step has to happen at a set hour."
       ],
-      "story": "Affected cells are making RNA and proteins the sequencing centre does not recognise. Four cards describe how a cell gets from a gene to something that does a job. Nobody can say where the change is until the chain is on the board in order.",
+      "story": "Infected airway cells contain one familiar human protein at about forty times its normal amount. That could start with more messenger RNA, or happen later. Four cards show the normal path from an accessible host gene to a working protein. Put the chain in order before anyone points to the step that changed.",
       "game": {
         "type": "SEQUENCE",
-        "title": "From genetic information to protein",
+        "title": "How did the cell make forty times more protein?",
         "setup": "Sequencing Center",
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "Abundance can change at any one of these stages independently, which is exactly why the chain is worth stating rather than treating expression as one event. The template has to be reachable before anything transcribes it; a transcript has to exist before a ribosome can read it; and a chain of amino acids does nothing at all until it folds. Each stage is a separate place for the answer to be hiding.",
+        "why": "For this host protein, DNA accessibility, transcription, translation, folding, and breakdown are distinct steps. A protein can become abundant because more message was made, because each message was translated more efficiently, or because the protein lasted longer. Ordering the normal chain keeps the team from treating “more protein” as if it already named the mechanism.",
         "rebuttals": [
-          "Access first: a template nothing can reach is transcribed by nothing, whatever else is true of the cell.",
-          "Transcription second, because the message is what the next stage reads.",
-          "Translation third — a ribosome needs a transcript, and codons are read only once there is something to read them from.",
-          "Folding last, and it is not a formality: an unfolded chain is present, measurable, and useless."
+          "Access comes first. If nothing can reach the template, nothing gets copied from it — no matter what else is true in the cell.",
+          "Transcription (copying DNA into RNA) comes second. The RNA message is what the next step reads.",
+          "Translation (building a protein from that message) comes third. A ribosome needs a transcript to read, and codons only get read once there is something there to read.",
+          "Folding comes last, and it matters. An unfolded amino-acid chain still exists and can be measured — it just cannot do its job yet."
         ],
         "cards": [
-          "A DNA template is made accessible.",
-          "RNA polymerase produces an RNA transcript.",
+          "The DNA template becomes reachable.",
+          "RNA polymerase copies the gene into an RNA transcript.",
           "A ribosome reads codons in the messenger RNA.",
-          "The amino-acid chain folds and performs a cellular function."
+          "The amino-acid chain folds and starts doing its job in the cell."
         ],
         "order": [
           0,
@@ -1146,43 +1048,43 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "Locate the molecular change",
-      "scene": "Four patterns from the gene-expression bench each pair one measurement with another. The cell biologist wants each pattern placed at the stage it reports on before anyone proposes a host pathway to target.",
-      "takeaway": "The central dogma is a chain of measurable transformations, not a claim that every stage changes together.",
+      "title": "Which step changed?",
+      "scene": "Four expression patterns from infected airway cells are on the screen. Each compares a different pair of measurements — RNA amount, protein amount, sequence, or activity. Match each pattern to the step it actually supports before the therapy team names a target.",
+      "takeaway": "The path from gene to protein is a chain of separate, measurable steps, not a promise that every step changes together.",
       "place": "Gene Expression Lab",
-      "guide": "Four patterns on the left, and four places the change could sit. Pair them by asking which two measurements each pattern compares, and which direction they disagree in. Message up with protein flat is one end. Protein up with message flat is the other. And a protein present in normal amounts but not working is a claim about the molecule, not the quantity.",
+      "guide": "Four patterns on one side, four stages on the other, and each pattern compares two measurements. For each one, ask which two measurements it is comparing, and which direction each one moved — up, down, or unchanged. Match direction to direction. Save your reasoning about why a pattern happened for after you have placed it.",
       "background": [
-        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
-        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why this is a matching board, not four separate questions. Each response here could sound reasonable for more than one situation. Picking one response at a time lets an almost-right answer slip through unchecked. Placing all four at once forces a real comparison. The question is not \"does this sound reasonable\", but \"is it more right here than somewhere else\".",
+        "How to use the one-each rule. Each response gets used exactly once, so every match you make narrows down the rest. Settle the two matches you feel sure of first. Often the last two fall into place by elimination. When they do not, two responses are still competing for one pattern — and telling those two apart is exactly what this stop tests.",
+        "Why you can never be wrong about just one match. Since each response is used once, three correct matches force the fourth one into place. So any mistake always involves at least two matches, not one. Remember that when the last pair feels forced. The problem usually is not the match you are stuck on — it is an earlier one you stopped questioning too soon."
       ],
-      "story": "Four patterns from the gene-expression bench each pair one measurement with another. The cell biologist wants each pattern placed at the stage it reports on before anyone proposes a host pathway to target.",
+      "story": "Four expression patterns from infected airway cells are on the screen. Each compares a different pair of measurements — RNA amount, protein amount, sequence, or activity. Match each pattern to the step it actually supports before the therapy team names a target.",
       "game": {
         "type": "PROTOCOL",
-        "title": "Locate the molecular change",
+        "title": "Which step changed?",
         "setup": "Gene Expression Lab",
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "",
-        "why": "RNA abundance, protein abundance, sequence and activity are four different measurements, and the central dogma is a chain of transformations rather than a promise that they move together. Message up with protein flat means the message is not being turned into protein, or the protein is being destroyed as fast as it is made. Protein up with message unchanged means the opposite end. And a protein present in normal amounts but not working is a claim about the molecule, not about how much of it there is.",
+        "why": "RNA amount, protein amount, sequence and activity are four separate measurements. The path from gene to protein is a chain of steps, not a promise that all four move together. Message up with protein flat means the message isn't being turned into protein, or the protein is being destroyed as fast as it's made. Protein up with the message unchanged points the other way — better translation, or slower breakdown. A normal amount of protein that isn't working is a claim about the molecule, not the quantity.",
         "rebuttals": [
-          "RNA rising while protein stays flat points downstream of transcription — a translation limit, or rapid turnover of the protein once made.",
-          "Protein rising on unchanged RNA points to more efficient translation or slower degradation. Nothing about the gene has changed.",
-          "One codon changed and one amino acid substituted is a sequence change, and it is visible only in the sequence.",
-          "Normal amount with low activity is about folding, modification or the active site — the molecule is there and cannot do the job."
+          "The message going up while the protein stays flat points to a problem after transcription — either a limit on translation, or the protein breaking down fast once it is made.",
+          "The protein going up while the message stays the same points to faster translation or slower breakdown. Nothing about the gene itself has changed.",
+          "One codon changing and one amino acid swapping is a sequence change — visible only by reading the sequence.",
+          "A normal amount with low activity points to folding, a chemical change, or the active site. The molecule is there; it just cannot do its job."
         ],
         "scenarios": [
-          "RNA rises while protein stays constant.",
-          "RNA is unchanged while protein rises.",
-          "A codon changes and one amino acid is substituted.",
-          "Protein amount is normal but activity is low."
+          "The message (RNA) goes up, but the protein amount stays the same.",
+          "The message stays the same, but the protein amount goes up.",
+          "One codon — a three-letter piece of RNA code — changes, swapping one amino acid for another.",
+          "The protein amount is normal, but its activity is low."
         ],
         "choices": [
-          "Possible translation limit or rapid protein turnover.",
-          "Possible increased translation efficiency or reduced protein degradation.",
-          "A missense sequence change.",
-          "Possible folding, modification, or active-site defect."
+          "A limit on translation (building protein from the message), or the protein breaking down fast.",
+          "Faster translation, or the protein breaking down more slowly.",
+          "A missense change — one swapped amino acid caused by a DNA change.",
+          "A problem with folding, a chemical tag added after the fact, or the enzyme's active site (its working pocket)."
         ],
         "mapping": [
           0,
@@ -1216,38 +1118,38 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "Find the controlling stage",
-      "scene": "A familiar human protein is fortyfold more abundant in affected cells than in matched controls. Its messenger RNA has not been quantified, the core can fund two measurements, and the team is already arguing about which host pathway changed.",
-      "takeaway": "Protein abundance alone cannot distinguish increased transcription, changed translation, or altered degradation.",
+      "title": "What should the lab measure next?",
+      "scene": "One protein is screaming forty times louder than it should, and the lab can only afford to ask two more questions about it. A familiar human protein shows up 40 times more often in sick cells than in healthy ones. Nobody has measured its messenger RNA, its message, yet. The team is already arguing about which pathway changed.",
+      "takeaway": "The amount of a protein alone cannot tell you whether transcription, translation, or breakdown caused the change.",
       "place": "Protein Analysis Core",
-      "guide": "Four measurements, and the protein result is compatible with all of the mechanisms. Ask of each option where it sits in the chain: upstream of the others, or downstream. Two of these test what happens to a transcript that nobody has counted yet. The core can fund two measurements, and the first should be the one that tells you where to spend the second.",
+      "guide": "Four measurements, and the protein result alone fits every one of these explanations. For each choice, ask where it sits in the chain — upstream of the others, or downstream? Two of the four choices test something about a message (RNA) that nobody has counted yet. The lab can only pay for two measurements. The first one should tell you where to spend the second.",
       "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the wrong choices matter. Each wrong choice looks right under one kind of mistake. Maybe a step gets skipped. Maybe an amount gets mixed up with a rate. Maybe a pattern gets mistaken for a cause. Finding which mistake each wrong choice matches is where the real learning happens. Picking the right answer on instinct, without knowing why the others fail, teaches nothing.",
+        "Why the shape of a choice tells you nothing. A correct choice often has extra detail — an exact unit, or a clause that qualifies it. In many games here, the correct choice used to be the longest one far more often than chance allows. That was true in 88 percent of passage quizzes, before it was fixed. Now each game is checked with a statistical test, so length, hedging, and detail no longer give the answer away.",
+        "What the verdict adds. Every wrong choice gets its own rebuttal, and the verdict shows all of them. Each rebuttal explains why that choice fails — it does not just repeat the right answer. Read the rebuttals even when you got the answer right. A right answer for a shaky reason looks the same as a right answer for a solid reason, until a question tests the shaky part."
       ],
-      "story": "A familiar human protein is fortyfold more abundant in affected cells than in matched controls. Its messenger RNA has not been quantified, the core can fund two measurements, and the team is already arguing about which host pathway changed.",
+      "story": "One protein is screaming forty times louder than it should, and the lab can only afford to ask two more questions about it. A familiar human protein shows up 40 times more often in sick cells than in healthy ones. Nobody has measured its messenger RNA, its message, yet. The team is already arguing about which pathway changed.",
       "game": {
         "type": "CHOICE",
-        "title": "Find the controlling stage",
+        "title": "What should the lab measure next?",
         "setup": "Protein Analysis Core",
         "play": "Abundance alone fits every mechanism. Which measurement do you make first?",
         "task": "Abundance alone fits every mechanism. Which measurement do you make first?",
-        "question": "Abundance alone fits every mechanism. Which measurement do you make first?",
-        "answer": "Quantify the protein's messenger RNA across time.",
-        "why": "A fortyfold protein increase is compatible with several mechanisms: more messenger RNA, more protein made from each RNA molecule, or slower protein degradation. The first measurement should sit upstream of the other two. Quantifying messenger RNA over the same time course tests whether transcript abundance moved with the protein. If RNA also rises strongly, increased transcription becomes a leading contributor. If RNA stays flat, the investigation moves downstream to translation efficiency and protein turnover instead of pretending the protein result already identified the cause.",
+        "question": "The protein's amount alone fits every explanation. Which measurement should you make first?",
+        "answer": "Measure the protein's messenger RNA, its message, over time.",
+        "why": "A protein 40 times more abundant fits several explanations: more messenger RNA, more protein per RNA molecule, or slower breakdown. The first measurement should sit upstream of the other two. Measuring the message over the same time span tests whether its amount moved with the protein. If the message also rises sharply, more transcription becomes the leading explanation. If it stays flat, the search moves downstream — to translation and breakdown — instead of assuming the protein result already found the cause.",
         "rebuttals": [
-          "Ribosome association asks whether translation changed, and it only means something once you know whether the amount of message changed underneath it.",
-          "Half-life asks whether the protein is simply being destroyed more slowly. A real possibility, and the third measurement rather than the first.",
-          "The neighbouring region answers a question nobody has asked about a protein whose gene is already identified."
+          "Whether ribosomes are reading the message only means something once you know whether the amount of message itself changed.",
+          "Half-life asks whether the protein simply breaks down more slowly. That is a real possibility, but it is the third measurement to make, not the first.",
+          "The neighboring DNA region answers a question nobody asked, about a gene whose location is already known."
         ],
         "choices": [
-          "Quantify the protein's messenger RNA across time.",
-          "Measure ribosome association with that RNA.",
-          "Measure the protein's half-life and degradation rate.",
-          "Sequence the neighbouring chromosomal region."
+          "Measure the protein's messenger RNA, its message, over time.",
+          "Measure how much of that message the ribosomes are actually reading.",
+          "Measure the protein's half-life — how fast half of it breaks down.",
+          "Sequence the DNA region next to this gene."
         ],
-        "correctChoice": "Quantify the protein's messenger RNA across time."
+        "correctChoice": "Measure the protein's messenger RNA, its message, over time."
       },
       "assumes": [
         "a protein's abundance is set by how fast it is made and how fast it is destroyed",
@@ -1270,37 +1172,38 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "Build a trustworthy amplification run",
-      "scene": "Hospitals want a diagnostic by sunrise and the sample-processing room has four hours. Four steps are on the whiteboard. Amplification multiplies whatever is in the tube by a factor of 1 billion, which is the reason this order is argued about at all.",
-      "takeaway": "A diagnostic result is the output of a controlled process, not simply a machine reading.",
+      "title": "Can the next test be trusted?",
+      "scene": "By sunrise, hospitals will start moving patients based on this assay. Four steps are on the whiteboard. Amplification does not copy everything in a tube; it uses primers to copy one chosen genetic target many millions of times. If the starting target is RNA, the workflow must first make a DNA copy before PCR amplification.",
+      "takeaway": "A diagnostic result is the product of a controlled process, not just a number the machine displays.",
       "place": "Sample Processing Room",
-      "guide": "All four steps will happen, so ask what each one protects. The amplification multiplies whatever is in the tube, including whatever came from the room. Identity has to survive extraction or the result belongs to nobody. And controls have to be in the run rather than added afterwards, which is what makes this an ordering question.",
+      "at": "amp-rig",
+      "guide": "All four steps happen somewhere in this run — the question is what order protects the result. Amplification copies whatever DNA is in the tube, including anything that came from the room itself. For each step, ask: what does it protect against, and what does it need to already be true before it can happen?",
       "background": [
-        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
-        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
-        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+        "Why the whole order is graded together. A sequence is a claim about what depends on what. Each step is here because the step before it already happened, or had to happen first. Swap any two steps, and that claim breaks — wherever the swap sits. Partial credit would mean giving credit for a chain that does not actually work.",
+        "Why the two ends are the place to start. The first card has nothing before it. The last card has nothing after it. That usually lets you place both just from the scene alone. Once those two are pinned down, far fewer arrangements are left. The real judgment call is what goes in the middle.",
+        "What else an order can be based on. Time is the usual axis, but it is not the only one. An order can also run on cost, on risk, or on how reversible each step is — every step that leaves the sample untouched comes before any step that uses it up. On boards like that, reading for time finds nothing, because no step has to happen at a set hour."
       ],
-      "story": "Hospitals want a diagnostic by sunrise and the sample-processing room has four hours. Four steps are on the whiteboard. Amplification multiplies whatever is in the tube by a factor of 1 billion, which is the reason this order is argued about at all.",
+      "story": "By sunrise, hospitals will start moving patients based on this assay. Four steps are on the whiteboard. Amplification does not copy everything in a tube; it uses primers to copy one chosen genetic target many millions of times. If the starting target is RNA, the workflow must first make a DNA copy before PCR amplification.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Build a trustworthy amplification run",
+        "title": "Can the next test be trusted?",
         "setup": "Sample Processing Room",
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "A patient result is the output of a controlled process, and read before the controls are read it is an instrument reading rather than evidence. Identity has to survive extraction or the result belongs to no one. The controls have to be in the run, not added afterwards — a positive control shows the chemistry worked, and a no-template control shows the signal did not come from the room. Only when they behave is the patient well worth interpreting.",
+        "why": "A patient result is the output of a controlled workflow. Sample identity has to survive extraction, controls have to run alongside the patient material, and the amplification step targets a selected sequence rather than all genetic material in the tube. A positive control shows the chemistry can detect the target; a no-template control checks whether target material contaminated the workflow. Read the patient only if those checks behave as expected.",
         "rebuttals": [
-          "Extraction first, with identity preserved. A result that cannot be tied to a patient is not a diagnosis of anybody.",
-          "Controls go into the run alongside the samples. Added later they test a different run from the one that produced the result.",
-          "Amplification third, with validated primers — the step everything else exists to make interpretable.",
-          "Interpretation last and conditional. If a control misbehaved, the patient wells are uninterpretable no matter how clean they look."
+          "Extraction comes first, and identity must survive it. A result that cannot be tied to a patient is not a diagnosis of anyone.",
+          "Controls go into the same run as the samples. Added later, they would be testing a different run, not the one that made the result.",
+          "Amplification, copying the target DNA, comes third, using tested primers, short DNA starters. Every other step exists to make this one readable.",
+          "Interpreting the result comes last, and only if the controls passed. If a control misbehaved, the patient's result cannot be trusted, no matter how clean it looks."
         ],
         "cards": [
-          "Extract material while preserving sample identity.",
-          "Include positive, negative, and no-template controls.",
-          "Amplify the target with validated primers and cycling conditions.",
-          "Interpret the patient signal only if all controls behave as expected."
+          "Pull out the material, and keep track of whose sample it is.",
+          "Run positive, negative, and no-template controls alongside it.",
+          "Copy only the chosen genetic target with tested primers and the correct cycling steps; if the target is RNA, first make a DNA copy.",
+          "Read the patient's result only if every control behaved as expected."
         ],
         "order": [
           0,
@@ -1332,31 +1235,32 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Why did the assay turn positive?",
-      "scene": "Dr. Ravi Patel has patient wells, two controls and an independent platform on one screen. One ward has already cleared isolation rooms. If this run is wrong, patients will be moved before the morning team arrives.",
-      "takeaway": "Agreement is not independent evidence when several results inherit the same contamination path.",
+      "scene": "One ward has already started clearing its isolation rooms on the strength of tonight's run. Dr. Ravi Patel, the molecular diagnostics lead, is looking at patient results, two controls, and a result from a different test method. If this run is wrong, patients will be moved before morning.",
+      "takeaway": "Agreement between results is not real evidence when they all share the same path a contamination could travel.",
       "place": "PCR Diagnostics Lab",
-      "guide": "Open each result to see what its run depended on. Keep the ones that would still stand if one workflow step were contaminated, and untick the rest. Then name the dependency the failing ones share. A ward is already clearing isolation rooms, so both halves matter: a false positive moves patients, and discarding a true one leaves an outbreak unwatched.",
+      "at": "pcr-panel",
+      "guide": "Open up what each result actually depends on. Keep any result that would still hold up even if one shared step got contaminated — something leaking into more than one tube. Untick the rest. Then name the one dependency that the unreliable results all share. A ward has already begun clearing isolation rooms, so both directions matter here. A false positive — a positive result that is wrong — moves patients for nothing. Throwing out a true positive leaves a real outbreak unwatched.",
       "background": [
-        "How a shared workflow makes results agree wrongly. Wells processed in the same batch pass through the same extraction, the same reagents and the same instrument. Contamination anywhere in that chain appears in every well downstream of it, and the pattern looks like a cluster of genuine positives.",
-        "What the controls are actually for. A negative control that stays negative rules out contamination affecting the whole batch. A positive control shows the chemistry worked. Neither can rule out a contamination event that entered after the controls were placed, which is why the independent platform is on the screen.",
-        "Why independence beats repetition. Running the same assay again on the same extract shares every dependency, so it will reproduce a contaminated result perfectly. A different platform on a different extract is the only evidence that survives the question."
+        "How a shared workflow can make results agree for the wrong reason. Wells run in the same batch go through the same extraction, the same reagents, and the same instrument. Contamination anywhere in that chain shows up in every well downstream of it. The result looks like a cluster of real positives, even when it is not one.",
+        "What the controls are actually for. A negative control that stays negative rules out contamination across the whole batch. A positive control shows the chemistry itself works. Neither one can rule out contamination that happened after the controls were already placed. That is why a result from a different testing method matters here too.",
+        "Why a different method beats repeating the same one. Running the same test again on the same extract shares every dependency the first run had, so it will reproduce a contaminated result perfectly. Only a different platform, using a different sample extract, gives evidence that actually survives this question."
       ],
-      "story": "Dr. Ravi Patel has patient wells, two controls and an independent platform on one screen. One ward has already cleared isolation rooms. If this run is wrong, patients will be moved before the morning team arrives.",
+      "story": "One ward has already started clearing its isolation rooms on the strength of tonight's run. Dr. Ravi Patel, the molecular diagnostics lead, is looking at patient results, two controls, and a result from a different test method. If this run is wrong, patients will be moved before morning.",
       "game": {
         "type": "TRACE",
         "title": "Why did the assay turn positive?",
         "setup": "PCR Diagnostics Lab",
         "play": "Open the dependency chain behind each result, keep the evidence that still stands, and name the shared source that makes the amplification positives unreliable.",
         "task": "Open the dependency chain behind each result, keep the evidence that still stands, and name the shared source that makes the amplification positives unreliable.",
-        "question": "Which results share one workflow dependency, and what independent evidence survives it?",
-        "answer": "The patient wells and no-template control share the amplification workflow, so carryover can create both signals. Keep the facts that the chemistry can work and that the independent platform did not confirm the target. The amplification run is invalid for classifying these patients.",
-        "why": "A no-template control has no patient material, so a target signal there must come from the workflow or reagents. That same path is shared by the patient amplification wells, which makes their positive signals ambiguous. The known positive control still shows that the chemistry can amplify target, but it cannot rescue a contaminated run. The independent platform uses different preparation and chemistry, so its negative result remains informative. The correct inference comes from tracing dependencies, not from counting how many wells on one plate are positive.",
+        "question": "Which results share one workflow dependency, and which result still survives as real evidence?",
+        "answer": "The patient wells and the no-template control share the same amplification workflow, so carryover contamination could create both signals. Keep two facts that still stand — the chemistry can work, and the different testing method did not confirm the target. This amplification run cannot be trusted to classify these patients.",
+        "why": "A no-template control has no patient material in it, so any positive signal there must come from the shared workflow or its reagents, not a real target. That same shared path runs through the patient wells too, making their positive signals unreliable. The known positive control still shows the chemistry can detect the target — but that can't rescue a contaminated run. The separate testing method uses different preparation and chemistry, so its negative result still means something. The real answer traces what each result depends on, not how many wells are positive.",
         "trace": {
           "channels": [
             {
               "id": "patient_amp",
-              "label": "Patient amplification wells",
-              "reading": "several positive signals (expected positive if target is present and the run is clean)",
+              "label": "Patient wells after amplification",
+              "reading": "several wells test positive (expected, if the target is really there and the run is clean)",
               "depends": [
                 "patient_material",
                 "amp_chemistry",
@@ -1366,7 +1270,7 @@ export const CURRICULUM = {
             {
               "id": "ntc",
               "label": "No-template control",
-              "reading": "positive target signal (expected should remain negative)",
+              "reading": "shows a positive signal (it is supposed to stay negative, since it has no patient sample in it)",
               "depends": [
                 "amp_chemistry",
                 "workflow_carryover"
@@ -1375,7 +1279,7 @@ export const CURRICULUM = {
             {
               "id": "positive_control",
               "label": "Known positive control",
-              "reading": "amplifies as expected (expected chemistry can amplify target)",
+              "reading": "amplifies as expected (this shows the chemistry itself can detect the target)",
               "depends": [
                 "amp_chemistry",
                 "control_template"
@@ -1383,8 +1287,8 @@ export const CURRICULUM = {
             },
             {
               "id": "orthogonal",
-              "label": "Independent patient platform",
-              "reading": "target not detected in the same patients (expected separate preparation and chemistry)",
+              "label": "A different testing method, on the same patients",
+              "reading": "does not detect the target in these same patients (it uses separate sample prep and separate chemistry)",
               "depends": [
                 "patient_material",
                 "orthogonal_chemistry",
@@ -1399,11 +1303,11 @@ export const CURRICULUM = {
             },
             {
               "id": "amp_chemistry",
-              "label": "Amplification chemistry"
+              "label": "Amplification chemistry, the copying reaction"
             },
             {
               "id": "workflow_carryover",
-              "label": "Amplification-workflow carryover"
+              "label": "Carryover contamination in the amplification workflow"
             },
             {
               "id": "control_template",
@@ -1411,11 +1315,11 @@ export const CURRICULUM = {
             },
             {
               "id": "orthogonal_chemistry",
-              "label": "Independent platform chemistry"
+              "label": "Chemistry used by the different testing method"
             },
             {
               "id": "independent_prep",
-              "label": "Independent sample preparation"
+              "label": "Sample preparation done separately"
             }
           ],
           "independent": [
@@ -1423,7 +1327,7 @@ export const CURRICULUM = {
             "orthogonal"
           ],
           "target": "workflow_carryover",
-          "hint": "Do not count positive wells. Open what each result depends on, keep evidence built on a different path, and identify the dependency shared by the unreliable signals.",
+          "hint": "Do not just count how many wells are positive. Open up what each result depends on, keep the evidence built on a different path, and name the one dependency shared by the unreliable signals.",
           "commit": "Correct it"
         }
       },
@@ -1450,37 +1354,38 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "From variation to evolutionary change",
-      "scene": "A genetic variant is rising in one part of the city and the word evolution is being used in the briefing room. Four cards describe how a population changes. Nobody has put them in order.",
-      "takeaway": "Natural selection changes frequencies through heritable differences in reproductive success.",
+      "title": "What would selection have to do?",
+      "scene": "The district where Marcus Webb works the docks is the same one where a new version of the virus just started spreading fastest. People in the briefing room are already saying the word evolution. Four cards describe how a population changes. Nobody has ordered them yet.",
+      "takeaway": "Natural selection shifts how common a variant is by favoring heritable differences, ones passed to offspring, in how well individuals reproduce.",
       "place": "Sequencing Center",
-      "guide": "These four are one chain, and nothing in it says a rising variant must be advantageous. Ask of each card what has to exist before it. Selection does not create the variant it needs when it needs one. And take the middle step away: frequencies still move, for reasons that have nothing to do with fitness.",
+      "at": "sequencer",
+      "guide": "These four cards form one chain, and nothing in it says a rising variant has to be a helpful one. For each card, ask: what has to already exist before this can happen? Also try removing the middle step in your head — frequencies can still shift for reasons that have nothing to do with which variant survives better.",
       "background": [
-        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
-        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
-        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+        "Why the whole order is graded together. A sequence is a claim about what depends on what. Each step is here because the step before it already happened, or had to happen first. Swap any two steps, and that claim breaks — wherever the swap sits. Partial credit would mean giving credit for a chain that does not actually work.",
+        "Why the two ends are the place to start. The first card has nothing before it. The last card has nothing after it. That usually lets you place both just from the scene alone. Once those two are pinned down, far fewer arrangements are left. The real judgment call is what goes in the middle.",
+        "What else an order can be based on. Time is the usual axis, but it is not the only one. An order can also run on cost, on risk, or on how reversible each step is — every step that leaves the sample untouched comes before any step that uses it up. On boards like that, reading for time finds nothing, because no step has to happen at a set hour."
       ],
-      "story": "A genetic variant is rising in one part of the city and the word evolution is being used in the briefing room. Four cards describe how a population changes. Nobody has put them in order.",
+      "story": "The district where Marcus Webb works the docks is the same one where a new version of the virus just started spreading fastest. People in the briefing room are already saying the word evolution. Four cards describe how a population changes. Nobody has ordered them yet.",
       "game": {
         "type": "SEQUENCE",
-        "title": "From variation to evolutionary change",
+        "title": "What would selection have to do?",
         "setup": "Sequencing Center",
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "Nothing in this chain says a rising variant must be advantageous, and that is the point of laying it out. Variation has to exist before anything can act on it — selection does not create the variant it needs when it needs one. Conditions then make some variants reproduce more than others, those variants leave more descendants, and the frequency moves. Take away the middle step and frequencies still move, for reasons that have nothing to do with fitness.",
+        "why": "Variation must exist or arise before selection can change frequencies; treatment, immunity, behavior, and other conditions do not summon the mutation they need. Those conditions can favor some variants over others, which changes their reproductive or transmission success. Frequencies then shift across generations. The same frequency shift can also happen through drift, founder effects, or biased sampling, which is why a rising variant is not automatically evidence of selection.",
         "rebuttals": [
-          "Variation first, and it arises independently of whether it is useful. This is the step people reverse.",
-          "Differential reproductive success second: the environment does the selecting, on variation that was already there.",
-          "Successful variants leaving more descendants is the mechanism, and it happens over generations rather than within one.",
-          "Changed frequencies last. They are the observation, and every other card is the explanation for it."
+          "Variation comes first, and it shows up whether or not it turns out to be useful. This is the step people most often get backward.",
+          "Differences in reproductive success come second. The environment does the selecting, but only on variation that already existed.",
+          "More descendants for successful variants is the actual mechanism, and it plays out over many generations, not within just one.",
+          "Changed frequencies come last. That is the observation itself. Every other card explains why it happened."
         ],
         "cards": [
-          "Heritable variants arise through mutation or existing diversity.",
-          "Environmental conditions cause variants to differ in reproductive success.",
-          "Successful variants contribute disproportionately to later generations.",
-          "Population frequencies change over generations."
+          "Heritable variants, different inheritable versions of a gene, arise through mutation or existing diversity.",
+          "Current conditions favor some heritable variants, so they reproduce or transmit more successfully than others.",
+          "The more successful variants leave more descendants in later generations.",
+          "The population's variant frequencies change, generation after generation."
         ],
         "order": [
           0,
@@ -1511,11 +1416,11 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "When heat changes an enzyme assay — Review",
-      "scene": "A reagent shipment for the reporter assay spent a day in an unrefrigerated van. Dr. Ravi Patel runs the same patient samples with the old batch and the van batch — same buffer, same readout — and the van batch gives almost no signal.",
+      "scene": "A reagent shipment for the reporter assay spent a day in an unrefrigerated van. Dr. Ravi Patel runs the same patient samples with the old batch and the van batch — same buffer, the liquid holding the acidity steady, and the same readout — and the van batch gives almost no signal.",
       "takeaway": "A side-by-side comparison indicts the one component that changed, because anything shared cannot explain a difference.",
       "place": "Molecular Diagnostics Bench",
       "guide": "Four options, and the two runs share almost everything. Ask of each option what it would do to both runs, and what it would do to only one. An explanation that would drag both batches down together cannot account for a difference between them.",
-      "story": "A reagent shipment for the reporter assay spent a day in an unrefrigerated van. Dr. Ravi Patel runs the same patient samples with the old batch and the van batch — same buffer, same readout — and the van batch gives almost no signal.",
+      "story": "A reagent shipment for the reporter assay spent a day in an unrefrigerated van. Dr. Ravi Patel runs the same patient samples with the old batch and the van batch — same buffer, the liquid holding the acidity steady, and the same readout — and the van batch gives almost no signal.",
       "game": {
         "type": "CHOICE",
         "title": "When heat changes an enzyme assay — Review",
@@ -1523,20 +1428,20 @@ export const CURRICULUM = {
         "play": "Two reagent batches, one hot van, and the same samples in both runs.",
         "task": "Two reagent batches, one hot van, and the same samples in both runs.",
         "question": "What does the batch comparison show?",
-        "answer": "Heat in the van disrupted the reporter enzyme's structure.",
-        "why": "Only one thing differs between the two runs: which batch of reporter enzyme went into the tube. The samples, buffer and readout are shared, so anything wrong with them would drag both batches down together. An enzyme is a folded protein, and a day of van heat is enough to loosen the fold that makes its active site — the 55-degree lesson from the bench, arriving as a shipping problem. The comparison indicts the one component that was actually heated, and nothing else.",
+        "answer": "Heat in the van disrupted or destabilized the reporter enzyme’s active structure.",
+        "why": "Only one thing differs between the two runs: which reporter-enzyme batch went into the tube. The samples, buffer, and readout are shared, so a problem in those shared components would affect both batches. The hot-van batch losing activity therefore points to heat-induced disruption or destabilization of the enzyme’s active structure; the comparison does not require claiming that every structural change is permanent.",
         "rebuttals": [
           "The same samples read normally with the old batch minutes apart, so the samples had not degraded.",
           "The specimens never went in the van. The target was not the thing that was heated.",
           "Instrument drift would move both batches alike, and only the van batch lost its signal."
         ],
         "choices": [
-          "Heat in the van disrupted the reporter enzyme's structure.",
+          "Heat in the van disrupted or destabilized the reporter enzyme’s active structure.",
           "The patient samples themselves degraded before the second batch was run.",
           "The van's heat destroyed the target sequence inside the patient specimens.",
           "The reading instrument drifted between the two batches' runs."
         ],
-        "correctChoice": "Heat in the van disrupted the reporter enzyme's structure."
+        "correctChoice": "Heat in the van disrupted or destabilized the reporter enzyme’s active structure."
       },
       "assumes": [
         "an enzyme is a protein whose function depends on it keeping its shape",
@@ -1561,37 +1466,38 @@ export const CURRICULUM = {
   "IMM": [
     {
       "day": 1,
-      "title": "Build the immune response timeline",
-      "scene": "Patients are improving and then getting worse again, and the immunology lab wants the normal response on the board before it says which part has gone wrong. Four cards, no order yet.",
-      "takeaway": "Innate and adaptive immunity are coordinated phases, not competing systems.",
+      "title": "Which defense should arrive first?",
+      "scene": "Elias Webb was sitting up and eating three days ago. Tonight he is back on oxygen, worse than the first time. The immunology lab wants the normal response mapped out first, before it points to what broke. Four cards. No order yet.",
+      "takeaway": "Innate immunity is the fast, general defense. Adaptive immunity is the slower, exact defense. Together they are stages of one team, not two teams fighting each other.",
       "place": "Immunology Lab",
-      "guide": "These four are ordered by speed and by how specific they are, and that ordering is what makes a clinical measurement readable. Ask of each how long it takes and what it recognises. Pattern recognition fires within hours. Finding the right clone and expanding it takes days. And one of these is what is left over afterwards.",
+      "at": "timeline-bench",
+      "guide": "The lab needs these four steps sorted before it can point to the one that broke. Ask two questions of each card. How fast does it happen? And how exact is it — does it spot that something is wrong, or does it target one exact germ? The last card is not a step in the fight. It is what the body keeps afterward, in case that same germ comes back.",
       "background": [
-        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
-        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
-        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+        "Why the whole order counts, not each step alone. A sequence is a claim: each step sits here because the step before it already happened. Swap just one pair, and that claim breaks — no matter where the swap is. Partial credit would be credit for an order that does not actually work.",
+        "Why to start at the two ends. The first card has nothing before it. The last card has nothing after it. That usually lets you settle both from the scene alone. Once those two are pinned, far fewer arrangements are left for the middle. And the middle is where the real judgment happens.",
+        "What else an order can run on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility. A test that leaves the sample untouched goes before one that uses it up. On those boards, reading for time finds nothing. None of the steps has to happen at a set hour."
       ],
-      "story": "Patients are improving and then getting worse again, and the immunology lab wants the normal response on the board before it says which part has gone wrong. Four cards, no order yet.",
+      "story": "Elias Webb was sitting up and eating three days ago. Tonight he is back on oxygen, worse than the first time. The immunology lab wants the normal response mapped out first, before it points to what broke. Four cards. No order yet.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Build the immune response timeline",
+        "title": "Which defense should arrive first?",
         "setup": "Immunology Lab",
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "The phases are ordered by speed and by specificity, and that ordering is what makes a clinical measurement interpretable. Innate sensors fire within hours because they recognise patterns rather than a particular agent. Local signals then recruit cells to where the damage is. Antigen-specific lymphocytes take days because they have to find the right clone and expand it. Memory is what persists after — a smaller population, kept.",
+        "why": "The four steps are ordered by speed and by how exact each one is, and that order is what makes a real test result readable. Innate sensors — the fast, general defense — act within hours, spotting a pattern, not one exact germ. Local signals then call more immune cells to the site. Antigen-specific lymphocytes — cells built to match one germ's exact marker — take days to find and multiply. Memory is what's left after: a smaller group of cells, kept in case the germ returns.",
         "rebuttals": [
-          "Innate recognition first: it needs no prior exposure, which is exactly why it can be the fastest.",
-          "Recruitment second — signals bring cells to the place, and nothing specific can act until cells are there.",
-          "Clonal expansion third, and it is slow because finding and multiplying the right lymphocyte takes days.",
-          "Memory last. It is what is left after resolution, and it is the reason a second exposure goes differently."
+          "Innate sensors go first. They don't need to have met the germ before — that's exactly why they're the fastest.",
+          "Recruiting cells goes second. Signals bring more immune cells to the spot, and nothing exact can act until they arrive.",
+          "Finding and multiplying the right lymphocyte goes third. That's slow, because matching one exact germ and copying the match takes days.",
+          "Memory goes last. It's what stays after the fight is over, and it's why a second run-in with the same germ goes differently."
         ],
         "cards": [
-          "Innate sensors recognize damage or unfamiliar molecular patterns.",
-          "Local signals recruit and activate immune cells.",
-          "Antigen-specific lymphocytes expand and act.",
-          "A smaller memory population persists after resolution."
+          "Innate sensors spot damage or an unfamiliar pattern.",
+          "Local signals call in and activate immune cells.",
+          "Antigen-specific lymphocytes find their match and multiply.",
+          "A smaller memory group stays behind after the fight ends."
         ],
         "order": [
           0,
@@ -1627,43 +1533,127 @@ export const CURRICULUM = {
     },
     {
       "day": 2,
-      "title": "Match the surveillance signal",
-      "scene": "Hospital isolation has held for nine days and cases keep appearing. Four data streams are on the table at the wastewater plant, and each one saw a different slice of the city.",
-      "takeaway": "Surveillance streams observe different populations; timing differences can reveal hidden transmission, but wastewater detection does not by itself establish a transmission route.",
-      "place": "Wastewater Treatment Plant",
-      "guide": "Four data streams, and each one saw a different slice of the city. Pair them by asking who is in that sample, and what the stream can and cannot establish. A sewer signal does not name a person and does not prove waterborne spread. And prevalence counts everyone currently ill, which is why it can stay high while new cases fall.",
+      "title": "Treat the mechanism, not the marker",
+      "scene": "The wrong treatment tonight could save one patient and kill another on the exact same drug. Dr. Nia Okafor, the immunology lead, has one fast lab test slot before tonight's treatment meeting. Patients keep worsening later than expected. Four possible measurements on old samples could come back at different speeds.",
+      "takeaway": "The most valuable measurement is the one whose possible results would point to different treatments — not just to how sick someone is.",
+      "place": "Pathology Archive",
+      "guide": "You have one lab slot before tonight's meeting, and four possible measurements that come back at different speeds. For each one, ask what it would prove — not how interesting the number sounds. Patients are worsening later than expected, and that fact narrows what counts as a useful answer. Spend your one slot on the measurement that would change what the team treats.",
       "background": [
-        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
-        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why worsening late is the clue. Getting worse after the virus has already peaked points away from the virus itself, and toward the body's response to it. Those two causes need different treatments — a drug that fights the virus, or one that calms the immune system. Giving the wrong one late can be worse than giving nothing.",
+        "Why speed is part of the value. A measurement that comes back after the meeting can't change tonight's decision. That doesn't mean pick something fast just because it's fast and useless. It means the slot has to go to a measurement that both tells the guesses apart, and arrives on time.",
+        "What a marker is, and is not. A number that rises as someone gets sicker tells you how ill they are. A number that points to which process is driving the illness tells you what to do about it. Only the second kind is a mechanism. Only the second kind changes the treatment."
       ],
-      "story": "Hospital isolation has held for nine days and cases keep appearing. Four data streams are on the table at the wastewater plant, and each one saw a different slice of the city.",
+      "story": "The wrong treatment tonight could save one patient and kill another on the exact same drug. Dr. Nia Okafor, the immunology lead, has one fast lab test slot before tonight's treatment meeting. Patients keep worsening later than expected. Four possible measurements on old samples could come back at different speeds.",
+      "game": {
+        "type": "VALUE",
+        "title": "Treat the mechanism, not the marker",
+        "setup": "Pathology Archive",
+        "play": "Spend the rapid slot on the evidence that best separates ongoing agent-driven injury from a host response that has outlasted it.",
+        "task": "Spend the rapid slot on the evidence that best separates ongoing agent-driven injury from a host response that has outlasted it.",
+        "question": "Which measurement would most change what the team believes is driving the illness, going into tonight's meeting?",
+        "answer": "Spend the fast slot on paired measurements of pathogen level and inflammation markers over time. The key evidence is direction, not size. If the pathogen level is falling while inflammation is rising, that points toward a late, body-driven phase. It's stronger evidence than one single high inflammation reading would be. It also tells the two guesses apart better than a detailed picture of where the damage is.",
+        "why": "A single inflammation reading can be high for two reasons. The pathogen might still be driving the illness, or the immune response might have taken over as the main cause of damage. The two guesses separate only when tracked over time. If the pathogen level falls while inflammation keeps rising, that favors the body-driven guess; if both rise together, the pathogen may still be active. Cell-state and tissue studies add detail but don't answer the urgent question as directly. The best measurement splits the two guesses before the decision is made.",
+        "value": {
+          "budget": {
+            "amount": 1,
+            "unit": "rapid laboratory slot"
+          },
+          "decision": "Choose which mechanism—continuing agent activity or host-driven inflammation—has the stronger time-course support.",
+          "options": [
+            {
+              "id": "paired_trends",
+              "label": "Paired agent burden and inflammatory markers across two time points",
+              "cost": 1,
+              "axis": "causal direction over time",
+              "reveals": "Whether agent burden and inflammation rise together or separate as burden falls while inflammation continues upward.",
+              "decisive": true
+            },
+            {
+              "id": "single_marker",
+              "label": "Repeat one inflammatory marker now",
+              "cost": 1,
+              "axis": "current inflammatory level",
+              "reveals": "Whether inflammation is high at this moment, without showing whether it is following or outlasting agent burden."
+            },
+            {
+              "id": "cell_states",
+              "label": "Deep immune-cell state profiling",
+              "cost": 1,
+              "axis": "immune-cell phenotype",
+              "reveals": "Which immune-cell programs are active, but not a rapid paired trajectory for the immediate mechanism question."
+            },
+            {
+              "id": "pathology",
+              "label": "Detailed tissue pathology",
+              "cost": 1,
+              "axis": "location and pattern of injury",
+              "reveals": "Where tissue injury is occurring, without by itself establishing whether continuing agent activity or the host response is driving it."
+            }
+          ],
+          "hint": "You can get one result before tonight. Open each option to see what it would reveal about the two competing mechanisms, then spend the slot.",
+          "commit": "Commit the decision"
+        }
+      },
+      "assumes": [
+        "the same bedside deterioration can arise from different mechanisms",
+        "a trend over time can distinguish mechanisms that overlap at one time point",
+        "innate and adaptive immunity — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 13,
+          "c": "Innate and adaptive immunity"
+        }
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Vaccination and treatment",
+        "of": 30,
+        "rests": [
+          "Innate and adaptive immunity"
+        ]
+      }
+    },
+    {
+      "day": 3,
+      "title": "Which signal appears before the hospital?",
+      "scene": "Nine days of isolation, and Riverton is still losing this fight the same way it did on day one. New cases keep showing up anyway. Four data streams sit on the table at the wastewater plant. Each one saw a different slice of the city.",
+      "takeaway": "Different surveillance streams watch different groups of people. A gap in timing between streams can point to hidden spread. But finding germs in wastewater alone does not prove how people caught it.",
+      "place": "Wastewater Treatment Plant",
+      "at": "signal-table",
+      "guide": "Four streams, four different views of the same outbreak. For each one, ask two questions. Who actually shows up in this sample? And what can this stream prove — or not prove? Match the answer that fits both questions, not just the one that sounds right.",
+      "background": [
+        "Why this is a matching board, not four separate questions. Each answer here is written to sound plausible for more than one situation. Picking them one at a time would let a nearly-right answer slip through unchecked. Placing all four forces a real comparison. The question is not \"does this fit here?\" It's \"does this fit better here than there?\"",
+        "How to use the one-each rule. Each answer gets used exactly once, so every match you make limits what's left. Settle the two you're sure of first. Often that leaves the last pair decided by elimination alone. When it doesn't, two answers are still competing for one situation. Telling those two apart is exactly what this stop is testing.",
+        "Why you can't be wrong about just one match. Each answer is used only once, so three correct matches leave the fourth only one place to go. That means any mistake involves at least two matches, not one. Remember this when the last pair feels forced. The problem usually isn't the match you're stuck on — it's an earlier one you stopped questioning too soon."
+      ],
+      "story": "Nine days of isolation, and Riverton is still losing this fight the same way it did on day one. New cases keep showing up anyway. Four data streams sit on the table at the wastewater plant. Each one saw a different slice of the city.",
       "game": {
         "type": "PROTOCOL",
-        "title": "Match the surveillance signal",
+        "title": "Which signal appears before the hospital?",
         "setup": "Wastewater Treatment Plant",
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "",
-        "why": "Each surveillance stream samples a different population. Wastewater can detect community shedding without requiring people to seek care. It can therefore move before hospital admissions. It does not identify an individual, and a positive sewer signal does not prove waterborne transmission. Household interviews can reveal exposure timing but depend on recall and participation. A volunteer transit survey can be biased by who agrees to answer. Prevalence counts everyone currently ill, so it can remain high even after incidence — the number of new cases — begins to fall.",
+        "why": "Each stream samples a different group. Wastewater picks up community shedding — germs shed into the sewer by everyone nearby, sick or not — which is why it can rise before hospital numbers do. But it can't name a person, and it doesn't prove waterborne transmission, spread through the water itself. Household interviews show exposure timing but depend on memory and honesty. A volunteer survey can be skewed by who agrees to answer. Prevalence — everyone currently sick — can stay high even after incidence, new cases, starts to fall.",
         "rebuttals": [
-          "A wastewater rise can precede clinical trends because it samples community shedding. It is a population signal, not an individual diagnosis or proof that sewage is the exposure route.",
-          "Exposures found before symptom onset are evidence about when transmission happens, from the only stream that asks people directly.",
-          "A volunteer sample at one station is a sample of volunteers at one station — the bias is in who agreed, not in the measurement.",
-          "Prevalence stays high after incidence falls when the illness lasts a long time. The two are different quantities and this is how they come apart."
+          "Wastewater can rise before hospital numbers because it picks up community shedding. It's a signal about the whole population, not proof of one person's diagnosis or of the water itself spreading the germ.",
+          "Exposures found before symptoms start show when spread happens. This stream is the only one that asks people directly.",
+          "A volunteer sample at one station is just that — volunteers, at one station. The bias is in who agreed to answer, not in the counting itself.",
+          "Prevalence can stay high after incidence falls when an illness lasts a long time. They are different numbers, and this is how they can pull apart."
         ],
         "scenarios": [
-          "Wastewater concentration rises before hospital admissions.",
-          "Household interviews show several exposures before symptoms.",
-          "A transit survey samples only volunteers at one station.",
-          "Hospital prevalence remains high after new admissions decline."
+          "Germ levels in the wastewater rise before hospital admissions do.",
+          "Household interviews find several exposures happening before symptoms start.",
+          "A transit survey only samples volunteers riding through one station.",
+          "Hospital prevalence stays high even after new admissions go down."
         ],
         "choices": [
-          "Early community shedding signal; not evidence by itself of waterborne transmission.",
-          "Evidence that infectious contact may precede symptoms.",
-          "Potentially biased sample that may not represent riders.",
-          "Long illness duration can keep prevalence high after incidence falls."
+          "An early community-shedding signal. Not proof by itself that the water spread the germ.",
+          "Evidence that people can spread the germ before they feel sick.",
+          "A sample that may be biased — it may not represent most riders.",
+          "A long illness can keep prevalence high even after incidence falls."
         ],
         "mapping": [
           0,
@@ -1697,27 +1687,28 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 3,
+      "day": 4,
       "title": "Negative, while the door keeps opening",
-      "scene": "The isolation room has to stay at negative pressure to the corridor, so that air moves in rather than out. Staff come and go, the anteroom door is propped during a turn, and the extract fan is the only thing that answers it.",
-      "takeaway": "A leak you do not answer is not a leak that closes itself.",
+      "scene": "This airborne-isolation room is engineered so its pressure stays below the corridor, pulling air inward when doors open. The room’s operating target in this simulation is about 8 Pa below the corridor. Staff and trolleys keep changing the airflow, and the extract fan is the control that can restore the differential before contaminated room air is pushed outward.",
+      "takeaway": "A leak you don't answer is not a leak that closes itself.",
       "place": "Isolation Ward",
-      "guide": "Hold the room's pressure difference inside the band on the gauge. The band narrows as the shift goes on, because the ward fills and a room that is marginal with two patients is not acceptable with six. The extract fan is your control, and every door that opens is a leak that goes on leaking until the fan answers it.",
+      "at": "pressure-panel",
+      "guide": "Keep the room's pressure difference inside the band on the gauge. The band gets narrower as the shift goes on. That's because the ward keeps filling — a gap that's fine for two patients isn't safe for six. The extract fan is your control. Every open door is a leak, and it keeps leaking until the fan answers it.",
       "background": [
-        "What negative pressure is for. Air moves from higher pressure to lower, so a room held below the corridor draws air in under its door rather than pushing it out. Everything airborne in that room stays in it and leaves through the filtered extract.",
-        "Why an open door is not a step in the reading. Propping the anteroom door does not lower the difference by two pascals and stop. It opens a path that keeps bleeding pressure for as long as it stands open, so a room left alone does not settle — it drifts toward the corridor and then past it.",
-        "Why a positive room is worse than no room. Once the difference goes the other way the room is pushing its air into the corridor, and it goes on doing it silently. The gauge is the only thing that says so, which is why it is read rather than assumed."
+        "What negative pressure is for. Air always moves from higher pressure to lower pressure. A room held below the corridor's pressure pulls air in under its door, instead of pushing air out. So anything airborne in that room stays in that room. It only leaves through the filtered extract fan.",
+        "Why an open door isn't a one-time drop. Propping the anteroom door doesn't just lower the difference by a couple of pascals and stop there. It opens a path that keeps leaking pressure the whole time it's open. So a room left alone doesn't settle down. It drifts toward the corridor's pressure — and then past it.",
+        "Why a positive room is worse than no room at all. Once the pressure flips the other way, the room pushes its air out into the corridor. It keeps doing that silently, with no smell and no sign. Only the gauge tells you it's happening. That's why someone has to read it, instead of assuming it's fine."
       ],
-      "story": "The isolation room has to stay at negative pressure to the corridor, so that air moves in rather than out. Staff come and go, the anteroom door is propped during a turn, and the extract fan is the only thing that answers it.",
+      "story": "This airborne-isolation room is engineered so its pressure stays below the corridor, pulling air inward when doors open. The room’s operating target in this simulation is about 8 Pa below the corridor. Staff and trolleys keep changing the airflow, and the extract fan is the control that can restore the differential before contaminated room air is pushed outward.",
       "game": {
         "type": "HOLD",
         "title": "Negative, while the door keeps opening",
         "setup": "Isolation Ward",
         "play": "Hold the isolation room while the doors keep opening.",
         "task": "Hold the isolation room while the doors keep opening.",
-        "question": "Hold the isolation room below the corridor while the shift runs.",
-        "answer": "Inside the band for most of the shift, with the extract fan moved to a new setting for each door rather than nudged after the gauge has already crossed.",
-        "why": "Every event here is a step in the rate rather than a step in the reading. A propped door does not drop the difference by a fixed amount; it opens a path that bleeds pressure for as long as it is open, so a room left alone drifts and keeps drifting. That is why the extract fan has to be moved to a new setting and left there rather than nudged and released. The band narrows because the ward fills: a difference that is marginal with two patients in the room is not acceptable with six, and the same fan has to be held closer as the afternoon goes on. And the failure mode is quiet — a room that has gone positive is pushing its air into the corridor and looks exactly like a room that has not, which is why the gauge is on the wall and why somebody is made responsible for reading it.",
+        "question": "Hold the isolation room's pressure below the corridor's for the whole shift.",
+        "answer": "Keep the room below corridor pressure for the whole shift and adjust the extract fan when a disturbance changes the airflow. Recovering after a reversal is not the same as preventing one.",
+        "why": "Negative pressure protects the corridor only while room pressure remains below corridor pressure and airflow stays inward. Door openings and building airflow can disturb that differential, so the fan setting has to respond to the continuing change rather than to one momentary gauge reading. The 8 Pa value here is the room’s operating target; the scientific point is maintaining inward airflow and a reliably negative differential.",
         "hold": {
           "quantity": "Room pressure below the corridor",
           "control": "Extract fan",
@@ -1764,16 +1755,17 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Signal or noise?",
-      "scene": "Seven patients across three hospitals, four days, and the same four symptoms. Dr. Sofia Morales, the epidemiology lead, has the surveillance printout, reporting routes and catchment figures on the desk. The press office has asked twice whether it should say anything.",
+      "scene": "Marcus Webb has carried his father into the third emergency room this week. He is sure that nobody believes him. Six other patients came in the same way — same four symptoms, three hospitals, four days. Dr. Sofia Morales, the epidemiology lead, has the printout that could prove they're right, or prove it's nothing. The press office is already asking what to say.",
       "takeaway": "A count becomes a signal only when something says what was expected instead.",
       "place": "Emergency Department Network",
-      "guide": "Six readings, and the quiet ones decide it. A count is not a signal until something written down beforehand says what ordinary looks like. Ask of each candidate how many of the six it covers. Two of the seven were found on manual chart review, outside the alert rule. Had every case come through that one rule, the cluster could have belonged to the rule.",
+      "at": "ops-board",
+      "guide": "Six readings, and the quiet ones decide it here. A count is not a signal by itself. It only becomes one when something written down beforehand says what normal looks like. For each explanation, ask how many of the six readings it fits. Two of the seven cases turned up on manual chart review, outside the alert rule. If all seven had come through that one rule, the cluster might just be an artifact of the rule.",
       "background": [
-        "Why the unremarkable readings decide it. The salient reading is what draws attention, and it is usually consistent with several explanations at once, which is why it rarely settles anything. The readings that discriminate are the ones a candidate predicts should have moved and which have not: a normal value is a positive result against every mechanism that would have disturbed it.",
-        "How to work the candidates. Take each mechanism and predict the panel it implies before you look at the panel again — which readings it drives, in which direction, and by roughly how much. Then compare. Working that way round is what separates a diagnosis from a rationalisation, because the prediction is made before the data is consulted.",
-        "Why only one candidate survives. Several will account for part of the panel, deliberately so, and a partial fit is exactly what a confident wrong answer feels like from the inside. When two remain, look for the reading on which their predictions differ and let it decide. If no reading separates them you have not finished reading the panel."
+        "Why the normal readings are the ones that decide it. The reading that jumps out grabs your attention, but it usually fits more than one explanation. That is why it rarely settles anything by itself. The readings that actually tell explanations apart are the ones each one predicts should move. When a reading stays normal, that is real evidence — it counts against every explanation that would have moved it.",
+        "How to work through the candidates. Take one explanation at a time. Before you check the readings again, predict what it would do to them — which ones move, which way, and by about how much. Then compare your prediction to the real readings. Predicting first is what makes this a diagnosis instead of a rationalization, because the prediction comes before you look at the data, not after.",
+        "Why only one explanation should survive. Several explanations will fit part of the readings, on purpose. A partial fit is exactly what a confident wrong answer feels like from the inside. If two explanations are still standing, find the one reading where their predictions differ and let it decide. If no reading tells them apart, you have not finished reading the panel."
       ],
-      "story": "Seven patients across three hospitals, four days, and the same four symptoms. Dr. Sofia Morales, the epidemiology lead, has the surveillance printout, reporting routes and catchment figures on the desk. The press office has asked twice whether it should say anything.",
+      "story": "Marcus Webb has carried his father into the third emergency room this week. He is sure that nobody believes him. Six other patients came in the same way — same four symptoms, three hospitals, four days. Dr. Sofia Morales, the epidemiology lead, has the printout that could prove they're right, or prove it's nothing. The press office is already asking what to say.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Signal or noise?",
@@ -1782,11 +1774,11 @@ export const CURRICULUM = {
         "task": "Is this a signal, and what on the desk decides it?",
         "question": "Is this a signal, and what on the desk decides it?",
         "answer": "A real departure from the baseline",
-        "why": "A count is not a signal. What makes it one is a comparison against something written down beforehand, and the baseline here is about two a year — so seven in four days is a departure of a couple of hundredfold, not a busy week. The reading that matters most is the quiet one: two of the seven were found on manual chart review, outside the alert rule. Had every case arrived through that one rule, the cluster could have belonged to the rule. Two found another way is what makes it real.",
+        "why": "A count is not a signal by itself; it needs a baseline and a check on how the cases were found. Riverton usually logs about two cases a year that meet this narrow syndrome, so seven in four days is hundreds of times the short-term expectation. Two cases were also found by manual chart review, outside the new alert rule. That independent route makes a rule artifact much less likely.",
         "rebuttals": [
-          "The alert rule is the right worry, and it is the one this panel rules out. Five cases came through it and two did not, so the pattern survives being looked for a second way.",
+          "The alert rule is the right thing to worry about, and this panel rules it out. Five cases came through the rule, and two did not. The pattern survives being checked a second way.",
           "Autumn respiratory illness would lift the other syndromes with it. The panel shows those flat, so whatever this is, it is not the season.",
-          "The denominator is on the desk — all three hospitals supplied their catchment. That objection is the correct instinct and it has already been answered."
+          "The denominator is right there on the desk. All three hospitals supplied their catchment — the number of people each one serves. That objection is the right instinct, and it has already been answered."
         ],
         "headline": "Seven cases in four days, against a syndrome the city logs about twice a year.",
         "readings": [
@@ -1850,37 +1842,31 @@ export const CURRICULUM = {
       "assumes": [
         "a rate is a count measured against a population and a length of time",
         "surveillance only sees the patients who reached it",
-        "epidemiology is the study of how health events are distributed in populations and what factors shape them",
-        "homeostasis and feedback — taken as read"
-      ],
-      "takesAsRead": [
-        {
-          "n": 11,
-          "c": "Homeostasis and feedback"
-        }
+        "epidemiology is the study of how health events are distributed in populations and what factors shape them"
       ],
       "concept": {
-        "n": 26,
-        "c": "Signalling: nervous and endocrine control",
+        "n": 16,
+        "c": "Epidemiology: case definitions, curves, R and reservoirs",
         "of": 30,
         "rests": [
-          "Homeostasis and feedback"
+          "Populations, transmission chains and exponential growth",
+          "Rates, ratios and reading data"
         ]
       }
     },
     {
       "day": 2,
       "title": "Build the provisional case definition",
-      "scene": "3 hospitals begin counting at 6 a.m., and each has drafted a different case definition. Those first tallies will shape the city’s outbreak curve. Dr. Lena Ortiz, the clinical physiology lead, wants one definition on every desk before the night shift leaves.",
+      "scene": "By 6 a.m. three hospitals are counting patients like Elias Webb — each one using a different rulebook. Whichever definition wins decides how big this outbreak looks on paper, and how fast Riverton reacts. Dr. Sofia Morales wants one definition on every desk before the night shift leaves.",
       "takeaway": "Operational definitions convert vague concern into reproducible observation.",
       "place": "Epidemiology Operations Room",
-      "guide": "All four steps will happen, so ask what each one lets you check. A case definition is an instrument, and it is wrong in a known direction. Too narrow and the spread is invisible. Too wide and the count fills with ordinary autumn illness. So it gets tested against known cases and against obvious non-cases, and those two tests catch opposite errors.",
+      "guide": "All four steps will happen, so ask what each one lets you check. A case definition — the rule that says who counts as a case — is a tool, and it is wrong in a known direction. Too narrow, and it misses real spread. Too wide, and it fills up with ordinary autumn illness. That is why it gets tested against known cases and against obvious non-cases. Those two tests catch opposite mistakes.",
       "background": [
-        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
-        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
-        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+        "Why you get graded on the whole order, not part of it. Each step needs the step before it to be done first. Swap any two steps and the chain breaks. So there is no partial credit — a broken chain does not work halfway.",
+        "Start with the two ends. The first card has nothing before it, and the last card has nothing after it. That usually lets you place both from the scene alone. Once those two are set, far fewer orders are possible. The real thinking happens in the middle.",
+        "What decides the order. Time is the usual rule, but not the only one. An order can also run on cost, on risk, or on reversibility. Reversibility means every step that leaves the sample untouched comes before any step that uses it up. On those boards, looking for clock time finds nothing. None of the steps has to happen at a set hour."
       ],
-      "story": "3 hospitals begin counting at 6 a.m., and each has drafted a different case definition. Those first tallies will shape the city’s outbreak curve. Dr. Lena Ortiz, the clinical physiology lead, wants one definition on every desk before the night shift leaves.",
+      "story": "By 6 a.m. three hospitals are counting patients like Elias Webb — each one using a different rulebook. Whichever definition wins decides how big this outbreak looks on paper, and how fast Riverton reacts. Dr. Sofia Morales wants one definition on every desk before the night shift leaves.",
       "game": {
         "type": "SEQUENCE",
         "title": "Build the provisional case definition",
@@ -1889,18 +1875,18 @@ export const CURRICULUM = {
         "task": "Order the build so each step can be checked before the next one depends on it.",
         "question": "Order the build so each step can be checked before the next one depends on it.",
         "answer": "",
-        "why": "A case definition is an instrument, and like any instrument it is wrong in a known direction. Too narrow and the spread is invisible; too wide and the count fills with the ordinary respiratory illness of a city in autumn. That is why it is tested twice before it is issued — against patients already known to be cases, which catches a definition that is too narrow, and against obvious non-cases, which catches one that is too wide. A definition nobody tested is a curve nobody can interpret.",
+        "why": "A case definition — the rule for who counts as a case — is a tool, and like any tool it is wrong in a known direction. Too narrow, and real spread stays invisible. Too wide, and the count fills with ordinary autumn illness. That is why it gets tested twice before release. One test uses known cases, which catches a definition too narrow. The other uses obvious non-cases, which catches one too wide. Skip the testing, and nobody can trust the curve it produces.",
         "rebuttals": [
-          "Records first, because the shared features have to come out of the patients rather than out of the drafting. Specifying symptoms before reading the notes is writing down what you expected to find.",
-          "Symptoms, timing and geography next, because those three are what a clinician at four in the morning actually applies. A definition that cannot be applied at speed is not an operational definition.",
-          "Testing before publication, not after. Known cases catch a definition that is too narrow; obvious non-cases catch one that is too wide. Skip this and the first curve is uninterpretable in a direction nobody can name.",
-          "The revision date goes out with the definition. Without it, three hospitals keep counting to a definition everybody knows is provisional and nobody is authorised to change."
+          "Records come first. The shared features have to come from the patients, not from guessing. Writing down symptoms before reading the notes would just record what you expected to find.",
+          "Symptoms, timing and place come next. Those three are what a clinician at four in the morning can actually use fast. A definition too slow to apply is not a working definition at all.",
+          "Testing comes before the definition is issued, not after. Known cases catch a definition that is too narrow. Obvious non-cases catch one that is too wide. Skip this step, and the first curve cannot be read — and nobody will know which way it is wrong.",
+          "The revision date goes out with the definition. Without it, three hospitals keep counting to a rule everyone knows is temporary, but nobody is allowed to change."
         ],
         "cards": [
           "Specify observable symptoms, timing, and location.",
-          "Read the notes of the patients already admitted, for features they share.",
+          "Read the notes of the patients already admitted, and find the features they share.",
           "Test the definition on known cases and obvious non-cases.",
-          "Attach a revision date and the known uncertainty to the definition the hospitals apply."
+          "Attach a revision date and the known uncertainty to the definition every hospital uses."
         ],
         "order": [
           1,
@@ -1937,32 +1923,32 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "Spend the first response reserve",
-      "scene": "Dr. Sofia Morales, the epidemiology lead, has one response slot she can start this afternoon. Four proposals are ready, and tomorrow’s hospital reports will arrive before any second project can begin.",
+      "title": "Make the next counts comparable",
+      "scene": "By morning, three hospitals will send case counts to the same command room. One shared line list and case rule can be in place tonight. Wastewater, interviews, and public warnings may all matter later, but none of them can repair three incompatible hospital datasets after the fact.",
       "takeaway": "The best first measurement is the one that makes later evidence comparable and decision-ready.",
       "place": "Clinical Data Office",
-      "guide": "One response slot you can start this afternoon, and four proposals. Open each and ask what tomorrow's conclusions would look like with and without it. Hospital reports arrive before any second project can begin, so this purchase decides what the team can reliably say tomorrow rather than what it will eventually know.",
+      "guide": "One response slot you can start this afternoon, and four proposals. Open each one and ask what the next stage's conclusions would look like with it, and without it. Hospital reports arrive before any second project can begin. So this choice decides what the team can reliably say at the next stage — not what it will eventually know.",
       "background": [
-        "Why the first purchase is different. It runs while nothing else does, so it sets the baseline everything later is compared against. A measurement started tomorrow can still be useful; one that should have started today can leave a gap in the record that nothing later fills.",
-        "What 'reliably conclude' rules out. Data that arrives without a comparison — cases with no denominator, positives with no sampling frame — cannot support a conclusion however large it is. The proposals differ mostly in whether they produce a comparison or only a count.",
-        "Why the hospital reports change the calculus. They arrive whatever you buy, so a proposal that duplicates what they will contain has spent the slot on something you were getting anyway."
+        "Why the first purchase is different. It runs while nothing else does, so it sets the baseline that everything later gets compared against. A measurement started at the next stage can still be useful. But one that should have started today can leave a gap in the record, and nothing later fills that gap.",
+        "What 'reliably conclude' rules out. Data with no comparison to check it against cannot support a conclusion, no matter how big the number looks — cases with no denominator, positive tests with no idea who was tested. The four proposals differ mostly in this: some produce a real comparison, and some produce only a count.",
+        "Why the hospital reports change the math. They arrive no matter what you buy. So a proposal that just repeats what they will already contain has spent the slot on something you were getting for free anyway."
       ],
-      "story": "Dr. Sofia Morales, the epidemiology lead, has one response slot she can start this afternoon. Four proposals are ready, and tomorrow’s hospital reports will arrive before any second project can begin.",
+      "story": "By morning, three hospitals will send case counts to the same command room. One shared line list and case rule can be in place tonight. Wastewater, interviews, and public warnings may all matter later, but none of them can repair three incompatible hospital datasets after the fact.",
       "game": {
         "type": "VALUE",
-        "title": "Spend the first response reserve",
+        "title": "Make the next counts comparable",
         "setup": "Clinical Data Office",
-        "play": "Spend the single response slot on the evidence that makes tomorrow’s citywide case data interpretable.",
-        "task": "Spend the single response slot on the evidence that makes tomorrow’s citywide case data interpretable.",
-        "question": "Which first purchase changes what the response team can reliably conclude tomorrow?",
-        "answer": "Start the standardised line list. Tomorrow’s hospital counts can only become one interpretable curve if they use the same case definition, dates and denominators. Wastewater is a valuable independent stream, but it cannot repair incompatible clinical counting after the fact.",
-        "why": "Three hospitals are about to produce three curves. Those curves can be combined only if the same operational definition created them. A standard line list preserves dates, symptoms and denominators in one comparable structure. Wastewater adds an independent population signal, but it cannot define a patient case. Expert impressions have no common denominator, and a warning adds no evidence. The first scarce action should make tomorrow’s observations comparable; the independent streams become more useful once there is a clinical baseline to compare with.",
+        "play": "Choose the one action that makes the next stage's hospital evidence comparable enough to combine.",
+        "task": "Choose the one action that makes the next stage's hospital evidence comparable enough to combine.",
+        "question": "Which first purchase changes what the response team can reliably conclude at the next stage?",
+        "answer": "Start the standardized line list. The next hospital counts can only turn into one curve you can actually read if all three hospitals use the same case definition, the same dates, and the same denominators. Wastewater testing is a valuable, separate signal — but it cannot fix mismatched hospital counting after the fact.",
+        "why": "Three hospitals are about to produce three separate curves, and those combine into one only if the same rule built all three. A standard line list keeps dates, symptoms and denominators in one comparable form. Wastewater testing adds a useful population-wide signal, but can't say who counts as a case. Director interviews have no denominator, and a warning adds no evidence at all. The first scarce action should make those numbers comparable — the independent signals matter more once a clinical baseline exists to compare them against.",
         "value": {
           "budget": {
             "amount": 1,
             "unit": "response start"
           },
-          "decision": "Choose the first action that makes tomorrow's citywide outbreak picture interpretable.",
+          "decision": "Choose the first action that makes the citywide outbreak picture interpretable.",
           "options": [
             {
               "id": "line_list",
@@ -1994,7 +1980,7 @@ export const CURRICULUM = {
               "reveals": "No new physical evidence; it commits public credibility before the transmission picture is established."
             }
           ],
-          "hint": "You can start one project before tomorrow’s hospital reports arrive. Open each card to see what new conclusion it would make possible, then spend the slot.",
+          "hint": "You can start one project before the next hospital reports arrive. Open each card to see what new conclusion it would make possible, then spend the slot.",
           "commit": "Commit the decision"
         }
       },
@@ -2010,37 +1996,37 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "From specimen to broad classification",
-      "scene": "The microscope bench has patient material, healthy tissue and a negative control on the same bench, and four things it could do with them. Ortiz wants the order written down before anybody touches a specimen, because two of these consume what they measure.",
+      "title": "Build the classification from checks, not one image",
+      "scene": "Pathology has one limited set of patient material and several ways to interrogate it. The most dramatic image is also the easiest result to overread. Put the evidence steps in an order that starts with controls, then asks what kind of biological structure is actually present, and only then assigns a broad classification.",
       "takeaway": "A good classification is an evidence synthesis, not a label generated by one instrument.",
       "place": "Microscopy Core",
-      "guide": "All four steps will be done, so ask what each one needs to be true first. Two of them consume what they measure. Measure a structure in a contaminated preparation and you have measured the contamination at high magnification. And asking whether something copies itself alone only means anything once you know whether it is cellular at all.",
+      "guide": "All four steps will be done, so ask what each one needs to already be true. Two of these steps use up what they measure. Measure a structure in a dirty sample, and all you have measured is the dirt, just magnified. And asking whether something copies itself on its own only makes sense once you know whether it is a cell at all.",
       "background": [
-        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
-        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
-        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+        "Why you get graded on the whole order, not part of it. Each step needs the step before it to be done first. Swap any two steps and the chain breaks. So there is no partial credit — a broken chain does not work halfway.",
+        "Start with the two ends. The first card has nothing before it, and the last card has nothing after it. That usually lets you place both from the scene alone. Once those two are set, far fewer orders are possible. The real thinking happens in the middle.",
+        "What decides the order. Time is the usual rule, but not the only one. An order can also run on cost, on risk, or on reversibility. Reversibility means every step that leaves the sample untouched comes before any step that uses it up. On those boards, looking for clock time finds nothing. None of the steps has to happen at a set hour."
       ],
-      "story": "The microscope bench has patient material, healthy tissue and a negative control on the same bench, and four things it could do with them. Ortiz wants the order written down before anybody touches a specimen, because two of these consume what they measure.",
+      "story": "Pathology has one limited set of patient material and several ways to interrogate it. The most dramatic image is also the easiest result to overread. Put the evidence steps in an order that starts with controls, then asks what kind of biological structure is actually present, and only then assigns a broad classification.",
       "game": {
         "type": "SEQUENCE",
-        "title": "From specimen to broad classification",
+        "title": "Build the classification from checks, not one image",
         "setup": "Microscopy Core",
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "Each step is only interpretable if the one before it held. Comparing against controls first is what separates the agent from the specimen it arrived in — measure a structure in a contaminated preparation and you have measured the contamination, at high magnification. Size and structure then say whether this is cellular at all, and only once you know that does asking whether it copies itself alone mean anything.",
+        "why": "Each step only makes sense once the one before it holds true. Checking against controls first separates the real germ from the sample it arrived in. Measure a structure in a dirty sample, and all you've measured is the dirt, magnified. Size and structure then say whether this is a cell at all. Only once that's known does asking whether it copies itself on its own mean anything.",
         "rebuttals": [
-          "Controls first, because everything after them is a claim about the patient rather than about the tube.",
-          "Structure before behaviour: whether something needs a host cell is a question about an organism, and you do not have an organism until you know it is one.",
-          "The replication question comes third because it is the slowest and the most specific — it is worth running only on a candidate the first two steps survived.",
-          "Integration last. A provisional classification is what the other three produce, not a step you can take on its own."
+          "Controls come first, because everything after them is a claim about the patient, not about the tube.",
+          "Structure comes before behavior. Whether something needs a host cell is a question about a living thing, and you do not have a living thing to ask about until you know it is one.",
+          "The replication question comes third because it is the slowest test and the most specific one. It is only worth running on a candidate that survived the first two steps.",
+          "Integration comes last. A provisional classification is what the other three steps produce together — it is not a step you can take on its own."
         ],
         "cards": [
           "Compare patient material with negative and healthy controls.",
-          "Characterize size, cellular structures, and nucleic-acid signature.",
-          "Ask whether the candidate reproduces independently or requires host cells.",
-          "Integrate the independent observations into a provisional classification."
+          "Characterize its size, its cell structures, and its nucleic-acid signature — the pattern in its DNA, the molecule an agent carries its instructions in, or in its RNA.",
+          "Ask whether it can reproduce on its own, or whether it needs a host cell to do it.",
+          "Combine the separate observations into a provisional classification."
         ],
         "order": [
           0,
@@ -2061,15 +2047,15 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What does a positive mean?",
-      "scene": "The mayor's office wants to screen a low-prevalence population and treat every positive as a case. The statistics desk has a ten-thousand-person validation table with reference status and assay results.",
-      "takeaway": "Positive predictive value depends on prevalence as well as sensitivity and specificity.",
+      "scene": "Screen wrong, and healthy people get told they're sick, or sick people get sent home into a crowd. The mayor's office wants to screen a population where the condition is rare. It plans to treat every positive test as a real case. The statistics desk has a ten-thousand-person validation table, showing who truly has it and what the test found.",
+      "takeaway": "A positive test result depends on prevalence, not just on sensitivity and specificity.",
       "place": "Clinical Statistics Desk",
-      "guide": "Six numbers, and two of them are tempting figures from other situations. Ask of each whether this table supplies it. Sensitivity and specificity are properties of the test. What a positive is worth is not, because it depends on how many people had it to begin with. That is why a low-prevalence screen produces more false positives than true ones.",
+      "guide": "Six numbers, and two of them are tempting figures that belong to a different situation. For each one, ask: does this table actually supply it? Sensitivity is how many real cases the test catches. Specificity is how many healthy people it correctly clears. Both are properties of the test itself, not of the population it is used on. What a positive result is worth is different — it depends on prevalence, how common the condition already is in the group being tested. That is why screening a low-prevalence group turns up more false positives than true ones.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why this is an estimate, not a calculation you derive from scratch. Every number on this board is already measured or given. Nothing here has to be worked out first. What is being tested is whether you can pick the right numbers for the relationship, and whether your answer comes out a sensible size once they are in place.",
+        "Why every tile has a label. A bare number cannot be checked against the relationship it belongs in. Reading the label first is how you catch a wrong unit, or a number that belongs to a different part of the problem, before you place it. That habit — read the label first — is the whole point of this format."
       ],
-      "story": "The mayor's office wants to screen a low-prevalence population and treat every positive as a case. The statistics desk has a ten-thousand-person validation table with reference status and assay results.",
+      "story": "Screen wrong, and healthy people get told they're sick, or sick people get sent home into a crowd. The mayor's office wants to screen a population where the condition is rare. It plans to treat every positive test as a real case. The statistics desk has a ten-thousand-person validation table, showing who truly has it and what the test found.",
       "game": {
         "type": "BALLPARK",
         "title": "What does a positive mean?",
@@ -2078,7 +2064,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the chance that a positive result is a true case.",
         "answer": "",
-        "why": "The validation table lets all three quantities be computed. Among 100 infected people, 90 test positive and 10 test negative, giving 90% sensitivity. Among 9,900 uninfected people, 9,801 test negative and 99 test positive, giving 99% specificity. The same counts also show why a positive is less decisive in a low-prevalence group: there are 90 true positives but 99 false positives. So only 90 of 189 positive tests are true cases, about 48%.",
+        "why": "The validation table gives all three numbers. Among 100 infected people, 90 test positive and 10 negative — 90% sensitivity. Among 9,900 uninfected people, 9,801 test negative and 99 positive — 99% specificity. Those same counts show why a positive means less in a low-prevalence group: 90 true positives, but also 99 false positives. Only 90 of the 189 positive tests are real cases — about 48%.",
         "givens": [],
         "relationship": "Sensitivity = TP ÷ (TP+FN). Specificity = TN ÷ (TN+FP). PPV = TP ÷ (TP+FP).",
         "calcKey": "POP-5"
@@ -2124,25 +2110,26 @@ export const CURRICULUM = {
     },
     {
       "day": 6,
-      "title": "Estimate oxygen delivery",
-      "scene": "The bedside argument has stalled on which of two patients is worse off. Both have the same oxygen content per litre of blood; one moves three litres a minute and the other five.",
-      "takeaway": "A normal concentration does not guarantee a normal delivery rate; flow matters.",
+      "title": "How much oxygen is actually delivered?",
+      "scene": "Two patients, the same danger sign, and only one of them is actually running out of oxygen fast. The bedside argument has stalled on which of two patients is worse off. Both have the same amount of oxygen in each liter of blood. One patient's heart moves three liters a minute. The other's moves five.",
+      "takeaway": "A normal oxygen concentration does not guarantee a normal delivery rate. Flow matters too.",
       "place": "Cardiopulmonary Physiology Lab",
-      "guide": "Five numbers, and three of them are the other patient's flow, the saturation and the haemoglobin. Ask of each whether this delivery depends on it. Both patients carry the same oxygen per litre, so the concentration cannot separate them. A concentration is not a rate, and the flow term is doing all the work.",
+      "at": "stats-desk",
+      "guide": "Five numbers, and three of them do not belong here: the other patient's flow, the saturation, and the hemoglobin level. For each one, ask: does this delivery number actually depend on it? Both patients carry the same amount of oxygen in each liter of blood, so that concentration cannot be what separates them. A concentration is not a rate. The flow — how much blood moves each minute — is doing all the work.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why this is an estimate, not a calculation you derive from scratch. Every number on this board is already measured or given. Nothing here has to be worked out first. What is being tested is whether you can pick the right numbers for the relationship, and whether your answer comes out a sensible size once they are in place.",
+        "Why every tile has a label. A bare number cannot be checked against the relationship it belongs in. Reading the label first is how you catch a wrong unit, or a number that belongs to a different part of the problem, before you place it. That habit — read the label first — is the whole point of this format."
       ],
-      "story": "The bedside argument has stalled on which of two patients is worse off. Both have the same oxygen content per litre of blood; one moves three litres a minute and the other five.",
+      "story": "Two patients, the same danger sign, and only one of them is actually running out of oxygen fast. The bedside argument has stalled on which of two patients is worse off. Both have the same amount of oxygen in each liter of blood. One patient's heart moves three liters a minute. The other's moves five.",
       "game": {
         "type": "BALLPARK",
-        "title": "Estimate oxygen delivery",
+        "title": "How much oxygen is actually delivered?",
         "setup": "Cardiopulmonary Physiology Lab",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate oxygen delivery for the patient with the lower cardiac output.",
+        "question": "Estimate oxygen delivery for the patient with the lower cardiac output — the one whose heart pumps less blood each minute.",
         "answer": "",
-        "why": "Two patients with identical saturations can differ by a factor of two in delivery, because the flow term is doing the work. A concentration is not a rate.",
+        "why": "Two patients with the same oxygen saturation can still differ twofold in delivery, because flow — how much blood moves each minute — is doing the work. A concentration is not a rate.",
         "givens": [],
         "relationship": "Oxygen delivered = blood flow × oxygen carried per unit of blood.",
         "calcKey": "POP-6"
@@ -2168,26 +2155,27 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "Choose the One Health campaign",
-      "scene": "Dr. Arjun Singh, the 1 Health lead, has 1 field campaign and 20 sampling slots. Candidate species, comparison sites and a second time point all compete for the same crews.",
-      "takeaway": "A field design is defined by the alternative explanations it can rule out with the samples it chooses to collect.",
+      "title": "Which samples can actually settle it?",
+      "scene": "The cull is set for Saturday. Dr. Sofia Morales has one field campaign to either justify it or call it off in time. Candidate animal species, comparison sites, and a second time point all compete for the same 20 sampling slots and the same field crews.",
+      "takeaway": "A field design is defined by which rival explanations it can rule out with the samples it collects.",
       "place": "Comparative Genomics Lab",
-      "guide": "One campaign, twenty sampling slots, and more candidate species, sites and time points than the crews can cover. Watch the questions list rather than the map: it shows which comparisons your current plan can still make. A plan that samples the most animals and preserves no comparison cannot test the hypothesis at all.",
+      "at": "campaign-board",
+      "guide": "One campaign, twenty sampling slots, and more candidate species, sites and time points than the crews can cover. Watch the list of questions, not the map — it shows which comparisons your current plan can still make. A plan that samples the most animals but keeps no comparison cannot test anything at all.",
       "background": [
-        "Why comparisons rather than counts. Finding the pathogen in a species proves it can be infected, not that it is the reservoir. That claim needs a contrast: this species against others, this site against a comparison site, now against later. Slots spent without a contrast produce a positive result that settles nothing.",
-        "What a comparison site is for. Detection everywhere means the finding is not specific to the outbreak area. Detection here and not there is what links the reservoir to the human cases, and it costs half the campaign to be able to say it.",
-        "Why the second time point is expensive and hard to give up. Reservoir dynamics change with season and with the outbreak itself. One visit gives a snapshot that cannot distinguish an established reservoir from a passing spillover, which is exactly the question the response needs answered."
+        "Why comparisons matter more than counts. Finding the germ in one animal species proves it can be infected. It does not prove that species is the reservoir — the animal population where the germ lives long-term between outbreaks. That claim needs a contrast: this species against other species, this site against a comparison site, now against later. Slots spent with no contrast produce a positive result that settles nothing.",
+        "What a comparison site is for. If you find the germ everywhere, the finding is not specific to the outbreak area. Finding it here and not there is what links the reservoir to the human cases, and saying that costs half the whole campaign.",
+        "Why the second time point is expensive and hard to give up. Reservoir patterns change with the season and with the outbreak itself. One visit only gives a single snapshot. It cannot tell an established reservoir apart from a one-time spillover, which is exactly the question the response needs answered."
       ],
-      "story": "Dr. Arjun Singh, the 1 Health lead, has 1 field campaign and 20 sampling slots. Candidate species, comparison sites and a second time point all compete for the same crews.",
+      "story": "The cull is set for Saturday. Dr. Sofia Morales has one field campaign to either justify it or call it off in time. Candidate animal species, comparison sites, and a second time point all compete for the same 20 sampling slots and the same field crews.",
       "game": {
         "type": "ALLOCATE",
-        "title": "Choose the One Health campaign",
+        "title": "Which samples can actually settle it?",
         "setup": "Comparative Genomics Lab",
         "play": "Allocate the 20 slots so the campaign can distinguish a reservoir pattern from spillback or a one-household sampling artifact.",
         "task": "Allocate the 20 slots so the campaign can distinguish a reservoir pattern from spillback or a one-household sampling artifact.",
-        "question": "Which sampling plan preserves the comparisons needed to test the reservoir hypothesis?",
-        "answer": "Use the 20 slots on the candidate species at case-linked sites, the same species at comparison sites, comparison species, and a repeat time point. That plan preserves geography, species and persistence tests. Extra depth around one household is the question the fixed campaign should forgo.",
-        "why": "A positive animal near a human case is compatible with several stories: reservoir, spillback from people, or shared exposure. The design has to create comparisons that separate those stories. Sampling the same species away from cases tests geography. Sampling other species in the same habitat tests species specificity. Returning later tests persistence. Sequencing can then compare what the field design actually found, but it cannot rescue a biased sample. Spending the campaign on one feared species near one household produces a precise result that cannot establish the population process.",
+        "question": "Which sampling plan keeps the comparisons needed to test the reservoir hypothesis — the idea that this species is where the germ persists long-term?",
+        "answer": "Use the 20 slots on the candidate species at case-linked sites, the same species at comparison sites, other species in the same habitat, and a repeat time point. That keeps geography, species, and persistence comparisons alive. The result can strengthen or weaken a reservoir hypothesis; it should not be described as proof from one campaign.",
+        "why": "A positive animal near a human case fits several stories. It may be reservoir maintenance, spillback from people, or a shared exposure. Sampling the same species away from cases tests geography. Other species in the same habitat test how specific the host is. Repeat sampling tests whether it persists. Sequencing compares relatedness once the field design has made those comparisons. It cannot rescue a biased sample, or settle direction of transmission on its own.",
         "allocate": {
           "pool": {
             "amount": 20,
@@ -2288,16 +2276,17 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Selection or sampling artifact?",
-      "scene": "A variant has gone from 8 to 31% of sequences in 4 weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.",
+      "scene": "Get this wrong, and the city panics over a variant that was never really rising, or ignores one that is. A variant has gone from 8 to 31% of sequences in 4 weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.",
       "takeaway": "A changing share needs competing explanations tested before it can support a claim about biological advantage.",
       "place": "Evolutionary Dynamics Group",
-      "guide": "Five readings, and each rules out a different rival. The rise repeats across hospital systems. Sequencing depth is stable. Neutral variants stay flat. Ask of each candidate how many of the five it survives. And note what even the best answer here does not measure: the size of any advantage.",
+      "at": "ops-board",
+      "guide": "Five readings, and each one rules out a different rival explanation. The rise repeats across hospital systems. Sequencing depth stays stable. Neutral variants — ones selection is not acting on — stay flat. For each candidate explanation, ask how many of the five readings it survives. And notice what even the best answer here does not measure: how big the advantage actually is.",
       "background": [
-        "Why the unremarkable readings decide it. The salient reading is what draws attention, and it is usually consistent with several explanations at once, which is why it rarely settles anything. The readings that discriminate are the ones a candidate predicts should have moved and which have not: a normal value is a positive result against every mechanism that would have disturbed it.",
-        "How to work the candidates. Take each mechanism and predict the panel it implies before you look at the panel again — which readings it drives, in which direction, and by roughly how much. Then compare. Working that way round is what separates a diagnosis from a rationalisation, because the prediction is made before the data is consulted.",
-        "Why only one candidate survives. Several will account for part of the panel, deliberately so, and a partial fit is exactly what a confident wrong answer feels like from the inside. When two remain, look for the reading on which their predictions differ and let it decide. If no reading separates them you have not finished reading the panel."
+        "Why the normal readings are the ones that decide it. The reading that jumps out grabs your attention, but it usually fits more than one explanation. That is why it rarely settles anything by itself. The readings that actually tell explanations apart are the ones each one predicts should move. When a reading stays normal, that is real evidence — it counts against every explanation that would have moved it.",
+        "How to work through the candidates. Take one explanation at a time. Before you check the readings again, predict what it would do to them — which ones move, which way, and by about how much. Then compare your prediction to the real readings. Predicting first is what makes this a diagnosis instead of a rationalization, because the prediction comes before you look at the data, not after.",
+        "Why only one explanation should survive. Several explanations will fit part of the readings, on purpose. A partial fit is exactly what a confident wrong answer feels like from the inside. If two explanations are still standing, find the one reading where their predictions differ and let it decide. If no reading tells them apart, you have not finished reading the panel."
       ],
-      "story": "A variant has gone from 8 to 31% of sequences in 4 weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.",
+      "story": "Get this wrong, and the city panics over a variant that was never really rising, or ignores one that is. A variant has gone from 8 to 31% of sequences in 4 weeks and the briefing is in an hour. The evolutionary dynamics group has run its checks and put them all on one screen.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Selection or sampling artifact?",
@@ -2306,11 +2295,11 @@ export const CURRICULUM = {
         "task": "Which explanation best fits the frequency trend and the independent checks?",
         "question": "Which explanation best fits the frequency trend and the independent checks?",
         "answer": "Selection is the leading explanation",
-        "why": "A rising frequency is an observation, not a direct measurement of fitness. Selection is one explanation, alongside founder effects, changing sampling and technical bias. The checks here weaken those alternatives. The rise repeats across hospital systems, sequencing quality is stable, neutral control variants stay comparatively flat, and the trend survives adjustment for place and date. Together that makes selection the leading explanation in this panel. It does not measure the size of a transmission advantage. Repeated growth-rate comparisons or functional evidence would strengthen that claim.",
+        "why": "A rising percentage is observed frequency, not a direct measurement of fitness. Selection is one explanation alongside a founder event, a change in who gets sampled, or laboratory bias. Here the rise repeats across independent hospitals, sequencing quality stays stable, neutral control variants do not show the same pattern, and an adjusted lineage-growth comparison still favors the variant. That makes selection the leading explanation, while leaving the exact mechanism and size of the advantage unresolved.",
         "rebuttals": [
-          "A changing sampling mix would move the neutral control variants too, because they ride on the same samples. Those are flat.",
-          "A sequencing artefact would show as changing depth or coverage, and the depth is stable across the four weeks.",
-          "A single founder cluster would not repeat across three independent hospital systems, and it would not survive adjusting for place."
+          "A changing sampling mix would move the neutral control variants too, since they ride on the same samples. Those variants are flat.",
+          "A sequencing problem would show up as changing depth or coverage. Depth has stayed stable across all four weeks.",
+          "A single lucky cluster would not repeat across three independent hospital systems. It would not survive adjusting for place, either."
         ],
         "headline": "A genetic variant rises quickly in the city data.",
         "readings": [
@@ -2353,7 +2342,7 @@ export const CURRICULUM = {
         "choices": [
           {
             "label": "Selection is the leading explanation",
-            "mechanism": "The variant shows a reproducible rise across comparable populations after major sampling and technical alternatives are checked."
+            "mechanism": "The variant's rise shows up again and again across similar populations, even after checking for sampling and lab explanations."
           },
           {
             "label": "Changing sampling mix",
@@ -2391,25 +2380,25 @@ export const CURRICULUM = {
     },
     {
       "day": 9,
-      "title": "Track a rising variant",
-      "scene": "The variant briefing starts in 30 minutes. Week one and week three used different sample totals, and the surveillance hub needs the actual change before anyone argues about why it happened. The raw counts are still on the board.",
-      "takeaway": "Evolutionary inference begins with accurate frequencies and then tests causal explanations.",
+      "title": "How much did the variant really rise?",
+      "scene": "Thirty minutes before a headline number goes out, and it might be built on nothing but a change in who got tested. Week one and week three tested different numbers of samples. The raw counts are still on the board.",
+      "takeaway": "Figuring out what is really happening starts with accurate percentages, and only then tests explanations for the cause.",
       "place": "Regional Surveillance Hub",
-      "guide": "Six numbers, and two of them are the weeks pooled together, which answers a different question. Ask of each whether it belongs to week one or week three. A frequency is a ratio, and it only means something if both denominators were produced the same way. A change in who gets sequenced moves the numerator with nothing happening in the city.",
+      "guide": "Six numbers, and two of them pool both weeks together — that answers a different question. For each number, ask: does it belong to week one, or week three? A percentage is a ratio, and it only means something if both denominators — the total tested each week — were counted the same way. A change in who gets sequenced can move the numerator even when nothing has changed in the city.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why this is an estimate, not a calculation you derive from scratch. Every number on this board is already measured or given. Nothing here has to be worked out first. What is being tested is whether you can pick the right numbers for the relationship, and whether your answer comes out a sensible size once they are in place.",
+        "Why every tile has a label. A bare number cannot be checked against the relationship it belongs in. Reading the label first is how you catch a wrong unit, or a number that belongs to a different part of the problem, before you place it. That habit — read the label first — is the whole point of this format."
       ],
-      "story": "The variant briefing starts in 30 minutes. Week one and week three used different sample totals, and the surveillance hub needs the actual change before anyone argues about why it happened. The raw counts are still on the board.",
+      "story": "Thirty minutes before a headline number goes out, and it might be built on nothing but a change in who got tested. Week one and week three tested different numbers of samples. The raw counts are still on the board.",
       "game": {
         "type": "BALLPARK",
-        "title": "Track a rising variant",
+        "title": "How much did the variant really rise?",
         "setup": "Regional Surveillance Hub",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the change in variant frequency, in percentage points.",
+        "question": "Estimate the change in the variant's percentage of samples, in percentage points.",
         "answer": "",
-        "why": "A frequency is a ratio, and the ratio only means something if the two denominators were produced the same way. A change in who gets sequenced moves the numerator with nothing happening in the population.",
+        "why": "A percentage is a ratio, and the ratio only means something if both denominators were counted the same way. A change in who gets sequenced can move the numerator even when nothing has changed in the population.",
         "givens": [],
         "relationship": "A share = the count ÷ the number sequenced. Take the share in each week, then the difference.",
         "calcKey": "POP-9"
@@ -2436,16 +2425,17 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Why did the therapy fail?",
-      "scene": "A therapy that worked is failing, and another patient has deteriorated overnight. The ward has drug levels, burden over time, the target-site sequence and a reference isolate. Pharmacy wants a new plan before the afternoon doses are prepared.",
+      "scene": "The therapy that saved Elias Webb's life six weeks ago just failed in another patient overnight. The ward has drug levels, burden over time, the target-site sequence and a reference isolate. Pharmacy wants a new plan before the afternoon doses are prepared.",
       "takeaway": "Evolution can be observed in real time when a treatment changes which variants are most successful.",
       "place": "Clinical Ward",
-      "guide": "Five readings, and the normal ones do the work. The drug reached a working concentration. The burden fell. The administration record is complete. Ask of each candidate how many of the five it covers. What happened next is a rebound while the patient was still taking it, and the reference isolate staying sensitive says the assay is fine.",
+      "at": "ops-board",
+      "guide": "Five readings, and the normal ones do the real work here. The drug reached a working concentration. The germ burden fell. The dosing record is complete. For each candidate explanation, ask how many of the five readings it covers. What happened next was a rebound while the patient was still taking the drug — and the reference sample staying sensitive to the drug says the test itself is fine.",
       "background": [
-        "Why the unremarkable readings decide it. The salient reading is what draws attention, and it is usually consistent with several explanations at once, which is why it rarely settles anything. The readings that discriminate are the ones a candidate predicts should have moved and which have not: a normal value is a positive result against every mechanism that would have disturbed it.",
-        "How to work the candidates. Take each mechanism and predict the panel it implies before you look at the panel again — which readings it drives, in which direction, and by roughly how much. Then compare. Working that way round is what separates a diagnosis from a rationalisation, because the prediction is made before the data is consulted.",
-        "Why only one candidate survives. Several will account for part of the panel, deliberately so, and a partial fit is exactly what a confident wrong answer feels like from the inside. When two remain, look for the reading on which their predictions differ and let it decide. If no reading separates them you have not finished reading the panel."
+        "Why the normal readings are the ones that decide it. The reading that jumps out grabs your attention, but it usually fits more than one explanation. That is why it rarely settles anything by itself. The readings that actually tell explanations apart are the ones each one predicts should move. When a reading stays normal, that is real evidence — it counts against every explanation that would have moved it.",
+        "How to work through the candidates. Take one explanation at a time. Before you check the readings again, predict what it would do to them — which ones move, which way, and by about how much. Then compare your prediction to the real readings. Predicting first is what makes this a diagnosis instead of a rationalization, because the prediction comes before you look at the data, not after.",
+        "Why only one explanation should survive. Several explanations will fit part of the readings, on purpose. A partial fit is exactly what a confident wrong answer feels like from the inside. If two explanations are still standing, find the one reading where their predictions differ and let it decide. If no reading tells them apart, you have not finished reading the panel."
       ],
-      "story": "A therapy that worked is failing, and another patient has deteriorated overnight. The ward has drug levels, burden over time, the target-site sequence and a reference isolate. Pharmacy wants a new plan before the afternoon doses are prepared.",
+      "story": "The therapy that saved Elias Webb's life six weeks ago just failed in another patient overnight. The ward has drug levels, burden over time, the target-site sequence and a reference isolate. Pharmacy wants a new plan before the afternoon doses are prepared.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Why did the therapy fail?",
@@ -2453,12 +2443,12 @@ export const CURRICULUM = {
         "play": "Which explanation fits the complete treatment-response panel?",
         "task": "Which explanation fits the complete treatment-response panel?",
         "question": "Which explanation fits the complete treatment-response panel?",
-        "answer": "Evolved resistance",
-        "why": "Treatment failure has several causes and they are told apart by which measurements are normal. The drug reached a concentration that works and the burden fell, so it was working — that rules out delivery and dose. It then rebounded while the patient was still taking it, and the resistance-associated variant at the target site became dominant over the same period. The reference isolate staying sensitive is what says the assay and the drug are both still fine. Evolution is visible here on the timescale of a ward round.",
+        "answer": "Evolved resistance to the drug",
+        "why": "Treatment failure has several possible causes. Adequate drug concentrations and an early fall in pathogen burden weaken poor delivery and gross underdosing. A rebound during continued treatment, with a target-site variant taking over, makes resistance the leading explanation. A reference isolate that stays sensitive shows the drug and the assay still work. Genotype alone is not the whole proof. Matched clinical and susceptibility evidence is what strengthens the causal link.",
         "rebuttals": [
-          "Poor delivery means the drug never arrives, and the concentration is inside the range where the drug works with an initial response to prove it.",
-          "A misidentified agent would not have responded at all, and this one fell before it came back.",
-          "Assay contamination would not spare the reference isolate, which was run alongside and remains sensitive."
+          "Poor delivery would mean the drug never arrives. Here the concentration is inside the range where the drug works, and the early response proves it did.",
+          "A misidentified germ would not have responded at all. This one fell first, and only came back later.",
+          "A contaminated test would not spare the reference sample, which was run alongside it and stayed sensitive."
         ],
         "headline": "A treatment initially suppresses the infectious agent, but the signal rebounds while the patient is still receiving therapy.",
         "readings": [
@@ -2500,23 +2490,23 @@ export const CURRICULUM = {
         ],
         "choices": [
           {
-            "label": "Poor drug delivery",
+            "label": "Poor drug delivery to the site",
             "mechanism": "The drug never reaches an effective concentration in the patient."
           },
           {
-            "label": "Evolved resistance",
-            "mechanism": "Treatment favors a resistant subpopulation that later dominates and restores growth."
+            "label": "Evolved resistance to the drug",
+            "mechanism": "Treatment favors the few resistant germs, which then take over and let growth start again."
           },
           {
-            "label": "Wrong infectious agent",
+            "label": "The wrong infectious agent entirely",
             "mechanism": "The original identification was incorrect, so treatment never targeted the cause."
           },
           {
-            "label": "Assay contamination",
+            "label": "Contamination of the assay",
             "mechanism": "The rebound is an artificial laboratory signal unrelated to the patient."
           }
         ],
-        "correctChoice": "Evolved resistance"
+        "correctChoice": "Evolved resistance to the drug"
       },
       "assumes": [
         "a drug only works if it reaches the target at a high enough concentration"
@@ -2529,37 +2519,37 @@ export const CURRICULUM = {
     },
     {
       "day": 11,
-      "title": "How resistance spreads",
-      "scene": "The therapy worked for six weeks and now fails in one patient in four. Failures cluster on the wards where it has been in use longest, and somebody in the meeting has said the organism learned to resist it.",
+      "title": "How can treatment make resistance common?",
+      "scene": "The wards that used this drug hardest, the ones that saved the most people first, are now the ones losing it fastest. The therapy worked for six weeks and now fails in one patient in four. Somebody in the meeting has said the organism learned to resist it.",
       "takeaway": "Selection acts on existing or newly arising variation by differential survival and reproduction.",
       "place": "Microbiology and Evolution Lab",
-      "guide": "These four are one chain, and somebody in the meeting has said the organism learned. Ask of each card what has to be true before it. The variation is already there, rare, before the drug arrives. What the drug changes is which variants leave descendants. The clustering on long-treated wards is that process having run longer.",
+      "guide": "These four steps are one chain, and somebody in the meeting just said the germ learned to resist. For each card, ask what has to be true before it. The variation is already there, rare, before the drug ever arrives. What the drug changes is which variants leave descendants. The wards that used the drug longest just had this process run for longer.",
       "background": [
-        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
-        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
-        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+        "Why you get graded on the whole order, not part of it. Each step needs the step before it to be done first. Swap any two steps and the chain breaks. So there is no partial credit — a broken chain does not work halfway.",
+        "Start with the two ends. The first card has nothing before it, and the last card has nothing after it. That usually lets you place both from the scene alone. Once those two are set, far fewer orders are possible. The real thinking happens in the middle.",
+        "What decides the order. Time is the usual rule, but not the only one. An order can also run on cost, on risk, or on reversibility. Reversibility means every step that leaves the sample untouched comes before any step that uses it up. On those boards, looking for clock time finds nothing. None of the steps has to happen at a set hour."
       ],
-      "story": "The therapy worked for six weeks and now fails in one patient in four. Failures cluster on the wards where it has been in use longest, and somebody in the meeting has said the organism learned to resist it.",
+      "story": "The wards that used this drug hardest, the ones that saved the most people first, are now the ones losing it fastest. The therapy worked for six weeks and now fails in one patient in four. Somebody in the meeting has said the organism learned to resist it.",
       "game": {
         "type": "SEQUENCE",
-        "title": "How resistance spreads",
+        "title": "How can treatment make resistance common?",
         "setup": "Microbiology and Evolution Lab",
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "Treatment does not teach an organism anything, and it does not create the variant it needs. The variation is already there, rare, before the drug arrives. What the drug changes is which variants leave descendants: it removes the susceptible ones more effectively, the less susceptible survive and reproduce, and the treated population ends up enriched for resistance. The clustering on long-treated wards is that process having run longer, not the organism having learned faster.",
+        "why": "Treatment does not teach a pathogen how to resist it. Resistance-conferring variation may already be present at low frequency or may arise by mutation while replication continues. The drug then changes relative survival and reproduction: susceptible variants are suppressed more strongly, while less-susceptible variants leave a larger share of descendants. The key idea is selection acting on variation, not purposeful learning.",
         "rebuttals": [
-          "Rare variants exist first. This is the step that separates an evolutionary explanation from a story about the drug teaching the organism.",
-          "Treatment removes the susceptible preferentially — that is what selection is, and it acts on what is already present.",
+          "Rare variants exist first, before the drug ever shows up. That is the step that separates a real evolutionary explanation from a story about the drug teaching the germ.",
+          "Treatment removes the susceptible germs first — that is what selection is. It only acts on variation that is already there.",
           "The survivors reproduce, which is how a rare variant stops being rare.",
-          "Enrichment last: it is the outcome, and it is what the ward is now measuring."
+          "Enrichment comes last. It is the outcome, and it is exactly what the ward is measuring now."
         ],
         "cards": [
-          "A population contains rare variants with differing susceptibility.",
-          "Treatment removes susceptible individuals more effectively.",
-          "Less-susceptible variants survive and reproduce.",
-          "The treated population becomes enriched for resistance."
+          "Genetic variation exists or arises during replication; some variants are less susceptible to the drug than others.",
+          "Treatment kills the susceptible germs more easily than the resistant ones.",
+          "The less-susceptible variants survive, and they reproduce.",
+          "The treated population ends up with more resistant germs than before."
         ],
         "order": [
           0,
@@ -2590,34 +2580,34 @@ export const CURRICULUM = {
     },
     {
       "day": 12,
-      "title": "Recover treatment effectiveness",
-      "scene": "Effectiveness has fallen from 82 to 51% in 9 weeks. 11 failures had dosing on record and trough levels in range. The ward wants one decisive test before tomorrow’s treatment protocol is rewritten for everyone.",
+      "title": "What test changes the next prescriptions?",
+      "scene": "Pick the wrong fix and a drug that once worked for 82% of patients could stop working for everybody. Effectiveness has fallen from 82% to 51% in nine weeks. All 11 failures had documented dosing and normal trough levels — the lowest drug level in the blood between doses. The ward wants one decisive test. Then the treatment plan gets rewritten for everyone.",
       "takeaway": "A resistance response should combine evolutionary evidence with pharmacology and patient safety.",
       "place": "Pharmacology Unit",
-      "guide": "Four options, and a treatment can fail in three places: given wrongly, absorbed poorly, or no longer working at the target. Ask of each which of the three it tests. Documented dosing and in-range troughs weaken the first two. And note what makes the fourth option a test rather than an observation: matched successes are the control.",
+      "guide": "Four options, and a treatment can fail in three places: given the wrong way, absorbed poorly, or no longer working at its target. For each option, ask which of the three it actually tests. Documented dosing and normal trough levels weaken the first two explanations. And notice what makes the fourth option a real test, not just an observation: matched successes are the control group.",
       "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the wrong options matter as much as the right one. Each wrong option is written to look correct under one specific mistake — a step skipped, a quantity mixed up with a rate, a correlation mistaken for a cause. Figuring out which mistake each one comes from is where the real learning happens. You can pick the right answer on instinct and still learn nothing.",
+        "Why the shape of an option tells you nothing. A correct answer often ends up longer, because it needs the extra clause and the unit. In this game's older quizzes, the longest option used to be the right one far more often than chance — 88 times out of 100. That has been fixed and is now checked every game. Length, hedging and detail no longer point to the answer on purpose.",
+        "What the verdict adds. Every wrong option gets its own short answer back, explaining why that option fails, not just repeating why the right one works. Read these even after you pick correctly. A right guess made for a shaky reason looks exactly like a right guess made for a good one, until the day the shaky reason is exactly what gets tested."
       ],
-      "story": "Effectiveness has fallen from 82 to 51% in 9 weeks. 11 failures had dosing on record and trough levels in range. The ward wants one decisive test before tomorrow’s treatment protocol is rewritten for everyone.",
+      "story": "Pick the wrong fix and a drug that once worked for 82% of patients could stop working for everybody. Effectiveness has fallen from 82% to 51% in nine weeks. All 11 failures had documented dosing and normal trough levels — the lowest drug level in the blood between doses. The ward wants one decisive test. Then the treatment plan gets rewritten for everyone.",
       "game": {
         "type": "CHOICE",
-        "title": "Recover treatment effectiveness",
+        "title": "What test changes the next prescriptions?",
         "setup": "Pharmacology Unit",
         "play": "One thing before anybody's prescription changes. Which?",
         "task": "One thing before anybody's prescription changes. Which?",
         "question": "One thing before anybody's prescription changes. Which?",
         "answer": "Sequence the failures alongside matched successful cases.",
-        "why": "Work through where a treatment can fail. It can be given wrongly, absorbed poorly, or reach the target and no longer work there. Documented dosing and trough concentrations in the expected range weaken the first two explanations. That makes a change at the target more plausible, especially with effectiveness falling from 82 to 51% over 9 weeks. Sequencing failures beside matched successful cases tests whether a resistance-associated variant tracks the failures rather than merely existing. Matched successes are the control that turns association into stronger evidence.",
+        "why": "Work through where a treatment can fail: given the wrong way, absorbed poorly, or reaching the target and failing to work there. Documented dosing and normal trough levels weaken the first two explanations. That makes a change at the drug's target more likely, especially with effectiveness falling from 82% to 51% over nine weeks. Sequencing the failures alongside matched successful cases tests whether a resistance-linked variant actually tracks the failures, rather than just existing somewhere in the population. Matched successes are the control group that turns coincidence into evidence.",
         "rebuttals": [
-          "Exposure and adherence answer whether the drug ever reached the target, which is the right question when concentrations are unknown. Here they were measured and they were adequate.",
-          "Raising the dose for everyone treats resistance as established and exposes the three patients in four who are responding to unnecessary toxicity.",
-          "Combinations and alternative targets are the response once you know what changed. Chosen now, they are a guess with a protocol attached."
+          "Exposure and adherence answer whether the drug ever reached its target. That is the right question when concentrations are unknown — but here, they were already measured, and they were fine.",
+          "Raising the dose for everyone treats resistance as already proven. It would also expose the three patients in four who are still responding to needless side effects.",
+          "Combinations and alternative targets are the right response once you know what changed. Chosen now, before you know that, they are just a guess with a protocol attached."
         ],
         "choices": [
           "Sequence the failures alongside matched successful cases.",
-          "Measure drug exposure and adherence objectively.",
+          "Measure drug exposure and adherence — whether patients actually took it — with objective tests.",
           "Increase the dose for every patient on the ward.",
           "Test combinations and alternative targets under a clinical protocol."
         ],
@@ -2645,41 +2635,42 @@ export const CURRICULUM = {
     },
     {
       "day": 13,
-      "title": "Choose the intervention layer",
-      "scene": "The city wants an intervention and the room is arguing as though only one can be chosen. Four proposals are on the table and each acts at a different moment in the course of an infection.",
+      "title": "Where does each intervention act?",
+      "scene": "Riverton wants one fix, and every extra week spent arguing is a week Elias Webb's old ward keeps filling. The city wants one intervention. But the room is arguing as if it has to be just one. Four proposals are on the table. Each works at a different moment in the course of an infection.",
       "takeaway": "A layered strategy is stronger when each intervention has a defined mechanism and failure mode.",
       "place": "Vaccine Design Lab",
-      "guide": "Four proposals and four moments in the course of an infection. Pair them by asking when each one acts: before exposure, at entry, after the agent is established, or between people. Different mechanisms fail in different ways, which is the whole argument for layers rather than for a winner.",
+      "at": "portfolio-desk",
+      "guide": "Four proposals, and four moments in the course of an infection. Match them by asking when each one acts: before exposure, right at entry, after the germ is established, or between people. Different tools fail in different ways — that is the whole argument for using layers, instead of picking one winner.",
       "background": [
-        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
-        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why this is a matching board, not four separate questions. Each response here is written to sound plausible for more than one situation. Choosing them one at a time would let a nearly-right answer slip through unchecked. Having to place all four forces a real comparison — not just \"is this reasonable here\", but \"is it more right here than somewhere else\".",
+        "How to use the one-each rule. The responses are a set to be handed out, not a list to pick freely from. So every match you make narrows down the rest. Settling the two you are sure of can leave the last pair decided by elimination. When it does not, two responses are still competing for one situation, and that is exactly the distinction this stop is testing.",
+        "Why you cannot be wrong about just one match. Each response is used exactly once, so three correct matches leave the fourth with only one place left to go. Any mistake, then, always involves at least two matches. Remember that when the last pair feels forced — the real problem is usually not the match you are stuck on, but an earlier one you stopped questioning too soon."
       ],
-      "story": "The city wants an intervention and the room is arguing as though only one can be chosen. Four proposals are on the table and each acts at a different moment in the course of an infection.",
+      "story": "Riverton wants one fix, and every extra week spent arguing is a week Elias Webb's old ward keeps filling. The city wants one intervention. But the room is arguing as if it has to be just one. Four proposals are on the table. Each works at a different moment in the course of an infection.",
       "game": {
         "type": "PROTOCOL",
-        "title": "Choose the intervention layer",
+        "title": "Where does each intervention act?",
         "setup": "Vaccine Design Lab",
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "",
-        "why": "Each class acts at a different point, which is why a layered strategy is stronger than a bigger version of any one of them. Blocking entry acts before or during establishment of infection. An anti-inflammatory acts later on host injury rather than directly on the agent. Vaccination builds immune memory before exposure and can reduce infection or severe disease, depending on the vaccine and agent. Ventilation, isolation and contact reduction work at the population level. Different mechanisms create different strengths, timing constraints and failure modes.",
+        "why": "Each tool acts at a different point, which is why a layered strategy beats a bigger dose of any single one. Blocking entry acts before or during infection. An anti-inflammatory drug acts later, on the body's own injury response, not the germ directly. Vaccination builds immune memory before exposure happens, reducing infection or severe disease depending on the vaccine and the germ. Ventilation, isolation and contact reduction work at the population level. Different tools bring different strengths, timing, and ways to fail.",
         "rebuttals": [
-          "Preventing entry is a job for something that blocks the receptor interaction, and it has to be there before the agent is.",
-          "Shortening severe inflammatory disease is treatment after infection, and it is staged — given at the wrong moment it suppresses a response that is still needed.",
+          "Preventing entry is a job for something that blocks the germ from latching onto the cell. It has to be there before the germ is.",
+          "Shortening severe inflammatory disease is treatment given after infection, and its timing matters. Given at the wrong moment, it can shut down a response the body still needs.",
           "Immune memory before exposure is vaccination, and its whole value is that it arrives first.",
-          "Ventilation, isolation and contact reduction act on transmission rather than on any patient, which is why they work whatever the agent turns out to be."
+          "Ventilation, isolation and contact reduction act on transmission itself, not on any one patient. That is why they work no matter what the germ turns out to be."
         ],
         "scenarios": [
           "Prevent initial cell entry.",
           "Shorten severe inflammatory disease after infection.",
           "Create immune memory before exposure.",
-          "Reduce opportunities for transmission while biomedical tools are limited."
+          "Reduce chances for transmission while medical tools are still limited."
         ],
         "choices": [
-          "Entry-blocking antibody or receptor-targeted strategy.",
-          "Stage-specific anti-inflammatory treatment with monitoring.",
+          "An antibody or drug that blocks the germ from entering cells.",
+          "An anti-inflammatory treatment, timed to the right stage, with monitoring.",
           "Vaccination.",
           "Ventilation, isolation, masking, or contact reduction as appropriate."
         ],
@@ -2708,35 +2699,35 @@ export const CURRICULUM = {
     },
     {
       "day": 14,
-      "title": "From candidate to justified trial",
-      "scene": "Two compounds show activity in cell culture and the city wants one of them in patients within the month. Neither has been through an animal model, and the protocol on the table names no endpoint and no stopping rule.",
+      "title": "What must be settled before the first dose?",
+      "scene": "Skip the safety checks now, and it is real patients who find out what neither compound does inside a body. Two compounds show activity in cell culture and the city wants one of them in patients within the month. Neither has been through an animal model, and the protocol names no endpoint and no stopping rule.",
       "takeaway": "Urgency changes speed and coordination, not the need for interpretable evidence and participant protection.",
       "place": "Therapeutics Group",
-      "guide": "All four steps will happen and urgency changes their speed, not their order. Ask of each what the next step would mean without it. A target says what the compound is supposed to do. Animal evidence says whether it does anything, and what it does to the animal. Without an endpoint and a stopping rule, a trial can neither conclude nor be halted.",
+      "guide": "All four steps will happen, and urgency only changes their speed, not their order. For each step, ask what the next step would mean without it. A target says what the compound is supposed to do. Animal evidence says whether it does anything, and what it does to the animal. Without an endpoint and a stopping rule, a trial can neither reach a conclusion nor be stopped.",
       "background": [
-        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
-        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
-        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+        "Why you get graded on the whole order, not part of it. Each step needs the step before it to be done first. Swap any two steps and the chain breaks. So there is no partial credit — a broken chain does not work halfway.",
+        "Start with the two ends. The first card has nothing before it, and the last card has nothing after it. That usually lets you place both from the scene alone. Once those two are set, far fewer orders are possible. The real thinking happens in the middle.",
+        "What decides the order. Time is the usual rule, but not the only one. An order can also run on cost, on risk, or on reversibility. Reversibility means every step that leaves the sample untouched comes before any step that uses it up. On those boards, looking for clock time finds nothing. None of the steps has to happen at a set hour."
       ],
-      "story": "Two compounds show activity in cell culture and the city wants one of them in patients within the month. Neither has been through an animal model, and the protocol on the table names no endpoint and no stopping rule.",
+      "story": "Skip the safety checks now, and it is real patients who find out what neither compound does inside a body. Two compounds show activity in cell culture and the city wants one of them in patients within the month. Neither has been through an animal model, and the protocol names no endpoint and no stopping rule.",
       "game": {
         "type": "SEQUENCE",
-        "title": "From candidate to justified trial",
+        "title": "What must be settled before the first dose?",
         "setup": "Therapeutics Group",
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "Urgency changes the speed of this path and not its structure. A target and a mechanism come first because they say what the compound is supposed to do; animal and laboratory evidence says whether it does anything and what it does to the animal; the trial design says what would count as working and when to stop. Skip the endpoint and the stopping rule and you have a trial that cannot conclude anything and cannot be halted when it should be.",
+        "why": "Urgency can compress timelines and run work in parallel. It cannot remove the need for evidence somebody can interpret. Define the target and the mechanism. Build the laboratory and preclinical evidence on activity and the major safety concerns. Then set the trial population, endpoints, controls and stopping rules before anybody is enrolled. The exact preclinical package depends on the intervention. “Animal test” is not a universal scientific box that proves safety.",
         "rebuttals": [
-          "Target and mechanism first: without them there is nothing to test a compound against except hope.",
-          "Animal and laboratory evidence second, because a compound that harms an animal has told you something you needed before a person took it.",
-          "Endpoints, controls and stopping rules third — they are what make the result interpretable, and they cannot be chosen after the data arrives.",
-          "The monitored trial last, with oversight. It is the step everything before it exists to make defensible."
+          "Target and mechanism come first. Without them, there is nothing to test a compound against except hope.",
+          "Animal and lab evidence come second. A compound that harms an animal has told you something you needed to know before any person took it.",
+          "Endpoints, controls and stopping rules come third. They are what make the result readable, and they cannot be chosen after the data arrives.",
+          "The monitored trial comes last, with outside oversight. It is the step everything before it exists to make safe to defend."
         ],
         "cards": [
           "Define the biological target and intended mechanism.",
-          "Demonstrate relevant activity and identify major safety concerns in animal and laboratory evidence.",
+          "Show real activity and investigate major safety concerns in appropriate laboratory and preclinical studies.",
           "Specify trial population, endpoints, controls, and stopping rules.",
           "Begin a monitored clinical trial with independent oversight."
         ],
@@ -2758,26 +2749,27 @@ export const CURRICULUM = {
     },
     {
       "day": 15,
-      "title": "Build a layered intervention portfolio",
-      "scene": "Dr. Nia Okafor, the immunology lead, has six plausible intervention layers and only three funding slots. Some can work this month; others take longer or share the same failure mode.",
-      "takeaway": "A strong intervention portfolio combines different mechanisms and timescales instead of simply taking the three largest headline effects.",
+      "title": "Which three layers survive one failure?",
+      "scene": "Six ways to fight this, and money for half of them. Pick wrong, and Riverton ends up fighting the last outbreak instead of this one. Dr. Sofia Morales, the epidemiology lead, has six possible intervention layers and only three funding slots. Some can work this month. Others take longer, or share the same failure mode as another layer.",
+      "takeaway": "A strong portfolio combines different mechanisms and timescales, instead of just picking the three biggest headline effects.",
       "place": "Public Health Strategy Room",
-      "guide": "Six plausible layers, three funding slots. Watch which response questions the current portfolio can still answer. Layers that share a failure mode look like two defences and behave like one, so a portfolio that holds if one assumption fails is worth more than three strong layers that fail together.",
+      "at": "portfolio-desk",
+      "guide": "Six possible layers, three funding slots. Watch which response questions your current picks can still answer. Two layers that share the same failure mode look like two defenses, but behave like one. A portfolio that still holds up if one assumption fails is worth more than three strong layers that would all fail together.",
       "background": [
-        "What a layered intervention means. No single measure works perfectly, so the strategy is several partial ones whose failures are independent. Two layers that both depend on people reporting symptoms promptly are not two layers; they are one, bought twice.",
-        "Why timing separates them too. Some layers work this month and some take a season to stand up. A portfolio entirely made of slow layers leaves the next four weeks uncovered, whatever it eventually achieves.",
-        "How to test a portfolio. Take each assumption in turn — people comply, supply arrives, the pathogen behaves as modelled — and ask what is left standing if it is wrong. A portfolio that survives every single failure is the one that keeps the response working."
+        "What a layered strategy means. No single measure works perfectly, so the strategy is several partial ones whose failures do not happen for the same reason. Two layers that both depend on people reporting symptoms quickly are not really two layers — they are one layer, bought twice.",
+        "Why timing matters too. Some layers work this month, and some take a whole season to stand up. A portfolio made only of slow layers leaves the next four weeks uncovered, no matter what it eventually achieves.",
+        "How to test a portfolio. Take each assumption one at a time — people follow the rules, supplies arrive, the germ behaves as expected — and ask what is still standing if that assumption turns out wrong. A portfolio that survives every single failure is the one that keeps the response working."
       ],
-      "story": "Dr. Nia Okafor, the immunology lead, has six plausible intervention layers and only three funding slots. Some can work this month; others take longer or share the same failure mode.",
+      "story": "Six ways to fight this, and money for half of them. Pick wrong, and Riverton ends up fighting the last outbreak instead of this one. Dr. Sofia Morales, the epidemiology lead, has six possible intervention layers and only three funding slots. Some can work this month. Others take longer, or share the same failure mode as another layer.",
       "game": {
         "type": "ALLOCATE",
-        "title": "Build a layered intervention portfolio",
+        "title": "Which three layers survive one failure?",
         "setup": "Public Health Strategy Room",
         "play": "Allocate three funding slots to a portfolio that acts now, preserves a longer-horizon layer, and avoids depending on one shared mechanism.",
         "task": "Allocate three funding slots to a portfolio that acts now, preserves a longer-horizon layer, and avoids depending on one shared mechanism.",
         "question": "Which three-layer portfolio still answers the response needs if one assumption fails?",
-        "answer": "Fund ventilation, rapid isolation and the vaccine platform. The first two act this month through different operational routes, while the vaccine preserves a longer-horizon biological layer. The three-slot limit means useful treatment and support projects may still need other funding; the publicity-only option answers no scientific response need.",
-        "why": "Layered control is stronger when the layers do not all wait for the same event or fail for the same reason. Ventilation reduces exposure opportunities without depending on who has been diagnosed. Rapid isolation acts after detection and shortens opportunities for onward spread. A vaccine takes longer, but it adds a distinct immune mechanism for the future. Treatment and paid leave can also matter, but the fixed three-slot portfolio cannot buy everything. The point is to preserve different mechanisms and timescales under a real resource constraint.",
+        "answer": "Fund ventilation, rapid isolation, and the vaccine platform. The first two act this month, through two different routes. The vaccine adds a longer-term biological layer. The three-slot limit means useful treatment and support projects may still need other funding. The publicity-only option answers no real scientific need.",
+        "why": "Layered control works best when the layers don't all wait for the same event, or fail for the same reason. Ventilation reduces exposure without depending on who's been diagnosed. Rapid isolation acts after detection and shortens further spread. A vaccine takes longer but adds a separate immune layer for the future. Treatment and paid leave matter too, but the fixed three-slot portfolio can't buy everything. The point is keeping different mechanisms and timescales alive under a real resource limit.",
         "allocate": {
           "pool": {
             "amount": 3,
@@ -2876,25 +2868,26 @@ export const CURRICULUM = {
     },
     {
       "day": 16,
-      "title": "Read effect size and uncertainty",
-      "scene": "The trial has reported, and the health minister wants a number before deciding how much to buy. The statistics office has the event counts for both arms and nothing has been converted yet.",
-      "takeaway": "Relative and absolute effects answer different decision questions and should be reported together.",
+      "title": "How big is the benefit in absolute terms?",
+      "scene": "The treatment cut hospitalization from 20 of 200 patients to 10 of 200. Before the safety board decides how many more people should be exposed to the drug, it needs the absolute benefit — including how many patients must be treated for one additional person to avoid hospitalization.",
+      "takeaway": "A cut in relative risk and a cut in absolute risk answer different questions, and both should be reported together.",
       "place": "Biostatistics Office",
-      "guide": "Six numbers, and two of them are the trial pooled together, which answers nothing here. Ask of each which arm it belongs to. And note that one result can be told three ways. A halved risk sounds enormous. Five fewer admissions per hundred sounds modest. Only the last two tell a minister how much to buy.",
+      "at": "stats-desk",
+      "guide": "Six numbers, and two of them pool the whole trial together — that answers nothing here. For each number, ask which group it belongs to. And notice that one result can be told three different ways. Cutting the risk in half sounds huge. Five fewer admissions per hundred people sounds modest. Only the last two of those three ways actually tell a minister how much to buy.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why this is an estimate, not a calculation you derive from scratch. Every number on this board is already measured or given. Nothing here has to be worked out first. What is being tested is whether you can pick the right numbers for the relationship, and whether your answer comes out a sensible size once they are in place.",
+        "Why every tile has a label. A bare number cannot be checked against the relationship it belongs in. Reading the label first is how you catch a wrong unit, or a number that belongs to a different part of the problem, before you place it. That habit — read the label first — is the whole point of this format."
       ],
-      "story": "The trial has reported, and the health minister wants a number before deciding how much to buy. The statistics office has the event counts for both arms and nothing has been converted yet.",
+      "story": "The treatment cut hospitalization from 20 of 200 patients to 10 of 200. Before the safety board decides how many more people should be exposed to the drug, it needs the absolute benefit — including how many patients must be treated for one additional person to avoid hospitalization.",
       "game": {
         "type": "BALLPARK",
-        "title": "Read effect size and uncertainty",
+        "title": "How big is the benefit in absolute terms?",
         "setup": "Biostatistics Office",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the number of patients who must be treated for one to benefit.",
         "answer": "",
-        "why": "The same result can be told three ways. Risk halved sounds enormous. Five fewer hospital admissions in every hundred sounds modest. 20 patients treated for 1 to benefit sounds like work. All three are true, and only the last two tell a minister how much of the drug to buy. Reporting the relative figure alone is the commonest way a real but small effect is oversold.",
+        "why": "The same trial result can be described as a 50% relative risk reduction, a 5-percentage-point absolute risk reduction, or a number needed to treat of 20. All are mathematically true, but the absolute measures are essential for weighing benefit against side effects and limited treatment capacity. Reporting only the relative reduction makes the effect sound larger without changing the underlying data.",
         "givens": [],
         "relationship": "Risk = events ÷ people at risk. The number needed to treat is 1 ÷ (control risk − treated risk).",
         "calcKey": "POP-16"
@@ -2944,37 +2937,37 @@ export const CURRICULUM = {
     {
       "day": 17,
       "title": "Continue, expand, or pause?",
-      "scene": "The estimated benefit is 24%, but the interval runs from 3 to 41. Serious adverse events are seven versus two. Enrolment is paused. The independent safety board meets tonight, with hospitals waiting for its decision.",
-      "takeaway": "Benefit and safety must both be judged through the pre-specified monitoring plan; a positive benefit estimate does not override a possible safety signal.",
+      "scene": "Seven treated patients and two control patients had serious adverse events. The estimated treatment benefit is 24%, with a 95% confidence interval from 3% to 41% — a wide range of effect sizes still compatible with the data under the planned analysis. Enrollment is paused while the independent safety board applies the stopping rules written before the results arrived.",
+      "takeaway": "Benefit and safety must both be judged through the monitoring plan set in advance. A good benefit estimate does not override a possible safety signal.",
       "place": "Independent Safety Board",
-      "guide": "Four decisions, and two facts have to be held together: an interval from 3 to 41 per cent, and seven adverse events against two. Ask of each option whether it treats either number as more decisive than it is. Excluding zero is evidence against no effect, not a measurement of the effect. Raw counts do not separate chance from a signal.",
+      "guide": "Hold two facts together: the benefit estimate is promising but imprecise, and the serious adverse events are uneven. A 95% confidence interval is not a 95% probability that the true effect lies inside these endpoints. Use it as a range of effect sizes compatible with the data and planned model, then apply the prespecified safety review rather than inventing a rule after seeing the counts.",
       "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the wrong options matter as much as the right one. Each wrong option is written to look correct under one specific mistake — a step skipped, a quantity mixed up with a rate, a correlation mistaken for a cause. Figuring out which mistake each one comes from is where the real learning happens. You can pick the right answer on instinct and still learn nothing.",
+        "Why the shape of an option tells you nothing. A correct answer often ends up longer, because it needs the extra clause and the unit. In this game's older quizzes, the longest option used to be the right one far more often than chance — 88 times out of 100. That has been fixed and is now checked every game. Length, hedging and detail no longer point to the answer on purpose.",
+        "What the verdict adds. Every wrong option gets its own short answer back, explaining why that option fails, not just repeating why the right one works. Read these even after you pick correctly. A right guess made for a shaky reason looks exactly like a right guess made for a good one, until the day the shaky reason is exactly what gets tested."
       ],
-      "story": "The estimated benefit is 24%, but the interval runs from 3 to 41. Serious adverse events are seven versus two. Enrolment is paused. The independent safety board meets tonight, with hospitals waiting for its decision.",
+      "story": "Seven treated patients and two control patients had serious adverse events. The estimated treatment benefit is 24%, with a 95% confidence interval from 3% to 41% — a wide range of effect sizes still compatible with the data under the planned analysis. Enrollment is paused while the independent safety board applies the stopping rules written before the results arrived.",
       "game": {
         "type": "CHOICE",
         "title": "Continue, expand, or pause?",
         "setup": "Independent Safety Board",
         "play": "The benefit estimate is promising but imprecise, and adverse events are uneven. What is the defensible next decision?",
         "task": "The benefit estimate is promising but imprecise, and adverse events are uneven. What is the defensible next decision?",
-        "question": "Promising, imprecise, and the adverse events are uneven. What does the board decide?",
-        "answer": "Apply the pre-specified safety review and resume or expand only if its boundary permits.",
-        "why": "A confidence interval from 3 to 41% is compatible with benefit across a wide range of sizes. Excluding zero under the planned model is evidence against no effect, not proof that the exact benefit is known. Seven serious adverse events versus two may be chance or a safety signal; raw counts alone do not decide which. Precision depends on sample size, event frequency and design. The board should apply the pre-specified safety boundary and event review. It can then resume, modify, expand or stop according to that plan.",
+        "question": "The results look promising but imprecise, and the side effects are uneven between groups. What does the board decide?",
+        "answer": "Apply the safety review set in advance, and resume or expand only if it allows it.",
+        "why": "The interval from 3% to 41% is compatible with benefits of very different sizes under the trial model. It does not put a 95% probability on the true effect lying inside that range. Seven serious adverse events against two may be chance, or a real safety signal. Raw counts alone cannot decide. The defensible action is to apply the prespecified safety boundary and the independent event review. Then resume, modify, expand or stop according to that plan.",
         "rebuttals": [
-          "A benefit signal does not erase the safety analysis. Stopping for efficacy alone would freeze both the imprecision and the unresolved adverse-event question.",
-          "Mechanism can be informative but it does not replace independent adjudication of serious adverse events.",
-          "The imbalance deserves review, but raw counts without the planned boundary, event definitions, exposure time and adjudication are not by themselves the stopping rule."
+          "A benefit signal does not erase the safety question. Stopping just because it looks like it's working would freeze both the uncertainty and the unresolved side-effect question.",
+          "Data on how the drug works can be useful, but it does not replace an independent review of serious side effects.",
+          "The uneven side effects deserve review. But raw counts, without the planned safety boundary, clear event definitions, exposure time, and independent review, are not by themselves a reason to stop."
         ],
         "choices": [
-          "Apply the pre-specified safety review and resume or expand only if its boundary permits.",
+          "Apply the safety review set in advance, and resume or expand only if it allows it.",
           "Declare success because the benefit interval excludes zero.",
-          "Ignore the adverse-event imbalance and collect only mechanism data.",
-          "Permanently stop the trial solely because seven events exceed two, without applying the planned safety review."
+          "Ignore the uneven side effects, and collect only data on how the drug works.",
+          "Permanently stop the trial just because seven side effects is more than two, without running the safety review that was already planned."
         ],
-        "correctChoice": "Apply the pre-specified safety review and resume or expand only if its boundary permits."
+        "correctChoice": "Apply the safety review set in advance, and resume or expand only if it allows it."
       },
       "assumes": [
         "a wider interval means less is known, not that the effect is smaller"
@@ -2990,37 +2983,38 @@ export const CURRICULUM = {
     },
     {
       "day": 18,
-      "title": "Build a decision model",
-      "scene": "Three districts are on visibly different trajectories and the council wants one citywide policy by Friday. The modelling team has nine days of case data and a dozen parameters it can only bound.",
+      "title": "What must the model decide?",
+      "scene": "One policy, one city, and three districts already telling three different stories about where this is headed. The council wants it by Friday. The modelling team has nine days of case data and a dozen parameters it can only bound.",
       "takeaway": "Models are structured arguments whose assumptions should remain visible.",
       "place": "Population Modeling Group",
-      "guide": "All four steps will be done, so ask what each one makes possible. A model is a structured argument, and its assumptions are as much of the output as its numbers. Built without a decision, it answers whichever question was easiest. And a scenario not tied to something observable is a scenario nobody will act on.",
+      "at": "ops-board",
+      "guide": "All four steps will be done, so ask what each one makes possible. A model is a structured argument, and its assumptions are just as much a part of the output as its numbers. Built without a decision in mind, it answers whichever question was easiest to model. And a scenario that is not tied to something you can observe is a scenario nobody will ever act on.",
       "background": [
-        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
-        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
-        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+        "Why you get graded on the whole order, not part of it. Each step needs the step before it to be done first. Swap any two steps and the chain breaks. So there is no partial credit — a broken chain does not work halfway.",
+        "Start with the two ends. The first card has nothing before it, and the last card has nothing after it. That usually lets you place both from the scene alone. Once those two are set, far fewer orders are possible. The real thinking happens in the middle.",
+        "What decides the order. Time is the usual rule, but not the only one. An order can also run on cost, on risk, or on reversibility. Reversibility means every step that leaves the sample untouched comes before any step that uses it up. On those boards, looking for clock time finds nothing. None of the steps has to happen at a set hour."
       ],
-      "story": "Three districts are on visibly different trajectories and the council wants one citywide policy by Friday. The modelling team has nine days of case data and a dozen parameters it can only bound.",
+      "story": "One policy, one city, and three districts already telling three different stories about where this is headed. The council wants it by Friday. The modelling team has nine days of case data and a dozen parameters it can only bound.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Build a decision model",
+        "title": "What must the model decide?",
         "setup": "Population Modeling Group",
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "A model is a structured argument, not an oracle, and its assumptions are as much of the output as its numbers. Stating the decision first is what stops it modelling something nobody asked about — a model built without a decision answers whatever question was easiest. The structure and the inputs come next, then the range of plausible worlds rather than one, and finally the triggers, because a scenario that is not tied to an observable is a scenario nobody will ever act on.",
+        "why": "A model is a structured argument, not a crystal ball, and its assumptions are just as much a part of the output as its numbers. Stating the decision first stops it from modeling something nobody asked about — a model built without a decision in mind just answers whatever question was easiest. The structure and inputs come next, then a range of plausible futures instead of just one. Finally come the triggers, because a scenario not tied to something observable is one nobody will ever act on.",
         "rebuttals": [
-          "The decision, the horizon and the outcomes come first, or the model answers the question that was easiest to model.",
-          "Structure and inputs second, and transparent, because a structure nobody can inspect cannot be argued with.",
-          "Scenarios and sensitivity third: the point is the spread across plausible worlds, not the middle of it.",
-          "Triggers last, tying a scenario to something observable. Without them the model produces a graph and no decision."
+          "The decision, the time horizon and the outcomes come first. Otherwise the model just answers whichever question was easiest.",
+          "Structure and inputs come second, and they need to stay open to inspection, because a structure nobody can check cannot be argued with.",
+          "Scenarios and sensitivity tests come third. The point is the spread across plausible futures, not just the middle one.",
+          "Triggers come last, tying a scenario to something you can actually observe. Without them, the model produces a graph and no decision."
         ],
         "cards": [
           "State the decision, time horizon, and outcomes that matter.",
-          "Choose a transparent model structure and estimate inputs from data.",
-          "Run multiple plausible scenarios and sensitivity tests.",
-          "Link observable triggers to pre-agreed policy changes."
+          "Choose a model structure you can check, and estimate its inputs from real data.",
+          "Run several plausible scenarios and test how sensitive they are.",
+          "Link observable triggers to policy changes everyone agreed on in advance."
         ],
         "order": [
           0,
@@ -3044,26 +3038,27 @@ export const CURRICULUM = {
     },
     {
       "day": 19,
-      "title": "Choose an adaptive policy",
-      "scene": "Dr. Sofia Morales, the epidemiology lead, has current critical-care occupancy at 75% and a short worst-case trace from the capacity model. Two reversible actions each need lead time.",
-      "takeaway": "Adaptive policy works best when observable thresholds and lead times are committed before the evidence moves.",
+      "title": "When do you call in overflow staff?",
+      "scene": "Wait too long to act, and there is no bed left for the next Elias Webb who comes through the door. Dr. Sofia Morales has today's critical-care occupancy at 75%. She also has a short worst-case trace from the capacity model. Two actions can each be reversed later. But both need lead time before they help.",
+      "takeaway": "A flexible plan works best when its thresholds and lead times are set before the evidence starts moving.",
       "place": "City Command",
-      "guide": "One rule, written before the trace is released and fixed once it is. Overflow staffing and transfer planning take a day from the moment they are called, and at 95 % occupancy there is no staffed bed for the next admission. So the line goes back from 95 by however far occupancy climbs in a day — and not so far back that the unit is surged on an ordinary bad week.",
+      "at": "policy-board",
+      "guide": "One rule, written before the trace is released, and fixed once it is. Overflow staffing and transfer planning both take a full day to arrive once they are called. And at 95 % occupancy, there is no staffed bed left for the next patient. So the line has to sit back from 95 by however far occupancy climbs in a day — but not so far back that the unit gets surged over an ordinary bad week.",
       "background": [
-        "Why precommit at all. Occupancy is at 75% and climbing, and every hour of deliberation is an hour of lead time spent. A rule set now is the same decision made calmly, and it is the only version that can be explained afterwards to people whose care was affected.",
-        "Why the two actions need different numbers. They take different times to have effect. A threshold set for the slower one triggers the faster one far too early; set for the faster one, the slower cannot finish in time. The lead time is the whole reason there are two.",
-        "Why reversible matters. Both actions can be undone if the trace turns out to be pessimistic, which is what makes it reasonable to commit to them in advance. An irreversible action would need a different standard of evidence entirely."
+        "Why decide the rule in advance. Occupancy is at 75% and climbing, and every hour spent deciding is an hour of lead time lost. A rule set now is the same decision, just made calmly. It is also the only version you can explain afterward to the people whose care was affected.",
+        "Why the two actions need different trigger points. They take different amounts of time to have an effect. A threshold set for the slower action triggers the faster one far too early. A threshold set for the faster action means the slower one cannot finish in time. Lead time is the whole reason there are two separate numbers.",
+        "Why being reversible matters. Both actions can be undone if the trace turns out too pessimistic. That is what makes it reasonable to commit to them in advance. An action that could not be undone would need a much higher standard of evidence before committing to it."
       ],
-      "story": "Dr. Sofia Morales, the epidemiology lead, has current critical-care occupancy at 75% and a short worst-case trace from the capacity model. Two reversible actions each need lead time.",
+      "story": "Wait too long to act, and there is no bed left for the next Elias Webb who comes through the door. Dr. Sofia Morales has today's critical-care occupancy at 75%. She also has a short worst-case trace from the capacity model. Two actions can each be reversed later. But both need lead time before they help.",
       "game": {
         "type": "TRIGGER",
-        "title": "Choose an adaptive policy",
+        "title": "When do you call in overflow staff?",
         "setup": "City Command",
         "play": "Set the occupancy threshold before releasing the next capacity updates, then see whether the staffing still has the lead time it needs.",
         "task": "Set the occupancy threshold before releasing the next capacity updates, then see whether the staffing still has the lead time it needs.",
         "question": "At what critical-care occupancy do you activate overflow staffing, given it takes a day to arrive?",
-        "answer": "Activate around 80 % occupancy. It then fires on the 82 % update with 48 hours in hand, which covers the day the staffing needs; waiting for 88 % leaves 24 hours and 95 % leaves none.",
-        "why": "A trigger is a decision rule written before the next value arrives. That matters because preparation takes time even when the action is reversible. In the source numbers, 90 of 120 beds are already occupied, so the system starts at 75%. The no-discharge bound reaches critical occupancy quickly. Precommitting a staffing threshold and a later surge-capacity threshold prevents hindsight from changing the rule after every update. The policy remains adaptive because it responds to observations, but the standard for acting was fixed before those observations appeared.",
+        "answer": "Activate at around 80 % occupancy. That fires on the 82 % update, giving 48 hours in hand — enough time for the staffing to arrive. Waiting for 88 % leaves only 24 hours, and waiting for 95 % leaves none at all.",
+        "why": "A trigger is a decision rule written before the next number arrives. Staffing takes a day to mobilize, so the threshold has to fire while there is still more than a day of buffer in the scenario stream. Starting at 75% and waiting until 95% would consume almost all of that lead time. The value of the rule is not that 80% is universally correct; it is that the threshold is tied to this system’s lead time and can be revised when new capacity data arrive.",
         "trigger": {
           "scale": {
             "label": "Critical-care occupancy",
@@ -3078,7 +3073,7 @@ export const CURRICULUM = {
               },
               {
                 "at": 95,
-                "means": "beds with nobody to staff them, and the next admission waits"
+                "means": "the emergency trigger zone; only a small staffed-bed buffer remains"
               }
             ]
           },
@@ -3163,26 +3158,26 @@ export const CURRICULUM = {
     },
     {
       "day": 20,
-      "title": "Disposition the final claims",
-      "scene": "The emergency is closing, and the final evidence wall contains four signed claims that will enter Riverton’s permanent record. Two independent checks remain before publication. Their scientific evidence chains are not equally complete.",
+      "title": "Which claims still need checking?",
+      "scene": "Four claims are about to become Riverton's official memory of what nearly happened here, and getting one wrong hands the next outbreak the same mistake. The final evidence wall holds four signed claims going into the permanent record. Two independent checks remain before publication.",
       "takeaway": "Scientific claims should be communicated at the strength their independent evidence can support.",
       "place": "Scientific Review Hall",
-      "guide": "Four signed claims are going into the permanent record and two checks remain. Open each claim and read what backs it now. Some rest on measurements from this outbreak, some on a chain of inference, and some on the strength of the wording alone. Hold what the evidence does not support, and check where a wrong claim would do the most lasting damage.",
+      "guide": "Four signed claims are going into the permanent record, and two checks remain. Open each claim and read what backs it right now. Some rest on real measurements from this outbreak. Some rest on a chain of reasoning. Some rest only on how strongly they are worded. Hold back anything the evidence does not support, and spend your checks where a wrong claim would do the most lasting damage.",
       "background": [
-        "Why the permanent record raises the bar. These claims will be cited by people who cannot see the evidence behind them, in reviews and in the next outbreak's planning. A claim that is retracted later has already done its work, and the retraction rarely travels as far.",
-        "What proposed strength means. The same finding can be written as 'is', 'is consistent with' or 'cannot be excluded'. Verification decides which of those the evidence has earned, so a claim can pass by being weakened rather than by being checked.",
-        "Why two checks and four claims is the actual skill. Choosing is a judgement about consequence: which of these, if wrong, would misdirect the next response? That is what the last two slots are for, and spending them on the shakiest claim is not automatically right."
+        "Why a permanent record raises the bar. These claims will be cited by people who never see the evidence behind them — in later reviews, and in planning for the next outbreak. A claim that gets retracted later has already done its damage. The retraction almost never travels as far as the original claim did.",
+        "What a claim's strength means. The same finding can be written as \"is true,\" as \"fits with,\" or as \"cannot be ruled out.\" Checking a claim decides which of those wordings the evidence has actually earned. So a claim can pass this stop by being weakened, not just by being checked and confirmed.",
+        "Why two checks and four claims is the real skill here. Choosing is a judgment about consequences: which claim, if it turned out wrong, would send the next response in the wrong direction? That is what the two checks are for. Spending them on the shakiest-looking claim is not automatically the right call."
       ],
-      "story": "The emergency is closing, and the final evidence wall contains four signed claims that will enter Riverton’s permanent record. Two independent checks remain before publication. Their scientific evidence chains are not equally complete.",
+      "story": "Four claims are about to become Riverton's official memory of what nearly happened here, and getting one wrong hands the next outbreak the same mistake. The final evidence wall holds four signed claims going into the permanent record. Two independent checks remain before publication.",
       "game": {
         "type": "ATTEST",
-        "title": "Disposition the final claims",
+        "title": "Which claims still need checking?",
         "setup": "Scientific Review Hall",
         "play": "Spend the two independent checks on the critical claims that still lack adequate backing, then disposition the final report.",
         "task": "Spend the two independent checks on the critical claims that still lack adequate backing, then disposition the final report.",
-        "question": "Which claims need verification before the report can carry them at their proposed strength?",
-        "answer": "Use the two checks on the severe-risk subgroup and the treatment-duration claim. The transmission route already has independent backing. The animal reservoir should remain explicitly unresolved rather than being promoted to a confirmed claim without the field evidence needed to support it.",
-        "why": "A final report should not force every claim to the same confidence. The transmission route is backed by independent evidence and can support operational planning. A severe-risk subgroup from one small observational sample needs representative confirmation before it becomes citywide policy. A treatment benefit measured only through eight weeks cannot establish longer duration without follow-up. The suspected reservoir remains a live hypothesis and can stay in the report as unresolved. Verification capacity belongs on critical claims whose current evidence chain is weakest, not on claims that are already independently reconstructed.",
+        "question": "Which claims need to be checked before the report can state them as strongly as they are currently worded?",
+        "answer": "Use the two checks on the severe-risk subgroup and the treatment-duration claim. The transmission route already has independent backing behind it. The animal reservoir should stay clearly marked as unresolved, instead of being promoted to a confirmed claim without the field evidence it needs.",
+        "why": "A final report shouldn't force every claim into the same level of confidence. The transmission route is backed by independent evidence and can support real operational planning. A severe-risk subgroup found in one small sample needs a representative check before it becomes citywide policy. A treatment benefit measured through only eight weeks can't prove it lasts longer without more follow-up. The suspected reservoir stays a live hypothesis, marked unresolved. Checks belong on critical claims whose evidence is currently weakest, not on claims already backed from several independent directions.",
         "attest": {
           "claims": [
             {
@@ -3235,26 +3230,26 @@ export const CURRICULUM = {
     },
     {
       "day": 21,
-      "title": "Build the public explanation",
-      "scene": "The mayor goes live in an hour. The transmission route is settled, the animal reservoir is not, and treatment has only eight weeks of follow-up. Every sentence in the draft will be replayed after the emergency ends.",
+      "title": "What can the mayor say with confidence?",
+      "scene": "Elias Webb is home now, and in an hour the mayor tells the whole city what his illness meant. The transmission route is settled, the animal reservoir is not, and treatment has only eight weeks of follow-up. Every sentence in the draft will be replayed after the emergency ends.",
       "takeaway": "A public account is ordered by the strength of its evidence, not by the order the work happened in.",
       "place": "City Command",
-      "guide": "All four things will be said, so the order is what is being decided. Ask of each how much weight its evidence can carry: three agreeing streams, one small sample, or a plausible hypothesis. Every sentence will be replayed after the emergency ends. Publishing the unconfirmed part with the confidence of the settled part is what makes the whole briefing unbelievable later.",
+      "guide": "All four things will be said, so the order is what is actually being decided here. For each one, ask how much weight its evidence can carry: three agreeing data streams, one small sample, or just a plausible guess. Every sentence will be replayed after the emergency ends. Announcing the unconfirmed part with the same confidence as the settled part is what makes the whole briefing look unbelievable later.",
       "background": [
-        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
-        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
-        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+        "Why you get graded on the whole order, not part of it. Each step needs the step before it to be done first. Swap any two steps and the chain breaks. So there is no partial credit — a broken chain does not work halfway.",
+        "Start with the two ends. The first card has nothing before it, and the last card has nothing after it. That usually lets you place both from the scene alone. Once those two are set, far fewer orders are possible. The real thinking happens in the middle.",
+        "What decides the order. Time is the usual rule, but not the only one. An order can also run on cost, on risk, or on reversibility. Reversibility means every step that leaves the sample untouched comes before any step that uses it up. On those boards, looking for clock time finds nothing. None of the steps has to happen at a set hour."
       ],
-      "story": "The mayor goes live in an hour. The transmission route is settled, the animal reservoir is not, and treatment has only eight weeks of follow-up. Every sentence in the draft will be replayed after the emergency ends.",
+      "story": "Elias Webb is home now, and in an hour the mayor tells the whole city what his illness meant. The transmission route is settled, the animal reservoir is not, and treatment has only eight weeks of follow-up. Every sentence in the draft will be replayed after the emergency ends.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Build the public explanation",
+        "title": "What can the mayor say with confidence?",
         "setup": "City Command",
         "play": "Order the briefing by how much weight each claim can carry.",
         "task": "Order the briefing by how much weight each claim can carry.",
         "question": "Order the briefing by how much weight each claim can carry.",
         "answer": "",
-        "why": "The briefing is ordered by how much the evidence will carry, strongest first, because that is the order in which a listener can tell one claim from another. Publishing the reservoir with the confidence of the transmission route is what makes the whole document unbelievable when the reservoir turns out to be somewhere else.",
+        "why": "The briefing runs strongest evidence first, because that's the order a listener can actually tell one claim apart from another. Announcing the reservoir claim with the same confidence as the transmission route is what makes the whole briefing look unbelievable later. That risk is real if the reservoir turns out to be somewhere else.",
         "cards": [
           "The transmission route, which three independent data streams agree on.",
           "The severe-risk subgroup, which one small observational sample suggests.",
@@ -3283,38 +3278,38 @@ export const CURRICULUM = {
     },
     {
       "day": 22,
-      "title": "Fund the post-crisis legacy",
-      "scene": "The emergency budget ends in three weeks. Unprotected contracts and sampling programs stop with it. Sequencing, wastewater surveillance, field ecology and clinical readiness all want the last outbreak-specific line. The council votes before the month closes.",
-      "takeaway": "Legacy funding should preserve an integrated early-warning capability and the ability to interpret its signals, not just the instrument that was most visible this time.",
+      "title": "Sign the Riverton briefing",
+      "scene": "Elias Webb is home. The transmission route has independent support, the treatment benefit has only limited follow-up, and the river-animal reservoir remains unresolved. The mayor is waiting outside. Choose the final statement you are willing to sign — including what Riverton keeps watching after the emergency budget closes.",
+      "takeaway": "The final act is a decision: sign what the evidence supports, mark what remains open, and preserve the system that can learn the rest.",
       "place": "Public Briefing Room",
-      "guide": "Four capabilities, and three of them worked this time. Ask of each whether it would have worked on a different outbreak. Each stream sees a different part of transmission, and their value comes from being compared. Note also what the cheapest item on the list costs: records and methods are nearly free and disappear first.",
+      "guide": "Four capabilities, and three of them worked well this time. For each one, ask: would it have worked on a different outbreak? Each stream sees a different part of transmission, and its real value comes from being compared with the others. Also notice what the cheapest item on the list costs: records and methods are nearly free, and they are usually the first thing to disappear.",
       "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the wrong options matter as much as the right one. Each wrong option is written to look correct under one specific mistake — a step skipped, a quantity mixed up with a rate, a correlation mistaken for a cause. Figuring out which mistake each one comes from is where the real learning happens. You can pick the right answer on instinct and still learn nothing.",
+        "Why the shape of an option tells you nothing. A correct answer often ends up longer, because it needs the extra clause and the unit. In this game's older quizzes, the longest option used to be the right one far more often than chance — 88 times out of 100. That has been fixed and is now checked every game. Length, hedging and detail no longer point to the answer on purpose.",
+        "What the verdict adds. Every wrong option gets its own short answer back, explaining why that option fails, not just repeating why the right one works. Read these even after you pick correctly. A right guess made for a shaky reason looks exactly like a right guess made for a good one, until the day the shaky reason is exactly what gets tested."
       ],
-      "story": "The emergency budget ends in three weeks. Unprotected contracts and sampling programs stop with it. Sequencing, wastewater surveillance, field ecology and clinical readiness all want the last outbreak-specific line. The council votes before the month closes.",
+      "story": "Elias Webb is home. The transmission route has independent support, the treatment benefit has only limited follow-up, and the river-animal reservoir remains unresolved. The mayor is waiting outside. Choose the final statement you are willing to sign — including what Riverton keeps watching after the emergency budget closes.",
       "game": {
         "type": "CHOICE",
-        "title": "Fund the post-crisis legacy",
+        "title": "Sign the Riverton briefing",
         "setup": "Public Briefing Room",
-        "play": "The emergency budget closes this month. Which durable capability should receive the protected outbreak-surveillance funding?",
-        "task": "The emergency budget closes this month. Which durable capability should receive the protected outbreak-surveillance funding?",
-        "question": "Which capability should the city protect when the emergency budget closes?",
-        "answer": "Integrated clinical, environmental and genomic surveillance with shared analysis.",
-        "why": "The durable capability is an integrated surveillance system rather than one favored instrument. Clinical, wastewater and genomic streams see different parts of transmission. They become more useful when compared through shared metadata and analysis. Field ecology should remain available when a One Health signal appears, while routine clinical readiness belongs in the broader health system. The emergency line should protect cross-stream early warning and interpretation capacity that would otherwise disappear. Records and methods should be preserved as a low-cost requirement rather than a competing project.",
+        "play": "Choose the final briefing you are willing to sign.",
+        "task": "Choose the final briefing you are willing to sign.",
+        "question": "Which final briefing do you sign?",
+        "answer": "State the established transmission route, qualify the treatment benefit, leave the reservoir unresolved, and protect integrated clinical, environmental, field, and genomic surveillance.",
+        "why": "A final scientific briefing does not have to choose between certainty and silence. The strongest version states the transmission finding at the strength supported by independent evidence, qualifies the treatment because follow-up is still limited, leaves the reservoir open, and preserves the surveillance system that can settle remaining questions and detect the next threat. That is the record the evidence can carry today.",
         "rebuttals": [
-          "Sequencing is powerful but depends on representative samples and cannot replace clinical or environmental context.",
-          "Wastewater can provide early population signals but cannot characterize every clinical consequence or transmission mechanism by itself.",
-          "Discarding the records removes the provenance, baselines and lessons needed to interpret the next signal."
+          "The field evidence does not yet establish reservoir maintenance or transmission direction strongly enough to justify a permanent culling policy.",
+          "Limited follow-up cannot support a claim of durable cure, and ending surveillance would make both waning benefit and new variants harder to detect.",
+          "Waiting for zero uncertainty would prevent action even on findings that already have strong independent support. Scientific decisions should match confidence to evidence, not demand impossibility."
         ],
         "choices": [
-          "Integrated clinical, environmental and genomic surveillance with shared analysis.",
-          "Keep the sequencing bench as the protected core because it found the rising variant.",
-          "Keep wastewater sampling as the protected core because it produced the earliest signal this time.",
-          "End the outbreak-specific records program and rebuild the system when the next event starts."
+          "State the established transmission route, qualify the treatment benefit, leave the reservoir unresolved, and protect integrated clinical, environmental, field, and genomic surveillance.",
+          "Declare the river species the confirmed reservoir, end comparison sampling, and make culling the permanent prevention policy.",
+          "Call the treatment a durable cure, stop follow-up, and shift all surveillance money to drug purchasing.",
+          "Refuse to state any conclusion until every remaining uncertainty has been eliminated."
         ],
-        "correctChoice": "Integrated clinical, environmental and genomic surveillance with shared analysis."
+        "correctChoice": "State the established transmission route, qualify the treatment benefit, leave the reservoir unresolved, and protect integrated clinical, environmental, field, and genomic surveillance."
       },
       "assumes": [
         "capability that is not funded to continue stops when the emergency does"
@@ -3496,15 +3491,16 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Clean side, dirty side",
-      "scene": "The courier leaves in ten minutes and the tray has to be sorted first. One side of the bench has been touched by nothing outside the cabinet. The other has been open to the room, a glove, or a patient.",
+      "scene": "The city has started sampling wastewater, surfaces, and respiratory specimens to find hidden spread. One contaminated tray could create a false environmental signal that looks like a transmission route. Sort each item by where it has actually been, not by whether it still looks clean.",
       "takeaway": "What decides contamination is where a thing has been, not what it looks like.",
       "place": "Container Laboratory",
-      "guide": "Two bins, and the question is whether the item has been open to anything outside the cabinet since it was last sterile. If it has, it cannot go back to the clean side however clean it looks. Sort on where it has been, not on what it is.",
+      "at": "sample-cabinet",
+      "guide": "Two bins. Ask one question about each item. Has it been open to anything outside the cabinet since it was last sterile — completely free of germs? If yes, it goes in the dirty bin, no matter how clean it looks. Sort by where it has been, not by what it looks like.",
       "background": [
-        "Why the two sides never mix. Contamination is not visible, and it is not undone by looking careful. Once an item has been open to the room it can carry what the room carries, and putting it back on the clean side moves that into every later sample.",
-        "Why \"it looks fine\" is the wrong test. A sealed swab dropped on the floor is sealed and is on the dirty side. An open plate that has sat in a running cabinet for an hour is open and is on the clean side. The history decides it, not the appearance."
+        "Why the two sides never mix. You cannot see contamination — germs from outside the cabinet. Looking careful does not undo it. Once an item has been open to the room, it can carry whatever germs the room has. Put it back on the clean side, and those germs ride along into every sample tested after it.",
+        "Why looking fine is the wrong test. A sealed swab pack dropped on the floor is still sealed, so it still goes on the dirty side, because it touched the floor. An open plate that sat inside a running cabinet for an hour stays open, so it still goes on the clean side, because the cabinet's air stayed germ-free. History decides it. Looks do not."
       ],
-      "story": "The courier leaves in ten minutes and the tray has to be sorted first. One side of the bench has been touched by nothing outside the cabinet. The other has been open to the room, a glove, or a patient.",
+      "story": "The city has started sampling wastewater, surfaces, and respiratory specimens to find hidden spread. One contaminated tray could create a false environmental signal that looks like a transmission route. Sort each item by where it has actually been, not by whether it still looks clean.",
       "game": {
         "type": "BELT",
         "title": "Clean side, dirty side",
@@ -3512,8 +3508,8 @@ export const CURRICULUM = {
         "play": "Sort the specimen tray before the courier goes.",
         "task": "Sort the specimen tray before the courier goes.",
         "question": "Send each item to the side its history puts it on.",
-        "answer": "Anything that has been open to the room, a glove or a patient goes to the dirty side. Anything that has only been inside the cabinet or a sealed pack stays clean.",
-        "why": "The clean side is defined by history rather than by appearance, which is the whole discipline of aseptic work. An item that has been inside a running cabinet, or has never been unsealed, has been open only to filtered air and stays on the clean side. Anything that has met the room — a glove that touched a door, a tube that stood on the bench, a plate carried down the corridor uncovered — has been open to whatever the room carries, and looks exactly the same afterwards. That is why the rule is about where a thing has been and why a dropped sealed swab is dirty while an hour-old open plate in a cabinet is clean. Getting it wrong does not spoil one sample; it puts the room's organisms into every result the tray produces, which is a contamination nobody can distinguish afterwards from a finding.",
+        "answer": "Anything that has touched the room, a glove, or a patient goes on the dirty side. Anything that has stayed inside the cabinet, or in a sealed pack, stays on the clean side.",
+        "why": "Exposure history decides the clean side. Sealed items and items kept inside the controlled cabinet can remain clean; anything exposed to room air, a used glove, a bench, or a patient must be treated as potentially contaminated. The point is not appearance but provenance: once contamination enters a sample, a later positive can be impossible to distinguish from a real environmental finding.",
         "belt": {
           "left": {
             "name": "Clean side"
@@ -3645,43 +3641,44 @@ export const CURRICULUM = {
     },
     {
       "day": 2,
-      "title": "Reservoir, vector, or incidental host?",
-      "scene": "Sequences from three patients sit close to a virus found in animals along the river corridor. The field station has four ecological patterns on the board and a trapper waiting outside with more animals.",
-      "takeaway": "Ecological roles are inferred from dynamics, not appearance or proximity alone.",
+      "title": "What role are the river animals playing?",
+      "scene": "Marcus Webb has spent every morning of this outbreak on the docks near the river. The virus in his father's blood looks close to one carried by the animals living there. The field station has four animal patterns pinned on the board, and a trapper is waiting outside with more to check. By Saturday, the city wants an answer, or it wants a cull.",
+      "takeaway": "An animal's role comes from what it does, not how it looks. Staying infected and passing the germ on are the real tests. Living near people is not enough by itself.",
       "place": "One Health Field Station",
-      "guide": "Four ecological patterns and four roles. Pair them by asking about dynamics rather than proximity. Does the agent persist in this species? Does the species pass it on? Does it stop there? One species is simply common near cases and always tests negative. Sharing a habitat with people is not the same as sharing an infection.",
+      "at": "reservoir-board",
+      "guide": "Four animal patterns, four roles. The board is testing two things about each pattern. Does the germ stay inside that animal? And does that animal spread it to others? Ask those two questions before anything else. One pattern is just an animal seen a lot near sick people. It always tests negative for the germ. Being nearby is not the same as carrying the disease.",
       "background": [
-        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
-        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why this is a matching board, not four separate questions. Each answer on this board sounds like it could fit more than one animal. Pick one answer at a time, and a nearly-right answer can slip through unchecked. Placing all four forces you to compare them. The question is not \"does this fit here?\" It is \"does this fit here better than it fits somewhere else?\"",
+        "How the one-each rule helps you. Each answer gets used exactly once. So every match you make changes what is left for the others. Settle the two pairs you feel sure about first. Often, that leaves the last two decided for you, by elimination. If it does not, two answers are still competing for one animal. That fight is exactly what this question is testing.",
+        "Why you can never be wrong about just one match. Every answer is used once. So three correct matches leave only one spot for the fourth. Any mistake always involves at least two matches, not one. Remember that when the last pair feels forced. The problem is usually not the match you are stuck on. It is an earlier match you stopped questioning too soon."
       ],
-      "story": "Sequences from three patients sit close to a virus found in animals along the river corridor. The field station has four ecological patterns on the board and a trapper waiting outside with more animals.",
+      "story": "Marcus Webb has spent every morning of this outbreak on the docks near the river. The virus in his father's blood looks close to one carried by the animals living there. The field station has four animal patterns pinned on the board, and a trapper is waiting outside with more to check. By Saturday, the city wants an answer, or it wants a cull.",
       "game": {
         "type": "PROTOCOL",
-        "title": "Reservoir, vector, or incidental host?",
+        "title": "What role are the river animals playing?",
         "setup": "One Health Field Station",
         "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "",
-        "why": "Ecological role is a claim about dynamics, not about proximity or about which animal people are frightened of. A reservoir carries the agent persistently and stays well enough to keep carrying it. A vector moves it between hosts without being the place it persists. A species that sickens and dies without passing it on is where transmission stops. And a species that is simply common near cases and never tests positive shares a habitat with people, which is not the same as sharing an infection.",
+        "why": "An animal’s role is defined by the transmission system, not by how close it lives to people. A reservoir is a host population or environment in which the agent can be maintained. A vector transmits the agent between hosts and may support its development or replication. An incidental or dead-end host can be infected without sustaining onward transmission. One positive animal sample is therefore a clue to role, not the role itself.",
         "rebuttals": [
-          "Persistent carriage with little disease is what a reservoir looks like — it has to survive the infection to maintain it.",
-          "A biting organism that moves the agent between hosts is a vector whether or not it is ever the place the agent persists.",
-          "A species that becomes ill and rarely transmits is a dead end. The chain reaches it and stops.",
-          "Common near cases and consistently negative is a shared habitat, not a shared infection. Proximity is the weakest evidence on the board."
+          "A reservoir stays infected without getting very sick. It has to survive the germ to keep carrying it.",
+          "A vector carries the germ from one host to another, often by biting. It does not need to stay infected itself.",
+          "A dead-end host gets sick but rarely spreads the germ onward. The chain of infection stops there.",
+          "An animal that is just common near cases, and always tests negative, shares a habitat with people, not an infection. Being nearby is the weakest evidence on this board."
         ],
         "scenarios": [
-          "A species carries the agent persistently with little disease.",
-          "A biting organism transfers the agent between hosts.",
-          "A species becomes ill but rarely transmits onward.",
-          "A species is common near cases but consistently tests negative."
+          "An animal carries the germ for a long time without getting very sick.",
+          "Mosquitoes trapped near the ward test positive, and the same strain turns up in new patients.",
+          "An animal gets sick from the germ but rarely spreads it onward.",
+          "An animal shows up a lot near sick people but always tests negative for the germ."
         ],
         "choices": [
-          "Potential reservoir host.",
-          "Potential biological or mechanical vector.",
-          "Incidental or dead-end host.",
-          "Ecological association without evidence of infection."
+          "Potential reservoir host — a species that may help maintain the agent in the reservoir system over time.",
+          "Potential vector — an organism that transmits the agent between hosts; the agent may simply be carried or may develop or multiply inside it.",
+          "Incidental or dead-end host — an animal that catches the germ but does not spread it.",
+          "Ecological association without evidence of infection — an animal just seen near cases, not actually infected."
         ],
         "mapping": [
           0,
@@ -3716,37 +3713,37 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "Test the reservoir hypothesis",
-      "scene": "Trappers report sick animals on the flood plain, and nobody has yet sampled in a way that could tell a reservoir from a bystander that caught it from people. Four steps, and the campaign gets funded once.",
-      "takeaway": "A reservoir claim requires population and evolutionary evidence together.",
+      "title": "What evidence would justify the cull?",
+      "scene": "Get this wrong, and Riverton kills a species that never carried the disease at all, or waits too long while it keeps spreading. Trappers are finding sick animals on the flood plain. Nobody has yet sampled them in a way that can tell a true reservoir from an animal that just caught the germ from people. This campaign only gets funded once.",
+      "takeaway": "Reservoir status is a population-level maintenance claim, not a label earned by one positive animal.",
       "place": "Wildlife Ecology Site",
-      "guide": "All four steps will happen and the campaign is funded once. A positive animal is not a reservoir. What turns it into one is a design that could have found the agent elsewhere and did not. Ask of each step what makes the next one interpretable. Exposure patterns say where to sample. Comparison sites are what make a prevalence figure mean anything.",
+      "guide": "All four steps happen, and this campaign is funded only once. Finding a positive animal does not prove it is a reservoir. What proves it is a study design that could have found the germ somewhere else — and looked, and didn't. For each step, ask what it makes possible for the next step. Where you look decides what you find. And a comparison site is what makes a prevalence number — how much of a group is infected — mean anything at all.",
       "background": [
-        "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
-        "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
-        "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
+        "Why the whole order is graded together, not step by step. A sequence claims that each step depends on the one before it. Swap just one pair, and that claim breaks, wherever the swap happens. Partial credit would be credit for an order that does not actually work.",
+        "Why you should start at the ends. The first and last steps have nothing before or after them to fit around. That usually makes them the two you can settle just from the scene. Once you pin those two down, far fewer orders are still possible. What is left in the middle is where the real judgment call is.",
+        "What decides the order, on boards like this. Time is the usual axis, but it is not the only one. An order can instead run on cost, or on risk, or on reversibility — doing the tests that leave a sample untouched before the ones that use it up. On boards like that, reading it as a timeline finds nothing. None of the steps has to happen at any particular hour."
       ],
-      "story": "Trappers report sick animals on the flood plain, and nobody has yet sampled in a way that could tell a reservoir from a bystander that caught it from people. Four steps, and the campaign gets funded once.",
+      "story": "Get this wrong, and Riverton kills a species that never carried the disease at all, or waits too long while it keeps spreading. Trappers are finding sick animals on the flood plain. Nobody has yet sampled them in a way that can tell a true reservoir from an animal that just caught the germ from people. This campaign only gets funded once.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Test the reservoir hypothesis",
+        "title": "What evidence would justify the cull?",
         "setup": "Wildlife Ecology Site",
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "A positive animal is not a reservoir. What turns it into one is a design that could have found the agent somewhere else and did not, which is why the order matters: exposure patterns say where to sample, and sampling built around comparison sites is what makes a prevalence figure mean anything. Only then do prevalence and genetic relatedness across hosts say whether this species is in the transmission cycle, and only then can repeated spillover be tested rather than assumed.",
+        "why": "A positive animal does not prove a reservoir. The question is whether the agent is maintained in that host population or that environment. The second question is whether human infection is epidemiologically connected to it. Comparison sites, other species, repeat sampling, exposure histories and sequence data all shift how plausible the rivals are. Sequence similarity shows relatedness. It does not show which way the infection went.",
         "rebuttals": [
-          "Human cases against habitat first — that is what tells you which species and which places are even candidates.",
-          "Unbiased sampling with comparison sites second. Find the agent only where you looked hardest and you have measured your own search.",
-          "Prevalence and genetic relatedness third: they connect the two populations, and they need samples from both to compare.",
-          "Repeated spillover last. One event can be a coincidence; a reservoir claim is a claim about a process that keeps happening."
+          "Mapping human cases against habitat comes first — it tells you which species and which places are even worth checking.",
+          "Unbiased sampling with comparison sites comes second. If you only look where you searched hardest, you have measured your own search, not the animal.",
+          "Prevalence and genetic relatedness come third: they connect the two animal groups, and you need samples from both sides to compare them.",
+          "Repeated spillover comes last. One event could be luck. A reservoir claim is a claim about a pattern that keeps happening."
         ],
         "cards": [
-          "Map human cases against habitat and exposure patterns.",
-          "Sample candidate species using an unbiased design and comparison sites.",
-          "Compare prevalence and genetic signatures across hosts.",
-          "Test whether the combined evidence explains repeated spillover."
+          "Map where human cases happened against animal habitat and exposure patterns.",
+          "Sample candidate animal species using an unbiased design, with comparison sites.",
+          "Compare prevalence, timing, exposure patterns, and genetic relatedness across host species and sites.",
+          "Ask whether the combined evidence supports ongoing maintenance in the candidate host population and repeated transmission into people."
         ],
         "order": [
           0,
@@ -3871,23 +3868,23 @@ export const BALLPARK_CALCS = {
     "explanation": "0.03 × 31 ≈ 0.93. Then 14 ÷ 0.93 ≈ 15.1, log10(15.1) ≈ 1.18, and pH ≈ 7.28. Low bicarbonate lowers pH; lower PaCO₂ partially compensates."
   },
   "CELL-4": {
-    "prompt": "500 cells, a 40-minute doubling time, 8 hours to go.",
-    "question": "Estimate the number of cells after eight hours.",
+    "prompt": "About 60 infectious people are estimated to be outside isolation. Under current conditions the hidden pool is doubling roughly every 3 days. Project 12 days ahead if that doubling time did not change.",
+    "question": "Estimate the hidden infectious population after 12 days under this short-horizon scenario.",
     "labels": [
-      "500 (cells at the start)",
-      "480 min (8 hours)",
-      "40 min (doubling time)",
-      "2 (cells per division)",
-      "8 h (the same interval, in hours)",
-      "60 (minutes in an hour)"
+      "60 (infectious people at the start)",
+      "12 days (projection interval)",
+      "3 days (doubling time)",
+      "2 (multiplication per doubling)",
+      "24 days (a tempting but wrong interval)",
+      "6 days (a tempting but wrong doubling time)"
     ],
     "values": [
-      500,
-      480,
-      40,
+      60,
+      12,
+      3,
       2,
-      8,
-      60
+      24,
+      6
     ],
     "slots": 4,
     "template": "{0} × {3} ^ ({1} ÷ {2})",
@@ -3898,11 +3895,11 @@ export const BALLPARK_CALCS = {
       2,
       3
     ],
-    "target": 2048000,
-    "tolerance": 400000,
-    "units": "cells",
-    "solution": "480 ÷ 40 = 12 doublings; 2^12 ≈ 4,100; × 500 ≈ 2 million cells.",
-    "explanation": "12 doublings, not 12 times. Multiplying 500 by 12 gives 6,000 and misses by a factor of 340."
+    "target": 960,
+    "tolerance": 100,
+    "units": "infectious people (scenario estimate)",
+    "solution": "12 ÷ 3 = 4 doublings; 2^4 = 16; 60 × 16 ≈ 960.",
+    "explanation": "This assumes the three-day doubling time persists for twelve days. It is a short scenario used to expose the consequence of delay, not a claim that epidemic growth stays exponential indefinitely."
   },
   "POP-9": {
     "prompt": "In week 1, 40 of 400 sequenced samples carried the variant. In week 3, 180 of 600 did. The denominators are what make the two weeks comparable.",
@@ -3972,22 +3969,22 @@ export const BALLPARK_CALCS = {
     "solution": "Risks of 0.10 and 0.05, an absolute reduction of 0.05, so about 20.",
     "explanation": "The same result is a halving of risk, a five-percentage-point reduction, and 1 benefit per 20 treated. The relative figure sounds largest and is the least useful for deciding how much of the drug to buy."
   },
-  "CLIN-8": {
-    "prompt": "The region has 120 staffed critical-care beds with 90 already occupied, severe cases are arriving at about 8 a day, and the average stay is around 6 days.",
+  "CLIN-7": {
+    "prompt": "The region has 120 staffed critical-care beds with 90 already occupied, and severe cases are arriving at about 8 a day. No reliable discharge-rate estimate is available for this wave.",
     "question": "Estimate the upper bound on time to capacity, assuming nobody is discharged.",
     "labels": [
       "30 open beds",
       "8 admissions/day",
       "120 staffed beds",
       "90 beds occupied",
-      "6 days (average stay)"
+      "24 h (staffing lead time; not needed for this bound)"
     ],
     "values": [
       30,
       8,
       120,
       90,
-      6
+      24
     ],
     "slots": 2,
     "template": "{0} ÷ {1}",
@@ -3999,12 +3996,20 @@ export const BALLPARK_CALCS = {
     "target": 3.75,
     "tolerance": 0.3,
     "units": "days",
-    "solution": "30 ÷ 8 ≈ 3.75 days, if nobody leaves.",
-    "explanation": "Total beds is the wrong numerator, because 90 of them are full. The average stay is what would turn this bound into a forecast, and nobody has measured the discharge rate — which is exactly what the crude number exposes."
+    "solution": "30 ÷ 8 ≈ 3.75 days if nobody is discharged.",
+    "explanation": "Thirty beds are open, not 120. Dividing 30 by 8 gives a worst-case fill time of about 3.75 days. Because discharge information is missing, this is a bound rather than a forecast — and that missing flow is exactly the next quantity the operations team should measure."
   }
 };
 
 export const JARGON = [
+  {
+    "name": "PCR",
+    "aliases": [
+      "pcr"
+    ],
+    "def": "A lab test that copies a tiny piece of genetic material over and over until there is enough to see.",
+    "core": true
+  },
   {
     "name": "Epidemiology",
     "aliases": [
@@ -4041,7 +4046,7 @@ export const JARGON = [
       "codon",
       "codons"
     ],
-    "def": "Three letters of genetic code, which together name one amino acid. Change one and the protein may change by one unit."
+    "def": "Three letters of genetic code that usually specify an amino acid, or sometimes a stop signal."
   },
   {
     "name": "Control",
@@ -4056,7 +4061,7 @@ export const JARGON = [
       "diffusion",
       "diffuses"
     ],
-    "def": "Movement from where there is more to where there is less, with no energy spent. It is why a small molecule crosses a membrane on its own.",
+    "def": "Net movement down a concentration gradient without direct cellular energy input. Small nonpolar molecules can often cross a lipid membrane this way; many other molecules cannot.",
     "core": true
   },
   {
@@ -4066,7 +4071,7 @@ export const JARGON = [
       "genome",
       "genomes"
     ],
-    "def": "Reading the agent’s genetic code, which shows how closely two cases are related.",
+    "def": "Reading an agent’s genetic sequence. It can show how closely pathogen samples are related, but sequence similarity alone does not prove who infected whom.",
     "core": true
   },
   {
@@ -4082,7 +4087,7 @@ export const JARGON = [
     "aliases": [
       "incidence"
     ],
-    "def": "How many new cases appear per unit of time. It is the rate; prevalence is the stock.",
+    "def": "New cases occurring in a defined population over a defined period. It can be expressed as a count, proportion, or rate depending on the question.",
     "core": true
   },
   {
@@ -4091,7 +4096,7 @@ export const JARGON = [
       "neutralizing",
       "neutralising"
     ],
-    "def": "An antibody that blocks the agent from entering a cell, rather than merely marking it.",
+    "def": "An antibody that blocks a critical step needed for infection, often by preventing attachment or entry into cells.",
     "core": true
   },
   {
@@ -4100,7 +4105,7 @@ export const JARGON = [
       "pathogen",
       "pathogens"
     ],
-    "def": "An agent that causes disease — a virus, a bacterium, a parasite.",
+    "def": "An infectious agent capable of causing disease — for example a virus, bacterium, fungus, or parasite.",
     "core": true
   },
   {
@@ -4108,7 +4113,7 @@ export const JARGON = [
     "aliases": [
       "prevalence"
     ],
-    "def": "How many people have the illness right now. Long illnesses keep it high after new cases fall."
+    "def": "The proportion or number of people who have a condition at a specified time or during a specified period."
   },
   {
     "name": "Reagent",
@@ -4138,7 +4143,7 @@ export const JARGON = [
     "aliases": [
       "RNA"
     ],
-    "def": "The working copy of a gene, read to make a protein. Many viruses carry their whole genome as RNA.",
+    "def": "A nucleic acid with many jobs. Messenger RNA can carry instructions used to make protein, and many viruses use RNA as their genome.",
     "core": true
   },
   {
@@ -4177,7 +4182,7 @@ export const JARGON = [
     "aliases": [
       "specificity"
     ],
-    "def": "The fraction of unaffected cases a test correctly leaves negative.",
+    "def": "The fraction of people without the condition that a test correctly identifies as negative.",
     "core": true
   },
   {
@@ -4186,7 +4191,7 @@ export const JARGON = [
       "vector",
       "vectors"
     ],
-    "def": "An organism that carries an agent between hosts — a mosquito, a tick — without being where the agent lives.",
+    "def": "A living organism that transmits an infectious agent between hosts. In biological vectors the agent may develop or multiply inside the vector; mechanical vectors can simply carry it.",
     "core": true
   }
 ];

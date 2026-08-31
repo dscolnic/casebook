@@ -1601,7 +1601,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "From light to what it is made of",
-      "scene": "The spectrum has two dips and a slope. Three different mineral mixes match it just as well as each other. Adebayo's draft notice already names one of them.",
+      "scene": "The spectrum has two dips and a slope. Three different mineral mixes match it just as well as each other. Adebayo, the physical characterization lead, has a draft notice that already names one of them.",
       "takeaway": "A good answer about what something is made of keeps the other answers that still fit.",
       "place": "Meteorite Comparison Lab",
       "guide": "All four steps will happen, and three mineral mixes fit just as well. Ask of each step what would be meaningless without it. The Sun, the air and the instrument all added something to what was recorded. A feature named before those come out could belong to any of them. And trying several mixes is what stops one being named too early.",
@@ -1610,7 +1610,7 @@ export const CURRICULUM = {
         "Why the ends are the place to start. The first and last steps are usually the easiest to be sure of, because one has nothing before it and the other has nothing after it. Fixing those two leaves fewer ways for the middle to go, and the middle is where the real question usually is.",
         "What the rail can be ordered on. Often it is time. It can also be cost, or risk, or what you can still undo afterwards — do the steps that change nothing before the ones that change something for good. A step that destroys the sample can only be last."
       ],
-      "story": "The spectrum has two dips and a slope. Three different mineral mixes match it just as well as each other. Adebayo's draft notice already names one of them.",
+      "story": "The spectrum has two dips and a slope. Three different mineral mixes match it just as well as each other. Adebayo, the physical characterization lead, has a draft notice that already names one of them.",
       "game": {
         "type": "SEQUENCE",
         "title": "From light to what it is made of",

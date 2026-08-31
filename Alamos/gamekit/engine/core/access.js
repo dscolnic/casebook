@@ -33,7 +33,7 @@
 // a feature — `engine/dev/placement.mjs` reports it.
 import { sitedAt } from '../world/interiorFixtures.js';
 import { warmupPlan } from './warmups.js';
-import { tiersFor, unlockDay } from './orientation.js';
+import { tiersFor, unlockDay as siteUnlockDay } from './orientation.js';
 
 const NEAR = 26;   // metres: a warm-up item this close to a door is "at" it
 
@@ -72,7 +72,11 @@ export function openingSols(theme){
   const runs = theme?.content?.WARMUPS ?? {};
   const days = (theme?.content?.MISSIONS ?? []).length;
   let plan = [];
-  try{ plan = warmupPlan(theme?.site, days, theme) ?? []; }catch{ plan = []; }
+  try{
+    const tiers = theme?.site ? tiersFor(theme.site) : { hasFar: false };
+    const hasFar = !!tiers.hasFar;
+    plan = warmupPlan({ days, hasFar, unlockDay: hasFar ? siteUnlockDay(theme.site) : 4 }) ?? [];
+  }catch{ plan = []; }
   for(const { day, slot } of plan){
     for(const p of runs[slot]?.at ?? []){
       // THE NEAREST, not the first within reach. `find` returned whichever
@@ -96,7 +100,7 @@ export function openingSols(theme){
   // never names, because no stop and no scattered crate is out there.
   try{
     const tiers = tiersFor(theme?.site);
-    if(tiers.hasFar) for(const id of tiers.farPlaces ?? []) first(id, unlockDay(theme?.site));
+    if(tiers.hasFar) for(const id of tiers.farPlaces ?? []) first(id, siteUnlockDay(theme?.site));
   }catch{ /* a site with no tiers has no far ring to open */ }
   return out;
 }

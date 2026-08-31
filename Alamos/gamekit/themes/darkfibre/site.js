@@ -108,11 +108,20 @@ export const site = {
       x: -70, z: -196, w: 9, d: 8, h: 3.6, facing: PI / 2, colour: 0xc2bcac },
 
     // No group: the cable's own route, and what keeps the station alive.
+    //
+    // `enter:` gives a building an interiors key without making it an area — no
+    // case stand, no beacon, nothing called there by the day model. What sends a
+    // player in is a stop SITED at a fixture declared under that key in
+    // fixtures.js, which is how day 4 ends up at the power feed board and days 8
+    // and 12 in the store. See themes/darkfibre/minors.js.
+    //
+    // The manhole deliberately has no `enter:`. It is 1.2 m high and a chamber
+    // under the sand: there is nowhere in it to stand and nothing in it to ask.
     { id: 'MANHOLE', name: 'Beach Manhole', sub: 'Where the sea cable stops being one',
       x: 4, z: -120, w: 4, d: 4, h: 1.2, facing: PI, colour: 0x8f8b80 },
-    { id: 'GEN', name: 'Generator House', sub: 'Two sets, one running',
+    { id: 'GEN', enter: 'GEN', name: 'Generator House', sub: 'Two sets, one running',
       x: 26, z: 34, w: 12, d: 9, h: 4.4, facing: PI, colour: 0xc8c4b6 },
-    { id: 'STORE', name: "Ship's Store", sub: 'Staged for a charter from the thirteenth',
+    { id: 'STORE', enter: 'STORE', name: "Ship's Store", sub: 'Staged for a charter from the thirteenth',
       x: -44, z: 52, w: 14, d: 9, h: 4.6, facing: PI, colour: 0x8a8272 },
   ],
 

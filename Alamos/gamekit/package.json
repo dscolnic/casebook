@@ -13,6 +13,7 @@
     "import-book": "node tools/import-book.mjs",
     "question-book": "node tools/question-book.mjs",
     "cardbook": "node tools/make-cardbook.mjs",
+    "dossier": "node tools/make-dossier.mjs",
     "shots": "node engine/dev/shots.mjs",
     "traps": "node engine/dev/instrumentTraps.mjs",
     "lessons": "node engine/dev/lessonGallery.mjs",

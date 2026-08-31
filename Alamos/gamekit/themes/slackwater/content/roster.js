@@ -66,7 +66,7 @@ export const ROSTER = [
     "role": "Sluice Engineer",
     "division": "SLUICE",
     "color": "#c2703f",
-    "bio": "<p>Six gates, two of them re-gated last March, and a impoundment of four hundred hectares behind all of them. He is the person who can tell you what the flow through an opening actually does as the levels come together.</p><p>He works in steps rather than in solutions. The gate programme is a table of what to do at the top of each half hour, so a rate that changes continuously has to be turned into something a person on a walkway can follow, and he wants to know how much the stepping itself costs.</p><p>His limit is that his table is only as good as its interval. He has never been given a defensible reason for using half an hour rather than ten minutes, and he asks for one about twice a year.</p>",
+    "bio": "<p>Six gates, two of them re-gated last March, and an impoundment of four hundred hectares behind all of them. He is the person who can tell you what the flow through an opening actually does as the levels come together.</p><p>He works in steps rather than in solutions. The gate programme is a table of what to do at the top of each half hour, so a rate that changes continuously has to be turned into something a person on a walkway can follow, and he wants to know how much the stepping itself costs.</p><p>His limit is that his table is only as good as its interval. He has never been given a defensible reason for using half an hour rather than ten minutes, and he asks for one about twice a year.</p>",
     "quiz": [
       {
         "q": "Why does Beke want to know the cost of the interval his gate table uses?",
@@ -164,7 +164,7 @@ export const ROSTER = [
     "bio": "<p>Runs the mud laboratory, which is a bench, a drying oven and eleven years of cores. Her subject is what the estuary keeps: the fine sediment, the nutrients that come with it and the animals that live in both.</p><p>Her question about any discharge is how long it stays. A tide that exchanges a third of the impoundment every cycle does not clear it in three tides, because what comes back on the flood is partly what went out on the ebb, and the tail of that process is long enough to matter.</p><p>Her limit is that the tail is where the assumptions live. She can measure the first few tides directly and everything after that comes out of a model she did not fit.</p>",
     "quiz": [
       {
-        "q": "Why does Ude reject the idea that a impoundment exchanging a third of its water each tide is clear in three tides?",
+        "q": "Why does Ude reject the idea that an impoundment exchanging a third of its water each tide is clear in three tides?",
         "a": "Part of what leaves on the ebb returns on the flood, so the decline is a fraction of a fraction",
         "wrong": [
           "The exchange fraction falls as the impoundment empties, so later tides move less water",

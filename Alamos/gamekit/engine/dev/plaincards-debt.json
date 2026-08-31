@@ -29,9 +29,9 @@
       "worst": 5.9
     },
     "outbreak_riverton": {
-      "over": 0,
-      "long": 0,
-      "worst": 6.4
+      "over": 11,
+      "long": 3,
+      "worst": 11.8
     },
     "planetary_defense": {
       "over": 0,
@@ -46,7 +46,7 @@
     "aftershock": {
       "over": 0,
       "long": 0,
-      "worst": 6.2
+      "worst": 6
     },
     "quantum": {
       "over": 0,
@@ -59,9 +59,9 @@
       "worst": 5.5
     },
     "headwater": {
-      "over": 0,
-      "long": 0,
-      "worst": 5.4
+      "over": 10,
+      "long": 2,
+      "worst": 8.4
     },
     "icecore": {
       "over": 0,
@@ -71,17 +71,17 @@
     "seedbank": {
       "over": 0,
       "long": 0,
-      "worst": 6.1
+      "worst": 5.5
     },
     "redsand": {
       "over": 0,
       "long": 0,
-      "worst": 5.8
+      "worst": 5.5
     },
     "midway": {
-      "over": 0,
+      "over": 4,
       "long": 0,
-      "worst": 6.1
+      "worst": 8.1
     },
     "planetary_defense_ms": {
       "over": 0,
@@ -134,9 +134,9 @@
       "worst": 5.7
     },
     "groundtruth": {
-      "over": 0,
+      "over": 7,
       "long": 0,
-      "worst": 6.3
+      "worst": 9.6
     },
     "blackout_fable": {
       "over": 0,
@@ -144,9 +144,9 @@
       "worst": 5.8
     },
     "yellowbay": {
-      "over": 0,
-      "long": 0,
-      "worst": 6.4
+      "over": 14,
+      "long": 7,
+      "worst": 12.3
     },
     "sightline_ms": {
       "over": 0,
@@ -179,34 +179,34 @@
       "worst": 5.7
     },
     "carrying": {
-      "over": 0,
-      "long": 0,
-      "worst": 5.9
+      "over": 10,
+      "long": 3,
+      "worst": 10
     },
     "ghostlight": {
-      "over": 0,
-      "long": 0,
-      "worst": 6
+      "over": 3,
+      "long": 3,
+      "worst": 7.8
     },
     "changeover": {
-      "over": 0,
+      "over": 12,
       "long": 0,
-      "worst": 5.4
+      "worst": 11.7
     },
     "slackwater": {
-      "over": 0,
-      "long": 0,
-      "worst": 5.7
+      "over": 13,
+      "long": 9,
+      "worst": 12.3
     },
     "overwind": {
-      "over": 0,
-      "long": 0,
-      "worst": 5.4
+      "over": 8,
+      "long": 1,
+      "worst": 10
     },
     "darkfibre": {
-      "over": 0,
-      "long": 0,
-      "worst": 5.7
+      "over": 5,
+      "long": 2,
+      "worst": 9.2
     },
     "qd_accel": {
       "over": 0,

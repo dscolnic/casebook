@@ -133,7 +133,7 @@ async function measure(name){
   const T = (await import(pathToFileURL(resolve(dir, 'theme.js')).href)).default;
   const { normalizeContent } = await import('../content/normalize.js');
   const content = T.content ?? {};
-  normalizeContent(content);
+  normalizeContent(content, T.site ?? null, T.fixtures ?? {});
   const grade = T.audience?.grade ?? 12;
   const jargon = content.JARGON ?? [];
   const rows = [];

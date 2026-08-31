@@ -90,7 +90,7 @@ async function runTheme(name, debt){
   const theme = (await import(pathToFileURL(resolve(resolveTheme(name), 'theme.js')).href)).default;
   const { normalizeContent } = await import('../content/normalize.js');
   const content = theme.content ?? {};
-  normalizeContent(content);
+  normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
   const surnames = surnamesOf(content.ROSTER ?? content.roster ?? []);
   const lessons = Object.values(content.CURRICULUM ?? {}).flat();
   const { named, total, rate } = sceneRate(lessons, surnames);

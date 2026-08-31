@@ -4,290 +4,337 @@
 
 export const MISSIONS = [
   {
-    "title": "The board and the gauge",
-    "objective": "Establish what the prediction is made of, and what the barrage does with it.",
-    "briefing": "Twelve working days to the equinoctial springs, and the gate programme has not been written.",
-    "stake": "Monday. The springs are twelve working days out. Sarn Barrage holds four hundred hectares of water behind six gates. A programme says when each gate moves. It is written from a predicted tide, not a measured one. Idris Calloway, the chief tidal analyst, fitted the constants for this station. He reads the board every morning. Renate Oyelaran, the barrage master, has closed the gates against a prediction once in nine years. She remembers it. Today you take the prediction apart into the terms it is made of. You work out the head across the gates at the top of the afternoon. Then you find out what a drifting float can and cannot tell you. A gate programme built on a number nobody can defend cannot be defended at the licence review either.",
-    "takeaway": "A predicted tide is a sum of terms, and every question about it is a question about the terms.",
+    "title": "The tide everyone is betting on",
+    "objective": "Build the first tide prediction and learn what the station actually measures.",
+    "briefing": "Twelve working days to the storm tide. The flood-gate plan still has no defensible closing time.",
+    "stake": "Twelve working days remain. The year's biggest tide is coming, and the farmers on the low marsh need to know whether to move livestock. Today you build the tide from its two biggest repeating waves, calculate what the gates should see, and separate a real measurement from a number worked out afterward.",
+    "takeaway": "A tide prediction is a model built from repeating waves, and its value depends on knowing exactly what went into it.",
+    "segue": "Calloway can now say when the spring tide should arrive and what level the gates should see. Oyelaran asks the question the board cannot answer: is the real water actually moving the way his equations say? Float 7 has been drifting through the estuary for ten days. On day 2 you make its positions speak.",
     "stops": [
       {
         "group": "PRED",
         "lesson": 0,
-        "task": "Get the spring interval out of two constituents"
+        "task": "Use the moon and sun tides to find the spring-tide interval",
+        "reason": "The gate plan needs the timing of the largest repeating tide before anything else can be scheduled"
       },
       {
         "group": "SLUICE",
         "lesson": 0,
-        "task": "Work out the head across the gates at 14:00"
+        "task": "Calculate the head across the gates at 14:00",
+        "reason": "This is the first point where the tide model turns into a number the gate crew could act on"
       },
       {
         "group": "TRACK",
         "lesson": 0,
-        "task": "Ask Mbeki what the float's record contains"
+        "task": "Separate what float 7 records from what must be calculated",
+        "reason": "The station keeps talking about the float's speed, but the instrument itself never measures speed"
       }
     ]
   },
   {
-    "title": "A path, not a shape",
-    "objective": "Get speed and heading out of a record that contains neither.",
-    "briefing": "Float 7 is still out, and eleven days of fixes have never been reduced.",
-    "stake": "Tuesday. Float 7 has been in the water for eleven days. Sunniva Palmer, the hydrographic surveyor, has its fixes written out in two columns. She wants them turned into the numbers the sediment work needs. Dr. Halina Vos, the currents scientist, has four meters on the barrage face. They report speed and bearing every ten minutes. That is the same information, written the other way round. Nobody has ever compared the two records. Today you get the float's speed at a stated hour. You work out the heading of its track where it passes the meters. Then you settle what the office can safely say from eight constituents rather than thirty-seven. If the float and the meters disagree, the sediment budget in the licence report rests on whichever record somebody preferred.",
-    "takeaway": "A record of positions against time holds the speed and the heading, but neither is written in it.",
+    "title": "Follow the real water",
+    "objective": "Turn a drifting float's positions into speed and direction, then ask what the tide model leaves out.",
+    "briefing": "Eleven working days remain. Calloway has a prediction; Oyelaran wants evidence from water that actually moved.",
+    "stake": "Float 7 has been sending back positions every ten minutes. Today you use derivatives to turn those dots into speed and direction, then look back at the forecast and ask what happened to the twenty-nine tidal waves the daily model never adds in.",
+    "takeaway": "Position data become velocity only through rates of change, and a model is only as complete as the terms it includes.",
+    "segue": "The float gives you a real speed and direction, and the daily forecast turns out to be only eight waves out of thirty-seven. But one instant of speed is not a journey. On day 3 you measure how far the water actually travelled and catch a dangerous assumption in the half-hour gate table.",
     "stops": [
       {
         "group": "TRACK",
         "lesson": 1,
-        "task": "Get the float's speed at 14:00 from its fitted track"
+        "task": "Turn the float's fitted position into speed at 14:00",
+        "reason": "Oyelaran wants a velocity from real water to put beside Calloway's predicted tide"
       },
       {
         "group": "ROSE",
         "lesson": 0,
-        "task": "Work out the heading of the track where it passes the meters"
+        "task": "Find the slope of the float's path at the current meter",
+        "reason": "The track can only be compared with the current meter if its direction is known at the same instant"
       },
       {
         "group": "PRED",
         "lesson": 1,
-        "task": "Match each way of stopping a sum to what it leaves you holding."
+        "task": "Match each way of stopping a sum to what it leaves you holding.",
+        "reason": "Only eight of thirty-seven fitted tidal waves go into the daily forecast, so the omitted part has to be named before it can be bounded"
       }
     ]
   },
   {
-    "title": "How far it went, and how far away it is",
-    "objective": "Separate the length of a path from the gap between its ends.",
-    "briefing": "The sediment budget needs the distance float 7 travelled, not the distance it ended up.",
-    "stake": "Wednesday. The sediment budget for the licence report is due at the end of next week. Nkechi Ude, the estuary ecologist, needs one number. How much water does a particle of mud ride through in a fortnight? The only measurement of that in this building is float 7. Palmer has fitted a smooth curve through the first two hours of its track. That is the part surveyed from the launch, so it can be trusted. Today you get the length of that fitted path. You work out how far the float finished from where it started. Then you settle with Tomas Beke, the sluice engineer, what happens to a rate while you are using it. Two of those numbers differ by a factor of thirteen. Only one of them is the transport distance.",
-    "takeaway": "Length is accumulated along a path; displacement only looks at the two ends.",
+    "title": "Where the water actually goes",
+    "objective": "Separate distance travelled from displacement, and test whether a changing flow can be frozen into a half-hour table.",
+    "briefing": "Ten working days remain. A float can loop through kilometres of water and finish close to where it started.",
+    "stake": "The station has been using start and finish positions as shorthand for what the tide did. Today you use arc length to measure the full path, compare it with the straight-line displacement, and then ask whether a gate instruction based on one instant can stay valid for the next thirty minutes.",
+    "takeaway": "Distance travelled, displacement and a rate measured at one instant answer three different questions.",
+    "segue": "Float 7 travelled about eighty-four kilometres while ending only six kilometres from where it began. That does not prove what the whole estuary does; it proves that start and finish can hide most of the motion. A more urgent uncertainty is still on Calloway's board: twenty-nine tidal terms are missing. On day 4 you put a hard ceiling on what they can change.",
     "stops": [
       {
         "group": "TRACK",
         "lesson": 2,
-        "task": "Get the length of the fitted track over two hours"
+        "task": "Measure the full length of the float's curved path",
+        "reason": "Start and finish positions can hide most of the motion in a tide that reverses direction"
       },
       {
         "group": "FLATS",
         "lesson": 0,
-        "task": "Work out how far the float finished from where it started"
+        "task": "Compare the float's total travel with its displacement",
+        "reason": "The station has been using the gap between endpoints as shorthand for a journey that repeatedly turns with the tide"
       },
       {
         "group": "SLUICE",
         "lesson": 1,
-        "task": "Ask Beke what happens to a rate while it is being used"
+        "task": "Identify what a half-hour instruction assumes about a changing flow",
+        "reason": "A gate instruction based on the flow at 14:00 may already be wrong before the next row is used"
       }
     ]
   },
   {
-    "title": "What the tail can be worth",
-    "objective": "Put a ceiling on what twenty-nine dropped constituents can do, and compare it with waiting.",
-    "briefing": "Calloway wants the gate call made on the board; Oyelaran wants it made on the gauge.",
-    "stake": "Thursday. The argument that runs this barrage reaches a number for the first time. Calloway holds that the board can be acted on. What it leaves out can be bounded, he says. Oyelaran holds that the gates close on the gauge. A prediction, to her, is somebody's opinion about water that has not arrived. Achterberg has the twenty-nine dropped amplitudes pinned on the wall. Nobody has ever added them up. Today you put a ceiling on the whole dropped tail. You work out what the level does while a gauge is being waited for. Then you ask Pieter Loots, the instrument technician, what a meter's reading actually is. The eastern gate is programmed on day thirteen. Whichever way it goes, it will be defended with one of those two numbers.",
-    "takeaway": "A bound on what a sum left out is a number, and it can be compared with the cost of waiting.",
+    "title": "How wrong can the forecast be?",
+    "objective": "Put a hard bound on the omitted tide terms and compare that uncertainty with waiting for a slow gauge.",
+    "briefing": "Nine working days remain. Calloway says the forecast is precise enough to act on; Oyelaran says measured water should decide.",
+    "stake": "The argument can finally be turned into numbers. Today you calculate the worst error from the twenty-nine omitted tidal waves, then compare it with how far the real water moves during the forty minutes the main gauge takes to settle.",
+    "takeaway": "An error bound becomes useful only when it is compared with the delay and uncertainty of the alternative measurement.",
+    "segue": "For the repeating tide alone, Calloway wins this round. The omitted terms can move the level by at most nineteen centimetres, while the water can move much farther during the gauge's forty-minute lag. But that bound covers only tidal terms the model knows about. On day 5 the water at the far wall shows another effect the board does not describe.",
     "stops": [
       {
         "group": "PRED",
         "lesson": 2,
-        "task": "Put a ceiling on the twenty-nine dropped terms"
+        "task": "Put a worst-case bound on the twenty-nine omitted tidal waves",
+        "reason": "Calloway cannot claim the eight-term forecast is safe until the part he leaves out has a numerical ceiling"
       },
       {
         "group": "SLUICE",
         "lesson": 2,
-        "task": "Work out what the level does while the gauge settles"
+        "task": "Calculate the water-level change during the forty-minute gauge lag",
+        "reason": "Waiting for a measurement is only safer if the water does not move farther during the wait than the forecast's known error"
       },
       {
         "group": "ROSE",
         "lesson": 1,
-        "task": "Ask Loots what a meter's reading is"
+        "task": "Find out how the current meter compresses many samples into one report",
+        "reason": "A number written every ten minutes is not automatically an instantaneous measurement"
       }
     ]
   },
   {
-    "title": "Speed against bearing",
-    "objective": "Get a number out of a figure that has no axes.",
-    "briefing": "The sediment work needs the ebb and the flood compared, and they are drawn as roses.",
-    "stake": "Friday. The sediment section of the licence report has been rewritten twice already. Vos has a fortnight of meter records plotted as two roses. One is for the ebb and one is for the flood. Ude needs them compared as quantities, not just looked at. Nobody in the building has ever taken a number off one of these figures. Today you get the area enclosed by the ebb rose. You compare it with the flood rose. Then you go out to the wall to hear from Jonas Fell, the wall keeper, what the gauge at the head does after the gates have turned. The asymmetry between those two roses is the whole reason the eastern flats are building up and the western ones are not.",
-    "takeaway": "A curve given as a reach at each bearing encloses an area, and the area is a comparable number.",
+    "title": "The tide turns, but the water does not",
+    "objective": "Turn the ebb and flood current patterns into comparable numbers and investigate a delayed rise at the wall.",
+    "briefing": "Eight working days remain. A gauge at the far wall keeps rising after the tide at the gates has already turned.",
+    "stake": "The current room has two complicated rose-shaped plots and no single number for either. Today you use polar area to compare the ebb and flood patterns, then follow a twenty-minute delay at the wall that cannot be explained by the local tide turning late.",
+    "takeaway": "Polar area can compare directional current patterns, but it is not itself a volume of water.",
+    "segue": "The ebb current pattern encloses more polar area than the flood pattern, but that is a comparison of current strength and direction, not proof that more water leaves than enters. The stranger result is at the wall: its level keeps climbing after the tide turns. On day 6 you test whether repeated reflections can add up to the extra water there.",
     "stops": [
       {
         "group": "ROSE",
         "lesson": 2,
-        "task": "Take the area enclosed by the ebb rose"
+        "task": "Use polar area to turn the ebb current rose into one number",
+        "reason": "The current plot is a shape, and the team needs a reproducible way to compare it with the flood plot"
       },
       {
         "group": "FLATS",
         "lesson": 1,
-        "task": "Compare the two roses as a single number"
+        "task": "Compare the ebb and flood roses by their polar areas",
+        "reason": "Two pictures on a wall do not settle whether one directional current pattern is larger than the other"
       },
       {
         "group": "WALL",
         "lesson": 0,
-        "task": "Ask Fell what the head gauge does after the turn"
+        "task": "Explain the twenty-minute delay at the wall head",
+        "reason": "A delayed peak at the far wall means local water motion is doing something the simple tide-at-the-gates picture does not capture"
       }
     ]
   },
   {
-    "title": "What comes back, and comes back again",
-    "objective": "Add up a chain of reflections, and say when such a chain has a total at all.",
-    "briefing": "The wall head reads higher than the first arrival, on every spring tide.",
-    "stake": "Monday. The wall has not been surveyed since the eastern gate was re-gated last March. Marta Grieve, the structures and resonance engineer, has a fortnight of gauge records from the head. Each one shows a first arrival of 0.34 metres. The reading at the head goes to nearly nine tenths of a metre. Grieve is working the returned fraction out of the records rather than out of the wall. Today you add the chain of returns up. You settle what a shrinking term does and does not prove about a sum. Then you ask Palmer what one float is evidence of. The armour on the last forty metres of that wall was placed for a design wave. The design wave was the first arrival.",
-    "takeaway": "A chain of returns each a fixed fraction of the last has a finite total, and the total is not the first term.",
+    "title": "When one wave comes back again and again",
+    "objective": "Add the repeated reflections at the wall and decide what repeated evidence can actually prove.",
+    "briefing": "Seven working days remain. The far wall sees a much larger rise than the first arriving wave can explain.",
+    "stake": "On the sixth morning one wave reaches the wall, reflects, returns and reflects again. Today you sum the whole chain, decide when a shrinking sequence really has a finite total, and stop the station from treating one drifting float as proof of what the entire estuary does.",
+    "takeaway": "Repeated terms can have a finite total, but a tidy total is not permission to generalize one measurement to an entire system.",
+    "segue": "The reflected-wave chain explains the high reading at the wall, so the old wall-design assumption goes into the safety review. The flood gates are still the thing that can protect the marsh this month. On day 7 the gates themselves become part of the mathematics: once they move, the water level behind them changes the rate of everything that follows.",
     "stops": [
       {
         "group": "WALL",
         "lesson": 1,
-        "task": "Add up the chain of returns at the wall head"
+        "task": "Sum the entire chain of wave returns at the wall",
+        "reason": "The wall cannot be checked against the first arriving wave if later reflections arrive in step and add to it"
       },
       {
         "group": "PRED",
         "lesson": 3,
-        "task": "Settle what a shrinking term proves"
+        "task": "Decide what terms shrinking to zero actually prove",
+        "reason": "The station keeps treating 'eventually tiny' as though it automatically means 'safe to ignore'"
       },
       {
         "group": "TRACK",
         "lesson": 3,
-        "task": "Ask Palmer what one float is evidence of"
+        "task": "State exactly what one drifting-float track is evidence for",
+        "reason": "A single clean measurement can still become a bad model if it is generalized beyond the tide and place it sampled"
       }
     ]
   },
   {
-    "title": "The impoundment fills",
-    "objective": "Solve the filling equation, and price the interval the gate table is written to.",
-    "briefing": "Beke wants a filling time he can defend, and a reason for half an hour rather than ten minutes.",
-    "stake": "Tuesday, six working days to the springs. Beke has to publish the gate programme for day thirteen. Every row of it rests on one thing. How long does the impoundment, the held water behind the gates, take to come up through a part-open gate? The flow depends on the head. The head closes while the water is passing. So the rate falls the whole time. That is why nobody here has ever written the filling time down. Calloway's office is stepping the surge forecast forward in half-hour steps for the same programme. Today you solve the filling equation properly. You take one step of the surge model by hand. Then you ask Nkechi Ude what the impoundment actually exchanges. A filling time that is twenty per cent wrong closes the eastern gate in the wrong half hour.",
-    "takeaway": "A rate that depends on what it has already done has to be solved, not multiplied.",
+    "title": "Closing the gates changes the water",
+    "objective": "Solve the changing fill behind the gates and test how much error enters when a storm model is stepped forward.",
+    "briefing": "Six working days remain. The gate plan needs to know how quickly water backs up once the gates begin to close.",
+    "stake": "The basin behind the barrage does not fill at a constant rate: the smaller the level difference becomes, the slower the flow gets. Today you solve that feedback exactly, then take one half-hour step of the storm model and see why a fixed fraction exchanged each tide never means the water is simply gone.",
+    "takeaway": "When a rate changes because the quantity itself changes, calculus has to follow that feedback rather than freeze it.",
+    "segue": "The basin takes about thirty-two minutes to fill under the stated conditions, and the storm model can be stepped forward one interval at a time only by accepting approximation error. On the mud bench, the same lesson appears in another form: removing one-third each tide never empties the basin in three tides. On day 8 you total processes that fade away forever.",
     "stops": [
       {
         "group": "SLUICE",
         "lesson": 3,
-        "task": "Solve the filling equation for the time to fill"
+        "task": "Solve the changing fill rate behind the flood gates",
+        "reason": "The rate slows as the water levels equalize, so a constant-rate estimate can put the next gate move at the wrong time"
       },
       {
         "group": "PRED",
         "lesson": 4,
-        "task": "Take one step of the surge model by hand"
+        "task": "Take one Euler step of the surge model",
+        "reason": "The weather model arrives as a rate of change, so the gate team has to know what one half-hour approximation really does"
       },
       {
         "group": "FLATS",
         "lesson": 2,
-        "task": "Match each observation to the explanation that accounts for it."
+        "task": "Match each observation to the explanation that accounts for it.",
+        "reason": "Removing the same fraction each tide is exponential decay, not subtracting the same amount three times"
       }
     ]
   },
   {
-    "title": "The tail nobody measures",
-    "objective": "Decide when the far end of a long process is worth a number.",
-    "briefing": "The nutrient claim in the licence report is an integral to infinity, and nobody has taken it.",
-    "stake": "Wednesday. The nutrient section of the report needs one number. It is the total exposure of the flats to a discharge that decays away over many tides. Ude can measure the first four or five tides directly. The rest is a tail. Achterberg has been asked which tails have a total at all. Two of the models in circulation do not. Today you take the exposure integral out to infinity. You sort four tails into those with a total and those without. Then you hear from Grieve why the armour count on the wall is the same question. A tail with no total is a model saying the flats are exposed to an unlimited amount. That is the sort of sentence a licence review notices.",
-    "takeaway": "An integral or a sum that runs for ever may still be a finite number, and which it is has to be shown.",
+    "title": "What never quite reaches zero",
+    "objective": "Turn long-decaying processes into finite totals, and reject the ones that do not converge.",
+    "briefing": "Five working days remain. Several licence claims depend on processes that fade away but never literally stop.",
+    "stake": "By the eighth day a nutrient release, a mathematical tail and the load along the sea wall get smaller with time or distance. Today you decide which endless processes have a real finite total and how to put a safe upper limit on the part nobody directly measured.",
+    "takeaway": "A process can continue forever and still have a finite total, but that has to be demonstrated rather than assumed.",
+    "segue": "The long nutrient tail has a finite total; some other shrinking tails do not. That makes the prediction office suspicious of every leftover it has been calling small. Nine years of forecast residuals are still pinned to one board. Tonight they stop looking like random scatter.",
     "stops": [
       {
         "group": "FLATS",
         "lesson": 3,
-        "task": "Take the exposure integral out to infinity"
+        "task": "Integrate the whole decaying nutrient load out to infinity",
+        "reason": "The environmental report needs the total exposure, not an arbitrary time at which somebody decides the tail is small enough"
       },
       {
         "group": "PRED",
         "lesson": 5,
-        "task": "Match each tail to what its total does."
+        "task": "Match each tail to what its total does.",
+        "reason": "A term getting small is not enough; the licence can use a finite total only when the mathematics proves one exists"
       },
       {
         "group": "WALL",
         "lesson": 2,
-        "task": "Ask Grieve why the armour count is the same question"
+        "task": "Use an integral bound on the armour units that were not surveyed",
+        "reason": "The storm arrives before every block can be inspected, so the remaining contribution needs a defensible worst-case ceiling"
       }
     ]
   },
   {
-    "title": "The residual has a shape",
-    "objective": "Find out where the extra term in the record comes from, and whether the fit has absorbed it.",
-    "briefing": "The eight-constituent fit leaves something behind, and it is not the same at every station.",
-    "stake": "Thursday, three working days to the springs. For nine years this office has treated what the fit leaves over as noise. Achterberg has now plotted it against station. It is positive at every seaward gauge and negative at every gauge up the estuary. Noise does not look like that. Calloway thinks the discharge law itself makes an extra term in shallow water. Today you expand the discharge law about mean head. You see what the second-order term turns into. You choose which of three fits should be carried into the springs prediction. Then you settle the order Beke's gate programme has to be built in. If the extra term is real, the board has been quietly wrong since the barrage was commissioned. Wrong at the same stations, in the same direction, every time.",
-    "takeaway": "A residual with a pattern in it is a term the model does not contain, not scatter.",
+    "title": "The 'noise' was a missing tide",
+    "objective": "Test whether a repeating pattern in the residuals comes from physics the tide model omitted.",
+    "briefing": "Four working days remain. Nine years of forecast errors line up with position in the estuary instead of scattering randomly.",
+    "stake": "If the residuals have a shape, the model is missing a mechanism. Today you expand the gate-flow law, predict the new repeating term that curvature creates, and choose the fit that removes the pattern instead of merely hiding it inside adjustable offsets.",
+    "takeaway": "A structured residual is evidence for a missing mechanism, not an invitation to fit the pattern away.",
+    "segue": "The curved flow law creates a real twice-frequency tide, and once that term is added the residual pattern disappears. Every spring prediction moves. The model is better than it has ever been. Then the weather service sends a number no tidal fit can absorb: roughly half a metre of wind-driven storm surge.",
     "stops": [
       {
         "group": "PRED",
         "lesson": 6,
-        "task": "Expand the discharge law about mean head"
+        "task": "Expand the nonlinear gate-flow law and identify the new repeating term",
+        "reason": "A twice-frequency pattern in nine years of residuals may be the signature of physics missing from the original tide model"
       },
       {
         "group": "ROSE",
         "lesson": 3,
-        "task": "Choose which fit goes into the springs prediction"
+        "task": "Choose the residual fit that represents a real missing mechanism",
+        "reason": "A lower RMS is not an improvement if free offsets merely absorb the same structured residual at every station"
       },
       {
         "group": "SLUICE",
         "lesson": 4,
-        "task": "Order the four steps by what each one commits you to."
+        "task": "Order the four steps by what each one commits you to.",
+        "reason": "Once a flood warning reaches farmers and gate crews, the decision cannot simply be taken back like a calculation on a board"
       }
     ]
   },
   {
-    "title": "An honest bound on the wrong quantity",
-    "objective": "Bound what the expansion left out, and find out what neither bound covers.",
-    "briefing": "The surge forecast has arrived, and it is not in the constituent list.",
-    "stake": "Friday. The surge forecast for day thirteen came in overnight. It is half a metre of wind-driven water on top of the largest range of the year. Calloway's bound on the dropped constituents is 0.19 metres. His expansion of the discharge law now needs a bound of its own. Oyelaran has read both. She wants to know which of them says anything at all about the surge. Today you bound the error of the second-order expansion. You settle what the tail bound does and does not cover. Then you ask Vos what her meters say about how fast a current changes. This is the day the fortnight's argument comes out on Oyelaran's side. It does so without anything Calloway wrote being wrong.",
-    "takeaway": "A bound covers what the model it came from contains, and a surge is not in the model.",
+    "title": "A perfect bound can still miss the storm",
+    "objective": "Bound the approximation error, then separate that mathematical error from water the tide forecast never predicted.",
+    "briefing": "Three working days remain. The weather service now forecasts about half a metre of wind-driven water on top of the spring tide.",
+    "stake": "Calloway can bound the errors inside his mathematics. Oyelaran's question is whether those bounds say anything about weather that was never a tidal term. Today you calculate the approximation error honestly, then decide what the nineteen-centimetre tidal bound does and does not protect against.",
+    "takeaway": "A bound can be perfectly correct and still answer the wrong uncertainty.",
+    "segue": "The corrected discharge approximation is accurate to about one percent across the tested tidal range, and the omitted tidal constituents are still bounded by nineteen centimetres. Neither number bounds the weather forecast itself. Oyelaran wins the central argument: the prediction tells the crew when to be ready, but the final closing decision has to respond to measured water with the gauge lag explicitly accounted for.",
     "stops": [
       {
         "group": "PRED",
         "lesson": 7,
-        "task": "Bound the error of the second-order expansion"
+        "task": "Compute a correct Lagrange bound for the second-order discharge expansion",
+        "reason": "The newly repaired tide model still uses an approximation, and that approximation needs its own honest ceiling before the storm tide's extreme water level"
       },
       {
         "group": "SLUICE",
         "lesson": 5,
-        "task": "Settle what the tail bound covers"
+        "task": "Separate the omitted-tide bound from the new weather surge",
+        "reason": "The number on the forecast looks reassuring only if everyone remembers exactly what was included when it was calculated"
       },
       {
         "group": "ROSE",
         "lesson": 4,
-        "task": "Ask Vos how fast a current changes"
+        "task": "Turn the derivative of the velocity vector into acceleration",
+        "reason": "The gate and mooring loads depend on turning and speeding up, not only on the water's instantaneous speed"
       }
     ]
   },
   {
-    "title": "Two integrals that will not come out",
-    "objective": "Get a moment and a growth law out of integrals that need a technique each.",
-    "briefing": "The generation report wants when the water went, and the silt model will not integrate as it stands.",
-    "stake": "Monday, two working days to the springs. The generation section of the licence report asks for something this office has always fudged. Not how much water was released on an ebb. When in the ebb it went. That is an integral with a time inside it. Ude has the opposite problem. Her silt model is a growth law that slows as the flats fill. It will not integrate until it is split into pieces. Achterberg has been refining the springs prediction term by term. He wants to know when to stop. Today you take the flow-weighted mean time of a release. You settle what splitting a fraction buys. Then you put a bracket round a refinement. Two days from now the gates move on these numbers.",
-    "takeaway": "An integral that will not come out is usually an integral that has not been rearranged yet.",
+    "title": "The last assumptions before sign-off",
+    "objective": "Finish the remaining integration checks and decide when another small correction is no longer worth chasing.",
+    "briefing": "Two working days remain. The gate rule is nearly settled, but the licence file still contains assumptions nobody has derived.",
+    "stake": "Before the plan can be signed, the generation and sediment records have to survive the same standard as the tide prediction: show the calculation and show the error. Today you finish two stubborn integrals and decide how tightly the final tide estimate is already bracketed.",
+    "takeaway": "A hard integral often becomes manageable after the right rearrangement, and a refinement is useful only until its remaining error is smaller than the decision needs.",
+    "segue": "The remaining integrals close, and the next correction to the spring prediction is already smaller than the decision can use. One line is still blank: what exactly should the gate crew act on when the prediction, its bounds and the actual water disagree? On day 12 you sign that rule.",
     "stops": [
       {
         "group": "SLUICE",
         "lesson": 6,
-        "task": "Get the flow-weighted mean time of a release"
+        "task": "Find the flow-weighted mean time of a release",
+        "reason": "The generation record needs when the water moved, not just the total volume that moved"
       },
       {
         "group": "FLATS",
         "lesson": 4,
-        "task": "Settle what splitting the fraction buys"
+        "task": "Use partial fractions to rewrite the separated silt equation",
+        "reason": "The model is stuck not because the physics is missing, but because the algebra has hidden two standard integrals inside one fraction"
       },
       {
         "group": "PRED",
         "lesson": 8,
-        "task": "Ask Achterberg when to stop refining"
+        "task": "Use the alternating-series error to bound the unfinished refinement",
+        "reason": "The final forecast cannot be delayed forever for corrections that are already smaller than the operational decision can use"
       }
     ]
   },
   {
-    "title": "The gate programme",
-    "objective": "Show the expansion is legitimate at the springs, and decide what the barrage closes on.",
-    "briefing": "The programme for day thirteen is signed this afternoon, with a surge on top of the largest range of the year.",
-    "stake": "Tuesday. The springs arrive tomorrow. The prediction has the shallow-water term in it now. The surge forecast is holding at half a metre. Oyelaran will sign a gate programme this afternoon. Calloway will sign the prediction it rests on. Those two signatures have been in tension for a fortnight, and both are needed. Grieve has a hundred points of survey money left and four things she could spend it on. Today you show that the expansion still holds when the head moves as far as it will tomorrow. You spend what is left of the survey budget. Then you settle with the barrage master what the eastern gate closes on. Four hundred hectares of marsh are behind that call. So is the graziers' stock.",
-    "takeaway": "A prediction, a bound and a measurement are three different things, and a decision has to say which one it rests on.",
+    "title": "The order that protects the marsh",
+    "objective": "Check the corrected model at the storm tide's extreme level and sign the operational rule for the eastern gate.",
+    "briefing": "One working day remains. At dawn the year's largest tide and the forecast storm reach Sarn together.",
+    "stake": "The prediction has been rebuilt and its mathematical errors are bounded. Today you make sure the series is still valid at the storm tide's extreme level, decide which missing measurements matter most before the next storm, and sign the instruction the gate crew and marsh farmers will actually follow.",
+    "takeaway": "The best model tells you when to prepare; a safety decision must still say what measurement triggers action when weather lies outside that model.",
     "stops": [
       {
         "group": "PRED",
         "lesson": 9,
-        "task": "Show the expansion is still legitimate at the springs"
+        "task": "Find the radius of convergence and check the storm tide's movement against it",
+        "reason": "The corrected series is only useful if the storm tide's unusually large head change remains inside the range where the expansion is guaranteed to converge"
       },
       {
         "group": "WALL",
         "lesson": 3,
-        "task": "Spread a hundred points across the four."
+        "task": "Spread a hundred points across the four.",
+        "reason": "This storm exposed several numbers that came from inference or stale surveys rather than direct measurement"
       },
       {
         "group": "SLUICE",
         "lesson": 7,
-        "task": "Which account fits all four pieces of paper on the desk?"
+        "task": "Which operational gate order should you sign?",
+        "reason": "The mathematics is finished only when the gate crew knows what to do with it at the storm tide"
       }
     ]
   }
@@ -296,7 +343,7 @@ export const MISSIONS = [
 export const WARMUPS = {
   "trial-near": {
     "title": "Walk the barrage before the springs",
-    "why": "Five buildings, a road across six gates and a pontoon on the west side. Walk it once at low water. On the thirteenth you will be crossing this ground with a marsh warning to hang and a gate crew waiting, and pacing it out now is what makes that afternoon possible."
+    "why": "Five buildings, a road across six gates and a pontoon on the west side: walk it once at low water so that you know the ground."
   },
   "trial-far": {
     "title": "The shore track, and the wall at the end of it",
@@ -320,7 +367,7 @@ export const WARMUPS = {
   },
   "canvass": {
     "title": "Who else saw the water over the bank on the twelfth",
-    "why": "Something put water over the bank west of the turbine hall last month and only the wall gauge recorded it. Ask round the crew and the marsh graziers until enough accounts agree on where it came over, because one gauge is not a measurement of an overtopping yet."
+    "why": "Something put water over the bank west of the turbine hall last month and only the wall gauge recorded it. Ask round the crew and the marsh farmers until enough accounts agree on where it came over, because one gauge is not a measurement of an overtopping yet."
   },
   "evade": {
     "title": "The contractor who wants the gates open this afternoon",

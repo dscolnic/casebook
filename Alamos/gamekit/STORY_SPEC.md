@@ -339,6 +339,77 @@ last thing anybody reads, and three rules hold:
 And do not end on the mechanics. "Campaign complete" in the HUD corner is what
 all seven games used to do, and it is why this rule is written down.
 
+## 11. Days connect on But or Therefore, never And Then
+
+The South Park writers' room rule, imported whole because it names a defect
+this repo has: fifteen stakes that read as a list — *the survey finds it, AND
+THEN the orbit gets fit, AND THEN the size gets measured, AND THEN the
+composition gets measured* — is fifteen correct facts and no momentum. A
+reader can always insert "and then" between two sentences; the test is whether
+"but" or "therefore" fits better, because those are the only two shapes that
+carry a plot forward. **The two words name the shapes; they are not required
+spellings.** "Nobody has looked at what it is made of yet" is a But, and "So the
+number goes public tonight" is a Therefore, and both are better sentences than
+the version with the named word bolted on the front.
+
+- **But** introduces a complication: the data disagrees, the window is
+  shorter than hoped, the number everyone needed just got worse. It answers
+  "then something got in the way."
+- **Therefore** introduces a forced consequence: because the corridor reached
+  a coastline, the number goes public; because the public number is wrong,
+  today narrows it. It answers "and because of that, now this has to happen."
+- **Neither is a character fighting another character.** Rule 1's recurring
+  argument between two named leads is real and stays — it is texture, and
+  it is allowed to be wrong on some days. The conflict this rule is about is
+  the plot engine underneath it: the player, trying to do the job, against
+  the situation — a deadline, a disagreement in the instruments, a budget,
+  the object itself. "Rossi and Ellery clashed at the meeting" is not a But.
+  "The corridor crosses a coastline, but the size that decides who evacuates
+  is still unknown" is.
+- **Planetary Defense's own audit, for calibration.** The macro arc holds:
+  day 1→4 is But (one camera disagrees) → Therefore (build a clean track) →
+  But (some orbits hit Earth eight years from now, not this pass) →
+  Therefore (the number goes public, and has to be defended). Days 5 through
+  8 do not: *the size gets measured, and then the composition, and then the
+  rotation, and then radar* is checklist order, one open question per day
+  with nothing forcing the next one. That is the shape to listen for.
+
+**The debrief card carries the connective tissue.** `mission.segue` — one to
+three sentences, authored per mission, optional — prints first on the card
+that closes a day, before the generated compliment (`engine/core/debrief.js`).
+It is not the takeaway (a principle) and not the stake (tomorrow's situation,
+read on tomorrow's plan card before the day starts); it is what closes today
+out and pushes into tomorrow, read at the moment the player has nothing left
+to do but read it. It does not appear on the last day — the campaign's own
+`ending` is the next card up, same as the takeaway.
+
+```yaml
+missions:
+  - title: How Large Is It?
+    segue: >-
+      Reflected light and heat together finally pin the size down. But a
+      number this size still splits into a city or a country depending on
+      what it is made of, and nobody has looked yet.
+```
+
+`engine/dev/checkStory.mjs` reports, per campaign, how many of its missions
+carry a `segue` and fails any that does contain the literal words "and then"
+— the one thing a reader can always insert and the one this rule exists to
+make unnecessary. It also fails a segue that does not **turn** at all:
+`engine/dev/turnRule.mjs` reads for a complication (the But family — `yet`,
+`however`, `instead`, `unless`, `no longer`, `even so`, …) or a forced
+consequence (the Therefore family — `thus`, `as a result`, `that leaves`,
+`because of that`, a clause-initial `so`/`now`/`still`, …), in whatever wording
+the sentence uses. What it cannot see is an implied connective: "The blank ran
+clean. Nobody moves tonight." is a Therefore to a reader and nothing to the
+checker, so put the word in. Alongside it, the same gate asks that something
+concrete be at risk (a number, a clock, a name) and that the segue not repeat a
+six-word run of the next stake or of the day's own takeaway — those three are
+the drama gate, debt-recorded in `engine/dev/segue-drama-debt.json`. Below `SEGUE_MIN_DAYS` (see the same file), coverage is
+reported only: a fifteen-day campaign should reach for this on most of its
+days, a nine-stop Quick Discovery in one sitting has nowhere for "tomorrow"
+to go and is not asked to write one.
+
 ## The order that works
 
 1. Timeline and arc → `STORIES.md`.

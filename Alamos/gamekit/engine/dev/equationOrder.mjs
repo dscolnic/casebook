@@ -61,7 +61,7 @@ for(const themeName of wanted){
   for(const [group, lessons] of Object.entries(content.CURRICULUM ?? {})){
     (lessons ?? []).forEach((l, li) => authored.set(`${group}:${li}`, (l.equations ?? []).slice()));
   }
-  normalizeContent(content);
+  normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
   const CURRICULUM = content.CURRICULUM ?? {};
   const MISSIONS = content.MISSIONS ?? [];
 

@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "The last few kilometres",
     "objective": "Get customers back on in an order that can be defended afterwards.",
     "briefing": "11 feeders are still dead and the crews can only be in 1 place at a time.",
-    "stake": "Thursday. The transmission side is steady. But 11 distribution feeders are still dead. Those are the street-level circuits, the last wires before a house. Chinelo Obi has 3 crews and 14000 households in the dark. One of her circuits carries a dialysis clinic. Another carries 1000 homes. Ewa Kowalczyk, the field crew lead, is at the first fault already. It is a tree across a line. Her crew has to cut it clear before that circuit can be fed. Today you choose which circuit gets the first crew. Every hour of this is somebody sitting in the cold. The order you choose is the order an inquiry will read back to you.",
+    "stake": "Thursday. The transmission side is steady. But 11 distribution feeders are still dead. Those are the street-level circuits, the last wires before a house. Chinelo Obi, the distribution lead, has 3 crews and 14000 households in the dark. One of her circuits carries a dialysis clinic. Another carries 1000 homes. Ewa Kowalczyk, the field crew lead, is at the first fault already. It is a tree across a line. Her crew has to cut it clear before that circuit can be fed. Today you choose which circuit gets the first crew. Every hour of this is somebody sitting in the cold. The order you choose is the order an inquiry will read back to you.",
     "takeaway": "Restoration is a series of choices about people, made with instruments that only see the substation.",
     "stops": [
       {

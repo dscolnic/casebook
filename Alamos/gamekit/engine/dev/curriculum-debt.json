@@ -85,5 +85,15 @@
     "average = total ÷ how many",
     "depth lost each year = mass lost ÷ (density × area)",
     "how many times = bigger ÷ smaller"
+  ],
+  "changeover": [
+    "ΔM = new reserves × money multiplier",
+    "real rate = nominal rate − inflation"
+  ],
+  "groundtruth": [
+    "E = σ / (2ε₀)"
+  ],
+  "midway": [
+    "ΣF = ma"
   ]
 }

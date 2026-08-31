@@ -20,6 +20,7 @@ import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
 import { INTERIORS } from './interiors.js';
+import { FIXTURES } from './fixtures.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 
 export default {
@@ -33,6 +34,16 @@ export default {
 
   // Nine days of rain forecast, and one release decision every morning.
   dayNoun: 'Day',
+  // The plan card's opening blurb is a date stamp and two short sentences: the
+  // one thing true this morning, and the one thing the player does about it.
+  // The long form named two or three of the roster by name and job before
+  // saying what the day's work was, and it read the same on the fourteenth
+  // morning as the first. The cast, the argument and the stakes moved to the
+  // calls' own `reason:` lines and to the people themselves, where the player
+  // meets them anyway. `engine/dev/checkStory.mjs` reads this and drops the
+  // stake's word floor entirely, keeping only a 70-word ceiling. See
+  // gamekit/BRIEFING_PASS.md.
+  stakeStyle: 'brief',
 
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'interior'  engine/world/interiorSite.js — a spine with rooms off it
@@ -67,6 +78,9 @@ export default {
   // built by engine/world/interiorBuilding.js on first entry, in a district
   // four kilometres from the town.
   interiors: INTERIORS,
+  // The objects the questions are asked AT, built on entry from the day's open
+  // call by engine/world/interiorFixtures.js; catalogue in ./fixtures.js.
+  fixtures: FIXTURES,
   // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
   interiorStyle: 'steel',
@@ -83,9 +97,9 @@ export default {
   // that closes a day hands that piece over, and the board in the room named by
   // `where` is where all of them can be seen at once — engine/core/delivery.js.
   //
-  // One rule a day, in the order the reservoir forced them. The resurveyed
-  // storage curve comes last and moves every number written before it, which
-  // is why the rules carry the survey they were written against.
+  // One rule a day, in the order the reservoir forced them. The late resurvey
+  // changes the basis of the earlier calculations, so the final piece is the
+  // corrected rule set the player is willing to sign.
   delivery: {
     name: 'The Ashfell Release Rules',
     what: 'What the next duty engineer opens the gates by: one rule or figure a day, and the '
@@ -106,38 +120,41 @@ export default {
       'The decay constant, scored',
       'The three-before-nine order',
       'The lead-time rule',
-      'The resurveyed storage curve',
+      'The corrected release rules, signed',
     ],
   },
+  // Five sentences on four beats — threat, authority, clock, who pays. The old
+  // card spent six of its fourteen sentences reciting what the release rules
+  // contain ("It says how much water the reservoir really holds…"), which is an
+  // index nobody reads to the bottom of. The one load-bearing fact in it — every
+  // rule is measured against a storage curve surveyed in 2003 and never redone —
+  // moved into day 1's stake, where the player is about to write the first rule.
   opening: [
-    'This morning Ashfell reservoir stands at 88%. It has been the driest summer in nine years. Now '
-    + 'nine days of rain are forecast from Thursday. Four villages live along the river below the dam. '
-    + 'You are the duty engineer. Each morning you order how much water goes out. You order it from '
-    + 'gauge readings taken hours ago. You order it from a survey of the reservoir made in 2003. In '
-    + 'fifteen days you hand over the Ashfell release rules. That is what the next duty engineer opens '
-    + 'the gates by. It says how much water the reservoir really holds. It says how much the wall can '
-    + 'take. It says how fast the river below can be fed. One rule gets written each day, and the old '
-    + 'survey has to be fixed before any of them mean a thing.',
+    'Ashfell is 88% full, and nine days of rain are forecast for the high ground. Four villages '
+    + 'sit below the wall, while a dry summer means every cubic metre released now may be missed '
+    + 'later. You are the duty engineer: each morning you decide how much water goes out and you '
+    + 'have to show the working. Your gauges are hours old, and every storage calculation still '
+    + 'depends on a survey of the lake bed made in 2003. In fifteen days you must leave behind '
+    + 'release rules another engineer can trust.',
   ],
 
   // How it ends. Shown when the campaign closes, and the last thing the player
   // reads: what came of the fortnight, what it cost, and what they did.
   ending: [
-    'The rain stopped on the ninth day with the reservoir at 91%, and the reach below the dam '
-    + 'was warned twice and flooded neither time. The resurvey moved every volume on the site '
-    + 'by 11%, so the storage curve the night orders are written against is the real one now. '
-    + 'Ashfell keeps its gates, its gauges and one more season of margin than it had a '
-    + 'fortnight ago.',
-    'What it cost: two villages packed and unpacked for a warning that turned out to be right '
-    + 'to give, nine days of a crew on twelve-hour watches, and a spillway relation still '
-    + 'fitted to data taken below half gate. What is unfinished: the uplift fits disagree above '
-    + '90%, the 2003 survey is still what every drawing in the building shows, and the rule '
-    + 'that would have caught all of it — order against the rate, not the level — is a line in '
-    + 'a handover book until the next duty engineer makes it a habit.',
-    'And it held because of you. You worked the rate rather than the level, you fixed the '
-    + 'volumes on a survey rather than on a drawing from 2003, and you ordered gates six hours '
-    + 'ahead of a river that rises in two. Four villages went to bed dry through nine days of '
-    + 'rain. That was you, every morning of it.',
+    'At six o’clock you sign the corrected Ashfell release rules. At seven the liaison committee '
+    + 'adopts them: the new area-capacity curve stays marked provisional until the full resurvey, '
+    + 'the spillway rating stays a range until its coefficient is measured, and warning rules are '
+    + 'written around lead time rather than one magic reservoir level.',
+    'The rain had stopped on the ninth day. Ashfell finished the fortnight at 91%, and neither '
+    + 'warning became a flood. At Nethercote Ford, Kit Trenholme walks Ada’s ewes back onto the low '
+    + 'meadow. The first move bought real safety; the second cost them a day for water that never '
+    + 'came. Halloran was right that released water is gone for summer. Berg was right that headroom '
+    + 'is cheapest before the peak. The rules keep both facts.',
+    'What changed was not only the gate schedule. A survey from 2003 stopped being treated as a '
+    + 'law. A coefficient from a handbook stopped being printed to three figures. A warning trigger '
+    + 'became a statement about required time to act. Four villages stayed dry, and the next duty '
+    + 'engineer inherits the uncertainty as clearly as the answer. You wrote both of those down, '
+    + 'and you signed them. That was your fortnight.',
   ],
 
   look: {

@@ -87,7 +87,12 @@ const LANDMARKS = [
     x: -72, z: 60, w: 14, d: 10, h: 4.6, facing: -PI / 2, colour: 0x5a5754 },
   { id: 'DORM', name: 'Night Crew Quarters', sub: 'Blackout blinds, and a rule about noise',
     x: -20, z: 108, w: 18, d: 11, h: 4.8, facing: PI, colour: 0x5d5a57 },
-  { id: 'TOWN', name: 'Valle Seco Emergency Office', sub: 'The people the numbers are about',
+  // `enter:` promotes this from a facade: three day-14 stops (matching action
+  // to evidence, the displaced-population estimate, and the evacuation
+  // thresholds) are Survey & Response's own questions about the people this
+  // office exists for, and it stands 46 m from the Entry & Consequences Lab —
+  // the same corner of the range. See fixtures.js's TOWN key and minors.js.
+  { id: 'TOWN', enter: 'TOWN', name: 'Valle Seco Emergency Office', sub: 'The people the numbers are about',
     x: 95, z: 810, w: 16, d: 11, h: 4.6, facing: PI, colour: 0x5b5854 },
 ];
 

@@ -123,6 +123,30 @@ export const FIXTURES = {
   // This is what stops the five opened buildings being five rooms nobody has a
   // reason to walk into, which is the same defect as an objective line naming the
   // area's job instead of saying why you are going there.
+  // The Site Office — near spawn, opened day 1. Sites the two day-1 lessons
+  // that `tiersFor` calls far (CROSS's own hall at r=155, TRIAL's at r=251)
+  // and that the far lap does not reach until day 4. Both are already framed
+  // as somebody's posted paperwork, not a live process — Volpe's two parents
+  // pinned above a bench, Quiroga's plot map on a wall — so a copy kept
+  // centrally for a season lead's first morning costs no fiction. See
+  // gamekit/PLACEMENT_PASS.md and the note on `OFFICE` in site.js.
+  OFFICE: [
+    { id: 'goals-note', name: 'The season’s stated aim', build: 'board', wall: 'left', along: -0.4,
+      caption: 'Two parents pinned side by side, and what the programme is trying to get from them.' },
+    { id: 'trial-plan-copy', name: 'A copy of the trial plan', build: 'board', wall: 'right', along: -0.4,
+      caption: 'Two hundred and forty plots, each line sown four times, posted for anyone who has not walked the ring yet.' },
+    // The same two calls that stalled TRIAL and CROSS on day 1 also stalled
+    // DRY (day 2) and POP (day 3): both far by their own area, both nothing
+    // nearFirst could trade without pulling a later day's lesson forward.
+    // Both are also somebody's paperwork before they are anything else — a
+    // weighbridge slip, a count of a hundred plants at one locus — so the same
+    // fix applies. The Site Office grows two more boards rather than two more
+    // buildings, which is the cheaper version of "another place."
+    { id: 'weighbridge-copy', name: 'A copy of the weighbridge slip', build: 'board', wall: 'left', along: 0.4,
+      caption: 'Eleven tonnes off one field, and a trainee who thinks it came out of the soil.' },
+    { id: 'genotype-copy', name: 'A copy of the genotype count', build: 'board', wall: 'right', along: 0.4,
+      caption: 'A hundred plants at one locus, written up as counts rather than as plants.' },
+  ],
   GH1: [
     { id: 'f2-benches', name: 'The second-generation benches', build: 'rack', wall: 'left', along: -0.2,
       caption: 'Four hundred plants from one cross, and this is the generation where they come apart.' },

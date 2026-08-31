@@ -266,7 +266,21 @@ async function run(themeName){
   const theme = (await import(pathToFileURL(resolve(dir, 'theme.js')).href)).default;
   const { normalizeContent } = await import('../content/normalize.js');
   const content = theme.content ?? {};
-  normalizeContent(content);
+  // WITH the site, and this is load-bearing rather than tidy: `normalize.js`
+  // stamps `TIERS` only when it is handed one, and `narrativeSlots` asks
+  // `warmupPlan` for the schedule off `TIERS.far`. Without the site every
+  // campaign reads as one-tier, so on a two-tier site this check read the
+  // GREET card the engine never runs and skipped the two TRIAL cards it does —
+  // which is a checker reading a different campaign from the one that ships.
+  normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
+  // And say so if that ever stops working. `TIERS` missing on a theme that has a
+  // site is the silent version of this bug: every campaign reads as one tier, the
+  // wrong warm-up cards are read, and the output still looks like a clean run.
+  if(theme.site && !content.TIERS){
+    console.error(`✗ ${themeName}: the tiers were not stamped on the content, so the warm-up`
+      + ' schedule this check reads is not the one the game runs — normalizeContent needs the site');
+    process.exit(2);
+  }
 
   const impostors = impostorNames(theme, content);
   for(const i of impostors){
@@ -351,6 +365,30 @@ async function selftest(){
         why: 'Reyes, the shift supervisor, knows where every cable crosses the road.' } },
       MISSIONS: [{ stake: 'The trend wants reading before seven.', stops: [] }] },
   };
+  // The schedule is the engine's, and it comes off the near/far tiers. A two-tier
+  // site opens on TRIAL and never runs GREET, so a name introduced only on the
+  // GREET card is a name the player never meets introduced — and the pair below
+  // is the case that matters: the SAME content has to score differently on the
+  // two kinds of ground, and identically to itself. This is the defect the site
+  // argument in `run` above fixes; without it every campaign read as one-tier and
+  // this check read a card the game does not show.
+  const greetOnly = (tiers) => ({
+    theme: { title: 't', opening: 'The valley is short of power.', ending: [] },
+    content: { ROSTER: [person], CURRICULUM: {}, TIERS: tiers,
+      WARMUPS: { greet: { title: 'The shift changes at seven',
+        why: 'Reyes, the shift supervisor, takes new engineers round the room once.' } },
+      MISSIONS: [{ stake: 'Reyes wants the trend read before seven.', stops: [] },
+                  ...Array.from({ length: 14 }, () => filler)] },
+  });
+  const oneTier = greetOnly({ far: [] });
+  const twoTier = greetOnly({ far: ['outstation'] });
+  check('on one tier of ground the GREET card runs, and introduces her',
+    unintroducedInCampaign(oneTier.theme, oneTier.content).length === 0,
+    JSON.stringify(unintroducedInCampaign(oneTier.theme, oneTier.content)));
+  check('on two tiers it does not run, so the same content leaves her unintroduced',
+    unintroducedInCampaign(twoTier.theme, twoTier.content).length === 1,
+    JSON.stringify(unintroducedInCampaign(twoTier.theme, twoTier.content)));
+
   check('a warm-up card is judged whole — the job may be in the why under the title',
     unintroducedInCampaign(carded.theme, carded.content).length === 0,
     JSON.stringify(unintroducedInCampaign(carded.theme, carded.content)));

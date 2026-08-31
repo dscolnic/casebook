@@ -202,15 +202,18 @@ const isReviewTitle = (t) => REVIEW_SUFFIX.test(String(t ?? ''));
  *   BALLPARK_BY_TITLE  lesson title -> number-tile spec, applied to its reviews
  *   DIVISION_BY_PERSON person id -> group id, for a roster that omits it
  */
-export function normalizeContent(content = {}, site = null){
+export function normalizeContent(content = {}, site = null, fixtures = {}){
   const changes = [];
   const problems = [];
   const curriculum = content.CURRICULUM ?? {};
   // The near/far tiers, measured once from the site and stamped on the content.
   // A caller with no site — a selftest fixture, a tool that hand-builds a
-  // campaign — gets one tier and today's behaviour. A caller that loaded a theme
-  // gets whatever theme.js already stamped, so the checkers and the game agree
-  // about which day a stop is called on.
+  // campaign — gets one tier, and says so by passing `null` where the site goes.
+  // A caller that loaded a theme passes `theme.site`, and that is not optional:
+  // without it there are no tiers, `nearFirst` below returns early, and the
+  // caller is reading a day order the game does not run. Seven themes shape
+  // differently — Aftershock on nine of its fifteen days — and every dev check
+  // read the wrong one until `siteNormalize.mjs` was written to fail them.
   if(site && !content.TIERS){
     content.TIERS = tiersFor(site);
     content.UNLOCK_DAY = unlockDay(site);
@@ -336,7 +339,7 @@ export function normalizeContent(content = {}, site = null){
   }
 
   // ---- last: the shape of the days themselves
-  shapeMissions(content.MISSIONS ?? [], curriculum, changes, content.TIERS, content.UNLOCK_DAY);
+  shapeMissions(content.MISSIONS ?? [], curriculum, changes, content.TIERS, content.UNLOCK_DAY, fixtures);
   primeMissions(content.MISSIONS ?? [], curriculum, content.JARGON ?? [], changes);
   // After shaping, because shaping is what decides which day a lesson lands on:
   // an equation's first day is not knowable until the callbacks exist.
@@ -810,14 +813,64 @@ function applyPack(ch, pack){
  * **Nothing here reasons about equation dependencies, deliberately.** The
  * syllabus lives in `tools/`, the engine does not import it, and a second
  * dependency solver in this file would be a second description of a rule
- * `equationOrder.mjs` already owns. So the swap is conservative — it prefers the
- * latest available partner, which pushes lessons later rather than earlier — and
- * `equationOrder` is the guard. If it fails a game after this, the fix is to
- * refuse that swap, not to teach this function about equations.
+ * `equationOrder.mjs` already owns. So the swap is conservative — it only ever
+ * trades with a day at or after `unlockDay`, which always pushes the far lesson
+ * later, never earlier — and `equationOrder` is the guard. If it fails a game
+ * after this, the fix is to refuse that swap, not to teach this function about
+ * equations.
+ *
+ * **Nor does it reason about story, for the same reason** — `STORY_SPEC.md`
+ * lives in prose, not in this file — so it searches for the *nearest* later day
+ * with a legal partner rather than the *latest*. Both keep the far lesson from
+ * being taught early, which is all this function is for; searching from the far
+ * end instead reaches for whatever the campaign's last days hold, and those are
+ * exactly the days rule 3 (every stake names when it is happening) and rule 10
+ * (the last two days are fixed: the last reversible moment, then the
+ * disposition) make the least safe content to relocate. Planetary Defense's
+ * day 15 is entirely its "Disposition the final claims" finale in a near-tier
+ * group, and searching from the end made that the first candidate found,
+ * pulling it onto day 1.
+ *
+ * ## The trade it should not make: a stop already sited near
+ *
+ * A far-GROUP call is not always a far WALK. `PLACEMENT_PASS.md`'s sited calls
+ * let a lesson's `at:` point at a fixture under a near MINOR place instead of
+ * the lesson's own (far) area — Wellmere's day 1 asks about the crossing
+ * block and the trial ring, both far areas, both framed as somebody's own
+ * paperwork (two parents pinned above a bench, a plot map on a wall), so a
+ * copy posted at the near Site Office costs no fiction and the walk is 20 m,
+ * not 155 or 251. Before this, `nearFirst` had no way to know that and would
+ * still trade the call away — not because the walk was long, but because it
+ * only ever looked at the lesson's own area. Measured on Wellmere, that pulled
+ * day 12's Molecular Laboratory lesson onto day 1 to fill the gap: a rust-
+ * screen allocation call, before the season has found the rust, on the first
+ * morning — the same defect the placement pass exists to catch, one level up.
+ *
+ * `sitedNear` is deliberately a NARROW mirror of `interiorFixtures.js`'s
+ * `sitedAt`, not an import of it: that file pulls in three.js to build actual
+ * geometry, which this content-only module — loaded by every dev check,
+ * including ones that never touch a browser — has no reason to carry. Both
+ * read the same two facts (does the lesson's `at:` resolve to a place other
+ * than its own group, and is that place near) off the same data, so they
+ * cannot answer the question differently; only `interiorFixtures.js` builds
+ * anything from the answer.
  */
-function nearFirst(missions, tiers, unlockDay, changes){
+function sitedNear(stop, curriculum, fixtures, tiers){
+  const at = curriculum?.[stop.group]?.[stop.lesson]?.at;
+  if(!at) return false;
+  const ownRoom = (fixtures?.[stop.group] ?? []).some(f => f.id === at);
+  if(ownRoom) return false;             // in its own (far) room — still far
+  const nearPlaces = new Set(tiers?.nearPlaces ?? tiers?.near ?? []);
+  for(const [place, list] of Object.entries(fixtures ?? {})){
+    if(place === stop.group) continue;
+    if((list ?? []).some(f => f.id === at)) return nearPlaces.has(place);
+  }
+  return false;
+}
+
+function nearFirst(missions, tiers, unlockDay, changes, curriculum, fixtures){
   if(!tiers?.hasFar || !(unlockDay > 1)) return;
-  const isFar = (s) => tiers.far.includes(s.group);
+  const isFar = (s) => tiers.far.includes(s.group) && !sitedNear(s, curriculum, fixtures, tiers);
   const opening = missions.slice(0, unlockDay - 1);
   if(!opening.length) return;
 
@@ -825,11 +878,9 @@ function nearFirst(missions, tiers, unlockDay, changes){
     const day = missions[d];
     for(const stop of day.stops ?? []){
       if(!isFar(stop)) continue;
-      // Latest day first: a lesson pushed later is safer than one pulled
-      // earlier, because a course is written so that later work depends on
-      // earlier work and never the other way round.
+      // Nearest later day first, not latest — see the function doc above.
       let partner = null, from = -1;
-      for(let e = missions.length - 1; e >= unlockDay - 1; e--){
+      for(let e = unlockDay - 1; e <= missions.length - 1; e++){
         const cand = (missions[e].stops ?? []).find(s =>
           !isFar(s)
           // Neither day may end up calling the same area twice: that is what
@@ -845,19 +896,36 @@ function nearFirst(missions, tiers, unlockDay, changes){
         changes.push(`day ${d + 1}: ${stop.group} is far ground and no near call could be traded for it`);
         continue;
       }
-      const a = { group: stop.group, lesson: stop.lesson, task: stop.task };
-      stop.group = partner.group; stop.lesson = partner.lesson; stop.task = partner.task;
-      partner.group = a.group; partner.lesson = a.lesson; partner.task = a.task;
+      // EVERY AUTHORED FIELD OF THE CALL MOVES WITH IT, and `reason` is one.
+      //
+      // The first version swapped `group`, `lesson` and `task` and left `reason`
+      // where it was, which orphans it in both directions: Wellmere's day 1
+      // second call became a Molecular Laboratory question about screenhouse
+      // slots while still printing "She is the reason the ground is contested,
+      // and her case starts with what a cross is for" under it — a sentence
+      // written for a Crossing Hall call on the same morning. Fourteen of its
+      // calls read that way and every gate was green, because `reason` is text
+      // nothing compares against the lesson it sits on, and because the dev
+      // checks used to call `normalizeContent` with no site, so `tiers` was null
+      // and this function did nothing under them. The game was the only thing
+      // that saw it. Every checker passes the site now — `siteNormalize.mjs`
+      // fails one that does not — so this swap is what they read as well. See gamekit/BRIEFING_PASS.md — the reason belongs to the call, not
+      // to the slot the call happens to be standing in.
+      const a = { group: stop.group, lesson: stop.lesson, task: stop.task, reason: stop.reason };
+      stop.group = partner.group; stop.lesson = partner.lesson;
+      stop.task = partner.task; stop.reason = partner.reason;
+      partner.group = a.group; partner.lesson = a.lesson;
+      partner.task = a.task; partner.reason = a.reason;
       changes.push(`day ${d + 1}: far call ${a.group} traded with ${stop.group} from day ${from + 1}`);
     }
   }
 }
 
-export function shapeMissions(missions = [], curriculum = {}, changes = [], tiers = null, unlockDay = 0){
+export function shapeMissions(missions = [], curriculum = {}, changes = [], tiers = null, unlockDay = 0, fixtures = {}){
   if(!Array.isArray(missions) || !missions.length) return missions;
   // Before anything else: the opening days must not call far ground. Person
   // stops and callbacks are decided below, on the days as they finally stand.
-  nearFirst(missions, tiers, unlockDay, changes);
+  nearFirst(missions, tiers, unlockDay, changes, curriculum, fixtures);
   /** Lessons already taught, oldest first: [group, lessonIndex, title]. */
   const taught = [];
   const calledBack = new Set();

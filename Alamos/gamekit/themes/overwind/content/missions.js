@@ -4,290 +4,337 @@
 
 export const MISSIONS = [
   {
-    "title": "What the profile says",
-    "objective": "Get the acceleration and the depth out of the shape the winder is driven to.",
-    "briefing": "Twelve working days to the inspector, and the proposal on the desk is a shape nobody has differentiated.",
-    "stake": "Monday. The inspector comes in twelve working days to re-license the winder. Delia Marchetti, the winding engineer, wants twelve seconds out of every cycle. What she has handed in is a curve. It shows how fast the cage should be going at each second of a trip. A curve is not a set of numbers yet. Grace Ubah, the banksman, meets every one of those trips at the landing. She reads the same curve as a shape, not as a plan. Today you get the acceleration out of Marchetti's curve. Acceleration is how fast the speed itself changes. From it you can work out what the cage floor has to push up with, and where her twelve seconds really come from. Forty-one men a shift ride whatever gets signed.",
+    "title": "Turn the faster plan into a real ride",
+    "objective": "Turn the proposed curve into acceleration, speed, distance, and what the miners would actually experience.",
+    "briefing": "",
+    "stake": "Monday. In twelve days a safety inspector must decide whether Kerrow can speed up the lift that carries miners 1,240 metres underground. Management says each trip can be twelve seconds faster, but the proposal is still only a curve on paper. Today you turn that curve into real motion and find which seconds are actually available.",
     "takeaway": "A speed curve contains the acceleration and the distance, and neither is written on it.",
+    "segue": "The proposed curve is now a real ride: 7.2 metres a second after 57.6 metres, with a force the riders can feel through the cage. The saving can only come from the ramps and the final crawl. On day 2 you test the first old number the faster plan relies on: how hard the eighteen-tonne drum is to spin.",
     "stops": [
       {
         "group": "BANK",
         "lesson": 0,
-        "task": "Get the speed and the depth out of the programmed ramp"
+        "task": "Turn the proposed acceleration curve into speed and distance",
+        "reason": "Ubah cannot post a faster trip until the curve on paper becomes two numbers: how fast the cage will be moving and how much of the shaft the ramp uses."
       },
       {
         "group": "CAGE",
         "lesson": 0,
-        "task": "Work out what the cage floor pushes with on the ramp"
+        "task": "Find the support force needed to accelerate the loaded cage",
+        "reason": "Rahimi wants the first force number the safety case actually needs: how hard the rope must pull on the loaded cage during the strongest acceleration."
       },
       {
         "group": "WIND",
         "lesson": 0,
-        "task": "Ask Marchetti what the twelve seconds are made of"
+        "task": "Find which parts of a trip can actually be shortened",
+        "reason": "Marchetti wants twelve seconds removed from every trip, but Ubah will not let the inspector see a saving that quietly changes the shaft depth or the permitted top speed."
       }
     ]
   },
   {
-    "title": "What the drum is",
-    "objective": "Get the drum's inertia out of how its mass is arranged, not out of its weight.",
-    "briefing": "The torque calculation on the desk uses a figure for the drum nobody can source.",
-    "stake": "Tuesday. The submission gives a moment of inertia for the drum with no working behind it. Moment of inertia is how hard a spinning thing is to speed up or slow down. Marchetti took the figure from a handover file that is eighteen years old. The drum has been re-flanged since then. Samuel Otieno, the chief rope examiner, has read the same file. It has the rope forty metres longer than the rope really is. Today you work the drum's inertia out from the drum's own size. You also have to settle what the rope's eleven tonnes hang from, and go down to the inset to see Tom Halloway, the onsetter. Every torque in the submission rests on that one number. So does every stopping sum, and every cycle time.",
+    "title": "Can we trust the machine's old numbers?",
+    "objective": "Replace old-file values with physics from the real drum, and recover the only record that watched the cage in March.",
+    "briefing": "",
+    "stake": "Tuesday. The faster plan relies on an equipment file written eighteen years ago, but that file already has the rope length wrong by forty metres. If one old number is wrong, every torque and stopping calculation built on it is suspect. Today you recalculate the drum from the machine itself and pull out the only instrument record of the March stop.",
     "takeaway": "How hard something is to spin up depends on where its mass sits, not on how much of it there is.",
+    "segue": "The drum's inertia is now based on the real machine, not an old file, and the March cage-position trace is on the board. The next number the old submission underestimated is the pull at the top of a rope that weighs more than the loaded cage it carries.",
     "stops": [
       {
         "group": "WIND",
         "lesson": 1,
-        "task": "Take the drum's moment of inertia off its dimensions"
+        "task": "Recalculate the drum's inertia from its actual dimensions",
+        "reason": "Every torque calculation depends on the drum's rotational inertia, and the only value on file is eighteen years old. Marchetti wants a number taken from the machine that is actually turning today."
       },
       {
         "group": "ROPE",
         "lesson": 0,
-        "task": "Settle which body carries the rope"
+        "task": "Decide which body carries the rope's own weight",
+        "reason": "The old force calculation put the rope's weight in the wrong place. Otieno wants the free-body diagram fixed before anyone uses it to claim the faster ride is safe."
       },
       {
         "group": "BANK",
         "lesson": 1,
-        "task": "Match each thing the inquiry wanted to what has to be done to the trace."
+        "task": "Match each fact in the March trace to what that one recorder can establish.",
+        "reason": "Halloway kept the only trace that followed the cage itself during the March emergency stop. If the story is going to be solved, this record has to say exactly what it measured and nothing more."
       }
     ]
   },
   {
-    "title": "The rope is heavier than the cage",
-    "objective": "Get the tension at the drum with the rope's own weight in it, and see what a body feels.",
-    "briefing": "The submission's tension figure is one number, and the rope's weight changes with where the cage is.",
-    "stake": "Wednesday. Otieno has stopped the submission going forward. The tension in it is the cage and its load times gravity. That is the pull at the cappel, up at the top of the cage. It is not the pull anywhere a rope ever breaks. With the cage at the inset there are twelve hundred and forty metres of steel hanging above it. The rope weighs nearly three times what the cage carries. Today you find the tension at the drum with the rope's own weight in it. Then you work out what a man standing in the cage feels as the stop begins. Ruth Anand, the winder driver, will tell you how a hard ramp differs from a soft one. Marchetti's whole case rests on a margin worked out at the wrong end of the rope.",
+    "title": "How hard is the rope really pulling?",
+    "objective": "Find the maximum tension in the rope and what the proposed acceleration and stopping ramps do to the people riding the cage.",
+    "briefing": "",
+    "stake": "Wednesday. The old safety calculation counted the cage but not the full weight of 1,240 metres of steel rope. Near the drum, that hanging rope weighs almost three times as much as the loaded cage. Today you find the true maximum pull and what the harder ramps would feel like to the miners below it.",
     "takeaway": "The tension in a hoisting rope is a function of where the cage is, and its worst value is at the drum.",
+    "segue": "The rope stays inside its tension limit, so Otieno's objection is not that it will snap. But the harder ramp changes what riders feel, and Anand still says the rope 'talks back' when the machine is driven hard. On day 4 you ask whether the motor can produce the faster motion at all.",
     "stops": [
       {
         "group": "ROPE",
         "lesson": 1,
-        "task": "Get the tension at the drum with the cage at the inset"
+        "task": "Find the maximum rope tension at the drum",
+        "reason": "Otieno blocked the faster plan until somebody calculated the tension where the rope carries the cage plus nearly its entire own weight. That worst point is at the drum with the cage near the bottom."
       },
       {
         "group": "CAGE",
         "lesson": 1,
-        "task": "Work out what a man feels on the way into the stop"
+        "task": "Calculate what a rider feels during the stopping ramp",
+        "reason": "Rahimi wants the rider's force stated plainly before anyone calls the faster profile comfortable or safe. The number has to come from the person's free-body diagram, not from the machine rating."
       },
       {
         "group": "WIND",
         "lesson": 2,
-        "task": "Ask Anand what a hard ramp does"
+        "task": "Explain why two ramps that reach the same speed can feel different",
+        "reason": "Anand has driven the winder for twelve years and says the harder proposed ramp feels like a different machine even when the final speed is unchanged. The physics should say why."
       }
     ]
   },
   {
-    "title": "The torque is there",
-    "objective": "Find the torque the faster wind needs, and say whether the machine has it.",
-    "briefing": "Marchetti's case comes down to one number in newton metres, and today it gets computed.",
-    "stake": "Thursday, and this is the day Marchetti has waited a fortnight for. The drum's inertia has been measured off the drum. The tension has been taken at the right end of the rope. So the torque the faster wind asks for can now be worked out instead of claimed. Torque is the twist the motor has to supply. Otieno has said all week that he is not arguing about torque. Iona Craig, the brake fitter, has a different question. She wants to know what the pads can hold once the motor has been given those numbers. Today you take the torque at the hardest instant of the cycle. You also settle what a friction limit is, and put the drum and the rope into one relation with Ubah. If the torque comes in under the motor's rating, the submission goes forward.",
+    "title": "Can the motor actually do it?",
+    "objective": "Combine drum inertia and rope tension to find the torque the faster ride needs, then test the brake data the plan trusts.",
+    "briefing": "",
+    "stake": "Thursday. A faster ride is meaningless if the winder cannot turn the loaded drum hard enough—or if its brake numbers only look safe on a cold test bench. Today you calculate the worst torque, compare it with the motor rating, and decide what the old brake measurement really proves.",
     "takeaway": "A rotating machine needs torque for its own inertia and for the load, and they are separate terms.",
+    "segue": "The motor has enough torque. That clears the machine, but not the whole safety case. The plan still counts only the cage when it talks about energy, even though every trip also lifts hundreds of metres of heavy rope. On day 5 you find where all that energy goes.",
     "stops": [
       {
         "group": "WIND",
         "lesson": 3,
-        "task": "Take the torque the ramp needs at its worst instant"
+        "task": "Calculate the motor torque at the hardest part of the upward ramp",
+        "reason": "Marchetti's faster plan only survives if the motor can turn the heavy drum against the rope's pull while also accelerating the drum itself. This is the machine-limit calculation she has been waiting for."
       },
       {
         "group": "CAGE",
         "lesson": 2,
-        "task": "Settle what the brake's friction figure is a limit on"
+        "task": "Decide what the brake's cold-bench friction number really proves",
+        "reason": "The March inquiry blamed the pads using a friction coefficient measured cold on a bench. Craig wants the inspector to see the conditions attached to that number before it is used as proof of what happened in a hot brake."
       },
       {
         "group": "BANK",
         "lesson": 2,
-        "task": "Match each drum quantity to the cage quantity it fixes."
+        "task": "Match each drum reading to the cage motion it determines.",
+        "reason": "The depth indicator never measures the cage directly; it reads the drum shaft. Ubah needs the conversion made explicit before the inspector trusts any distance or speed shown on the bank."
       }
     ]
   },
   {
-    "title": "Where the work goes",
-    "objective": "Add up the work a wind actually does, with a force that changes all the way up.",
-    "briefing": "The energy figures in the submission are the cage's, and the cage is a quarter of the rope.",
-    "stake": "Friday. The energy part of the submission is one line long: cage times gravity times depth. Rahimi has asked what happens to the other three quarters. The rope has to be lifted as well. Less of it hangs below the drum with every metre wound on. So the force the drum works against changes the whole way up the shaft. Craig wants the total for her own reason. It is the same energy the brake must take out again if a wind is ever stopped at full speed. Today you take the work done with the rope's weight in it. Then you set the cage's own share beside it, and ask Otieno why he keeps calling twelve hundred metres of steel a spring.",
+    "title": "How much energy is in one trip?",
+    "objective": "Calculate the work of lifting both cage and rope, and show why stretched steel can store energy and give it back.",
+    "briefing": "",
+    "stake": "Friday. A brake does not merely fight a force; it has to remove the energy of everything that is moving. The current plan counts the cage but leaves out the rope, even though the amount of rope hanging changes every metre of the trip. Today you total the real energy and ask what that long steel rope can give back after a stop.",
     "takeaway": "Work done against a force that changes with position is an integral, and the changing part can be the larger part.",
+    "segue": "The cage-only calculation missed more than half the lifting energy, and the rope is no longer just a line on a diagram—it can store energy like a spring. Next week you look at another way safety calculations go wrong: a moving load can hit a structure harder than its standing weight suggests.",
     "stops": [
       {
         "group": "CAGE",
         "lesson": 3,
-        "task": "Take the work done lifting cage and rope from the inset to the bank"
+        "task": "Calculate the work of lifting the cage and the changing length of hanging rope",
+        "reason": "The safety file counts the cage's energy but not the rope's. Rahimi wants the energy of an entire trip from the bottom to the top before anybody uses that file to size a stop."
       },
       {
         "group": "WIND",
         "lesson": 4,
-        "task": "Put the cage's own share beside the total"
+        "task": "Compare the old cage-only energy with the true total",
+        "reason": "Marchetti wants the old submission's number set beside the true total. If the cage accounts for less than half the energy, the missing rope cannot be dismissed as a small correction."
       },
       {
         "group": "ROPE",
         "lesson": 2,
-        "task": "Ask Otieno why he calls the rope a spring"
+        "task": "Explain why the long steel rope can store and return energy",
+        "reason": "Otieno keeps calling the 1,240-metre rope a spring. That claim matters now because a spring can keep a cage moving after the drum has changed what it is doing."
       }
     ]
   },
   {
-    "title": "Ore in a stream",
-    "objective": "Get the force a moving stream makes, and settle who feels the other end of it.",
-    "briefing": "The conveyor drive trips twice a shift and every load on it is inside its rating.",
-    "stake": "Monday. The conveyor drive tripped twice on Friday's night shift. Bart Lindqvist, the tip foreman, has the loads written down. Nothing over four tonnes. Nothing outside what the belt is rated for. What he has not got is the force the belt feels from ore landing on it without a break. That is a different quantity from the weight of the ore sitting on the belt. Rahimi wants the same sum for the arrestors. A mass stopped by crushing steel is the same problem with the sign turned round. Today you find the force in the ore stream. You also settle who feels the push back from it, and go out to the gravity station to see Femi Adebayo, the survey assistant. He will tell you why one reading needs three more around it.",
+    "title": "What happens when a moving load is stopped?",
+    "objective": "Use momentum and impulse to find forces that static load calculations miss, and decide which measurements are trustworthy enough for the safety case.",
+    "briefing": "",
+    "stake": "Monday. Two bolts at the mine's ore tip have sheared even though the standing load was inside its rating. That is a warning for the lift too: moving mass can create forces a static calculation never sees. Today you follow momentum through a real failure, then decide whether the field measurements used in the safety case can actually be trusted.",
     "takeaway": "A stream of mass arriving at a rate makes a steady force, and no single load in it accounts for that force.",
+    "segue": "The bolts failed because the design counted weight but not momentum. The same lesson matters anywhere a moving cage must be stopped. One number used in every force calculation is still assumed rather than checked: gravity. On day 7 Sokol measures it at the top and bottom of the 1,240-metre shaft.",
     "stops": [
       {
         "group": "TIP",
         "lesson": 0,
-        "task": "Take the force the belt feels from the ore stream"
+        "task": "Find the force created when a continuous stream of ore is accelerated by the belt",
+        "reason": "The belt drive failed even though the standing load was within its rating. Lindqvist needs the missing dynamic force identified before the same mistake is allowed into any safety calculation on the lift."
       },
       {
         "group": "CAGE",
         "lesson": 4,
-        "task": "Settle who feels the other end of the arrestor's force"
+        "task": "Relate the force on a stopped mass to the force on the arrestor",
+        "reason": "Above the top landing is a crushable emergency arrestor for an overwind. Rahimi wants its test read correctly: whatever force stops a moving mass also appears on the structure doing the stopping."
       },
       {
         "group": "GRAV",
         "lesson": 0,
-        "task": "Match each entry in the field book to what it is there for."
+        "task": "Match each field-book entry to the correction or measurement it provides.",
+        "reason": "Every force calculation in the safety case uses g. Before Sokol compares the top and bottom of the shaft, Adebayo has to show that the gravimeter's own drift and the station height are not being mistaken for physics."
       }
     ]
   },
   {
-    "title": "A kilometre and a quarter of rock",
-    "objective": "Work out what gravity should do down the shaft, and what the measurement says instead.",
-    "briefing": "Sokol has two readings a kilometre and a quarter apart, and they disagree with the textbook.",
-    "stake": "Tuesday. Dr. Lena Sokol, the geophysicist, has the shaft for two hours on Thursday. That is the third time in four years anyone has been given it. She has one reading at the bench station and one taken at the inset. The difference between them comes out the wrong way round. Gravity is larger at the bottom of the shaft. The uniform-sphere result in every textbook says it should be smaller. Nobody at this mine has ever looked at that. Today you work out what gravity does inside a sphere. From the disagreement you can get the density of the rock above the inset. You also settle with Kit Nowak, the rope splicer, what six months of shortening has done to the rope. A working shaft is the only place in the country that can take a gravity meter down a kilometre.",
+    "title": "Does gravity change at the bottom of the mine?",
+    "objective": "Predict and measure gravity underground, explain the difference, and use the rope record to expose another old-file error.",
+    "briefing": "",
+    "stake": "Tuesday. Every weight, tension, and energy number in your report uses gravity, yet Kerrow has never checked what g is 1,240 metres underground. The geophysicist Sokol's readings at the top and bottom do not match the simplest prediction. Today you explain the difference instead of blaming the instrument—and a rope-shop record reveals another number the old file got wrong.",
     "takeaway": "Gravity inside a body depends only on the mass below you, which is why a shaft measures what a surface cannot.",
+    "segue": "The gravity readings make sense once the rock around the shaft is included, so the force calculations stand. The more important surprise is in the rope book: repeated re-capping has shortened the rope by forty metres. A shorter rope is a stiffer rope. After day 8's motor-power check, that stiffness becomes the central question.",
     "stops": [
       {
         "group": "GRAV",
         "lesson": 1,
-        "task": "Derive what gravity does as you go down inside a uniform sphere"
+        "task": "Predict how gravity should change 1,240 metres below the surface",
+        "reason": "Sokol has a surface reading and a bottom reading that differ from the simplest expectation. Before calling that difference geology—or error—you need the physics prediction for a uniform spherical Earth."
       },
       {
         "group": "GRAV",
         "lesson": 2,
-        "task": "Get the rock density out of the disagreement with Sokol"
+        "task": "Use the measured gravity gradient to infer the density of the rock around the shaft",
+        "reason": "The measured gradient differs from the empty-sphere prediction. Sokol wants to know whether ordinary rock around the shaft explains that gap before anybody treats the gravimeter as unreliable."
       },
       {
         "group": "ROPE",
         "lesson": 3,
-        "task": "Settle what six months of shortening has done"
+        "task": "Work out what repeated rope shortening changes besides its length",
+        "reason": "Nowak's maintenance record shows four re-caps have removed forty metres of rope. If stiffness depends on length, the rope in today's safety case is not the rope described in the old file."
       }
     ]
   },
   {
-    "title": "The worst instant",
-    "objective": "Find where in the cycle the motor works hardest, and put a number on it.",
-    "briefing": "The motor is rated in kilowatts and the submission has never said where the peak is.",
-    "stake": "Wednesday. The electrical engineer has asked a question nobody in the winder house can answer. At which instant of a wind is the motor working hardest? Marchetti has the torque, which is largest at the bottom. She has the speed, which is largest in the middle. A motor is rated by the two of them multiplied together. Craig wants the same figure from her own side of the shaft. Whatever the motor puts in on the way up is what the pads take out on the way down. Today you find the power at the hardest instant of the wind. You then put four instants of the wind in order by what each one asks for. Craig will settle with you what the brake is really being asked to do.",
+    "title": "When is the motor working hardest?",
+    "objective": "Find the peak power anywhere in the trip and separate the force a brake applies from the energy its pads must absorb.",
+    "briefing": "",
+    "stake": "Wednesday. The motor's biggest torque and its highest speed happen at different times, so nobody can point to the instant that really uses the most power. The inspector will not accept 'inside the rating' without that instant. Today you find it, then turn the same motion toward the brake.",
     "takeaway": "Power is a product, so its peak is at neither of the places where its two factors peak.",
+    "segue": "The worst power demand is about eighty-six per cent of rating, so the faster ride does not overload the motor. The unresolved risk is now the rope itself. On day 9 you calculate its stiffness and its natural bounce period—the number missing from the March inquiry.",
     "stops": [
       {
         "group": "BANK",
         "lesson": 3,
-        "task": "Take the power at the worst instant of the wind"
+        "task": "Find the motor power at the instant where high speed and high rope load overlap",
+        "reason": "Torque alone did not settle the motor limit because power also depends on speed. Ubah wants the instant where the cage is already fast but most of the heavy rope is still hanging."
       },
       {
         "group": "WIND",
         "lesson": 5,
-        "task": "Order the four instants by the power the motor is supplying, largest first."
+        "task": "Order the four moments from lowest to highest motor power.",
+        "reason": "The electrical engineer will not sign the faster profile from one convenient snapshot. Marchetti has to show how the motor demand changes across the whole upward trip."
       },
       {
         "group": "CAGE",
         "lesson": 5,
-        "task": "Ask Craig what the brake is being asked to do"
+        "task": "Decide whether brake-pad damage is set by force or by energy",
+        "reason": "The pads were replaced after March even though the brake force was not unusual. Craig wants the quantity that actually predicts pad heating and wear before the new profile is approved."
       }
     ]
   },
   {
-    "title": "What the rope does on its own",
-    "objective": "Get the stiffness of twelve hundred metres of steel and the period it gives the cage.",
-    "briefing": "Otieno has asked for one number for two years and it has never been computed.",
-    "stake": "Thursday. Otieno has the shaft's rope data out on the shop bench. There is the area of steel and the modulus the maker quotes. There is the length the rope is today, not the length in the file. The modulus is how much the steel stretches under a pull. Those three give a stiffness. The stiffness gives a period. A period is how long the cage takes to bounce once on the end of the rope. Nothing in the submission has a period in it. Nothing in the winder handbook has one either. Today you take the rope's stiffness and its period. You then settle what a bounce stores while it is happening, and ask Ubah what the crawl at the bank is really for. The rope stretches more than a metre under an ordinary load. Nobody has put that number beside the overwind margin.",
+    "title": "Can the rope keep the cage moving?",
+    "objective": "Treat the 1,240-metre steel rope as a spring and find its stiffness, natural period, and stored energy.",
+    "briefing": "",
+    "stake": "Thursday. In March the drum stopped but the cage did not. Otieno's explanation is that 1,240 metres of stretched steel rope was moving like a spring, but nobody has ever put a number on that idea. Today you do. If the rope's natural motion matches the stop, the old brake explanation starts to fall apart.",
     "takeaway": "A hoisting rope is a spring with a period, and neither appears anywhere in the plant's paperwork.",
+    "segue": "The cage and rope have a natural period of about 1.2 seconds—almost the same timescale as the hard stop. Suddenly Anand's account is physically possible. Tonight the March cage-position tape and drum trace go side by side. On day 10 you test whether the rope alone predicts the 1.6-metre overshoot.",
     "stops": [
       {
         "group": "ROPE",
         "lesson": 4,
-        "task": "Get the rope's stiffness and the cage's period on it"
+        "task": "Calculate the rope stiffness and the cage's natural bounce period",
+        "reason": "Otieno's spring explanation for March is only useful if it predicts a real timescale. Today the maker's modulus, the rope's area and true length, and the cage mass finally go into one calculation."
       },
       {
         "group": "CAGE",
         "lesson": 6,
-        "task": "Settle what a stretched rope is holding"
+        "task": "Identify the energy stored in the stretched rope",
+        "reason": "Rahimi measured more than a metre of ordinary stretch in the rope. If that stretch stores energy, it is a reservoir that can keep moving the cage after the drum is already stopped."
       },
       {
         "group": "BANK",
         "lesson": 4,
-        "task": "Ask Ubah what the crawl is for"
+        "task": "Explain the safety purpose of the slow final crawl",
+        "reason": "Marchetti wants to remove two of the final three slow seconds from every trip. Ubah has watched thousands of arrivals and wants a physical reason before giving up that margin."
       }
     ]
   },
   {
-    "title": "A metre and six tenths",
-    "objective": "Account for the March overwind with the numbers now on the board.",
-    "briefing": "The inquiry blamed the pads. The pads were fine, and the cage still went past the landing.",
-    "stake": "Friday. Everything the March inquiry did not have is now on one board. The rope's stiffness. The cage's period. The energy stored in a stretch. Anand put the emergency brake on with the cage going down, forty metres above the inset, at eight and a half metres a second. The drum stopped in under a second. The cage's own position recorder shows it moving a metre and six tenths after that. It came to rest below the landing. Craig's pad measurement was right, and it was taken cold on a bench. Today you work out how far a cage travels after its drum has stopped. You then decide which account of March fits every record, and settle with Anand what a brake actually stops. This is the day Otieno turns out to have been right for two years.",
+    "title": "What really happened in March?",
+    "objective": "Predict how far the cage should travel after the drum stops, then test that prediction against the original March records.",
+    "briefing": "",
+    "stake": "Friday. This is the question the inquiry never answered. The brake stopped the drum on time, yet the cage moved another 1.6 metres. You now have the rope stiffness, the speed, and the original records. Today the physics has to predict the distance before you decide what caused the incident.",
     "takeaway": "A brake stops the drum; what stops the cage is the rope, and the rope stretches first.",
+    "segue": "The calculation predicts the recorded 1.6 metres. The brake stopped the drum; the stretched rope carried the cage on. The pads were blamed for motion they could not directly control. March is explained—but the result creates a new safety question: how much energy can the brake safely remove when the cage is moving?",
     "stops": [
       {
         "group": "CAGE",
         "lesson": 7,
-        "task": "Work out how far the cage goes after the drum has stopped"
+        "task": "Predict how far the cage moves after the drum has stopped",
+        "reason": "This is the missing calculation from the March inquiry. If the rope model predicts the position tape without changing the brake, the old explanation has a serious problem."
       },
       {
         "group": "ROPE",
         "lesson": 5,
-        "task": "Which account fits all four records?"
+        "task": "Choose the explanation that makes every March record true at the same time.",
+        "reason": "The brake certificate, drum trace, cage-position tape, and replaced pads have been argued over separately for eight months. Otieno wants one account that makes all four true at once."
       },
       {
         "group": "WIND",
         "lesson": 6,
-        "task": "Ask Anand what the brake stops"
+        "task": "Identify what the brake directly stops",
+        "reason": "Anand has said since March that 'the machine stopped and the cage did not.' The distinction only makes sense if you are precise about what the brake is physically clamped to."
       }
     ]
   },
   {
-    "title": "Everything the pads have to take",
-    "objective": "Add up what an emergency stop puts into the brake, and test one prediction against a wind.",
-    "briefing": "The pads are rated per stop and nobody has added up what a stop actually contains.",
-    "stake": "Monday, and two working days are left before the inspector. Craig has the pads' rating in front of her. The maker says six hundred kilojoules a stop. Nobody has a figure for what one stop actually puts into them. Three things are moving when the brake goes on. The cage. The rope hanging with it. And eighteen tonnes of drum, which is the one nobody counts. Marchetti has agreed to one test wind on the empty cage this afternoon. Today you total the energy an emergency stop delivers. You then predict what the test wind will do, and go and measure it. Lindqvist will show you what a skip tipping into a bin has in common with all of it. Whatever the pads cannot take in is what the shaft finds out about later.",
+    "title": "Can the brakes survive an emergency stop?",
+    "objective": "Calculate everything the brake pads must absorb in an emergency stop, then test the predicted stopping time on the real machine.",
+    "briefing": "",
+    "stake": "Monday, two days to the inspection. March was not a brake failure, but that does not mean every emergency stop is safe. On a descending trip, gravity adds energy while the brake is trying to remove it. Today you calculate what the pads must absorb, make a prediction, and test it on the empty cage.",
     "takeaway": "A stop has to absorb the rotation as well as the motion, and the rotation can be the larger half.",
+    "segue": "The test matches the prediction. An upward emergency stop stays near the pad rating; a descending one can exceed it badly. That means the original twelve-second saving cannot simply be signed. On day 12 you build the fastest profile that respects the motor, the rope, and the brake—and make the recommendation the miners will ride under.",
     "stops": [
       {
         "group": "WIND",
         "lesson": 7,
-        "task": "Total the energy an emergency stop puts into the pads"
+        "task": "Add every energy term the pads must absorb in an emergency stop",
+        "reason": "The faster plan needs an emergency-stop limit based on energy, not on the pad friction number that dominated the old inquiry. Marchetti wants the full ledger before the test wind."
       },
       {
         "group": "CAGE",
         "lesson": 8,
-        "task": "Predict the test wind's stop, then measure it"
+        "task": "Predict the drum stopping time, run one test, and compare prediction with measurement",
+        "reason": "Craig gets one controlled test on the empty cage before the inspector arrives. The prediction has to be written first, so the test can check the model rather than be fitted afterward."
       },
       {
         "group": "TIP",
         "lesson": 1,
-        "task": "Ask Lindqvist what a skip and a bin have in common with a stop"
+        "task": "Track the momentum of ore when it is dumped into a stationary bin",
+        "reason": "The mine has now seen the same mistake in two places: equipment sized for a standing load can still fail when a moving load arrives. Lindqvist's sheared bin bolts are the final reminder before you write the lift limits."
       }
     ]
   },
   {
-    "title": "What gets signed",
-    "objective": "Integrate the revised profile, spend what is left, and say what the licence rests on.",
-    "briefing": "The inspector is here tomorrow. Two of the twelve seconds are not available and seven are.",
-    "stake": "Tuesday, and the inspector arrives in the morning. The fortnight has settled two things. Marchetti was right about the machine. Otieno was right about the rope. The motor has the torque and the power it needs. What binds the profile is the energy in a downward emergency stop, and how far a cage travels after its drum has stopped. A revised profile has been drafted. It keeps most of the saving by capping the speed at which the brake may be applied. Today you integrate that profile and say what the cycle time really comes to. You then spend what is left of the maintenance budget, and settle with Rahimi what goes in the submission. Forty-one men a shift. Four winds an hour. One signature.",
+    "title": "What should the inspector approve?",
+    "objective": "Build the fastest profile the physics supports, choose the measurements that matter, and write the operating limits for the mine lift.",
+    "briefing": "",
+    "stake": "Tuesday. The inspector arrives tomorrow. You now know why March happened, what the motor can do, how the rope moves, and what the brake can survive. Today you make the actual call: how much faster may the mine run, what limits go with it, and what must be measured from now on?",
     "takeaway": "A revised profile is a decision about which numbers the plant is allowed to reach, and it has to be integrated to be believed.",
     "stops": [
       {
         "group": "BANK",
         "lesson": 5,
-        "task": "Integrate the revised profile and get the cycle time"
+        "task": "Integrate the final safe profile and calculate the real time saving",
+        "reason": "Ubah needs the number miners will actually experience, not the twelve seconds management originally asked for. The revised profile must satisfy every limit found during the investigation."
       },
       {
         "group": "WIND",
         "lesson": 8,
-        "task": "Spread a hundred points across the four."
+        "task": "Allocate one hundred monitoring points across the four safety upgrades.",
+        "reason": "The March inquiry failed partly because the mine recorded the drum well and the cage badly. Before the next three-year inspection period begins, Marchetti wants the limited monitoring budget aimed at the measurements that would actually change a safety decision."
       },
       {
         "group": "CAGE",
         "lesson": 9,
-        "task": "Match each finding to the limit it puts in the submission."
+        "task": "Match each finding to the operating rule it requires.",
+        "reason": "Rahimi has one final submission to write. The inspector does not need a pile of calculations; he needs the operating rules those calculations justify for every miner who rides the cage."
       }
     ]
   }
@@ -296,7 +343,7 @@ export const MISSIONS = [
 export const WARMUPS = {
   "trial-near": {
     "title": "Walk the yard before the inspection",
-    "why": "Five buildings, a headframe and a conveyor, and the rope runs across the yard at head height between two of them. Walk it once in daylight. On the day of the inspection you will be crossing this ground with a submission in your hand and a winder running, and knowing where the rope is matters more here than anywhere else on the site."
+    "why": "Five buildings, a headframe and a conveyor, and the rope crosses the yard at head height between two of them."
   },
   "trial-far": {
     "title": "The bench track, and the hut at the end of it",

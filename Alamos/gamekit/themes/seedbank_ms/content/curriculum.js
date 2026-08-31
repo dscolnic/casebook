@@ -616,7 +616,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "An extra generation in the bay",
-      "scene": "Bengtsson can run one more generation over the winter in the warm bay. A generation there takes three months instead of twelve. There is room for one population.",
+      "scene": "Bengtsson, the glasshouse manager, can run one more generation over the winter in the warm bay. A generation there takes three months instead of twelve. There is room for one population.",
       "takeaway": "A generation indoors is for moving material along, not for judging it.",
       "place": "Crossing Hall",
       "guide": "Three jobs want the bay, and the rail is not a clock. Put them in order by what the winter can never give back: the job that only works indoors goes first, and the job that the field will do just as well in spring goes last.",
@@ -625,7 +625,7 @@ export const CURRICULUM = {
         "What the bay is bad for. Judging anything. Plants in a warm bay grow in light, water and temperature nothing like a field, so a yield measured there is a fact about the bay. Any judgement has to wait for ground outside.",
         "Why multiplying seed goes last. It works perfectly well in the bay and it works perfectly well in a field in spring, so spending the winter on it spends a scarce thing on a job that has an easy alternative."
       ],
-      "story": "Bengtsson can run one more generation over the winter in the warm bay. A generation there takes three months instead of twelve. There is room for one population.",
+      "story": "Bengtsson, the glasshouse manager, can run one more generation over the winter in the warm bay. A generation there takes three months instead of twelve. There is room for one population.",
       "game": {
         "type": "SEQUENCE",
         "title": "An extra generation in the bay",

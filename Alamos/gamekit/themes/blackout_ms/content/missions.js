@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "The last few kilometres",
     "objective": "Get customers back on in an order that can be defended afterwards.",
     "briefing": "11 feeders are still dead and the crews can only be in 1 place at a time.",
-    "stake": "Thursday. The big lines are steady, but eleven local feeders are still dead. Chinelo Obi has three crews and fourteen thousand households in the dark. One of her circuits carries a dialysis clinic. Another carries a thousand homes. Today you work out why the far end of a long feeder sits low, and choose which circuit gets the first crew. Every hour of this is somebody sitting in the cold.",
+    "stake": "Thursday. The big lines are steady, but eleven local feeders are still dead. Chinelo Obi, the distribution lead, has three crews and fourteen thousand households in the dark. One of her circuits carries a dialysis clinic. Another carries a thousand homes. Today you work out why the far end of a long feeder sits low, and choose which circuit gets the first crew. Every hour of this is somebody sitting in the cold.",
     "takeaway": "Restoration is a series of choices about people, made with instruments that only see the substation.",
     "stops": [
       {

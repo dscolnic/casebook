@@ -113,7 +113,7 @@ export const MISSIONS = [
     "title": "Radar Contact",
     "objective": "Design a radar sequence that improves both orbit and physical characterization.",
     "briefing": "A planetary radar window opens for several hours. Range and Doppler measurements could collapse the orbit and reveal shape, but only if the observation plan uses the limited signal effectively.",
-    "stake": "The pass is tonight, and Anna Fischer has the dish. The radar window is four hours wide, and this view does not come back for eleven years. Three of the four things the room wants can be got another way. Today you decide what radar alone can do, and write the order of the night. Tonight the size question closes for good, or it stays open for a decade.",
+    "stake": "The pass is tonight, and Anna Fischer, the radar dynamics lead, has the dish. The radar window is four hours wide, and this view does not come back for eleven years. Three of the four things the room wants can be got another way. Today you decide what radar alone can do, and write the order of the night. Tonight the size question closes for good, or it stays open for a decade.",
     "takeaway": "Use radar ranging, Doppler shift, resolution, signal-to-noise, inverse problems as an evidence chain rather than as isolated facts.",
     "stops": [
       {

@@ -20,6 +20,8 @@ import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
 import { INTERIORS } from './interiors.js';
+import { MINOR_INTERIORS } from './minors.js';
+import { FIXTURES } from './fixtures.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 
 export default {
@@ -28,9 +30,17 @@ export default {
   // grade 4 scales 1.18x, 7 scales 1.10x, 13 and up not at all.
   audience: { grade: 12 },
 
+  // The plan card's opening blurb is a date stamp and two sentences: the one
+  // thing that is true this morning, and the one thing the player does about
+  // it. The cast, the argument and the stakes live on the calls' own
+  // `reason:` lines and in the day debrief instead of on the plan card.
+  // `engine/dev/checkStory.mjs` reads this and swaps the 90-word floor for a
+  // 30-70 word ceiling-only band. See gamekit/BRIEFING_PASS.md.
+  stakeStyle: 'brief',
+
   id: 'carrying',
   title: 'Carrying Capacity',
-  subtitle: 'Island Resources Officer · Vellan Island',
+  subtitle: 'Island Resources Officer · Vellan Island, fifteen days to the ferry vote',
 
   // Each mission is one working day of the fortnight before the council votes. The plan card prints this in front of the mission number.
   dayNoun: 'Day',
@@ -62,7 +72,16 @@ export default {
   // What is inside each room the player walks into, from book.yml. Rooms are
   // built by engine/world/interiorBuilding.js on first entry, in a district
   // four kilometres from the town.
-  interiors: INTERIORS,
+  // The generated area rooms, plus the three hand-written minor rooms — the
+  // school, the berth and the council hall — which are keyed by `enter:` in
+  // site.js rather than by an area. See themes/carrying/minors.js.
+  interiors: { ...INTERIORS, ...MINOR_INTERIORS },
+
+  // What each question is asked AT. Declared by name and wall, never by
+  // coordinate — the engine computes the position from the room's own bounds.
+  // Three of the keys are minor places, which is how a question gets sited
+  // outside its own area. See themes/carrying/fixtures.js.
+  fixtures: FIXTURES,
   // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
   interiorStyle: 'lab',
@@ -75,44 +94,47 @@ export default {
   // of it discoverable in the first minute of play or from the plan card.
   // ---------------------------------------------------------- the delivery
   //
-  // What the fortnight produces, and the one room the parts of it are kept in.
+  // What the fifteen-day investigation produces, and the one room the parts of it are kept in.
   // The opening card names it, the plan card says which piece today is, the card
   // that closes a day hands that piece over, and the board in the room named by
   // `where` is where all of them can be seen at once — engine/core/delivery.js.
   //
-  // One condition a day, in the order the island forced them. A rate with no
-  // period attached is what half of these replace.
+  // One piece of the second-ferry decision each day: first establish the island's
+  // limits, then find the hidden losses, then turn the science into enforceable conditions.
   delivery: {
-    name: 'The Vellan Conditions',
-    what: 'What the council votes on: the water licence, the quota, the tip and the sailing, '
-      + 'each with the rate and the limit it was actually written from.',
+    name: 'The Second-Ferry Plan',
+    what: 'What the council votes on: whether to add the second summer sailing and the water, fishery, '
+      + 'waste, power and biosecurity conditions that must come with it.',
     where: 'COMMON',
     pieces: [
-      'The stocks and flows, dated',
-      'The recharge figure',
-      'The food web efficiency',
-      'The saline intrusion finding',
-      'The sustainable catch',
-      'The enforcement cost',
-      'The kilowatt-hour price',
-      'The concentration and load',
-      'The children\'s dose limit',
-      'The reef trend, uncaused',
-      'The diesel efficiency',
-      'The generator\'s average hour',
-      'The biosecurity condition',
-      'The age structure',
-      'The carrying statement',
+      'What the island actually depends on',
+      'The groundwater recharge estimate',
+      'The ecological limits',
+      'The aquifer warning',
+      'The fishery ceiling',
+      'The enforcement plan',
+      'The hidden losses',
+      'The school-water finding',
+      'The waste and land-use controls',
+      'The reef evidence',
+      'The energy and emissions ledger',
+      'The leak and turbine case',
+      'The biosecurity rule',
+      'The population outlook',
+      'The conditional ferry recommendation',
     ],
   },
+  // Five sentences: what Vellan is, why the school and community are under pressure,
+  // what the proposed ferry could help and harm, the fifteen-day clock, and the player's
+  // environmental-science mission. The technical vocabulary comes after the mental picture.
   opening: [
-    'Vellan is a small island, and its council votes in a fortnight. The vote is on a second ferry '
-    + 'sailing every day. Under the island there are eleven months of fresh water left. You are the '
-    + 'island\'s resources officer. The water licence, the fishing quota and the tip are all signed by '
-    + 'you. In 15 days the council votes on the Vellan conditions you write. They say how much water '
-    + 'may be pumped in a year. They say how much fish may be landed. They say what may be burnt, '
-    + 'buried or brought ashore. One condition is settled each day, and each one carries the rate and '
-    + 'the limit it came from. 91 people live here. 19 children are on the school register.',
+    'Vellan is a small island with 91 residents and one ferry to the mainland each day. '
+    + 'Its school has only 19 children left. If the roll falls to 12 it closes, and families are already leaving. '
+    + 'The council wants a second summer ferry to make the island easier to live on. '
+    + 'But the only freshwater well is getting saltier, fish catches are down, the dump is filling, and the power system struggles in July. '
+    + 'In 15 days the council votes. What you write for that vote is the Second-Ferry Plan. '
+    + 'You are the island resources officer. Use environmental science to answer one question: can Vellan add the ferry '
+    + 'without using up the water, food, land and energy that let people live here?',
   ],
 
   // How it ends. The last thing anybody reads, and the counterpart of `opening`:
@@ -121,27 +143,15 @@ export default {
   // `checkStory` fails a campaign whose closing paragraph is not addressed to
   // them, because a fortnight of work should not finish on a report.
   ending: [
-    'The council carried the second sailing by five votes to four, with the abstraction licence '
-    + 'capped at recharge — two hundred and ninety-four thousand cubic metres a year, metered at '
-    + 'the berth and read monthly rather than annually. The west ground kept its quota at last '
-    + 'season\'s landing rather than the tonnage the ferry paper had asked for. Nineteen children '
-    + 'are still on the register, and the school has a second sailing\'s fees behind it for the '
-    + 'first time in eleven years.',
-    'What it cost: the graziers accepted an inspected limit and two of them will not speak to '
-    + 'the council office about it; the tip cell that should have been capped this summer waits '
-    + 'for next year\'s money; and the diesel plant was sized on the July peak half hour, which '
-    + 'means it runs at twenty-eight per cent of its plate for the other eleven months. What is '
-    + 'unfinished: a fifth of everything the borehole lifts is still lost somewhere between it '
-    + 'and the six standpipes, and nobody has dug up the island road to find out where. The tip '
-    + 'is still up-catchment of the borehole, which is a decision made in 1974 and never revisited. '
-    + 'The west ground is being worked at exactly the tonnage the model says it can replace, so '
-    + 'one bad year is the whole margin. And eleven springs of one man counting the same reef is '
-    + 'still the only baseline the island has.',
-    'The licence says what the rain puts back because you went and worked out what the rain puts '
-    + 'back. You capped the abstraction at recharge instead of at what the borehole could lift, you '
-    + 'priced the plant off the half hour in July that actually sizes it, and you found the fifth of '
-    + 'the water that never arrives. Ninety-one people have an island to live on for another eleven '
-    + 'years, and the number in the licence is yours.',
+    'The council approves a one-year trial of the second daily summer ferry by five votes to four — but not under the old rules. '
+    + 'Before the first extra sailing, the leaking water main must be repaired. First-year pumping is capped near 281,000 cubic metres, the ferry takes water through its own meter, and water level and July chloride are checked every month. '
+    + 'If either warning worsens, the pumping limit comes down.',
+    'The same motion keeps west-ground landings from rising above last season\'s 168 tonnes while buyer receipts are cross-checked and the next stock assessment can lower the limit, puts an inspection table at the berth for soil, plants and pallets, orders the turbine gearbox, and diverts compostables from the tip only while the salt trigger is met. '
+    + 'The extra ferry is therefore not a blank cheque for growth. It is a trial with limits attached to the systems that can actually fail.',
+    'Several things remain uncertain. The 294,000-cubic-metre recharge figure is still an estimate, the reef record shows a decline without proving one cause, and one year of population loss cannot forecast the next decade. '
+    + 'Two pupils leave for mainland secondary school in August, so the school starts the next term with seventeen. The ferry may make Vellan easier for families to stay on, but the vote does not pretend transport alone can reverse the age structure.',
+    'You did not choose between saving the island\'s community and saving its environment. You found that the new ferry would use less than one thousand cubic metres of water a year while an old leak was wasting about fifty-one thousand, and you found which other limits were real, which were estimates, and which rules needed enforcement. '
+    + 'Vellan gets a chance to stay connected without pretending its limits disappeared. That was your recommendation.',
   ],
 
   look: {

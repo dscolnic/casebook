@@ -1,0 +1,90 @@
+{
+  "_comment": "Closing-card segues that do not yet pass the rule 10/11 drama gate (checkStory.mjs): the segue does not turn (no complication and no forced consequence, in any wording — turnRule.mjs, not the literal words But/Therefore), nothing concrete is at risk, or it echoes the next stake or this day's own takeaway. A day not listed here fails immediately if it regresses; a day listed here that now passes fails too, naming the line to delete. Shrinks as the three-pass brief (THREE_PASS_BRIEF.md) reaches each campaign.",
+  "themes": {
+    "planetary_defense": [
+      "Phase 1 (The Discovery Image)",
+      "Phase 2 (Confirm the Motion)",
+      "Phase 5 (How Large Is It?)",
+      "Phase 7 (The Spinning Target)",
+      "Phase 8 (Radar Contact)",
+      "Phase 9 (Impact Energy)",
+      "Phase 12 (Can We Move It?)",
+      "Phase 14 (Evacuate or Wait?)"
+    ],
+    "carrying": [
+      "Day 1 (What does Vellan actually depend on?)",
+      "Day 5 (How much can the bay replace?)",
+      "Day 6 (A rule nobody checks is not a rule)",
+      "Day 7 (What is Vellan wasting already?)",
+      "Day 9 (What can change before the vote?)",
+      "Day 10 (What is really happening to the reef?)",
+      "Day 11 (What the diesel is really costing)",
+      "Day 12 (The ferry is not the water problem)",
+      "Day 15 (Should Vellan add the second ferry?)"
+    ],
+    "darkfibre": [
+      "Day 3 (Is the cable actually broken?)",
+      "Day 6 (Calibrate the instruments)",
+      "Day 7 (Choose the tests before the ship arrives)",
+      "Day 8 (Build the test that separates the suspects)",
+      "Day 9 (Make the replacement ready)",
+      "Day 11 (Make one diagnosis fit every clue)",
+      "Day 12 (Give the captain one repair order)"
+    ],
+    "ghostlight": [
+      "Day 9 (The load the tickets do not show)",
+      "Day 14 (Everything at once, and one rehearsal left)"
+    ],
+    "groundtruth": [
+      "Day 1 (Write the rule before the storm)",
+      "Day 2 (Turn the sky into charge)",
+      "Day 3 (Name the two places)",
+      "Day 10 (Why six metres of copper can still be dangerous)",
+      "Day 11 (Where did eleven kiloamps go?)",
+      "Day 13 (What the instruments missed)"
+    ],
+    "headwater": [
+      "Day 2 (The same water, moving faster)",
+      "Day 3 (What fell, and what arrived)",
+      "Day 10 (Every number again)",
+      "Day 11 (A day when nothing happens)",
+      "Day 12 (The front that never came)",
+      "Day 14 (The last reversible moment)"
+    ],
+    "outbreak_riverton": [
+      "Stage 6 (Why Is Elias Crashing?)",
+      "Stage 7 (When Defense Becomes Damage)",
+      "Stage 8 (The Hidden Spread)",
+      "Stage 9 (The River Animals)",
+      "Stage 10 (A Variant Rises)",
+      "Stage 11 (The Drug Stops Working)",
+      "Stage 13 (Did the Treatment Work?)",
+      "Stage 14 (How Close to the Edge?)"
+    ],
+    "overwind": [
+      "Day 1 (Turn the faster plan into a real ride)",
+      "Day 2 (Can we trust the machine's old numbers?)",
+      "Day 5 (How much energy is in one trip?)",
+      "Day 9 (Can the rope keep the cage moving?)"
+    ],
+    "slackwater": [
+      "Day 1 (The tide everyone is betting on)",
+      "Day 3 (Where the water actually goes)",
+      "Day 7 (Closing the gates changes the water)",
+      "Day 8 (What never quite reaches zero)",
+      "Day 9 (The 'noise' was a missing tide)",
+      "Day 11 (The last assumptions before sign-off)"
+    ],
+    "yellowbay": [
+      "Day 1 (Is the silicon itself wrong?)",
+      "Day 2 (Why Yellow Bay is yellow)",
+      "Day 3 (When a correct measurement answers the wrong question)",
+      "Day 8 (Turn the recipe argument into predictions)",
+      "Day 9 (The furnace was running cold)",
+      "Day 10 (Clear the rest of the line)",
+      "Day 13 (Freeze the process)",
+      "Day 14 (The dress rehearsal)",
+      "Day 15 (The batch that decides the plant)"
+    ]
+  }
+}

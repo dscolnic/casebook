@@ -6,375 +6,437 @@ export const MISSIONS = [
   {
     "title": "88%",
     "objective": "Get an instantaneous rate out of readings, out of a formula, and find the instant that has none.",
-    "briefing": "Nine days of rain forecast, and every number on this dam is about to be asked how fast it is moving.",
-    "stake": "Monday. The reservoir is at 88% after the driest summer in nine years. June Sato, the forecast liaison, brought the five-day forecast down an hour ago. Rain over the high ground from Thursday. A lot of it. Dermot Halloran has already said the word drawdown. He said it in a tone that means he does not want one. This fortnight is not run on readings. It is run on rates. A rate is how fast a number is changing. Today you find a rate three ways. Once between two gauge readings. Once from a fitted formula, straight from the definition. Once at a single instant, where the record holds no rate at all.",
+    "briefing": "A nearly full reservoir, a storm coming, and a control room full of readings that are not yet rates.",
+    "stake": "Monday. Ashfell is 88% full. Nine days of rain are forecast for the high ground, and four villages sit below the wall. Before anyone argues about opening a gate, you need the one thing a level reading cannot give you: how fast the water is changing.",
     "takeaway": "A reading is a value; a rate is a limit, and the limit is the part that says what happens next.",
+    "segue": "Carried forward six hours, the morning slope would add 21 cubic metres a second to the gauge—but that is only a straight-line guess. Baptiste still calls Nethercote Ford. Ada Trenholme's grandson starts moving the ewes before anyone knows whether the forecast will steepen or flatten. The first calculation has already become somebody's evening.",
     "stops": [
       {
         "group": "INFLOW",
         "lesson": 0,
-        "task": "Get a rate out of two readings"
+        "task": "Get a rate out of two readings",
+        "reason": "Dermot Halloran wants a number for how fast the river is climbing before the rain even starts, not another reading off the same trace."
       },
       {
         "group": "STORE",
         "lesson": 0,
-        "task": "Get a rate out of a formula, from the definition"
+        "task": "Get a rate out of a formula, from the definition",
+        "reason": "The nine o'clock call needs tonight's storage curve as a rate, not an average, because it is about what happens next, not what already happened."
       },
       {
         "group": "SAFE",
         "lesson": 0,
-        "task": "Say what the trace has no rate at"
+        "task": "Decide what an instantaneous jump in the record means",
+        "reason": "Baptiste's logger shows a one-sample jump exactly when gate 2 begins moving. If the record is treated as literal water motion, the warning desk will publish a rate that no physical gate produced."
       }
     ]
   },
   {
     "title": "The same water, moving faster",
     "objective": "Differentiate the three relations this dam runs on, and see what each rate carries with it.",
-    "briefing": "Three formulas on three walls, and today every one of them is asked how fast it is moving.",
-    "stake": "Tuesday. The rain has started on the upper catchment. The gauge is climbing. The level is climbing behind it. Reggie Wilkes, the gate mechanic, has a question. Wind the gate open at a steady rate, and what happens to the discharge going out? That is a question about the spillway relation, not about the gate. Mercy Anand, the powerhouse chief, asks the same thing about power. Power leans on two quantities, and both of them are moving at once. Today you differentiate the three relations the dam is run from. A rate on the left picks up every part of the right side that is moving too.",
+    "briefing": "The first band is early. Every formula on the wall now has to answer how fast, not how much.",
+    "stake": "Tuesday. The first rain band has arrived two days early and both the river and reservoir are climbing. Three equations now have to become rates quickly enough to change today's gate plan.",
     "takeaway": "Differentiating a relation converts it from a statement about values into a statement about rates.",
+    "segue": "The early band keeps building after dark. The formulas give rates while the relations are known; overnight the gauge will give only readings. By morning the control room will need the total water those readings represent, because the first release decision can no longer wait.",
     "stops": [
       {
         "group": "INFLOW",
         "lesson": 1,
-        "task": "Turn a column of readings into a volume"
+        "task": "Turn a column of readings into a volume",
+        "reason": "June Sato needs a running volume out of five readings before she can say how much of the forecast has already arrived."
       },
       {
         "group": "GATES",
         "lesson": 0,
-        "task": "Differentiate the spillway relation"
+        "task": "Differentiate the spillway relation",
+        "reason": "Reggie Wilkes is about to wind the gate open on the strength of this relation, and the last half metre is where a wrong guess costs the most."
       },
       {
         "group": "SAFE",
         "lesson": 1,
-        "task": "Say what each expression is a measurement of"
+        "task": "Say what each expression is a measurement of",
+        "reason": "Nadine Baptiste has to label each expression correctly before this evening's committee reads whichever number sits nearest the top."
       }
     ]
   },
   {
     "title": "What fell, and what arrived",
     "objective": "Add up a rate that only exists as readings, and say which way each way of adding it is wrong.",
-    "briefing": "Six hours of gauge readings and no formula behind any of them.",
-    "stake": "Wednesday. The front arrived overnight. Ekundayo has six hours of gauge readings, one every fifteen minutes. Sato wants the volume of water that has already reached the reservoir. That is a total built out of a rate. There is no formula to work from, only a column of numbers. Down in the gallery, Halina Zawadzka, the structural engineer, has the same job in miniature. Her seepage weirs are reading higher each hour. She has to pick which end of each interval to trust, and that choice moves the answer. Today you add up a rate that exists only as a column of numbers. Then you say which way each method of adding leans.",
+    "briefing": "Six hours of rising gauges, no formula, and a release decision waiting on the total.",
+    "stake": "Wednesday. Rain hammered the catchment overnight. The gauges give you only a column of readings, but the control room needs one defensible volume before it decides how much water to send toward Nethercote Ford.",
     "takeaway": "A rate known only at instants still accumulates, and every rule for adding it is wrong in a direction you can name.",
+    "segue": "The two endpoint sums bracket the overnight total, and the integrated ramp gives Berg's old proposal a number: about 72 cubic metres a second. By dawn the new plan is much larger. Eleven villages go on the warning list, and Nethercote Ford has four hours before the first water arrives.",
     "stops": [
       {
         "group": "GATES",
         "lesson": 1,
-        "task": "Follow the rate from the hills to the sill"
+        "task": "Trace where the old storage survey enters the chain",
+        "reason": "Wilkes's gate setting was computed through a chain of relations. Berg wants the team to mark the exact link that depends on the 2003 reservoir survey before that old map can quietly contaminate the rest of the calculation."
       },
       {
         "group": "STRUCT",
         "lesson": 0,
-        "task": "Say which way a sum of readings is wrong"
+        "task": "Say which way a sum of readings is wrong",
+        "reason": "Dr. Halina Zawadzka has two totals off the same weir readings and will not sign either until she knows which end of the interval is lying to her."
       },
       {
         "group": "SAFE",
         "lesson": 2,
-        "task": "Derive the steady release with the same total"
+        "task": "Derive the steady release with the same total",
+        "reason": "Sunniva Berg wants the flat release she asked for on Monday sitting next to today's number, because that comparison is her whole argument."
       }
     ]
   },
   {
-    "title": "Two days of not deciding",
+    "title": "The release that could have been smaller",
     "objective": "Use an antiderivative to evaluate an accumulation, and say what the accumulation function's own rate is.",
-    "briefing": "The release that was deferred on Monday has to be made today, and the arithmetic for it is an integral.",
-    "stake": "Thursday. On Monday, Sunniva Berg asked for a release and did not get one. The water that would have gone out at 120 cubic metres a second now has to go out at 480. It goes into a river with people living beside it. This time the schedule is a formula, not a table. So the volume it delivers can be worked out exactly, instead of summed piece by piece. Today you use the fundamental theorem of calculus in both directions. One way, an antiderivative turns a rate into a total. The other way, a total hands a rate back. Berg wants to know what two days of waiting cost.",
+    "briefing": "The gentle release is gone. Today's larger ramp has to be accounted for before it reaches anyone downstream.",
+    "stake": "Thursday. The release deferred on Monday can no longer be gentle: today's four-hour ramp averages more than three times Berg's proposed early release. Before the gates move, you must prove how much water arrived and how much this schedule will send downstream.",
     "takeaway": "An antiderivative turns an accumulation into a subtraction, and an accumulation differentiates back to the rate that built it.",
+    "segue": "The gates ramp from 120 to 360 cubic metres a second over four hours—an average of 240, more than three times Berg's 72 from Monday. Kit Trenholme gets Ada's ewes off the low meadow before the rise arrives. Berg was right about buying headroom early. But the reservoir is now above the range where the old working relations were ever checked carefully.",
     "stops": [
       {
         "group": "SAFE",
         "lesson": 3,
-        "task": "Close the reservoir's ledger for the night"
+        "task": "Close the reservoir's ledger for the night",
+        "reason": "Sunniva Berg needs the total that actually reached the dam overnight before she can size an afternoon release whose average is now more than three times Berg's Monday proposal."
       },
       {
         "group": "GATES",
         "lesson": 2,
-        "task": "Total a release schedule exactly"
+        "task": "Total a release schedule exactly",
+        "reason": "Reggie Wilkes has written this afternoon's ramp as a formula, and its total delivery has to be known before the gates start moving."
       },
       {
         "group": "STORE",
         "lesson": 1,
-        "task": "Say what the accumulation curve's own slope is"
+        "task": "Say what the accumulation curve's own slope is",
+        "reason": "Ilya Rasmussen is asking Bo Ferrand's running total a question the slope can already answer, if it is read for what it is."
       }
     ]
   },
   {
     "title": "The last half metre",
     "objective": "Differentiate a relation that will not solve, and follow a rate through everything it passes.",
-    "briefing": "Two quantities tied by a curve nobody can rearrange, and one rate that has to travel four steps.",
-    "stake": "Friday. The head of water over the spillway sill has climbed into a new part of the rating curve. Up here the last half metre does more work than the first two did. Bo Ferrand cannot rearrange the stage to storage curve into a neat formula for the level. That does not stop the level from having a rate. In the gallery, the uplift gauges are tied to the reservoir by a relation with the unknown on both sides. Anand wants the same arithmetic done for the machines. Today you differentiate a relation without solving it first. Then you follow one rate the whole way, from rain on the hills to water past the sill.",
+    "briefing": "The last half metre is where small rate errors become large operating errors.",
+    "stake": "Friday. The reservoir has climbed into the highest range used this week, where a small change in level changes several decisions at once. You have to follow those rates without pretending every relation can be solved neatly first.",
     "takeaway": "A relation can be differentiated where it cannot be rearranged, and a rate travels through every relation between its ends.",
+    "segue": "A rate comes out of a curve that still will not rearrange. The last half metre does the work somebody promised nineteen years ago. But the reach below has been under warning for two days now. Twice today, someone calls asking how much longer the caravan sites must stay empty. Nobody in the tower has an answer.",
     "stops": [
       {
         "group": "STORE",
         "lesson": 2,
-        "task": "Turn a net flow into a rate of level"
+        "task": "Turn a net flow into a rate of level",
+        "reason": "Dermot Halloran wants tomorrow's level out of Bo Ferrand's numbers, and that means a rate, not the volume everyone keeps reaching for."
       },
       {
         "group": "STRUCT",
         "lesson": 1,
-        "task": "Differentiate a relation with the unknown on both sides"
+        "task": "Differentiate a relation with the unknown on both sides",
+        "reason": "Dr. Halina Zawadzka cannot solve her own foundation relation for uplift, and the level is still climbing, so she needs the rate without ever isolating it."
       },
       {
         "group": "POWER",
         "lesson": 0,
-        "task": "Get one rate out of another through a fixed relation"
+        "task": "Get one rate out of another through a fixed relation",
+        "reason": "Mercy Anand wants the grid schedule to reflect how fast output is changing while the head keeps rising under her machines."
       },
       {
         "group": "STORE",
         "lesson": 3,
-        "task": "Hold the reservoir while the inflow changes."
+        "task": "Hold the reservoir while the inflow changes.",
+        "reason": "The gates are the only outflow anybody here controls, so today's operating level rides entirely on how well that control is used."
       }
     ]
   },
   {
     "title": "Has it peaked?",
     "objective": "Find the inflection in a rising record, and say which quantity peaks when.",
-    "briefing": "The gauge is still climbing, and the question on the call is whether it is climbing as hard as it was.",
-    "stake": "Saturday. The first good news of the fortnight is on Ekundayo's screen. The inflow is still rising. The hourly steps up are not getting bigger any more. Nobody will take that as a hunch. A rate that has peaked and a rate that is merely easing off make for two very different afternoons. Ferrand has the level fitted to a curve that turns over on a day you can name. Baptiste has to warn the reach, and she has to say which peak she means. The two peaks do not fall on the same day. Today you find the point where a climb turns over. Then you say which quantity peaks when.",
+    "briefing": "The river is still climbing. The useful news is whether the climb itself has begun to turn.",
+    "stake": "Saturday. The inflow is still rising, but its climb has begun to slacken. If you call the peak too early, people return to the floodplain while the reservoir is still filling; if you call it too late, another warning costs them a day for nothing.",
     "takeaway": "The first derivative says which way, the second says whether the way is easing, and they turn over on different days.",
+    "segue": "The rise starts to lose curvature before the reservoir itself peaks. The team keeps Nethercote Ford clear one more night because the level is still accumulating water after the inflow has begun to ease. That caution costs a day, but tonight the wall is carrying its largest load since 1983.",
     "stops": [
       {
         "group": "INFLOW",
         "lesson": 2,
-        "task": "Find where the climb stopped getting steeper"
+        "task": "Find where the climb stopped getting steeper",
+        "reason": "June Sato will not call the flow peaked on a hunch, so Ayo Ekundayo has to find the hour the climb itself started slowing."
       },
       {
         "group": "STORE",
         "lesson": 4,
-        "task": "Find the day the level turns over, and prove it is a maximum"
+        "task": "Find the day the level turns over, and prove it is a maximum",
+        "reason": "Dermot Halloran wants a day, not a shape on a screen, and Bo Ferrand's fitted curve is the only place that day can come from."
       },
       {
         "group": "SAFE",
         "lesson": 4,
-        "task": "Say which peak the reach should be told about"
+        "task": "Say which peak the reach should be told about",
+        "reason": "Etta Prowse needs to know which peak Nadine Baptiste's warning is actually timed against, because the inflow and the level do not top out together."
       }
     ]
   },
   {
     "title": "What the wall is carrying",
     "objective": "Find a maximum at a critical point, at an endpoint, and by sweeping a control.",
-    "briefing": "Three quantities that are largest somewhere, and the somewhere is different in each case.",
-    "stake": "Sunday. Three people want a largest value. Zawadzka has an overturning moment on the wall. It grows as the uplift under the base spreads, and then it stops growing. Wilkes wants the place on the rating curve where the spillway is most sensitive. His head range is fixed by how far the gates open. Anand has a grid schedule to write. Her penstock loses head the harder it is driven. So pushing more water through the machines stops buying more power somewhere in the middle of the range. Today you find three largest values. The three answers do not sit in the same kind of place.",
+    "briefing": "Three maxima, three different kinds of candidate, and one safety letter that cannot confuse them.",
+    "stake": "Sunday. The wall, spillway and turbines are all near the top of their working ranges. Today is about maxima—but each maximum lives in a different place, and choosing the wrong one puts the wrong number in the safety letter.",
     "takeaway": "A maximum sits at a critical point, at an end of the interval, or nowhere — and which of the three is a question about the derivative.",
+    "segue": "The team finds all three numbers: the worst moment, the most sensitive head, the best power point. Lined up side by side, they raise one question — which one goes in the letter to the committee? So the committee gets two figures this week, not one. The first is tonight's number. The second is the number that should have gone out days ago. They will not match.",
     "stops": [
       {
         "group": "STRUCT",
         "lesson": 2,
-        "task": "Find the extent that makes the moment largest"
+        "task": "Find the extent that makes the moment largest",
+        "reason": "Dr. Halina Zawadzka has to find where the overturning moment is worst before she can say the wall is carrying what she thinks it is."
       },
       {
         "group": "GATES",
         "lesson": 3,
-        "task": "Say where the rating is most sensitive"
+        "task": "Say where the rating is most sensitive",
+        "reason": "Reggie Wilkes wants the head where a centimetre of level does the most damage, across the only range his gates actually hold."
       },
       {
         "group": "POWER",
         "lesson": 1,
-        "task": "Find the flow that makes the most power"
+        "task": "Find the flow that makes the most power",
+        "reason": "Mercy Anand has the machines on manual and needs to know the flow past which more water actually buys less power."
       }
     ]
   },
   {
     "title": "The release that just clears it",
     "objective": "Reduce a varying rate to the single steady one with the same total, and say what that guarantees.",
-    "briefing": "A schedule that varies all day, and a committee that wants one number for it.",
-    "stake": "Monday of the second week. The release schedule changes through the day. The liaison committee wants one figure for it. That sounds like rounding off. It is a definite integral. Berg needs the same figure for her own reason. A steady release with the same total is the release she would have made on the first day. That comparison is the whole of her argument with Halloran. Today you reduce a changing rate to the one steady rate with the same total. Then you say what that steady rate guarantees about the morning it came from.",
+    "briefing": "A changing morning must become one honest number without pretending the river was constant.",
+    "stake": "Monday of the second week. The committee wants one release number where the river actually delivered a changing one. You must reduce the morning honestly, then decide what that average does—and does not—say about the event.",
     "takeaway": "The average value of a rate is its accumulation divided by the interval, and a continuous rate attains it somewhere inside.",
+    "segue": "The steady rate comes out lower than what day one asked for. Nobody in the room says a word about it. But a river that never overflowed does not prove the release was needed. So the team orders the low-level outlet open at first light. That's the ninth call in nine days — about water nobody downstream has seen yet.",
     "stops": [
       {
         "group": "STORE",
         "lesson": 5,
-        "task": "Reduce the morning to one steady flow"
+        "task": "Reduce the morning to one steady flow",
+        "reason": "Bo Ferrand has to reduce six hours of a varying release to the one number the committee sheet has room for."
       },
       {
         "group": "INFLOW",
         "lesson": 3,
-        "task": "Say what an average guarantees about the record"
+        "task": "Say what an average guarantees about the record",
+        "reason": "Etta Prowse has caught that no single gauge reading matches the published figure, and Ayo Ekundayo has to say what that figure does and does not claim."
       },
       {
         "group": "POWER",
         "lesson": 2,
-        "task": "Differentiate a product where both factors move"
+        "task": "Differentiate a product where both factors move",
+        "reason": "Mercy Anand's flow and head are both moving this afternoon, and the grid wants a rate of change of output that accounts for both."
       }
     ]
   },
   {
     "title": "The ledger that will not close",
     "objective": "Solve the drawdown equation, and find what a single reading leaves undetermined.",
-    "briefing": "The low-level outlet is open and the level is falling on a curve nobody has written down yet.",
-    "stake": "Tuesday. The low-level outlet has been open since first light. The level is falling, and it is not falling at a steady rate. The head driving the outlet is the very thing that is going down. Ferrand wants the level as a function of time, not as a table. That means solving the equation instead of reading it off. Ekundayo has one gauge reading, six hours old. He is being asked to state a drain constant from it. That turns out to be two questions wearing one number. Today you solve the drawdown equation. Then you turn what it gives you into an hour somebody can act on.",
+    "briefing": "The outlet slows as the head falls, and one reading cannot tell you both where the curve started and how fast it drains.",
+    "stake": "Tuesday. The low-level outlet is drawing the reservoir down, but it slows as the head falls. Baptiste needs an hour to stand down the warning; one six-hour reading is not enough to justify it.",
     "takeaway": "A rate that depends on the quantity itself is solved by separating and integrating, and the constant that comes out needs its own measurement.",
+    "segue": "The team puts a drain constant on the board, off just one reading six hours old. It comes with a warning: that same number fits a big, slow reservoir just as well as a small, fast one. But the survey boat comes in at dusk, carrying a fortnight of echo soundings. Nobody on it says a word — except that everyone should sit down first.",
     "stops": [
       {
         "group": "STORE",
         "lesson": 6,
-        "task": "Solve the drawdown equation"
+        "task": "Solve the drawdown equation",
+        "reason": "Bo Ferrand wants the level written as a function of time, because the outlet driving it is fed by the very head that is falling."
       },
       {
         "group": "INFLOW",
         "lesson": 4,
-        "task": "Say what one reading leaves undetermined"
+        "task": "Say what one reading leaves undetermined",
+        "reason": "Ayo Ekundayo has been asked for a drain constant off one reading, and Ilya Rasmussen's second reading is what will show whether that number can be trusted."
       },
       {
         "group": "SAFE",
         "lesson": 5,
-        "task": "Say when the outlet will have finished"
+        "task": "Say when the outlet will have finished",
+        "reason": "Nadine Baptiste needs the hour the outlet can shut, not the shape of the curve, before she can stand the warning down."
       },
       {
         "group": "SAFE",
         "lesson": 6,
-        "task": "Sort the instrument readings before the morning report."
+        "task": "Sort the instrument readings before the morning report.",
+        "reason": "Dr. Halina Zawadzka has to know whether the dam moved overnight or the instrument reading it did, before the morning report goes out under her name."
       }
     ]
   },
   {
     "title": "Every number again",
     "objective": "Rebuild the volume from the area curve, and find which quantity the correction reaches.",
-    "briefing": "The survey boat has been out, and the curve every volume on this site came through is wrong.",
-    "stake": "Wednesday. Ilya Rasmussen has been out over the reservoir with an echo sounder. The stage to storage curve was surveyed in 2003 and never done again. Two decades of silt have settled since. So the surface area at any given level is smaller than the old sheet says. Nothing was faked and nobody was careless. But volume is the integral of area with respect to level. The area is the integrand, the thing being added up. Get it wrong by a few per cent, and every total this control room has worked out for a fortnight is wrong the same way. Today you rebuild a volume from the corrected areas. Then you find how far that correction travels.",
+    "briefing": "The lake bed moved. Every result that depended on the old area-capacity curve has to be traced again.",
+    "stake": "Wednesday. The survey boat returns with the reversal nobody wanted: twenty years of sediment have changed the reservoir shape beneath every storage calculation. You now have to work out which numbers move with the new curve and which do not.",
     "takeaway": "An integral inherits every error in its integrand, and the only quantities it spares are the ones that never went through it.",
+    "segue": "The corrected area-capacity curve goes on the wall in red. Nobody falsified the 2003 numbers; the reservoir changed underneath them. That is worse operationally, because every later calculation looked respectable. The release rules now have to say which values are corrected, which are provisional, and which never depended on the old survey at all.",
     "stops": [
       {
         "group": "STORE",
         "lesson": 7,
-        "task": "Rebuild the volume from the corrected areas"
+        "task": "Rebuild the volume from the corrected areas",
+        "reason": "Bo Ferrand needs a real volume out of Ilya Rasmussen's resurveyed areas before anything computed this fortnight can be signed again."
       },
       {
         "group": "GATES",
         "lesson": 4,
-        "task": "Decide which measurement is worth buying"
+        "task": "Decide which measurement is worth buying",
+        "reason": "Reggie Wilkes cannot defend the spillway rating to three figures when one of its inputs came out of a handbook, not a gauge."
       },
       {
         "group": "STRUCT",
         "lesson": 3,
-        "task": "Say which predictions the resurvey reaches"
+        "task": "Say which predictions the resurvey reaches",
+        "reason": "Dr. Halina Zawadzka has to say whether the resurvey moves her uplift predictions too, or whether that relation stands apart from the storage curve."
       }
     ]
   },
   {
     "title": "A day when nothing happens",
     "objective": "Predict with a tangent line and then measure it, and evaluate a limit that arithmetic cannot reach.",
-    "briefing": "A quiet day, which is the only kind on which a prediction can be checked against a measurement.",
-    "stake": "Thursday. For the first time in a fortnight, nothing has to be decided before lunch. Anand wants to raise the machines. From the rate alone she can say what that should buy her. That is a prediction, so it is a thing that can be wrong. Zawadzka has a routing expression that goes to zero over zero the instant a release starts. Zero over zero is not a small number. It is no number at all until it is handled properly. Ekundayo has a rating curve and a head rise of six centimetres. Today you predict with a tangent line, then measure what really happened. You also work one limit that no amount of substitution will reach.",
+    "briefing": "For once, nothing is urgent enough to excuse skipping the prediction-before-measurement test.",
+    "stake": "Thursday. No gate decision is due before lunch. That rare quiet window lets you do what the storm has not allowed: make predictions first, then measure whether the models actually deserve to be trusted.",
     "takeaway": "A derivative predicts nearby values, its own arithmetic is a multiplication, and a limit that comes out as zero over zero has to be worked rather than read.",
+    "segue": "The turbine prediction survives a real measurement, and the routing limit survives its mathematics. That matters because the second warning did not: Ada's meadow was cleared again, and no water reached it. Prowse carries that cost into the committee packet beside the safety margin the first warning bought.",
     "stops": [
       {
         "group": "POWER",
         "lesson": 3,
-        "task": "Predict what the extra flow buys, then find out"
+        "task": "Predict what the extra flow buys, then find out",
+        "reason": "Mercy Anand is about to raise the machines on the strength of a prediction, and today is the one day that prediction can actually be checked."
       },
       {
         "group": "STRUCT",
         "lesson": 4,
-        "task": "Evaluate a limit that comes out as zero over zero"
+        "task": "Evaluate a limit that comes out as zero over zero",
+        "reason": "Dr. Halina Zawadzka's routing expression goes to zero over zero the instant a release starts, and she cannot hand over a number until that is handled properly."
       },
       {
         "group": "INFLOW",
         "lesson": 5,
-        "task": "Turn a slope into a small change"
+        "task": "Turn a slope into a small change",
+        "reason": "Ayo Ekundayo has to turn six centimetres of gauge rise into cubic metres before anyone downstream can say what it means."
       }
     ]
   },
   {
     "title": "The front that never came",
     "objective": "Solve the recession equation, fit its constant honestly, and turn it into a time.",
-    "briefing": "The rain stopped on Wednesday and the river is falling on a curve with one number in it.",
-    "stake": "Friday. The front that justified Monday's pre-release never arrived. The reservoir is short going into summer. Halloran has been polite about it in a way that is worse than not being. What is left is the recession. That is the river falling away with no rain behind it. One constant describes the whole fall. Ferrand has to solve the equation for it. Ekundayo has to fit that constant on days that have already happened. Then he has to live with it on days that have not, which is the harder half. Anand needs the answer as an hour, not as a curve. Today you solve the recession and turn its constant into a date.",
+    "briefing": "The flood argument has flipped: now the question is how quickly the catchment gives back what the storm stored.",
+    "stake": "Friday. With the rain gone, the river is falling by roughly a constant fraction each day, and the reservoir will enter summer lower because of the flood releases. Today you solve that empirical recession model, fit its constant on past days, and test it on days the fit never saw.",
     "takeaway": "A rate proportional to the quantity itself decays exponentially, and a constant fitted on one stretch of data is only honest when it is scored on another.",
+    "segue": "The recession constant that survives held-back data puts a real date on the summer shortage. Halloran was right about that cost. Berg was also right that the first storm release could not be bought back later. The committee now has two partly correct arguments and one weekend to turn them into rules.",
     "stops": [
       {
         "group": "STORE",
         "lesson": 8,
-        "task": "Solve the recession equation"
+        "task": "Solve the recession equation",
+        "reason": "Bo Ferrand needs the recession written as a function of time before next weekend's schedule can be built on it."
       },
       {
         "group": "INFLOW",
         "lesson": 6,
-        "task": "Fit the constant on days you can check"
+        "task": "Fit the constant on days you can check",
+        "reason": "Ayo Ekundayo has to fit a recession constant on days already past and then trust it on days that have not happened yet."
       },
       {
         "group": "POWER",
         "lesson": 4,
-        "task": "Turn the constant into an hour"
+        "task": "Turn the constant into an hour",
+        "reason": "Mercy Anand's maintenance window opens only once the flow has halved, so she needs a date off this constant, not a curve."
       },
       {
         "group": "GATES",
         "lesson": 5,
-        "task": "Work the inspection round while the priority changes."
+        "task": "Work the inspection round while the priority changes.",
+        "reason": "Reggie Wilkes has more gallery to inspect than one round covers, and today's priority changes with every new number on the board."
       }
     ]
   },
   {
     "title": "Three things before nine",
     "objective": "Integrate a difference, read its sign, and substitute your way through an integrand nobody can antidifferentiate as it stands.",
-    "briefing": "Two curves crossing at four o'clock, and a load record that will not integrate as written.",
-    "stake": "Saturday. Three jobs have to close before the nine o'clock call. Baptiste has the inflow and the release drawn on one pair of axes. The two lines cross in the middle of the afternoon. Her committee will read the shaded region between them as though it were a total. Wilkes has a window between eight and two, when the inflow ran clear of the release. He wants to know what that window added. Ekundayo has the suspended load record from the peak. It is a fraction with the variable in both halves, and it will not integrate as written. Today you integrate a difference and read what its sign is telling you. One of the three needs a substitution first.",
+    "briefing": "Three signed quantities before nine, and the sign of a balance matters as much as its size.",
+    "stake": "Saturday. The committee packet closes at nine. Three numbers still have to be signed, and each depends on reading an integral as a signed balance rather than as a pile of positive water.",
     "takeaway": "An integral of a difference carries the difference's sign, and an integrand that resists is usually one substitution away from an ordinary one.",
+    "segue": "The committee gets the real number, sign and all. It's smaller — and far less comfortable — than the figure everyone had been carrying in their heads. The eight-to-two window is now in writing, exactly as asked for. So there is one night left to take anything back. After that, the orders stand no matter what the gauges do.",
     "stops": [
       {
         "group": "SAFE",
         "lesson": 7,
-        "task": "Say what the shaded region actually totals"
+        "task": "Say what the shaded region actually totals",
+        "reason": "Nadine Baptiste's committee is about to read a shaded region as a number, and she wants the sign on it right before the sheet leaves the room."
       },
       {
         "group": "GATES",
         "lesson": 6,
-        "task": "Total the window where the inflow ran clear"
+        "task": "Total the window where the inflow ran clear",
+        "reason": "Reggie Wilkes wants his six-hour window between inflow and release turned into what the reservoir actually took on."
       },
       {
         "group": "INFLOW",
         "lesson": 7,
-        "task": "Integrate a record that resists as written"
+        "task": "Integrate a record that resists as written",
+        "reason": "Ilya Rasmussen needs the four-hour suspended-load total for the resurvey file, and Ayo Ekundayo's fraction will not integrate until it is rewritten."
       }
     ]
   },
   {
     "title": "The last reversible moment",
     "objective": "Write rules on a rate, find where an accumulation is greatest, and read a level off a graph of its derivative.",
-    "briefing": "Everything on the board tonight is a derivative, and the decisions have to be written before the data arrives.",
-    "stake": "Sunday night. The last decisions that can still be unmade are made now. Berg wants the night orders written against the rate the level is climbing. She does not want them written against the level itself. A level threshold gives no warning. A rate does. Ferrand has the net flow as a formula and needs the hour when the reservoir is fullest. In the gate chamber the only trace on the screen is the net flow. The level plot has not been drawn since Friday. Wilkes has to say what the level did from that rate alone. Today you write rules on a rate, and find the hour an accumulation tops out.",
+    "briefing": "The event is over; the warning rule is not. Replay the fast rise and see whether the rule would have acted in time.",
+    "stake": "Sunday night. The last rules that can be changed before handover must be written now. You will test a warning trigger against the fast-rise sequence from this storm, then lock the rule before you know whether it would have saved enough lead time.",
     "takeaway": "A rate written into a rule buys the lead time a level cannot, and an accumulation's whole shape is readable from the rate that built it.",
+    "segue": "The replayed rise proves the rule only works if it fires while the rate is still moderate; waiting for a dramatic level leaves too little lead time. The last night orders are signed against the derivative, not a magic level. By morning the remaining question is whether the whole fortnight can be defended well enough to hand to somebody else.",
     "stops": [
       {
         "group": "SAFE",
         "lesson": 8,
-        "task": "Write tonight's thresholds on the rate"
+        "task": "Test the warning rule against this storm’s fast-rise replay",
+        "reason": "Berg wants the new farm-clearance rule tested against the actual fast-rise sequence before it is signed. A rule that only looks good after the event is not a rule the next shift can use."
       },
       {
         "group": "STORE",
         "lesson": 9,
-        "task": "Find the hour the reservoir is fullest"
+        "task": "Find the hour the reservoir is fullest",
+        "reason": "Bo Ferrand has only the net-flow formula to work with, and he needs the hour the reservoir is fullest before the update goes out."
       },
       {
         "group": "GATES",
         "lesson": 7,
-        "task": "Say what the level did, from the rate alone"
+        "task": "Say what the level did, from the rate alone",
+        "reason": "Reggie Wilkes has to hand over a level nobody has plotted since Friday, reading it off the one net-flow trace still on the screen."
       }
     ]
   },
   {
-    "title": "What the fortnight is worth",
-    "objective": "Judge a fit by what it leaves over, reduce a fortnight to one rate, and say what has been established.",
-    "briefing": "The water has gone and what is left is what can be defended in writing.",
-    "stake": "Monday, a fortnight on. The reservoir is at 91%. The reach was warned twice and flooded neither time. The resurvey has moved every volume on the site by 11%. Zawadzka has three fits of the uplift against head. The one with the best summary number is not obviously the one to keep. Ferrand has to reduce 14 days to a single figure for the annual return. And the liaison committee sits this evening. Today you judge a fit by what it leaves over. Then you reduce a fortnight to one rate, and say what these two weeks actually settled.",
-    "takeaway": "A model is judged by the structure it leaves behind, not by the size of what it leaves behind.",
+    "title": "Sign the rules",
+    "objective": "Judge a model by its residuals, reduce the event to one average rate, and sign the release rules another engineer will use.",
+    "briefing": "The water is down. What remains is the set of rules another engineer will actually use.",
+    "stake": "Monday, two weeks on. The reservoir is at 91%, the villages stayed dry, and two warnings cost real people real days. Before the committee meets, you must decide which models survive, what the event averaged to, and which release rules you are willing to sign for the next duty engineer.",
+    "takeaway": "The final product is not one perfect number; it is a rule set that labels what was measured, what was modeled, what was corrected, and what is still provisional.",
     "stops": [
       {
         "group": "STRUCT",
         "lesson": 5,
-        "task": "Say which fit you would carry forward"
+        "task": "Say which fit you would carry forward",
+        "reason": "Dr. Halina Zawadzka has three fits of the uplift on her screen and has to judge them by what they leave over, not by which summary number looks best."
       },
       {
         "group": "STORE",
         "lesson": 10,
-        "task": "Reduce the fortnight to one figure"
+        "task": "Reduce the fortnight to one figure",
+        "reason": "Bo Ferrand has to reduce fourteen days of flow to the single steady rate the annual return actually asks for."
       },
       {
         "group": "SAFE",
         "lesson": 9,
-        "task": "Spend what the authority will release on what the fortnight showed was missing."
+        "task": "Sign the Ashfell release rules",
+        "reason": "The committee wants one signed rule set before the next duty engineer takes the desk. Halloran and Berg were both partly right, and the corrected storage curve means neither old argument can simply be copied forward."
       }
     ]
   }
@@ -383,7 +445,7 @@ export const MISSIONS = [
 export const WARMUPS = {
   "greet": {
     "title": "Five floors, one shift, and the spillway is running",
-    "why": "The tower is five storeys against the gorge wall and the people in it work at different heights: inflow at the top, gates in the gallery, power at the bottom. Halloran, the operations manager, wants you known to as many of them as you can before the wet season, because a decision about the gates is taken by somebody on one floor about numbers produced on another."
+    "why": "Put a face to each desk before the wet season: five floors, one stair between them, and the people who read the gauges work three floors above the people who wind the gates."
   },
   "trial-near": {
     "title": "Walk the tower, top to gallery",

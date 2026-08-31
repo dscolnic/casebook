@@ -49,6 +49,16 @@ export const MINOR_INTERIORS = {
       { label: 'Spore filter on the vents', value: 'in service', status: 'normal' },
     ] },
   },
+  OFFICE: {
+    caption: 'A copy of whatever every new season lead needs before they have walked either ring.',
+    standLine: 'The board changes every year. The rule for reading it does not.',
+    station: { kind: 'panel', title: 'Site office', rows: [
+      { label: 'Crossing slots open', value: 8, status: 'high' },
+      { label: 'Trial plots this year', value: 240, status: 'normal' },
+      { label: 'Season', value: 'Week 1', status: 'normal' },
+      { label: 'Postings current as of', value: 'this morning', status: 'normal' },
+    ] },
+  },
   RECORDS: {
     caption: 'Where every accession says it came from: a village, a field, a year, and the name of whoever was handed it.',
     standLine: 'A gene bank sells one thing, which is knowing what is in the packet.',
@@ -65,8 +75,11 @@ export const MINOR_INTERIORS = {
     station: { kind: 'panel', title: 'Threshing floor', rows: [
       { label: 'Bags waiting', value: '2 hours of them', status: 'high' },
       { label: 'Store closes', value: '17:00', status: 'high' },
-      { label: 'Bagged heads', value: 'selfed, father known', status: 'normal' },
-      { label: 'Open heads', value: 'whatever the wind brought', status: 'alarm' },
+      // SHORT VALUES. A panel row prints label left and value right in one strip,
+      // and 'whatever the wind brought' ran straight through 'Open heads' in the
+      // render. Nothing checks panel widths; the only way to find it is to look.
+      { label: 'Bagged heads', value: 'father known', status: 'normal' },
+      { label: 'Open heads', value: 'father unknown', status: 'alarm' },
     ] },
   },
 };

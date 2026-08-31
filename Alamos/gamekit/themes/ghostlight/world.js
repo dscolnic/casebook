@@ -172,8 +172,67 @@ function box(w, h, d, x, y, z, mat, ry = 0){
   return m;
 }
 function collide(cx, cz, w, d, y, h){
-  colliders.push(new THREE.Box3().setFromCenterAndSize(
-    new THREE.Vector3(cx, y + h / 2, cz), new THREE.Vector3(w, h, d)));
+  const b = new THREE.Box3().setFromCenterAndSize(
+    new THREE.Vector3(cx, y + h / 2, cz), new THREE.Vector3(w, h, d));
+  colliders.push(b);
+  return b;
+}
+
+// ---------------------------------------------------- what the building has today
+//
+// The placement pass's `from:` / `until:` for a theme that builds its own world.
+// `interiorFixtures` is not reachable here — this module does not go through
+// `interiorSite`, `interiors` is empty on purpose and the site declares no
+// `buildings`, so there is no `fixtures.js` path and `tiersFor` finds no far tier
+// in a building 94 m end to end. What IS available is the strongest reading of the
+// pass anyway (PLACEMENT_PASS step 6): the world starts unfinished and grows on
+// ground the player already crosses four times a day, out of facts the cards
+// already state.
+//
+//   day 3   the bars go out    "The rig has to be plotted before the bars go out
+//                               on Thursday" — day 3's stake
+//   day 5   a second bar hung
+//   day 8   a third
+//   day 9   THE SEATS ARRIVE   "The seats are on a lorry that arrives Tuesday"
+//                               (day 7) and "The seats arrive at eight" (day 9).
+//                               Before that the stalls are bare boards and the
+//                               crated seating is stacked in the scene dock —
+//                               which is what day 7's whole question is about,
+//                               a room measured with its seats out.
+//   day 9   the dock opens     the seats and the flown pieces come in through it,
+//                               so its door is shut and its plate is dark until
+//                               the campaign has a reason to send anybody there.
+//                               A DOOR, never ground: the ring, the yard and every
+//                               other room stay walkable from the first morning.
+//   day 13  the fourth bar     "twenty-eight lamps on four bars" — day 13's stake,
+//                               which is 7 units a bar and the last of them today.
+//
+// Registered meshes are hidden rather than disposed, and their colliders are
+// spliced out of the live array `player.js` iterates, so a stall with no seat in
+// it is walkable and the seat that is not there yet does not block anybody.
+const grown = [];
+/** `grow({ from, until, meshes, colliders, soft })` — any of them optional. */
+function grow(spec){
+  grown.push({ from: 1, until: Infinity, meshes: [], colliders: [], soft: [], on: null, ...spec });
+}
+/** Show what this day has and hide what it does not. Idempotent. */
+function applyDay(day){
+  for(const g of grown){
+    const want = day >= g.from && day < g.until;
+    if(g.on === want) continue;
+    g.on = want;
+    for(const m of g.meshes) m.visible = want;
+    for(const c of g.colliders){
+      const i = colliders.indexOf(c);
+      if(want && i < 0) colliders.push(c);
+      else if(!want && i >= 0) colliders.splice(i, 1);
+    }
+    for(const s of g.soft){
+      const i = softColliders.indexOf(s);
+      if(want && i < 0) softColliders.push(s);
+      else if(!want && i >= 0) softColliders.splice(i, 1);
+    }
+  }
 }
 
 // ------------------------------------------------------------------ the house
@@ -377,6 +436,7 @@ function buildSeats(){
   }
 
   const spots = [];
+  const seatBoxes = [];                   // so the stalls are walkable before day 9
   for(const band of bands){
     const limit = band.balcony ? HW - 4.0 : HW - 1.3;
     let runFrom = null, runTo = null;
@@ -384,7 +444,7 @@ function buildSeats(){
       if(runFrom === null) return;
       const w = runTo - runFrom + PITCH_X;
       if(!band.balcony && w > 1.0){
-        collide((runFrom + runTo) / 2, band.z, w, 0.95, band.y, 0.95);
+        seatBoxes.push(collide((runFrom + runTo) / 2, band.z, w, 0.95, band.y, 0.95));
       }
       runFrom = runTo = null;
     };
@@ -422,6 +482,10 @@ function buildSeats(){
     im.instanceMatrix.needsUpdate = true;
     scene.add(im);
   }
+  // THE SEATS ARRIVE ON DAY 9, on the lorry the day-7 and day-9 cards both name.
+  // Until then the rake is bare boards and the reverberation measured in it is a
+  // measurement of a building nobody performs in, which is what day 7 is for.
+  grow({ from: 9, meshes: [seat, backRest, standard], colliders: seatBoxes });
 }
 
 /** The balcony over the back of the stalls, and the plasterwork under it. */
@@ -474,13 +538,20 @@ function buildStage(){
     box(half * 2 - 0.8, 0.22, 0.14, 0, ST.grid, gz, M.steel).castShadow = false;
   }
   // Six bars, at the heights a get-in leaves them: two flown out, four in.
+  //
+  // `hung` is the day that bar's units go on, and the four that carry any are the
+  // four the book counts: "Ferreira has twenty-eight lamps on four bars" (day 13),
+  // seven units a bar. Day 3's card says the bars go out on the Thursday, so
+  // nothing is on them before then and the last bar is hung on the day the plot
+  // is finished. The bars and their lines are there from the first morning; it is
+  // the lanterns that arrive.
   const BARS = [
-    { z: z0 + 2.0, h: 12.6, lit: false },
-    { z: z0 + 4.4, h: 6.2, lit: true },
-    { z: z0 + 6.6, h: 12.2, lit: false },
-    { z: z0 + 8.6, h: 4.8, lit: false },
-    { z: z0 + 10.6, h: 6.6, lit: true },
-    { z: z1 - 1.4, h: 7.4, lit: true },
+    { z: z0 + 2.0, h: 12.6, hung: null },
+    { z: z0 + 4.4, h: 6.2, hung: 3 },
+    { z: z0 + 6.6, h: 12.2, hung: null },
+    { z: z0 + 8.6, h: 4.8, hung: 13 },
+    { z: z0 + 10.6, h: 6.6, hung: 5 },
+    { z: z1 - 1.4, h: 7.4, hung: 8 },
   ];
   for(const bar of BARS){
     box(half * 2 - 2.2, 0.12, 0.12, 0, bar.h, bar.z, M.steel).castShadow = false;
@@ -489,15 +560,19 @@ function buildStage(){
       box(0.05, ST.grid - bar.h, 0.05, s * (half - 2.0), bar.h + (ST.grid - bar.h) / 2, bar.z, M.steel)
         .castShadow = false;
     }
-    if(!bar.lit) continue;
+    if(!bar.hung) continue;
     // Lanterns on it, emissive and cold — the rig is patched and not focused.
-    for(let i = -4; i <= 4; i++){
-      box(0.34, 0.44, 0.34, i * 2.6, bar.h - 0.34, bar.z, M.black).castShadow = false;
+    const units = [];
+    for(let i = -3; i <= 3; i++){
+      units.push(box(0.34, 0.44, 0.34, i * 3.0, bar.h - 0.34, bar.z, M.black));
+      units.at(-1).castShadow = false;
       const lens = new THREE.Mesh(new THREE.CircleGeometry(0.14, 12), M.workLamp);
-      lens.position.set(i * 2.6, bar.h - 0.56, bar.z + 0.02);
+      lens.position.set(i * 3.0, bar.h - 0.56, bar.z + 0.02);
       lens.rotation.x = -Math.PI / 2.2;
       scene.add(lens);
+      units.push(lens);
     }
+    grow({ from: bar.hung, meshes: units });
   }
 
   // The counterweight wall, house left: the cradles and the locking rail the fly
@@ -724,6 +799,42 @@ function buildOffice(spec, def){
   plateMesh.position.set(xIn - f * 0.22, y + 2.2, cz + 2.0);
   plateMesh.rotation.y = f * Math.PI / 2;
   scene.add(plateMesh);
+
+  // ---- the one door in this building that is shut
+  //
+  // The scene dock is where the seats and the flown pieces come in, and the
+  // campaign does not send anybody there until they do — day 9, the Tuesday the
+  // lorry arrives. Until then the door is a leaf with a collider behind it and
+  // the plate is dark, so the room is unnamed rather than fenced: the ring
+  // outside it, the yard and every other room stay walkable from the first
+  // morning. Seal doors, never ground.
+  //
+  // And it is not a dead room when it opens. The nine hundred seats are crated
+  // in here for the first eight days, which is the same `until:` as the stalls'
+  // `from:` — one lorry, two rooms, one day.
+  if(spec.id === 'DOCK'){
+    const leaf = box(0.14, 2.3, B.roomDoorW, xIn, y + 1.15, cz, M.mahogany);
+    leaf.castShadow = false;
+    const bolt = box(0.1, 0.16, 0.5, xIn - f * 0.1, y + 1.15, cz + 0.55, M.steel);
+    bolt.castShadow = false;
+    grow({
+      until: 9,
+      meshes: [leaf, bolt],
+      colliders: [collide(xIn, cz, 0.5, B.roomDoorW + 0.2, y, 2.3)],
+    });
+    grow({ from: 9, meshes: [plateMesh] });
+
+    // The crated seating, in four stacks down the dock, gone the day it goes in.
+    const crates = [], hard = [];
+    for(let i = 0; i < 4; i++){
+      const czi = spec.z0 + 1.6 + i * ((spec.z1 - spec.z0 - 3.2) / 3);
+      for(let k = 0; k < 3; k++){
+        crates.push(box(2.2, 0.52, 1.3, cx + (i % 2 ? 0.7 : -0.7), y + 0.26 + k * 0.54, czi, M.timber));
+      }
+      hard.push(collide(cx + (i % 2 ? 0.7 : -0.7), czi, 2.4, 1.5, y, 1.62));
+    }
+    grow({ until: 9, meshes: crates, colliders: hard });
+  }
 
   if(spec.group){
     // The area's own board, over the desk, and the rows the book authored for it.
@@ -1432,6 +1543,10 @@ export function initWorld(canvas, activeTheme){
 
   dampEnvironment(scene, 0.45);
 
+  // The first morning's version of the building: no seats, no lanterns, the dock
+  // shut. `updateWorldFromState` moves it on as the campaign does.
+  applyDay(1);
+
   getWaypointMesh().visible = false;
   return { scene, renderer };
 }
@@ -1453,6 +1568,9 @@ export function updateWorldFromState(state, nextStopId = null, pct = () => 0){
     });
   }
   const day = state.week ?? 1;
+  // What the building has today. Cheap and idempotent — every group remembers
+  // whether it is already showing, so this is a no-op on all but the day it turns.
+  applyDay(day);
   for(const b of houseScreens){
     b.screen.set({
       rows: [

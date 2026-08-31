@@ -23,7 +23,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { themeDir as resolveTheme, themeNames } from './registry.mjs';
-import { warmupPlan, warmupDue, WARMUP_TAIL, WARMUP_OPENERS, WARMUP_MIN_DAYS } from '../core/warmups.js';
+import { warmupPlan, warmupDue, WARMUP_TAIL, WARMUP_OPENERS, WARMUP_MIN_DAYS, WARMUP_SLOT_DAYS } from '../core/warmups.js';
 import { tiersFor, unlockDay } from '../core/orientation.js';
 import { introduces, names, nameOf } from './introRule.mjs';
 
@@ -37,7 +37,7 @@ async function readTheme(themeName){
   const theme = (await import(pathToFileURL(resolve(resolveTheme(themeName), 'theme.js')).href)).default;
   const { normalizeContent } = await import('../content/normalize.js');
   const content = theme.content ?? {};
-  normalizeContent(content);
+  normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
   const site = theme.site ?? null;
   const tiers = site ? tiersFor(site) : { hasFar: false };
   return {
@@ -69,14 +69,20 @@ export function judgeSchedule({ days, hasFar, unlockDay }){
       + ` not on ${plan.length} warm-up run(s)`);
     return { plan, problems };
   }
-  const byDay = new Map(plan.map(p => [p.day, p]));
-  const d1 = byDay.get(1), d2 = byDay.get(2);
-  if(!d1 || !d2) problems.push('days 1 and 2 must each open on a warm-up');
-  else {
-    const pair = [d1.format, d2.format].sort().join('+');
-    if(pair !== [...WARMUP_OPENERS].sort().join('+'))
-      problems.push(`days 1 and 2 are ${d1.format} and ${d2.format} — they must be TRIAL and GREET in some order`);
-  }
+  // The "day 4" slot is really the unlock day — 4 for every site but one, and
+  // wherever `unlockDay` actually falls for a far-tier site, because the far lap
+  // has to land on the same day as the vehicles it hands out. A one-tier site
+  // has no unlock day to defer to, so its second slot stays fixed at 4.
+  const allowedDays = hasFar ? [1, unlockDay, 8, 13] : WARMUP_SLOT_DAYS;
+  const badDay = plan.find(p => !allowedDays.includes(p.day));
+  if(badDay) problems.push(`a warm-up is scheduled on day ${badDay.day}, which is not one of ${allowedDays.join('/')}`);
+  const d1 = plan.find(p => p.day === 1);
+  if(!d1) problems.push('day 1 must open on a warm-up');
+  else if(!WARMUP_OPENERS.includes(d1.format))
+    problems.push(`day 1 is ${d1.format} — it must be TRIAL or GREET`);
+  else if((hasFar && d1.format !== 'TRIAL') || (!hasFar && d1.format !== 'GREET'))
+    problems.push(`day 1 is ${d1.format} on a ${hasFar ? 'two' : 'one'}-tier site — `
+      + `it must be ${hasFar ? 'TRIAL' : 'GREET'}`);
   const fars = plan.filter(p => p.far);
   if(hasFar && fars.length !== 1) problems.push('a site with far ground needs exactly one far lap');
   if(!hasFar && fars.length) problems.push('a site with one tier of ground must not schedule a far lap');
@@ -85,7 +91,9 @@ export function judgeSchedule({ days, hasFar, unlockDay }){
   const slots = plan.map(p => p.slot);
   if(new Set(slots).size !== slots.length) problems.push('two warm-ups share a save slot, so one can mark the other done');
   const tail = plan.filter(p => WARMUP_TAIL.includes(p.format)).map(p => p.format);
-  const room = Math.max(0, days - (hasFar ? 3 : 2));
+  // Day 4 spends a tail format only when there is no far lap to spend it on
+  // instead; days 8 and 13 always do, when the campaign reaches them.
+  const room = (hasFar ? 0 : 1) + (days >= 8 ? 1 : 0) + (days >= 13 ? 1 : 0);
   const want = WARMUP_TAIL.slice(0, Math.min(WARMUP_TAIL.length, room));
   if(tail.join(',') !== want.join(','))
     problems.push(`the tail is ${tail.join(', ') || '(none)'} and this campaign has room for ${want.join(', ') || '(none)'}`);
@@ -194,49 +202,39 @@ async function selftest(){
   const two = warmupPlan({ days: 15, hasFar: true, unlockDay: 4 });
   const one = warmupPlan({ days: 15, hasFar: false });
 
-  check('a two-tier campaign opens on TRIAL and takes GREET second',
-    two[0].format === 'TRIAL' && two[1].format === 'GREET', two.slice(0, 2).map(p => p.format).join(','));
-  check('a one-tier campaign opens on GREET and takes TRIAL second',
-    one[0].format === 'GREET' && one[1].format === 'TRIAL', one.slice(0, 2).map(p => p.format).join(','));
-  check('both campaigns fill days 1 and 2',
-    two[0].day === 1 && two[1].day === 2 && one[0].day === 1 && one[1].day === 2);
+  check('a two-tier campaign opens on TRIAL, alone, on day 1',
+    two[0].format === 'TRIAL' && two[0].day === 1, two.map(p => `d${p.day}:${p.format}`).join(' '));
+  check('a one-tier campaign opens on GREET, alone, on day 1',
+    one[0].format === 'GREET' && one[0].day === 1, one.map(p => `d${p.day}:${p.format}`).join(' '));
+  check('day 2 is never a slot, on either kind of site',
+    !two.some(p => p.day === 2) && !one.some(p => p.day === 2));
+  check('every scheduled day is one of 1/4/8/13',
+    [...two, ...one].every(p => WARMUP_SLOT_DAYS.includes(p.day)),
+    [...two, ...one].map(p => p.day).join(','));
   check('the far lap is on the unlock day, and only where there is far ground',
     two.filter(p => p.far).length === 1 && two.find(p => p.far).day === 4
       && one.filter(p => p.far).length === 0);
   check('the two laps have different save slots',
     new Set(two.filter(p => p.format === 'TRIAL').map(p => p.slot)).size === 2,
     two.filter(p => p.format === 'TRIAL').map(p => p.slot).join(','));
-  check('the five that follow are each scheduled once, in order',
-    two.filter(p => WARMUP_TAIL.includes(p.format)).map(p => p.format).join(',') === WARMUP_TAIL.join(','));
-  check('the tail skips the day the far lap took',
-    !two.some(p => WARMUP_TAIL.includes(p.format) && p.day === 4)
-      && two.some(p => p.format === 'FOLLOW' && p.day === 3),
+  check('a far site spends only days 8 and 13 on the tail, since day 4 is the far lap',
+    two.filter(p => WARMUP_TAIL.includes(p.format)).map(p => `d${p.day}:${p.format}`).join(' ')
+      === 'd8:FOLLOW d13:HUNT',
     two.map(p => `d${p.day}:${p.format}`).join(' '));
-  // The property that matters is the spread, not the start: the tail used to be
-  // handed out on five consecutive mornings, so a fifteen-day campaign was over
-  // for warm-ups by day 7 and the whole back half opened on nothing. The last
-  // run lands on the last day, and no two are closer than two days apart.
-  check('a one-tier campaign runs its tail to the last day of the campaign',
-    one.find(p => p.format === 'FOLLOW').day === 3
-      && one.find(p => p.format === 'TAG').day === 15,
+  check('a one-tier site spends day 4 on the tail too, since there is no far lap to take it',
+    one.filter(p => WARMUP_TAIL.includes(p.format)).map(p => `d${p.day}:${p.format}`).join(' ')
+      === 'd4:FOLLOW d8:HUNT d13:CANVASS',
     one.map(p => `d${p.day}:${p.format}`).join(' '));
-  const gaps = (plan) => {
-    const d = plan.filter(p => WARMUP_TAIL.includes(p.format)).map(p => p.day);
-    return d.slice(1).map((x, i) => x - d[i]);
-  };
-  check('and they are spread rather than stacked — nothing lands on back-to-back days',
-    gaps(one).every(g => g >= 2) && gaps(two).every(g => g >= 2),
-    `one: ${gaps(one).join(',')}  two: ${gaps(two).join(',')}`);
-  check('the second half of a campaign opens on runs too',
-    one.filter(p => p.day > 8).length >= 2 && two.filter(p => p.day > 8).length >= 2,
-    `one: ${one.filter(p => p.day > 8).length}  two: ${two.filter(p => p.day > 8).length}`);
+  check('at most four runs are ever scheduled, whatever the site',
+    two.length <= 4 && one.length <= 4, `two: ${two.length}  one: ${one.length}`);
 
-  // A short campaign takes as many as it has room for rather than overflowing
-  // past its own last day — the junior editions are ten days, not fifteen.
+  // A short campaign takes as many of the four slots as it has room for rather
+  // than overflowing past its own last day — the junior editions are ten days.
   const short = warmupPlan({ days: 5, hasFar: false });
-  check('a five-day campaign schedules only what fits',
-    short.length === 5 && short[short.length - 1].day === 5, short.map(p => `d${p.day}`).join(','));
-  check('and the schedule check accepts that rather than demanding all five',
+  check('a five-day campaign gets day 1 and day 4 only — 8 and 13 do not fit',
+    short.length === 2 && short[0].day === 1 && short[1].day === 4,
+    short.map(p => `d${p.day}`).join(','));
+  check('and the schedule check accepts that rather than demanding four',
     judgeSchedule({ days: 5, hasFar: false }).problems.length === 0,
     judgeSchedule({ days: 5, hasFar: false }).problems.join(' | '));
 
@@ -269,8 +267,8 @@ async function selftest(){
   check('an authored run uses the campaign\'s own words',
     authored.title === 'Walk the perimeter' && authored.authored === true);
   check('a run authored under its bare format name is found too',
-    warmupDue(2, {}, { greet: { title: 'Meet the shift', why: 'Because.' } },
-      { days: 15, hasFar: true }).title === 'Meet the shift');
+    warmupDue(1, {}, { trial: { title: 'Walk the perimeter', why: 'Spies.' } },
+      { days: 15, hasFar: true }).title === 'Walk the perimeter');
 
   // The story rule, which is what the theme-level check reports
   // The introduction rule, and the two ways it would otherwise pass wrongly: a

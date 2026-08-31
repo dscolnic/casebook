@@ -7,16 +7,16 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Off the flat part",
-      "scene": "Dowd has three weeks of advance. Week one sold 41 seats, week two 66, week three 188. Sallow, the producer, is quoting the last week as the rate for the fortnight.",
-      "takeaway": "The same three numbers give two honest rates, and the interval is which one you mean.",
+      "scene": "Ruth Dowd, the box office manager, has three weekly checkpoints from the advance: 41 seats sold in total at the end of week one, 66 by the end of week two, and 188 by the end of week three. Marguerite Sallow, the producer, is quoting the last one-week jump as though it were the rate for the whole fortnight.",
+      "takeaway": "A rate of change belongs to an interval, and cumulative totals must be read as cumulative totals.",
       "place": "Box Office",
-      "guide": "A rate of change is a difference divided by an interval, and the interval is part of the answer. Work out the average across all three weeks, then compare it with the last week on its own. Both are correct arithmetic about the same three numbers, and one of them is being used to forecast eleven days nobody has data for.",
+      "guide": "A rate of change is a change in a cumulative total divided by the time between the two checkpoints. Work out the average from week one to week three, then compare it with the last one-week jump. Both are correct arithmetic about the same curve; they answer different interval questions.",
       "background": [
-        "Why the interval matters as much as the numbers. The same three weeks give 98 seats a week averaged, or 122 a week if you take the last step alone. Neither is wrong; they answer different questions, and only one of them is a claim about the fortnight.",
+        "Why the interval matters as much as the numbers. From the first checkpoint to the third, the advance rises by 147 seats over two weeks, or 73.5 seats a week on average. Over the final one-week step it rises by 122. Neither rate is wrong; the interval is part of the statement.",
         "What a rising rate of change means. The steps are 25 and 122, so the rate is not constant — the curve is bending upward. A quantity whose rate of change is itself increasing cannot be described by any single average without saying which interval it is the average of.",
-        "Why the shape of a variety advance is known. Dowd has twenty-two years of it: three weeks flat, then vertical in the last fortnight. That is a fact about how people buy tickets rather than about this show, and it is why a week-two decision is a decision made on the flat part."
+        "Why the shape of a variety advance is known. Dowd has twenty-two years of it: three weeks flat, then vertical in the last fortnight. That is a fact about how people buy tickets rather than about this show. It is why a week-two decision is a decision made on the flat part."
       ],
-      "story": "Dowd has three weeks of advance. Week one sold 41 seats, week two 66, week three 188. Sallow, the producer, is quoting the last week as the rate for the fortnight.",
+      "story": "Ruth Dowd, the box office manager, has three weekly checkpoints from the advance: 41 seats sold in total at the end of week one, 66 by the end of week two, and 188 by the end of week three. Marguerite Sallow, the producer, is quoting the last one-week jump as though it were the rate for the whole fortnight.",
       "game": {
         "type": "BALLPARK",
         "title": "Off the flat part",
@@ -24,8 +24,8 @@ export const CURRICULUM = {
         "play": "Work out what the advance is doing per week",
         "task": "Work out what the advance is doing per week",
         "question": "Estimate the average rate of change in sales across the three weeks.",
-        "answer": "About 73.5 seats a week averaged across the interval, against 122 in the last week alone.",
-        "why": "The change is 147 seats over two weekly steps, so the average rate is 73.5 a week. The last step alone is 122. Both are honest and they answer different questions, which is the whole point: a rate of change is a property of an interval, not of a curve. What the two together tell you is that the rate is itself rising, so no single number describes the fortnight. Dividing by three rather than two is the common slip — three figures have two gaps between them — and it understates the rate by a third.\n",
+        "answer": "About 73.5 seats a week from the first checkpoint to the third, against 122 seats in the last one-week jump.",
+        "why": "The cumulative advance rises by 147 seats between the first and third checkpoints, across two weekly intervals, so the average rate is 73.5 seats a week. The final one-week jump is 122. Both are honest rates and they answer different questions. Dividing by three is the common slip: three checkpoints contain only two intervals between the first and the third.",
         "rebuttals": [
           "Three data points have two intervals between them, so dividing by three understates the rate.",
           "The last step alone is a rate over one week and cannot be read as the rate across three."
@@ -75,9 +75,9 @@ export const CURRICULUM = {
       "day": 2,
       "title": "Flat, then vertical",
       "scene": "Dowd has four weeks now: 41, 66, 188, 402. Sallow wants a forecast for the fortnight. A straight line through the four points misses the last one by ninety seats.",
-      "takeaway": "Each family of function has its own fingerprint in a table of values.",
+      "takeaway": "A table can support one simple model family better than another without proving that family is the true mechanism.",
       "place": "Box Office",
-      "guide": "Fit each candidate shape in your head and look at what it leaves over. A straight line has a constant difference, an exponential has a constant ratio, and a quadratic has a constant second difference. Work out which of the three the four numbers actually have, and treat the residuals — what each model missed by — as the evidence rather than the eye.",
+      "guide": "Compare the fingerprints of the simple families on the list. A line has constant first differences, an exponential has a constant ratio, and a quadratic has constant second differences. Decide which one best matches these four checkpoints, then keep the extrapolation caveat separate from the fit.",
       "background": [
         "What the differences say. The steps are 25, 122 and 214, which is not constant, so it is not linear. The ratios are 1.6, 2.8 and 2.1, which is not constant either. The second differences are 97 and 92, which very nearly are — and that is a quadratic.",
         "Why residuals rather than appearance. Any smooth curve through four points looks plausible drawn by hand. The residual is the observed value minus the predicted one, and a model with a pattern in its residuals is the wrong shape however close it looks.",
@@ -90,19 +90,19 @@ export const CURRICULUM = {
         "setup": "Box Office",
         "play": "Say which curve the advance is following",
         "task": "Say which curve the advance is following",
-        "question": "Which family do the four weekly figures actually belong to?",
+        "question": "Which simple family best matches the four weekly checkpoints?",
         "answer": "Quadratic: the second differences are nearly constant",
-        "why": "The first differences are 25, 122 and 214, which rules out a straight line. The ratios are 1.6, 2.8 and 2.1, which rules out an exponential — a constant ratio is exactly what an exponential has. The second differences are 97 and 92, near enough constant to identify a quadratic. Rising every week makes a curve increasing rather than linear, and one doubling is not a constant ratio. Four points can identify a family, and the honest caveat is different: all three models agree inside the data and disagree wildly outside it, which is precisely where the forecast is wanted.\n",
+        "why": "The first differences are 25, 122 and 214, so a line is a poor match. The ratios are 1.6, 2.8 and 2.1, so a single exponential is also a poor match. The second differences are 97 and 92, which makes a quadratic the best match among these three simple families. That is evidence for a local model, not proof that ticket buying is intrinsically quadratic. Many other functions could pass through four points, and extrapolation is exactly where those alternatives separate.",
         "rebuttals": [
           "Rising every week makes it increasing. Linear needs the rise to be the same each week.",
           "One doubling is not a constant ratio, and the ratios here run 1.6, 2.8 and 2.1.",
-          "Four points do identify a family from their differences; what they cannot do is justify extrapolation."
+          "Four checkpoints are enough to compare these listed simple families; they are not enough to prove a unique underlying function."
         ],
         "choices": [
           "Quadratic: the second differences are nearly constant",
           "Linear: the sales rise every week",
           "Exponential: the sales more than double at one point",
-          "None of them, because four points cannot identify a family"
+          "None of them can be compared from only four checkpoints"
         ],
         "correctChoice": "Quadratic: the second differences are nearly constant"
       },
@@ -135,7 +135,7 @@ export const CURRICULUM = {
       "background": [
         "Why returns decay proportionally. The people most likely to return a ticket do it soon after buying, so each week draws on a shrinking pool of recent buyers. That produces a constant fraction rather than a constant number, which is the signature of an exponential.",
         "Why the difference test fails here. The drops are 25 and 18, which is not constant, so a straight line is out. The ratios are 0.70 and 0.69, which is about as constant as three real numbers get, and it is the ratio that identifies the family.",
-        "What it cannot say. The model is fitted over three weeks and the fortnight ahead is outside them. Returns will not follow this curve to zero — there is a floor of cancellations that happen for reasons unrelated to buying — and a model quoted past its data is a claim about a mechanism nobody has checked."
+        "What it cannot say. The model is fitted over three weeks and the fortnight ahead is outside them. Returns will not follow this curve to zero. There is a floor of cancellations that happen for reasons unrelated to buying. And a model quoted past its data is a claim about a mechanism nobody has checked."
       ],
       "story": "Returned tickets: 84 in the first week after they went on sale, then 59, then 41. Dowd wants the fourth week before she releases the held seats.",
       "game": {
@@ -146,7 +146,7 @@ export const CURRICULUM = {
         "task": "Fit the returns to a decay",
         "question": "Estimate next week's returns from the ratio.",
         "answer": "About 29 tickets, where subtracting the last drop would have said 23.",
-        "why": "The ratios are 0.70 and 0.69, so the sensible model multiplies by about 0.70 each week: 41 becomes 29. Subtracting the last drop of 18 gives 23, and the two answers diverge fast — by week six the ratio model says 14 and the subtraction says nothing at all, because it has gone negative. That is the practical test between the families and it is worth doing on three numbers. What the model does not license is week eight: it is fitted on three weeks, returns have a floor made of cancellations that happen for their own reasons, and a curve quoted past its data is a claim about a mechanism nobody has checked.\n",
+        "why": "The ratios are 0.70 and 0.69, so the sensible model multiplies by about 0.70 each week: 41 becomes 29. Subtracting the last drop of 18 gives 23 instead, and the two answers diverge fast. By week six the ratio model says 14, and the subtraction says nothing at all, because it has gone negative. That is the practical test between the families and it is worth doing on three numbers. What the model does not license is week eight. It is fitted on three weeks, and returns have a floor made of cancellations that happen for their own reasons. A curve quoted past its data is a claim about a mechanism nobody has checked.\n",
         "rebuttals": [
           "Subtracting the last drop treats a shrinking quantity as falling by a constant amount, and it goes negative by week six.",
           "The first week's figure is where the decay started, not what it is now multiplying."
@@ -221,7 +221,7 @@ export const CURRICULUM = {
       "guide": "Take the model at its word and see where the word breaks. Work out what the prediction says and compare it with something the model cannot know, then say which of the four statements about it is the honest one. A model that fits its data is a claim about that data.",
       "background": [
         "What extrapolation actually assumes. That the mechanism producing the numbers keeps working the same way outside the range measured. Here it cannot: the house has nine hundred seats, so sales must flatten no matter what the curve does.",
-        "Why the fit is not the problem. The quadratic is the right family inside the four weeks, and its residuals are small. Choosing the right shape and then using it outside the data are two separate steps, and the second one is where this goes wrong."
+        "Why the local fit is not the problem. A quadratic is the best of the listed simple families over the four measured checkpoints, and its residuals there are small. The mistake is turning that local descriptive fit into a mechanism that must continue outside the observed range."
       ],
       "story": "The quadratic through four weeks of advance sales fits closely. Extended to week eight it predicts 2,140 seats sold, in a house that holds nine hundred.",
       "game": {
@@ -232,7 +232,7 @@ export const CURRICULUM = {
         "task": "Say what the model is a model of",
         "question": "What is the honest thing to say about the week-eight figure?",
         "answer": "The curve is right and the extrapolation is not",
-        "why": "Two things are separately true. Inside the four weeks the quadratic is the right family and its residuals are small, so the fit is not in question. Outside them the model assumes a mechanism that keeps working, and it cannot here, because there are nine hundred seats. So the honest sentence keeps the fit and refuses the forecast. Saying the family was wrong throws away a good description of what happened. Saying sales will reach nine hundred and stop is a different model nobody has fitted — plausible, and not what these four numbers say. And more data does not fix an extrapolation; it only moves where the extrapolation starts.\n",
+        "why": "Two things are separately true. Over the four measured checkpoints, the quadratic is the best of the simple candidate families and describes the data closely. Outside that range it predicts a mechanism that cannot keep going because the house holds only 900 seats. So the honest statement keeps the local fit and refuses the week-eight forecast. More data can extend the range of evidence; it never makes extrapolation automatic.",
         "rebuttals": [
           "The residuals inside the four weeks are small, so the family is right about the data it was fitted to.",
           "A ceiling at nine hundred is a different model, and it has not been fitted to anything.",
@@ -268,24 +268,24 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What the curve says the twelve are worth",
-      "scene": "Dowd's returns data gives a resale price that rises as the house fills: with 60 seats left it is £41, with 30 it is £82, with 12 it is £205. The model is a constant over the seats remaining.",
+      "scene": "Dowd has a scarcity model fitted to comparable late sales: when 60 seats remain the model gives £41 per seat, at 30 it gives £82, and at 12 it gives £205. The model is k divided by seats remaining, and Dowd wants the implied price at twelve — not a promise that anybody will pay it.",
       "takeaway": "A constant over a shrinking quantity rises without bound, which is a vertical asymptote.",
       "place": "Box Office",
-      "guide": "A price that doubles as the seats remaining halve is a constant divided by the seats remaining. Find the constant from one of the three points and use it on the twelve. Then say what the model does as the last seat goes, because that behaviour is the whole reason this shape was chosen.",
+      "guide": "Find k from one point, then divide by 12 to recover the modelled per-seat value. Finally inspect the asymptote: as seats remaining approaches zero the formula blows up, which is exactly why the model must not be mistaken for a literal last-seat price.",
       "background": [
         "What the asymptote means here. As the seats remaining approach zero the modelled price rises without bound, which is a vertical asymptote at zero. No real seat sells for an unbounded price, so the model is describing scarcity rather than predicting a transaction.",
-        "Why the fit is convincing anyway. Sixty seats at £41, thirty at £82 and twelve at £205 all give a constant of about 2,460. Three points agreeing on the constant is what identifies the family, and it is a stronger test than any of them individually."
+        "Why the reciprocal form is useful here. The three observed pairs all give about the same product, £2,460·seats, so k/n is a compact local description of these points. That agreement supports using the model nearby; it does not prove that ticket value must obey a reciprocal law."
       ],
-      "story": "Dowd's returns data gives a resale price that rises as the house fills: with 60 seats left it is £41, with 30 it is £82, with 12 it is £205. The model is a constant over the seats remaining.",
+      "story": "Dowd has a scarcity model fitted to comparable late sales: when 60 seats remain the model gives £41 per seat, at 30 it gives £82, and at 12 it gives £205. The model is k divided by seats remaining, and Dowd wants the implied price at twelve — not a promise that anybody will pay it.",
       "game": {
         "type": "BALLPARK",
         "title": "What the curve says the twelve are worth",
         "setup": "Box Office",
         "play": "Work out what the last seats are worth",
         "task": "Work out what the last seats are worth",
-        "question": "Estimate the modelled value of the last twelve seats.",
-        "answer": "About £2,460 — which is the constant itself, because price times seats is fixed in this model.",
-        "why": "Twelve seats at the modelled £205 is £2,460. That equals the fitted constant, and the reason is the shape of the model: price times seats remaining is fixed. So the last twelve are worth what the last thirty were, and what the last sixty were. It is a real result about scarcity, and it is also where the model stops. As the seats remaining approach zero the price rises without bound, and no seat sells for an unbounded amount. The £2,460 is the number for the argument. The asymptote is the caveat that goes with it.\n",
+        "question": "Estimate the modelled per-seat value when twelve seats remain.",
+        "answer": "About £205 per seat in the fitted scarcity model; twelve such seats would represent up to about £2,460 of modelled revenue.",
+        "why": "The fitted constant is £2,460·seats, so at 12 seats remaining the model gives £205 per seat. Multiplying back by twelve gives £2,460 of modelled revenue at risk if all twelve sell at that price. The asymptote is the warning: as the denominator approaches zero the formula predicts absurdly large prices, so this is a local scarcity model, not a law of ticket value.",
         "rebuttals": [
           "Dividing the constant by the capacity prices a full house, which is a different question.",
           "The constant on its own is a fitted parameter rather than a value in pounds until it is used."
@@ -344,7 +344,7 @@ export const CURRICULUM = {
       "guide": "Work with the differences rather than the totals. Sales are still rising, so the totals say nothing about the argument. What settles it is whether the rise itself is getting bigger or smaller, which is the difference of the differences.",
       "background": [
         "What the two claims actually are. Sallow is claiming the second difference is still positive — the increase is increasing. Dowd is claiming it has gone negative. Both agree sales are rising, which is why the totals cannot arbitrate.",
-        "Why it matters commercially. If the rise is slowing, the last hundred seats will not sell themselves and the marketing spend has a job to do. If it is still accelerating, the spend is wasted on seats that were going anyway."
+        "Why it matters commercially. If the weekly increase is shrinking, the producer cannot honestly treat the earlier acceleration as a guarantee of a sellout. The data supports a change in the rate; the pricing or marketing response is a separate decision with costs the curve does not contain."
       ],
       "story": "Weekly sales now read 41, 66, 188, 402, 511, 566. Sallow reads it as still accelerating. Dowd says it turned last week.",
       "game": {
@@ -355,7 +355,7 @@ export const CURRICULUM = {
         "task": "Say what the sales curve has done",
         "question": "What do the six figures say about the argument?",
         "answer": "The rise peaked at week four and has slowed since",
-        "why": "The weekly rises are 25, 122, 214, 109 and 55. They grew to week four and have fallen away since, so sales are still increasing while the increase is shrinking — which is precisely Dowd's claim and precisely why the totals cannot settle it. Sales are not falling: every week is larger than the one before, and reading a slowing rise as a decline is the mirror error. Six points are ample to see a turn in the differences; what six points cannot support is a forecast past them. Commercially the answer decides whether the last hundred seats need spending on, and they do.\n",
+        "why": "The weekly increases are 25, 122, 214, 109 and 55. They grew through the week-four checkpoint and then shrank, so cumulative sales are still increasing while the increase is slowing. That supports Dowd's description of the recent data. It does not show that sales themselves are falling, and it does not justify a forecast beyond the observed checkpoints. The operational consequence is simply that Sallow cannot use the old acceleration as evidence that the remaining seats will sell automatically.",
         "rebuttals": [
           "The producer's claim needs the rises to keep growing, and they have halved twice.",
           "Every week is larger than the last, so nothing here is falling.",
@@ -390,37 +390,37 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "The last hundred seats",
-      "scene": "Eight hundred and sixty-one sold, thirty-nine unsold and the twelve now clear on the moved mark. The weekly rise peaked at week four and has been falling since.",
-      "takeaway": "A rising total with a falling rise does not finish the job on its own.",
+      "title": "The last thirty-nine seats",
+      "scene": "Eight hundred and sixty-one seats are sold and thirty-nine remain. The twelve formerly blocked seats are already valid after the mark moved. Weekly cumulative sales are still rising, but the weekly increases peaked earlier and have been shrinking.",
+      "takeaway": "A slowing increase is not a decline, and it is not a guaranteed sellout either.",
       "place": "Box Office",
-      "guide": "Use what the differences said rather than what the total says. A rising total with a falling rise does not fill a house on its own, so decide whether the last thirty-nine sell themselves and what the answer implies for tonight.",
+      "guide": "Separate what the data says from what the producer wants it to say. A positive but shrinking weekly increase does not prove the remaining 39 will sell before seven, and it does not prove they will not. Make the box-office action that needs the fewest unsupported assumptions.",
       "background": [
         "What the turn means for the last seats. The rise has halved twice, so the remaining thirty-nine will not go the way the first eight hundred did. They need a reason — day-of-performance release, a price, or somebody telling the town the twelve are back on sale.",
         "Why the twelve matter out of proportion. They are the only seats whose availability is news, because they were withdrawn and are now clear. Everything else on the list is a seat that has been on sale for six weeks."
       ],
-      "story": "Eight hundred and sixty-one sold, thirty-nine unsold and the twelve now clear on the moved mark. The weekly rise peaked at week four and has been falling since.",
+      "story": "Eight hundred and sixty-one seats are sold and thirty-nine remain. The twelve formerly blocked seats are already valid after the mark moved. Weekly cumulative sales are still rising, but the weekly increases peaked earlier and have been shrinking.",
       "game": {
         "type": "CHOICE",
-        "title": "The last hundred seats",
+        "title": "The last thirty-nine seats",
         "setup": "Box Office",
-        "play": "Decide what to do with the last hundred",
-        "task": "Decide what to do with the last hundred",
-        "question": "What should the box office do at noon?",
-        "answer": "Release the twelve as returned seats and hold the rest for the door",
-        "why": "The rise has halved twice, so the remaining thirty-nine are not going to sell themselves in a day — the total rising says nothing about the rate, which is what fills the last of a house. The twelve are the only seats whose availability is actually news, having been withdrawn and then cleared, so releasing them is the one action that generates its own demand. Discounting thirty-nine seats on a sold-out-looking night gives away revenue on seats that walk-ups take anyway. Doing nothing reads the total and ignores the rate. Holding all of them for the recording company empties the two rows the camera is pointed at.\n",
+        "play": "Decide what to do with the remaining thirty-nine seats",
+        "task": "Decide what to do with the remaining thirty-nine seats",
+        "question": "What should the box office do with the remaining thirty-nine?",
+        "answer": "Keep them on normal sale through doors, without claiming a sellout",
+        "why": "Sales are still increasing, so closing sales makes no sense. The increase is shrinking, so the data also does not justify claiming the last 39 will disappear on their own. Nothing in the evidence establishes that a discount is required or that the recording company needs those seats. Keeping them available at the existing price while refusing a sellout forecast is the decision supported by the data actually in hand.",
         "rebuttals": [
           "Discounting gives away revenue on the seats walk-ups take at full price.",
           "The total rising is not the rate rising, and the rate has halved twice.",
           "Held seats leave visible gaps in exactly the rows the camera looks at."
         ],
         "choices": [
-          "Release the twelve as returned seats and hold the rest for the door",
-          "Discount the remaining thirty-nine",
-          "Do nothing, since the total is still rising",
-          "Hold all thirty-nine back for the recording company"
+          "Keep them on normal sale through doors, without claiming a sellout",
+          "Discount all thirty-nine immediately because the rate is slowing",
+          "Close sales because the curve has turned",
+          "Hold all thirty-nine for the recording company"
         ],
-        "correctChoice": "Release the twelve as returned seats and hold the rest for the door"
+        "correctChoice": "Keep them on normal sale through doors, without claiming a sellout"
       },
       "assumes": [
         "the twelve seats are confirmed clear on the moved mark",
@@ -444,16 +444,16 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Off the flat part — Review",
-      "scene": "Ruth Dowd, the box office manager, has the telephone log from the on-sale week: 120 bookings by the end of day one, 168 by day three, 300 by day five, 540 by day seven. Four people have quoted four different rates off it.",
+      "scene": "Ruth Dowd, the box office manager, has the telephone log from the on-sale week. It reads 120 bookings by the end of day one, 168 by day three, 300 by day five, 540 by day seven. Four people have quoted four different rates off it.",
       "takeaway": "A rate belongs to the interval it was measured over, so one table gives as many rates as it has intervals.",
       "place": "Box Office",
       "guide": "Take each interval on its own. Subtract the earlier reading from the later one, divide by the number of days between the two, and pair the interval with the figure it gives. All four are honest arithmetic about one log. The count to watch is days rather than readings, because four readings across the week have six days between the first and the last.",
       "background": [
         "Why one table gives four rates. A rate of change is a property of an interval rather than of a curve, so every pair of readings in the log has its own. None of them is more correct than another. What differs is the stretch of the week each one describes, and that is the part a quoted figure usually leaves out.",
-        "What the spread across these four says. Twenty-four a day at the start and 120 a day at the end is a rate that has multiplied by five inside one week. A quantity whose rate of change is itself rising cannot be summarised by any single average, which is why Dowd keeps the log by day rather than by week.",
+        "What the spread across these four says. Twenty-four a day at the start and 120 a day at the end is a rate that has multiplied by five inside one week. A quantity whose rate of change is itself rising cannot be summarised by any single average. That is why Dowd keeps the log by day rather than by week.",
         "Why the staffing argument turns on this. Two clerks were rostered against the week's average of 70 a day. The last pair of days ran at 120 and the queue reached the street, and the fortnight ahead is steeper than either figure."
       ],
-      "story": "Ruth Dowd, the box office manager, has the telephone log from the on-sale week: 120 bookings by the end of day one, 168 by day three, 300 by day five, 540 by day seven. Four people have quoted four different rates off it.",
+      "story": "Ruth Dowd, the box office manager, has the telephone log from the on-sale week. It reads 120 bookings by the end of day one, 168 by day three, 300 by day five, 540 by day seven. Four people have quoted four different rates off it.",
       "game": {
         "type": "PROTOCOL",
         "title": "Off the flat part — Review",
@@ -522,16 +522,16 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Six metres up, nine metres out",
-      "scene": "The front-of-house bar is 6.2 metres above the stage floor and 9.4 metres out from the performer's mark. Adeyemi wants the down angle before Ferreira sets the yokes.",
+      "scene": "The front-of-house bar is 6.2 metres above the stage floor and 9.4 metres out from the performer's mark. Tunde Adeyemi, the lighting designer, wants the down angle before Nuno Ferreira, the chief electrician, sets the yokes.",
       "takeaway": "A ratio of two sides gives the tangent, and the inverse tangent gives the angle back.",
       "place": "Lighting Board",
-      "guide": "Two sides of a right triangle fix the angle. The height above the mark is opposite the angle at the lantern and the horizontal distance is adjacent to it, so the ratio of those two gives the tangent, and the inverse tangent gives the angle. Work it out, then say what the same lantern would need if the bar were two metres lower.",
+      "guide": "Two sides of a right triangle fix the angle. The height above the mark is opposite the angle at the lantern, and the horizontal distance is adjacent to it. So the ratio of those two is the tangent, and the inverse tangent of it is the angle. Work it out, then say what the same lantern would need if the bar were two metres lower.",
       "background": [
         "Why this angle rather than another. A performer's face is lit by what arrives from above and in front, and the usual figure is somewhere near thirty-five to forty-five degrees down. Steeper puts the eyes in shadow; shallower puts the light in the audience's eyes and flattens the face.",
         "Why the inverse function is needed. The ratio is the easy part; the angle has to be recovered from it, and that is what an inverse trigonometric function is for. It returns one angle from a restricted range, which is all that is wanted here because a lantern's down angle is between zero and ninety degrees by construction.",
-        "Why the numbers come off the room. The bar height is measured with a tape from the stage floor and the distance from the mark is stepped out on the deck, because the 1911 plan puts the bar 400 millimetres further out than it is."
+        "Why the numbers come off the room. The bar height is measured with a tape from the stage floor, and the distance from the mark is stepped out on the deck. The 1911 plan puts the bar 400 millimetres further out than it is."
       ],
-      "story": "The front-of-house bar is 6.2 metres above the stage floor and 9.4 metres out from the performer's mark. Adeyemi wants the down angle before Ferreira sets the yokes.",
+      "story": "The front-of-house bar is 6.2 metres above the stage floor and 9.4 metres out from the performer's mark. Tunde Adeyemi, the lighting designer, wants the down angle before Nuno Ferreira, the chief electrician, sets the yokes.",
       "game": {
         "type": "BALLPARK",
         "title": "Six metres up, nine metres out",
@@ -540,7 +540,7 @@ export const CURRICULUM = {
         "task": "Work out the angle the lantern has to make",
         "question": "Estimate the down angle from the bar to the mark.",
         "answer": "About 33 degrees below the horizontal, which is shallower than the designer wants.",
-        "why": "The height is opposite the angle and the distance is adjacent to it, so the tangent is 6.2 over 9.4, which is 0.66, and the inverse tangent of that is 33.4 degrees. The arithmetic settles a rigging argument: 33 degrees is shallow for a face light, so either the bar comes in or the mark moves upstage. Using the straight-line throw of 11.3 metres as one of the two sides gives 33 degrees for the wrong reason — that is the hypotenuse, and it belongs in a sine or a cosine rather than a tangent. The 45 degrees is what a designer would like and is not a measurement of anything in this room.\n",
+        "why": "The height is opposite the angle and the distance is adjacent to it. So the tangent is 6.2 over 9.4, which is 0.66, and the inverse tangent of that is 33.4 degrees. The arithmetic settles a rigging argument: 33 degrees is shallow for a face light, so either the bar comes in or the mark moves upstage. Using the straight-line throw of 11.3 metres as one of the two sides gives 33 degrees for the wrong reason. That length is the hypotenuse, and it belongs in a sine or a cosine rather than a tangent. The 45 degrees is what a designer would like and is not a measurement of anything in this room.\n",
         "rebuttals": [
           "The 11.3 metres is the hypotenuse. Using it with the height gives a sine, not a tangent.",
           "The 45 degrees is a preference rather than a measurement of this bar."
@@ -593,16 +593,16 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Twice as far, a quarter as bright",
-      "scene": "Ferreira has to move a unit off the front bar because the flying sequence needs the space. The new position is twice as far from the mark. Adeyemi says the level goes to a quarter; Sallow has been told it halves.",
-      "takeaway": "A quantity spreading over a sphere falls as the square of the distance.",
+      "scene": "Ferreira has to move a unit off the front bar because the flying sequence needs the space. The replacement position is twice as far from the mark. For the same fixture and the same beam setting, Adeyemi expects the on-axis level to follow an inverse-square approximation; Sallow has been told it simply halves.",
+      "takeaway": "With the same source and beam geometry, inverse-square scaling makes twice the distance about one quarter the illuminance.",
       "place": "Lighting Board",
-      "guide": "Ask what the function of distance actually is before arguing about the factor. Light from a point source spreads over a sphere, and the area of a sphere goes as the square of the radius, so the level at a surface goes as one over the distance squared. Then say what that means for the two claims in the room, and what could be done about it.",
+      "guide": "For a pointlike source with the same angular distribution, illuminance on axis scales approximately as one over distance squared. Double the distance and compare the factor. Real stage optics are not an isotropic sphere, so this relationship predicts the distance scaling, not the final meter reading.",
       "background": [
         "Why the square rather than the distance. The same light spreads over a surface that grows as the square of the radius, so it is diluted by that square. Doubling the distance quadruples the area and quarters the level. This is not specific to light: it is what happens to anything radiating outward from a point.",
-        "What can be done about it. A narrower beam angle puts the same output on a smaller patch, which recovers level at the cost of coverage — so a unit moved back can be re-lensed rather than replaced. What cannot be recovered is the softness that comes with a wide beam close in.",
-        "Why the mistake is so common. Intuition is linear. Twice as far sounding like half as bright is one of the most reliable wrong answers in a technical rehearsal, and the correction is a factor of two on a number somebody has already set a fader to."
+        "What can be done about it. A narrower beam angle puts the same output on a smaller patch, which recovers level at the cost of coverage. So a unit moved back can be re-lensed rather than replaced. What cannot be recovered is the softness that comes with a wide beam close in.",
+        "Why the mistake is so common. Intuition is linear. Twice as far sounding like half as bright is one of the most reliable wrong answers in a technical rehearsal. The correction is a factor of two on a number somebody has already set a fader to."
       ],
-      "story": "Ferreira has to move a unit off the front bar because the flying sequence needs the space. The new position is twice as far from the mark. Adeyemi says the level goes to a quarter; Sallow has been told it halves.",
+      "story": "Ferreira has to move a unit off the front bar because the flying sequence needs the space. The replacement position is twice as far from the mark. For the same fixture and the same beam setting, Adeyemi expects the on-axis level to follow an inverse-square approximation; Sallow has been told it simply halves.",
       "game": {
         "type": "CHOICE",
         "title": "Twice as far, a quarter as bright",
@@ -611,7 +611,7 @@ export const CURRICULUM = {
         "task": "Say what happens when the lantern moves back",
         "question": "What does doubling the throw do to the level at the mark?",
         "answer": "Quarters it: four times the area to cover",
-        "why": "Light from a point spreads over a sphere, and a sphere's area goes as the square of its radius, so twice the distance is four times the area and a quarter of the level. Halving is the intuitive answer and it is wrong by a factor of two on a number somebody has already set a fader to. Keeping the beam angle unchanged is exactly the case being described — the angle is what makes the patch bigger as the unit goes back. Colour costs level through the filter and does so at any distance, so it is a separate multiplication rather than an explanation of this one. What recovers the level is a narrower lens, at the price of coverage.\n",
+        "why": "Under the inverse-square approximation, doubling the throw multiplies the illuminated area scale by four, so the on-axis illuminance falls to about one quarter. The useful result is the factor, not a claim that a stage lantern is an isotropic point source. Lenses, shutters and beam shape change the absolute level, which is why Ferreira still meters the mark.",
         "rebuttals": [
           "Halving is the linear intuition; the area the light covers grows as the square.",
           "An unchanged beam angle is the case in question: the same cone covers four times the area at twice the distance.",
@@ -654,7 +654,7 @@ export const CURRICULUM = {
       "background": [
         "Why a designer works in polar and a rigger in rectangular. A lantern is aimed, so its natural description is a direction and a throw. A bar is a straight line with positions along it, so its natural description is a distance from centre. Both are right and the conversion is the interface between two trades.",
         "Which offset matters first. The across-stage figure is where on the bar the unit hangs, which has to be right before anything is bolted. The upstage figure decides which bar, and there are only four to choose from, so it is coarser and easier to fix.",
-        "What goes wrong without the conversion. Two people describing the same rig in different coordinates agree about everything and hang nothing, or worse, hang it 900 millimetres out because a bearing was read as an offset."
+        "What goes wrong without the conversion. Two people can describe the same rig in different coordinate systems and agree on every raw number while still naming different physical points. A bearing interpreted as an offset can move a unit by hundreds of millimetres without producing an obviously absurd value."
       ],
       "story": "Adeyemi's plot puts a unit 7.4 metres from the centre of the proscenium at a bearing of 38 degrees off the centre line. Ferreira works in metres left or right of centre and metres upstage.",
       "game": {
@@ -665,7 +665,7 @@ export const CURRICULUM = {
         "task": "Turn the bearing into a position on the bar",
         "question": "Estimate how far off centre the unit hangs.",
         "answer": "About 4.56 metres off centre, with 5.8 metres upstage choosing the bar.",
-        "why": "The distance is the hypotenuse and the bearing is the angle at the centre, so the across-stage offset is 7.4 times the sine of 38 degrees: 4.56 metres. Using the cosine gives 5.83, which is the upstage offset — a perfectly real number for a different question, and the reason the two are on the same tile row. Getting them the wrong way round hangs the unit 1.3 metres out of position, which on a front bar is the difference between lighting a performer and lighting the person beside them. The complement of the angle is on the row because using it swaps the two offsets silently.\n",
+        "why": "The distance is the hypotenuse and the bearing is the angle at the centre, so the across-stage offset is 7.4 times the sine of 38 degrees: 4.56 metres. Using the cosine gives 5.83, which is the upstage offset. That is a perfectly real number for a different question, and the reason the two sit on the same tile row. Getting them the wrong way round hangs the unit 1.3 metres out of position. On a front bar that is the difference between lighting a performer and lighting the person beside them. The complement of the angle is on the row because using it swaps the two offsets silently.\n",
         "rebuttals": [
           "The cosine of the bearing gives the upstage offset, which chooses the bar rather than the position along it.",
           "Using the complement of the angle swaps the two offsets without changing either number's plausibility."
@@ -723,8 +723,8 @@ export const CURRICULUM = {
       "place": "Lighting Board",
       "guide": "The coefficient inside the function is what squeezes or stretches the cycle, and the period is two pi divided by it. Work it out in seconds, then say what a larger coefficient would do — because the relationship is inverse and the intuition usually runs the wrong way.",
       "background": [
-        "Why the relationship is inverse. The function completes a cycle when its argument advances by two pi, and the argument advances B times as fast as the input, so a larger B means a shorter cycle. Doubling the coefficient halves the period.",
-        "What a count is for. A cue called on a count rather than on a look is repeatable, and a period in seconds converts to a count at whatever tempo the band is playing. That conversion is why the number has to be a period and not a description."
+        "Why the relationship is inverse. The function completes a cycle when its argument advances by two pi. The argument advances B times as fast as the input, so a larger B means a shorter cycle. Doubling the coefficient halves the period.",
+        "What a count is for. A cue called on a count rather than on a look is repeatable. A period in seconds converts to a count at whatever tempo the band is playing. That conversion is why the number has to be a period and not a description."
       ],
       "story": "The chase on the board runs as a sinusoid in the intensity of each circuit, written with an inside coefficient of 0.42 per second. Haigh needs the period to call the cue on a count.",
       "game": {
@@ -735,7 +735,7 @@ export const CURRICULUM = {
         "task": "Work out how long one turn takes",
         "question": "Predict the period from the coefficient, then run the chase and time it.",
         "answer": "Predicted 15.0 seconds from two pi over 0.42, timed at 15.2 — a count of thirty at 120 beats a minute, which is what Haigh can call the cue against.",
-        "why": "A cycle finishes when the argument advances by two pi, and it advances 0.42 times as fast as the clock, so the period is 6.283 over 0.42: fifteen seconds. The board runs it at 15.2, which is the software doing what it was told. The relationship is inverse, which is where intuition fails — doubling the coefficient gives seven and a half seconds rather than thirty. Using pi instead of two pi halves the answer and would have put the cue in the wrong bar, and it is the measurement that would have caught it.\n",
+        "why": "A cycle finishes when the argument advances by two pi. It advances 0.42 times as fast as the clock, so the period is 6.283 over 0.42: fifteen seconds. The board runs it at 15.2, which is the software doing what it was told. The relationship is inverse, which is where intuition fails — doubling the coefficient gives seven and a half seconds rather than thirty. Using pi instead of two pi halves the answer, and would have put the cue in the wrong bar. The measurement is what would have caught it.\n",
         "relationship": "The period from the inside coefficient, period = 2π ÷ B.",
         "verify": {
           "prediction": {
@@ -809,15 +809,15 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Four pi d squared",
-      "scene": "The unit puts out 9,600 lumens. The mark is 11.3 metres away along the beam. Ferreira wants the figure before he puts a meter under it tonight.",
-      "takeaway": "Output over four pi d squared is the floor, and a lens is what puts it above that.",
+      "scene": "The photometric sheet gives 9,600 candela on axis for the chosen beam. The mark is 11.3 metres away along that axis. Ferreira wants the inverse-square prediction before he puts a meter under it tonight.",
+      "takeaway": "On-axis illuminance is luminous intensity divided by distance squared; the meter tests how well the fixture matches the approximation.",
       "place": "Lighting Board",
-      "guide": "Light leaving a point spreads over a sphere, and the area of that sphere is four pi times the radius squared. Divide the output by that area to get what arrives per square metre. Then compare it with what the same unit gives at half the distance, because the factor is the part worth carrying.",
+      "guide": "On axis, illuminance from a source with known luminous intensity follows E = I/d² in the point-source approximation. Use the candela value and the throw to predict lux, then compare with the meter. The measurement checks the real lens, focus and alignment.",
       "background": [
-        "Why this is an estimate rather than a measurement. A real lantern is not a point and does not radiate in all directions — a lens puts most of the output into a cone, so the actual level is several times this figure. The spherical calculation gives the floor, which is why Ferreira meters it rather than trusting it.",
+        "Why this is an estimate rather than a measurement. A real lantern is not a point and does not radiate in all directions. A lens puts most of the output into a cone, so the actual level is several times this figure. The spherical calculation gives the floor, which is why Ferreira meters it rather than trusting it.",
         "What the square does to a rigging decision. Half the distance is four times the level, so a unit moved from eleven metres to five and a half gains two stops of light. That is why front-of-house positions are argued about more than any other part of a rig."
       ],
-      "story": "The unit puts out 9,600 lumens. The mark is 11.3 metres away along the beam. Ferreira wants the figure before he puts a meter under it tonight.",
+      "story": "The photometric sheet gives 9,600 candela on axis for the chosen beam. The mark is 11.3 metres away along that axis. Ferreira wants the inverse-square prediction before he puts a meter under it tonight.",
       "game": {
         "type": "BALLPARK",
         "title": "Four pi d squared",
@@ -825,8 +825,8 @@ export const CURRICULUM = {
         "play": "Work out the level arriving at the mark",
         "task": "Work out the level arriving at the mark",
         "question": "Estimate the illuminance arriving at the mark.",
-        "answer": "About 6 lux as a floor — the lens puts the real figure many times above it.",
-        "why": "The sphere at 11.3 metres has an area of 1,604 square metres, so 9,600 lumens spread over it is 6 lux. That is a floor rather than a prediction, because a lantern's lens puts most of its output into a narrow cone instead of a sphere — which is exactly why Ferreira meters at the mark. What the calculation is genuinely for is the exponent. Halving the distance quarters the area and quadruples the level, so moving a unit from eleven metres to five and a half is worth two stops, and that is why front-of-house positions are fought over. Dropping the four pi gives 75 lux and an answer that flatters the rig by more than tenfold.\n",
+        "answer": "About 75 lux on axis from the photometric sheet; the meter decides what the real rig actually delivers.",
+        "why": "Candela already describes luminous intensity in a direction, so the on-axis point-source relation is E = I/d². Dividing 9,600 by 11.3² gives about 75 lux. Dividing by 4π again would incorrectly spread a directional intensity over a sphere a second time. The meter remains necessary because stage optics, focus and aim determine how closely the installed unit follows the photometric value.",
         "rebuttals": [
           "Leaving out the four pi divides by a length squared rather than by an area.",
           "Using the bar height rather than the throw measures a vertical drop, not the distance the light travels."
@@ -882,7 +882,7 @@ export const CURRICULUM = {
       "scene": "The mark moves 1.2 metres downstage. The front bar is 6.2 metres up and was 9.4 metres out; the side boom is 4.1 metres up and 3.3 metres across. Both need new angles.",
       "takeaway": "A displacement along one unit's axis is across another's, and each angle is recomputed from its own sides.",
       "place": "Lighting Board",
-      "guide": "Recompute each angle from its own two sides after the move. The front bar's horizontal distance shortens by 1.2 metres and the boom's does not change at all, which is the part worth noticing before doing any arithmetic — a move downstage is along one unit's axis and across the other's.",
+      "guide": "Recompute each angle from its own two sides after the move. The front bar's horizontal distance shortens by 1.2 metres and the boom's does not change at all. That is the part worth noticing before any arithmetic: a move downstage is along one unit's axis and across the other's.",
       "background": [
         "Why the boom barely moves. The side boom is out to the side, so a mark moving downstage changes its distance by very little — the two displacements are nearly perpendicular. The front bar is straight out front, so the same 1.2 metres comes almost entirely off its throw.",
         "What the new front angle is. Six point two over 8.2 gives a tangent of 0.756 and an angle of 37 degrees, up from 33. That is closer to what Adeyemi wanted in the first place, which is the sort of accident worth noticing and not relying on."
@@ -896,7 +896,7 @@ export const CURRICULUM = {
         "task": "Replot the two angles the move changes",
         "question": "Estimate the new down angle from the front bar.",
         "answer": "About 37 degrees, up from 33 — nearer what the designer wanted than before.",
-        "why": "The bar height is unchanged and the horizontal distance is now 8.2 metres, so the tangent is 0.756 and the angle is 37.1 degrees. Using the old 9.4 gives the angle the plot already had, which is the error that leaves a unit aimed at where somebody used to stand. The interesting part is the asymmetry: the same 1.2 metre move takes 1.2 metres off the front bar's throw and almost nothing off the side boom's, because the displacement is along one unit's axis and across the other's. So one angle changes by four degrees and the other by less than one.\n",
+        "why": "The bar height is unchanged and the horizontal distance is now 8.2 metres, so the tangent is 0.756 and the angle is 37.1 degrees. Using the old 9.4 gives the angle the plot already had, which is the error that leaves a unit aimed at where somebody used to stand. The interesting part is the asymmetry. The same 1.2 metre move takes 1.2 metres off the front bar's throw and almost nothing off the side boom's. The displacement is along one unit's axis and across the other's. So one angle changes by four degrees and the other by less than one.\n",
         "rebuttals": [
           "The old horizontal distance gives the angle already on the plot, aimed where nobody now stands.",
           "The 1.2 metres is the change in the distance rather than a side of the triangle."
@@ -949,15 +949,15 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Not the numbers on the desk",
-      "scene": "The desk shows red at 80, green at 80 and blue at 40. The filter passes 90 per cent of red, 70 of green and 35 of blue. The dimmer curve delivers the square of the fader setting.",
+      "scene": "A meter check of the installed dimmer curve shows that output fraction is approximately the square of fader fraction over the range being used. The desk reads red 80, green 80 and blue 40; the colour filters transmit 90%, 70% and 35% respectively.",
       "takeaway": "A chain of multiplications is a transformation, and every stage scales what arrives.",
       "place": "Lighting Board",
       "guide": "Three things happen to each channel in order: the fader, the dimmer curve and the filter. Each one multiplies, so the order does not change the product — but the sizes do. Work out which channel loses most, and say why the room and the camera disagree.",
       "background": [
-        "Why a dimmer curve exists. A fader at half does not deliver half the light; older dimmers approximate a square law, so 80 per cent delivers about 64 and 40 per cent delivers 16. That is why the blue is so much weaker than the desk suggests.",
-        "Why the camera sees it differently from the eye. The eye adapts to the overall colour of a scene and largely discounts it; a camera does not unless it is told to. So a wash that looks neutral in the room reads green on a recording, which is the complaint."
+        "Why the square appears here. It is the measured response of this installed dimmer/fixture chain over the working range, not a universal law for every modern lighting system. With that calibration, a fader at 0.80 delivers about 0.64 of the reference output before the filter.",
+        "Why camera and eye can disagree. Human visual adaptation and a camera's sensor/white-balance pipeline do not weight spectra in exactly the same way. The meter and camera test therefore belong beside the RGB arithmetic rather than being replaced by it."
       ],
-      "story": "The desk shows red at 80, green at 80 and blue at 40. The filter passes 90 per cent of red, 70 of green and 35 of blue. The dimmer curve delivers the square of the fader setting.",
+      "story": "A meter check of the installed dimmer curve shows that output fraction is approximately the square of fader fraction over the range being used. The desk reads red 80, green 80 and blue 40; the colour filters transmit 90%, 70% and 35% respectively.",
       "game": {
         "type": "PROTOCOL",
         "title": "Not the numbers on the desk",
@@ -966,7 +966,7 @@ export const CURRICULUM = {
         "task": "Match each channel to what actually arrives.",
         "question": "Match each channel to what actually arrives.",
         "answer": "Red arrives at about 58 per cent, green at 45 and blue at 6 — and the fader positions are inputs rather than outputs.",
-        "why": "Each channel passes through the fader, the dimmer curve and the filter, and every stage multiplies. Eighty on the desk is about 64 through a square-law dimmer, and 90 per cent of that leaves red at 58. The same 64 through a 70 per cent filter leaves green at 45. Forty on the desk is only 16 through the curve, and 35 per cent of that leaves blue at 6 — so the wash has almost no blue in it at all, which is the green cast on camera. The desk reading of 80, 80, 40 looks balanced and is a set of inputs; what the performer is lit by is the product of three multiplications.\n",
+        "why": "Each channel passes through the fader, the dimmer curve and the filter, and every stage multiplies. Eighty on the desk is about 64 through a square-law dimmer, and 90 per cent of that leaves red at 58. The same 64 through a 70 per cent filter leaves green at 45. Forty on the desk is only 16 through the curve, and 35 per cent of that leaves blue at 6. So the wash has almost no blue in it at all, and that is the green cast on camera. The desk reading of 80, 80, 40 looks balanced and is a set of inputs; what the performer is lit by is the product of three multiplications.\n",
         "rebuttals": [
           "Eighty on the fader delivers about 64 through the curve, and 90 per cent of that is 58.",
           "The same 64 through a 70 per cent filter is 45, which is why green sits below red.",
@@ -1017,25 +1017,25 @@ export const CURRICULUM = {
     },
     {
       "day": 8,
-      "title": "Nine hundred millimetres",
+      "title": "Six hundred forty millimetres",
       "scene": "Four units on bar two are plotted at 6.9 metres and bearings of 12, 24, 36 and 48 degrees. Ferreira's hanging sheet lists offsets of 1.43, 2.81, 4.06 and 4.63 metres from centre.",
       "takeaway": "A plausible number in the right units is the error that survives being written down.",
       "place": "Lighting Board",
       "guide": "Convert each plotted bearing into an across-stage offset and compare it with the sheet. Three will agree within the tolerance a tape measure gives; one will not. Work out which, and by how much, before anybody climbs a ladder.",
       "background": [
-        "Why the fourth is the suspect. Six point nine metres at 48 degrees gives an offset of 5.13 metres, and the sheet says 4.63 — half a metre out, which on a focused unit is a shadow on the mark rather than a slightly different look.",
+        "Why the fourth is the suspect. Six point nine metres at 48 degrees gives an offset of 5.13 metres, and the sheet says 4.63. That is half a metre out, which on a focused unit is a shadow on the mark rather than a slightly different look.",
         "Why this error is always the same kind. Somebody converted with the wrong function, or read the bearing as an offset directly. Both produce a number that is plausible, on the right bar, in the right units, and wrong — which is why it survives being written down."
       ],
       "story": "Four units on bar two are plotted at 6.9 metres and bearings of 12, 24, 36 and 48 degrees. Ferreira's hanging sheet lists offsets of 1.43, 2.81, 4.06 and 4.63 metres from centre.",
       "game": {
         "type": "BALANCE",
-        "title": "Nine hundred millimetres",
+        "title": "Six hundred forty millimetres",
         "setup": "Lighting Board",
         "play": "Find the unit that is out of position",
         "task": "Find the unit that is out of position",
         "question": "Read what you need and report where the unit should hang, measured from centre.",
-        "answer": "About 5.27 metres from the room's centre line: 5.13 from the plot, plus the 140 millimetres the bar itself is off because it was hung to the 1911 drawing.",
-        "why": "Six point nine metres at 48 degrees is an offset of 5.13, and the sheet's 4.63 is the same distance at 42 degrees — the complement, which is what you get measuring the bearing from the proscenium line instead of the centre line. That is the error the focus session found. The term that does not announce itself is the bar: it was hung to the 1911 drawing, so it sits 140 millimetres off the room's own centre line, and no paperwork records that because the paperwork is what is wrong. The yoke is the tempting fourth term and is zero, because the clamp centres on the bar.\n",
+        "answer": "About 5.27 m from the room centre line, roughly 0.64 m from the 4.63 m hanging-sheet position.",
+        "why": "At 6.9 metres and 48°, the plotted across-stage offset is 5.13 m. The bar itself is 0.14 m off the room's measured centre line, so the room-coordinate target is 5.27 m. The hanging sheet says 4.63 m, leaving an error of about 0.64 m. The 4.63 m value is what 6.9 m at 42° gives, exposing a reference-angle mix-up. The important result is that the paperwork can be internally tidy and still wrong if the origin or reference direction is unstated.",
         "balance": {
           "total": {
             "amount": 5.27,
@@ -1099,25 +1099,25 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Four stages, each times something",
-      "scene": "Ilse Brand, the sound designer, has a signal through four stages, each multiplying it by 3.2: the microphone preamp, the desk channel, the group and the amplifier. The input is 0.004 volts.",
+      "scene": "Ilse Brand, the sound designer, has a test signal passing through four gain stages, each multiplying voltage by 3.2. The input to the chain is 0.004 volts, and she wants the voltage leaving the fourth stage before it reaches the next device.",
       "takeaway": "Gains multiply, so a chain reaches its ceiling suddenly rather than gradually.",
       "place": "Orchestra Pit and Sound",
       "guide": "Gain stages multiply. Four of them at 3.2 each is not 12.8 times the signal, and the difference between adding and multiplying is the entire reason a chain like this clips. Work out what arrives at the amplifier, then compare it with what adding the gains would have suggested.",
       "background": [
-        "Why every stage multiplies. Each one takes whatever arrives and scales it, so the output is the input times the product of the gains. That is a geometric sequence with the input as its first term, and it is why gain is quoted in decibels — logarithms turn the multiplication into an addition a person can do in their head.",
-        "What clipping is. Every stage has a ceiling, and a chain that multiplies reaches it suddenly. Four stages of 3.2 is a factor of 105, so an input a little hotter than expected arrives at the amplifier far past what it can pass, and the result is distortion rather than loudness.",
-        "Why the fourth stage is where it shows. The first three multiply a small number and the fourth multiplies a large one. The same 3.2 is worth 0.009 volts at the first stage and 0.29 at the last, which is why gain is set from the front of the chain backwards."
+        "Why every stage multiplies. Each one takes whatever arrives and scales it, so the output is the input times the product of the gains. That is a geometric sequence with the input as its first term. It is why gain is quoted in decibels: logarithms turn the multiplication into an addition a person can do in their head.",
+        "What clipping is. Every stage has a ceiling, and a chain that multiplies reaches it suddenly. Four stages of 3.2 is a factor of 105. So an input a little hotter than expected arrives at the amplifier far past what it can pass, and the result is distortion rather than loudness.",
+        "Why the fourth stage is where it shows. The first three multiply a small number and the fourth multiplies a large one. The same 3.2 is worth 0.009 volts at the first stage and 0.29 at the last. That is why gain is set from the front of the chain backwards."
       ],
-      "story": "Ilse Brand, the sound designer, has a signal through four stages, each multiplying it by 3.2: the microphone preamp, the desk channel, the group and the amplifier. The input is 0.004 volts.",
+      "story": "Ilse Brand, the sound designer, has a test signal passing through four gain stages, each multiplying voltage by 3.2. The input to the chain is 0.004 volts, and she wants the voltage leaving the fourth stage before it reaches the next device.",
       "game": {
         "type": "BALLPARK",
         "title": "Four stages, each times something",
         "setup": "Orchestra Pit and Sound",
         "play": "Work out what the gain stages come to",
         "task": "Work out what the gain stages come to",
-        "question": "Estimate the signal arriving at the amplifier.",
+        "question": "Estimate the signal leaving the fourth gain stage.",
         "answer": "About 0.42 volts, where adding the gains would have suggested 0.051.",
-        "why": "Four stages of 3.2 multiply to 104.9, so 4 millivolts becomes 420. Adding the gains gives 12.8 and an answer of 51 millivolts — a factor of eight out, and in the direction that makes a chain look safe when it is not. That is what makes this a geometric sequence rather than an arithmetic one: each stage scales what arrives rather than adding to it. It also explains where the trouble appears. The same 3.2 is worth nine millivolts at the first stage and 290 at the last, so gain is always set from the front backwards.\n",
+        "why": "Four stages of 3.2 multiply to 104.9, so 4 millivolts becomes 420. Adding the gains gives 12.8 and an answer of 51 millivolts. That is a factor of eight out, in the direction that makes a chain look safe when it is not. That is what makes this a geometric sequence rather than an arithmetic one: each stage scales what arrives rather than adding to it. It also explains where the trouble appears. The same 3.2 is worth nine millivolts at the first stage and 290 at the last, so gain is always set from the front backwards.\n",
         "rebuttals": [
           "Adding the four gains treats each stage as contributing the same amount rather than the same factor.",
           "Three stages rather than four is the level at the group output, one stage short of the amplifier."
@@ -1177,11 +1177,11 @@ export const CURRICULUM = {
       "scene": "The trace runs between 0.18 and 0.62 volts. It repeats every 4.5 milliseconds. Its first upward crossing of the middle comes 0.9 milliseconds after the trigger.",
       "takeaway": "Amplitude is measured from the midline, not from the bottom of the trace.",
       "place": "Orchestra Pit and Sound",
-      "guide": "Four numbers fix any sine wave and each one comes off the trace directly. The midline is halfway between the top and the bottom; the amplitude is half the distance between them; the period is the repeat; and the phase is where the cycle starts relative to the trigger. Work out the first two and say what the other two are read from.",
+      "guide": "Four numbers fix any sine wave and each one comes off the trace directly. The midline is halfway between the top and the bottom. The amplitude is half the distance between them. The period is the repeat, and the phase is where the cycle starts relative to the trigger. Work out the first two and say what the other two are read from.",
       "background": [
         "Why amplitude is half and not all. The amplitude is measured from the midline to the peak, so the peak-to-peak figure an oscilloscope shows is twice it. This is the most common misreading of a trace and it doubles every level derived from it.",
         "Why the midline is not zero here. The signal is riding on a direct offset of 0.40 volts, which is a fault rather than a feature: something upstream is passing a standing voltage. It does not change the sound and it does eat headroom, and it is visible only because the midline was read rather than assumed.",
-        "Why the phase matters to Mbatha rather than to Brand. Two instruments a fraction of a cycle apart do not sound bigger, they sound wrong, and the fix is timing. The phase shift is the number that says how far apart they are in the only units that matter, which is a fraction of a period."
+        "Why the phase matters to Thandi Mbatha, the musical director, rather than to Brand. Two instruments a fraction of a cycle apart do not sound bigger, they sound wrong, and the fix is timing. The phase shift is the number that says how far apart they are in the only units that matter, which is a fraction of a period."
       ],
       "story": "The trace runs between 0.18 and 0.62 volts. It repeats every 4.5 milliseconds. Its first upward crossing of the middle comes 0.9 milliseconds after the trigger.",
       "game": {
@@ -1192,7 +1192,7 @@ export const CURRICULUM = {
         "task": "Read the four parameters off the trace",
         "question": "Estimate the amplitude of the trace.",
         "answer": "0.22 volts, sitting on a midline of 0.40 that should not be there at all.",
-        "why": "The peak-to-peak span is 0.44 volts, so the amplitude — measured from the midline to the peak — is half of it: 0.22. Reading 0.44 as the amplitude is the standard error and doubles every level derived from the trace. The more interesting number is the one that falls out for free: the midline is 0.40 volts rather than zero, so the signal is riding on a standing offset. It does not change what anybody hears and it eats headroom, and it is only visible because the midline was read rather than assumed to be zero.\n",
+        "why": "The peak-to-peak span is 0.44 volts, so the amplitude — measured from the midline to the peak — is half of it: 0.22. Reading 0.44 as the amplitude is the standard error and doubles every level derived from the trace. The more interesting number is the one that falls out for free. The midline is 0.40 volts rather than zero, so the signal is riding on a standing offset. It does not change what anybody hears and it eats headroom, and it is only visible because the midline was read rather than assumed to be zero.\n",
         "rebuttals": [
           "The full span between the extremes is peak-to-peak, which is twice the amplitude.",
           "The top of the trace on its own is a peak measured from zero, not from the wave's own middle."
@@ -1252,10 +1252,10 @@ export const CURRICULUM = {
       "scene": "The chain multiplies by 3.2, then 4.0, then 2.5, then 8.0. Brand wants each stage marked on the desk in decibels so the crew can add them in their heads.",
       "takeaway": "The sum of the logs equals the log of the product, which is why gains add on a desk.",
       "place": "Orchestra Pit and Sound",
-      "guide": "A product of four factors becomes a sum of four logarithms. Take the log of each gain, multiply by twenty to get voltage decibels, and add. Then check the answer against the log of the product, because the whole point of the rule is that those two are the same number arrived at two ways.",
+      "guide": "A product of four factors becomes a sum of four logarithms. Take the log of each gain, multiply by twenty to get voltage decibels, and add. Then check the answer against the log of the product. The whole point of the rule is that those two are the same number arrived at two ways.",
       "background": [
         "Why twenty rather than ten. For a voltage ratio the decibel is twenty times the log, because power goes as the square of voltage and the ten-times-log definition is written for power. Mixing the two is a factor of two on every number, which is four decibels on a typical stage gain.",
-        "What the rule buys in practice. Four multiplications with a calculator become four additions in the head, and a crew can then talk about a stage as plus ten or minus six rather than as times three point two. Every fader, every trim and every pad on the desk is marked that way for this reason.",
+        "What the rule buys in practice. Four multiplications with a calculator become four additions in the head. A crew can then talk about a stage as plus ten or minus six rather than as times three point two. Every fader, every trim and every pad on the desk is marked that way for this reason.",
         "Why the check matters. The sum of the logs and the log of the product are equal by the rule, so computing both is a free verification. A discrepancy means a gain was written down wrong, which is what the check is for."
       ],
       "story": "The chain multiplies by 3.2, then 4.0, then 2.5, then 8.0. Brand wants each stage marked on the desk in decibels so the crew can add them in their heads.",
@@ -1376,7 +1376,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Ten times the log of it",
-      "scene": "The meter at row F reads an intensity of 3.2 × 10⁻⁴ watts per square metre. The reference for the scale is 1.0 × 10⁻¹² watts per square metre. The licence caps the house at 103 decibels.",
+      "scene": "The meter at row F reads an intensity of 3.2 × 10⁻⁴ watts per square metre. The reference is 1.0 × 10⁻¹² watts per square metre. For this reopening, Pell, the licensing officer, has written a 103 dB test ceiling into the Ellery licence file.",
       "takeaway": "Ten decibels is a factor of ten, and three is a factor of two.",
       "place": "Orchestra Pit and Sound",
       "guide": "A decibel level is ten times the logarithm of the measured intensity divided by the reference. Work out the ratio first, then the logarithm, then the ten. Compare what comes out with the licence cap, and note how much the whole argument turns on the scale being logarithmic rather than linear.",
@@ -1384,7 +1384,7 @@ export const CURRICULUM = {
         "Why the reference is in the formula at all. A decibel is a ratio, so it needs something to be a ratio of. The standard reference is the quietest audible intensity, which is why the numbers come out between zero and about 130 for everything a person meets.",
         "What the cap means in intensity. Three decibels is a doubling, so a house at 106 is twice the intensity of one at 103, not three per cent more. That is what makes an argument about a few decibels an argument about factors."
       ],
-      "story": "The meter at row F reads an intensity of 3.2 × 10⁻⁴ watts per square metre. The reference for the scale is 1.0 × 10⁻¹² watts per square metre. The licence caps the house at 103 decibels.",
+      "story": "The meter at row F reads an intensity of 3.2 × 10⁻⁴ watts per square metre. The reference is 1.0 × 10⁻¹² watts per square metre. For this reopening, Pell, the licensing officer, has written a 103 dB test ceiling into the Ellery licence file.",
       "game": {
         "type": "BALLPARK",
         "title": "Ten times the log of it",
@@ -1393,7 +1393,7 @@ export const CURRICULUM = {
         "task": "Work out the level at the seat",
         "question": "Estimate the level at row F in decibels.",
         "answer": "About 85 decibels, which is eighteen under the cap and a factor of sixty in intensity.",
-        "why": "The ratio is 3.2 × 10⁸. Its logarithm is 8.51, and ten times that is 85 decibels. The margin to the cap is the part worth saying properly. Eighteen decibels is not eighteen per cent. It is a factor of about sixty in intensity, so the house has a great deal of headroom rather than a little. Using twenty as the multiplier gives 170. That is the voltage definition applied to an intensity, and it is above the threshold of pain — absurd enough to catch. Knowing which definition belongs to which quantity is what makes it catchable.\n",
+        "why": "The intensity ratio is 3.2 × 10⁸. Ten times its base-ten logarithm is about 85 dB. The 18 dB gap to the Ellery test ceiling is not 18 per cent; it corresponds to about a factor of 63 in intensity. The exact 103 dB figure is a condition of this fictional reopening file, not a universal theatre limit.",
         "rebuttals": [
           "Twenty times the log is for a voltage ratio; this is an intensity, so it takes ten.",
           "Without dividing by the reference there is no ratio, and a logarithm of a bare intensity is not a level."
@@ -1463,7 +1463,7 @@ export const CURRICULUM = {
         "task": "Find both times the level is reached",
         "question": "Where is the second time the chase passes 70 per cent?",
         "answer": "As far after the peak as the first is before it",
-        "why": "A rising-then-falling wave crosses any level between its extremes twice, and the two crossings are symmetric about the peak — so the second is as far after the peak as the first is before it. Half a period after the first is the general shape of the mistake: that spacing is only right for a crossing of the midline, and 70 per cent is well above it. One full period later is the same crossing in the next cycle rather than the second crossing in this one, which for a cue means firing fifteen seconds late. And there is certainly a second crossing, because the wave has to come back down; the inverse function simply does not return it.\n",
+        "why": "A rising-then-falling wave crosses any level between its extremes twice, and the two crossings are symmetric about the peak. So the second is as far after the peak as the first is before it. Half a period after the first is the general shape of the mistake. That spacing is only right for a crossing of the midline, and 70 per cent is well above it. One full period later is the same crossing in the next cycle rather than the second crossing in this one. For a cue that means firing fifteen seconds late. And there is certainly a second crossing, because the wave has to come back down; the inverse function simply does not return it.\n",
         "rebuttals": [
           "Half a period apart is correct for a midline crossing and wrong for any other level.",
           "One period later is the same crossing next cycle, which fires the cue fifteen seconds late.",
@@ -1510,7 +1510,7 @@ export const CURRICULUM = {
       "place": "Orchestra Pit and Sound",
       "guide": "Ask of each pair of operations whether swapping them changes the result. Two gains in series commute, because multiplication does. A compressor responds to the level arriving at it, so what comes before it changes what it does. Work out which of the four pairs commute and which do not.",
       "background": [
-        "Why gains commute and processing does not. Multiplying by three then by four is the same as four then three. A compressor is not a multiplication: it applies a different gain depending on the level it sees, so changing what arrives changes the gain it chooses.",
+        "Why gains commute and processing does not. Multiplying by three then by four is the same as four then three. A compressor is not a multiplication. It applies a different gain depending on the level it sees, so changing what arrives changes the gain it picks.",
         "Why this is the same idea as matrices. A transformation of the plane is applied to every point, and two transformations applied in different orders generally give different results. Rotating then stretching is not stretching then rotating, and the reason is the same as the compressor's."
       ],
       "story": "Brand has a compressor and an equaliser in the same channel. Mbatha wants the equaliser first; the patch has the compressor first. Both insist their order is the correct one.",
@@ -1522,7 +1522,7 @@ export const CURRICULUM = {
         "task": "Say what happens when two things are done in the other order",
         "question": "Which pair genuinely gives a different result in the other order?",
         "answer": "The equaliser and the compressor",
-        "why": "A compressor chooses its gain from the level arriving at it, so boosting a frequency before it makes it compress on that frequency, and boosting after leaves the compression alone and then lifts the result. Those are audibly different, and both engineers are describing a real preference rather than a mistake. Everything else on the list is a multiplication: two gain stages, a gain and a pad, a channel fader and a group fader all commute, because the product of numbers does not depend on their order. That is the distinction worth carrying, and it is exactly why matrices are introduced with the warning that they do not commute.\n",
+        "why": "A compressor chooses its gain from the level arriving at it. Boost a frequency before it and it compresses on that frequency. Boost the same frequency after it and the compression is left alone, then the result is lifted. Those are audibly different, and both engineers are describing a real preference rather than a mistake. Everything else on the list is a multiplication. Two gain stages, a gain and a pad, a channel fader and a group fader all commute. The product of two numbers does not depend on their order. That is the distinction worth carrying, and it is exactly why matrices are introduced with the warning that they do not commute.\n",
         "rebuttals": [
           "Two fixed gains multiply, and multiplication does not care about order.",
           "A pad is a fixed multiplication like any gain, so the order changes nothing.",
@@ -1557,25 +1557,25 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "The room is different now",
-      "scene": "With the seats in, the same clap now leaves 22 per cent of its energy after four seconds rather than seven. Brand has to reset the band's level for a room that no longer rings.",
-      "takeaway": "A room that returns less sound delivers less total level for the same playing.",
+      "title": "The tail is different now",
+      "scene": "In the empty house, 1.1 per cent of the initial late-sound energy remained after one second. With the upholstered seats installed, the same measurement leaves 0.36 per cent. Brand wants the change expressed in decibels.",
+      "takeaway": "A decay-tail ratio can be expressed in decibels, but it is not automatically a fader correction.",
       "place": "Orchestra Pit and Sound",
-      "guide": "Work out what the change in the room does to the level a listener hears, in decibels, and decide which way the band's own level has to move. A room that rings less returns less sound to the seats, so the same playing arrives quieter than it did in rehearsal.",
+      "guide": "Take the ratio of the two energy measurements and use ten times the logarithm. The result describes the one-second reverberant tail under these two conditions. It does not by itself tell you how many decibels to move the band, because direct sound and steady-state level are different measurements.",
       "background": [
         "Why a deader room needs more level rather than less. Reverberation adds to what a listener receives — the direct sound plus everything the room returns. Take away the returns and the total falls, so a band that was balanced in an empty house is quiet in a full one.",
         "Why nobody trusts their ears for this. The empty house was audibly wrong and the change is a factor rather than an impression. Brand wants the decibel figure so the desk can be moved by a known amount rather than by consensus in a corridor."
       ],
-      "story": "With the seats in, the same clap now leaves 22 per cent of its energy after four seconds rather than seven. Brand has to reset the band's level for a room that no longer rings.",
+      "story": "In the empty house, 1.1 per cent of the initial late-sound energy remained after one second. With the upholstered seats installed, the same measurement leaves 0.36 per cent. Brand wants the change expressed in decibels.",
       "game": {
         "type": "BALLPARK",
-        "title": "The room is different now",
+        "title": "The tail is different now",
         "setup": "Orchestra Pit and Sound",
         "play": "Balance the band against a room with seats in it",
         "task": "Balance the band against a room with seats in it",
         "question": "Estimate the change in level from the room alone.",
-        "answer": "About −4.8 decibels from the room alone, so the band comes up by about five.",
-        "why": "The ratio of reverberant energies is 0.072 over 0.22, which is 0.33, and ten times its logarithm is −4.8 decibels. That is the room's own contribution changing, and it is nearly five decibels — a factor of three in intensity, which nobody balances by ear in a corridor. The sign is the part to get right: the seats absorb, the room returns less, and the total at a listener falls, so the band comes up rather than down. Using twenty as the multiplier doubles the figure and would have the desk moved nine and a half decibels, which is a different show.\n",
+        "answer": "About −4.9 dB in the one-second reverberant tail with the seats installed; remeasure program level before changing the band.",
+        "why": "The energy ratio is 0.0036/0.011 ≈ 0.327. Ten times its logarithm is about −4.85 dB, so the late tail is substantially lower with the seats installed. That agrees with the physical expectation that added absorption shortens reverberation. But this comparison is not a steady-state sound-pressure measurement, so adding 4.85 dB at the fader would be an unjustified inference.",
         "rebuttals": [
           "Twenty times the log is the voltage definition; these are energies, so it takes ten.",
           "Taking the ratio the other way up gives the same size with the wrong sign, and moves the desk the wrong way."
@@ -1608,6 +1608,26 @@ export const CURRICULUM = {
           ],
           "s": "Ten decibels is a factor of ten in intensity and three decibels is a factor of two, because the scale is a logarithm.",
           "computed": true
+        },
+        {
+          "e": "V = A·(1 − k)ᵗ",
+          "c": "a decay from a constant proportional loss",
+          "v": [
+            [
+              "A",
+              "the starting value"
+            ],
+            [
+              "k",
+              "the fraction lost each step"
+            ],
+            [
+              "t",
+              "how many steps have passed"
+            ]
+          ],
+          "s": "Losing the same fraction each step leaves a curve that falls fast at first and never quite reaches zero.",
+          "demanded": true
         }
       ],
       "takesAsRead": [
@@ -1635,7 +1655,7 @@ export const CURRICULUM = {
       "background": [
         "Why the three handles are separate. The output is the input times the factor raised to the number of stages. Changing the input scales everything by the same amount. Changing the number of stages adds or removes a whole factor. Changing the factor itself is the one that compounds, because it is raised to a power.",
         "Why halving is worth more than it looks. Halving one gain halves the output. Halving all three divides it by eight, because each half is a factor and the factors multiply. That is the same arithmetic that makes a chain clip suddenly, run the other way.",
-        "What reordering does change. The level at the amplifier is the same whatever order the stages come in, because a product does not depend on its order. What moves is the noise: a stage that adds hiss early has that hiss amplified by everything after it, which is why the quietest gain sits at the front."
+        "What reordering does change. The level at the amplifier is the same whatever order the stages come in, because a product does not depend on its order. What moves is the noise. A stage that adds hiss early has that hiss amplified by everything after it, which is why the quietest gain sits at the front."
       ],
       "story": "The pit foldback runs through three stages of 2.5 from a 0.006 volt pickup, and Thandi Mbatha, the musical director, cannot hear the cello. Ilse Brand has four changes on the desk and wants them thought through first.",
       "game": {
@@ -1714,16 +1734,16 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The same step, eleven times",
-      "scene": "Osei's trim heights start at 2.40 metres for the first batten and rise 0.34 metres for each one upstage. There are eleven battens. He needs the last one before he sets the counterweights.",
+      "scene": "Kwame Osei, the head flyman, has trim heights that start at 2.40 metres for the first batten and rise 0.34 metres for each one upstage. There are eleven battens. He needs the last one before he sets the counterweights.",
       "takeaway": "A sequence with n terms has n − 1 steps in it.",
       "place": "Fly Floor",
-      "guide": "A sequence that adds the same amount each time is fixed by two numbers: where it starts and what it adds. The trap is the count. Going from the first term to the eleventh is ten steps, not eleven, and one step of 0.34 metres is the difference between a piece that clears the grid and one that does not.",
+      "guide": "A sequence that adds the same amount each time is fixed by two numbers: where it starts and what it adds. The trap is the count. Going from the first term to the eleventh is ten steps, not eleven. One step of 0.34 metres is the difference between a piece that clears the grid and one that does not.",
       "background": [
-        "Why the trim heights rise at all. The grid is not level with the stage: each batten upstage sits a little higher, so a cloth hung on the eleventh has to be flown further to clear the one in front of it. The rise is set by the ironwork and is genuinely constant.",
-        "Why the off-by-one is the whole risk. Eleven terms have ten gaps. Using eleven gives 6.14 metres instead of 5.80, which is a batten trimmed 340 millimetres high — enough that the cloth shows its bottom edge to the front rows.",
+        "Why the trim heights rise at all. The grid is not level with the stage. Each batten upstage sits a little higher, so a cloth hung on the eleventh has to be flown further to clear the one in front of it. The rise is set by the ironwork and is genuinely constant.",
+        "Why the off-by-one is the whole risk. Eleven terms have ten gaps. Using eleven gives 6.14 metres instead of 5.80. That is a batten trimmed 340 millimetres high, enough that the cloth shows its bottom edge to the front rows.",
         "What makes it arithmetic rather than geometric. The heights add a constant, they do not multiply by one. A geometric rise would put the eleventh batten at nearly forty metres, which is above the roof, and noticing that is faster than checking the arithmetic."
       ],
-      "story": "Osei's trim heights start at 2.40 metres for the first batten and rise 0.34 metres for each one upstage. There are eleven battens. He needs the last one before he sets the counterweights.",
+      "story": "Kwame Osei, the head flyman, has trim heights that start at 2.40 metres for the first batten and rise 0.34 metres for each one upstage. There are eleven battens. He needs the last one before he sets the counterweights.",
       "game": {
         "type": "VERIFY",
         "title": "The same step, eleven times",
@@ -1732,7 +1752,7 @@ export const CURRICULUM = {
         "task": "Work out the eleventh trim height",
         "question": "Predict the eleventh trim height, then put a tape on it and report.",
         "answer": "Predicted 5.80 metres from ten steps of 0.34, measured 5.74 — six centimetres of accumulated ironwork, and nowhere near the 6.14 that eleven steps would have given.",
-        "why": "Eleven battens have ten gaps, so the prediction is 2.40 plus ten steps of 0.34: 5.80 metres. The tape says 5.74. Six centimetres over ten spacings is the ironwork rather than the arithmetic, and it is exactly the sort of drift a 1911 building accumulates. What the measurement rules out is the off-by-one: eleven steps would have given 6.14, which is 400 millimetres above what the tape found, and 340 of those millimetres would have been a cloth showing its bottom edge to the front rows all evening.\n",
+        "why": "Eleven battens have ten gaps, so the prediction is 2.40 plus ten steps of 0.34: 5.80 metres. The tape says 5.74. Six centimetres over ten spacings is the ironwork rather than the arithmetic, and it is exactly the sort of drift a 1911 building accumulates. What the measurement rules out is the off-by-one. Eleven steps would have given 6.14, which is 400 millimetres above what the tape found. Of those millimetres, 340 would have been a cloth showing its bottom edge to the front rows all evening.\n",
         "relationship": "The arithmetic sequence aₙ = a₁ + (n − 1)d, with d the common difference added each time.",
         "verify": {
           "prediction": {
@@ -1814,16 +1834,16 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Not half each",
-      "scene": "A cloth weighing 180 kilograms hangs from two lines. The grid is narrower than the stage, so each line leans 22 degrees off the vertical. Osei will not lift it until the per-line figure is written down.",
-      "takeaway": "Only the vertical component of a leaning line carries the load.",
+      "scene": "A cloth with mass 180 kilograms hangs from two lines. Each line leans 22 degrees from vertical. Osei wants the actual force in each line before the piece moves.",
+      "takeaway": "A leaning line carries force along its length; only its vertical component supports the weight.",
       "place": "Fly Floor",
-      "guide": "A line pulls along its own length, so only part of that pull is vertical. Split each line's tension into a vertical part, which carries the weight, and a horizontal part, which does not. Then work out what each line has to pull for the two vertical parts to add up to 180 kilograms of load.",
+      "guide": "Convert the cloth's mass to weight, then resolve each line tension vertically. The two vertical components must add to the weight. Only the vertical component supports the cloth; the horizontal component loads the rigging sideways.",
       "background": [
-        "Why leaning costs. The vertical components have to sum to the weight whatever the angle, so as the lines lean further each one has to pull harder to keep its vertical part the same. At 22 degrees the penalty is about eight per cent; at 60 degrees each line pulls the whole weight.",
+        "Why leaning costs. The vertical components have to sum to the weight whatever the angle. So as the lines lean further, each one has to pull harder to keep its vertical part the same. At 22 degrees the penalty is about eight per cent; at 60 degrees each line pulls the whole weight.",
         "Where the horizontal parts go. They point toward each other and cancel at the piece, which is why it hangs still. They do not cancel at the grid: each line puts a sideways pull into the ironwork, which is what the 1958 conversion never accounted for.",
         "Why Osei wants it written. A per-line tension is what a line's rating is compared against, and half the weight is the number people say. The difference between 90 and 97 kilograms is small; the difference at the angles this grid forces on a wide cloth is not."
       ],
-      "story": "A cloth weighing 180 kilograms hangs from two lines. The grid is narrower than the stage, so each line leans 22 degrees off the vertical. Osei will not lift it until the per-line figure is written down.",
+      "story": "A cloth with mass 180 kilograms hangs from two lines. Each line leans 22 degrees from vertical. Osei wants the actual force in each line before the piece moves.",
       "game": {
         "type": "BALLPARK",
         "title": "Not half each",
@@ -1831,8 +1851,8 @@ export const CURRICULUM = {
         "play": "Say what the two lines are each pulling",
         "task": "Say what the two lines are each pulling",
         "question": "Estimate the tension in each of the two lines.",
-        "answer": "About 97 kilograms in each line, not the 90 that halving gives.",
-        "why": "Each line's vertical component is its tension times the cosine of its lean, and the two vertical components have to add to 180 kilograms. So each line pulls 180 over twice the cosine of 22 degrees, which is 97.1 kilograms. Halving the weight gives 90 and assumes the lines are vertical, which they are not, because the grid is narrower than the stage. Eight per cent sounds ignorable and the point is the shape of the relationship: at 45 degrees each line pulls 127 kilograms, and at 60 it pulls the whole 180. The horizontal components cancel at the cloth and do not cancel at the grid.\n",
+        "answer": "About 0.95 kilonewtons in each line, not simply half the cloth's weight.",
+        "why": "The cloth weighs about 1.77 kilonewtons. Each line contributes T cos 22° vertically, and the two vertical components must sum to that weight. Solving gives about 0.95 kilonewtons per line. Treating kilograms as a force hides the distinction between mass and load; the rigging is rated in force.",
         "rebuttals": [
           "Halving the weight assumes both lines are vertical, which is the one thing this grid does not allow.",
           "Using the sine gives the horizontal pull, which is what the ironwork feels rather than what carries the cloth."
@@ -1881,15 +1901,15 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What cancels at the cloth and not at the grid",
-      "scene": "Yesterday's cloth hangs on two lines at 22 degrees, each pulling 97 kilograms. Osei wants the sideways force each line puts into the grid ironwork before he adds a second cloth.",
-      "takeaway": "Equal and opposite forces cancel at a point and load the structure between two points.",
+      "scene": "Yesterday's cloth hangs on two lines at 22 degrees, each carrying about 0.95 kilonewtons. Before another piece is added, Osei wants the sideways component each line applies at the grid.",
+      "takeaway": "Equal and opposite components can cancel on the hanging piece while still creating local loads at separate supports.",
       "place": "Fly Floor",
-      "guide": "Split each tension into its two components again, but keep the horizontal one this time. At the cloth the two horizontal parts point at each other and cancel. At the grid they do not cancel, because they act at two different points, and that is the load the 1958 conversion never had a figure for.",
+      "guide": "Resolve the same line force horizontally. The horizontal components cancel at the cloth because they are equal and opposite there. At the grid they act at different attachment points, so they create local lateral loads that belong on the load plot.",
       "background": [
-        "Why cancellation depends on where you stand. Two equal and opposite forces at the same point sum to nothing. The same two forces applied at points four metres apart put the structure between them into tension, and nothing about the piece hanging still says otherwise.",
-        "What the ironwork was designed for. Vertical load, which is what a grid over a stage-width flying system carries. The Ellery's grid is narrower than its stage, so every wide piece leans its lines and adds a sideways component the drawings do not mention."
+        "Why cancellation depends on where you stand. Two equal and opposite forces at the same point sum to nothing. The same two forces applied at points four metres apart put the structure between them into tension. Nothing about the piece hanging still says otherwise.",
+        "What the ironwork was designed for. Vertical load, which is what a grid over a stage-width flying system carries. The Ellery's grid is narrower than its stage. So every wide piece leans its lines, and adds a sideways component the drawings do not mention."
       ],
-      "story": "Yesterday's cloth hangs on two lines at 22 degrees, each pulling 97 kilograms. Osei wants the sideways force each line puts into the grid ironwork before he adds a second cloth.",
+      "story": "Yesterday's cloth hangs on two lines at 22 degrees, each carrying about 0.95 kilonewtons. Before another piece is added, Osei wants the sideways component each line applies at the grid.",
       "game": {
         "type": "CHOICE",
         "title": "What cancels at the cloth and not at the grid",
@@ -1898,7 +1918,7 @@ export const CURRICULUM = {
         "task": "Say what the grid feels sideways",
         "question": "What does the sideways component of each line do?",
         "answer": "Loads the ironwork between the two lines in tension",
-        "why": "Each line pulls 97 kilograms along its own length, and at 22 degrees the sideways part of that is about 36 kilograms. The two sideways parts point toward each other, so at the cloth they cancel and it hangs still — which is exactly why the problem is invisible. They are applied four metres apart at the grid, and two opposed forces at separated points put the structure between them in tension. Nothing about the piece being motionless says anything about what the ironwork carries. It does not add to the vertical load, which is a perpendicular direction, and unequal angles would make it worse rather than make it exist.\n",
+        "why": "Each line carries about 0.95 kN. Its horizontal component is T sin 22°, about 0.36 kN. The two horizontal components cancel at the cloth, so the cloth does not accelerate sideways. At the grid they are applied at two different points, which means the structure still has to carry those local lateral loads. They do not become extra vertical weight.",
         "rebuttals": [
           "The cloth hanging still says the forces cancel at the cloth, not at the two points four metres apart.",
           "A horizontal component is perpendicular to the vertical one and cannot add to it.",
@@ -1934,15 +1954,15 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "The one that leans furthest",
-      "scene": "The widest piece is a 260 kilogram truss cloth. The grid is narrow enough here that each of its two lines leans 41 degrees off the vertical. The lines are rated at 180 kilograms each.",
-      "takeaway": "The cosine of the lean is what carries the weight, and it falls away fast past thirty degrees.",
+      "scene": "The widest piece has mass 260 kilograms and hangs from two lines at 41 degrees from vertical. Each line assembly has a 2.0 kN working-load limit for this configuration. Corbin's cue sheet requires a 25 per cent allowance above the calculated static tension before a moving piece is approved.",
+      "takeaway": "Angle raises line tension; a safe decision compares force with the rated limit under the stated operating condition.",
       "place": "Fly Floor",
-      "guide": "Work out what each line actually pulls at this angle, then compare it with the rating. Forty-one degrees is a long way from vertical and the cosine is what carries the load, so the penalty is not a few per cent. Say whether the piece can fly as drawn.",
+      "guide": "Convert mass to weight and solve 2T cos 41° = W. That gives the static tension. Then apply the site's 25 per cent cue allowance and compare the result with the 2.0 kN working-load limit. The allowance is a stated local operating rule, not a universal rigging standard.",
       "background": [
         "Why the penalty accelerates. The cosine falls slowly at first and then quickly: ten degrees costs two per cent, twenty-two costs eight, forty-one costs thirty-three, and sixty doubles the tension. A drawing that leans lines a little is fine and one that leans them a lot is a different order of problem.",
-        "What can be done about it. A bridle — a short line pulling the two mains closer to vertical — or a narrower piece, or the piece flown from a different pair of lines further out. All three are available today, and all three need this number first."
+        "What can be done about it. A bridle — a short line pulling the two mains closer to vertical. Or a narrower piece, or the piece flown from a different pair of lines further out. All three are available today, and all three need this number first."
       ],
-      "story": "The widest piece is a 260 kilogram truss cloth. The grid is narrow enough here that each of its two lines leans 41 degrees off the vertical. The lines are rated at 180 kilograms each.",
+      "story": "The widest piece has mass 260 kilograms and hangs from two lines at 41 degrees from vertical. Each line assembly has a 2.0 kN working-load limit for this configuration. Corbin's cue sheet requires a 25 per cent allowance above the calculated static tension before a moving piece is approved.",
       "game": {
         "type": "BALLPARK",
         "title": "The one that leans furthest",
@@ -1950,8 +1970,8 @@ export const CURRICULUM = {
         "play": "Work the worst line in the sequence",
         "task": "Work the worst line in the sequence",
         "question": "Estimate the tension in each line at 41 degrees.",
-        "answer": "About 172 kilograms a line, against a 180 rating — four per cent of margin.",
-        "why": "Two lines at 41 degrees have a combined vertical capability of twice the cosine, which is 1.509, so each pulls 172 kilograms rather than the 130 that halving suggests. Against a 180 kilogram rating that is inside the limit and only just: four per cent, with nothing left for the snatch load when a piece is started or stopped quickly. That is the argument for a bridle rather than for a refusal, and it is only visible because the angle was carried through. At 60 degrees the same cloth would put 260 kilograms in each line, which is well past the rating, so the shape of the cosine is as important as this one number.\n",
+        "answer": "About 1.69 kN static per line; the 25% cue allowance raises the design check to about 2.11 kN, so it cannot fly as drawn.",
+        "why": "The piece weighs about 2.55 kN. Two vertical components, 2T cos 41°, must carry that weight, giving T ≈ 1.69 kN in each line. Corbin's stated cue allowance makes the check about 2.11 kN, above the 2.0 kN working limit. The lesson is not that one percentage is universal; rated loads depend on hardware, configuration and angle, and the stated limit is what the calculation must be compared with.",
         "rebuttals": [
           "Halving the weight assumes vertical lines and understates the tension by a third at this angle.",
           "Using the sine gives the sideways pull into the ironwork, which is a different check."
@@ -1982,15 +2002,15 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "When the two rates meet",
-      "scene": "The truss flies out at 0.42 metres a second from 2.4 metres, and the revolve brings the rostrum's edge toward the same point at 0.31 metres a second from 6.8 metres away. Haigh needs the moment they are level.",
+      "scene": "The truss flies out at 0.42 metres a second from 2.4 metres. The revolve brings the rostrum's edge toward the same point at 0.31 metres a second from 6.8 metres away. Haigh needs the moment they are level.",
       "takeaway": "Setting two linear positions equal gives one instant, or none if the lines are parallel.",
       "place": "Fly Floor",
       "guide": "Write each position as a function of time and set them equal. That is a pair of linear equations, and where they agree is a single instant — unless the rates are such that they never do. Work out the time, then check whether it falls inside the length of the cue.",
       "background": [
-        "What no solution looks like here. If both moved at the same rate in the same direction the gap would never close: the two lines would be parallel and there would be no moment at all. That is the geometric meaning of an inconsistent system, and it is a real possibility in a flying cue rather than a textbook curiosity.",
+        "What no solution looks like here. If both moved at the same rate in the same direction the gap would never close. The two lines would be parallel, and there would be no moment at all. That is the geometric meaning of an inconsistent system, and it is a real possibility in a flying cue rather than a textbook curiosity.",
         "Why the answer has to be inside the cue. A solution at eleven seconds is useless if the cue is eight seconds long — mathematically fine and operationally a collision, because something else happens at eight. The domain is part of the answer."
       ],
-      "story": "The truss flies out at 0.42 metres a second from 2.4 metres, and the revolve brings the rostrum's edge toward the same point at 0.31 metres a second from 6.8 metres away. Haigh needs the moment they are level.",
+      "story": "The truss flies out at 0.42 metres a second from 2.4 metres. The revolve brings the rostrum's edge toward the same point at 0.31 metres a second from 6.8 metres away. Haigh needs the moment they are level.",
       "game": {
         "type": "BALLPARK",
         "title": "When the two rates meet",
@@ -1999,7 +2019,7 @@ export const CURRICULUM = {
         "task": "Find the moment the two arrive together",
         "question": "Estimate the time the truss and the rostrum edge are level.",
         "answer": "About six seconds, which falls inside the eight-second cue with two to spare.",
-        "why": "The gap is 4.4 metres and the two are closing it at 0.42 plus 0.31, which is 0.73 metres a second, so they are level at six seconds. Adding the rates is the step to get right: they approach each other, so the closing speed is the sum, and subtracting them gives 40 seconds and a cue that appears to have enormous margin. Six seconds inside an eight-second cue leaves two seconds, which is a margin rather than a coincidence, and it is the number Haigh calls the cue against. Had the rates been equal and in the same direction there would have been no solution at all, which in a flying cue means a collision rather than a curiosity.\n",
+        "why": "The initial gap is 4.4 metres and the two positions close it at 0.42 + 0.31 = 0.73 m/s, so they are level at about six seconds. Adding the rates is correct because the motions approach one another. If two position functions had equal slopes and different intercepts, they would never meet; in a cue that means a missed alignment, not automatically a collision. If they were the same line, there would be infinitely many meeting times.",
         "rebuttals": [
           "Subtracting the rates describes two things moving the same way, and gives 40 seconds for a cue that is eight long.",
           "Dividing the starting distance by the sum ignores where the truss starts from."
@@ -2033,10 +2053,10 @@ export const CURRICULUM = {
       "scene": "Adeyemi's plot lists distances and bearings. It does not say what the bearings are measured from, and there are three plausible references in this building.",
       "takeaway": "A polar description needs an origin, a reference direction and a sense of rotation.",
       "place": "Fly Floor",
-      "guide": "A polar description needs three things and the plot has two. Say what is missing, and why a set of bearings with no stated reference is not merely inconvenient but ambiguous by a fixed amount that nobody can detect from the numbers.",
+      "guide": "A polar description needs three things and the plot has two. Say what is missing. Then say why a set of bearings with no stated reference is not merely inconvenient. It is ambiguous by a fixed amount that nobody can detect from the numbers.",
       "background": [
-        "What a polar coordinate system requires. An origin, a reference direction and a sense of rotation. Miss any one and the numbers describe a family of positions rather than a position.",
-        "The three plausible references here. The centre line, the proscenium line and the front edge of bar one, which differ by 90 degrees and by 400 millimetres. Every bearing in the plot is wrong by a fixed amount under two of the three, which is exactly what today's error looked like."
+        "What a polar coordinate system requires. An origin, a reference direction and a sense of rotation. Miss any one of the three and the numbers describe a family of positions rather than a position.",
+        "The three plausible references here. The centre line, the proscenium line and the front edge of bar one, which differ by 90 degrees and by 400 millimetres. Under two of the three, every bearing in the plot is wrong by a fixed amount. That is exactly what today's error looked like."
       ],
       "story": "Adeyemi's plot lists distances and bearings. It does not say what the bearings are measured from, and there are three plausible references in this building.",
       "game": {
@@ -2047,7 +2067,7 @@ export const CURRICULUM = {
         "task": "Say what the plot is missing",
         "question": "What does the plot have to state before it can be hung from?",
         "answer": "The direction the bearings are measured from",
-        "why": "A bearing is an angle from something, and the plot does not say what. With three plausible references in the building — centre line, proscenium line, front edge of bar one — every number in the plot describes three different positions, and nothing in the numbers reveals which was meant. That is what produced today's half-metre error. Bar heights, dimmer numbers and beam angles are all necessary to finish the rig and none of them resolves the ambiguity: a unit hung at the wrong bearing is in the wrong place however well the rest of its paperwork reads.\n",
+        "why": "A bearing is an angle from something, and the plot does not say what. The building offers three candidates: the centre line, the proscenium line, and the front edge of bar one. So every number in the plot names three different positions, and nothing in the numbers reveals which was meant. That is what produced today's half-metre error. Bar heights, dimmer numbers and beam angles are all needed to finish the rig, and none of them resolves the ambiguity. A unit hung at the wrong bearing is in the wrong place however well the rest of its paperwork reads.\n",
         "rebuttals": [
           "Bar heights are needed to focus and do not say what the bearings are measured from.",
           "A patch number says which channel controls the unit, not where it hangs.",
@@ -2100,7 +2120,7 @@ export const CURRICULUM = {
         "task": "Run the cue and report what happened",
         "question": "Predict the moment the two arrive together, then run the cue and report.",
         "answer": "Computed at six seconds; run at 5.4 and 6.3. Both inside the cue, and the spread of nearly a second is the number the margin has to cover.",
-        "why": "The prediction is six seconds and the two runs came in at 5.4 and 6.3, which is the pattern operators produce: the first anticipates and the second over-corrects. Both are inside the eight-second cue, so the sequence stands. The useful output is not either time but the spread — nearly a second of variation, which is what the margin has to absorb, and it is invisible to any calculation. Two runs rather than one is the whole point: one establishes that it can happen and two establishes that it repeats, and a cue is a thing that repeats.\n",
+        "why": "The prediction is six seconds and the two runs came in at 5.4 and 6.3, which is the pattern operators produce: the first anticipates and the second over-corrects. Both are inside the eight-second cue, so the sequence stands. The useful output is not either time but the spread: nearly a second of variation. That is what the margin has to absorb, and it is invisible to any calculation. Two runs rather than one is the whole point. One establishes that it can happen and two establishes that it repeats, and a cue is a thing that repeats.\n",
         "verify": {
           "prediction": {
             "label": "Predicted moment of arrival",
@@ -2158,10 +2178,10 @@ export const CURRICULUM = {
       "scene": "Simone Haigh, the stage manager, has four hemp sets to dead-hang before the run-through. The drawing gives each one as a starting height and a step rather than as a height. Kwame Osei wants them in order before anybody goes up.",
       "takeaway": "A start, a step and a term number are three separate handles, and no two of them decide a height.",
       "place": "Fly Floor",
-      "guide": "Work each set out before you order any of them. A term is the starting height plus the step added one time fewer than the term number, so the ninth batten of a set has eight steps in it. None of the three numbers settles the order on its own: the set with the lowest start does not finish lowest, and the set with the biggest step does not finish highest.",
+      "guide": "Work each set out before you order any of them. A term is the starting height plus the step added one time fewer than the term number. So the ninth batten of a set has eight steps in it. None of the three numbers settles the order on its own. The set with the lowest start does not finish lowest, and the set with the biggest step does not finish highest.",
       "background": [
         "Why the drawing is written this way. A hemp set is a run of battens on one ironwork rake, so the rake is a start and a constant rise. Writing the rule rather than eleven heights is shorter and it survives the set being extended, which is why the fly floor has kept the convention since 1911.",
-        "Where the off-by-one lands. Nine battens have eight gaps between them. Using the term number as the step count adds one extra rise to every set, and because the steps here differ it adds a different amount to each, which is what changes the order rather than just the heights.",
+        "Where the off-by-one lands. Nine battens have eight gaps between them. Using the term number as the step count adds one extra rise to every set. The steps here differ, so it adds a different amount to each. That is what changes the order rather than just the heights.",
         "Why the order is the thing wanted. Osei is not hanging to a number, he is hanging four pieces that pass one another in the same 12 metres of grid. What decides whether they foul is which is under which, and that is settled before anybody weighs anything."
       ],
       "story": "Simone Haigh, the stage manager, has four hemp sets to dead-hang before the run-through. The drawing gives each one as a starting height and a step rather than as a height. Kwame Osei wants them in order before anybody goes up.",
@@ -2173,7 +2193,7 @@ export const CURRICULUM = {
         "task": "Put the four hemp sets in order of the trim height each rule gives.",
         "question": "Put the four hemp sets in order of the trim height each rule gives.",
         "answer": "",
-        "why": "A term is the start plus one step fewer than the term number: three steps to the fourth, six to the seventh, eight to the ninth, eleven to the twelfth. That gives 3.76, 3.90, 4.04 and 4.25 metres, so Set 3 hangs lowest and Set 12 highest. None of the three numbers decides it alone. Set 19 starts lowest and finishes third, and Set 3 has the highest start and the lowest trim. Using the term number itself as the step count swaps Set 7 and Set 19.\n",
+        "why": "A term is the start plus one step fewer than the term number. Three steps to the fourth, six to the seventh, eight to the ninth, eleven to the twelfth. That gives 3.76, 3.90, 4.04 and 4.25 metres, so Set 3 hangs lowest and Set 12 highest. None of the three numbers decides it alone. Set 19 starts lowest and finishes third, and Set 3 has the highest start and the lowest trim. Using the term number itself as the step count swaps Set 7 and Set 19.\n",
         "relationship": "The arithmetic sequence aₙ = a₁ + (n − 1)d, with d the common difference added each time.",
         "cards": [
           "Set 3: first batten at 3.10 m, rising 0.22 m a batten, hung at its fourth.",
@@ -2243,7 +2263,7 @@ export const CURRICULUM = {
       "background": [
         "Why radians make this simple. Measured in degrees the same calculation needs a factor of pi over 180 every time. A radian is the angle whose arc equals its radius, so arc length is a multiplication and nothing else. Every formula in the course that mixes angles with lengths is written this way for that reason.",
         "What the number is for. The front edge is faced with a single strip of ply bent round the curve, and it is ordered by length. Two hundred millimetres short is a joint in the middle of the front edge, on the piece the audience looks at all evening.",
-        "Why the radius has to come off the floor rather than the drawing. Novak sets out on the stage because the 1958 proscenium moved the centre line, and a curve set out from the drawing's centre lands two feet three inches off the room's."
+        "Why the radius has to come off the floor rather than the drawing. Novak sets out on the stage because the 1958 proscenium moved the centre line. A curve set out from the drawing's centre lands two feet three inches off the room's."
       ],
       "story": "Petra Novak, who runs the scene shop, is setting out a curved rostrum on the stage floor. The design gives a radius of 4.2 metres and an arc that turns through 1.15 radians. She needs the length of the front edge before she orders timber.",
       "game": {
@@ -2254,7 +2274,7 @@ export const CURRICULUM = {
         "task": "Set out the curve the piece has to follow",
         "question": "Estimate the length of the rostrum's front edge.",
         "answer": "About 4.83 metres, which one strip of facing covers with a little to spare.",
-        "why": "Radius times angle in radians is the arc: 4.2 times 1.15 is 4.83 metres. The degree figure is on the tile row because it is the same angle and it cannot be used this way — multiplying by 65.9 gives 277 metres, which is absurd enough to catch and is exactly the mistake a calculator left in the wrong mode makes silently. The reason radians work here is definitional: a radian is the angle whose arc equals its radius, so the conversion factor is one. The diameter is the other trap, and it would give twice the answer, which is not absurd at all.\n",
+        "why": "Radius times angle in radians is the arc: 4.2 times 1.15 is 4.83 metres. The degree figure is on the tile row because it is the same angle, and it cannot be used this way. Multiplying by 65.9 gives 277 metres, which is absurd enough to catch. It is exactly the mistake a calculator left in the wrong mode makes silently. The reason radians work here is definitional: a radian is the angle whose arc equals its radius, so the conversion factor is one. The diameter is the other trap, and it would give twice the answer, which is not absurd at all.\n",
         "rebuttals": [
           "The angle in degrees needs a factor of pi over 180 before it can multiply a length.",
           "Using the diameter doubles the arc, which is wrong by a factor that looks plausible."
@@ -2297,7 +2317,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Sixteen pieces, each a little shorter",
-      "scene": "Novak has sixteen treads for a raked rostrum. The first is 3.60 metres and each one is 4 per cent shorter than the one below it. Quirke has written the order out as a constant subtraction.",
+      "scene": "Novak has sixteen treads for a raked rostrum. The first is 3.60 metres and each one is 4 per cent shorter than the one below it. Quirke, the master carpenter, has written the order out as a constant subtraction.",
       "takeaway": "A constant proportional change is a ratio, and it only looks like a difference at the start.",
       "place": "Scene Shop",
       "guide": "Read what the design says rather than what the order sheet says. Four per cent shorter than the one below is a multiplication, repeated; a constant subtraction is an addition, repeated. Work out where the two lists disagree, and by how much at the top of the rake.",
@@ -2306,7 +2326,7 @@ export const CURRICULUM = {
         "Where they end up. Sixteen terms at four per cent leaves the last tread at 1.98 metres. Sixteen terms subtracting 0.14 leaves it at 1.50. Half a metre of tread, on a piece a performer stands on.",
         "Which one the design means. A raked rostrum narrows in proportion because it is following a perspective, and a perspective is a ratio. That is a fact about the drawing rather than about arithmetic, and it is the reason to ask before ordering."
       ],
-      "story": "Novak has sixteen treads for a raked rostrum. The first is 3.60 metres and each one is 4 per cent shorter than the one below it. Quirke has written the order out as a constant subtraction.",
+      "story": "Novak has sixteen treads for a raked rostrum. The first is 3.60 metres and each one is 4 per cent shorter than the one below it. Quirke, the master carpenter, has written the order out as a constant subtraction.",
       "game": {
         "type": "CHOICE",
         "title": "Sixteen pieces, each a little shorter",
@@ -2315,7 +2335,7 @@ export const CURRICULUM = {
         "task": "Say which sequence the timber order follows",
         "question": "What is wrong with writing the treads as a constant subtraction?",
         "answer": "It matches for the first few and is half a metre out by the top",
-        "why": "Four per cent of 3.60 is 0.144, so a constant subtraction of about 0.14 fits the first two or three treads almost exactly and then drifts: the ratio takes four per cent of a steadily smaller number while the subtraction keeps taking the same amount. By the sixteenth tread the two lists are 1.98 metres and 1.50 metres, which is half a metre of timber on a piece somebody stands on. The subtraction does not go negative in sixteen terms, so nothing about the order sheet looks absurd, and that is exactly why it would have been cut.\n",
+        "why": "Four per cent of 3.60 is 0.144. So a constant subtraction of about 0.14 fits the first two or three treads almost exactly, and then drifts. The ratio takes four per cent of a steadily smaller number, while the subtraction keeps taking the same amount. By the sixteenth tread the two lists are 1.98 metres and 1.50 metres, which is half a metre of timber on a piece somebody stands on. The subtraction does not go negative in sixteen terms, so nothing about the order sheet looks absurd, and that is exactly why it would have been cut.\n",
         "rebuttals": [
           "Sixteen steps of 0.14 from 3.60 leaves 1.50 metres, which is short but not negative.",
           "Constant subtraction is perfectly usable for lengths; it is the wrong model for this design.",
@@ -2356,7 +2376,7 @@ export const CURRICULUM = {
       "place": "Scene Shop",
       "guide": "One change, three consequences, and they are measured in three different units. Work out what each of them is actually a function of, and which of the three can be answered from numbers already in the file. The answer is which measurement to take rather than what to do.",
       "background": [
-        "Why three inches is not a small change here. Row A sits 1.1 metres behind the rail, so three inches of rail height is nearly two degrees of sightline for that row — and the rail is the top edge of what those seats see over.",
+        "Why three inches is not a small change here. Row A sits 1.1 metres behind the rail, so three inches of rail height is nearly two degrees of sightline for that row. The rail is the top edge of what those seats see over.",
         "What the rail does for the band. It reflects sound back at the players, which is how nine people covering an arrangement for twenty-two hear each other. Lowering it improves the house and removes some of that, which is Mbatha asking for two contradictory things."
       ],
       "story": "Mbatha wants the pit rail three inches lower. Novak has one day of shop time left before the seats arrive, and the rail is also a sightline for row A and a reflector for the band.",
@@ -2368,7 +2388,7 @@ export const CURRICULUM = {
         "task": "Decide whether the rail comes down",
         "question": "What should be measured before the rail is cut?",
         "answer": "What row A can see over the rail as it stands",
-        "why": "Row A is the consequence that cannot be undone. Sound is adjustable — a fold-back for the band, or a reflector added later — and shop time is a scheduling fact rather than a measurement. But a seat that cannot see over a rail is a refund, and the rail is the top edge of what row A looks over, at nearly two degrees per three inches from 1.1 metres back. Measuring the band's drop is worth doing and it is a level that can be recovered by other means. What the rail weighs is a construction detail with no bearing on any of the three questions in the room.\n",
+        "why": "Row A is the consequence that cannot be undone. Sound is adjustable — a fold-back for the band, or a reflector added later — and shop time is a scheduling fact rather than a measurement. But a seat that cannot see over a rail is a refund. The rail is the top edge of what row A looks over, by about four degrees for a three-inch change viewed from 1.1 metres back. Measuring the band's drop is worth doing and it is a level that can be recovered by other means. What the rail weighs is a construction detail with no bearing on any of the three questions in the room.\n",
         "rebuttals": [
           "The band's level can be recovered with fold-back; a sightline lost to a rail cannot.",
           "Shop time is a constraint on doing it, not evidence about whether it should be done.",
@@ -2404,15 +2424,15 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "A bridle, or a narrower piece",
-      "scene": "Three options are on Novak's bench: a bridle that brings each line to 28 degrees, a piece cut 900 millimetres narrower, or flying the cloth from the next pair of lines out. Shop time is four hours.",
+      "scene": "Osei and the qualified rigger have three redesigns on the bench: an engineered bridle that brings each line to 28 degrees, a narrower/lighter piece, or a different approved pair of pick points. Shop time is four hours.",
       "takeaway": "One relationship, three quantities, and each option moves a different one.",
       "place": "Scene Shop",
-      "guide": "Each option changes a different quantity in the same relationship. Work out which one changes the angle, which changes the weight and which changes neither, then rank them by what four hours of shop time can actually deliver before two o'clock.",
+      "guide": "Each option changes a different quantity in the same relationship. Work out which one changes the angle, which changes the weight and which changes neither. Then rank them by what four hours of shop time can actually deliver before two o'clock.",
       "background": [
-        "What a bridle does. It pulls the two main lines toward the vertical by adding a short line between them, so the cosine rises and every tension falls. It costs two shackles and an hour, and it adds a point load where the bridle meets the mains.",
-        "What cutting the piece does. Nine hundred millimetres off the width takes about 30 kilograms off the weight and brings the lines in a little, so it helps twice — and it is four hours of shop time and a repaint."
+        "What the engineered bridle changes in this scenario. It changes the line angle, which changes the cosine term and therefore the line force. The hardware and connection are part of the approved rigging plan; angle alone never certifies a sling or line assembly.",
+        "What cutting the piece does. Nine hundred millimetres off the width takes about 30 kilograms off the weight and brings the lines in a little, so it helps twice. It is also four hours of shop time and a repaint."
       ],
-      "story": "Three options are on Novak's bench: a bridle that brings each line to 28 degrees, a piece cut 900 millimetres narrower, or flying the cloth from the next pair of lines out. Shop time is four hours.",
+      "story": "Osei and the qualified rigger have three redesigns on the bench: an engineered bridle that brings each line to 28 degrees, a narrower/lighter piece, or a different approved pair of pick points. Shop time is four hours.",
       "game": {
         "type": "PROTOCOL",
         "title": "A bridle, or a narrower piece",
@@ -2421,7 +2441,7 @@ export const CURRICULUM = {
         "task": "Match each option to what it changes in the relationship.",
         "question": "Match each option to what it changes in the relationship.",
         "answer": "The bridle changes the angle fastest, the narrower cloth changes both, the outer lines change the angle if they are free, and the counterweight changes nothing about tension.",
-        "why": "Three of the four move a term in the same relationship and one does not. A bridle raises the cosine, which lowers every tension and takes an hour. A narrower cloth reduces the weight and the lean together, and costs four hours the shop does not really have. Lines further out reduce the lean for nothing, if the sequence leaves them free — which is a question for Haigh rather than for Novak. The counterweight is the one that feels relevant and is not: it balances the set so one person can move it, and the tension in the lines above the piece is unchanged by what is hanging on the other end of them.\n",
+        "why": "All three legitimate redesigns change a term in the force relationship: angle, weight, or approved pick geometry. The counterweight does not reduce the force needed to support the suspended piece. The important operational distinction is that the calculation chooses what must change; the qualified rigging assessment decides whether the changed configuration is acceptable.",
         "rebuttals": [
           "A bridle pulls the mains toward the vertical, which raises the cosine and lowers every tension.",
           "A narrower cloth weighs less and hangs on lines that lean less, so it helps twice.",
@@ -2476,7 +2496,7 @@ export const CURRICULUM = {
       "scene": "The bridled truss rises 4.2 metres while the revolve turns it 1.15 radians. Novak needs to know whether it clears the false proscenium during the move, not just at the ends.",
       "takeaway": "Two coordinates changing together trace a curve, and the ends say nothing about the middle.",
       "place": "Scene Shop",
-      "guide": "The piece has a height that depends on time and a bearing that depends on time, so its position is two functions of one parameter. Say what that means for the question being asked, because a clearance at the start and a clearance at the end do not establish a clearance in the middle.",
+      "guide": "The piece has a height that depends on time and a bearing that depends on time, so its position is two functions of one parameter. Say what that means for the question being asked. A clearance at the start and a clearance at the end do not establish a clearance in the middle.",
       "background": [
         "Why the ends are not enough. Both coordinates change through the move, so the path between the two endpoints is a curve rather than a straight line. A piece can clear at both ends and foul in the middle, which is exactly the case a rehearsal finds and a drawing does not.",
         "What the parameter is. Time, here — but it could be a fraction of the move, and often is, because the flying operator and the revolve are on different clocks. The useful parameterisation is the one both operators can read."
@@ -2490,7 +2510,7 @@ export const CURRICULUM = {
         "task": "Say what the piece traces as it flies",
         "question": "What does the piece's path require to be checked?",
         "answer": "The position at several points through the move",
-        "why": "Height and bearing both change through the move, so the piece traces a curve and the clearance has to be evaluated along it. Checking the ends is the standard mistake and it passes a move that fouls in the middle — which is the failure a rehearsal finds with forty-one people watching. The highest point matters if the obstruction is above, and the false proscenium is beside the path rather than over it, so height alone does not settle it. The total angle is a fact about the revolve and says nothing about where the truss is at any moment during the turn.\n",
+        "why": "Height and bearing both change through the move, so the piece traces a curve and the clearance has to be evaluated along it. Checking the ends is the standard mistake, and it passes a move that fouls in the middle. That is the failure a rehearsal finds with forty-one people watching. The highest point matters if the obstruction is above, and the false proscenium is beside the path rather than over it, so height alone does not settle it. The total angle is a fact about the revolve and says nothing about where the truss is at any moment during the turn.\n",
         "rebuttals": [
           "Two coordinates moving together trace a curve; the endpoints do not describe it.",
           "The highest point answers a clearance above, and the false proscenium is beside the path.",
@@ -2526,7 +2546,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "The centre line the room has",
-      "scene": "Quirke is setting out the false proscenium. The 1911 drawing gives a centre line; the 1958 alteration moved the frame; a tape from the two side walls gives a third line, 140 millimetres from the drawing's.",
+      "scene": "Quirke is setting out the false proscenium. The 1911 drawing gives a centre line. The 1958 alteration moved the frame. A tape run from the two side walls gives a third line, 140 millimetres from the one on the drawing.",
       "takeaway": "Averaging three measurements of one thing is sensible; averaging three different things is not.",
       "place": "Scene Shop",
       "guide": "Three candidate centre lines and one piece to build. Decide which line the piece has to be symmetric about, and say what makes that the right answer rather than the average of the three. The audience is the test rather than the drawing.",
@@ -2534,7 +2554,7 @@ export const CURRICULUM = {
         "Why the wall measurement wins. The piece is seen against the frame and the walls, by people sitting in the room. Symmetry that reads to an audience is symmetry about what they can see, which is the room, not the drawing.",
         "Why averaging is the wrong instinct. Three measurements of the same thing average usefully; three different things do not. These are a historical record, an altered structure and a current measurement, and the average of them is a line with no referent at all."
       ],
-      "story": "Quirke is setting out the false proscenium. The 1911 drawing gives a centre line; the 1958 alteration moved the frame; a tape from the two side walls gives a third line, 140 millimetres from the drawing's.",
+      "story": "Quirke is setting out the false proscenium. The 1911 drawing gives a centre line. The 1958 alteration moved the frame. A tape run from the two side walls gives a third line, 140 millimetres from the one on the drawing.",
       "game": {
         "type": "PROTOCOL",
         "title": "The centre line the room has",
@@ -2543,7 +2563,7 @@ export const CURRICULUM = {
         "task": "Match each candidate centre line to what it is a record of.",
         "question": "Match each candidate centre line to what it is a record of.",
         "answer": "Build to the walls: the drawing records a building since altered, the frame records the alteration, and the average of three different things records nothing.",
-        "why": "The piece is looked at by people in the room, so it has to be symmetric about what they can see — and that is the line the walls give today. The 1911 drawing is a record of the building before the change that caused all this. The frame's own symmetry is a record of the 1958 alteration, which is the discrepancy rather than a reference for it. And the average is the instinct worth resisting: three measurements of one quantity average usefully, and these are three different quantities, so their average is a line nothing in the building is symmetric about.\n",
+        "why": "The piece is looked at by people sitting in the room. So it has to be symmetric about what they can see, and that is the line the walls give today. The 1911 drawing is a record of the building before the change that caused all this. The frame's own symmetry is a record of the 1958 alteration, which is the discrepancy rather than a reference for it. And the average is the instinct worth resisting. Three measurements of one quantity average usefully. These are three different quantities, so their average is a line nothing in the building is symmetric about.\n",
         "rebuttals": [
           "The wall measurement is the only one taken from the room people sit in.",
           "The 1911 line records a building that has since been altered.",
@@ -2594,64 +2614,6 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "Four numbers that used to be opinions",
-      "scene": "Quirke has the four things that changed this fortnight written on the shop wall. Novak wants them in an order somebody can act on next time the building goes dark.",
-      "takeaway": "An inherited figure and a measured one can agree and are not the same evidence.",
-      "place": "Scene Shop",
-      "guide": "Look for what the four have in common rather than what each says. In every case a figure taken from somewhere else was replaced by a measurement made here, with a period or a condition attached to it. Put them in the order of how soon the next production needs each.",
-      "background": [
-        "What each one replaced. A centre line from a 1911 drawing, a clearance from a flow rate, a per-line tension from halving a weight, and a beam angle from a bearing with no stated reference. All four were plausible and none was measured.",
-        "Why the order is by urgency rather than by importance. The next production inherits the file, and what it needs first is what it cannot work without: the room's own centre line, then the load plot, then the seat map, then the rig's reference direction."
-      ],
-      "story": "Quirke has the four things that changed this fortnight written on the shop wall. Novak wants them in an order somebody can act on next time the building goes dark.",
-      "game": {
-        "type": "SEQUENCE",
-        "title": "Four numbers that used to be opinions",
-        "setup": "Scene Shop",
-        "play": "Say what the fortnight replaced",
-        "task": "Say what the fortnight replaced",
-        "question": "Put the four in the order the next production needs them.",
-        "answer": "Centre line, load plot, seat map, then the rig's reference direction — the order in which the next production cannot proceed without each.",
-        "why": "The order is by what stops work rather than by what matters most. Nothing can be set out without the room's own centre line, and everything built to the 1911 line is 140 millimetres wrong. The load plot comes next because nothing flies without it. The seat map is needed before tickets go on sale, which is weeks rather than days. The rig's reference direction is needed when the rig is plotted, which is last — and it is the one that cost half a metre this time. All four are the same move: a figure inherited from a drawing, a rate or a habit, replaced by a measurement of this room with its conditions written beside it.\n",
-        "cards": [
-          "The room's own centre line, measured from the side walls",
-          "The load plot, with every angle measured and the leaning term included",
-          "The seat map, with the twelve confirmed against a marked position",
-          "The rig plot's reference direction, stated on the plot itself"
-        ],
-        "order": [
-          0,
-          1,
-          2,
-          3
-        ],
-        "axis": "which the next production needs first",
-        "ends": [
-          "needed first",
-          "needed last"
-        ]
-      },
-      "assumes": [
-        "the file is inherited by the next production intact",
-        "average rate of change over an interval — taken as read"
-      ],
-      "takesAsRead": [
-        {
-          "n": 2,
-          "c": "Average rate of change over an interval"
-        }
-      ],
-      "concept": {
-        "n": 9,
-        "c": "Choosing a model, and what a residual says about the choice",
-        "of": 31,
-        "rests": [
-          "Average rate of change over an interval"
-        ]
-      }
-    },
-    {
-      "day": 8,
       "title": "An arc, a radius and an angle — Review",
       "scene": "Eamon Quirke, the master carpenter, is bending a steel handrail round the front of the new orchestra rail. The setting-out on the shop floor gives a radius of 3.6 metres and an angle of 1.45 radians. The steel is ordered by the metre.",
       "takeaway": "An arc computed from a drawing is the length of the line, not of the thing bent round it.",
@@ -2659,8 +2621,8 @@ export const CURRICULUM = {
       "guide": "Multiply the radius by the angle in radians and you have the arc, with no conversion factor anywhere in it. Lock that figure before anything is chalked. Then have the curve set out full size and run a tape round it, and read what the floor says rather than what the drawing says. The gap between the two is the thing worth knowing before the steel is cut.",
       "background": [
         "Why the formula has nothing else in it. A radian is defined as the angle whose arc equals its radius, so the arc is the radius scaled by however many radians the curve turns through. In degrees the same calculation carries a factor of pi over 180, and a calculator in the wrong mode gives 299 metres here without complaining.",
-        "Why a tape is worth a prediction. The chalk line is a mathematical curve on a flat floor. The handrail is a real section with a thickness, bent round the outside of that line, so it follows a slightly larger radius than the one on the drawing.",
-        "What the gap costs if it is ignored. Steel comes in a stock length and is cut once. A rail ordered short is a joint in the middle of the front of the orchestra rail, at waist height, where the front rows lean on it all evening."
+        "Why a tape is worth a prediction. The chalk line is a mathematical curve on a flat floor. The handrail is a real section with a thickness, bent round the outside of that line. So it follows a slightly larger radius than the one on the drawing.",
+        "What the gap costs if it is ignored. Steel comes in a stock length and is cut once. A rail ordered short means a joint in the middle of the front of the orchestra rail. It is at waist height, where the front rows lean on it all evening."
       ],
       "story": "Eamon Quirke, the master carpenter, is bending a steel handrail round the front of the new orchestra rail. The setting-out on the shop floor gives a radius of 3.6 metres and an angle of 1.45 radians. The steel is ordered by the metre.",
       "game": {
@@ -2671,7 +2633,7 @@ export const CURRICULUM = {
         "task": "Predict the length of the handrail, then run a tape round the setting-out and report.",
         "question": "Predict the length of the handrail, then run a tape round the setting-out and report.",
         "answer": "About 5.22 metres from the setting-out, 5.31 round the outside face — nine centimetres of section thickness, and nowhere near the 10.4 the diameter would have given.",
-        "why": "Radius times angle in radians is the arc, so the setting-out gives 3.6 by 1.45, or 5.22 metres. The tape says 5.31. The gap is nine centimetres, and it is geometry rather than error: the chalk line is the centre of the curve and the handrail is bent round its outside face, sixty millimetres further out. Sixty millimetres of extra radius over 1.45 radians is nine centimetres of extra steel. Order to the chalk line and the rail is short at the joint.\n",
+        "why": "Radius times angle in radians is the arc, so the setting-out gives 3.6 by 1.45, or 5.22 metres. The tape says 5.31. The gap is nine centimetres, and it is geometry rather than error. The chalk line is the centre of the curve, and the handrail is bent round its outside face, sixty millimetres further out. Sixty millimetres of extra radius over 1.45 radians is nine centimetres of extra steel. Order to the chalk line and the rail is short at the joint.\n",
         "relationship": "The arc length s = rθ, with θ in radians: the arc a radius sweeps is the radius multiplied by the angle.",
         "verify": {
           "prediction": {
@@ -2741,16 +2703,16 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Two lines that have to meet",
-      "scene": "Kettleby has the 1911 seat map and a proscenium narrowed by two feet three inches in 1958. Nobody has drawn a sightline since. Nine hundred seats are on sale.",
+      "scene": "Alan Kettleby, the house manager, has the 1911 seat map and a proscenium narrowed by two feet three inches in 1958. Nobody has drawn a sightline since. Nine hundred seats are on sale.",
       "takeaway": "A sightline is a pair — a seat and a place somebody stands — not a property of a seat.",
       "place": "The House",
-      "guide": "A sightline is a straight line from a seat to a point on stage, so a seat is not good or bad on its own — it is a seat that can or cannot see a particular place. Work out what has to be known before any seat can be called into question, and which of the four things on offer is the one nobody has.",
+      "guide": "A sightline is a straight line from a seat to a point on stage. So a seat is not good or bad on its own. It is a seat that can or cannot see a particular place. Work out what has to be known before any seat can be called into question, and which of the four things on offer is the one nobody has.",
       "background": [
         "Why a seat is not the unit. The same seat sees a performer at centre stage and not one standing three metres left of centre. So the question is a pair: a seat, and a place somebody stands. That is what makes it two lines rather than a rating.",
-        "What the 1958 alteration did. Narrowing the proscenium by two feet three inches moved both edges of the frame inward. Every seat at the outer end of a row lost some of the stage, and the further forward the seat, the more it lost — which is why the front rows are the ones in question rather than the back.",
+        "What the 1958 alteration did. Narrowing the proscenium by two feet three inches moved both edges of the frame inward. Every seat at the outer end of a row lost some of the stage, and the further forward the seat, the more it lost. That is why the front rows are the ones in question rather than the back.",
         "Why the domain matters here. The function that matters takes a seat and a stage position and returns whether the line is clear. Its domain is every pair, and the pairs nobody has evaluated are the ones the show is about to sell."
       ],
-      "story": "Kettleby has the 1911 seat map and a proscenium narrowed by two feet three inches in 1958. Nobody has drawn a sightline since. Nine hundred seats are on sale.",
+      "story": "Alan Kettleby, the house manager, has the 1911 seat map and a proscenium narrowed by two feet three inches in 1958. Nobody has drawn a sightline since. Nine hundred seats are on sale.",
       "game": {
         "type": "CHOICE",
         "title": "Two lines that have to meet",
@@ -2788,9 +2750,9 @@ export const CURRICULUM = {
       "scene": "The proscenium edge is 5.1 metres from the centre line. Kettleby is standing on the mark the show puts a performer, 2.8 metres left of centre and 3.4 metres upstage of the proscenium line.",
       "takeaway": "Whether a seat sees a mark is two angles from the same point, compared.",
       "place": "The House",
-      "guide": "The seat, the proscenium edge and the performer are three points, and whether the seat can see the performer is whether the edge is inside or outside the line between the other two. Work out the angle the sightline makes with the centre line, and the angle to the edge, and compare them. The one that is larger is what is in the way.",
+      "guide": "The seat, the proscenium edge and the performer are three points. Whether the seat can see the performer is whether the edge falls inside or outside the line between the other two. Work out the angle the sightline makes with the centre line, and the angle to the edge, and compare them. The one that is larger is what is in the way.",
       "background": [
-        "Why a performer upstage is worse than one downstage. The further behind the proscenium line somebody stands, the more of the stage the frame cuts off for a seat at the side — because the line from the seat has to pass the frame at a shallower angle. Three and a half metres upstage is a normal position for a solo spot.",
+        "Why a performer upstage is worse than one downstage. The further behind the proscenium line somebody stands, the more of the stage the frame cuts off for a seat at the side. The line from that seat has to pass the frame at a shallower angle. Three and a half metres upstage is a normal position for a solo spot.",
         "What the comparison actually is. Two angles measured from the same point: the angle to the performer and the angle to the frame edge. If the frame's angle is the smaller one, the frame is inside the sightline and the seat sees the performer; if it is larger, it is not.",
         "Why this is arithmetic rather than judgement. A seat either has a clear line or it does not, and the answer follows from four measured distances. What is a judgement is what to do about it, and that is tomorrow's argument rather than today's."
       ],
@@ -2803,7 +2765,7 @@ export const CURRICULUM = {
         "task": "Match each pair of measurements to the angle it gives.",
         "question": "Match each pair of measurements to the angle it gives.",
         "answer": "Offset and depth fix the performer; frame and seat distance give the frame's angle; offset and depth give the seat's bearing; two cross-stage distances give only a gap.",
-        "why": "Every angle here comes from two perpendicular distances, and the discipline is keeping track of which point each one is measured from. The performer's position is an offset and a depth. The frame's angle is measured from the seat, using the frame's offset and the seat's distance back. The seat's own bearing uses its own offset and the same depth. The fourth pair is the one that is not an angle at all: two distances measured across the stage give the gap between the frame and the performer, which is 2.3 metres and tells you nothing about any seat until it is put with a distance back.\n",
+        "why": "Every angle here comes from two perpendicular distances, and the discipline is keeping track of which point each one is measured from. The performer's position is an offset and a depth. The frame's angle is measured from the seat, using the frame's offset and the seat's distance back. The seat's own bearing uses its own offset and the same depth. The fourth pair is the one that is not an angle at all. Two distances measured across the stage give the gap between the frame and the performer. That gap is 2.3 metres, and it says nothing about any seat until it is put beside a distance back.\n",
         "rebuttals": [
           "Two distances from the centre line and the proscenium fix where the performer is standing, and nothing else.",
           "The frame edge and the seat's distance back give the angle at which the frame cuts across that seat's view.",
@@ -2855,51 +2817,51 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "The same fraction each half second",
-      "scene": "Brand claps once in the empty house. The level is 92 decibels at the clap and falls by 28 per cent of its remaining sound energy every half second.",
-      "takeaway": "A proportional loss leaves a shrinking amount each step and never quite finishes.",
+      "scene": "Brand records the empty house after an impulse. Every quarter-second the late sound energy is about 32 per cent of what it was one step earlier. He wants the one-second decay before the seats go in.",
+      "takeaway": "A proportional decay is exponential: the same fraction acts on what remains, not on the original amount.",
       "place": "The House",
-      "guide": "A decay that removes the same fraction each interval is a repeated multiplication. Work out what fraction of the original energy is left after eight half-seconds, then say what that means for the reverberation time — the interval over which a room loses almost all of it.",
+      "guide": "A constant fractional decay is repeated multiplication. One second contains four quarter-second steps, so compute 0.32 to the fourth. Then compare the prediction with the measured decay tail rather than treating either one as a full acoustic model of the room.",
       "background": [
-        "Why a proportional decay never reaches zero. Each step takes a fraction of what remains, so there is always something left. In practice the sound falls below what anybody can hear, which is why reverberation time is defined against a stated drop rather than against silence.",
+        "Why a proportional decay never reaches zero. Each step takes a fraction of what remains, so there is always something left. In practice the sound falls below what anybody can hear. So reverberation time is defined against a stated drop rather than against silence.",
         "Why the seats change it. Sound energy leaves a room by being absorbed, and an empty seat absorbs far less than an occupied one. Eight hundred and sixty people are the largest absorber the Ellery will ever contain, and their absence is why the room is currently unusable."
       ],
-      "story": "Brand claps once in the empty house. The level is 92 decibels at the clap and falls by 28 per cent of its remaining sound energy every half second.",
+      "story": "Brand records the empty house after an impulse. Every quarter-second the late sound energy is about 32 per cent of what it was one step earlier. He wants the one-second decay before the seats go in.",
       "game": {
         "type": "VERIFY",
         "title": "The same fraction each half second",
         "setup": "The House",
         "play": "Work out how long the ring takes to fall",
         "task": "Work out how long the ring takes to fall",
-        "question": "Predict what is left after four seconds, then clap and measure it.",
-        "answer": "Predicted 7.2 per cent from 0.72 to the eighth, measured 8.1 — a room that rings straight through the next line.",
-        "why": "Each half second leaves 72 per cent of what was there, and eight of those is 0.72 to the eighth: 7.2 per cent. The measurement gives 8.1, close enough to confirm the model and far enough above nothing to be plainly audible from row F, which is what an empty variety house sounds like. Using the lost fraction instead gives 0.28 to the eighth, a ten-millionth, which would describe a recording studio. Multiplying 0.28 by eight is the linear reflex and gives more than two — more energy than the clap had — which is the fastest way to notice the model is a repeated multiplication rather than a repeated subtraction.\n",
+        "question": "Predict the late-sound energy left after one second, then measure it.",
+        "answer": "Predicted about 1.05 per cent after one second; measured 1.1 per cent in the empty house.",
+        "why": "Four quarter-second steps leave 0.32⁴ ≈ 0.0105, or about 1.05 per cent of the initial late-sound energy. The measured value is 1.1 per cent. That corresponds to a substantial decay over one second while still leaving a measurable reverberant tail. Using 0.68 as the retained fraction would confuse the fraction lost with the fraction remaining.",
         "relationship": "A proportional decay, V = A·(1 − k)ᵗ, with k the fraction lost each interval and t the number of intervals.",
         "verify": {
           "prediction": {
-            "label": "Predicted energy remaining after four seconds",
+            "label": "Predicted energy remaining after one second",
             "unit": "% of original",
             "min": 0,
             "max": 60,
             "step": 0.5
           },
-          "truth": 7.2,
+          "truth": 1.05,
           "passRatio": [
-            0.7,
-            1.4
+            0.8,
+            1.25
           ],
           "intervention": {
             "label": "Clap once and record the tail",
-            "note": "Empty house, seats out, one clap from centre stage with the meter at row F.",
-            "outcome": "Recorded. The tail is measured from the clap to four seconds after it."
+            "note": "Empty house, one test impulse from centre stage with the decay trace read at row F.",
+            "outcome": "Recorded. Compare the late-sound energy one second after the impulse."
           },
           "measurement": {
             "label": "Measured energy remaining",
-            "note": "8.1 per cent — audible from row F, and the reason a line of dialogue is still in the air when the next one starts.",
+            "note": "1.1 per cent of the initial late-sound energy after one second.",
             "cost": 1,
             "costUnit": "claps"
           },
-          "hint": "Lock the prediction before the clap. Each half second leaves 72 per cent of what was there, and four seconds is eight of them.",
-          "unmeasuredMoral": "A decay computed from a fraction is a statement about the fraction. What the room does is a measurement, and this room has had its seats out for eleven years.",
+          "hint": "Lock the prediction first. One second contains four quarter-second intervals, each retaining 32 per cent.",
+          "unmeasuredMoral": "The exponential predicts the tail implied by the measured step ratio. The room itself still has to be measured, and the result changes when the seating and audience absorption change.",
           "lock": "Lock the prediction",
           "run": "Commit it",
           "measure": "Take the measurement",
@@ -2973,10 +2935,10 @@ export const CURRICULUM = {
       "scene": "Kettleby has walked the front six rows with a marker on the performer's position. Rows A to F each lose the two outermost seats on the stage-left side. Sallow has nine hundred on sale.",
       "takeaway": "A sightline with no solution is a seat that cannot see, rather than a seat that sees badly.",
       "place": "The House",
-      "guide": "A sightline is two lines that either meet on the stage or do not, which is a pair of equations with a solution or without one. Work out what the walked measurement establishes, and say what the honest description of a condemned seat is — because the difference between a bad seat and a seat that cannot see decides whether it is sold at all.",
+      "guide": "A sightline is two lines that either meet on the stage or do not, which is a pair of equations with a solution or without one. Work out what the walked measurement establishes. Then say what the honest description of a condemned seat is. The difference between a bad seat and a seat that cannot see decides whether it is sold at all.",
       "background": [
-        "What no solution looks like here. The line from the seat past the proscenium edge and the line to the performer do not intersect anywhere on stage: there is no point the seat can see the performer from. That is a geometric fact rather than a matter of degree.",
-        "Why twelve seats and not six or twenty-four. Both sides of the house are symmetric about the centre line, so the count is doubled — but the marker was on a stage-left position, so a stage-right mark would condemn the mirror pair instead. Twelve is the count for this blocking."
+        "What no solution looks like here. The line from the seat past the proscenium edge and the line to the performer do not intersect anywhere on stage. There is no point the seat can see the performer from. That is a geometric fact rather than a matter of degree.",
+        "Why twelve seats and not six or twenty-four. Both sides of the house are symmetric about the centre line, so the count is doubled. But the marker was on a stage-left position, and a stage-right mark would condemn the mirror pair instead. Twelve is the count for this blocking."
       ],
       "story": "Kettleby has walked the front six rows with a marker on the performer's position. Rows A to F each lose the two outermost seats on the stage-left side. Sallow has nine hundred on sale.",
       "game": {
@@ -2987,7 +2949,7 @@ export const CURRICULUM = {
         "task": "Say which seats the measurement condemns",
         "question": "What does the walked survey establish?",
         "answer": "Twelve seats cannot see that mark, for this blocking",
-        "why": "The survey establishes a specific thing: for this blocking, twelve seats have no line to the performer's mark. That is a pair of lines with no intersection on stage rather than a bad view, and the qualification matters — move the mark and the twelve seats change. Calling them poor-view seats invites selling them at a discount for a problem that is total rather than partial. Condemning the whole front six rows is a much larger claim than twelve seats and would cost about ninety. Widening the proscenium is undoing 1958 in six days, which is not a finding of the survey.\n",
+        "why": "The survey establishes a specific thing: for this blocking, twelve seats have no line to the performer's mark. That is a pair of lines with no intersection on stage, rather than a bad view. The qualification matters: move the mark and the twelve seats change. Calling them poor-view seats invites selling them at a discount for a problem that is total rather than partial. Condemning the whole front six rows is a much larger claim than twelve seats and would cost about ninety. Widening the proscenium is undoing 1958 in six days, which is not a finding of the survey.\n",
         "rebuttals": [
           "A poor view is partial. These seats have no line to the mark at all.",
           "The rows contain about ninety seats; the survey condemns twelve of them.",
@@ -3023,65 +2985,74 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What the grid carries at once",
-      "scene": "The sequence has three pieces in the air together: 260, 190 and 410 kilograms, with a bridled truss adding 60 more. Pell wants a total with a stated margin against the grid's assessed 1,600 kilograms.",
-      "takeaway": "A grid carries line tensions rather than piece weights, and they are not the same total.",
+      "scene": "Three pieces and the bridle hardware are supported by the sequence at once: 260, 190, 410 and 60 kilograms. They all hang from a twelve-metre batten that is flown on its own lift lines. Pell does not want those masses turned into one invented 'grid mass'. He wants the vertical load and the separate local lateral components at the pick points, checked against the assessor's limits.",
+      "takeaway": "A load plot keeps vertical and lateral components separate and attaches each force to the point where it acts.",
       "place": "The House",
-      "guide": "Add what is actually hanging, then decide what a margin means. The tensions in the lines are larger than the weights, and the grid feels the tensions, so a total built from weights alone understates what the ironwork carries. Read the panel and report the figure the file should say.",
+      "guide": "First total the supported mass and convert it to vertical force. Keep the horizontal components from leaning lines separate: they are real local loads, but they do not become extra vertical weight. A load plot is a set of vectors at locations, not one scalar total.",
       "background": [
-        "Why the total is not the sum of the weights. Every leaning line pulls harder than the weight it carries, and the grid feels each line's pull rather than each piece's mass. On this sequence that difference is about 130 kilograms.",
-        "What the margin is for. A snatch — a piece started or stopped fast — puts a transient well above the static load, and a grid untested since 1958 has an assessed rather than a measured capacity. Pell's file wants both numbers and the gap between them."
+        "Why line tension is not extra vertical mass. Leaning lines can have tension magnitudes larger than their vertical shares because some of the force is horizontal. Those horizontal components are real structural loads, but adding them to the piece masses would double-count them as vertical weight.",
+        "What the assessor checks. The file attaches vertical and lateral components to the actual pick points and compares those local forces with the evaluated limits for the structure and rigging configuration. One aggregate number is useful bookkeeping and is not, by itself, a structural certification."
       ],
-      "story": "The sequence has three pieces in the air together: 260, 190 and 410 kilograms, with a bridled truss adding 60 more. Pell wants a total with a stated margin against the grid's assessed 1,600 kilograms.",
+      "story": "Three pieces and the bridle hardware are supported by the sequence at once: 260, 190, 410 and 60 kilograms. They all hang from a twelve-metre batten that is flown on its own lift lines. Pell does not want those masses turned into one invented 'grid mass'. He wants the vertical load and the separate local lateral components at the pick points, checked against the assessor's limits.",
       "game": {
         "type": "BALANCE",
         "title": "What the grid carries at once",
         "setup": "The House",
-        "play": "Total the grid load with a margin on it",
-        "task": "Total the grid load with a margin on it",
-        "question": "Read what you need and report the load the grid actually carries.",
-        "answer": "About 1,050 kilograms — the 920 on the weight tickets plus the 130 the leaning lines add, against an assessed 1,600.",
-        "why": "The pieces and the bridle come to 920 kilograms on the tickets, and the term that does not announce itself is the lean: every line pulls harder than the weight it carries, and the grid feels the tensions rather than the masses. That is another 130 kilograms, on no ticket anywhere because it is not a mass. Total about 1,050 against an assessed 1,600, which is a real margin and one that Pell can be shown. The counterweights are the tempting fifth term and belong to the counterweight frame rather than the grid. Reporting 920 would be an honest reading of every document in the building and thirteen per cent light.\n",
+        "play": "File the grid load components",
+        "task": "File the grid load components",
+        "question": "Report the vertical total and identify what must remain separate on the load plot.",
+        "answer": "About 10.2 kN of vertical weight in this sequence, with the lateral components listed separately at their pick points.",
+        "why": "The pieces and hardware come to 920 kg, and the batten they hang from is another 115 kg that appears on no piece ticket. The ironwork therefore carries about 10.16 kN, not 9.03. Leaning lines can have tension magnitudes greater than their vertical shares, but the extra magnitude is carried in horizontal components; it is not another 130 kg of vertical mass. Pell's file records the 10.2 kN vertical total plus the local horizontal and vertical components at each pick, and the structural assessor checks those point loads against the evaluated limits.",
         "balance": {
           "total": {
-            "amount": 1050,
-            "unit": "kg",
-            "label": "Total load on the grid during the sequence"
+            "amount": 10.16,
+            "unit": "kN",
+            "label": "Total vertical weight supported in the sequence"
           },
           "streams": [
             {
               "id": "pieces",
-              "label": "The three pieces in the air",
-              "value": 860,
-              "display": "260 + 190 + 410 kg on the weight tickets"
+              "label": "Three flown pieces",
+              "value": 8.44,
+              "display": "(260 + 190 + 410) kg × g = 8.44 kN"
             },
             {
-              "id": "bridle",
-              "label": "Bridled truss and its hardware",
-              "value": 60,
-              "display": "60 kg"
+              "id": "hardware",
+              "label": "Bridle hardware",
+              "value": 0.59,
+              "display": "60 kg × g = 0.59 kN"
             },
             {
-              "id": "lean",
-              "label": "Extra pull because every line leans",
-              "value": 130,
-              "display": "130 kg — the tensions exceed the weights",
-              "note": "on no weight ticket, because it is not a mass",
+              "id": "batten",
+              "label": "The batten and its lift lines",
+              "value": 1.13,
+              "display": "115 kg × g = 1.13 kN",
+              "note": "the pipe has been up there since the fit-up and is on no piece ticket",
               "hidden": true
             },
             {
-              "id": "counter",
-              "label": "Counterweights on the other end of the sets",
+              "id": "lean",
+              "label": "Horizontal components from leaning lines",
               "value": 0,
-              "display": "carried by the counterweight frame, not by the grid"
+              "display": "record separately at each pick — not extra vertical weight",
+              "note": "local lateral vectors belong on the load plot",
+              "countable": false
+            },
+            {
+              "id": "counter",
+              "label": "Counterweights on the separate frame",
+              "value": 0,
+              "display": "not part of this bay’s vertical load check",
+              "countable": false
             }
           ],
-          "tolerance": 50,
+          "tolerance": 0.15,
           "hint": "Reading a weight ticket is free. Counting a stream is the claim you are making about what the ironwork is holding.",
-          "commit": "Report the grid load"
+          "commit": "File the vertical total and the separate point-load vectors"
         }
       },
       "assumes": [
-        "the assessed grid capacity of 1,600 kilograms is a static figure",
+        "the evaluated point-load limits supplied to Pell are valid for the rigging configuration being filed",
         "right-triangle ratios, and finding an angle from two sides — taken as read"
       ],
       "takesAsRead": [
@@ -3102,15 +3073,15 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Withdraw, discount or reblock",
-      "scene": "Twelve seats have no line to the mark. Withdrawing them costs about £2,460 across the run. Reblocking the number moves the mark 1.2 metres downstage, which Mbatha says the band can live with.",
+      "scene": "Twelve already-sold seats have no line to the current mark, including Hettie Prosser's. Moving the mark 1.2 metres downstage clears those sightlines, and Mbatha says the staging change is musically workable.",
       "takeaway": "When two people are each right about their own number, the answer is usually a third option.",
       "place": "The House",
-      "guide": "Both people in the argument are right about their own number, so the answer is not a compromise between them — it is the third option nobody has costed. Read what each course actually does to the twelve seats and to the show, and pick the one that removes the problem rather than paying for it.",
+      "guide": "The choice is not between revenue and knowingly selling a blind seat: these seats are already sold. Compare refund/relocation with changing the blocking, and choose the option that removes the sightline problem without creating a new safety or artistic failure.",
       "background": [
         "Why discounting is the worst of the three. A seat sold cheap to somebody who then cannot see the performer produces a refund and a complaint, so the revenue is notional and the cost is real. Selling a known blind seat is the one option that gets worse after the transaction.",
-        "What reblocking costs. Moving the mark 1.2 metres downstage puts the performer nearer the band, which Mbatha has already accepted, and it changes two lighting angles that Adeyemi can replot in an hour. It costs an hour and no seats."
+        "What reblocking costs. Moving the mark 1.2 metres downstage puts the performer nearer the band, which Mbatha has already accepted. It changes two lighting angles, and Adeyemi can replot those in an hour. It costs an hour and no seats."
       ],
-      "story": "Twelve seats have no line to the mark. Withdrawing them costs about £2,460 across the run. Reblocking the number moves the mark 1.2 metres downstage, which Mbatha says the band can live with.",
+      "story": "Twelve already-sold seats have no line to the current mark, including Hettie Prosser's. Moving the mark 1.2 metres downstage clears those sightlines, and Mbatha says the staging change is musically workable.",
       "game": {
         "type": "CHOICE",
         "title": "Withdraw, discount or reblock",
@@ -3119,7 +3090,7 @@ export const CURRICULUM = {
         "task": "Decide what happens to the twelve",
         "question": "What should happen before the map goes to print?",
         "answer": "Move the mark 1.2 metres downstage and keep all twelve on sale",
-        "why": "Sallow is right that twelve seats withdrawn late in a rising curve are twelve seats sold to nobody, and Kettleby is right that a seat with no line is a refund. Both numbers are correct, which is why the answer is the option neither of them has costed: moving the mark 1.2 metres downstage clears the lines, costs an hour of replotting and no seats, and the musical director has already agreed to it. Withdrawing pays £2,460 to solve a geometry problem. Discounting sells a known defect and turns revenue into refunds and complaints. Printing as it stands is the same thing without the discount.\n",
+        "why": "Kettleby is right that an already-sold seat with no line to the performer is a real failure. Sallow is right that refunding or relocating twelve people has a cost. Moving the mark 1.2 metres downstage clears the measured sightlines and costs an hour of replotting, with the musical director already agreeing to the move. The modelled £2,460 is therefore an estimate of revenue exposure, not a reason to sell a known blind seat.",
         "rebuttals": [
           "Withdrawal is the honest version of paying £2,460 for something an hour of replotting fixes.",
           "A discounted blind seat produces a refund and a complaint, so the revenue is notional.",
@@ -3155,15 +3126,15 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Walked, not estimated",
-      "scene": "Pell needs the house cleared in under 150 seconds. The estimate on file, made by dividing the seat count by a per-second flow figure, says 138. Nobody has walked it.",
-      "takeaway": "A prediction and a measurement are two pieces of evidence, and the second is the one the file needs.",
+      "scene": "For this temporary reopening, Pell's written condition is a full-company clearance rehearsal under 150 seconds. The estimate on file, made from seat count divided by a steady flow figure, says 138 seconds. Nobody has walked the real route yet.",
+      "takeaway": "A flow estimate is a model; the reopening file needs a measured rehearsal under the stated conditions.",
       "place": "The House",
-      "guide": "Predict the time from the flow figure, then walk the exit with the company and measure it. Lock the prediction first: the value of the measurement is the comparison, and a walked figure that agrees with an estimate is a different piece of evidence from an estimate alone.",
+      "guide": "Predict the time from the flow figure, then walk the exit with the company and measure it. Lock the prediction first. The value of the measurement is the comparison: a walked figure that agrees with an estimate is a different piece of evidence from an estimate alone.",
       "background": [
-        "Why an estimate from a flow rate is optimistic. It assumes a steady flow through every exit from the first second, and real houses have a delay while people stand and gather, and a bottleneck at the narrowest point. Both push the real figure above the estimate.",
+        "Why an estimate from a flow rate is optimistic. It assumes a steady flow through every exit from the first second. Real houses have a delay while people stand and gather, and a bottleneck at the narrowest point. Both push the real figure above the estimate.",
         "What the licence actually wants. A measured time from a walked rehearsal, because the file has to show the room rather than the arithmetic. Pell has read enough files to know the difference and says so."
       ],
-      "story": "Pell needs the house cleared in under 150 seconds. The estimate on file, made by dividing the seat count by a per-second flow figure, says 138. Nobody has walked it.",
+      "story": "For this temporary reopening, Pell's written condition is a full-company clearance rehearsal under 150 seconds. The estimate on file, made from seat count divided by a steady flow figure, says 138 seconds. Nobody has walked the real route yet.",
       "game": {
         "type": "VERIFY",
         "title": "Walked, not estimated",
@@ -3172,7 +3143,7 @@ export const CURRICULUM = {
         "task": "Time the exit by walking it",
         "question": "Predict the clearance time from the flow figure, then walk it and report.",
         "answer": "The estimate is 138 seconds and the walk gives 161 — over the 150 the licence allows, with the bottleneck at the stage-left pass door.",
-        "why": "The flow figure predicts 138 seconds and the walk measures 161, which is over the licence limit. The gap is the whole reason the walk is required: a flow calculation assumes steady movement through every exit from the first second, and a real house spends time standing up and then queues at its narrowest point. Both effects push the measurement above the estimate, and neither is visible in the arithmetic. What the walk also gives, which no estimate can, is where the queue formed — the stage-left pass door — which turns a failed number into a specific thing to fix before the fourteenth.\n",
+        "why": "The flow model predicts 138 seconds and the first full-company walk measures 161, so the Ellery fails Pell's stated reopening condition. The gap is the reason to measure: people do not begin moving at steady flow from the first second, and a real route develops bottlenecks. The walk also identifies the bottleneck at the stage-left pass, which turns a failed number into something that can be changed and retested.",
         "verify": {
           "prediction": {
             "label": "Predicted clearance time",
@@ -3227,15 +3198,15 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Four hours, six jobs",
-      "scene": "Four hours of company time before the dress. Six jobs on Haigh's sheet, two of them required by the licence and four of them wanted by somebody with an argument.",
+      "scene": "Four hours of company time remain before the dress. Six useful jobs are on Haigh's sheet. The load plot is already filed; the one remaining licensing failure is the 161-second exit walk, and every other job buys confidence somewhere else.",
       "takeaway": "A pool smaller than the list is a decision about what will not be done.",
       "place": "The House",
-      "guide": "Everything on this list is worth doing and the four hours will not cover it. Two of the six are conditions of the licence, so the doors do not open without them. Spend the pool, and know what the plan cannot answer once it is spent.",
+      "guide": "The list is larger than the pool. Buy the exit retest first because the building currently fails its written reopening condition, then decide which rehearsals or measurements can still fit. The output of the exercise is also the list of claims you will not be able to make tonight.",
       "background": [
-        "What the licence actually requires. A walked exit under 150 seconds and a filed load plot. Neither is negotiable and both are measurable, which is what makes them different from the other four items on the sheet.",
+        "What is actually outstanding for the licence. The load plot was filed on Tuesday. The remaining failed condition is the exit rehearsal, which measured 161 seconds against Pell's 150-second requirement and identified the stage-left pass as the bottleneck.",
         "Why the flying cue has to be run rather than calculated. Six seconds is the computed answer and a rehearsal is the only thing that establishes the operators can hit it, twice, with a company on stage."
       ],
-      "story": "Four hours of company time before the dress. Six jobs on Haigh's sheet, two of them required by the licence and four of them wanted by somebody with an argument.",
+      "story": "Four hours of company time remain before the dress. Six useful jobs are on Haigh's sheet. The load plot is already filed; the one remaining licensing failure is the 161-second exit walk, and every other job buys confidence somewhere else.",
       "game": {
         "type": "ALLOCATE",
         "title": "Four hours, six jobs",
@@ -3243,8 +3214,8 @@ export const CURRICULUM = {
         "play": "Spend the last four hours",
         "task": "Spend the last four hours",
         "question": "Four hours before the dress. Build the plan, and know what it stops you being able to say.",
-        "answer": "Notes are protected, the exit walk is the licence condition, and the flying cue is the one thing nobody has done. That is 130 minutes, leaving room for the re-block or the wash and not both.",
-        "why": "The two licence items are not preferences: the doors do not open without an exit time under 150 seconds and a filed load plot, so the exit walk is bought first whatever else waits. The flying cue is the item where computation has run out — six seconds is the answer and nobody has hit it with a company on stage, and a cue nobody has run is a cue that happens for the first time in front of an audience. The notes are protected because forty-one people cannot open on notes they have not heard. What is left buys the re-block or the camera wash, and the honest thing is to say which one is not being done rather than to plan for both.\n",
+        "answer": "Notes, the exit retest and the flying cue use 130 minutes, leaving 110: enough for both the re-block and camera wash, but not those two plus the 55-minute band balance.",
+        "why": "The exit retest comes first because the first walk failed the reopening condition. The flying cue is the place where computation has run out, and the notes are protected because the company cannot open on instructions it has not heard. Those three use 130 minutes, leaving 110. That is enough for the 50-minute re-block and 45-minute camera wash together, but not enough to add the 55-minute band balance too. The point is to name the measurement being deferred rather than pretending the full list fits.",
         "allocate": {
           "pool": {
             "amount": 240,
@@ -3254,9 +3225,9 @@ export const CURRICULUM = {
           "items": [
             {
               "id": "exits",
-              "label": "Re-walk the exits with the pass door propped",
+              "label": "Clear the stage-left pass and walk the exits twice",
               "cost": 40,
-              "note": "the licence needs a figure under 150 seconds"
+              "note": "the first walk was 161 s; Pell wants a measured result under 150 s"
             },
             {
               "id": "fly",
@@ -3320,7 +3291,7 @@ export const CURRICULUM = {
               ]
             }
           ],
-          "hint": "Nothing here is the wrong thing to rehearse. What the plan cannot cover is the price of what it can, and two of the six are licence conditions.",
+          "hint": "Nothing here is useless. The load plot is already filed; the exit retest is the one remaining failed licensing condition, and the rest of the pool buys rehearsal or measurement confidence.",
           "commit": "Commit the four hours"
         }
       },
@@ -3346,7 +3317,7 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "What the file says",
-      "scene": "Four statements are drafted for the licence file. Pell will read all four and sign or not sign on the strength of them. Two are measurements and two are not.",
+      "scene": "Four statements are drafted for the licence file. Some are measurements, some are model outputs, and one has been superseded by a later intervention and repeat measurement. Pell will sign only what is labelled honestly.",
       "takeaway": "A measurement carries its conditions; an estimate carries its assumptions.",
       "place": "The House",
       "guide": "Read each statement against what was actually done in the fortnight. A measurement carries the conditions it was taken under; an estimate carries the assumptions it was computed from. Both belong in a file and only one of them can be signed against.",
@@ -3354,7 +3325,7 @@ export const CURRICULUM = {
         "What the walk established and the calculation did not. A clearance time of 161 seconds from a walked rehearsal with the full company, and where the queue formed. The 138-second estimate assumed a steady flow that no real house produces.",
         "Why the load plot is the strongest item in the file. Every tension in it was computed from a measured angle and a weighed piece, and the total includes the term that appears on no weight ticket. It is the only number in the building with a margin stated beside it."
       ],
-      "story": "Four statements are drafted for the licence file. Pell will read all four and sign or not sign on the strength of them. Two are measurements and two are not.",
+      "story": "Four statements are drafted for the licence file. Some are measurements, some are model outputs, and one has been superseded by a later intervention and repeat measurement. Pell will sign only what is labelled honestly.",
       "game": {
         "type": "PROTOCOL",
         "title": "What the file says",
@@ -3362,8 +3333,8 @@ export const CURRICULUM = {
         "play": "Match each statement to what supports it.",
         "task": "Match each statement to what supports it.",
         "question": "Match each statement to what supports it.",
-        "answer": "Three measurements with their conditions attached, and one estimate that the walk has already contradicted.",
-        "why": "Three of the four carry the conditions they were taken under: a walked clearance with the bottleneck named, a load plot built from weighed pieces and measured angles, and a seat survey done by sitting in the seats with a marker on stage. The fourth is an estimate from a flow rate, and the walk has already measured 23 seconds more than it predicted. All four can go in the file; only three can be signed against, and the honest form is to keep the estimate with the measurement beside it so the next manager can see which was which.\n",
+        "answer": "Keep the measured conditions and the failed model in the record: they explain why the later 146/148-second walks and the revised sightline map are credible.",
+        "why": "The file has to preserve the chain of evidence rather than erase the failed steps. The first walk measured 161 seconds and found the bottleneck; clearing that bottleneck led to repeat walks of 146 and 148 seconds. The rigging item is a load plot of force vectors reviewed against assessed limits, not a scalar 'grid mass'. The sightline result belongs to the original mark, and the 138-second flow estimate remains a model that the first walk falsified under real conditions.",
         "rebuttals": [
           "The 161 is a measured time from a walk, and it names where the queue formed.",
           "The load plot is built from weighed pieces and measured angles, including the term that is not a mass.",
@@ -3371,16 +3342,16 @@ export const CURRICULUM = {
           "That figure came from a flow rate. The walk measured 23 seconds more than it."
         ],
         "scenarios": [
-          "The house clears in 161 seconds",
-          "The grid carries 1,050 kilograms in the sequence, against 1,600 assessed",
-          "Twelve seats have no line to the mark",
-          "Everyone will be out in 138 seconds"
+          "The first full-company exit walk took 161 s and identified the stage-left pass bottleneck",
+          "The rigging load plot lists the force components at each pick and the assessor accepted them against evaluated limits",
+          "Twelve sold seats had no line to the original mark before the mark moved",
+          "The simple flow model predicted a 138 s clearance before anybody walked the route"
         ],
         "choices": [
-          "A walked rehearsal with the full company, and the bottleneck named",
-          "Weighed pieces, measured angles, and the leaning term nobody tickets",
-          "A survey walked with a marker on the performer's position",
-          "A steady flow rate assumed from the first second, which no room delivers"
+          "A walked rehearsal under the original route, with the bottleneck identified",
+          "Measured angles/weights resolved into force components, then reviewed against assessed point-load limits",
+          "A seat-by-seat survey tied to a specific performer mark and blocking condition",
+          "A steady-flow estimate whose assumptions were contradicted by the first walk"
         ],
         "mapping": [
           0,
@@ -3395,6 +3366,71 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the file is read as it stands rather than explained in person",
+        "choosing a model, and what a residual says about the choice — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "|v| = √(vₓ² + v_y²)",
+          "c": "the magnitude of a vector from its components",
+          "v": [
+            [
+              "|v|",
+              "the magnitude, in the units of the components"
+            ],
+            [
+              "vₓ, v_y",
+              "the horizontal and vertical components"
+            ]
+          ],
+          "s": "Two perpendicular components make a right triangle whose hypotenuse is the magnitude.",
+          "demanded": true
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 9,
+          "c": "Choosing a model, and what a residual says about the choice"
+        }
+      ],
+      "concept": {
+        "n": 31,
+        "c": "Reading a model: what it is a model of, and where it stops being one",
+        "of": 31,
+        "rests": [
+          "Choosing a model, and what a residual says about the choice"
+        ]
+      }
+    },
+    {
+      "day": 10,
+      "title": "Your name under it",
+      "scene": "The house opens in seven hours. The measured seat map is clear on the moved mark. The rigging load plot has been reviewed against evaluated point-load limits. After the stage-left pass was cleared, two full-company exit walks took 146 and 148 seconds against Pell's 150-second reopening condition. The roof leak remains, and the band's full-room balance has not been repeated.",
+      "takeaway": "The final engineering act is not another calculation; it is stating exactly what the evidence allows you to approve.",
+      "place": "The House",
+      "guide": "Choose the statement you can defend line by line. A licence recommendation can carry conditions and unresolved work; it cannot turn a model into a measurement or an unfinished structural/acoustic question into a fact.",
+      "background": [
+        "What a conditional signature means here. The production can open on the measured conditions that passed, while the file explicitly preserves the route condition, the reviewed rigging configuration and the work still outstanding. If any of those operating conditions change, the evidence no longer applies."
+      ],
+      "story": "The house opens in seven hours. The measured seat map is clear on the moved mark. The rigging load plot has been reviewed against evaluated point-load limits. After the stage-left pass was cleared, two full-company exit walks took 146 and 148 seconds against Pell's 150-second reopening condition. The roof leak remains, and the band's full-room balance has not been repeated.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Your name under it",
+        "setup": "The House",
+        "play": "Sign the opening recommendation",
+        "task": "Sign the opening recommendation",
+        "question": "Which opening recommendation do you sign?",
+        "answer": "Sign the conditional opening recommendation: approve only the measured configuration and write the unresolved roof/acoustic work beside it.",
+        "why": "The fortnight did not prove the building is safe under every condition. It settled specific things under stated conditions. The moved mark restores the measured sightlines. The reviewed rigging stays inside the assessed load limits. The cleared stage-left pass gave repeat exit walks of 146 and 148 seconds. Those are defensible grounds for a conditional opening. The 138-second estimate was contradicted by measurement. The roof stays a maintenance problem to record. And an unfinished acoustic balance is not a reason to invent a result.",
+        "choices": [
+          "Approve opening on the measured evidence, with the roof and the acoustic recheck recorded as unresolved",
+          "Approve without any conditions, because every numerical lesson this fortnight produced an answer",
+          "Use the 138-second flow estimate instead of the walked exit times, because it is mathematically cleaner",
+          "Refuse the entire production, solely because the roof over the grid still leaks in heavy rain"
+        ],
+        "correctChoice": "Approve opening on the measured evidence, with the roof and the acoustic recheck recorded as unresolved"
+      },
+      "assumes": [
+        "Pell is the authority setting the fictional Ellery reopening conditions in this scenario",
         "choosing a model, and what a residual says about the choice — taken as read"
       ],
       "takesAsRead": [
@@ -3417,11 +3453,11 @@ export const CURRICULUM = {
 
 export const BALLPARK_CALCS = {
   "FRONT-1": {
-    "prompt": "Advance sales by week: 41, 66, 188. Dowd wants the average rate across all three, not the last step.",
+    "prompt": "Cumulative advance at weekly checkpoints: 41, 66, 188. Dowd wants the average rate from the first checkpoint to the third.",
     "question": "Estimate the average rate of change in sales across the three weeks.",
     "labels": [
-      "188  (seats sold in week three)",
-      "41  (seats sold in week one)",
+      "188  (cumulative seats sold by week three)",
+      "41  (cumulative seats sold by week one)",
       "2  (weeks between the first and the third)",
       "122  (the last step on its own)"
     ],
@@ -3474,8 +3510,8 @@ export const BALLPARK_CALCS = {
     "explanation": "Just under five metres, so a single strip covers it — using the angle in degrees would give 277 metres."
   },
   "PIT-1": {
-    "prompt": "0.004 V in, four stages of 3.2 each. Brand wants the level at the amplifier input.",
-    "question": "Estimate the signal arriving at the amplifier.",
+    "prompt": "0.004 V in, four stages of gain 3.2 each. Brand wants the voltage after the fourth stage.",
+    "question": "Estimate the signal leaving the fourth gain stage.",
     "labels": [
       "0.004 V  (the microphone signal)",
       "3.2  (gain at each stage)",
@@ -3616,33 +3652,38 @@ export const BALLPARK_CALCS = {
     "explanation": "Four metres fifty-six off centre, with 5.8 upstage — which picks the bar as well as the position on it."
   },
   "FLY-2": {
-    "prompt": "180 kg on two lines, each leaning 22 degrees off the vertical. Osei wants the per-line figure.",
+    "prompt": "180 kg cloth, two lines each 22° from vertical. Use g = 9.81 m/s² and estimate the tension in each line.",
     "question": "Estimate the tension in each of the two lines.",
     "labels": [
-      "180 kg  (the weight of the cloth)",
-      "2  (the number of lines)",
-      "22 deg  (each line's lean off the vertical)",
-      "90 kg  (half the weight, as usually quoted)"
+      "180  (mass in kg)",
+      "9.81  (g in m/s²)",
+      "2  (lines)",
+      "22  (degrees from vertical)",
+      "68  (degrees from horizontal, off the same protractor)",
+      "1.77  (weight in kN, already worked out)"
     ],
     "values": [
       180,
+      9.81,
       2,
       22,
-      90
+      68,
+      1.77
     ],
-    "slots": 3,
-    "template": "{0} ÷ ({1} × cos {2})",
-    "formula": "a/(b*Math.cos(c*Math.PI/180))",
+    "slots": 4,
+    "template": "({0} × {1}) ÷ ({2} × cos {3})",
+    "formula": "a*b/(c*Math.cos(d*Math.PI/180))",
     "correct": [
       0,
       1,
-      2
+      2,
+      3
     ],
-    "target": 97.1,
-    "tolerance": 4,
-    "units": "kg",
-    "solution": "T = 180 ÷ (2 × cos 22°) = 180 ÷ 1.855 = 97.1 kg per line.",
-    "explanation": "Ninety-seven kilograms a line rather than ninety — eight per cent, and it grows fast as the lines lean further."
+    "target": 952,
+    "tolerance": 40,
+    "units": "N",
+    "solution": "T = (180 × 9.81) ÷ (2 × cos 22°) ≈ 952 N per line.",
+    "explanation": "About 0.95 kN per line, slightly above the 0.88 kN each would carry if the lines were vertical. The angle from horizontal is the same lean read the other way round, and the weight in kilonewtons is the product of the first two tiles rather than a tile of its own."
   },
   "PIT-4": {
     "prompt": "The meter reads 3.2 × 10⁻⁴ W/m² at row F, against a reference of 1.0 × 10⁻¹². The cap is 103 dB.",
@@ -3674,13 +3715,13 @@ export const BALLPARK_CALCS = {
     "explanation": "Eighty-five decibels, eighteen under the cap — which is a factor of sixty in intensity, not eighteen per cent."
   },
   "BOARD-5": {
-    "prompt": "9,600 lumens at 11.3 m along the beam. Ferreira wants the spherical figure before he meters it.",
+    "prompt": "Photometric sheet: 9,600 cd on axis at a throw of 11.3 m. Ferreira wants the inverse-square prediction.",
     "question": "Estimate the illuminance arriving at the mark.",
     "labels": [
-      "9600 lm  (output of the unit)",
-      "11.3 m  (distance to the mark)",
-      "12.566  (four pi)",
-      "6.2 m  (the bar height above the mark)"
+      "9600  (on-axis luminous intensity in cd)",
+      "11.3  (throw in m)",
+      "12.566  (4π, not needed for candela)",
+      "6.2  (bar height, not throw)"
     ],
     "values": [
       9600,
@@ -3688,57 +3729,61 @@ export const BALLPARK_CALCS = {
       12.566,
       6.2
     ],
-    "slots": 3,
-    "template": "{0} ÷ ({2} × {1}²)",
-    "formula": "a/(c*b*b)",
+    "slots": 2,
+    "template": "{0} ÷ {1}²",
+    "formula": "a/(b*b)",
     "correct": [
       0,
-      1,
-      2
+      1
     ],
-    "target": 6,
-    "tolerance": 0.8,
+    "target": 75.2,
+    "tolerance": 6,
     "units": "lux",
-    "solution": "I = 9600 ÷ (4π × 11.3²) = 9600 ÷ 1604 = 6.0 lux.",
-    "explanation": "Six lux as a spherical floor. A lens concentrates it many times over, which is why this figure is metered rather than trusted."
+    "solution": "E = 9,600 ÷ 11.3² ≈ 75.2 lux.",
+    "explanation": "About 75 lux on axis before the meter checks focus, alignment and the real beam."
   },
   "FLY-4": {
-    "prompt": "260 kg on two lines, each leaning 41 degrees off the vertical, rated 180 kg each.",
+    "prompt": "260 kg piece, two lines at 41° from vertical. Use g = 9.81 m/s². Estimate the static tension in each line.",
     "question": "Estimate the tension in each line at 41 degrees.",
     "labels": [
-      "260 kg  (weight of the truss cloth)",
-      "2  (the number of lines)",
-      "41 deg  (each line's lean off the vertical)",
-      "130 kg  (half the weight)"
+      "260  (mass in kg)",
+      "9.81  (g in m/s²)",
+      "2  (lines)",
+      "41  (degrees from vertical)",
+      "49  (degrees from horizontal, off the same protractor)",
+      "2.0  (the line's working limit in kN)"
     ],
     "values": [
       260,
+      9.81,
       2,
       41,
-      130
+      49,
+      2
     ],
-    "slots": 3,
-    "template": "{0} ÷ ({1} × cos {2})",
-    "formula": "a/(b*Math.cos(c*Math.PI/180))",
+    "slots": 4,
+    "template": "({0} × {1}) ÷ ({2} × cos {3})",
+    "formula": "a*b/(c*Math.cos(d*Math.PI/180))",
     "correct": [
       0,
       1,
-      2
+      2,
+      3
     ],
-    "target": 172,
-    "tolerance": 8,
-    "units": "kg",
-    "solution": "T = 260 ÷ (2 × cos 41°) = 260 ÷ 1.509 = 172 kg per line.",
-    "explanation": "A hundred and seventy-two against a 180 kilogram rating — inside it, with four per cent to spare and no allowance for a snatch."
+    "target": 1688,
+    "tolerance": 70,
+    "units": "N",
+    "solution": "T = (260 × 9.81) ÷ (2 × cos 41°) ≈ 1,688 N = 1.69 kN per line.",
+    "explanation": "Static tension is about 1.69 kN; with the site's 25% cue allowance it becomes about 2.11 kN, above the 2.0 kN working limit. The angle from horizontal is the same lean read the other way round, and the working limit is what the answer is compared with, not part of it."
   },
   "FRONT-5": {
-    "prompt": "Resale price is a constant over seats remaining, fitted at £2,460. Sallow wants what the last twelve are worth.",
+    "prompt": "Scarcity model k/(seats remaining), with k = £2,460·seats. What does it give per seat when 12 remain?",
     "question": "Estimate the modelled value of the last twelve seats.",
     "labels": [
-      "2460  (the fitted constant)",
+      "2460  (fitted constant in £·seats)",
       "12  (seats remaining)",
-      "205  (the modelled price at twelve seats)",
-      "900  (the capacity of the house)"
+      "205  (candidate price per seat)",
+      "900  (house capacity)"
     ],
     "values": [
       2460,
@@ -3747,17 +3792,17 @@ export const BALLPARK_CALCS = {
       900
     ],
     "slots": 2,
-    "template": "{0} ÷ {1} × {1}",
-    "formula": "a/b*b",
+    "template": "{0} ÷ {1}",
+    "formula": "a/b",
     "correct": [
       0,
       1
     ],
-    "target": 2460,
-    "tolerance": 200,
-    "units": "£",
-    "solution": "12 seats at £205 each is £2,460 — which is the fitted constant, because price times seats is constant.",
-    "explanation": "About £2,460, and the reason it equals the constant is that this model makes price times seats remaining a fixed number."
+    "target": 205,
+    "tolerance": 15,
+    "units": "£ per seat",
+    "solution": "£2,460·seats ÷ 12 seats = £205 per seat.",
+    "explanation": "The model gives £205 per seat at twelve remaining; its divergence near zero is the warning not to extrapolate it literally."
   },
   "BOARD-6": {
     "prompt": "The front bar is 6.2 m up. Its horizontal distance to the mark was 9.4 m and the mark has moved 1.2 m downstage.",
@@ -3820,17 +3865,17 @@ export const BALLPARK_CALCS = {
     "explanation": "Six seconds, which is inside an eight-second cue — with two seconds of margin rather than none."
   },
   "PIT-7": {
-    "prompt": "Reverberant energy after four seconds falls from 7 per cent to 22 per cent of the clap — the seats have changed the room.",
+    "prompt": "Late-sound energy after one second falls from 1.1% empty to 0.36% with the seats installed.",
     "question": "Estimate the change in level from the room alone.",
     "labels": [
-      "0.22  (energy left with the seats in)",
-      "0.072  (energy left with the house empty)",
-      "10  (the multiplier for an intensity ratio)",
-      "20  (the multiplier for a voltage ratio)"
+      "0.011  (empty-house fraction)",
+      "0.0036  (seats-in fraction)",
+      "10  (multiplier for an energy ratio)",
+      "20  (multiplier for an amplitude ratio)"
     ],
     "values": [
-      0.22,
-      0.072,
+      0.011,
+      0.0036,
       10,
       20
     ],
@@ -3842,15 +3887,22 @@ export const BALLPARK_CALCS = {
       1,
       2
     ],
-    "target": -4.8,
+    "target": -4.85,
     "tolerance": 0.8,
     "units": "dB",
-    "solution": "10 × log₁₀(0.072 ÷ 0.22) = 10 × (−0.485) = −4.8 dB.",
-    "explanation": "Nearly five decibels down from the room alone, which is why a band balanced in an empty house is quiet in a full one."
+    "solution": "10 × log₁₀(0.0036 ÷ 0.011) ≈ −4.85 dB.",
+    "explanation": "The one-second reverberant tail is about 4.9 dB lower with the seats installed. That is evidence about decay, not a direct instruction to raise the band by 4.9 dB."
   }
 };
 
 export const JARGON = [
+  {
+    "name": "Impulse",
+    "aliases": [
+      "impulse"
+    ],
+    "def": "One short sharp sound, such as a single clap, used to test how a room answers."
+  },
   {
     "name": "Scenery",
     "aliases": [
@@ -4004,6 +4056,15 @@ export const JARGON = [
       "ring"
     ],
     "def": "Sound continuing after its source has stopped, decaying by the same fraction each interval. An empty room rings; seats and people stop it."
+  },
+  {
+    "name": "Licence",
+    "aliases": [
+      "licence",
+      "licences",
+      "licensing"
+    ],
+    "def": "The permission a public theatre needs before it may let an audience in. Granted on measured numbers — exit times, loads, sound levels — and not on assurances."
   },
   {
     "name": "Residual",

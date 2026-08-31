@@ -129,8 +129,8 @@ export const INTERIORS = {
     }
   },
   "RAD": {
-    "caption": "Three hundred metres out in the dunes, because of what is in the pot.",
-    "standLine": "The source renewed eight months ago, and every exposure since a little longer.",
+    "caption": "Where the replacement repeater housing is X-rayed before it can go to sea.",
+    "standLine": "The source is eight months old, so every exposure takes longer than it did when the source was new.",
     "station": {
       "kind": "panel",
       "title": "Radiography bay",

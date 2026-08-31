@@ -104,7 +104,7 @@ export const ROSTER = [
     "role": "Structural Engineer",
     "division": "STRUCT",
     "color": "#7a4fa3",
-    "bio": "<p>Reads the wall. 41 drain holes, 9 seepage weirs and a row of uplift gauges in the foundation gallery, and she has a plot of every 1 of them going back to before she was born.</p><p>A dam under a rising reservoir is under a rising load, and the gallery reports it: seepage climbs with head, and uplift climbs with head, and both are supposed to climb by an amount she can predict. It is the ones that climb faster than predicted that she comes down here for.</p><p>Her limit is that everything she measures is a symptom. The crack she is looking for is in rock she will never see.</p>",
+    "bio": "<p>Reads the wall. 41 drain holes, 9 seepage weirs and a row of uplift gauges in the foundation gallery, and she has a plot of every one of them going back to before she was born.</p><p>A dam under a rising reservoir is under a rising load, and the gallery reports it: seepage climbs with head, and uplift climbs with head, and both are supposed to climb by an amount she can predict. It is the ones that climb faster than predicted that she comes down here for.</p><p>Her limit is that everything she measures is a symptom. The crack she is looking for is in rock she will never see.</p>",
     "quiz": [
       {
         "q": "Why is a seepage reading only useful to Zawadzka beside the reservoir level?",

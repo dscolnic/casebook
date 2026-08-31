@@ -11,5 +11,5 @@ export const COPY = {
   "RAD": "<p>The radiography bay, three hundred metres out in the dunes. A pot, a crank handle, a barrier rope and a film cassette, and a source that is a tenth of what it was in the spring.</p>",
   "MANHOLE": "<p>The beach manhole. Where the sea cable stops being a sea cable, under a concrete lid two hundred metres up the dune from the low-water mark.</p>",
   "GEN": "<p>The generator house. Two sets, one running, because a landing station that loses power stops feeding the repeaters and every one of them is on the seabed.</p>",
-  "STORE": "<p>The ship's store. Spare housings, spare pumps, jointing kits and a grapnel, all of it staged for a charter that starts on the thirteenth.</p>"
+  "STORE": "<p>The ship's store. Replacement housings, spare pumps and jointing kits are staged here for the one-day weather window when the cable can be lifted safely.</p>"
 };

@@ -22,7 +22,14 @@ export const CONTENT = theme.content ?? {};
 // Passing it here rather than at each call site is what keeps the tools honest —
 // `tiersFor` runs once, stamps `CONTENT.TIERS`, and every checker that imports a
 // theme and re-normalises reads the same answer the game did.
-export const CONTENT_REPORT = normalizeContent(CONTENT, theme.site);
+//
+// `theme.fixtures` goes in too, so `nearFirst` (inside `shapeMissions`) can
+// tell a far-GROUP call that is sited at a near place from one that genuinely
+// walks far, and leave the first alone instead of trading it for whatever a
+// later day happens to have. A theme with no `fixtures` block gets `{}`,
+// which is exactly today's behaviour: nothing reads as sited, every far call
+// is judged by its own area, same as before the placement pass existed.
+export const CONTENT_REPORT = normalizeContent(CONTENT, theme.site, theme.fixtures ?? {});
 
 // How big the text is, from `theme.audience`. Applied here rather than in an
 // entry point because there are three entry points and a feature added to one

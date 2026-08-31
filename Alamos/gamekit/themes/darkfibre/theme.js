@@ -20,6 +20,8 @@ import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
 import { INTERIORS } from './interiors.js';
+import { MINOR_INTERIORS } from './minors.js';
+import { FIXTURES } from './fixtures.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 
 export default {
@@ -30,10 +32,15 @@ export default {
 
   id: 'darkfibre',
   title: 'Dark Fibre',
-  subtitle: 'Optical Measurements Lead · Pellow Head, twelve days with a cable down',
+  subtitle: 'Optical Measurements Lead · Pellow Head Island · twelve days to guide one repair attempt',
 
-  // Each mission is one working day before the repair ship sails on the thirteenth. The plan card prints this in front of the mission number.
+  // Each mission is one working day in the countdown to the ship's single safe repair window.
   dayNoun: 'Day',
+  // The plan card's opening blurb is a brief stake: the one thing true this
+  // morning and the one thing the player does about it, not a fortnight of
+  // context. `engine/dev/checkStory.mjs` drops the word floor to zero and the
+  // ceiling to 70 words for a theme carrying this flag. See BRIEFING_PASS.md.
+  stakeStyle: 'brief',
 
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
@@ -62,7 +69,12 @@ export default {
   // What is inside each room the player walks into, from book.yml. Rooms are
   // built by engine/world/interiorBuilding.js on first entry, in a district
   // four kilometres from the town.
-  interiors: INTERIORS,
+  interiors: { ...INTERIORS, ...MINOR_INTERIORS },
+  // The objects the questions are asked AT, built into the rooms by
+  // engine/world/interiorFixtures.js; catalogue in ./fixtures.js. The GEN and
+  // STORE keys are the two non-area places, and a lesson pointing at a fixture
+  // under one of them is asked there rather than in its own area.
+  fixtures: FIXTURES,
   // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
   interiorStyle: 'lab',
@@ -80,71 +92,53 @@ export default {
   // that closes a day hands that piece over, and the board in the room named by
   // `where` is where all of them can be seen at once — engine/core/delivery.js.
   //
-  // One measurement a day, in the order the cable gave them up. Twelve days,
+  // One decision-ready piece of evidence a day. Twelve days,
   // so twelve pieces: the correction from fibre length to route position is
-  // made late and moves the only number the ship actually uses.
+  // made late and the final piece is the repair order itself.
   delivery: {
-    name: 'The Repair Chart',
-    what: 'What the ship digs on: a position along the route rather than along the glass, and '
-      + 'the one cause the loss budget closes against when the others will not.',
+    name: 'The Repair Order',
+    what: 'The two answers the ship needs before it leaves: what failed, and where along the seabed route it is.',
     where: 'TEST',
     pieces: [
-      'The launch conditions',
-      'The delay turned to distance',
-      'The reflection at the step',
-      'The loss budget\'s margin',
-      'The photon\'s energy',
-      'The detector\'s responsivity',
-      'The steel\'s halving thickness',
-      'The quarter-wave coating',
-      'The source\'s decay schedule',
-      'The corrected position',
-      'The pump\'s gain ceiling',
-      'The chart the ship digs on',
+      'The station launch cleared',
+      'The trace delay as an optical distance',
+      'A clean break ruled out',
+      'The damaged route\'s remaining margin',
+      'The receiver\'s photon count',
+      'The receiver calibrated on its diode',
+      'The replacement housing proved inspectable',
+      'The two-wavelength fault test prepared',
+      'The replacement housing cleared to sail',
+      'The corrected seabed position',
+      'The repeater diagnosis',
+      'The signed repair order',
     ],
   },
+  // The opening establishes the place, the human consequence, the one repair window,
+  // and the player's physics mission before any specialist cable language appears. That index used to
+  // be five of fourteen sentences here ("It says … It says … It says …") and it
+  // is day 1's stake's job: the player is about to write the first line of it.
   opening: [
-    'Nineteen days ago the light stopped coming back. The undersea cable at Pellow Head went dark. '
-    + 'Every call and message on it now goes the long way round. A repair ship is on charter from the '
-    + 'thirteenth. It costs forty thousand a day. You are the optical measurements lead here. The ship '
-    + 'digs where this station tells it to dig. In twelve days you hand over the repair chart. The '
-    + 'chart says how far out the fault is. It says where that lands on the seabed, not along the '
-    + 'glass. It says what broke. One measurement goes on it each day. The ship gets one crossing. '
-    + 'Forty thousand a day is spent digging wherever the chart points.',
+    'Pellow Head is a small island. Nearly every phone call and internet connection to the mainland runs through one fibre-optic cable on the ocean floor. '
+    + 'Nineteen days ago it lost most of its signal, leaving the island on one backup line. If that fails, emergency calls, hospital links and normal communication with the mainland go down. '
+    + 'A repair ship arrives in twelve days, just before bad weather closes the sea for weeks. It gets one safe day to pull up one part of the cable. '
+    + 'You are the optical measurements lead. Use the physics of light to answer two questions: what failed, and where is it? '
+    + 'Send the ship to the wrong thing or place, and Pellow Head may stay on its last link until the sea reopens. '
+    + 'Twelve days of measurements go onto one page — the Repair Order — and the ship digs where it says.',
   ],
 
   // How it ends. The last thing anybody reads, and the counterpart of `opening`:
-  // what came of the campaign, what it cost and what is unfinished, and then —
+  // what came of the campaign, why the diagnosis worked, and then —
   // this is the paragraph that is easy to leave out — what the *player* did.
   // `checkStory` fails a campaign whose closing paragraph is not addressed to
   // them, because a fortnight of work should not finish on a report.
   ending: [
-    'The ship sailed to 82.9 kilometres along the route rather than 84.6 along '
-    + 'the fibre, and it went for a repeater rather than a break. Both halves of '
-    + 'that were the fortnight: the loss was equal at both wavelengths, which no '
-    + 'bend or crush can be, and switching repeater 6 to its spare pump returned '
-    + '3.6 of the 4.1 decibels the span had lost. The position was 1.7 kilometres '
-    + 'out for three reasons that all pointed the same way — the pulse travels at '
-    + 'the group index and not the core index, there is more fibre than cable, '
-    + 'and there is more cable than route. The housing on the deck was '
-    + 'radiographed with a source at a tenth of its original strength, on an '
-    + 'exposure of a hundred and twenty-six minutes, behind a barrier at eighteen '
-    + 'and a half metres.',
-    'What it cost: the only spare pump in that housing, six days of charter, and '
-    + 'a set of eleven-year-old joints that are still in the shore end. What is '
-    + 'unfinished: the new housing went to sea with its pump current telemetered '
-    + 'and its optical output not, which is the measurement whose absence cost '
-    + 'three weeks; the slack is still an average over a whole route rather than '
-    + 'a survey of the twenty kilometres the ship worked in; and nobody has '
-    + 'measured this rope of glass — the stiffness of the argument, the index a '
-    + 'pulse really travels at on this cable, is still the maker\'s figure.',
-    'You derived the acceptance cone, and then the distance, and then the three '
-    + 'corrections that stood between a distance and a place. You found the '
-    + 'ceiling on what a pump can ever give and used it to state a decline nobody '
-    + 'could measure from shore. And you were the one who put the two-wavelength '
-    + 'comparison beside the trace, which is what said the fibre was never '
-    + 'damaged at all. A ship went to the right kilometre for the right object. '
-    + 'That was your fortnight.',
+    'At dawn the captain takes the order you signed: recover repeater 6 at 82.9 kilometres along the route. The ship reaches the site inside the weather window, lifts the housing, and finds the aging pump you diagnosed. '
+    + 'The replacement housing is ready, the repair is made, and the main fibre link comes back before the sea closes.',
+    'The ship succeeded because the physics answered both halves of the problem. A clean break should have sent back a strong reflection and did not. A bend or crush should have hurt the longer test wavelength more and did not. '
+    + 'Switching to the spare pump returned 3.6 of the missing 4.1 decibels. And correcting the pulse speed, the extra fibre inside the cable and the slack on the seabed moved the target from 84.6 to 82.9 kilometres.',
+    'You did not use equations because the ship needed equations. You used them to decide which measurements to trust, which explanations to reject, what object to recover and where to find it. '
+    + 'Pellow Head gets its main connection back because the repair ship went to the right place for the right reason. That was your call.',
   ],
 
   look: {

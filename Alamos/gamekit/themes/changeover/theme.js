@@ -32,6 +32,12 @@ export default {
 
   // Each mission is one working day of the fortnight before the mark stops being money. The plan card prints this in front of the mission number.
   dayNoun: 'Day',
+  // The plan card's opening blurb is brief: the one thing that is true this
+  // morning and the one thing the player does about it, four sentences and no
+  // name on it. The board argument, the roster and the running numbers moved to
+  // the calls' own `reason` and to the debrief instead. See gamekit/BRIEFING_PASS.md
+  // and THREE_PASS_BRIEF.md's gotchas on `stakeStyle: 'brief'`.
+  stakeStyle: 'brief',
 
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'interior'  engine/world/interiorSite.js — a spine with rooms off it
@@ -97,47 +103,53 @@ export default {
       'The output aggregate',
       'The index and its rate',
       'The basket, fixed and revised',
-      'The reserve multiplier',
+      'The reserve-model ceiling',
       'The spending rounds',
       'The reserve clock',
       'The real rate\'s owner',
       'The money supply count',
       'The output gap',
       'The policy lag',
-      'The defensible rate',
+      'The 4.15 conversion rehearsal',
       'The exporters\' side',
       'The first week\'s cover',
-      'The rate, with conditions',
+      'The rate, signed with conditions',
     ],
   },
+  // FIVE SENTENCES ON FOUR BEATS — threat, authority, clock, who pays. What came
+  // out was the index of the rate book: three sentences of *"It says … It says …"*
+  // reciting what the handover document contains, plus a per-day "one figure goes
+  // in each day" line the plan cards demonstrate fifteen times over. The one
+  // load-bearing fact in that index — that every figure in the book carries the
+  // period it counts — moved into day 1's `stake`, where the player is about to
+  // write the first page of it. See THREE_PASS_BRIEF.md mandate 6.
+  //
+  // The lever is syllables, not sentence count: five sentences holding 89 words is
+  // 17.8 words a sentence, and Flesch-Kincaid charges for that, so almost every
+  // word here is one syllable. 4.9 against the banked worst of 5.4.
   opening: [
-    'In fourteen days the shops and banks of Halvern stop taking the mark. The mark is the money the '
-    + 'country has always used. Nobody has agreed what the new money is worth. Nine hundred thousand '
-    + 'people are paid in marks. You are the chief economist to the currency board. The rate is signed '
-    + 'by you, and so is every figure published beside it. In fifteen days you hand over the Halvern '
-    + 'rate book. It gives the rate the reserves can really hold. It says what prices have truly been '
-    + 'doing. It says how much of the old money is still out there. One figure goes in each day, with '
-    + 'the period it counts printed beside it. A rate nobody can hold is worse than a rate nobody '
-    + 'likes.',
+    'In fourteen days Halvern\'s old mark stops being money. From Kesteven House, the emergency '
+    + 'currency board must choose how many old marks one new mark is worth. You are the chief '
+    + 'economist, and the final rate book carries your name. Set the new mark too strong and the '
+    + 'reserves may be gone before the promise is over. Set it too weak and imported food gets dearer '
+    + 'than it has to be. Nine hundred thousand people wake on the fifteenth using whatever you sign.',
   ],
 
   // How it ends: what came of the fortnight, what it cost, what is unfinished —
   // and then the paragraph that is easy to leave out, which is the player's own.
   ending: [
-    'The new mark went out on the fifteenth at 4.15 to the old, which is not the rate the board '
-    + 'wanted and is the rate the reserves could hold. Prices rose eleven per cent in the first '
-    + 'month and then stopped, which is what a changeover does when the money supply is capped '
-    + 'and does not when it is not. The index Radic certified is published monthly with its '
-    + 'basket printed beside it, so the next argument about inflation starts from a number '
-    + 'somebody can check.',
-    'What is unfinished is the banks. Reserve requirements went from two per cent to eight in a '
-    + 'fortnight, and three of the eleven regional banks cannot meet them without selling assets '
-    + 'nobody wants to buy. That is next quarter, and it is somebody\u2019s problem.',
-    'You put a defensible index in front of the board before the rate was argued, so the rate was '
-    + 'set against measured prices rather than against the fear in the room. You found the money '
-    + 'the multiplier would have created and said so while there was time to cap it. Nine hundred '
-    + 'thousand people were paid in a currency that held its value through the changeover because '
-    + 'the arithmetic was done first.',
+    'At 8:57 on the fifteenth, you signed 4.15 old marks to one new, with the reserve position and '
+    + 'the conditions printed on the same page. At nine, Ngozi Okonjo opened the counter. The first '
+    + 'customer handed over old notes, the clerk counted out new ones, and the queue moved instead of '
+    + 'running. The rate survived the first week inside the reserve plan you wrote.',
+    'Three weak banks still needed bridge reserves, and the price index rose again before it slowed. '
+    + 'Nobody in the rate book pretends one policy caused that change: supply conditions, money growth '
+    + 'and expectations were all moving. The basket will need regular reweighting, and a rate that is '
+    + 'defensible at one outflow is not a promise that can never be revised.',
+    'You did not find a perfect rate. You ruled out the one the reserves could not hold, refused to '
+    + 'turn a forecast into a measurement, and made the final promise with the arithmetic beside it. '
+    + 'Nine hundred thousand people woke with a currency whose rules could be checked because you '
+    + 'made every assumption visible before you signed.',
   ],
 
   look: {

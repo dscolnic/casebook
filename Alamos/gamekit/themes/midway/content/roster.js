@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "County Ride Inspector",
     "division": "TOWER",
     "color": "#c0392b",
-    "bio": "<p>Inspects rides for the county, which makes him the one person here who does not work for the park. He signs or he does not sign, and a ride he has not signed does not turn.</p><p>His position is narrow and he states it the same way every time: a ride that has never hurt anybody is evidence about the past, and a margin is a statement about the future. 41 years of getting away with something is indistinguishable, from the outside, from 41 years of doing it right.</p><p>His limit is that he cannot design anything. He can only ask for the working, and when the working is produced he has to accept it, whatever he thought that morning.</p>",
+    "bio": "<p>Inspects rides for the county, which makes him the one person here who does not work for the park. He signs or he does not sign, and a ride he has not signed does not turn. His position is narrow and he states it the same way every time: a ride that has never hurt anybody is evidence about the past, and a margin is a statement about the future. 41 years of getting away with something is indistinguishable, from the outside, from 41 years of doing it right. His limit is that he cannot design anything. He can only ask for the working, and when the working is produced he has to accept it, whatever he thought that morning.</p>",
     "quiz": [
       {
         "q": "Why will Vey not accept a ride's forty-one-year record as a margin?",
@@ -28,7 +28,7 @@ export const ROSTER = [
     "role": "Brake and Hydraulics Technician",
     "division": "TOWER",
     "color": "#c0392b",
-    "bio": "<p>Looks after the brakes on every ride in the park, which on the tower means a row of copper fins and a set of magnets that never touch them.</p><p>He likes the magnetic brake because it cannot be adjusted wrong: the force it makes rises with the speed it is given, so it takes the most out of the fall exactly when there is the most to take. Nothing wears and nothing is set by hand.</p><p>His limit is that a brake is judged by what it does to a person rather than by what it does to a carriage, and the number that matters is one nobody at this park has ever measured.</p>",
+    "bio": "<p>Looks after the brakes on every ride in the park, which on the tower means a row of copper fins and a set of magnets that never touch them. He likes the magnetic brake because it cannot be adjusted wrong: the force it makes rises with the speed it is given, so it takes the most out of the fall exactly when there is the most to take. Nothing wears and nothing is set by hand. His limit is that a brake is judged by what it does to a person rather than by what it does to a carriage, and the number that matters is one nobody at this park has ever measured.</p>",
     "quiz": [
       {
         "q": "Why does Santos trust a magnetic brake more than a friction one?",
@@ -47,7 +47,7 @@ export const ROSTER = [
     "role": "Park Director",
     "division": "COASTER",
     "color": "#2f7fa8",
-    "bio": "<p>Owns the park, and has three weeks to reopen it. The season is 106 days long and pays for the other 259, and a ride that stays shut this summer is not a ride that opens next summer, because there is no next summer without this 1.</p><p>Her argument is not that safety does not matter. It is that Brennan's settings are data: 41 years, 11 million rides, no serious injury, written down in 1 hand in 11 notebooks that nobody has ever contradicted.</p><p>Her limit is that she is asking somebody else to sign. The certificate has the engineer's name on it and not hers, and she has never once pretended otherwise.</p>",
+    "bio": "<p>Owns the park, and has three weeks to reopen it. The season is 106 days long and pays for the other 259, and a ride that stays shut this summer is not a ride that opens next summer, because there is no next summer without this 1. Her argument is not that safety does not matter. It is that Brennan's settings are data: 41 years, 11 million rides, no serious injury, written down in 1 hand in 11 notebooks that nobody has ever contradicted. Her limit is that she is asking somebody else to sign. The certificate has the engineer's name on it and not hers, and she has never once pretended otherwise.</p>",
     "quiz": [
       {
         "q": "What does Marsh mean by calling Brennan's notebooks data?",
@@ -66,7 +66,7 @@ export const ROSTER = [
     "role": "Maintenance Lead",
     "division": "COASTER",
     "color": "#2f7fa8",
-    "bio": "<p>Runs the maintenance crew and has walked the coaster's track every working morning for nine years, which means she knows where the noise is before anybody else does.</p><p>What she brings to an argument is the history of a machine: which section was rebuilt, which bolts have been replaced twice, where the paint is thin because somebody has been up there often. A drawing says what was intended and she can say what is there.</p><p>Her limit is that nothing she knows is written down in a form an inspector accepts. Her evidence is a walk and a memory, and it has been right nearly every time.</p>",
+    "bio": "<p>Runs the maintenance crew and has walked the coaster's track every working morning for nine years, which means she knows where the noise is before anybody else does. What she brings to an argument is the history of a machine: which section was rebuilt, which bolts have been replaced twice, where the paint is thin because somebody has been up there often. A drawing says what was intended and she can say what is there. Her limit is that nothing she knows is written down in a form an inspector accepts. Her evidence is a walk and a memory, and it has been right nearly every time.</p>",
     "quiz": [
       {
         "q": "Why is Kovač's morning walk worth more than the maintenance file?",
@@ -85,7 +85,7 @@ export const ROSTER = [
     "role": "Chief Mechanic, retired",
     "division": "CAROUSEL",
     "color": "#c99a2e",
-    "bio": "<p>Kept this park running for 41 years and retired last autumn to a house 11 minutes' walk from the gate. He comes in when he is asked, and he is being asked a great deal this month.</p><p>Everything he knows is in 11 notebooks: settings, timings, the number of turns on a nut, the sound a bearing makes before it goes. What is not in them is a single line of working. He set the carousel at eight turns a minute because at nine the horses on the outside felt wrong to him, and he was right, and he cannot say why.</p><p>His limit is the one he states himself: he changed things and did not always write down that he had. The park is full of his corrections, and some of them are only in his memory.</p>",
+    "bio": "<p>Kept this park running for 41 years and retired last autumn to a house 11 minutes' walk from the gate. He comes in when he is asked, and he is being asked a great deal this month. Everything he knows is in 11 notebooks: settings, timings, the number of turns on a nut, the sound a bearing makes before it goes. What is not in them is a single line of working. He set the carousel at eight turns a minute because at nine the horses on the outside felt wrong to him, and he was right, and he cannot say why. His limit is the one he states himself: he changed things and did not always write down that he had. The park is full of his corrections, and some of them are only in his memory.</p>",
     "quiz": [
       {
         "q": "What is the difficulty with Brennan's settings, in his own account?",
@@ -104,7 +104,7 @@ export const ROSTER = [
     "role": "Ride Electrician",
     "division": "CAROUSEL",
     "color": "#c99a2e",
-    "bio": "<p>Wires the drives, the interlocks and the speed controllers, which means every limit anybody agrees to eventually becomes a setting she types in.</p><p>She is the one who asks what happens when the limit is reached: whether the ride refuses to start, slows itself, or lets an operator override it with a key. A number that only exists on paper is a number that gets exceeded on a hot Saturday.</p><p>Her limit is that an interlock can only measure what it is wired to. It can count revolutions, and it cannot see 60 people all standing on 1 side.</p>",
+    "bio": "<p>Wires the drives, the interlocks and the speed controllers, which means every limit anybody agrees to eventually becomes a setting she types in. She is the one who asks what happens when the limit is reached: whether the ride refuses to start, slows itself, or lets an operator override it with a key. A number that only exists on paper is a number that gets exceeded on a hot Saturday. Her limit is that an interlock can only measure what it is wired to. It can count revolutions, and it cannot see 60 people all standing on 1 side.</p>",
     "quiz": [
       {
         "q": "Why does Adeyemi ask what a ride does when a limit is reached?",
@@ -123,7 +123,7 @@ export const ROSTER = [
     "role": "Structures Engineer",
     "division": "WHEEL",
     "color": "#7a4fa3",
-    "bio": "<p>Came in on contract to look at the wheel, and thinks in loads and load paths: what is carrying what, and what happens to the rest of the structure when one member stops carrying its share.</p><p>Her method is to work out the force at a joint before looking at the joint, so that the inspection has a number to be surprised by. A crack found without a computed load is a crack nobody can size.</p><p>Her limit is that a model is a set of assumptions about how a structure is loaded, and this wheel is 81 years old and has been modified by people who left no drawings.</p>",
+    "bio": "<p>Came in on contract to look at the wheel, and thinks in loads and load paths: 'what is carrying what, and what happens to the rest of the structure when one member stops carrying its share.' Her method is to work out the force at a joint before looking at the joint, so that the inspection has a number to be surprised by. A crack found without a computed load is a crack nobody can size. Her limit is that a model is a set of assumptions about how a structure is loaded, and this wheel is 81 years old and has been modified by people who left no drawings.</p>",
     "quiz": [
       {
         "q": "Why does Raman compute a joint's load before she inspects the joint?",
@@ -142,7 +142,7 @@ export const ROSTER = [
     "role": "Rigging and Lifting",
     "division": "WHEEL",
     "color": "#7a4fa3",
-    "bio": "<p>Rigs anything that has to be lifted, held or lowered, and owns the only crane on the site. Everything he does is a moment about a point, and he has never once needed to be told that.</p><p>He works in what he calls the two numbers: what the load actually is, and what the arm holding it is. The second one is the one people get wrong, because it is measured perpendicular to the force and not along the beam.</p><p>His limit is the wind. He can rig anything in still air, and the same lift at 30 kilometres an hour is a different job with a different answer.</p>",
+    "bio": "<p>Rigs anything that has to be lifted, held or lowered, and owns the only crane on the site. Everything he does is a moment about a point, and he has never once needed to be told that. He works in what he calls the two numbers: what the load actually is, and what the arm holding it is. The second one is the one people get wrong, because it is measured perpendicular to the force and not along the beam. His limit is the wind. He can rig anything in still air, and the same lift at 30 kilometres an hour is a different job with a different answer.</p>",
     "quiz": [
       {
         "q": "Which of Novák's two numbers do people get wrong?",
@@ -161,7 +161,7 @@ export const ROSTER = [
     "role": "Controls and Telemetry",
     "division": "BUMPER",
     "color": "#3f9e6b",
-    "bio": "<p>Instruments things. He has put accelerometers in three of the bumper cars and one in a dummy on the tower, and he has more data about this park than anybody has ever had.</p><p>His interest is the difference between what a ride does and what a body in the ride does. A car changes speed in a tenth of a second; the person in it changes speed over whatever time the seat, the belt and their own neck take to do it, and that time is the whole question.</p><p>His limit is that an accelerometer measures a point. Where he puts it decides what he learns, and he has been wrong about where to put it twice.</p>",
+    "bio": "<p>Instruments things. He has put accelerometers in three of the bumper cars and one in a dummy on the tower, and he has more data about this park than anybody has ever had. His interest is the difference between what a ride does and what a body in the ride does. A car changes speed in a tenth of a second; the person in it changes speed over whatever time the seat, the belt and their own neck take to do it, and that time is the whole question. His limit is that an accelerometer measures a point. Where he puts it decides what he learns, and he has been wrong about where to put it twice.</p>",
     "quiz": [
       {
         "q": "Why does Chen distinguish what the car does from what the rider does?",
@@ -180,7 +180,7 @@ export const ROSTER = [
     "role": "Midway Supervisor",
     "division": "BUMPER",
     "color": "#3f9e6b",
-    "bio": "<p>Runs the midway staff, which means she is responsible for what actually happens at a ride rather than what the procedure says happens. 12 operators, most of them 19, and a queue that does not stop.</p><p>Her contribution to every safety argument is the same and it is always right: whatever the rule is, it has to be doable by a tired teenager on the four-hundredth cycle of a hot Saturday, or it is not a rule, it is a wish.</p><p>Her limit is that she cannot make a machine safe by supervising it harder, and she has stopped pretending she can.</p>",
+    "bio": "<p>Runs the midway staff, which means she is responsible for what actually happens at a ride rather than what the procedure says happens. 12 operators, most of them 19, and a queue that does not stop. Her contribution to every safety argument is the same and it is always right: 'whatever the rule is, it has to be doable by a tired teenager on the four-hundredth cycle of a hot Saturday, or it is not a rule, it is a wish.' Her limit is that she cannot make a machine safe by supervising it harder, and she has stopped pretending she can.</p>",
     "quiz": [
       {
         "q": "What test does Hart apply to a proposed safety rule?",
@@ -199,7 +199,7 @@ export const ROSTER = [
     "role": "Senior Ride Operator",
     "division": "SHIP",
     "color": "#4a6d8c",
-    "bio": "<p>Has run the pirate ship for 20 years and can tell from the console how full it is, because a fuller boat takes the drive a little differently even though it swings at the same rate.</p><p>He is the person who first said the drive was pushing at the wrong moment. He could not put it in the language anybody wanted, and what he said was that on a heavy boat the second push arrives late and you can feel it in the floor.</p><p>His limit is that being right about a machine is not the same as being able to prove it, and he has spent two seasons being told the ride is within specification.</p>",
+    "bio": "<p>Has run the pirate ship for 20 years and can tell from the console how full it is, because a fuller boat takes the drive a little differently even though it swings at the same rate. He is the person who first said the drive was pushing at the wrong moment. He could not put it in the language anybody wanted, and what he said was that on a heavy boat the second push arrives late and you can feel it in the floor. His limit is that being right about a machine is not the same as being able to prove it, and he has spent two seasons being told the ride is within specification.</p>",
     "quiz": [
       {
         "q": "What did Idowu notice about the drive that nobody could yet prove?",
@@ -218,7 +218,7 @@ export const ROSTER = [
     "role": "Weld Inspection",
     "division": "SHIP",
     "color": "#4a6d8c",
-    "bio": "<p>Non-destructive testing: dye penetrant, ultrasonic, magnetic particle. She finds cracks, sizes them, and refuses absolutely to say whether one matters.</p><p>That refusal is the discipline. A crack is a length and a depth in a material with a known strength; whether it matters depends on the load the member carries, which is somebody else's number. She has watched people talk themselves into ignoring a real one and out of using a sound member.</p><p>Her limit is access. She can only test what she can reach, and on this structure that is about two thirds of the welds.</p>",
+    "bio": "<p>Non-destructive testing: dye penetrant, ultrasonic, magnetic particle. She finds cracks, sizes them, and refuses absolutely to say whether one matters. That refusal is the discipline. A crack is a length and a depth in a material with a known strength; whether it matters depends on the load the member carries, which is somebody else's number. She has watched people talk themselves into ignoring a real one and out of using a sound member. Her limit is access. She can only test what she can reach, and on this structure that is about two thirds of the welds.</p>",
     "quiz": [
       {
         "q": "Why does Bianchi refuse to say whether a crack matters?",
@@ -237,7 +237,7 @@ export const ROSTER = [
     "role": "Pumps and Water Systems",
     "division": "FLUME",
     "color": "#2e8b8b",
-    "bio": "<p>Keeps the water moving: 2 pumps, 400 metres of channel, a splash-down pool and a header tank that has to stay full or the ride stops mid-flume with a boat in it.</p><p>His way of thinking about the flume is that the pump does all the work at the start and the water gives it back all the way round. Every metre the channel drops is energy the boat gets for nothing; every metre the pump lifts is energy somebody pays for.</p><p>His limit is the leaks. He can measure what he pumps and what arrives, and the difference has been getting larger for three seasons without anybody finding where it goes.</p>",
+    "bio": "<p>Keeps the water moving: 2 pumps, 400 metres of channel, a splash-down pool and a header tank that has to stay full or the ride stops mid-flume with a boat in it. His way of thinking about the flume is that the pump does all the work at the start and the water gives it back all the way round. Every metre the channel drops is energy the boat gets for nothing; every metre the pump lifts is energy somebody pays for. His limit is the leaks. He can measure what he pumps and what arrives, and the difference has been getting larger for three seasons without anybody finding where it goes.</p>",
     "quiz": [
       {
         "q": "How does Abara describe what the pump is for?",
@@ -256,7 +256,7 @@ export const ROSTER = [
     "role": "Flume Operator",
     "division": "FLUME",
     "color": "#2e8b8b",
-    "bio": "<p>Loads the boats and sets them off, which means she is the person who decides how many people go in one, and she has been doing it by eye for six years.</p><p>She reads a boat by how it sits: a heavy load rides low, takes the first bend slowly and comes down the drop fast. She has a rule about four adults that came from Brennan and she has never known it to be wrong.</p><p>Her limit is that eye can only compare a boat with the boats she has seen. When the park changed to the moulded hulls two seasons ago, every judgement she had was about a different boat.</p>",
+    "bio": "<p>Loads the boats and sets them off, which means she is the person who decides how many people go in one, and she has been doing it by eye for six years. She reads a boat by how it sits: a heavy load rides low, takes the first bend slowly and comes down the drop fast. She has a rule about four adults that came from Brennan and she has never known it to be wrong. Her limit is that eye can only compare a boat with the boats she has seen. When the park changed to the moulded hulls two seasons ago, every judgement she had was about a different boat.</p>",
     "quiz": [
       {
         "q": "Why did the new moulded hulls unsettle McCarthy's judgement?",

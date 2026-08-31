@@ -130,6 +130,42 @@ const AREA_BUILDINGS = [
 ];
 
 /**
+ * The Site Office — a minor place, near spawn, that exists to answer one
+ * question: what does day 1 do when it needs a lesson from a far area before
+ * the far ring has any business being called?
+ *
+ * Two of day 1's three stops are `CROSS` (the crossing block, r=155) and
+ * `TRIAL` (the Field Laboratory, r=251) — both far by `tiersFor`, and the far
+ * lap does not run until day 4. `shapeMissions`' `nearFirst` used to be the
+ * only answer to that: trade the far call for a near one from a later day.
+ * Measured, it pulled day 12's Molecular Laboratory lesson onto day 1 in
+ * CROSS's place — a rust-screen allocation call, in a season that has not
+ * found the rust yet, on the first morning. That is the defect the placement
+ * pass exists to catch one level up: a question asked in the wrong place is
+ * bad; a question asked on the wrong DAY, because the engine had nowhere near
+ * to put it, is the same defect at the calendar's scale.
+ *
+ * The fix is the one `PLACEMENT_PASS.md` already names for this: site the
+ * stop at a near place instead of trading the day away. CROSS's and TRIAL's
+ * day-1 lessons are already framed as somebody's own paperwork — Volpe's two
+ * parents pinned above a bench, Quiroga's plot map on a wall — and a season
+ * lead's first morning is exactly when a station keeps its overview boards
+ * somewhere central rather than making a new hire walk both rings before
+ * breakfast. `CROSS`'s and `TRIAL`'s own LATER lessons keep their own halls;
+ * only their day-1 ones are sited here.
+ *
+ * Fixing only those two moved the problem rather than closing it: with day 1
+ * no longer trading, `nearFirst` picked different partners for day 2's DRY
+ * call and day 3's POP call, and day 3's card ended up asking about grain
+ * moisture and gene expression under a stake about a duplicate accession
+ * record — the exact defect the fix was for, one day over. Both are the same
+ * shape (a slip, a count sheet) so the office grew two more boards.
+ */
+export const OFFICE = { id: 'OFFICE', enter: 'OFFICE', name: 'The Site Office',
+  sub: 'Postings for a season lead’s first morning',
+  x: 0, z: 175, w: 9, d: 7, h: 4.4, facing: 0, colour: 0xa39d8a };
+
+/**
  * Places with no lesson of their own. They carry the place and the wayfinding —
  * and since the placement pass, all five of them open.
  *
@@ -229,7 +265,7 @@ export const site = {
     { cx: 0, cz: 250, w: 5, d: 170, worn: 3 },       // the causeway — narrow, on a narrow neck
   ],
 
-  buildings: [...AREA_BUILDINGS, ...LANDMARKS],
+  buildings: [...AREA_BUILDINGS, ...LANDMARKS, OFFICE],
 
   // What the map draws. Without this it takes the union of every building and
   // path, which here includes 170 m of empty causeway and squeezed the whole

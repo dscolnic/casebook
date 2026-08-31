@@ -40,7 +40,7 @@ if(!themeName){
 const dir = resolveTheme(themeName);
 const theme = (await import(pathToFileURL(resolve(dir, 'theme.js')).href)).default;
 const { normalizeContent } = await import('../content/normalize.js');
-normalizeContent(theme.content ?? {});
+normalizeContent(theme.content ?? {}, theme.site ?? null, theme.fixtures ?? {});
 
 const plain = (s) => String(s ?? '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 const words = (s) => plain(s).toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter(Boolean);

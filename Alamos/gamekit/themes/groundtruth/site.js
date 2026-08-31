@@ -104,11 +104,21 @@ export const site = {
       x: 3, z: 180, w: 9, d: 4.5, h: 3.0, facing: PI, colour: 0xc8c6bd },
 
     // No group: the station the science sits inside.
-    { id: 'SCREEN', name: 'Screened Room', sub: 'Conducting sheet on all six faces',
+    // `enter:` — opened by the campaign, not by a flag. Three lessons have
+    // carried `place: Screened Room` since this game shipped and the door was
+    // shut; the first of them is on day 2, which is when the room now opens.
+    // See ./minors.js and ./fixtures.js under the same key.
+    { id: 'SCREEN', name: 'Screened Room', sub: 'Conducting sheet on all six faces', enter: 'SCREEN',
       x: 19, z: 26, w: 7, d: 6, h: 3.2, facing: PI, colour: 0x7f858a },
     { id: 'SHELTER', name: 'Crew Shelter', sub: 'Where the flat is watched from',
       x: 17, z: 42, w: 9, d: 6, h: 3.0, facing: PI, colour: 0xc9a23f },
+    // A hundred and five metres out past the mast, on the pad spur, and the
+    // furthest thing on this site anybody can walk into. No lesson is asked in
+    // it; the day-8 HUNT run is what sends somebody, which is why the earth-bond
+    // crates in books/groundtruth.yml are authored rather than left to fall back
+    // on the six area doors the player already walks past daily.
     { id: 'ROCKETS', name: 'Rocket Store', sub: 'Wire spools and igniters, counted out and counted back',
+      enter: 'ROCKETS',
       x: -14, z: -52, w: 7, d: 5, h: 2.8, facing: -PI / 2, colour: 0x8a8f86 },
   ],
 

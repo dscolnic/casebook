@@ -1,1 +1,15 @@
-{"_": ["Gaps that exist today, so nothing new drifts in. A gap not on this list fails;", "a listed gap that has since been supplied also fails, naming the line to delete.", "Key: \"GROUP/stop title :: equation\". It only shrinks."]}
+{
+  "_": [
+    "Gaps that exist today, so nothing new drifts in. A gap not on this list fails;",
+    "a listed gap that has since been supplied also fails, naming the line to delete.",
+    "Key: \"GROUP/stop title :: equation\". It only shrinks.",
+    "The aftershock row appeared when the checkers started normalising with the site:",
+    "`nearFirst` trades a far call out of the opening days, so that stop is on day 3 in",
+    "the game and was read as day 13 before. The chip cannot be added by hand — the",
+    "importer stamps chips from the authored day order, not the shaped one, which is the",
+    "next thing to fix in tools/import-book.mjs."
+  ],
+  "aftershock": [
+    "MAT/A measurable acceptance target :: σ' = σ − u"
+  ]
+}

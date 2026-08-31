@@ -5,376 +5,438 @@
 export const MISSIONS = [
   {
     "title": "The First Cluster",
-    "objective": "Open an investigation using a defensible provisional case definition and an explicit comparison baseline.",
-    "briefing": "Three Riverton hospitals report an unusual combination of fever, dry cough, severe headache, and profound fatigue. The player must decide whether the pattern is a true outbreak signal before scarce emergency resources are committed.",
-    "stake": "Day one. Seven patients, three hospitals, four days, and the same four symptoms in all of them. Sofia Morales, the epidemiology lead, has the surveillance printout in her hand. A reporter downstairs already has the number. This stage you agree what counts as a case here. You also decide whether this is an outbreak at all, and spend the first of the response money. Seven sounds like a lot. Morales will not say whether it is. She wants to know what a normal week in this city looks like first. Call it nothing and the weeks go by. Those are the weeks when an outbreak is still small enough to stop.",
-    "takeaway": "Use baseline variation, case definition, controls, correlation versus coincidence, measurement bias as an evidence chain rather than as isolated facts.",
+    "objective": "Decide whether Riverton has a real outbreak and establish one case definition every hospital can use.",
+    "briefing": "Marcus Webb has brought his father Elias to a third emergency room. Six other patients have arrived across Riverton with the same unusual syndrome in four days. Before the city escalates its response, you have to decide whether the cluster is real and make sure every hospital counts the same thing.",
+    "stake": "Day one. Seven patients, three hospitals, four days. If this is real, every hour without a common case rule hides where it is spreading; if it is not, Riverton could isolate patients and divert beds for the wrong reason.",
+    "takeaway": "A cluster becomes actionable only when it departs from a defensible baseline and every site counts cases by the same rule.",
+    "segue": "The cluster survives a second way of finding cases, so Riverton activates the outbreak response. But a real outbreak is not yet a diagnosis: pathology still cannot tell Elias Webb’s family what is attacking him.",
     "stops": [
       {
         "group": "POP",
         "lesson": 0,
-        "task": "Is this a signal, and what on the desk decides it?"
+        "task": "Is this a signal, and what on the desk decides it?",
+        "reason": "Seven patients can trigger citywide isolation only if the cluster is real, so the baseline and the second way of finding cases have to agree first"
       },
       {
         "group": "POP",
         "lesson": 1,
-        "task": "Order the build so each step can be checked before the next one depends on it."
+        "task": "Order the build so each step can be checked before the next one depends on it.",
+        "reason": "She wants one case definition all three hospitals use before the first counts diverge"
       },
       {
         "group": "POP",
         "lesson": 2,
-        "task": "Spend the single response slot on the evidence that makes tomorrow’s citywide case data interpretable."
+        "task": "Choose the one action that makes the next stage's hospital evidence comparable enough to combine.",
+        "reason": "At the next stage three hospitals will report the same outbreak; if they use different case rules and fields, the city will not know whether their curves can be combined"
       }
     ]
   },
   {
     "title": "What Kind of Agent?",
-    "objective": "Classify the broad agent category and identify the next discriminating test.",
-    "briefing": "Initial samples contain biological material, but the microscope and the routine tests disagree. The team must distinguish a cellular pathogen from a virus or a noninfectious cause without relying on one ambiguous image.",
-    "stake": "Day two. Pathology has four results from the same specimens. They will not put a name to any of it. The microscope images are the most convincing thing anybody has seen all week. That is exactly why Maya Chen, the cell biology lead, does not trust them yet. Ravi Patel, the molecular diagnostics lead, wants to commit the whole bench tonight. This stage you decide what broad kind of thing this is. You also buy the one piece of evidence that would settle it. Everything after this is chosen off that call. What to grow it in. Which drugs are worth a look. What tomorrow's test looks for.",
-    "takeaway": "Use cell structure, viruses versus cells, prokaryotes and eukaryotes, staining, independent evidence as an evidence chain rather than as isolated facts.",
+    "objective": "Choose the broad agent classification that best fits all the evidence and the next test that could disprove it.",
+    "briefing": "Elias Webb is now on a ventilator. The microscope, culture-style observations, and molecular tests do not all point the same way, and one dramatic image could send the team after the wrong kind of pathogen. You need a broad classification that survives the controls before the overnight laboratory run begins.",
+    "stake": "Day two. The wards need to know what kind of threat they are dealing with before treatment and testing plans harden around a guess. Tonight you decide the leading classification and the next test that could prove it wrong.",
+    "takeaway": "A broad classification is strongest when several independent observations agree and the negative controls rule out tempting alternatives.",
+    "segue": "The evidence now points to a virus-like agent that depends on living host cells. The next puzzle is why the same agent reaches several tissues but only one kind of airway cell is being destroyed.",
     "stops": [
       {
         "group": "CLIN",
         "lesson": 0,
-        "task": "Which explanation fits every reading, including the quiet negative controls?"
+        "task": "Which explanation fits every reading, including the quiet negative controls?",
+        "reason": "Pathology has four results and still cannot put one name to what is making people sick"
       },
       {
         "group": "POP",
         "lesson": 3,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "reason": "The sample is limited, and each conclusion should be supported before the team spends material on the next, more specific question"
       },
       {
         "group": "MOL",
         "lesson": 0,
-        "task": "A reporter enzyme works after 37 °C pre-incubation and loses most activity after 55 °C. What is the strongest interpretation?"
+        "task": "A reporter enzyme works after 37 °C pre-incubation and loses most activity after 55 °C. What is the strongest interpretation?",
+        "reason": "Tonight's test result only means something if the assay itself is proven to still work"
       }
     ]
   },
   {
-    "title": "The Point of Entry",
-    "objective": "Explain why one cell type is vulnerable and select the experiment that separates receptor binding from downstream replication.",
-    "briefing": "The suspected agent reaches respiratory tissue, but only some cell types become affected. The player must determine how membrane structure, receptors, and transport explain this selectivity.",
-    "stake": "Day four. The agent reaches the airway in everybody who catches it. Even so, only some cells are being damaged. Funke Adeyemi, the cell biologist, has spent two nights on why. This stage you work out why those cells and not their neighbours. You also design the experiment that keeps two steps apart. People keep merging those two steps. Two of the three benches are booked already, and Adeyemi wants the third one tonight. Chen has asked for the resistant cells to be kept aside whatever is decided. Your teams start designing a therapy from this picture tonight. Get the picture wrong and they spend three months blocking a step the agent does not need.",
-    "takeaway": "Use phospholipid bilayer, receptors, diffusion, facilitated transport, endocytosis, cell specificity as an evidence chain rather than as isolated facts.",
+    "title": "Why the Lungs?",
+    "objective": "Explain why particular airway cells are vulnerable and test whether receptor binding is actually required for entry.",
+    "briefing": "Elias’s lungs are failing while other organs remain comparatively spared. In culture, the agent reaches several cell types but enters only some of them. If the team mistakes simple exposure for a receptor-dependent entry step, the first targeted therapy will aim at the wrong door.",
+    "stake": "Day four. A treatment meeting starts this afternoon. You have to identify the cell-entry step that explains the tissue pattern, prove that changing that step changes entry, and do it before patients like Elias receive a targeted therapy.",
+    "takeaway": "Tissue vulnerability can begin at the membrane, but receptor expression becomes a causal explanation only when manipulating it changes entry.",
+    "segue": "Blocking the receptor sharply reduces entry and washout restores it. That settles the first door. Inside the infected cells, however, a human protein is now appearing at roughly forty times its normal amount, and nobody knows which step in gene expression changed.",
     "stops": [
       {
         "group": "CELL",
         "lesson": 0,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "reason": "The culture bench has the four steps a pathogen takes into a cell, and nobody has ordered them yet"
       },
       {
         "group": "CELL",
         "lesson": 1,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "reason": "The entry model only helps treatment if each observed crossing is identified from direction, protein dependence, size, and energy use rather than from the molecule’s name"
       },
       {
         "group": "CELL",
         "lesson": 2,
-        "task": "Change one condition at a time, reverse the strongest effect, and decide whether the surface-receptor step is causally required for entry."
+        "task": "Change one condition at a time, reverse the strongest effect, and decide whether the surface-receptor step is causally required for entry.",
+        "reason": "The binding rig is the only way to prove entry needs the receptor and not just proximity"
       }
     ]
   },
   {
-    "title": "Hijacked Cells",
-    "objective": "Build the information-flow model and choose a measurement that distinguishes more RNA from more efficient translation.",
-    "briefing": "Molecular data suggest that affected cells are producing unfamiliar RNA and proteins. The player must reconstruct how information flows from nucleic acid to protein and identify where the agent interrupts normal cell function.",
-    "stake": "Day six. Infected cells are turning out RNA and proteins the sequencing centre does not know. One of them sits at 40 times the level of anything beside it. Lena Bergström, a genomic epidemiologist, has the time-course data. She thinks everybody is looking at the wrong molecule. She has had the data for two days. Nobody has asked her for it. This stage you decide where the agent gets in the way. It happens somewhere on the cell's own production line. The loudest molecule in a sample is often a sign of damage. It is not always the cause. Aim at the wrong step and the whole research programme goes into a bystander.",
-    "takeaway": "Use DNA and RNA, transcription, translation, codons, protein function, gene regulation as an evidence chain rather than as isolated facts.",
+    "title": "The Cell Is Hijacked",
+    "objective": "Trace host gene expression and choose the measurement that distinguishes more RNA from altered translation or protein breakdown.",
+    "briefing": "Infected airway cells contain one familiar human protein at about forty times its normal level. The number is real, but it does not say whether the cell made more messenger RNA, translated each message more efficiently, or stopped breaking the protein down. The therapy team needs to know which part of the chain actually moved.",
+    "stake": "Day six. If the team mistakes a downstream protein surge for the place the biology changed, it can spend weeks attacking the wrong mechanism. Today you trace the production chain and decide which measurement comes next.",
+    "takeaway": "Protein abundance is an observation, not a mechanism; RNA, translation, and breakdown have to be separated with measurements at different steps.",
+    "segue": "The expression measurements locate the change instead of merely naming the loudest protein. At the same time, sequencing gives Patel a distinctive genetic target for a rapid diagnostic — but the first overnight run lights up its blank control too.",
     "stops": [
       {
         "group": "MOL",
         "lesson": 1,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "reason": "The therapy team needs the host production chain in order before it can locate which step changed in infected airway cells"
       },
       {
         "group": "MOL",
         "lesson": 2,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "reason": "She wants every expression pattern matched to its stage before anyone names a drug target"
       },
       {
         "group": "MOL",
         "lesson": 3,
-        "task": "Abundance alone fits every mechanism. Which measurement do you make first?"
+        "task": "Abundance alone fits every mechanism. Which measurement do you make first?",
+        "reason": "He can only pay for two more measurements, and wants them spent on the step that actually controls this"
       }
     ]
   },
   {
     "title": "A Test Before Morning",
-    "objective": "Approve a diagnostic workflow only after its analytical and clinical limitations are explicit.",
-    "briefing": "Hospitals need a rapid diagnostic by sunrise. The molecular signal is promising, but contamination, false negatives, and prevalence could make a technically impressive test clinically misleading.",
-    "stake": "Day nine. The hospitals need a working test by sunrise. Patel's overnight run has flagged several patients as positive. It also flagged one of the controls. That was a tube with nothing in it, and it should have come back empty. 3000 people have already been told to isolate on the strength of that run. The bulletin goes out at 6. This stage you decide whether the run can be believed. You also decide what a positive result would mean for one patient. Patel wants to re-run every sample from the start. The hospitals want the six o'clock number. Only one of those two things fits before sunrise.",
-    "takeaway": "Use PCR logic, controls, sensitivity, specificity, predictive value, prevalence as an evidence chain rather than as isolated facts.",
+    "objective": "Decide whether the overnight diagnostic run is trustworthy and what a positive result means in the population being tested.",
+    "briefing": "Hospitals are ready to move patients in or out of isolation at six o’clock based on a new rapid assay. Then the blank control turns positive. Before anyone acts on the patient wells, you must trace what the results share, reject a contaminated run if necessary, and work out how often a positive would actually be a true case.",
+    "stake": "Day nine. A bad test decision can send infected patients back into crowded wards or isolate healthy people while beds run short. The six o’clock report cannot go out until the controls and the population arithmetic agree.",
+    "takeaway": "A diagnostic result is trustworthy only when its controls pass, and the meaning of a positive depends on who is being tested as well as the assay itself.",
+    "segue": "The contaminated run is rejected and the replacement workflow earns its trust. Now the test can tell the team who is infected — but it still cannot explain why two patients with similar infection results can have completely different physiological outcomes.",
     "stops": [
       {
         "group": "MOL",
         "lesson": 4,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "reason": "Four hours before sunrise, the processing room needs its four steps built in an order that can be trusted"
       },
       {
         "group": "MOL",
         "lesson": 5,
-        "task": "Open the dependency chain behind each result, keep the evidence that still stands, and name the shared source that makes the amplification positives unreliable."
+        "task": "Open the dependency chain behind each result, keep the evidence that still stands, and name the shared source that makes the amplification positives unreliable.",
+        "reason": "The diagnostics panel is the only way to trace whether tonight's positives share one contaminated source"
       },
       {
         "group": "POP",
         "lesson": 4,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "reason": "Before anyone tells a patient that a positive means infection, the team has to combine test accuracy with how uncommon the condition is in the group being screened"
       },
       {
         "group": "CLIN",
         "lesson": 1,
-        "task": "Work the arrivals board while the triage rule changes."
+        "task": "Work the arrivals board while the triage rule changes.",
+        "reason": "The triage board is being rewritten all afternoon, and the arrivals still have to be worked as they come"
       }
     ]
   },
   {
-    "title": "Why Are Some Patients Sicker?",
-    "objective": "Identify the physiological bottleneck and select measurements that distinguish ventilation, diffusion, circulation, and cellular oxygen use.",
-    "briefing": "Patients with similar test results have radically different oxygen levels and recovery times. The team must connect cellular damage to organ-system physiology and homeostatic failure.",
-    "stake": "Day 13. Nakamura, the critical care physician, has two patients who arrived with the same complaint and the same test results. One is walking to the bathroom. The other is failing, and their oxygen saturation reads normal. This stage you find which link in the oxygen chain has broken and buy the measurement that proves it. Nakamura has one arterial line and two patients she would like it in. The second patient's heart rate has not moved all morning, which she finds harder to explain than the saturation. Escalate the wrong link and the treatment is aimed at a part of the chain that is working.",
-    "takeaway": "Use homeostasis, gas exchange, circulation, oxygen transport, feedback, organ-system integration as an evidence chain rather than as isolated facts.",
+    "title": "Why Is Elias Crashing?",
+    "objective": "Trace the oxygen-delivery chain and identify which physiological link is failing in the sickest patients.",
+    "briefing": "Elias Webb and another patient have similar infection results, but only Elias is deteriorating. His oxygen is low, his haemoglobin and cardiac output are not, and the lung images have changed. Before rounds, you have to find the broken handoff and check whether the downstream acid–base chemistry fits it.",
+    "stake": "Day 13. Treat the wrong link and the team can correct a normal number while the real failure continues. Today you trace oxygen from lung to blood to tissue and decide what the bedside numbers actually support.",
+    "takeaway": "Physiology is a chain of handoffs: normal values can rule out links, but no single reassuring measurement clears the whole system.",
+    "segue": "The evidence points to impaired gas exchange and a downstream metabolic consequence. Elias improves — then, several days later, he and other recovering patients suddenly get worse even while the viral signal is falling.",
     "stops": [
       {
         "group": "CLIN",
         "lesson": 2,
-        "task": "Assemble the oxygen path from air to tissue, then name the link that the full panel makes most likely to be limiting."
+        "task": "Assemble the oxygen path from air to tissue, then name the link that the full panel makes most likely to be limiting.",
+        "reason": "The bedside monitor is the only place to trace which link in the oxygen chain actually broke"
       },
       {
         "group": "POP",
         "lesson": 5,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "reason": "The two patients cannot both be worse off until delivery is worked from the numbers, not the impression"
       },
       {
         "group": "CLIN",
         "lesson": 3,
-        "task": "Use the blood-buffer relationship to estimate arterial pH and interpret what the pair of values supports."
+        "task": "Use the blood-buffer relationship to estimate arterial pH and interpret what the pair of values supports.",
+        "reason": "She wants the acid-base signal read before rounds name the wrong link as the failing one"
       }
     ]
   },
   {
-    "title": "The Immune System Turns",
-    "objective": "Construct a timeline of immune responses and decide whether deterioration reflects persistent agent burden, delayed adaptive response, or excessive inflammation.",
-    "briefing": "Several patients improve and then suddenly deteriorate as inflammation escalates. The player must distinguish protective immune responses from damaging dysregulation.",
-    "stake": "Day 18, and this one belongs to Ortiz. Several patients got better for a week. Now they are getting worse fast. One of them is the paramedic who drove the first case in. Yusuf Haddad, the clinical immunologist, wants drugs that damp the immune system started tonight. Ortiz is not far behind him. Morales wants the timeline built first. Ortiz is right that people are dying on the ward while the argument runs. This stage you build that timeline anyway. It is the thing that tells you which drug. Haddad has marker levels for all six patients. He has dates against only half of them. The paramedic's family is in the corridor.",
-    "takeaway": "Use innate immunity, adaptive immunity, antibodies, T cells, inflammation, immune regulation as an evidence chain rather than as isolated facts.",
+    "title": "When Defense Becomes Damage",
+    "objective": "Use timing to distinguish persistent viral injury from an immune response that has become the leading source of damage.",
+    "briefing": "Elias was sitting up three days ago. Tonight he is back on oxygen, even though the measured viral signal is lower than before. One treatment would suppress inflammation; another would intensify antiviral pressure. You need the timeline that tells the team which mechanism is now leading.",
+    "stake": "Day 18. The two leading explanations point toward opposite treatments. You have to decide what the falling viral signal, rising inflammatory markers, and worsening oxygenation actually support before tonight’s orders are written.",
+    "takeaway": "Timing can separate cause from accompaniment: when pathogen burden falls while inflammation and injury rise, immune-driven damage becomes a stronger explanation, not an automatic certainty.",
+    "segue": "The paired measurements make immune-driven injury the leading explanation and change treatment. But treating the sickest patients has not stopped transmission: new cases keep appearing far from the hospitals, including people who were contagious before they felt ill.",
     "stops": [
       {
         "group": "IMM",
         "lesson": 0,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "reason": "The immunology lab has the normal response mapped in four cards, and nobody has ordered them yet"
       },
       {
         "group": "CLIN",
         "lesson": 4,
-        "task": "Which mechanism best explains the reversal in the full panel?"
+        "task": "Which mechanism best explains the reversal in the full panel?",
+        "reason": "The ward's own panel is the only evidence that can tell a protective response from one that ran on too long"
       },
       {
-        "group": "CLIN",
-        "lesson": 5,
-        "task": "Spend the rapid slot on the evidence that best separates ongoing agent-driven injury from a host response that has outlasted it."
+        "group": "IMM",
+        "lesson": 1,
+        "task": "Spend the rapid slot on the evidence that best separates ongoing agent-driven injury from a host response that has outlasted it.",
+        "reason": "The treatment choices point in opposite directions, so the one fast measurement should be the one whose possible results would actually send the team toward different treatments"
       }
     ]
   },
   {
-    "title": "The Hidden Transmission Route",
-    "objective": "Identify the hidden route and target surveillance where it changes decisions rather than where sampling is easiest.",
-    "briefing": "Cases continue despite hospital isolation. Wastewater and neighborhood data suggest transmission is occurring before severe symptoms appear.",
-    "stake": "Day 24, and Morales gets her stage. Ward isolation has held for nine days. Cases keep turning up in parts of town with nobody in hospital. Grace Oduya, a field epidemiologist, has a sewer sample from the north of the city. It was kept by chance and tested this morning. It came back positive. The sample is dated four days before the first patient walked in. This stage you decide where the spread is really happening. You also pick where to put surveillance. That means the routine testing that keeps watch on a city. Oduya has three sampling teams. The city has four watersheds. Nine days of ward isolation have already cost the hospitals their planned surgery.",
-    "takeaway": "Use incidence, prevalence, transmission chains, sampling, R concepts, asymptomatic spread as an evidence chain rather than as isolated facts.",
+    "title": "The Hidden Spread",
+    "objective": "Identify where transmission is occurring outside the wards and move surveillance to the signals that appear before severe disease.",
+    "briefing": "Hospital isolation has held for nine days, yet new cases keep appearing in neighborhoods with no recent hospitalized contact. Wastewater rises before admissions, and household interviews place several exposures before symptoms. Riverton may be watching the outbreak too late in its course.",
+    "stake": "Day 24. If the city only watches hospital doors, it will always see transmission after it has already happened. Today you decide which signals reveal hidden community spread and how fast that unseen chain could grow if nothing changes.",
+    "takeaway": "Different surveillance streams observe different parts of transmission; the most useful one is the stream that changes a decision early enough to act.",
+    "segue": "The city moves surveillance upstream and starts finding infections before hospitalization. Those new samples create another surprise: closely related virus is turning up in animals along the river corridor, and a cull is already scheduled for the weekend.",
     "stops": [
       {
         "group": "IMM",
-        "lesson": 1,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "lesson": 2,
+        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "reason": "Four separate data streams sit on the table, and only one of them says where the spread is actually coming from"
       },
       {
         "group": "CELL",
         "lesson": 3,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "reason": "The city needs to know what four more doublings would mean before it decides whether early community surveillance is optional or urgent"
       },
       {
         "group": "CELL",
         "lesson": 4,
-        "task": "Every cell has the same genome. Why do only some of them make the receptor?"
+        "task": "Every cell has the same genome. Why do only some of them make the receptor?",
+        "reason": "The early-shedding pattern needs a biological explanation for why respiratory cells can make and release virus while other nearby tissues remain poor targets"
       },
       {
         "group": "FIELD",
         "lesson": 0,
-        "task": "Sort the specimen tray before the courier goes."
+        "task": "Sort the specimen tray before the courier goes.",
+        "reason": "A contaminated environmental sample could invent a transmission clue, so every item has to be sorted by exposure history before the courier leaves"
       }
     ]
   },
   {
-    "title": "The Animal Connection",
-    "objective": "Build a defensible reservoir hypothesis using ecological exposure, prevalence, and genetic relatedness.",
-    "briefing": "Genetic similarities and field reports point toward an animal reservoir near the river corridor. The player must investigate without assuming that the most visible species is the source.",
-    "stake": "Day 33. Sequences from three patients sit close to a virus found in animals along the river. The council has signed an order to clear the heron colony on Saturday. Mateo Castellanos, the wildlife vet, has been out there twice. He says the herons are the wrong animal. Arjun Singh, the One Health lead, will not say either way yet. He wants the sampling designed properly first. This stage you decide what part any animal is really playing. You also design the sampling campaign that could show it. The argument is about who infects whom, and in what order. It is not about which animal is nearby or easiest to blame.",
-    "takeaway": "Use reservoirs, vectors, food webs, host range, ecological sampling, One Health as an evidence chain rather than as isolated facts.",
+    "title": "The River Animals",
+    "objective": "Distinguish reservoir, vector, incidental host, and spillback — then decide whether the evidence justifies an animal-control action.",
+    "briefing": "A virus closely related to the human outbreak has been detected in animals near the river. That could mean a reservoir, a vector, spillback from infected people, or a shared exposure. The city has scheduled a cull for Saturday, so the field design must distinguish those stories before fear becomes policy.",
+    "stake": "Day 33. Get the animal story wrong and Riverton could kill a species that was never maintaining the outbreak — or ignore a real source that keeps seeding new cases. Today you decide what evidence the cull actually requires.",
+    "takeaway": "A positive animal sample begins a reservoir investigation; maintenance, exposure, comparison sites, timing, and transmission evidence are what make the claim stronger.",
+    "segue": "The cull is held while a comparison-based field study continues. Then sequencing flags a different problem: one viral variant has risen from 8% to 31% of samples in four weeks, and the city wants to know whether biology or biased sampling caused the jump.",
     "stops": [
       {
         "group": "FIELD",
         "lesson": 1,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "reason": "The evidence board has four animal patterns pinned up, and the cull cannot wait for a slow answer"
       },
       {
         "group": "FIELD",
         "lesson": 2,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "reason": "The Saturday cull should not proceed unless the field study can separate maintenance in animals from spillback out of the human outbreak"
       },
       {
         "group": "POP",
         "lesson": 6,
-        "task": "Allocate the 20 slots so the campaign can distinguish a reservoir pattern from spillback or a one-household sampling artifact."
+        "task": "Allocate the 20 slots so the campaign can distinguish a reservoir pattern from spillback or a one-household sampling artifact.",
+        "reason": "Twenty sampling slots have to be spent on the design that can actually settle what the animal is doing"
       }
     ]
   },
   {
-    "title": "The Mutation",
-    "objective": "Distinguish change in frequency from proof of advantage and identify evidence that tests competing evolutionary explanations.",
-    "briefing": "A new genetic variant rises rapidly in one part of the city. The player must decide whether its increase reflects natural selection, random founder effects, or biased sampling.",
-    "stake": "Day 45. A variant with 3 changes has gone from 8 to 31% of sequences in 4 weeks, in 1 district, and the briefing is in an hour. Bergström will not call it selection yet. This stage you decide whether that rise means the variant is better at spreading, and get the frequencies onto a footing you can defend. The district that produced the rise also changed who it swabs, which Bergström noticed on Tuesday. The minister's briefing note already calls it a new strain. If you call selection on an artefact, the next real signal will be dismissed too.",
-    "takeaway": "Use mutation, selection, genetic drift, founder effects, fitness, allele frequency as an evidence chain rather than as isolated facts.",
+    "title": "A Variant Rises",
+    "objective": "Decide whether a rising variant is best explained by selection, founder effects, sampling change, or laboratory bias.",
+    "briefing": "A viral variant has climbed from 8% to 31% of sequenced samples in four weeks. The rise appears in several hospital systems, but frequency is not the same thing as fitness. Before the briefing, you have to test whether the trend survives the obvious sampling and laboratory explanations.",
+    "stake": "Day 45. If Riverton mistakes a sampling artifact for a biological advantage, it will redirect the response around a phantom. If it ignores a real growth advantage, the next month of cases will arrive under a new set of assumptions.",
+    "takeaway": "A rising frequency is an observation; selection becomes the leading explanation only after competing sampling, founder, and technical explanations are tested.",
+    "segue": "The rise survives the independent checks, so selection is the leading explanation — though the exact advantage is not yet known. Soon after, wards report a separate emergency: the therapy that worked early in the outbreak is failing in more patients.",
     "stops": [
       {
         "group": "MOL",
         "lesson": 6,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "reason": "The sequencing bench has four cards on how a population changes, and the briefing is an hour away"
       },
       {
         "group": "POP",
         "lesson": 7,
-        "task": "Which explanation best fits the frequency trend and the independent checks?"
+        "task": "Which explanation best fits the frequency trend and the independent checks?",
+        "reason": "The outbreak board's own checks are the only way to tell real selection from a change in who got tested"
       },
       {
         "group": "POP",
         "lesson": 8,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "reason": "She wants the real change in percentage worked before anyone argues about why it is rising"
       }
     ]
   },
   {
-    "title": "Treatment Failure",
-    "objective": "Separate inherited resistance from non-genetic treatment failure and propose a strategy that reduces selective advantage without undertreating patients.",
-    "briefing": "A therapy that initially helped is failing in a growing subset of patients. The player must determine whether the cause is biological resistance, poor delivery, incorrect dosing, or patient heterogeneity.",
-    "stake": "Day 60. The therapy that bought this city six weeks is failing in one patient in four, and the failures cluster on the wards where it has been used most. Ortiz wants the dose raised today. Bergström has a resistant sequence from a river sample banked a month before the first dose was given anywhere. This stage you work out why it is failing and decide what to do that does not make it worse. Raising the dose is the fastest thing this room can do and might also be the worst. Nobody has yet checked whether the failing patients received every round.",
-    "takeaway": "Use resistance, selection pressure, dose-response, targets, pharmacokinetics, heterogeneity as an evidence chain rather than as isolated facts.",
+    "title": "The Drug Stops Working",
+    "objective": "Decide whether treatment failure is best explained by resistance and choose the evidence needed before changing patient care.",
+    "briefing": "The therapy that helped Elias now fails in a growing fraction of patients. Drug levels are adequate, the pathogen falls and then rebounds, and a target-site variant becomes more common during failure. The pattern points toward resistance, but changing treatment for the whole city requires stronger evidence than one association.",
+    "stake": "Day 60. Increase the dose for the wrong reason and patients take more toxicity without benefit; abandon the drug too quickly and the city loses a treatment that still works for many people. Today you decide what the failure pattern supports and what must be checked next.",
+    "takeaway": "Treatment can select resistant variants that were already present or that arise during replication; resistance is strongest when genotype, drug exposure, and treatment response tell the same story.",
+    "segue": "Matched failures and successes make resistance the leading explanation and stop the dose-escalation guess. Riverton now needs a strategy that does not depend on one drug, one target, or one timescale.",
     "stops": [
       {
         "group": "POP",
         "lesson": 9,
-        "task": "Which explanation fits the complete treatment-response panel?"
+        "task": "Which explanation fits the complete treatment-response panel?",
+        "reason": "The outbreak board holds the whole treatment-response panel, and only one explanation fits every reading in it"
       },
       {
         "group": "POP",
         "lesson": 10,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "reason": "She wants resistance mapped as a chain of steps before pharmacy commits to a new plan"
       },
       {
         "group": "POP",
         "lesson": 11,
-        "task": "One thing before anybody's prescription changes. Which?"
+        "task": "One thing before anybody's prescription changes. Which?",
+        "reason": "Before prescriptions change across Riverton, the team needs one comparison that tests whether the resistance-linked variant actually tracks treatment failure rather than merely circulating in the city"
       }
     ]
   },
   {
-    "title": "Design the Intervention",
-    "objective": "Select a layered intervention portfolio and identify the evidence required before deployment.",
-    "briefing": "The city needs an intervention that can be manufactured, tested, and deployed. The player must compare vaccines, targeted therapies, and nonpharmaceutical measures using evidence about mechanism and evidence about populations.",
-    "stake": "Day 78. The city wants something that works, and the room is arguing as though it can only have one thing. The antibody everyone favours binds one exact stretch of protein. That is the stretch that mutated in the north. Bergström has now said so three times. This stage you choose what to fund. You also say what evidence is needed before any of it reaches a person. The options arrive at different times. One is available on Monday. One is a year away. That is the whole argument for stacking them instead of picking a favourite. Back one glamorous option and the city has a single point of failure against something that is still changing.",
-    "takeaway": "Use antigens, immune memory, drug targets, intervention layers, efficacy versus effectiveness as an evidence chain rather than as isolated facts.",
+    "title": "What Do We Deploy?",
+    "objective": "Choose a layered intervention portfolio and define the evidence required before experimental tools reach patients.",
+    "briefing": "Riverton wants one dramatic fix. The science says that is exactly the fragile choice: a rising variant threatens one target, the wards need protection now, and longer-term immunity will take time. You have three funding slots and must preserve different mechanisms rather than three versions of the same bet.",
+    "stake": "Day 78. A single brittle intervention can fail everywhere at once. Today you choose layers that reduce transmission now, preserve a longer-horizon option, and set the safety and trial rules before experimental treatment reaches a patient.",
+    "takeaway": "Layered control is resilient when different interventions act at different stages and fail for different reasons.",
+    "segue": "The city funds a layered plan and writes the trial rules before seeing the results. When the first clinical data arrive, they look encouraging — until Morales notices that most of the apparent benefit comes from the youngest trial site.",
     "stops": [
       {
         "group": "POP",
         "lesson": 12,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "reason": "Each intervention acts at a different moment in the chain, and the city needs to know what problem each one can actually solve before it builds a layered plan"
       },
       {
         "group": "POP",
         "lesson": 13,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "reason": "She wants an endpoint and a stopping rule written before either compound reaches a patient"
       },
       {
         "group": "POP",
         "lesson": 14,
-        "task": "Allocate three funding slots to a portfolio that acts now, preserves a longer-horizon layer, and avoids depending on one shared mechanism."
+        "task": "Allocate three funding slots to a portfolio that acts now, preserves a longer-horizon layer, and avoids depending on one shared mechanism.",
+        "reason": "Three slots cannot buy every useful layer, so the portfolio has to keep immediate transmission control and a different longer-horizon mechanism alive without sharing one failure mode"
       },
       {
         "group": "IMM",
-        "lesson": 2,
-        "task": "Hold the isolation room while the doors keep opening."
+        "lesson": 3,
+        "task": "Hold the isolation room while the doors keep opening.",
+        "reason": "Every door opening can reverse the airflow that protects the corridor, so the pressure differential has to stay negative throughout the shift rather than merely recover afterward"
       }
     ]
   },
   {
-    "title": "The Trial Signal",
-    "objective": "Make a conditional trial decision that weighs benefit, uncertainty, and safety rather than relying on one p-value or headline percentage.",
-    "briefing": "Early trial results appear encouraging, but enrollment is small and adverse events are uneven. The player must distinguish a real effect from random variation and decide whether the trial should expand.",
-    "stake": "Day 96, and the trial has reported. There were 10 hospital admissions in the treated group and 20 in the control group, out of 400 people. Most of that benefit sits at one site. That site enrolled the youngest patients. The serious side effects are not spread evenly either. The health minister wants a number before she decides how much to buy. Somebody has already given her a percentage she would like confirmed. This stage you read the result properly. You then decide whether the trial goes on, gets bigger, or stops. Nobody in the room has yet said how many people that 20 is out of.",
-    "takeaway": "Use randomization, control groups, effect size, confidence intervals, adverse events, stopping rules as an evidence chain rather than as isolated facts.",
+    "title": "Did the Treatment Work?",
+    "objective": "Make a conditional trial decision using absolute benefit, uncertainty, site differences, and safety rather than one flattering statistic.",
+    "briefing": "The trial reports fewer hospitalizations in the treated group, but one unusually young site contributes much of the apparent benefit. The overall estimate is promising and imprecise, and serious side effects are uneven. Before enrollment resumes, the board needs to know what the trial actually established.",
+    "stake": "Day 96. Calling success too early exposes more patients before the safety signal is understood; stopping reflexively can discard a useful treatment. Today you read the effect in absolute terms and apply the safety rule written before the results arrived.",
+    "takeaway": "A trial decision combines effect size, uncertainty, prespecified comparisons, and safety monitoring; no single p-value, percentage, or site settles it alone.",
+    "segue": "The board makes a conditional decision instead of declaring victory. But even a useful treatment cannot empty the ICU overnight, and the region is now close enough to capacity that a late policy trigger will arrive after the staff it calls for.",
     "stops": [
       {
         "group": "CLIN",
-        "lesson": 6,
-        "task": "One site enrolled younger patients and contributes much of the apparent benefit. What should the trial team do before attributing the difference to treatment?"
+        "lesson": 5,
+        "task": "One site enrolled younger patients and contributes much of the apparent benefit. What should the trial team do before attributing the difference to treatment?",
+        "reason": "One trial site enrolled younger patients, and the comparison has to be checked before anyone credits the treatment"
       },
       {
         "group": "POP",
         "lesson": 15,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "reason": "The safety board cannot weigh benefit against harm until the trial’s absolute benefit is calculated rather than described only as a dramatic relative percentage"
       },
       {
         "group": "POP",
         "lesson": 16,
-        "task": "The benefit estimate is promising but imprecise, and adverse events are uneven. What is the defensible next decision?"
+        "task": "The benefit estimate is promising but imprecise, and adverse events are uneven. What is the defensible next decision?",
+        "reason": "Enrollment is paused because the benefit estimate is uncertain and serious side effects are uneven; the board must apply the safety rule written before either pattern was known"
       }
     ]
   },
   {
-    "title": "Containment or Adaptation?",
-    "objective": "Use scenarios and trigger-based policies instead of pretending one forecast is certain.",
-    "briefing": "The outbreak is geographically uneven. Leaders must choose between aggressive local containment, broader mitigation, and long-term adaptation while the biological parameters remain uncertain.",
-    "stake": "Day 121. The districts are on visibly different paths, and the council wants one policy by Friday. 90 of the region's 120 critical care beds are full. Severe cases are arriving at about 8 a day. Ortiz wants the beds protected. Morales wants the growth stopped where it is still cheap to stop. Ortiz has the bed numbers by hour. Morales has the district growth rates. The two documents have never been in the same room. This stage you build the arithmetic behind the decision. You then choose a policy that holds up even if you are wrong. The honest answer to an uncertain future is a set of triggers, not one guess.",
-    "takeaway": "Use population growth, feedback, capacity thresholds, model assumptions, scenario analysis, tradeoffs as an evidence chain rather than as isolated facts.",
+    "title": "How Close to the Edge?",
+    "objective": "Build a simple capacity bound and set an action trigger early enough for staffing and transfers to arrive before the ICU loses its buffer.",
+    "briefing": "Ninety of 120 staffed critical-care beds are occupied, and about eight severe patients are arriving each day. Discharges are too uncertain to use for a confident forecast. The council needs a policy that can act before the model is perfect, not after the last bed is gone.",
+    "stake": "Day 121. Wait for certainty and the staffing response arrives after the beds are needed. Today you calculate a worst-case bound, expose the missing assumptions, and choose a trigger with enough lead time to matter.",
+    "takeaway": "A simple model can be useful when its assumptions stay visible and its trigger is tied to a reversible action with real lead time.",
+    "segue": "The trigger fires while there is still time to add staff and coordinate transfers. The emergency phase finally begins to recede. One job remains: decide what Riverton is allowed to say it knows, what it must still call uncertain, and what system it keeps after the crisis money ends.",
     "stops": [
       {
         "group": "POP",
         "lesson": 17,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "reason": "The modelling board has nine days of case data, and the council wants one policy from it by Friday"
       },
       {
         "group": "CLIN",
-        "lesson": 7,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "lesson": 6,
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "reason": "Transfers and overflow staffing need a time bound now, even though the missing discharge rate means the number can only be a worst-case scenario"
       },
       {
         "group": "POP",
         "lesson": 18,
-        "task": "Set the occupancy threshold before releasing the next capacity updates, then see whether the staffing still has the lead time it needs."
+        "task": "Set the occupancy threshold before releasing the next capacity updates, then see whether the staffing still has the lead time it needs.",
+        "reason": "Command's own policy board is where the trigger has to be set before the next update goes out"
       }
     ]
   },
   {
-    "title": "The Final Briefing",
-    "objective": "Produce a claim-by-claim evidence package with explicit residual uncertainties and durable surveillance responsibilities.",
-    "briefing": "The mayor, hospitals, and public must receive one integrated account of what happened, what remains uncertain, and which actions should continue.",
-    "stake": "Day 140. The mayor is on air in an hour. Behind that broadcast sit five months of conclusions, and they are not equally solid. The route of transmission is settled. The animal source is not, and Castellanos has said so in writing. One thing said in public early did not survive Oduya's sewer sample. That was the claim that all of this began with the hospital cluster. This stage you go through the claims one at a time. You then decide what the city keeps paying for after the emergency budget closes. Say too little and the next outbreak arrives with nobody watching for it.",
-    "takeaway": "Use evidence synthesis, causal chains, uncertainty, ethics, communication, long-term monitoring as an evidence chain rather than as isolated facts.",
+    "title": "Sign the Briefing",
+    "objective": "Sign a claim-by-claim public briefing that matches confidence to evidence and preserves the surveillance needed for the next outbreak.",
+    "briefing": "Elias Webb is home. The mayor speaks in an hour. The transmission route is well supported, the treatment benefit has limited follow-up, and the animal reservoir is still unresolved. Your last job is not to make every uncertainty disappear; it is to sign a briefing that says exactly what the evidence can carry.",
+    "stake": "Day 140. Overstate the evidence and Riverton may build future policy on a false certainty; refuse to state anything and the city learns nothing from five months of work. Today you decide which claims survive the final check and sign the record.",
+    "takeaway": "A scientific decision can be strong without pretending uncertainty is gone: established claims, qualified claims, open questions, and follow-up responsibilities belong in the same signed record.",
     "stops": [
       {
         "group": "POP",
         "lesson": 19,
-        "task": "Spend the two independent checks on the critical claims that still lack adequate backing, then disposition the final report."
+        "task": "Spend the two independent checks on the critical claims that still lack adequate backing, then disposition the final report.",
+        "reason": "Two independent checks are all that is left before four signed claims enter the permanent record"
       },
       {
         "group": "POP",
         "lesson": 20,
-        "task": "Order the briefing by how much weight each claim can carry."
+        "task": "Order the briefing by how much weight each claim can carry.",
+        "reason": "She wants the briefing ordered by how much weight each claim can actually carry"
       },
       {
         "group": "POP",
         "lesson": 21,
-        "task": "The emergency budget closes this month. Which durable capability should receive the protected outbreak-surveillance funding?"
+        "task": "Choose the final briefing you are willing to sign.",
+        "reason": "The mayor cannot speak until you choose the version of the final record that matches each claim to its evidence and keeps the city able to detect the next outbreak"
       }
     ]
   }

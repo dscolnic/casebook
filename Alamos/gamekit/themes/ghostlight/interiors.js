@@ -86,18 +86,18 @@ export const INTERIORS = {
       "title": "Load plot",
       "rows": [
         {
-          "label": "Grid load in the sequence",
-          "value": "1050 kg",
+          "label": "Vertical weight in sequence",
+          "value": "9.03 kN",
           "status": "normal"
         },
         {
-          "label": "Assessed capacity",
-          "value": "1600 kg",
+          "label": "Point-load vectors",
+          "value": "Filed by pick and direction",
           "status": "normal"
         },
         {
-          "label": "Worst line",
-          "value": "172 of 180 kg",
+          "label": "Worst moving line check",
+          "value": "2.11 kN demand vs 2.0 kN limit as drawn",
           "status": "alarm"
         }
       ]

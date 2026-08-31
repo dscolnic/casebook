@@ -95,7 +95,7 @@ for(const name of themeNames()){
   // Same normalisation the engine applies before any core module reads a lesson.
   // Without it the gallery would show the raw book — a format spelled three ways,
   // a diagnosis pack still unexpanded — which is not what the game renders.
-  normalizeContent(content);
+  normalizeContent(content, T.site ?? null, T.fixtures ?? {});
   const isEdition = !!editionBase(name);
   const roster = content.ROSTER ?? [];
   const groups = content.GROUPS ?? [];

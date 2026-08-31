@@ -112,13 +112,24 @@ export const site = {
       x: -26, z: -96, w: 20, d: 13, h: 5.2, facing: 0, colour: 0x3f6f6b },
 
     // No group: the places that carry the park rather than a lesson.
+    // The front gate stays a facade, on purpose. It is shut because the park is
+    // shut; it opens when the certificates are signed, which is after the last day
+    // the player sees. A room behind it would be a room whose whole point is that
+    // you cannot get in yet.
     { id: 'GATE', name: 'Front Gate', sub: 'Closed since October',
       x: 0, z: 74, w: 24, d: 9, h: 4.6, facing: PI, colour: 0xa8a08c },
-    { id: 'WORKSHOP', name: 'Workshop', sub: "Brennan's bench, and eleven notebooks",
+    // `enter:` gives a building an interiors key without making it an area. Three
+    // of these were modelled, lit and shut for the life of the game. Each now has
+    // a room (themes/midway/minors.js) and one sited call in it
+    // (themes/midway/fixtures.js), and `access.js` keeps its door sealed and
+    // unnamed until the day the campaign sends somebody through it: the workshop
+    // on day 5, the plant room on day 10, the boarded stalls on day 11. Ground is
+    // never fenced — the whole park is walkable from the first morning.
+    { id: 'WORKSHOP', enter: 'WORKSHOP', name: 'Workshop', sub: "Brennan's bench, and eleven notebooks",
       x: -54, z: 46, w: 20, d: 13, h: 5.4, facing: PI / 2, colour: 0x8d7f6a },
-    { id: 'ARCADE', name: 'Arcade and Stalls', sub: 'Boarded, and not on the list',
+    { id: 'ARCADE', enter: 'ARCADE', name: 'Arcade and Stalls', sub: 'Boarded, and not on the list',
       x: 40, z: 44, w: 24, d: 12, h: 5.0, facing: PI, colour: 0x8a5a49 },
-    { id: 'PLANT', name: 'Plant Room', sub: 'Everything on the midway runs off this board',
+    { id: 'PLANT', enter: 'PLANT', name: 'Plant Room', sub: 'Everything on the midway runs off this board',
       x: -60, z: -70, w: 14, d: 10, h: 4.4, facing: PI / 2, colour: 0x7d8288 },
   ],
 

@@ -40,7 +40,7 @@ const content = {
   DIAGNOSIS_PACKS: packs,
   HISTORIC_CHARACTERS: rosterMod.ROSTER ?? rosterMod.HISTORIC_CHARACTERS ?? [],
 };
-normalizeContent(content);
+normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
 
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 /** Book prose carries a little HTML. Keep <p>/<em>/<b>, drop the rest. */

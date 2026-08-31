@@ -14,6 +14,7 @@ import { def, getCurrentMission, nextMissionStopIndex, openStopIndices, isPerson
 import { npcsForEngine } from '../people/registry.js';
 import { tiersFor } from './orientation.js';
 import { openingSols, isOpen } from './access.js';
+import { sitedAt } from '../world/interiorFixtures.js';
 
 /**
  * Far places with no lesson in them, which the map keeps out of its own scale.
@@ -314,6 +315,13 @@ export function renderMap(opts = {}){
   // map used to mark one "next stop", which is the game choosing the route.
   const mission = getCurrentMission(state);
   const open = mission ? openStopIndices(state) : [];
+  // A SITED stop highlights the place it is actually sited at, not its own
+  // area. Without this, a call sited at a near minor place — the Site Office
+  // stands in for Wellmere's Crossing Hall and Field Laboratory on day 1 —
+  // still lit up the far building on the map: the plan card correctly said
+  // "Go to The Site Office" and the map pointed at a door sealed until day 4.
+  // `callLabel` in app.js already resolves this the same way; the map just
+  // never asked.
   const targetGroups = new Set();
   const wantedPeople = [];
   for(const i of open){
@@ -322,7 +330,10 @@ export function renderMap(opts = {}){
       const npc = pid ? npcsForEngine().find(n => n.char?.id === pid) : null;
       if(npc) wantedPeople.push(npc);
     } else {
-      targetGroups.add(mission.stops[i].group);
+      const stop = mission.stops[i];
+      const lesson = theme.content?.CURRICULUM?.[stop.group]?.[stop.lesson];
+      const sited = sitedAt(theme, stop.group, lesson);
+      targetGroups.add(sited ? sited.place : stop.group);
     }
   }
   const targetGroup = null;   // kept: the old single-target checks read it
@@ -581,7 +592,10 @@ export function renderMap(opts = {}){
   for(const bl of site.buildings ?? []){
     if(aside.has(bl.enter)) continue;
     const area = bl.group ? def(bl.group) : null;
-    const isTarget = !livePins().length && bl.group && targetGroups.has(bl.group);
+    // A minor place can be the target too, when a stop is sited there —
+    // `targetGroups` holds whichever of the two the current call resolves to.
+    const isTarget = !livePins().length
+      && ((bl.group && targetGroups.has(bl.group)) || (bl.enter && targetGroups.has(bl.enter)));
     const fill = area ? area.color : '#9a958a';
     const r = plotRect(bl.x, bl.z, bl.w, bl.d);
     const x = r.x, y = r.y, w = r.w, h = r.h;
@@ -708,7 +722,7 @@ export function renderMap(opts = {}){
     for(const bl of site.buildings ?? []){
       if(!outside(bl.x, bl.z)) continue;
       const area = bl.group ? def(bl.group) : null;
-      const isTarget = bl.group && targetGroups.has(bl.group);
+      const isTarget = (bl.group && targetGroups.has(bl.group)) || (bl.enter && targetGroups.has(bl.enter));
       marks.push({ x: bl.x, z: bl.z, name: bl.name ?? bl.id,
                    colour: isTarget ? '#f2c14e' : (area?.color ?? '#8d867a'),
                    rank: isTarget ? 1 : area ? 2 : 3 });

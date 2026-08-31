@@ -17,6 +17,8 @@
 //   key: [a, b, c]        an inline list of simple scalars
 //   key: { a: 1, b: two } an inline mapping — one short record on one line
 //   - { a: 1, b: two }    a sequence of them, which is how readings are written
+//   key: { a: 1,        a flow collection wrapped by its writer at a column
+//          b: two }     limit, continued on the following, more indented lines
 //   key: |                a literal block: newlines kept
 //   key: >                a folded block: newlines become spaces
 //   key: a long value     a plain scalar continued on the following, more
@@ -77,12 +79,7 @@ function content(line){
 function continueScalar(lines, i, indent, first){
   let text = first;
   const q = /^["']/.test(first) ? first[0] : null;
-  const closed = () => {
-    if(!q) return false;
-    const body = text.slice(1);
-    // Doubled quotes inside a single-quoted scalar are an escape, not the end.
-    return q === "'" ? /'$/.test(body) && !/''$/.test(body) : /(^|[^\\])"$/.test(body);
-  };
+  const closed = () => q ? quoteClosed(text) : false;
   if(q && closed()) return [text, i];
   while(i < lines.length){
     const c = content(lines[i]);
@@ -107,6 +104,62 @@ function continueScalar(lines, i, indent, first){
     if(q && closed()) break;
   }
   return [text, i];
+}
+
+/**
+ * A flow collection — `{ … }` or `[ … ]` — continued on the following lines.
+ *
+ * yaml-lite read only the line the brace opened on, so a flow map a writer had
+ * wrapped at its column limit arrived as the *string* `"{label: A bend in the
+ * cable at that point, mechanism: Light leaves the core where the fibre is"`.
+ * That is a valid string, so `choices` was still a four-item list and nothing
+ * downstream could tell: the importer's own "the answer names a candidate that
+ * is not on the list" was the only thing that ever saw it, and only because the
+ * answer happened to be a label. Four books in the repo are wrapped this way.
+ *
+ * A continuation is any deeper line, joined with a single space, until the
+ * brackets balance — which is how YAML folds a plain scalar in flow context.
+ */
+function continueFlow(lines, i, indent, first){
+  let text = first;
+  while(i < lines.length && !flowClosed(text)){
+    const c = content(lines[i]);
+    if(c === null){ i++; continue; }
+    if(indentOf(lines[i]) <= indent) break;
+    text += ' ' + c.trim();
+    i++;
+  }
+  return [text, i];
+}
+
+/**
+ * True when a scalar that opens with a quote has met its closing quote.
+ *
+ * Shared with `continueScalar` on purpose: `parseSequence` has to ask the same
+ * question one line earlier — before it decides whether a dash carries a scalar
+ * or a mapping — and two spellings of "is this quote closed" would drift the
+ * first time either was corrected.
+ */
+function quoteClosed(text){
+  const q = /^["']/.test(text) ? text[0] : null;
+  if(!q) return true;
+  const body = text.slice(1);
+  if(!body) return false;
+  // Doubled quotes inside a single-quoted scalar are an escape, not the end.
+  return q === "'" ? /'$/.test(body) && !/''$/.test(body) : /(^|[^\\])"$/.test(body);
+}
+
+/** True when every `{`/`[` outside quotes has been closed. */
+function flowClosed(s){
+  let depth = 0, quote = null;
+  for(let i = 0; i < s.length; i++){
+    const c = s[i];
+    if(quote){ if(c === quote && s[i - 1] !== '\\') quote = null; continue; }
+    if(c === '"' || c === "'"){ quote = c; continue; }
+    if(c === '{' || c === '[') depth++;
+    else if(c === '}' || c === ']') depth--;
+  }
+  return depth <= 0;
 }
 
 /** The next line that carries anything, or the end. */
@@ -155,8 +208,9 @@ function parseSequence(lines, i, indent){
     // read as the start of an indented mapping and every candidate list in the
     // first book came out empty.
     if(rest.startsWith('{') || rest.startsWith('[')){
-      out.push(scalar(rest));
-      i++;
+      const [flowText, afterFlow] = continueFlow(lines, i + 1, indent, rest);
+      out.push(scalar(flowText));
+      i = afterFlow;
       continue;
     }
     // A nested sequence: `- - first`. The item is a list of its own, starting at
@@ -194,6 +248,18 @@ function parseSequence(lines, i, indent){
     if(quoted){
       out.push(scalar(rest.trim()));
       i++;
+      continue;
+    }
+    // The same scalar, wrapped by its writer so the closing quote is on a later
+    // line. The mapping test below claims it — a quoted sentence containing
+    // "…in question: the same cone…" is "something, a colon, a space" — and one
+    // rebuttal in the catalogue arrived as a single-key object and rendered as
+    // [object Object] in the verdict. Exactly the defect the one-line `quoted`
+    // guard above was written for, one line further on.
+    if(/^["']/.test(rest) && !quoteClosed(rest)){
+      const [full, after] = continueScalar(lines, i + 1, indent, rest);
+      out.push(scalar(full));
+      i = after;
       continue;
     }
     if(/^[^:\s][^:]*:(\s|$)/.test(rest)){
@@ -254,6 +320,12 @@ function parseMapping(lines, i, indent){
         : parseBlock(lines, i + 1, indent + 1);
       out[key] = v ?? null;
       i = next;
+      continue;
+    }
+    if(rest.startsWith('{') || rest.startsWith('[')){
+      const [flowText, afterFlow] = continueFlow(lines, i + 1, indent, rest);
+      out[key] = scalar(flowText);
+      i = afterFlow;
       continue;
     }
     const [full, after] = continueScalar(lines, i + 1, indent, rest);
@@ -349,4 +421,90 @@ function splitTop(s){
   }
   if(cur.trim()) out.push(cur);
   return out.map(x => x.trim());
+}
+
+// ----------------------------------------------------------------- selftest
+//
+//   node tools/yaml-lite.mjs --selftest
+//
+// A parser is the worst place in the repo for a silent inversion, because what
+// it hands back is always a valid value of *some* shape. The wrapped flow map
+// is the case that proves it: `- {label: A, mechanism: light leaves the core`
+// followed by an indented `curved.}` came back as a four-item list of strings,
+// so `choices.length` was right, `formatMix` was right, and the only thing in
+// the repo that ever saw the damage was the importer asking whether the answer
+// was one of the labels — and only because the answer happened to be a label.
+//
+// So the case here is an **equality** case, not a shape case: the same document
+// written on one line and wrapped at a column limit has to parse to the same
+// value. Each was verified by putting the bug back — reverting `continueFlow`
+// to `out.push(scalar(rest)); i++` — and watching that case, and only that
+// case, fail.
+function selftest(){
+  let bad = 0;
+  const check = (name, got, want) => {
+    const a = JSON.stringify(got), b = JSON.stringify(want);
+    if(a === b) return;
+    bad++;
+    console.log(`  ✗ ${name}\n      got  ${a}\n      want ${b}`);
+  };
+
+  // The equality case, in a sequence: one line against the same record wrapped.
+  const flat = parseYaml([
+    'choices:',
+    '  - {label: A bend at that point, mechanism: Light leaves the core where the fibre is tightly curved.}',
+  ].join('\n'));
+  const wrapped = parseYaml([
+    'choices:',
+    '  - {label: A bend at that point, mechanism: Light leaves the core where the fibre is ',
+    '      tightly curved.}',
+  ].join('\n'));
+  check('a wrapped flow map in a sequence parses as the one-line one', wrapped, flat);
+  check('and it is a mapping, not a string', typeof wrapped.choices[0], 'object');
+
+  // The same, as a mapping value rather than a sequence item.
+  check('a wrapped flow map as a value',
+        parseYaml('estimate:\n  panel: {units: m/s,\n    slots: 2}\n'),
+        parseYaml('estimate:\n  panel: {units: m/s, slots: 2}\n'));
+
+  // And a wrapped flow *list*, which wraps for the same reason.
+  check('a wrapped flow list',
+        parseYaml('correct: [0,\n  1, 2]\n'),
+        parseYaml('correct: [0, 1, 2]\n'));
+
+  // The cases the fix must not disturb. A one-line flow map still parses, a
+  // brace that is not a mapping is still the string it was — an unquoted
+  // estimate template is exactly that — and the key *after* a closed flow map
+  // is still read rather than swallowed as a continuation.
+  check('a one-line flow map is untouched',
+        parseYaml('r: {zone: Bilge, value: 31}\n'), { r: { zone: 'Bilge', value: 31 } });
+  check('a braced value that is not a mapping stays a string',
+        parseYaml('template: {0} ÷ {1}\n'), { template: '{0} ÷ {1}' });
+  check('the next key after a closed flow map is still read',
+        parseYaml('a: {x: 1}\nb: two\n'), { a: { x: 1 }, b: 'two' });
+  check('the next item after a closed flow map is still read',
+        parseYaml('rows:\n  - {x: 1}\n  - {x: 2}\n'), { rows: [{ x: 1 }, { x: 2 }] });
+
+  // The same equality case for a quoted scalar in a sequence. The one-line
+  // guard was already there; the wrapped one fell through to the mapping test,
+  // because a quoted sentence with ": " inside it is "something, a colon, a
+  // space". What came back was a single-key object — a valid value, rendered as
+  // [object Object] in a verdict nobody diffs against the book.
+  const flatQ = parseYaml("rebuttals:\n  - 'An unchanged angle is the case in question: the same cone covers four times the area.'\n");
+  const wrapQ = parseYaml("rebuttals:\n  - 'An unchanged angle is the case in question: the same cone covers four\n    times the area.'\n");
+  check('a wrapped quoted scalar in a sequence parses as the one-line one', wrapQ, flatQ);
+  check('and it is a string, not a mapping', typeof wrapQ.rebuttals[0], 'string');
+  // And the case the mapping test is still for: an UNquoted `- key: value` is
+  // a mapping, wrapped or not.
+  check('an unquoted "- key: value" is still a mapping',
+        parseYaml('rows:\n  - label: A bend at that point\n    rule: product\n'),
+        { rows: [{ label: 'A bend at that point', rule: 'product' }] });
+
+  console.log(bad ? `yaml-lite: ${bad} selftest case(s) failed.`
+                  : 'yaml-lite: wrapped flow collections read the same as one-line ones.');
+  return bad;
+}
+
+if(process.argv[1] && process.argv[1].endsWith('yaml-lite.mjs')){
+  if(process.argv.includes('--selftest')) process.exit(selftest() ? 1 : 0);
 }

@@ -1,0 +1,577 @@
+{
+  "_comment": "Missions whose opening blurb or closing card names somebody (checkStory.mjs) — names belong on the call's own reason instead. Same ratchet as the other debt files here.",
+  "themes": {
+    "contamcity": [
+      "Day 1 (The Unknown Containers)",
+      "Day 2 (The Vapor Cloud)",
+      "Day 3 (A Reaction Underground)",
+      "Day 4 (Identify the Unknowns)",
+      "Day 5 (What Dissolved in the River?)",
+      "Day 6 (The Concentration Problem)",
+      "Day 7 (The Water Changes pH)",
+      "Day 8 (Equilibrium in the Reservoir)",
+      "Day 9 (The Air Is Not Clear Yet)",
+      "Day 10 (The Heat Is Rising)",
+      "Day 11 (The Corrosion Failure)",
+      "Day 12 (Will the Reaction Run Away?)",
+      "Day 13 (Remove It Without Making It Worse)",
+      "Day 14 (Can the Water Be Released?)",
+      "Day 15 (Reopen the City)"
+    ],
+    "projecty": [
+      "Stage 1 (Read the atomic world)",
+      "Stage 2 (Account for nuclear energy)",
+      "Stage 3 (Follow radioactivity through the laboratory)",
+      "Stage 4 (Measure interactions, not impressions)",
+      "Stage 5 (Track neutrons through matter)",
+      "Stage 6 (Recognize the design pivot)",
+      "Stage 7 (Understand matter under compression)",
+      "Stage 8 (Make symmetry measurable)",
+      "Stage 9 (Build evidence with real materials)",
+      "Stage 10 (Synchronize many channels)",
+      "Stage 11 (Build an uncertainty budget)",
+      "Stage 12 (Design the integrated non-nuclear campaign)",
+      "Stage 13 (Treat Trinity as an experiment)",
+      "Stage 14 (Reconcile evidence and freeze the design)",
+      "Stage 15 (Complete the evidence chain—and confront responsibility)"
+    ],
+    "hospital": [
+      "Shift 1 (Morning Rush)",
+      "Shift 2 (Lunch Shift)",
+      "Shift 3 (X-Ray Day)",
+      "Shift 4 (Brain Signal Day)",
+      "Shift 5 (Heart on the Move)",
+      "Shift 6 (Sense Detective)",
+      "Shift 7 (Breathing Room)",
+      "Shift 8 (Water Watch)",
+      "Shift 9 (Germ Detective Shift)",
+      "Shift 10 (Immune Team)",
+      "Shift 12 (Skin Shield)",
+      "Shift 13 (Allergy Alert)",
+      "Shift 14 (Temperature Trouble)",
+      "Shift 15 (The Super Shift)"
+    ],
+    "deepwatch": [
+      "Watch 1 (Boat Walkdown)",
+      "Watch 2 (Contact in the Noise)",
+      "Watch 3 (Position Without a Trusted Fix)",
+      "Watch 4 (Silent Passage)",
+      "Watch 5 (Forward Flooding)",
+      "Watch 6 (Electrical Fire)",
+      "Watch 7 (Atmosphere Degradation)",
+      "Watch 8 (Compound Casualty)",
+      "Watch 9 (Sonar Blinded by the Boat)",
+      "Watch 10 (Uncontrolled Depth Change)",
+      "Watch 11 (The Cooling Path)",
+      "Watch 12 (Silent-Running Configuration)",
+      "Watch 14 (Refit Decision)",
+      "Watch 15 (Deep Watch)"
+    ],
+    "bring_them_home": [
+      "Shift 1 (The Failure)",
+      "Shift 2 (Find the Spacecraft)",
+      "Shift 3 (The Wrong Trajectory)",
+      "Shift 4 (Turn Without Wasting Fuel)",
+      "Shift 5 (The Power Budget)",
+      "Shift 6 (A Dangerous Battery Configuration)",
+      "Shift 7 (The Cabin Is Cooling)",
+      "Shift 8 (The Air Problem)",
+      "Shift 9 (Communication Fades)",
+      "Shift 10 (A Blind Maneuver)",
+      "Shift 11 (Crossing the Atmosphere)",
+      "Shift 12 (The Structure Is Vibrating)",
+      "Shift 13 (Choose the Return Path)",
+      "Shift 14 (The Last Correction)",
+      "Shift 15 (Reentry)"
+    ],
+    "outbreak_riverton": [
+      "Stage 4 (The Cell Is Hijacked)",
+      "Stage 12 (What Do We Deploy?)"
+    ],
+    "blackout": [
+      "Day 1 (Enough in the tank)",
+      "Day 2 (Three things at once)",
+      "Day 3 (The number on the wall)",
+      "Day 4 (What the line can carry)",
+      "Day 5 (The last few kilometres)",
+      "Day 6 (Is that number the number)",
+      "Day 7 (Where the current actually goes)",
+      "Day 8 (80 milliseconds)",
+      "Day 9 (The system splits)",
+      "Day 10 (Cranking path)",
+      "Day 11 (6 hours, not 40 minutes)",
+      "Day 12 (A shift where nothing happens)",
+      "Day 13 (Merit order)",
+      "Day 14 (The last morning it can be changed)",
+      "Day 15 (What we know, and how well)"
+    ],
+    "aftershock": [
+      "Day 1 (Two towns, one earthquake)",
+      "Day 2 (The number everybody has already heard)",
+      "Day 3 (What the placard is claiming)",
+      "Day 4 (The building that looks worst)",
+      "Day 5 (The one everybody assumed was fine)",
+      "Day 6 (The hospital, and what waiting costs)",
+      "Day 7 (What the ground will do next)",
+      "Day 8 (The material, and what it can still carry)",
+      "Day 9 (The cordon nobody can lift)",
+      "Day 10 (The photograph that changed the meeting)",
+      "Day 11 (A quiet day on the bench)",
+      "Day 12 (The record that was wrong all along)",
+      "Day 13 (Three things at once)",
+      "Day 14 (The last morning it can be changed)",
+      "Day 15 (What we know, and how well)"
+    ],
+    "quantum": [
+      "Day 1 (Cold enough to have a ground state)",
+      "Day 2 (Finding a qubit that will not answer)",
+      "Day 3 (Two clocks, and the one that runs out first)",
+      "Day 4 (One bit out)",
+      "Day 5 (The offer with a date on it)",
+      "Day 6 (A defect with a date on it)",
+      "Day 7 (The instrument somebody else depends on)",
+      "Day 8 (How wrong is it, and how would you know)",
+      "Day 9 (A number that rules something out)",
+      "Day 10 (Reading a claim as a claim)",
+      "Day 11 (The discriminator that had seen the answer)",
+      "Day 12 (A day when the machine behaves)",
+      "Day 13 (Three things at once)",
+      "Day 14 (The last morning it can be withdrawn)",
+      "Day 15 (What we know, and how well)"
+    ],
+    "instruments": [
+      "Day 1 (Three instruments, one reference)",
+      "Day 2 (What the measurement is worth)",
+      "Day 3 (What the plan cannot answer)",
+      "Day 4 (Before the number moves)",
+      "Day 5 (Which number is carrying the error)",
+      "Day 6 (What you take yourself)",
+      "Day 7 (Down there without the lights)",
+      "Day 10 (Where the answer is the place)",
+      "Day 11 (What the site will tell you, and who is leaving)"
+    ],
+    "the_trial": [
+      "Day 1 (What the trial already decided)",
+      "Day 2 (Who measures, and how)",
+      "Day 3 (The signal at two sites)",
+      "Day 4 (The unplanned look)",
+      "Day 5 (The site that is faster than everybody)",
+      "Day 6 (The amendment comes back)",
+      "Day 7 (Who is missing)",
+      "Day 8 (The cold room)",
+      "Day 9 (What the guessing survey found)",
+      "Day 10 (What survives)",
+      "Day 11 (The quiet day)",
+      "Day 12 (Three things at once)",
+      "Day 13 (1 of 14)",
+      "Day 14 (The last reversible moment)",
+      "Day 15 (What it is worth saying)"
+    ],
+    "icecore": [
+      "Day 1 (What the plateau has been writing down)",
+      "Day 2 (Three kilometres of one attempt)",
+      "Day 3 (Counting to 2000)",
+      "Day 4 (One aircraft, and what leaves on it)",
+      "Day 5 (Turning a ratio into a temperature)",
+      "Day 6 (Air that stopped moving)",
+      "Day 7 (What the wind brought)",
+      "Day 8 (The year that is written everywhere)",
+      "Day 9 (Where the record runs out)",
+      "Day 10 (Two records, side by side)",
+      "Day 11 (The offset that was not climate)",
+      "Day 12 (A day when nothing is wrong)",
+      "Day 13 (The night the generator stopped)",
+      "Day 14 (What the season is allowed to say)",
+      "Day 15 (What is known, and how well)"
+    ],
+    "redsand": [
+      "Sol 5 (The ceiling on running hotter)",
+      "Sol 8 (The assay bench)"
+    ],
+    "planetary_defense_ms": [
+      "Phase 1 (The Discovery Image)",
+      "Phase 2 (Confirm the Motion)",
+      "Phase 3 (How Large Is It?)",
+      "Phase 4 (What Is It Made Of?)",
+      "Phase 5 (Radar Contact)",
+      "Phase 6 (Impact Energy)",
+      "Phase 7 (Can We Move It?)",
+      "Phase 8 (Evacuate or Wait?)",
+      "Phase 9 (Did We Move It?)",
+      "Phase 10 (The Final Defense Review)"
+    ],
+    "deepwatch_ms": [
+      "Watch 1 (Boat Walkdown)",
+      "Watch 2 (Contact in the Noise)",
+      "Watch 3 (Position Without a Trusted Fix)",
+      "Watch 4 (Silent Passage)",
+      "Watch 5 (Forward Flooding)",
+      "Watch 6 (Electrical Fire)",
+      "Watch 7 (Atmosphere Degradation)",
+      "Watch 8 (Compound Casualty)",
+      "Watch 9 (The Cooling Path)",
+      "Watch 10 (Deep Watch)"
+    ],
+    "aftershock_ms": [
+      "Day 1 (Two towns, one earthquake)",
+      "Day 2 (The number everybody has already heard)",
+      "Day 3 (The building that looks worst)",
+      "Day 4 (The one everybody assumed was fine)",
+      "Day 5 (The hospital, and what waiting costs)",
+      "Day 6 (The material, and what it can still carry)",
+      "Day 7 (The cordon nobody can lift)",
+      "Day 8 (The record that was wrong all along)",
+      "Day 9 (Three things at once)",
+      "Day 10 (What we know, and how well)"
+    ],
+    "icecore_ms": [
+      "Day 1 (What the plateau has been writing down)",
+      "Day 2 (Three kilometres of one attempt)",
+      "Day 3 (Counting to 2000)",
+      "Day 4 (Turning a ratio into a temperature)",
+      "Day 5 (Air that stopped moving)",
+      "Day 6 (The year that is written everywhere)",
+      "Day 7 (Two records, side by side)",
+      "Day 8 (The offset that was not climate)",
+      "Day 9 (The night the generator stopped)",
+      "Day 10 (What is known, and how well)"
+    ],
+    "sightline": [
+      "Day 1 (What the file claims)",
+      "Day 2 (What a face is at that distance)",
+      "Day 3 (Walk it)",
+      "Day 4 (Two lamps and a wet road)",
+      "Day 5 (Four days before anybody asked)",
+      "Day 6 (The photograph in the evening paper)",
+      "Day 7 (Two witnesses who agree)",
+      "Day 8 (How the six were chosen)",
+      "Day 9 (Thirty-four metres)",
+      "Day 10 (Who was standing behind her)",
+      "Day 11 (How sure, and when)",
+      "Day 12 (The nineteenth hour)",
+      "Day 13 (What a match is worth)",
+      "Day 14 (The last reversible moment)",
+      "Day 15 (Disposition)"
+    ],
+    "seedbank_ms": [
+      "Day 1 (What is actually in the vault)",
+      "Day 2 (What the generation tells you)",
+      "Day 3 (The season you do not get back)",
+      "Day 4 (What comes with what you wanted)",
+      "Day 5 (How many is enough)",
+      "Day 6 (What you asked for and what you got)",
+      "Day 7 (The collection is not what the records say)",
+      "Day 8 (What goes in the crossing block)",
+      "Day 9 (What the season established)",
+      "Day 10 (What Wellmere asks for next)"
+    ],
+    "outbreak_riverton_ms": [
+      "Stage 1 (The First Cluster)",
+      "Stage 2 (What Kind of Agent?)",
+      "Stage 3 (The Point of Entry)",
+      "Stage 4 (A Test Before Morning)",
+      "Stage 5 (Why Are Some Patients Sicker?)",
+      "Stage 6 (The Hidden Transmission Route)",
+      "Stage 7 (The Animal Connection)",
+      "Stage 8 (Treatment Failure)",
+      "Stage 9 (Design the Intervention)",
+      "Stage 10 (The Final Briefing)"
+    ],
+    "blackout_ms": [
+      "Day 1 (The number on the wall)",
+      "Day 2 (What the line can carry)",
+      "Day 3 (The last few kilometres)",
+      "Day 4 (Is that number the number)",
+      "Day 5 (Enough in the tank)",
+      "Day 6 (80 milliseconds)",
+      "Day 7 (Merit order)",
+      "Day 8 (Cranking path)",
+      "Day 9 (Three things at once)",
+      "Day 10 (What we know, and how well)"
+    ],
+    "bring_them_home_ms": [
+      "Shift 1 (The Failure)",
+      "Shift 2 (Find the Spacecraft)",
+      "Shift 4 (The Power Budget)",
+      "Shift 5 (The Cabin Is Cooling)",
+      "Shift 6 (The Air Problem)",
+      "Shift 7 (Communication Fades)",
+      "Shift 8 (The Structure Is Vibrating)",
+      "Shift 9 (The Last Correction)"
+    ],
+    "contamcity_ms": [
+      "Day 1 (The Unknown Containers)",
+      "Day 2 (The Vapor Cloud)",
+      "Day 3 (What Dissolved in the River?)",
+      "Day 4 (The Concentration Problem)",
+      "Day 5 (The Heat Is Rising)",
+      "Day 6 (The Water Changes pH)",
+      "Day 7 (The Corrosion Failure)",
+      "Day 8 (Remove It Without Making It Worse)",
+      "Day 9 (Can the Water Be Released?)",
+      "Day 10 (Reopen the City)"
+    ],
+    "blackout_fable": [
+      "Day 1 (The number on the wall)",
+      "Day 2 (What the line can carry)",
+      "Day 3 (The last few kilometres)",
+      "Day 4 (Is that number the number)",
+      "Day 5 (Enough in the tank)",
+      "Day 6 (Where the current actually goes)",
+      "Day 7 (80 milliseconds)",
+      "Day 8 (Merit order)",
+      "Day 9 (The system splits)",
+      "Day 10 (Cranking path)",
+      "Day 11 (6 hours, not 40 minutes)",
+      "Day 12 (A shift where nothing happens)",
+      "Day 13 (Three things at once)",
+      "Day 14 (The last morning it can be changed)",
+      "Day 15 (What we know, and how well)"
+    ],
+    "sightline_ms": [
+      "Day 1 (What the file claims)",
+      "Day 2 (What a face is at that distance)",
+      "Day 3 (Two lamps and a wet road)",
+      "Day 4 (Four days before anybody asked)",
+      "Day 5 (The photograph in the evening paper)",
+      "Day 6 (Two witnesses who agree)",
+      "Day 7 (How the six were chosen)",
+      "Day 8 (Thirty-four metres)",
+      "Day 9 (The nineteenth hour)",
+      "Day 10 (Disposition)"
+    ],
+    "redsand_ms": [
+      "Sol 1 (2700 kilograms short)",
+      "Sol 2 (Run it hotter)",
+      "Sol 3 (The line that stopped passing gas)",
+      "Sol 4 (The loop that pays for itself)",
+      "Sol 5 (Water is the whole plant)",
+      "Sol 6 (The assay bench)",
+      "Sol 7 (A new charge and a rule for the water)",
+      "Sol 8 (40% of the sun)",
+      "Sol 9 (Loading is one way)",
+      "Sol 10 (What the next crew is told)"
+    ],
+    "the_trial_ms": [
+      "Day 1 (What the trial already decided)",
+      "Day 2 (Who measures, and how)",
+      "Day 3 (The signal at two sites)",
+      "Day 4 (The site that is faster than everybody)",
+      "Day 5 (Who is missing)",
+      "Day 6 (The cold room)",
+      "Day 7 (What the guessing survey found)",
+      "Day 8 (The quiet day)",
+      "Day 9 (1 of 14)",
+      "Day 10 (What it is worth saying)"
+    ],
+    "deepwatch_hs": [
+      "Watch 1 (Boat Walkdown)",
+      "Watch 2 (Contact in the Noise)",
+      "Watch 3 (Position Without a Trusted Fix)",
+      "Watch 4 (Silent Passage)",
+      "Watch 5 (Forward Flooding)",
+      "Watch 6 (Electrical Fire)",
+      "Watch 7 (Atmosphere Degradation)",
+      "Watch 8 (Compound Casualty)",
+      "Watch 9 (Sonar Blinded by the Boat)",
+      "Watch 10 (Uncontrolled Depth Change)",
+      "Watch 11 (The Cooling Path)",
+      "Watch 12 (Silent-Running Configuration)",
+      "Watch 14 (Refit Decision)",
+      "Watch 15 (Deep Watch)"
+    ],
+    "contamcity_hs": [
+      "Day 1 (The Unknown Containers)",
+      "Day 2 (The Vapor Cloud)",
+      "Day 3 (A Reaction Underground)",
+      "Day 4 (Identify the Unknowns)",
+      "Day 5 (What Dissolved in the River?)",
+      "Day 6 (The Concentration Problem)",
+      "Day 7 (The Water Changes pH)",
+      "Day 8 (Equilibrium in the Reservoir)",
+      "Day 9 (The Air Is Not Clear Yet)",
+      "Day 10 (The Heat Is Rising)",
+      "Day 11 (The Corrosion Failure)",
+      "Day 12 (Will the Reaction Run Away?)",
+      "Day 13 (Remove It Without Making It Worse)",
+      "Day 14 (Can the Water Be Released?)",
+      "Day 15 (Reopen the City)"
+    ],
+    "the_trial_hs": [
+      "Day 1 (What the trial already decided)",
+      "Day 2 (Who measures, and how)",
+      "Day 3 (The signal at two sites)",
+      "Day 4 (The unplanned look)",
+      "Day 5 (The site that is faster than everybody)",
+      "Day 6 (The amendment comes back)",
+      "Day 7 (Who is missing)",
+      "Day 8 (The cold room)",
+      "Day 9 (What the guessing survey found)",
+      "Day 10 (What survives)",
+      "Day 11 (The quiet day)",
+      "Day 12 (Three things at once)",
+      "Day 13 (1 of 14)",
+      "Day 14 (The last reversible moment)",
+      "Day 15 (What it is worth saying)"
+    ],
+    "qd_accel": [
+      "Level 1 (What a supernova is worth as a ruler)",
+      "Level 2 (Fainter than the universe should allow)",
+      "Level 3 (Say only what the data will carry)"
+    ],
+    "qd_dna": [
+      "Level 1 (What any model has to do already)",
+      "Level 2 (What the photograph will and will not say)",
+      "Level 3 (The model that survives every clue)"
+    ],
+    "qd_nucleus": [
+      "Level 1 (Test the old atom)",
+      "Level 2 (The impossible bounce)",
+      "Level 3 (Invent the nuclear atom)"
+    ],
+    "qd_tectonics": [
+      "Level 1 (What the continents alone will carry)",
+      "Level 2 (The ocean floor speaks)",
+      "Level 3 (One moving system)"
+    ],
+    "qd_higgs": [
+      "Level 1 (The missing piece)",
+      "Level 2 (Reconstruct collisions)",
+      "Level 3 (Is the bump real)"
+    ],
+    "qd_eclipse": [
+      "Level 1 (Competing predictions)",
+      "Level 2 (Measure the plates)",
+      "Level 3 (Test the prediction)"
+    ],
+    "qd_exo": [
+      "Level 1 (The wobbling star)",
+      "Level 2 (A transit appears)",
+      "Level 3 (Characterise the world)"
+    ],
+    "qd_ligo": [
+      "Level 1 (Build the detector)",
+      "Level 2 (Find the chirp)",
+      "Level 3 (Read the merger)"
+    ],
+    "qd_cmb": [
+      "Level 1 (The unwanted noise)",
+      "Level 2 (What spectrum is it)",
+      "Level 3 (Cosmic interpretation)"
+    ],
+    "qd_hubble": [
+      "Level 1 (Measure distance)",
+      "Level 2 (Measure recession)",
+      "Level 3 (Find the law)"
+    ],
+    "qd_penicillin": [
+      "Level 1 (A ring where the lawn stops)",
+      "Level 2 (What the liquid can be made to say)",
+      "Level 3 (What stands between this and a medicine)"
+    ],
+    "qd_germ": [
+      "Level 1 (Where the cases are)",
+      "Level 2 (Make it an experiment)",
+      "Level 3 (Change what is done)"
+    ],
+    "qd_mendel": [
+      "Level 1 (Crosses you can read)",
+      "Level 2 (What a count is allowed to mean)",
+      "Level 3 (The rules underneath)"
+    ],
+    "qd_crispr": [
+      "Level 1 (A pattern nobody was looking for)",
+      "Level 2 (Two constraints and a fixed cut)",
+      "Level 3 (What actually happened)"
+    ],
+    "qd_oxygen": [
+      "Level 1 (The thing that gets heavier)",
+      "Level 2 (Which part of the air)",
+      "Level 3 (Closing the ledger)"
+    ],
+    "qd_periodic": [
+      "Level 1 (Sixty-three drawers and no order)",
+      "Level 2 (The holes are the argument)",
+      "Level 3 (Three grams from France)"
+    ],
+    "qd_stroop": [
+      "Level 1 (Before anybody is told what this is)",
+      "Level 2 (The difference, and what it costs)",
+      "Level 3 (What the wall does not show)"
+    ],
+    "qd_memory": [
+      "Level 1 (A word that was never read out)",
+      "Level 2 (What a question puts into an account)",
+      "Level 3 (Advising the people who ask)"
+    ],
+    "qd_keynes": [
+      "Level 1 (A fall that does not stop)",
+      "Level 2 (Rounds that add up)",
+      "Level 3 (What to do, and when not to)"
+    ],
+    "qd_bankrun": [
+      "Level 1 (What the building actually holds)",
+      "Level 2 (The day they all ask)",
+      "Level 3 (Which problem is this)"
+    ],
+    "carrying": [
+      "Day 2 (How much water does Vellan actually get?)",
+      "Day 4 (The salt warning)",
+      "Day 5 (How much can the bay replace?)",
+      "Day 6 (A rule nobody checks is not a rule)",
+      "Day 7 (What is Vellan wasting already?)",
+      "Day 8 (The school tap)",
+      "Day 9 (What can change before the vote?)",
+      "Day 10 (What is really happening to the reef?)",
+      "Day 13 (What else comes off the ferry?)",
+      "Day 14 (Will there still be a school?)"
+    ],
+    "changeover": [
+      "Day 4 (The basket prices a vanished city)",
+      "Day 7 (The chair's rate fails the reserve clock)"
+    ],
+    "darkfibre": [
+      "Day 1 (Is the problem here, or out at sea?)",
+      "Day 2 (Turn the echo into a distance)",
+      "Day 8 (Build the test that separates the suspects)",
+      "Day 9 (Make the replacement ready)",
+      "Day 10 (Where exactly should the ship go?)"
+    ],
+    "ghostlight": [
+      "Day 9 (The load the tickets do not show)",
+      "Day 14 (Everything at once, and one rehearsal left)",
+      "Day 15 (The signature)"
+    ],
+    "groundtruth": [
+      "Day 8 (What 30 kA does two metres away)",
+      "Day 12 (The rule fails on a fast cell)"
+    ],
+    "headwater": [
+      "Day 1 (88%)",
+      "Day 3 (What fell, and what arrived)",
+      "Day 4 (The release that could have been smaller)",
+      "Day 9 (The ledger that will not close)",
+      "Day 11 (A day when nothing happens)",
+      "Day 12 (The front that never came)"
+    ],
+    "overwind": [
+      "Day 3 (How hard is the rope really pulling?)",
+      "Day 6 (What happens when a moving load is stopped?)",
+      "Day 7 (Does gravity change at the bottom of the mine?)",
+      "Day 9 (Can the rope keep the cage moving?)"
+    ],
+    "slackwater": [
+      "Day 1 (The tide everyone is betting on)",
+      "Day 2 (Follow the real water)",
+      "Day 3 (Where the water actually goes)",
+      "Day 4 (How wrong can the forecast be?)",
+      "Day 10 (A perfect bound can still miss the storm)"
+    ],
+    "yellowbay": [
+      "Day 1 (Is the silicon itself wrong?)",
+      "Day 5 (The first failed wafer under the spectrometer)",
+      "Day 6 (How four measurements agreed and all misled us)",
+      "Day 9 (The furnace was running cold)"
+    ]
+  }
+}

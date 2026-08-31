@@ -20,6 +20,8 @@ import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
 import { INTERIORS } from './interiors.js';
+import { FIXTURES } from './fixtures.js';
+import { MINOR_INTERIORS } from './minors.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 
 export default {
@@ -27,6 +29,16 @@ export default {
   // root font size, so the same game can ship at several reading levels.
   // grade 4 scales 1.18x, 7 scales 1.10x, 13 and up not at all.
   audience: { grade: 11 },
+
+  // The plan card's opening blurb is a date stamp and two or three sentences: the one
+  // thing that is true this morning, and the one thing the player does about it. The
+  // long form — a name, a job title, an argument between two crew and what it costs —
+  // was read fifteen times over a campaign and buried the one line that changes every
+  // day under a paragraph that did not. The cast, the argument and the stakes did not
+  // go away; they moved to the calls' own `reason:` lines, to the people themselves,
+  // and to the day debrief. `engine/dev/checkStory.mjs` reads this and drops the
+  // 90-word floor for a 70-word ceiling-only band. See gamekit/BRIEFING_PASS.md.
+  stakeStyle: 'brief',
 
   id: 'midway',
   title: 'Safety Factor',
@@ -66,7 +78,13 @@ export default {
   // What is inside each room the player walks into, from book.yml. Rooms are
   // built by engine/world/interiorBuilding.js on first entry, in a district
   // four kilometres from the town.
-  interiors: INTERIORS,
+  // The seven ride rooms are generated from the book; the three non-ride rooms —
+  // the workshop, the plant room and the boarded stalls — are hand-written and
+  // merged over them. `import-book.mjs` never touches minors.js.
+  interiors: { ...INTERIORS, ...MINOR_INTERIORS },
+  // Which object in each room a question is asked AT, built by
+  // engine/world/interiorFixtures.js; catalogue in ./fixtures.js.
+  fixtures: FIXTURES,
   // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
   interiorStyle: 'steel',
@@ -110,40 +128,39 @@ export default {
       'The conditions written down',
     ],
   },
+  // Five sentences on four beats: the threat, the job as authority, the clock,
+  // and who pays — in that order. What used to sit between the clock and the
+  // cost was three sentences reciting what the certificate has to carry ("It
+  // has to … It has to … It has to …"), which is an index of a document in
+  // front of a reader who has not seen the document. That fact is load-bearing
+  // and it moved: it is in day 1's stake now, where the player is about to
+  // write the first line of it. The per-day "one ride's working a day" beat is
+  // gone entirely — the plan card says which piece today is, every day.
   opening: [
-    'Corbin Park lost its certificate to open in October. The season starts in three weeks. Seven '
-    + 'rides have to earn that certificate back. You are the ride engineer. The signature on all seven '
-    + 'is yours. What you inherited is eleven notebooks of settings and timings. Not one line of '
-    + 'working is written in any of them. In fifteen days the county signs the Corbin Park certificate, '
-    + 'or it does not. It has to carry every limit each ride runs to. It has to show the working that '
-    + 'gets you to each limit. It has to say plainly what the signature does not cover. One ride\'s '
-    + 'working is written a day. Eleven million people have ridden on those old numbers. Nobody will '
-    + 'take them on trust again.',
+    'The county has shut every ride at Corbin Park because nobody can prove the old settings are safe. '
+    + 'Eleven notebooks contain the numbers, but almost none of the physics behind them. You are the ride '
+    + 'engineer, and in fifteen days you decide which of seven rides can reopen. Sign a bad limit and riders '
+    + 'take the risk; refuse everything and the park may lose the season. Your job is simple to say and hard '
+    + 'to do: rebuild the proof before your name goes on the certificate. Fifteen days of it become '
+    + 'the Corbin Park Certificate, and seven rides wait on what it says.',
   ],
 
   // The last thing anybody reads: what happened, what it cost and what is left over.
   ending: [
-    'Six of the seven opened. The tower went first, on a witnessed drop that logged 5.4 g against '
-    + 'the 6.0 the certificate allows; the carousel and the swings opened on Brennan\'s own '
-    + 'settings, which the derivations confirmed to within a degree; the ship opened after its '
-    + 'drive was retimed from 5.85 seconds to the 6.15 the ride actually swings at — the small-angle '
-    + 'formula gives 5.90 and this ride does not run at a small angle — which Sam Idowu '
-    + 'had been describing from the floor for two seasons. The coaster opened with a condition on '
-    + 'it — a minimum station return speed, read with a wheel every morning before the first train '
-    + '— because its loop was regraded in 1998 and the crown demands 8.5 metres a second rather '
-    + 'than the 7.4 the 1974 drawing implies.',
-    'What it cost: the wheel stayed shut. The load in arm nine\'s bolt group is computed at 52.7 '
-    + 'kilonewtons and whether a 41-millimetre indication can carry it is a fracture assessment '
-    + 'nobody on site could do in three weeks, so twenty-four gondolas stood still through the '
-    + 'whole season and Marsh borrowed against next year to cover it. What is unfinished: the '
-    + 'coaster\'s margin is 1.20 and falling about a tenth of a metre a second each season, so the '
-    + 'morning rule buys time rather than settling anything; the flume\'s pump runs at 53.7 '
-    + 'kilowatts against a 55-kilowatt plate; and the 1974 drawings are still the only ones the '
-    + 'park has, now known to be wrong about at least one dimension by 1.8 metres.',
-    'Six rides opened on your derivations. You computed what the notebooks only remembered, '
-    + 'you retimed a drive from what the pendulum actually does, and you kept the wheel shut '
-    + 'when keeping it shut cost the park a season. A summer of people rode safely and none of '
-    + 'them will ever know your name. You will.',
+    'Vey set the county seal on six rides. The tower passed its witnessed drop at 5.9 g against the '
+    + '6.0 g test criterion. The carousel, bumper floor and flume opened on limits with their working '
+    + 'attached. The ship opened only after its drive was retimed to the measured 6.15-second operating '
+    + 'cycle. The coaster opened with a daily station-speed condition tied back to paired crown-speed tests, '
+    + 'because the loop standing in the park is not the loop on the 1974 drawing.',
+    'The Ferris wheel did not open. You had an estimated load in the number-nine joint and a measured '
+    + 'crack-like indication, but no defensible allowable capacity for the damaged joint. Marsh, the park '
+    + 'director, asked what '
+    + 'one more season would really change. You left the seventh signature line blank. The winter fracture '
+    + 'assessment and a full coaster geometry survey were funded before the meeting ended.',
+    'Six rides opened because the numbers could be defended. One stayed shut because they could not. '
+    + 'That was the point of the certificate: not to make every ride pass, but to make every signature mean '
+    + 'exactly what the evidence says it means. You built the evidence ride by ride, and you '
+    + 'decided where it stopped.',
   ],
 
   look: {

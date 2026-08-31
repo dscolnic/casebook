@@ -2379,7 +2379,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "A measurable acceptance target",
-      "scene": "Ferreira has cone penetration results from a trial panel: the fill tested at 4 MPa before the stone columns went in and 11 after. The two CPT traces lie side by side on the desk.",
+      "scene": "Ferreira, the materials engineer, has cone penetration results from a trial panel: the fill tested at 4 MPa before the stone columns went in and 11 after. The two CPT traces lie side by side on the desk.",
       "takeaway": "CPT resistance is a measurable quality-control indicator; a 2.75-fold increase in qc is not automatically a 2.75-fold increase in liquefaction resistance.",
       "place": "Materials & Testing",
       "guide": "Five numbers, and three belong elsewhere: the depth of the fill, the amplification factor and a concrete strength. Ask of each whether it came from these two cone traces. And note what the factor is and is not. Cone resistance is an input to a liquefaction assessment, so 2.75 times the resistance is not 2.75 times the margin.",
@@ -2387,7 +2387,7 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "Ferreira has cone penetration results from a trial panel: the fill tested at 4 MPa before the stone columns went in and 11 after. The two CPT traces lie side by side on the desk.",
+      "story": "Ferreira, the materials engineer, has cone penetration results from a trial panel: the fill tested at 4 MPa before the stone columns went in and 11 after. The two CPT traces lie side by side on the desk.",
       "game": {
         "type": "BALLPARK",
         "title": "A measurable acceptance target",
@@ -2673,11 +2673,11 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "A condition, not a date",
-      "scene": "Halvorsen wants a date. Delacroix wants a condition. Tanaka points out that a date makes a promise about the ground and a condition makes a promise about the office. The next resident update is due before the office closes.",
+      "scene": "Halvorsen wants a date. Delacroix wants a condition. Tanaka, the hazard seismologist, points out that a date makes a promise about the ground and a condition makes a promise about the office. The next resident update is due before the office closes.",
       "takeaway": "Tie a decision to a condition somebody can check, and it stays honest whatever the ground does next.",
       "place": "Hazard & Forecasting",
       "guide": "Halvorsen and Delacroix are not disagreeing about the engineering. They are disagreeing about what the office is allowed to promise. So ask of each option one thing: is this a promise about the ground, or a promise about the office? The office controls one of those and not the other. Tanaka has already said which is which, and the update goes out before the office closes.",
-      "story": "Halvorsen wants a date. Delacroix wants a condition. Tanaka points out that a date makes a promise about the ground and a condition makes a promise about the office. The next resident update is due before the office closes.",
+      "story": "Halvorsen wants a date. Delacroix wants a condition. Tanaka, the hazard seismologist, points out that a date makes a promise about the ground and a condition makes a promise about the office. The next resident update is due before the office closes.",
       "game": {
         "type": "CHOICE",
         "title": "A condition, not a date",
@@ -2945,7 +2945,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What knocking it down would fix",
-      "scene": "Halvorsen wants Marina Court demolished this week. Delacroix has 12 neighbouring buildings on the same reclaimed ground and 5 investigation-days before the cordon review. Four proposed uses of that window are written across the site map.",
+      "scene": "Halvorsen, the district emergency manager, wants Marina Court demolished this week. Delacroix, the ward councillor for the Flats, has 12 neighbouring buildings on the same reclaimed ground and 5 investigation-days before the cordon review. Four proposed uses of that window are written across the site map.",
       "takeaway": "The best next measurement is the one that can change the decision you still have to make, not the one that studies the most visible damage.",
       "place": "Public Safety",
       "guide": "Five investigation-days, four proposals, and a demolition somebody wants this week. Open each proposal to see what decision its result could change. Marina Court is already cordoned, so evidence about that one building changes nothing that is not already decided — the twelve neighbours on the same reclaimed ground are where the open decision is. Commit the window you would spend.",
@@ -2954,7 +2954,7 @@ export const CURRICULUM = {
         "Why the most visible damage is the trap. A proposal to instrument the worst-damaged structure produces vivid results and answers a question that has been closed. It is the most defensible-sounding way to spend five days and learn nothing that changes a decision.",
         "What generalising means here. A campaign of cone tests and boreholes across the Flats measures the fill itself, which every one of the thirteen buildings sits on. One result then bears on twelve open decisions instead of one closed one — the same money, an order of magnitude more use."
       ],
-      "story": "Halvorsen wants Marina Court demolished this week. Delacroix has 12 neighbouring buildings on the same reclaimed ground and 5 investigation-days before the cordon review. Four proposed uses of that window are written across the site map.",
+      "story": "Halvorsen, the district emergency manager, wants Marina Court demolished this week. Delacroix, the ward councillor for the Flats, has 12 neighbouring buildings on the same reclaimed ground and 5 investigation-days before the cordon review. Four proposed uses of that window are written across the site map.",
       "game": {
         "type": "VALUE",
         "title": "What knocking it down would fix",
@@ -4053,7 +4053,7 @@ export const JARGON = [
     "aliases": [
       "aftershocks"
     ],
-    "def": "A smaller earthquake following the main one, on the same fault system, becoming rarer as time passes.",
+    "def": "A smaller earthquake following the main one, in the same place underground, becoming rarer as time passes.",
     "core": true
   },
   {

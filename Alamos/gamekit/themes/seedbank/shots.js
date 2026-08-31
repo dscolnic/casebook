@@ -33,12 +33,12 @@ export const VIEWS = [
   // floor stood at z = 172, which on their bearings is eight metres past the
   // cliff — they are on the yard now, one either side, facing in. The windsock
   // was at (48, 152), which is the middle of the threshing floor's footprint.
-  { name: 'f2-yard-flanks', at: { x: 0, z: 158 }, yaw: W,
-    note: 'west across the yard: passport records, with the sea behind it' },
+  { name: 'f2-records', at: { x: -20, z: 152 }, yaw: W,
+    note: 'west along the yard: passport records, on the ground rather than over the cliff' },
   { name: 'f3-thresh', at: { x: 22, z: 150 }, yaw: E,
-    note: 'east across the yard: the threshing floor, and the windsock past it' },
-  { name: 'g-windsock', at: { x: 46, z: 132 }, yaw: -Math.PI * 0.35,
-    note: 'the windsock, which points at the argument' },
+    note: 'east along the yard: the threshing floor, sealed until day 11' },
+  { name: 'g-windsock', at: { x: 60, z: 115 }, yaw: S,
+    note: 'the windsock, which points at the argument, with the compound behind it' },
 
   // -------------------------------------------------------- the trial ring
   { name: 'h-trial-marker', at: { x: 0, z: 112 }, yaw: N,

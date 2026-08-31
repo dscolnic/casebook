@@ -4,290 +4,338 @@
 
 export const MISSIONS = [
   {
-    "title": "What stays in the glass",
-    "objective": "Establish why light stays in a fibre at all, and how much of it can be got in.",
-    "briefing": "Nineteen days with a cable down, and the ship is on charter from the thirteenth.",
-    "stake": "Monday. The ship sails in twelve working days, and it goes wherever this station says. Pellow Head is where a submarine cable comes ashore. Nineteen days ago the span out to the first repeater lost four decibels overnight. A decibel is how loss is counted here. Ines Sarraf, the chief transmission engineer, moved the traffic off the cable that night. She has been reading traces ever since. Gerald Okonkwo, the station chief, laid this cable eleven years ago. He keeps saying that an instrument reports in its own units, not in yours. Today you settle why light stays inside a fibre at all. You also work out how much light a termination can get in. Then you hear what the trace in the test room does and does not say. The charter costs forty thousand a day. The grapnel run is only half a kilometre wide.",
-    "takeaway": "Light stays in a fibre because of two indices, and everything about a launch follows from them.",
+    "title": "Is the problem here, or out at sea?",
+    "objective": "Clear the station end, then decide what the first fault trace actually proves.",
+    "briefing": "Before you blame eighty kilometres of cable on the ocean floor, prove that this building is putting light into it correctly.",
+    "stake": "T−12 days. Sarraf, the chief transmission engineer, thinks the trace points to a fault far offshore. Nilsen, the cable termination technician, says a bad launch here can make good cable look weak. Use total internal reflection to clear the launch. Then say what the trace really shows, before anyone plans a repair at sea.",
+    "takeaway": "Physics can clear one suspect at a time: first the launch, then what the trace actually measured.",
+    "segue": "The launch is good. The missing light is not being thrown away in this building. The trace shows a real 4.1 dB loss at a particular delay—but it does not yet tell you the cause or a place on the seabed. On day 2, turn that delay into a distance along the fibre.",
     "stops": [
       {
         "group": "TERM",
         "lesson": 0,
-        "task": "Get the acceptance cone out of the two indices"
+        "task": "Prove the station is launching light inside the fibre's acceptance cone",
+        "reason": "If the station launches light at too wide an angle, light escapes immediately and the whole cable can look weak even when nothing offshore is wrong."
       },
       {
         "group": "TEST",
         "lesson": 0,
-        "task": "Settle what the trace in the test room says"
+        "task": "Separate what the instrument measured from what people are inferring",
+        "reason": "Sarraf wants to use the failure trace as the first clue in the repair plan. Before that happens, you need to mark exactly what the trace proves and what it does not."
       },
       {
         "group": "SPLICE",
         "lesson": 0,
-        "task": "Ask Ramnarine what a joint has to avoid"
+        "task": "Understand what index-matching gel changes in an old mechanical joint",
+        "reason": "There are eleven old mechanical joints near shore. If their gel has dried, one of them could lose light and send some back, so they belong on the suspect list."
       }
     ]
   },
   {
-    "title": "A delay, and what it is worth",
-    "objective": "Turn the trace's delay into a distance, and say what speed that distance rests on.",
-    "briefing": "The whole fortnight comes down to one number on a chart, and it has never been derived.",
-    "stake": "Tuesday. The position on the ship's chart is a number somebody copied off an instrument. Sarraf's trace puts the step at a round trip delay of 828.6 microseconds. The software beside it prints a distance in kilometres instead. Okonkwo will not sign a chart when he cannot see the working. Aline Duarte, the receiver engineer, has raised a second worry. The software's index setting has not been checked since the instrument was new. The index is the number that says how slowly light runs in glass. Today you get the distance out of the delay yourself. You also work out how fast light really moves in this glass. Then you settle what light is being counted as at the far end of the fibre. Eleven years of slack cable sit between this number and a place on the seabed.",
-    "takeaway": "A delay becomes a distance only through a speed, and the speed is a property of the glass.",
+    "title": "Turn the echo into a distance",
+    "objective": "Convert the pulse's round-trip time into a distance along the fibre, without confusing that number with a seabed position.",
+    "briefing": "The screen prints 84.6 km. Before the captain ever sees that number, you need to know exactly how the instrument got it.",
+    "stake": "T−11 days. The fault trace marks a round-trip delay of 828.6 microseconds. Sarraf can turn that into kilometres with software, but the repair order cannot rest on a black-box conversion. Derive the speed in glass and the out-and-back distance yourself.",
+    "takeaway": "A time delay becomes a distance only after you choose the speed of the pulse and account for the return trip.",
+    "segue": "You now have 84.6 km—but only along the glass. The cable is not a ruler stretched straight across the seabed, and a pulse does not travel at quite the number the old software assumed. Keep 84.6 km provisional. You will correct it before the ship leaves.",
     "stops": [
       {
         "group": "TEST",
         "lesson": 1,
-        "task": "Get the distance from the round-trip delay"
+        "task": "Derive the distance from the trace's round-trip delay",
+        "reason": "The screen prints 84.6 km, but the repair order cannot depend on a number nobody here can reconstruct from the physics."
       },
       {
         "group": "TERM",
         "lesson": 1,
-        "task": "Work out the speed in this glass"
+        "task": "Connect refractive index to the speed used in the first distance estimate",
+        "reason": "Three nearby index values are on the bench. Choosing the wrong one can move a long-distance fault by hundreds of metres."
       },
       {
         "group": "RECV",
         "lesson": 0,
-        "task": "Ask Duarte what arrives at the far end"
+        "task": "Connect the weak received power to the two descriptions of light you will need later",
+        "reason": "Duarte warns that the receiver does not merely see a smooth beam. It measures a wave with a wavelength and also a count of individual arrivals, and both facts will matter when you test whether the receiver is trustworthy."
       }
     ]
   },
   {
-    "title": "What comes straight back",
-    "objective": "Work out how much light a break returns, and find the wavelength this fibre likes.",
-    "briefing": "A break reflects and a bend does not, and nobody has put a number on either.",
-    "stake": "Wednesday. The question in the test room has changed from where to what. Ramnarine says a break in the glass throws light straight back at the instrument. A bend does not. So the shape of the trace should say which of the two this is. Sarraf's trace shows a step with a small spike on it. Nobody has measured that spike yet. Tobias Meier, the test room technician, has eleven years of traces taken at two wavelengths. He has said all week that the pair tells you more than either one alone. Today you work out what a break sends back. You also find the wavelength a kilometre of this fibre loses least at. Then you hear from Dr. Yuki Tanaka, the amplifier specialist, what the pump telemetry does and does not report. Whatever the ship is told to look for, it has to be told what kind of thing it is.",
-    "takeaway": "The size of the reflection at an index step is what tells a break from a bend.",
+    "title": "Is the cable actually broken?",
+    "objective": "Predict the reflection from a clean break, then compare that prediction with the fault trace.",
+    "briefing": "If the cable has snapped, the broken glass should act like a small mirror. That gives you a test before anyone cuts open the ocean floor.",
+    "stake": "T−10 days. A clean break and a bend can both lose light, but only the break makes a strong reflection. Calculate what a broken fibre should send back, then use the trace to decide whether “the cable snapped” survives as a diagnosis.",
+    "takeaway": "The amount of light that comes back can distinguish a break from a loss that simply lets light escape.",
+    "segue": "The reflection is far too small for a clean break. The cable has not simply snapped. The remaining suspects are a bend or crush, an old joint, or a repeater problem—and the repeater's electrical telemetry cannot clear it because nobody measured its optical output.",
     "stops": [
       {
         "group": "SPLICE",
         "lesson": 1,
-        "task": "Work out how much a break in the glass reflects"
+        "task": "Predict the reflection from broken glass before comparing it with the real trace",
+        "reason": "If the fibre snapped cleanly, the exposed glass-air boundary should send a predictable fraction of the light straight back. That is a testable signature of a break."
       },
       {
         "group": "TEST",
         "lesson": 2,
-        "task": "Find the wavelength this fibre loses least at"
+        "task": "Measure the normal wavelength dependence of this fibre before using colour as a fault test",
+        "reason": "Later you will compare the fault at two wavelengths. First you need to know how an undamaged kilometre of this fibre normally behaves as wavelength changes."
       },
       {
         "group": "AMP",
         "lesson": 0,
-        "task": "Ask Tanaka what the pump telemetry reports"
+        "task": "Decide what four years of normal electrical readings can and cannot prove about repeater 6",
+        "reason": "Repeater 6 is now on the suspect list. Its current, voltage and temperature all look normal—but none of those measurements is the optical power that actually excites the amplifier."
       }
     ]
   },
   {
-    "title": "What the span can afford",
-    "objective": "Add up the loss along the span and see what is left of the allowance.",
-    "briefing": "Four decibels arrived overnight, and nobody has said what the span had spare.",
-    "stake": "Thursday. For the first time the argument in the test room has a number in it. Sarraf has said all week that the trace is a measurement. Send the ship to the kilometre it names. Okonkwo says a better number is worth waiting for. The arithmetic decides it today. Whether the span still works depends on what the loss adds up to. That total is set against what the receiver can accept. Nadia Farouk, the radiographer, has the housing records the ship will need either way. Today you total the loss budget. You also settle what attenuation per kilometre means. Then you see what a radiography record has to carry. A week spent hunting a better position is a week the traffic sits on one spare route. That route has no spare of its own.",
-    "takeaway": "Losses in decibels add, so a budget is a sum and what is left of it is a margin.",
+    "title": "How close is the link to failing?",
+    "objective": "Build the full loss budget and decide how much usable signal the damaged route has left.",
+    "briefing": "The island is living on one backup line. You need to know whether the damaged main cable still has enough margin to help if the backup starts to fail.",
+    "stake": "T−9 days. The new loss is 4.1 dB, but that number means little by itself. Add the fibre, joints and new event in decibels and compare the result with the receiver's limit. At the same time, start preparing a replacement repeater in case that becomes the diagnosis.",
+    "takeaway": "A loss budget tells you how close the link is to its limit, because logarithmic losses add along the path.",
+    "segue": "The damaged route has only 2.2 dB of margin. That is not a comfortable emergency fallback for the island. The loss is serious, but you still do not know its cause. Next, make sure the weak signal at the receiver is being interpreted correctly.",
     "stops": [
       {
         "group": "TEST",
         "lesson": 3,
-        "task": "Total the loss along the span"
+        "task": "Build the link budget and compare it with the receiver limit",
+        "reason": "If the backup line fails, this damaged route may be the island's only remaining path. You need to know whether it still has useful margin or is already too close to the receiver limit."
       },
       {
         "group": "AMP",
         "lesson": 1,
-        "task": "Settle what a loss per kilometre means"
+        "task": "Connect loss per kilometre to exponential attenuation",
+        "reason": "The cable is tens of kilometres long. To understand why repeaters are needed at all, you have to know whether each kilometre removes a fixed amount of power or a fixed fraction."
       },
       {
         "group": "RAD",
         "lesson": 0,
-        "task": "Match each note on a radiograph to what it is there for."
+        "task": "Decide what information has to be recorded before two radiographs can be compared",
+        "reason": "If repeater 6 becomes the target, the replacement housing must pass an X-ray inspection before it goes to sea. Farouk has old films, but only some were recorded well enough to serve as a comparison."
       }
     ]
   },
   {
-    "title": "How much is one photon",
-    "objective": "Work out what a piece of light at this wavelength is worth, and how many make a bit.",
-    "briefing": "The receiver is working with a few thousand arrivals a bit and nobody has counted them.",
-    "stake": "Friday. Duarte has asked a question the test room cannot answer in decibels. Say the power arriving is seven billionths of a watt. How many pieces of light is that a second? And how many of them make up one bit? Tanaka needs the same count from the other end. An amplifier's gain is photons out against photons in. A photon is one piece of light. Nilsen has the launch power at the termination and has never turned it into a count. Today you work out the energy of one photon at the wavelength this cable runs at. You also count the arrivals inside one bit. Then you settle why a pulse comes back wider than it left. Every limit a receiver has is a statement about counting.",
-    "takeaway": "Light arrives in pieces of a fixed size, so a power is a rate of arrivals.",
+    "title": "Can you trust the weak signal?",
+    "objective": "Translate the received power into photons and decide whether the receiver itself could be creating the apparent problem.",
+    "briefing": "A weak optical signal is not just a small number of watts. It is a count of individual photons, and that count has noise of its own.",
+    "stake": "T−8 days. If the receiver is working near its fundamental photon-counting limit, part of the crisis could be at this end rather than under the sea. Work out the energy of one photon, the photons in each bit, and why the pulse spreads as it crosses the long fibre.",
+    "takeaway": "Power becomes a photon rate once the energy of one photon is known, and counting those photons sets a real noise floor.",
+    "segue": "At the receiver limit there are about 6,200 photons in each bit: few enough that counting statistics matter, but nowhere near enough to explain away a sudden 4.1 dB step. One calibration still matters—the fraction of arriving photons the diode actually converts to charge.",
     "stops": [
       {
         "group": "AMP",
         "lesson": 2,
-        "task": "Get the energy of one photon at this wavelength"
+        "task": "Turn the 1550 nm wavelength into energy per photon and then photons per second",
+        "reason": "To decide whether the receiver is near a fundamental counting limit, watts must be turned into actual photon arrivals."
       },
       {
         "group": "RECV",
         "lesson": 1,
-        "task": "Count the arrivals in one bit"
+        "task": "Find the photon count available for each bit at the receiver limit",
+        "reason": "If only a tiny number of photons arrive in each bit, random counting fluctuations could set the error floor. You need the actual count before blaming electronics or cable damage."
       },
       {
         "group": "TERM",
         "lesson": 2,
-        "task": "Ask Nilsen why a pulse arrives wider"
+        "task": "Connect pulse broadening to wavelength-dependent speed in the glass",
+        "reason": "The returned pulse is wider than the pulse that was launched. That matters because the same wavelength dependence also tells you why a pulse needs a group index rather than the index of one perfect colour."
       }
     ]
   },
   {
-    "title": "One electron for one photon",
-    "objective": "Get the receiver's current per watt out of the physics rather than off a label.",
-    "briefing": "The photodiode's data sheet gives a number and Osgood measures a different one.",
-    "stake": "Monday, and seven working days to the ship. Karl Osgood, the photodiode technician, has measured the receiver's diode himself. He gets 82 arrivals converted in every hundred. The data sheet claims ninety. Duarte needs the current per watt either way. The whole sensitivity figure rests on it, and the loss budget was closed against that figure. Ramnarine has four defective joints from the shore end on her bench. She wants to know which of them a trace could have seen. Today you derive the current that one watt of light produces. You also sort the four faults by the mark each one leaves. Then you settle with Sam Achebe, the fibre preparation technician, how two reflections can cancel each other out. A sensitivity figure ten per cent too hopeful is a decibel of margin that is not there.",
-    "takeaway": "A detector converts arrivals to charges, so its current per watt is fixed by the wavelength and its own efficiency.",
+    "title": "Calibrate the instruments",
+    "objective": "Derive the photodiode response from the physics, then separate real fault signatures from noise and calibration error.",
+    "briefing": "The diode data sheet says one thing and the bench says another. Before you diagnose eighty kilometres of cable, decide which number belongs in the measurement.",
+    "stake": "T−7 days. The data sheet assumes 90 per cent conversion; the actual diode gives 82 per cent. That difference changes the power calibration by about 0.4 dB. Derive the responsivity, then check which features of a trace survive averaging and which fault signatures are genuinely different.",
+    "takeaway": "A measurement is only as trustworthy as the conversion from what the instrument senses to the quantity you use.",
+    "segue": "The receiver is now calibrated with the measured efficiency, not the data sheet. The 4.1 dB event and its trace shape survive the correction. You have reliable instruments and four live suspects. On day 7, decide which tests can eliminate them before the ship is forced to make the irreversible test at sea.",
     "stops": [
       {
         "group": "RECV",
         "lesson": 2,
-        "task": "Get the current a watt of light produces"
+        "task": "Derive current per watt from photon energy, charge and the measured quantum efficiency",
+        "reason": "The data sheet assumes 90 per cent conversion, but this actual diode converts 82 per cent. The receiver power scale should use the detector on the bench, not an ideal label."
       },
       {
         "group": "SPLICE",
         "lesson": 2,
-        "task": "Match each fault to the signature it leaves on a trace."
+        "task": "Match each physical fault to the trace shape it should produce",
+        "reason": "The suspects can lose similar amounts of light. What separates them is whether light comes back, whether the loss is abrupt or spread out, and whether anything continues beyond it."
       },
       {
         "group": "TEST",
         "lesson": 4,
-        "task": "Ask Meier what averaging buys"
+        "task": "Separate random trace noise from a systematic error that repeats every time",
+        "reason": "Meier can average thousands of traces, but a long average is useful only if the uncertainty changes from one trace to the next."
       }
     ]
   },
   {
-    "title": "Through forty millimetres of steel",
-    "objective": "Work out what gets through a housing, and settle what a trace can and cannot separate.",
-    "briefing": "The ship needs a housing radiographed before it sails, and the source is eight months old.",
-    "stake": "Tuesday. Wherever the ship is sent, it will be putting a new repeater housing into the water. Farouk cannot pass a weld she cannot see. What her film sees is whatever gets through forty millimetres of steel. Joe Whitlock, the radiation safety officer, sets the barrier before anyone goes near the bay. Sarraf meanwhile has four possible causes and a week to choose between them. Today you work out how much of a gamma beam a housing lets through. You also put the four causes in the order they should be tested in. Then you settle with Sam Achebe how two reflections can cancel. The housing has to be signed off before the ship sails. That is true whether or not anybody has agreed where it is going.",
-    "takeaway": "Equal thicknesses take equal fractions, so shielding is a thickness that halves rather than one that stops.",
+    "title": "Choose the tests before the ship arrives",
+    "objective": "Prepare the replacement housing and rank the tests that can separate the four suspects without spending the one repair attempt.",
+    "briefing": "The ship gets one safe day at sea. Every question you can answer from shore before then makes that one attempt safer.",
+    "stake": "T−6 days. A break, bend, old joint and failing repeater can all weaken the signal. Some tests need only old data; one changes a live repeater; the last requires the ship to pull up the cable. Use physics and experimental design to do the reversible tests first.",
+    "takeaway": "The best next test is the one that separates the remaining explanations before an irreversible decision has to be made.",
+    "segue": "The order is set: use the records already on shore, improve the optical measurement, then switch the spare pump only after you have made a prediction. The ship is the last test, not the first. On day 8, make the two-wavelength comparison trustworthy enough to rule whole classes of faults in or out.",
     "stops": [
       {
         "group": "RAD",
         "lesson": 1,
-        "task": "Work out what gets through the housing"
+        "task": "Calculate how much gamma radiation reaches the film through 40 mm of steel",
+        "reason": "If repeater 6 is the problem, the replacement housing has to be X-rayed before the ship can take it. Farouk needs to know whether the source can expose film through the steel wall."
       },
       {
         "group": "AMP",
         "lesson": 3,
-        "task": "Order the four tests by what each costs before it answers."
+        "task": "Order the four tests from least disruptive to most irreversible",
+        "reason": "The ship has one safe recovery day. If shore-based evidence can eliminate a cause first, the crew should not discover that fact after pulling up the wrong part of the cable."
       },
       {
         "group": "SPLICE",
         "lesson": 3,
-        "task": "Ask Achebe how two reflections cancel"
+        "task": "Understand the interference trick that will remove an unwanted reflection inside the test instrument",
+        "reason": "An internal connector is adding its own reflection near the part of the trace you care about. Before the two-colour comparison, that false reflection has to be understood and suppressed."
       }
     ]
   },
   {
-    "title": "A coating that cancels",
-    "objective": "Design the film that removes a reflection, and find where a detector stops working.",
-    "briefing": "Every connector in the building reflects, and one of them is inside the instrument.",
-    "stake": "Wednesday. Meier has found something in the drawer. The reflection off the instrument's own front connector is bigger than the spike in the trace. It has been there for eleven years. Ramnarine can coat a face to get rid of it. She wants the thickness derived here, not ordered out of a catalogue. Osgood has a diode on the bench that works well at this wavelength. At two thousand nanometres it does nothing at all. Nobody in the building can say why. Today you design the coating. You also settle where a detector's cut off comes from. Then you look with Okonkwo at what a bend does that a break does not. Every trace on this station has the instrument's own reflection taken off it by hand.",
-    "takeaway": "A quarter-wavelength film cancels a reflection by interference, without absorbing anything.",
+    "title": "Build the test that separates the suspects",
+    "objective": "Remove a false reflection in the instrument, check the detector band, and predict how a real bend should change with wavelength.",
+    "briefing": "A two-colour trace can tell fibre damage from a repeater problem—but only if the instrument itself is not adding a reflection.",
+    "stake": "T−5 days. Meier wants to compare the fault at 1550 and 1625 nm. A bend should hurt the longer wavelength more; a repeater fault should not. First make sure the instrument can measure both colours cleanly, then lock in what each outcome would mean before you see the data.",
+    "takeaway": "A good diagnostic test is designed around a prediction that different causes cannot all satisfy.",
+    "segue": "The instrument is ready and the prediction is written down: more loss at 1625 nm points toward bent or crushed fibre; the same loss at both colours points away from that mechanism. Meier starts the comparison while you finish preparing the replacement hardware.",
     "stops": [
       {
         "group": "SPLICE",
         "lesson": 4,
-        "task": "Design the film that cancels the reflection"
+        "task": "Design the anti-reflection coating for the connector used in the two-wavelength test",
+        "reason": "The two-colour diagnosis depends on small differences in the trace. A known connector reflection inside the instrument must not be mistaken for a feature in the cable."
       },
       {
         "group": "RECV",
         "lesson": 3,
-        "task": "Settle where a detector's cut-off comes from"
+        "task": "Use photon energy to understand the detector's long-wavelength cutoff",
+        "reason": "The diagnostic test uses colour, but a detector cannot simply be pushed to arbitrarily long wavelengths. You need to know whether “make it brighter” can ever overcome an energy threshold."
       },
       {
         "group": "TERM",
         "lesson": 3,
-        "task": "Match each observation about a bent fibre to what explains it."
+        "task": "Predict the wavelength signature of a bend before looking at the real two-colour trace",
+        "reason": "A bend is still one of the main suspects. Unlike a repeater loss, its effect should grow at longer wavelengths because the guiding becomes less secure."
       }
     ]
   },
   {
-    "title": "A tenth of what it was",
-    "objective": "Work out what eight months has done to the source, and how far back the barrier goes.",
-    "briefing": "The housing has to be signed off before the ship sails, and the exposures keep growing.",
-    "stake": "Thursday. The housing radiograph is now on the critical path. Farouk's source was renewed eight months ago. Her exposures have grown longer every month since. Whitlock will not open the bay until the barrier distance is worked out for the exposure actually being made. Tanaka has spent the morning on the pump's two wavelengths. She has a number she wants checked. Today you work out what the source is worth now. You also set the barrier for it. Then you settle where the gap between the pump's energy and the signal's energy goes. If the exposure runs past six in the evening the bay cannot be used. The housing then waits another day.",
-    "takeaway": "A source falls by a fixed fraction in a fixed time, so every exposure it is used for has a schedule attached.",
+    "title": "Make the replacement ready",
+    "objective": "Prove the replacement housing can be inspected safely and finish the pump physics needed for the repeater hypothesis.",
+    "briefing": "If repeater 6 is the fault, identifying it is not enough. The ship must have a replacement housing that is cleared to go underwater.",
+    "stake": "T−4 days. The replacement housing needs an X-ray inspection, but the radioactive source is eight months old and much weaker than when it was installed. Work out its present activity, the safe distance for the exposure, and what happens to the excess energy in the repeater's pump process.",
+    "takeaway": "The same exponential physics that weakens a beam through matter also sets the schedule of a radioactive source.",
+    "segue": "The replacement housing passes its inspection. Meier's two-wavelength result is also back: the fault loses the same amount at 1550 and 1625 nm. That is a powerful clue against a bend or crush. Two things remain before you can sign the order: the exact seabed position and a direct test of the repeater.",
     "stops": [
       {
         "group": "RAD",
         "lesson": 2,
-        "task": "Work out what the source is worth after eight months"
+        "task": "Use half-life to find the source activity after 243 days",
+        "reason": "The replacement housing cannot be cleared until Farouk knows how much radiation the eight-month-old source is producing now, not when it was new."
       },
       {
         "group": "RAD",
         "lesson": 3,
-        "task": "Set the barrier for today's exposure with Whitlock"
+        "task": "Set today's radiation barrier using the inverse-square law",
+        "reason": "Farouk can make the longer exposure, but everyone else needs to know where the safe boundary is while the source is out."
       },
       {
         "group": "AMP",
         "lesson": 4,
-        "task": "Settle where the pump's extra energy goes"
+        "task": "Use photon energy and atomic levels to understand the amplifier's quantum defect",
+        "reason": "Tanaka is preparing a numerical prediction for the spare-pump test. Before that, she wants the energy bookkeeping of one pump photon and one added signal photon to be explicit."
       }
     ]
   },
   {
-    "title": "The kilometre the trace is out by",
-    "objective": "Correct the distance for what a pulse actually travels at, and for the cable's slack.",
-    "briefing": "Okonkwo has been saying an optical distance is not a position, and today it is a number.",
-    "stake": "Friday, and the chart goes to the ship on Monday. Okonkwo has the lay record open at the page he has been pointing at for a fortnight. It says 1.5 per cent of slack was paid out over the route. The fibres are wound in a spiral inside the cable. So there is more fibre than there is cable. Meier has the instrument's index setting. It is the core's index, not the one a pulse travels at. Tanaka has permission to switch repeater 6 to its spare pump this afternoon. Today you correct the distance for all of it. You also predict what the spare pump will do, and then measure it. Then you settle with Duarte which description of light a receiver needs. The grapnel window is half a kilometre wide, and the correction is larger than that.",
-    "takeaway": "An optical distance becomes a position only after the pulse's own speed and the cable's slack are taken out of it.",
+    "title": "Where exactly should the ship go?",
+    "objective": "Turn the optical distance into a real route position, then predict and measure what the spare pump should do.",
+    "briefing": "The captain can act on a place, not “84.6 kilometres of glass.” Today you correct the number and test the repeater from shore.",
+    "stake": "T−3 days. The old trace says 84.6 km, but the pulse speed, the fibre wound inside the cable and the slack laid on the seabed all move the real position. Correct all three. Then lock a prediction for the spare-pump switch before Tanaka makes the one live intervention available from shore.",
+    "takeaway": "A measurement becomes a repair position only after every conversion between instrument, fibre, cable and route has been made.",
+    "segue": "The target moves to 82.9 km along the route—1.7 km away from the number printed by the old trace. Then the spare pump restores 3.6 dB. The repeater hypothesis now has a direct success, but on day 11 it still has to survive every other record on the table.",
     "stops": [
       {
         "group": "TEST",
         "lesson": 5,
-        "task": "Correct the distance for the group index and the slack"
+        "task": "Apply the group-index, fibre-in-cable and slack corrections to the old trace distance",
+        "reason": "The captain needs a position along the route. The old 84.6 km number is a distance along glass calculated with the wrong pulse index, and the glass itself is longer than the path on the seabed."
       },
       {
         "group": "AMP",
         "lesson": 5,
-        "task": "Predict what the spare pump does, then measure it"
+        "task": "Write down the expected power change before switching repeater 6 to its unused spare pump",
+        "reason": "A pump switch can directly test the repeater hypothesis from shore, but only if the predicted result is committed before anyone sees what happens."
       },
       {
         "group": "RECV",
         "lesson": 4,
-        "task": "Ask Duarte which description of light she needs"
+        "task": "Reconcile the wave measurements used for wavelength with the photon counts used for received power",
+        "reason": "The repair case now depends on both kinds of evidence. Duarte wants you to be clear that an interference pattern and individual detector clicks are not competing claims about two different kinds of light."
       }
     ]
   },
   {
-    "title": "What the pump could ever give",
-    "objective": "Put a ceiling on the amplifier's output, and decide which cause fits every record.",
-    "briefing": "The spare pump gave back most of what the span lost, and the fibre was never damaged.",
-    "stake": "Monday, and two working days to the ship. Friday's switch gave back 3.6 of the 4.1 decibels the span had lost. That is a fact about repeater 6, not about the seabed. Tanaka wants the ceiling derived. The ceiling is the most signal power a pump of a given size could ever produce. With it, the old pump's decline can be stated as a number instead of guessed at. Sarraf has every record of the last three weeks laid out on one table. Today you take the ceiling on the amplifier's output. You also decide which of the four causes accounts for all of it. Then you settle with Ramnarine how the two wavelength comparison is made at all. Whatever goes on the chart on Wednesday is what forty thousand a day is spent looking for.",
-    "takeaway": "One pump arrival can make at most one signal arrival, which puts a ceiling on gain that no design gets past.",
+    "title": "Make one diagnosis fit every clue",
+    "objective": "Check whether an aging pump can explain the size of the loss, then force one cause to account for every measurement.",
+    "briefing": "The spare pump restored most of the missing signal. That is strong evidence, but the final diagnosis has to explain the quiet records too.",
+    "stake": "T−2 days. The two colours lost the same amount, the power feed stayed normal, and the spare pump returned 3.6 dB. Now use the quantum physics of the amplifier to see whether an aging pump can produce the right scale of loss, then test all four suspects against all four records.",
+    "takeaway": "A diagnosis wins only when it explains the full pattern of evidence, including the measurements that did not change.",
+    "segue": "Only one cause survives every clue: repeater 6's pump has aged. You also have its corrected position at 82.9 km and a replacement housing ready to sail. On day 12, close the numbers one last time and sign the repair order the captain will follow.",
     "stops": [
       {
         "group": "AMP",
         "lesson": 6,
-        "task": "Put a ceiling on what the pump could give"
+        "task": "Put a physics upper bound on the signal power that the original pump could support",
+        "reason": "The spare pump restored 3.6 dB. Before calling that the cause, Tanaka wants to know whether the size of the change is even compatible with the energy and photon-count limits of the amplifier."
       },
       {
         "group": "TEST",
         "lesson": 6,
-        "task": "Which cause accounts for all four records?"
+        "task": "Force each suspect to explain all four records, not just the dramatic 4.1 dB step",
+        "reason": "This is the diagnosis the ship will act on. A cause that explains one measurement but contradicts another cannot be the repair target."
       },
       {
         "group": "SPLICE",
         "lesson": 5,
-        "task": "Ask Ramnarine how the two wavelengths are compared"
+        "task": "Verify the physics behind the two-wavelength comparison that helped rule out fibre damage",
+        "reason": "The equal-loss result is one of the strongest clues in the case. Before it goes into the final report, Ramnarine asks how the instrument measured two wavelengths separately without taking two different runs."
       }
     ]
   },
   {
-    "title": "What the ship is told",
-    "objective": "Close the loss budget against the repeater, and decide what the charter is spent on.",
-    "briefing": "The chart goes out this afternoon and the ship sails in the morning.",
-    "stake": "Tuesday, and the ship sails in the morning. The fortnight has settled the old argument. Sarraf was right to act on the trace. Okonkwo was right about what the trace was saying. The loss sits at repeater 6, in the pump rather than in the glass. The position on the chart was out by 1.7 kilometres, for three reasons that all pointed the same way. Farouk has a housing radiographed and signed. Whatever is on the chart at four o'clock is what forty thousand a day goes looking for. Today you close the loss budget against the repeater. You also spend what is left of the spares money. Then you settle with Tanaka what the ship is actually being sent to do.",
-    "takeaway": "A budget that closes against one cause and not the others is the strongest statement a fortnight of measurement can make.",
+    "title": "Give the captain one repair order",
+    "objective": "Confirm the replacement is safe, close the loss budget, and commit to one object at one place.",
+    "briefing": "The ship sails at dawn into a one-day weather window. It does not need another pile of evidence. It needs one clear instruction.",
+    "stake": "T−1 day. Before the sea closes, the captain needs a target and a position. Verify the last piece of replacement-hardware physics, close the remaining half-decibel in the budget honestly, and then choose the single repair order that all twelve days of evidence support.",
+    "takeaway": "The purpose of the measurements is a decision: the right object, at the right place, for the one repair attempt.",
+    "segue": "The order is signed. Repeater 6. 82.9 kilometres along the route. At dawn, the ship takes that one instruction out into the weather window.",
     "stops": [
-      {
-        "group": "TEST",
-        "lesson": 7,
-        "task": "Close the loss budget against the repeater"
-      },
-      {
-        "group": "AMP",
-        "lesson": 7,
-        "task": "Spread a hundred points across the four."
-      },
       {
         "group": "RAD",
         "lesson": 4,
-        "task": "Match each observation about the source to what explains it."
+        "task": "Confirm what changes as a radioactive source gets older and what stays fixed",
+        "reason": "The replacement housing has passed its radiograph. Before it is loaded, Farouk wants the last safety point clear: the source became weaker with age, but the energy of each emitted gamma ray did not."
+      },
+      {
+        "group": "TEST",
+        "lesson": 7,
+        "task": "Account for the 4.1 dB event and compute the margin after the spare pump is carrying the signal",
+        "reason": "Before you sign the repair order, the pump diagnosis has to explain the size of the event numerically, not just point in the right direction."
+      },
+      {
+        "group": "TEST",
+        "lesson": 8,
+        "task": "Choose the one target and position the captain should act on",
+        "reason": "The ship sails at dawn and gets one safe recovery day before the weather closes. This is the point where every optical measurement becomes one irreversible instruction."
       }
     ]
   }
@@ -295,16 +343,16 @@ export const MISSIONS = [
 
 export const WARMUPS = {
   "trial-near": {
-    "title": "Walk the station before the ship sails",
-    "why": "Five buildings, a duct trench and a beach manhole, and the cable runs under all of it. Walk it once in daylight. When the ship is on the water you will be crossing this ground with a position to hand over, and the trailer is not where the drawing says it is."
+    "title": "Learn the island station before the repair countdown starts",
+    "why": "Five buildings, a duct trench and a beach manhole, all of it on sand, and the splice trailer is not parked where the drawing puts it."
   },
   "trial-far": {
     "title": "The dune track out to the bay",
     "why": "The radiography bay is three hundred metres out in the dunes because of what is in the pot, and the track shifts with the sand. Take it once before you have to, because Nadia Farouk, the radiographer, will be waiting on a film and the exposure cannot be interrupted half way."
   },
   "greet": {
-    "title": "Twelve people, and two of them have been arguing for a fortnight",
-    "why": "This station runs on a disagreement between Gerald Okonkwo, the station chief, and Ines Sarraf, the chief transmission engineer, about what an instrument is entitled to say. You will be carrying numbers between them all fortnight, so get round the whole crew first."
+    "title": "Meet the people who disagree about what failed",
+    "why": "Gerald Okonkwo, the station chief and cable engineer, distrusts turning an optical distance directly into a seabed position. Ines Sarraf, the chief transmission engineer, trusts the trace but knows the weather deadline is real. You will need both of them, and the rest of the crew, before you can tell the ship what to repair."
   },
   "follow": {
     "title": "The duct route, walked by the man who terminated it",
@@ -316,7 +364,7 @@ export const WARMUPS = {
       "name": "pump module",
       "plural": "pump modules"
     },
-    "why": "Every amplifier on this station has a spare pump module and two of them are not in the store where the book says. A spare nobody can find is a repeater with no redundancy, which is exactly what repeater 6 became on Friday afternoon."
+    "why": "Every amplifier on this station has a spare pump module and two of them are not in the store where the book says. A spare nobody can find is a repeater with no redundancy, which is exactly what repeater 6 became after the spare-pump test."
   },
   "canvass": {
     "title": "Who else saw the loss arrive on the night",
@@ -328,6 +376,6 @@ export const WARMUPS = {
   },
   "tag": {
     "title": "Catch Whitlock before he signs the bay out",
-    "why": "Joe Whitlock, the radiation safety officer, signs the bay closed at six and today's exposure runs to a hundred and twenty-six minutes. The barrier distance has to be agreed before he leaves, or the housing waits a day and the ship sails without a radiograph."
+    "why": "Joe Whitlock, the radiation safety officer, signs the radiography bay closed at six and today's exposure runs for more than two hours. The replacement housing cannot sail without that inspection, so the safe barrier has to be set before he leaves."
   }
 };

@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "Harbourmaster",
     "division": "HARB",
     "color": "#2f7fa8",
-    "bio": "<p>Runs the harbour, the ferry contract and the landings book, and has kept that book by hand for nineteen years because the electronic one loses the column she cares about — who landed what, and whether they were over.</p><p>Her argument for the second sailing is not tourism. It is the landing fee and the school: nineteen children on the register, and a school closes at twelve. She has done the arithmetic on both and will show anybody who asks.</p><p>What she will not accept is a quota with nothing behind it. An unenforced rule, she says, is worse than no rule, because the boats that keep it are the ones that lose.</p>",
+    "bio": "<p>Runs the harbour, the ferry contract and the landings book, and has kept that book by hand for nineteen years because the electronic one loses the column she cares about — who landed what, and whether they were over. Her argument for the second sailing is not tourism. It is the landing fee and the school: nineteen children on the register, and a school closes at twelve. She has done the arithmetic on both and will show anybody who asks. What she will not accept is a quota with nothing behind it. An unenforced rule, she says, is worse than no rule, because the boats that keep it are the ones that lose.</p>",
     "quiz": [
       {
         "q": "Why does Calloway argue a quota nobody enforces is worse than none at all?",
@@ -28,7 +28,7 @@ export const ROSTER = [
     "role": "Reef Ecologist",
     "division": "REEF",
     "color": "#3f8fa0",
-    "bio": "<p>Has counted the same eleven transects off the point every spring for eleven years, which is the longest continuous record of anything on this island and the only one that predates the borehole.</p><p>He is careful about what a count can say. Eleven springs is enough to see a trend in cover and not enough to attribute it, and he will say so in a meeting that wants him to say more.</p><p>His objection to the ferry is specific rather than general: the sailing brings water demand in July, and July is when the borehole is already drawing chloride.</p>",
+    "bio": "<p>Has counted the same eleven transects off the point every spring for eleven years, which is the longest continuous record of anything on this island and the only one that predates the borehole. He is careful about what a count can say. Eleven springs is enough to see a trend in cover and not enough to attribute it, and he will say so in a meeting that wants him to say more. His objection to the ferry is specific rather than general: the sailing brings water demand in July, and July is when the borehole is already drawing chloride.</p>",
     "quiz": [
       {
         "q": "Why will Berhane not attribute the reef's decline to a cause in a council meeting?",
@@ -47,7 +47,7 @@ export const ROSTER = [
     "role": "Water Engineer",
     "division": "WATER",
     "color": "#2e9b8f",
-    "bio": "<p>Keeps the borehole, the storage tanks and a rain gauge she reads herself every morning at seven, because the automatic one under-reads in wind and the wind here is the point.</p><p>She treats the island's water as a bank account with one deposit — rain on the catchment — and several standing orders. Her objection to most plans is that they add a standing order and no deposit.</p><p>She is the person who noticed the chloride, and she reported it as a single reading rather than a trend, which is why it was believed.</p>",
+    "bio": "<p>Keeps the borehole, the storage tanks and a rain gauge she reads herself every morning at seven, because the automatic one under-reads in wind and the wind here is the point. She treats the island's water as a bank account with one deposit — rain on the catchment — and several standing orders. Her objection to most plans is that they add a standing order and no deposit. She is the person who noticed the chloride, and she reported it as a single reading rather than a trend, which is why it was believed.</p>",
     "quiz": [
       {
         "q": "Why does Sorley read the rain gauge by hand rather than trusting the automatic one?",
@@ -66,7 +66,7 @@ export const ROSTER = [
     "role": "Common Grazing Officer",
     "division": "COMMON",
     "color": "#8a9a3c",
-    "bio": "<p>Administers the grazing rights on the common: forty-one shares, nine graziers, and a stocking limit that has been argued about every spring since it was written.</p><p>He knows the failure mode from the inside. Nobody overgrazes on purpose; each grazier adds one more animal because one more animal is worth having and the cost is spread across everyone.</p><p>He is unromantic about the fix. Rules, counted stock, and a limit that is inspected — which makes him the least popular man at the spring meeting.</p>",
+    "bio": "<p>Administers the grazing rights on the common: forty-one shares, nine graziers, and a stocking limit that has been argued about every spring since it was written. He knows the failure mode from the inside. Nobody overgrazes on purpose; each grazier adds one more animal because one more animal is worth having and the cost is spread across everyone. He is unromantic about the fix. Rules, counted stock, and a limit that is inspected — which makes him the least popular man at the spring meeting.</p>",
     "quiz": [
       {
         "q": "Why does Pike say nobody overgrazes the common on purpose?",
@@ -85,7 +85,7 @@ export const ROSTER = [
     "role": "Waste and Sorting Lead",
     "division": "TIP",
     "color": "#a06a3c",
-    "bio": "<p>Runs the tip, the sorting yard and the compaction shed, and is the only person here who weighs what arrives. Ninety-one people, two hundred and four tonnes a year, and a hole with eleven years left in it.</p><p>Her standing complaint is that waste is discussed as a moral question and settled as an arithmetic one. What leaves on the ferry costs money per tonne; what stays takes volume and vents gas.</p><p>She keeps the leachate log because the tip sits up-catchment of the borehole, which nobody chose and everybody has to live with.</p>",
+    "bio": "<p>Runs the tip, the sorting yard and the compaction shed, and is the only person here who weighs what arrives. Ninety-one people, two hundred and four tonnes a year, and a hole with eleven years left in it. Her standing complaint is that waste is discussed as a moral question and settled as an arithmetic one. What leaves on the ferry costs money per tonne; what stays takes volume and vents gas. She keeps the leachate log because the tip sits up-catchment of the borehole, which nobody chose and everybody has to live with.</p>",
     "quiz": [
       {
         "q": "Why does Okafor keep a leachate log at all?",
@@ -104,7 +104,7 @@ export const ROSTER = [
     "role": "Power Engineer",
     "division": "POWER",
     "color": "#c0803a",
-    "bio": "<p>Keeps three diesel sets, a failing sea cable and a turbine on the hill that has been out of service for two years waiting for a gearbox nobody will ship for one machine.</p><p>He can tell you the island's demand hour by hour for the last four years, and his point is always the same: the peak is what sizes the plant, and the peak is a July evening when the ferry has been in.</p><p>He does not argue about renewables in the abstract. He argues about capacity factor, because a nameplate rating is a number for a brochure.</p>",
+    "bio": "<p>Keeps three diesel sets, a failing sea cable and a turbine on the hill that has been out of service for two years waiting for a gearbox nobody will ship for one machine. He can tell you the island's demand hour by hour for the last four years, and his point is always the same: the peak is what sizes the plant, and the peak is a July evening when the ferry has been in. He does not argue about renewables in the abstract. He argues about capacity factor, because a nameplate rating is a number for a brochure.</p>",
     "quiz": [
       {
         "q": "Why does Ferris insist on capacity factor rather than a machine's rating?",
@@ -123,7 +123,7 @@ export const ROSTER = [
     "role": "Island Nurse",
     "division": "WATER",
     "color": "#2e9b8f",
-    "bio": "<p>The island's only clinician, which means she is also its public health service, its environmental health officer and the person who signs the water sample forms.</p><p>She thinks about exposure in the way the job forces: not concentration but dose, and not dose but dose per kilogram, because the youngest person drinking the island's water weighs eleven kilos.</p><p>She is the reason the school's tap is sampled separately, which she asked for twice and got on the third try.</p>",
+    "bio": "<p>The island's only clinician, which means she is also its public health service, its environmental health officer and the person who signs the water sample forms. She thinks about exposure in the way the job forces: not concentration but dose, and not dose but dose per kilogram, because the youngest person drinking the island's water weighs eleven kilos. She is the reason the school's tap is sampled separately, which she asked for twice and got on the third try.</p>",
     "quiz": [
       {
         "q": "Why did Nkemdi push for the school tap to be sampled separately?",
@@ -142,7 +142,7 @@ export const ROSTER = [
     "role": "Fisheries Observer",
     "division": "HARB",
     "color": "#2f7fa8",
-    "bio": "<p>Comes over on the Tuesday boat, spends three days a fortnight on the landings and writes the stock assessment nobody on the island wants to read.</p><p>Her assessments carry ranges rather than numbers, and she defends the ranges: a stock estimate with no width to it invites a quota set at its edge, and the edge is where a fishery goes.</p><p>She is straightforward about the limit of her own method. Landings tell you what came out, not what is left, and the two diverge exactly when it matters most.</p>",
+    "bio": "<p>Comes over on the Tuesday boat, spends three days a fortnight on the landings and writes the stock assessment nobody on the island wants to read. Her assessments carry ranges rather than numbers, and she defends the ranges: a stock estimate with no width to it invites a quota set at its edge, and the edge is where a fishery goes. She is straightforward about the limit of her own method. Landings tell you what came out, not what is left, and the two diverge exactly when it matters most.</p>",
     "quiz": [
       {
         "q": "Why does Rask report a stock as a range rather than a single figure?",
@@ -161,7 +161,7 @@ export const ROSTER = [
     "role": "Market Gardener",
     "division": "COMMON",
     "color": "#8a9a3c",
-    "bio": "<p>Grows most of what the island eats that is not landed or shipped: four polytunnels, two acres outside, and a soil he has been building for fifteen years out of seaweed and everything the tip will let him have.</p><p>He is the island's argument for compost made physical. Every tonne he takes off Okafor's hands is a tonne that does not go in the hole, and it comes back as the only deep topsoil on Vellan.</p><p>He sprays, and he is exact about when. Spraying on a calendar, he says, breeds the thing you are spraying for.</p>",
+    "bio": "<p>Grows most of what the island eats that is not landed or shipped: four polytunnels, two acres outside, and a soil he has been building for fifteen years out of seaweed and everything the tip will let him have. He is the island's argument for compost made physical. Every tonne he takes off Okafor's hands is a tonne that does not go in the hole, and it comes back as the only deep topsoil on Vellan. He sprays, and he is exact about when. Spraying on a calendar, he says, breeds the thing you are spraying for.</p>",
     "quiz": [
       {
         "q": "Why does Hollis refuse to spray on a fixed calendar?",
@@ -180,7 +180,7 @@ export const ROSTER = [
     "role": "Skipper, Kestrel Wynd",
     "division": "HARB",
     "color": "#2f7fa8",
-    "bio": "<p>Fishes the west ground with a crew of two and has done for twenty-six years. He has kept to the quota for nine of them and can name the four boats that have not.</p><p>His view of the commons is not theoretical. He watched the west ground thin over a decade, and he can tell you what a good year looked like in 2004 in a way no assessment does.</p><p>He wants the rule enforced or abolished. What he will not do is keep to a limit while the boat beside him lands over it.</p>",
+    "bio": "<p>Fishes the west ground with a crew of two and has done for twenty-six years. He has kept to the quota for nine of them and can name the four boats that have not. His view of the commons is not theoretical. He watched the west ground thin over a decade, and he can tell you what a good year looked like in 2004 in a way no assessment does. He wants the rule enforced or abolished. What he will not do is keep to a limit while the boat beside him lands over it.</p>",
     "quiz": [
       {
         "q": "Why does Mbeki say he would rather the quota were abolished than left unenforced?",
@@ -199,7 +199,7 @@ export const ROSTER = [
     "role": "Schoolteacher",
     "division": "COMMON",
     "color": "#8a9a3c",
-    "bio": "<p>Teaches all nineteen children in one room, ages five to eleven, and keeps the register that everybody's argument depends on.</p><p>She is the person who put the numbers in front of the council: the roll has fallen from thirty-one to nineteen in twelve years, and two of the nineteen leave for the mainland secondary in August.</p><p>What she objects to is the roll being used as a slogan. It is an age structure, she says, and it predicts the next decade whichever way the ferry vote goes.</p>",
+    "bio": "<p>Teaches all nineteen children in one room, ages five to eleven, and keeps the register that everybody's argument depends on. She is the person who put the numbers in front of the council: the roll has fallen from thirty-one to nineteen in twelve years, and two of the nineteen leave for the mainland secondary in August. What she objects to is the roll being used as a slogan. It is an age structure, she says, and it predicts the next decade whichever way the ferry vote goes.</p>",
     "quiz": [
       {
         "q": "Why does Iversen object to the school roll being quoted as a single number?",
@@ -218,7 +218,7 @@ export const ROSTER = [
     "role": "Council Clerk",
     "division": "TIP",
     "color": "#a06a3c",
-    "bio": "<p>Clerk to the island council, which means she writes the papers the fifteen-day argument will be settled from and knows exactly how a number travels once it is in one.</p><p>Her rule is that every figure in a council paper carries what it is about and over what period. A tonnage with no year on it, she says, comes back in three years as a fact.</p><p>She is neutral about the ferry and not neutral about evidence. A paper that cannot be defended sentence by sentence does not go in the pack.</p>",
+    "bio": "<p>Clerk to the island council, which means she writes the papers the fifteen-day argument will be settled from and knows exactly how a number travels once it is in one. Her rule is that every figure in a council paper carries what it is about and over what period. A tonnage with no year on it, she says, comes back in three years as a fact. She is neutral about the ferry and not neutral about evidence. A paper that cannot be defended sentence by sentence does not go in the pack.</p>",
     "quiz": [
       {
         "q": "Why does Dunmore insist every figure in a council paper names its period?",

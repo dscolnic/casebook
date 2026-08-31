@@ -140,7 +140,7 @@ const dir = resolveTheme(themeName);
 const theme = (await import(pathToFileURL(resolve(dir, 'theme.js')).href)).default;
 const { normalizeContent } = await import('../content/normalize.js');
 const content = theme.content ?? {};
-normalizeContent(content);
+normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
 
 const kindOf = (g) => String(g?.type ?? '').toUpperCase().replace(/[\s_-]+/g, '');
 let checked = 0;

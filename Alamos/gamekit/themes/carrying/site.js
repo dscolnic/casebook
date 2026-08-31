@@ -59,12 +59,22 @@ const AREAS = [
     x: 4, z: -318, w: 20, d: 14, h: 6.8, facing: 0, colour: 0x7f9ba0 },
 ];
 
+// Buildings with no `group` — they carry no case stand, no beacon and no
+// milestone. Three of them now carry `enter:`, which gives a building an
+// interiors key (see themes/carrying/minors.js) without making it an area, and
+// lets a question be SITED there through `fixtures.js`. `access.js` keeps each
+// one dark and unnamed until the day the campaign first sends somebody: the
+// school on day 9, the berth on day 12, the hall on day 15.
+//
+// The Old Light stays a facade deliberately. It has been unlit since 1974, no
+// question belongs inside it, and the bar for opening a door is two authored
+// things to read behind it. A door with nothing behind it is worse than a wall.
 const LANDMARKS = [
-  { id: 'BERTH', name: 'Ferry Berth', sub: 'Tuesdays and Fridays',
+  { id: 'BERTH', enter: 'BERTH', name: 'Ferry Berth', sub: 'Tuesdays and Fridays',
     x: -30, z: 96, w: 14, d: 9, h: 4.8, facing: PI, colour: 0x8b8577 },
-  { id: 'SCHOOL', name: 'Island School', sub: 'Nineteen on the register',
+  { id: 'SCHOOL', enter: 'SCHOOL', name: 'Island School', sub: 'Nineteen on the register',
     x: 48, z: 24, w: 16, d: 11, h: 6.0, facing: PI, colour: 0xa79c85 },
-  { id: 'CHAPEL', name: 'Chapel and Hall', sub: 'Where the council meets',
+  { id: 'CHAPEL', enter: 'CHAPEL', name: 'Chapel and Hall', sub: 'Where the council meets',
     x: -46, z: 12, w: 13, d: 16, h: 8.4, facing: PI / 2, colour: 0xa8a196 },
   { id: 'LIGHT', name: 'Old Light', sub: 'Unlit since 1974',
     x: -8, z: -366, w: 7, d: 7, h: 15.5, facing: 0, colour: 0xbdb6a6 },

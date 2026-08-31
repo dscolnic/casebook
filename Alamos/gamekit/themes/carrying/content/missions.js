@@ -4,362 +4,422 @@
 
 export const MISSIONS = [
   {
-    "title": "Ninety-one people and one of everything",
-    "objective": "Establish what the island's budgets actually are before anybody argues about the ferry.",
-    "briefing": "The handover is four books and a licence, and no two of them cover the same year.",
-    "stake": "Tuesday. The boat that brought you takes the outgoing officer off at four. Ines Calloway, the harbourmaster, has the landings book open on the desk. The page shows 168 tonnes this year against 214 five years ago. She wants that figure in the council pack before the ferry paper is drafted. Tomas Berhane, the reef ecologist, says the same page has been quoted three times. Each time a different period was attached to it. Today you settle what each of the island's four books measures. You settle the period each one covers, and which of them can go in front of a vote. A figure with no year on it is not much use. In three years it comes back as a fact nobody can trace.",
-    "takeaway": "Every environmental number is a stock or a flow, and it is worth nothing without its period.",
+    "title": "What does Vellan actually depend on?",
+    "objective": "Turn the island's scattered records into stocks, flows and services before anyone claims the extra ferry is either safe or impossible.",
+    "briefing": "The ferry proposal quotes fish, land, visitors and waste as though they were the same kind of number.",
+    "stake": "Day 1. Vellan has ninety-one residents, one daily ferry to the mainland and a vote in fifteen days on adding a second summer sailing. Before you can say yes or no, you need to know what the island actually uses, what it can replace, and what each number in the council papers really measures.",
+    "takeaway": "An island does not have one carrying capacity. Water, food, land, waste and energy each have their own stock, flow and limit.",
+    "segue": "The books do not reveal one magic capacity number. They reveal several different limits, measured on different clocks. On day 2 you start with the one Vellan cannot buy from the mainland: fresh water.",
     "stops": [
       {
         "group": "HARB",
         "lesson": 0,
-        "task": "Turn two years of landings into a comparison"
+        "task": "Turn two seasons into a claim the council can defend",
+        "reason": "Calloway needs the catch decline stated with its starting point and five-season period before it is used as evidence for or against the ferry."
       },
       {
         "group": "REEF",
         "lesson": 0,
-        "task": "Say what the reef is doing that nobody pays for"
+        "task": "Identify the service the harbour receives without an invoice",
+        "reason": "Berhane wants the harbour to count the reef's wave shelter before more traffic is planned behind it."
       },
       {
         "group": "COMMON",
         "lesson": 0,
-        "task": "Match each layer to what it tells you about growing here."
+        "task": "Read the soil pit as a set of limits on farming",
+        "reason": "Pike and Hollis need to know whether the common can really give up land for parking and still support more food production elsewhere."
       }
     ]
   },
   {
-    "title": "One deposit, four standing orders",
-    "objective": "Measure what the island's aquifer is actually given each year, and what is taken out.",
-    "briefing": "The abstraction licence is up for renewal and nobody has measured the recharge since it was written.",
-    "stake": "Wednesday. The abstraction licence is the island's permit to pump water. The renewal has to be lodged before the ferry paper is drafted. The ferry will need water too, and the paper is quiet about that. Mairead Sorley, the water engineer, has 14 years of her own rain readings. She also has a meter on the borehole. Nobody has ever asked her to put the two together. Calloway wants a figure she can defend at the council. Berhane wants the licence capped at the recharge. Today you measure the deposit, count the standing orders, and say how long the store would last if the rain stopped. Get the deposit wrong and the cap means nothing for ten years.",
-    "takeaway": "An aquifer is an account with one deposit, and a licence written above it spends the balance.",
+    "title": "How much water does Vellan actually get?",
+    "objective": "Estimate the island's annual water supply and compare it with the demands the ferry proposal would add.",
+    "briefing": "The abstraction licence is up for renewal, but its recharge number was never built from Vellan's own rainfall record.",
+    "stake": "Day 2. The current water licence allows 340,000 cubic metres a year. Sorley, the water engineer, has fourteen years of local rain data. The licence still rests on an old guess about recharge. Today you work out the island's best recharge estimate and put summer visitors on the same clock.",
+    "takeaway": "A groundwater store can hide overspending for years, so the important comparison is the annual recharge against the annual withdrawal.",
+    "segue": "Using Vellan's rainfall and the licence's recharge fraction gives a best estimate of about 294,000 cubic metres a year — below the 340,000 the permit allows. That is a warning, not yet a complete safe-yield calculation. On day 3 you ask whether the island's living resources have the same kind of hidden ceiling.",
     "stops": [
       {
         "group": "WATER",
         "lesson": 0,
-        "task": "Work out what the catchment actually gives back"
+        "task": "Estimate the annual recharge from Vellan's rainfall record",
+        "reason": "Sorley needs a local recharge estimate before renewing a licence that allows more water out than anyone has ever checked against rain."
       },
       {
         "group": "TIP",
         "lesson": 0,
-        "task": "Work out how long the hole has left"
+        "task": "Test what an eleven-year landfill estimate assumes about growth",
+        "reason": "Okafor needs the council to see that 'eleven years left' only holds if annual waste stops growing."
       },
       {
         "group": "HARB",
         "lesson": 1,
-        "task": "Say who is actually on the island"
+        "task": "Put residents and visitors on the same person-day clock",
+        "reason": "Calloway needs visitor pressure compared with resident use in the months when water and power are tightest, not diluted across a whole year."
       }
     ]
   },
   {
-    "title": "The thin end of the food web",
-    "objective": "Work out how much the reef and the ground can support, and why the top of a web is small.",
-    "briefing": "Berhane's transect counts and the west ground's landings describe the same system from two ends.",
-    "stake": "Thursday. Petra Rask, the fisheries observer, is on the island for three days. She wants the trophic arithmetic in the assessment, not in an appendix. Trophic means the feeding levels, and how much energy passes up each one. The west boats land predators. Berhane's transects count what those predators eat. Rask's point is simple. A quota argued in tonnes of fish is really an argument about the bottom of the web. Nobody ever mentions the bottom. Today you work the energy up from the plankton, and say how many species the island can keep. You also say how much a survey of 11 lines can be asked to prove. Argue the top of a web without the bottom, and the quota rests on a number with nothing under it.",
-    "takeaway": "Each step up a food web keeps about a tenth of what the step below had.",
+    "title": "How much life can the island support?",
+    "objective": "Trace the limits on the bay, the common and the food web, and separate a real trend from a claim that goes too far.",
+    "briefing": "The fishing quota, the parking plan and the reef record all assume that losing a little at the bottom costs only a little at the top.",
+    "stake": "Day 3. The extra ferry would bring more visitors, more parking and more pressure on the harbour, while the west-ground catch has already fallen. Today you follow energy and habitat through the system to see why small changes low in the web can become large constraints higher up.",
+    "takeaway": "Ecological limits propagate: less habitat or less production at the bottom can remove much more room for harvest at the top.",
+    "segue": "The bay and common both have limits, but the most urgent new number is back at the borehole: July chloride has risen again. On day 4 you find out whether the island's water store has been carrying an old mistake.",
     "stops": [
       {
         "group": "REEF",
         "lesson": 1,
-        "task": "Work the energy up from the bottom of the web"
+        "task": "Follow energy from producers to predators",
+        "reason": "Berhane wants the quota debate tied to the energy that can actually reach the west-ground predators."
       },
       {
         "group": "COMMON",
         "lesson": 1,
-        "task": "Say what shrinking the habitat would cost in species"
+        "task": "Estimate the species-richness effect of shrinking the common",
+        "reason": "Pike needs the habitat cost of the proposed parking and serviced pitches quantified before the land is treated as empty space."
       },
       {
         "group": "WATER",
         "lesson": 1,
-        "task": "Decide what a single reading is allowed to claim"
+        "task": "State the strongest claim five July samples can support",
+        "reason": "Sorley wants the rising chloride treated as a warning without letting one seasonal series become a claim about the whole year or a proven source."
       }
     ]
   },
   {
-    "title": "Salt in the borehole",
-    "objective": "Find out whether the aquifer is being over-drawn, and how long it would take to recover.",
-    "briefing": "The July chloride is up again and the licence renewal is due on Friday.",
-    "stake": "Friday. The licence has to be lodged today. Sorley has the recharge figure you measured. She also has a fifth July chloride reading, 58 per cent above the first one. Chloride is the salt in a water sample. Berhane has asked the council to cap pumping at the recharge. Calloway says a cap written this week decides the ferry vote before it is taken. She is right that it does. Today you find how long the store takes to turn over. You say what the tip is putting into it, and what a cap would have to say. A store this slow does not tell you it is empty. It tells you years after the decision that emptied it.",
-    "takeaway": "A store with a long residence time hides the mistake that damaged it, and recovers on the same clock.",
+    "title": "The salt warning",
+    "objective": "Estimate how slowly the aquifer turns over and decide what the rising chloride can — and cannot — prove.",
+    "briefing": "July chloride is rising while the licence still allows more water out than the recharge estimate puts back.",
+    "stake": "Day 4. The licence must be filed today. The newest July chloride result is 58 per cent above the first reading in the five-year series. You need to know how long Vellan's groundwater remembers an imbalance, and whether the evidence is strong enough to justify a temporary cut now.",
+    "takeaway": "A slow groundwater store can hide an imbalance for years; a rising chloride series is a warning, not by itself proof of the salt's source.",
+    "segue": "The aquifer turns over on roughly a nine-year timescale. That makes a long-running overdraw plausible, and the rising July chloride is consistent with saltwater stress — but chloride alone does not identify the source. Sorley refuses to renew the 340,000-cubic-metre figure as though it were proven safe; the final cap now waits on the full water balance. Next you test the other resource people can remove faster than it replaces: fish.",
     "stops": [
       {
         "group": "WATER",
         "lesson": 2,
-        "task": "Work out how long the aquifer takes to turn over"
+        "task": "Estimate the groundwater turnover time",
+        "reason": "Sorley needs to know whether a bad abstraction decision can remain hidden for years before the chemistry responds."
       },
       {
         "group": "TIP",
         "lesson": 1,
-        "task": "Turn a leachate concentration into a daily load"
+        "task": "Convert a concentration and flow into a pollutant load",
+        "reason": "Okafor wants the leachate judged by the mass it adds to the system, not only by a concentration limit it happens to pass."
       },
       {
         "group": "POWER",
         "lesson": 0,
-        "task": "Match each observation to what kind of source it indicates."
+        "task": "Match each sampling pattern to the kind of source that can produce it",
+        "reason": "Ferris and Sorley need to separate runoff, pipes and the groundwater chloride signal before one source is blamed for all three."
       }
     ]
   },
   {
-    "title": "What the west ground can replace",
-    "objective": "Set a catch the stock can replace, from a stock estimate that has a width to it.",
-    "briefing": "Rask's assessment lands today and the quota has to be recommended before the Friday boat.",
-    "stake": "Monday. Rask's assessment came off the Friday boat as a range, not a single number. A range is what the council least wants. Josef Mbeki is a skipper, and he has kept to the quota for nine seasons. He can name four boats that have not. He says he will stop keeping to it if the rule stays unenforced. Calloway wants the recommendation today, because the landing fee schedule hangs on it. Today you work out the largest catch the west ground can replace. You also say what setting it at the edge of a range would do. Set a quota at the top of an estimate and you have assumed the estimate was generous. If it was not, the boats take out more than the ground can put back.",
-    "takeaway": "A stock grows fastest at half its capacity, so the biggest sustainable catch is a quarter of r times K.",
+    "title": "How much can the bay replace?",
+    "objective": "Use the stock model to find the fishery's theoretical ceiling, then decide what rules are needed when the estimate is uncertain.",
+    "briefing": "The stock assessment came back as a range, and last season's catch sits exactly on the model's maximum sustainable yield.",
+    "stake": "Day 5. The council wants to raise the quota if the second ferry creates a bigger market. Rask, the fisheries observer, has a model. It says the west ground can replace about 168 tonnes in a good year — exactly what was landed last season. Today you decide why a model ceiling is not spare capacity.",
+    "takeaway": "Maximum sustainable yield is a model ceiling, not a guarantee. Uncertainty and enforcement determine whether a quota near it is survivable.",
+    "segue": "The model's maximum is 168 tonnes a year, exactly last season's landing. That gives the council no evidence for raising the quota, and almost no margin if the stock estimate is optimistic. On day 6 the problem stops being the number and becomes the rule: what good is a quota nobody checks?",
     "stops": [
       {
         "group": "HARB",
         "lesson": 2,
-        "task": "Work out the largest catch the stock can replace"
+        "task": "Calculate the theoretical maximum sustainable yield",
+        "reason": "Rask wants the model ceiling on the table before anyone mistakes last season's catch for spare capacity."
       },
       {
         "group": "COMMON",
         "lesson": 2,
-        "task": "Decide what the stocking rule has to say"
+        "task": "Choose a stocking rule that constrains the total rather than each person's intention",
+        "reason": "Pike has nine graziers who can each stay within an informal share while their combined stock still exceeds the land's limit."
       },
       {
         "group": "REEF",
         "lesson": 2,
-        "task": "Say which fish is which kind of animal"
+        "task": "Use life history to judge whether the same harvest rate means the same biological pressure",
+        "reason": "Berhane wants a slow-maturing species kept from disappearing inside a quota written only in total tonnes."
       }
     ]
   },
   {
-    "title": "The rule and the money behind it",
-    "objective": "Decide how the quota is enforced and what pays for the enforcement.",
-    "briefing": "Four boats landed over quota last season and nothing happened to any of them.",
-    "stake": "Tuesday. Calloway has the landing fee schedule open beside Rask's list of four boats. Her argument today is the one she is right about. The observer comes over for three days a fortnight. The landing fees pay for those three days. A second sailing would pay for six. Mbeki says he will fish to the limit like everyone else, if the limit stays a suggestion. Berhane objects that the same sailing brings July water demand with it. Today you decide what enforcement the island can actually run, and what pays for it. A quota nobody enforces costs the boats that keep it. It saves nothing at all.",
-    "takeaway": "A rule is only a rule to the extent somebody is funded to check it.",
+    "title": "A rule nobody checks is not a rule",
+    "objective": "Decide which enforcement, waste and power choices actually change behaviour when money and staff are limited.",
+    "briefing": "The ferry's fees could fund more fishery enforcement, but the extra sailing also adds waste and a new summer power peak.",
+    "stake": "Day 6. Calloway argues that the second sailing can pay for the observer time the fishery currently lacks. Ferris, the power engineer, argues that the same sailing lands on the worst half-hour of the electricity year. Today you find out where the ferry creates capacity — and where it creates a new limit.",
+    "takeaway": "A rule works only if someone can detect a violation, and a small annual load can still matter if it arrives at the system's peak.",
+    "segue": "The extra sailing is not simply pressure. Its fees can fund the receipt checks that make the fish quota real, while its berth load lands directly on the July power peak. On day 7 you look for something even more important: losses Vellan is already paying for before a second ferry arrives.",
     "stops": [
       {
         "group": "HARB",
         "lesson": 3,
-        "task": "Choose what the island can actually enforce"
+        "task": "Spend limited enforcement time on evidence that can reveal quota cheating",
+        "reason": "Calloway can afford only four observer-days this fortnight and needs them used where they change whether an over-quota landing is detected."
       },
       {
         "group": "TIP",
         "lesson": 2,
-        "task": "Match each stream to what should happen to it, and why."
+        "task": "Rank waste by the constraint Vellan actually has: landfill volume and ferry freight",
+        "reason": "Okafor needs to know which materials are worth shipping, crushing or reusing before the extra sailing is treated as a solution to every waste stream."
       },
       {
         "group": "POWER",
         "lesson": 1,
-        "task": "Find where the demand actually peaks"
+        "task": "Separate the annual energy bill from the half-hour that sizes the plant",
+        "reason": "Ferris wants the ferry judged against the July peak it actually changes, rather than against an annual average that hides it."
       }
     ]
   },
   {
-    "title": "What a kilowatt-hour costs here",
-    "objective": "Put the island's energy use in the units that decide anything.",
-    "briefing": "The sea cable failed twice in March and the diesel bill for the year is in.",
-    "stake": "Wednesday. The cable to the mainland was out for nine days in March. Aled Ferris, the power engineer, has the year's diesel bill. He also has a wind turbine on the hill. It has waited two years for a gearbox. Calloway's ferry paper assumes the turbine comes back. Ferris will not sign that assumption on a brochure figure. He wants a capacity factor measured on Vellan itself. Berhane is on Calloway's side today, for once. Anything that pushes out diesel helps the reef. Today you work out what the island actually uses, in the units a decision can be made in. Argue energy in the wrong unit and the plant comes out half the size it needs, or twice the price.",
-    "takeaway": "Power is the rate and energy is the amount, and the two decide different things.",
+    "title": "What is Vellan wasting already?",
+    "objective": "Measure hidden losses in electricity, water and pest control before assuming new demand requires new infrastructure.",
+    "briefing": "The island is debating what the extra ferry will cost, but some of its largest losses are already built into the systems it has.",
+    "stake": "Day 7. Ferris has a year of electricity records, Sorley has a water main losing about 51,000 cubic metres a year before anyone receives it, and Hollis is watching pesticide resistance spread next door. Today you find out which problems are really shortages and which are avoidable waste.",
+    "takeaway": "Before adding capacity, find the losses: wasted water, wasted energy and management that makes the next problem harder.",
+    "segue": "The island used about 764 megawatt-hours last year, and about 51,000 cubic metres pumped into the main never reached a customer. That leak is already larger than the water demand of any realistic ferry plan. Then the clinic calls: the school tap has the highest nitrate reading on the network.",
     "stops": [
       {
         "group": "POWER",
         "lesson": 2,
-        "task": "Turn a demand into a year of energy"
+        "task": "Predict the annual energy from average demand, then check it against the meter",
+        "reason": "Ferris wants the island's actual annual use established before anyone prices the turbine, diesel or ferry from a brochure number."
       },
       {
         "group": "WATER",
         "lesson": 3,
-        "task": "Say what the pumps are actually costing"
+        "task": "Find the largest avoidable cost in the pumping system",
+        "reason": "Sorley wants the 51,000-cubic-metre leak treated as a resource loss, not hidden inside a discussion of pump efficiency."
       },
       {
         "group": "COMMON",
         "lesson": 3,
-        "task": "Decide when to treat, and on what evidence"
+        "task": "Explain why calendar spraying can make a control fail",
+        "reason": "Hollis needs to protect the island's food supply without copying a mainland spraying routine that is already selecting for resistant aphids."
       }
     ]
   },
   {
-    "title": "What leaks out of the hole",
-    "objective": "Follow the tip's leachate into the water it reaches and say what the numbers mean.",
-    "briefing": "The stream below the tip has nitrogen, and the school tap is sampled separately for a reason.",
-    "stake": "Thursday. Grace Nkemdi, the island nurse, has asked for the school tap result to be read out at the council. She does not want it filed. Okafor's leachate is past its concentration limit. Leachate is the liquid that drains out of the tip. It is adding 34 kilograms of nitrogen a year to a store that turns over once a decade. Sarah Dunmore, the council clerk, wants every figure in the pack to name what it is about. Today you convert between the units the licence, the laboratory and the clinic each use. You then say which of them the school tap answers to. Two of these numbers are the same measurement in different clothes, and one of them is not. Mix them up and the school tap is judged against a limit that was never about it.",
-    "takeaway": "Concentration, load and dose are three different questions about the same water.",
+    "title": "The school tap",
+    "objective": "Translate the water results into concentration, load and exposure without claiming a source the measurements have not established.",
+    "briefing": "The school tap has the island's highest nitrate reading, and the youngest child drinking it weighs eleven kilograms.",
+    "stake": "Day 8. The council papers treat the water test as one island-wide number. Nkemdi, the island nurse, does not: children get a larger dose per kilogram, and the tip sits uphill of the borehole. Today you work out what the measurements mean — and what they still do not tell you about where the nitrate came from.",
+    "takeaway": "Concentration tells you what is in the water; dose tells you what reaches a person; neither one alone identifies the source.",
+    "segue": "The main is at 8.4 milligrams per litre and the school tap at 11.2. The exposure difference is real, but the fortnight's data do not prove the tip caused it. On day 9 you decide what the island can change immediately above the borehole rather than arguing past the evidence.",
     "stops": [
       {
         "group": "TIP",
         "lesson": 3,
-        "task": "Put the laboratory and the licence in the same units"
+        "task": "Put the laboratory and health guidance into the same units",
+        "reason": "Nkemdi needs the nitrate numbers reconciled before a unit conversion gets mistaken for a change in contamination."
       },
       {
         "group": "REEF",
         "lesson": 3,
-        "task": "Say what nutrients do once they reach the bay"
+        "task": "Put the eutrophication chain in causal order",
+        "reason": "Berhane wants the bay's oxygen crash explained as a process rather than a list of correlated measurements."
       },
       {
         "group": "HARB",
         "lesson": 4,
-        "task": "Say what a school tap result is a result about"
+        "task": "State what the tap result does and does not represent",
+        "reason": "Nkemdi wants the highest measured tap concentration kept separate from both the island average and the child's dose that you will calculate tomorrow."
       }
     ]
   },
   {
-    "title": "What is put on the ground",
-    "objective": "Weigh the inputs on the common and the garden against what they do downstream.",
-    "briefing": "Hollis wants more compost released and the neighbouring holding wants the spray limit raised.",
-    "stake": "Friday, and two requests arrived on the same boat. Ewan Hollis, the island's market gardener, wants the whole compostable stream released to him. That would take 40 tonnes a year out of Okafor's hole. The neighbouring holding wants its spray allowance raised. That puts more of the same chemical on ground that drains past the borehole. Nkemdi has worked out the dose for the school tap. She wants it in the council pack. Today you decide what goes on the ground, and what a dose actually is. A dose is not simply an amount. The same milligram is a different quantity depending on whose body it ends up in.",
-    "takeaway": "Dose is exposure divided by the body taking it, which is why children are the limit.",
+    "title": "What can change before the vote?",
+    "objective": "Use dose, soil salinity and the tip budget to choose interventions that reduce risk now rather than merely move it elsewhere.",
+    "briefing": "The vote is six days away, and the island has enough money to change only part of the waste and land-use system this year.",
+    "stake": "Day 9. Hollis can take forty tonnes of compost out of the tip, but salty batches can damage the same soil he is trying to build. Okafor has £11,000 and cannot buy every waste option. Today you set the trigger and spend the money where it changes both volume and pollution.",
+    "takeaway": "A good intervention changes the limiting quantity without creating a new problem somewhere else.",
+    "segue": "The compost stream is diverted only while its salt reading stays below the trigger, and the tip budget buys back about 1,450 cubic metres while removing most of the methane source. No new spray is approved above the borehole. On day 10 you examine the reef claim that has been carrying most of the environmental argument against the ferry.",
     "stops": [
       {
         "group": "WATER",
         "lesson": 4,
-        "task": "Work out the dose the smallest child receives"
+        "task": "Convert the school concentration into dose per kilogram",
+        "reason": "Nkemdi wants the same water translated into the quantity that changes with body size before the council treats one concentration as one exposure."
       },
       {
         "group": "COMMON",
         "lesson": 4,
-        "task": "Decide what a released compost stream is worth"
+        "task": "Set a release trigger early enough for winter rain to flush the soil",
+        "reason": "Hollis wants the compost stream diverted from the tip, but not if a salty batch damages the only deep soil on the island."
       },
       {
         "group": "TIP",
         "lesson": 4,
-        "task": "Decide how much of the stream to divert, against what it costs"
+        "task": "Spend the waste budget against volume, methane and unavoidable operating costs",
+        "reason": "Okafor has £11,000 and needs the plan that buys back the most landfill volume without ignoring methane or the cover material the cell must have."
       }
     ]
   },
   {
-    "title": "A warmer, sourer sea",
-    "objective": "Read eleven springs of reef data for what it can and cannot say.",
-    "briefing": "Berhane's spring count is in and the cover is down again.",
-    "stake": "Monday. Berhane has this spring's transects on the table, beside the other ten. Coral cover is down a further 4 per cent. The August sea temperature was the highest in the series. Calloway's position today is that the reef's decline is global. Nothing the island does about ferries changes it, she says. That is partly true, and it is being used to end an argument. Dunmore wants the pack to state exactly what 11 springs of counting support. Today you read the record for its trend. You separate what the island controls from what it does not, and say what the reef is running out of. A record this good is easy to overstate. Overstating it is how it gets dismissed.",
-    "takeaway": "A long local record can show a trend clearly and still not settle a cause.",
+    "title": "What is really happening to the reef?",
+    "objective": "Separate a measured reef decline from the causes the island can and cannot establish, then identify the local feedback it can control.",
+    "briefing": "Coral cover is down again, August water is warmer, and the council draft has already turned that correlation into a cause.",
+    "stake": "Day 10. Berhane has eleven years of the same reef transects and a laboratory temperature response, but no control reef and no event-by-event bleaching record. Today you decide what the evidence genuinely shows, then ask which local pressure Vellan can act on even if the warming comes from far away.",
+    "takeaway": "A trend can be strong evidence without identifying its cause. Management should target the local mechanisms the data actually support.",
+    "segue": "The decline in reef cover is real. The temperature relationship is real. The claim that warming alone caused the decline is stronger than the evidence. One local feedback is clearer: losing grazing fish lets algae take space that coral needs to recover. On day 11 you count another impact the island has never put in one ledger — its fuel and methane.",
     "stops": [
       {
         "group": "REEF",
         "lesson": 4,
-        "task": "Say what the temperature record does to the animals"
+        "task": "Read the laboratory response without turning it into a field attribution",
+        "reason": "Berhane wants the coral's temperature sensitivity established as one piece of evidence, not presented as proof of what caused the whole reef decline."
       },
       {
         "group": "POWER",
         "lesson": 3,
-        "task": "Match each draft sentence to what it would take to support it."
+        "task": "Separate trend, correlation and causation in the council draft",
+        "reason": "Dunmore wants every reef sentence reduced to exactly what the eleven-year record can support."
       },
       {
         "group": "HARB",
         "lesson": 5,
-        "task": "Work out what a bad August costs the west boats"
+        "task": "Identify the feedback that can keep coral from recovering",
+        "reason": "Calloway needs the grazer bycatch treated as a local lever even though Vellan cannot control the regional temperature trend."
       }
     ]
   },
   {
-    "title": "What the diesel actually buys",
-    "objective": "Account for the fuel: what becomes electricity, what becomes heat, and what leaves the stack.",
-    "briefing": "The year's fuel figure has to go in the pack next to the turbine proposal.",
-    "stake": "Tuesday. Ferris has the fuel delivery notes for the whole year. They add up to 78,000 litres, burnt in three generator sets. Those sets made most of the island's electricity while the cable was out, and some of it when it was not. Calloway needs the number for the ferry paper. Berhane wants the emissions from it stated in the same place, not in an annex. Dunmore will not accept a figure without its period attached. Today you work out how much of that fuel became electricity, and what the rest became. Most of a litre of diesel does not become electricity. Where the rest goes decides whether the turbine is worth its gearbox.",
-    "takeaway": "Efficiency says what fraction of the fuel did the job, and the rest left as heat.",
+    "title": "What the diesel is really costing",
+    "objective": "Close the energy and emissions budgets so the turbine is compared with the system Vellan actually runs.",
+    "briefing": "The council knows the diesel bill and the landfill vent separately; nobody has put their energy losses and greenhouse impact on the same page.",
+    "stake": "Day 11. The diesel sets burned 78,000 litres last year. The tip vented about 14 tonnes of methane. Before the turbine repair is dismissed as expensive, you need to show where the fuel energy went and which gas is actually dominating Vellan's climate footprint.",
+    "takeaway": "An energy budget must account for every output, and greenhouse gases must be compared on the same time horizon.",
+    "segue": "Of about 835 megawatt-hours of fuel energy, roughly 313 became electricity: 42 ran the sets' own pumps and fans and 271 reached the island. About 522 left as heat. The tip's methane is another 392 tonnes of CO₂-equivalent on the 100-year basis. On day 12 you compare those avoidable losses with the two numbers at the heart of the ferry argument: the stalled turbine and the leaking water main.",
     "stops": [
       {
         "group": "POWER",
         "lesson": 4,
-        "task": "Work out what fraction of the fuel became electricity"
+        "task": "Close the generator's energy balance",
+        "reason": "Ferris wants the turbine compared with the actual diesel system, including the electricity the sets use themselves and the heat that never reaches anyone."
       },
       {
         "group": "TIP",
         "lesson": 5,
-        "task": "Put the tip's gas and the diesel's gas on one scale"
+        "task": "Convert the tip's methane into carbon-dioxide equivalent on the same time horizon as the diesel",
+        "reason": "Okafor wants the landfill vent counted beside the diesel emissions instead of disappearing because the gases have different names."
       },
       {
         "group": "COMMON",
         "lesson": 5,
-        "task": "Match each input to what it does to the island's nitrogen budget."
+        "task": "Separate new nitrogen entering the island system from nitrogen merely moved around inside it",
+        "reason": "Pike wants the response aimed at the fertiliser input rather than at sheep and compost that mostly redistribute nitrogen already present."
       }
     ]
   },
   {
-    "title": "The gearbox and the nine years",
-    "objective": "Cost the turbine honestly, on Vellan's wind rather than a brochure's.",
-    "briefing": "The gearbox quote is in and the ferry paper assumes the turbine is running.",
-    "stake": "Wednesday. The gearbox quote came in on the Tuesday boat: £41,000, and 11 weeks to fit. Calloway's ferry paper already assumes the turbine is turning. A diesel island is a hard thing to sell to visitors. Ferris will not sign that assumption without Vellan's own capacity factor. He is right to ask for it. Berhane wants the emissions saving stated as well. Today you work out what the machine really produces here. You also work out what the gearbox pays back, and how long that takes. A nameplate rating is a number for a brochure, not what the hill delivers. If the payback runs to nine years, being wrong about it costs the island nine years of diesel.",
-    "takeaway": "A generator is named for its best hour and paid for its average one.",
+    "title": "The ferry is not the water problem",
+    "objective": "Measure the value of the stalled turbine and compare the proposed ferry's water demand with the leak Vellan already has.",
+    "briefing": "Opponents say the extra ferry will drain the aquifer. The water balance says the island may already be losing far more through a broken main.",
+    "stake": "Day 12. The turbine gearbox costs £41,000, and the ferry would take water at the berth every summer day. Today you put both decisions on local measurements. The key question is not whether the ferry uses water — it does — but whether that new use is large compared with what Vellan already wastes.",
+    "takeaway": "New demand should be compared with the whole budget. A visible new user can be tiny beside an old hidden loss.",
+    "segue": "The turbine's measured capacity factor is 0.28, and at the island's average avoided electricity cost the gearbox pays back in about eleven months. The water result is more important: the extra daily summer sailing uses about 840 cubic metres a year; the hidden main leak loses about 51,000. Fixing the leak changes the ferry decision far more than cancelling the ferry does.",
     "stops": [
       {
         "group": "POWER",
         "lesson": 5,
-        "task": "Work out what the machine gives on average"
+        "task": "Calculate capacity factor from Vellan's measured generation",
+        "reason": "Ferris wants a local wind number before a gearbox decision is made from the turbine's nameplate or brochure."
       },
       {
         "group": "HARB",
         "lesson": 6,
-        "task": "Work out how long the gearbox takes to pay for itself"
+        "task": "Compare the gearbox cost with the electricity the turbine would avoid buying",
+        "reason": "Calloway needs the repair decision based on Vellan's avoided electricity cost, not on the mistaken assumption that every turbine kilowatt-hour replaces diesel fuel."
       },
       {
         "group": "WATER",
         "lesson": 5,
-        "task": "Say what the ferry's own water would do"
+        "task": "Close the whole water budget and compare the new sailing with the hidden main loss",
+        "reason": "Sorley wants the council to see the extra ferry's actual water draw beside the 51,000 cubic metres already disappearing from the main."
       }
     ]
   },
   {
-    "title": "What came in on the boat",
-    "objective": "Decide what an introduced species is doing and what the island's own emissions add up to.",
-    "briefing": "Something is eating the tunnel crops and it was not here three years ago.",
-    "stake": "Thursday. Hollis has found the same beetle in all four of his polytunnels. Nobody had seen it on Vellan before the spring the freight contract changed. Berhane makes the point Calloway cannot answer. Every extra sailing is an extra chance for something to arrive. The island has no inspection at the berth at all. The council pack also still needs one single emissions figure. Today you decide what makes this beetle a problem rather than a curiosity. You also put the island's two greenhouse sources on one line. An island is defended by its distance. A ferry is a bridge across it.",
-    "takeaway": "Isolation is what an island's species are protected by, and a sailing is a hole in it.",
+    "title": "What else comes off the ferry?",
+    "objective": "Add biosecurity and greenhouse-gas conditions to a transport plan whose ticket price does not include either one.",
+    "briefing": "A crop beetle has spread through all four polytunnels, and new species are arriving faster since the freight contract changed.",
+    "stake": "Day 13. The second ferry can help the island stay connected, but every extra pallet is also another pathway onto an isolated ecosystem. Today you decide what makes the beetle an invasive problem, what can still be prevented, and how the island's methane and diesel compare on one climate scale.",
+    "takeaway": "Connection has benefits and pathways. On an island, transport policy is also biosecurity policy.",
+    "segue": "Nine species have been recorded for the first time in the three years since the freight contract changed, compared with about one a year before it. That does not prove every arrival came on the ferry, but it is enough to justify inspection of soil, plants and pallets. On day 14 the argument turns back to the reason Calloway wants the second sailing at all: whether Vellan still has a population to serve.",
     "stops": [
       {
         "group": "COMMON",
         "lesson": 6,
-        "task": "Decide what makes the beetle invasive rather than merely new"
+        "task": "Distinguish arrival from establishment and ecological or economic harm",
+        "reason": "Hollis needs the beetle treated as an invasive management problem because it is spreading and damaging crops, not merely because it came from somewhere else."
       },
       {
         "group": "TIP",
         "lesson": 6,
-        "task": "Put the island's two greenhouse sources on one line"
+        "task": "Calculate the island's annual carbon-dioxide-equivalent emissions from its two largest measured sources",
+        "reason": "Okafor wants the landfill vent and diesel house compared on the same 100-year basis before either is described as the smaller problem."
       },
       {
         "group": "REEF",
         "lesson": 5,
-        "task": "Say what an inspection at the berth is worth"
+        "task": "Choose the biosecurity measure that can prevent the next arrival",
+        "reason": "Berhane wants the transport plan to close the pathway that is still controllable even though the beetle already on Vellan may be impossible to eradicate."
       }
     ]
   },
   {
-    "title": "Nineteen on the register",
-    "objective": "Work out what the island's own population is doing, separately from the visitors.",
-    "briefing": "Iversen has the register and two of the nineteen leave in August.",
-    "stake": "Friday. Liv Iversen, the schoolteacher, has brought the register to the office herself. The roll has fallen from 31 to 19 in twelve years. Two more leave for the mainland secondary school in August. Calloway's whole case rests on that number. Iversen will not let it be quoted as a slogan. It is an age structure, she says. An age structure is how many people there are at each age. It predicts the next decade whichever way the vote goes. Today you work out the island's own growth rate, and what that rate doubles or halves in. You also say what the age structure tells you the ferry cannot fix. A population is not a total. It is a shape, and the shape is what forecasts anything.",
-    "takeaway": "A population is an age structure, and its shape decides the next decade.",
+    "title": "Will there still be a school?",
+    "objective": "Separate residents from visitors and use age structure and migration to ask what kind of growth would actually keep the island viable.",
+    "briefing": "The school roll has fallen from thirty-one to nineteen in twelve years, and two of those nineteen leave for mainland secondary school in August.",
+    "stake": "Day 14. Calloway has argued for the ferry as a way to keep families on Vellan. Iversen, the schoolteacher, has a harder number: last year five people came in and nine went out. Today you test whether more visitors, more residents and more school-age children are actually the same thing.",
+    "takeaway": "A larger summer population is not the same as a viable resident age structure. Migration by age matters more than the headline total.",
+    "segue": "Last year's population change was about minus 4.4 per cent. If that rate somehow persisted, the population would halve in roughly sixteen years — but one small-island year is not a forecast. The age structure still makes the direction clear: visitors do not keep a school open; families who stay might. On day 15 you decide whether the ferry deserves a trial and exactly what conditions must travel with it.",
     "stops": [
       {
         "group": "WATER",
         "lesson": 6,
-        "task": "Work out the island's own rate of change"
+        "task": "Calculate last year's population change from births, deaths, arrivals and departures",
+        "reason": "Iversen wants the ferry debate grounded in the resident population rather than the summer crowd."
       },
       {
         "group": "HARB",
         "lesson": 7,
-        "task": "Say what the age structure predicts"
+        "task": "Read the age structure rather than the summer headcount",
+        "reason": "Iversen wants the council to distinguish visitors and seasonal workers from residents who actually change the school-age and working-age cohorts."
       },
       {
         "group": "POWER",
         "lesson": 6,
-        "task": "Decide what the plant has to be sized for"
+        "task": "Separate the trend that sizes equipment from the trend that sizes annual fuel",
+        "reason": "Ferris has to design for a shrinking resident population and a rising visitor peak at the same time."
       }
     ]
   },
   {
-    "title": "What the island can carry",
-    "objective": "Put one recommendation in front of the council, with the conditions it needs.",
-    "briefing": "The vote is at seven, and the pack closes at four.",
-    "stake": "Monday. The pack closes at four, and the vote is at seven in the chapel hall. Calloway has the landing fees and the school roll. She also has a ferry operator waiting on an answer. Berhane has 11 springs of transects and a rising July chloride reading. He has a beetle in four polytunnels as well. Sorley's recharge figure is the only number in the pack nobody disputes. Today you settle what the recommendation says. You settle what conditions it carries, and what the island is being asked to accept. There is a difference between a decision with conditions attached and one without them. 91 people live on that difference.",
-    "takeaway": "A resource decision is a rate and a limit, and the conditions are where both are written down.",
+    "title": "Should Vellan add the second ferry?",
+    "objective": "Turn the fifteen-day investigation into one conditional recommendation the council can vote on tonight.",
+    "briefing": "The pack closes at four. At seven the council must choose between refusing the extra sailing and approving it under limits the island can actually enforce.",
+    "stake": "Day 15. The evidence no longer supports either simple slogan. Vellan is already overusing some systems, but the proposed ferry is not the main cause of several of those problems — and it could help fund enforcement and keep the island connected. Today you decide whether to approve a trial, which limits are non-negotiable, and which claims must stay out of the council paper.",
+    "takeaway": "Carrying capacity is not a single headcount. It is a set of rates, thresholds and feedbacks that determine what a place can sustain under stated conditions.",
+    "segue": "The pack is closed. The only thing left is the vote.",
     "stops": [
       {
         "group": "HARB",
         "lesson": 8,
-        "task": "Say what carrying capacity means for this vote"
+        "task": "Choose a decision that addresses the real water constraint rather than the visibility of the ferry",
+        "reason": "Calloway and Sorley now agree on the numbers but not on whether they add up to a yes. The council needs one recommendation with a trigger it can enforce."
       },
       {
         "group": "REEF",
         "lesson": 6,
-        "task": "Match each draft sentence to what is wrong with it, or that nothing is."
+        "task": "Keep the strong claims, label the estimates and remove statements that claim more than the data",
+        "reason": "Dunmore and Berhane need the final pack to survive being read by somebody who disagrees with it."
       },
       {
         "group": "COMMON",
         "lesson": 7,
-        "task": "Say what the fortnight actually established"
+        "task": "Turn the science into an order the council can actually adopt",
+        "reason": "The final decision is useful only if the operating limits, enforcement and review are written into the motion rather than left in the background report."
       }
     ]
   }
@@ -372,7 +432,7 @@ export const WARMUPS = {
   },
   "trial-near": {
     "title": "Walk the harbour end before you sign anything",
-    "why": "The office, the waterworks and the common are all inside four hundred metres of the berth, and the licence you are about to inherit covers all three. Sorley, the water engineer, walks every new officer round them once, because the tip sits up-catchment of the borehole and that is a thing to see rather than read."
+    "why": "The office, the waterworks and the common all stand inside four hundred metres of the berth, so walk that end once and see which is which."
   },
   "trial-far": {
     "title": "The far end opens today, and the truck with it",

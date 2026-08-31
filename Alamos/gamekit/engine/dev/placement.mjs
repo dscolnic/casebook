@@ -175,8 +175,79 @@ function selftest(){
   const paired = atPerson.fail.length === 1 && inRoom.fail.length === 0;
   if(!paired) bad++;
   console.log(`  ${paired ? '✓' : '✗'} one question, two places: the place is what is judged`);
+
+  // THE REASON TRAVELS WITH THE CALL, through `nearFirst`'s swap.
+  //
+  // `shapeMissions` pulls far-ground calls out of the opening days by trading
+  // them with a near call from a later day. It moved `group`, `lesson` and
+  // `task` and left `reason` behind, so a campaign that authors a reason per
+  // call — every campaign through the briefing pass — printed the sentence
+  // written for the call that used to be in that slot. Nothing caught it: the
+  // reason is prose, no gate compares it against its lesson, and every dev check
+  // used to call `normalizeContent` with no site, which left `tiers` null and
+  // this whole function a no-op under them — the game was the only thing that
+  // shaped with real tiers. They all pass the site now (`siteNormalize.mjs` is
+  // the gate that keeps it that way), so the swap happens under the checkers
+  // too, which is how four of Aftershock's recorded concept inversions turned
+  // out to be in order and four others to be real.
+  //
+  // So: build the smallest campaign that trades, and assert the pair moved
+  // together. Put the bug back — drop `reason` from either side of the swap in
+  // `nearFirst` — and this case, and only this case, fails.
+  {
+    const swapCur = {
+      NEAR: [{ title: 'a near call', game: { type: 'CHOICE' } }],
+      FAR: [{ title: 'a far call', game: { type: 'CHOICE' } }],
+    };
+    const swapMissions = [
+      { title: 'd1', stops: [{ group: 'FAR', lesson: 0, reason: 'the far reason' }] },
+      { title: 'd2', stops: [{ group: 'NEAR', lesson: 0, reason: 'the near reason' }] },
+    ];
+    // Two tiers and an unlock on day 2, so day 1 may not call far ground.
+    shapeMissions(swapMissions, swapCur, [], { hasFar: true, near: ['NEAR'], far: ['FAR'] }, 2);
+    const d1 = swapMissions[0].stops.find(s => !s.callback);
+    const d2 = swapMissions[1].stops.find(s => !s.callback);
+    const traded = d1.group === 'NEAR' && d2.group === 'FAR';
+    const carried = d1.reason === 'the near reason' && d2.reason === 'the far reason';
+    if(!traded || !carried) bad++;
+    console.log(`  ${traded && carried ? '✓' : '✗'} a traded call takes its reason with it`
+      + (traded ? '' : '  (the swap did not happen, so this case proves nothing)')
+      + (traded && !carried ? `  (day 1 kept "${d1.reason}" on a ${d1.group} call)` : ''));
+  }
+
+  // A far-GROUP call that is already sited at a near place must not be traded
+  // away at all — that is the whole point of siting it. Two far groups, FAR1
+  // sited at a near minor place and FAR2 not sited anywhere: FAR1 should stay
+  // on day 1 exactly as authored; FAR2 is the one nearFirst has to solve by
+  // trading. Put the bug back — drop the `sitedNear` check from `isFar` — and
+  // FAR1 gets traded too, which is the day-1-inherits-day-12's-content defect
+  // this was written for.
+  {
+    const sitedCur = {
+      FAR1: [{ title: 'sited far', game: { type: 'CHOICE' }, at: 'posted-copy' }],
+      FAR2: [{ title: 'unsited far', game: { type: 'CHOICE' } }],
+      NEAR: [{ title: 'a near call', game: { type: 'CHOICE' } }],
+    };
+    const sitedFixtures = { OFFICE: [{ id: 'posted-copy' }] };
+    const sitedMissions = [
+      { title: 'd1', stops: [
+        { group: 'FAR1', lesson: 0, reason: 'stays put' },
+        { group: 'FAR2', lesson: 0, reason: 'needs a partner' },
+      ] },
+      { title: 'd2', stops: [{ group: 'NEAR', lesson: 0, reason: 'near' }] },
+    ];
+    shapeMissions(sitedMissions, sitedCur, [],
+      { hasFar: true, near: ['NEAR'], far: ['FAR1', 'FAR2'], nearPlaces: ['NEAR', 'OFFICE'] },
+      2, sitedFixtures);
+    const kept = sitedMissions[0].stops.some(s => s.group === 'FAR1' && s.reason === 'stays put');
+    const moved = sitedMissions[0].stops.every(s => s.group !== 'FAR2');
+    if(!kept || !moved) bad++;
+    console.log(`  ${kept && moved ? '✓' : '✗'} a far call sited at a near place is not traded away`
+      + (!kept ? '  (FAR1 was traded despite being sited near)' : '')
+      + (kept && !moved ? '  (FAR2 — the genuinely far one — was left in place instead)' : ''));
+  }
   console.log(bad ? `\n✗ placement selftest: ${bad} case(s) wrong`
-                  : `\n✓ placement selftest: ${cases.length + 1} cases, the gate knows a person from a room`);
+                  : `\n✓ placement selftest: ${cases.length + 3} cases, the gate knows a person from a room`);
   return bad ? 1 : 0;
 }
 

@@ -104,7 +104,7 @@ async function contentOf(name){
   const theme = (await import(pathToFileURL(resolve(resolveTheme(name), 'theme.js')).href)).default;
   const { normalizeContent } = await import('../content/normalize.js');
   const content = theme.content ?? {};
-  normalizeContent(content);
+  normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
   return { content, theme };
 }
 

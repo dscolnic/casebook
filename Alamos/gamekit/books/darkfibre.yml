@@ -1,4 +1,4 @@
-# Dark Fibre — Pellow Head landing station, and twelve days with a cable down.
+# Dark Fibre — Pellow Head Island, twelve days to guide one repair attempt.
 #
 # Written to gamekit/tools/BOOK_TEMPLATE.md. The place is themes/darkfibre/site.js;
 # the sketch it came from is ../GAME_IDEAS.md under "Fibre", where it sat parked
@@ -10,86 +10,96 @@
 # Twelve of the thirty-six stops are DERIVE panels, one a day, in the order the
 # optics has to arrive in:
 #
-#   day  1  the acceptance cone, out of Snell and the critical angle
-#   day  2  the fault distance, out of a delay and the speed in glass
-#   day  3  the loss along the span, in decibels
-#   day  4  the reflection at a step, and what a break looks like
-#   day  5  the energy of one photon at 1550 nm, and how many a milliwatt is
-#   day  6  the responsivity of the receiver's photodiode
-#   day  7  the gamma dose through a repeater housing
-#   day  8  the source's activity now, and the exposure it needs
-#   day  9  the pump transition, and where the missing energy goes
-#   day 10  the group index, and the kilometre the trace is out by
-#   day 11  the index-matching film, and the reflection it cancels
-#   day 12  the loss budget closed against the repeater rather than the fibre
+#   day  1  the acceptance cone, from Snell's law and the critical angle
+#   day  2  the apparent fault distance, from delay and the speed in glass
+#   day  3  the reflection expected from a clean break
+#   day  4  the full span loss budget in decibels
+#   day  5  the energy of one 1550 nm photon and the photon rate in a power
+#   day  6  the measured photodiode responsivity
+#   day  7  gamma attenuation through the replacement housing
+#   day  8  the anti-reflection coating used to clean up the two-colour test
+#   day  9  radioactive decay of the radiography source
+#   day 10  the corrected seabed route position
+#   day 11  the pump-power ceiling from photon energies
+#   day 12  the final loss budget after the spare-pump recovery
 #
 # `askRule: true` is on. Optics is a course where the same arithmetic is licensed
 # by four different physical laws, and a student who divides the indices the right
 # way round without knowing whether they are using Snell or the critical-angle
 # condition has not understood either.
 #
-# The argument: Sarraf holds that the trace is a measurement and the ship should
-# be sent to the kilometre it names. Okonkwo holds that an instrument reports in
-# its own units and that a cable has slack in it. Sarraf is right on day 4 — the
-# trace is a hundred times better than any alternative and a week of ship time is
-# a week of a cable down. Okonkwo is right on day 10: the group index and 1.5 per
-# cent of slack move the position by 1.7 km, and a grapnel run is ±0.5.
+# The story: Pellow Head is a small island whose main phone and internet link to the mainland
+# is an undersea fibre cable. The cable lost 4.1 dB suddenly and the island is running on one
+# backup route. A repair ship reaches the island in twelve days, just before bad weather closes
+# the sea for weeks. The player has to use the physics of light to answer two questions before
+# that one safe recovery day: what failed, and exactly where it is on the seabed route.
 #
 # The timeline the cards are checked against:
 #   eleven years ago    the cable laid; 1.5 per cent slack paid out over the route
 #   four years ago      repeater 6 replaced; its pump output logged at 118 mW
 #   eight months ago    the radiography source renewed; 73.8-day half-life
 #   nineteen days ago   the span lost 4.1 dB overnight and the traffic moved
-#   now                 twelve working days; the ship is on charter from day 13
-#   day 13              the ship sails for wherever this station tells it
-#   the charter         costs the company forty thousand a day
+#   now                 twelve working days until the repair ship arrives
+#   day 13              one safe repair day before the weather closes the sea
+#   after that          the next safe offshore repair window may be weeks away
 
 theme:
   id: darkfibre
   title: Dark Fibre
-  subtitle: Optical Measurements Lead · Pellow Head, twelve days with a cable down
+  subtitle: Optical Measurements Lead · Pellow Head Island · twelve days to guide one repair attempt
+  opening: >-
+    Pellow Head is a small island. Nearly every phone call and internet connection to the mainland runs through
+    one fibre-optic cable on the ocean floor. Nineteen days ago it lost most of its signal, leaving the island
+    on one backup line. If that fails, emergency calls, hospital links and normal communication with the mainland
+    go down.
+
+
+    A repair ship arrives in twelve days, just before bad weather closes the sea for weeks. It gets one safe day
+    to pull up one part of the cable. You are the optical measurements lead. Use the physics of light to answer
+    two questions: what failed, and where is it? Send the ship to the wrong thing or place, and Pellow Head may
+    stay on its last link until the sea reopens.
 
 groups:
   - id: TERM
     code: TERM
     name: Cable Termination Room
     color: '#4f7fa8'
-    desc: Where the sea cable becomes glass you can put light into.
+    desc: Where the island cable comes ashore and light is launched into its glass fibres.
     defaultLeader: okonkwo
     milestones: [Read the ends, Take the angles, Set the launch, Ready to hand over]
   - id: TEST
     code: TEST
     name: Test Room
     color: '#c2703f'
-    desc: A pulse, a delay and a logarithm, and eighty-four kilometres of guesswork.
+    desc: Where pulses are sent down the cable and the returning light becomes evidence.
     defaultLeader: sarraf
     milestones: [Fire the pulse, Read the trace, Place the event, Ready to hand over]
   - id: SPLICE
     code: SPLICE
     name: Splice Trailer
     color: '#8a8f4a'
-    desc: Two ends of glass, an index step, and the reflection it makes or does not.
+    desc: Where old joints are tested to see whether they could be stealing or reflecting light.
     defaultLeader: ramnarine
     milestones: [Prepare the ends, Match the index, Prove the joint, Ready to hand over]
   - id: AMP
     code: AMP
     name: Amplifier and Power Hall
     color: '#8a6fb0'
-    desc: Erbium in a coil of fibre, a pump laser, and a level scheme that decides everything.
+    desc: Where the team studies the laser pumps that keep the cable signal strong across the ocean floor.
     defaultLeader: tanaka
     milestones: [Read the pump, Take the transition, Find the gain, Ready to hand over]
   - id: RECV
     code: RECV
     name: Receiver Lab
     color: '#3f8f7a'
-    desc: Where photons become electrons, and where the counting starts.
+    desc: Where the faint light from the far end becomes electrical current and data.
     defaultLeader: duarte
     milestones: [Count the photons, Take the efficiency, Set the sensitivity, Ready to hand over]
   - id: RAD
     code: RAD
     name: Radiography Bay
     color: '#6f6a86'
-    desc: Three hundred metres out in the dunes, because of what is in the pot.
+    desc: Where the replacement repeater housing is X-rayed before the ship is allowed to take it to sea.
     defaultLeader: farouk
     milestones: [Check the source, Take the dose, Shoot the weld, Ready to hand over]
 
@@ -148,26 +158,18 @@ roster:
     name: Ines Sarraf
     role: Chief Transmission Engineer
     division: TEST
-    bio: |
-      Runs the test room and has been reading traces for fifteen years. Nineteen
-      days ago this span lost four decibels overnight and she was the person who
-      moved the traffic before anybody had a name for what happened.
+    bio: |-
+      Runs the test room and has been reading traces for fifteen years. Nineteen days ago this span lost four decibels overnight and she was the person who moved the traffic before anybody had a name for what happened.
 
-      Her position is that the instrument is a measurement rather than an opinion.
-      It fires a pulse, times what comes back, and places the event to a few
-      metres of optical distance, which is better than anything else anybody will
-      offer in the next fortnight.
+      Her position is that the trace is a measurement rather than an opinion. It fires a pulse, times what comes back, and places the event to a few metres of optical distance, which is better than anything else anybody will offer quickly.
 
-      Her limit is that she is measuring the fibre and the decision is about the
-      seabed. She knows it and she also knows that the ship is on charter from the
-      thirteenth and that a week spent looking for a better number is a week the
-      cable is down.
+      Her limit is that she is measuring the fibre and the decision is about the seabed. She knows it, and she also knows the ship gets one safe repair day before the weather closes. A perfect answer that arrives after the ship leaves is no answer at all.
     quiz:
-      - q: Why does Sarraf press for a decision on the trace rather than on a better measurement?
-        a: A better number arrives after the ship's charter has started
+      - q: Why does Sarraf push for a decision before every uncertainty has been removed?
+        a: The ship has one safe repair window, so evidence that arrives too late cannot guide the repair
         wrong:
-          - No instrument other than an OTDR can locate a fault in a submarine cable
-          - The trace was taken at two wavelengths, which removes the need for further work
+          - No instrument other than a reflectometer can locate a fault in an undersea cable
+          - The first trace already identifies the failed component, so more measurements add nothing
           - Optical distance and seabed position agree to within a few metres in practice
   - id: meier
     name: Tobias Meier
@@ -383,6 +385,12 @@ roster:
           - Shielding has to be recertified annually and distance does not
 
 glossary:
+  - name: Calibration
+    aliases: [calibration, calibrate, calibrated, calibrating]
+    def: Checking an instrument against something already known, so its readings can be trusted.
+  - name: Spectrum
+    aliases: [spectrum, spectra]
+    def: The set of energies or wavelengths something gives out, and how much of each.
   - name: Refractive index
     aliases: [refractive index, index, indices]
     def: How much more slowly light goes in a material than in empty space.
@@ -436,7 +444,7 @@ glossary:
     def: An instrument that sends a pulse down a fibre and times what comes back.
   - name: Trace
     aliases: [trace, traces]
-    def: The picture a reflectometer draws: how much came back, against how long it took.
+    def: "The picture a reflectometer draws: how much came back, against how long it took."
   - name: Splice
     aliases: [splice, splices, spliced]
     def: A joint between two fibres, either welded or held end to end.
@@ -454,7 +462,8 @@ glossary:
     def: A sealed housing on the sea floor that strengthens the signals passing through it.
   - name: Erbium amplifier
     aliases: [erbium amplifier, erbium]
-    def: A coil of fibre with a rare-earth element in the glass, which gives the signal energy it takes from a laser.
+    def: A coil of fibre with a rare-earth element in the glass, which gives the signal energy it takes from
+      a laser.
   - name: Pump laser
     aliases: [pump laser, pump]
     def: The laser whose light lifts those atoms into a state they can give energy from.
@@ -484,7 +493,7 @@ glossary:
     def: The extra length paid out while laying, so the cable lies down instead of hanging.
   - name: Grapnel
     aliases: [grapnel]
-    def: The hook a ship drags to catch a cable it means to lift.
+    def: A heavy hook dragged from a repair ship to catch an undersea cable so the crew can lift it.
   - name: Radiography
     aliases: [radiography, radiograph, radiographed]
     def: Making a picture of the inside of something by shining rays through it onto film.
@@ -500,38 +509,39 @@ glossary:
 
 missions:
   # ---------------------------------------------------------------- day 1
-  - title: What stays in the glass
-    objective: Establish why light stays in a fibre at all, and how much of it can be got in.
-    briefing: Nineteen days with a cable down, and the ship is on charter from the thirteenth.
+  - title: Is the problem here, or out at sea?
+    objective: >-
+      Clear the station end, then decide what the first fault trace actually proves.
+    briefing: >-
+      Before you blame eighty kilometres of cable on the ocean floor, prove that this building is putting light
+      into it correctly.
     stake: >-
-      Monday. The ship sails in twelve working days, and it goes wherever this station says.
-      Pellow Head is where a submarine cable comes ashore. Nineteen days ago the span out to the
-      first repeater lost four decibels overnight. A decibel is how loss is counted here. Ines
-      Sarraf, the chief transmission engineer, moved the traffic off the cable that night. She
-      has been reading traces ever since. Gerald Okonkwo, the station chief, laid this cable
-      eleven years ago. He keeps saying that an instrument reports in its own units, not in
-      yours. Today you settle why light stays inside a fibre at all. You also work out how much
-      light a termination can get in. Then you hear what the trace in the test room does and
-      does not say. The charter costs forty thousand a day. The grapnel run is only half a
-      kilometre wide.
-    takeaway: Light stays in a fibre because of two indices, and everything about a launch follows from them.
+      T−12 days. Sarraf, the chief transmission engineer, thinks the trace points to a fault far offshore. Nilsen, the cable termination technician, says a bad launch here can make good cable look weak. Use total internal reflection to clear the launch. Then say what the trace really shows, before anyone plans a repair at sea.
+    takeaway: 'Physics can clear one suspect at a time: first the launch, then what the trace actually measured.'
+    segue: >-
+      The launch is good. The missing light is not being thrown away in this building. The trace shows a
+      real 4.1 dB loss at a particular delay—but it does not yet tell you the cause or a place on the
+      seabed. On day 2, turn that delay into a distance along the fibre.
     stops:
       - group: TERM
-        task: Get the acceptance cone out of the two indices
-        title: Seven degrees of everything
+        task: Prove the station is launching light inside the fibre's acceptance cone
+        title: How much light can the fibre accept?
+        at: term-bench
+        reason: >-
+          If the station launches light at too wide an angle, light escapes immediately and the whole cable can
+          look weak even when nothing offshore is wrong.
         concept: The acceptance angle of a fibre, and numerical aperture
         takesAsRead:
           - Total internal reflection and the critical angle
         place: Cable Termination Room
         scene: >-
-          Halvard Nilsen, the cable termination technician, has the fibre's two indices on the bench:
-          1.4682 in the core and 1.4629 in the cladding. He wants the widest cone of light that will
-          stay in the core once it is in.
+          Nilsen puts the fibre certificate beside the launch connector: core index 1.4682, cladding 1.4629. Before
+          Sarraf blames the ocean cable, he wants you to prove how wide a cone this fibre can trap.
         guide: >-
-          You build the working a line at a time, choosing the expression the line above gives you.
-          Start at the boundary between the core and the cladding and ask what angle just fails to
-          cross it. Turn that into an angle from the axis rather than from the boundary, then take it
-          out through the end face into air. Two of the three steps are the same law used twice.
+          Start with the core-cladding boundary. Use Snell's law to find the critical angle, convert that angle
+          from the boundary normal to the fibre axis, then refract it through the end face into air. Each step
+          answers a physical question: when light stops escaping, what direction that means inside the fibre,
+          and what launch angle that corresponds to outside.
         background:
           - >-
             Why the two angles are complementary. A ray's angle at the core-cladding boundary is
@@ -550,9 +560,10 @@ missions:
             cone is gone by the first kilometre.
         assumes:
           - a ray at a boundary is measured from the normal to that boundary
-        takeaway: A fibre's acceptance cone is fixed by its two indices alone, and light launched outside it is lost immediately.
+        takeaway: A fibre's acceptance cone is fixed by its two indices alone, and light launched outside it
+          is lost immediately.
         format: DERIVE
-        question: What is the widest angle from the axis that a termination may launch light at?
+        question: How wide can the launch cone be and still keep the light trapped in this fibre?
         answerText: >-
           About 7.2° in air, a numerical aperture of 0.125. The critical angle is 85.1° from the
           normal, which is 4.9° from the axis, and the end face refracts that out to 7.2°.
@@ -664,26 +675,30 @@ missions:
                     angle in degrees.
           commit: Commit the derivation
       - group: TEST
-        task: Settle what the trace in the test room says
-        title: What came back, and when
+        task: Separate what the instrument measured from what people are inferring
+        title: What the trace actually proves
+        reason: >-
+          Sarraf wants to use the failure trace as the first clue in the repair plan. Before that happens, you
+          need to mark exactly what the trace proves and what it does not.
         concept: 'A measurement in an instrument’s own units, and what converts it'
         takesAsRead:
           - Time of flight, and turning a delay into a distance
           - Power in decibels, and why a loss budget adds
         place: Test Room
         scene: >-
-          Sarraf has the trace from the night of the loss pinned up. A sloping line, with a step in
-          it nineteen days old. The scale is decibels down the side and kilometres along the bottom.
+          Sarraf pins up the trace from the night the signal fell. It shows a sudden 4.1 dB step at one round-trip
+          delay. The screen also prints a distance, but that distance was calculated by software.
         guide: >-
-          Four accounts of what that step is. Ask of each whether the instrument could know it, given
-          that all it has is how much light came back and how long it took. The distinction that
-          decides it is between a quantity the instrument measures and a quantity somebody has to
-          convert it into.
+          The instrument directly measures returned light and time. Distance, seabed position and the identity
+          of the failed component all require extra assumptions. Pick the statement that stays true even if those
+          later conversions turn out to be wrong.
         assumes:
           - a reflectometer sends a pulse and records what returns against time
-        takeaway: An instrument measures in its own units, and every step from there to a decision is a conversion somebody has to make.
+        takeaway: An instrument measures in its own units, and every step from there to a decision is a 
+          conversion somebody has to make.
         format: CHOICE
-        question: What does the step in the trace establish on its own?
+        question: Before anyone calls this a break or a repeater failure, what does the trace itself 
+          actually prove?
         why: >-
           It establishes that something 4.1 decibels' worth happened at a particular round-trip
           delay. Everything else is conversion. The delay becomes a distance only once a speed is
@@ -698,28 +713,34 @@ missions:
           - That the fibre has been damaged rather than bent
         answer: That something lost 4.1 dB at a particular delay
         rebuttals:
-          - A delay becomes a distance only once a speed in the glass is assumed, and a position only once slack is.
-          - A repeater's failure is one of several things that would put a step there, and the trace does not name it.
+          - A delay becomes a distance only once a speed in the glass is assumed, and a position only once 
+            slack is.
+          - A repeater's failure is one of several things that would put a step there, and the trace does 
+            not name it.
           - Damage and a bend give the same loss; what tells them apart is whether light comes back.
       - group: SPLICE
-        task: Ask Ramnarine what a joint has to avoid
-        title: Eleven joints, eleven years old
+        task: Understand what index-matching gel changes in an old mechanical joint
+        title: Could an old joint be the culprit?
+        reason: >-
+          There are eleven old mechanical joints near shore. If their gel has dried, one of them could lose light
+          and send some back, so they belong on the suspect list.
         concept: Refractive index, and the speed of light in a material
         place: Splice Trailer
         person: true
         scene: >-
-          Priya Ramnarine, the chief splicer, has the shore-end record open. Eleven mechanical
-          joints were made on this cable when it was landed. Each holds two ends together in a gel.
-          All eleven are as old as the cable.
+          Ramnarine, the chief splicer, opens a spare mechanical joint. Two glass ends sit a tiny distance apart. With air in the
+          gap they make two glass-air boundaries; with matching gel, the light sees almost no change in refractive
+          index.
         guide: >-
-          All four options are things that can go wrong with a joint. Ask of each whether it would
-          make the joint merely lossy, or make it visible from the far end. Those are different
-          faults with different signatures. And one of them is what a gel is there to prevent.
+          Think about what makes light reflect at a boundary. The hardware holds the fibres in line; the gel has
+          a different job. Ask what happens to the refractive-index step when the gap is filled with material
+          that matches the glass.
         assumes:
           - light is partly reflected wherever the index changes abruptly
-        takeaway: A joint is judged by what it does to the light rather than by how it holds two pieces of glass.
+        takeaway: A joint is judged by what it does to the light rather than by how it holds two pieces of 
+          glass.
         format: CHOICE
-        question: What does the gel in a mechanical joint do?
+        question: What does the index-matching gel do to the light at a mechanical joint?
         why: >-
           It removes the index step. Two glass ends held a hair apart have air between them. Each
           glass-air boundary reflects a few per cent of the light straight back. A gel of the same
@@ -738,33 +759,38 @@ missions:
           - Water is kept out by the closure round the whole joint, which is a separate fitting.
           - The ends are meant to be a few microns apart, and the gel does not decide that.
   # ---------------------------------------------------------------- day 2
-  - title: A delay, and what it is worth
-    objective: Turn the trace's delay into a distance, and say what speed that distance rests on.
-    briefing: The whole fortnight comes down to one number on a chart, and it has never been derived.
+  - title: Turn the echo into a distance
+    objective: Convert the pulse's round-trip time into a distance along the fibre, without confusing that 
+      number with a seabed position.
+    briefing: The screen prints 84.6 km. Before the captain ever sees that number, you need to know exactly 
+      how the instrument got it.
     stake: >-
-      Tuesday. The position on the ship's chart is a number somebody copied off an instrument.
-      Sarraf's trace puts the step at a round trip delay of 828.6 microseconds. The software
-      beside it prints a distance in kilometres instead. Okonkwo will not sign a chart when he
-      cannot see the working. Aline Duarte, the receiver engineer, has raised a second worry.
-      The software's index setting has not been checked since the instrument was new. The index
-      is the number that says how slowly light runs in glass. Today you get the distance out of
-      the delay yourself. You also work out how fast light really moves in this glass. Then you
-      settle what light is being counted as at the far end of the fibre. Eleven years of slack
-      cable sit between this number and a place on the seabed.
-    takeaway: A delay becomes a distance only through a speed, and the speed is a property of the glass.
+      T−11 days. The fault trace marks a round-trip delay of 828.6 microseconds. Sarraf can turn that into kilometres
+      with software, but the repair order cannot rest on a black-box conversion. Derive the speed in glass and
+      the out-and-back distance yourself.
+    takeaway: A time delay becomes a distance only after you choose the speed of the pulse and account for 
+      the return trip.
+    segue: >-
+      You now have 84.6 km—but only along the glass. The cable is not a ruler stretched straight across the seabed,
+      and a pulse does not travel at quite the number the old software assumed. Keep 84.6 km provisional. You
+      will correct it before the ship leaves.
     stops:
       - group: TEST
-        task: Get the distance from the round-trip delay
-        title: Eight hundred and twenty-eight microseconds
+        task: Derive the distance from the trace's round-trip delay
+        title: Turn 828.6 microseconds into kilometres
+        at: otdr
+        reason: >-
+          The screen prints 84.6 km, but the repair order cannot depend on a number nobody here can reconstruct
+          from the physics.
         concept: Time of flight, and turning a delay into a distance
         place: Test Room
         scene: >-
-          The step in the trace sits at a round-trip delay of 828.6 microseconds. The core's index is
-          1.4682. Sarraf wants the distance derived rather than read off the instrument's own display.
+          The fault step returns after 828.6 microseconds. For the first pass, the old software used the core
+          index 1.4682. Sarraf wants the distance rebuilt from the raw delay.
         guide: >-
-          You build the working a line at a time. Light in glass is slower than light in empty space
-          by exactly the index, and the pulse has been out and back rather than out. Both of those are
-          factors, and getting either the wrong way round gives an answer with the right units.
+          First find the speed represented by that refractive index. Then remember the pulse travelled to the
+          event and back. Keep the microsecond conversion visible. The result is a distance along the fibre, not
+          yet a coordinate on the seabed.
         background:
           - >-
             Why the factor of two. A reflectometer measures the light that comes back to it, so
@@ -783,9 +809,10 @@ missions:
             later in the fortnight, and both make the number smaller.
         assumes:
           - a reflectometer reports the delay of a pulse that has been out and back
-        takeaway: A time of flight gives a distance along the fibre, and only after the speed in the glass and the return journey are both applied.
+        takeaway: A time of flight gives a distance along the fibre, and only after the speed in the glass 
+          and the return journey are both applied.
         format: DERIVE
-        question: How far along the fibre is the event that made the step?
+        question: Using the raw round-trip delay, how far along the fibre does the event appear to be?
         answerText: >-
           About 84.6 km. The speed in the glass is c/n = 2.042 × 10⁸ m/s, and the distance is half the
           delay times that speed.
@@ -896,23 +923,28 @@ missions:
                     conversion.
           commit: Commit the derivation
       - group: TERM
-        task: Work out the speed in this glass
-        title: Two hundred thousand kilometres a second
+        task: Connect refractive index to the speed used in the first distance estimate
+        title: How fast is light in this glass?
+        at: index-book
+        reason: >-
+          Three nearby index values are on the bench. Choosing the wrong one can move a long-distance fault by
+          hundreds of metres.
         concept: Refractive index, and the speed of light in a material
         place: Cable Termination Room
         scene: >-
-          Nilsen has three indices written on the bench: the core, the cladding, and the group index
-          the instrument's software is set to. He wants the speed that goes with the core.
+          Nilsen writes three numbers beside the trace: the core index 1.4682, cladding index 1.4629, and manufacturer
+          group index 1.4718. The old trace conversion used the core index; the group index will matter later
+          because the instrument sends a pulse.
         guide: >-
-          Four quantities are offered and two of them make the answer. The index to use here is the
-          one belonging to the glass the light is in, which is the core. The cladding's index is on
-          the bench because it belongs to the last derivation. The group index is there because it
-          belongs to the next one. The vacuum speed is the only other thing needed.
+          For this question, find the speed associated with the core index: vacuum speed divided by refractive
+          index. Keep the cladding index for boundaries and the group index for the later pulse-position correction.
+          The point is not the division; it is knowing which physical quantity each index describes.
         assumes:
           - the index of a material is the factor by which light is slowed in it
-        takeaway: A refractive index is a ratio of speeds, so dividing the vacuum speed by it is the whole of the arithmetic.
+        takeaway: A refractive index is a ratio of speeds, so dividing the vacuum speed by it is the whole 
+          of the arithmetic.
         format: BALLPARK
-        question: How fast does light travel in the core of this fibre?
+        question: What speed does the core index 1.4682 correspond to?
         estimate:
           prompt: >-
             The distance on the chart rests on this number. It is the speed the pulse actually made,
@@ -946,23 +978,28 @@ missions:
           it. The core's is the one the light is travelling in. The distinction between it and the
           group index is worth a kilometre on the ship's chart. It arrives on day ten.
       - group: RECV
-        task: Ask Duarte what arrives at the far end
-        title: A few hundred of something
+        task: Connect the weak received power to the two descriptions of light you will need later
+        title: What reaches the receiver?
+        reason: >-
+          Duarte warns that the receiver does not merely see a smooth beam. It measures a wave with a wavelength
+          and also a count of individual arrivals, and both facts will matter when you test whether the receiver
+          is trustworthy.
         concept: 'Light as a wave: wavelength, frequency and the relation between them'
         place: Receiver Lab
         person: true
         scene: >-
-          Duarte has the receiver's own record on the bench. It gives the power arriving at the end
-          of the span, in billionths of a watt. It also gives the rate the bits arrive at.
+          At the far end, Duarte, the receiver engineer, has a wavelength specification, a received optical power and a bit rate. Those
+          numbers describe the same light in two different ways.
         guide: >-
-          All four options describe what a receiver is dealing with. Ask of each whether it is a
-          statement about a wave, about a stream of arrivals, or about the electronics. The answer
-          decides which physics the error rate is limited by.
+          A wave description tells you about wavelength, interference, scattering and dispersion. A photon-count
+          description tells you how many discrete arrivals the detector has to work with. Choose the answer that
+          keeps both descriptions rather than throwing one away.
         assumes:
           - light can be described as a wave and as a stream of arrivals
-        takeaway: A wave has a wavelength and a frequency; a stream of arrivals has a count, and both descriptions are needed at a receiver.
+        takeaway: A wave has a wavelength and a frequency; a stream of arrivals has a count, and both 
+          descriptions are needed at a receiver.
         format: CHOICE
-        question: What is the receiver working with at the end of the span?
+        question: What two descriptions of the same light does the receiver need at once?
         why: >-
           It is working with a wave of a definite wavelength, arriving as a countable number of
           pieces. Both halves are needed. The wavelength decides how much energy each arrival
@@ -979,40 +1016,44 @@ missions:
         rebuttals:
           - A steady flow would have no scatter of its own, and the measured error floor says it does.
           - The fibre carries light; a voltage exists only after the diode has turned it into current.
-          - The signal is one channel of one wavelength here, and separating channels happens before this fibre.
+          - The signal is one channel of one wavelength here, and separating channels happens before this 
+            fibre.
   # ---------------------------------------------------------------- day 3
-  - title: What comes straight back
-    objective: Work out how much light a break returns, and find the wavelength this fibre likes.
-    briefing: A break reflects and a bend does not, and nobody has put a number on either.
+  - title: Is the cable actually broken?
+    objective: Predict the reflection from a clean break, then compare that prediction with the fault trace.
+    briefing: If the cable has snapped, the broken glass should act like a small mirror. That gives you a 
+      test before anyone cuts open the ocean floor.
     stake: >-
-      Wednesday. The question in the test room has changed from where to what. Ramnarine says a
-      break in the glass throws light straight back at the instrument. A bend does not. So the
-      shape of the trace should say which of the two this is. Sarraf's trace shows a step with a
-      small spike on it. Nobody has measured that spike yet. Tobias Meier, the test room
-      technician, has eleven years of traces taken at two wavelengths. He has said all week that
-      the pair tells you more than either one alone. Today you work out what a break sends back.
-      You also find the wavelength a kilometre of this fibre loses least at. Then you hear from
-      Dr. Yuki Tanaka, the amplifier specialist, what the pump telemetry does and does not
-      report. Whatever the ship is told to look for, it has to be told what kind of thing it is.
-    takeaway: The size of the reflection at an index step is what tells a break from a bend.
+      T−10 days. A clean break and a bend can both lose light, but only the break makes a strong reflection. Calculate
+      what a broken fibre should send back, then use the trace to decide whether “the cable snapped” survives
+      as a diagnosis.
+    takeaway: The amount of light that comes back can distinguish a break from a loss that simply lets light
+      escape.
+    segue: >-
+      The reflection is far too small for a clean break. The cable has not simply snapped. The remaining suspects
+      are a bend or crush, an old joint, or a repeater problem—and the repeater's electrical telemetry cannot
+      clear it because nobody measured its optical output.
     stops:
       - group: SPLICE
-        task: Work out how much a break in the glass reflects
-        title: Three and a half per cent, straight back
+        task: Predict the reflection from broken glass before comparing it with the real trace
+        title: What would a clean break look like?
+        at: splicer
+        reason: >-
+          If the fibre snapped cleanly, the exposed glass-air boundary should send a predictable fraction of the
+          light straight back. That is a testable signature of a break.
         concept: 'Thin films, index matching and the reflection at a step'
         takesAsRead:
           - Interference of two beams, and the path difference that decides it
           - Snell's law at a boundary
         place: Splice Trailer
         scene: >-
-          Ramnarine has two cleaved ends on the bench, one dry and one in gel. She wants the fraction
-          of the light each of them sends straight back, in decibels, so that a trace can be read
-          against it.
+          Ramnarine puts a clean cleaved fibre end beside one filled with index-matching gel. One has a large
+          jump from glass to air; the other has almost none. She wants the reflected power in a form that can
+          be compared directly with the trace.
         guide: >-
-          You build the working a line at a time. What decides the reflection is the size of the
-          step in index at the boundary. Both ends of that step matter. Glass to air is a large
-          step; glass to gel is almost none. Take the fraction first, then put it into decibels,
-          where a small fraction becomes a large negative number.
+          Calculate the reflected amplitude from the two refractive indices, square it to get reflected power,
+          then convert the power ratio to decibels. The important comparison is not just “some reflection” but
+          how much a true glass-air break should return.
         background:
           - >-
             Why the step is squared. The reflected amplitude goes as the difference over the sum of
@@ -1031,9 +1072,11 @@ missions:
             clean break's. That is neither, and it is the finding of the fortnight.
         assumes:
           - power is proportional to the square of a wave's amplitude
-        takeaway: Reflection at a boundary depends on the size of the index step, so the same loss can come back as a mirror or as nothing.
+        takeaway: Reflection at a boundary depends on the size of the index step, so the same loss can come 
+          back as a mirror or as nothing.
         format: DERIVE
-        question: What fraction of the light does a dry cleaved end send back, in decibels?
+        question: If this cable had snapped cleanly, how much light should the broken end send straight 
+          back?
         answerText: >-
           About 3.6 per cent, which is −14.4 dB. In gel the step is a hundred times smaller and the
           reflection ten thousand times smaller, at −51 dB.
@@ -1144,44 +1187,46 @@ missions:
                   rule: substitution of the stated values
           commit: Commit the derivation
       - group: TEST
-        task: Find the wavelength this fibre loses least at
-        title: A window, and the peak beside it
+        task: Measure the normal wavelength dependence of this fibre before using colour as a fault test
+        title: Find the fibre's best wavelength
+        at: sweep-drum
+        reason: >-
+          Later you will compare the fault at two wavelengths. First you need to know how an undamaged kilometre
+          of this fibre normally behaves as wavelength changes.
         concept: 'Scattering, absorption and what makes a material lossy'
         place: Test Room
         scene: >-
-          Meier has the loss set up so that the instrument can be tuned across its whole range while
-          it measures a kilometre of spare fibre on the drum. Nothing has been swept on this station
-          for eleven years.
+          Meier, the test room technician, puts one kilometre of spare cable on the test drum and lets you tune the source from 1200 to 1650
+          nm. The loss is not flat, and one narrow absorption feature sits on top of the broader trend.
         guide: >-
-          Move the tuning across the range and read the loss the drum returns at each setting you
-          actually stop at. Only the points you visit are plotted, so the curve is what you have
-          built rather than what the instrument drew. The criterion is the lowest loss per kilometre;
-          note also that there is a narrow rise somewhere in the middle that is not scattering.
+          Sample enough wavelengths to see the shape rather than guessing from one point. Rayleigh scattering
+          falls toward longer wavelengths, while absorption eventually rises. Find the low-loss window and notice
+          the water-related bump that is a different mechanism.
         assumes:
           - scattering falls steeply as the wavelength gets longer
         takeaway: A fibre has a window where scattering has fallen away and absorption has not yet begun.
         format: SWEEP
         question: >-
-          A kilometre of this fibre loses least at one setting. Where is it?
+          At what wavelength does this fibre lose the least light per kilometre?
         sweep:
-          axis: { label: Wavelength, unit: nm, min: 1200, max: 1650, step: 5 }
-          readout: { label: Loss, unit: dB/km }
+          axis: {label: Wavelength, unit: nm, min: 1200, max: 1650, step: 5}
+          readout: {label: Loss, unit: dB/km}
           baseline: 1.05
           response:
-            - { at: 1200, value: 1.05 }
-            - { at: 1250, value: 0.78 }
-            - { at: 1300, value: 0.44 }
-            - { at: 1330, value: 0.52 }
-            - { at: 1360, value: 1.10 }
-            - { at: 1385, value: 1.95 }
-            - { at: 1410, value: 0.98 }
-            - { at: 1450, value: 0.42 }
-            - { at: 1500, value: 0.27 }
-            - { at: 1530, value: 0.21 }
-            - { at: 1555, value: 0.185 }
-            - { at: 1580, value: 0.21 }
-            - { at: 1610, value: 0.26 }
-            - { at: 1650, value: 0.34 }
+            - {at: 1200, value: 1.05}
+            - {at: 1250, value: 0.78}
+            - {at: 1300, value: 0.44}
+            - {at: 1330, value: 0.52}
+            - {at: 1360, value: 1.10}
+            - {at: 1385, value: 1.95}
+            - {at: 1410, value: 0.98}
+            - {at: 1450, value: 0.42}
+            - {at: 1500, value: 0.27}
+            - {at: 1530, value: 0.21}
+            - {at: 1555, value: 0.185}
+            - {at: 1580, value: 0.21}
+            - {at: 1610, value: 0.26}
+            - {at: 1650, value: 0.34}
           target: 1555
           tolerance: 20
           start: 1200
@@ -1197,26 +1242,28 @@ missions:
           spike in the middle is water trapped in the glass, absorbing at its own wavelength. That
           is a property of the molecule, not of the fibre's quality.
       - group: AMP
-        task: Ask Tanaka what the pump telemetry reports
-        title: Current, and not light
+        task: Decide what four years of normal electrical readings can and cannot prove about repeater 6
+        title: Can the pump telemetry clear the repeater?
+        reason: >-
+          Repeater 6 is now on the suspect list. Its current, voltage and temperature all look normal—but none
+          of those measurements is the optical power that actually excites the amplifier.
         concept: 'Stimulated emission, population inversion and gain'
         place: Amplifier and Power Hall
         person: true
         scene: >-
-          Tanaka has repeater 6's telemetry on the screen: a pump current, a case temperature and a
-          supply voltage, four years of them, all inside limits.
+          Tanaka, the amplifier specialist, opens four years of repeater 6 telemetry. Every electrical reading is inside limits. There is
+          no optical pump-power channel anywhere in the log.
         guide: >-
-          All four options are things the telemetry could be evidence of. Ask of each what would
-          have to be true for a current to establish it. Everything the amplifier does depends on
-          how many atoms are held in the upper state at any moment. One of the four is what a
-          current cannot reach.
+          Separate “the pump diode is being driven” from “the pump diode is still producing the same light.” Laser
+          output can age while drive current stays normal. Choose only what the telemetry directly establishes.
         takesAsRead:
           - Atomic energy levels, and the wavelengths they allow
         assumes:
           - an amplifier works by holding more atoms excited than not
-        takeaway: A pump current says power is going in; the gain depends on how many atoms that power is actually exciting.
+        takeaway: A pump current says power is going in; the gain depends on how many atoms that power is 
+          actually exciting.
         format: CHOICE
-        question: What does four years of good pump telemetry establish?
+        question: What do the normal pump current, voltage and temperature actually prove?
         why: >-
           It establishes that the pump laser is being driven. Gain depends on the population
           inversion — on more erbium atoms being in the upper state than the lower. And the
@@ -1235,35 +1282,37 @@ missions:
           - An inversion is a count of excited atoms, and no electrical reading of the pump reports it.
           - A damaged coil would change the loss and not the current the pump draws.
   # ---------------------------------------------------------------- day 4
-  - title: What the span can afford
-    objective: Add up the loss along the span and see what is left of the allowance.
-    briefing: Four decibels arrived overnight, and nobody has said what the span had spare.
+  - title: How close is the link to failing?
+    objective: Build the full loss budget and decide how much usable signal the damaged route has left.
+    briefing: The island is living on one backup line. You need to know whether the damaged main cable still
+      has enough margin to help if the backup starts to fail.
     stake: >-
-      Thursday. For the first time the argument in the test room has a number in it. Sarraf has
-      said all week that the trace is a measurement. Send the ship to the kilometre it names.
-      Okonkwo says a better number is worth waiting for. The arithmetic decides it today.
-      Whether the span still works depends on what the loss adds up to. That total is set
-      against what the receiver can accept. Nadia Farouk, the radiographer, has the housing
-      records the ship will need either way. Today you total the loss budget. You also settle
-      what attenuation per kilometre means. Then you see what a radiography record has to carry.
-      A week spent hunting a better position is a week the traffic sits on one spare route. That
-      route has no spare of its own.
-    takeaway: Losses in decibels add, so a budget is a sum and what is left of it is a margin.
+      T−9 days. The new loss is 4.1 dB, but that number means little by itself. Add the fibre, joints and new
+      event in decibels and compare the result with the receiver's limit. At the same time, start preparing a
+      replacement repeater in case that becomes the diagnosis.
+    takeaway: A loss budget tells you how close the link is to its limit, because logarithmic losses add 
+      along the path.
+    segue: >-
+      The damaged route has only 2.2 dB of margin. That is not a comfortable emergency fallback for the island.
+      The loss is serious, but you still do not know its cause. Next, make sure the weak signal at the receiver
+      is being interpreted correctly.
     stops:
       - group: TEST
-        task: Total the loss along the span
-        title: Twenty-one point eight
+        task: Build the link budget and compare it with the receiver limit
+        title: How much margin is left?
+        at: otdr
+        reason: >-
+          If the backup line fails, this damaged route may be the island's only remaining path. You need to know
+          whether it still has useful margin or is already too close to the receiver limit.
         concept: Power in decibels, and why a loss budget adds
         place: Test Room
         scene: >-
-          The span is 84.6 kilometres of fibre at 0.19 decibels a kilometre, with eleven joints at
-          0.15 each, and the new event at 4.1. Sarraf wants the total against the receiver's
-          allowance of 24 decibels.
+          Sarraf writes the whole path on the board: 84.6 km at 0.19 dB/km, eleven joints at 0.15 dB each, the
+          new 4.1 dB event, and a receiver allowance of 24 dB.
         guide: >-
-          You build the working a line at a time. Every loss here is quoted in decibels, and
-          decibels are logarithms, so the stages add rather than multiply. Take the span first, then
-          the joints, then the event. Only at the end turn the total into a power ratio. That is
-          where the size of what has happened becomes visible.
+          All the losses are already in decibels, so add them. Only after the total is known should you convert
+          back to a power ratio. Then subtract from the 24 dB allowance to see how much extra loss the route could
+          tolerate.
         background:
           - >-
             Why a logarithm makes a sum. Each stage multiplies the power by a fraction, and the
@@ -1281,18 +1330,19 @@ missions:
             position, and on today's numbers she is right.
         assumes:
           - a loss in decibels is ten times the logarithm of the power ratio
-        takeaway: A loss budget is an addition because decibels are logarithms, and the margin left is what a span has in hand.
+        takeaway: A loss budget is an addition because decibels are logarithms, and the margin left is what 
+          a span has in hand.
         format: DERIVE
-        question: What is the total loss on the span, and what margin is left?
+        question: What is the total loss now, and how much margin remains before the receiver reaches its 
+          limit?
         answerText: >-
           21.8 dB, leaving 2.2 dB of the 24 dB allowance. That total is a factor of 151 in power.
         why: >-
-          The span loses 21.8 decibels and has 2.2 left. Decibels are logarithms of power ratios, so
-          the fifteen stages add. That is 16.1 for the fibre itself, 1.65 for the eleven joints and
-          4.1 for the new event. Converting the total back gives a factor of 151, against the
-          receiver's allowance of a factor of 251. A margin of 2.2 decibels is a third of one bad
-          joint. That is why the traffic was moved on the night. And it is why a week of refinement
-          is a week of exposure.
+          The span loses 21.8 decibels and has 2.2 dB left before the receiver limit. The fibre contributes 16.1
+          dB, the eleven joints 1.65 dB and the new event 4.1 dB. Because decibels are logarithms, those losses
+          add. Converting 21.8 dB back to a power ratio gives about 151: only one part in 151 of the launched
+          power reaches the far end. The 24 dB allowance is a factor of about 251, so the remaining 2.2 dB margin
+          is only a factor of 1.66 in power. That is not much room for another failure.
         derive:
           hint: Each line has to follow from the one above it, and each one is licensed by a rule.
           start: loss(dB) = 10·log₁₀(P_in/P_out)
@@ -1392,26 +1442,29 @@ missions:
                   rule: substitution of the stated values
           commit: Commit the derivation
       - group: AMP
-        task: Settle what a loss per kilometre means
-        title: The same fraction every kilometre
+        task: Connect loss per kilometre to exponential attenuation
+        title: Why every kilometre removes the same fraction
+        at: feed-board
+        reason: >-
+          The cable is tens of kilometres long. To understand why repeaters are needed at all, you have to know
+          whether each kilometre removes a fixed amount of power or a fixed fraction.
         concept: Exponential attenuation along a path
         place: Amplifier and Power Hall
         scene: >-
-          Bruno Salas, the power feed engineer, has the span's loss on the hall board, written as a
-          rate. A technician has asked him a question about it. Do the tenth kilometre and the
-          eightieth take out the same amount?
+          Salas, the power feed engineer, points to the 0.19 dB/km specification and asks one question. Does kilometre 80 remove the
+          same number of watts as kilometre 1? Or the same fraction of whatever light reaches it?
         guide: >-
-          Four readings of what a loss quoted per kilometre asserts. Ask of each whether it is about
-          an amount of power or a fraction of it. The difference decides whether a long span ends
-          with a little light or with none. It also decides whether adding an amplifier half way is
-          worth anything.
+          A constant loss in decibels per kilometre means the same power ratio for every equal length. That makes
+          the remaining power exponential with distance. Choose the statement that is consistent with equal fractional
+          loss.
         takesAsRead:
           - Power in decibels, and why a loss budget adds
         assumes:
           - a fixed loss per unit length is a fixed fraction per unit length
-        takeaway: A rate quoted per unit length is a fraction rather than an amount, and the two behave nothing alike over a long path.
+        takeaway: A rate quoted per unit length is a fraction rather than an amount, and the two behave 
+          nothing alike over a long path.
         format: CHOICE
-        question: What does 0.19 decibels a kilometre assert about the eightieth kilometre?
+        question: What does 0.19 dB/km mean for the eightieth kilometre compared with the first?
         why: >-
           It asserts that the eightieth kilometre takes the same fraction as the first, which is
           about 4.3 per cent, and therefore far less power. That is what a constant figure in
@@ -1426,30 +1479,34 @@ missions:
           - It removes nothing, since the loss is quoted as an average
         answer: It removes the same fraction as the first kilometre, and so less power
         rebuttals:
-          - A constant amount would take the light to exactly zero at a stated distance, and no span behaves that way.
+          - A constant amount would take the light to exactly zero at a stated distance, and no span behaves
+            that way.
           - Spreading is dispersion and changes the shape of the pulse rather than the power in it.
           - An average over the span would still have to be spent somewhere, and it is spent evenly.
       - group: RAD
-        task: Ask Farouk what a radiograph has to carry with it
-        title: Four things written on the corner
+        task: Decide what information has to be recorded before two radiographs can be compared
+        title: Can we trust the old X-rays?
+        at: bay-bench
+        reason: >-
+          If repeater 6 becomes the target, the replacement housing must pass an X-ray inspection before it goes
+          to sea. Farouk has old films, but only some were recorded well enough to serve as a comparison.
         concept: 'A record that carries the conditions it was taken under'
         place: Radiography Bay
         person: true
         scene: >-
-          Farouk has three radiographs of the same weld on the bay bench, taken over two years. All
-          three show the weld. Only one of them has anything written on its corner.
+          Farouk, the radiographer, lays out three radiographs of the same kind of weld. The images look similar, but only one film
+          records the source age, source-to-film distance, exposure time and steel thickness.
         guide: >-
-          Each thing on the left is written on the corner of a good radiograph. Match it to what
-          somebody comparing two films would use it for. What separates them is which of them is
-          about the source, which about the geometry, and which about the film. Comparing two films
-          means holding all three constant.
+          Those four notes control three pieces of physics: radioactive activity, inverse-square spreading and
+          attenuation through steel, plus the exposure time you choose. Match each note to the part of the measurement
+          it makes reproducible.
         takesAsRead:
           - Power in decibels, and why a loss budget adds
         assumes:
           - two records can only be compared if the conditions they were taken under are known
-        takeaway: A record without its conditions is a picture; with them it is a measurement that can be compared with another.
+        takeaway: A record without its conditions is a picture; with them it is a measurement that can be 
+          compared with another.
         format: PROTOCOL
-        task: Match each note on a radiograph to what it is there for.
         scenarios:
           - The date the source was last replaced.
           - The distance from the source to the film.
@@ -1469,34 +1526,37 @@ missions:
           decides how much arrives at all, exponentially. Take any one of them away and two films of
           the same weld cannot be compared.
   # ---------------------------------------------------------------- day 5
-  - title: How much is one photon
-    objective: Work out what a piece of light at this wavelength is worth, and how many make a bit.
-    briefing: The receiver is working with a few thousand arrivals a bit and nobody has counted them.
+  - title: Can you trust the weak signal?
+    objective: Translate the received power into photons and decide whether the receiver itself could be 
+      creating the apparent problem.
+    briefing: A weak optical signal is not just a small number of watts. It is a count of individual 
+      photons, and that count has noise of its own.
     stake: >-
-      Friday. Duarte has asked a question the test room cannot answer in decibels. Say the power
-      arriving is seven billionths of a watt. How many pieces of light is that a second? And how
-      many of them make up one bit? Tanaka needs the same count from the other end. An
-      amplifier's gain is photons out against photons in. A photon is one piece of light. Nilsen
-      has the launch power at the termination and has never turned it into a count. Today you
-      work out the energy of one photon at the wavelength this cable runs at. You also count the
-      arrivals inside one bit. Then you settle why a pulse comes back wider than it left. Every
-      limit a receiver has is a statement about counting.
-    takeaway: Light arrives in pieces of a fixed size, so a power is a rate of arrivals.
+      T−8 days. If the receiver is working near its fundamental photon-counting limit, part of the crisis could
+      be at this end rather than under the sea. Work out the energy of one photon, the photons in each bit, and
+      why the pulse spreads as it crosses the long fibre.
+    takeaway: Power becomes a photon rate once the energy of one photon is known, and counting those photons
+      sets a real noise floor.
+    segue: >-
+      At the receiver limit there are about 6,200 photons in each bit: few enough that counting statistics matter,
+      but nowhere near enough to explain away a sudden 4.1 dB step. One calibration still matters—the fraction
+      of arriving photons the diode actually converts to charge.
     stops:
       - group: AMP
-        task: Get the energy of one photon at this wavelength
-        title: Eight tenths of an electron volt
+        task: Turn the 1550 nm wavelength into energy per photon and then photons per second
+        title: How much energy is in one photon?
+        at: amp-desk
+        reason: >-
+          To decide whether the receiver is near a fundamental counting limit, watts must be turned into actual
+          photon arrivals.
         concept: 'Photons: energy, momentum and the quantum of light'
         place: Amplifier and Power Hall
         scene: >-
-          Tanaka has the two wavelengths this amplifier works at on the board and Planck's constant
-          beside them. She wants the energy of one photon at 1550 nanometres, in electron volts, and
-          how many of them a milliwatt is.
+          Duarte writes 1550 nm on the board. That wavelength fixes the energy of every signal photon, no matter
+          how bright or dim the beam is.
         guide: >-
-          You build the working a line at a time. A photon's energy depends only on its colour, and
-          the two ways of writing that — through the frequency or through the wavelength — are the same
-          statement. Get the energy in joules first, then convert to electron volts, then divide a
-          power by it to turn watts into arrivals a second.
+          Use E = hf = hc/λ. Convert the wavelength to metres, find the energy of one photon, then divide one
+          milliwatt by that energy to turn power into photons per second.
         background:
           - >-
             Why the wavelength divides. Frequency and wavelength are inversely related through the
@@ -1516,9 +1576,11 @@ missions:
             anything counted has a scatter.
         assumes:
           - light of one wavelength arrives only in whole quanta of a fixed energy
-        takeaway: A photon's energy is fixed by its wavelength alone, so a power in watts is a rate of arrivals in photons a second.
+        takeaway: A photon's energy is fixed by its wavelength alone, so a power in watts is a rate of 
+          arrivals in photons a second.
         format: DERIVE
-        question: What is the energy of a photon at 1550 nm, and how many are in a milliwatt?
+        question: At 1550 nm, how much energy does one photon carry, and how many photons per second make 1 
+          mW?
         answerText: >-
           1.28 × 10⁻¹⁹ J, which is 0.80 eV. A milliwatt is 7.8 × 10¹⁵ of them a second.
         why: >-
@@ -1626,25 +1688,28 @@ missions:
                   rule: a power divided by an energy
           commit: Commit the derivation
       - group: RECV
-        task: Count the arrivals in one bit
-        title: Six thousand a bit
+        task: Find the photon count available for each bit at the receiver limit
+        title: How many photons make one bit?
+        at: recv-bench
+        reason: >-
+          If only a tiny number of photons arrive in each bit, random counting fluctuations could set the error
+          floor. You need the actual count before blaming electronics or cable damage.
         concept: 'Counting statistics, and the noise a stream of photons has of its own'
         takesAsRead:
           - "Photons: energy, momentum and the quantum of light"
         place: Receiver Lab
         scene: >-
-          Duarte has the receiver's sensitivity on the bench in watts, the line rate beside it, and
-          this morning's photon energy on a slip of paper. She wants the arrivals per bit.
+          Duarte gives you the received power at the sensitivity limit, the bit rate and the photon energy you
+          just derived.
         guide: >-
-          Four quantities are offered and three of them make the answer. A power divided by the energy
-          of one arrival gives arrivals a second; dividing again by the bits a second gives arrivals a
-          bit. The launch power is on the list because it belongs at the other end of the span, and it
-          is 151 times larger than what arrives.
+          Power divided by energy per photon gives photons per second. Divide again by bits per second to get
+          photons per bit. Once you know N, remember that the natural counting fluctuation is of order √N.
         assumes:
           - a stream of arrivals has a spread of about the square root of its count
-        takeaway: A receiver at the end of a long span is counting a few thousand arrivals a bit, and the root of that count is its floor.
+        takeaway: A receiver at the end of a long span is counting a few thousand arrivals a bit, and the 
+          root of that count is its floor.
         format: BALLPARK
-        question: How many photons arrive in one bit at the receiver's sensitivity?
+        question: At the receiver sensitivity limit, about how many photons are available for each bit?
         estimate:
           prompt: >-
             The error floor is a statement about counting, so the count has to be got first. This is
@@ -1679,25 +1744,27 @@ missions:
           to get further are more photons — a better amplifier or a shorter span — or fewer bits a
           second.
       - group: TERM
-        task: Ask Nilsen why a pulse arrives wider
-        title: Wider than it left
+        task: Connect pulse broadening to wavelength-dependent speed in the glass
+        title: Why did the pulse spread out?
+        reason: >-
+          The returned pulse is wider than the pulse that was launched. That matters because the same wavelength
+          dependence also tells you why a pulse needs a group index rather than the index of one perfect colour.
         concept: 'Dispersion, and why a pulse spreads as it travels'
         place: Cable Termination Room
         person: true
         scene: >-
-          Nilsen has the launched pulse and the received one on the same screen, the second visibly
-          broader than the first. Nothing about the span has changed except that the light has been
-          along it.
+          Nilsen overlays the launched pulse and the received pulse after 84 km of glass. The second is weaker,
+          but it is also visibly broader in time.
         guide: >-
-          All four options are things that could broaden a pulse over eighty-four kilometres. Ask of
-          each whether it would broaden the pulse or weaken it. Those are different faults with
-          different cures. And one of them is a property of the glass that no amount of care in the
-          termination can remove.
+          A pulse contains a narrow range of wavelengths. If those wavelengths travel at slightly different speeds,
+          they arrive at different times. Choose the mechanism that changes pulse width without requiring a sudden
+          fault.
         assumes:
           - a pulse of light contains a small range of wavelengths rather than one exactly
-        takeaway: A pulse is not one wavelength, and anything that depends on wavelength therefore acts on its shape.
+        takeaway: A pulse is not one wavelength, and anything that depends on wavelength therefore acts on 
+          its shape.
         format: CHOICE
-        question: Why does the pulse arrive wider than it left?
+        question: What property of the light makes the pulse arrive spread out in time?
         why: >-
           Because the pulse is not one wavelength but a narrow band of them. And the index of the
           glass is slightly different for each. So the parts of the pulse arrive at slightly
@@ -1713,40 +1780,45 @@ missions:
         answer: Its colours travel at slightly different speeds in the glass
         rebuttals:
           - Losing power lowers a pulse without widening it; the two effects are measured separately.
-          - A joint adds a fixed delay to everything passing through it, which moves a pulse rather than spreading it.
+          - A joint adds a fixed delay to everything passing through it, which moves a pulse rather than 
+            spreading it.
           - An amplifier adds power and noise, and the pulse leaves it the width it arrived.
   # ---------------------------------------------------------------- day 6
-  - title: One electron for one photon
-    objective: Get the receiver's current per watt out of the physics rather than off a label.
-    briefing: The photodiode's data sheet gives a number and Osgood measures a different one.
+  - title: Calibrate the instruments
+    objective: Derive the photodiode response from the physics, then separate real fault signatures from 
+      noise and calibration error.
+    briefing: The diode data sheet says one thing and the bench says another. Before you diagnose eighty 
+      kilometres of cable, decide which number belongs in the measurement.
     stake: >-
-      Monday, and seven working days to the ship. Karl Osgood, the photodiode technician, has
-      measured the receiver's diode himself. He gets 82 arrivals converted in every hundred. The
-      data sheet claims ninety. Duarte needs the current per watt either way. The whole
-      sensitivity figure rests on it, and the loss budget was closed against that figure.
-      Ramnarine has four defective joints from the shore end on her bench. She wants to know
-      which of them a trace could have seen. Today you derive the current that one watt of light
-      produces. You also sort the four faults by the mark each one leaves. Then you settle with
-      Sam Achebe, the fibre preparation technician, how two reflections can cancel each other
-      out. A sensitivity figure ten per cent too hopeful is a decibel of margin that is not
-      there.
-    takeaway: A detector converts arrivals to charges, so its current per watt is fixed by the wavelength and its own efficiency.
+      T−7 days. The data sheet assumes 90 per cent conversion; the actual diode gives 82 per cent. That difference
+      changes the power calibration by about 0.4 dB. Derive the responsivity, then check which features of a trace
+      survive averaging and which fault signatures are genuinely different.
+    takeaway: A measurement is only as trustworthy as the conversion from what the instrument senses to the 
+      quantity you use.
+    segue: >-
+      The receiver is now calibrated with the measured efficiency, not the data sheet. The 4.1 dB event
+      and its trace shape survive the correction. You have reliable instruments and four live suspects. On
+      day 7, decide which tests can eliminate them before the ship is forced to make the irreversible test
+      at sea.
     stops:
       - group: RECV
-        task: Get the current a watt of light produces
-        title: One amp a watt, near enough
+        task: Derive current per watt from photon energy, charge and the measured quantum efficiency
+        title: Calibrate the photodiode
+        at: diode-station
+        reason: >-
+          The data sheet assumes 90 per cent conversion, but this actual diode converts 82 per cent. The receiver
+          power scale should use the detector on the bench, not an ideal label.
         concept: 'Photodetection: quantum efficiency and responsivity'
         takesAsRead:
           - The photoelectric effect, and a threshold that is about energy per photon
         place: Receiver Lab
         scene: >-
-          Osgood has the diode's measured efficiency on the bench — 82 charges for every hundred
-          arrivals — and this morning's photon energy beside it. Duarte wants the current per watt.
+          Osgood, the photodiode technician, measures 82 released charges for every 100 arriving photons. Duarte puts that efficiency beside
+          the 1550 nm photon energy and asks for the current produced by one watt.
         guide: >-
-          You build the working a line at a time. A watt is a number of arrivals a second. Each
-          arrival that is converted releases one charge. So the current is a count times the charge
-          on one of them. Take the arrivals first, apply the efficiency, then attach the charge. The
-          wavelength enters only through the energy of one arrival.
+          One watt tells you photons per second. Multiply by the measured conversion efficiency to get electrons
+          per second, then multiply by the electron charge to get amperes. The result is the diode responsivity
+          in A/W.
         background:
           - >-
             Why the answer is close to one. At this wavelength a photon carries 0.80 electron volts.
@@ -1766,19 +1838,21 @@ missions:
             measured and a figure somebody printed.
         assumes:
           - a converted arrival releases exactly one unit of charge
-        takeaway: Responsivity is the efficiency times the charge divided by the energy of one arrival, and it grows with the wavelength.
+        takeaway: Responsivity is the efficiency times the charge divided by the energy of one arrival, and 
+          it grows with the wavelength.
         format: DERIVE
-        question: What current does one watt at this wavelength produce in this diode?
+        question: Using the measured 82 per cent efficiency, what current should 1 W of 1550 nm light 
+          produce?
         answerText: >-
           About 1.03 A. A watt is 7.8 × 10¹⁸ arrivals a second, 82 per cent are converted, and each
           gives 1.602 × 10⁻¹⁹ C.
         why: >-
-          One watt produces about 1.03 amps. A watt at 1550 nanometres is 7.8 × 10¹⁸ arrivals a
-          second. Of those, 82 per cent free a charge. Each charge is 1.602 × 10⁻¹⁹ coulombs. The
-          product is a current, and dividing by the watt makes it a responsivity. Written as one
-          expression it is the efficiency times the charge over the photon energy. That shows the
-          wavelength dependence. At 1300 nanometres the same diode would give 0.86 amps a watt, with
-          no change to the diode at all.
+          One watt produces about 1.03 amps. At 1550 nm, one watt is 7.8 × 10¹⁸ photons each second. The measured
+          diode converts 82 per cent of them to charge, and each electron carries 1.602 × 10⁻¹⁹ C. Multiplying
+          those three factors gives current. Written as one expression, responsivity is ηe/E_photon. Using the
+          data-sheet value of 90 per cent instead of the measured 82 per cent would overstate the response by
+          about 10 per cent, or roughly 0.4 dB—large enough to matter when the remaining link margin is only a
+          few decibels.
         derive:
           hint: Each line has to follow from the one above it, and each one is licensed by a rule.
           start: R_λ = η·e/(h·f)
@@ -1878,23 +1952,25 @@ missions:
                     ones are detected perfectly well.
           commit: Commit the derivation
       - group: SPLICE
-        task: Sort four faults by the signature each leaves
-        title: Four faults, four traces
+        task: Match each physical fault to the trace shape it should produce
+        title: Four faults, four signatures
+        at: fault-tray
+        reason: >-
+          The suspects can lose similar amounts of light. What separates them is whether light comes back, whether
+          the loss is abrupt or spread out, and whether anything continues beyond it.
         concept: 'Which of several candidate causes a signature can tell apart'
         place: Splice Trailer
         scene: >-
-          Ramnarine has four faults on the bench, all recovered from shore ends over the years, and a
-          trace beside each. Every one of them lost light and no two of them look alike.
+          Ramnarine has four archived failures: a clean break, a tight bend, a dried mechanical joint and a crushed
+          length of fibre. Beside each is the trace recorded before it was repaired.
         guide: >-
-          Each fault on the left has one signature on the right. What separates them is whether the
-          light that is lost comes back towards the instrument or leaves the fibre altogether. It
-          also matters whether the loss is at one point or spread along a length. Two of the four
-          look identical in how much they lose and nothing alike in what returns.
+          Do not match by total loss alone. Ask three questions for each fault: is there an abrupt refractive-index
+          step, does lost light return toward the instrument, and is the damage localized or spread along a length?
         assumes:
           - an instrument sees only the light that returns to it
-        takeaway: Two faults can lose the same light and be told apart by what comes back, which is why a trace has a shape as well as a step.
+        takeaway: Two faults can lose the same light and be told apart by what comes back, which is why a 
+          trace has a shape as well as a step.
         format: PROTOCOL
-        task: Match each fault to the signature it leaves on a trace.
         scenarios:
           - A clean break, with air at the end.
           - A tight bend round a fitting.
@@ -1914,21 +1990,24 @@ missions:
           than at a point, which shows as the slope getting steeper for twenty metres. The step
           heights alone would not separate any of these.
       - group: TEST
-        task: Ask Meier what averaging buys
-        title: Sixty-five thousand traces
+        task: Separate random trace noise from a systematic error that repeats every time
+        title: What does averaging actually fix?
+        reason: >-
+          Meier can average thousands of traces, but a long average is useful only if the uncertainty changes
+          from one trace to the next.
         concept: 'Counting statistics, and the noise a stream of photons has of its own'
         place: Test Room
         person: true
         scene: >-
-          Meier has the instrument set to average sixty-five thousand traces, which takes eleven
-          minutes. The same measurement with a thousand takes ten seconds.
+          Meier can take a quick stack of 1,000 traces or spend eleven minutes averaging 65,000. Some wiggles
+          move from trace to trace; a calibration offset stays in exactly the same place.
         guide: >-
-          All four options describe what averaging many traces does. Ask of each whether it acts on
-          something that changes from trace to trace, or on something that is the same in every one.
-          Averaging only helps with the first. And how much it helps follows from the count.
+          Random fluctuations shrink roughly as 1/√N when independent measurements are averaged. A systematic
+          offset repeats and therefore does not average away. Choose the statement that respects that distinction.
         assumes:
           - independent measurements of the same thing average towards it
-        takeaway: Averaging reduces what varies between measurements as the root of their number, and does nothing at all to what does not.
+        takeaway: Averaging reduces what varies between measurements as the root of their number, and does 
+          nothing at all to what does not.
         format: CHOICE
         question: What does averaging sixty-five thousand traces buy?
         why: >-
@@ -1945,40 +2024,44 @@ missions:
           - Removal of the reflection from the connector at the instrument
         answer: Nine decibels of reach, for sixty-four times the time
         rebuttals:
-          - The dead zone is set by the pulse width and the receiver's recovery, neither of which averaging changes.
+          - The dead zone is set by the pulse width and the receiver's recovery, neither of which averaging 
+            changes.
           - Resolution is also the pulse width; averaging makes the same blur less noisy.
           - That reflection is identical in every trace, so averaging returns it unchanged.
   # ---------------------------------------------------------------- day 7
-  - title: Through forty millimetres of steel
-    objective: Work out what gets through a housing, and settle what a trace can and cannot separate.
-    briefing: The ship needs a housing radiographed before it sails, and the source is eight months old.
+  - title: Choose the tests before the ship arrives
+    objective: Prepare the replacement housing and rank the tests that can separate the four suspects 
+      without spending the one repair attempt.
+    briefing: The ship gets one safe day at sea. Every question you can answer from shore before then makes 
+      that one attempt safer.
     stake: >-
-      Tuesday. Wherever the ship is sent, it will be putting a new repeater housing into the
-      water. Farouk cannot pass a weld she cannot see. What her film sees is whatever gets
-      through forty millimetres of steel. Joe Whitlock, the radiation safety officer, sets the
-      barrier before anyone goes near the bay. Sarraf meanwhile has four possible causes and a
-      week to choose between them. Today you work out how much of a gamma beam a housing lets
-      through. You also put the four causes in the order they should be tested in. Then you
-      settle with Sam Achebe how two reflections can cancel. The housing has to be signed off
-      before the ship sails. That is true whether or not anybody has agreed where it is going.
-    takeaway: Equal thicknesses take equal fractions, so shielding is a thickness that halves rather than one that stops.
+      T−6 days. A break, bend, old joint and failing repeater can all weaken the signal. Some tests need only
+      old data; one changes a live repeater; the last requires the ship to pull up the cable. Use physics and
+      experimental design to do the reversible tests first.
+    takeaway: The best next test is the one that separates the remaining explanations before an irreversible
+      decision has to be made.
+    segue: >-
+      The order is set: use the records already on shore, improve the optical measurement, then switch the
+      spare pump only after you have made a prediction. The ship is the last test, not the first. On day
+      8, make the two-wavelength comparison trustworthy enough to rule whole classes of faults in or out.
     stops:
       - group: RAD
-        task: Work out what gets through the housing
-        title: Seven per cent, and no more
+        task: Calculate how much gamma radiation reaches the film through 40 mm of steel
+        title: Can X-rays see through the replacement housing?
+        at: source-pot
+        reason: >-
+          If repeater 6 is the problem, the replacement housing has to be X-rayed before the ship can take it.
+          Farouk needs to know whether the source can expose film through the steel wall.
         concept: 'Gamma attenuation through a material, and half-value thickness'
         takesAsRead:
           - Radioactive decay as a random process with a fixed chance
         place: Radiography Bay
         scene: >-
-          The housing wall is forty millimetres of steel and the source's beam is attenuated at 0.666
-          per centimetre in it. Farouk wants the fraction that reaches the film, and the thickness
-          that would halve it.
+          The replacement repeater housing has a 40 mm steel wall. At the source energy, steel has attenuation
+          coefficient 0.666 per centimetre.
         guide: >-
-          You build the working a line at a time. Attenuation removes a fixed fraction per unit
-          thickness, so the fraction remaining is an exponential in the thickness. Get that fraction
-          first, then invert the same relation to find the thickness that halves the beam, then count
-          how many of those the wall is worth.
+          Use exponential attenuation to find the fraction through 4.0 cm of steel. Then solve the same relation
+          for the half-value thickness and check the answer by counting how many halvings fit inside the wall.
         background:
           - >-
             Why a half-value thickness is the useful form. A material has no thickness that stops a
@@ -1996,9 +2079,10 @@ missions:
             That second factor arrives tomorrow, and the two multiply.
         assumes:
           - equal thicknesses of a material remove equal fractions of a beam
-        takeaway: A half-value thickness is the natural way to state shielding, because attenuation is exponential and never complete.
+        takeaway: A half-value thickness is the natural way to state shielding, because attenuation is 
+          exponential and never complete.
         format: DERIVE
-        question: What fraction of the beam reaches the film through the housing wall?
+        question: What fraction of the gamma beam reaches the film through the 40 mm steel wall?
         answerText: >-
           About 7 per cent. The exponent is 0.666 × 4.0 = 2.66, and the half-value thickness is
           ln2/0.666 = 1.04 cm, so the wall is 3.85 of them.
@@ -2111,60 +2195,70 @@ missions:
                   rule: counting half-values
           commit: Commit the derivation
       - group: AMP
-        task: Put the four candidates in the order to test them
-        title: Four causes, one week
+        task: Order the four tests from least disruptive to most irreversible
+        title: Which test should happen first?
+        at: cause-board
+        reason: >-
+          The ship has one safe recovery day. If shore-based evidence can eliminate a cause first, the crew should
+          not discover that fact after pulling up the wrong part of the cable.
         concept: 'Which of several candidate causes a signature can tell apart'
         place: Amplifier and Power Hall
         scene: >-
-          Four things could have taken four decibels out of this span overnight, and there are five
-          working days left. Tanaka and Sarraf have agreed the list and not the order.
+          Sarraf and Tanaka agree on four possible next tests. Re-read the two-wavelength records. Take a
+          sharper trace. Switch repeater 6 to its unused spare pump. Or send the ship to lift the cable and
+          cut it open.
         guide: >-
-          Four tests, and the rail is not a clock — all four could be started this morning. Put them
-          in the order of what each one costs before it answers, cheapest first. What decides it is
-          whether a test needs the ship, needs the traffic moved, or can be done from this building
-          with the span as it stands.
+          Put the tests in an order that preserves options. Start with evidence already recorded, then a new measurement
+          from shore, then the live intervention on the repeater, and only then the ship. A good sequence spends
+          the irreversible action only after cheaper evidence has failed to answer.
         assumes:
-          - a test that costs nothing to try should be tried before one that costs a week
-        takeaway: Order tests by what they cost before they answer, because the cheap ones often make the expensive ones unnecessary.
+          - reversible measurements should be used before an irreversible intervention when they can answer 
+            the same question
+        takeaway: Order tests by how much they commit you before they answer; use reversible evidence before
+          the one repair attempt.
         format: SEQUENCE
-        task: Order the four tests by what each costs before it answers.
         axis: >-
-          Order the four by what each one costs before it answers, cheapest first. This is not a clock
-          — all four could be started this morning, and the question is which ones you can afford to
-          be wrong about.
-        ends: [Costs an afternoon, Costs the charter]
+          Order the four from least disruptive to most irreversible. All four could be started now; the point
+          is to preserve options until the evidence forces a bigger commitment.
+        ends:
+          - Uses existing data
+          - Spends the one repair attempt
         cards:
           - Re-read the existing traces at both wavelengths and compare them.
           - Trace again with a shorter pulse to resolve what is under the step.
           - Switch repeater 6 to its spare pump and watch the received power.
-          - Send the ship, grapnel the cable up and cut it open.
+          - Send the ship to lift and cut open the suspected section of cable.
         order: [0, 1, 2, 3]
         why: >-
-          Re-reading traces already in the drawer costs an afternoon and eleven years of them exist. A
-          fresh trace with a shorter pulse costs an hour of the instrument and a technician. Switching
-          to the spare pump is a real intervention on a live repeater and cannot be undone from shore,
-          so it costs a decision. Sending the ship costs the charter, at forty thousand a day, and
-          commits everybody to a position. Two of those four would have answered the question, and the
-          order matters because the cheap ones make the expensive one unnecessary.
+          Start with the two-wavelength traces already in the drawer: they cost no intervention and can eliminate
+          wavelength-dependent fibre damage. Next take a sharper trace from shore. Only then switch to the unused
+          spare pump, because that changes a live repeater. Sending the ship to lift and cut open the cable comes
+          last. That action spends the one safe weather window and cannot be undone if the diagnosis was wrong.
+          Good test ordering preserves the expensive or irreversible decision until the cheaper evidence has done
+          all it can.
       - group: SPLICE
-        task: Ask Achebe how two reflections cancel
-        title: Two reflections, and a gap between them
+        task: Understand the interference trick that will remove an unwanted reflection inside the test 
+          instrument
+        title: How can two reflections cancel?
+        reason: >-
+          An internal connector is adding its own reflection near the part of the trace you care about. Before
+          the two-colour comparison, that false reflection has to be understood and suppressed.
         concept: 'Interference of two beams, and the path difference that decides it'
         place: Splice Trailer
         person: true
         scene: >-
-          Achebe has a connector face under the microscope with a coating on it, and the same face
-          uncoated beside it. The coated one reflects visibly less and neither is polished better than
-          the other.
+          Achebe, the fibre preparation technician, shows two connector faces, identical except that one has a thin transparent coating. The coated
+          face sends much less light back even though it absorbs almost nothing.
         guide: >-
-          All four options are ways a coating could reduce a reflection. Ask of each whether it
-          removes light, or redirects it, or cancels it. Only one of those needs a second reflection
-          to work with. The thickness of the coating is the clue that says which.
+          The coating creates two reflected waves, one from each surface. If they return half a wavelength out
+          of step and with similar amplitudes, they cancel. Choose the mechanism that removes the backward reflection
+          without destroying the forward light.
         assumes:
           - two waves arriving out of step by half a wavelength cancel
-        takeaway: Two reflections separated by the right path difference arrive out of step and cancel, which removes a reflection without absorbing anything.
+        takeaway: Two reflections separated by the right path difference arrive out of step and cancel, 
+          which removes a reflection without absorbing anything.
         format: CHOICE
-        question: How does a coating on a connector face reduce its reflection?
+        question: How can a transparent coating reduce reflection without absorbing the light?
         why: >-
           The coating makes two reflections instead of one, from its front face and its back face. If
           the extra path between them is half a wavelength, the two arrive out of step and cancel.
@@ -2182,35 +2276,40 @@ missions:
           - Scattering would show as loss on a trace, and a coated connector is less lossy rather than more.
           - A rough face scatters in transmission as well, which is exactly what a connector must not do.
   # ---------------------------------------------------------------- day 8
-  - title: A coating that cancels
-    objective: Design the film that removes a reflection, and find where a detector stops working.
-    briefing: Every connector in the building reflects, and one of them is inside the instrument.
+  - title: Build the test that separates the suspects
+    objective: Remove a false reflection in the instrument, check the detector band, and predict how a real 
+      bend should change with wavelength.
+    briefing: A two-colour trace can tell fibre damage from a repeater problem—but only if the instrument 
+      itself is not adding a reflection.
     stake: >-
-      Wednesday. Meier has found something in the drawer. The reflection off the instrument's
-      own front connector is bigger than the spike in the trace. It has been there for eleven
-      years. Ramnarine can coat a face to get rid of it. She wants the thickness derived here,
-      not ordered out of a catalogue. Osgood has a diode on the bench that works well at this
-      wavelength. At two thousand nanometres it does nothing at all. Nobody in the building can
-      say why. Today you design the coating. You also settle where a detector's cut off comes
-      from. Then you look with Okonkwo at what a bend does that a break does not. Every trace on
-      this station has the instrument's own reflection taken off it by hand.
-    takeaway: A quarter-wavelength film cancels a reflection by interference, without absorbing anything.
+      T−5 days. Meier wants to compare the fault at 1550 and 1625 nm. A bend should hurt the longer wavelength
+      more; a repeater fault should not. First make sure the instrument can measure both colours cleanly, then
+      lock in what each outcome would mean before you see the data.
+    takeaway: A good diagnostic test is designed around a prediction that different causes cannot all 
+      satisfy.
+    segue: >-
+      The instrument is ready and the prediction is written down: more loss at 1625 nm points toward bent or crushed
+      fibre; the same loss at both colours points away from that mechanism. Meier starts the comparison while
+      you finish preparing the replacement hardware.
     stops:
       - group: SPLICE
-        task: Design the film that cancels the reflection
-        title: Three hundred and twenty nanometres
+        task: Design the anti-reflection coating for the connector used in the two-wavelength test
+        title: Remove the instrument's false reflection
+        at: coating-rig
+        reason: >-
+          The two-colour diagnosis depends on small differences in the trace. A known connector reflection inside
+          the instrument must not be mistaken for a feature in the cable.
         concept: 'Thin films, index matching and the reflection at a step'
         takesAsRead:
           - Snell's law at a boundary
         place: Splice Trailer
         scene: >-
-          Ramnarine can put a coating on a connector face to any thickness and to a choice of indices.
-          The face is glass at 1.4682, the light is at 1550 nanometres, and air is on the other side.
+          Ramnarine can coat the connector face before the overnight comparison. The glass index is 1.4682, air
+          is 1.0003 and the main test wavelength is 1550 nm.
         guide: >-
-          You build the working a line at a time. A coating makes two reflections, one at each of its
-          faces, and the question is what thickness puts them exactly out of step. Count the path
-          difference in the film. Remember that the wave travels more slowly in it. Then ask what
-          index makes the two reflections the same size, because cancelling needs both.
+          Choose the film index that makes the two reflected amplitudes equal, then choose the thickness that
+          gives a half-wavelength round-trip path difference inside the film. The thinnest solution is the quarter-wave
+          coating.
         background:
           - >-
             Why the film is a quarter of a wavelength and not a half. The extra path is twice the
@@ -2228,9 +2327,10 @@ missions:
             is what is actually used.
         assumes:
           - a wave reflected at each face of a film travels an extra distance of twice the thickness
-        takeaway: A coating cancels a reflection when its thickness gives a half-wavelength path difference and its index equalises the two reflections.
+        takeaway: A coating cancels a reflection when its thickness gives a half-wavelength path difference 
+          and its index equalises the two reflections.
         format: DERIVE
-        question: How thick should the coating be, and what index should it have?
+        question: What film index and thickness will cancel the connector reflection at 1550 nm?
         answerText: >-
           About 320 nm, at an index of 1.212. The thickness is λ/(4n) and the index is the root of the
           product of the two either side.
@@ -2342,23 +2442,26 @@ missions:
                     is not, and both are needed.
           commit: Commit the derivation
       - group: RECV
-        task: Settle where a detector's cut-off comes from
-        title: Bright and useless
+        task: Use photon energy to understand the detector's long-wavelength cutoff
+        title: Why can't any wavelength be detected?
+        reason: >-
+          The diagnostic test uses colour, but a detector cannot simply be pushed to arbitrarily long wavelengths.
+          You need to know whether “make it brighter” can ever overcome an energy threshold.
         concept: 'The photoelectric effect, and a threshold that is about energy per photon'
         place: Receiver Lab
         scene: >-
-          Osgood has two sources on the bench and one diode. A dim source at 1550 nanometres gives a
-          clean current. A source twenty times brighter at 2000 nanometres gives nothing at all.
+          Osgood shines a dim 1550 nm source and a twenty-times-brighter 2000 nm source on the same diode. The
+          first produces current. The second produces none.
         guide: >-
-          Four accounts of why the brighter source does nothing. Ask of each whether it is about how
-          much light arrives, or about what each arrival carries. The two make opposite predictions
-          when the brightness is turned up. One of them says nothing will happen however bright it
-          gets.
+          Brightness changes how many photons arrive. Wavelength changes the energy carried by each photon. If
+          one photon is below the material threshold needed to free a charge, more photons of the same energy
+          do not fix that.
         assumes:
           - a charge is freed by one arrival rather than by several together
-        takeaway: A threshold in wavelength is a statement about energy per arrival, so brightness cannot get past it.
+        takeaway: A threshold in wavelength is a statement about energy per arrival, so brightness cannot 
+          get past it.
         format: CHOICE
-        question: Why does the brighter source at the longer wavelength give no current?
+        question: Why can the brighter 2000 nm source still produce no current?
         why: >-
           Each arrival at 2000 nanometres carries 0.62 electron volts, and the diode's material needs
           0.75 to free a charge. Brightness is the number of arrivals. Arrivals that individually
@@ -2377,24 +2480,27 @@ missions:
           - Speed limits how fast a signal can change, and a steady source asks nothing of that.
           - Too much light gives a large current that stops growing, not the absence of one.
       - group: TERM
-        task: Look with Okonkwo at what a bend does
-        title: Four bends, and what each one costs
+        task: Predict the wavelength signature of a bend before looking at the real two-colour trace
+        title: How would a bend betray itself?
+        at: offcut-rack
+        reason: >-
+          A bend is still one of the main suspects. Unlike a repeater loss, its effect should grow at longer wavelengths
+          because the guiding becomes less secure.
         concept: "Snell's law at a boundary"
         place: Cable Termination Room
         person: true
         scene: >-
-          Okonkwo has four lengths of fibre on the bench, each bent round a different radius, and the
-          loss of each written beside it. None of them is damaged and all four lose light.
+          Okonkwo, the station chief and cable engineer, gives you fibre offcuts bent around different radii and measured at 1550 and 1625 nm. None is
+          physically broken, but tight bends lose light.
         guide: >-
-          Each observation on the left has one explanation on the right. What separates them is what
-          happens to the angle a ray makes with the core boundary when the fibre is bent. The
-          condition for staying in the core is an angle rather than a strength. A bend changes angles
-          without changing anything else.
+          A bend changes the angle at which rays meet the core-cladding boundary. The tighter the bend, the more
+          rays fall below the condition for total internal reflection. Longer wavelengths extend farther into
+          the cladding and should be lost first. Match the observations to that mechanism.
         assumes:
           - light stays in a core only while it meets the boundary beyond the critical angle
-        takeaway: A bend changes the angle a ray meets the boundary at, so light leaves without anything having been damaged.
+        takeaway: A bend changes the angle a ray meets the boundary at, so light leaves without anything 
+          having been damaged.
         format: CASEBOOK
-        task: Match each observation about a bent fibre to what explains it.
         scenarios:
           - A gentle bend of 40 mm radius loses almost nothing.
           - A tight bend of 6 mm radius loses 3 dB.
@@ -2403,7 +2509,8 @@ missions:
         choices:
           - Every ray still meets the boundary beyond the critical angle.
           - On the outside of the bend some rays now meet it inside the critical angle and leave.
-          - Longer wavelengths are held less firmly in the core, so they go first wherever the guiding weakens.
+          - Longer wavelengths are held less firmly in the core, so they go first wherever the guiding 
+            weakens.
           - Nothing here is an abrupt change of index, so there is nothing to reflect from.
         mapping: [0, 1, 2, 3]
         why: >-
@@ -2414,35 +2521,39 @@ missions:
           that separates a bend from a break. And a bend has no index step anywhere in it, so nothing
           comes back — which is the other half of the same test.
   # ---------------------------------------------------------------- day 9
-  - title: A tenth of what it was
-    objective: Work out what eight months has done to the source, and how far back the barrier goes.
-    briefing: The housing has to be signed off before the ship sails, and the exposures keep growing.
+  - title: Make the replacement ready
+    objective: Prove the replacement housing can be inspected safely and finish the pump physics needed for 
+      the repeater hypothesis.
+    briefing: If repeater 6 is the fault, identifying it is not enough. The ship must have a replacement 
+      housing that is cleared to go underwater.
     stake: >-
-      Thursday. The housing radiograph is now on the critical path. Farouk's source was renewed
-      eight months ago. Her exposures have grown longer every month since. Whitlock will not
-      open the bay until the barrier distance is worked out for the exposure actually being
-      made. Tanaka has spent the morning on the pump's two wavelengths. She has a number she
-      wants checked. Today you work out what the source is worth now. You also set the barrier
-      for it. Then you settle where the gap between the pump's energy and the signal's energy
-      goes. If the exposure runs past six in the evening the bay cannot be used. The housing
-      then waits another day.
-    takeaway: A source falls by a fixed fraction in a fixed time, so every exposure it is used for has a schedule attached.
+      T−4 days. The replacement housing needs an X-ray inspection, but the radioactive source is eight months
+      old and much weaker than when it was installed. Work out its present activity, the safe distance for the
+      exposure, and what happens to the excess energy in the repeater's pump process.
+    takeaway: The same exponential physics that weakens a beam through matter also sets the schedule of a 
+      radioactive source.
+    segue: >-
+      The replacement housing passes its inspection. Meier's two-wavelength result is also back: the fault loses
+      the same amount at 1550 and 1625 nm. That is a powerful clue against a bend or crush. Two things remain
+      before you can sign the order: the exact seabed position and a direct test of the repeater.
     stops:
       - group: RAD
-        task: Work out what the source is worth after eight months
-        title: Two hundred and forty-three days
+        task: Use half-life to find the source activity after 243 days
+        title: How strong is the X-ray source now?
+        at: source-pot
+        reason: >-
+          The replacement housing cannot be cleared until Farouk knows how much radiation the eight-month-old
+          source is producing now, not when it was new.
         concept: 'Half-life, and the schedule it puts on a source'
         takesAsRead:
           - Radioactive decay as a random process with a fixed chance
         place: Radiography Bay
         scene: >-
-          The source has a half-life of 73.8 days and was renewed 243 days ago. Farouk wants what
-          fraction of its original strength is left and what that does to her exposures.
+          The source was renewed 243 days ago and has a half-life of 73.8 days. The exposure schedule has been
+          getting longer ever since.
         guide: >-
-          You build the working a line at a time. A half-life and a decay constant are two ways of
-          writing the same fact. The exponential is the same shape as yesterday's attenuation, with
-          time in place of thickness. Get the constant, then the fraction, then check it by counting
-          half-lives — because the two routes have to agree.
+          Convert the half-life to a decay constant or count the number of half-lives elapsed. Both routes must
+          give the same remaining fraction. Then use that fraction to understand why the exposure time has grown.
         background:
           - >-
             Why the two forms agree. e to the minus the constant times the time, and two to the minus
@@ -2461,9 +2572,10 @@ missions:
             rather than being a matter of policy.
         assumes:
           - each nucleus has a fixed chance of decaying in the next second, whatever its history
-        takeaway: A decay constant and a half-life are the same fact, and a source's schedule follows from either.
+        takeaway: A decay constant and a half-life are the same fact, and a source's schedule follows from 
+          either.
         format: DERIVE
-        question: What fraction of the source's original activity is left after 243 days?
+        question: What fraction of the source's original activity remains after 243 days?
         answerText: >-
           About 10 per cent. The constant is ln2/73.8 = 0.00939 a day, so the fraction is e^(−2.28),
           and 243 days is 3.29 half-lives.
@@ -2572,26 +2684,29 @@ missions:
                   rule: the exposure a film needs
           commit: Commit the derivation
       - group: RAD
-        task: Set the barrier for today's exposure with Whitlock
-        title: Eight metres, or thirty-two
+        task: Set today's radiation barrier using the inverse-square law
+        title: How far back is safe?
+        at: survey-meter
+        reason: >-
+          Farouk can make the longer exposure, but everyone else needs to know where the safe boundary is while
+          the source is out.
         concept: 'The inverse-square fall of intensity from a small source'
         takesAsRead:
           - Radioactive decay as a random process with a fixed chance
         place: Radiography Bay
         person: true
         scene: >-
-          Whitlock has the dose rate measured at two metres from the pot and a limit for the boundary
-          of the controlled area. He wants the distance at which the rate is inside the limit.
+          Whitlock, the radiation safety officer, gives you the measured dose rate at 2.0 m and the allowed dose rate at the barrier. The source
+          is small enough to treat as spreading in all directions.
         guide: >-
-          Four quantities are offered and three of them make the answer. A small source spreads its
-          output over a sphere, so the rate falls as the square of the distance. The distance needed
-          is the reference distance times the root of the ratio of the rates. The exposure time is on
-          the list because it is not part of a rate at all.
+          For a point-like source, intensity falls as 1/r². To reduce a rate by a factor, the distance grows by
+          the square root of that factor. Do not put exposure time into a dose-rate calculation.
         assumes:
           - a small source spreads its output evenly over a sphere
-        takeaway: Intensity from a small source falls as the square of distance, so the barrier is set by a square root rather than by a ratio.
+        takeaway: Intensity from a small source falls as the square of distance, so the barrier is set by a 
+          square root rather than by a ratio.
         format: BALLPARK
-        question: How far back does the barrier go for today's exposure?
+        question: How far from the source should today's safety barrier be?
         estimate:
           prompt: >-
             The bay is opened only when the boundary rate is inside the limit. This is measured at two
@@ -2625,23 +2740,26 @@ missions:
           and lead is the expensive one. It is also why a collimated beam breaks the arithmetic
           entirely. A beam that has been aimed is not spreading over a sphere.
       - group: AMP
-        task: Settle where the pump's extra energy goes
-        title: Two wavelengths, one atom
+        task: Use photon energy and atomic levels to understand the amplifier's quantum defect
+        title: Where does the pump's extra energy go?
+        reason: >-
+          Tanaka is preparing a numerical prediction for the spare-pump test. Before that, she wants the energy
+          bookkeeping of one pump photon and one added signal photon to be explicit.
         concept: 'The quantum defect, and where the pump energy goes'
         place: Amplifier and Power Hall
         scene: >-
-          Tanaka has the two wavelengths on the board: the pump at 980 nanometres and the signal at
-          1550. Every pump arrival that does its job ends up as a signal arrival, and the two do not
-          carry the same energy.
+          A pump photon at 980 nm carries more energy than a 1550 nm signal photon. In the erbium, the atom first
+          relaxes from the pumped level to the long-lived level used for amplification.
         guide: >-
-          Four accounts of what happens to the difference. Ask of each whether it conserves energy.
-          Then ask whether it conserves the number of arrivals. An amplifier conserves the second and
-          not the first. One arrival in, one arrival out, and less energy in the one that leaves.
+          Energy is conserved. The amplifier cannot simply make the energy difference disappear. Ask where the
+          atom puts the part of the pump-photon energy that is not carried away by the added 1550 nm signal photon.
         assumes:
           - an excited atom can be made to release its energy into a passing wave
-        takeaway: A pump arrival is more energetic than the signal arrival it produces, and the difference has to leave as heat.
+        takeaway: A pump arrival is more energetic than the signal arrival it produces, and the difference 
+          has to leave as heat.
         format: CHOICE
-        question: What becomes of the difference between a pump arrival and a signal arrival?
+        question: When one 980 nm pump photon ultimately supports one added 1550 nm signal photon, where 
+          does the excess energy go?
         why: >-
           It ends up as heat in the glass. A pump arrival at 980 nanometres carries 1.27 electron
           volts. It lifts an erbium atom to a state it drops from, quickly and silently, to the level
@@ -2660,35 +2778,39 @@ missions:
           - An excited state lasts milliseconds, so nothing is stored for later use.
           - The atom's levels decide what wavelengths can leave, and there is no level for that one.
   # ---------------------------------------------------------------- day 10
-  - title: The kilometre the trace is out by
-    objective: Correct the distance for what a pulse actually travels at, and for the cable's slack.
-    briefing: Okonkwo has been saying an optical distance is not a position, and today it is a number.
+  - title: Where exactly should the ship go?
+    objective: Turn the optical distance into a real route position, then predict and measure what the spare
+      pump should do.
+    briefing: The captain can act on a place, not “84.6 kilometres of glass.” Today you correct the number 
+      and test the repeater from shore.
     stake: >-
-      Friday, and the chart goes to the ship on Monday. Okonkwo has the lay record open at the
-      page he has been pointing at for a fortnight. It says 1.5 per cent of slack was paid out
-      over the route. The fibres are wound in a spiral inside the cable. So there is more fibre
-      than there is cable. Meier has the instrument's index setting. It is the core's index, not
-      the one a pulse travels at. Tanaka has permission to switch repeater 6 to its spare pump
-      this afternoon. Today you correct the distance for all of it. You also predict what the
-      spare pump will do, and then measure it. Then you settle with Duarte which description of
-      light a receiver needs. The grapnel window is half a kilometre wide, and the correction is
-      larger than that.
-    takeaway: An optical distance becomes a position only after the pulse's own speed and the cable's slack are taken out of it.
+      T−3 days. The old trace says 84.6 km, but the pulse speed, the fibre wound inside the cable and the slack
+      laid on the seabed all move the real position. Correct all three. Then lock a prediction for the spare-pump
+      switch before Tanaka makes the one live intervention available from shore.
+    takeaway: A measurement becomes a repair position only after every conversion between instrument, fibre,
+      cable and route has been made.
+    segue: >-
+      The target moves to 82.9 km along the route—1.7 km away from the number printed by the old trace.
+      Then the spare pump restores 3.6 dB. The repeater hypothesis now has a direct success, but on day 11
+      it still has to survive every other record on the table.
     stops:
       - group: TEST
-        task: Correct the distance for the group index and the slack
-        title: Eighty-two point nine
+        task: Apply the group-index, fibre-in-cable and slack corrections to the old trace distance
+        title: Turn 84.6 km into a real seabed position
+        at: otdr
+        reason: >-
+          The captain needs a position along the route. The old 84.6 km number is a distance along glass calculated
+          with the wrong pulse index, and the glass itself is longer than the path on the seabed.
         concept: 'A measurement in an instrument’s own units, and what converts it'
         place: Test Room
         scene: >-
-          The instrument reported 84.6 kilometres using the core's index of 1.4682. A pulse travels at
-          the group index, 1.4718. There is 0.3 per cent more fibre than cable, and 1.5 per cent more
-          cable than route.
+          Three small corrections are now known: the pulse uses group index 1.4718 rather than core index 1.4682;
+          there is 0.3 per cent more fibre than cable; and the laid cable has 1.5 per cent slack compared with
+          the route.
         guide: >-
-          You build the working a line at a time. Three corrections, each a small ratio, and each one
-          in a definite direction. The instrument used too small an index. The fibre is longer than the
-          cable it is in. The cable is longer than the route it lies on. Get the sign of each right
-          before touching the arithmetic, because two of the three go the same way and one does not.
+          Decide the direction of each correction before calculating. A larger group index means the pulse travelled
+          more slowly and therefore not as far. More fibre than cable and more cable than route both mean the
+          route distance is shorter than the glass distance.
         background:
           - >-
             Why the group index is the right one. A pulse is a band of wavelengths, and what travels at
@@ -2708,19 +2830,19 @@ missions:
             on it.
         assumes:
           - a cable laid with slack is longer than the route it lies along
-        takeaway: Three ratios separate an optical distance from a position, and all three have to be applied with their own signs.
+        takeaway: Three ratios separate an optical distance from a position, and all three have to be 
+          applied with their own signs.
         format: DERIVE
-        question: How far along the route is the event, once every correction is applied?
+        question: After all three corrections, where along the seabed route is the event?
         answerText: >-
           About 82.9 km — 1.7 km closer than the trace says. The group index takes off 207 m, the
           helix 0.3 per cent and the slack 1.5 per cent.
         why: >-
-          The event is about 82.9 kilometres along the route, 1.7 kilometres closer than the trace
-          reads. The instrument's index was too small, so its distance was too large: correcting it
-          takes off 207 metres. The fibre is 0.3 per cent longer than the cable, and the cable 1.5 per
-          cent longer than the route. Both of those are divisions rather than multiplications. The
-          total is more than three times the grapnel window, which is what makes it the difference
-          between finding the fault and dragging past it.
+          The event is about 82.9 kilometres along the route, 1.7 kilometres closer than the old trace reads.
+          The core index made the pulse seem 207 metres too far away. The helical fibre inside the cable shortens
+          the cable distance again, and the slack laid on the seabed shortens the route distance again. A 1.7
+          km shift is not a small bookkeeping correction when the ship has one day to lift the right section of
+          cable; it changes where the repair attempt happens.
         derive:
           hint: Each line has to follow from the one above it, and each one is licensed by a rule.
           start: d_route = d_optical × (n_core/n_group) ÷ (1 + h) ÷ (1 + s)
@@ -2754,8 +2876,8 @@ missions:
                 - text: 84.60 km, since the difference is in the third decimal place
                   rule: the index a pulse travels at
                   why: >-
-                    The third decimal place of 1.47 is a quarter of a per cent, and a quarter of a per
-                    cent of 84 kilometres is 207 metres — half the grapnel window.
+                    The difference in the indices is only a few tenths of a per cent, but over 84 kilometres that
+                    is about 207 metres. Small fractional errors become real distances on a long cable.
             - ask: Take out the extra fibre in the cable.
               answer: 3
               candidates:
@@ -2800,53 +2922,58 @@ missions:
                   why: >-
                     A percentage subtracted as though it were kilometres. It is close to the right
                     answer by coincidence, because 1.5 per cent of 84 is 1.26.
-            - ask: Put the total correction beside the grapnel window of ±0.5 km.
+            - ask: Decide whether the full 1.7 km correction is small enough to ignore.
               answer: 2
               candidates:
-                - text: 1.7 km, which is inside the window and can therefore be ignored entirely
+                - text: Yes. 1.7 km is small compared with an 84.6 km span.
                   rule: substitution of the stated values
                   why: >-
-                    The window is half a kilometre either side, so a correction of 1.7 kilometres is
-                    more than three times it.
-                - text: 0.21 km, the index correction alone, which is inside the window
+                    The comparison that matters is not the total span length; it is whether the ship would work
+                    on the same section of seabed. A 1.7 km shift changes the target.
+                - text: Yes. Only the 0.21 km index correction is physically real.
                   rule: substitution of the stated values
                   survives: true
                   why: >-
-                    One of the three corrections taken as the whole. It is the smallest of them, it is
-                    genuinely inside the window, and it is the one a transmission engineer would think
-                    of first.
-                - text: 1.7 km, more than three times the window, so the position has to be corrected
+                    The fibre-in-cable and slack corrections are physical lengths too. Ignoring them confuses
+                    optical path length with route length.
+                - text: No. A 1.7 km shift changes the section of seabed the ship would lift, so the 
+                    position must be corrected.
                   rule: substitution of the stated values
-                - text: 2.7 km in total, since the three corrections multiply together
+                - text: No. The correction is 2.7 km because the three percentage corrections should be 
+                    added as kilometres.
                   rule: rearrangement
                   why: >-
-                    They do multiply, and the product of three factors each within two per cent is
-                    within four per cent — not the sum of their separate effects on the original figure.
+                    The three effects are ratios applied to the distance, not kilometre amounts to add. Applying
+                    them gives 82.9 km, a 1.7 km shift.
           commit: Commit the derivation
       - group: AMP
-        task: Predict what the spare pump does, then measure it
-        title: Three and a half decibels, or nothing
+        task: Write down the expected power change before switching repeater 6 to its unused spare pump
+        title: Predict the spare-pump test
+        at: pump-panel
+        reason: >-
+          A pump switch can directly test the repeater hypothesis from shore, but only if the predicted result
+          is committed before anyone sees what happens.
         concept: 'Predicting, then measuring what was predicted'
         place: Amplifier and Power Hall
         scene: >-
-          Repeater 6 has a spare pump laser that has never been used. Tanaka can switch to it from
-          shore, once, and the receiver's power meter is the only instrument that will see the result.
+          Tanaka has permission for one switch to repeater 6's unused spare pump. Duarte has the received-power
+          meter live at the far end.
         guide: >-
-          Lock a prediction for how much the received power will rise before the switch is made.
-          Nothing about it can be changed afterwards, which is the point of making it first. Then
-          switch, and then spend the measurement. A switch that is confirmed to have happened and
-          never measured establishes that the relay works. It establishes nothing whatever about the
-          pump.
+          First commit the rise expected if the old pump is responsible for most of the 4.1 dB event. Then make
+          the switch and read the independent power meter. The relay changing state is not evidence that optical
+          power changed; the meter is.
         assumes:
           - an amplifier's gain follows the optical power of its pump
-        takeaway: A prediction locked before an intervention is a test of the model; the same number chosen afterwards is a description of the outcome.
+        takeaway: A prediction locked before an intervention is a test of the model; the same number chosen 
+          afterwards is a description of the outcome.
         format: VERIFY
-        question: Predict the rise in received power, switch to the spare pump, and report what happened.
+        question: What rise should the pump hypothesis predict, and what does the receiver actually measure 
+          after the switch?
         verify:
           hint: >-
             Lock the prediction first. The switch can be made without measuring anything, and a
             confirmed switch says the relay works rather than what the pump is doing.
-          prediction: { label: Predicted rise in received power, unit: dB, min: 0, max: 7, step: 0.2 }
+          prediction: {label: Predicted rise in received power, unit: dB, min: 0, max: 7, step: 0.2}
           truth: 3.6
           passRatio: [0.6, 1.6]
           intervention:
@@ -2873,23 +3000,28 @@ missions:
           most of the 4.1 decibels the span lost. The failure specific to this decision is finishing
           without measuring: the telemetry will confirm the switch whatever the light does.
       - group: RECV
-        task: Ask Duarte which description of light she needs
-        title: Both, on the same bench
+        task: Reconcile the wave measurements used for wavelength with the photon counts used for received 
+          power
+        title: Why does light need two descriptions?
+        reason: >-
+          The repair case now depends on both kinds of evidence. Duarte wants you to be clear that an interference
+          pattern and individual detector clicks are not competing claims about two different kinds of light.
         concept: 'Wave–particle duality, and which description a measurement needs'
         place: Receiver Lab
         person: true
         scene: >-
-          Duarte has two instruments running on the same fibre. One shows an interference pattern from
-          two paths recombined. The other counts arrivals, one at a time, on a diode.
+          One instrument measures an interference pattern; another detects individual photon arrivals. Both are
+          looking at the same fibre at the same time.
         guide: >-
-          All four options are ways of holding the two results together. Ask of each whether it says
-          light is one thing or the other, or says which description a particular measurement needs.
-          Both instruments are working and neither is wrong.
+          Different measurements expose different aspects of the same quantum object. Use the wave picture for
+          phase and interference; use the photon picture for discrete detection and counting noise. Do not force
+          one picture to answer a question it was not built for.
         assumes:
           - a description of light is chosen for a measurement rather than for all time
-        takeaway: A model is chosen for a purpose, and two incompatible-looking pictures can both be needed on one bench.
+        takeaway: A model is chosen for a purpose, and two incompatible-looking pictures can both be needed 
+          on one bench.
         format: CHOICE
-        question: How should the two results be held together?
+        question: How should the wave pattern and the individual photon detections be understood together?
         why: >-
           Each measurement needs the description that fits what it does. The interference pattern
           exists because two paths recombine with a path difference, which is a statement about a
@@ -2905,40 +3037,46 @@ missions:
         answer: Each measurement needs the description that fits what it measures
         rebuttals:
           - The counting is reproducible on any detector and its scatter follows the count, not the diode.
-          - A pattern with fringes in known places is not an accident of statistics; it is where the paths differ.
-          - Both instruments give repeatable results on the same fibre, which is not what disagreement looks like.
+          - A pattern with fringes in known places is not an accident of statistics; it is where the paths 
+            differ.
+          - Both instruments give repeatable results on the same fibre, which is not what disagreement looks
+            like.
   # ---------------------------------------------------------------- day 11
-  - title: What the pump could ever give
-    objective: Put a ceiling on the amplifier's output, and decide which cause fits every record.
-    briefing: The spare pump gave back most of what the span lost, and the fibre was never damaged.
+  - title: Make one diagnosis fit every clue
+    objective: Check whether an aging pump can explain the size of the loss, then force one cause to account
+      for every measurement.
+    briefing: The spare pump restored most of the missing signal. That is strong evidence, but the final 
+      diagnosis has to explain the quiet records too.
     stake: >-
-      Monday, and two working days to the ship. Friday's switch gave back 3.6 of the 4.1
-      decibels the span had lost. That is a fact about repeater 6, not about the seabed. Tanaka
-      wants the ceiling derived. The ceiling is the most signal power a pump of a given size
-      could ever produce. With it, the old pump's decline can be stated as a number instead of
-      guessed at. Sarraf has every record of the last three weeks laid out on one table. Today
-      you take the ceiling on the amplifier's output. You also decide which of the four causes
-      accounts for all of it. Then you settle with Ramnarine how the two wavelength comparison
-      is made at all. Whatever goes on the chart on Wednesday is what forty thousand a day is
-      spent looking for.
-    takeaway: One pump arrival can make at most one signal arrival, which puts a ceiling on gain that no design gets past.
+      T−2 days. The two colours lost the same amount, the power feed stayed normal, and the spare pump returned
+      3.6 dB. Now use the quantum physics of the amplifier to see whether an aging pump can produce the right
+      scale of loss, then test all four suspects against all four records.
+    takeaway: A diagnosis wins only when it explains the full pattern of evidence, including the 
+      measurements that did not change.
+    segue: >-
+      Only one cause survives every clue: repeater 6's pump has aged. You also have its corrected position
+      at 82.9 km and a replacement housing ready to sail. On day 12, close the numbers one last time and
+      sign the repair order the captain will follow.
     stops:
       - group: AMP
-        task: Put a ceiling on what the pump could give
-        title: Seventy-four milliwatts, at most
+        task: Put a physics upper bound on the signal power that the original pump could support
+        title: Could an old pump explain 4.1 dB?
+        at: amp-desk
+        reason: >-
+          The spare pump restored 3.6 dB. Before calling that the cause, Tanaka wants to know whether the size
+          of the change is even compatible with the energy and photon-count limits of the amplifier.
         concept: 'Stimulated emission, population inversion and gain'
         takesAsRead:
           - Atomic energy levels, and the wavelengths they allow
         place: Amplifier and Power Hall
         scene: >-
-          The pump is at 980 nanometres and the signal at 1550. Repeater 6's pump was logged at 118
-          milliwatts when it was fitted four years ago. Tanaka wants the most signal power that could
-          ever come out of it.
+          Repeater 6's pump was logged at 118 mW when installed and is inferred to be near 46 mW now. The pump
+          wavelength is 980 nm and the signal is 1550 nm.
         guide: >-
-          You build the working a line at a time. The ceiling is a count: each pump arrival can end up
-          as at most one signal arrival, and the signal arrival carries less energy. So the largest
-          possible added signal power is the pump power times the ratio of the two energies. That is
-          the ratio of the two wavelengths the other way up. Then compare it with what the span lost.
+          Use a deliberately conservative upper bound: one absorbed pump photon can create at most one added signal
+          photon in this simplified model. Because the signal photon has less energy, the maximum signal power
+          is pump power times E_signal/E_pump = λ_pump/λ_signal. The remaining pump energy is not lost; it leaves
+          mainly as heat during relaxation.
         background:
           - >-
             Why the ceiling is a ratio of wavelengths. A pump arrival at 980 nanometres carries hc over
@@ -2957,19 +3095,22 @@ missions:
             is the end of the fortnight's argument.
         assumes:
           - each pump arrival can produce at most one signal arrival
-        takeaway: The most an amplifier can add is its pump power scaled by the ratio of the two wavelengths, because arrivals are conserved and energies are not.
+        takeaway: In this amplifier model, one absorbed pump photon can create at most one added signal 
+          photon; energy is conserved, and the excess pump-photon energy leaves mainly as heat.
         format: DERIVE
-        question: What is the most signal power 118 mW of pump could add?
+        question: Using the one-pump-photon/one-added-signal-photon upper bound, how much signal power can 
+          118 mW of pump support?
         answerText: >-
-          About 74.6 mW, which is 118 × 980/1550. A pump fallen to 46 mW has a ceiling of 29 mW —
-          4.1 dB less.
+          About 74.6 mW under the one-pump-photon/one-added-signal-photon upper bound: 118 × 980/1550. If the
+          pump has fallen to 46 mW, the same ceiling falls to about 29.1 mW, a 4.1 dB change.
         why: >-
-          At most 74.6 milliwatts. The pump's power is a number of arrivals a second, each carrying
-          1.27 electron volts. Every one of them can produce at most one signal arrival carrying
-          0.80. So the power that can be added is the pump power times the ratio of those energies,
-          which is the ratio of the wavelengths inverted. Applying the same ceiling to a pump that has
-          fallen to 46 milliwatts gives 29. The difference between the two ceilings is 4.1 decibels,
-          which is what the span lost in a night.
+          At 980 nm a pump photon carries more energy than a 1550 nm signal photon. In the simplified erbium-cycle
+          bookkeeping used here, each absorbed pump photon can populate the amplifier for at most one added signal
+          photon. So the signal-photon rate cannot exceed the absorbed pump-photon rate, and the corresponding
+          signal-power ceiling is P_pump × E_signal/E_pump = P_pump × 980/1550. For 118 mW that is 74.6 mW; for
+          46 mW it is 29.1 mW. The ratio of those ceilings is 4.1 dB. Energy is still conserved: the part of each
+          pump photon not carried by the 1550 nm signal leaves mainly as heat when the erbium relaxes to the working
+          level.
         derive:
           hint: Each line has to follow from the one above it, and each one is licensed by a rule.
           start: P_signal ≤ P_pump × (E_signal/E_pump)
@@ -3072,34 +3213,41 @@ missions:
                     ratio has to be written the way that says so.
           commit: Commit the derivation
       - group: TEST
-        task: Decide which cause accounts for every record
-        title: Four records, one cause
+        task: Force each suspect to explain all four records, not just the dramatic 4.1 dB step
+        title: Which cause fits every clue?
+        at: trace-table
+        reason: >-
+          This is the diagnosis the ship will act on. A cause that explains one measurement but contradicts another
+          cannot be the repair target.
         concept: 'Which of several candidate causes a signature can tell apart'
         place: Test Room
         scene: >-
-          Everything from three weeks is on the table: the trace with its step, the two-wavelength
-          comparison, the power feed's log, and Friday's switch to the spare pump.
+          Sarraf lays out the four decisive records. A 4.1 dB step. Equal loss at 1550 and 1625 nm. Normal
+          power-feed telemetry. And a 3.6 dB recovery after the switch to the spare pump.
         guide: >-
-          Look at every record before choosing, including the two that are not alarming. The power feed
-          is in order. The two-wavelength comparison shows the same loss at both, and that is the
-          record that does most of the work here. A bend loses more at the longer wavelength. A
-          repeater's gain does not care which wavelength it is amplifying.
+          Test every suspect against every record. A bend or crush should be more wavelength-dependent. A dried
+          joint should reflect. A pump failure can leave the electrical feed normal, affect both wavelengths similarly,
+          and respond immediately to a spare-pump switch.
         assumes:
           - a bend loses more at longer wavelengths and an amplifier's gain does not
-        takeaway: A cause has to account for the quiet records as well as the loud one, and the quiet ones are usually what rule the others out.
+        takeaway: A cause has to account for the quiet records as well as the loud one, and the quiet ones 
+          are usually what rule the others out.
         format: DIAGNOSIS
         headline: The span lost 4.1 dB in a night and a spare pump gave 3.6 of it back.
-        task: Which cause accounts for all four records?
         readings:
-          - { zone: Trace, label: Step at 84.6 km, value: 4.1 dB, status: alarm }
-          - { zone: Two wavelengths, label: "Loss at 1625 nm against 1550", value: the same, status: normal }
-          - { zone: Power feed, label: Voltage and current, value: as designed, status: normal }
-          - { zone: After the switch, label: Received power, value: up 3.6 dB, status: alarm }
+          - {zone: Trace, label: Step at 84.6 km, value: 4.1 dB, status: alarm}
+          - {zone: Two wavelengths, label: "Loss at 1625 nm against 1550", value: the same, status: normal}
+          - {zone: Power feed, label: Voltage and current, value: as designed, status: normal}
+          - {zone: After the switch, label: Received power, value: up 3.6 dB, status: alarm}
         choices:
-          - { label: A bend in the cable at that point, mechanism: Light leaves the core where the fibre is tightly curved. }
-          - { label: A dried mechanical joint, mechanism: The gel has gone and the joint has become a lossy step in index. }
-          - { label: The pump in repeater 6 has aged, mechanism: "Less pump power means less gain, at both wavelengths equally." }
-          - { label: The cable has been damaged by fishing gear, mechanism: Crushing loses light over a length of fibre. }
+          - {label: A bend in the cable at that point, mechanism: Light leaves the core where the fibre is 
+              tightly curved.}
+          - {label: A dried mechanical joint, mechanism: The gel has gone and the joint has become a lossy 
+              step in index.}
+          - {label: The pump in repeater 6 has aged, mechanism: "Less pump power means less gain, at both wavelengths
+              equally."}
+          - {label: The cable has been damaged by fishing gear, mechanism: Crushing loses light over a 
+              length of fibre.}
         answer: The pump in repeater 6 has aged
         why: >-
           Three of the four records point the same way once the quiet ones are read. A bend and a crush
@@ -3109,24 +3257,30 @@ missions:
           further out. The pump's decline accounts for a loss equal at both wavelengths, at the
           position of the repeater, with the feed in order. It also accounts for 3.6 of the 4.1
           decibels coming back when a fresh pump was switched in.
+        question: Which single cause is consistent with all four records?
       - group: SPLICE
-        task: Ask Ramnarine how the two wavelengths are compared
-        title: One fibre, two colours
+        task: Verify the physics behind the two-wavelength comparison that helped rule out fibre damage
+        title: How did the instrument separate two colours?
+        reason: >-
+          The equal-loss result is one of the strongest clues in the case. Before it goes into the final report,
+          Ramnarine asks how the instrument measured two wavelengths separately without taking two different runs.
         concept: 'Diffraction, and what a grating does to a mixture of wavelengths'
         place: Splice Trailer
         person: true
         scene: >-
-          The two-wavelength comparison is the record that settled today, and it is made with a ruled
-          plate in the instrument's own head that Ramnarine has never had open.
+          Inside the test head is a ruled glass plate—a diffraction grating. Both wavelengths enter together and
+          land at different places on the detector.
         guide: >-
-          All four options are ways of separating two wavelengths that arrive on the same fibre. Ask of
-          each whether it separates them or merely selects one. Then ask what physical quantity does
-          the separating. One of the four uses a path difference that depends on the wavelength.
+          A grating does not destroy one colour to select the other. Waves from its many grooves interfere constructively
+          in directions that depend on wavelength, so different colours leave at different angles and can be recorded
+          at the same time.
         assumes:
           - waves from many evenly spaced sources reinforce only in particular directions
-        takeaway: Separating a mixture and selecting one part of it are different operations with different costs.
+        takeaway: Separating a mixture and selecting one part of it are different operations with different 
+          costs.
         format: CHOICE
-        question: How does a grating separate two wavelengths arriving together?
+        question: How does a diffraction grating send two incoming wavelengths to different places on the 
+          detector?
         why: >-
           Light from each of the grating's many lines travels a slightly different distance to any
           given direction. The directions where all of them reinforce depend on the wavelength.
@@ -3142,37 +3296,82 @@ missions:
         answer: Each wavelength reinforces in a different direction
         rebuttals:
           - An absorbing filter selects one and destroys the other, so the comparison would need two runs.
-          - A mirror that reflected by colour would still have to send them somewhere, and a grating is what does that.
+          - A mirror that reflected by colour would still have to send them somewhere, and a grating is what
+            does that.
           - Separating in time is dispersion, and over a plate a few millimetres wide it is unmeasurable.
   # ---------------------------------------------------------------- day 12
-  - title: What the ship is told
-    objective: Close the loss budget against the repeater, and decide what the charter is spent on.
-    briefing: The chart goes out this afternoon and the ship sails in the morning.
+  - title: Give the captain one repair order
+    objective: Confirm the replacement is safe, close the loss budget, and commit to one object at one 
+      place.
+    briefing: The ship sails at dawn into a one-day weather window. It does not need another pile of 
+      evidence. It needs one clear instruction.
     stake: >-
-      Tuesday, and the ship sails in the morning. The fortnight has settled the old argument.
-      Sarraf was right to act on the trace. Okonkwo was right about what the trace was saying.
-      The loss sits at repeater 6, in the pump rather than in the glass. The position on the
-      chart was out by 1.7 kilometres, for three reasons that all pointed the same way. Farouk
-      has a housing radiographed and signed. Whatever is on the chart at four o'clock is what
-      forty thousand a day goes looking for. Today you close the loss budget against the
-      repeater. You also spend what is left of the spares money. Then you settle with Tanaka
-      what the ship is actually being sent to do.
-    takeaway: A budget that closes against one cause and not the others is the strongest statement a fortnight of measurement can make.
+      T−1 day. Before the sea closes, the captain needs a target and a position. Verify the last piece of replacement-hardware
+      physics, close the remaining half-decibel in the budget honestly, and then choose the single repair order
+      that all twelve days of evidence support.
+    takeaway: 'The purpose of the measurements is a decision: the right object, at the right place, for the one
+      repair attempt.'
     stops:
+      - group: RAD
+        task: Confirm what changes as a radioactive source gets older and what stays fixed
+        title: Why the X-ray energies do not age
+        reason: >-
+          The replacement housing has passed its radiograph. Before it is loaded, Farouk wants the last safety
+          point clear: the source became weaker with age, but the energy of each emitted gamma ray did not.
+        concept: 'Radioactive decay as a random process with a fixed chance'
+        takesAsRead:
+          - The nucleus, and the binding energy that holds it
+        place: Radiography Bay
+        person: true
+        scene: >-
+          Farouk compares today's spectrum with the spectrum from when the source was new. The two gamma-ray energies
+          are in exactly the same places, even though the count rate is only about a tenth as large.
+        guide: >-
+          Separate properties of one nucleus from properties of the whole sample. The energy levels and decay
+          probability belong to the isotope. Age changes how many undecayed nuclei remain, so it changes the number
+          of emissions per second—not the energy carried by each emission.
+        assumes:
+          - a nucleus has a set of states with definite energies
+        takeaway: A nucleus has fixed levels, so it emits fixed energies; how much is left changes only how 
+          often.
+        format: CASEBOOK
+        scenarios:
+          - The two emitted energies are the same as they were eight months ago.
+          - The number of emissions a second is a tenth of what it was.
+          - The half-life is the same for this pot as for every other pot of the same material.
+          - Warming the pot changes nothing about either the energies or the rate.
+        choices:
+          - The gaps between the nucleus's own states do not change with time.
+          - Only the number of nuclei left has changed, and each one behaves as it always did.
+          - The chance of decay per second belongs to that kind of nucleus rather than to the sample.
+          - Nuclear energies are millions of times larger than anything heat can supply.
+        mapping: [0, 1, 2, 3]
+        why: >-
+          Four observations, one distinction. The energies come from the gaps between the nucleus's
+          own states, and nothing available in a radiography bay can alter those. So they are the same
+          after eight months and the same when warm. The rate depends on how many nuclei are left,
+          which is what has changed. The half-life belongs to that kind of nucleus and not to the pot,
+          which is why it can be looked up rather than measured. And heat supplies fractions of an
+          electron volt against nuclear energies of hundreds of thousands. That is why a nuclear
+          source is the most stable thing on this site.
+
       - group: TEST
-        task: Close the loss budget against the repeater
-        title: Four decibels, accounted for
+        task: Account for the 4.1 dB event and compute the margin after the spare pump is carrying the 
+          signal
+        title: Does the loss budget close?
+        at: otdr
+        reason: >-
+          Before you sign the repair order, the pump diagnosis has to explain the size of the event numerically,
+          not just point in the right direction.
         concept: Power in decibels, and why a loss budget adds
         place: Test Room
         scene: >-
-          The budget from day four is on the board: 21.8 decibels total, of which 4.1 arrived in one
-          night. Friday's switch returned 3.6. Sarraf wants the whole thing closed, term by term, with
-          nothing left over.
+          Before the failure, fibre plus joints contributed 17.75 dB. The event added 4.1 dB. Switching to the
+          spare pump restored 3.6 dB, leaving 0.5 dB of the event in the current measurement.
         guide: >-
-          You build the working a line at a time. Take the budget as it stood before the event, add
-          what the pump's decline accounts for, and see what is left unexplained. A budget that closes
-          to within a tenth of a decibel is a different kind of statement from one that closes to
-          within a decibel. The difference decides what the ship is told to look for.
+          Attribute only what the experiment measured: 3.6 dB of the event is recovered by the pump switch. Carry
+          the 0.5 dB residue honestly. Then rebuild the current total and subtract it from the 24 dB receiver
+          allowance.
         background:
           - >-
             Why the residue matters more than the total. Half a decibel unaccounted for could be a
@@ -3190,24 +3389,26 @@ missions:
             else. A position and an object, rather than a kilometre and a hope.
         assumes:
           - a budget that closes leaves nothing that needs another cause
-        takeaway: A budget closes when every decibel is attributed, and what is left over is either a second cause or a measurement.
+        takeaway: A budget closes when every decibel is attributed, and what is left over is either a second
+          cause or a measurement.
         format: DERIVE
-        question: How much of the 4.1 dB is accounted for, and what is left?
+        question: After the spare-pump switch, how much of the event remains unexplained and how much link 
+          margin is left?
         answerText: >-
-          3.6 dB by the pump, leaving 0.5 dB — which is inside what the amplifier's own gain does when
-          its input changes, and needs no second cause.
+          The pump accounts for 3.6 of the 4.1 dB event, leaving 0.5 dB. The current total is 18.25 dB, so the
+          24 dB allowance leaves 5.75 dB of margin.
         why: >-
-          The pump accounts for 3.6 decibels of the 4.1, leaving 0.5. That residue is inside what an
-          amplifier does when its input changes and it gives a little less gain, so it needs no second
-          cause. But saying so is a judgement rather than an arithmetic result, and it is recorded as
-          such. The budget is now 21.3 decibels against an allowance of 24, which is 2.7 of margin.
-          That is better than before the switch, and worse than the span had when it was new. The
-          fresh pump is the last one in that housing.
+          The pump switch directly recovers 3.6 dB, so 0.5 dB of the original 4.1 dB event remains in the measurement.
+          The baseline fibre and joints were 16.1 + 1.65 = 17.75 dB. Adding the 0.5 dB residue gives a current
+          total of 18.25 dB. Against a 24 dB receiver allowance, that leaves 5.75 dB of margin. The half-decibel
+          is not erased; it is recorded as a small residual that does not require a second large fault. The important
+          point is that the repeater intervention explains almost all of the sudden event and restores substantial
+          operating margin.
         derive:
           hint: Each line has to follow from the one above it, and each one is licensed by a rule.
           start: total = span + joints + event
           startNote: span 16.1 dB, joints 1.65 dB, event 4.1 dB, allowance 24 dB, the switch returned 3.6 dB
-          goal: the residue after the pump is accounted for, and the margin now
+          goal: the event residue, the current total loss, and the margin after the switch
           askRule: true
           rules:
             - decibels add along a path
@@ -3260,106 +3461,69 @@ missions:
                     there and has to be carried.
                 - text: 16.1 + 1.65 + 0.5 = 18.25 dB
                   rule: decibels add along a path
-            - ask: Take the margin against the allowance.
+            - ask: Take the current total away from the receiver allowance.
               answer: 3
               candidates:
-                - text: 24 ÷ 21.8 = 1.10, so there is ten per cent in hand
+                - text: 24 ÷ 18.25 = 1.32, so there is 32 per cent in hand
                   rule: rearrangement
                   why: >-
-                    Decibels are subtracted, not divided. Dividing two logarithms gives a number that
-                    means nothing.
-                - text: 24 − 21.8 = 2.2 dB, which is a factor of 251
+                    Decibels are logarithmic quantities and a margin in decibels is found by subtraction, not
+                    by dividing the two dB numbers.
+                - text: 24 − 21.8 = 2.2 dB, using the loss before the spare-pump recovery
                   rule: substitution of the stated values
                   survives: true
                   why: >-
-                    The subtraction is right and the ratio quoted is the allowance's rather than the
-                    margin's. 251 is what 24 decibels is; 2.2 decibels is a factor of 1.66.
-                - text: 24 + 21.8 = 45.8 dB of margin
+                    That is the old margin before the intervention. The current budget must use the 0.5 dB residue
+                    rather than the original 4.1 dB event.
+                - text: 24 + 18.25 = 42.25 dB of margin
                   rule: decibels add along a path
                   why: >-
-                    An allowance is what may be spent, so the spend is taken off it. Adding gives more
-                    margin the worse the span gets.
-                - text: 24 − 21.8 = 2.2 dB, which is a factor of 1.66
+                    An allowance is what may be spent, so the current loss is subtracted from it. Adding makes
+                    the margin grow as the link gets worse.
+                - text: 24 − 18.25 = 5.75 dB
                   rule: substitution of the stated values
           commit: Commit the derivation
-      - group: AMP
-        task: Spend what is left of the spares money
-        title: A hundred points before the ship
-        concept: 'A record that carries the conditions it was taken under'
-        place: Amplifier and Power Hall
+      - group: TEST
+        task: Choose the one target and position the captain should act on
+        title: Sign the repair order
+        at: otdr
+        reason: >-
+          The ship sails at dawn and gets one safe recovery day before the weather closes. This is the point where
+          every optical measurement becomes one irreversible instruction.
+        concept: 'Which of several candidate causes a signature can tell apart'
+        place: Test Room
         scene: >-
-          Tanaka has a hundred points of spares and survey money left in the year and four things it
-          could go on. The ship sails in the morning and the next charter is not until the spring.
+          Sarraf clears the board except for four possible orders. The captain is on the radio waiting for one
+          line: what to lift, and where along the route to lift it.
         guide: >-
-          What the station holds already. A pump output figure for repeater 6 that is four years old
-          and was never re-measured. A slack figure that is an average over a whole route. An
-          instrument whose index setting was wrong for eleven years and has now been corrected. And
-          eleven mechanical joints on the shore end that are as old as the cable. The traffic is on a
-          diverse route with no spare of its own.
-        rules: >-
-          A hundred points, whole points, across the four. Spending is scored on what a measurement
-          would change about a decision that gets made again: an instrument that turns an average into
-          a measurement where the ship works, or a record of what a repeater is actually emitting, is
-          worth more than a survey of something already inside its margin.
-        assumes:
-          - money spent on a measurement is worth what the measurement would change
-        takeaway: Evidence is worth what it would change about the next decision, not what it would add to the file.
-        format: SCIENCETANK
-        task: Spread a hundred points across the four.
-        proposals:
-          - { label: A, text: "Telemeter the pump's optical output as well as its current, on the new housing." }
-          - { label: B, text: Survey the slack over the twenty kilometres either side of repeater 6. }
-          - { label: C, text: Replace the eleven original mechanical joints on the shore end. }
-          - { label: D, text: "A second reflectometer, so a trace can be taken from both ends at once." }
-        recommended: { A: 40, B: 30, C: 20 }
+          Use the whole chain. A clean break should have reflected strongly and did not. A bend or crush should
+          have been worse at 1625 nm and was not. The spare pump restored 3.6 dB, and the corrected route position
+          is 82.9 km. Choose the order that satisfies both the diagnosis and the location evidence.
+        takeaway: 'The final product of the physics is a decision: one object at one place.'
+        format: CHOICE
         why: >-
-          The optical telemetry is the measurement whose absence cost this fortnight. A pump current
-          told everybody nothing for three weeks. The housing going to sea tomorrow is the only
-          chance to add it. The slack survey turns the largest and least certain of the three
-          corrections into a measurement where the ship will actually be working. Replacing the old
-          joints is real work on eleven components that are past their design life and are not
-          currently failing. A second instrument would halve the position uncertainty of a fault whose
-          position is now dominated by slack rather than by the trace.
-      - group: RAD
-        task: Ask Farouk why the source has a fixed energy
-        title: One nucleus, one line
-        concept: 'Radioactive decay as a random process with a fixed chance'
-        takesAsRead:
-          - The nucleus, and the binding energy that holds it
-        place: Radiography Bay
-        person: true
-        scene: >-
-          Farouk's source emits at two definite energies and nothing in between, however old it gets
-          and however warm the bay is. Her film's exposure changes and the energies do not.
-        guide: >-
-          Each observation on the left has one explanation on the right. What separates them is which
-          properties belong to the nucleus itself, and which to how much of it is left. Ageing changes
-          one of those and not the other.
-        assumes:
-          - a nucleus has a set of states with definite energies
-        takeaway: A nucleus has fixed levels, so it emits fixed energies; how much is left changes only how often.
-        format: CASEBOOK
-        task: Match each observation about the source to what explains it.
-        scenarios:
-          - The two emitted energies are the same as they were eight months ago.
-          - The number of emissions a second is a tenth of what it was.
-          - The half-life is the same for this pot as for every other pot of the same material.
-          - Warming the pot changes nothing about either the energies or the rate.
+          The order is repeater 6 at 82.9 km. The location comes from correcting the old optical distance for
+          the group index, the extra fibre wound inside the cable and the slack laid on the seabed. The object
+          comes from the evidence pattern: no clean-break reflection, no longer-wavelength excess loss, normal
+          electrical feed, and a 3.6 dB recovery when the spare pump was switched in. No other candidate explains
+          all of those observations at once.
+        question: What repair order should you send to the ship?
         choices:
-          - The gaps between the nucleus's own states do not change with time.
-          - Only the number of nuclei left has changed, and each one behaves as it always did.
-          - The chance of decay per second belongs to that kind of nucleus rather than to the sample.
-          - Nuclear energies are millions of times larger than anything heat can supply.
-        mapping: [0, 1, 2, 3]
-        why: >-
-          Four observations, one distinction. The energies come from the gaps between the nucleus's
-          own states, and nothing available in a radiography bay can alter those. So they are the same
-          after eight months and the same when warm. The rate depends on how many nuclei are left,
-          which is what has changed. The half-life belongs to that kind of nucleus and not to the pot,
-          which is why it can be looked up rather than measured. And heat supplies fractions of an
-          electron volt against nuclear energies of hundreds of thousands. That is why a nuclear
-          source is the most stable thing on this site.
-
+          - Recover repeater 6 at 82.9 km along the route and replace its failing pump assembly
+          - Cut open the cable at the original 84.6 km trace position and repair a clean break
+          - Search near 82.9 km for a tight bend or crushed section of fibre
+          - Stay near shore and replace the eleven old mechanical joints instead of sending the ship 
+            offshore
+        answer: Recover repeater 6 at 82.9 km along the route and replace its failing pump assembly
+        rebuttals:
+          - The strong reflection expected from a clean break is absent, and 84.6 km is an optical distance 
+            rather than the corrected seabed route position.
+          - A bend or crush should produce greater loss at the longer test wavelength; the measured loss was
+            the same at both wavelengths.
+          - The old shore joints were present before the sudden 4.1 dB event and the spare-pump switch 
+            recovered almost all of that event from repeater 6.
+    segue: The order is signed. Repeater 6. 82.9 kilometres along the route. At dawn, the ship takes that 
+      one instruction out into the weather window.
 interiors:
   TERM:
     caption: Where the sea cable becomes glass you can put light into.
@@ -3368,9 +3532,9 @@ interiors:
       kind: panel
       title: Termination bench
       rows:
-        - { label: Core index, value: 1.4682, status: normal }
-        - { label: Numerical aperture, value: 0.125, status: normal }
-        - { label: Acceptance cone, value: 7.2°, status: high }
+        - {label: Core index, value: 1.4682, status: normal}
+        - {label: Numerical aperture, value: 0.125, status: normal}
+        - {label: Acceptance cone, value: 7.2°, status: high}
   TEST:
     caption: A pulse, a delay and a logarithm.
     standLine: Eleven years of traces in the drawer, each with its settings on the corner.
@@ -3378,9 +3542,9 @@ interiors:
       kind: panel
       title: Reflectometer
       rows:
-        - { label: Step in the trace, value: 4.1 dB, status: alarm }
-        - { label: Round-trip delay, value: 828.6 µs, status: normal }
-        - { label: 'Distance, corrected', value: 82.9 km, status: high }
+        - {label: Step in the trace, value: 4.1 dB, status: alarm}
+        - {label: Round-trip delay, value: 828.6 µs, status: normal}
+        - {label: 'Distance, corrected', value: 82.9 km, status: high}
   SPLICE:
     caption: Two ends of glass, and the step between them.
     standLine: Eleven mechanical joints on the shore end, all as old as the cable.
@@ -3388,9 +3552,9 @@ interiors:
       kind: panel
       title: Splice bench
       rows:
-        - { label: 'Reflection, dry end', value: −14.4 dB, status: alarm }
-        - { label: 'Reflection, in gel', value: −51 dB, status: normal }
-        - { label: Coating thickness, value: 320 nm, status: normal }
+        - {label: 'Reflection, dry end', value: −14.4 dB, status: alarm}
+        - {label: 'Reflection, in gel', value: −51 dB, status: normal}
+        - {label: Coating thickness, value: 320 nm, status: normal}
   AMP:
     caption: Erbium in a coil of glass, and a laser holding it excited.
     standLine: Repeater 6's telemetry, four years of it, every reading inside limits.
@@ -3398,9 +3562,9 @@ interiors:
       kind: panel
       title: Amplifier desk
       rows:
-        - { label: 'Pump, as logged', value: 118 mW, status: normal }
-        - { label: 'Ceiling on added signal', value: 74.6 mW, status: high }
-        - { label: 'Pump now, inferred', value: 46 mW, status: alarm }
+        - {label: 'Pump, as logged', value: 118 mW, status: normal}
+        - {label: 'Ceiling on added signal', value: 74.6 mW, status: high}
+        - {label: 'Pump now, inferred', value: 46 mW, status: alarm}
   RECV:
     caption: Where photons become charges, and where the counting starts.
     standLine: A diode measured at 82 conversions in a hundred, against a sheet claiming ninety.
@@ -3408,27 +3572,30 @@ interiors:
       kind: panel
       title: Receiver bench
       rows:
-        - { label: Photon energy at 1550 nm, value: 0.80 eV, status: normal }
-        - { label: Responsivity, value: 1.03 A/W, status: normal }
-        - { label: Arrivals per bit, value: 6200, status: high }
+        - {label: Photon energy at 1550 nm, value: 0.80 eV, status: normal}
+        - {label: Responsivity, value: 1.03 A/W, status: normal}
+        - {label: Arrivals per bit, value: 6200, status: high}
   RAD:
-    caption: Three hundred metres out in the dunes, because of what is in the pot.
-    standLine: The source renewed eight months ago, and every exposure since a little longer.
+    caption: Where the replacement repeater housing is X-rayed before it can go to sea.
+    standLine: The source is eight months old, so every exposure takes longer than it did when the source 
+      was new.
     station:
       kind: panel
       title: Radiography bay
       rows:
-        - { label: Through 40 mm of steel, value: 7 %, status: high }
-        - { label: Activity left, value: 10 %, status: alarm }
-        - { label: Barrier distance, value: 18.5 m, status: normal }
+        - {label: Through 40 mm of steel, value: 7 %, status: high}
+        - {label: Activity left, value: 10 %, status: alarm}
+        - {label: Barrier distance, value: 18.5 m, status: normal}
 
 warmups:
   trial-near:
-    title: Walk the station before the ship sails
+    title: Learn the island station before the repair countdown starts
+    # One sentence, and purely functional: who is here and what the ground is.
+    # Mandate 4b of THREE_PASS_BRIEF.md — the reason for the mission-1 run is
+    # orientation itself, on a morning the player has met nobody yet.
     why: >-
-      Five buildings, a duct trench and a beach manhole, and the cable runs under all of it. Walk it
-      once in daylight. When the ship is on the water you will be crossing this ground with a
-      position to hand over, and the trailer is not where the drawing says it is.
+      Five buildings, a duct trench and a beach manhole, all of it on sand, and the splice
+      trailer is not parked where the drawing puts it.
   trial-far:
     title: The dune track out to the bay
     why: >-
@@ -3436,11 +3603,12 @@ warmups:
       the track shifts with the sand. Take it once before you have to, because Nadia Farouk, the
       radiographer, will be waiting on a film and the exposure cannot be interrupted half way.
   greet:
-    title: Twelve people, and two of them have been arguing for a fortnight
+    title: Meet the people who disagree about what failed
     why: >-
-      This station runs on a disagreement between Gerald Okonkwo, the station chief, and Ines Sarraf,
-      the chief transmission engineer, about what an instrument is entitled to say. You will be
-      carrying numbers between them all fortnight, so get round the whole crew first.
+      Gerald Okonkwo, the station chief and cable engineer, distrusts turning an optical distance directly
+      into a seabed position. Ines Sarraf, the chief transmission engineer, trusts the trace but knows the
+      weather deadline is real. You will need both of them, and the rest of the crew,
+      before you can tell the ship what to repair.
   follow:
     title: The duct route, walked by the man who terminated it
     why: >-
@@ -3449,11 +3617,11 @@ warmups:
       that matters. Stay with him along it. Where he stops is where the duct is shallow.
   hunt:
     title: Six spare pump modules, and the store lists four
-    item: { name: pump module, plural: pump modules }
+    item: {name: pump module, plural: pump modules}
     why: >-
-      Every amplifier on this station has a spare pump module and two of them are not in the store
-      where the book says. A spare nobody can find is a repeater with no redundancy, which is exactly
-      what repeater 6 became on Friday afternoon.
+      Every amplifier on this station has a spare pump module and two of them are not in the store where the book
+      says. A spare nobody can find is a repeater with no redundancy, which is exactly what repeater 6 became
+      after the spare-pump test.
   canvass:
     title: Who else saw the loss arrive on the night
     why: >-
@@ -3470,20 +3638,30 @@ warmups:
   tag:
     title: Catch Whitlock before he signs the bay out
     why: >-
-      Joe Whitlock, the radiation safety officer, signs the bay closed at six and today's exposure
-      runs to a hundred and twenty-six minutes. The barrier distance has to be agreed before he
-      leaves, or the housing waits a day and the ship sails without a radiograph.
+      Joe Whitlock, the radiation safety officer, signs the radiography bay closed at six and today's
+      exposure runs for more than two hours.
+      The replacement housing cannot sail without that inspection, so the safe barrier has to be set before he
+      leaves.
 
 copy:
-  TERM: <p>The cable termination room. The armour comes off here, the conductor goes to the power feed, and every fibre in the cable is brought out to a connector somebody made by hand.</p>
-  TEST: <p>The test room. One instrument, eleven years of traces in a drawer with their settings written on the corners, and a step nineteen days old that nobody has explained.</p>
-  SPLICE: <p>The splice trailer, parked against the duct trench. A fusion splicer, a microscope, and eleven mechanical joints' worth of history on the shore end.</p>
-  AMP: <p>The amplifier and power hall. Several thousand volts on the cable's single conductor, and a coil of glass with a rare-earth metal in it that does the work nothing electrical could.</p>
-  RECV: <p>The receiver lab. A diode, an amplifier and a decision about whether a bit was a one, made six thousand photons at a time.</p>
-  RAD: <p>The radiography bay, three hundred metres out in the dunes. A pot, a crank handle, a barrier rope and a film cassette, and a source that is a tenth of what it was in the spring.</p>
-  MANHOLE: <p>The beach manhole. Where the sea cable stops being a sea cable, under a concrete lid two hundred metres up the dune from the low-water mark.</p>
-  GEN: <p>The generator house. Two sets, one running, because a landing station that loses power stops feeding the repeaters and every one of them is on the seabed.</p>
-  STORE: <p>The ship's store. Spare housings, spare pumps, jointing kits and a grapnel, all of it staged for a charter that starts on the thirteenth.</p>
+  TERM: <p>The cable termination room. The armour comes off here, the conductor goes to the power feed, and 
+    every fibre in the cable is brought out to a connector somebody made by hand.</p>
+  TEST: <p>The test room. One instrument, eleven years of traces in a drawer with their settings written on 
+    the corners, and a step nineteen days old that nobody has explained.</p>
+  SPLICE: <p>The splice trailer, parked against the duct trench. A fusion splicer, a microscope, and eleven 
+    mechanical joints' worth of history on the shore end.</p>
+  AMP: <p>The amplifier and power hall. Several thousand volts on the cable's single conductor, and a coil 
+    of glass with a rare-earth metal in it that does the work nothing electrical could.</p>
+  RECV: <p>The receiver lab. A diode, an amplifier and a decision about whether a bit was a one, made six 
+    thousand photons at a time.</p>
+  RAD: <p>The radiography bay, three hundred metres out in the dunes. A pot, a crank handle, a barrier rope 
+    and a film cassette, and a source that is a tenth of what it was in the spring.</p>
+  MANHOLE: <p>The beach manhole. Where the sea cable stops being a sea cable, under a concrete lid two 
+    hundred metres up the dune from the low-water mark.</p>
+  GEN: <p>The generator house. Two sets, one running, because a landing station that loses power stops 
+    feeding the repeaters and every one of them is on the seabed.</p>
+  STORE: <p>The ship's store. Replacement housings, spare pumps and jointing kits are staged here for the 
+    one-day weather window when the cable can be lifted safely.</p>
 
 # --------------------------------------------------------------- review variants
 #
@@ -3498,19 +3676,16 @@ copy:
 # decided by the stop it is a review of.
 lessons:
   - group: TEST
-    title: What came back, and when — Review
+    title: Raw reading or interpreted number? — Review
     task: Sort four readings from the diverse route by what each one is
     concept: 'A measurement in an instrument’s own units, and what converts it'
     place: Test Room
     scene: >-
-      Tobias Meier, the test room technician, has four readings from the diverse route pinned on the
-      board. None of them came off the same instrument, and none of them has been carried any further
-      than the box that produced it.
+      Meier has four readings from the backup route. Before anyone compares them with the failed cable, sort out
+      which numbers were directly measured and which already contain assumptions.
     guide: >-
-      Four readings and four descriptions. Sort them by what the instrument itself could know. A
-      quantity a box measured, a quantity software has already converted and a note of the conditions
-      are three different kinds of thing. Only the first of the three is evidence before anybody has
-      argued about it.
+      A box can measure time or power. Software can turn time into distance. A log can record the conditions of
+      a measurement. Sort the four items by which of those jobs they represent before using them as evidence.
     background:
       - >-
         Why this is a matching board rather than four separate questions. Each description is written
@@ -3526,9 +3701,9 @@ lessons:
     assumes:
       - a reflectometer reports the delay of a pulse that has been out and back
       - the position printed beside a trace is worked out from the delay by software
-    takeaway: A set of readings is usually three different kinds of thing, and saying which kind each one is comes before comparing any of them.
+    takeaway: A set of readings is usually three different kinds of thing, and saying which kind each one is
+      comes before comparing any of them.
     format: PROTOCOL
-    task: Match each reading from the diverse route to what it is.
     scenarios:
       - The reflectometer prints a round-trip delay of 611.4 microseconds.
       - The power meter at the far end reads 42 nanowatts.
@@ -3549,31 +3724,29 @@ lessons:
       two readings may be compared.
 
   - group: TERM
-    title: Two hundred thousand kilometres a second — Review
+    title: How fast is light in the repair fibre? — Review
     task: Take the speed in a different glass, the one the ship will put in
     concept: Refractive index, and the speed of light in a material
     place: Cable Termination Room
     scene: >-
-      Okonkwo, the station chief, has the spare drum's certificate out. It is a different make of
-      fibre, wound eleven years ago as the repair length for this span, and its core index is 1.4571.
+      The ship will carry a short drum of replacement fibre whose core index is 1.4571. Nilsen wants the speed
+      in that glass so later tests do not silently assume it is identical to the old span.
     guide: >-
-      Three indices are on the bench and only one belongs in this division. The one you want is the
-      index of the glass the light will actually be travelling in, which is the repair fibre's core.
-      The span's own core is here because the two will be compared once the repair length is in. The
-      cladding is here because it belongs to a boundary rather than to a path.
+      Use the refractive index of the glass the light actually travels through. The span index and cladding index
+      are distractors because they describe a different path or a boundary rather than this repair fibre.
     background:
       - >-
-        Why the answer is close to the span's own and still worth taking. The two glasses differ in
-        the third decimal place. That is under one per cent of a speed, and about seven hundred metres
-        over a span of this length. That is inside a grapnel run and outside the tolerance the ship is
-        being given.
+        Why a small index difference still matters. The two glasses differ only in the third decimal place, but
+        over a long optical path that can move an inferred position by hundreds of metres—large compared with
+        the accuracy needed for a one-day repair operation.
       - >-
         What an index actually is. It is the vacuum speed divided by the speed in the material, so it
         is a ratio of two speeds and carries no units of its own. Anything that comes out of it with a
         unit attached has had a unit invented for it somewhere in the working.
     assumes:
       - the index of a material is the factor by which light is slowed in it
-    takeaway: A speed in a material comes out of one division, and the work is deciding which of the indices on the bench belongs in it.
+    takeaway: A speed in a material comes out of one division, and the work is deciding which of the indices
+      on the bench belongs in it.
     format: BALLPARK
     question: How fast does light travel in the core of the repair fibre?
     estimate:
@@ -3610,19 +3783,16 @@ lessons:
       different speed. Every later distance is worked out as though the whole fibre were one glass.
 
   - group: RECV
-    title: A few hundred of something — Review
+    title: Wave fact or photon-count fact? — Review
     task: Place four facts about the far end against what each one is about
     concept: 'Light as a wave: wavelength, frequency and the relation between them'
     place: Receiver Lab
     scene: >-
-      Karl Osgood, the photodiode technician, has four facts about the far end pinned over the bench,
-      collected on different days by different people. None of them was written down with this
-      fortnight's argument in mind.
+      Osgood has four facts about the far-end signal. Sort them by whether they are controlled by the wave's wavelength
+      or by the number of photons arriving in each bit.
     guide: >-
-      Four observations and four accounts of what each one is a statement about. A wave has a
-      wavelength, and everything the glass does to it on the way follows from that. A stream of
-      arrivals has a count, and a count has a scatter of its own that nothing downstream removes. Two
-      of these belong to each.
+      Wavelength controls how the fibre scatters and disperses the signal. Photon count controls counting noise
+      and the statistical floor. Both describe the same light, but they answer different questions.
     background:
       - >-
         Why the distinction is worth making at a receiver. It decides what better equipment could
@@ -3634,9 +3804,9 @@ lessons:
         the number reaching the diode is, which is what an error rate is a statement about.
     assumes:
       - light can be described as a wave and as a stream of arrivals
-    takeaway: Which description an observation belongs to decides whether better equipment at this end could change it.
+    takeaway: Which description an observation belongs to decides whether better equipment at this end could
+      change it.
     format: CASEBOOK
-    task: Match each fact about the far end to what it is a statement about.
     scenarios:
       - The channel is specified at 1550 nanometres and the transmitter is locked to it.
       - The error floor does not improve when a quieter amplifier is fitted.
@@ -3645,7 +3815,8 @@ lessons:
     choices:
       - 'About the wave: one wavelength, and the one frequency that goes with it.'
       - 'About the stream: the arrivals scatter about their average, and no amplifier makes them regular.'
-      - 'About the wave: scattering by the glass depends steeply on the wavelength, so the colour decides the loss.'
+      - 'About the wave: scattering by the glass depends steeply on the wavelength, so the colour decides the
+        loss.'
       - 'About the stream: fewer arrivals a bit is a noisier count, whatever the electronics are doing.'
     mapping: [0, 1, 2, 3]
     why: >-
@@ -3656,18 +3827,17 @@ lessons:
       the power halves the number counted for each bit, which raises the errors by itself.
 
   - group: AMP
-    title: Current, and not light — Review
+    title: How the pump creates gain — Review
     task: Put one atom's four events in the order they happen
     concept: 'Stimulated emission, population inversion and gain'
     place: Amplifier and Power Hall
     scene: >-
-      Bruno Salas, the power feed engineer, has a wall chart of the erbium levels taped up beside
-      repeater 6's telemetry. Four things happen to one atom in that coil, and the chart has them in
-      no particular order.
+      Tanaka puts the four stages of one erbium amplification cycle on the board. Put them in order so the later
+      pump diagnosis rests on the atomic mechanism rather than on a memorized label.
     guide: >-
-      Four cards, and the rail here is a clock. Start from the fact that nothing can be amplified
-      until an atom is already waiting in the long-lived level. Ask of each card whether it puts an
-      atom there, keeps it there, or spends it.
+      The pump must first excite the atom, the atom relaxes to the long-lived working level, an incoming signal
+      photon arrives, and stimulated emission releases a matching photon. The order explains why pump optical
+      output matters.
     background:
       - >-
         Why one of the four levels is short-lived and one is not. The pump lands atoms on a level they
@@ -3682,9 +3852,9 @@ lessons:
       - Atomic energy levels, and the wavelengths they allow
     assumes:
       - an amplifier works by holding more atoms excited than not
-    takeaway: Gain is a count of atoms already waiting in the upper level, so every step that fills that level is part of the answer.
+    takeaway: Gain is a count of atoms already waiting in the upper level, so every step that fills that 
+      level is part of the answer.
     format: SEQUENCE
-    task: Order the four events in the life of one erbium atom.
     cards:
       - A pump photon at 980 nanometres is absorbed, and the atom is lifted to a short-lived level.
       - The atom settles to the long-lived level below it without emitting anything.

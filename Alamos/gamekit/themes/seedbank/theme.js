@@ -97,9 +97,9 @@ export default {
   // that closes a day hands that piece over, and the board in the room named by
   // `where` is where all of them can be seen at once — engine/core/delivery.js.
   //
-  // One finding a day, in the order the season forced them. The crossing block
-  // is chosen on the second-to-last day out of everything established before
-  // it.
+  // One commitment a day, in the order the season forced them. The crossing
+  // block is chosen on the second-to-last day out of everything established
+  // before it.
   delivery: {
     // THIS WAS "THE WELLMERE SEASON RECORD", and it was a document about the
     // stakes rather than the stakes. The tell was on the opening card, which had

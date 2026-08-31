@@ -7,23 +7,27 @@ export const MISSIONS = [
     "title": "The Discovery Image",
     "objective": "Validate a new-object candidate and preserve the measurements needed for follow-up.",
     "briefing": "A survey telescope flags a faint moving point near the ecliptic. The player must determine whether it is a real Solar System object, an image artifact, or a known source.",
-    "stake": "11 days before the object passes Earth. The survey runs itself every night. Aino Virtanen, the survey pipeline scientist, keeps it working. Tonight it flagged a faint point of light. The point moved between 3 exposures. The same patch of sky holds 40000 catalogued stars. It also holds 2 satellite trails and a column of hot pixels. Any of those can look like a moving object. Today you decide whether there is really an object there. You keep the measurements in a state somebody else can use. You say where to point next. Nothing else is known yet. Not how big it is. Not what it is made of. Not whether this pass is the only one that matters. Every hour of waiting widens the patch of sky it could be hiding in.",
+    "stake": "11 days before it either passes Earth, or hits it. A survey telescope caught a faint point of light moving across three pictures. Today you decide whether it is real, and say where to look next.",
     "takeaway": "Use digital images, signal-to-noise, artifacts, moving-object detection, controls as an evidence chain rather than as isolated facts.",
+    "segue": "The point moves like a real object, not a camera flaw — the discovery holds. But not every observatory that reported in agrees with the rest, and the next call is deciding whether to trust that camera or fix it.",
     "stops": [
       {
         "group": "DISC",
         "lesson": 0,
-        "task": "Which explanation fits the motion, image shape, detector map, and independent follow-up?"
+        "task": "Which explanation fits the motion, image shape, detector map, and independent follow-up?",
+        "reason": "The point either moves like a real object or sits like a camera flaw, and today's whole case rests on telling them apart"
       },
       {
         "group": "DISC",
         "lesson": 1,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "reason": "She will not send the discovery report at dawn until every step that could hide a mistake has been checked in order"
       },
       {
         "group": "ORBIT",
         "lesson": 0,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "reason": "Knowing where to point tomorrow starts with turning tonight's shift across the sky into a rate"
       }
     ]
   },
@@ -31,28 +35,33 @@ export const MISSIONS = [
     "title": "Confirm the Motion",
     "objective": "Produce a consistent astrometric track and identify observations that should be down-weighted or repeated.",
     "briefing": "Follow-up telescopes obtain positions with different clocks and plate solutions. The player must combine astrometry without creating a false trajectory from inconsistent reference frames.",
-    "stake": "Ten days to the pass. 6 observatories have sent in positions. They all go to Hugo Delacroix, the campaign astrometrist. Two of them used a different time standard. One sent no plate solution at all. One camera's measurements bend away from the orbit fit. The bend is not random. It looks like a fault in the camera itself. Today you build one clean track out of all of it. Then you pay for the next observation. Delacroix will not weight any observatory down until the room agrees how to do it. A weak track loses the object after the pass. It will be far too faint to find again for years.",
+    "stake": "Ten days to the pass. Six observatories sent in positions, and one camera's numbers do not fit the rest. Today you build one clean track and pick the next observation to pay for.",
     "takeaway": "Use angular coordinates, plate calibration, time standards, uncertainty, residuals as an evidence chain rather than as isolated facts.",
+    "segue": "The bad camera is out, and the track is clean. Therefore a real orbit fit is possible — but a short arc still lets through orbits that miss by millions of kilometres and orbits that hit Earth eight years from now, and nothing yet tells them apart.",
     "stops": [
       {
         "group": "OPS",
         "lesson": 0,
-        "task": "Which explanation fits the residual pattern across field position, timing, catalog stars, and the independent telescope?"
+        "task": "Which explanation fits the residual pattern across field position, timing, catalog stars, and the independent telescope?",
+        "reason": "One camera's numbers do not match the rest, and today decides whether to trust it or fix it"
       },
       {
         "group": "ORBIT",
         "lesson": 1,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "reason": "The clean track has to be built before anybody can say what observation is worth paying for next"
       },
       {
         "group": "OPS",
         "lesson": 1,
-        "task": "Spend the single follow-up booking on the observation that most reduces the short-arc orbit ambiguity."
+        "task": "Spend the single follow-up booking on the observation that most reduces the short-arc orbit ambiguity.",
+        "reason": "She will not weight any observatory down until the room agrees how, and tonight's booking is the first test of it"
       },
       {
         "group": "DISC",
         "lesson": 2,
-        "task": "Sort the night's detections before the report goes out."
+        "task": "Sort the night's detections before the report goes out.",
+        "reason": "Sorting tonight's detections is what tells a real track from the sky's own drift"
       }
     ]
   },
@@ -60,23 +69,27 @@ export const MISSIONS = [
     "title": "An Orbit from Sparse Data",
     "objective": "Construct a family of allowed orbits and choose observations that collapse the dangerous dimensions.",
     "briefing": "Only a short arc is available, and many three-dimensional orbits project to nearly the same sky motion. The player must reason with Keplerian motion and orbit families rather than report one overconfident solution.",
-    "stake": "Nine days to the pass. Marco Rossi, the orbit determination lead, has stopped quoting a single orbit. Many different orbits fit the observations he has. All of them draw almost the same line across the sky. That is why they all still fit. But they disagree about everything that comes after this pass. This pass is harmless in every one of them. Some of them come back in 8 years and hit. Today you work out what the data really pins down. Then you pick the observations that rule the rest out. A single orbit drawn through the middle would be the most dangerous thing in this campaign. It looks like knowledge. It is an average of guesses.",
+    "stake": "Nine days to the pass. Many different orbits still fit the data, and some of them hit Earth eight years from now. Today you work out what the data really proves, and which new observation would rule the rest out.",
     "takeaway": "Use Keplerian orbits, state vectors, degeneracy, orbital elements, prediction as an evidence chain rather than as isolated facts.",
+    "segue": "The orbit family is real, and so is the corridor it draws across Earth. Therefore there is a number now — but it reached the public before today's work on it, and half the coastline it names is already asking about buses out. The next call is making that number honest before anyone boards one for nothing.",
     "stops": [
       {
         "group": "ORBIT",
         "lesson": 2,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "reason": "Today's whole case for waiting or acting rests on what family of orbits the angles alone allow"
       },
       {
         "group": "OPS",
         "lesson": 2,
-        "task": "Match each part of the orbit to the observation that pins it down. Each choice is used once."
+        "task": "Match each part of the orbit to the observation that pins it down. Each choice is used once.",
+        "reason": "Knowing which feature the data pins down is what tells you which observation is worth paying for"
       },
       {
         "group": "OPS",
         "lesson": 3,
-        "task": "Radar has a window in nine days. What do you do with the nine nights before it?"
+        "task": "Radar has a window in nine days. What do you do with the nine nights before it?",
+        "reason": "She has nine nights before the radar window, and today decides how they get spent"
       }
     ]
   },
@@ -84,23 +97,27 @@ export const MISSIONS = [
     "title": "The Uncertainty Corridor",
     "objective": "Report an impact probability and uncertainty corridor that remain meaningful as new data arrive.",
     "briefing": "The nominal trajectory misses Earth, but a thin set of allowed solutions passes through it. The player must interpret probability, covariance, and how the spread grows unevenly, without confusing low probability with zero consequence.",
-    "stake": "Eight days out. The argument has stopped being about this pass. Look 8 years ahead instead. The best-fit orbit for that return misses Earth comfortably. But a thin set of orbits inside the uncertainty does not. The strip of ground they sweep holds 9 million people and a coastline. This morning's numbers moved the impact probability up. The number is already on the wire. Rossi wants to say nothing until the arc of observations is longer. Joan Ellery, who coordinates preparedness for the two counties under that strip, disagrees. She is right. The number goes public whether or not this room has the words for it. Today you work out that probability properly. Then you decide which observation would shrink the uncertainty that is really driving it. You get one chance to explain it to people.",
+    "stake": "Eight days out. A thin band of orbits still points at a strip of coastline, and the impact number just went public. Today you work out that number properly and find the observation that would shrink it most.",
     "takeaway": "Use probability distributions, covariance, uneven growth of the spread, risk corridors, decision thresholds as an evidence chain rather than as isolated facts.",
+    "segue": "The cloud clears the boundary now — this pass misses, cleanly, and the room breathes for the first time in eight days. But the number that just brought everyone relief was built on a guessed size, and a wrong guess there is the difference between a city and a country. The next call starts measuring the one number the whole estimate has been resting on.",
     "stops": [
       {
         "group": "IMPACT",
         "lesson": 0,
-        "task": "Move and narrow the encounter cloud until the full allowed band clears Earth."
+        "task": "Move and narrow the encounter cloud until the full allowed band clears Earth.",
+        "reason": "The public number only means something once the whole band of possible paths is read correctly"
       },
       {
         "group": "ORBIT",
         "lesson": 3,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "reason": "A probability built from the whole ensemble is the only version worth putting on the wire"
       },
       {
         "group": "OPS",
         "lesson": 4,
-        "task": "A thin set of solutions still hits Earth. Where do you point next week?"
+        "task": "A thin set of solutions still hits Earth. Where do you point next week?",
+        "reason": "She gets one chance to explain this number, and today decides what to point the telescopes at next to shrink it"
       }
     ]
   },
@@ -108,23 +125,27 @@ export const MISSIONS = [
     "title": "How Large Is It?",
     "objective": "Produce a diameter range rather than a single unsupported value.",
     "briefing": "The object’s brightness is known, but size depends strongly on reflectivity. The player must combine brightness, albedo, and thermal evidence to bound diameter.",
-    "stake": "Six days to the pass. This is the day the campaign has been dreading. Irina Sorokin, who observes in the thermal infrared, has been waiting on telescope time all week. Everything anybody wants to know about the 8-year return scales with size. And the size rests on one thing. It rests on how bright the object looked in a survey image. Brightness alone allows anything from 120 metres to 600. At the small end this is one city and an evacuation. At the large end it is a whole country. It is also a decade of bad harvests for everyone else. Nobody can tell you which end is right. Staring at the discovery image will never settle it. Today you buy the measurement that breaks the tie.",
+    "stake": "Six days to the pass. Brightness alone cannot tell you if the object is small or six times as wide, and everything depends on which. Today you choose the measurement that finally breaks the tie.",
     "takeaway": "Use brightness, inverse-square law, albedo, thermal emission, size degeneracy as an evidence chain rather than as isolated facts.",
+    "segue": "The size is real now, pinned down by two independent measurements that agree. But a number that size still means nothing without knowing what the object is made of — a rock and an iron mass that size behave very differently on the way down.",
     "stops": [
       {
         "group": "CHAR",
         "lesson": 0,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "reason": "Brightness alone cannot be trusted until you know everything else it depends on"
       },
       {
         "group": "OPS",
         "lesson": 5,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "reason": "The telescope time today buys is only worth it if it actually breaks the size tie"
       },
       {
         "group": "CHAR",
         "lesson": 1,
-        "task": "Fit the reflected brightness, then use the thermal spectrum to break the size–albedo degeneracy."
+        "task": "Fit the reflected brightness, then use the thermal spectrum to break the size–albedo degeneracy.",
+        "reason": "The measurement bought today is what finally pins the size down instead of guessing at it"
       }
     ]
   },
@@ -132,23 +153,27 @@ export const MISSIONS = [
     "title": "What Is It Made Of?",
     "objective": "Assign a composition class with explicit alternatives and confidence.",
     "briefing": "Spectra show broad features, but weathering, grain size, and viewing geometry complicate composition. The player must avoid turning a taxonomic resemblance into an exact material claim.",
-    "stake": "Five days out. A broad dip has appeared in the spectrum near 1.4 microns. If the dip is real, it changes the composition class. Tola Adebayo, the characterization lead, has already named that class in a draft circular. Today you decide whether the dip belongs to the asteroid. You also work out what would make the claim solid. This is not just a label for a catalogue. What the rock is made of gives you its density. Density gives you its mass. It gives you its strength too. Strength decides whether the body holds together when a spacecraft hits it in 3 years' time. Every model built after today inherits whatever gets written today.",
+    "stake": "Five days out. A dip in the spectrum could name what the object is made of, or it could be noise. Today you decide whether the dip is real, and what proof the claim still needs.",
     "takeaway": "Use spectra, absorption features, mineralogy, taxonomy, model ambiguity as an evidence chain rather than as isolated facts.",
+    "segue": "The dip that seemed to name the surface turns out to be Earth's own atmosphere, thrown out before it could mislead anyone. What is left is a provisional class that still needs more wavelengths before anyone signs it. But composition is not the only open file: the brightness has started rising and falling on a cycle, and nobody yet knows if that is the asteroid turning or just one telescope's own schedule.",
     "stops": [
       {
         "group": "CHAR",
         "lesson": 2,
-        "task": "Open the dependency chain behind each spectrum, keep the independent checks, and identify the shared source of the 1.4 μm dip."
+        "task": "Open the dependency chain behind each spectrum, keep the independent checks, and identify the shared source of the 1.4 μm dip.",
+        "reason": "Every later model inherits today's answer, so the dip has to be checked before it is trusted"
       },
       {
         "group": "OPS",
         "lesson": 6,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
+        "reason": "Turning the light into a class is the step the whole density and strength argument stands on"
       },
       {
         "group": "OPS",
         "lesson": 7,
-        "task": "One spectrum, one phase angle, one rotation — and a draft circular naming a class. What do you require?"
+        "task": "One spectrum, one phase angle, one rotation — and a draft circular naming a class. What do you require?",
+        "reason": "She has already named a class in a draft circular, and today decides what would make it solid"
       }
     ]
   },
@@ -156,28 +181,33 @@ export const MISSIONS = [
     "title": "The Spinning Target",
     "objective": "Produce a rotation-state range suitable for imaging and deflection planning.",
     "briefing": "Brightness varies dramatically over hours, suggesting rotation and an elongated shape. The player must derive a period, identify aliases, and determine whether the body may be tumbling.",
-    "stake": "Four days to the pass. The asteroid brightens and fades by a few tenths of a magnitude. The pattern repeats near 4.8 hours. So does something else. 1 observatory's nightly window repeats on almost the same interval. Linh Nguyen, the survey imaging lead, noticed that, and nobody wanted to hear it. Today you decide whether you are watching the object turn or watching your own schedule. Then you pin the spin state down. Years from now an intercept will be aimed using this number. It will be aimed at a body it can only see for a few hours. Get the number wrong and the spacecraft arrives at the wrong face. Or it misses.",
+    "stake": "Four days to the pass. The object gets brighter, then dimmer, on a cycle. That same cycle matches one telescope's own nightly schedule. Today you decide if you are watching the asteroid spin, or only your own schedule.",
     "takeaway": "Use periodic signals, light curves, aliasing, rotation, shape inference as an evidence chain rather than as isolated facts.",
+    "segue": "The spin is real, not the sky or the instrument, and a properly measured rotation period is now on the record. But the radar dish gets one pass at this object, tonight — the window will not open again for eleven years, and there is no redo if tonight goes wrong.",
     "stops": [
       {
         "group": "CHAR",
         "lesson": 3,
-        "task": "Which explanation fits the repeatability, comparison stars, filters, and observing geometry?"
+        "task": "Which explanation fits the repeatability, comparison stars, filters, and observing geometry?",
+        "reason": "A repeating pattern that matches your own schedule is not evidence of anything but the schedule"
       },
       {
         "group": "OPS",
         "lesson": 8,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "reason": "The exact period is the number a future spacecraft will be aimed with, years from now"
       },
       {
         "group": "OPS",
         "lesson": 9,
-        "task": "A single rotation, half of one, or a tumbler — and the spacecraft launches on whichever is true. What do you organise?"
+        "task": "A single rotation, half of one, or a tumbler — and the spacecraft launches on whichever is true. What do you organise?",
+        "reason": "She has to organise the follow-up before anyone can say which spin state is true"
       },
       {
         "group": "RADAR",
         "lesson": 0,
-        "task": "Hold the dish on the object while the wind gets up."
+        "task": "Hold the dish on the object while the wind gets up.",
+        "reason": "Tonight's whole radar case depends on the dish staying on target through the wind"
       }
     ]
   },
@@ -185,23 +215,27 @@ export const MISSIONS = [
     "title": "Radar Contact",
     "objective": "Design a radar sequence that improves both orbit and physical characterization.",
     "briefing": "A planetary radar window opens for several hours. Range and Doppler measurements could collapse the orbit and reveal shape, but only if the observation plan uses the limited signal effectively.",
-    "stake": "The pass is tonight. Anna Fischer, the radar dynamics lead, has the dish. The radar window is 4 hours wide. This geometry does not come back for 11 years. That is long after the encounter everybody is now worried about. The room wants four things from tonight. Three of them can be got another way. Today you decide what radar alone can do. Then you write the sequence for it. An orbit built from angles alone is starved of exactly what this dish adds. The dish also resolves detail at a scale no telescope here can reach. Tonight the size question closes for good. Or it stays open for a decade.",
+    "stake": "The pass is tonight, and the radar window will not open again for eleven years. Four things are wanted from the dish, but only one of them truly needs it. Today you decide what radar alone can prove, and set the order to ask for it in.",
     "takeaway": "Use radar ranging, Doppler shift, resolution, signal-to-noise, inverse problems as an evidence chain rather than as isolated facts.",
+    "segue": "The dish held through the whole pass, and radar gave what it came for. The object goes by tonight and heads away. But going by is not the same as being finished with — if the orbit brings it back and it hits, it could level a city, and nobody yet has a number for how much city.",
     "stops": [
       {
         "group": "RADAR",
         "lesson": 1,
-        "task": "Match each quantity to the radar observable that measures it. Each choice is used once."
+        "task": "Match each quantity to the radar observable that measures it. Each choice is used once.",
+        "reason": "Knowing what the dish actually measures is what stops tonight's four requests from asking it for the wrong thing"
       },
       {
         "group": "OPS",
         "lesson": 10,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "reason": "She wants the size question closed tonight, and the angular width is the number that does it"
       },
       {
         "group": "ORBIT",
         "lesson": 4,
-        "task": "Radar has settled this pass. What has to be computed before anybody calls the object safe?"
+        "task": "Radar has settled this pass. What has to be computed before anybody calls the object safe?",
+        "reason": "Tonight's contact only matters for what it lets you compute about the pass still to come"
       }
     ]
   },
@@ -209,23 +243,27 @@ export const MISSIONS = [
     "title": "Impact Energy",
     "objective": "Provide low, central, and high impact-energy scenarios with transparent assumptions.",
     "briefing": "The latest size and speed estimates imply regional consequences, but uncertainty in diameter, density, and velocity spans a wide range. The player must compute scales without presenting a false point estimate.",
-    "stake": "The object passed a week ago. It came no closer than four times the distance of the Moon, and it is now heading away. What it left behind is a description. It is about 180 metres across. If the 8-year return arrives, it hits with roughly 255 megatons. That is not the end of the world. It is one large city and its suburbs. Or, if it comes down at sea off a crowded coast, it is a wave with hours of warning behind it. Rohan Banerjee, who models impact physics, wants one number for civil defence today. Adebayo says the diameter is still the widest unknown. Everything else, she says, is decoration. Today you produce low, central and high scenarios. Then you say which unknown is still doing the damage.",
+    "stake": "The pass was a week ago. The object is heading away, but it is not gone. The orbit says it comes back in eleven years, and if it hits then, it could level one city. Today you set a low, middle, and high guess for that damage, and name the number still driving the range.",
     "takeaway": "Use mass and density, kinetic energy, scaling, how uncertainty carries forward, orders of magnitude as an evidence chain rather than as isolated facts.",
+    "segue": "The range of possible damage now has a name on the number driving it: the diameter. But the immediate scare is over, and with the pressure off, three separate teams have modelled the same object's entry and come back with three different answers for how it arrives.",
     "stops": [
       {
         "group": "IMPACT",
         "lesson": 1,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "reason": "Civil defence wants one number today, and the energy estimate is where that number starts"
       },
       {
         "group": "OPS",
         "lesson": 11,
-        "task": "Use gravitational focusing and the asteroid mass estimate to calculate the corrected kinetic energy at atmospheric entry."
+        "task": "Use gravitational focusing and the asteroid mass estimate to calculate the corrected kinetic energy at atmospheric entry.",
+        "reason": "The raw approach speed is not what arrives, and today's energy figure depends on the correction"
       },
       {
         "group": "OPS",
         "lesson": 12,
-        "task": "The consequence range spans two orders of magnitude. Which measurement narrows it most?"
+        "task": "The consequence range spans two orders of magnitude. Which measurement narrows it most?",
+        "reason": "She wants the two-order-of-magnitude spread narrowed, and today decides which measurement does it"
       }
     ]
   },
@@ -233,23 +271,27 @@ export const MISSIONS = [
     "title": "Through the Atmosphere",
     "objective": "Build multiple entry scenarios and identify observations that discriminate monolithic from weak aggregate behavior.",
     "briefing": "Models disagree on whether the object reaches the ground, fragments in the atmosphere, or produces a damaging airburst. The player must reason about drag, strength, heating, and uncertain structure.",
-    "stake": "Two weeks after the pass. Marta Schulz, who models impact physics, has three groups working on the same object. They all have the same data. One group has it reaching the ground. One has it coming apart 30 kilometres up. One sits between the two. Evacuation distances differ by a factor of five across those three answers. A planning office wants a number this week. Today you build the entry scenarios properly. Then you say what measurement would tell the three apart. Strength is the property we can measure least well from here. It is also the one that decides what people are told to do.",
+    "stake": "Two weeks after the pass. Three teams study the same object and get three different answers for how it enters the sky. How far people must move depends on which answer is right. Today you build each case properly, and name the one new measurement that would settle it.",
     "takeaway": "Use drag, deceleration, heating, fragmentation, material strength as an evidence chain rather than as isolated facts.",
+    "segue": "The three entry models get built out properly, and one new measurement is enough to settle which of them is right. But a month later somebody asks a harder question: why was this object found with only eleven days of warning, when it had been sitting in the sky the whole time — just not where anyone was looking.",
     "stops": [
       {
         "group": "IMPACT",
         "lesson": 2,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "reason": "The planning office wants megatons this week, and joules alone will not tell them anything"
       },
       {
         "group": "OPS",
         "lesson": 13,
-        "task": "Which atmospheric-entry outcome best fits the optical, deceleration, low-frequency sound, and ground evidence?"
+        "task": "Which atmospheric-entry outcome best fits the optical, deceleration, low-frequency sound, and ground evidence?",
+        "reason": "Three groups already disagree about where the object came apart, and today's evidence decides who is right"
       },
       {
         "group": "OPS",
         "lesson": 14,
-        "task": "Three groups model the same object and get ground impact, high fragmentation, and a city-wide airburst. What do you commission?"
+        "task": "Three groups model the same object and get ground impact, high fragmentation, and a city-wide airburst. What do you commission?",
+        "reason": "She has three models and one week, and today decides what gets commissioned to tell them apart"
       }
     ]
   },
@@ -257,28 +299,33 @@ export const MISSIONS = [
     "title": "What Have We Failed to See?",
     "objective": "Design a survey strategy that improves detection and accurately reports what remains unseen.",
     "briefing": "The object was discovered late because surveys missed parts of the sky and faint low-albedo bodies. The player must quantify selection effects and improve future completeness.",
-    "stake": "A month after the pass. Isabel Garcia, who runs survey and response, has opened a review. It asks the question nobody wanted to ask during the pass. This object was found 11 days out. It came from the direction of the Sun. It had been brighter than the survey's own limit for weeks before that. 11 days is enough time to warn a region. It is nowhere near enough time to move anything. This campaign has options at all for one reason only. The dangerous encounter is 8 years away, not this one. Today you work out why the object was missed. Then you design the improvement worth paying for. Anything coming at us from the direction of the Sun cannot be seen from the ground at all.",
+    "stake": "A month after the pass, a review is asking why this object was found only eleven days out. It had been hiding in the glare near the Sun for weeks. Today you work out why it was missed, and design the fix worth paying for.",
     "takeaway": "Use selection effects, survey completeness, limiting magnitude, how often the survey looks, population inference as an evidence chain rather than as isolated facts.",
+    "segue": "The blind spot gets a name — not a broken survey, just geometry — and a fix worth paying for goes on the books. But re-deriving the old orbit to answer that question turns up something the first pass never showed: a keyhole, a narrow gap in space this object just barely threaded. On the other side of that gap, the return orbit does not miss. Eleven years from now, it comes back on a collision course, and a mission to push it off that course has to launch years before it arrives — so sizing that push starts now.",
     "stops": [
       {
         "group": "OPS",
         "lesson": 15,
-        "task": "Which explanation fits the pre-discovery geometry and how the survey was running at the time?"
+        "task": "Which explanation fits the pre-discovery geometry and how the survey was running at the time?",
+        "reason": "The review will not close until today's case says exactly why the survey missed it"
       },
       {
         "group": "OPS",
         "lesson": 16,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "reason": "She has to know what a deeper survey would actually buy before she can ask anyone to pay for it"
       },
       {
         "group": "OPS",
         "lesson": 17,
-        "task": "Inject known synthetic objects through the survey strategies and choose the configuration that best repairs the known blind spot."
+        "task": "Inject known synthetic objects through the survey strategies and choose the configuration that best repairs the known blind spot.",
+        "reason": "Testing the blind spot with known objects is how today's fix gets proven rather than assumed"
       },
       {
         "group": "OPS",
         "lesson": 18,
-        "task": "Work the target list while the observing priority changes."
+        "task": "Work the target list while the observing priority changes.",
+        "reason": "Tonight's target list is the first place the review's fix actually gets tried"
       }
     ]
   },
@@ -286,23 +333,27 @@ export const MISSIONS = [
     "title": "Can We Move It?",
     "objective": "Choose a deflection demonstration and define how success will be measured.",
     "briefing": "Impact probability remains significant, and a scouting mission could arrive years before encounter. The player must compare momentum transfer, lead time, and uncertainty without treating deflection as a movie-style explosion.",
-    "stake": "Four months after the pass. Fischer has the radar orbit now. The encounter is seven and a half years out. That sounds like plenty of time. It is not. A deflection has to be launched years before it arrives. Fischer's orbit is the best this campaign will ever have, and it is already two months old. Today you size the nudge the spacecraft has to give. You also decide how success will be measured. On a weak body the push can break the object apart. Several fragments on the same path are worse than one. So the thing to measure is not what you launched. It is what actually happened to the orbit.",
+    "stake": "Four months after the keyhole was confirmed. The next encounter is still more than a decade away, which sounds like plenty of time. It is not: a mission to push the object must launch years before it ever gets there. Today you size that push, and decide how you will prove it worked.",
     "takeaway": "Use momentum, impulse, lead time, kinetic impact, uncertainty as an evidence chain rather than as isolated facts.",
+    "segue": "The push gets sized, and a plan to prove it worked — tracking after the impact, not just the collision itself — goes into the mission design. But months on, the real spacecraft runs into a harder number: the launch window is only nineteen days wide, it will not open twice, and one part of the design is what is actually setting that limit.",
     "stops": [
       {
         "group": "IMPACT",
         "lesson": 3,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "reason": "Sizing the nudge today is what tells the mission how hard it actually has to hit"
       },
       {
         "group": "IMPACT",
         "lesson": 4,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "reason": "A body that breaks apart under the hit is worse than one that only moves, so today's measure has to be the right one"
       },
       {
         "group": "ORBIT",
         "lesson": 5,
-        "task": "Predict the velocity-change range, execute the impact, then verify the achieved deflection with post-impact tracking."
+        "task": "Predict the velocity-change range, execute the impact, then verify the achieved deflection with post-impact tracking.",
+        "reason": "Only tracking after the fact proves the push worked, so today's plan has to include watching for it"
       }
     ]
   },
@@ -310,23 +361,27 @@ export const MISSIONS = [
     "title": "Design the Intercept",
     "objective": "Select an intercept architecture with enough margin to reach and accurately target the asteroid.",
     "briefing": "The mission must launch within a narrow window and encounter a rotating, irregular target with limited communications delay. The player must integrate orbital mechanics, navigation, power, and autonomy.",
-    "stake": "Nine months after the pass. Garcia has to sign off the mission design. The launch window is 19 days wide. The composition result would tell you what you are aiming at. It comes back 8 days after that window closes. Today you find which part of the spacecraft is really setting the limit. Then you decide where to spend your margin. The whole campaign turns on this one decision. Lead time is the only resource that cannot be bought back later. Miss this window and there is no second attempt. There is no cheaper version either. There is only telling people where to stand, seven years from now.",
+    "stake": "Nine months after the keyhole was confirmed. The launch window is only nineteen days wide, and it will not open twice. One part of the ship's design really sets that limit. Today you find which part, and decide where to spend what margin is left.",
     "takeaway": "Use launch windows, relative motion, guidance, power, communications delay as an evidence chain rather than as isolated facts.",
+    "segue": "The part actually setting the nineteen-day window gets found, and the margin that is left gets spent where it matters. Years later, the push works and the risk number drops — twice this month, in fact. But a falling risk number does not fund itself: two governments are being asked to pay for a plan against a threat that may now never need one.",
     "stops": [
       {
         "group": "OPS",
         "lesson": 19,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "reason": "The launch window will not open twice, so today's answer decides where the real limit sits"
       },
       {
         "group": "OPS",
         "lesson": 20,
-        "task": "Match each orbit to the period it must have."
+        "task": "Match each orbit to the period it must have.",
+        "reason": "She needs the return period pinned down before anyone can put a public number on the pass after this one"
       },
       {
         "group": "OPS",
         "lesson": 21,
-        "task": "The measured deflection is only about two centimetres a second. Why can that be enough years before encounter?"
+        "task": "The measured deflection is only about two centimetres a second. Why can that be enough years before encounter?",
+        "reason": "She has to defend a two-centimetre correction to people who expect something dramatic, and today gives her the reason it holds"
       }
     ]
   },
@@ -334,23 +389,27 @@ export const MISSIONS = [
     "title": "Evacuate or Wait?",
     "objective": "Create trigger-based preparations proportional to probability, consequence, lead time, and reversibility.",
     "briefing": "The impact corridor crosses populated regions, but the probability is still changing. The player must connect scientific uncertainty to staged civil decisions and avoid both complacency and panic.",
-    "stake": "Three years in. The impactor launched 2 years ago. It reaches the asteroid in 11 days, 5 years before the encounter. The probability has moved twice this month. Both moves were downward. Ellery's draft evacuation plan has been seen by two regional governments. They are being asked to fund it now. This time Rossi is the one who is right. What Ellery would spend is trust, and she cannot get it back. Today you match what gets done to what is actually known. Stockpiles and plans are cheap, and you can undo them. Moving 9 million people is neither cheap nor undoable. It kills people directly. Both mistakes here have a body count. Only one of them would ever be reported as yours.",
+    "stake": "Three years in, and the risk number just did something nobody expected. It climbed for a week. Then it dropped, twice this month, and both times the room read it differently. An evacuation plan is asking two governments for money right now, years before it may ever be needed. Today you decide what should be funded now, and what can still wait.",
     "takeaway": "Use risk thresholds, expected consequence, decision under uncertainty, communication, reversibility as an evidence chain rather than as isolated facts.",
+    "segue": "The thresholds get written down before the numbers arrive, so nobody can bend the rule to fit a number they already wanted — which matters, because the risk number keeps moving right up until the end. Years later, the plan never has to fire: the object passes clear. What is left is a record to close and a budget to defend now that nobody is frightened any more.",
     "stops": [
       {
         "group": "OPS",
         "lesson": 22,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "reason": "Matching each action to what is actually known is what decides who gets asked to fund what today"
       },
       {
         "group": "OPS",
         "lesson": 23,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
+        "reason": "She is asking two governments for money today, and the population figure is what the ask has to rest on"
       },
       {
         "group": "OPS",
         "lesson": 24,
-        "task": "Write the staged action thresholds before the next impact-probability updates arrive, then release the trace."
+        "task": "Write the staged action thresholds before the next impact-probability updates arrive, then release the trace.",
+        "reason": "Writing the thresholds before the next update lands is what keeps today's plan from being written in a panic"
       }
     ]
   },
@@ -358,23 +417,26 @@ export const MISSIONS = [
     "title": "The Final Defense Review",
     "objective": "Produce a claim-by-claim planetary-defense decision package and preserve monitoring after the immediate threat passes.",
     "briefing": "The international board must decide whether the object is sufficiently characterized, whether the deflection worked, and which civil preparations remain necessary.",
-    "stake": "Eight years after the discovery. The encounter is next week. The impactor struck 5 years ago. Tracking since then puts the object about 2 Earth radii out. Some 5000 kilometres of that clearance was bought by the impact. Before it, the object was on a path nobody would have accepted. Nothing further can be done now. That is as it should be. Everything that could be done was done seven years ago. Today you take the claims one at a time with Garcia. You write the public record with Ellery. You also decide what stays funded once nobody is frightened any more. The population of objects this one came from has not changed. The next one is up there now, unfound. The survey line that caught this one expires in 11 months.",
+    "stake": "Eleven years after it was found, the object passes next week. This was the pass that was supposed to be a hit, but tracking shows it will miss. Today you close the record, and decide what part of this work still deserves money now that the fear is gone.",
     "takeaway": "Use evidence synthesis, readiness, residual risk, international coordination, long-term stewardship as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "OPS",
         "lesson": 25,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "reason": "Closing the record today means taking every remaining claim one at a time, not on faith"
       },
       {
         "group": "ORBIT",
         "lesson": 6,
-        "task": "Use the two remaining independent checks on the final-record claims that most need physical verification."
+        "task": "Use the two remaining independent checks on the final-record claims that most need physical verification.",
+        "reason": "The public record only stands if today's checks on it are the two that actually verify something"
       },
       {
         "group": "OPS",
         "lesson": 26,
-        "task": "The campaign budget ends with this review. What survives it?"
+        "task": "The campaign budget ends with this review. What survives it?",
+        "reason": "She has to decide today what survives once nobody is frightened any more"
       }
     ]
   }

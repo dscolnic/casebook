@@ -147,7 +147,7 @@ export const INTERIORS = {
         },
         {
           "label": "August sea temperature",
-          "value": "18.0 °C",
+          "value": "30.0 °C",
           "status": "high"
         }
       ]

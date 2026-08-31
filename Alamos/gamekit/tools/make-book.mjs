@@ -35,6 +35,8 @@ import { spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { resolve, dirname } from 'node:path';
 import { themeDir as resolveTheme, themeNames } from '../engine/dev/registry.mjs';
+import { dayBlurb } from '../engine/dev/dayCard.mjs';
+import { renderFigure } from '../engine/core/figures.js';
 import { SYLLABUS, EQUATIONS, equationCoverage } from './syllabus.js';
 
 const args = process.argv.slice(2);
@@ -75,12 +77,207 @@ const list = (items, cls = '') => items.length
  * answer itself is a separate block, so `--no-answers` can drop that and leave a
  * page that is still a whole question.
  */
-function materialHTML(ch){
+function materialHTML(ch, ballparkCalcs = {}){
   const k = kindOf(ch);
   const out = [];
   const section = (title, body) => { if(body) out.push(`<div class="mat"><h3>${esc(title)}</h3>${body}</div>`); };
 
   if(ch.headline) section('On the panel', `<p class="headline">${esc(ch.headline)}</p>`);
+
+  if(k === 'DIAGNOSIS' && ch.figure){
+    // `figures.js` builds a self-contained SVG string precisely so it can be
+    // reused anywhere HTML prints — "the question panel, the verdict card, and
+    // the screens on the machines in a room" per that file's own header. The
+    // print book was the one place that never took it up on the offer.
+    out.push(`<div class="mat">${renderFigure(ch.figure)}</div>`);
+  }
+
+  if(k === 'DERIVE' && ch.derive){
+    // The one format `materialHTML` had no branch for at all: every other panel's
+    // givens ended up on the page one way or another, but a DERIVE's actual
+    // working — the candidate lines at each step — lived only in `ch.derive`,
+    // which nothing here ever read. Printed the way `SEQUENCE` prints its cards:
+    // lettered and unordered, so the answer block can point back at one.
+    const d = ch.derive;
+    const letters = 'ABCDEFGH';
+    if(d.goal) section('Goal', `<p class="mono">${esc(d.goal)}</p>`);
+    if(d.start){
+      section('Starting point', `<p class="mono">${esc(d.start)}</p>`
+        + (d.startNote ? `<p class="headline">${esc(d.startNote)}</p>` : ''));
+    }
+    (d.steps ?? []).forEach((s, i) => {
+      section(`Step ${i + 1} — ${s.ask ?? ''}`,
+        list((s.candidates ?? []).map((c, ci) => `<b>${letters[ci]}</b>&nbsp; <code>${esc(c.text ?? '')}</code>`), 'cards'));
+    });
+  }
+
+  if(k === 'BALLPARK'){
+    // Same story as DERIVE: `ch.givens`/`ch.relationship` printed already, but
+    // the number-tile bank and the equation they build — the actual estimate
+    // panel — lived only in `BALLPARK_CALCS[ch.calcKey]`, which `materialHTML`
+    // never saw. `answerHTML` below fills in the worked line once the numbers
+    // are placed; here they are offered the way the panel offers them, unplaced.
+    const spec = ballparkCalcs[ch.calcKey];
+    if(spec){
+      if(spec.prompt) section('Reading the panel', `<p>${rich(spec.prompt)}</p>`);
+      if(spec.question) section('Set up', `<p class="headline">${esc(spec.question)}</p>`);
+      if(spec.labels?.length){
+        section('Numbers on offer', list(spec.labels.map(l => esc(l)), 'givens'));
+      }
+      if(spec.template){
+        section('Equation shape', `<p class="mono">${esc(spec.template.replace(/\{\d+\}/g, '__'))}`
+          + (spec.units ? ` ${esc(spec.units)}` : '') + `</p>`);
+      }
+    }
+  }
+
+  /**
+   * The fourteen instrument formats past DERIVE and BALLPARK, none of which
+   * `materialHTML` had a branch for at all — each keeps its actual panel data
+   * under its own namespaced key (`ch.trigger`, `ch.balance`, …) rather than
+   * on a field this function already read, so every one of them printed as a
+   * bare scene and a question with nothing to work from. The field a format
+   * grades against but never shows the player (a `window`, a `truth`, a
+   * `governing` link) is left out of the material and surfaces in the answer
+   * instead, the same split every other format on this page already keeps.
+   */
+  if(k === 'TRIGGER' && ch.trigger){
+    const t = ch.trigger;
+    const sc = t.scale ?? {};
+    if(sc.label) section(sc.label, `<p class="headline">${esc(sc.min)}–${esc(sc.max)} ${esc(sc.unit ?? '')}</p>`
+      + (sc.anchors?.length ? list(sc.anchors.map(a => `<b>${esc(a.at)}</b> — ${esc(a.means)}`)) : ''));
+    if(t.objective) section('What counts as done', `<p>${esc(t.objective)}</p>`);
+    if(Number.isFinite(+t.consequenceLimit)) section('Limit', `<p class="mono">${esc(t.consequenceLimit)} ${esc(sc.unit ?? '')}</p>`);
+    if(t.conditions?.length) section('Actions', list(t.conditions.map(c => `<b>${esc(c.label)}</b> — needs ${esc(c.leadHours)} hour(s) lead`)));
+    if(t.rehearsal?.stream?.length){
+      section(t.rehearsal.note ? `Rehearsal — ${esc(t.rehearsal.note)}` : 'Rehearsal',
+        `<table class="tallyFig"><tbody>${t.rehearsal.stream.map(p =>
+          `<tr><td>${esc(p.hoursLeft)}h left</td><td>${esc(p.value)} ${esc(sc.unit ?? '')}</td></tr>`).join('')}</tbody></table>`);
+    }
+  }
+  if(k === 'BALANCE' && ch.balance){
+    const b = ch.balance;
+    if(b.total) section(b.total.label ?? 'Total', `<p class="mono">${esc(b.total.amount)} ${esc(b.total.unit ?? '')}</p>`);
+    if(b.streams?.length){
+      section('Streams', list(b.streams.map(s => `<b>${esc(s.label)}</b> — ${esc(s.display ?? s.value)}`
+        + (s.note ? `<div class="mech">${esc(s.note)}</div>` : ''))));
+    }
+    if(Number.isFinite(+b.tolerance)) section('Tolerance', `<p class="mono">± ${esc(b.tolerance)} ${esc(b.total?.unit ?? '')}</p>`);
+  }
+  if(k === 'VALUE' && ch.value){
+    const v = ch.value;
+    if(v.decision) section('Decision', `<p>${esc(v.decision)}</p>`);
+    if(v.budget) section('Budget', `<p class="mono">${esc(v.budget.amount)} ${esc(v.budget.unit ?? '')}</p>`);
+    if(v.options?.length){
+      section('Options', list(v.options.map(o => `<b>${esc(o.label)}</b> — ${esc(o.cost)} ${esc(v.budget?.unit ?? '')}`
+        + (o.reveals ? `<div class="mech">${esc(o.reveals)}</div>` : ''))));
+    }
+  }
+  if(k === 'ALLOCATE' && ch.allocate){
+    const a = ch.allocate;
+    if(a.pool) section(a.pool.label ?? 'Pool', `<p class="mono">${esc(a.pool.amount)} ${esc(a.pool.unit ?? '')}</p>`);
+    if(a.items?.length) section('Items', list(a.items.map(it => `<b>${esc(it.label)}</b> — ${esc(it.cost)}`)));
+    if(a.answers?.length) section('Decisions this has to support', list(a.answers.map(q => esc(q.question))));
+  }
+  if(k === 'TRACE' && ch.trace){
+    const t = ch.trace;
+    if(t.channels?.length){
+      section('Channels', list(t.channels.map(c => `<b>${esc(c.label)}</b> — ${esc(c.reading)}`
+        + (c.depends?.length ? `<div class="mech">Depends on: ${c.depends.map(esc).join(', ')}</div>` : ''))));
+    }
+    if(t.resources?.length) section('Shared resources', list(t.resources.map(r => esc(r.label))));
+  }
+  if(k === 'CONTROL' && ch.control){
+    const c = ch.control;
+    if(c.variables?.length){
+      section('Variables', `<table class="tallyFig"><thead><tr><th>Variable</th><th>Baseline</th>`
+        + `<th>Changed</th><th>Result</th><th>&Delta;</th></tr></thead><tbody>${c.variables.map(v =>
+          `<tr><td>${esc(v.label)}</td><td>${esc(v.baseline)}</td><td>${esc(v.changed)}</td>`
+          + `<td>${esc(v.result)}</td><td>${esc(v.deltaFromBaseline)}</td></tr>`).join('')}</tbody></table>`);
+    }
+    if(Number.isFinite(+c.baseline)) section('Baseline response', `<p class="mono">${esc(c.baseline)} ${esc(c.responseUnit ?? '')}</p>`);
+  }
+  if(k === 'CLOUD' && ch.cloud){
+    const c = ch.cloud;
+    const b = c.bounds ?? {};
+    section('Bounds', `<p class="mono">${esc(b.min)}–${esc(b.max)} ${esc(b.unit ?? '')}</p>`);
+    section('Distribution', `<p class="mono">centred ${esc(c.centre)}, spread ${esc(c.spread)}</p>`);
+    if(Number.isFinite(+c.pass)) section('Passes at', `<p class="mono">${esc(Math.round(c.pass * 100))}% inside bounds</p>`);
+    if(c.actions?.length) section('Follow-up evidence', list(c.actions.map(a => `<b>${esc(a.label)}</b> — ${esc(a.effect)} by ${esc(a.amount)}`)));
+  }
+  if(k === 'CHAIN' && ch.chain){
+    const l = ch.chain.links ?? [];
+    if(l.length) section('Links, in no order', list(l.map(x => `<b>${esc(x.label)}</b> — carries ${esc(x.transfers)}`
+      + (x.reading ? `<div class="mech">${esc(x.reading)}</div>` : ''))));
+  }
+  if(k === 'ATTEST' && ch.attest){
+    const a = ch.attest;
+    if(a.claims?.length){
+      section('Claims', list(a.claims.map(c => `<b>${esc(c.label)}</b>`
+        + (c.critical ? ' <em>(critical)</em>' : ''))));
+    }
+    if(Number.isFinite(+a.checks)) section('Independent checks available', `<p class="mono">${esc(a.checks)}</p>`);
+  }
+  if(k === 'DEGENERACY' && ch.degeneracy){
+    const d = ch.degeneracy;
+    if(d.controls?.length) section('Controls', list(d.controls.map(c => `<b>${esc(c.label)}</b> — ${esc(c.min)}–${esc(c.max)} ${esc(c.unit ?? '')}`)));
+    if(d.observable) section('Observable', `<p>${esc(d.observable.label)}</p>`);
+    if(d.locus?.length) section('First panel — pairs that fit', list(d.locus.map(p => `a = ${esc(p.a)}, b = ${esc(p.b)}`)));
+    if(d.second){
+      section(d.second.label ?? 'Second panel', d.second.locus?.length
+        ? list(d.second.locus.map(p => `a = ${esc(p.a)}, b = ${esc(p.b)}`)) : '');
+    }
+  }
+  if(k === 'RESIDUAL' && ch.residual){
+    const f = ch.residual.fits ?? [];
+    if(f.length) section('Fits on offer', list(f.map(x => `<b>${esc(x.label)}</b> — RMS ${esc(x.rms)}`)));
+  }
+  if(k === 'STRESS' && ch.stress){
+    const s = ch.stress;
+    if(s.assumption){
+      const a = s.assumption;
+      section(a.label ?? 'Uncertain assumption', `<p class="mono">${esc(a.min)}–${esc(a.max)} ${esc(a.unit ?? '')}, nominal ${esc(a.nominal)}</p>`);
+    }
+    if(s.candidates?.length && s.criteria?.length){
+      section('Candidates against every criterion',
+        `<table class="tallyFig"><thead><tr><th>Candidate</th>${s.criteria.map(c => `<th>${esc(c.label)}${c.unit ? ` (${esc(c.unit)})` : ''}</th>`).join('')}</tr></thead>`
+        + `<tbody>${s.candidates.map(cand => `<tr><td>${esc(cand.label)}</td>`
+          + s.criteria.map(c => `<td>${esc(s.scores?.[cand.id]?.[c.key] ?? '—')}</td>`).join('') + `</tr>`).join('')}</tbody></table>`);
+    }
+  }
+  if(k === 'PROPAGATE' && ch.propagate){
+    const p = ch.propagate;
+    if(p.output) section(p.output.label ?? 'Output', p.output.unit ? `<p class="mono">${esc(p.output.unit)}</p>` : '');
+    if(Number.isFinite(+p.budget)) section('Budget', `<p class="mono">${esc(p.budget)} ${esc(p.costUnit ?? '')}</p>`);
+    if(p.inputs?.length){
+      section('Inputs', `<table class="tallyFig"><thead><tr><th>Quantity</th><th>Value</th><th>Fractional width</th><th>Power</th></tr></thead>`
+        + `<tbody>${p.inputs.map(x => `<tr><td>${esc(x.label)}</td><td>${esc(x.value)} ${esc(x.unit ?? '')}</td>`
+          + `<td>${esc(x.sigmaFrac)}</td><td>${esc(x.exponent)}</td></tr>`).join('')}</tbody></table>`);
+    }
+    if(p.improvable?.length) section('Ways to spend the budget', list(p.improvable.map(x => `<b>${esc(x.label)}</b> — ${esc(x.cost)} ${esc(p.costUnit ?? '')}`)));
+  }
+  if(k === 'DELEGATE' && ch.delegate){
+    const d = ch.delegate;
+    if(d.problems?.length){
+      section('Problems', list(d.problems.map(p => `<b>${esc(p.label)}</b> — ${esc(p.trend)}, ${esc(p.rate)}`
+        + `<div class="mech">${esc(p.consequence)}</div>`)));
+    }
+    if(d.team?.length) section('Team', list(d.team.filter(x => x.label).map(x => esc(x.label))));
+    if(d.firstActions?.length) section('First actions on offer', list(d.firstActions.map(x => esc(x.label))));
+    if(d.returnConditions?.length) section('Return conditions on offer', list(d.returnConditions.map(x => esc(x.label))));
+  }
+  if(k === 'VERIFY' && ch.verify){
+    const v = ch.verify;
+    if(v.prediction){
+      const p = v.prediction;
+      section(p.label || 'Prediction', `<p class="mono">${esc(p.min)}–${esc(p.max)} ${esc(p.unit ?? '')}, step ${esc(p.step)}</p>`);
+    }
+    if(v.intervention) section('Intervention', `<p><b>${esc(v.intervention.label)}</b>${v.intervention.note ? ` — ${esc(v.intervention.note)}` : ''}</p>`);
+    if(v.measurement){
+      section('Measurement available', `<p><b>${esc(v.measurement.label)}</b>`
+        + (Number.isFinite(+v.measurement.cost) ? ` — costs ${esc(v.measurement.cost)} ${esc(v.measurement.costUnit ?? '')}` : '') + `</p>`);
+    }
+  }
 
   if(k === 'SEQUENCE' && ch.cards){
     // Alphabetical by nothing: the authored order IS the answer for most of these,
@@ -201,7 +398,13 @@ function materialHTML(ch){
       + `<td class="val ${esc(r.status ?? '')}">${esc(r.value ?? '')}</td>`
       + `<td class="note">${esc(r.note ?? '')}</td></tr>`).join('')}</tbody></table>`);
   }
-  if(k === 'PROTOCOL' && ch.scenarios){
+  if((k === 'PROTOCOL' || k === 'CASEBOOK') && ch.scenarios){
+    // CASEBOOK without `proposals` (a funding-round board) uses this exact
+    // match-board shape — `scenarios` on the left, `choices` on the right,
+    // joined by `mapping` — per `casebookBoardHTML` in questionUI.js. A
+    // CASEBOOK that *does* carry `proposals` routes through `tankHTML`
+    // instead and is already covered below by the generic `ch.proposals`
+    // section, so this only ever fires for the board shape.
     const letters = 'ABCDEFGH';
     // An item may name its columns — "what we want to measure" against "how we
     // measure it" says more than "match each of these" does.
@@ -298,7 +501,7 @@ function measureFit(html, tmpPath){
 }
 
 /** The answer, the reasoning, and what the stop is for. */
-function answerHTML(lesson, ch){
+function answerHTML(lesson, ch, ballparkCalcs = {}){
   const k = kindOf(ch);
   const rows = [];
   if(k === 'SEQUENCE' && ch.cards && ch.order){
@@ -315,6 +518,87 @@ function answerHTML(lesson, ch){
   if(ch.answer && !rows.length) rows.push(['Answer', esc(ch.answer)]);
   else if(ch.answer && k === 'BALLPARK') rows.push(['Working', esc(ch.answer)]);
   if(ch.why) rows.push(['Why', rich(ch.why)]);
+  if(k === 'DERIVE' && ch.derive){
+    const d = ch.derive;
+    const letters = 'ABCDEFGH';
+    const lines = [`<b>0.</b> <code>${esc(d.start ?? '')}</code>`, ...(d.steps ?? []).map((s, i) => {
+      const pick = s.candidates?.[s.answer];
+      const rule = d.askRule && pick?.rule ? ` — <i>${esc(pick.rule)}</i>` : '';
+      return `<b>${i + 1}.</b> <code>${esc(pick?.text ?? '')}</code>${rule}`;
+    })];
+    rows.push(['Derivation', lines.join('<br>')]);
+    // Why a wrong line stops working — the same reasoning `SEQUENCE`'s rebuttals
+    // give a wrong card, one step at a time.
+    const turns = [];
+    (d.steps ?? []).forEach((s, i) => (s.candidates ?? []).forEach((c, ci) => {
+      if(ci !== s.answer && c.why) turns.push(`<li>Step ${i + 1}, <b>${letters[ci]}</b>: ${esc(c.why)}</li>`);
+    }));
+    if(turns.length) rows.push(['Where a wrong turn leads', `<ul>${turns.join('')}</ul>`]);
+  }
+  if(k === 'BALLPARK'){
+    const spec = ballparkCalcs[ch.calcKey];
+    if(spec?.solution) rows.push(['Equation', `<p class="mono">${esc(spec.solution)}</p>`]);
+  }
+  // The field each of these fourteen formats grades against but never shows the
+  // player while the panel is live — the fact `materialHTML` above deliberately
+  // left out. Printed here, once, the way DERIVE's correct line and BALLPARK's
+  // equation already are.
+  if(k === 'TRIGGER' && ch.trigger?.conditions?.length){
+    rows.push(['Correct window', ch.trigger.conditions.map(c =>
+      `<b>${esc(c.label)}</b>: fire between ${esc(c.window?.min)}–${esc(c.window?.max)} `
+      + `${esc(ch.trigger.scale?.unit ?? '')}`).join('<br>')]);
+  }
+  if(k === 'ALLOCATE' && ch.allocate?.answers?.length){
+    rows.push(['What each decision requires', ch.allocate.answers.map(a =>
+      `${esc(a.question)} → ${(a.requires ?? []).map(esc).join(' + ')}`).join('<br>')]);
+  }
+  if(k === 'TRACE' && ch.trace){
+    if(ch.trace.target) rows.push(['Shared source', esc(ch.trace.target)]);
+    if(ch.trace.independent?.length) rows.push(['Stands on its own', ch.trace.independent.map(esc).join(', ')]);
+  }
+  if(k === 'CONTROL' && ch.control?.truth) rows.push(['The real cause', esc(ch.control.truth)]);
+  if(k === 'CHAIN' && ch.chain){
+    if(ch.chain.order?.length){
+      const byId = new Map((ch.chain.links ?? []).map(l => [l.id, l.label]));
+      rows.push(['Order', ch.chain.order.map((id, i) => `${i + 1}. ${esc(byId.get(id) ?? id)}`).join(' → ')]);
+    }
+    if(ch.chain.governing){
+      const g = (ch.chain.links ?? []).find(l => l.id === ch.chain.governing);
+      rows.push(['Governing link', esc(g?.label ?? ch.chain.governing)]);
+    }
+  }
+  if(k === 'ATTEST' && ch.attest?.claims?.length){
+    rows.push(['Backed on independent check', `<ul>${ch.attest.claims.map(c =>
+      `<li>${esc(c.label)}: ${c.backed ? 'backed' : 'not backed'}${c.evidence ? ` — ${esc(c.evidence)}` : ''}</li>`).join('')}</ul>`]);
+  }
+  if(k === 'DEGENERACY' && ch.degeneracy?.truth){
+    rows.push(['The one pair both panels agree on', `a = ${esc(ch.degeneracy.truth.a)}, b = ${esc(ch.degeneracy.truth.b)}`]);
+  }
+  if(k === 'RESIDUAL' && ch.residual?.accept){
+    const f = (ch.residual.fits ?? []).find(x => x.id === ch.residual.accept);
+    rows.push(['The fit with no structure left', esc(f?.label ?? ch.residual.accept)]);
+  }
+  if(k === 'STRESS' && ch.stress?.robust){
+    const c = (ch.stress.candidates ?? []).find(x => x.id === ch.stress.robust);
+    rows.push(['Survives the worst case', esc(c?.label ?? ch.stress.robust)]);
+  }
+  if(k === 'PROPAGATE' && ch.propagate?.dominant){
+    const x = (ch.propagate.inputs ?? []).find(i => i.id === ch.propagate.dominant);
+    rows.push(['Dominant term', esc(x?.label ?? ch.propagate.dominant)]);
+  }
+  if(k === 'DELEGATE' && ch.delegate?.correct){
+    const cor = ch.delegate.correct;
+    const byId = (arr, id) => (arr ?? []).find(x => x.id === id);
+    const probLabel = (id) => esc(byId(ch.delegate.problems, id)?.label ?? id);
+    const lines = [`Keep: ${probLabel(cor.keep)}`, ...(cor.delegations ?? []).map(d =>
+      `Delegate ${probLabel(d.problem)} — ${esc(byId(ch.delegate.firstActions, d.firstAction)?.label ?? d.firstAction)}`)];
+    rows.push(['Assignments', lines.join('<br>')]);
+  }
+  if(k === 'VERIFY' && ch.verify){
+    const v = ch.verify;
+    if(Number.isFinite(+v.truth)) rows.push(['True value', `${esc(v.truth)} ${esc(v.prediction?.unit ?? '')}`]);
+    if(v.intervention?.outcome) rows.push(['Outcome', esc(v.intervention.outcome)]);
+  }
   if(ch.rebuttals?.length){
     rows.push(['On the others', `<ul>${ch.rebuttals.map(r => `<li>${esc(r)}</li>`).join('')}</ul>`]);
   }
@@ -334,8 +618,9 @@ async function build(themeName){
   const theme = (await import(pathToFileURL(resolve(dir, 'theme.js')).href)).default;
   const { normalizeContent } = await import('../engine/content/normalize.js');
   const content = theme.content ?? {};
-  normalizeContent(content);
+  normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
   const CURRICULUM = content.CURRICULUM ?? {};
+  const BALLPARK_CALCS = content.BALLPARK_CALCS ?? {};
   const MISSIONS = content.MISSIONS ?? [];
   const GROUPS = content.GROUPS ?? [];
   const dayNoun = theme.dayNoun ?? 'Day';
@@ -357,7 +642,7 @@ async function build(themeName){
     (m.stops ?? []).forEach((st) => {
       const lesson = CURRICULUM[st.group]?.[st.lesson];
       if(!lesson?.game) return;
-      calls.push({ group: st.group, lesson: st.lesson, title: lesson.title, task: st.task });
+      calls.push({ group: st.group, lesson: st.lesson, title: lesson.title, task: st.task, reason: st.reason });
       const key = `${st.group}:${st.lesson}`;
       if(seen.has(key)){ seen.get(key).again.push(mi + 1); return; }
       const page = { kind: 'q', lesson, ch: lesson.game, group: st.group, shift: mi + 1,
@@ -372,6 +657,10 @@ async function build(themeName){
     // questions are revisited.
     sheets.push({ kind: 'm', mission: m, shift: mi + 1, calls });
     sheets.push(...own);
+    // The closing card: what the debrief screen shows first, before the generated
+    // compliment (STORY_SPEC.md rule 11). Absent on the last mission, and on any
+    // mission that has not been given one yet.
+    if(m.segue) sheets.push({ kind: 'c', mission: m, shift: mi + 1 });
   });
 
   const accentOf = (id) => groupOf(id)?.color ?? '#5b6068';
@@ -452,20 +741,12 @@ async function build(themeName){
   /** A mission's opening page. */
   const missionSheet = (sh) => {
     const m = sh.mission;
-    // Some books write the same sentence into two of these three fields, and the
-    // page then said it twice. Print each distinct one, once, in this order.
-    const said = new Set();
-    const once = (v) => {
-      const k = String(v ?? '').trim();
-      if(!k || said.has(k)) return '';
-      said.add(k);
-      return k;
-    };
-    const blurb = once(m.stake) || once(m.briefing) || once(m.objective) || '';
-    // The objective gets the labelled block below, so it is not spent here: when a
+    const { stake: blurb, briefing: second } = dayBlurb(m);
+    // The objective gets the labelled block below, so it is not spent above: when a
     // book writes the same sentence as briefing and objective, printing it bare and
-    // unlabelled loses the one thing the label was for.
-    const second = m.briefing && m.briefing !== m.objective ? once(m.briefing) : '';
+    // unlabelled loses the one thing the label was for. `dayBlurb` already deduped
+    // stake/briefing against `objective`, so only re-check objective against itself.
+    const objSaid = new Set([blurb, second].filter(Boolean));
     return `<section class="page mission">
       <div class="fit"FITSIZE>
         <header>
@@ -474,8 +755,8 @@ async function build(themeName){
         </header>
         ${blurb ? `<p class="lede">${rich(blurb)}</p>` : ''}
         ${second ? `<p>${rich(second)}</p>` : ''}
-        ${(() => { const o = once(m.objective);
-          return o ? `<p class="objective"><span>What you decide</span> ${rich(o)}</p>` : ''; })()}
+        ${(() => { const o = String(m.objective ?? '').trim();
+          return o && !objSaid.has(o) ? `<p class="objective"><span>What you decide</span> ${rich(o)}</p>` : ''; })()}
         ${(() => {
           const t = teachingOf(sh.calls);
           if(!t.takeaways.length && !t.concepts.length) return '';
@@ -531,16 +812,33 @@ async function build(themeName){
           <h3>${sh.calls.length} call${sh.calls.length === 1 ? '' : 's'}, in whatever order</h3>
           <ol>${sh.calls.map(c => {
             const place = placeOf(c.group);
+            // Two lines under the title: where it happens (the call's own place, or
+            // its group's name if the book gives it no place), then why it matters
+            // today — the same `reason` the plan card and the print book's own
+            // per-question page both read off this stop.
             return `<li style="--accent:${esc(accentOf(c.group))}">`
               + `<b>${esc(c.title ?? '')}</b>`
-              + `<span class="where">${esc(groupOf(c.group)?.name ?? c.group)}`
-              + `${place ? ` · ${esc(place)}` : ''}</span>`
-              + `${c.task && c.task.trim() !== String(c.title ?? '').trim()
-                    ? `<span class="ct">${rich(c.task)}</span>` : ''}</li>`;
+              + `<span class="where">${esc(place || groupOf(c.group)?.name || c.group)}</span>`
+              + `${c.reason ? `<span class="cr">${rich(c.reason)}</span>` : ''}</li>`;
           }).join('')}</ol>
         </div>
         ${m.takeaway ? `<p class="mtakeaway">${rich(m.takeaway)}</p>` : ''}
         <footer>${esc(theme.title)}</footer>
+      </div></section>`;
+  };
+
+  /** The closing card: the day's segue, its own page between one mission's
+   *  questions and the next mission's plan card. */
+  const closingSheet = (sh) => {
+    const m = sh.mission;
+    return `<section class="page closing">
+      <div class="fit">
+        <header>
+          <div class="eyebrow">${esc(dayNoun)} ${sh.shift} &rarr; ${sh.shift + 1}</div>
+          <h2>Closing card</h2>
+        </header>
+        <p class="segueText">${rich(m.segue)}</p>
+        <footer>${esc(theme.title)} · what today decided</footer>
       </div></section>`;
   };
 
@@ -672,10 +970,17 @@ async function build(themeName){
   let qn = 0;
   const body = sheets.map((sh) => {
     if(sh.kind === 'm') return missionSheet(sh);
+    if(sh.kind === 'c') return closingSheet(sh);
     const p = sh;
     const i = qn++;
     const g = groupOf(p.group);
     const scene = p.lesson.scene || p.lesson.story || '';
+    // The game shows `guide` as its own paragraph right after the scene, before
+    // the question — `questionUI.js`'s `askBrief askGuide` block. The book's
+    // per-question page skipped it entirely, so a stop authored with a guide
+    // (the instruction: what to do with the scene, not what it is) printed
+    // silently thinner than what the player actually reads.
+    const guide = p.lesson.guide || '';
     const ask = p.ch.question || p.task || p.ch.task || p.ch.play || '';
     const place = placeOf(p.group);
     const inner = `
@@ -685,10 +990,11 @@ async function build(themeName){
         <h2>${esc(p.lesson.title ?? '')}</h2>
       </header>
       ${scene ? `<p class="scene">${rich(scene)}</p>` : ''}
+      ${guide ? `<p class="guide">${rich(guide)}</p>` : ''}
       ${ask ? `<p class="ask">${rich(ask)}</p>` : ''}
       <div class="body">
-        ${materialHTML(p.ch)}
-        ${noAnswers ? '' : answerHTML(p.lesson, p.ch)}
+        ${materialHTML(p.ch, BALLPARK_CALCS)}
+        ${noAnswers ? '' : answerHTML(p.lesson, p.ch, BALLPARK_CALCS)}
       </div>
       <footer>${esc(theme.title)} · ${esc(kindOf(p.ch).toLowerCase())}${
         p.again.length ? ` · revisited in ${esc(dayNoun.toLowerCase())} ${p.again.join(', ')}` : ''}</footer>`;
@@ -699,6 +1005,7 @@ async function build(themeName){
   let cn = 0;
   const contents = sheets.map((sh) => sh.kind === 'm'
     ? `<li class="cm"><span class="ci"></span><span class="ct">${esc(dayNoun)} ${sh.shift} — ${esc(sh.mission.title ?? '')}</span></li>`
+    : sh.kind === 'c' ? ''
     : `<li><span class="ci">${++cn}</span><span class="ct">${esc(sh.lesson.title ?? '')}</span></li>`).join('');
 
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8">
@@ -736,6 +1043,18 @@ async function build(themeName){
   .ending .opening p { font-size: 1.12rem; line-height: 1.62; margin: 0 0 10pt; max-width: 34em; }
   .ending footer { margin-top: 22pt; padding-top: 8pt; border-top: 1.5pt solid #16181c;
                    font: 500 9pt/1.5 "Inter", system-ui, sans-serif; color: #5c6169; }
+
+  /* ---- the closing card: the debrief's own first line, between one mission's
+     questions and the next mission's plan card. */
+  .closing .fit { display: flex; flex-direction: column; justify-content: center;
+                  min-height: ${PAGE_PX - 4}px; background: #f4f2ee; padding: 22pt 26pt;
+                  border-left: 4pt solid #16181c; }
+  .closing .eyebrow { font: 700 8.5pt/1.4 "Inter", system-ui, sans-serif; text-transform: uppercase;
+                       letter-spacing: .08em; color: #5c6169; }
+  .closing h2 { font: 700 15pt/1.2 "Charter", Georgia, serif; margin: 6pt 0 12pt; }
+  .closing .segueText { font-size: 1.12rem; line-height: 1.62; margin: 0; max-width: 32em; }
+  .closing footer { margin-top: 16pt; padding-top: 8pt; border-top: 1pt solid #c9ccd2;
+                     font: 500 8.5pt/1.5 "Inter", system-ui, sans-serif; color: #5c6169; }
 
   /* ---- contents */
   .toc h2, .q header h2 { font: 700 17pt/1.25 "Charter", Georgia, serif; margin: 0 0 12pt; }
@@ -812,6 +1131,7 @@ async function build(themeName){
   .mission .calls .where { display: block; font: 500 8.5pt/1.5 "Inter", system-ui, sans-serif;
                            text-transform: uppercase; letter-spacing: .07em; color: #5c6169; }
   .mission .calls .ct { display: block; font-size: .93rem; color: #35393f; }
+  .mission .calls .cr { display: block; font-size: .88rem; font-style: italic; color: #5c6169; margin-top: 1pt; }
   .mission .teaches { margin-top: 10pt; padding: 9pt 11pt; background: #f4f2ee;
                       border-left: 3pt solid #16181c; break-inside: avoid; }
   .mission .teaches h3 { font: 700 8.5pt/1.4 "Inter", system-ui, sans-serif; text-transform: uppercase;
@@ -854,6 +1174,7 @@ async function build(themeName){
   .eyebrow .num { display: inline-block; min-width: 1.6em; padding: 1pt 4pt; margin-right: 6pt;
                   background: var(--accent); color: #fff; border-radius: 3pt; text-align: center; }
   .scene { margin: 0 0 10pt; }
+  .q .guide { margin: 0 0 10pt; color: #35393f; }
   .ask { margin: 0 0 12pt; padding-left: 9pt; border-left: 2.5pt solid var(--accent);
          font-weight: 600; }
   .mat { margin-bottom: 11pt; break-inside: avoid; }
@@ -964,7 +1285,7 @@ ${(theme.ending ?? []).length ? `<section class="page ending">
     sheetCount = (raw.match(/\/Type\s*\/Page(?![sA-Za-z])/g) ?? []).length;
   }
   return { themeName, pages: pages.length, htmlPath, pdfPath, title: theme.title, sheets: sheetCount, missions: MISSIONS.length, shrunk, columned,
-           hasEnding: !!(theme.ending ?? []).length };
+           closings: MISSIONS.filter(m => m.segue).length, hasEnding: !!(theme.ending ?? []).length };
 }
 
 const names = wanted[0] === 'all' ? themeNames() : wanted;
@@ -976,9 +1297,9 @@ for(const n of names){
   try {
     const r = await build(n);
     const out = (r.pdfPath ?? r.htmlPath).replace(process.cwd() + '/', '');
-    const want = r.pages + r.missions + 3 + (r.hasEnding ? 1 : 0);  // opening, contents, syllabus, per mission, per question, ending
+    const want = r.pages + r.missions + r.closings + 3 + (r.hasEnding ? 1 : 0);  // opening, contents, syllabus, per mission, per question, per closing card, ending
     const fit = r.sheets == null ? ''
-      : r.sheets === want ? ` · ${r.sheets} pages: ${r.missions} briefings, one page per question`
+      : r.sheets === want ? ` · ${r.sheets} pages: ${r.missions} briefings, ${r.closings} closing cards, one page per question`
       : ` · ${r.sheets} pages for ${want} — ${r.sheets - want} question(s) ran over`;
     if(r.sheets != null && r.sheets !== want) overflowed++;
     const tight = [r.shrunk ? `${r.shrunk} set smaller` : '', r.columned ? `${r.columned} in two columns` : '']

@@ -66,7 +66,7 @@ if(T.site && !['interior', 'outdoor'].includes(T.site.kind)){
 }
 
 // ---- normalisation: what the engine repairs on the way in
-const normalised = normalizeContent(content);
+const normalised = normalizeContent(content, T.site ?? null, T.fixtures ?? {});
 for(const p of normalised.problems ?? []) fail(p);
 // The normaliser makes hundreds of small changes on a generated theme. They
 // are worth seeing when you are debugging content, and noise otherwise.

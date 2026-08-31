@@ -80,7 +80,7 @@ export const MISSIONS = [
         "group": "TRIAL",
         "lesson": 1,
         "task": "Hold the wheat line fixed, change one field variable at a time, then reverse the change.",
-        "reason": "A duplicate would be worth freeing only if the trial's own layout can tell a line from the ground it stood on"
+        "reason": "A yield difference between two lines proves nothing until the ground under them is ruled out"
       },
       {
         "group": "VAULT",
@@ -395,7 +395,7 @@ export const MISSIONS = [
         "group": "LAB",
         "lesson": 5,
         "task": "Decide what to screen early and what the finished line must still prove",
-        "reason": "Some of the eight can be proved by DNA and some only by growing a plant and infecting it, and today decides which"
+        "reason": "A marker only proves the gene arrived, not that it still stops the disease"
       }
     ]
   },
@@ -410,7 +410,7 @@ export const MISSIONS = [
         "group": "VAULT",
         "lesson": 8,
         "task": "Say what the season established about the collection",
-        "reason": "The board will be told what the collection holds, and the passport run is where that claim is either true or not"
+        "reason": "Thirty accessions have already drifted from what their own paperwork says, and nobody has checked the rest in years"
       },
       {
         "group": "TRIAL",

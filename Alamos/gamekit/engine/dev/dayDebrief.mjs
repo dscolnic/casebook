@@ -171,7 +171,7 @@ async function themeOf(name){
   const theme = (await import(pathToFileURL(resolve(themeDir(name), 'theme.js')).href)).default;
   const { normalizeContent } = await import('../content/normalize.js');
   const content = theme.content ?? {};
-  normalizeContent(content);
+  normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
   return { theme, content };
 }
 
@@ -347,6 +347,25 @@ function selftest(){
   // 8 — the last day hands over no takeaway to carry into a day that does not exist
   const last = dayDebrief(content, stateFor(content, 6, 'clean'), { dayNoun: 'Day', grade: 13, lastDay: true });
   check('the final card carries nothing forward', last.carry === '', last.carry);
+
+  // segue — authored story, read before a word of compliment, and only when
+  // the mission carries one.
+  const withSegue = {
+    ...content,
+    MISSIONS: content.MISSIONS.map((m, i) => (i === 1
+      ? { ...m, segue: 'But the count came in low. Tomorrow starts at the tank, not the board.' }
+      : m)),
+  };
+  const segueDay = dayDebrief(withSegue, stateFor(withSegue, 2, 'clean'), { dayNoun: 'Day', grade: 13, lastDay: false });
+  check('a mission with a segue prints it before the lede',
+    segueDay.html.indexOf('the count came in low') < segueDay.html.indexOf(segueDay.lede),
+    segueDay.html);
+  const segueLast = dayDebrief(withSegue, stateFor(withSegue, 2, 'clean'), { dayNoun: 'Day', grade: 13, lastDay: true });
+  check('the last day never prints a segue, same as it never carries a takeaway',
+    !segueLast.html.includes('the count came in low'), segueLast.html);
+  const noSegue = dayDebrief(content, stateFor(content, 1, 'clean'), { dayNoun: 'Day', grade: 13, lastDay: false });
+  check('a mission with no segue authored is unchanged from before this existed',
+    !noSegue.html.includes('debriefSegue'), noSegue.html);
 
   // 9 — the sweep itself finds a real defect. Without this the file could pass
   //     every campaign by measuring nothing, which is the mistake this repo has

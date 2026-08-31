@@ -29,20 +29,20 @@
     "Field of a charged sheet, line and sphere ← Gauss's law, and choosing a surface it can be used on",
     "Instrument bandwidth: what a slow instrument cannot see ← The RC circuit, and what a time constant means",
     "Mutual inductance: one circuit talking to another ← Faraday's law: an EMF from a changing flux",
-    "Parallel plates: capacitance from the field between them ← Capacitance as a ratio, before it is a formula",
     "The LR transient, and inductive volts against resistive volts ← Kirchhoff's rules on a real network",
     "The LR transient, and inductive volts against resistive volts ← Self-inductance, and why a straight wire has it",
-    "The RC circuit, and what a time constant means ← Kirchhoff's rules on a real network"
+    "The RC circuit, and what a time constant means ← Kirchhoff's rules on a real network",
+    "Lenz's law, and the sign that says which way ← Faraday's law: an EMF from a changing flux",
+    "Capacitance as a ratio, before it is a formula ← Electric potential as a line integral of the field",
+    "Energy stored in a capacitor, and where the half comes from ← Parallel plates: capacitance from the field between them",
+    "Self-inductance, and why a straight wire has it ← Faraday's law: an EMF from a changing flux"
   ],
   "midway": [
     "Acceleration as the rate a velocity changes, whichever part of it changes ← Velocity against speed: direction is part of the quantity",
     "Conservation of mechanical energy, and dividing the mass out of it ← Gravitational potential energy as weight times height",
     "Conservation of mechanical energy, and dividing the mass out of it ← Kinetic energy, and why the square matters",
     "Friction as a force along a surface, and the coefficient that bounds it ← Free-body thinking: one object, every force on it, nothing else",
-    "Friction as negative work, and measuring it as the gap between ideal and actual ← Friction as a force along a surface, and the coefficient that bounds it",
-    "Friction as negative work, and measuring it as the gap between ideal and actual ← Work as a force times a distance along it",
     "Gravitational potential energy as weight times height ← Work as a force times a distance along it",
-    "Kinetic energy, and why the square matters ← Work as a force times a distance along it",
     "Measuring g from a period, and why it belongs to the place ← The pendulum period, and the cancellation that removes the mass from it",
     "Pascal's principle, and the distance a hydraulic gives up ← Work as a force times a distance along it",
     "Power as work each second, and what a motor rating is ← Work as a force times a distance along it",
@@ -101,7 +101,9 @@
     "Where decoherence comes from: two-level defects, photons, flux noise ← Relaxation time T1 — energy leaving the system"
   ],
   "seedbank": [
+    "A marker as a proxy, and the error a proxy carries ← Genotype and phenotype: what a gene predicts and what it does not",
     "Backcrossing a gene into an existing line, one generation at a time ← Controlled crossing: emasculation, bagging and knowing the father",
+    "Dominance, and why one allele is enough ← Monohybrid ratios, and reading a count as evidence for a mechanism",
     "In situ against ex situ conservation, and what each preserves ← Founder effects and bottlenecks in a stored collection"
   ],
   "the_trial": [
@@ -125,21 +127,23 @@
     "Simple harmonic motion and resonance ← Springs and Hooke's law"
   ],
   "outbreak_riverton": [
-    "Ecology, vectors and zoonoses ← Natural selection and evolution"
+    "Ecology, vectors and zoonoses ← Natural selection and evolution",
+    "Epidemiology: case definitions, curves, R and reservoirs ← Populations, transmission chains and exponential growth",
+    "Epidemiology: case definitions, curves, R and reservoirs ← Rates, ratios and reading data"
   ],
   "aftershock": [
-    "Cordons, lifelines and the cost of keeping people out ← Placarding as a decision under uncertainty",
-    "Cordons, lifelines and the cost of keeping people out ← Rapid assessment against detailed evaluation",
+    "Bearing capacity and settlement ← Liquefaction: when saturated fill stops behaving as a solid",
     "Factor of safety, and what it is protecting against ← Base shear — the horizontal force a building is designed for",
-    "Intensity against magnitude — one event, many shakings ← Magnitude as a logarithmic scale",
     "Intensity against magnitude — one event, many shakings ← Peak ground acceleration and what a building feels",
     "Liquefaction: when saturated fill stops behaving as a solid ← Effective stress, and why water pressure matters",
     "Load path, and what happens where it stops ← Base shear — the horizontal force a building is designed for",
+    "Magnitude as a logarithmic scale ← P and S waves, and what the gap between them measures",
+    "Peak ground acceleration and what a building feels ← P and S waves, and what the gap between them measures",
     "Placarding as a decision under uncertainty ← Factor of safety, and what it is protecting against",
     "Placarding as a decision under uncertainty ← Rapid assessment against detailed evaluation",
     "Rapid assessment against detailed evaluation ← Load path, and what happens where it stops",
     "Rapid assessment against detailed evaluation ← Unreinforced masonry, and why it fails outward",
-    "Retrofit: what is worth doing before the next one ← Factor of safety, and what it is protecting against",
+    "Sampling and testing damaged material ← Rapid assessment against detailed evaluation",
     "Stress, strain and the yield point ← Peak ground acceleration and what a building feels"
   ],
   "icecore": [
@@ -181,8 +185,12 @@
     "Aftershocks get rarer as time passes, and a chance is not a promise ← How big the earthquake was, and how hard the shaking felt, are two different things",
     "An earthquake sends waves through the ground, and some arrive first ← Plates move, and a fault is the crack where they slip past each other",
     "Counting damage as a share, not as a number of buildings ← Reading a map, a scale and a contour",
+    "Deciding with a cordon: how likely, and how bad, against what it costs people ← Aftershocks get rarer as time passes, and a chance is not a promise",
+    "Deciding with a cordon: how likely, and how bad, against what it costs people ← Counting damage as a share, not as a number of buildings",
+    "How big the earthquake was, and how hard the shaking felt, are two different things ← An earthquake sends waves through the ground, and some arrive first",
     "One sample is not the whole building ← Materials: what a crack means, and what a strength test can tell you",
-    "The ground itself changes the shaking: soft ground shakes more ← Distance from the fault changes what a place feels"
+    "The ground itself changes the shaking: soft ground shakes more ← Distance from the fault changes what a place feels",
+    "Wet sandy ground can behave like a liquid when it is shaken ← The ground itself changes the shaking: soft ground shakes more"
   ],
   "icecore_ms": [
     "A ratio can be turned into a temperature using a known relationship ← Something measured today can stand in for something nobody measured then",
@@ -194,6 +202,7 @@
     "Something measured today can stand in for something nobody measured then ← Reading a graph: what the axes say, and what the wiggles mean"
   ],
   "seedbank_ms": [
+    "Choosing for one trait can drag another along with it ← Choosing which plants to breed from, and what that costs",
     "Choosing which plants to breed from, and what that costs ← Counting the offspring, and comparing counts with what was expected",
     "How many plants you need to keep a kind going ← Variety inside a collection, and why losing it is hard to undo",
     "Repeats and averages: one plant proves nothing ← A fair test needs a control and everything else kept the same",
@@ -244,5 +253,11 @@
     "Immune defence and inflammation ← Blood and its components",
     "Nutrition and energy ← Digestion and absorption",
     "Pulse and blood pressure ← Heart and circulation"
+  ],
+  "planetary_defense": [
+    "Detectors and image artifacts ← Telescopes: aperture, resolution, signal-to-noise"
+  ],
+  "changeover": [
+    "An exchange rate as a price, and what moves it ← Demand, supply and the price that clears a market"
   ]
 }

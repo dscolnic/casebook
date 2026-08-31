@@ -9,6 +9,21 @@
   ],
   "midway": [
     "FΔt = mΔv ← m₁u₁ + m₂u₂ = (m₁ + m₂)v",
-    "W_net = ΔK ← mgh + ½mv² = constant"
+    "W_net = ΔK ← mgh + ½mv² = constant",
+    "a_c = v²/r,  F_c = mv²/r ← ΣF = ma",
+    "mgh + ½mv² = constant ← ΣF = ma",
+    "τ = Fd,  Στ = 0 ← ΣF = ma",
+    "T = 2π√(L/g) ← ΣF = ma",
+    "P = ρgh,  F_b = ρVg ← ΣF = ma",
+    "safety factor = capacity ÷ demand ← ΣF = ma"
+  ],
+  "seedbank": [
+    "recombination frequency ≈ map distance in cM ← 3 : 1"
+  ],
+  "carrying": [
+    "residence time = stock ÷ flow ← recharge = rainfall × area × coefficient"
+  ],
+  "changeover": [
+    "velocity: MV = PY ← ΔM = new reserves × money multiplier"
   ]
 }

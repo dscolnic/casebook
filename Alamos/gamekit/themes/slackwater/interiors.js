@@ -79,7 +79,7 @@ export const INTERIORS = {
     }
   },
   "SLUICE": {
-    "caption": "Six gates, a impoundment behind them, and a rate that closes its own head.",
+    "caption": "Six gates, an impoundment behind them, and a rate that closes its own head.",
     "standLine": "The programme for the springs, unsigned, and the head across the gates on the wall.",
     "station": {
       "kind": "panel",

@@ -20,6 +20,8 @@ import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
 import { INTERIORS } from './interiors.js';
+import { MINOR_INTERIORS } from './minors.js';
+import { FIXTURES } from './fixtures.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 
 export default {
@@ -34,6 +36,13 @@ export default {
 
   // A mission is one working day of a six-week storm season.
   dayNoun: 'Day',
+  // The plan card's opening blurb is brief: the one thing that is true this
+  // morning, and the one thing the player does about it. The cast, the
+  // argument and the consequences move out to the calls' own reasons, to the
+  // people, and to the day debrief. `engine/dev/checkStory.mjs` reads this and
+  // swaps the word floor for a 0–70 word ceiling, and bans a roster name from
+  // the stake, the briefing and the segue. See gamekit/THREE_PASS_BRIEF.md.
+  stakeStyle: 'brief',
 
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
@@ -61,8 +70,15 @@ export default {
 
   // What is inside each room the player walks into, from book.yml. Rooms are
   // built by engine/world/interiorBuilding.js on first entry, in a district
-  // four kilometres from the town.
-  interiors: INTERIORS,
+  // four kilometres from the town. Plus the two places that are NOT areas — the
+  // screened room and the rocket store, which stood as facades until the
+  // placement pass. A minor room has no case, no beacon and no board; see
+  // ./minors.js.
+  interiors: { ...INTERIORS, ...MINOR_INTERIORS },
+
+  // The objects the questions are asked at, built from the room's own bounds by
+  // engine/world/interiorFixtures.js; catalogue in ./fixtures.js.
+  fixtures: FIXTURES,
   // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
   interiorStyle: 'lab',
@@ -84,58 +100,68 @@ export default {
   // is not beside it is what this report exists to stop leaving the site.
   delivery: {
     name: 'The Station 12 Season Report',
-    what: 'What the review reads before it grants this place a second mast or a padlock: every '
-      + 'number with the path from the field to the volts still attached to it.',
+    what: 'The proof the review and the crew both need: what last August\'s strike actually did, '
+      + 'which measurements can be trusted, and the operating rule that gets six people inside in time.',
     where: 'SHOT',
     pieces: [
-      'The criterion, written cold',
-      'The layer charge, from Gauss',
-      'The path to the volts',
-      'The tip field calculation',
-      'The cloud capacitance',
-      'The stored energy derivation',
+      'The crew-clear criterion',
+      'The effective layer charge',
+      'The cloud-ground potential',
+      'The tip-field assessment',
+      'The cloud-ground capacitance',
+      'The stored-energy derivation',
       'The shared-reference finding',
-      'The field at two metres',
-      'The induced loop voltage',
-      'The earth at a microsecond',
-      'The current path finding',
-      'The prediction, then measured',
-      'The mill\'s time constant',
-      'The last shot chosen',
-      'The defensible record',
+      'The field and loop hazard',
+      'The trench-coupling prediction',
+      'The bonding-lead prediction',
+      'The current-path finding',
+      'The prediction, then measurement',
+      'The bandwidth finding',
+      'The last-shot coupling test',
+      'The final report, signed',
     ],
   },
+  // FIVE SENTENCES, four beats, in this order: the threat, the job as authority,
+  // the clock, who pays. See gamekit/THREE_PASS_BRIEF.md mandate 6.
+  //
+  // What came out, and where it went. The old card spent its last sentence on the
+  // handover's own cadence — "one number goes in a day, with the working" — which
+  // is a description of the report rather than of the crisis, and it is now the
+  // last two lines of day 1's stake, where the player is about to write the first
+  // piece of it. The mechanism sentence ("trailing an earthed wire … past waiting
+  // instruments") and the April earthing irony went too: day 1 already carries
+  // both, and the trailer that "touched nothing it struck" says the interesting
+  // half of the mystery in five words instead of twenty.
+  //
+  // The grade is the constraint here and not an afterthought: this card IS the
+  // banked worst in plaincards-debt.json at 6.3, so the cut had to hold to the
+  // tenth. Five sentences over 70 words is ~15 words a sentence against the old
+  // 16, which by itself buys nothing — the lever was syllables. 6.3 → 6.0.
   opening: [
-    'Station 12 makes lightning on purpose. With a storm overhead the crew fires a rocket '
-    + 'trailing an earthed wire, and the strike comes down it past waiting instruments. Last '
-    + 'August one of those strikes killed every circuit board in a trailer two hundred metres '
-    + 'away, on earthing signed off that spring, and nobody can say how. You are the '
-    + 'measurements lead. Nothing leaves this site unless you can show where the number came '
-    + 'from. In fifteen days the review reads the Station 12 season report and gives this '
-    + 'place a second mast or a padlock. One number goes in a day, with the working that '
-    + 'turns what the instrument saw into what is claimed.',
+    'Station 12 makes lightning on purpose: a rocket carries a thin wire into a storm, and the '
+    + 'crew measures the strike from safety. Last August one strike destroyed every circuit board '
+    + 'in a trailer 200 metres away even though the lightning never touched it. You are the '
+    + 'measurements lead, and what leaves the site is the Station 12 Season Report. In fifteen '
+    + 'working days, find how the strike reached that trailer and '
+    + 'write the rule that gets all six crew members inside before the sky becomes dangerous. '
+    + 'Until you can defend both, Station 12 cannot safely keep firing.',
   ],
 
   // The last thing anybody reads.
   ending: [
-    'The review funded the second mast, on the strength of one paragraph: the outstation was '
-    + 'destroyed by two hundred kilovolts induced around a loop that touched nothing, computed '
-    + 'from a length and a logarithm and then put at risk in the hall at a shortened front, where '
-    + 'the bench loop read within nine per cent of the prediction. The April earthing certificate '
-    + 'was reissued with the words "steady-state resistance" on its face. Next season starts on '
-    + 'a lead time derived from how fast cells actually crossed this flat, which is twenty-two '
-    + 'minutes rather than thirty, and on a call-out sequence somebody has to drill.',
-    'What it cost: a trailer, four working days, and an afternoon in week five when the crew came '
-    + 'in late and Brenner was right in a way nobody wanted to be right. What is unfinished: the '
-    + 'inductive volts along the bonding lead are still computed rather than measured, because '
-    + 'the station owns no probe fast enough to believe; the conduit that carries a third of every '
-    + 'strike into the instrument cabinet has been bonded, not rerouted; and nobody has yet fired '
-    + 'a shot at a front short enough to test what happens when the lead is halved.',
-    'The second mast is yours. You computed the volts induced around a loop that touched '
-    + 'nothing, you went and tested that number in the hall instead of believing it, and you '
-    + 'put a lead time on next season that came from how fast the storms actually cross this '
-    + 'flat. A station stayed open because one paragraph could be defended line by line. You '
-    + 'wrote it.',
+    'Next season, the first fast cell comes across the flat sooner than the old rule would have '
+    + 'allowed for. The new call goes out early. All six crew members are behind the shelter door '
+    + 'before the field enters the danger band, and the launch stays on hold until the sky clears.',
+    'The review funds the second mast. The trailer failure is recorded as inductive coupling through '
+    + 'the long trench loop, supported by a calculation and a hall test that landed within nine per '
+    + 'cent of the prediction. About eleven kiloamps left the down-conductor on an unplanned path. '
+    + 'The old 25-ohm certificate is relabelled as a low-frequency resistance measurement. The '
+    + 'predicted voltage on the six-metre bonding lead stays in the report too — clearly marked as '
+    + 'a prediction that still needs a fast direct measurement.',
+    'You did not make every uncertainty disappear. You separated measurements from models, tested '
+    + 'the explanation that mattered, and changed the operating rule when the weather showed the '
+    + 'old one was not safe enough. Station 12 stays open because the crew now knows both what the '
+    + 'lightning can do and when to get out of its way. You signed the report that made that possible.',
   ],
 
   look: {

@@ -197,6 +197,7 @@ description above is in context until then. Invoke with the `Skill` tool.
 | `alamos-day` | the plan card, budgetForRoute, the countdown and PANEL_PACE, penalties, the economy, shapeMissions |
 | `alamos-world` | the house rules, the touch input path, the map and markers, screenshot discipline |
 | `alamos-shipping` | dist/ and the gallery, sync-casebook, tools/games.js, cloudSave and ratings, the `?room=` co-op protocol |
+| `alamos-dossier` | the cream-on-dark reading dossier (cover, curriculum page, every card, closing cards, appendix, ending), built by `tools/make-dossier.mjs` for any campaign and published as an Artifact |
 
 Two cross-references the split does not break: the **numbered house rules** cited
 across every skill (*house rule 1, 8, 14, 16, 21*) are the list in `alamos-world`,

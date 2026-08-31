@@ -7,167 +7,195 @@ export const MISSIONS = [
     "title": "Eleven years of dust and nine hundred seats",
     "objective": "Establish what the room actually is and what the sales are doing.",
     "briefing": "The seat map is 1911, the proscenium is 1958, and the advance is three weeks old.",
-    "stake": "Monday, fourteen days out. Ruth Dowd, the box office manager, has three weeks of advance sales. The producer is quoting the last week alone as the trend for the fortnight. Alan Kettleby, the house manager, has a seat map drawn in 1911. The stage opening was made narrower in 1958. Nobody wrote down what that did to the front rows. Today you work out what the sales are really doing. You also settle which seats are in doubt, and what the shop has to build to. A number read off the flat part of a curve is a decision about a different fortnight.",
+    "stake": "Monday, fourteen days out. The advance shows two rates, one steep and one flat, and nobody has checked a single seat in this room since 1958. Today you find which rate is real, and which seats might already be sold blind.",
     "takeaway": "A rate of change belongs to the interval it was measured over.",
+    "segue": "Two rates are on the board now, and the steep one has already slowed. But the seat map is still in the drawer. Nobody has signed it. Hettie Prosser's seat — row A, seat 12 — still has no line to the stage.",
     "stops": [
       {
         "group": "FRONT",
         "lesson": 0,
-        "task": "Work out what the advance is doing per week"
+        "task": "Work out what the advance is doing per week",
+        "reason": "Dowd's three weeks of advance are the only numbers anyone has, and Sallow is already quoting the wrong one as the fortnight's trend."
       },
       {
         "group": "HOUSE",
         "lesson": 0,
-        "task": "Say which seats are actually in question"
+        "task": "Say which seats are actually in question",
+        "reason": "Kettleby has to know which seats are actually in question before he can answer for the seat map to anyone who asks."
       },
       {
         "group": "SHOP",
         "lesson": 0,
-        "task": "Set out the curve the piece has to follow"
+        "task": "Set out the curve the piece has to follow",
+        "reason": "Novak can't order timber for the rostrum until the front edge is nailed down, and the piece is due on stage this week."
       }
     ]
   },
   {
     "title": "An even step, and a doubling one",
     "objective": "Build the rehearsal sequence and the batten trim heights, and tell the two kinds apart.",
-    "briefing": "Haigh needs a call sheet and Osei needs trim heights, and they are different kinds of sequence.",
-    "stake": "Tuesday, and two lists have to be written before the first flying rehearsal. Simone Haigh, the stage manager, wants rehearsal calls on an even interval so forty-one people can see where the day ends. Kwame Osei, the head flyman, needs the trim heights for eleven battens, which are not evenly spaced because the grid is not. Marguerite Sallow wants both on one sheet by six. Today you build each sequence, and say which kind each one is. A list that looks even and is not is a list somebody works to and gets wrong.",
+    "briefing": "",
+    "stake": "Tuesday. Before the first flying rehearsal, two lists must exist. One climbs by the same step each time, while the other climbs by a step that keeps changing. Today you build both lists, and say which is which.",
     "takeaway": "A constant difference and a constant ratio are two different kinds of list.",
+    "segue": "Both lists are done, and a flyer walked the arc at her own height first. So the rehearsal goes ahead. But every angle above her head still comes from the 1911 plan, and nobody has checked one yet.",
     "stops": [
       {
         "group": "FLY",
         "lesson": 0,
-        "task": "Work out the eleventh trim height"
+        "task": "Work out the eleventh trim height",
+        "reason": "Osei needs the eleventh trim height today or he can't set the counterweights before the first flying rehearsal."
       },
       {
         "group": "SHOP",
         "lesson": 1,
-        "task": "Say which sequence the timber order follows"
+        "task": "Say which sequence the timber order follows",
+        "reason": "Quirke wrote the tread order as a subtraction, and Novak needs to know whether that's actually the right kind of list before cutting timber."
       },
       {
         "group": "PIT",
         "lesson": 0,
-        "task": "Work out what the gain stages come to"
+        "task": "Work out what the gain stages come to",
+        "reason": "Brand's signal chain multiplies at every stage, and she needs one plain number out of it before the band's first call."
       }
     ]
   },
   {
     "title": "What the lantern is pointing at",
     "objective": "Get an angle out of two measurements, and a beam onto a mark.",
-    "briefing": "Adeyemi's plot is in bearings and the bars are hung on a plan drawn in 1911.",
-    "stake": "Wednesday. The rig has to be plotted before the bars go out on Thursday. Tunde Adeyemi, the lighting designer, works in bearings and spreads. He converts to positions afterwards. Nuno Ferreira, the chief electrician, has to hang the lamps on a bar. The bar positions on his plan are from 1911. Sallow wants the first look on Friday. Today you turn two measurements into an angle. Then you turn that angle into a spot on a bar. You also say which shape the advance sales are following. Any lamp hung on a wrong angle gets hung again. That happens with the whole company standing about. The notes session is at six.",
+    "briefing": "The rig plot is written in bearings, and the bars are hung on a plan drawn in 1911.",
+    "stake": "Wednesday. Get the angle wrong, and the crew hangs the same lamp twice before the notes meeting at six. Today you turn two measurements into one angle, and that angle into a spot on a bar.",
     "takeaway": "Two sides of a right triangle fix an angle, and the angle is what a rigger can work to.",
+    "segue": "Four bars went up on measured angles, not the 1911 plan. The crew signed the rig plot at six. Not one lamp had to be hung twice. But a lantern now lights Hettie Prosser's row, aimed at a mark she may not see at all.",
     "stops": [
       {
         "group": "BOARD",
         "lesson": 0,
-        "task": "Work out the angle the lantern has to make"
+        "task": "Work out the angle the lantern has to make",
+        "reason": "Ferreira can't set the yokes until Adeyemi's down angle is worked out, and a wrong hang means doing it again with the whole company standing about."
       },
       {
         "group": "FRONT",
         "lesson": 1,
-        "task": "Say which curve the advance is following"
+        "task": "Say which curve the advance is following",
+        "reason": "Sallow wants Thursday's forecast, and Dowd's four weeks of numbers no longer fit the straight line everyone has been using."
       },
       {
         "group": "HOUSE",
         "lesson": 1,
-        "task": "Match each pair of measurements to the angle it gives."
+        "task": "Match each pair of measurements to the angle it gives.",
+        "reason": "Kettleby is standing on the mark himself, because the seats that lose the corner are the ones he has to answer for by name."
       }
     ]
   },
   {
     "title": "Four numbers describe a wave",
     "objective": "Read a waveform for its four parameters, and fit a decay to the ticket returns.",
-    "briefing": "Brand has a trace off the desk and Dowd has three weeks of returns.",
-    "stake": "Thursday. The band plays into the room for the first time at two. Ilse Brand, the sound designer, has a trace off the sound desk. It is a picture of the sound the band made. The pit cannot read it. Thandi Mbatha, the musical director, has nine players in the pit. The music in front of them was written for twenty-two. Meanwhile Dowd's returns are coming in, and Sallow wants them forecast. Today you describe a wave in the four numbers that fix it. You also put a shape on the set of returns. A waveform argued about in adjectives is a waveform nobody can set a fader to.",
+    "briefing": "A trace off the sound desk needs four numbers, and three weeks of returns need a shape.",
+    "stake": "Thursday. The band plays in this room for the first time at two, and nobody in the pit yet knows if it helps them or fights them. Today you turn that sound into four plain numbers, and put a shape on this week's ticket returns.",
     "takeaway": "Amplitude, midline, period and phase fix a sinusoid completely.",
+    "segue": "Four numbers now describe the sound. Nine musicians finally have something exact to tune to. But the ticket returns are still falling on last week's curve. The advance is behind where the show was budgeted.",
     "stops": [
       {
         "group": "PIT",
         "lesson": 1,
-        "task": "Read the four parameters off the trace"
+        "task": "Read the four parameters off the trace",
+        "reason": "Brand has to hand Mbatha's nine players a number instead of an adjective before the band's first call into the room."
       },
       {
         "group": "FRONT",
         "lesson": 2,
-        "task": "Fit the returns to a decay"
+        "task": "Fit the returns to a decay",
+        "reason": "Dowd needs the fourth week's figure before she can release any of the seats she's been holding back onto the map."
       },
       {
         "group": "BOARD",
         "lesson": 1,
-        "task": "Say what happens when the lantern moves back"
+        "task": "Say what happens when the lantern moves back",
+        "reason": "Ferreira has to move a unit for the flying sequence, and Adeyemi and Sallow are already arguing over what that does to the level."
       }
     ]
   },
   {
     "title": "Adding what multiplies",
     "objective": "Turn the gain chain into decibels and the beam plot into coordinates.",
-    "briefing": "Brand's desk is calibrated in decibels and Adeyemi's plot is in bearings.",
-    "stake": "Friday. The first technical run is at four. Brand has a chain of gains, and gains multiply. Her desk is marked in decibels. Mbatha wants two channels matched by ear, not by number. Brand will not do it that way. Adeyemi's rig plot is a list of bearings and distances. Ferreira has to turn that list into positions on a bar. Today you use logarithms to add what would otherwise multiply. You also convert a beam from a bearing to a coordinate. Two people describe the same rig in different coordinates. They argue for an hour and hang nothing.",
+    "briefing": "",
+    "stake": "Friday. The first run-through starts at four. Right now, two people can talk about the same rig for an hour and hang nothing, because they are using two different systems. Today you add instead of multiply, and turn a bearing into a coordinate everyone can use.",
     "takeaway": "Logarithms turn multiplication into addition, which is what a fader is.",
+    "segue": "The gain chain came out as a sum on the desk. A beam went up off a coordinate, not an argument. The technical run finished on time. But nine musicians are now tuning to a number instead of to each other.",
     "stops": [
       {
         "group": "PIT",
         "lesson": 2,
-        "task": "Add the gains instead of multiplying them"
+        "task": "Add the gains instead of multiplying them",
+        "reason": "Brand wants every gain stage marked in decibels so the crew can add levels in their heads instead of arguing by ear."
       },
       {
         "group": "BOARD",
         "lesson": 2,
-        "task": "Turn the bearing into a position on the bar"
+        "task": "Turn the bearing into a position on the bar",
+        "reason": "Ferreira works in metres left, right and upstage, and Adeyemi's plot only gives him a bearing, so the two can't even discuss the same rig yet."
       },
       {
         "group": "FLY",
         "lesson": 1,
-        "task": "Say what the two lines are each pulling"
+        "task": "Say what the two lines are each pulling",
+        "reason": "Osei will not fly the cloth again until he has the sideways force each line puts on the grid ironwork."
       }
     ]
   },
   {
     "title": "How often, how loud, how hard",
     "objective": "Set a level against the licence, a period against a cue, and a resultant against a rating.",
-    "briefing": "Pell wants sound levels at the seat and Haigh wants the revolve timed.",
-    "stake": "Saturday. Douglas Pell, the licensing officer, has asked for sound levels measured at the seat. Not at the desk, where they are easy to read. Haigh needs the period of the revolve. Then the cue can be called on a count instead of on a look. Osei has a second cloth to fly. He has the first cloth's figure to compare it against. Today you work out three numbers the licence file needs. A level at the desk and a level at a seat are two different things. Only one of them is what an audience actually gets.",
+    "briefing": "",
+    "stake": "Saturday. A level read at the desk is not the level a seat actually gets. Only one of those numbers is what the audience really hears, and right now nobody has it. Today you find the three numbers the safety file still needs.",
     "takeaway": "A level is a ratio on a logarithmic scale, and a period is what one cycle costs.",
+    "segue": "Three numbers are in the file now, each one taken at a seat and dated. The cue can be called on a count instead of a guess. But the crew measured all three in an empty house. No seats. Nobody sitting in them.",
     "stops": [
       {
         "group": "PIT",
         "lesson": 3,
-        "task": "Work out the level at the seat"
+        "task": "Work out the level at the seat",
+        "reason": "Pell's licence file needs a level measured at a seat, not at the desk, and it has to go in dated."
       },
       {
         "group": "BOARD",
         "lesson": 3,
-        "task": "Work out how long one turn takes"
+        "task": "Work out how long one turn takes",
+        "reason": "Haigh wants to call the cue on a count instead of watching for it, which means knowing the revolve's period exactly."
       },
       {
         "group": "FLY",
         "lesson": 2,
-        "task": "Say what the grid feels sideways"
+        "task": "Say what the grid feels sideways",
+        "reason": "Osei has a second cloth to fly and wants the first cloth's sideways figure to check the second one against."
       }
     ]
   },
   {
     "title": "The room is the instrument",
     "objective": "Measure what the empty house does to sound, and what the seats will do about it.",
-    "briefing": "The house rings, the seats arrive on Tuesday, and Pell wants a figure either way.",
-    "stake": "Sunday. The seats are on a lorry that arrives Tuesday. Brand can hear what the empty house does to a sound. She cannot put a number on it until she measures the decay. Mbatha wants the pit rail lowered. That is a building job, and Novak would have to start it today. Pell wants the reverberation figure in the file whichever way it comes out. Today you measure a decay in the empty house. Then you say what it will be with eight hundred and sixty people sitting in it. A room measured empty is a measurement of a building nobody performs in.",
+    "briefing": "The house rings, the seats arrive on Tuesday, and the licence file wants a figure either way.",
+    "stake": "Sunday. The seats arrive by truck on Tuesday, and an empty room is not the room anyone will sit in. Today you measure how fast a sound dies away in the empty house, and predict what it will do once the seats are full.",
     "takeaway": "A quantity falling by the same fraction each interval never quite reaches zero.",
+    "segue": "The empty-house decay is now measured, and the rail survey is complete. But the seats arrive on day 8, which changes the room the audience will actually hear. The next acoustic number must be measured again under the new condition rather than copied forward.",
     "stops": [
       {
         "group": "HOUSE",
         "lesson": 2,
-        "task": "Work out how long the ring takes to fall"
+        "task": "Work out how long the ring takes to fall",
+        "reason": "Brand can hear what the empty house does to a sound, but Pell's file needs an actual number, not an ear."
       },
       {
         "group": "SHOP",
         "lesson": 2,
-        "task": "Decide whether the rail comes down"
+        "task": "Decide whether the rail comes down",
+        "reason": "Mbatha wants the pit rail lowered, and Novak has exactly one day of shop time left to decide if it's worth starting."
       },
       {
         "group": "FRONT",
         "lesson": 3,
-        "task": "Say what the model is a model of"
+        "task": "Say what the model is a model of",
+        "reason": "Sallow is about to trust a forecast that predicts more seats than the house holds, and somebody has to say where the model breaks down."
       }
     ]
   },
@@ -175,71 +203,83 @@ export const MISSIONS = [
     "title": "What arrives at the performer",
     "objective": "Get a level onto a face, and find both angles a cue could be called at.",
     "briefing": "The first look is tonight and the plot has not been checked against a meter.",
-    "stake": "Monday. The first full look is at seven. Adeyemi's plot is drawn. Ferreira has not yet put a meter under any of it. That is where every rig argument starts. Haigh has a cue that has to fire when the revolve reaches a mark. The chase reaches that level twice in every cycle. Today you work out what light arrives at the performer. You also find both times the cue could go, and which seats the walked survey condemns. A trigonometric equation with one answer written down has usually had a second one thrown away. A cue called on the wrong crossing fires fifteen seconds late.",
+    "stake": "Monday. The first full look is at seven, and no one has checked the lighting plot with a meter yet. Today you find how much light reaches the performer, and which seats a walked survey rules out.",
     "takeaway": "A ratio falling as the square of a distance, and an equation with two solutions a cycle.",
+    "segue": "Twelve seats in the front six rows have no line to the mark at all. Hettie Prosser's seat is one of them. The proscenium has been two feet three inches too narrow since 1958, and nobody measured it until today. So a real number now replaces a guess. Twelve of those seats are already sold.",
     "stops": [
       {
         "group": "BOARD",
         "lesson": 4,
-        "task": "Work out the level arriving at the mark"
+        "task": "Work out the level arriving at the mark",
+        "reason": "Ferreira has never put a meter under Adeyemi's plot, and the first full look is tonight."
       },
       {
         "group": "PIT",
         "lesson": 4,
-        "task": "Find both times the level is reached"
+        "task": "Find both times the level is reached",
+        "reason": "Haigh's cue has to fire on one specific crossing of the chase, and calling the wrong one fires fifteen seconds late in front of the company."
       },
       {
         "group": "HOUSE",
         "lesson": 3,
-        "task": "Say which seats the measurement condemns"
+        "task": "Say which seats the measurement condemns",
+        "reason": "Kettleby has just walked the sightline survey himself, and Sallow has already sold every seat it's about to rule out."
       }
     ]
   },
   {
-    "title": "Three and a half tonnes, written down",
+    "title": "The load the tickets do not show",
     "objective": "Produce a load plot the grid can be signed against.",
-    "briefing": "Osei will not fly the sequence without it and Pell will not sign without it.",
-    "stake": "Tuesday. The seats arrive at eight and the flying rehearsal is at two. Pell wants the load plot before either. Osei has four pieces to fly. Nobody has tested the grid above them since 1958. Sallow's sequence puts three of the four in the air at once. Every line leans, because the grid is narrower than the stage. Today you work out the tension in each line. Then you total the load on the grid and say what the margin is. A grid signed off on somebody's word is the one number here nobody gets a second chance at.",
+    "briefing": "",
+    "stake": "Tuesday. The flying rehearsal is at two, and the widest piece is too close to its line limit to approve from mass alone. Today you resolve the line forces, change the geometry if you must, and file a load plot that separates vertical and lateral loads instead of hiding them in one total.",
     "takeaway": "A leaning line pulls harder than the load it carries, and the angle sets by how much.",
+    "segue": "The wide cloth was re-rigged before it flew. The load plot now carries forces at the actual pick points, not a made-up extra mass for leaning lines, and Pell has the structural assessor's acceptance against those local limits. The refusal to fly was arithmetic, not stubbornness.",
     "stops": [
       {
         "group": "FLY",
         "lesson": 3,
-        "task": "Work the worst line in the sequence"
+        "task": "Work the worst line in the sequence",
+        "reason": "Osei will not fly the sequence until the worst line's tension is on paper, and the flying rehearsal is at two."
       },
       {
         "group": "SHOP",
         "lesson": 3,
-        "task": "Match each option to what it changes in the relationship."
+        "task": "Match each option to what it changes in the relationship.",
+        "reason": "Novak has three ways to bring the lines in and four hours of shop time to pick the right one."
       },
       {
         "group": "HOUSE",
         "lesson": 4,
-        "task": "Total the grid load with a margin on it"
+        "task": "File the grid load components",
+        "reason": "Pell will not sign a load plot that hides vector loads inside one scalar total; the assessed limits apply at specific points and directions."
       }
     ]
   },
   {
     "title": "The seat map goes to print at four",
     "objective": "Decide what happens to twelve seats, and price a house that is not full.",
-    "briefing": "Sallow is right that a held seat sells to nobody, and Kettleby is right that a blind seat is a refund.",
-    "stake": "Wednesday. The seat map goes to the printer at four. Sallow is right about one thing today. Twelve seats pulled out in the last fortnight of a rising sales curve are twelve seats that sell to nobody. The run is costed on nine hundred. Kettleby is just as right about his own point. A seat with no line to the mark is a refund and a complaint. Today you put a price on both sides. You also find the number the argument has been missing all week. Two people are right, and only one of the two numbers has been worked out.",
+    "briefing": "One argument says a held seat sells to nobody; the other says a blind seat is a refund — both are right.",
+    "stake": "Wednesday. The seat map goes to print at four, and two people arguing about the same twelve seats are both right at once. Today you put a price on both sides of that argument, and find the one number it has been missing all week.",
     "takeaway": "A quantity rising without bound as its input approaches a value has an asymptote there.",
+    "segue": "The mark moved 1.2 metres downstage. All twelve seats came back onto the map. The show keeps all nine hundred seats, and Hettie Prosser keeps row A. But nothing in the rig is aimed at that new spot yet.",
     "stops": [
       {
         "group": "FRONT",
         "lesson": 4,
-        "task": "Work out what the last seats are worth"
+        "task": "Work out what the last seats are worth",
+        "reason": "Dowd's model says what the last seats are worth as the house fills, and Sallow needs that number before four o'clock."
       },
       {
         "group": "HOUSE",
         "lesson": 5,
-        "task": "Decide what happens to the twelve"
+        "task": "Decide what happens to the twelve",
+        "reason": "Kettleby has to defend whichever choice goes to print, and Mbatha has already said what the band can live with."
       },
       {
         "group": "BOARD",
         "lesson": 5,
-        "task": "Replot the two angles the move changes"
+        "task": "Replot the two angles the move changes",
+        "reason": "Ferreira has to rehang two angles the moment the mark moves, and Adeyemi has to sign the new plot before the seat map goes to print."
       }
     ]
   },
@@ -247,71 +287,83 @@ export const MISSIONS = [
     "title": "Three channels and a matrix",
     "objective": "Mix a colour that survives the filter, and say what a transformation does.",
     "briefing": "The wash reads green on camera and nobody can say which channel is lying.",
-    "stake": "Thursday. The recording company is in on the fourteenth. So the wash has to read on camera as well as in the room. Adeyemi has three channels and one filter. Ferreira has dimmers that do not do what their numbers say. Sallow wants the look signed off before the dress rehearsal. Today you work out what a mix of light actually delivers. You also work out what a transformation does to a plot. Three channels can each do exactly what they are told and the look can still be wrong. That is a multiplication somebody has treated as an addition.",
+    "stake": "Thursday. A film crew arrives on the fourteenth, and three lights can each do exactly what they are told while the colour on camera still comes out wrong. Today you work out what a mix of light really sends, and what a transform does to a plotted point.",
     "takeaway": "A transformation applied to every point is a matrix, and it does not commute.",
+    "segue": "The wash reads warm on camera now, and warm in the room too. The film crew has its look. Three dimmer numbers finally mean what they say. But the flyer below the truss has never hit her mark on the same beat as the revolve. She gets one more try, alone, in an empty room.",
     "stops": [
       {
         "group": "BOARD",
         "lesson": 6,
-        "task": "Match each channel to what actually arrives."
+        "task": "Match each channel to what actually arrives.",
+        "reason": "Adeyemi needs the wash to read true on camera as well as in the room, and Ferreira's dimmers aren't delivering what their numbers claim."
       },
       {
         "group": "PIT",
         "lesson": 5,
-        "task": "Say what happens when two things are done in the other order"
+        "task": "Say what happens when two things are done in the other order",
+        "reason": "Brand and Mbatha are both certain their signal-chain order is the right one, and only the arithmetic can settle it before the dress rehearsal."
       },
       {
         "group": "SHOP",
         "lesson": 4,
-        "task": "Say what the piece traces as it flies"
+        "task": "Say what the piece traces as it flies",
+        "reason": "Novak needs to know if the truss clears the false proscenium during the move itself, not just at the two ends of it."
       }
     ]
   },
   {
     "title": "Two equations, one stage",
     "objective": "Settle the flying cue against the revolve, and the exit timings against the licence.",
-    "briefing": "The dress is at seven and two things have to happen at the same instant.",
-    "stake": "Friday, and the dress rehearsal is at seven with Pell in the room. The flying cue and the revolve have to arrive together, which is two rates and one moment. The exit timings have to be walked rather than estimated, because a licence signed on an estimate is signed on nothing. Haigh has both on her sheet and neither has a number yet. Today you solve for when two moving things meet, and time an exit by walking it. Two rates and a distance is a system with one answer, or none.",
+    "briefing": "",
+    "stake": "Friday, and the dress rehearsal is at seven. A licence signed on a guess is worth nothing at all. Today you find the moment two moving things meet, and time an exit yourself instead of guessing it.",
     "takeaway": "Two things moving at different rates meet at one moment, or never.",
+    "segue": "The truss landed on its mark, right on the beat. The exit walk finally has a real number: 161 seconds, against a limit of 150. So the whole licence now rests on eleven seconds that nobody has found yet.",
     "stops": [
       {
         "group": "FLY",
         "lesson": 4,
-        "task": "Find the moment the two arrive together"
+        "task": "Find the moment the two arrive together",
+        "reason": "Haigh has both the cue and the revolve on her sheet with no number yet, and the dress rehearsal is tonight with Pell in the room."
       },
       {
         "group": "HOUSE",
         "lesson": 6,
-        "task": "Time the exit by walking it"
+        "task": "Time the exit by walking it",
+        "reason": "Pell will not sign anything off an estimate, so somebody has to actually walk the exit with a stopwatch."
       },
       {
         "group": "FRONT",
         "lesson": 5,
-        "task": "Say what the sales curve has done"
+        "task": "Say what the sales curve has done",
+        "reason": "Sallow and Dowd disagree about whether the curve is still climbing, and the run's costing depends on which one is right."
       }
     ]
   },
   {
     "title": "The rig, in the coordinates it was drawn in",
     "objective": "Finish the plot, and find the one unit that is in the wrong place.",
-    "briefing": "Twenty-eight units are hung and one of them is 900 millimetres out.",
-    "stake": "Saturday. The rig is hung, except for the focus. Ferreira has twenty-eight lamps on four bars and a plot written in bearings. One lamp is not where the plot puts it. The focus session found a shadow on the mark that nothing accounts for. Adeyemi wants the fault found before the notes session at six. Today you use the plot's own coordinates to work out which lamp moved. A rig plotted in one coordinate system and hung in another has exactly one kind of error in it. So there is one thing to look for, and twenty-eight lamps to look at.",
+    "briefing": "Twenty-eight units are hung and one is about 640 millimetres from the room-coordinate position.",
+    "stake": "Saturday. One of twenty-eight lamps is about 640 millimetres from where the room's coordinates say it belongs, and the paperwork makes the wrong position look plausible. Today you find the reference error and rewrite the plot so the next crew cannot repeat it.",
     "takeaway": "Converting between two descriptions of a point is where a rig's errors live.",
+    "segue": "The bad unit was about 640 millimetres off the room coordinate once the 140-millimetre bar offset was included. Its bearing had been measured from the wrong reference direction. One unit moved, and the plot now states its origin and reference instead of leaving them to memory.",
     "stops": [
       {
         "group": "BOARD",
         "lesson": 7,
-        "task": "Find the unit that is out of position"
+        "task": "Find the unit that is out of position",
+        "reason": "Ferreira has twenty-eight lamps on four bars and one shadow that the plot cannot explain; the notes session is at six."
       },
       {
         "group": "FLY",
         "lesson": 5,
-        "task": "Say what the plot is missing"
+        "task": "Say what the plot is missing",
+        "reason": "Adeyemi's plot lists bearings with no stated reference, and until it does, nobody can trust any angle on it."
       },
       {
         "group": "SHOP",
         "lesson": 5,
-        "task": "Match each candidate centre line to what it is a record of."
+        "task": "Match each candidate centre line to what it is a record of.",
+        "reason": "Quirke is setting out the false proscenium and needs the room's actual centre line, not the one on a drawing from 1911."
       }
     ]
   },
@@ -319,47 +371,54 @@ export const MISSIONS = [
     "title": "Everything at once, and one rehearsal left",
     "objective": "Fit the last of the numbers and spend the last of the time.",
     "briefing": "One rehearsal, four things to fix, and the licence file closes at noon tomorrow.",
-    "stake": "Sunday, and there is one rehearsal left. The pass door bottleneck is still 161 seconds. The flying cue is timed, but it has not been run with the revolve. The wash reads green on camera. The last hundred seats are not selling themselves. Sallow wants the notes closed and Pell wants the file. Today you decide where the last four hours go. You also finish the two numbers the file is still short of. Four hours is a smaller quantity than that list. That is what makes it a decision rather than a plan.",
+    "stake": "Sunday. One rehearsal is left, four problems are on the list, and there are only four hours to spend on them. Today you decide where those four hours go, and finish the two numbers the file still needs.",
     "takeaway": "A finite pool spent on a list longer than itself is a decision about what is not done.",
+    "segue": "The stage-left pass was cleared of the scenery rack that had narrowed it. Two full-company walks came in at 146 and 148 seconds, both under Pell's 150-second condition. The flying cue repeated inside its window and the moved mark was rehearsed. The one number still not rechecked is the band's full-room balance.",
     "stops": [
       {
         "group": "HOUSE",
         "lesson": 7,
-        "task": "Spend the last four hours"
+        "task": "Spend the last four hours",
+        "reason": "Haigh has six jobs on her sheet and four hours of company time to spend on them, with the licence and the argument both wanting a piece."
       },
       {
         "group": "PIT",
         "lesson": 6,
-        "task": "Balance the band against a room with seats in it"
+        "task": "Balance the band against a room with seats in it",
+        "reason": "Brand has the same decay measurement with the seats installed, and needs to state what changed without pretending it directly tells him a fader setting."
       },
       {
         "group": "FLY",
         "lesson": 6,
-        "task": "Run the cue and report what happened"
+        "task": "Run the cue and report what happened",
+        "reason": "Osei and the revolve operator have never run the cue together, and Haigh only has an hour and wants two clean runs before the dress."
       }
     ]
   },
   {
-    "title": "The fourteenth",
-    "objective": "Close the file, open the doors, and say what the fortnight established.",
-    "briefing": "Pell signs at noon, the house opens at seven, and everything either measures or it does not.",
-    "stake": "Monday the fourteenth. Pell signs the licence at noon on the strength of the file. The doors open at seven. Eight hundred and sixty-one seats are sold. Sallow wants the last hundred released. Kettleby wants the twelve confirmed clear on the moved mark. Osei wants the load plot signed as it stands. Today you close three numbers. You decide what happens to the last thirty-nine seats, and say what the fortnight actually settled. Everything in this building is now one of two things. It is a measurement with a date on it, or it is somebody's memory. The file decides which of the two the next production inherits.",
+    "title": "The signature",
+    "objective": "Close the evidence, make the box-office call, and sign only what the fortnight actually established.",
+    "briefing": "The licence is signed at noon, the house opens at seven, and everything either measures or it does not.",
+    "stake": "Monday, opening day. Pell signs at noon and the audience arrives at seven. The file now contains measured sightlines, a reviewed rigging load plot and two exit walks under the limit — but only if you write the conditions beside the numbers. Today you decide what can open and put your name under it.",
     "takeaway": "A measured local number with a stated period is worth more than an inherited figure.",
     "stops": [
       {
         "group": "HOUSE",
         "lesson": 8,
-        "task": "Match each statement to what supports it."
+        "task": "Match each statement to what supports it.",
+        "reason": "Pell will sign or refuse the licence on exactly these four statements, and two of them aren't measurements yet."
       },
       {
         "group": "FRONT",
         "lesson": 6,
-        "task": "Decide what to do with the last hundred"
+        "task": "Decide what to do with the remaining thirty-nine seats",
+        "reason": "Sallow wants a sellout claim; Dowd's own differences say only that sales are still rising more slowly."
       },
       {
-        "group": "SHOP",
-        "lesson": 6,
-        "task": "Say what the fortnight replaced"
+        "group": "HOUSE",
+        "lesson": 9,
+        "task": "Sign the opening recommendation",
+        "reason": "Pell has the county form on the production desk. Every calculation in the fortnight matters only through what you are willing to sign now."
       }
     ]
   }
@@ -368,7 +427,7 @@ export const MISSIONS = [
 export const WARMUPS = {
   "greet": {
     "title": "Forty-one people, and half of them started yesterday",
-    "why": "The company, the crew and the band were hired separately and most of them have never worked this building. Simone Haigh, the stage manager, wants you known to as many of them as you can get round before the first flying rehearsal, because a call that has to be explained twice is a call that arrives late."
+    "why": "Forty-one people were hired separately for this fortnight and most have never worked this building, so get round as many of them as you can and put a face to each job."
   },
   "trial-near": {
     "title": "Walk the building before you sign for it",

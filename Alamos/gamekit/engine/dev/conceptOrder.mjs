@@ -133,7 +133,7 @@ async function stopsOf(themeName) {
   gradeOf.set(themeName, Number(theme?.audience?.grade ?? 0) || null);
   const { normalizeContent } = await import('../content/normalize.js');
   const content = theme.content ?? {};
-  normalizeContent(content);
+  normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
   return pagesFor(content).map((p, i) => {
     const l = content.CURRICULUM[p.group][p.lesson];
     return {

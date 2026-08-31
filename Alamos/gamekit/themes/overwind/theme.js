@@ -20,6 +20,7 @@ import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
 import { INTERIORS } from './interiors.js';
+import { FIXTURES } from './fixtures.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 
 export default {
@@ -28,9 +29,16 @@ export default {
   // grade 4 scales 1.18x, 7 scales 1.10x, 13 and up not at all.
   audience: { grade: 12 },
 
+  // The plan card's opening blurb is a clock and two sentences: the one thing
+  // true this morning and the one thing the player does about it. The cast,
+  // the argument and the stakes live on the calls' own `reason:` lines and in
+  // the day debrief instead. `engine/dev/checkStory.mjs` reads this and swaps
+  // the word floor for a 70-word ceiling-only band. See gamekit/BRIEFING_PASS.md.
+  stakeStyle: 'brief',
+
   id: 'overwind',
   title: 'Overwind',
-  subtitle: "Winding Engineer's Assistant · Kerrow No. 3, twelve days before the licence",
+  subtitle: 'Mine Lift Safety Engineer · Kerrow Mine No. 3, twelve days to the inspection',
 
   // Each mission is one working day before the winder's certificate is renewed. The plan card prints this in front of the mission number.
   dayNoun: 'Day',
@@ -63,6 +71,11 @@ export default {
   // built by engine/world/interiorBuilding.js on first entry, in a district
   // four kilometres from the town.
   interiors: INTERIORS,
+  // The objects the questions are asked AT, built into each room by
+  // engine/world/interiorFixtures.js; catalogue in ./fixtures.js. Four of them
+  // carry `from:`/`until:`, so the tip bench, the inquiry drawer and the winder
+  // house are not the same rooms on day 12 that they were on day 1.
+  fixtures: FIXTURES,
   // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
   interiorStyle: 'steel',
@@ -84,34 +97,35 @@ export default {
   // pieces: the rope's own period is found late and is what puts two limits
   // into the profile nobody would have written at the start.
   delivery: {
-    name: 'The Winding Profile',
-    what: 'What the inspector renews the certificate against: the speeds and the stops this '
-      + 'winder is allowed to reach, and the integration behind every one of them.',
+    name: 'The Safe Winding Plan',
+    what: 'The operating rules the inspector will sign: how quickly the mine lift may accelerate, '
+      + 'how fast it may run, when the brake may be used, and the physics behind every limit.',
     where: 'WIND',
     pieces: [
-      'The profile\'s hidden terms',
-      'The drum\'s inertia',
-      'The rope tension at the drum',
-      'The torque terms, separated',
-      'The work against a changing force',
-      'The stream\'s steady force',
-      'The gravity station\'s reading',
-      'The worst instant for power',
-      'The rope\'s own period',
-      'The stopping distance',
-      'The pads\' total energy',
-      'The profile, signed',
+      'What the faster trip actually does',
+      'The drum\'s true rotational inertia',
+      'The maximum pull on the rope',
+      'The motor torque required',
+      'The energy in one full lift',
+      'The force created by moving loads',
+      'The value of gravity at depth',
+      'The motor\'s peak power',
+      'The rope\'s natural bounce period',
+      'The March overshoot explained',
+      'The brake\'s emergency-stop limit',
+      'The signed safe profile',
     ],
   },
+  // Five sentences: what this place is, what happened in March, why the same
+  // failure could be dangerous, the inspection deadline, and the player's physics
+  // mission. Technical mine vocabulary is kept out until the world is clear.
   opening: [
-    'Everyone who works at Kerrow No. 3 goes down twelve hundred and forty metres of shaft in a cage. '
-    + 'The cage hangs on one steel rope. A plan has been put in to cut twelve seconds off every trip. '
-    + 'The inspector who renews the winder\'s certificate reads that plan in twelve working days. You '
-    + 'are the winding engineer\'s assistant. Your job in those twelve days is to hand over the winding '
-    + 'profile. That is the sheet the inspector signs or refuses. It says how fast the cage may run, '
-    + 'and how hard it may be stopped. It says what the rope and the drum are doing while that happens. '
-    + 'One figure gets settled each day. A number with no working behind it does not go in. Forty-one '
-    + 'men a shift ride whatever gets signed.',
+    'Kerrow Mine has a shaft 1,240 metres deep, where forty-one miners each shift ride in a steel cage — the mine\'s elevator — hanging from one long steel rope. '
+    + 'Last March, during an emergency stop, the giant drum that moves the rope stopped on time, but the cage kept moving 1.6 metres past its landing. '
+    + 'At the top of the shaft, the same extra motion could drive the cage into the steel safety structure above it. '
+    + 'A safety inspector arrives in twelve days to decide whether this lift is safe to keep carrying people, just as the mine wants to make every trip faster. '
+    + 'You are the engineer who must use physics to answer two questions: why did the cage keep moving, and what is the fastest way it can run safely? '
+    + 'Twelve days of that work become the Safe Winding Plan, and the inspector reads nothing else.',
   ],
 
   // How it ends. The last thing anybody reads, and the counterpart of `opening`:
@@ -120,30 +134,14 @@ export default {
   // `checkStory` fails a campaign whose closing paragraph is not addressed to
   // them, because a fortnight of work should not finish on a report.
   ending: [
-    'The licence was granted on a cycle seven seconds shorter, with two limits '
-    + 'in it that nobody would have written down a fortnight earlier: a cap on '
-    + 'the speed at which the brake may be applied, and a prohibition on '
-    + 'emergency stops on the descending wind except in an emergency. Marchetti '
-    + 'was right about the machine — the motor reaches 81 per cent of its torque '
-    + 'rating and 86 per cent of its power rating and the faster cycle uses the '
-    + 'margin it has. Otieno was right about the rope. The March stop is in the '
-    + 'file now with an explanation attached: a cage on 110 kilonewtons a metre '
-    + 'travels its own speed divided by 5.25 after the drum has stopped, which '
-    + 'was a metre and six tenths, and no pad ever made would have changed it.',
-    'What it cost: five of the twelve seconds, a set of pads, and the maker\'s '
-    + 'man going home with a set he had driven three hours to fit. What is '
-    + 'unfinished: the rope\'s stiffness is still the maker\'s modulus rather '
-    + 'than a measurement of this rope; there is a cage position recorder at the '
-    + 'inset and none at the bank, which is the end where the same effect would '
-    + 'be an overwind; and Craig\'s friction figure is still measured cold on a '
-    + 'bench because nothing here can measure it hot.',
-    'You differentiated a curve somebody had submitted as a shape, and took the '
-    + 'drum\'s inertia off the drum instead of out of an eighteen-year-old file. '
-    + 'You found the tension at the end of the rope where it is worst, and then '
-    + 'you found the thing the inquiry could not: that a brake stops the drum and '
-    + 'the cage is on a spring. A driver who had been cleared without being '
-    + 'believed for eight months has an explanation with her name nowhere near '
-    + 'the cause of it. That was your fortnight.',
+    'On inspection morning, the trial cage rises from 1,240 metres below on the profile you signed. It reaches the landing and stops where it should. '
+    + 'The inspector approves a cycle seven seconds faster — not twelve — with the cage slowed to 4.5 metres a second before braking, descending emergency stops reserved for true emergencies, and the rope stiffness recalculated whenever the rope is shortened.',
+    'March finally has an explanation. The brake stopped the drum on time; the 1,200 metres of stretched steel rope acted like a spring and carried the cage another 1.6 metres. '
+    + 'Anand was right when she said the machine stopped and the cage did not. The pads were replaced after the incident, but they were not what caused the extra motion.',
+    'The new safety record also calls for a cage-position recorder at the top landing, a direct measurement of the rope\'s stiffness, and brake-friction tests at real operating temperature. '
+    + 'Those are the measurements that would have made March understandable the night it happened instead of eight months later.',
+    'You did not make the mine faster by accepting more risk. You found where the real limits were: in the motor, the brake, and especially the long elastic rope between them and the people below. '
+    + 'The miners get a faster trip because the physics says exactly how fast is safe. That was your call.',
   ],
 
   look: {

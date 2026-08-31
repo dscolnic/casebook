@@ -20,6 +20,8 @@ import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
 import { INTERIORS } from './interiors.js';
+import { MINOR_INTERIORS } from './minors.js';
+import { FIXTURES } from './fixtures.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 
 export default {
@@ -30,10 +32,18 @@ export default {
 
   id: 'slackwater',
   title: 'Slack Water',
-  subtitle: 'Tidal Prediction Lead · Sarn Barrage, twelve days before the springs',
+  subtitle: 'Flood Prediction Lead · Sarn Barrage, twelve days to the storm tide',
 
   // Each mission is one working day before the springs arrive. The plan card prints this in front of the mission number.
   dayNoun: 'Day',
+  // The plan card's opening blurb is a date stamp and two sentences: the one
+  // thing true this morning, and what the player does about it. The long form
+  // introduced two people by name and job title before saying what the day's
+  // work was, and it read the same on the fourteenth morning as the first. The
+  // cast, the argument and the stakes moved to the calls' own reasons and to
+  // the people themselves. `engine/dev/checkStory.mjs` reads this and swaps the
+  // 90-word floor for a 30-70 word band. See gamekit/BRIEFING_PASS.md.
+  stakeStyle: 'brief',
 
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
@@ -62,7 +72,13 @@ export default {
   // What is inside each room the player walks into, from book.yml. Rooms are
   // built by engine/world/interiorBuilding.js on first entry, in a district
   // four kilometres from the town.
-  interiors: INTERIORS,
+  // Merged, not replaced: `interiors.js` is generated from the book and
+  // `minors.js` is hand-written — the four places that are not areas. See
+  // ./minors.js and gamekit/PLACEMENT_PASS.md.
+  interiors: { ...INTERIORS, ...MINOR_INTERIORS },
+  // The objects the questions are asked at, built on entry from the open call.
+  // engine/world/interiorFixtures.js; catalogue in ./fixtures.js.
+  fixtures: FIXTURES,
   // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
   interiorStyle: 'lab',
@@ -84,34 +100,42 @@ export default {
   // twelve pieces: the shallow-water term is found late and moves every level
   // worked before it.
   delivery: {
-    name: 'The Sarn Gate Programme',
-    what: 'What the six gates come down on when the springs arrive: a predicted level, a bound '
-      + 'on how wrong it may be, and a sentence saying what neither of them covers.',
+    name: 'The Flood Gate Plan',
+    meter: 'Plan signed',
+    what: 'The operating order for the six flood gates: when dangerous water is expected, how '
+      + 'wrong the tide calculation can be, and what the crew must still watch in real time.',
     where: 'PRED',
     pieces: [
-      'The board against the gauge',
-      'The path\'s speed and heading',
-      'The length and the displacement',
-      'The bound on the tail',
-      'The current rose\'s area',
-      'The returning chain\'s total',
-      'The impoundment solution',
-      'The unmeasured tail, bounded',
-      'The residual\'s shape',
-      'The bound\'s real scope',
-      'The rearranged integrals',
-      'The gate programme, signed',
+      'What creates the spring tide',
+      'What the real water is doing',
+      'How far the water really travels',
+      'How wrong the tide forecast can be',
+      'How the ebb and flood currents differ',
+      'How the wall amplifies returning waves',
+      'How quickly the basin fills',
+      'What the endless tails add up to',
+      'The missing shallow-water tide',
+      'What the error bounds do not cover',
+      'The last assumptions checked',
+      'The gate order, signed',
     ],
   },
+  // Four beats, one sentence each, in this order: the threat, your job stated
+  // as authority, the clock, and who pays. The long version had thirteen
+  // sentences and six of them were the contents page of the handover — "It
+  // gives the level predicted for each tide. It gives how wrong that level
+  // might be." — with the only line that was actually the drama stranded at the
+  // bottom behind the index. What the programme contains is now day 1's stake,
+  // where the player is about to write the first piece of it, and the per-day
+  // "one figure is settled a day" line is gone: the day cards demonstrate it.
   opening: [
-    'In twelve working days the biggest tides of the year reach Sarn Barrage. A storm surge will sit '
-    + 'half a metre on top of them. Six gates hold four hundred hectares of water back off the marsh. '
-    + 'The gates move to a timetable. That timetable is written from predicted levels, not from '
-    + 'measured ones. You are the tidal prediction lead. No level goes on the timetable unless you can '
-    + 'show how it was worked out. In twelve days you hand over the Sarn gate programme. It gives the '
-    + 'level predicted for each tide. It gives how wrong that level might be. It says what the '
-    + 'prediction does not cover at all. One figure is settled a day. Ninety graziers move stock off '
-    + 'the marsh on one number you signed.',
+    'Sarn Barrage is a flood barrier across a tidal river where it meets the sea. '
+    + 'Its six gates protect low-lying grazing land used by ninety local farmers. '
+    + 'In twelve days the biggest tide of the year arrives, and a coastal storm may push even more water in. '
+    + 'Close the gates too late and seawater floods the marsh. Close them too early and river water backs up behind them. '
+    + 'Idris Calloway, the chief tidal analyst, says the tide can be calculated in advance. '
+    + 'Renate Oyelaran, the barrage master, says storms add water the tide equations cannot see. '
+    + 'You are the flood prediction lead, and you must use calculus to decide what the water will do, how wrong the model can be, and exactly what the gate crew should act on.',
   ],
 
   // How it ends. The last thing anybody reads, and the counterpart of `opening`:
@@ -120,30 +144,16 @@ export default {
   // `checkStory` fails a campaign whose closing paragraph is not addressed to
   // them, because a fortnight of work should not finish on a report.
   ending: [
-    'The eastern gate came down on the gauge, forty minutes later than the board '
-    + 'would have had it, and the marsh stayed dry by about a foot. The springs ran '
-    + 'to 11.6 m against a predicted 11.4, and the surge accounted for the '
-    + 'difference almost exactly. The prediction the licence review will read now '
-    + 'carries three things it did not carry a fortnight ago: the shallow-water '
-    + 'term that the eight-constituent fit had been leaving in the residuals since '
-    + 'commissioning, a bound of 0.19 m on the constituents nobody adds in, and a '
-    + 'sentence saying that neither of those covers weather.',
-    'What it cost: one generation window, four hours of turbine time on the biggest '
-    + 'ebb of the year, and an afternoon of the contractor being told no. What is '
-    + 'unfinished: the returned fraction at the wall is still worked out of gauge '
-    + 'records rather than measured off the wall, so the armour on the last forty '
-    + 'metres is sized for a first arrival rather than for a total; two of the six '
-    + 'stations feeding the shallow-water fit have not been levelled since the '
-    + 'barrage was built; and the stilling well still needs forty minutes, which '
-    + 'is the whole reason any of this had to be argued.',
-    'You took the prediction apart into the terms it is made of and put a ceiling '
-    + 'on the ones nobody adds in. You found the term the residuals had been '
-    + 'carrying for nine years, and you showed the expansion that produces it is '
-    + 'still legitimate at the largest range of the year. And on the last '
-    + 'afternoon you said out loud what neither bound covered, which is why the '
-    + 'gate closed on a gauge reading and four hundred hectares of marsh had stock '
-    + 'on it the next morning. Two signatures that had been in tension for nine '
-    + 'years went on the same sheet. You wrote the paragraph that let them.',
+    'Before dawn, the eastern-gate crew is already in place because the corrected tide model has identified the dangerous window. '
+    + 'The storm pushes the water above the astronomical tide alone, just as Oyelaran warned it could. The crew follows the rule you signed: use the prediction to prepare, then close on measured water with the gauge delay allowed for. '
+    + 'The eastern gate comes down about forty minutes later than the old programme would have ordered it, and the low marsh stays dry by about a foot.',
+    'The result did not come from choosing the model or the gauge. You rebuilt the model first. '
+    + 'The twenty-nine omitted tidal constituents are bounded, the missing shallow-water overtide is now included, the basin filling time is solved instead of guessed, and the wall reflections are no longer mistaken for one arriving wave. '
+    + 'Then you kept the storm surge separate, because no error bound on repeating tides can turn weather into a tidal constituent.',
+    'The next safety plan now calls for a fast water-level sensor beside the slow stilling well, fresh levelling of the two uncertain tide stations, and a direct survey of the wall reflections. '
+    + 'Those are the measurements that would make the next storm less of an argument and more of a measurement.',
+    'You did not prove Calloway wrong or Oyelaran right. You used calculus to show where each of them was right. '
+    + 'The prediction gave the warning; the measured water gave the final trigger. The farmers returned their livestock to a dry marsh the next morning. That was your call.',
   ],
 
   look: {

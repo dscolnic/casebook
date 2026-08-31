@@ -75,6 +75,15 @@ first card the pass was run on.
    and make the stem's words win.** *"One setting may
    rescue the schedule or deepen the shortfall"* sets up a choice; the stem then asks
    what physically happens.
+10. **In a SEQUENCE (or any non-CHOICE) stop, is the jargon sitting only in the
+    `cards` themselves?** `planetary_defense` DISC *Validate the discovery* asked
+    the player to order four pipeline steps written as *bias, dark and flat
+    frames*, *plate constants*, *the defect mask*, *magnitude* — four terms, none
+    glossed anywhere on the card. The `guide` said "ask what each step clears
+    away" without ever saying what the words meant, so the ordering could only be
+    solved by a reader who already knew the pipeline. **A `cards` array (or
+    `pieces`, or any other array the player has to read to answer) is prose, not a
+    menu of labels — it gets the same pass a CHOICE stop's `choices` gets.**
 
 ## Then rewrite to these rules
 
@@ -121,6 +130,11 @@ first card the pass was run on.
 - **Keep the technical term where the course needs it, glossed once in plain words.**
   Hiding the vocabulary is a different failure from hiding the demand, and the
   tagline only asks for the second.
+- **Gloss in the `guide`, then reuse the same handle in `cards`/`choices`/`rebuttals`.**
+  A procedural term — *plate constants*, *the defect mask*, *bias/dark/flat
+  frames* — is exactly as load-bearing as a concept term, and the fix is the same:
+  name it, define it in the same clause, in the field the player reads first, and
+  carry the same words into every later mention instead of re-describing it.
 
 ## The shape the book still requires
 

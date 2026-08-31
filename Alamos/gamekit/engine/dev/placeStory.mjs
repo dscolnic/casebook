@@ -40,7 +40,7 @@ const dir = resolveTheme(themeName);
 const theme = (await import(pathToFileURL(resolve(dir, 'theme.js')).href)).default;
 const { normalizeContent } = await import('../content/normalize.js');
 const content = theme.content ?? {};
-normalizeContent(content);
+normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
 
 /** Everything the campaign says out loud, once. */
 const storyText = (() => {
@@ -103,7 +103,12 @@ const FEATURES = [
   // mountain.
   { id: 'mountains or a ridge', words: ['mountain', 'ridge', 'summit', 'foothill', 'hillside'],
     evidence: () => (site.horizon ?? []).some(r => (r.height ?? 0) >= 40) || built('ridge', 'mountain') },
-  { id: 'a valley',      words: ['valley', 'basin', 'canyon', 'gorge'],
+  // No 'basin', for the same reason 'range' and 'peak' are not on the mountain
+  // row above: in a tidal, hydro or chemistry course a basin is a thing the
+  // engineers built — the water impounded behind a barrage, a settling basin —
+  // and not a shape in the ground. Slack Water says it thirteen times about the
+  // pool behind its own six gates and owed the player a valley for it.
+  { id: 'a valley',      words: ['valley', 'canyon', 'gorge'],
     evidence: () => built('valley', 'canyon', 'opening(', 'rim') },
   // `checkpoint` was in this list and is not a boundary word. Ice Core reached
   // ice too thin to count annual layers and needed "other checkpoints that can

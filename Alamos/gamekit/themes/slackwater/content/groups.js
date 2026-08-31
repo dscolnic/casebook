@@ -133,7 +133,7 @@ export const GROUPS = [
     "color": "#c2703f",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "Six gates, a impoundment behind them, and a rate that depends on what it has already done.",
+    "desc": "Six gates, an impoundment behind them, and a rate that depends on what it has already done.",
     "defaultLeader": "oyelaran",
     "budget": 70,
     "milestones": [

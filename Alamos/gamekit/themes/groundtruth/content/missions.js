@@ -4,377 +4,439 @@
 
 export const MISSIONS = [
   {
-    "title": "What the flat is for",
-    "objective": "Establish what the station measures and what last season cost it.",
-    "briefing": "Week three of six, and the first cell of the week is forecast for the afternoon.",
-    "stake": "Monday of week three. Three weeks of the season are left. Station 12 fires small rockets into charged sky. Each rocket trails a wire down to earth. The strike comes back down that wire, past the instruments. Adeyinka Vero, the station lead, wants shots. Hal Brenner, the safety officer, wants the launch rule written down first. He wants it agreed before the sky is overhead, not while it is. Last August a triggered strike killed every card in the outstation trailer. That trailer stands two hundred metres from the mast. Its earthing had been signed off that spring. Today you set the launch rule the crew will fire by. Then you read what a field mill is telling you, and what that April certificate actually measured.",
+    "title": "Write the rule before the storm",
+    "objective": "Write the crew-clear rule and determine what two old measurements can actually prove.",
+    "briefing": "The first cell of the week is on radar. The crew-clear rule is still blank, and last August's trailer failure is still unexplained.",
+    "stake": "Monday. A storm cell is moving toward Station 12 and six people are still working outside. Before the field rises, you must sign the rule that brings them in — and decide whether last year's 25-ohm certificate can explain the trailer that was destroyed.",
     "takeaway": "A criterion written while the cell is overhead is not a criterion.",
+    "segue": "The crew is inside before the field becomes dangerous. Then the old 25-ohm certificate lands beside photographs of six dead circuit cards from the trailer 200 metres away. The certificate measured slow current. The strike rose in about a microsecond. The first clue is not that the certificate was wrong; it is that it answered a different question.",
     "stops": [
       {
         "group": "SHOT",
         "lesson": 0,
-        "task": "Write the launch rule before the field moves"
+        "task": "Write the launch rule before the field moves",
+        "reason": "Hal Brenner, the safety officer, has to get this rule signed before the afternoon cell arrives, because a threshold written once the sky is overhead is not a rule at all."
       },
       {
         "group": "FIELD",
         "lesson": 0,
-        "task": "Read what the mill is actually reporting"
+        "task": "Read what the mill is actually reporting",
+        "reason": "Mira Halvorsen keeps the mills, and wants today's reading defended on what one instrument can actually see before it goes in the season log."
       },
       {
         "group": "EARTH",
         "lesson": 0,
-        "task": "Find out what the certificate measured"
+        "task": "Find out what the certificate measured",
+        "reason": "Ana Sifuentes signed the April certificate herself, and wants the number it measured stated exactly before today's rule leans on it for something it was never tested for."
       }
     ]
   },
   {
-    "title": "The layer overhead",
-    "objective": "Get the charge on the cloud base out of a reading taken at the ground.",
-    "briefing": "The mills read 4.5 kV/m under yesterday's cell, and nobody has turned that into charge.",
-    "stake": "Tuesday. Yesterday's cell left a number nobody has used. At the moment the crew was walked back, the four field mills read 4.5 kV/m. Vero wants that in the season log as a charge, not as a field. A field is what the meter reads. A charge is what the cloud holds. Emil Strand, the high-voltage engineer, says the hall can make the same field between two plates a metre apart. The arithmetic is the same either way. Today you turn a reading taken at head height into the charge on each square metre of cloud base. The same law says something about the inside of the screened room. Strand wants that written down too.",
+    "title": "Turn the sky into charge",
+    "objective": "Use Gauss's law to infer the effective charge over the flat and test where the ideal shielding model stops matching hardware.",
+    "briefing": "The mill gives one number at the ground. You need to know what that number says about the charged layer above it.",
+    "stake": "Tuesday. Yesterday's field mill gave 4.5 kV/m, but that number cannot help with the trailer mystery until you know what source could produce it. Today you turn the field into charge and test where the ideal model stops matching hardware.",
     "takeaway": "Gauss turns a field into a charge whenever a surface can be chosen the field is simple on.",
+    "segue": "The cloud-ground model gives about 4.0 × 10⁻⁸ C/m² — roughly 4 C over the charged area on radar. In the screened room, the ideal prediction is zero field and the probe still sees 40 V/m. The rule for the investigation is now clear: derive the ideal number, then measure what the real hardware does.",
     "stops": [
       {
         "group": "FIELD",
         "lesson": 1,
-        "task": "Derive the charge per square metre from the mill reading"
+        "task": "Derive the charge per square metre from the mill reading",
+        "reason": "Mira Halvorsen has the reading on the board, and the station lead wants it in coulombs before the season log calls it a field again."
       },
       {
         "group": "BANK",
         "lesson": 0,
-        "task": "Say what the same law gives between two plates"
+        "task": "Say what the same law gives between two plates",
+        "reason": "Emil Strand wants the factor of two made explicit before the cloud-ground pair is treated like a capacitor later in the week."
       },
       {
         "group": "MAST",
         "lesson": 0,
-        "task": "Work out what the screened room does to a field"
+        "task": "Work out what the screened room does to a field",
+        "reason": "Owen Tate built the screened room and wants a real prediction on record before the door shuts, since a number written after the display drops is not a test of anything."
       }
     ]
   },
   {
-    "title": "Volts are a path",
-    "objective": "Turn a field in volts per metre into the volts between two places.",
-    "briefing": "The season log wants the cloud-to-ground potential, and nobody has written the integral.",
-    "stake": "Wednesday. The log has a column for potential difference. It has been empty since the station opened. Vero wants it filled from yesterday's field, not from a textbook. Ingrid Lauwers, the emc engineer, has asked one question. Between which two points. It sounds like fussing. It is not. Volts are always volts between one place and another place. Yusuf Kaya, the records officer, has three shots from last season with no criterion written down. That is how a column stays empty for years. Today you walk the field down a path and get volts out of it. Then you say what a number in that column has to name before it means anything.",
+    "title": "Name the two places",
+    "objective": "Turn the measured field into a cloud-to-ground potential and reject voltage records that never name their reference points.",
+    "briefing": "A voltage without two named points is not a measurement. Last year's log contains several.",
+    "stake": "Wednesday. A report line says “5.4 megavolts” but does not say between what. Two old shots have the same problem. Today you derive the cloud-to-ground potential and decide which records are unusable.",
     "takeaway": "A potential belongs to a pair of points, and a path is how you get from the field to the volts.",
+    "segue": "The cloud base is about 5.4 MV below the ground in the simple model. Two old voltage records are removed because their reference points were never written down. That makes day 4's marginal cell more important: the station is running out of clean evidence, and the launch rule is about to face its first real test.",
     "stops": [
       {
         "group": "FIELD",
         "lesson": 2,
-        "task": "Derive the cloud-to-ground potential from the field"
+        "task": "Derive the cloud-to-ground potential from the field",
+        "reason": "The station lead wants yesterday's field turned into a potential before the log gains another empty column, and the sign is the part nobody trusts themselves on."
       },
       {
         "group": "COUPLE",
         "lesson": 0,
-        "task": "Say what an equipotential means for somebody standing on it"
+        "task": "Say what an equipotential means for somebody standing on it",
+        "reason": "Ingrid Lauwers has the injection-test map and wants the step voltage worked out, since a technician crossing that ground on foot is the whole reason the number matters."
       },
       {
         "group": "SHOT",
         "lesson": 1,
-        "task": "Establish what a record has to fix before the shot"
+        "task": "Establish what a record has to fix before the shot",
+        "reason": "Yusuf Kaya is missing a criterion for three of last season's shots, and wants it settled which of them can still count as evidence at all."
       }
     ]
   },
   {
-    "title": "Why the tall thing is struck",
-    "objective": "Get the field at the mast tip, and say what it does to the air.",
-    "briefing": "The mast has been drawing corona since the first cell, and nobody has computed the tip field.",
-    "stake": "Thursday. Tate reports the mast hissing again. The hiss is corona at the tip: air breaking down in a thin glow around the steel. You can hear it from the base in the quiet before a cell. Vero calls that the station working. Brenner calls it the mast being sixty metres of steel with nothing else near it. Both of them are describing the same piece of arithmetic. Neither has done it. Air stops insulating at some field, and nobody here has written that number down. Today you get the field at the tip out of the field over the flat. Then you decide whether the afternoon's marginal cell is a launch. Vero has argued for a week that it is.",
+    "title": "Why the mast starts hissing",
+    "objective": "Estimate the field enhancement at the mast tip, explain why the nearby mill is biased, and make the launch call from the written rule.",
+    "briefing": "Corona is visible at the tip and the two field mills no longer agree.",
+    "stake": "Thursday. The mast is hissing before the storm reaches the flat. If that means the whole site is already dangerous, six people need to be inside; if it is a local distortion, the remote mill matters more. Calculate before you call the shot.",
     "takeaway": "A conductor takes the potential of the air it reaches into, and a small radius turns that potential into an enormous field.",
+    "segue": "The tip can reach breakdown-scale fields even while the flat is lower, and the mast plus its corona distort the nearby mill. The written rule still says launch, so the shot goes. Its clean current record becomes the number you will need when you ask what 30 kA can do to equipment beside the mast.",
     "stops": [
       {
         "group": "MAST",
         "lesson": 1,
-        "task": "Derive the field at the tip of the mast"
+        "task": "Derive the field at the tip of the mast",
+        "reason": "Owen Tate fitted that tip and wants the field there computed before he climbs again, since a hissing mast is a fact and not yet a number."
       },
       {
         "group": "FIELD",
         "lesson": 3,
-        "task": "Say what corona at the tip does to the field above it"
+        "task": "Say what corona at the tip does to the field above it",
+        "reason": "Mira Halvorsen is comparing two mills under the same cell, and wants the base reading's bias explained before anyone trusts the nearest instrument over the reference one."
       },
       {
         "group": "SHOT",
         "lesson": 2,
-        "task": "Decide whether the marginal cell is a launch"
+        "task": "Decide whether the marginal cell is a launch",
+        "reason": "Adeyinka Vero has argued all week that a marginal cell still clears the rule, and today's launch call tests whether that argument was ever about the rule itself."
       }
     ]
   },
   {
-    "title": "The cloud as a capacitor",
-    "objective": "Get a capacitance out of the geometry, and see what it is worth.",
-    "briefing": "Strand wants the cell modelled as a plate pair before anybody talks about energy.",
-    "stake": "Friday. Strand has taken over the board in the hall. The station keeps describing the cell overhead as a charged plate above a flat that conducts. Strand wants the capacitance of that pair written down before Monday. Capacitance is how much charge the pair holds for each volt across it. On Monday somebody will ask for the stored energy, and the energy cannot be had without it. Sifuentes cares more about the trench. Two conductors run side by side down it for two hundred metres. That is the same model with different numbers in it. Today you derive a capacitance from a geometry. Then you find out what filling the gap with an insulator does to it.",
+    "title": "How much can the storm hold?",
+    "objective": "Derive the cloud-ground capacitance and identify the smaller capacitive path hidden in the cable route.",
+    "briefing": "The same geometry that stores charge between cloud and ground also lets two unconnected conductors exchange a fast transient.",
+    "stake": "Friday. The trailer failure has to be recreated safely in the hall, not by sacrificing another storm day. Before the engineers can build the test, you need the capacitance of the cloud-ground system and the hidden capacitance in the long cable route.",
     "takeaway": "Capacitance is a ratio before it is a formula, and the formula is Gauss followed by a line integral.",
+    "segue": "The cloud-ground pair is about 0.74 µF in the simplified geometry, consistent with roughly 4 C at 5.4 MV. The cable route has a much smaller capacitance — but a strike changes voltage so fast that even nanofarads can carry real current. The hall can now test fast effects without pretending it can reproduce an entire thundercloud.",
     "stops": [
       {
         "group": "BANK",
         "lesson": 1,
-        "task": "Derive the capacitance of the cloud-ground pair"
+        "task": "Derive the capacitance of the cloud-ground pair",
+        "reason": "Emil Strand needs the cell's capacitance on the board before Monday's energy question can even be asked, since energy needs this number first."
       },
       {
         "group": "EARTH",
         "lesson": 1,
-        "task": "Work out what the trench pair does"
+        "task": "Work out what the trench pair does",
+        "reason": "Ana Sifuentes noticed the signal pair and the earth conductor run parallel for two hundred metres, and wants them treated as the accidental capacitor they actually are."
       },
       {
         "group": "COUPLE",
         "lesson": 1,
-        "task": "Say what a dielectric does between plates"
+        "task": "Say what a dielectric does between plates",
+        "reason": "Ingrid Lauwers wants to know what the insulation between two conductors actually changes, since the outstation's cable run is exactly that kind of pair."
       }
     ]
   },
   {
-    "title": "Where the half comes from",
-    "objective": "Derive the energy in the bank, and say what it means for the hall.",
-    "briefing": "Twelve stages at fifty kilovolts, and the safety case rests on a number nobody re-derives.",
-    "stake": "Monday of week four. Josefa Ruiz, the impulse hall technician, wants the hall's energy figure checked. The season's biggest impulse test runs on Friday. The hall holds twelve stages. Each stage is a hundred nanofarads, charged to fifty kilovolts. The placard on the barrier says fifteen hundred joules. It has said that since the hall was built, by people who have all since left. Strand's view of it is blunt. A number nobody has re-derived is a rumour with a unit after it. He has been saying that about this one for two seasons. Today you get the stored energy out of the work it took to put the charge there. Ruiz wants the earthing stick explained in the same breath. You also decide what the hall can honestly stand in for when the sky will not cooperate.",
+    "title": "What 1,500 joules can do",
+    "objective": "Derive the bank energy, decide what physically proves the bank is discharged, and state what a repeatable impulse can test.",
+    "briefing": "Twelve capacitor stages can sit charged after the supply is off. A meter and a switch are not the same thing as a visible discharge path.",
+    "stake": "Monday of week four. The impulse bank will be charged to 50 kV while technicians work behind the barrier. Before anyone enters, you must derive how much energy is stored and decide what evidence actually proves the bank is safe.",
     "takeaway": "The energy in a capacitor is the work done against the voltage that was already there, which is where the half comes from.",
+    "segue": "The bank stores 1,500 J, and the safe state is a discharge path that can be seen at the bank itself. The hall can reproduce a chosen front and waveform, but not every feature of a real strike. That makes it the right place to test a mechanism — if the station can first trust the current record it is trying to reproduce.",
     "stops": [
       {
         "group": "BANK",
         "lesson": 2,
-        "task": "Derive the energy stored in a charged capacitor"
+        "task": "Derive the energy stored in a charged capacitor",
+        "reason": "Josefa Ruiz sets the stage every shot and wants the number on the placard finally derived instead of trusted, since she is the one who repeats it eleven hundred times a season."
       },
       {
         "group": "MAST",
         "lesson": 2,
-        "task": "Say what the earthing stick is for"
+        "task": "Say what the earthing stick is for",
+        "reason": "Josefa Ruiz keeps the barrier shut until the earthing stick is visibly on, and wants the reason for that rule spelled out in the same terms as the energy above it."
       },
       {
         "group": "SHOT",
         "lesson": 3,
-        "task": "Decide what the impulse test can and cannot stand in for"
+        "task": "Decide what the impulse test can and cannot stand in for",
+        "reason": "Emil Strand can fire the bank on any afternoon he chooses, while Adeyinka Vero would rather wait for a real cell, and the season's waveform library depends on which one gets recorded."
       }
     ]
   },
   {
-    "title": "Three instruments that agree",
-    "objective": "Find out whether the current measurements are independent of each other.",
-    "briefing": "Three shunts, three readings within ten per cent, and one thing they have in common.",
-    "stake": "Tuesday. Kenji Nakata, the current measurement engineer, has the S-114 record open. The funding review is going to quote it. Three separate measurements of last August's strike agree to within ten per cent. The station has treated that as confirmation for a year. Vero has already put it in a draft. Nakata does not like how tidy it is. Ana Sifuentes has noticed something and has not made much of it yet. Every digitiser on the site is referred to one earth rod. Today you open each channel and find what its reading was measured against. Then you work out what the agreement between them is worth to a reviewer who asks.",
+    "title": "Four instruments agree. Do they?",
+    "objective": "Trace the measurement references behind last August's current record and determine what the independent channel actually establishes.",
+    "briefing": "The neatest number in the report may be the least independent.",
+    "stake": "Tuesday. The review draft calls last August's peak current “confirmed” because four channels agree near 30 kA. If three of them share the same moving reference, the station may have counted one measurement three times.",
     "takeaway": "Instruments that share a reference share its errors, and their agreement measures nothing.",
+    "segue": "Three channels use the same single-ended earth reference; the Rogowski clamp does not. The independent clamp keeps the peak near 30 kA, but the agreement is no longer four witnesses. More important, the earth rod cannot be treated as a perfect zero during a strike. The trailer mystery now has to be solved with geometry and independent measurements, not with a comforting average.",
     "stops": [
       {
         "group": "MAST",
         "lesson": 3,
-        "task": "Find the reference the agreeing channels have in common"
+        "task": "Find the reference the agreeing channels have in common",
+        "reason": "Kenji Nakata owns these shunts and does not like how neatly three readings agree, since neat agreement from instruments sharing one reference is not independent confirmation of anything."
       },
       {
         "group": "EARTH",
         "lesson": 2,
-        "task": "Work out what the rod does during a strike"
+        "task": "Work out what the rod does during a strike",
+        "reason": "Ana Sifuentes flagged the shared earth rod first, and wants it settled whether that reference can even hold still while a strike current runs through it."
       },
       {
         "group": "SHOT",
         "lesson": 4,
-        "task": "Match the rod-referenced peak with more than one true-current and reference-offset pair, then add the independent clamp."
+        "task": "Match the rod-referenced peak with more than one true-current and reference-offset pair, then add the independent clamp.",
+        "reason": "Yusuf Kaya has three shunt peaks and one clamp reading for the funding review, and needs one defensible number instead of three copies of the same possible error."
       }
     ]
   },
   {
-    "title": "What thirty kiloamps does at two metres",
-    "objective": "Get the field around the down-conductor, and say what has to live in it.",
-    "briefing": "The instrument cabinet sits two metres from the down-conductor and has done for nine years.",
-    "stake": "Wednesday. Tate has been asked to move the instrument cabinet. He wants a reason he can put on a job sheet. The cabinet has stood two metres from the down-conductor since the mast went up. Nakata's clamp says thirty kiloamps went past it last August. Nobody has ever written down what that means at the cabinet door. A current makes a magnetic field around itself. That field pushes on any other current near it. Today you get the field out of Ampère's law, and you put a number on the force it lands on the bonding straps. Then you settle what the hall can test about this, and what it cannot.",
+    "title": "What 30 kA does two metres away",
+    "objective": "Use Ampère's law to find the magnetic field beside the mast and Faraday's law to determine what a rapid field change can drive in nearby loops.",
+    "briefing": "Thirty kiloamps is not dangerous to electronics merely because the magnetic field is large. The question is how fast that field changes and how much loop area the wiring gives it.",
+    "stake": "Wednesday. A cabinet sits two metres from the down-conductor, and the first part of the trailer cable route runs through the same magnetic field. Before anyone moves hardware, calculate what the strike can actually drive in a nearby loop.",
     "takeaway": "A current does not stay in its conductor as far as anything nearby is concerned.",
+    "segue": "At two metres the peak field is about 3 mT. That alone does not condemn the cabinet. But if it arrives in about two microseconds, a 0.1 m² circuit loop can see roughly 150 V. Lauwers pulls out the trench drawing. The loop that reaches the trailer is not 0.1 m². Its two long sides run beside the mast for forty metres.",
     "stops": [
       {
         "group": "MAST",
         "lesson": 4,
-        "task": "Derive the field around the down-conductor"
+        "task": "Derive the field around the down-conductor",
+        "reason": "Owen Tate needs the field at the cabinet computed before he signs off on moving it, since the job sheet has to say why two metres was never far enough."
       },
       {
         "group": "BANK",
         "lesson": 3,
-        "task": "Estimate the charge the stroke moved"
+        "task": "Estimate the charge the stroke moved",
+        "reason": "Emil Strand wants August's stroke written in coulombs as well as kiloamps, so the hall's comparison test has a real number to aim at."
       },
       {
         "group": "COUPLE",
         "lesson": 2,
-        "task": "Say what the field at the cabinet does to what is inside it"
+        "task": "Say what the field at the cabinet does to what is inside it",
+        "reason": "Ingrid Lauwers treats the cabinet as a loop rather than a box, and wants what is inside it protected before the next stroke finds the same path in."
       },
       {
         "group": "BANK",
         "lesson": 4,
-        "task": "Hold the bank voltage while the shot is prepared."
+        "task": "Hold the bank voltage while the shot is prepared.",
+        "reason": "Josefa Ruiz has to hold the bank at voltage while the crew finishes rigging, and wants the bleed-and-recharge balance understood before she trusts the gauge on the wall."
       }
     ]
   },
   {
-    "title": "Nothing was connected to anything",
-    "objective": "Work out how a strike reached a cable it never touched.",
-    "briefing": "The outstation cards died in August, and the trailer is bonded to nothing that was struck.",
-    "stake": "Thursday. This is the question the station has argued about for a year. Last August every card in the outstation trailer died. The trailer sits two hundred metres from the mast. It is earthed to its own rod. No conductor runs between it and anything the strike touched. Sifuentes has defended that earthing for twelve months. Lauwers keeps saying the earthing was never the route in. They cannot both be right, and the review will ask. Today you compute the flux through the cable loop that runs beside the down-conductor. Then you find out what one microsecond of rise time does to it.",
+    "title": "How lightning reached a trailer it never touched",
+    "objective": "Calculate the induced voltage in the long trench loop and decide which failure mechanism best fits both the damaged and surviving equipment.",
+    "briefing": "The damaged cards and the surviving logger differ in one crucial way: the long route encloses a large loop.",
+    "stake": "Thursday. Last August every interface card at the trailer died while a nearby battery logger survived. Today you finally have enough geometry and current data to test whether the strike reached the trailer without any direct connection.",
     "takeaway": "A circuit that touches nothing can still be driven, because flux does not need a connection.",
+    "segue": "The simplified straight-conductor model predicts about 200 kV around the long trench loop. The damage pattern fits that mechanism better than failed insulation or a bad local earth — but the calculation is still a model, not a verdict. The hall now has a prediction it can try to break.",
     "stops": [
       {
         "group": "COUPLE",
         "lesson": 3,
-        "task": "Derive the voltage induced in the trench cable"
+        "task": "Derive the voltage induced in the trench cable",
+        "reason": "Sam Abioye wired that trench run and wants the coupling computed before the report blames the wrong quantity for a year, since the geometry was his and nobody chose it on purpose."
       },
       {
         "group": "MAST",
         "lesson": 5,
-        "task": "Which explanation fits all four observations?"
+        "task": "Which explanation best fits all four observations?",
+        "reason": "Ingrid Lauwers has four devices' post-strike condition on file and wants one explanation that fits every card, not just the one that is easiest to believe."
       },
       {
         "group": "SHOT",
         "lesson": 5,
-        "task": "Say what this changes about the season's plan"
+        "task": "Say what this changes about the season's plan",
+        "reason": "Hal Brenner and Adeyinka Vero need to know whether a confirmed coupling mechanism argues for firing the rest of the season or stopping it early."
       }
     ]
   },
   {
-    "title": "Nine volts and a hundred and eighty thousand",
-    "objective": "Work out what the bonding lead does, and what the certificate never covered.",
-    "briefing": "Six metres of copper between the mast base and the equipment earth, and nobody has costed it.",
-    "stake": "Friday. Sifuentes has brought the April certificate back to the table. Yesterday's finding explains the trailer. It does not explain the rack at the mast base. That rack also lost two channels last August. It is bonded to the earth grid by six metres of heavy copper. Strand says six metres of copper is nine hundredths of an ohm, and can be ignored. Sifuentes says that is the right number for the wrong quantity. One of them has to give. Today you work out what a fast rising current does along a straight piece of wire. Then you settle what the April certificate was ever able to say.",
+    "title": "Why six metres of copper can still be dangerous",
+    "objective": "Compare resistive and inductive voltage on the bonding lead and design a test that separates the two.",
+    "briefing": "Low resistance is not the same thing as low transient voltage.",
+    "stake": "Friday. The trailer mechanism explains a remote failure, but the rack at the mast base has a six-metre bonding lead of its own. Its DC drop is only 9 V. If the lead's inductance matters on a microsecond front, the same copper can see tens or hundreds of kilovolts.",
     "takeaway": "A perfect earth at the end of six metres of wire is not an earth at a microsecond.",
+    "segue": "Using an effective lead inductance near 6 µH, the model gives about 180 kV for a 30 kA-per-microsecond front, while the resistive drop is only 9 V. The exact transient voltage still has to be measured. The next question is whether all 30 kA even reaches the grid through the path drawn on the sheet.",
     "stops": [
       {
         "group": "EARTH",
         "lesson": 3,
-        "task": "Derive the voltage along the bonding lead"
+        "task": "Derive the voltage along the bonding lead",
+        "reason": "Ana Sifuentes and Emil Strand disagree about whether six metres of copper can be ignored, and one of them is answering the wrong question at the wrong rate of change."
       },
       {
         "group": "FIELD",
         "lesson": 4,
-        "task": "Say what follows for how the site should be bonded"
+        "task": "Say what follows for how the site should be bonded",
+        "reason": "Adeyinka Vero wants one site rule the whole crew can apply to future bonds, since the rack, the mills and the trailer all have their own sketches and no shared standard."
       },
       {
         "group": "BANK",
         "lesson": 5,
-        "task": "Work out how to test the finding in the hall"
+        "task": "Work out how to test the finding in the hall",
+        "reason": "Josefa Ruiz has one afternoon of hall time and needs to know which front setting would actually put this finding to the test rather than just repeat what is already believed."
       }
     ]
   },
   {
-    "title": "Where the current goes",
-    "objective": "Follow the strike down the mast and find where it stops matching.",
-    "briefing": "Nothing goes wrong today. Three things get confirmed and one of them is a surprise.",
-    "stake": "Monday of week five. It is the quietest day the season has had. No cell is forecast before Wednesday. The hall is down for a gap service. Nakata has last week's stroke recorded at every shunt on the mast, which is a first. Tate has been asked to check the bonding at each joint while the weather still allows a climb. Today you read the current at each point down the conductor, and you find where the record stops adding up. The same records say how much charge the cell over the flat was holding. Nobody has added that up either. A quiet day is the only day this work gets done on.",
+    "title": "Where did eleven kiloamps go?",
+    "objective": "Follow the current down the mast, locate the unplanned branch, and decide which measurement can distinguish the remote current path.",
+    "briefing": "Current cannot disappear. Read down the mast until the record stops adding up.",
+    "stake": "Monday of week five. Thirty kiloamps enters the mast, but only about 18 kA reaches the grid clamp. If the missing eleven kiloamps is on the instrument conduit, hardware that was never designed as a lightning path is carrying roughly a third of the stroke.",
     "takeaway": "A current that is not where it was a moment ago has gone somewhere, and the place it left is a fact about the site.",
+    "segue": "The loss begins below the 15 m shunt, exactly where the conduit is bonded: about 11 kA has taken an unplanned path. The cloud-charge estimate is now the same order as the stroke charge rather than contradicting it. Then radar posts day 12's cell, and the station gets one chance to predict a shot before measuring it.",
     "stops": [
       {
         "group": "MAST",
         "lesson": 6,
-        "task": "Find the station where the current stops matching"
+        "task": "Find the station where the current stops matching",
+        "reason": "Kenji Nakata has every shunt reading from last week's stroke at once for the first time, and wants the station where the current stops matching found before the report calls it noise."
       },
       {
         "group": "FIELD",
         "lesson": 5,
-        "task": "Put a number on the charge the cell was holding"
+        "task": "Put a number on the charge the cell was holding",
+        "reason": "Mira Halvorsen wants the layer's total charge in the season log, next to the strokes it actually produced, since a density alone cannot say how big the cell was."
       },
       {
         "group": "EARTH",
         "lesson": 4,
-        "task": "Spend the two field-check credits on evidence that can decide why the remote trailer rod carried 200 A."
+        "task": "Spend the two field-check credits on evidence that can decide why the remote trailer rod carried 200 A.",
+        "reason": "Blessing Okoro has two field-check credits and four possible causes for two hundred amps on the remote trailer rod, and has to spend them where the answer would actually change something."
       },
       {
         "group": "FIELD",
         "lesson": 6,
-        "task": "Work the mast round while the storm rule changes."
+        "task": "Work the mast round while the storm rule changes.",
+        "reason": "Owen Tate's mast round has to change as the safety rule changes with the storm coming in, and the reason for each version has to be clear to whoever is following it."
       }
     ]
   },
   {
-    "title": "Predict it, then measure it",
-    "objective": "Commit to a number before the stroke, and find out what a forecast is worth.",
-    "briefing": "A cell for the afternoon, and a prediction that has to be written before it arrives.",
-    "stake": "Tuesday. A cell is forecast for two o'clock. Vero wants the season's first prediction on the board before it arrives. Peak current, written down in advance, from the field and the charge the station has now measured. Brenner has the nowcast open and does not like how fast the cell is tracking. Today you commit to a number, then fire, then measure what came down. The afternoon does not end well. The crew comes in late off the flat. A trailer is left in a state nobody can use. That is the argument Brenner has been making since week one, and he was right in a way nobody wanted.",
+    "title": "The rule fails on a fast cell",
+    "objective": "Commit to a prediction, measure the result, then diagnose why the crew-clear rule lost its safety margin.",
+    "briefing": "The physics test works. The safety model does not.",
+    "stake": "Tuesday. You commit to a prediction, fire, and measure it. Then a second cell crosses nineteen kilometres in twenty minutes. The crew follows the written rule and reaches the bunker only five minutes before the first natural strike.",
     "takeaway": "A prediction that is never measured against anything is an opinion with a unit after it.",
+    "segue": "The predicted stroke is measured, but the afternoon exposes a worse error: the rule assumed more warning time than this cell gave. Everyone is safe, but the rebuilt outstation goes dark again and the field programme loses its remote instruments. Brenner's warning is no longer an opinion. Next season's rule has to be built from the spread in real lead times, not the average afternoon.",
     "stops": [
       {
         "group": "SHOT",
         "lesson": 6,
-        "task": "Predict the peak, fire, and measure it"
+        "task": "Predict the peak, fire, and measure it",
+        "reason": "Adeyinka Vero wants a predicted peak current on the board before the rocket leaves the rail, and the clamp will only confirm it forty minutes later if anyone reads it."
       },
       {
         "group": "COUPLE",
         "lesson": 4,
-        "task": "Read what the second cell did to the timing"
+        "task": "Read what the second cell did to the timing",
+        "reason": "Hal Brenner has said all season that a fast cell does not care about a countdown, and today's second cell is the afternoon that finally tests his argument against the clock."
       },
       {
         "group": "BANK",
         "lesson": 6,
-        "task": "Move the remaining usable-sky assumption to its pessimistic end, then choose the plan that still preserves safe field science."
+        "task": "Move the remaining usable-sky assumption to its pessimistic end, then choose the plan that still preserves safe field science.",
+        "reason": "Adeyinka Vero and Hal Brenner need a plan for the rest of the season now that a strike has taken the outstation trailer out of service."
       }
     ]
   },
   {
-    "title": "What the mill cannot see",
-    "objective": "Solve the electrometer's circuit, and find out what its time constant costs.",
-    "briefing": "The mills report the slow field, and nobody has written down how slow.",
-    "stake": "Wednesday. The record of Tuesday's stroke has a hole in the middle of it. The clamp caught the current. The shunts caught the current. All four field mills recorded a smooth dip instead. That dip only begins after the stroke was already over. Mira Halvorsen has said for two seasons that the mills are slow. Nobody has ever asked her how slow. Kaya needs a caption for the plot before the pack closes. Today you solve the electrometer circuit inside the mill and get its time constant out of that solution. A number off a data sheet will not do here. Then you say what the mill record is evidence about, and what it is silent on.",
+    "title": "What the instruments missed",
+    "objective": "Use the mill input circuit to bound its response time, then choose the channels that can actually resolve a microsecond stroke.",
+    "briefing": "An instrument can produce a clean trace of something it was too slow to measure.",
+    "stake": "Wednesday. Tuesday's record contains a smooth field change but no microsecond front. Before anyone calls that evidence about the stroke, solve the mill's response time and decide what the instrument was physically capable of seeing.",
     "takeaway": "An instrument's time constant decides what it is evidence about, and no amount of care with a slow instrument makes it a fast one.",
+    "segue": "The electrometer input alone has a 1 ms time constant — already about a thousand times slower than a 1 µs front. The mill can support claims about slower field changes, not the stroke rise itself. Fast current and electric-field channels are now the witnesses that can test the coupling prediction. One hall shot remains.",
     "stops": [
       {
         "group": "EARTH",
         "lesson": 5,
-        "task": "Derive the discharge of the electrometer and its time constant"
+        "task": "Derive the discharge of the electrometer and its time constant",
+        "reason": "Mira Halvorsen wants the mill's own electrometer circuit solved for once, instead of guessed at, since the time constant decides what two seasons of readings can actually be trusted to show."
       },
       {
         "group": "FIELD",
         "lesson": 7,
-        "task": "Say what the mill record is evidence of"
+        "task": "Say what the mill record is evidence of",
+        "reason": "Mira Halvorsen needs to know what that smooth post-stroke dip is actually evidence of, before Yusuf Kaya writes a caption for it in the season pack."
       },
       {
         "group": "MAST",
         "lesson": 7,
-        "task": "Choose the right instrument for the front"
+        "task": "Choose the right instrument for the front",
+        "reason": "Kenji Nakata has a record budget and has to pick the instrument that can actually follow a microsecond front, rather than the one that is already on the shelf."
       },
       {
         "group": "SHOT",
         "lesson": 7,
-        "task": "Sort the night's returns before the log closes."
+        "task": "Sort the night's returns before the log closes.",
+        "reason": "Yusuf Kaya has more triggers on the night's log than the record can carry, and has to sort which ones are current on the mast and which are the recording chain reacting to itself."
       }
     ]
   },
   {
-    "title": "The last thing that can be changed",
-    "objective": "Set the bank for the season's final test, and say what it will show.",
-    "briefing": "After today the hall is committed and the sky is whatever it is.",
-    "stake": "Thursday. This is the last day anything can be altered. The final impulse test runs tomorrow, at whatever setting is agreed this afternoon. One gap service is left. The review pack closes on whatever that shot returns. Strand wants twelve stages at fifty kilovolts. That is what the hall has fired eleven hundred times. Lauwers wants the same peak with a shorter front instead. A short front tests Tuesday's coupling number. The long one confirms the placard. Today you work out what twelve stages in series actually produce, and you choose what the last shot of the season is for. The report also has to recommend something to a station nobody here has visited.",
+    "title": "One shot left",
+    "objective": "Derive the Marx-bank output, spend the last shot on the most discriminating test, and turn the result into a geometry-based mitigation.",
+    "briefing": "After today, no new experiment can enter the review pack.",
+    "stake": "Thursday. The hall has one usable shot left before the report freezes. You can spend it repeating a familiar calibration or on a prediction from the coupling model written down in advance. Only one can change what the final report is allowed to claim.",
     "takeaway": "A test that repeats what is already known spends the same time as one that could come out either way.",
+    "segue": "The fast-front coupling shot is fired at the setting written down in advance. The bench loop lands within nine per cent of the predicted value. The model is no longer only a post-mortem explanation; it has survived a test designed to fail it. On day 15 you still have to separate what was measured, what was inferred, and what remains unmeasured — and sign your name to one version.",
     "stops": [
       {
         "group": "BANK",
         "lesson": 7,
-        "task": "Derive the output of the twelve-stage bank"
+        "task": "Derive the output of the twelve-stage bank",
+        "reason": "Josefa Ruiz switches the bank between parallel charging and series firing every shot, and wants the voltage and capacitance that switch actually produces worked out in the open."
       },
       {
         "group": "SHOT",
         "lesson": 8,
-        "task": "Decide what the final shot is for"
+        "task": "Decide what the final shot is for",
+        "reason": "Ingrid Lauwers wants the last shot spent on the coupling prediction; Emil Strand would rather repeat the bank calibration. Vero has to decide which result can still change the report."
       },
       {
         "group": "COUPLE",
         "lesson": 5,
-        "task": "Fix what the report will say about mitigation"
+        "task": "Fix what the report will say about mitigation",
+        "reason": "Ingrid Lauwers has to turn this week's coupling finding into one recommendation the next station can act on, without overstating what a single season actually tested."
       }
     ]
   },
   {
-    "title": "What the season can say",
-    "objective": "Set next season's rule, and sort what was measured from what was inferred.",
-    "briefing": "The review pack closes tonight, and every sentence in it has to be answerable.",
-    "stake": "Friday. The pack goes tonight. Vero wants the second mast. Brenner wants a lead time that comes from how fast cells have actually crossed this flat, not from the handbook. Sifuentes wants the April certificate reissued with the quantity it measured written on its face. All three go in or none of them does. The review reads the pack before it reads anybody in this room. Today you set the criterion the station will work to next season. You also sort the season's claims by what stands behind each one, and name the thing fifteen days of work has not shown. Nothing can be added after tonight.",
+    "title": "Sign what the season can prove",
+    "objective": "Set next season's lead-time rule, mark the claims that remain inference, and sign the final report.",
+    "briefing": "Every important claim is now on one page. Your last job is not another calculation. It is deciding what you are willing to sign.",
+    "stake": "Friday. The review pack locks tonight. A second mast, next season's operating rule, and the six-person crew all depend on one document that must separate measurements from models and safety margins from averages.",
     "takeaway": "A season is worth what its record can defend, which is always less than what the room believes.",
     "stops": [
       {
         "group": "SHOT",
         "lesson": 9,
-        "task": "Set the criterion the station will work to"
+        "task": "Set the criterion the station will work to",
+        "reason": "Hal Brenner needs next season's lead time to survive its worst afternoon, not just its average one, before Adeyinka Vero can put a number on paper."
       },
       {
         "group": "EARTH",
         "lesson": 6,
-        "task": "Spend the two final verification checks on the claims whose failure would most weaken the season report."
+        "task": "Spend the two final verification checks on the claims whose failure would most weaken the season report.",
+        "reason": "Yusuf Kaya has time to trace only two of four signed claims before the report locks, and has to spend them where an unbacked claim would cost the review the most."
       },
       {
-        "group": "MAST",
-        "lesson": 8,
-        "task": "Name what the season did not establish"
+        "group": "SHOT",
+        "lesson": 10,
+        "task": "Sign the final season report",
+        "reason": "Adeyinka Vero has the review copy open to the signature line. The report now has enough evidence to act, but only if it says clearly which claims were measured, which were tested as models, and which remain open."
       }
     ]
   }
@@ -383,7 +445,7 @@ export const MISSIONS = [
 export const WARMUPS = {
   "greet": {
     "title": "Station 12 is six people and a storm season",
-    "why": "The station is a hut, a mast and six people who will be here for the whole season. Everybody needs to know who is on the mast and who is at the console before the first storm, because the rules about climbing are enforced by whoever can see you."
+    "why": "Walk the site once and put a job to every name you meet, because that is who you will be asking for numbers all season."
   },
   "trial-near": {
     "title": "Walk the flat before the season starts",
@@ -399,6 +461,32 @@ export const WARMUPS = {
       "name": "earth bond",
       "plural": "earth bonds"
     },
+    "at": [
+      {
+        "x": 19,
+        "z": 32
+      },
+      {
+        "x": 14,
+        "z": 2
+      },
+      {
+        "x": -30,
+        "z": 2
+      },
+      {
+        "x": -14,
+        "z": -44
+      },
+      {
+        "x": 7,
+        "z": 108
+      },
+      {
+        "x": 3,
+        "z": 172
+      }
+    ],
     "why": "Every instrument on the mast is bonded, and two bonds are not where the sheet says. A bond nobody can find is either doing nothing or carrying strike current through a signal cable, and both possibilities end the season for that channel."
   },
   "canvass": {

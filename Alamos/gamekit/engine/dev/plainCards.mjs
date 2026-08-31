@@ -102,7 +102,7 @@ async function load(name){
   if(!theme) return null;
   const { normalizeContent } = await import('../content/normalize.js');
   const content = theme.content ?? {};
-  normalizeContent(content);
+  normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
   return { theme, content };
 }
 

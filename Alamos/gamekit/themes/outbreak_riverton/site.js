@@ -54,7 +54,10 @@ const AREA_BUILDINGS = [
 ];
 
 const LANDMARKS = [
-  { id: 'CMD', name: 'City Health Command', sub: 'Incident command · Riverton',
+  // `enter:` — no `group`, so this is not an area, but two authored stops
+  // (day 14's TRIGGER and day 15's SEQUENCE) are both about what happens
+  // inside it, which clears the two-stop bar. See ./minors.js.
+  { id: 'CMD', enter: 'CMD', name: 'City Health Command', sub: 'Incident command · Riverton',
     x: 62, z: -12, w: 18, d: 12, h: 7.0, facing: -PI / 2, colour: 0x8b94a0, accent: 0x1f3b4d },
   { id: 'BRIEF', name: 'Public Briefing Room', sub: 'What the city is told',
     x: -62, z: -12, w: 18, d: 12, h: 6.4, facing: PI / 2, colour: 0xa79f90 },

@@ -323,7 +323,7 @@ glossary:
     def: What a part can carry, divided by what was required of it.
   - name: Aftershock
     aliases: [aftershocks]
-    def: A smaller earthquake following the main one, on the same fault system, becoming rarer as time passes.
+    def: A smaller earthquake following the main one, in the same place underground, becoming rarer as time passes.
   - name: Cordon
     aliases: [cordoned, cordons]
     def: A boundary keeping people out of an area, and a decision with a cost on both sides of it.
@@ -557,9 +557,9 @@ missions:
       minutes. Another said 6.8 six hours later. Rei Tanaka, the seismologist, can explain the
       gap to an engineer in one sentence. She has spent the morning failing to explain it to a
       radio station. Funmi Adeyemi, the public information officer, has to put something in a
-      notice by four. Meanwhile Inês Cardoso has found a second problem. Two field stations have
+      notice by four. Meanwhile Inês Cardoso, on the seismic network, has found a second problem. Two field stations have
       been running on a clock that drifted since spring. That moves where the epicentre plots on
-      the map. So the office has to fix the location before it can defend the size. Today you
+      the map. So the office has to fix the location first. Only then can it defend the size. Today you
       write down what the difference between 6.6 and 6.8 actually means.
     takeaway: A magnitude is a measurement with a method attached, and revising it is the method working.
     stops:
@@ -1029,7 +1029,7 @@ missions:
         task: Spend the five-day investigation budget on evidence that can change the town-wide decision about the ground beneath Marina Court and its neighbours.
         title: What knocking it down would fix
         place: Public Safety
-        scene: Halvorsen wants Marina Court demolished this week. Delacroix has 12 neighbouring buildings on the same reclaimed ground and 5 investigation-days before the cordon review. Four proposed uses of that window are written across the site map.
+        scene: Halvorsen, the district emergency manager, wants Marina Court demolished this week. Delacroix, the ward councillor for the Flats, has 12 neighbouring buildings on the same reclaimed ground and 5 investigation-days before the cordon review. Four proposed uses of that window are written across the site map.
         guide: >-
           Five investigation-days, four proposals, and a demolition somebody wants this
           week. Open each proposal to see what decision its result could change. Marina
@@ -2028,7 +2028,7 @@ missions:
         title: A condition, not a date
         place: Hazard & Forecasting
         question: What should the office commit to?
-        scene: Halvorsen wants a date. Delacroix wants a condition. Tanaka points out that a date makes a promise about the ground and a condition makes a promise about the office. The next resident update is due before the office closes.
+        scene: Halvorsen wants a date. Delacroix wants a condition. Tanaka, the hazard seismologist, points out that a date makes a promise about the ground and a condition makes a promise about the office. The next resident update is due before the office closes.
         guide: >-
           Halvorsen and Delacroix are not disagreeing about the engineering. They are
           disagreeing about what the office is allowed to promise. So ask of each option one
@@ -3031,7 +3031,7 @@ missions:
         task: Quantify the change in cone resistance without turning it into a false safety factor
         title: A measurable acceptance target
         place: Materials & Testing
-        scene: "Ferreira has cone penetration results from a trial panel: the fill tested at 4 MPa before the stone columns went in and 11 after. The two CPT traces lie side by side on the desk."
+        scene: "Ferreira, the materials engineer, has cone penetration results from a trial panel: the fill tested at 4 MPa before the stone columns went in and 11 after. The two CPT traces lie side by side on the desk."
         guide: >-
           Five numbers, and three belong elsewhere: the depth of the fill, the
           amplification factor and a concrete strength. Ask of each whether it came from

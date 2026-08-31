@@ -47,14 +47,14 @@ export const ROSTER = [
     "role": "Chief Transmission Engineer",
     "division": "TEST",
     "color": "#c2703f",
-    "bio": "<p>Runs the test room and has been reading traces for fifteen years. Nineteen days ago this span lost four decibels overnight and she was the person who moved the traffic before anybody had a name for what happened.</p><p>Her position is that the instrument is a measurement rather than an opinion. It fires a pulse, times what comes back, and places the event to a few metres of optical distance, which is better than anything else anybody will offer in the next fortnight.</p><p>Her limit is that she is measuring the fibre and the decision is about the seabed. She knows it and she also knows that the ship is on charter from the thirteenth and that a week spent looking for a better number is a week the cable is down.</p>",
+    "bio": "<p>Runs the test room and has been reading traces for fifteen years. Nineteen days ago this span lost four decibels overnight and she was the person who moved the traffic before anybody had a name for what happened.</p><p>Her position is that the trace is a measurement rather than an opinion. It fires a pulse, times what comes back, and places the event to a few metres of optical distance, which is better than anything else anybody will offer quickly.</p><p>Her limit is that she is measuring the fibre and the decision is about the seabed. She knows it, and she also knows the ship gets one safe repair day before the weather closes. A perfect answer that arrives after the ship leaves is no answer at all.</p>",
     "quiz": [
       {
-        "q": "Why does Sarraf press for a decision on the trace rather than on a better measurement?",
-        "a": "A better number arrives after the ship's charter has started",
+        "q": "Why does Sarraf push for a decision before every uncertainty has been removed?",
+        "a": "The ship has one safe repair window, so evidence that arrives too late cannot guide the repair",
         "wrong": [
-          "No instrument other than an OTDR can locate a fault in a submarine cable",
-          "The trace was taken at two wavelengths, which removes the need for further work",
+          "No instrument other than a reflectometer can locate a fault in an undersea cable",
+          "The first trace already identifies the failed component, so more measurements add nothing",
           "Optical distance and seabed position agree to within a few metres in practice"
         ]
       }

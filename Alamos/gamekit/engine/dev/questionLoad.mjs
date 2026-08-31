@@ -473,7 +473,7 @@ if (sweep) {
     } catch { continue; }
     const content = theme.content ?? {};
     const { normalizeContent } = await import('../content/normalize.js');
-    normalizeContent(content);
+    normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
     const CALCS = content.BALLPARK_CALCS ?? {};
     const grade = Number(theme?.audience?.grade);
     let total = 0;
@@ -518,7 +518,7 @@ for (const name of selftest ? [] : wanted) {
   // stops around, and a day's cast is a property of the shaped day.
   const content = theme.content ?? {};
   const { normalizeContent } = await import('../content/normalize.js');
-  normalizeContent(content);
+  normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
 
   const { problems, notes, advice, demanding } = analyse(content);
 

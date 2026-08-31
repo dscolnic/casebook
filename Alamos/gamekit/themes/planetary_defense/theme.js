@@ -20,6 +20,8 @@ import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
 import { INTERIORS } from './interiors.js';
+import { FIXTURES } from './fixtures.js';
+import { MINOR_INTERIORS } from './minors.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 
 export default {
@@ -56,6 +58,15 @@ export default {
   title: 'Planetary Defense',
   subtitle: 'Campaign Director · International NEO Response',
 
+  // The plan card's stake is a date stamp and two sentences: the one thing
+  // true this morning, and the one thing the player does about it. The long
+  // form named the day's expert by name and job before saying what the
+  // player does, and was read fifteen times over a campaign that already
+  // meets its cast on the calls. `engine/dev/checkStory.mjs` reads this and
+  // swaps the 90-word floor for a 30–70 word ceiling with no floor, and drops
+  // the plan card's delivery line. See gamekit/BRIEFING_PASS.md.
+  stakeStyle: 'brief',
+
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
   //   'interior'  engine/world/interiorSite.js — a spine with rooms off it
@@ -80,10 +91,14 @@ export default {
     extras: 18,
   },
 
-  // What is inside each room the player walks into, from book.yml. Rooms are
-  // built by engine/world/interiorBuilding.js on first entry, in a district
-  // four kilometres from the town.
-  interiors: INTERIORS,
+  // What is inside each room the player walks into, from book.yml, plus one
+  // place that is not an area: Valle Seco Emergency Office, promoted from a
+  // standing facade by the placement pass. Rooms are built by
+  // engine/world/interiorBuilding.js on first entry.
+  interiors: { ...INTERIORS, ...MINOR_INTERIORS },
+  // The objects the questions are asked at, built on entry from the open call.
+  // engine/world/interiorFixtures.js; catalogue in ./fixtures.js.
+  fixtures: FIXTURES,
   // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,
   // chalkboards, no screens anywhere) or 'steel' (painted plate, deck matting).
   // Dark surfaces and red service lighting: an observatory control room is lit
@@ -107,6 +122,10 @@ export default {
   // is written third and is the thing every later page is read against.
   delivery: {
     name: 'The Defense Review',
+    // The HUD meter's label, above the bar that replaced "Mission 4 of 15". Two
+    // or three words naming the goal rather than the progress — the bar says
+    // how far along; the label says what is filling it.
+    meter: 'Findings filed',
     what: 'The dossier the international committee votes on: how big it is, where it is going, '
       + 'whether it can be moved, and what risk is left if it is.',
     where: 'OPS',
@@ -129,30 +148,31 @@ export default {
     ],
   },
   opening: [
-    'Four hours ago a survey telescope found a faint point of light. It was moving against the stars. '
-    + 'Four hours is not enough time to pin down an orbit. Some of the orbits that still fit pass '
-    + 'through the Earth. Nobody can say yet how wide the object is. It could be a hundred metres. It '
-    + 'could be six hundred. That is the difference between damage to a city and damage to a country. '
-    + 'You are the campaign director. The international committee will vote on your Defense Review. It '
-    + 'has to say how big the object is and where it is going. It has to say whether the object can be '
-    + 'pushed off course. It has to say what danger is left if the push works. The vote is on the '
-    + 'finished thing, and the object passes Earth in 11 days.',
+    'A telescope found a new asteroid last night, moving fast against the stars. Some early orbit '
+    + 'guesses say it could hit Earth in eleven days. Nobody knows yet if the guesses are right, or '
+    + 'how big the asteroid is. You are the campaign director, which means it is your job to find out '
+    + 'and report to the public. The international committee will vote on your Defense Review, and '
+    + 'the public is waiting to hear it. It has to say how big the object is, where it is going, and '
+    + 'whether it can be pushed off course. Even a clean miss will not close this file for years.',
   ],
 
   // How it ends. Printed on the last page of the book and shown when the campaign
   // closes — the campaign used to end by putting "Campaign complete" in the HUD and
   // nothing else, after fifteen phases of work.
   ending: [
-    'The object passed eleven days ago, two Earth radii out and falling further behind every hour. '
-    + 'Most of that margin was bought by an impactor that hit five years earlier, and the radar '
-    + 'window is what proved it had worked. Nobody evacuated Valle Seco. The school there reopened '
-    + 'on the Monday.',
+    'The object passed eleven days ago — the second time, the encounter everyone had been quietly '
+    + 'dreading since the keyhole turned up — two Earth radii out and falling further behind every '
+    + 'hour. Most of that clearance was bought five years earlier, by an impactor that hit while the '
+    + 'object was still the better part of a decade from anywhere near Earth. The radar window that '
+    + 'opened last week is what finally proved the push had worked. Nobody evacuated Valle Seco. The '
+    + 'school there reopened on the Monday.',
     'The survey that found it is still running tonight, and the file stays open — this one is '
     + 'settled, and the next one has not been found yet.',
     'None of that quiet was luck. You separated what the radar could prove from what the '
-    + 'model merely preferred, you kept the size uncertainty in front of everybody who wanted a '
-    + 'single clean number, and you got the call right when getting it wrong in either '
-    + 'direction would have cost a town. Valle Seco slept through it. That was your doing.',
+    + 'model merely preferred, you caught a keyhole nobody had gone looking for, and you kept the '
+    + 'size uncertainty in front of everybody who wanted one clean number. Getting the call wrong '
+    + 'in either direction — the first pass, or the second — would have cost a town. Valle Seco '
+    + 'slept through both. That was your doing.',
   ],
   look: {
     // DAYLIGHT OVERRIDE. The campaign is written for night — 19:00 through to

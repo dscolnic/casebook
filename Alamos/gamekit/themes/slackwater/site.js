@@ -120,15 +120,42 @@ export const site = {
     { id: 'WALL', group: 'WALL', name: 'Wall Station',
       x: 170, z: 0, w: 9, d: 7, h: 3.6, facing: 0, colour: 0xc0bcae },
 
-    // No group: the barrage itself, and what stands on it.
-    { id: 'TURBINE', name: 'Turbine Hall', sub: 'Four sets, on the ebb only',
+    // No group, and now `enter:` — the barrage itself and what stands on it.
+    //
+    // Three of these four were modelled, lit, walkable up to and SHUT, because
+    // an interior in this engine is keyed by an area and none of them is an
+    // area. Each is somewhere the questions already are: the eleven floats are
+    // day 6's, the generation report's mean value is day 11's, and the warning
+    // post is where the ninety graziers on the opening card read the call.
+    // `enter:` gives a building an interiors key without making it an area — a
+    // door, a room, no case stand and no delivery board. Each of the three
+    // carries a sited question, which is what opens it
+    // (engine/core/access.js), so none of them is a door with nothing behind
+    // it. See ./minors.js and gamekit/PLACEMENT_PASS.md.
+    //
+    // THE GAUGE TOWER IS DELIBERATELY STILL A FACADE, and the reason is worth
+    // writing down because it is not a judgement about the fiction. The stilling
+    // well's forty minutes is the campaign's central operational trade-off and
+    // the tower is the obvious room for it — but the only question about it,
+    // day 4's "Forty minutes of water", is the day's PERSON stop, and
+    // `map.js` gives a person stop a person to find rather than a place to walk
+    // to (`callLabel` returns "Talk to Oyelaran" and ignores the sited place).
+    // Siting it here would open a door on day 4 and send nobody through it,
+    // which is exactly the dead room PLACEMENT_PASS.md's step 6b exists to
+    // prevent. Better a facade than a room nobody is ever sent to.
+    { id: 'TURBINE', enter: 'TURBINE', name: 'Turbine Hall', sub: 'Four sets, on the ebb only',
       x: 46, z: 2, w: 24, d: 12, h: 8.4, facing: PI, colour: 0x5f7a68 },
     { id: 'TOWER', name: 'Gauge Tower', sub: 'Stilling well, outer face',
       x: -12, z: 4, w: 5, d: 5, h: 13.5, facing: PI, colour: 0xcac6b8 },
-    { id: 'BOAT', name: 'Boat Shed', sub: 'The launch, and eleven floats',
+    { id: 'BOAT', enter: 'BOAT', name: 'Boat Shed', sub: 'The launch, and eleven floats',
       x: -58, z: 6, w: 11, d: 8, h: 4.4, facing: 0, colour: 0x8c8577 },
-    { id: 'MARSH', name: 'Marsh Warning Post', sub: 'Where the graziers read the call',
-      x: -44, z: 62, w: 4, d: 4, h: 3.2, facing: PI, colour: 0xb8a24a },
+    // Grown from 4 x 4 to a keeper's hut with a board on the front of it. At a
+    // post you cannot walk into, the day-12 call about what the east gate closes
+    // on would have been answered back in Sluice Control, three hundred metres
+    // from the ninety people it is about. Still clear of the spawn at (0, 70)
+    // and of the marsh road.
+    { id: 'MARSH', enter: 'MARSH', name: 'Marsh Warning Post', sub: 'Where the graziers read the call',
+      x: -44, z: 62, w: 8, d: 6, h: 3.4, facing: PI, colour: 0xb8a24a },
   ],
 
   // The map should show the ground people stand on. The union would otherwise

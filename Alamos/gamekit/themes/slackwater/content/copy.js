@@ -3,7 +3,7 @@
 // Hand edits are lost on the next import. Change the book.
 
 export const COPY = {
-  "PRED": "<p>The prediction office. Thirty-seven constituents on the wall in order of size, eight of them in the daily sum, and a board in the corridor that says what the tide will do tomorrow to a centimetre it cannot quite justify.</p>",
+  "PRED": "<p>The prediction office. Thirty-seven constituents on the wall in order of size, eight of them in the daily sum, and a board in the corridor that says what the tide will do next to a centimetre it cannot quite justify.</p>",
   "TRACK": "<p>The survey pontoon. A launch, a rack of nine recovered floats and one empty cradle, and two columns of numbers that contain every speed this estuary has ever been measured at without stating one of them.</p>",
   "ROSE": "<p>The currents room. Four meters on the barrage face, one on the wall, and a fortnight of ten-minute records drawn as two figures with no axes on them.</p>",
   "SLUICE": "<p>Sluice control. Six gates on one desk, the head across them on the wall, and a programme for the springs that nobody has signed because it rests on a filling time nobody has computed.</p>",
@@ -12,5 +12,5 @@ export const COPY = {
   "TURBINE": "<p>The turbine hall. Four sets, ebb generation only, and a generation report that has always assumed the water went out at the middle of the release.</p>",
   "TOWER": "<p>The gauge tower. A stilling well down the seaward face, a small inlet at the bottom of it, and forty minutes between the water outside changing and the float inside agreeing.</p>",
   "BOAT": "<p>The boat shed. The launch on its trailer, spare drogues, and a chart of the flats with fourteen core stations on it, two of them ringed because they need the boat.</p>",
-  "MARSH": "<p>The marsh warning post. A board, a bell and a telephone, and the graziers read it before they decide where the stock spends the night.</p>"
+  "MARSH": "<p>The marsh warning post. A board, a bell and a telephone, and the farmers read it before they decide where the stock spends the night.</p>"
 };

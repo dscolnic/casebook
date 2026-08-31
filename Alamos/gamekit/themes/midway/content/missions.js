@@ -4,31 +4,36 @@
 
 export const MISSIONS = [
   {
-    "title": "11 notebooks and no working",
-    "objective": "Find out what the park actually knows about its own rides.",
+    "title": "Seven rides, eleven notebooks, no proof",
+    "objective": "Find out which inherited ride numbers can actually be defended.",
     "briefing": "Every setting in this park is in one man's handwriting and none of them has a calculation behind it.",
-    "stake": "Monday, and the season opens in three weeks. Corbin Park lost its certificate in October. Seven rides have to win it back before the gates open. That is your signature on seven documents. Delia Marsh, who owns the park, has laid out 11 notebooks on the workshop bench. They belong to Alf Brennan, her retired chief mechanic. Forty one years of settings, timings and turns of a nut. All in one hand. Not one line of working anywhere in them. Marcus Vey, the county inspector, has read the same notebooks. He calls them a record of having got away with it. Today you take the first three numbers the park runs on and find where they came from. The 106 days of season pay for the other 259. Nothing opens on a setting nobody can derive.",
+    "stake": "Monday. The county has shut all seven rides because the park can show settings but not the physics behind them. The inspection is in fifteen days. Today you start with the tower, coaster and ship: three old numbers that may be right for reasons nobody wrote down.",
     "takeaway": "A number that works is not the same as a number somebody can justify.",
+    "segue": "Three numbers went up on the board today. The old crew used to guess these numbers by feel. Not anymore. But Tuesday's ride is worse: a rider hangs over 42 metres of empty air, and nobody has checked its numbers either.",
     "stops": [
       {
         "group": "TOWER",
         "lesson": 0,
-        "task": "Get the force the brake fins have to make"
+        "task": "Find the force the magnetic fins must exert on the carriage",
+        "reason": "Vey will not witness the drop test until the force in the brake hardware is separated from the net deceleration, because gravity is still pulling on the carriage while the fins push upward."
       },
       {
         "group": "TOWER",
         "lesson": 1,
-        "task": "Derive the speed at the bottom of the drop"
+        "task": "Derive the speed at the bottom of the drop",
+        "reason": "Brennan's notebook says \"about 29\" with no work shown, and Vey won't accept a number nobody can defend, so today it gets derived instead of copied."
       },
       {
         "group": "COASTER",
         "lesson": 0,
-        "task": "Match each point on the circuit to what is true of the train's energy there."
+        "task": "Match each point on the circuit to what is true of the train's energy there.",
+        "reason": "Kovač wants the coaster's own energy story settled today, mark by mark, before anyone argues about what its margins are worth."
       },
       {
         "group": "SHIP",
         "lesson": 0,
-        "task": "Say what the swing's period depends on"
+        "task": "Separate total mass from the quantities that actually set the ship’s timing",
+        "reason": "Idowu's logs show nearly the same low-angle period empty and full, and the county wants to know whether that observation is physically plausible before anyone builds a control rule around it."
       }
     ]
   },
@@ -36,28 +41,33 @@ export const MISSIONS = [
     "title": "What the brake has to take out",
     "objective": "Turn a stopping distance into a force on a person.",
     "briefing": "The tower's brake has nine metres to remove everything the fall put in.",
-    "stake": "Tuesday, and the tower is first on Vey's list. It is the ride with the least between a rider and the ground. Yesterday's working says the carriage reaches the fins at 29 metres a second. The fins have 9 metres to take all of that back. Rafael Santos, who looks after the brakes, points out that nothing in the system can be set. The magnets push harder the faster the fins move, and that is all the control there is. Vey's reply is short. A brake nobody can set is still a brake nobody has measured. Today you turn a stopping distance into an acceleration. You also work out a pressure from a depth at the flume, and settle what a moment arm is under the wheel. Ask what the seat does to the rider, not just what the fins do to the car.",
+    "stake": "Tuesday, and the tower is first on the list. It gives a rider the least room above the ground of anything in the park. Today you turn a stopping distance into a force, price a depth at the flume, and find the arm under the wheel.",
     "takeaway": "Every force in this park is a mass times an acceleration somebody has to work out.",
+    "segue": "The fins finally have a real number on them. That number holds up. But someone was already outside, asking for the same test on the coaster. Nobody has run that number in nine years. It goes on the bench first thing Wednesday.",
     "stops": [
       {
         "group": "TOWER",
         "lesson": 2,
-        "task": "Get the deceleration the fins have to produce"
+        "task": "Get the deceleration the fins have to produce",
+        "reason": "Santos, who looks after the brakes, needs the deceleration in writing before he will admit a magnetic brake nobody can set is still a brake nobody has measured."
       },
       {
         "group": "FLUME",
         "lesson": 0,
-        "task": "Turn the water depth into a pressure"
+        "task": "Turn the water depth into a pressure",
+        "reason": "Abara's gauge reading disagrees with an old notebook value, and he wants to know whether the tank's width is hiding the real number or the depth is."
       },
       {
         "group": "WHEEL",
         "lesson": 0,
-        "task": "Identify the distance that sets the torque"
+        "task": "Identify the distance that sets the torque",
+        "reason": "Novák's lifting plan and the shop sketch disagree about which distance sets the torque, and getting it wrong here is the kind of mistake that snaps a cable."
       },
       {
         "group": "TOWER",
         "lesson": 3,
-        "task": "Hold the tower brake while the car comes down."
+        "task": "Hold the tower brake while the car comes down.",
+        "reason": "The certificate limits what a rider can feel through the stop, and every load change on the tower tests whether you can hold that limit instead of setting a current once."
       }
     ]
   },
@@ -65,52 +75,61 @@ export const MISSIONS = [
     "title": "Where the energy went",
     "objective": "Find the losses on the circuit, and what they leave for the loop.",
     "briefing": "The train comes back to the station slower every year and nobody has measured by how much.",
-    "stake": "Wednesday, and Marta Kovač has three seasons of station speeds on a clipboard. The train came back at 6.1 metres a second in her first year. This spring it came back at 5.2. She used the same wheel each time, in the same place. Nothing about the hill has changed. So the loss is friction, and friction is energy the ride no longer has. Marsh reads it as wear and a bearing job. Vey reads it as a ride whose margins all come off a drawing made in 1974. Today you close the energy books on one lap of the coaster. You also work out what a circular ride does to the direction of a velocity. Then you count momentum through a crash on the bumper floor. Whatever the loop needs has to come out of what is left at the top of the hill.",
+    "stake": "Wednesday, and the coaster comes back slower every year. Riders have started to notice. Today you close the books on one lap, track a turn on the wheel, and follow a crash on the bumper floor.",
     "takeaway": "Friction takes a fixed amount of energy each lap, and it takes it out of the margin.",
+    "segue": "The coaster loses nine tenths of a metre a second every lap. A worn bearing is not the cause. Nobody in the room could say what it would cost to fix. So the old notebooks get a second look Thursday.",
     "stops": [
       {
         "group": "COASTER",
         "lesson": 1,
-        "task": "Derive the speed at the bottom with the losses in it"
+        "task": "Derive the speed at the bottom with the losses in it",
+        "reason": "Kovač has clocked the station speed herself for three years running, and today's number tells her whether that drop is wear or a designed loss."
       },
       {
         "group": "CAROUSEL",
         "lesson": 0,
-        "task": "Separate the speed from the acceleration"
+        "task": "Separate the speed from the acceleration",
+        "reason": "Adeyemi is wiring a new controller for the carousel and won't set it without knowing what acceleration the outer horses actually pull."
       },
       {
         "group": "BUMPER",
         "lesson": 0,
-        "task": "Count what survives a collision and what does not"
+        "task": "Count what survives a collision and what does not",
+        "reason": "Chen has 400 logged impacts and nothing to compare them against, so today's collision sets the rule every later reading on the floor gets checked against."
       }
     ]
   },
   {
     "title": "Eight turns a minute",
     "objective": "Check a forty-one-year-old setting against the physics behind it.",
-    "briefing": "Brennan set the swings by how the chains hung, and nobody has ever computed the angle.",
-    "stake": "Thursday, and Alf Brennan walked up from his house this morning. He was asked why the swing carousel runs at 10 turns a minute and not 11. His answer is the one it always is. At 11 the chains came out too far and it felt wrong. Vey has been polite about this for three days. Today you work out the angle the chains hang at from the speed and the radius. You also put a number on the energy in the ship's swing, and balance the wheel on paper. Marsh is right this afternoon, and it is worth saying out loud. The angle you derive lands within a degree of the chalk mark Brennan made in 1991. Two days of an engineer's time have confirmed what a mechanic knew by looking at it.",
+    "briefing": "The swings were set by how the chains hung, and nobody has ever computed the angle.",
+    "stake": "Thursday, and one setting on the swings has run unchecked for forty-one years. Nobody has ever done the math. Today you find the angle the chains hang at, size the ship's swing, and balance the wheel on paper.",
     "takeaway": "Confirming a good number is not wasted work; it is the difference between a setting and a limit.",
+    "segue": "The chalk mark and the math agreed within one degree. Forty-one years of guessing turned out right — this once. But one good guess is not proof the park is safe. Nobody will wire in a new controller until every force is worked out on paper.",
     "stops": [
       {
         "group": "CAROUSEL",
         "lesson": 1,
-        "task": "Derive the angle the chains hang at"
+        "task": "Derive the angle the chains hang at",
+        "reason": "Brennan set this angle by eye in 1991 and chalked a mark to prove it; deriving the same number today is what turns his instinct into something the certificate can cite."
       },
       {
         "group": "SHIP",
         "lesson": 1,
-        "task": "Get the speed at the bottom of the swing"
+        "task": "Get the speed at the bottom of the swing",
+        "reason": "Idowu needs the bottom-of-swing speed before he will quote the bearing work, since a wrong number there prices the wrong repair."
       },
       {
         "group": "WHEEL",
         "lesson": 1,
-        "task": "Balance the wheel before it is asked to turn"
+        "task": "Balance the wheel before it is asked to turn",
+        "reason": "Raman wants the worst loading imbalance on paper before the drive and brake specs get signed off on a wheel that boards unevenly every cycle."
       },
       {
         "group": "BUMPER",
         "lesson": 1,
-        "task": "Sort the ride log before the certificate is written."
+        "task": "Sort the ride log before the certificate is written.",
+        "reason": "Hart's floor logs are full of complaints in riders' own words, and today's sort is what turns those into evidence the certificate can use instead of noise."
       }
     ]
   },
@@ -118,23 +137,27 @@ export const MISSIONS = [
     "title": "The seat, the pole and the ram",
     "objective": "Put forces on the parts that hold people in a circle.",
     "briefing": "The carousel's poles and the flume's gate both hold, and neither has ever been computed.",
-    "stake": "Friday, and the first week ends with three parts nobody has a number for. Bisi Adeyemi will not wire the new controller yet. She wants to know what force an outer horse's pole carries at eight turns a minute. Santos has a hydraulic gate on the flume. A two centimetre ram drives a nine centimetre one, and Brennan's note beside it reads \"plenty\". Vey has spent the morning reading yesterday's working and has signed nothing. Today you get the sideways force on a carousel pole. You also put the tower's drop test into the order it has to happen in, and derive what a hydraulic ram multiplies. Marsh has the season on a wall chart. There are 15 working days left on it.",
+    "stake": "Friday, and the first week ends. Three parts are holding riders up this weekend with no number behind any of them. Today you find the force on a carousel pole, order the tower's drop test, and see what a hydraulic ram buys and costs.",
     "takeaway": "Every part in this park is holding a force somebody can compute in three lines.",
+    "segue": "The carousel controller is wired now, with a real number behind it. The flume gate carries its number too. But a bigger question just came in: will the rider log survive a packed crowd? The first hot Saturday of the year starts in six hours.",
     "stops": [
       {
         "group": "CAROUSEL",
         "lesson": 2,
-        "task": "Get the sideways force on an outer pole"
+        "task": "Get the sideways force on an outer pole",
+        "reason": "Adeyemi won't raise the carousel's controller setting until somebody puts a number on the sideways force this pole actually carries."
       },
       {
         "group": "TOWER",
         "lesson": 4,
-        "task": "Order the operations for the official drop test."
+        "task": "Order the operations for the official drop test.",
+        "reason": "Vey will only witness the annual drop test if the order it runs in turns the drop into evidence instead of a demonstration he has to take on faith."
       },
       {
         "group": "FLUME",
         "lesson": 1,
-        "task": "Derive what the hydraulic gate multiplies"
+        "task": "Derive what the hydraulic gate multiplies",
+        "reason": "Santos inherited a flume gate marked \"plenty\" in Brennan's hand, and won't sign off on a hydraulic ram until somebody derives what that word was supposed to mean."
       }
     ]
   },
@@ -142,95 +165,111 @@ export const MISSIONS = [
     "title": "What the collision keeps",
     "objective": "Get the speed out of a collision, and the energy that does not come back.",
     "briefing": "400 logged collisions, and nobody has ever written the equation for 1.",
-    "stake": "Monday of the second week, and Wei Chen has 400 collisions off last season's accelerometers. He has nothing to compare any of them against. The bumper floor is the ride Vey expects to sign first. It is also the ride Georgia Hart, the midway supervisor, expects to argue about. Whatever number comes out of today has to become a rule. Twelve nineteen year olds have to apply that rule on the four hundredth cycle of a hot Saturday. Today you derive the speed a pair of cars leaves a collision at. You also work out what the lift motor is doing on the coaster, and settle what makes a wheel hard to start. Marsh has moved the reopening announcement to Friday. That gives the second week a deadline it did not have this morning.",
+    "stake": "Monday of week two. Four hundred bumper-car hits are logged, and nobody can say if any single one of them was too hard. Today you find the speed a crash leaves two cars at, check the coaster's lift motor, and see what makes a wheel hard to start.",
     "takeaway": "A collision hands back its momentum in full and keeps a good share of its energy.",
+    "segue": "The bumper car's speed and mass are now posted at the console. The numbers ended the argument fast. But a new operator asked a question nobody could answer: what is the rule for a car hit twice in a row? Now one new gap sits on the list the certificate will not cover.",
     "stops": [
       {
         "group": "BUMPER",
         "lesson": 2,
-        "task": "Derive the speed the pair leaves at"
+        "task": "Derive the speed the pair leaves at",
+        "reason": "Chen's telemetry says the two cars leave together, and turning that reading into a defensible speed is what makes his logged momentum data worth anything to Vey."
       },
       {
         "group": "COASTER",
         "lesson": 2,
-        "task": "Work out what the lift motor has to do"
+        "task": "Work out what the lift motor has to do",
+        "reason": "Kovač wants to know how hard the lift motor actually works before she signs off on it as the source of the coaster's slow decline."
       },
       {
         "group": "WHEEL",
         "lesson": 2,
-        "task": "Say what makes a wheel hard to start"
+        "task": "Say what makes a wheel hard to start",
+        "reason": "Novák is pricing a replacement drive and needs the wheel's rotational inertia pinned down before the supplier will quote a number that means anything."
       }
     ]
   },
   {
     "title": "The period that ignores the load",
     "objective": "Derive why a pendulum's timing does not depend on what is in it.",
-    "briefing": "Idowu has said for two seasons that the drive pushes at the wrong moment on a full boat.",
-    "stake": "Tuesday, and Sam Idowu has been saying the same thing for two seasons. On a heavy boat the second push arrives late, and you can feel it through the floor. He has been told each time that the ride is within its specification. It is. Today you derive the ship's period from the force that pulls it back to the middle. That gives a number to check the drive against, instead of an operator's account of a floor. You also float a loaded boat at the flume, and settle what the tower's timing gives for the local strength of gravity. Elena Bianchi, the weld inspection, has the swing arm booked for Thursday. She wants to know what load she is looking for cracks against.",
+    "briefing": "The drive has been pushing at the wrong moment on a full boat for two seasons, and nobody has said why until now.",
+    "stake": "Tuesday, and the same complaint has stood for two years. A full boat pushes late, and riders feel the jolt every time. Today you find the ship's own swing time, float a full boat at the flume, and pull local gravity out of the tower's numbers.",
     "takeaway": "A measured period is a measurement of the pendulum, and it can be turned into g.",
+    "segue": "The number finally came in, and the crew watched from the doorway. Their two-season complaint was right: the ship's swing and its drive do not line up. Now the wheel needs the same treatment. Nobody will discuss the crack in arm nine until its load is worked out first.",
     "stops": [
       {
         "group": "SHIP",
         "lesson": 2,
-        "task": "Derive the period from the restoring force"
+        "task": "Derive the simple-pendulum prediction before testing whether it fits the ride",
+        "reason": "The manufacturer's old timing note uses the simple-pendulum formula without saying so. Before Idowu trusts or rejects it, the team needs to derive exactly what that model assumes."
       },
       {
         "group": "FLUME",
         "lesson": 2,
-        "task": "Float a loaded boat on paper"
+        "task": "Float a loaded boat on paper",
+        "reason": "McCarthy still loads boats by eye under an inherited four-adult rule, and putting a number on how far a full hull sits down is what tells her whether that rule still holds."
       },
       {
         "group": "TOWER",
         "lesson": 5,
-        "task": "Get the local strength of gravity out of a period"
+        "task": "Decide whether the simple-pendulum model is valid for the ride",
+        "reason": "The safety engineer wants to turn the ship's 5.90-second maintenance period into a local value of g, but doing that is only legitimate if the ride behaves like the model used in the equation."
       }
     ]
   },
   {
     "title": "The arm and the crack",
     "objective": "Get a load into a joint before anybody looks at the joint.",
-    "briefing": "Bianchi found an indication in a spider arm weld and will not say whether it matters.",
-    "stake": "Wednesday, and Elena Bianchi has found a mark 41 millimetres long in a weld. It sits at the root of the wheel's number nine spider arm. She has photographed it and sized it. Three times she has refused to say whether it matters. That is her discipline, not her opinion. A crack is a length in a material. Whether the length counts depends on the load, and the load is not her number. Priya Raman wants that load computed today. Today you derive the force in the hub bolt group from the out of balance moment. You also put a number on what a bumper crash does to a neck, and read the carousel's drive panel. Marsh has the ride on the reopening poster.",
+    "briefing": "A weld inspector found an indication in a spider arm and will not say whether it matters.",
+    "stake": "Wednesday, and a crack has turned up in a weld on the wheel. Nobody will say yet if it is dangerous. Today you find the force in one bolt, size what a crash does to a neck, and read the carousel's drive panel.",
     "takeaway": "A defect cannot be judged until somebody has computed what the part it is in carries.",
+    "segue": "One bolt group now carries a force of 52.7 kilonewtons. Checking that force against the 41-millimetre crack takes a fracture test nobody here can run. Three weeks was never enough time for that anyway. So the gate crew is already asking if they will have jobs this summer.",
     "stops": [
       {
         "group": "WHEEL",
         "lesson": 3,
-        "task": "Derive the force in one wheel-center bolt"
+        "task": "Derive the force in one wheel-center bolt",
+        "reason": "Raman needs this bolt load pinned down before Frayne, who has run the wheel gate for nine seasons, gets any answer about whether the mark near it is something to fear."
       },
       {
         "group": "BUMPER",
         "lesson": 3,
-        "task": "Say what a collision does to a neck"
+        "task": "Say what a collision does to a neck",
+        "reason": "Chen's accelerometers show the car and the rider changing speed over two different times, and picking the right one is what keeps the safety lead's rule about rider force honest."
       },
       {
         "group": "CAROUSEL",
         "lesson": 3,
-        "task": "Which explanation fits every reading?"
+        "task": "Which explanation fits every reading?",
+        "reason": "Adeyemi has five readings off the carousel's drive panel and two that look alarming, and she needs the one explanation that survives all five before she touches the ring."
       }
     ]
   },
   {
-    "title": "The loop is not the loop on the drawing",
-    "objective": "Derive what the loop demands, and measure what it actually is.",
-    "briefing": "Kovač taped the crown of the loop yesterday and the radius is not the one on the 1974 drawing.",
-    "stake": "Thursday, and Marta Kovač put a tape over the crown of the loop yesterday afternoon. Nobody could find a reason not to. The drawing says the radius there is 5.6 metres. The tape says 7.4. Brennan's ninth notebook has a line under 1998. The top of the loop was reground after complaints of a rough ride. No drawing was ever changed. Vey is right this morning and says so quietly. A ride that has run 25 years on a number nobody checked is not the same as a ride with a margin. Today you derive the speed the loop demands at its crown. You also settle what a margin actually is, and read the ship's drive against yesterday's period. Everything worked out above the first drop now has to be done again.",
+    "title": "The drawing is wrong",
+    "objective": "Recompute the coaster against the loop that is actually standing.",
+    "briefing": "The crown of the loop was taped yesterday, and the radius is not the one on the 1974 drawing.",
+    "stake": "Thursday. A tape measure has found the first hard break in the park's paper history: the coaster loop is wider than the only drawing on file. Today you find what the real loop demands and learn whether twenty-five years of certificates were built on geometry that no longer existed.",
     "takeaway": "A flatter loop is a gentler ride and a hungrier one, and both of those are the same number.",
+    "segue": "There is only one real question here: is the 1974 drawing the only one the park owns? It is. So every safety margin computed for this coaster used a loop that vanished in 1998. And the coaster is already advertised on posters around town.",
     "stops": [
       {
         "group": "COASTER",
         "lesson": 3,
-        "task": "Derive the speed the top of the loop demands"
+        "task": "Derive the speed the top of the loop demands",
+        "reason": "Kovač's tape found a wider crown than the 1974 drawing ever showed, and deriving the minimum speed for both radii is what tells the park how much of its margin was never really there."
       },
       {
-        "group": "TOWER",
-        "lesson": 6,
-        "task": "Say what a margin is a statement about"
+        "group": "COASTER",
+        "lesson": 4,
+        "task": "Compute the coaster’s operational crown-speed margin",
+        "reason": "The park manager keeps calling 1.38 a safety factor. Before anyone signs that phrase again, Kovač wants the ratio recomputed from the measured loop and labeled for what it actually is."
       },
       {
         "group": "SHIP",
         "lesson": 3,
-        "task": "Which explanation fits every reading?"
+        "task": "Which explanation fits every reading?",
+        "reason": "Idowu has said for two seasons that a full boat feels wrong at speed, and reading the drive panel against the measured period is what finally proves he was right instead of just persistent."
       }
     ]
   },
@@ -238,23 +277,27 @@ export const MISSIONS = [
     "title": "Everything above the first drop, again",
     "objective": "Recompute the circuit against the loop it actually has.",
     "briefing": "Every margin computed before yesterday rests on a radius that was wrong.",
-    "stake": "Friday, and the second week ends with the coaster's file open on the bench. Every number in it above the first drop is now in doubt. The train crosses the crown at about 10.2 metres a second. The crown now demands 8.5. That is a margin of 1.20, where the certificate claimed 1.38. Kovač's clipboard says the station speed has fallen 0.9 metres a second in 3 seasons. Today you turn a crash into a force on a neck. You also decide what to change on the bumper floor, and size the pump that lifts the flume's water back up. Vey will not sign a coaster whose margin is shrinking. Somebody has to say how fast it shrinks, and what would be measured to catch it.",
+    "stake": "Friday, and week two ends with the coaster's whole file in doubt. Every margin in it might be wrong. Today you turn a crash into a force on a neck, fix a call on the bumper floor, and size the flume's return pump.",
     "takeaway": "A margin that moves is a schedule, and a margin that is checked each morning is a rule.",
+    "segue": "The coaster now needs a wheel check every morning at 7:30, before the first train runs. One crew member already volunteered for the job. But the safety margin is only 1.20, and it is still moving. The morning check buys time. It does not fix the real problem.",
     "stops": [
       {
         "group": "BUMPER",
         "lesson": 4,
-        "task": "Derive the average force on a rider"
+        "task": "Derive the average force on a rider",
+        "reason": "Chen's telemetry gives the rider's own speed change directly, and turning it into a force is what lets the safety lead finally compare a bumper hit against something riders already understand: their own weight."
       },
       {
         "group": "COASTER",
-        "lesson": 4,
-        "task": "Turn a shrinking margin into something measurable each morning"
+        "lesson": 5,
+        "task": "Turn a shrinking margin into something measurable each morning",
+        "reason": "Kovač has three years of station-speed readings showing the same slow decline, and deciding what the certificate should require is what turns her clipboard into a rule the crew can actually watch."
       },
       {
         "group": "FLUME",
         "lesson": 3,
-        "task": "Size the pump against the lift it has to make"
+        "task": "Size the pump against the lift it has to make",
+        "reason": "Abara has never known how much spare capacity his pump actually has, and sizing the real load against its 55 kilowatt rating is what tells him how little room for error the flume has."
       }
     ]
   },
@@ -262,28 +305,33 @@ export const MISSIONS = [
     "title": "The day the flume behaved",
     "objective": "Close the books on the water while there is nothing going wrong.",
     "briefing": "Nothing broke over the weekend, which is the first time that has happened this month.",
-    "stake": "Monday of the third week, and nothing is wrong. The flume ran all weekend on the new pump curve. The coaster's morning speed came in where Friday's rule says it should. Vey spent the afternoon reading rather than asking. Kelechi Abara has wanted a derivation for the outlet speed since the first week. This is the first day anybody has had the time. Today you derive the speed the water leaves the chute at. You also settle what the carousel's controller does when the limit is reached, and put a number on the wind load a gondola carries. Marsh has started telling people the park opens in 11 days. She has not said that out loud since October.",
+    "stake": "Monday of week three. For once, nothing is broken — and that quiet feels wrong after two weeks like this. Today you find the speed water leaves the chute at, settle what the carousel does at its limit, and size the wind on one gondola.",
     "takeaway": "The morning to close a set of books is the one where nothing is asking to be fixed.",
+    "segue": "A derivation two weeks in the making finally landed. The flume's books are closed now. The afternoon went to calls with the local paper about opening day instead. But Saturday's forecast just came in: thirty degrees and a gusting wind. Every limit set this fortnight was set on a quiet day with no queue at all.",
     "stops": [
       {
         "group": "FLUME",
         "lesson": 4,
-        "task": "Derive the speed the water leaves the chute at"
+        "task": "Derive the speed the water leaves the chute at",
+        "reason": "Abara has a manufacturer's number for the outlet speed and no derivation behind it, and getting the same square root from an energy statement is what finally lets him defend that number to an inspector."
       },
       {
         "group": "CAROUSEL",
         "lesson": 4,
-        "task": "Decide what the controller does at the limit"
+        "task": "Decide what the controller does at the limit",
+        "reason": "Adeyemi has to wire what the carousel controller does the moment somebody asks for eleven turns a minute, and today's choice decides whether the limit is a machine's refusal or just an operator's good judgment."
       },
       {
         "group": "WHEEL",
         "lesson": 4,
-        "task": "Put a number on the wind a passenger cabin carries"
+        "task": "Put a number on the wind a passenger cabin carries",
+        "reason": "Raman wants the wind force on one gondola in hand before anybody argues about where the county's 22-metre-a-second limit actually comes from."
       },
       {
         "group": "FLUME",
         "lesson": 5,
-        "task": "Set the water cannon on the midway stall."
+        "task": "Set the water cannon on the midway stall.",
+        "reason": "The old water-cannon stall has never been calibrated, so hitting these three marks is the only way anyone learns what its pressure dial and worn pump can actually do."
       }
     ]
   },
@@ -291,23 +339,27 @@ export const MISSIONS = [
     "title": "The first hot Saturday",
     "objective": "Set the limits the ride will be operated to when nobody has time to think.",
     "briefing": "30 degrees forecast, a gusting westerly, and a queue that will not stop all afternoon.",
-    "stake": "Tuesday, and the forecast for opening weekend came in this morning. Thirty degrees, with a westerly gusting through the afternoon. Georgia Hart's point has been the same all fortnight. Today it is the whole agenda. Whatever gets decided in this workshop has to be doable by a nineteen year old. It has to work on the four hundredth cycle of a hot day. Today you set the wind rules for the wheel, with the lead time built into them. You also decide what to do about the ship's drive, and settle how the tower's brake gets proved rather than claimed. Vey has said he will witness whatever tests are run on Thursday. He signs, or does not sign, on Friday morning.",
+    "stake": "Tuesday, and the forecast just came in. Opening weekend will be hot, windy, and packed with people. Today you set the wheel's wind rules with time built in, decide about the ship's drive, and get the tower's brake proved, not just claimed.",
     "takeaway": "A limit written for a calm Tuesday is not a limit; it has to work on the worst afternoon of the year.",
+    "segue": "The wind rule got tested twice. It held up — the first plain win all fortnight. The lead time went into the wheel's controller by six that evening. But three faults were already on the maintenance board this morning. Only two days remain before the inspection.",
     "stops": [
       {
         "group": "WHEEL",
         "lesson": 5,
-        "task": "Write the wind rules with their lead time"
+        "task": "Write the wind rules with their lead time",
+        "reason": "Raman wants the wheel's queue-closing threshold locked in before the gusts arrive, because a rule written while the wind is already rising is a rule written to excuse whatever has already happened."
       },
       {
         "group": "SHIP",
         "lesson": 4,
-        "task": "Decide what to do about the drive timing"
+        "task": "Decide what to do about the drive timing",
+        "reason": "Idowu and the structural engineer disagree about what to do with a drive that is three tenths of a second out of step with the ship's real swing, and the reopening poster means the disagreement can't wait."
       },
       {
         "group": "TOWER",
-        "lesson": 7,
-        "task": "Prove the brake rather than assert it"
+        "lesson": 6,
+        "task": "Prove the brake rather than assert it",
+        "reason": "The safety engineer has one afternoon before the inspectors leave to prove the tower's brake rather than just claim it, so the prediction gets locked in before anyone watches the drop."
       }
     ]
   },
@@ -315,71 +367,82 @@ export const MISSIONS = [
     "title": "Three things and one crew",
     "objective": "Rank what gets fixed with two days left.",
     "briefing": "Three faults, one maintenance crew, and the inspection is on Friday.",
-    "stake": "Wednesday, and three things arrived this morning. A bumper car with a cracked chassis rail. The coaster's morning speed a tenth low for the second day running. And the carousel's platform settling, which Adeyemi first saw as a peak in the current. Kovač has one crew and two days. Marsh wants the coaster, because it is on the poster. Hart wants the bumper car, because it is the ride her staff cannot supervise their way out of. Today you rank the three jobs. You also decide what the coaster's low reading means, and put the carousel's repair in an order that can be done overnight. Vey inspects on Friday morning and signs on Friday afternoon. What is not fixed by Thursday night is a ride that opens shut.",
+    "stake": "Wednesday. Three new faults arrive with one crew and two working days left. One can be isolated, one is a passing-but-worsening trend, and one changes the geometry of a ride. Today you decide which problem consumes the crew before the inspection clock runs out.",
     "takeaway": "Ranking work is a question about what each delay costs, not about what each fault is.",
+    "segue": "The bumper car came first, so the coaster's small speed loss waits until after the inspection, and the carousel repair waits behind that. Nobody argued about the order. One car came off the floor for the rest of the day. It was safer to run eleven cars than to fake a twelfth.",
     "stops": [
       {
         "group": "BUMPER",
         "lesson": 5,
-        "task": "Take the fault that cannot safely wait and delegate the other two with a first action and return condition."
+        "task": "Take the fault that cannot safely wait and delegate the other two with a first action and return condition.",
+        "reason": "Kovač has one crew and two days before the inspection, and she wants the priority order in writing so it survives the day without her standing over the crew's shoulder."
       },
       {
         "group": "COASTER",
-        "lesson": 5,
-        "task": "Read a morning speed against the rule"
+        "lesson": 6,
+        "task": "Read a morning speed against the rule",
+        "reason": "The new morning rule only works if a passing-but-lower reading is logged rather than argued away, and that judgment call is today's, on a cold wet morning that could explain it — or could be the first sign it can't."
       },
       {
         "group": "CAROUSEL",
         "lesson": 5,
-        "task": "Order the four operations of the overnight repair."
+        "task": "Order the four operations of the overnight repair.",
+        "reason": "Kovač has one night to level the carousel's low bearing before the morning check, and getting the repair order wrong means redoing a job with no time left to redo it."
       }
     ]
   },
   {
-    "title": "What goes on the certificate",
-    "objective": "Sign what the working supports, and say what it does not.",
+    "title": "What the certificate can honestly say",
+    "objective": "Separate measured facts, model-based limits and unresolved questions before signing.",
     "briefing": "The inspection is tomorrow, and a signature is not a thing that can be taken back.",
-    "stake": "Thursday, and the last day anything can be changed. Marcus Vey witnessed the drop test this afternoon and has said nothing since. All 7 rides have a margin computed for them now. Six of those margins hold. The coaster's is 1.20, against a certificate that has said 1.38 for 25 years. Marsh has 98000 pounds of advance bookings against the opening weekend. Today you set each ride against what has actually been derived for it. You also put a number on the ship's certified swing angle, and settle what the flume's boats may carry. A certificate is a claim in your name. It says what a machine will do to the next quarter of a million people through it, and it cannot be taken back later.",
+    "stake": "Thursday. Tomorrow the county asks for one signature, so today every ride has to be reduced to a claim you can defend. One unresolved wheel joint cannot be allowed to hide inside six rides whose limits have actually been worked out.",
     "takeaway": "A signature says what the working supports, and everything it does not cover has to be written down too.",
+    "segue": "The wheel did not make the certificate. So its gate stays shut. Twenty-four gondolas will sit still all season. The park signed the loan against next year at nine that night. Nobody dressed up the numbers to make it sound better.",
     "stops": [
       {
         "group": "TOWER",
-        "lesson": 8,
-        "task": "Match each ride to the claim its working actually supports."
+        "lesson": 7,
+        "task": "Match each ride to the claim its working actually supports.",
+        "reason": "The safety engineer's file has one line for each of the seven rides, and with ninety eight thousand dollars of advance bookings against opening weekend, the wording on that line is what the park's insurer and its customers will actually be trusting."
       },
       {
         "group": "SHIP",
         "lesson": 5,
-        "task": "Certify a swing angle"
+        "task": "Certify a swing angle",
+        "reason": "The structural engineer wants the ship's certified swing angle tied to the force it actually produces at the bottom, not to how steep it looks from the midway."
       },
       {
         "group": "FLUME",
         "lesson": 6,
-        "task": "Set what a boat may carry"
+        "task": "Set what a boat may carry",
+        "reason": "McCarthy's four-adult rule came from boats that don't exist anymore, and the certificate needs the real limit stated before another season of loading by habit."
       }
     ]
   },
   {
-    "title": "What opens, and what is written down",
-    "objective": "Say what has been established, how well, and what has not.",
+    "title": "The signature",
+    "objective": "Decide which rides open, which one stays shut, and sign only what the evidence supports.",
     "briefing": "The inspection is this morning, and what survives it is what was derived.",
-    "stake": "Friday, and Vey has been on site since first thing. Six of the seven rides have a derivation, a number and a condition. The wheel has a computed bolt load. It also has a weld mark that arrived too late to resolve. The park opens in eight days if the certificates are signed this afternoon. Today you decide what the winter's money goes on. You also state what can honestly be claimed about the coaster. And you write the standing order for the bumper floor that Hart's staff will work to. Brennan came in at nine with the tenth notebook. He had found it in a drawer. The 1998 regrade is in it, dated, with a sketch, and no drawing number.",
+    "stake": "Friday. The county inspector is at the gate and the park cannot open without your certificate. Six rides now have defensible limits or verified conditions. The Ferris wheel still has a loaded joint with a measured crack-like indication and no fracture assessment. Today your signature becomes the decision.",
     "takeaway": "What outlives this fortnight is what somebody wrote down in a form the next person can use.",
     "stops": [
       {
         "group": "COASTER",
-        "lesson": 6,
-        "task": "Spend two winter work slots on the evidence that most changes next season's decisions."
+        "lesson": 7,
+        "task": "Spend two winter work slots on the evidence that most changes next season's decisions.",
+        "reason": "Brennan turned up this morning with a tenth notebook found in a drawer, the 1998 regrade dated and sketched but never given a drawing number, and that gap is exactly the kind of unresolved question this winter's two work slots are supposed to answer."
       },
       {
         "group": "WHEEL",
         "lesson": 6,
-        "task": "State what can be claimed about the wheel"
+        "task": "State what can be claimed about the wheel",
+        "reason": "Raman has the computed bolt load and the inspector has the crack's measured size, and the board needs one honest sentence naming exactly what those two facts do and do not prove."
       },
       {
-        "group": "BUMPER",
-        "lesson": 6,
-        "task": "Order the four instructions for one cycle on the bumper floor."
+        "group": "TOWER",
+        "lesson": 8,
+        "task": "Sign the park certificate",
+        "reason": "Vey has the county seal on the desk. The park director wants all seven names on the page, but the wheel still has one unanswered question that the calculations cannot make disappear."
       }
     ]
   }
@@ -388,7 +451,7 @@ export const MISSIONS = [
 export const WARMUPS = {
   "greet": {
     "title": "The park has been shut for two years and the crew is new",
-    "why": "Corbin Park closed in October two years ago and the team reopening it has never worked together. Vey, the county ride inspector, wants you known to as many of them as you can before the first inspection, because a ride is signed off by one person on the word of another, and this fortnight is nothing but that."
+    "why": "Fourteen people are on site this morning to reopen a park that has been shut since October, and you have not met one of them."
   },
   "trial-near": {
     "title": "Walk the park before you certify anything on it",

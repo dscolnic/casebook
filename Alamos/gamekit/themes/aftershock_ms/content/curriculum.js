@@ -1617,7 +1617,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "A condition, not a date",
-      "scene": "Halvorsen wants a date on the fence. Delacroix wants a condition instead. A date is a promise about the ground, and a condition is a promise about the office.",
+      "scene": "Halvorsen wants a date on the fence. Delacroix, the ward councillor, wants a condition instead. A date is a promise about the ground, and a condition is a promise about the office.",
       "takeaway": "Tie a decision to something somebody can check, and it stays honest whatever the ground does next.",
       "place": "Hazard & Forecasting",
       "guide": "Four options, and they differ in what the office would be promising. Ask of each whether the promise is about the ground or about the office's own work. A date promises something nobody controls. A rate is about the whole town, not one street. Residents want to see progress, and a written condition is progress they can check.",
@@ -1626,7 +1626,7 @@ export const CURRICULUM = {
         "Why sounding careful is not the same as being right. A long answer with a lot of detail in it feels safer, and it is easy to write one that is still wrong. The check that builds these questions measures option length across the whole game so the longest one is not the answer more often than chance. Reading is the only way through.",
         "What the verdict adds. After you answer, the verdict says why each wrong option is wrong, in its own words. That is written for the reader who picked it. Read it even when you were right, because being right for a shaky reason is the thing that catches up with you two stops later."
       ],
-      "story": "Halvorsen wants a date on the fence. Delacroix wants a condition instead. A date is a promise about the ground, and a condition is a promise about the office.",
+      "story": "Halvorsen wants a date on the fence. Delacroix, the ward councillor, wants a condition instead. A date is a promise about the ground, and a condition is a promise about the office.",
       "game": {
         "type": "CHOICE",
         "title": "A condition, not a date",
