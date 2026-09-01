@@ -4,7 +4,7 @@
 
 export const MISSIONS = [
   {
-    "title": "What the trial already decided",
+    "title": "The rules we cannot change",
     "objective": "Establish what CLARION-3 promised before it had any data.",
     "briefing": "Three weeks to the second interim, and the board pack starts today.",
     "stake": "Monday. The second interim analysis is 21 days away. CLARION-3 has now entered 2,400 people at 31 hospitals. Professor Vogt chairs the independent monitoring board. In three weeks she reads the trial arm by arm. Then she says whether it goes on. Yemi Balogun, the trial chair, wants that meeting to end the trial. Miriam Feldman wants it to end nothing that was not written down first. Today you go back over what CLARION-3 promised before the first patient joined. How people are put in each arm. What counts as an event. How big a gap the trial was built to find. Those promises are what the board measures the trial against. Not what anybody now hopes.",
@@ -18,7 +18,7 @@ export const MISSIONS = [
       {
         "group": "ENDP",
         "lesson": 0,
-        "task": "Separate what the trial counts from what it also collects"
+        "task": "Reconstruct why the protocol chose its primary endpoint before the first participant entered"
       },
       {
         "group": "STAT",
@@ -28,7 +28,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Who measures, and how",
+    "title": "Which number can the board trust?",
     "objective": "Find out where a number is made before deciding what it is worth.",
     "briefing": "Two outcomes, two ways of measuring, and only one of them has a committee.",
     "stake": "Tuesday. 20 days to the interim, and the board pack has two outcomes in it rather than one. CLARION-3 counts a clinical event. A committee rules on each one from the notes. The trial also carries a symptom score. The treating doctor writes that down at every visit. Kwame Ansah trusts the first and says so at every meeting. Nuno Iriarte, the principal investigator at site 12, thinks the second is the one that matters to patients. Maggie Doyle, who speaks for the participants, agrees with him. Today you work out where each number is really made, and what each is worth when the two arms are compared. In three weeks both will sit on the same page.",
@@ -47,12 +47,12 @@ export const MISSIONS = [
       {
         "group": "REG",
         "lesson": 0,
-        "task": "Order what has to be true before an interim analysis can be called prespecified."
+        "task": "Find what the trial promised about this analysis"
       }
     ]
   },
   {
-    "title": "The signal at two sites",
+    "title": "Two liver cases",
     "objective": "Decide what has to be reported today rather than at the next meeting.",
     "briefing": "Two sites have sent the same kind of event in the same fortnight.",
     "stake": "Wednesday morning, 19 days out. Site 4 and site 19 have each sent in a case. Both patients went into hospital with the same odd liver picture, 11 days apart. Neither report says which arm the patient was on. Neither site knows. Feldman's instinct is that two cases is a number you see in a trial this size. The board meets in 19 days anyway. Balogun wants it in front of Vogt this week. Today you decide what gets reported, to whom, and how fast. There is a second half to that. The trial keeps running while it waits, and somebody has to say what it may do in the meantime.",
@@ -71,12 +71,12 @@ export const MISSIONS = [
       {
         "group": "REG",
         "lesson": 1,
-        "task": "Match each event to what the trial owes and when."
+        "task": "Route each event through the correct safety or endpoint pathway without confusing seriousness, causality and timing."
       }
     ]
   },
   {
-    "title": "The unplanned look",
+    "title": "The peek that changes the trial",
     "objective": "Establish what looking early costs and who is allowed to do it.",
     "briefing": "Somebody senior would like a peek at the numbers before the board sees them.",
     "stake": "Thursday, 18 days out. The sponsor's medical director has put a request in writing. He wants the primary endpoint pooled and split by arm, before the board meets. The liver cases have made everybody nervous. Feldman has said no twice. She has now been asked to explain why, in words that do not sound like she is stalling. Alina Petrescu, the unblinded statistician, is the only person who could build that table. She has said nothing at all. Today you work out what an extra look really costs the trial. Two questions come with it. Who is allowed to take one, and what can be offered instead of the answer.",
@@ -100,7 +100,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "The site that is faster than everybody",
+    "title": "Why is site 12 so fast?",
     "objective": "Work out why site 12 recruits twice as fast as anyone else.",
     "briefing": "One site's screening log is shorter than every other site's.",
     "stake": "Friday, 17 days out. Site 12 has entered more than twice its expected share of patients. Nuno Iriarte has been thanked for it in public twice. Marchetti has now laid site 12's screening log beside the other 30. Most sites look at four people to enter one. Site 12 enters almost everyone it sees. Balogun reads that as a site that has organised itself well. There is another way to read it. Today you work out which reading the log actually supports. The rest of the day is what that would mean for the trial. A fast site may also be a site taking in a different kind of patient from everybody else.",
@@ -129,11 +129,11 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "The amendment comes back",
-    "objective": "Find out what widening the entry criteria has done to the trial.",
+    "title": "The fix that slowed the trial",
+    "objective": "Separate what the amendment demonstrably changed from what the team is only assuming it changed.",
     "briefing": "Recruitment recovered. The event rate did not.",
     "stake": "Monday, 14 days out. Eight months ago the trial widened two of its entry rules, to keep recruiting on schedule. The amendment worked. The trial filled. The data manager, Tobias Renner, has now plotted events against months. The curve has flattened since. Feldman thinks the trial is further from its answer than the calendar says. Balogun signed that amendment. He says the other choice was a trial that never finished at all. Today you work out how much information CLARION-3 is actually holding. That sets what the flattening does to the interim in a fortnight. It also settles whether the two of them are arguing about anything real.",
-    "takeaway": "A trial's progress is measured in events, and a decision made a year ago can slow them.",
+    "takeaway": "Widening eligibility can change event accrual and the target population; it does not by itself prove that the relative treatment effect changed.",
     "stops": [
       {
         "group": "STAT",
@@ -143,12 +143,12 @@ export const MISSIONS = [
       {
         "group": "SITE",
         "lesson": 4,
-        "task": "Work out who the amendment brought in"
+        "task": "Separate the observed event-rate change from a sensitivity assumption about treatment effect"
       },
       {
         "group": "REG",
         "lesson": 2,
-        "task": "Order what has to happen before a widened criterion may enrol anybody."
+        "task": "Establish what the amendment obliged the trial to do"
       },
       {
         "group": "SITE",
@@ -158,7 +158,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Who is missing",
+    "title": "The 91 people without an outcome",
     "objective": "Decide what to do about the participants the trial has lost track of.",
     "briefing": "91 people have no outcome recorded, and they are not a random 91.",
     "stake": "Tuesday, 13 days out. Renner has matched the records against each other. 91 patients have no twelve-month outcome at all. Some moved. Some withdrew. Some stopped answering the phone. Ansah cannot rule on what nobody wrote down. And 48 of the 91 stopped coming in the weeks after a bad turn was noted in their file. Doyle asked the steering group what the trial means to say about the people it lost. She also asked whether that answer changes with the arm they were on. Today you decide how the missing are handled in the analysis the board reads in 13 days. The sites have a fortnight to chase whoever can still be found. About the rest, the trial has to be honest.",
@@ -182,7 +182,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "The cold room",
+    "title": "Forty-one hours too warm",
     "objective": "Work out which kit is compromised and what that obliges the trial to do.",
     "briefing": "A freezer alarm at one site was silenced for two days in July.",
     "stake": "Wednesday, 12 days out. The fridge logger at site 19 shows 41 hours above the safe storage range in July. The alarm was signed off twice. Nobody passed it up the line. Farida Diouf has the kit numbers that sat in that fridge. She can say exactly who received each one. What she cannot say, and will not find out, is which of those boxes held the drug. Today you decide what a warm fridge means for the patients who took that kit. Two things follow. Somebody has to be told, and the trial has to stay blind while that happens.",
@@ -206,7 +206,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "What the guessing survey found",
+    "title": "The blind has leaked",
     "objective": "Find out whether the people scoring the outcome knew which arm they were scoring.",
     "briefing": "Investigators were asked to guess. They were right far more often than chance.",
     "stake": "Thursday, 11 days out. A routine questionnaire has come back wrong. At the last yearly visit, every site doctor was asked to guess which arm each of their patients was on. Across 1,180 guesses they were right 71% of the time. Ansah's committee see no arms at all, so their work is untouched. The symptom score is another matter. The treating doctor writes that one down. Iriarte and Doyle have both called it the score patients care about. Today you work out what a guessing rate like that does to each of the trial's two outcomes. The board has to be told before it reads either of them.",
@@ -230,7 +230,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "What survives",
+    "title": "Does the benefit survive the leak?",
     "objective": "Re-read the trial on the outcome the unblinding could not reach.",
     "briefing": "Take the compromised score out and see what is left.",
     "stake": "Friday, ten days out. Ansah's committee has re-read every unclear file from the past year. The site and the arm were stripped out first, as always. Petrescu has run the adjudicated endpoint for the closed report. The effect on the symptom score was large. On the adjudicated events it is smaller, and it is still there. Feldman says that is the number the trial always had. Balogun says a smaller real effect is still a reason to stop giving people the other arm. Today you work out what the surviving result says, and how tightly it says it. There are patients joining this week, and the blind still has to hold for them.",
@@ -254,7 +254,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "The quiet day",
+    "title": "Freeze the evidence",
     "objective": "Close the file that the board will read.",
     "briefing": "Nothing has gone wrong. The cut is on Thursday.",
     "stake": "Monday, six days out, and nothing is wrong. Open queries are down to 41. The sites have sent in what they owe. Renner's check of the records balanced on the first run, for the first time in two years. Umeh has the lock plan on the wall with Thursday circled. Vogt reads the pack the Tuesday after that. Until then Petrescu is the only person who will have seen it. Today you close the file. That means saying what still has to be true before the data can be frozen. It means saying what a locked database really promises. And it means naming which of the 41 open queries cannot wait until after Thursday.",
@@ -278,7 +278,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Three things at once",
+    "title": "Three alarms before nine",
     "objective": "Rank what the board is told when everything arrives on the same morning.",
     "briefing": "A subgroup has crossed its line, a rival has published, and the regulator has written.",
     "stake": "Tuesday, five days out, and three things landed before nine. Petrescu's closed tables show one subgroup crossing the boundary on its own. It is the patients over 70. A group in Lyon has published a smaller trial of a related drug, with a strong result. And the regulator wants the liver cases from day three written up as a formal safety update, due Friday. Balogun has read the Lyon paper twice. He wants the board told about all three together. Today you decide what goes in the pack, and in what order. Each of the three is evidence about something different. The pack has to say which is which.",
@@ -302,16 +302,16 @@ export const MISSIONS = [
       {
         "group": "SAFE",
         "lesson": 4,
-        "task": "Work the safety queue while the reporting rule changes."
+        "task": "Work the same-day safety-escalation queue while the signal-management rule changes."
       }
     ]
   },
   {
-    "title": "1 of 14",
+    "title": "The result that looks too good",
     "objective": "Work out what the over-seventies result would have cost if it had been believed.",
     "briefing": "Feldman has the list of every subgroup the plan named.",
     "stake": "Wednesday, four days out. The subgroup list written in advance has 14 entries on it. The over-seventies are the eleventh. Feldman has spent the morning showing what 14 looks like. Cut the trial 14 ways, and one of those slices clearing the usual line is close to expected. That holds even when the drug does the same thing in everybody. Balogun has argued all fortnight for acting sooner. He agrees before she has finished. Today you put a number on how often 14 separate looks throw up a false positive. What the board is told about the over-seventies follows from that number.",
-    "takeaway": "A result that would be surprising once is unremarkable in 14 attempts.",
+    "takeaway": "A nominally striking subgroup result must be judged inside the family of subgroup analyses that produced it.",
     "stops": [
       {
         "group": "STAT",
@@ -331,7 +331,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "The last reversible moment",
+    "title": "What would we lose by stopping?",
     "objective": "Prepare the case the board will decide on, and be honest about what stopping costs.",
     "briefing": "The board meets tomorrow. After that the decisions are made.",
     "stake": "Thursday, one day out. The pack is printed and the file is locked. Petrescu has run the analyses the plan named, and nothing else. Tomorrow Vogt's board sits for four hours. It will recommend one of three things. Stop for benefit, stop for futility, or carry on to the end. Balogun will be in the open session, saying what he has said all fortnight. Doyle will be in the room too. She has asked what a patient who joined last month is owed by either decision. Today you put together what the board has to weigh. That is how likely the trial is to finish positive, and what each way of stopping would leave unknown.",
@@ -345,7 +345,7 @@ export const MISSIONS = [
       {
         "group": "STAT",
         "lesson": 8,
-        "task": "Say how likely the trial is to finish positive"
+        "task": "Separate what the information fraction tells you from the assumptions needed to forecast the final result"
       },
       {
         "group": "REG",
@@ -355,11 +355,11 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "What it is worth saying",
-    "objective": "Say what CLARION-3 found, how strongly, and what nobody knows yet.",
-    "briefing": "The board has reported. Now the trial has to be described in words.",
-    "stake": "Friday. The board reported yesterday. Carry on to the planned number of events. The symptom score comes out of the primary reporting. The liver cases get followed formally. Balogun has accepted all of it. Feldman has written the one sentence she thinks the trial can defend. The sponsor's press team has written a different sentence, out of the same numbers. Doyle wants to know which of the two would help somebody decide on a Tuesday afternoon. Today you settle how the result is stated. That covers what the trial may claim about its endpoint. It also covers what happens now to the 2,400 people still in it.",
-    "takeaway": "The last decision in a trial is what to say, and the numbers do not settle it.",
+    "title": "Release the pack",
+    "objective": "Assemble and sign the monitoring-board pack without turning a promising interim signal into a conclusion.",
+    "briefing": "The board meets this afternoon. This is the last chance to decide what evidence it actually receives.",
+    "stake": "Friday, board day. Helena Vogt arrives at three. Petrescu's closed tables show a promising adjudicated effect, but the prespecified benefit boundary has not been crossed. The symptom score looks larger and is the outcome the blinding failure can reach. Four liver cases remain unresolved. The over-seventies row is nominally striking and is one of fourteen subgroup looks. Balogun sees people still being randomized to the arm that may be worse. Feldman sees a trial one early decision away from overstating what it knows. You have the last editable copy of the monitoring-board pack. Today you decide what each number is allowed to claim, then you sign the version Vogt will use to decide whether CLARION-3 continues.",
+    "takeaway": "The final job is to hand the board a decision-ready record that keeps measurements, assumptions, limitations and recommendations separate.",
     "stops": [
       {
         "group": "REG",
@@ -372,9 +372,9 @@ export const MISSIONS = [
         "task": "State what the trial has established about its endpoint"
       },
       {
-        "group": "SITE",
-        "lesson": 9,
-        "task": "Write the rule for what sites tell participants after the board says continue."
+        "group": "REG",
+        "lesson": 8,
+        "task": "Choose the only version of the monitoring-board pack you can sign and release."
       }
     ]
   }

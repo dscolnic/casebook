@@ -414,7 +414,7 @@ missions:
             is placed. It also catches a quantity belonging to a different part of the
             problem. That is the habit this format exists to build.
         takesAsRead:
-          - "Why ice keeps a record at all: burial without melting"
+          - Accumulation rate, and what a site with little snow buys and costs
         assumes:
           - snow becomes ice by being compressed under the snow that falls on it
         takeaway: Accumulation is the rate at which this site writes time, expressed in conserved ice 
@@ -488,7 +488,7 @@ missions:
             choice made for an approximate reason is indistinguishable from a sound one. That
             holds until the day the approximation is what is being tested.
         takesAsRead:
-          - Accumulation rate, and what a site with little snow buys and costs
+          - "Why ice keeps a record at all: burial without melting"
         assumes:
           - ice spreads outwards from the high points of an ice sheet
         takeaway: A dome reduces the upstream-history problem; it does not make ice flow disappear.
@@ -1003,7 +1003,7 @@ missions:
             is placed. It also catches a quantity belonging to a different part of the
             problem. That is the habit this format exists to build.
         takesAsRead:
-          - Accumulation rate, and what a site with little snow buys and costs
+          - Accumulation rate, expressed in ice equivalent
         assumes:
           - the mean density ratio represents the mass in the 88-metre firn column well enough for a first 
             estimate
@@ -1310,7 +1310,7 @@ missions:
             forced. The fault is usually not in the join you are struggling with. It is in one
             you made early and stopped questioning.
         takesAsRead:
-          - "Thinning with depth: flow, and where a record runs out"
+          - Accumulation rate, and what a site with little snow buys and costs
           - Annual layer counting, and where counting fails
         assumes:
           - two measurements of one quantity can differ for reasons that have nothing to do with the quantity
@@ -2162,7 +2162,7 @@ missions:
             is placed. It also catches a quantity belonging to a different part of the
             problem. That is the habit this format exists to build.
         takesAsRead:
-          - Correlation between two records is not attribution
+          - Annual layer counting, and where counting fails
         assumes:
           - ice spreads outwards under its own weight, stretching the layers below
         takeaway: A simple model is useful when its failure tells you which assumption the deep chronology 

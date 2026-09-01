@@ -8,7 +8,7 @@ export const CURRICULUM = {
       "day": 1,
       "title": "The same event, recorded twice",
       "scene": "Inês Cardoso, the network technician, has the vault record from the bench and the field station record from Bay Road. Same event, same minute, 1100 metres apart. One trace is short and sharp, the other is three times taller and goes on for half a minute longer.",
-      "takeaway": "A record describes one place, so two records of one earthquake can disagree and both be right.",
+      "takeaway": "A soft-soil/rock ratio from one band and one event is evidence of site response, not a universal multiplier for every structure.",
       "place": "Seismic Network",
       "guide": "All four options explain two records that disagree. They differ in what they blame: the instrument, the ground, the distance, or the timing. Two of them are checkable from the scene. Same event, same minute, 1100 metres apart. Ask what 1100 metres can and cannot account for. Which one is right decides whether the Flats get a stronger design value or a service call.",
       "background": [
@@ -24,8 +24,8 @@ export const CURRICULUM = {
         "play": "Compare the two records from one earthquake",
         "task": "Compare the two records from one earthquake",
         "question": "What does the difference between the two records mean?",
-        "answer": "The Flats record is about 3 times the vault's amplitude in the strongest band, so A_soft/A_rock ≈ 3 against that reference station. That supports a real site-amplification effect; the factor is frequency-dependent and should not be applied blindly to every building or motion measure.",
-        "why": "Soft ground can amplify and lengthen shaking in a particular period band. Here the two records give A_soft/A_rock ≈ 3 for the strongest motion — against the vault, which is the reference the district plan uses and is itself assumed to be competent rock. That is a site effect, not a larger earthquake under the Flats. Buildings also have preferred periods. A rough rule is T ≈ 0.1N seconds for an N-storey building. If strong site motion overlaps a building period, resonance can increase response. The ratio is frequency-dependent, so one factor should not be applied to every motion measure.",
+        "answer": "The Flats motion is about three times the reference motion in the measured band. That supports a strong local site-response effect; the factor depends on frequency and on the input motion, so it is not a single number to paste onto every building.",
+        "why": "Both instruments recorded the same earthquake, so the source is not the variable. In the band shown on the board, the Flats amplitude is about three times the reference-station amplitude. That is direct evidence that the shallow ground is changing the motion before it reaches the surface. Soft, low-velocity deposits can amplify some frequencies strongly, while other frequencies may be amplified less or even deamplified. The useful conclusion today is therefore not 'the Flats always shake three times harder'; it is 'the ground beneath the Flats matters enough that site response has to be measured and carried into the reassessment.'",
         "rebuttals": [
           "Both instruments checked out against a second sensor this morning; the difference is real.",
           "1100 metres is nothing against a source 20 kilometres away, so distance cannot explain a factor of 3.",
@@ -81,11 +81,10 @@ export const CURRICULUM = {
         }
       ],
       "concept": {
-        "n": 5,
-        "c": "Intensity against magnitude — one event, many shakings",
+        "n": 7,
+        "c": "Site effect: soft ground amplifies",
         "of": 30,
         "rests": [
-          "Magnitude as a logarithmic scale",
           "Peak ground acceleration and what a building feels"
         ]
       }
@@ -152,37 +151,37 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "The instrument in the basement",
-      "scene": "There is an accelerograph in the hospital basement, installed in 1998 and never used in anger. Cardoso has the record. It shows a peak of 0.31 g, and the building was designed for 0.35.",
-      "takeaway": "A building-mounted accelerograph measures one part of the demand directly; it does not turn a code design value into a damage threshold.",
+      "scene": "There is an accelerograph in the hospital basement, installed in 1998 and finally useful. Cardoso has processed the record into a 5%-damped response spectrum. Around the hospital's roughly 0.4 s fundamental period, the spectral acceleration is about 0.31 g. The comparable screening coefficient used for the old design check is 0.35.",
+      "takeaway": "A building record is most useful when converted to the response quantity the structure actually uses; raw PGA is not automatically the building base shear.",
       "place": "Seismic Network",
-      "guide": "Turn the recorded acceleration into the sideways force the frame actually had to carry, so the two numbers can be compared as forces rather than as fractions of gravity. The base shear is the seismic coefficient times the building's weight. One tile is the coefficient the building was designed to and another is the weight of one floor, which is not what the whole frame carries.",
+      "guide": "Do not use the raw peak ground acceleration as though the whole building were a rigid block. Use the period-specific spectral ordinate already read from the record, then apply the same simplified V = C·W screening relation used in the design comparison.",
       "background": [
-        "What a base shear is. The total horizontal force at the foundations, and the number a frame is proportioned against. It is the seismic coefficient — the design acceleration as a fraction of gravity, after the code's factors — multiplied by the weight the building brings to the shaking.",
-        "Why 0.31 against 0.35 is not a verdict. It is one input, measured directly, which is worth a great deal in a fortnight where most numbers are inferred. What a building feels also depends on which frequencies arrived, how long the shaking lasted, and how the frame and its parts are detailed. None of that is in a peak.",
-        "What the record cannot reach. It says nothing about the plant-room restraint, nothing about what the inspection found, and nothing about the parts of the building that respond at their own period rather than the ground's. A design value is not a threshold below which nothing breaks."
+        "What the instrument gives you. An accelerograph records acceleration versus time. From that record, engineers can compute a response spectrum showing the demand on idealized oscillators at different periods.",
+        "Why period matters. A multi-storey building does not necessarily respond at the instant of the record's largest ground acceleration. The spectrum near the building's period is a better screening input than raw PGA for comparing dynamic demand.",
+        "What the comparison still cannot prove. A simplified spectral base-shear screen does not inspect the plant-room restraints, duration effects, higher modes, irregularity or damaged details. A value below the historical design comparison is useful evidence, not a clearance."
       ],
-      "story": "There is an accelerograph in the hospital basement, installed in 1998 and never used in anger. Cardoso has the record. It shows a peak of 0.31 g, and the building was designed for 0.35.",
+      "story": "There is an accelerograph in the hospital basement, installed in 1998 and finally useful. Cardoso has processed the record into a 5%-damped response spectrum. Around the hospital's roughly 0.4 s fundamental period, the spectral acceleration is about 0.31 g. The comparable screening coefficient used for the old design check is 0.35.",
       "game": {
         "type": "BALLPARK",
         "title": "The instrument in the basement",
         "setup": "Seismic Network",
         "play": "Check what the hospital actually experienced",
         "task": "Check what the hospital actually experienced",
-        "question": "What sideways force did the recorded motion put into the frame, against what it was designed for?",
-        "answer": "About 26 meganewtons (MN) against a design base shear of 30 MN — a little under, and the record's real value is that one input is now measured rather than assumed.",
-        "why": "The hospital is four storeys, so its natural period is about T ≈ 0.1 N = 0.4 s, and that is the period at which the design coefficient is read off the spectrum. Base shear is then V = C_s · W: that coefficient times the weight the building brings to the shaking. The hospital's seismic weight is about 85 meganewtons, and the recorded peak of 0.31 g gives a coefficient of 0.31, so the frame saw roughly 0.31 × 85 ≈ 26 MN. The design value of 0.35 g gives 0.35 × 85 ≈ 30 MN. So the demand was about 12 per cent under what the frame was proportioned for, which is worth knowing and is not a clearance. Three things the number does not carry: which frequencies arrived, how long the shaking went on, and how the building and its contents are detailed — the plant-room restraint responds to its own motion, not to the basement's. A design value is a proportioning input, not a line below which nothing breaks. What the record genuinely removes is the largest unknown of the fortnight: for once, the ground motion at a specific building was measured instead of inferred from a ratio.",
+        "question": "Using the period-specific spectral coefficient, what simplified base-shear demand does the record imply, compared with the old design check?",
+        "answer": "About 26 MN from the recorded 0.31 spectral coefficient, versus about 30 MN from the 0.35 design-check coefficient.",
+        "why": "For this screening calculation the same simplified relation is used on both sides: V = C·W. The processed record gives C ≈ 0.31 at about 0.4 s and the hospital's seismic weight is about 85 MN, so V ≈ 0.31 × 85 ≈ 26 MN. The historical design-screen coefficient 0.35 gives about 30 MN. The useful result is a like-for-like comparison of a measured period-specific demand with the old screening check. It is not proof that every component remained below capacity, and it is deliberately not obtained by treating raw PGA as the force coefficient for the entire building.",
         "givens": [
-          "four storeys, so the natural period is T ≈ 0.1 × 4 = 0.4 s",
-          "seismic weight about 85 meganewtons",
-          "recorded peak 0.31 g, design value 0.35 g"
+          "the hospital is about four storeys, giving a rough fundamental period near 0.4 s for this exercise",
+          "seismic weight is about 85 MN",
+          "the recorded response spectrum gives about 0.31 g near that period; the old comparison used 0.35"
         ],
-        "relationship": "An N-storey building has a natural period T ≈ 0.1 N. The coefficient is read off the spectrum there, and the base shear is V = C_s · W.",
+        "relationship": "For this simplified screen, V = C · W using the period-specific spectral coefficient C. Raw PGA is not substituted for C.",
         "calcKey": "SEIS-3"
       },
       "assumes": [
         "a building can be instrumented, and the record is about that building",
         "peak ground acceleration and what a building feels — taken as read",
-        "p and S waves, and what the gap between them measures — taken as read"
+        "peak ground acceleration and what a building feels — taken as read"
       ],
       "equations": [
         {
@@ -200,26 +199,6 @@ export const CURRICULUM = {
           ],
           "s": "A rule of thumb: about a tenth of a second per floor, which is how you know whether a building and the ground it stands on want to swing at the same rate.",
           "computed": true
-        },
-        {
-          "e": "V = C_s · W",
-          "c": "base shear — the sideways force it is designed for",
-          "v": [
-            [
-              "V",
-              "base shear, in kilonewtons"
-            ],
-            [
-              "C_s",
-              "seismic coefficient, a fraction of weight"
-            ],
-            [
-              "W",
-              "the weight of the building above the base, in kilonewtons"
-            ]
-          ],
-          "s": "Design treats the earthquake as a fraction of the building's own weight pushed sideways at its base.",
-          "computed": true
         }
       ],
       "takesAsRead": [
@@ -228,17 +207,17 @@ export const CURRICULUM = {
           "c": "Peak ground acceleration and what a building feels"
         },
         {
-          "n": 1,
-          "c": "P and S waves, and what the gap between them measures"
+          "n": 6,
+          "c": "Peak ground acceleration and what a building feels"
         }
       ],
       "concept": {
-        "n": 24,
-        "c": "Instruments: what an accelerograph actually records",
+        "n": 8,
+        "c": "Natural period, and resonance between building and ground",
         "of": 30,
         "rests": [
           "Peak ground acceleration and what a building feels",
-          "P and S waves, and what the gap between them measures"
+          "Site effect: soft ground amplifies"
         ]
       }
     },
@@ -246,7 +225,7 @@ export const CURRICULUM = {
       "day": 4,
       "title": "A rate is not a schedule",
       "scene": "The notice draft says the aftershocks will have stopped by the end of the month. Cardoso points at the sentence and asks where the month came from. The sentence is due for the afternoon public bulletin.",
-      "takeaway": "A rate says how often, not when or how large, and writing it as a date makes a promise nobody can keep.",
+      "takeaway": "An Omori–Utsu rate approaches zero gradually; operational forecasts integrate that rate over a future window and report uncertainty.",
       "place": "Seismic Network",
       "guide": "Put the fitted numbers through the decay law and see what day thirty actually gives. The rate falls as a power of the time since the mainshock, so pick the productivity, the time offset and the elapsed days, and read the answer as events per day. One tile is the exponent, which goes in the power and not in the denominator on its own.",
       "background": [
@@ -262,8 +241,8 @@ export const CURRICULUM = {
         "play": "Say what a forecast does not claim",
         "task": "Say what a forecast does not claim",
         "question": "At day 30 after the mainshock, what does the fitted decay law give as the expected rate?",
-        "answer": "About 2.7 events a day above magnitude 2, falling and never reaching zero. That is a rate with a range, not an end date — and the draft's month cannot be read off this curve at all.",
-        "why": "The Omori–Utsu law is n(t) = K / (c + t)^p, and the fitted values for this sequence are K = 84, c = 0.2 days and p = 1.05. At t = 30 days the denominator is 30.2^1.05 ≈ 35.6, so the expected rate is 84 ÷ 35.6 ≈ 2.4 to 2.7 events a day above magnitude 2, depending on how the fit is rounded. That is an expectation over an interval, and daily counts will land either side of it. What the curve cannot do is reach zero: a power law fades, and the day it 'stops' does not exist. Publishing a month therefore makes two errors at once — an end date where the mathematics gives a fade, and a certainty where it gives a rate. The right sentence names a number per week and a range, and says nothing about the largest event, because how often and how large are different distributions.",
+        "answer": "About 2.4 events per day above M2 at day 30 in the fitted model. That is an instantaneous expected rate, not the date the sequence ends.",
+        "why": "With the fitted toy model n(t)=84/(0.2+t)^1.05, the day-30 instantaneous rate is about 84/30.2^1.05 ≈ 2.4 events per day above M2. The model never supplies an 'end date'. A useful forecast asks about a future interval—tomorrow, the next week, the next month—and turns the fitted rate plus model uncertainty into expected counts and probabilities. That is the quantity an inspection schedule can use.",
         "givens": [
           "K = 84, c = 0.2 days, p = 1.05",
           "the bulletin is for day 30 after the mainshock"
@@ -376,7 +355,7 @@ export const CURRICULUM = {
       "day": 6,
       "title": "Measuring against the wrong zero",
       "scene": "Cardoso's five-day side-by-side check is finished, and the benchmark used since day one no longer stands unchanged. Navarro lays five fortnight conclusions beside the corrected station report. Some may survive untouched; others may force a redraw before the next briefing.",
-      "takeaway": "A shared reference error propagates only through conclusions that depend on it; independent measurements should not be discarded with the common source.",
+      "takeaway": "Trace both the measurement dependency and the inference built on top of it: the first may be corrected while the second must sometimes be withdrawn.",
       "place": "Seismic Network",
       "guide": "Open a conclusion and the panel shows what it was computed from. Keep the ones that stand on a measurement of their own, and untick the ones whose chain runs through the corrected reference. Then name the source the failing ones share. Both halves are graded: throwing away an independent conclusion costs you as much as keeping a dependent one.",
       "background": [
@@ -392,14 +371,14 @@ export const CURRICULUM = {
         "play": "Open the dependency chain behind each conclusion, keep the ones that stand independently, and identify the shared reference source behind the conclusions that must be revised.",
         "task": "Open the dependency chain behind each conclusion, keep the ones that stand independently, and identify the shared reference source behind the conclusions that must be revised.",
         "question": "Which conclusions actually inherit the bad reference, and which remain supported by independent evidence?",
-        "answer": "Revise the Flats motion comparison and the rebuilding demand factor copied from it. Both were measured against the station the panel says now reads ×1.6 instead of ×1.0, so the ×3.0 ratio is ×4.8 relative to competent rock. Keep the hospital's 0.31 g, the network M_w 6.8 and the Marina Court diagnosis; their evidence chains do not run through that station.",
-        "why": "A ratio inherits the error of whatever sits under the line, and the panel gives you both terms: a published ×3.0 and a reference station that reads ×1.6 where ×1.0 was assumed. The corrected value is 3.0 × 1.6 ≈ 4.8 times competent rock, and the demand factor copied from that ratio carries the same dependency. The hospital basement accelerograph measured 0.31 g on its own instrument, the moment magnitude came off a multi-station solution and Marina Court was surveyed on the ground, so none of the three moves. Dependency tracing limits the correction to the conclusions that actually share the bad reference.",
+        "answer": "Revise the 1 Hz Flats site-response comparison because it used the vault as its denominator. Withdraw the district's universal ×3 design-demand shortcut because a single spectral ratio from one event is not a building-code spectrum. Keep the hospital's independent record, the network moment magnitude and the Marina Court ground-failure diagnosis.",
+        "why": "Dependency tracing separates two issues. First, the measured Flats-to-vault ratio inherits the reference-station error: if the vault itself is about ×1.6 relative to competent rock in the same band, a published ×3 Flats-to-vault ratio becomes about ×4.8 Flats-to-rock for that measured band. Second, the planning memo made an additional inference by using a single event- and frequency-specific ratio as a universal design multiplier. That shortcut should be withdrawn rather than merely changed from 3 to 4.8. The hospital record, multi-station M_w solution and Marina Court field diagnosis do not depend on the vault and therefore remain supported.",
         "trace": {
           "channels": [
             {
               "id": "ratio",
               "label": "Flats motion comparison",
-              "reading": "×3.0 peak-velocity ratio, dimensionless (fortnight report)",
+              "reading": "×3.0 spectral-amplitude ratio at 1 Hz (fortnight report)",
               "depends": [
                 "flats_record",
                 "vault_ref"
@@ -407,8 +386,8 @@ export const CURRICULUM = {
             },
             {
               "id": "planning_factor",
-              "label": "Rebuilding demand factor",
-              "reading": "×3.0 design demand factor, dimensionless (district planning memo)",
+              "label": "Universal design shortcut copied from the site ratio",
+              "reading": "×3.0 applied as a universal design-demand multiplier (district planning memo)",
               "depends": [
                 "flats_record",
                 "vault_ref"
@@ -416,8 +395,8 @@ export const CURRICULUM = {
             },
             {
               "id": "hospital_pga",
-              "label": "Hospital base acceleration",
-              "reading": "0.31 g peak horizontal acceleration (basement instrument record)",
+              "label": "Hospital period-specific recorded demand",
+              "reading": "0.31 g spectral acceleration near T ≈ 0.4 s (basement record)",
               "depends": [
                 "hospital_record"
               ]
@@ -469,10 +448,10 @@ export const CURRICULUM = {
           "target": "vault_ref",
           "correction": {
             "what": "Site response of the reference station on the bench",
-            "was": "×1.0 — founded on competent granite, no amplification",
-            "now": "×1.6 — four metres of weathered granite, measured over five days side by side",
-            "corrected": "The ×3.0 Flats ratio is ×3.0 × 1.6 ≈ ×4.8 relative to competent rock, and the demand factor copied from it moves with it.",
-            "effect": "Any value measured against this station is low by that factor."
+            "was": "Treated as competent-rock response (×1.0 reference)",
+            "now": "About ×1.6 relative to nearby competent rock in the same 1 Hz band, from common-event comparison",
+            "corrected": "The 1 Hz Flats ratio becomes ×3.0 × 1.6 ≈ ×4.8 relative to competent rock. The universal design multiplier copied from the old ratio is withdrawn, not changed to ×4.8.",
+            "effect": "The Flats/vault spectral ratio must be corrected in that band; any inference built from the old ratio must be reconsidered separately."
           },
           "hint": "Open each conclusion and inspect the sources underneath it. Keep conclusions whose evidence chain does not pass through the suspect reference, then name the source shared by the conclusions that fail.",
           "commit": "Correct it"
@@ -480,52 +459,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a comparison is only as good as the thing compared against"
-      ],
-      "equations": [
-        {
-          "e": "M₀ = μ · A · D",
-          "c": "seismic moment, and what makes a big earthquake big",
-          "v": [
-            [
-              "M₀",
-              "seismic moment, in newton metres"
-            ],
-            [
-              "μ",
-              "rigidity of the rock, about 30 GPa"
-            ],
-            [
-              "A",
-              "area of fault that slipped, in square metres"
-            ],
-            [
-              "D",
-              "average slip on it, in metres"
-            ]
-          ],
-          "s": "The size of an earthquake is the area that moved times how far it moved times how stiff the rock is, which is why a long rupture matters more than a violent one.",
-          "demanded": true
-        },
-        {
-          "e": "M_w = ⅔ log₁₀ M₀ − 6.06",
-          "c": "moment magnitude, and why the scale is logarithmic",
-          "v": [
-            [
-              "M_w",
-              "moment magnitude, no units"
-            ],
-            [
-              "M₀",
-              "seismic moment, in newton metres"
-            ],
-            [
-              "⅔ and 6.06",
-              "constants that make the scale line up with the older ones"
-            ]
-          ],
-          "s": "One unit of magnitude is about thirty-two times the energy, so a 7 is not a bit worse than a 6.",
-          "demanded": true
-        }
       ],
       "concept": {
         "n": 4,
@@ -557,24 +490,24 @@ export const CURRICULUM = {
         "task": "Sort the findings by their evidence",
         "question": "Sort the findings by their evidence",
         "answer": "",
-        "why": "The four claims deserve different labels because their evidence chains differ. The vault siting error is directly documented and independently checked against competent rock. The hospital's 0.31 g is a direct measurement for 1 location and 1 event. Marina Court's mechanism is a strong inference from survey, ejecta and geotechnical behaviour rather than a direct observation beneath the raft. Future Flats amplification is conditional on corrected site-response evidence and the frequency content of a future earthquake. Stating those limits makes the report more useful, not weaker.",
+        "why": "The findings deserve different labels because their evidence chains differ. The vault/reference correction is directly documented by the trench log and common-event comparison. The hospital's period-specific recorded motion is measured at one building for one event. Marina Court's mechanism is a strong inference from rigid-body rotation, ejecta and ground observations without direct access beneath the raft. Future Flats site response is a projection that requires a period-dependent site-response study; the corrected 1 Hz ratio is not a universal future multiplier. The report becomes stronger when those distinctions remain visible.",
         "rebuttals": [
-          "The vault error has a 1998 trench log and 5 days of side-by-side recording behind it.",
-          "The hospital's 0.31 g came from an instrument in its own basement, for 1 event.",
-          "Marina Court's cause is sound geotechnics on a survey, with no borehole under the raft.",
-          "The future behaviour of the fill is a projection, and it is the weakest claim in the report."
+          "The reference correction has both documentary and independent instrumental support.",
+          "The hospital value is direct but event- and period-specific; it is not a universal property of the building.",
+          "The Marina Court mechanism is an inference with several converging observations, not a direct view beneath the foundation.",
+          "Site response varies with frequency and can depend on shaking level, so one corrected ratio cannot define the full future spectrum."
         ],
         "scenarios": [
-          "The reference vault is founded on weathered granite, not rock.",
-          "The hospital experienced 0.31 g at its base.",
-          "Marina Court rotated through loss of bearing capacity.",
-          "The Flats will amplify by about five in a future earthquake."
+          "The reference vault has a measurable site response relative to nearby competent rock in the 1 Hz band.",
+          "The hospital record gives about 0.31 g spectral acceleration near the building period.",
+          "Marina Court rotated because liquefaction-related ground deformation removed support beneath part of the raft.",
+          "The Flats will amplify by about five at every period in a future earthquake."
         ],
         "choices": [
-          "Established. A 1998 trench log and 5 days of side-by-side records.",
-          "Measured, once, at one building, for one event.",
-          "Inferred. Good geotechnics on a survey, with no borehole under the raft.",
-          "Projected. The weakest claim in the report, and the one the plan clause rests on."
+          "Established for the measured band by the trench log and common-event instrument comparison.",
+          "Measured once, at one building, for one event and one response period.",
+          "Inferred strongly from survey, ejecta and ground behaviour, without direct observation beneath the raft.",
+          "Not established: the corrected 1 Hz ratio cannot be projected to every period and future input motion."
         ],
         "mapping": [
           0,
@@ -896,7 +829,7 @@ export const CURRICULUM = {
       "scene": "Okonkwo has the column loads. At eight degrees the weight above each column no longer lands over its centre, and the offset grows with height up the building. The survey sheet and column plan are open beside him.",
       "takeaway": "The lean matters because gravity now acts with eccentricity, creating P–Δ effects and extra bending demand in the frame.",
       "place": "Structural Assessment",
-      "guide": "All four options are true things about a leaning building. They differ in whether they name a load path or a feeling. Ask of each whether an engineer could put a number on it from the survey sheet and the column plan. A column carries weight best along its own axis. Eight degrees moves that weight off the axis, and the offset grows with height.",
+      "guide": "The frightening part is the angle, but the engineering question is what that angle does to the load path. At eight degrees, gravity loads act with large eccentricity, increasing bending and second-order P–Δ demand. Continued settlement is a separate geotechnical hazard and must be monitored.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
@@ -911,9 +844,9 @@ export const CURRICULUM = {
         "task": "Decide what the lean actually costs",
         "question": "What is the engineering objection to leaving Marina Court standing?",
         "answer": "That the weight now acts off-centre, adding bending to columns built to be squashed.",
-        "why": "A column is efficient when its gravity load stays close to its axis. Once the building leans, the weight above acts with an offset, creating additional bending moment; as lateral displacement grows, the gravity load can amplify that demand through P–Δ effects. The engineering question is therefore not whether eight degrees looks frightening, but whether the measured geometry, member capacities and continued ground stability leave adequate margin. The undamaged frame is encouraging evidence, not permission to ignore the new load path.",
+        "why": "Once the whole building is tilted, gravity no longer acts through the same geometry for which the columns and frame were proportioned. The lateral offset creates additional bending and second-order P–Δ effects, and an eight-degree lean is far beyond something that can be dismissed because the members are visibly uncracked. The survey therefore supports a red restriction while engineers check global stability, member demand and whether the ground has stopped moving. The angle does not guarantee that the lean will keep increasing on its own; renewed settlement or aftershocks are separate mechanisms that have to be monitored.",
         "rebuttals": [
-          "The lean stops when the pore pressure dissipates; it is not a process that runs away by itself.",
+          "The tilt is not automatically self-propagating, but continued settlement or another shock could change it; that is why monitoring remains part of the cordon.",
           "Public confidence is a real cost and a reason to explain, not a reason a structure is unsafe.",
           "The frame is undamaged, which is precisely what the survey found."
         ],
@@ -929,11 +862,12 @@ export const CURRICULUM = {
         "a leaning column carries its load off-centre"
       ],
       "concept": {
-        "n": 10,
-        "c": "Load path, and what happens where it stops",
+        "n": 16,
+        "c": "Bearing capacity and settlement",
         "of": 30,
         "rests": [
-          "Base shear — the horizontal force a building is designed for"
+          "Stress, strain and the yield point",
+          "Liquefaction: when saturated fill stops behaving as a solid"
         ]
       }
     },
@@ -1340,14 +1274,7 @@ export const CURRICULUM = {
         "correctChoice": "Shear from reversing earthquake load"
       },
       "assumes": [
-        "a crack runs across the direction of the tension that opened it",
-        "stress, strain and the yield point — taken as read"
-      ],
-      "takesAsRead": [
-        {
-          "n": 12,
-          "c": "Stress, strain and the yield point"
-        }
+        "a crack runs across the direction of the tension that opened it"
       ],
       "concept": {
         "n": 11,
@@ -1410,7 +1337,7 @@ export const CURRICULUM = {
       "day": 10,
       "title": "Walls that fall outward",
       "scene": "Owners are asking when the Parade can reopen. Every parapet fell outward into the street, while the buildings behind them remain standing. Timber floors are still connected. The fallen masonry is tagged by frontage, and the barriers are still up.",
-      "takeaway": "Unreinforced masonry fails out of plane, so the free top of a wall goes first and the tied part stays.",
+      "takeaway": "Unbraced parapets are vulnerable to out-of-plane inertia; the missing restraint can make a local connection retrofit more important than strengthening the whole wall.",
       "place": "Structural Assessment",
       "guide": "Follow the sideways force from the shaking ground up through the building and name the link that gave way. Each step carries a reading saying what restraint it can actually provide. The heaviest element on the board is not automatically the one that failed, and neither is the first step in the path.",
       "background": [
@@ -1426,8 +1353,8 @@ export const CURRICULUM = {
         "play": "Say why the masonry failed the way it did",
         "task": "Say why the masonry failed the way it did",
         "question": "Trace the sideways force through the frontage and name the link that failed.",
-        "answer": "The mortar bed at the parapet's base, resisting the whole force in bending because nothing ties the top back. Every other link in the path had the capacity it needed.",
-        "why": "Horizontal shaking gives every part of the frontage an inertia force proportional to its mass, and that force has to travel somewhere. Below roof level it goes into the timber floors, which are connected and stiff enough in their own plane to carry it to the cross walls and down to the foundations — every one of those links had capacity to spare. Above roof level the path stops. A parapet has nothing tying its top back and nothing above it, so the entire force it collects must be resisted at its base by mortar in bending, which is the one thing unreinforced masonry cannot do. That is why every parapet on the Parade went and the walls below them stayed. It also decides the repair: the missing link is a connection, so the retrofit is an anchor into the roof structure rather than work on the wall.",
+        "answer": "The load path stops at the unbraced parapet. Its out-of-plane inertia has no positive tie into the roof diaphragm, so bending and weak masonry/mortar at the base become the local failure mechanism.",
+        "why": "Horizontal shaking gives the parapet an out-of-plane inertia force. Below roof level, the wall is restrained by connected floors and can transfer load into the diaphragms and cross walls. Above the roof, the parapet in this scenario lacks a positive brace or anchor back to the structure. The unsupported top therefore behaves much more like a cantilever, and weak masonry/mortar at the base can fail in bending or rocking. The useful diagnosis is the missing restraint in the load path; the retrofit must be designed around a verified anchorage capacity rather than assuming every surviving wall has the same detail.",
         "chain": {
           "links": [
             {
@@ -1501,20 +1428,20 @@ export const CURRICULUM = {
         "play": "Work out what the 5.1 did to the shored buildings",
         "task": "Work out what the 5.1 did to the shored buildings",
         "question": "What do the two buildings with new cracking tell the office?",
-        "answer": "That these two are near their reduced capacity, which is what shoring bought time against.",
-        "why": "Shoring is temporary load support, not restoration of the damaged structural system. New cracking during a smaller aftershock therefore matters: it shows that the current combination of residual capacity, shoring and aftershock demand produced additional distress. That is a reason to maintain or tighten restrictions and perform a focused reassessment before deciding on strengthening, evacuation or a revised shore scheme. It does not by itself prove the shoring failed, identify the exact damaged mechanism, or tell you how close the building is to collapse.",
+        "answer": "That the two buildings accumulated new distress under the smaller aftershock, so their restrictions and shoring need focused reassessment.",
+        "why": "New cracking after a smaller aftershock is evidence of additional distress in already damaged structures. It justifies maintaining or tightening restrictions and checking the damaged mechanism and the shoring. It does not by itself locate the building on a precise capacity curve, prove the shoring failed, or invalidate the first assessment. The observed change is the reason to re-enter the evidence loop.",
         "rebuttals": [
           "The shoring is still standing and doing its job; nothing about it failed.",
           "Network stations either side of those streets recorded the same motion, so the shaking was not local.",
           "The original assessment said these buildings had reduced capacity, which is exactly what this confirms."
         ],
         "choices": [
-          "That the shoring failed and should be replaced with a different system.",
-          "That these two are near their reduced capacity, which is what shoring bought time against.",
-          "That the aftershock was much larger in those two streets than the network recorded.",
-          "That the original assessment of both buildings was wrong."
+          "That the shoring failed and must automatically be replaced.",
+          "That the two buildings accumulated new distress under the smaller aftershock, so their restrictions and shoring need focused reassessment.",
+          "That the aftershock must have been much stronger on those two streets than the network measured.",
+          "That the original assessment was necessarily wrong."
         ],
-        "correctChoice": "That these two are near their reduced capacity, which is what shoring bought time against."
+        "correctChoice": "That the two buildings accumulated new distress under the smaller aftershock, so their restrictions and shoring need focused reassessment."
       },
       "assumes": [
         "a shored building is being held rather than repaired",
@@ -1537,49 +1464,49 @@ export const CURRICULUM = {
     },
     {
       "day": 12,
-      "title": "What outlives the emergency",
-      "scene": "Four things the office started doing under pressure. Okonkwo asks which of them is worth its cost on an ordinary Tuesday, when nothing has happened. The emergency procedures are being rewritten into the permanent manual.",
-      "takeaway": "An unknown only becomes safer when it has an owner, a deadline and a rule that prevents final clearance from silently forgetting it.",
+      "title": "Sign the register",
+      "scene": "The fifteen entries are on the table. Okonkwo has left one blank line above the signature. It is for the condition under which you are willing to sign: what happens to every uninspected space and every unresolved hazard after today's report leaves the room.",
+      "takeaway": "Sign only the register that preserves unresolved hazards as owned actions rather than silently converting them into clearances.",
       "place": "Structural Assessment",
-      "guide": "All four practices are good ones. Two questions separate them. Does it block the failure that actually happened? And will the office still be doing it in a quiet month? Trace each back to the mechanism. The gym, the plant room and the basement were all outside the first inspection. All three omissions were written down, and nobody acted on the list.",
+      "guide": "Choose the register you can defend. A signed record may contain uncertainty, but it cannot hide it. The school gym, hospital plant room and Ferry Street basement all began as written inspection limits that nobody owned. The final version must turn every unresolved item into an assigned action with a deadline or trigger before a later full clearance can erase it.",
       "background": [
-        "Why first is a different question from most important. When several calls compete for the same hour, what a choice is worth is not its own importance but the difference between doing it now and doing it later. A serious problem that will be no worse in an hour costs nothing to defer. A smaller one that closes a door costs everything behind that door.",
-        "What to look for in the options. Two things separate them: which is still changing, and which is a precondition for the others. A situation that is deteriorating has a cost per hour attached to it, and a step that unblocks the rest multiplies the value of the hours after it. Everything else is a preference about where to start.",
-        "Why only one answer is marked. In the situation these options describe all of them eventually happen; what is being tested is the head of the queue, because that is where the reasoning is visible. The verdict names what each of the others was waiting on, which is worth reading even when the choice was right — the ordering behind the first place is the rest of the answer."
+        "Why this is the final decision. Every earlier placard was provisional evidence under pressure. The register is the durable record other people will use after the emergency team disperses.",
+        "What makes uncertainty acceptable. An unresolved condition can remain in a signed report if its consequence, current restriction, owner and next check are explicit. Hidden uncertainty is the failure.",
+        "What the fortnight revealed. The repeated blind spot was not that inspectors failed to see through walls; it was that written limits of inspection were allowed to become nobody's task."
       ],
-      "story": "Four things the office started doing under pressure. Okonkwo asks which of them is worth its cost on an ordinary Tuesday, when nothing has happened. The emergency procedures are being rewritten into the permanent manual.",
+      "story": "The fifteen entries are on the table. Okonkwo has left one blank line above the signature. It is for the condition under which you are willing to sign: what happens to every uninspected space and every unresolved hazard after today's report leaves the room.",
       "game": {
         "type": "TRIAGE",
-        "title": "What outlives the emergency",
+        "title": "Sign the register",
         "setup": "Structural Assessment",
-        "play": "Choose the permanent practice that closes the repeated blind spot",
-        "task": "Choose the permanent practice that closes the repeated blind spot",
-        "question": "Which permanent practice would most directly prevent the school, hospital and Ferry Street failure mode from repeating?",
-        "answer": "Recording, on every inspection, the parts of the building nobody could see.",
-        "why": "A permanent practice should catch recurring failure modes at a cost the office will actually keep paying. The school gym, hospital plant room and Ferry Street basement were all outside the first inspection scope, yet the omissions were written down. Making that unresolved list actionable would have exposed each gap. Two engineers on every placard would halve throughput without a measured benefit. Daily public meetings were useful only during the crisis. Re-inspecting every shored building after every magnitude-4 event is so broad that staff would eventually stop following the rule.",
+        "play": "Make the final sign-off decision on the Placard Register",
+        "task": "Make the final sign-off decision on the Placard Register",
+        "question": "Which version of the Placard Register can you sign?",
+        "answer": "Sign the version that keeps each unresolved item visible, assigns an owner and trigger for reassessment, and preserves the current restriction until that evidence arrives.",
+        "why": "The defensible register does not claim that every building is safe. It states the current use restriction, the evidence behind it, the parts not inspected, and who owns each unresolved item with a deadline or trigger for reassessment. That is the lesson shared by the school gym, hospital plant room, Ferry Street basement and reference-station error: uncertainty becomes dangerous when the record makes it disappear. Signing the qualified register is the actual decision the fifteen days have been building toward.",
         "rebuttals": [
-          "Doubling up on placards halves the number of buildings cleared per day, for an error rate nobody has quantified.",
-          "A daily public meeting was right during the emergency and is not sustainable as a standing practice.",
-          "A rule triggered by every magnitude 4 will be dropped the first quiet year, which makes it worse than no rule."
+          "A post-disaster register cannot wait for complete knowledge; it has to manage explicit uncertainty while the town operates.",
+          "Removing the limits of inspection is exactly how a provisional placard becomes an unsupported guarantee.",
+          "Aftershock activity decays rather than supplying a clean end date, and the town needs a usable record now."
         ],
         "choices": [
-          "Recording, on every inspection, the parts of the building nobody could see.",
-          "Two engineers on every placard, which halves the number of buildings assessed per day.",
-          "A daily public meeting, which took two hours out of every afternoon.",
-          "Re-inspecting every shored building after any aftershock above magnitude 4."
+          "Sign the version that keeps each unresolved item visible, assigns an owner and trigger for reassessment, and preserves the current restriction until that evidence arrives.",
+          "Sign only after every building has been fully opened, tested and proved safe with no remaining uncertainty.",
+          "Sign the current colors without the inspection limits, because the public needs one simple answer per building.",
+          "Delay the register until the aftershock sequence has ended and no further placard could change."
         ],
-        "correctChoice": "Recording, on every inspection, the parts of the building nobody could see."
+        "correctChoice": "Sign the version that keeps each unresolved item visible, assigns an owner and trigger for reassessment, and preserves the current restriction until that evidence arrives."
       },
       "assumes": [
-        "a practice adopted under pressure has a cost that only shows later"
+        "a safety coordinator may sign a report that contains explicit unresolved items and restrictions"
       ],
       "concept": {
-        "n": 28,
-        "c": "Communicating risk to people who have to act on it",
+        "n": 21,
+        "c": "Placarding as a decision under uncertainty",
         "of": 30,
         "rests": [
-          "Probability of a larger event after a mainshock",
-          "Placarding as a decision under uncertainty"
+          "Factor of safety, and what it is protecting against",
+          "Rapid assessment against detailed evaluation"
         ]
       }
     }
@@ -1640,27 +1567,27 @@ export const CURRICULUM = {
         "ground can be natural or placed by people"
       ],
       "concept": {
-        "n": 15,
-        "c": "Liquefaction: when saturated fill stops behaving as a solid",
+        "n": 7,
+        "c": "Site effect: soft ground amplifies",
         "of": 30,
         "rests": [
-          "Effective stress, and why water pressure matters"
+          "Peak ground acceleration and what a building feels"
         ]
       }
     },
     {
       "day": 2,
       "title": "The raft is fine and the building is not",
-      "scene": "Navarro's survey: the raft is intact, level within itself, and rotated. 1 side has gone down 340 millimetres and the other has come up 90. The sand fans are worst on the low side.",
+      "scene": "Navarro's survey: the raft is intact and the frame is still square to itself, but the whole building has rotated. Across the roughly 12 m raft, one edge now sits about 1.7 m lower than the other. Fresh sand ejecta are concentrated toward the low side.",
       "takeaway": "A structure can fail without anything in the structure breaking.",
       "place": "Geotechnical",
-      "guide": "Four options, and the survey above has to be explained whole. Ask of each option how many of its four readings it covers. The intact raft. The level within itself. The rotation. And where the sand came up. A frame that failed would distort rather than rotate as one piece.",
+      "guide": "The geometry has to agree with the explanation. An eight-degree rigid-body tilt across about twelve metres requires roughly 12 × tan(8°) ≈ 1.7 m of elevation difference. The frame has not racked; the support beneath it moved.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Navarro's survey: the raft is intact, level within itself, and rotated. 1 side has gone down 340 millimetres and the other has come up 90. The sand fans are worst on the low side.",
+      "story": "Navarro's survey: the raft is intact and the frame is still square to itself, but the whole building has rotated. Across the roughly 12 m raft, one edge now sits about 1.7 m lower than the other. Fresh sand ejecta are concentrated toward the low side.",
       "game": {
         "type": "CHOICE",
         "title": "The raft is fine and the building is not",
@@ -1668,42 +1595,35 @@ export const CURRICULUM = {
         "play": "Which explanation fits every observation?",
         "task": "Which explanation fits every observation?",
         "question": "Which explanation fits every observation?",
-        "answer": "The ground liquefied and lost bearing capacity under one side",
-        "why": "The observations point to support beneath the raft rather than distortion within the frame. The raft is intact and the building rotated almost as a rigid body; one edge settled while the other heaved, with fresh sand ejecta concentrated on the low side. During liquefaction, excess pore pressure can sharply reduce effective stress and bearing resistance, allowing settlement and lateral movement without the frame itself yielding. That does not prove every detail, but it is the hypothesis that explains the survey, ejecta and undamaged frame together.",
+        "answer": "Liquefaction-related ground deformation removed support under part of the raft, rotating the building as a unit.",
+        "why": "The observations point below the raft rather than to yielding inside the frame. A rigid-body rotation of about eight degrees across a twelve-metre foundation corresponds to roughly 1.7 metres of differential elevation, which matches the survey. Fresh ejecta and the concentration of movement on one side are consistent with liquefaction-related loss of bearing resistance and ground deformation. The evidence does not reveal every detail beneath an inaccessible raft, so this remains a strong geotechnical inference rather than a direct view of the failure surface.",
         "rebuttals": [
-          "A yielded frame shows distortion within itself, and this one is plumb to a tenth of a degree.",
-          "A construction fault would have been visible for years and would not come with fresh ejecta.",
-          "A single directional pulse does not settle 1 edge by 340 mm and lift the other."
+          "A yielded frame should show internal distortion; the survey says the frame and raft rotated together.",
+          "The tilt appeared with the earthquake and fresh ejecta, so it is not a long-standing construction condition.",
+          "The permanent differential ground movement is the evidence the pulse-only explanation misses."
         ],
         "choices": [
           {
-            "label": "The frame failed and the lean is structural",
-            "mechanism": "A frame that has yielded on one side would lean this way."
+            "label": "The frame yielded on one side and pulled the raft with it",
+            "mechanism": "Internal frame distortion would be visible if this were the primary mechanism."
           },
           {
-            "label": "The ground liquefied and lost bearing capacity under one side",
-            "mechanism": "Liquefied soil cannot carry the pressure under the raft, so the raft rotates into it."
+            "label": "Liquefaction-related ground deformation removed support under part of the raft, rotating the building as a unit.",
+            "mechanism": "The intact frame, rigid-body tilt, ejecta and differential ground movement point below the raft."
           },
           {
-            "label": "The raft was built out of level and this predates the earthquake",
-            "mechanism": "A construction fault would produce a permanent lean."
+            "label": "The raft was originally built eight degrees out of level",
+            "mechanism": "That would predate the quake and would not explain fresh ejecta or sudden displacement."
           },
           {
-            "label": "An aftershock struck the building from one side",
-            "mechanism": "A directional pulse could push a building over."
+            "label": "A one-sided aftershock simply pushed the whole building over",
+            "mechanism": "A directional pulse does not by itself explain the permanent foundation-level differential movement."
           }
         ],
-        "correctChoice": "The ground liquefied and lost bearing capacity under one side"
+        "correctChoice": "Liquefaction-related ground deformation removed support under part of the raft, rotating the building as a unit."
       },
       "assumes": [
-        "a foundation spreads a building's weight into the ground",
-        "stress, strain and the yield point — taken as read"
-      ],
-      "takesAsRead": [
-        {
-          "n": 12,
-          "c": "Stress, strain and the yield point"
-        }
+        "a foundation spreads a building's weight into the ground"
       ],
       "concept": {
         "n": 16,
@@ -1735,20 +1655,20 @@ export const CURRICULUM = {
         "play": "Say whether the liquefied street is dangerous or just unusable",
         "task": "Say whether the liquefied street is dangerous or just unusable",
         "question": "What is the defensible status of Ferry Street now?",
-        "answer": "Drained and disturbed — walkable, no heavy vehicles, and liable to go again.",
-        "why": "Liquefaction needs high pore pressure during shaking. Afterward, that excess pressure drains away and grain contacts recover. The ground can still be badly changed. Settlement, lateral spreading, ejecta, local voids and uneven stiffness may remain. Some loose sand may even become denser, so calling the whole deposit 'looser' is too simple. A dry surface also says little about truck support. Ferry Street is disturbed ground with heavy-load capacity unverified. Susceptible saturated layers could liquefy again in a strong aftershock.",
+        "answer": "Drained and disturbed — pedestrian access may be possible, but heavy-load capacity is unverified and susceptible layers can liquefy again.",
+        "why": "Liquefaction is a transient loss of effective stress during shaking as excess pore pressure builds. After the shaking, excess pressure dissipates and grain contacts recover, but settlement, lateral displacement, ejecta, voids and heterogeneous stiffness remain. A dry surface therefore does not prove adequate bearing capacity for trucks. Susceptible saturated layers may also reliquefy in later strong shaking. The defensible placard decision is to separate what has been observed—pedestrian bearing at the surface—from the heavy-load and future-shaking questions that remain unverified.",
         "rebuttals": [
           "Pore pressure dissipates in hours, so the ground is not still liquefied three days on.",
           "Dry at the surface is not recovered underneath; the fabric of the ground has changed.",
           "Nothing here says the street is beyond repair, and most liquefied ground is repaired rather than replaced."
         ],
         "choices": [
-          "Still liquefied, and dangerous to anybody walking on it.",
-          "Drained and disturbed — walkable, no heavy vehicles, and liable to go again.",
-          "Fully recovered, since the water has gone and the surface is dry.",
-          "Permanently destroyed, and the street will have to be rebuilt before anybody returns."
+          "Still liquefied everywhere, so nobody can stand on the street.",
+          "Drained and disturbed — pedestrian access may be possible, but heavy-load capacity is unverified and susceptible layers can liquefy again.",
+          "Fully recovered because the sand fans are dry.",
+          "Permanently unusable; liquefied ground cannot be repaired."
         ],
-        "correctChoice": "Drained and disturbed — walkable, no heavy vehicles, and liable to go again."
+        "correctChoice": "Drained and disturbed — pedestrian access may be possible, but heavy-load capacity is unverified and susceptible layers can liquefy again."
       },
       "assumes": [
         "liquefied ground regains strength as pore pressure dissipates"
@@ -1766,16 +1686,16 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "The water table, while the trench is open",
-      "scene": "The trench for the temporary shoring has to stand open for an afternoon in ground that liquefied nine days ago. The wellpoints hold the water down. If the water comes back up the sides do not wait to be asked.",
-      "takeaway": "A trench is held open by a pressure balance, and the balance is held by a pump.",
+      "scene": "The trench for temporary shoring must stay open through the afternoon in saturated fill that liquefied nine days ago. Wellpoints keep the groundwater below the excavation. If the water rises too close to the floor, effective stress falls and seepage or local instability can develop before the shoring is complete.",
+      "takeaway": "Dewatering protects an excavation by controlling pore pressure and hydraulic gradients; that is related to effective stress but is not slow-motion earthquake liquefaction.",
       "place": "Geotechnical",
-      "guide": "Hold the water table below the trench floor, inside the band on the gauge. The band narrows as the afternoon goes on, because each hour the sides stand open they lose a little of what was holding them. The wellpoint pumps are your control, and every inflow keeps arriving until the pumps answer it.",
+      "guide": "Keep the groundwater level inside the safe band by matching persistent inflows with pumping. The band narrows later in the exercise because the staged excavation leaves less hydraulic margin as work proceeds—not because sand automatically loses strength merely from being exposed to time.",
       "background": [
-        "Why the water is what matters. The sand is held together by the pressure between grains, and that is the weight above less the water pressure between them. Let the water rise and the grains stop pressing on each other while nothing about the sand has changed.",
-        "Why an inflow is a rate. Rain on the fill, a leaking main, the tide in the harbour — each of them keeps feeding water in for as long as it lasts, so the table does not settle at a new level. It keeps rising until pumping matches the inflow.",
-        "Why the margin shrinks. An open trench face creeps: it loses a little strength every hour it stands, so the same rise in water is a bigger fraction of what is left by the end of the afternoon than it was at the start."
+        "Why water level matters. Higher pore-water pressure reduces effective stress in the soil skeleton. Around an excavation, adverse hydraulic gradients can also drive seepage, piping or boiling.",
+        "Why inflow is a rate. Rain, a leaking main and harbour groundwater can continue feeding the excavation. A short burst of pumping does not balance a persistent inflow.",
+        "Why this is related to—but not the same as—liquefaction. Earthquake liquefaction is produced by cyclic loading that generates excess pore pressure. Excavation instability from groundwater is a static seepage/effective-stress problem unless new shaking occurs."
       ],
-      "story": "The trench for the temporary shoring has to stand open for an afternoon in ground that liquefied nine days ago. The wellpoints hold the water down. If the water comes back up the sides do not wait to be asked.",
+      "story": "The trench for temporary shoring must stay open through the afternoon in saturated fill that liquefied nine days ago. Wellpoints keep the groundwater below the excavation. If the water rises too close to the floor, effective stress falls and seepage or local instability can develop before the shoring is complete.",
       "game": {
         "type": "HOLD",
         "title": "The water table, while the trench is open",
@@ -1783,8 +1703,8 @@ export const CURRICULUM = {
         "play": "Hold the dewatering while the excavation stands open.",
         "task": "Hold the dewatering while the excavation stands open.",
         "question": "Hold the water table below the trench floor while the shoring goes in.",
-        "answer": "Inside the band for most of the afternoon, with the pumps set to match each inflow rather than started after the gauge has already risen.",
-        "why": "Sandy ground holds together because the grains press on one another, and that pressure is the weight above less the water pressure between them. Raise the water and the grains stop pressing, though nothing about the sand has changed — which is the same mechanism that liquefied this ground nine days ago, arriving slowly instead of in forty seconds. Every disturbance here is a rate. Rain on the fill keeps arriving, the leaking main keeps leaking, the tide keeps coming in, so the table does not settle at a new level and a pump started briefly buys nothing. Set the pumps to match the inflow and leave them there. The band narrows because an open face creeps: it loses a little strength every hour it stands, so the rise that was tolerable at one o'clock is most of the remaining margin by four.",
+        "answer": "Keep the groundwater inside the safe band by matching sustained inflows with sustained pumping, then report any loss of hydraulic margin before the next excavation stage.",
+        "why": "Raising groundwater increases pore pressure and reduces effective stress. In an open excavation, a sufficiently adverse hydraulic gradient can also produce seepage, piping or boiling. That is why the pump has to match continuing inflow rather than react only after the gauge has moved. This is not liquefaction 'arriving slowly': liquefaction requires cyclic loading to generate excess pore pressure. The game narrows the permitted band as the staged work proceeds to represent a smaller allowed hydraulic margin while shoring is incomplete.",
         "hold": {
           "quantity": "Water table below the trench floor",
           "control": "Wellpoint pumps",
@@ -1832,16 +1752,16 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What still stands",
-      "scene": "Navarro puts four of the fortnight's conclusions on the board and asks which of them leaned on the vault ratio and which did not. The corrected vault report is clipped beside the board.",
-      "takeaway": "A bad reference invalidates what was measured against it and leaves what was measured directly alone.",
+      "scene": "Navarro puts four of the fortnight's conclusions on the board. One used the suspect vault directly; the others have independent evidence chains.",
+      "takeaway": "A reference error propagates through dependent measurements, not through every conclusion made during the same emergency.",
       "place": "Geotechnical",
-      "guide": "Four conclusions from the fortnight, and the reference station turns out to be founded on weathered granite. Trace each conclusion back to its evidence and ask whether the vault is in it. A survey, a heave and a field of ejecta do not need a reference station. Neither does a basement instrument. One bad denominator invalidates what divided by it and nothing else.",
+      "guide": "Trace each conclusion back to its evidence. The 1 Hz Flats spectral ratio used the vault as its denominator. The hospital's period-specific record did not. Marina Court's rigid-body rotation and ejecta did not. The Parade's parapet failures did not.",
       "background": [
         "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
         "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
       ],
-      "story": "Navarro puts four of the fortnight's conclusions on the board and asks which of them leaned on the vault ratio and which did not. The corrected vault report is clipped beside the board.",
+      "story": "Navarro puts four of the fortnight's conclusions on the board. One used the suspect vault directly; the others have independent evidence chains.",
       "game": {
         "type": "CASEBOOK",
         "title": "What still stands",
@@ -1850,24 +1770,24 @@ export const CURRICULUM = {
         "task": "Sort the fortnight's conclusions",
         "question": "Sort the fortnight's conclusions",
         "answer": "",
-        "why": "Trace each conclusion to the evidence that supports it. The Flats amplification ratio directly used the vault as its reference, so it must be restated. Marina Court's diagnosis came from settlement, heave, ejecta and structural survey. The hospital's 0.31 g came from its own basement instrument. The parapet case rests on observed building failures and restraint details. Those conclusions may deserve other checks, but this reference-station error does not erase them. One bad denominator should not become an excuse to discard unrelated evidence.",
+        "why": "Trace each conclusion to its evidence. The Flats spectral ratio used the vault directly and must be restated. The district design shortcut also depended on that ratio, but it should be withdrawn rather than assigned a new universal factor because site response varies with period and input motion. Marina Court's diagnosis came from survey, ejecta and geotechnical observations. The hospital motion came from its own instrument, and moment magnitude came from the network source solution.",
         "rebuttals": [
-          "The amplification factor was the vault ratio, so it is the one conclusion that falls outright.",
-          "Marina Court was diagnosed from settlement, heave and ejecta, with no reference station involved.",
-          "The hospital's demand was measured by an accelerograph in its own basement.",
-          "The parapet argument rests on every parapet having fallen, which is an observation rather than a ratio."
+          "The 1 Hz Flats/vault ratio used the bad denominator and must be corrected to a Flats/competent-rock ratio.",
+          "Marina Court was diagnosed from survey, rigid-body rotation, ejecta and ground observations, with no reference station in the chain.",
+          "The hospital's period-specific demand came from its own basement accelerograph.",
+          "The parapet diagnosis rests on observed failures and connection details, not the seismic reference station."
         ],
         "scenarios": [
-          "The Flats amplify shaking by about three times.",
-          "Marina Court failed through loss of bearing capacity.",
-          "The hospital saw 0.31 g against a design value of 0.35.",
-          "The Parade's parapets need tying back."
+          "The Flats/vault spectral-amplitude ratio at 1 Hz is about three.",
+          "Marina Court failed through liquefaction-related loss of support beneath the raft.",
+          "The hospital record gives about 0.31 g spectral acceleration near its 0.4 s period.",
+          "The Parade's unbraced parapets need a positive tie-back detail."
         ],
         "choices": [
-          "Falls, and is restated — the real factor is nearer five.",
-          "Stands. Survey, heave and ejecta; no reference station in it.",
-          "Stands. Measured in the hospital's own basement.",
-          "Stands. An observation about buildings rather than a ratio."
+          "Falls as stated and is restated: the corrected Flats/competent-rock ratio is about 4.8 in that 1 Hz band.",
+          "Stands as a strong inference from independent field evidence.",
+          "Stands as a direct, building-specific instrumental measurement.",
+          "Stands as a structural diagnosis from observed failure and load-path details."
         ],
         "mapping": [
           0,
@@ -1884,12 +1804,11 @@ export const CURRICULUM = {
         "a conclusion can rest on one measurement or on several"
       ],
       "concept": {
-        "n": 14,
-        "c": "Unreinforced masonry, and why it fails outward",
+        "n": 4,
+        "c": "Moment magnitude, and what it is made of",
         "of": 30,
         "rests": [
-          "Load path, and what happens where it stops",
-          "Ductility: bending without breaking"
+          "Magnitude as a logarithmic scale"
         ]
       }
     },
@@ -1897,7 +1816,7 @@ export const CURRICULUM = {
       "day": 6,
       "title": "Wetting ground that has already failed",
       "scene": "Mbeki is on Ferry Street with a standpipe. The water table under the road has risen three quarters of a metre since the main went, and the ground surface is soft again underfoot.",
-      "takeaway": "Raising the water table reduces effective stress in susceptible fill, increasing liquefaction susceptibility during renewed shaking without causing liquefaction by itself.",
+      "takeaway": "A higher water table lowers effective stress and can worsen liquefaction susceptibility, but the triggering margin is not a simple linear percentage of effective stress.",
       "place": "Geotechnical",
       "guide": "Put a number on what the leak did. The grains are held together by the effective stress, which is the total weight above them less the water pressure between them. Pick the total stress at three metres and the pore pressure the risen water table now gives, and take one from the other. Two tiles are the pressures before the main burst, which is the comparison rather than the answer.",
       "background": [
@@ -1913,8 +1832,8 @@ export const CURRICULUM = {
         "play": "Say what water does to fill",
         "task": "Say what water does to fill",
         "question": "At three metres down under Ferry Street, what is the effective stress now the water table has risen?",
-        "answer": "About 39 kilopascals (kPa), down from 47 before the main burst — the grains are carrying 16 per cent less, and it takes a correspondingly smaller aftershock to finish the job.",
-        "why": "Effective stress is σ' = σ − u. The fill weighs about 18 kN per cubic metre, so at three metres the total vertical stress is 18 × 3 = 54 kPa, and that has not changed. What has changed is the water. The table was 2.25 m down, giving a pore pressure at three metres of 9.81 × 0.75 ≈ 7.4 kPa and an effective stress of 54 − 7.4 ≈ 47 kPa. It is now 1.5 m down, so u = 9.81 × 1.5 ≈ 14.7 kPa and σ' = 54 − 14.7 ≈ 39 kPa. The skeleton is carrying about 16 per cent less than it was on Monday, and everything the ground can resist scales with that number. The leak has liquefied nothing by itself; cyclic shaking is still required to raise u the rest of the way to σ. It has simply moved the starting point closer, which is why the same aftershock forecast means something different on Ferry Street this week. On granite there is no loose saturated skeleton for the mechanism to act on at all.",
+        "answer": "About 39 kPa, down from about 47 kPa before the main burst. That is a meaningful reduction in effective stress and a reason to reassess liquefaction triggering—not a 16% rule for aftershock size.",
+        "why": "At 3 m depth, total vertical stress is about 18 kN/m³ × 3 m = 54 kPa. With the water table now 1.5 m below ground, the pore pressure at 3 m is about 9.81 × 1.5 ≈ 14.7 kPa, so σ'≈54−14.7≈39 kPa. Before the rise, u≈7.4 kPa and σ'≈47 kPa. The soil skeleton therefore carries less effective stress. That changes liquefaction susceptibility and should trigger a renewed geotechnical check, but cyclic resistance and demand do not scale one-for-one with this 16% change. The leak has not liquefied the ground by itself; renewed cyclic shaking would still be required.",
         "givens": [
           "fill at about 18 kN/m³, so σ = 54 kPa at three metres",
           "the water table is now 1.5 m down, giving u ≈ 14.7 kPa"
@@ -2014,11 +1933,11 @@ export const CURRICULUM = {
         }
       ],
       "concept": {
-        "n": 12,
-        "c": "Stress, strain and the yield point",
+        "n": 18,
+        "c": "Effective stress, and why water pressure matters",
         "of": 30,
         "rests": [
-          "Peak ground acceleration and what a building feels"
+          "Stress, strain and the yield point"
         ]
       }
     },
@@ -2041,31 +1960,32 @@ export const CURRICULUM = {
         "setup": "Geotechnical",
         "play": "Say what ground improvement actually does",
         "task": "Say what ground improvement actually does",
-        "question": "What is the engineering difference between treating the ground and designing the foundation around the hazard?",
-        "answer": "Improvement stops the fill liquefying; a stiff foundation only rides it out.",
-        "why": "The two strategies act at different places in the system. Densification can increase density and cyclic resistance; drains or stone columns may also help dissipate excess pore pressure, depending on the design. That reduces liquefaction susceptibility rather than guaranteeing the soil can never liquefy. Structural solutions such as piles or rafts may bypass weak layers or tolerate differential movement, but they leave roads, buried utilities and neighbouring sites exposed to ground deformation. Both can be legitimate; the town-level question is which consequences the policy is trying to reduce.",
+        "question": "What is the engineering difference between improving the ground and designing foundations to tolerate the hazard?",
+        "answer": "Ground improvement can reduce liquefaction susceptibility or deformation; foundation design can instead bypass or tolerate some remaining ground movement.",
+        "why": "The strategies act at different places. Densification can increase density and cyclic resistance; drains or stone columns may reduce excess pore-pressure buildup or its consequences, depending on the design. None of those guarantees that the soil can never liquefy. Piles, rafts or other foundation strategies can bypass weak layers or tolerate some deformation, but roads, utilities and neighbouring sites may still move. A town-level rule therefore has to state which consequence it is trying to reduce and what performance is required.",
         "rebuttals": [
-          "The two are not equivalent, since one removes the mechanism and one accommodates it.",
-          "Improvement is generally more expensive per site, not less, though it covers more than the building.",
-          "Nothing stops shaking reaching a building; a stiff foundation changes how it responds to it."
+          "Neither strategy eliminates all earthquake or ground-deformation risk.",
+          "Cost depends strongly on site, treatment depth, access and foundation scheme; there is no universal ordering.",
+          "Foundation stiffness changes structural response; it does not shield the building from ground motion."
         ],
         "choices": [
-          "There is none in practice; both prevent liquefaction damage equally.",
-          "Improvement stops the fill liquefying; a stiff foundation only rides it out.",
-          "Improvement is cheaper because it is done once for a whole street.",
-          "A stiffer foundation prevents shaking from reaching the building at all."
+          "There is no important difference; both eliminate liquefaction.",
+          "Ground improvement can reduce liquefaction susceptibility or deformation; foundation design can instead bypass or tolerate some remaining ground movement.",
+          "Ground improvement is always cheaper because a whole street can be treated at once.",
+          "A stiffer foundation prevents earthquake shaking from reaching the building."
         ],
-        "correctChoice": "Improvement stops the fill liquefying; a stiff foundation only rides it out."
+        "correctChoice": "Ground improvement can reduce liquefaction susceptibility or deformation; foundation design can instead bypass or tolerate some remaining ground movement."
       },
       "assumes": [
         "liquefaction can be addressed in the ground or accommodated in the structure"
       ],
       "concept": {
-        "n": 15,
-        "c": "Liquefaction: when saturated fill stops behaving as a solid",
+        "n": 16,
+        "c": "Bearing capacity and settlement",
         "of": 30,
         "rests": [
-          "Effective stress, and why water pressure matters"
+          "Stress, strain and the yield point",
+          "Liquefaction: when saturated fill stops behaving as a solid"
         ]
       }
     },
@@ -2122,7 +2042,7 @@ export const CURRICULUM = {
       "day": 1,
       "title": "What the tested anchors actually carried",
       "scene": "Kirsten Sørensen has pulled two cast-in anchors from a spare panel in the yard. The design drawing says 40 kilonewtons each. The first came out at 24, the second at 27.",
-      "takeaway": "Two pull tests can show a serious capacity shortfall; they do not by themselves establish a code-level factor of safety for every anchor in the building.",
+      "takeaway": "Two pull tests can demonstrate a serious shortfall, but they do not define the statistical design resistance of every anchor in the school.",
       "place": "Materials & Testing",
       "guide": "Five numbers, and two of them belong to other questions: the roof span and the number of panels. One is what the drawing promised rather than what the wall got. Ask of each whether it describes what the anchors carried or what the wall asks of them. And note what two pulls cannot carry: a ratio is not a factor of safety, whatever it comes out at.",
       "background": [
@@ -2138,7 +2058,7 @@ export const CURRICULUM = {
         "task": "Compare the measured anchor capacity with the estimated earthquake demand",
         "question": "Estimate the observed capacity-to-demand ratio for the two tested anchors.",
         "answer": "About 0.8 — below 1.",
-        "why": "Two anchors were pulled. They averaged 25.5 kN against a demand of 31 kN, so what was measured is about 0.82 of what the wall asks of them. The anchors are short. But 0.82 is not a factor of safety, and calling it one claims far more than two pulls can carry: a real check also has to hold the scatter between anchors, the way the joint lets go when it lets go, and the margins the code puts on both. None of that has to be settled to act. Restrict the gym, test enough anchors to mean something, and design the repair.",
+        "why": "The two pulls average 25.5 kN against an assessed demand of 31 kN, so the observed specimen-capacity-to-demand ratio is about 0.82. That is enough to show that the tested connection detail cannot simply be accepted from the 40 kN drawing value. It is not a code resistance factor or a formal factor of safety: two specimens do not characterize variability, failure mode, deterioration or the required design margins. The operational decision does not need those questions settled today—keep the gym restricted, expand the testing, and design the connection repair.",
         "givens": [
           "The anchors tested at a mean of 25.5 kN",
           "The assessed demand on each is 31 kN"
@@ -2172,11 +2092,12 @@ export const CURRICULUM = {
         }
       ],
       "concept": {
-        "n": 12,
-        "c": "Stress, strain and the yield point",
+        "n": 13,
+        "c": "Factor of safety, and what it is protecting against",
         "of": 30,
         "rests": [
-          "Peak ground acceleration and what a building feels"
+          "Stress, strain and the yield point",
+          "Base shear — the horizontal force a building is designed for"
         ]
       }
     },
@@ -2184,13 +2105,13 @@ export const CURRICULUM = {
       "day": 2,
       "title": "A number, with a method attached",
       "scene": "4 cores, 100 mm across, cut from the cracked columns. Sørensen caps and crushes them: 28, 31, 24 and 30 megapascals. The 1974 drawing calls for 25. The four labelled specimens are still on the testing bench.",
-      "takeaway": "Core tests characterize sampled concrete; they do not certify the residual capacity of the cracked columns.",
+      "takeaway": "Core crushing tests characterize sampled concrete strength; the damaged column still requires a member-level structural assessment.",
       "place": "Materials & Testing",
       "guide": "Work the third core's strength out from the machine's own numbers rather than reading it off the report. Stress is the crushing force divided by the area the force acted on, and the area is the circle the core presents — not its diameter. One tile is that diameter, left for somebody who divides by the wrong thing.",
       "background": [
-        "Why the area and not the diameter. A stress is a force spread over a surface, so the number underneath has to be an area in square metres. A 100 mm core presents a circle of about 0.00785 m², and using 0.1 instead gives an answer twelve times too small with no unit to warn you.",
-        "What the strain is doing. The machine also records shortening: 0.42 mm over a 200 mm gauge length is a strain of 0.0021, which is dimensionless because it is a length over a length. Stress against strain up to the yield point is what the material's stiffness is, and it is the pair that makes a stress–strain curve.",
-        "What a core does not settle. A member's capacity depends on the force it actually carried, on its reinforcement and on how well that steel confines the concrete — none of which travels in a cylinder. Four cores near the specified strength argue against grossly weak concrete and say nothing about a cracked column's remaining capacity."
+        "Why area matters. Compressive stress is load divided by loaded area. A 100 mm diameter core presents a circular area of about 0.00785 m²; dividing by the diameter instead of the area gives the wrong units and the wrong answer.",
+        "What the peak load tells you. The maximum compressive load divided by area gives the specimen's measured compressive strength for this simplified exercise. Concrete does not have a sharp metal-like yield point that this stop needs to identify.",
+        "What a core cannot settle. A column's residual capacity also depends on reinforcement, confinement, axial load, damage geometry and the load path. Those do not travel with a concrete cylinder into the press."
       ],
       "story": "4 cores, 100 mm across, cut from the cracked columns. Sørensen caps and crushes them: 28, 31, 24 and 30 megapascals. The 1974 drawing calls for 25. The four labelled specimens are still on the testing bench.",
       "game": {
@@ -2199,14 +2120,13 @@ export const CURRICULUM = {
         "setup": "Materials & Testing",
         "play": "Get a strength from a damaged column",
         "task": "Get a strength from a damaged column",
-        "question": "The third core failed at 244 kN. What compressive strength is that, and what does it settle?",
-        "answer": "About 31 MPa — above the 25 the 1974 drawing specifies. It settles the concrete's strength as one input, and not the cracked column's remaining capacity.",
-        "why": "Stress is σ = F / A. The core is 100 mm across, so the area carrying the load is π × 0.05² ≈ 0.00785 m², and 244 kN over that area is 244,000 ÷ 0.00785 ≈ 31 MPa. The machine's other channel gives the strain: ε = ΔL / L, and 0.42 mm of shortening over a 200 mm gauge is 0.0021. Together those two numbers are a point on the stress–strain curve, and the ratio between them up to yield is the stiffness. What none of it reaches is the column: capacity depends on the load path, the reinforcement and the confinement that steel provides, and a cylinder carries none of them. Four cores centred on the specified 25 MPa rule out grossly weak concrete as the explanation for the cracking. That is one input removed from the list, which is worth having and is not the answer.",
+        "question": "The third core failed at 244 kN. What compressive stress is that, and what does it actually settle?",
+        "answer": "About 31 MPa. It supports the conclusion that grossly weak concrete is not the obvious explanation; it does not establish the cracked column's remaining capacity.",
+        "why": "Stress is σ=F/A. The 100 mm diameter core has area π(0.05 m)^2≈0.00785 m², so 244,000 N / 0.00785 m² ≈ 31 MPa. That is a specimen compressive-strength result. The recorded shortening can be part of a stress–strain curve, but the ratio at failure is not being treated here as a yield modulus. More importantly, the core says nothing direct about reinforcement, confinement, axial load, crack mechanism or residual member capacity. Four reasonable core results narrow the diagnosis; they do not clear the columns.",
         "givens": [
-          "the core failed at 244 kN and is 100 mm across",
-          "the machine recorded 0.42 mm of shortening over a 200 mm gauge"
+          "the core failed at 244 kN and is 100 mm in diameter"
         ],
-        "relationship": "Stress is σ = F / A and strain is ε = ΔL / L, and the two together give the concrete's stiffness up to yield.",
+        "relationship": "Compressive stress = crushing force ÷ loaded cross-sectional area.",
         "calcKey": "MAT-2"
       },
       "assumes": [
@@ -2256,7 +2176,7 @@ export const CURRICULUM = {
       "day": 3,
       "title": "Down there with a torch",
       "scene": "In the basement: the crack is 0.4 mm and horizontal, a metre above the floor. Five more columns along the row carry one that looks the same. The original construction drawings are open on a crate nearby.",
-      "takeaway": "When the same feature repeats at the same place in many members, look first for a shared detail before assuming separate failures.",
+      "takeaway": "A repeated crack at the same construction elevation is evidence for a shared detail, but the detail must still be checked for earthquake-induced opening or slip.",
       "place": "Materials & Testing",
       "guide": "Four explanations, and one fact constrains all of them. Six columns in a row carry the same feature at the same height and the same width. Ask of each option whether it would produce that repetition. Six independent failures rarely agree to a millimetre. The drawings are open on a crate, which is where a shared construction detail would show up.",
       "background": [
@@ -2273,11 +2193,11 @@ export const CURRICULUM = {
         "task": "Choose the leading hypothesis and the check that would distinguish it",
         "question": "What is the best-supported explanation to test first?",
         "answer": "A construction joint at the top of the first pour.",
-        "why": "A horizontal feature of nearly identical height and width across six columns strongly suggests a construction detail shared by all six, such as the top of a concrete lift. That is more likely than six independent shear failures producing the same geometry. But earthquake damage can also exploit construction joints, so 'construction joint' is a hypothesis, not an automatic clearance. Check drawings or pour records, inspect displacement and spalling across the joint, and compare with undamaged columns before deciding whether the earthquake changed its condition.",
+        "why": "Six nearly horizontal features at the same elevation make a shared construction detail a strong first hypothesis. A lift joint at the top of a concrete pour would naturally repeat from column to column. Earthquake damage can also localize at a pre-existing joint, so identifying the joint is not the same as clearing it. Check drawings or pour records, measure displacement and spalling, inspect reinforcement continuity where possible, and compare with an undamaged row. The pattern ranks the hypothesis; the follow-up inspection decides whether the earthquake changed its condition.",
         "rebuttals": [
-          "Earthquake shear runs diagonally and varies column to column; this is horizontal and uniform.",
-          "Settlement would show as differential movement and cracking in the slab, and there is none.",
-          "Corrosion cracks run along the bars and come with rust staining, neither of which is present."
+          "Independent earthquake damage would not be expected to repeat with identical geometry in every column; inspect before ruling it out.",
+          "Differential foundation movement should leave a broader deformation pattern, not only the same horizontal feature at one construction elevation.",
+          "Corrosion is not supported by the repeated elevation and the absence of longitudinal cracking or rust staining."
         ],
         "choices": [
           "Earthquake shear damage in every column of the row.",
@@ -2380,7 +2300,7 @@ export const CURRICULUM = {
       "day": 5,
       "title": "A measurable acceptance target",
       "scene": "Ferreira, the materials engineer, has cone penetration results from a trial panel: the fill tested at 4 MPa before the stone columns went in and 11 after. The two CPT traces lie side by side on the desk.",
-      "takeaway": "CPT resistance is a measurable quality-control indicator; a 2.75-fold increase in qc is not automatically a 2.75-fold increase in liquefaction resistance.",
+      "takeaway": "CPT resistance is a measurable quality-control result; the acceptance criterion still has to be tied to a liquefaction evaluation rather than a vague “times safer” claim.",
       "place": "Materials & Testing",
       "guide": "Five numbers, and three belong elsewhere: the depth of the fill, the amplification factor and a concrete strength. Ask of each whether it came from these two cone traces. And note what the factor is and is not. Cone resistance is an input to a liquefaction assessment, so 2.75 times the resistance is not 2.75 times the margin.",
       "background": [
@@ -2395,7 +2315,7 @@ export const CURRICULUM = {
         "play": "Quantify the change in cone resistance without turning it into a false safety factor",
         "task": "Quantify the change in cone resistance without turning it into a false safety factor",
         "question": "By what factor did the measured cone resistance increase?",
-        "answer": "About 2.8 times.",
+        "answer": "About 2.8 times the original cone resistance at the trial location.",
         "why": "The measured cone resistance rose from 4 to 11 MPa, a factor of 2.75. That is a strong, auditable construction-control result: the treated ground is substantially more resistant to penetration at that location. But qc is an input to liquefaction evaluation, not a direct safety factor. Cyclic resistance also depends on overburden, fines, groundwater and the design method used. A good specification can therefore require a target corrected CPT resistance or verified performance profile without claiming that '2.75 times qc' means '2.75 times safer.'",
         "givens": [
           "Cone resistance before treatment was 4 MPa",
@@ -2600,11 +2520,11 @@ export const CURRICULUM = {
         "a delay has consequences that can be counted"
       ],
       "concept": {
-        "n": 12,
-        "c": "Stress, strain and the yield point",
+        "n": 10,
+        "c": "Load path, and what happens where it stops",
         "of": 30,
         "rests": [
-          "Peak ground acceleration and what a building feels"
+          "Base shear — the horizontal force a building is designed for"
         ]
       }
     },
@@ -2612,7 +2532,7 @@ export const CURRICULUM = {
       "day": 4,
       "title": "The rate, falling",
       "scene": "Day 1 had 96 events above magnitude 3. Day 2 had 52, day 3 41, day 4 26. Tanaka's fit has the rate roughly halving as the elapsed time doubles.",
-      "takeaway": "A simple Omori-style decay gives a central rate estimate; the real forecast also needs uncertainty around that curve.",
+      "takeaway": "Aftershock rates often decay roughly as a power law; the fitted rate is an expectation, not the number the next day must contain.",
       "place": "Hazard & Forecasting",
       "guide": "Five numbers, and two of them belong to other questions: the magnitude and the running total. One is day one, which is four doublings back rather than one. Ask of each whether it is a count, a time, or a ratio of times. And note what comes out: an expected rate, not a quota. Real days scatter either side of a fitted curve.",
       "background": [
@@ -2628,7 +2548,7 @@ export const CURRICULUM = {
         "task": "Fit the decay and say what it predicts",
         "question": "Estimate the number of magnitude 3+ aftershocks on day 8.",
         "answer": "About 13.",
-        "why": "A simple Omori-style model writes the aftershock rate as n(t) = K/(c+t)^p. When p is near one and c is small after the first day, doubling elapsed time roughly halves the central rate. Day 4 had 26 magnitude-3-plus events, so day 8 gives about 26 × 4/8 = 13. Real sequences scatter around that curve, and K, c and p are fitted with uncertainty. 13 is therefore an expected rate, not a quota or a scheduled event.",
+        "why": "The exercise uses a simple Omori-style p ≈ 1 fit. If the rate is about 26 M3+ events per day around day 4, doubling the elapsed time to day 8 gives a first-order expectation near 13 per day. Real operational forecasts carry uncertainty and are updated as the sequence evolves. Thirteen is therefore a central rate estimate for planning, not a promise that exactly thirteen events will occur.",
         "givens": [
           "Day 4 had 26 events above magnitude 3",
           "Day eight is twice as far from the mainshock"
@@ -2638,28 +2558,6 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a rate can fall smoothly without ever reaching zero"
-      ],
-      "equations": [
-        {
-          "e": "n(t) = K / (c + t)^p",
-          "c": "aftershock rate, falling as a power law",
-          "v": [
-            [
-              "n(t)",
-              "aftershocks per day at time t"
-            ],
-            [
-              "t",
-              "days since the mainshock"
-            ],
-            [
-              "K, c, p",
-              "constants fitted to this sequence, with p usually near 1"
-            ]
-          ],
-          "s": "Aftershocks fall off roughly as one over time, so the rate halves as the days double rather than dropping to nothing on any particular day.",
-          "demanded": true
-        }
       ],
       "concept": {
         "n": 19,
@@ -2727,54 +2625,36 @@ export const CURRICULUM = {
     },
     {
       "day": 6,
-      "title": "Four point eight, not three",
-      "scene": "The trace has just shown that the reference station itself amplifies by about 1.6, so the published Flats ratio of 3.0 was measured against ground that was already moving. The revised district map is waiting for a replacement number.",
-      "takeaway": "Correcting site response changes forward-looking hazard and design assumptions; it does not rewrite damage that was observed directly.",
+      "title": "Four point eight — in one band",
+      "scene": "The dependency trace leaves one clean numerical correction. In the 1 Hz band used in the original comparison, the Flats-to-vault spectral ratio was about 3.0. Five days of common aftershocks show the vault itself is about 1.6 times competent rock in that same band.",
+      "takeaway": "A corrected spectral ratio can be scientifically valid while the policy shortcut built from the old ratio is still invalid.",
       "place": "Hazard & Forecasting",
-      "guide": "Two instruments recorded the same earthquake, one on the Flats and one on rock above the town. The amplification is the ratio between what they measured, so pick the two peak accelerations and divide. One tile is the figure the district plan currently carries, which is the number being replaced rather than an input to it.",
+      "guide": "Multiply ratios only because they refer to the same response quantity and frequency band: Flats/vault × vault/rock = Flats/rock. Then stop. The result is a corrected 1 Hz spectral ratio, not 'the amplification of the Flats' at every period and not a replacement code coefficient.",
       "background": [
-        "What the ratio is. Site amplification is the peak motion on soft ground over the peak motion on competent rock for the same event. It is dimensionless, so both readings have to be in the same units, and it is a property of the ground rather than of the earthquake.",
-        "Why one number is not a spectrum. Soft ground amplifies some frequencies far more than others, so a single ratio is a summary. It is the summary the district plan uses, which is why replacing three with five moves every design value that plan feeds — and why the full answer is a curve somebody still has to measure.",
-        "What the correction cannot touch. The placards came from what inspectors saw in buildings, and the cracks are already photographed. A revised ratio changes the shaking a future earthquake is expected to deliver, and rewrites nothing that has already been observed."
+        "What is being corrected. Ratios can be chained when numerator and denominator describe the same quantity: (Flats/vault) × (vault/rock) = Flats/rock.",
+        "What the number means. About 4.8 is the corrected spectral-amplitude ratio in the specified 1 Hz band for the observed motions. Site response varies with frequency and can also depend on shaking level.",
+        "What the number cannot become. A building design spectrum contains period-dependent ordinates and code factors. One corrected spectral ratio is evidence for stronger site effects, not a universal multiplier to paste into every design value."
       ],
-      "story": "The trace has just shown that the reference station itself amplifies by about 1.6, so the published Flats ratio of 3.0 was measured against ground that was already moving. The revised district map is waiting for a replacement number.",
+      "story": "The dependency trace leaves one clean numerical correction. In the 1 Hz band used in the original comparison, the Flats-to-vault spectral ratio was about 3.0. Five days of common aftershocks show the vault itself is about 1.6 times competent rock in that same band.",
       "game": {
         "type": "BALLPARK",
-        "title": "Four point eight, not three",
+        "title": "Four point eight — in one band",
         "setup": "Hazard & Forecasting",
-        "play": "Decide what a bigger amplification changes",
-        "task": "Decide what a bigger amplification changes",
-        "question": "Correct the published Flats ratio for the reference station's own site response.",
-        "answer": "About 4.8 — the published 3.0 times the reference station's own 1.6. The district plan's 3 is the number being replaced, and what it changes is future design, not the placards already issued.",
-        "why": "A ratio inherits whatever is wrong with the thing under the line. The published Flats figure of 3.0 was the Flats record divided by the vault record, and the trace has just shown the vault itself sits on four metres of weathered granite and amplifies by about 1.6. So the published number is 3.0 relative to a moving reference, and 3.0 × 1.6 ≈ 4.8 relative to competent rock. Both terms are ratios, so the answer is dimensionless, which is what makes it a property of the ground rather than of this earthquake. Two things follow and one does not. The design values for rebuilding in the Flats rise, and the case for ground improvement gets much stronger. What does not change is anything already observed: the placards came from inspections of real buildings, and the magnitude of the earthquake was measured from waveforms, not inferred from a ratio. And one number is still only a summary — amplification varies with frequency, so the Flats need a response curve before anything is designed against them.",
+        "play": "Correct the measured site-response ratio without turning it into a universal design number",
+        "task": "Correct the measured site-response ratio without turning it into a universal design number",
+        "question": "What is the corrected Flats-to-competent-rock spectral ratio in the measured 1 Hz band?",
+        "answer": "About 4.8 in that 1 Hz band. The district should not turn 4.8 into a universal design multiplier.",
+        "why": "The measured chain is (Flats/vault) × (vault/competent rock) = 3.0 × 1.6 ≈ 4.8. Because both terms are dimensionless spectral-amplitude ratios in the same band, the multiplication is legitimate. What is not legitimate is the next leap: treating 4.8 as the response of every structure at every period or as a code design coefficient. The corrected result strengthens the case for a proper site-response study and period-dependent design spectrum.",
         "givens": [
-          "0.41 g on the Flats and 0.082 g on granite, same event",
-          "the district plan currently assumes 3"
+          "Flats/vault = 3.0 at 1 Hz",
+          "vault/competent rock = 1.6 at 1 Hz"
         ],
-        "relationship": "Site amplification is A_soft / A_rock — the peak on soft ground over the peak on rock for the same event, so it is dimensionless.",
+        "relationship": "(Flats/vault) × (vault/rock) = Flats/rock, for the same spectral quantity and frequency band.",
         "calcKey": "HAZ-6"
       },
       "assumes": [
-        "design values are chosen from expected shaking",
+        "both ratios refer to the same spectral quantity and the same 1 Hz band",
         "peak ground acceleration and what a building feels — taken as read"
-      ],
-      "equations": [
-        {
-          "e": "A_soft / A_rock",
-          "c": "site amplification — the same wave on two grounds",
-          "v": [
-            [
-              "A_soft",
-              "shaking measured on the soft site"
-            ],
-            [
-              "A_rock",
-              "shaking measured on rock nearby, in the same units"
-            ]
-          ],
-          "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town.",
-          "computed": true
-        }
       ],
       "takesAsRead": [
         {
@@ -2810,31 +2690,31 @@ export const CURRICULUM = {
         "setup": "Hazard & Forecasting",
         "play": "State the forecast as a range",
         "task": "State the forecast as a range",
-        "question": "Why does the forecast go in as a range rather than a single number?",
-        "answer": "Because what people have to plan against is the upper end, and a single number deletes it.",
-        "why": "Nobody staffs an emergency to the average week. They staff it to a week that is worse than average, and how much worse is exactly what the range says. A single number tells a planner nothing about how far the sequence might run above it, so the planner invents a margin — usually badly, usually too small. The range is also the honest part: it says which part of the behaviour is well constrained by 400 recorded events and which is not.",
+        "question": "Why must the aftershock forecast include a range or probability distribution rather than only one expected count?",
+        "answer": "Because future counts vary around the expectation, and staffing decisions need to know how much higher or lower the sequence could plausibly run.",
+        "why": "An aftershock forecast is probabilistic. The expected count alone hides the spread of plausible outcomes, while staffing and inspection capacity are decisions made against that spread. Publishing the distribution or a clearly defined interval also makes the forecast testable and keeps model uncertainty visible. The range is not decorative caution and it does not mean the model lacks an expected value.",
         "rebuttals": [
-          "Caution is not the reason; the range is a quantity the staffing calculation needs as an input.",
-          "The model's quality is what the range states, which is the opposite of hiding it.",
-          "A range makes the forecast checkable, because outcomes outside it count against the model."
+          "The range is an input to planning, not a rhetorical signal of caution.",
+          "A stated distribution or interval makes the forecast more testable, not less.",
+          "The model can have a well-defined expected count while individual realizations vary around it."
         ],
         "choices": [
-          "Because a range is more cautious, and caution is appropriate after an event like this.",
-          "Because what people have to plan against is the upper end, and a single number deletes it.",
-          "Because the model is not good enough yet to state a single number honestly.",
-          "Because a range cannot be shown to be wrong afterwards."
+          "Because a range merely sounds more cautious after a damaging earthquake.",
+          "Because future counts vary around the expectation, and staffing decisions need to know how much higher or lower the sequence could plausibly run.",
+          "Because a model that reports a range cannot later be evaluated.",
+          "Because the expected value is mathematically undefined for aftershock sequences."
         ],
-        "correctChoice": "Because what people have to plan against is the upper end, and a single number deletes it."
+        "correctChoice": "Because future counts vary around the expectation, and staffing decisions need to know how much higher or lower the sequence could plausibly run."
       },
       "assumes": [
         "a forecast is a distribution rather than a single value"
       ],
       "concept": {
-        "n": 20,
-        "c": "Probability of a larger event after a mainshock",
+        "n": 19,
+        "c": "Aftershock decay as a power law",
         "of": 30,
         "rests": [
-          "Aftershock decay as a power law"
+          "Magnitude as a logarithmic scale"
         ]
       }
     }
@@ -2896,7 +2776,7 @@ export const CURRICULUM = {
     },
     {
       "day": 2,
-      "title": "Green does not mean safe",
+      "title": "Green is not a guarantee",
       "scene": "Delacroix has three residents outside with green placards and one question between them: is my house all right? Adeyemi will not say yes and needs a sentence that is not a dodge.",
       "takeaway": "A placard is an occupancy decision based on a defined inspection, not a warranty that every hidden part is undamaged.",
       "place": "Public Safety",
@@ -2909,25 +2789,25 @@ export const CURRICULUM = {
       "story": "Delacroix has three residents outside with green placards and one question between them: is my house all right? Adeyemi will not say yes and needs a sentence that is not a dodge.",
       "game": {
         "type": "CHOICE",
-        "title": "Green does not mean safe",
+        "title": "Green is not a guarantee",
         "setup": "Public Safety",
-        "play": "Explain what green means to somebody standing in the street",
-        "task": "Explain what green means to somebody standing in the street",
-        "question": "What does a green placard entitle somebody to be told?",
-        "answer": "That no restriction was found from what could be inspected, and what was not inspected is listed.",
-        "why": "The public message should be specific. The rapid inspection found no observed condition requiring an occupancy restriction in the areas that could be assessed. The form also records what the team could not inspect. That is different from promising the building is undamaged or fully evaluated. It also does not guarantee safety in every aftershock. The limitation is scientifically useful because it tells the owner what the inspection actually established and which unresolved areas may still need follow-up before a particular use resumes.",
+        "play": "Explain exactly what the green placard allows the office to claim",
+        "task": "Explain exactly what the green placard allows the office to claim",
+        "question": "What does a green placard allow you to tell a resident?",
+        "answer": "That no apparent restriction was found in the parts assessed, with uninspected areas still unresolved.",
+        "why": "A rapid post-earthquake placard communicates the result of an evaluation, not a guarantee about every concealed part of a building or every future aftershock. The office can say that the inspected scope did not show a condition requiring restriction. It must also preserve the limits of that scope. That distinction becomes operationally important at the school, the hospital and the Ferry Street basement, where the first team recorded spaces it could not inspect.",
         "rebuttals": [
-          "Nothing in a rapid assessment checks a whole building, so \"checked throughout\" is untrue.",
-          "Green is not a statement about repair work; plenty of green buildings need it.",
-          "No placard is a claim about future shaking, and the forecast is a rate rather than a guarantee."
+          "A placard is not a promise about future shaking.",
+          "Rapid evaluation does not inspect every component or concealed space.",
+          "A later restriction has to be resolved through the authorized reassessment process."
         ],
         "choices": [
-          "That the building is safe to live in and has been checked throughout.",
-          "That no restriction was found from what could be inspected, and what was not inspected is listed.",
-          "That the building came through undamaged and needs no repair work.",
-          "That the building will withstand any aftershock in the forecast."
+          "That the building is earthquake-proof until the next formal inspection.",
+          "That no apparent restriction was found in the parts assessed, with uninspected areas still unresolved.",
+          "That every structural and nonstructural component has been checked.",
+          "That the owner may remove any future restriction without another evaluation."
         ],
-        "correctChoice": "That no restriction was found from what could be inspected, and what was not inspected is listed."
+        "correctChoice": "That no apparent restriction was found in the parts assessed, with uninspected areas still unresolved."
       },
       "assumes": [
         "people read a colour as a verdict"
@@ -3658,12 +3538,12 @@ export const BALLPARK_CALCS = {
     "explanation": "About 0.82, below 1. This is an observed ratio from two specimens, not by itself a formal code factor of safety; variability and design resistance factors still matter."
   },
   "SEIS-3": {
-    "prompt": "The hospital's seismic weight is about 85 MN. The basement record peaked at 0.31 g; the building was designed for 0.35 g.",
+    "prompt": "The hospital's seismic weight is about 85 MN. From the recorded motion, the 5%-damped spectral coefficient near the building's 0.4 s period is 0.31; the comparable historical design-screen coefficient is 0.35.",
     "question": "Choose the recorded coefficient and the building's seismic weight.",
     "labels": [
-      "0.31  (C_s from the recorded peak, in g)",
+      "0.31  (recorded spectral coefficient near T ≈ 0.4 s)",
       "85  (W, the building's seismic weight in MN)",
-      "0.35  (C_s the building was designed to, in g)",
+      "0.35  (historical design-screen coefficient)",
       "14  (the weight of one floor, in MN)",
       "1998  (the year the instrument was installed)"
     ],
@@ -3684,8 +3564,8 @@ export const BALLPARK_CALCS = {
     "target": 26.35,
     "tolerance": 2,
     "units": "meganewtons (MN) of base shear",
-    "solution": "0.31 × 85 ≈ 26 MN, against a design base shear of 0.35 × 85 ≈ 30 MN.",
-    "explanation": "About 12 per cent under the design force. One input measured, and not a clearance for the building."
+    "solution": "0.31 × 85 ≈ 26 MN, versus 0.35 × 85 ≈ 30 MN for the historical screening check.",
+    "explanation": "A useful like-for-like screening comparison, not a clearance and not a conversion of raw PGA directly into building force."
   },
   "HAZ-4": {
     "prompt": "Day 4 had 26 events above magnitude 3, and the rate falls roughly as 1 over elapsed time. Day eight is twice as far from the mainshock as day four.",
@@ -3755,7 +3635,7 @@ export const BALLPARK_CALCS = {
       "0.00785  (A, the core's cross-section in m²)",
       "0.1  (the core's diameter in m)",
       "25  (the strength the 1974 drawing specifies, MPa)",
-      "0.0021  (the strain at failure, ΔL over L)"
+      "0.0021  (recorded axial strain, not needed for compressive strength)"
     ],
     "values": [
       244000,
@@ -3774,24 +3654,24 @@ export const BALLPARK_CALCS = {
     "target": 31082802,
     "tolerance": 1500000,
     "units": "Pa (about 31 MPa)",
-    "solution": "244,000 ÷ 0.00785 ≈ 31 MPa, against a specified 25. The strain channel gives ε = ΔL / L = 0.42 ÷ 200 = 0.0021.",
-    "explanation": "31 MPa is the concrete's strength, not the column's capacity. The cores remove one explanation and leave the member question open."
+    "solution": "244,000 ÷ 0.00785 ≈ 31 MPa.",
+    "explanation": "About 31 MPa for the tested concrete specimen. That is not the residual capacity of the cracked column."
   },
   "HAZ-6": {
-    "prompt": "The same earthquake was recorded at 0.41 g on the Flats and 0.082 g at the vault instrument on granite above Upper Town.",
-    "question": "Choose the published ratio and the reference station's own site response.",
+    "prompt": "The original 1 Hz spectral ratio was Flats/vault = 3.0. Common aftershocks now give vault/competent-rock = 1.6 in the same 1 Hz band.",
+    "question": "Choose the two compatible ratios in the same band.",
     "labels": [
-      "3.0  (the published Flats-to-vault ratio)",
-      "1.6  (the reference station's own measured site response)",
-      "0.41  (peak acceleration on the Flats, in g)",
-      "0.082  (peak acceleration at the vault, in g)",
-      "6.8  (the moment magnitude of the event)"
+      "3.0  (Flats / vault spectral ratio at 1 Hz)",
+      "1.6  (vault / competent-rock spectral ratio at 1 Hz)",
+      "0.41  (an unrelated peak acceleration from another display)",
+      "0.31  (the hospital response-spectrum coefficient near 0.4 s)",
+      "6.8  (moment magnitude)"
     ],
     "values": [
       3,
       1.6,
       0.41,
-      0.082,
+      0.31,
       6.8
     ],
     "slots": 2,
@@ -3803,9 +3683,9 @@ export const BALLPARK_CALCS = {
     ],
     "target": 4.8,
     "tolerance": 0.4,
-    "units": "times (dimensionless)",
-    "solution": "3.0 × 1.6 ≈ 4.8 against the plan's 3.0, and the result is dimensionless because both terms are ratios.",
-    "explanation": "The two raw peaks are the decoys: dividing them gives the published 3.0 back, which is the number being corrected rather than the correction. Four point eight rather than three moves every design value the district plan feeds, and rewrites nothing already observed."
+    "units": "dimensionless spectral ratio at 1 Hz",
+    "solution": "3.0 × 1.6 ≈ 4.8 in the measured 1 Hz band.",
+    "explanation": "The ratio chain is valid because both terms use the same spectral quantity and band. The result is not a universal building-design multiplier."
   },
   "GEO-6": {
     "prompt": "The fill weighs about 18 kN/m³. The water table under Ferry Street is now 1.5 m down, so at 3 m the pore pressure is 9.81 × 1.5 ≈ 14.7 kPa.",
@@ -3835,7 +3715,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 3,
     "units": "kilopascals (kPa) of effective stress",
     "solution": "54 − 14.7 ≈ 39 kPa, against 54 − 7.4 ≈ 47 kPa before the main burst.",
-    "explanation": "The grains carry 16 per cent less than they did. Shaking is still needed to liquefy the fill; less of it than before."
+    "explanation": "Effective stress falls from about 47 to 39 kPa. That is a material change in starting conditions, not a direct 16% reduction in the earthquake required for liquefaction."
   },
   "MAT-5": {
     "prompt": "The trial panel tested at 4 MPa cone resistance before treatment and 11 MPa after.",
@@ -3863,8 +3743,8 @@ export const BALLPARK_CALCS = {
     ],
     "target": 2.75,
     "tolerance": 0.5,
-    "units": "× stronger",
-    "solution": "11 ÷ 4 ≈ 2.8 times the original resistance.",
+    "units": "× the original cone resistance",
+    "solution": "11 ÷ 4 ≈ 2.8 times the original cone resistance.",
     "explanation": "Nearly three times. The fill depth, the amplification factor and the library's concrete strength are all real numbers from this fortnight and none of them belongs here."
   },
   "SEIS-9": {

@@ -28,7 +28,7 @@ export const ROSTER = [
     "role": "Chronology Lead",
     "division": "CORE",
     "color": "#7a4fa3",
-    "bio": "<p>Owns the depth–age scale, which is the sentence every other result in the station ends with. She counts layers, ties them to dated ash, and writes down how wrong each stretch could be.</p><p>Her position on Skarv is not caution for its own sake. Two records cannot disagree until they are on one clock, and she has not finished putting them on one. Announcing a difference between two timescales is announcing something about the timescales.</p><p>Her limit is that counting has an end. Below about 2000 metres the layers are thinner than anything she can resolve, and from there the ages come from a flow model she did not build and cannot check.</p>",
+    "bio": "<p>Owns the depth–age scale, which is the sentence every other result in the station ends with. She counts layers, ties them to dated ash, and writes down how wrong each stretch could be.</p><p>Her position on Skarv is not caution for its own sake. Two records cannot disagree until they are on the same measurement scale and the same clock. Announcing a difference before that is announcing something about the methods as if it were climate.</p><p>Her limit is that counting has an end. Below about 2,200 metres the annual layers are thinner than the line can resolve. From there the ages come from a flow model anchored by whatever independent dates the ice still gives her.</p>",
     "quiz": [
       {
         "q": "Why will Okonkwo not call the difference between the two records a disagreement yet?",

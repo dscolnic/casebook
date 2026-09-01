@@ -52,7 +52,7 @@ export const GROUPS = [
     "color": "#2f7fa8",
     "difficulty": 4,
     "type": "ballpark",
-    "desc": "Gas laws, plume behaviour, photochemistry — how the release moves and changes in air.",
+    "desc": "Gas laws, dense-gas behaviour, plume transport and photochemistry — how a volatile release moves and changes in air.",
     "defaultLeader": "varga",
     "budget": 74,
     "milestones": [

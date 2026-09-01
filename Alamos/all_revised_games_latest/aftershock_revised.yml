@@ -394,7 +394,7 @@ missions:
   - group: SEIS
     task: Compare the two records from one earthquake
     title: The same event, recorded twice
-    concept: "Site effect: soft ground amplifies"
+    concept: Site response — one earthquake, different local ground motion
     place: Seismic Network
     scene: Inês Cardoso, the network technician, has the vault record from the bench and the field station record from Bay Road. Same
       event, same minute, 1100 metres apart. One trace is short and sharp, the other is three times taller and goes on for half a minute
@@ -908,6 +908,8 @@ missions:
     - 'What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails,
       not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate
       reason is indistinguishable from a sound one until the day the approximation is what is being tested.'
+    takesAsRead:
+    - Measured connection capacity versus assessed demand
     assumes:
     - a foundation spreads a building's weight into the ground
     takeaway: A structure can fail without anything in the structure breaking.
@@ -1140,7 +1142,7 @@ missions:
   - group: MAT
     task: Compare the measured anchor capacity with the estimated earthquake demand
     title: What the tested anchors actually carried
-    concept: Factor of safety, and what it is protecting against
+    concept: Measured connection capacity versus assessed demand
     place: Materials & Testing
     scene: Kirsten Sørensen has pulled two cast-in anchors from a spare panel in the yard. The design drawing says 40 kilonewtons each.
       The first came out at 24, the second at 27.
@@ -1348,7 +1350,7 @@ missions:
   - group: SEIS
     task: Check what the hospital actually experienced
     title: The instrument in the basement
-    concept: Natural period, and resonance between building and ground
+    concept: 'Response spectrum: turning a measured ground-motion record into period-specific demand'
     place: Seismic Network
     scene: There is an accelerograph in the hospital basement, installed in 1998 and finally useful. Cardoso has processed the record
       into a 5%-damped response spectrum. Around the hospital's roughly 0.4 s fundamental period, the spectral acceleration is about
@@ -1365,7 +1367,7 @@ missions:
       a clearance.
     takesAsRead:
     - Peak ground acceleration and what a building feels
-    - Peak ground acceleration and what a building feels
+    - P and S waves, and what the gap between them measures
     assumes:
     - a building can be instrumented, and the record is about that building
     takeaway: A building record is most useful when converted to the response quantity the structure actually uses; raw PGA is not automatically
@@ -1691,7 +1693,7 @@ missions:
   - group: MAT
     task: Get a strength from a damaged column
     title: A number, with a method attached
-    concept: Sampling and testing damaged material
+    concept: Concrete compressive strength from a core test
     place: Materials & Testing
     scene: '4 cores, 100 mm across, cut from the cracked columns. Sørensen caps and crushes them: 28, 31, 24 and 30 megapascals. The
       1974 drawing calls for 25. The four labelled specimens are still on the testing bench.'
@@ -1765,6 +1767,8 @@ missions:
     - 'What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails,
       not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate
       reason is indistinguishable from a sound one until the day the approximation is what is being tested.'
+    takesAsRead:
+    - Concrete compressive strength from a core test
     assumes:
     - a crack runs across the direction of the tension that opened it
     takeaway: The shape and repetition of damage can narrow the failure mechanism, but pattern recognition alone cannot establish remaining

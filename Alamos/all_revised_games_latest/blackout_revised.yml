@@ -1039,10 +1039,10 @@ missions:
               at: +7 h
               update: 118.5 % of continuous rating
             - t: 8
-              value: 121.5
+              value: 120
               hoursLeft: 0
               at: +8 h
-              update: 121.5 % of continuous rating
+              update: 120 % of continuous rating
           objective: >-
             The redispatch is finished before the corridor reaches its 120 % emergency ceiling.
           consequenceLimit: 120

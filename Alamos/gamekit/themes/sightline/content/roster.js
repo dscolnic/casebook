@@ -85,11 +85,11 @@ export const ROSTER = [
     "role": "Psychophysiologist",
     "division": "BRAIN",
     "color": "#1f7a6b",
-    "bio": "<p>Works on what arousal does to encoding, and on the flatter, duller thing that eighteen hours awake does to a person's ability to weigh anything at all. Both halves of this case need her and for opposite reasons.</p><p>She is precise about arousal because the popular version is wrong in both directions. Fear does not print a scene into memory and it does not erase one. It narrows what is attended to, so the middle of the event is sharp and the edges were never encoded.</p><p>Her limit is that she cannot read a state off a transcript. What she has of the interrogation room is a clock, a custody log and the fact that nobody offered Ward a bed for nineteen hours.</p>",
+    "bio": "<p>Works on what arousal does to encoding, and on the flatter, duller thing that eighteen hours awake does to a person's ability to weigh anything at all. Both halves of this case need her and for opposite reasons.</p><p>She is precise about arousal because the popular version is wrong in both directions. Fear does not print a scene into memory and it does not erase one. Threat can narrow attention toward the most urgent part of a scene, making peripheral details less likely to be encoded in usable detail.</p><p>Her limit is that she cannot read a state off a transcript. What she has of the interrogation room is a clock, a custody log and the fact that nobody offered Ward a bed for nineteen hours.</p>",
     "quiz": [
       {
         "q": "Why does Raghunathan reject the idea that fear makes a memory more complete?",
-        "a": "Fear selects part of a scene, and the rest is not stored at all",
+        "a": "Threat can narrow attention, making peripheral details less likely to be encoded well",
         "wrong": [
           "Memories formed under fear are stored in a separate system that decays faster than ordinary memory",
           "People under threat close their eyes for most of the event and encode almost nothing",
@@ -184,7 +184,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Oyelaran refuse to draw a conclusion about accuracy from Cardoza's distress?",
-        "a": "Being frightened says nothing about what was seen",
+        "a": "Distress alone does not tell whether the identification was accurate",
         "wrong": [
           "Distress recorded years after an event is unrelated to the distress felt at the time",
           "Clinical psychologists are not permitted to comment on the evidence of witnesses",

@@ -1607,7 +1607,7 @@ missions:
       allocating. The first reduction buys the time to make the rest of the plan
       properly.
     takesAsRead:
-    - Electrical power and energy budgets
+    - Newton's laws and free-body reasoning
     assumes:
     - amp-hours equal current multiplied by time
     - some loads can be duty-cycled while others must run continuously
@@ -4089,7 +4089,7 @@ missions:
     task: Make the final go/no-go call using the verified entry state, shield 
       configuration, onboard guidance status, and remaining uncertainty.
     title: Give the entry GO
-    concept: 'Systems thinking: dependency, redundancy, failure modes'
+    concept: 'Systems thinking: evidence, margins, and irreversible decisions'
     place: Flight Director Console
     scene: The last two physical checks are back. The heat-shield configuration 
       matches the approved state. Independent tracking keeps the entry solution 

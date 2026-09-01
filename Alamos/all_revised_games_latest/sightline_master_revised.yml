@@ -582,6 +582,8 @@ missions:
       What the fillers do. Fillers who do not fit the witness's prior description make the suspect stand out. That can make
       the effective size much smaller than six, which is why the later mock-witness test matters more than the printed array
       size.
+    takesAsRead:
+    - "How a lineup is built: fillers, and the ones nobody would pick"
     assumes:
     - a lineup contains one suspect and a number of people known not to be the offender
     takeaway: The printed size of a lineup is not a false-identification rate; fair fillers, instructions and 
@@ -847,6 +849,8 @@ missions:
     - >-
       Why the prediction is locked first. A distribution read and then explained is a distribution that can be made to support
       whatever the reader already believed. Committing first is what makes the forty cards evidence about the array.
+    takesAsRead:
+    - "How a lineup is built: fillers, and the ones nobody would pick"
     assumes:
     - a lineup is built to be consistent with the description already given
     takeaway: A procedure can be tested by people who know the description but not the event; where they land measures 
@@ -1118,9 +1122,9 @@ missions:
       hint: The lamps and stray light drift. Hold the five-lux test condition rather than chasing the meter after the 
         fact.
       disturbances:
-      - {label: Lamps warm and output climbs, at: 4, amount: 0.09}
-      - {label: Corridor door closes again, at: 20, amount: -0.15}
-      - {label: Second bank of lamps reaches temperature, at: 38, amount: 0.135}
+      - {label: Lamps warm and output climbs, at: 4, amount: 0.03}
+      - {label: Corridor door closes again, at: 20, amount: -0.05}
+      - {label: Second bank of lamps reaches temperature, at: 38, amount: 0.045}
       commit: Report the walk
 - title: If the lamp was working
   objective: Model the light implied by the file without mistaking a correct calculation for proof that the lamp was 
@@ -1260,7 +1264,7 @@ missions:
       mechanism: Details are being invented to satisfy the interviewer.
     - label: The interviews were badly conducted
       mechanism: The questions failed to ask about the second man.
-    answer: Attention narrowed onto the threat
+    answer: Threat-related narrowing of attention is the best-fitting mechanism in this authored pattern
     rebuttals:
     - Nothing here is wrong except the duration, and the features that survived are the ones a narrowed account keeps.
     - Invented detail drifts between tellings, and these three tellings do not drift.
@@ -1992,6 +1996,8 @@ missions:
       Why 'defensible' is the word. This becomes a recommendation other units follow, and it will be read out in court. That
       makes the claim a claim about every administration rather than about the average one, which is why the criterion is
       written on the whole cloud.
+    takesAsRead:
+    - "How a lineup is built: fillers, and the ones nobody would pick"
     assumes:
     - with equally plausible members and conditional on a mock witness making a choice, a fair six-member array sends 
       about one choice in six to the suspect

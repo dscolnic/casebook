@@ -1239,76 +1239,76 @@ export const DIAGNOSIS_PACKS = {
       "lotvariation",
       "inversion"
     ],
-    "title": "Two entries in one budget",
-    "role": "You are assigning an implosion trial's anomalies to the right uncertainty terms.",
-    "hook": "A trial has come back with two problems: the initiation channels arrived over a wider spread than budgeted, and the inferred peak density is below prediction. The budget has to name causes, and no single entry accounts for both.",
+    "title": "Two entries in one uncertainty budget",
+    "role": "You are assigning an inert integration trial's anomalies to the right uncertainty terms.",
+    "hook": "An inert wave-propagation trial has two problems: distributed sensors report a wider arrival-time spread than budgeted, and the analysis software infers a material state below the model prediction. The budget has to name causes, and no single entry accounts for both.",
     "riddle": "Select the two causes that together account for every reading. No single cause does.",
     "salient": [
       "arrivalspread",
       "densityinferred"
     ],
     "zones": {
-      "init": "Initiation",
+      "timing": "Timing",
       "materials": "Materials",
-      "assembly": "Assembly",
-      "elec": "Electronics",
+      "fixture": "Fixture",
+      "electronics": "Electronics",
       "analysis": "Analysis"
     },
     "readings": {
       "arrivalspread": {
-        "name": "Channel arrival spread",
-        "zone": "init",
-        "observed": "19 ns",
-        "reference": "8 ns budgeted",
-        "purpose": "How closely the initiation channels agreed. A wide spread has several possible sources in hardware and in the explosive itself."
+        "name": "Sensor arrival-time spread",
+        "zone": "timing",
+        "observed": "19 relative timing units",
+        "reference": "8 units budgeted",
+        "purpose": "Whether distributed sensors agree on when an inert wavefront arrived."
       },
       "lotcert": {
-        "name": "Explosive lot wave-speed certificates",
+        "name": "Material-batch propagation certificates",
         "zone": "materials",
-        "observed": "spread of 2.4% across the lots used",
-        "reference": "within 0.5% for a single qualified lot",
-        "purpose": "Whether the segments came from material with consistent detonation velocity. Lot-to-lot spread converts directly into arrival-time spread."
+        "observed": "spread of 2.4% across batches used",
+        "reference": "within 0.5% for one qualified batch",
+        "purpose": "Whether the stand-in materials carry the wave at consistent speeds."
       },
       "placementmetrology": {
-        "name": "Segment placement metrology",
-        "zone": "assembly",
-        "observed": "all segments within tolerance",
+        "name": "Fixture placement metrology",
+        "zone": "fixture",
+        "observed": "all sensors and samples within tolerance",
         "reference": "within tolerance",
-        "purpose": "Where the segments actually sat. Placement error changes path lengths and therefore arrival times."
+        "purpose": "Whether path-length differences came from the fixture rather than the material."
       },
       "triggerselftest": {
-        "name": "Shared trigger self-test",
-        "zone": "elec",
+        "name": "Shared reference-clock self-test",
+        "zone": "electronics",
         "observed": "pass",
         "reference": "pass",
-        "purpose": "Whether the common trigger fired when commanded. A trigger fault moves channels without any material or geometric cause."
+        "purpose": "Whether a common timing reference introduced unequal channel delays."
       },
       "densityinferred": {
-        "name": "Inferred peak density",
+        "name": "Inferred material-state parameter",
         "zone": "analysis",
         "observed": "13% below prediction",
         "reference": "within 5% of prediction",
-        "purpose": "The end product of the analysis chain. It depends on the radiographic data and on the model used to convert that data into density."
+        "purpose": "The output of the analysis chain, derived from imaging rather than measured directly."
       },
       "radiographraw": {
-        "name": "Raw radiographic transmission",
+        "name": "Raw imaging transmission",
         "zone": "analysis",
-        "observed": "consistent with previous trials",
+        "observed": "consistent with previous inert trials",
         "reference": "consistent",
-        "purpose": "The measurement before interpretation. Normal raw data with an abnormal inferred result points at the conversion rather than the observation."
+        "purpose": "The measurement before the inversion model is applied."
       },
       "attenuationstd": {
-        "name": "Attenuation calibration against a step wedge",
+        "name": "Imaging-model calibration against a reference wedge",
         "zone": "analysis",
-        "observed": "fails by 11% at high density",
-        "reference": "within 3% across the range",
-        "purpose": "Whether the model that turns transmission into density is correct where it is being used. A calibration that fails at high density biases exactly the result being reported."
+        "observed": "fails by 11% at the high end",
+        "reference": "within 3% across the calibrated range",
+        "purpose": "Whether the model converting transmission into the reported state is valid where it is being used."
       }
     },
     "hypotheses": {
       "lotvariation": {
-        "label": "Explosive lot-to-lot wave-speed variation",
-        "choice": "Segments cut from lots with different detonation velocities arrive at different times, widening the spread without any assembly or electrical fault.",
+        "label": "Material-batch propagation variation",
+        "choice": "Batches with slightly different propagation speeds widen the arrival spread without requiring a fixture or clock fault.",
         "sig": {
           "arrivalspread": "wide",
           "lotcert": "spread",
@@ -1320,8 +1320,8 @@ export const DIAGNOSIS_PACKS = {
         }
       },
       "placement": {
-        "label": "Segment placement tolerance",
-        "choice": "Segments sitting away from their intended positions change path lengths, so the wave arrives at different times around the assembly.",
+        "label": "Fixture placement tolerance",
+        "choice": "Sensors or samples sitting away from intended positions change path lengths and therefore arrival times.",
         "sig": {
           "arrivalspread": "wide",
           "lotcert": "uniform",
@@ -1333,8 +1333,8 @@ export const DIAGNOSIS_PACKS = {
         }
       },
       "triggercal": {
-        "label": "Shared trigger calibration error",
-        "choice": "The common trigger distributes its command with unequal delays, so the channels fire at different times for a purely electrical reason.",
+        "label": "Shared reference-clock error",
+        "choice": "The common timing reference distributes unequal delays, so channels disagree for an electronic rather than physical reason.",
         "sig": {
           "arrivalspread": "wide",
           "lotcert": "uniform",
@@ -1346,8 +1346,8 @@ export const DIAGNOSIS_PACKS = {
         }
       },
       "inversion": {
-        "label": "Attenuation-model error in the density inversion",
-        "choice": "The model converting radiographic transmission into density is wrong in the range being used, so the reported density is biased even though the data are sound.",
+        "label": "Imaging-model error in the state inversion",
+        "choice": "The model converting transmission into the reported material state is biased in the range being used, even though the raw data are sound.",
         "sig": {
           "arrivalspread": "narrow",
           "lotcert": "uniform",
@@ -1360,7 +1360,7 @@ export const DIAGNOSIS_PACKS = {
       },
       "withinbudget": {
         "label": "Nothing to explain — inside the declared budget",
-        "choice": "Both figures fall inside the uncertainty already allocated, so the trial requires no new entries.",
+        "choice": "Both figures fall inside the predeclared uncertainty budget, so no new cause is needed.",
         "sig": {
           "arrivalspread": "narrow",
           "lotcert": "uniform",
@@ -1375,44 +1375,44 @@ export const DIAGNOSIS_PACKS = {
     "dismissal": "withinbudget",
     "answer": "lotvariation",
     "reasons": {
-      "placement": "It would explain the wide arrival spread. Placement metrology puts every segment inside tolerance, and it says nothing at all about the density result or the failed attenuation calibration.",
-      "triggercal": "A wide spread with a common trigger always deserves this check. The trigger self-test passes, and like placement it leaves the density anomaly and the calibration failure entirely unexplained.",
-      "withinbudget": "The spread is 19 ns against 8 budgeted and the density is 13% low against a 5% allowance. Both figures are outside the budget, and the step-wedge calibration fails by 11%. There are two things here to account for."
+      "placement": "Placement could widen the arrival spread, but metrology puts the fixture inside tolerance and it cannot explain the analysis calibration failure.",
+      "triggercal": "A shared clock is worth checking, but its self-test passes and it cannot explain the biased inferred state.",
+      "withinbudget": "Both headline discrepancies exceed the predeclared budget, and the reference-wedge calibration also fails."
     },
     "resolve": {
-      "title": "One hardware term and one analysis term",
+      "title": "One materials term and one analysis term",
       "paras": [
-        "Two independent causes are at work, in different parts of the evidence chain. Segments came from explosive lots whose wave speeds differ by 2.4%, which widens the arrival spread all on its own. Separately, the model converting radiographic transmission into density fails its step-wedge calibration by 11% at high density, which biases the inferred density low even though the raw radiographic data are perfectly normal.",
-        "Neither cause explains the other, and neither can be dropped. Attributing everything to the explosive lots leaves a density result that is wrong for a reason nobody has named. Attributing everything to the inversion leaves a 19 ns spread with no source. The budget needs both entries, and they belong in different columns — one is material variability, the other is model error.",
-        "This is why an uncertainty budget spans the whole chain rather than the hardware alone. A model that converts a measurement into a number is part of the instrument, and it can fail while every physical component performs correctly."
+        "Two independent causes sit in different parts of the evidence chain. Material batches with measurably different propagation speeds widen the sensor arrival spread. Separately, the imaging inversion fails its reference calibration in the range being used, biasing the inferred state even though the raw data are normal.",
+        "Neither cause explains the other. The honest budget therefore needs two entries rather than one story forced onto every anomaly.",
+        "This is why an uncertainty budget includes software models and calibration as well as hardware. A model that converts a measurement into a reported quantity is part of the measurement chain."
       ],
       "why": {
-        "loud": "The two headline anomalies belong to different subsystems and no single cause predicts both. That is the finding: the wide spread is a hardware-side observation and the low density is an analysis-side observation, and forcing one explanation onto both means getting one of them wrong.",
-        "quiet": "The quiet readings are what make the split defensible. In-tolerance placement and a passing trigger self-test remove the other hardware explanations for the spread, leaving the lot certificates. Normal raw radiographic transmission removes the measurement as a source of the density error, leaving the calibration that fails at exactly the density being reported."
+        "loud": "The two headline anomalies belong to different evidence chains and no single cause predicts both.",
+        "quiet": "In-tolerance placement and a passing clock self-test remove the other timing explanations, while normal raw imaging plus a failed reference calibration isolates the analysis-side bias."
       },
       "chain": [
-        "Mixed explosive lots and a mis-calibrated inversion act independently",
-        "Arrival spread widens from material variability while density is biased by model error",
-        "The budget records two entries in two different columns, neither hiding the other"
+        "Material-batch variation and a mis-calibrated inversion act independently",
+        "Arrival spread widens from material variation while the inferred state is biased by model error",
+        "The uncertainty budget records two separate entries rather than hiding one inside the other"
       ],
-      "take": "When two anomalies sit in different subsystems, the honest budget has two entries — a single cause forced onto both will misattribute one of them."
+      "take": "When two anomalies sit in different subsystems, the honest budget can need two causes."
     },
     "logic": [
       [
-        "19 ns spread and 13% low density",
+        "Wide arrival spread and low inferred state",
         "no single cause predicts both"
       ],
       [
-        "Placement in tolerance, trigger self-test passes",
-        "hardware spread narrows to lot variation"
+        "Fixture in tolerance and reference clock passes",
+        "timing cause narrows to material variation"
       ],
       [
-        "Lot certificates spread 2.4%",
-        "first cause confirmed: material variability"
+        "Material certificates show batch spread",
+        "first cause confirmed"
       ],
       [
-        "Raw transmission normal, step wedge fails 11%",
-        "second cause confirmed: model error, not measurement error"
+        "Raw imaging normal and reference-wedge calibration fails",
+        "second cause confirmed: model error"
       ]
     ]
   },

@@ -25,10 +25,10 @@ export const CURRICULUM = {
         "task": "Match each quantity the state estimate needs to the measurement that provides it.",
         "question": "Match each quantity the state estimate needs to the measurement that provides it.",
         "answer": "",
-        "why": "Each measurement constrains a different part of the spacecraft state. Direction comes from angles against known stars. Range comes from radio travel time. Doppler carries line-of-sight speed in the frequency shift. At 2 gigahertz, a closing speed of 1 kilometre per second shifts the carrier by about 7 kilohertz. Repeated positions give velocity, and repeated velocities give acceleration. That last step is noisy because each subtraction carries measurement error forward.",
+        "why": "Each measurement constrains a different part of the spacecraft state. Direction comes from an optical angle; range comes from radio travel time; Doppler constrains line-of-sight speed. For a one-way 2 GHz carrier, 1 km/s of radial speed produces about a 6.7 kHz shift. A coherent two-way tracking link carries roughly twice the first-order Doppler because the signal experiences the motion on the uplink and downlink. Repeated positions can supply transverse motion and acceleration, but differencing measurements amplifies their noise.",
         "rebuttals": [
           "Direction is an angle, and the star camera is the only instrument here that measures one.",
-          "A velocity along the line of sight is carried by the returned wave itself, in its frequency.",
+          "Line-of-sight velocity is carried in carrier phase and frequency; the exact Doppler factor depends on whether the tracking link is one-way or coherent two-way.",
           "A distance is a time multiplied by a speed, which is what the round trip provides.",
           "Rates come from repetition — two positions give a velocity, and two velocities give an acceleration."
         ],
@@ -40,7 +40,7 @@ export const CURRICULUM = {
         ],
         "choices": [
           "Photograph the spacecraft against catalogued stars. The angle between it and stars whose places are already fixed gives the line it lies along, to the precision of the catalogue and the optics.",
-          "Compare the frequency that comes back with the frequency that was sent. Motion along the line of sight stretches or compresses the returning wave, and the fractional change in frequency equals the speed as a fraction of the speed of light.",
+          "Measure the Doppler shift of a stable carrier. A one-way beacon gives a fractional shift of about v/c; a coherent two-way tracking link contains the motion on both legs.",
           "Time a pulse out to the spacecraft and back through its transponder. Radio travels at a known speed, so half the round-trip time multiplied by that speed is the distance.",
           "Repeat the same position measurement at recorded times. Subtracting positions gives velocity, and subtracting those velocities gives acceleration."
         ],
@@ -127,40 +127,40 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What holds it in the curve",
-      "scene": "The free-return path swings the spacecraft round the Moon at 2,500 kilometres altitude. Somebody on the loop has asked why it does not simply fall onto the surface, and Reyes turns the question to the room.",
-      "takeaway": "A curved path needs a force toward the centre, and orbital motion is that force being exactly enough.",
+      "scene": "The free-return trajectory is a lunar flyby, not a circular orbit. As the spacecraft approaches the Moon, Reyes shows the velocity vector turning continuously under lunar gravity and asks why the path curves past the surface.",
+      "takeaway": "A gravity assist or free-return flyby is continuous free fall on a curved, generally noncircular trajectory.",
       "place": "Guidance Computer Room",
-      "guide": "All four options offer something that holds the spacecraft up. Ask of each whether it names a real force. Two of them invent one: an outward push, and lift with nothing to push against. Gravity is the only force acting here, and it points inward. So the question is what the sideways speed does to a path that is already falling.",
+      "guide": "Gravity is the external force here and it points toward the Moon. The spacecraft also arrives with sideways velocity. Ask which answer describes those two facts without inventing lift or an outward force. This is a flyby: the speed and direction keep changing as gravity bends the path.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "The free-return path swings the spacecraft round the Moon at 2,500 kilometres altitude. Somebody on the loop has asked why it does not simply fall onto the surface, and Reyes turns the question to the room.",
+      "story": "The free-return trajectory is a lunar flyby, not a circular orbit. As the spacecraft approaches the Moon, Reyes shows the velocity vector turning continuously under lunar gravity and asks why the path curves past the surface.",
       "game": {
         "type": "CHOICE",
         "title": "What holds it in the curve",
         "setup": "Guidance Computer Room",
-        "play": "Why does the spacecraft need any speed at all to stay in that orbit?",
-        "task": "Why does the spacecraft need any speed at all to stay in that orbit?",
-        "question": "Why does the spacecraft need any speed at all to stay in that orbit?",
-        "answer": "Its sideways speed makes continuous free fall curve around the Moon.",
-        "why": "Circular motion requires acceleration toward the centre. Around the Moon, gravity supplies that inward acceleration. The spacecraft is therefore falling during the entire orbit. Its sideways speed makes the falling path curve around the Moon instead of into the surface. Too little speed makes the path intersect the Moon. Too much opens the path outward. No engine must hold the spacecraft up. The crew feel weightless because there is no support force opposing the free fall.",
+        "play": "Why does the free-return path bend around the Moon instead of simply hitting it?",
+        "task": "Why does the free-return path bend around the Moon instead of simply hitting it?",
+        "question": "Why does the free-return path bend around the Moon instead of simply hitting it?",
+        "answer": "Its sideways velocity carries it past the Moon while lunar gravity continuously bends the path.",
+        "why": "The spacecraft is in continuous free fall, but free fall does not mean falling straight down. Lunar gravity accelerates the vehicle toward the Moon while its existing sideways velocity carries it across the face of the Moon. The combined motion bends the trajectory around the body. On a free-return the path is generally not circular: speed and distance from the Moon change through the encounter. A trajectory with too little transverse speed or the wrong aim can intersect the surface; a suitable incoming state swings past and departs on a new direction.",
         "rebuttals": [
-          "In an inertial frame there is no outward force balancing gravity. The spacecraft accelerates inward continuously.",
-          "Speed does not weaken gravity. It changes the shape of the path produced by that inward acceleration.",
-          "There is no atmosphere to provide aerodynamic lift, and the engine is off for most of the return."
+          "In an inertial frame there is no real outward force balancing gravity; gravity continuously changes the velocity vector.",
+          "Speed does not weaken lunar gravity. It changes the trajectory produced while gravity acts.",
+          "There is essentially no atmosphere to provide aerodynamic lift on this flyby."
         ],
         "choices": [
-          "Its sideways speed makes continuous free fall curve around the Moon.",
+          "Its sideways velocity carries it past the Moon while lunar gravity continuously bends the path.",
           "An outward inertial force balances gravity so the spacecraft has no acceleration.",
           "Its speed reduces how strongly lunar gravity acts on the spacecraft.",
           "Its forward motion produces lift that supports it against lunar gravity."
         ],
-        "correctChoice": "Its sideways speed makes continuous free fall curve around the Moon."
+        "correctChoice": "Its sideways velocity carries it past the Moon while lunar gravity continuously bends the path."
       },
       "assumes": [
-        "an object moving in a circle is accelerating even at constant speed",
+        "gravity continuously changes a spacecraft's velocity vector during a flyby",
         "kinematics — taken as read",
         "newton's laws and free-body reasoning — taken as read"
       ],
@@ -175,8 +175,8 @@ export const CURRICULUM = {
         }
       ],
       "concept": {
-        "n": 6,
-        "c": "Circular motion and centripetal force",
+        "n": 21,
+        "c": "Projectile motion and free fall",
         "of": 30,
         "rests": [
           "Kinematics",
@@ -444,7 +444,7 @@ export const CURRICULUM = {
       "scene": "Several ground measurements suddenly place the spacecraft ahead of prediction. The range and Doppler solutions agree with one another. Whitaker has a burn ready. An optical star-angle solution and the station timing records are also available.",
       "takeaway": "When several measurements agree, ask whether they agree independently or merely inherit the same clock, calibration, or model.",
       "place": "Global Tracking Network",
-      "guide": "Four options, and two measurements agree. Ask what they share before treating that as confirmation. Range and Doppler both use the ground timing reference. The optical solution does not, and it matches the prediction instead. So one of these options explains several agreeing numbers as one failure. A correction burn is about to be commanded on the answer.",
+      "guide": "Several radiometric products agree, but agreement is not independence. Ask which products inherit the same station time-and-frequency reference, then compare them with the optical angle and an independent timing standard before authorising a burn.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
@@ -459,7 +459,7 @@ export const CURRICULUM = {
         "task": "Which explanation fits the ranging, angle, clock, and independent-time checks?",
         "question": "Which explanation fits the ranging, angle, clock, and independent-time checks?",
         "answer": "Common timing-reference error",
-        "why": "Agreement matters only when measurements can fail independently. Range and Doppler both use the same ground timing reference, so one clock error can shift them together. Optical star-angle navigation does not use that clock and still matches the predicted direction. The timing reference is then found to be offset. Reprocessing the original observations with corrected timestamps removes most of the apparent trajectory error. No force acted on the spacecraft. The shared dependency created several agreeing numbers that were really one failure.",
+        "why": "Agreement matters only when measurements can fail independently. The range and coherent-Doppler products are reduced against the same ground time-and-frequency reference, so a timebase error can bias the derived state in a correlated way even though the raw observables are different. The optical angle uses different physics and still matches prediction. An independent timing check then shows the common reference is offset, and reprocessing the radiometric data removes most of the apparent trajectory jump. The lesson is not that every clock error moves range and Doppler identically; it is that derived products can share a reference and therefore share a failure mode.",
         "rebuttals": [
           "A real trajectory change needs a force, and onboard dynamics show no unmodelled acceleration. Nothing pushed the spacecraft.",
           "Independent failures do not drift in the same direction at the same moment. These channels share a clock, which is why they moved together.",
@@ -499,84 +499,40 @@ export const CURRICULUM = {
     },
     {
       "day": 8,
-      "title": "Combine independent uncertainties",
-      "scene": "The navigation board carries two position errors. One is 6 kilometres, the other 8, and they lie along axes at right angles. Lindqvist needs a single number for the entry brief, and the burn is called from it.",
-      "takeaway": "Independent orthogonal uncertainties combine in quadrature.",
+      "title": "Combine the orthogonal error components",
+      "scene": "The navigation covariance has one-sigma position components of 6 km and 8 km on perpendicular axes. Lindqvist wants the root-sum-square scale on the board, without calling it a 68% radial confidence radius.",
+      "takeaway": "Independent orthogonal variance components add in quadrature, but their RSS is not the same thing as a radial confidence interval.",
       "place": "Navigation Covariance Room",
-      "guide": "Five numbers, and three of them are wrong ways to combine the two errors: their sum, their average, and the number of axes. Ask of each whether it respects the geometry. The two errors lie along perpendicular axes, so the answer is larger than either and smaller than their sum. The burn is called from this single figure.",
+      "guide": "The two components are independent and perpendicular, so their variances add. The square root of 6²+8² is a useful RMS/RSS size for the two-dimensional error vector. It is not, by itself, the radius containing 68% of a two-dimensional Gaussian.",
       "background": [
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "The navigation board carries two position errors. One is 6 kilometres, the other 8, and they lie along axes at right angles. Lindqvist needs a single number for the entry brief, and the burn is called from it.",
+      "story": "The navigation covariance has one-sigma position components of 6 km and 8 km on perpendicular axes. Lindqvist wants the root-sum-square scale on the board, without calling it a 68% radial confidence radius.",
       "game": {
         "type": "BALLPARK",
-        "title": "Combine independent uncertainties",
+        "title": "Combine the orthogonal error components",
         "setup": "Navigation Covariance Room",
-        "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the combined two-dimensional uncertainty.",
+        "play": "Use the two perpendicular one-sigma components to estimate the root-sum-square position-error scale used in the brief.",
+        "task": "Use the two perpendicular one-sigma components to estimate the root-sum-square position-error scale used in the brief.",
+        "question": "Estimate the root-sum-square position-error scale.",
         "answer": "",
-        "why": "Independent errors along perpendicular directions combine in quadrature. Square each width, add the squares, and take the square root. 14 kilometres therefore combine to 10 kilometres. The result is larger than either contribution but smaller than their simple sum. That distinction matters operationally. Adding them directly exaggerates the uncertainty and can motivate an unnecessary burn. Treating the larger term alone understates the uncertainty and can hide a corridor problem. The combination rule preserves the geometry of independent errors.",
+        "why": "Independent one-sigma components along perpendicular axes combine in quadrature as an RMS scale: √(6²+8²)=10 km. That preserves the variance geometry and is useful for comparing error budgets. But a two-dimensional Gaussian does not put 68% of its probability inside a circle of radius equal to this RSS value; a true radial confidence region comes from the full covariance. The game therefore labels 10 km as an error scale, not a one-sigma radial boundary.",
         "givens": [],
         "relationship": "Independent errors along perpendicular axes add in quadrature: the root of the sum of the squares.",
         "calcKey": "NAV-8"
       },
       "assumes": [
-        "two errors along different directions do not simply add"
+        "the two quoted axis errors are independent one-sigma components"
       ],
       "concept": {
-        "n": 19,
-        "c": "Measurement uncertainty and error propagation",
+        "n": 1,
+        "c": "Vectors and components",
         "of": 30
       }
     },
     {
       "day": 9,
-      "title": "Fund the mission legacy",
-      "scene": "The crew is aboard the recovery ship, and the review board meets Monday. Carter puts four proposals up for three funded slots: a tank redesign, a second telemetry path, a full-duration thermal test article, and a simulator upgrade.",
-      "takeaway": "The scientific obligation after a crisis is to learn from every discrepancy, not only the successful outcome.",
-      "place": "Entry Tracking Network",
-      "guide": "All four proposals are worth funding and three slots exist. Ask of each whether it removes a cause or improves the response to one. The same weakness appeared twice this mission: several pressure readouts on one electrical reference, and several tracking products on one clock. Both times, agreement looked stronger than it was. Logs and rehearsal help reconstruct that, not prevent it.",
-      "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
-      ],
-      "story": "The crew is aboard the recovery ship, and the review board meets Monday. Carter puts four proposals up for three funded slots: a tank redesign, a second telemetry path, a full-duration thermal test article, and a simulator upgrade.",
-      "game": {
-        "type": "CHOICE",
-        "title": "Fund the mission legacy",
-        "setup": "Entry Tracking Network",
-        "play": "The review board can fund three follow-up efforts. Which proposal deserves first priority because it removes the repeated physical cause?",
-        "task": "The review board can fund three follow-up efforts. Which proposal deserves first priority because it removes the repeated physical cause?",
-        "question": "Which proposal deserves first priority because it removes the repeated physical cause?",
-        "answer": "Redesign the common-mode electrical and sensor dependencies.",
-        "why": "The mission exposed the same systems weakness twice. Several pressure readouts shared one electrical reference, and several tracking products later shared one clock. In both cases, agreement looked stronger than it really was. A lasting fix removes or isolates those common dependencies. Preserving logs and improving simulation are also valuable because they help reconstruct and rehearse failures. They do not remove the cause. The review should therefore prioritize redesigning common-mode dependencies while keeping the evidence needed to validate that redesign.",
-        "rebuttals": [
-          "Preserving the record is essential for reconstruction, but it does not remove the dependency that created the false agreement.",
-          "Rehearsal improves the response to the same failure. It does not prevent the shared reference or shared clock from failing again.",
-          "More staffing can speed diagnosis, but it leaves the physical common-mode dependency in place."
-        ],
-        "choices": [
-          "Redesign the common-mode electrical and sensor dependencies.",
-          "Preserve the complete telemetry, configuration, and decision logs.",
-          "Improve simulation and crew rehearsal for degraded modes.",
-          "Expand anomaly-response staffing for future missions."
-        ],
-        "correctChoice": "Redesign the common-mode electrical and sensor dependencies."
-      },
-      "assumes": [
-        "a fix that removes a cause outlasts a fix that improves the response"
-      ],
-      "concept": {
-        "n": 20,
-        "c": "Systems thinking: dependency, redundancy, failure modes",
-        "of": 30
-      }
-    },
-    {
-      "day": 10,
       "title": "Which measurement constrains what? — Review",
       "scene": "Whitaker has one station and a twenty-minute pass, and every observation it can take leaves some part of the state unmeasured. Reyes wants the room to name what each one is blind to before the schedule is fixed.",
       "takeaway": "Every observation is blind along some axis, and a schedule is chosen against the blind axes rather than the strong ones.",
@@ -647,7 +603,7 @@ export const CURRICULUM = {
       }
     },
     {
-      "day": 11,
+      "day": 10,
       "title": "Reconstruct the state vector — Review",
       "scene": "The guidance platform has restarted a second time. What is left is a handful of sextant marks the crew read off by hand, on three different clocks. Whitaker starts writing them up, and Reyes wants the axes agreed first.",
       "takeaway": "A vector is numbers plus the axes they are measured against, and the axes have to be settled before any of the numbers can be added.",
@@ -980,7 +936,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "How much does the cabin cool?",
-      "scene": "With the systems powered down the cabin is losing about a kilowatt more than it generates. Brooks wants to know how long the crew has before the temperature becomes a medical problem.",
+      "scene": "With most systems powered down, the cabin is losing about a kilowatt more heat than it generates. Brooks wants the three-hour temperature trend before deciding whether scarce heater energy changes the survival clock.",
       "takeaway": "Thermal inertia can make temperature change slowly even when power is lost.",
       "place": "Thermal Control Lab",
       "guide": "Five numbers, and two of them are the same three hours written in different units. Another is the present cabin temperature, which the drop does not use. Ask of each whether the relationship needs it. And note what the answer means. The cabin cools slowly because of what it is made of, which buys hours now and costs the same energy to reheat later.",
@@ -988,7 +944,7 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "With the systems powered down the cabin is losing about a kilowatt more than it generates. Brooks wants to know how long the crew has before the temperature becomes a medical problem.",
+      "story": "With most systems powered down, the cabin is losing about a kilowatt more heat than it generates. Brooks wants the three-hour temperature trend before deciding whether scarce heater energy changes the survival clock.",
       "game": {
         "type": "BALLPARK",
         "title": "How much does the cabin cool?",
@@ -997,7 +953,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the temperature drop over three hours.",
         "answer": "",
-        "why": "A lumped estimate treats the cabin and everything in it as 1 thermal mass of about 12 million joules per kelvin. Energy lost divided by heat capacity gives the temperature drop, and over three hours the answer is small — which is the useful part. Thermal inertia is why the cabin cools slowly rather than instantly when the power goes, and it buys the crew hours to decide. It is also why reheating later is expensive: the same heat capacity has to be filled back up.",
+        "why": "A lumped estimate treats the cabin, equipment, and contents as one effective thermal mass of about 12 MJ/K. A 1 kW net loss for three hours removes 10.8 MJ, corresponding to about 0.9 K of average cooling. The estimate does not say every surface cools by the same amount: local batteries and walls can be colder. Thermal inertia buys time, while the local temperature measurements decide where insulation or heater power actually matters.",
         "givens": [],
         "relationship": "Temperature drop = energy lost ÷ heat capacity. Energy lost = power × time.",
         "calcKey": "THERM-2"
@@ -1172,7 +1128,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "CO2 production scale",
-      "scene": "3 crew members each exhale roughly 20 litres of carbon dioxide an hour. Novak needs to know what an improvised scrubber has to keep up with over the next six hours.",
+      "scene": "Three crew members each produce roughly 20 litres of carbon dioxide per hour at the current activity level. Novak needs the six-hour source scale before sizing the improvised scrubber.",
       "takeaway": "Source rate sets the minimum removal requirement.",
       "place": "Cabin Air Console",
       "guide": "Five numbers, and two of them belong to a different question: a whole day, and a figure by mass rather than by volume. Ask of each whether it is a rate, a count, or a duration. What comes out is the minimum a scrubber has to keep up with. Anything slower than that only slows the rise rather than holding it steady.",
@@ -1180,7 +1136,7 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "3 crew members each exhale roughly 20 litres of carbon dioxide an hour. Novak needs to know what an improvised scrubber has to keep up with over the next six hours.",
+      "story": "Three crew members each produce roughly 20 litres of carbon dioxide per hour at the current activity level. Novak needs the six-hour source scale before sizing the improvised scrubber.",
       "game": {
         "type": "BALLPARK",
         "title": "CO2 production scale",
@@ -1189,7 +1145,7 @@ export const CURRICULUM = {
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
         "question": "Estimate the carbon dioxide produced in six hours.",
         "answer": "",
-        "why": "Source rate sets the minimum removal rate. 3 people at 20 litres per hour each produce 60 litres per hour together. Over 6 hours that becomes 360 litres. A scrubber that removes carbon dioxide more slowly than the crew produces it cannot hold the concentration steady. It only slows the rise. The estimate does not need high precision. It needs to tell the workshop whether the improvised system is large enough to matter and how much capacity it must provide.",
+        "why": "Source rate sets the minimum removal rate. Three people at roughly 20 L per hour each produce about 60 L per hour together, or about 360 L over six hours at the stated reference conditions. This is a scale estimate, not a prediction of cabin partial pressure: cabin volume, ventilation, sorbent performance, and gas conditions still matter. The practical test is whether removal can at least keep pace with production while measured CO2 stops rising.",
         "givens": [],
         "relationship": "Total = rate per person × number of people × time.",
         "calcKey": "THERM-5"
@@ -1533,16 +1489,16 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "What shifts the apparent direction?",
-      "scene": "The crew will aim the next maneuver through a window reticle. Before that view is trusted, Reyes compares eye position, focus, target parallax, and spacecraft rotation, so each apparent shift has a physical interpretation.",
+      "scene": "Illuminated debris has made star identification unreliable, so the crew will use a window reticle with the Earth limb and Sun as coarse references. Reyes first separates eye position, focus, true geometric parallax, and spacecraft rotation, because the reticle can move relative to the eye even when the vehicle does not.",
       "takeaway": "Manual navigation requires separating instrument geometry from spacecraft motion.",
       "place": "Optics Test Room",
-      "guide": "Four apparent shifts, and four causes. Pair them by asking what actually moved. The eye? The optics? The viewpoint? The vehicle? Two of them change what you see without changing the line of sight. The crew will aim the next manoeuvre through this reticle. A shift blamed on the wrong cause becomes a burn in the wrong direction.",
+      "guide": "Four apparent shifts, four causes. Ask what physically moved: the eye, the optics, the viewpoint, or the spacecraft. The crew is about to aim a burn with this sight, so an apparent reticle shift cannot be allowed to masquerade as attitude error.",
       "background": [
         "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
       ],
-      "story": "The crew will aim the next maneuver through a window reticle. Before that view is trusted, Reyes compares eye position, focus, target parallax, and spacecraft rotation, so each apparent shift has a physical interpretation.",
+      "story": "Illuminated debris has made star identification unreliable, so the crew will use a window reticle with the Earth limb and Sun as coarse references. Reyes first separates eye position, focus, true geometric parallax, and spacecraft rotation, because the reticle can move relative to the eye even when the vehicle does not.",
       "game": {
         "type": "PROTOCOL",
         "title": "What shifts the apparent direction?",
@@ -1551,7 +1507,7 @@ export const CURRICULUM = {
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "",
-        "why": "Manual navigation works only if instrument geometry is separated from spacecraft motion. Move your eye relative to a nearby reticle and the apparent alignment changes. That is instrument parallax. Changing focus affects sharpness but not the true line of sight. A nearby object shifting against distant stars as the viewpoint changes is geometric parallax, which carries distance information. If the star field appears to rotate while the stars themselves remain fixed, the spacecraft body has changed orientation. The same visual shift can therefore have very different causes.",
+        "why": "Manual alignment works only if instrument geometry is separated from vehicle motion. Moving the eye relative to a nearby reticle creates sighting parallax without changing the external line of sight. Focus changes sharpness, not direction. A nearby object that changes apparent position against a distant reference as viewpoint changes shows geometric parallax. A stable celestial reference moving across the reticle instead indicates a change in body orientation. These effects can look similar in one glance and have completely different consequences for a burn.",
         "rebuttals": [
           "Eye moving against a nearby reticle is instrument parallax. Nothing outside the window has changed.",
           "A focus change alters how sharp the image is and leaves the direction where it was.",
@@ -1583,7 +1539,16 @@ export const CURRICULUM = {
       },
       "assumes": [
         "what you see through an eyepiece depends on where your eye is"
-      ]
+      ],
+      "concept": {
+        "n": 10,
+        "c": "Gravitation and orbits",
+        "of": 30,
+        "rests": [
+          "Circular motion and centripetal force",
+          "Newton's laws and free-body reasoning"
+        ]
+      }
     },
     {
       "day": 4,
@@ -1838,25 +1803,25 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "Spring-mass period",
-      "scene": "A mounted component is modeled as a 4 kg mass on a 400 N/m spring. Mensah needs its natural period and frequency on the board before nearby equipment operating speeds are approved.",
-      "takeaway": "Natural frequency emerges from inertia and stiffness.",
+      "title": "Does the natural frequency match the pump?",
+      "scene": "The vibrating panel can be approximated near this mode as a 4 kg effective mass on a 4.5×10^5 N/m equivalent stiffness. Mensah wants its natural period and frequency compared directly with the pump speed.",
+      "takeaway": "A resonance claim requires the forcing frequency and natural frequency to match, not merely a large vibration.",
       "place": "Spacecraft Vibration Console",
-      "guide": "Five numbers, and three belong to other things on the vehicle: a wheel speed, a damper, and a nearby mode. Ask of each whether this component's own oscillation depends on it. Two terms set it: how much mass there is, and how stiff the mount is. And note which way each pushes, because they act in opposite directions.",
+      "guide": "The component's mode depends on effective mass and stiffness. First calculate the period from 2π√(m/k), then invert it for frequency and compare with 3,200 rpm ÷ 60. A resonance claim only earns its place if the two frequencies actually meet.",
       "background": [
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "A mounted component is modeled as a 4 kg mass on a 400 N/m spring. Mensah needs its natural period and frequency on the board before nearby equipment operating speeds are approved.",
+      "story": "The vibrating panel can be approximated near this mode as a 4 kg effective mass on a 4.5×10^5 N/m equivalent stiffness. Mensah wants its natural period and frequency compared directly with the pump speed.",
       "game": {
         "type": "BALLPARK",
-        "title": "Spring-mass period",
+        "title": "Does the natural frequency match the pump?",
         "setup": "Spacecraft Vibration Console",
-        "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation.",
-        "question": "Estimate the natural period.",
+        "play": "Use the mounted mass and stiffness to estimate the natural period, then compare its frequency with the 3,200 rpm pump forcing.",
+        "task": "Use the mounted mass and stiffness to estimate the natural period, then compare its frequency with the 3,200 rpm pump forcing.",
+        "question": "Estimate the natural period and compare the implied frequency with the pump forcing.",
         "answer": "",
-        "why": "For a spring-mass system, inertia and stiffness set the natural period. More mass makes the oscillation slower, while greater stiffness makes it faster. With 4 kilograms and 400 newtons per metre, the period is about 0.63 second. That corresponds to roughly 1.6 hertz. The number matters because repeated forcing near a natural frequency can build a large response. Knowing the mode first lets the team keep operating speeds away from it instead of discovering the resonance in flight.",
+        "why": "For the simplified spring-mass mode, T = 2π√(m/k). With 4 kg and 4.5×10^5 N/m, the period is about 0.0187 s, or a natural frequency of about 53.4 Hz. The pump at 3,200 rpm forces at about 53.3 cycles per second. Those numbers now match within the precision of the model, which is exactly the evidence the resonance diagnosis needs.",
         "givens": [],
         "relationship": "Period = 2π × the square root of (mass ÷ stiffness).",
         "calcKey": "STRUCT-3"
@@ -1885,6 +1850,26 @@ export const CURRICULUM = {
           ],
           "s": "An oscillator has a natural period set by its mass and stiffness, and driving it at that rate is what makes a resonance.",
           "computed": true
+        },
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "wave speed, in metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "For a given medium the speed is fixed, so raising the frequency shortens the wavelength in proportion.",
+          "demanded": true
         }
       ],
       "takesAsRead": [
@@ -1894,11 +1879,12 @@ export const CURRICULUM = {
         }
       ],
       "concept": {
-        "n": 23,
-        "c": "Springs and Hooke's law",
+        "n": 11,
+        "c": "Simple harmonic motion and resonance",
         "of": 30,
         "rests": [
-          "Newton's laws and free-body reasoning"
+          "Newton's laws and free-body reasoning",
+          "Springs and Hooke's law"
         ]
       }
     }
@@ -2450,7 +2436,7 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Shed load without losing the mission",
-      "scene": "41 amp-hours remain for a 62-hour return. Current draw is 4.2 amps. Guidance, communications, thermal control, and life support all want power. Shah slides the ledger across, and at least one load must come down within minutes.",
+      "scene": "The ledger now separates continuous loads from scheduled ones. Life support needs 0.4 A for all 62 hours. Thermal survival loads need six hours total, guidance and navigation need four powered hours, and high-bandwidth communications is optional outside short call windows. Shah wants the arithmetic to close before anything else is switched off.",
       "takeaway": "A finite energy budget is a set of tradeoffs between load rate, runtime, and the mission conditions each load protects.",
       "place": "Mission Planning Desk",
       "guide": "Forty-one amp-hours, sixty-two hours to fly, and a current draw of 4.2 amps that does not fit. Watch the questions list rather than the loads: it shows what the spacecraft can still do under the current plan. Every hour you buy for one load is an hour you have taken from another, and at least one has to come down within minutes.",
@@ -2459,16 +2445,16 @@ export const CURRICULUM = {
         "Why the loads are not equal. Guidance and communications can be intermittent — used for a pass and switched off. Thermal control has a time constant of hours, so it can be cycled. Life support cannot be interrupted at all. That difference is what makes a plan possible.",
         "Why minutes matter for the first cut. Every hour spent deciding is drawn at the current rate, so a slow decision has already spent part of what it was allocating. The first reduction buys the time to make the rest of the plan properly."
       ],
-      "story": "41 amp-hours remain for a 62-hour return. Current draw is 4.2 amps. Guidance, communications, thermal control, and life support all want power. Shah slides the ledger across, and at least one load must come down within minutes.",
+      "story": "The ledger now separates continuous loads from scheduled ones. Life support needs 0.4 A for all 62 hours. Thermal survival loads need six hours total, guidance and navigation need four powered hours, and high-bandwidth communications is optional outside short call windows. Shah wants the arithmetic to close before anything else is switched off.",
       "game": {
         "type": "ALLOCATE",
         "title": "Shed load without losing the mission",
         "setup": "Mission Planning Desk",
-        "play": "Allocate 41 amp-hours across life support, thermal control, guidance windows, and communications. Keep every required mission condition satisfied through the 62-hour return.",
-        "task": "Allocate 41 amp-hours across life support, thermal control, guidance windows, and communications. Keep every required mission condition satisfied through the 62-hour return.",
+        "play": "Allocate 41 amp-hours across continuous life support, six hours of thermal protection, four guidance windows, and whatever communications time remains.",
+        "task": "Allocate 41 amp-hours across continuous life support, six hours of thermal protection, four guidance windows, and whatever communications time remains.",
         "question": "How many hours of each load can the spacecraft afford?",
-        "answer": "Protect continuous life support, reserve the required guidance windows, and keep enough thermal runtime to protect the cabin and batteries. The remaining amp-hours support only short communications windows, not continuous high-bandwidth operation.",
-        "why": "Power shedding is not a ranking of important systems. It is an allocation of current over time. Life support must run through the return. Guidance needs power during specific navigation windows. Thermal control can be duty-cycled, but not removed, because cold batteries lose usable capacity. High-bandwidth communications is the flexible load. When runtime is converted into amp-hours, the required functions consume almost the entire inventory. The remaining energy buys only short communications windows, so continuous broadband has to be given up.",
+        "answer": "The required loads use 38.6 Ah, leaving 2.4 Ah. That supports about 2.7 hours of 0.9 A high-bandwidth communications; schedule those windows instead of trying to run broadband continuously.",
+        "why": "Amp-hours are current multiplied by time. Continuous life support costs 0.4 A × 62 h = 24.8 Ah. Six hours of thermal protection at 1.1 A costs 6.6 Ah, and four guidance hours at 1.8 A cost 7.2 Ah. Those required loads total 38.6 Ah, leaving 2.4 Ah. At 0.9 A, that buys only about 2.7 hours of high-bandwidth communications. The right plan is therefore not 'turn off the least important system'; it is schedule each load for the hours in which its physical function is actually needed.",
         "allocate": {
           "pool": {
             "amount": 41,
@@ -2520,27 +2506,54 @@ export const CURRICULUM = {
               ]
             }
           ],
-          "hint": "Set runtime for each load. The amp-hour total updates as current times hours, and the mission-condition panel shows what your allocation can still accomplish.",
+          "hint": "Meet the required runtimes first: 62 h of life support, 6 h of thermal protection, and 4 h of guidance. Then see how many amp-hours remain for broadband communications.",
           "commit": "Commit the plan"
         }
       },
       "assumes": [
         "amp-hours equal current multiplied by time",
         "some loads can be duty-cycled while others must run continuously",
-        "newton's laws and free-body reasoning — taken as read"
+        "electrical power and energy budgets — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "P = IV = I²R",
+          "c": "electrical power, and an energy budget over time",
+          "v": [
+            [
+              "P",
+              "power, in watts"
+            ],
+            [
+              "I",
+              "current, in amperes"
+            ],
+            [
+              "V",
+              "voltage, in volts"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Power is the rate energy is used, and over a mission it is the energy budget that decides what can stay switched on.",
+          "demanded": true
+        }
       ],
       "takesAsRead": [
         {
-          "n": 3,
-          "c": "Newton's laws and free-body reasoning"
+          "n": 15,
+          "c": "Electrical power and energy budgets"
         }
       ],
       "concept": {
-        "n": 4,
-        "c": "Work, energy and conservation of energy",
+        "n": 16,
+        "c": "Series, parallel and load management",
         "of": 30,
         "rests": [
-          "Newton's laws and free-body reasoning"
+          "Circuits: current, voltage, resistance, Ohm's law",
+          "Electrical power and energy budgets"
         ]
       }
     },
@@ -2784,11 +2797,12 @@ export const CURRICULUM = {
         "air, like water, takes the easiest path it is offered"
       ],
       "concept": {
-        "n": 18,
-        "c": "Gas behaviour and life support",
+        "n": 28,
+        "c": "Capacitance, RC time constants and transients",
         "of": 30,
         "rests": [
-          "Heat transfer: conduction, convection, radiation"
+          "Circuits: current, voltage, resistance, Ohm's law",
+          "Electrical power and energy budgets"
         ]
       }
     },
@@ -2883,15 +2897,15 @@ export const CURRICULUM = {
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "answer": "",
-        "why": "Reentry is an energy-transfer problem before it is a temperature problem. The capsule arrives with large kinetic and gravitational energy. Atmospheric drag does negative work and removes mechanical energy from the vehicle. That energy does not disappear. Much of it becomes thermal energy in the shocked gas and wake, while some enters the shield and structure. Speed and altitude fall as the transfer continues. The trajectory and heat shield control how quickly the energy leaves and where the heating is concentrated.",
+        "why": "Reentry is primarily an energy-transfer problem. At atmospheric interface the vehicle's mechanical energy is dominated by its enormous kinetic energy. Aerodynamic forces do negative work on the spacecraft, transferring mechanical energy into internal energy of the shocked gas, the wake, the heat shield, and the structure. The heat shield does not make that energy disappear; its shape and materials control where the heating occurs and how much reaches the cabin while the trajectory controls the rate.",
         "rebuttals": [
-          "The vehicle arrives with the energy. Everything that follows is that energy leaving.",
+          "The vehicle arrives carrying the energy, overwhelmingly as kinetic energy at lunar-return speed. Everything that follows is redistribution and removal of that mechanical energy.",
           "Drag does negative work — it is the mechanism that removes the energy, and it acts along the whole path.",
           "The energy becomes heat in the shocked gas and the wake. A blunt shield is shaped to put it there rather than into the vehicle.",
           "Falling velocity and altitude are the result. How fast they fall is what the shield and the trajectory shape are for."
         ],
         "cards": [
-          "The spacecraft enters with large kinetic and gravitational energy.",
+          "The spacecraft reaches atmospheric interface with enormous mechanical energy, dominated by kinetic energy.",
           "Atmospheric drag performs negative work on the spacecraft.",
           "Energy becomes heat in shocked gas, the vehicle, and the wake.",
           "Velocity and altitude fall while thermal protection and trajectory shape control the rates."
@@ -2929,9 +2943,9 @@ export const CURRICULUM = {
       "scene": "The safe entry corridor runs from 5.3 to 7.7 degrees, and the current solution is centered at 6.2 degrees with a one-sigma width of 0.5. Two actions remain before commitment, and Lindqvist wants the solution reported honestly first.",
       "takeaway": "Moving an estimate changes its center; new information changes its width, and safety can depend on both.",
       "place": "Crew G-Load Console",
-      "guide": "The band is every entry angle the tracking permits: centred at 6.2 degrees with half a degree of one-sigma width, against a corridor from 5.3 to 7.7. Two actions remain, and they do different things — one moves where the band sits, the other changes how wide it is. Apply what you would commit to, watch both numbers, then say when the solution is safe to fly.",
+      "guide": "The display is a probability distribution, not a hard band of every possible angle. Its centre is 6.2 degrees and its one-sigma width is 0.5 degrees; the safe corridor spans 5.3 to 7.7. One action shifts the centre, while an independent tracking pass reduces the statistical width. Apply the actions and judge the probability left outside either boundary.",
       "background": [
-        "Why the width is the thing. A trajectory outside the corridor is a vehicle that either skips back out or comes in too steep, and the band is the set of trajectories the tracking cannot rule out. Being centred perfectly with a wide band still leaves some of those outside — and a crew flies one draw from that band, not its middle.",
+        "Why one sigma is not a fence. A standard deviation describes the width of a probability distribution; it is not the set of all angles the vehicle could have. Entry safety therefore depends on how much probability remains outside the corridor, not simply whether the drawn one-sigma interval fits between the lines.",
         "Two different actions. A targeting correction moves the nominal, which slides the whole band along the corridor. A tracking pass adds information, which is the only thing that makes it narrower. Confusing them is the classic error in this room: the number on the display gets better and the risk does not.",
         "Why 'when is it ready' is part of the question. Every action costs time on a clock the vehicle sets, and the crew cannot wait for an arbitrarily tight solution. So the decision is not merely what to do but when the band is inside the corridor by enough that the next hour is better spent elsewhere."
       ],
@@ -2944,7 +2958,7 @@ export const CURRICULUM = {
         "task": "Use the available tracking and targeting actions to place enough of the entry-angle distribution inside the safe corridor.",
         "question": "Can you make the entry solution robust without confusing a better center with a narrower uncertainty? Place the bars to report the mean and its one-sigma uncertainty.",
         "answer": "Use both actions: center the solution near 6.5 degrees and narrow the one-sigma width to about 0.35 degrees. Either action alone misses the 99.5% pass mark; together they clear it.",
-        "why": "The nominal entry angle is only the center of a distribution. Moving that center does not make the state better known; the whole uncertainty cloud moves with it. Extra independent tracking does something different by narrowing the cloud. Here neither action alone reaches the required probability inside the safe corridor. Centering removes the bias, while added tracking reduces the spread. Together they move nearly all plausible entry states away from both boundaries. That is what turns a good nominal trajectory into a robust one.",
+        "why": "The nominal entry angle is only the centre of a distribution. A targeting correction moves that centre but does not by itself make the state better known. Independent tracking can narrow the distribution by adding information. Here the authored Gaussian model requires both: recentering removes the offset and tracking reduces the width until the probability inside the 5.3–7.7 degree corridor exceeds the stated 99.5% decision rule. The rule is a model assumption for this game, not a universal reentry standard.",
         "cloud": {
           "bounds": {
             "min": 5.3,
@@ -2988,16 +3002,16 @@ export const CURRICULUM = {
     {
       "day": 16,
       "title": "What is driving the vibration?",
-      "scene": "A structural vibration becomes severe only near 3,200 rpm of reaction-wheel speed. The amplitude falls away above and below that band. Okoye shows the room two accelerometers on different parts of the structure recording the same narrow response.",
+      "scene": "A structural vibration becomes severe only when the pump rotor passes through about 3,200 rpm. The amplitude falls away above and below that band. Okoye shows two accelerometers on different parts of the panel recording the same narrow response.",
       "takeaway": "How hard something shakes matters less than what is shaking it and how fast.",
       "place": "Structural Dynamics Lab",
-      "guide": "Four options, and three facts have to be covered. The response peaks in a narrow band of wheel speed. It falls away either side. Two accelerometers on different parts of the structure see the same thing. Ask of each option how many of the three it explains. A loose sensor would not be confirmed by a second one, and an impact happens once.",
+      "guide": "Three facts have to agree: the response peaks near 3,200 rpm, it falls on either side, and two independent accelerometers see the same mode. Ask which explanation predicts all three. A loose sensor cannot make a second sensor respond, and an impact would not switch on and off with rotor speed.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "A structural vibration becomes severe only near 3,200 rpm of reaction-wheel speed. The amplitude falls away above and below that band. Okoye shows the room two accelerometers on different parts of the structure recording the same narrow response.",
+      "story": "A structural vibration becomes severe only when the pump rotor passes through about 3,200 rpm. The amplitude falls away above and below that band. Okoye shows two accelerometers on different parts of the panel recording the same narrow response.",
       "game": {
         "type": "CHOICE",
         "title": "What is driving the vibration?",
@@ -3005,8 +3019,8 @@ export const CURRICULUM = {
         "play": "Which explanation fits the frequency, speed dependence, and independent accelerometers?",
         "task": "Which explanation fits the frequency, speed dependence, and independent accelerometers?",
         "question": "Which explanation fits the frequency, speed dependence, and independent accelerometers?",
-        "answer": "Resonance driven by wheel forcing",
-        "why": "Resonance is identified by how response changes with forcing frequency. A structure can be strong under static load and still respond strongly near one natural frequency. Here the vibration peaks in a narrow band of wheel speed. Moving away from that band reduces the motion immediately. A second accelerometer sees the same pattern, which argues against one loose sensor. The repeatable relationship between forcing speed and structural response is the key evidence. Large amplitude alone would not identify the cause.",
+        "answer": "Resonance driven by pump forcing",
+        "why": "Resonance is identified by the relationship between forcing frequency and structural response. A rotor at 3,200 rpm forces the structure at about 53.3 Hz. If a structural mode lies near that frequency, repeated forcing can build a large response even when the static load is harmless. Moving the pump away from the band immediately reduces the forcing at that mode. The second accelerometer confirms the response belongs to the structure rather than one loose sensor.",
         "rebuttals": [
           "A loose sensor rattles on its own mount. A second accelerometer in a different location sees the same mode.",
           "An impact is a single kick and would not care what speed the wheel is running at. The impact monitor recorded nothing.",
@@ -3014,8 +3028,8 @@ export const CURRICULUM = {
         ],
         "choices": [
           {
-            "label": "Resonance driven by wheel forcing",
-            "mechanism": "A periodic forcing frequency approaches a structural natural frequency and amplifies motion."
+            "label": "Resonance driven by pump forcing",
+            "mechanism": "The pump forcing frequency approaches a structural natural frequency and amplifies motion."
           },
           {
             "label": "Loose accelerometer",
@@ -3030,7 +3044,7 @@ export const CURRICULUM = {
             "mechanism": "Damage creates large vibration across a wide range of frequencies and operating states."
           }
         ],
-        "correctChoice": "Resonance driven by wheel forcing"
+        "correctChoice": "Resonance driven by pump forcing"
       },
       "assumes": [
         "every structure has speeds at which it prefers to shake"
@@ -3048,7 +3062,7 @@ export const CURRICULUM = {
     {
       "day": 17,
       "title": "Stop the resonance",
-      "scene": "A structural panel oscillates whenever the pump runs near one speed, and the amplitude has grown for three cycles. The pump is needed, and Okoye points out its operating speed can still be changed from the control panel.",
+      "scene": "The panel oscillates whenever the pump rotor enters the measured 3,200 rpm band, and the amplitude has grown for three cycles. The pump is needed, but its operating speed can be changed immediately from the control panel.",
       "takeaway": "A structural fix should change the dynamics and then demonstrate that the dangerous mode is controlled.",
       "place": "Operations Planning Room",
       "guide": "Resonance needs two things: a structure, and a forcing frequency. All four options act on one of them, or on neither. Ask of each which, and how fast it can be done from where the crew is sitting. The amplitude has already grown for three cycles. So one option's assumption, that the structure survives the passage, is no longer safe.",
@@ -3057,7 +3071,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "A structural panel oscillates whenever the pump runs near one speed, and the amplitude has grown for three cycles. The pump is needed, and Okoye points out its operating speed can still be changed from the control panel.",
+      "story": "The panel oscillates whenever the pump rotor enters the measured 3,200 rpm band, and the amplitude has grown for three cycles. The pump is needed, but its operating speed can be changed immediately from the control panel.",
       "game": {
         "type": "CHOICE",
         "title": "Stop the resonance",
@@ -3066,7 +3080,7 @@ export const CURRICULUM = {
         "task": "The pump is needed and the panel is entering resonance. What is the safest immediate control-panel action?",
         "question": "What is the safest immediate control-panel action?",
         "answer": "Shift the pump's operating speed away from the measured resonance.",
-        "why": "Resonance needs both a structure and a periodic forcing frequency. In flight, changing the forcing is usually faster than changing the structure. Moving the pump speed away from the measured resonant band therefore reduces the response immediately and reversibly. Added damping is a strong permanent fix, but it requires hardware and access. Driving faster through the band assumes the structure survives the passage. The growing amplitude has already made that assumption unsafe. The immediate action is to move the forcing frequency.",
+        "why": "Resonance requires periodic forcing near a natural frequency. The fastest reversible control is therefore to move the pump rotor away from the measured resonant band while preserving the required flow if the pump map allows it. Added damping or structural changes could be permanent fixes, but they require hardware access. Racing through the band assumes the panel and rubbing line survive the transient; the growing amplitude gives no reason to make that assumption.",
         "rebuttals": [
           "Damping bleeds energy out of the mode and is the right permanent fix. It needs hardware, access and a crew member with their hands on the structure.",
           "Measuring in more places is how you confirm the fix worked or merely moved the problem. It is the check, not the change.",
@@ -3382,7 +3396,7 @@ export const CURRICULUM = {
         "task": "Choose which readiness claims to verify before entry. You have two checks for four signed claims, so spend them where an unverified error would matter most.",
         "question": "Which claims deserve the final physical verification before the vehicle enters blackout?",
         "answer": "Physically verify the heat-shield configuration first, then confirm the entry state remains inside the approved corridor. The shield claim is critical and unbacked; the other claims already have direct evidence.",
-        "why": "Readiness paperwork and physical readiness are different things. A claim backed by independent measurements may deserve less scarce verification time than a critical claim supported only by a log entry. The entry state already has tracking behind it, while the shield configuration changed without a complete record. That is the dangerous gap. Blackout guidance and the known station correction also have direct checks behind them. With only two checks left, verification should target consequence and missing evidence, not whichever signature looks most official.",
+        "why": "A signature records responsibility, not physical truth. Verification time should go where consequence is highest and independent evidence is weakest. The undocumented shield-state change is therefore the first check. The entry state is already well supported, but its consequence is so large that it earns the second final check. The guidance self-test and corrected station bias already have direct evidence.",
         "attest": {
           "claims": [
             {
@@ -3482,6 +3496,52 @@ export const CURRICULUM = {
     },
     {
       "day": 23,
+      "title": "Give the entry GO",
+      "scene": "The last two physical checks are back. The heat-shield configuration matches the approved state. Independent tracking keeps the entry solution inside the agreed corridor. Onboard guidance has passed its autonomous test, and the apparent last-minute trajectory jump vanished when the common ground timebase was corrected. Atmospheric interface is now minutes away.",
+      "takeaway": "The final decision is earned when the remaining uncertainty is inside verified physical margins and no unresolved actionable hazard remains.",
+      "place": "Flight Director Console",
+      "guide": "This is the decision the previous fourteen shifts built. Ask whether any unresolved item is both capable of changing the entry outcome and still actionable before interface. Do not demand certainty the measurements cannot provide, and do not spend propellant correcting an error that independent evidence says is in the ground system.",
+      "background": [
+        "A go/no-go is not a vote on whether every uncertainty vanished. It is a decision about whether the remaining uncertainty lies inside the margins the vehicle was designed and targeted to survive.",
+        "The dangerous temptation is to react to the newest alarming number. The last tracking anomaly shared a ground timebase and disappeared under an independent timing correction; burning against it would create a real trajectory change to fix a measurement error.",
+        "Once entry begins, the ground loses command authority during plasma blackout. That is why the configuration, state, and onboard roles were verified before this call."
+      ],
+      "story": "The last two physical checks are back. The heat-shield configuration matches the approved state. Independent tracking keeps the entry solution inside the agreed corridor. Onboard guidance has passed its autonomous test, and the apparent last-minute trajectory jump vanished when the common ground timebase was corrected. Atmospheric interface is now minutes away.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Give the entry GO",
+        "setup": "Flight Director Console",
+        "play": "Make the final go/no-go call using the verified entry state, shield configuration, onboard guidance status, and remaining uncertainty.",
+        "task": "Make the final go/no-go call using the verified entry state, shield configuration, onboard guidance status, and remaining uncertainty.",
+        "question": "What is the flight director’s final call?",
+        "answer": "GO for entry. The verified physical state is inside the agreed margins, the onboard sequence is ready for blackout, and no unresolved actionable hazard justifies a new maneuver.",
+        "why": "The evidence now supports entry. The shield configuration has been physically checked, the navigation solution lies inside the approved corridor with independent support, autonomous guidance is ready for the blackout, and the late radiometric anomaly was traced to a shared ground reference rather than spacecraft motion. An unplanned burn would add a real trajectory change without evidence that one is needed. Waiting is not a neutral option because the vehicle is already committed to atmospheric encounter. The defensible call is GO for entry under the signed checklist and predefined monitoring triggers.",
+        "rebuttals": [
+          "The remaining radiometric offset came from the shared ground timebase. Burning against it would turn a measurement error into a real trajectory error.",
+          "Entry begins before the blackout ends and cannot be deferred until deceleration data arrive. Onboard roles must be settled first.",
+          "Another inspection consumes the last minutes and creates configuration risk without new evidence that the verified shield state is wrong."
+        ],
+        "choices": [
+          "GO for entry on the signed checklist and the verified corridor.",
+          "Burn immediately to remove the last radiometric offset even though the independent optical solution does not support it.",
+          "Hold the entry decision until communications blackout begins and use the first deceleration data to decide.",
+          "Reopen the verified heat-shield configuration for another inspection even though no discrepant evidence remains."
+        ],
+        "correctChoice": "GO for entry on the signed checklist and the verified corridor."
+      },
+      "assumes": [
+        "the heat-shield configuration has been physically verified",
+        "the entry state is supported by independent tracking",
+        "onboard guidance has passed its autonomous test"
+      ],
+      "concept": {
+        "n": 20,
+        "c": "Systems thinking: dependency, redundancy, failure modes",
+        "of": 30
+      }
+    },
+    {
+      "day": 24,
       "title": "What failed: the spacecraft or the sensors? — Review",
       "scene": "A signal-conditioning card was swapped at the start of the shift. Four hours later three thermocouples on the descent-stage tank are all climbing together. Carter wants the diagnosis settled before anybody vents the tank to bring it down.",
       "takeaway": "Redundancy only buys independence when the redundant paths do not meet, and they usually meet at the card.",
@@ -3864,18 +3924,18 @@ export const BALLPARK_CALCS = {
     "explanation": "The one-half is written into the template rather than offered as a tile, because it is part of the relationship and not a measured quantity. The low-orbit speed is there to be compared: 40% slower is half the energy, through the same heat shield."
   },
   "STRUCT-3": {
-    "prompt": "A mounted component is modelled as a 4 kg mass on a 400 N/m spring.",
+    "prompt": "A mounted component is modelled as a 4 kg effective mass with 4.5×10^5 N/m equivalent stiffness.",
     "question": "Estimate the natural period.",
     "labels": [
       "4 kg (component mass)",
-      "400 N/m (mount stiffness)",
-      "3,200 rpm (reaction-wheel speed)",
+      "4.5×10^5 N/m (equivalent stiffness)",
+      "3,200 rpm (pump rotor speed)",
       "0.5 kg (the damper)",
       "10 Hz (a nearby mode)"
     ],
     "values": [
       4,
-      400,
+      450000,
       3200,
       0.5,
       10
@@ -3887,15 +3947,15 @@ export const BALLPARK_CALCS = {
       0,
       1
     ],
-    "target": 0.628,
-    "tolerance": 0.05,
+    "target": 0.0187,
+    "tolerance": 0.002,
     "units": "s",
-    "solution": "T = 2π√(m/k) ≈ 0.63 s, about 1.6 Hz.",
-    "explanation": "Only inertia and stiffness set the natural frequency — heavier is slower, stiffer is faster. The wheel speed is what might drive this mode, which is the next question and not this one."
+    "solution": "T = 2π√(4/4.5×10^5) ≈ 0.0187 s, so f ≈ 53.4 Hz ≈ 3,200 rpm.",
+    "explanation": "Mass and stiffness set the natural mode. The calculated 53.4 Hz natural frequency nearly equals the pump's 3,200 rpm ÷ 60 ≈ 53.3 Hz forcing rate, supporting the resonance diagnosis."
   },
   "NAV-8": {
-    "prompt": "2 independent one-sigma position errors, 6 km and 8 km, along perpendicular directions.",
-    "question": "Estimate the combined two-dimensional uncertainty.",
+    "prompt": "Two independent one-sigma position components are 6 km and 8 km on perpendicular axes.",
+    "question": "Estimate the root-sum-square position-error scale.",
     "labels": [
       "6 km (one-sigma, first axis)",
       "8 km (one-sigma, second axis)",
@@ -3920,8 +3980,8 @@ export const BALLPARK_CALCS = {
     "target": 10,
     "tolerance": 0.5,
     "units": "km",
-    "solution": "√(6² + 8²) = 10 km.",
-    "explanation": "Independent errors along perpendicular axes combine in quadrature, so the total is smaller than the sum and larger than either term. Adding them is the common mistake and it overstates the uncertainty by 40% here."
+    "solution": "√(6² + 8²) = 10 km RSS.",
+    "explanation": "The variances of independent orthogonal components add. The 10 km result is an RSS/RMS scale for the vector error, not automatically a 68% radial confidence radius."
   }
 };
 

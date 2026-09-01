@@ -5,10 +5,10 @@
 export const MISSIONS = [
   {
     "title": "Two towns, one earthquake",
-    "objective": "Work out why the same shaking wrecked one half of Kestrel Bay and spared the other.",
-    "briefing": "Upper Town lost its chimneys. The Flats lost its streets. Both are the same distance from the source.",
+    "objective": "Explain why the same earthquake made the Flats far more dangerous than Upper Town, so the first reassessment effort goes where it can change who gets home.",
+    "briefing": "One earthquake hit Kestrel Bay. The ground under the Flats made it a different disaster.",
     "stake": "Friday, three days after the quake. The first thing anybody says at the base is that none of this makes sense. Upper Town sits on a granite bench. It has parapets in the street and almost every building still standing. The Flats sit 1100 metres away, on the same side of the same fault. There is sand in the gutters there. A six-storey block leans at 8 degrees. A wharf has moved 2 metres. Marisol Okonkwo, the structural engineer, will not sign an assessment programme until she can say why. Elena Navarro, the geotechnical engineer, thinks she knows already. She wants a borehole to prove it. You have two records of the same shaking. Work out what the ground did to that shaking on its way up. Today you decide which half of town gets the assessors first.",
-    "takeaway": "One earthquake produces as many shakings as there are grounds to shake, and the ground is the difference.",
+    "takeaway": "The earthquake is one event; the shaking a building receives depends on where it stands.",
     "stops": [
       {
         "group": "SEIS",
@@ -29,10 +29,10 @@ export const MISSIONS = [
   },
   {
     "title": "The number everybody has already heard",
-    "objective": "Pin the magnitude and the location down, and separate them from what people felt.",
+    "objective": "Separate source size and location from local shaking before the town turns two preliminary numbers into two different earthquakes.",
     "briefing": "Two agencies published two magnitudes, and the difference is being read as a disagreement.",
     "stake": "Saturday, and the town has two numbers for one earthquake. One agency said 6.6 within 20 minutes. Another said 6.8 six hours later. Rei Tanaka, the seismologist, can explain the gap to an engineer in one sentence. She has spent the morning failing to explain it to a radio station. Funmi Adeyemi, the public information officer, has to put something in a notice by four. Meanwhile Inês Cardoso, on the seismic network, has found a second problem. Two field stations have been running on a clock that drifted since spring. That moves where the epicentre plots on the map. So the office has to fix the location first. Only then can it defend the size. Today you write down what the difference between 6.6 and 6.8 actually means.",
-    "takeaway": "A magnitude is a measurement with a method attached, and revising it is the method working.",
+    "takeaway": "Magnitude describes the source; local damage depends on distance, ground and the structure as well.",
     "stops": [
       {
         "group": "SEIS",
@@ -53,10 +53,10 @@ export const MISSIONS = [
   },
   {
     "title": "What the placard is claiming",
-    "objective": "Learn what a rapid assessment can honestly say, and what it cannot.",
+    "objective": "Decide what a rapid placard actually claims before residents treat green as a promise that nothing can be wrong.",
     "briefing": "400 buildings were placarded in 2 days by 6 people. Somebody has to say what that is worth.",
     "stake": "Sunday, and the first placards are being argued about. Alan Whitcombe, who leads the second assessment team, got through 400 buildings in 2 days. That is fast. He is the first to say what the speed bought and what it cost. A green placard on a house in the Flats means one engineer stood outside it for six minutes. Yvette Delacroix, the ward councillor for the Flats, has residents asking her whether green means safe. Peter Ives, who manages the hospital's facilities, wants to know why his yellow card has not moved in three days. Neither of them is being unfair. The question under both is what a rapid assessment can actually see. Today you decide which buildings have to be looked at again, properly and from the inside.",
-    "takeaway": "A placard states what an inspection covered, and the ones that go wrong are the ones read as covering more.",
+    "takeaway": "A placard is only as broad as the inspection behind it; unseen spaces stay unresolved.",
     "stops": [
       {
         "group": "STRUCT",
@@ -66,7 +66,7 @@ export const MISSIONS = [
       {
         "group": "SAFE",
         "lesson": 1,
-        "task": "Explain what green means to somebody standing in the street"
+        "task": "Explain exactly what the green placard allows the office to claim"
       },
       {
         "group": "HAZ",
@@ -77,10 +77,10 @@ export const MISSIONS = [
   },
   {
     "title": "The building that looks worst",
-    "objective": "Separate what frightens people from what is actually holding the building up.",
-    "briefing": "Marina Court is leaning eight degrees and its structure is undamaged. The queue outside it is not about engineering.",
-    "stake": "Monday, and Marina Court is on the front page. Six storeys of flats now lean at eight degrees above the marina. Somebody photographed the block from the water. That one photograph has frightened this town more than anything the office has said. Elena Navarro has been underneath it. The raft foundation is not cracked. The frame is plumb within itself. The columns show nothing at all. Bram Halvorsen, the emergency manager for the district, wants it pulled down this week, because of what the sight of it is doing to people. Marisol Okonkwo will not sign the demolition of a sound building on the strength of a photograph. Today she is right. Today you work out what a demolition here would fix and what it would not.",
-    "takeaway": "A building can fail without breaking, and the thing that failed may be the ground it stands on.",
+    "objective": "Work out why Marina Court tilted as one piece and decide what evidence matters for the twelve neighbouring buildings.",
+    "briefing": "Marina Court looks like the obvious structural failure. The first question is whether the structure failed at all.",
+    "stake": "Monday, and Marina Court is on the front page. Six storeys of flats now stand about eight degrees out of plumb above the marina. The frame has not racked; the raft and superstructure rotated together. A survey across the roughly twelve-metre foundation finds about 1.7 metres of elevation difference from one edge to the other, with fresh sand ejecta concentrated toward the low side. Bram Halvorsen wants the block demolished this week because the lean looks like the town's obvious structural failure. Elena Navarro wants the cordon kept but the next five investigation-days spent on the reclaimed ground under the twelve neighbouring buildings. Before either decision, you have to identify what actually failed.",
+    "takeaway": "A building can be badly unsafe because its support moved even when its frame did not fracture.",
     "stops": [
       {
         "group": "GEO",
@@ -101,10 +101,10 @@ export const MISSIONS = [
   },
   {
     "title": "The one everybody assumed was fine",
-    "objective": "Look at a green building properly, and find what a walk-past could never see.",
+    "objective": "Re-open a green school before 400 children return, and find the load-path failure a street inspection could not see.",
     "briefing": "Bay Road School is green, term starts in a week, and nobody has been inside the gym.",
     "stake": "Tuesday, and the school is the quiet problem. Bay Road School came through with a green placard. Its classrooms look untouched. The district would like 400 children back in it next week. Alan Whitcombe placarded the school on day one from the street outside. On his second list he wrote that the gymnasium was locked. That gym is a single-storey hall with a long-span roof. It has no internal walls. Its side walls are heavy precast panels. Nobody has been inside it since the quake. Marisol Okonkwo has the keys this morning. You need to know what holds walls like those to a roof like that. Today you decide whether 400 children go into that hall on Monday.",
-    "takeaway": "The dangerous building is often the one nobody looked at, because nothing about it invited a second look.",
+    "takeaway": "A green exterior does not clear an interior condition that was never inspected.",
     "stops": [
       {
         "group": "STRUCT",
@@ -125,10 +125,10 @@ export const MISSIONS = [
   },
   {
     "title": "The hospital, and what waiting costs",
-    "objective": "Resolve a yellow placard on the one building the district cannot do without.",
+    "objective": "Resolve the hospital restriction using only evidence that can still change the decision, while counting the harm caused by delay.",
     "briefing": "90 patients, 3 days of yellow, and an argument about whether more evidence is worth more time.",
     "stake": "Wednesday, and the hospital has been yellow for four days. Peter Ives has 90 patients on the ground floor. The 2 upper floors are shut. The district's surgery is being done 60 kilometres away. Two people have already been moved who would not have been. Marisol Okonkwo wants the plant room opened and the shear walls cored before she signs. Bram Halvorsen says every day of that is a day of care not given. This morning he is right. The tests Okonkwo wants will take four days. They will not change what the building is. Today you decide what evidence, if any, is worth the wait.",
-    "takeaway": "Gathering more evidence is not free, and evidence that cannot change the decision costs without buying anything.",
+    "takeaway": "More evidence is valuable only when it can change a decision enough to justify the time and cost of getting it.",
     "stops": [
       {
         "group": "STRUCT",
@@ -154,10 +154,10 @@ export const MISSIONS = [
   },
   {
     "title": "What the ground will do next",
-    "objective": "Turn an aftershock sequence into a rate somebody can plan around.",
+    "objective": "Turn the aftershock sequence into a forecast the inspection teams can actually use without pretending it predicts a date or the next event.",
     "briefing": "41 aftershocks yesterday, 26 today. Everybody wants to know when it stops.",
     "stake": "Thursday, and the question in every room is when the aftershocks stop. Rei Tanaka has the sequence. There have been 210 events above magnitude 3 in 4 days, and the count is falling steadily. Bram Halvorsen wants a date he can put on a notice. Funmi Adeyemi has to write that notice. Marisol Okonkwo needs the same rate for a different reason. A damaged building can carry less than it could. A red placard is urgent rather than tidy because that weakened building may be shaken hard again. Today you say what the forecast is, and what it is not.",
-    "takeaway": "An aftershock forecast is a rate with a range, and the useful question is what it does to a decision.",
+    "takeaway": "An aftershock forecast is a probability distribution over future events, not a schedule.",
     "stops": [
       {
         "group": "HAZ",
@@ -178,10 +178,10 @@ export const MISSIONS = [
   },
   {
     "title": "The material, and what it can still carry",
-    "objective": "Get a number for the strength of a damaged building instead of an opinion.",
+    "objective": "Replace adjectives about the library columns with a measured material property, then keep that property separate from the capacity of a damaged member.",
     "briefing": "The library's columns look cracked. Nobody has said what they can still hold.",
     "stake": "Friday, and the argument at the base has moved from buildings to numbers. The public library is a 1970s concrete frame. Three of its ground-floor columns have diagonal cracks. Three engineers have looked at those columns. One called the cracking moderate, one serious, one superficial. Duarte Ferreira, the materials engineer, points out that none of those words is a number. His laboratory can give the office a number in a day. Kirsten Sørensen has already cut four cores for him. She refused a fifth. It arrived with no label saying which column it came from. Today you decide what the library may be used for while the testing runs.",
-    "takeaway": "A word like serious is an opinion; a strength with a method behind it is something the next engineer can use.",
+    "takeaway": "A concrete core measures sampled material strength; it does not certify a cracked column.",
     "stops": [
       {
         "group": "MAT",
@@ -202,10 +202,10 @@ export const MISSIONS = [
   },
   {
     "title": "The cordon nobody can lift",
-    "objective": "Weigh what a cordon protects against what it costs the people inside it.",
+    "objective": "Rebuild the cordon from the hazards that still exist instead of letting the emergency line survive by habit.",
     "briefing": "11 streets have been closed for 6 days, and the reason is now 3 different reasons.",
     "stake": "Saturday, and the cordon around the Flats is a week old. It was drawn on day one to keep people away from falling masonry. It was kept on day three for the gas main. It is being kept today because nobody has said it can come down. Yvette Delacroix has a list of 400 households. Sixty of them are sleeping in the sports hall. She has a question the office has not answered. What has to be true before people can go home? Bram Halvorsen is losing patience. Marisol Okonkwo will not be hurried. Every street inside the line is a different case. Today you decide where the cordon should run tonight.",
-    "takeaway": "A cordon is a decision that is remade every day, and one kept out of habit is a decision nobody is making.",
+    "takeaway": "A cordon is a current safety decision, not a historical trace of where someone drew a line on day one.",
     "stops": [
       {
         "group": "SAFE",
@@ -226,10 +226,10 @@ export const MISSIONS = [
   },
   {
     "title": "The photograph that changed the meeting",
-    "objective": "Deal with evidence that arrives from outside the process, in public.",
+    "objective": "Absorb a resident photograph into the evidence chain, inspect what the green placard missed and keep the excavation safe while the answer is checked.",
     "briefing": "A resident's photograph of a cracked column is on the front page, and the building is green.",
     "stake": "Sunday, and the office is on the back foot. A resident went into the basement car park of an apartment block on Ferry Street. He photographed a cracked column down there and gave the picture to the paper. The block carries a green placard. The photograph is real and so is the crack. There are 90 flats above that basement with people back inside. Alan Whitcombe placarded the block from the street on day one. He never saw the basement. Funmi Adeyemi has a public meeting at six. Marisol Okonkwo has two hours and no key to the car park. Today you decide what to say at six about a process that missed this.",
-    "takeaway": "Evidence does not stop being evidence because of who found it, and a process that cannot absorb it will be worked around.",
+    "takeaway": "Evidence does not become weaker because it arrived outside the official process; it becomes useful when the process can test it.",
     "stops": [
       {
         "group": "STRUCT",
@@ -255,10 +255,10 @@ export const MISSIONS = [
   },
   {
     "title": "A quiet day on the bench",
-    "objective": "Spend a day on the half of town nobody is arguing about.",
+    "objective": "Use the quiet day to understand why Upper Town survived and turn one repeated parapet failure into a targeted retrofit.",
     "briefing": "Upper Town has been assessed, cleared and forgotten. Somebody should look at it properly.",
     "stake": "Monday, and for the first time in ten days nothing is on fire. The Flats have their programme. The hospital is open. The school is running in its classrooms. Marisol Okonkwo spends a day like this on the half of town nobody is asking about. Upper Town was cleared fast, on the strength of still standing up. Standing up is not the same as undamaged. Alan Whitcombe walks the Parade with her this morning. The street is heavy old brick. You need to know what ties a wall like that to the floors behind it. Today you decide what is worth doing to buildings that are nobody's emergency yet.",
-    "takeaway": "The building that survived is the one you learn most from, because you can still see what saved it.",
+    "takeaway": "A surviving building can reveal the load-path detail that prevented a much larger failure.",
     "stops": [
       {
         "group": "STRUCT",
@@ -279,10 +279,10 @@ export const MISSIONS = [
   },
   {
     "title": "The record that was wrong all along",
-    "objective": "Re-read the fortnight after finding the instrument everyone trusted was mis-sited.",
-    "briefing": "The vault on the bench is not on rock. It is on four metres of weathered granite, and that changes every comparison.",
-    "stake": "Tuesday, and Inês Cardoso has found the thing nobody wanted found. The vault above Upper Town is the reference station. Every comparison this fortnight has been measured against its record. She went up to service it and read the trench log from 1998. The vault is not founded on rock. It sits on 4 metres of weathered, broken granite. That material behaves like a stiff soil. It has been amplifying the shaking by about 1.6 since the day it was built. So every amplification figure this office has quoted is too small. Today you work out which of the fortnight's findings still stand.",
-    "takeaway": "A reference that is not what it claims moves every measurement made against it, and finding that out is a good day.",
+    "objective": "Trace every conclusion that depended on the reference station, correct the measured site-response ratio and withdraw the design shortcut that copied one ratio into every future building.",
+    "briefing": "The reference station is not on competent bedrock. One correction now runs through every conclusion that used it.",
+    "stake": "Tuesday, and Inês Cardoso has found the reference error. The station above Upper Town was treated as competent bedrock, but the 1998 trench log shows several metres of weathered, fractured granite beneath it. A temporary sensor on nearby competent rock has now recorded five days of common aftershocks with the vault. In the 1 Hz band used for the Flats comparison, the vault motion is about 1.6 times the competent-rock motion. That means the published Flats-to-vault spectral ratio of about 3 was understating the Flats-to-rock ratio. The correction matters. So does a second mistake: the district planning memo copied that single-band ratio straight into a universal design-demand factor. You have to decide what gets corrected, what gets withdrawn and what remains untouched.",
+    "takeaway": "A bad reference contaminates only the conclusions that depend on it; correcting a measurement does not justify turning one event-specific ratio into a universal design factor.",
     "stops": [
       {
         "group": "SEIS",
@@ -297,7 +297,7 @@ export const MISSIONS = [
       {
         "group": "HAZ",
         "lesson": 5,
-        "task": "Decide what a bigger amplification changes"
+        "task": "Correct the measured site-response ratio without turning it into a universal design number"
       },
       {
         "group": "SAFE",
@@ -308,10 +308,10 @@ export const MISSIONS = [
   },
   {
     "title": "Three things at once",
-    "objective": "Rank three demands on one office in one afternoon.",
+    "objective": "Triage an aftershock, a burst main and a school deadline by asking which hazard is changing fastest and which decision closes first.",
     "briefing": "An aftershock, a burst main and a deadline for the school, all inside an hour.",
     "stake": "Wednesday, 15:40, and 3 things arrive together. A magnitude 5.1 aftershock has just shaken the town. It is the largest in a week. A water main has burst on Ferry Street. It is pouring into ground everybody now knows is loose. And the district wants a call on the school gym by five o'clock. Contractors are holding a slot for Saturday. Marisol Okonkwo has four engineers and no more. Bram Halvorsen is on the phone to the water board. Funmi Adeyemi has three drafts of a notice nobody has signed off. Today you decide which of the three gets your engineers first.",
-    "takeaway": "Ranking is about which problem grows fastest and which is cheapest to remove, not about which sounds worst.",
+    "takeaway": "Priority comes from consequence, rate of change and reversibility—not from which problem sounds most dramatic.",
     "stops": [
       {
         "group": "SAFE",
@@ -332,10 +332,10 @@ export const MISSIONS = [
   },
   {
     "title": "The last morning it can be changed",
-    "objective": "Commit the town to a rebuilding standard while the window is open.",
+    "objective": "Write the rebuilding rule so it reduces the Flats liquefaction hazard without pretending one treatment or one CPT number guarantees safety.",
     "briefing": "The recovery plan closes for comment today, and the ground improvement clause is in or out.",
     "stake": "Thursday, and the recovery plan goes to the council tonight. One clause in it matters more than the rest. It decides whether rebuilding in the Flats needs the ground itself improved, or only stronger foundations. Elena Navarro has the corrected amplification and the borehole programme. Bram Halvorsen has the cost. It is large, and it falls on people who have just lost houses. Yvette Delacroix has 400 households who want to rebuild this year. They cannot afford to wait for a scheme. After tonight the clause cannot be reopened for five years. Today you decide what goes into that clause.",
-    "takeaway": "The moment a decision stops being reversible is the moment it needs the whole argument, not the quickest one.",
+    "takeaway": "A rebuilding standard should state the hazard it addresses, a measurable acceptance criterion and the limits of that criterion.",
     "stops": [
       {
         "group": "GEO",
@@ -356,10 +356,10 @@ export const MISSIONS = [
   },
   {
     "title": "What we know, and how well",
-    "objective": "State the fortnight's findings at the confidence each one has earned.",
-    "briefing": "The report goes out today, and it has to say which of its findings are measurements and which are judgements.",
+    "objective": "Grade each finding by its evidence, state the remaining uncertainty and sign only the Placard Register that says what is still unresolved.",
+    "briefing": "The Placard Register goes out today. The last job is not another calculation; it is deciding whether the evidence under every door is strong enough to sign.",
     "stake": "Friday, two weeks on. The fortnight now goes into a report. Marisol Okonkwo will not sign a report that states everything at the same strength. Some of it was measured. Some of it was judged. A reader who cannot tell those apart will act on both the same way. Elena Navarro has the borehole results. Rei Tanaka wants her forecast written as a rate with a range. Not as a single number. Inês Cardoso wants the vault error set down as a finding. Not buried as a fix. Funmi Adeyemi has to turn all of it into something a household can use. Today you sort the findings by the evidence under each one.",
-    "takeaway": "A finding is worth what its evidence is worth, and saying so is what makes a report usable a year later.",
+    "takeaway": "The final safety decision is defensible only when measurements, inferences and unresolved unknowns are clearly separated.",
     "stops": [
       {
         "group": "SEIS",
@@ -374,7 +374,7 @@ export const MISSIONS = [
       {
         "group": "STRUCT",
         "lesson": 11,
-        "task": "Choose the permanent practice that closes the repeated blind spot"
+        "task": "Make the final sign-off decision on the Placard Register"
       }
     ]
   }

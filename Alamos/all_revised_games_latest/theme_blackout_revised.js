@@ -125,10 +125,10 @@ export default {
     + 'energised the startup feeder, and gave the large station the pumps, fans and controls it '
     + 'needed to turn. Two and a half hours later the streets, pumps and clinic were taking power '
     + 'again. The black-start order you wrote worked.',
-    'Then Farrow\'s independent checks explained why the room had been so close to losing the valley. '
+    'Then Farrow's independent checks explained why the room had been so close to losing the valley. '
     + 'The corridor temperature sensor had been reading about eleven degrees low. The corrected '
     + 'history shows roughly ninety hours above the intended continuous-temperature case. That '
-    + 'exposure is now being used to test the conductor\'s remaining margin instead of being turned '
+    + 'exposure is now being used to test the conductor's remaining margin instead of being turned '
     + 'into a strength claim the measurements cannot yet prove. The exact relay cause remains open.',
     'You sign the Calder Winter Survival Plan with reserve sized to uncertainty, the third corridor '
     + 'circuit committed to the construction window, and one permanent operating rule: any instrument '

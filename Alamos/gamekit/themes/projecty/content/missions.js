@@ -4,11 +4,11 @@
 
 export const MISSIONS = [
   {
-    "title": "Read the atomic world",
-    "objective": "Build a shared language for nuclei, isotopes, and detector signals before any team begins advanced work.",
-    "briefing": "Project Y cannot coordinate five divisions until everyone describes matter in the same way. Begin with the nucleus, connect isotope notation to chemical identity, and finish by seeing how radiation becomes a measurable electrical signal.",
-    "stake": "April 1943, and the site is 3 weeks old. Five divisions, one mesa. Three blackboards. Three ways of writing the same nucleus. The laboratory director, J. Robert Oppenheimer, has set a weekly colloquium for this reason. Nothing here can be run as one team until everybody describes matter the same way. Today you settle three things. What a nuclide symbol tells you. Why two isotopes of one element act alike in a beaker. Why they act apart in a counter. And how radiation becomes a number a machine can report. Every measurement made here for the next two years rests on those three.",
-    "takeaway": "A nucleus is defined by its proton and neutron counts; experiments turn nuclear events into signals that can be counted.",
+    "title": "The Mesa Has No Common Language",
+    "objective": "Build a shared, checkable language for nuclei, isotopes, detector signals, and uncertainty before the new laboratory starts making irreversible decisions.",
+    "briefing": "Los Alamos is only weeks old. Physicists, chemists, engineers, and military staff are using the same words to mean different things. Before the laboratory can compare evidence, the player must make the measurements commensurable: identify what was measured, in what units, and through which instrument chain.",
+    "stake": "April 1943. The Ranch School is gone and a secret laboratory has replaced it almost overnight. Five divisions are filling blackboards with different notations for the same physical system. Oppenheimer has started a weekly colloquium because one misunderstood symbol can send a whole group down the wrong path. Your first job is not to choose a design. It is to make sure that when two people say they measured the same thing, they actually did. Until the laboratory has one language for nuclei, isotopes, signals, units and uncertainty, every later disagreement is impossible to diagnose.",
+    "takeaway": "A large scientific program cannot integrate evidence until measurements share definitions, units, and traceable physical meaning.",
     "stops": [
       {
         "group": "T",
@@ -28,11 +28,11 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Account for nuclear energy",
-    "objective": "Connect mass, binding energy, calibration, and the program’s competing early architectures.",
-    "briefing": "The next step is to understand why nuclear changes involve such large energy scales, how a measurement system assigns an energy value, and why Los Alamos initially pursued more than one technical path.",
-    "stake": "May 1943. Two designs are on the table, and the site can properly staff only one of them. Groves, the commanding general, wants to know which one by the end of the month. Today you work out where nuclear energy comes from. You check that the instruments reporting it are calibrated. Then you compare the two paths. Every energy figure quoted on this mesa is really the size of an electrical pulse. A calibration turns that pulse into energy, and somebody had to set it up with a known source. An uncalibrated number is a voltage with ambitions. Choose by preference instead of by evidence, and a year of work goes into the wrong programme.",
-    "takeaway": "Mass defect sets the nuclear energy scale, but that scale becomes useful only after instruments and engineering goals are calibrated.",
+    "title": "Where Does the Energy Come From?",
+    "objective": "Connect mass, binding energy, calibration, and competing early program concepts without confusing a convincing calculation with a validated measurement.",
+    "briefing": "The laboratory can calculate enormous nuclear energies, but the numbers are only useful if the instruments and assumptions behind them are sound. The player checks the mass-energy scale, breaks a calibration degeneracy, and compares the evidence demands of two historically competing design programs at a high level.",
+    "stake": "May 1943. Groves wants a program that can be staffed and scheduled. Oppenheimer has more plausible ideas than people, buildings or months. Before he shifts resources, the laboratory has to answer a more basic question: which claims come from nuclear physics, which come from calibration, and which come from engineering assumptions that have not yet been tested? Today you trace one energy calculation all the way back to its inputs, then decide what the early competing approaches would demand from the laboratory—not how to build either one, but what evidence each would have to earn.",
+    "takeaway": "A correct equation is only one link in an evidence chain; calibration and assumptions decide whether its result can support a program decision.",
     "stops": [
       {
         "group": "T",
@@ -47,21 +47,21 @@ export const MISSIONS = [
       {
         "group": "E",
         "lesson": 0,
-        "task": "Compare the early architectures"
+        "task": "Compare the evidence burden"
       },
       {
         "group": "P",
         "lesson": 2,
-        "task": "Sort the shipment before it goes to the vault."
+        "task": "Sort the examples by the physical claim they support: materials capable of sustaining neutron multiplication under appropriate conditions versus materials that are radioactive or neutron-active for other reasons."
       }
     ]
   },
   {
-    "title": "Follow radioactivity through the laboratory",
-    "objective": "Treat decay as a quantitative process that must survive chemistry and background measurement.",
-    "briefing": "A radioactive sample changes while it is being prepared and measured. Follow the same evidence chain from the decay law, through tracer chemistry, to a defensible background measurement.",
-    "stake": "July 1943, and 3 groups have reported yields that cannot all be right. Seaborg, the chemist isolating the plutonium, says one thing. Woods's chemistry says something else. The sample decays while the chemistry is still running. So the amount at the end is not the amount you started with. Today you handle decay as arithmetic. You follow an element through a separation. And you measure what a counter reads with nothing in front of it. Woods will not report a number until she has measured that. That is why hers is the count the others are checked against. Without a background count taken first, a number on its own means very little.",
-    "takeaway": "A count rate is not automatically a decay rate; time dependence, chemical recovery, and background all matter.",
+    "title": "The Counts Do Not Agree",
+    "objective": "Use decay, tracer recovery, and background measurements to determine whether conflicting laboratory yields are physics, chemistry, or instrumentation.",
+    "briefing": "Three groups report incompatible yields from the same material stream. The player follows a decaying tracer through a separation, corrects measurements to a common time, and isolates a background-count problem before the disagreement gets mistaken for new physics.",
+    "stake": "July 1943. Three yield reports are on Oppenheimer's desk and they cannot all be right. Chemistry says material disappeared. Physics says the counting rate changed. The sample itself is radioactive, so the amount visible to the counter is changing while the separation is still running. Today you force every result onto the same clock, then measure the counter with nothing in front of it. If the discrepancy follows the sample, it is chemistry or decay. If it follows the instrument, the argument ends somewhere else.",
+    "takeaway": "Time-dependent samples and instrument backgrounds must be separated before a count rate can be treated as a material yield.",
     "stops": [
       {
         "group": "T",
@@ -81,11 +81,11 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Measure interactions, not impressions",
-    "objective": "Learn how cross sections, counting statistics, and analytical yield turn observations into quantitative evidence.",
-    "briefing": "The laboratory now needs probabilities rather than anecdotes. Estimate how often an interaction occurs, determine whether a count difference is statistically meaningful, and verify that the chemistry did not lose an unknown fraction of the sample.",
-    "stake": "October 1943. Two groups have a gap between their counts, and everybody believes in it. Wu has run the numbers, and the statistics say it is nothing. The head of the Theoretical Division, Hans Bethe, wants both sets redone by somebody who did not do them the first time. The programme is about to hand out material on the strength of them. Today you work with the number that says how likely an interaction is. You decide when a gap between counts is real. And you check that a chemical yield is what it claims. A yield figure means nothing without a purity figure beside it. That is the question Wu asks first, and the reporting group did not answer it.",
-    "takeaway": "Reliable nuclear evidence combines interaction probability, statistical uncertainty, and a measured recovery or efficiency.",
+    "title": "Is the Difference Real?",
+    "objective": "Use cross sections, counting statistics, and material balance to decide whether an apparent disagreement is large enough—and clean enough—to matter.",
+    "briefing": "Two groups believe their measurements disagree. The player converts interaction probability into a measurable scale, asks whether the count difference exceeds ordinary statistical fluctuation, and refuses a chemistry result whose mass balance does not close.",
+    "stake": "October 1943. Two experimental groups have been arguing about a gap between their counts for a week. A remote analysis from Columbia says the difference may be ordinary counting noise. Bethe wants the measurements repeated independently before scarce material is reassigned on the strength of them. Today you decide what size of difference is actually evidence, and you make Chemistry close its ledger before anybody calls a missing fraction a discovery.",
+    "takeaway": "A scientific disagreement becomes actionable only after random fluctuation, missing material, and shared measurement errors have been ruled out.",
     "stops": [
       {
         "group": "T",
@@ -105,11 +105,11 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Track neutrons through matter",
-    "objective": "Connect moderation, neutron detection, and the historical reason plutonium forced a different design path.",
-    "briefing": "Neutrons change energy, direction, and detectability as they move through matter. Use that foundation to understand why the plutonium program could not simply copy the first architecture.",
-    "stake": "April 1944, and the first reactor plutonium has reached the mesa. It is not the material the gun design was built around. Bethe has spent a week with the counting data saying so, quietly. His numbers have sat on Oppenheimer's desk since Tuesday. Nothing has been decided. Today you follow what happens to neutrons as they move through matter. You work out how to spot something that carries no charge. And you face what this material means for the second design path. The gun programme has a year of work in it. It also has 11 people who do not know yet.",
-    "takeaway": "Neutron behavior links microscopic interactions to system-level design choices.",
+    "title": "The Material Changes the Plan",
+    "objective": "Use neutron transport and independent detector evidence to understand why reactor-produced plutonium forced Los Alamos to reconsider a major design path.",
+    "briefing": "New material from the production reactors does not behave like the earlier samples. The player separates neutron-transport physics from detector failure and then interprets the historically decisive result: reactor-produced plutonium carried a much higher spontaneous-neutron background than the plutonium gun program could tolerate.",
+    "stake": "Spring 1944. The first reactor-produced plutonium reaching Los Alamos carries an unwelcome fact with it. Its neutron background is not the one the early gun program assumed. Before Oppenheimer reorganizes anything, the laboratory has to know whether the extra counts belong to the material or to the counters. Today you trace that distinction with independent evidence. If the material is really different, a year of engineering work may no longer answer the problem the laboratory actually has.",
+    "takeaway": "When a material property invalidates a design assumption, the responsible response is to verify the property independently and then change the program—not defend sunk work.",
     "stops": [
       {
         "group": "T",
@@ -129,11 +129,11 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Recognize the design pivot",
-    "objective": "Use neutron-background evidence to understand why one path was abandoned and inward compression became central.",
-    "briefing": "A new material property changes the program. First identify the background process, then see why the earlier approach became unacceptable, and finally translate the problem into the idea of inward compression.",
-    "stake": "July 1944. Last spring nobody had to care about this process. In a fortnight it is going to end a year of work. Oppenheimer has to rebuild the laboratory around what follows. Today you measure the neutron background the new material gives off. You follow the argument that killed the earlier design. And you take the programme to a different one. That is the whole argument. It is made of one counting rate, on one bench, in one room. Half the site has to be told why a year of their work is over.",
-    "takeaway": "Programs must change architecture when new evidence invalidates an original assumption.",
+    "title": "A Year of Work Ends",
+    "objective": "Turn the 1944 plutonium result into a program decision while keeping the lesson at the level of evidence, timing risk, and organizational change.",
+    "briefing": "The higher spontaneous-neutron background is confirmed. The player estimates a laboratory background count, follows the evidence chain that ended the plutonium gun program, and sequences the reorganization needed to test a different approach without treating the device itself as an instructional object.",
+    "stake": "July 1944. The result is no longer a rumour or one bad counter. Reactor-produced plutonium has a higher spontaneous-neutron background, and the plutonium gun program was built around the opposite assumption. Oppenheimer now has to end work people have spent a year on and move staff into a program that is far less mature. Today you do the part that makes that decision defensible: show what changed, show which assumption failed, and make the reorganization follow the evidence rather than the prestige of the people involved.",
+    "takeaway": "A scientific pivot is strongest when the failed assumption is named explicitly and the new program is organized around tests that can falsify its replacement.",
     "stops": [
       {
         "group": "T",
@@ -153,11 +153,11 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Understand matter under compression",
-    "objective": "Connect equations of state, material phases, and wave shaping without jumping directly to a full system.",
-    "briefing": "Compression depends on how materials respond under pressure and how waves cross boundaries. Build the physical picture from bulk matter, to material phase behavior, to the purpose of wave shaping.",
-    "stake": "September 1944, and compression is now the whole programme. Lilli Hornig is the chemist casting the metal at the centre of it. She has found that it changes density under conditions the design will actually meet. Nobody wanted that. The mathematician John von Neumann wants the shock tables redone with it in. Today you work with how pressure, volume and temperature hang together. You read what a phase diagram is telling you. And you learn what shaping a blast wave achieves. A wave that spreads outward has to be turned into one that closes inward. That is von Neumann's problem before it is anybody's in Explosives Division X, which George Kistiakowsky heads. The turning is done in numbers first. Only then does X Division cut anything.",
-    "takeaway": "A compression concept is only credible when material response and wave propagation support it.",
+    "title": "Can Compression Be Predicted?",
+    "objective": "Connect high-pressure material behavior, phase changes, and inert wave-shaping experiments while keeping model limits visible.",
+    "briefing": "The new program depends on matter behaving predictably under extreme compression, but equations of state and phase behavior are uncertain outside ordinary laboratory conditions. The player checks compression work, diagnoses a phase-model mismatch, and designs an inert wave-shaping measurement that can test symmetry without revealing weapon-construction details.",
+    "stake": "September 1944. The laboratory has reorganized, but the replacement program is built on material behavior nobody can simply look up in a handbook. A metal changes phase. A pressure model extrapolates far beyond the bench data. An inert wave-shaping trial looks symmetric in one diagnostic and not in another. Today you decide what the models actually know and which measurement would make them less wrong. The danger now is not ignorance. It is confidence carried farther than the evidence.",
+    "takeaway": "Extreme-condition models need independent material measurements and inert validation tests before their extrapolations can be trusted.",
     "stops": [
       {
         "group": "T",
@@ -172,16 +172,16 @@ export const MISSIONS = [
       {
         "group": "X",
         "lesson": 2,
-        "task": "Turn lens claims into measurements"
+        "task": "Turn wave-shaping claims into measurements"
       }
     ]
   },
   {
-    "title": "Make symmetry measurable",
-    "objective": "Turn a qualitative demand for symmetry into calibrated timing evidence and an engineering requirement.",
-    "briefing": "“Nearly simultaneous” is not a measurement. Define a symmetry metric, calibrate the timing channels that observe it, and see why simultaneity became a system requirement.",
-    "stake": "October 1944. “Nearly simultaneous” has been in every memo for two months. Nobody has written down what it means in microseconds. So Kistiakowsky's division and Bethe's have argued past each other since August. Today you turn that phrase into a number. You calibrate the channels that measure it. Then you hand ordnance a spec they can build to. Kistiakowsky has four recording channels. He has no record of when any of them was last checked against another. The memos will go on saying nearly simultaneous. They will do it until somebody writes a tolerance beside it. If the channels disagree about when things happened, your timing is about the channels. It is not about the shot.",
-    "takeaway": "A system requirement becomes testable only when it has a metric and a calibrated measurement chain.",
+    "title": "Make 'Nearly Simultaneous' Measurable",
+    "objective": "Turn vague claims about timing and symmetry into calibrated measurement requirements and explicit uncertainty budgets.",
+    "briefing": "Different groups are using words such as 'simultaneous' and 'symmetric' without a shared quantitative test. The player dates a decaying source, traces timing jitter through an instrument chain, calculates a cable-delay mismatch, and controls a numerical chain-reaction model rather than operating real critical hardware.",
+    "stake": "October 1944. 'Nearly simultaneous' has appeared in memos for months, but Theory, Physics and Engineering do not mean the same thing by it. Kistiakowsky wants a number; Bacher wants to know how that number is measured; Bethe wants the uncertainty beside it. Today you turn the adjective into evidence. The important shift is cultural: after this stage, nobody gets to call a result symmetric or simultaneous without saying compared with what, measured how, and known how well.",
+    "takeaway": "Engineering language becomes scientific evidence only when qualitative requirements are tied to calibrated observables and uncertainty.",
     "stops": [
       {
         "group": "X",
@@ -196,21 +196,21 @@ export const MISSIONS = [
       {
         "group": "E",
         "lesson": 2,
-        "task": "Translate simultaneity into engineering"
+        "task": "Translate synchronization into measurement"
       },
       {
         "group": "X",
         "lesson": 4,
-        "task": "Hold the pile while the experiment runs."
+        "task": "Use the simulated feedback control to keep a numerical chain-reaction model near a steady level while its model parameters drift."
       }
     ]
   },
   {
-    "title": "Build evidence with real materials",
-    "objective": "Use mechanical properties, inert mockups, and high-speed imaging to test a difficult system safely.",
-    "briefing": "The project needs evidence before a full integrated event. Characterize the materials, build representative non-nuclear hardware, and choose diagnostics that reveal fast internal behavior.",
-    "stake": "December 1944. The thing itself cannot be tested. So everything the programme believes has to come from stand-ins. Robert Bacher heads the physics division. His committees exist to force the joins between those stand-ins. They meet on Thursdays. Every division turns up with a different idea of what ready means. Today you work out how the real materials behave under load. You decide what a mockup can and cannot tell you. And you choose diagnostics, the instruments that record events too fast to watch. An event lasting microseconds leaves no witness at all. Not unless the instrument was chosen and placed first. That means high-speed film. It also means radiography, which sees through what light cannot.",
-    "takeaway": "Mockups are useful only when their materials, geometry, and diagnostics preserve the question being tested.",
+    "title": "Prove It Without the Real Device",
+    "objective": "Use material tests, conservative acceptance rules, inert mockups, and fast diagnostics to learn from stand-ins without pretending they reproduce everything.",
+    "briefing": "A full nuclear system cannot be used as an iterative laboratory test. The player therefore has to decide what individual material tests and inert mockups are entitled to prove, and where conservative acceptance criteria are needed because the real system cannot be repeatedly tested.",
+    "stake": "December 1944. The laboratory cannot learn by repeatedly trying the final thing. That makes every stand-in dangerous in a different way: it can answer the question it was built for and tempt the program to believe it answered three more. Bacher's integration committees exist to stop that. Today you qualify materials against written limits, decide what a mockup can represent, and use fast imaging to measure motion rather than infer it from a damaged object afterwards.",
+    "takeaway": "A surrogate experiment is powerful only when the claim it is allowed to support is written down before the result arrives.",
     "stops": [
       {
         "group": "CM",
@@ -220,7 +220,7 @@ export const MISSIONS = [
       {
         "group": "E",
         "lesson": 3,
-        "task": "Apply a criticality-safety margin"
+        "task": "Apply a conservative engineering margin"
       },
       {
         "group": "P",
@@ -230,11 +230,11 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Synchronize many channels",
-    "objective": "Compare physical timescales, qualify initiation hardware, and coordinate many channels as one system.",
-    "briefing": "A multi-channel system can fail even when every part works separately. Compare the relevant timescales, establish lot-acceptance evidence, and then confront synchronization across the full set of channels.",
-    "stake": "February 1945, and Kistiakowsky's assembly has failed on the bench twice. Every channel checks out fine on its own. Norris Bradbury, who is assembling the Trinity test, wants the procedure rewritten before a third attempt. Kistiakowsky wants to know which lot the failures came from. Today you compare the timescales involved. You work out what a batch of parts actually guarantees. And you run many channels as one system. A system of many channels fails in ways no single channel can show. Bradbury's answer is one written procedure, checked the same way every time. It catches things no bench test does. What matters is not whether each channel works. It is whether they all work together, on time, on the same signal.",
-    "takeaway": "Synchronization is a systems problem involving component variability, signal timing, and shared failure modes.",
+    "title": "Everything Works Alone",
+    "objective": "Diagnose a system that fails only when its individually qualified parts are connected, using timing, population testing, and independent error budgets.",
+    "briefing": "Bench tests pass, but the integrated system does not. The player compares physical timescales in an inert test, chooses population-level qualification evidence instead of a champion prototype, and combines independent diagnostic timing errors without turning component synchronization into a weapon recipe.",
+    "stake": "February 1945. The latest integrated bench trial failed, yet every subsystem lead can show a passing component test. That is exactly why the failure matters. Something happens only when the pieces are connected. Bradbury wants the procedure rewritten before the next attempt; Kistiakowsky wants to know whether manufacturing spread or the measurement chain is responsible. Today you stop asking whether each part works and start asking whether the system preserves the assumptions the part tests depended on.",
+    "takeaway": "Integration failures often live in interfaces and population variation, so qualification must test the connected system and the manufactured distribution—not just ideal components.",
     "stops": [
       {
         "group": "T",
@@ -244,7 +244,7 @@ export const MISSIONS = [
       {
         "group": "E",
         "lesson": 4,
-        "task": "Qualify detonator lots"
+        "task": "Qualify timing-hardware lots"
       },
       {
         "group": "X",
@@ -254,11 +254,11 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Build an uncertainty budget",
-    "objective": "Combine theoretical uncertainty, measurements that share an error, and system-level evidence into one decision tool.",
-    "briefing": "More data do not automatically produce more confidence. Carry uncertain inputs through, identify measurements that share an error, and assign the uncertainty that belongs to the integrated compression claim.",
-    "stake": "March 1945. This is where Bethe is right and Groves does not want to hear it. More data arrived this month, and confidence went down. Today you work out how uncertainties add up. You learn to spot when two measurements are not telling you separate things. And you put one number on the whole system. Three of the four measurements in it came off the same calibration. An honest budget names which term is the biggest. It also names the one that no amount of extra work will shrink. This is the figure that will be quoted years later, in a room where nobody remembers what went into it.",
-    "takeaway": "Uncertainties must be traced through the full evidence chain, especially when measurements share hardware or assumptions.",
+    "title": "More Data, Less Confidence",
+    "objective": "Build an uncertainty budget that ranks what limits the program, distinguishes independent from shared errors, and makes borderline acceptance decisions explicit.",
+    "briefing": "New measurements have narrowed some uncertainties and exposed others. The player combines independent terms correctly, follows conservation laws through fission fragments, diagnoses competing sources in an integration model, and applies a pre-declared rule to a borderline material measurement.",
+    "stake": "March 1945. Groves sees more data and expects more confidence. Bethe sees the same data and is less confident, because the new measurements exposed assumptions that had been hidden inside the old error bars. Today you build the uncertainty budget the program should have had earlier. The point is not to produce one grand percentage. It is to identify which uncertainty actually controls the decision, which two measurements can be wrong together, and which borderline result the laboratory is not yet entitled to call a pass.",
+    "takeaway": "An uncertainty budget is a map of what to improve next, not decoration around a central estimate.",
     "stops": [
       {
         "group": "T",
@@ -273,7 +273,7 @@ export const MISSIONS = [
       {
         "group": "X",
         "lesson": 6,
-        "task": "Build the implosion uncertainty budget"
+        "task": "Build the integration uncertainty budget"
       },
       {
         "group": "CM",
@@ -283,11 +283,11 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Design the integrated non-nuclear campaign",
-    "objective": "Set acceptance criteria, instrument the trial, identify the critical path, and choose tests that discriminate among explanations.",
-    "briefing": "The project is ready to combine subsystems without nuclear material. Define what counts as acceptable, preserve interpretable measurements, schedule the dependencies, and make the campaign answer the most important unresolved question.",
-    "stake": "April 1945. The whole schedule now runs through one machine shop. Nobody had drawn that until Bacher's committee sat down to force the joins. Groves wants a date. Bacher will not book a test he cannot instrument. Today you set what counts as a passing test. You fit it with instruments, so the result can be read. And you find what the schedule really rests on. A test earns its place by telling two explanations apart. Being impressive to watch is not the same thing. Bacher's rule for this laboratory is the shortest one on the mesa. No test without diagnostics.",
-    "takeaway": "An integrated trial succeeds when criteria, diagnostics, schedule, and scientific discrimination are designed together.",
+    "title": "One Integrated Trial",
+    "objective": "Choose tests that can discriminate between explanations, expose the schedule's true critical path, and define what scaled inert experiments can and cannot transfer.",
+    "briefing": "The full program is converging on one integrated non-nuclear campaign. The player spends scarce test access on the experiment that can actually separate hypotheses, calculates schedule float, and states scaling limits before interpreting an inert hydrodynamic mockup.",
+    "stake": "April 1945. The schedule looks like dozens of parallel jobs until Bacher's committee puts the dependencies on one wall and finds that the whole program runs through one bottleneck. Groves wants a date. Bacher refuses to spend the remaining test access on a dramatic shot that cannot distinguish the leading explanations. Today you decide what test changes the next decision, what chain actually controls the calendar, and which conclusions a scaled inert experiment is entitled to carry forward.",
+    "takeaway": "The best integrated test is the one whose possible outcomes change the decision, and the best schedule is the one that exposes the dependency that really sets the date.",
     "stops": [
       {
         "group": "P",
@@ -312,11 +312,11 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Treat Trinity as an experiment",
-    "objective": "Define what the integrated test must answer, align field engineering with diagnostics, and validate predictions against independent evidence.",
-    "briefing": "A dramatic event is not automatically a useful experiment. Specify the questions in advance, build the field system around the evidence needs, cover the failure modes with diagnostics, and establish how predictions will be judged.",
-    "stake": "July 1945, and there is 1 shot with weather closing in. Groves wants the date held. Bethe wants the questions written down before anybody drives to the tower. This time it is Groves who has to give way. A test whose questions are settled afterwards answers none of them. Today you state those questions in advance. You build the field layout around the measurements, and not the other way round. And you cover the ways the instruments themselves can fail. Every cable and camera has to be in place before the count starts. There is no second attempt to design around.",
-    "takeaway": "A decisive test requires predeclared questions, independent diagnostics, and a comparison between predicted and observed outcomes.",
+    "title": "Write the Questions Before Trinity",
+    "objective": "Treat Trinity as a one-shot scientific experiment by defining its questions, diagnostics, environmental monitoring, and model comparisons before the event.",
+    "briefing": "A single full-scale test is about to carry years of expectations. The player must prevent the event from becoming its own proof by writing the questions first, establishing independent diagnostics and environmental measurements, and separating what an integrated outcome can show from what only post-event monitoring can reveal.",
+    "stake": "July 1945. There will be one Trinity shot and no chance to rerun it because somebody wished afterwards that another instrument had been pointed somewhere else. Groves wants the date held. Bethe wants every question written down before the desert becomes an answer. On this point Bethe wins. Today you decide what evidence would count for each claim, which observations need independent channels, and what must still be measured after the flash—especially beyond the instrument field, where people and land can be affected without being part of the experiment.",
+    "takeaway": "A one-shot experiment must define its questions and evidence in advance, including measurements of consequences outside the apparatus itself.",
     "stops": [
       {
         "group": "X",
@@ -326,7 +326,7 @@ export const MISSIONS = [
       {
         "group": "E",
         "lesson": 6,
-        "task": "Coordinate Trinity field engineering"
+        "task": "Coordinate the field experiment"
       },
       {
         "group": "P",
@@ -341,11 +341,11 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Reconcile evidence and freeze the design",
-    "objective": "Compare prediction bands with observations, release materials, reconcile theory and experiment, and control post-test changes.",
-    "briefing": "The test has produced data, but the program still must decide what those data mean. Compare observations with uncertainty bands, verify the material record, resolve disagreements between model and measurement, and freeze only the changes supported by evidence.",
-    "stake": "Late July 1945. Enrico Fermi, the physicist who runs F Division, dropped shredded paper from the bunker. He got about ten kilotons out of how far the blast wave carried it. That sits outside the band the theory division predicted. Either the model is wrong or the measurement is. Bethe is on one side of it, and he has already corrected several overestimates on paper. Today you compare prediction against observation properly. You close the materials record. And you decide what may still change. The materials record has to close as carefully as the physics. A number is only about a thing if you know which thing it was measured on. A design freeze is an evidence decision that happens to have a date on it. Oppenheimer has to hold the room to that, and not to the date.",
-    "takeaway": "Design freeze is an evidence decision, not merely a calendar date.",
+    "title": "What Did Trinity Actually Prove?",
+    "objective": "Compare observations with broad prediction bands, audit disagreements with independent evidence, and freeze only the claims that the test actually supports.",
+    "briefing": "Trinity succeeded as an integrated test, but success is not the same as validating every model or eliminating every uncertainty. The player interprets a prediction-band comparison, distinguishes isotope physics from chemistry, spends follow-up work on independent checks, and controls configuration changes without turning post-test evidence into a recipe.",
+    "stake": "Late July 1945. Trinity worked, which is precisely when a laboratory is most tempted to stop asking what did not. One yield estimate sits away from another. Some diagnostic channels agree; others do not. Fallout was measured downwind, but civilians nearby had not been warned before the test. Today you decide which claims the event strengthened, which systematics still need independent checks, and which changes can be justified by evidence rather than by the relief of having seen the system function once.",
+    "takeaway": "A successful integrated test validates claims selectively; it does not erase discrepancies, environmental consequences, or model uncertainty.",
     "stops": [
       {
         "group": "X",
@@ -365,21 +365,21 @@ export const MISSIONS = [
       {
         "group": "E",
         "lesson": 7,
-        "task": "Control the post-Trinity design freeze"
+        "task": "Control the post-test evidence freeze"
       }
     ]
   },
   {
-    "title": "Complete the evidence chain—and confront responsibility",
-    "objective": "Close the technical reviews while recognizing that scientific completion does not settle the human and political consequences.",
-    "briefing": "The final mission asks each scientific line to state what it knows, what remains uncertain, and what follows from the work. Complete the theory, diagnostic, and materials dossiers, then address the responsibilities scientists debated after Trinity.",
-    "stake": "August 1945. The technical questions are closing and the other ones are not. Today you decide what each line of work is entitled to claim. What it knows. What is still uncertain. How strongly each claim is held. Then the same people have to say what follows from having done the work at all. That second part has no method. Leo Szilard, who wrote the letter that started the programme, circulated a petition in July with 155 signatures on it. Oppenheimer spent the rest of his life being asked. The scientists who were here disagreed about this in public for decades. They never disagreed about the physics. On the physics they all agreed.",
-    "takeaway": "Technical readiness and historical responsibility are different judgments; a complete curriculum must examine both.",
+    "title": "What Can Science Decide?",
+    "objective": "Close the wartime evidence chain while separating technical findings, uncertainty, human consequences, and policy judgments that science alone cannot settle.",
+    "briefing": "By August 1945 the immediate technical program is closing, but scientists across the Manhattan Project disagree about demonstration, combat use, secrecy, and postwar control. The player finishes the evidence record, preserves diagnostic and materials capability, and signs a final statement that distinguishes what the laboratory knows from what it recommends.",
+    "stake": "August 1945. The technical work is ending and the argument is widening. Reports and petitions circulate among Manhattan Project scientists. Some argue for a demonstration before combat use; others support the military plan; many agree on the physics and disagree sharply on what should follow from it. Trinity has also left a human record outside the fence: nearby and downwind communities were not warned beforehand, and fallout was measured after the shot. Today you finish the evidence chain with those limits visible. Your last act is not to decide national policy. It is to decide what a scientist can responsibly sign: what the measurements support, what remains uncertain, what consequences have been observed, and where technical authority ends.",
+    "takeaway": "Scientific expertise carries a duty to state evidence, uncertainty, and consequences clearly while distinguishing those findings from political authority.",
     "stops": [
       {
         "group": "T",
         "lesson": 12,
-        "task": "Separate energy release from ignition"
+        "task": "Separate energy bookkeeping from reaction access"
       },
       {
         "group": "P",
@@ -394,7 +394,7 @@ export const MISSIONS = [
       {
         "group": "X",
         "lesson": 10,
-        "task": "Define the laboratory's responsibility"
+        "task": "Sign the final record"
       }
     ]
   }

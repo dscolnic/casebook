@@ -6,7 +6,7 @@ export const COPY = {
   "KINET": "<p>Catalyst Bay. Nickel on alumina, in a bed the size of a kitchen bin, doing the one job in this plant that nothing else can do.</p>",
   "EQUIL": "<p>The reactor hall. Carbon dioxide and hydrogen go in, methane and water come out, and the argument is about how much.</p>",
   "PHASE": "<p>The cold end. Where a gas nobody can store becomes a liquid the vehicle can fly, at 112 kelvin.</p>",
-  "ELEC": "<p>The electrolysis hall. 12 cells splitting water, and 1 hot stack splitting carbon dioxide straight to oxygen.</p>",
+  "ELEC": "<p>The electrolysis hall. Water stacks make hydrogen and oxygen; one hot solid-oxide stack splits carbon dioxide into oxygen and carbon monoxide.</p>",
   "GIBBS": "<p>Plant control. The energy ledger for everything on this plain, and the desk where the arguments about it end.</p>",
   "SOIL": "<p>The water plant. Frozen ground in at one end, and a brine that has to be cleaned before anything downstream can use it.</p>",
   "HAB": "<p>The habitat. 6 people, 19 degrees, and the only room on the planet with a window somebody chose the view from.</p>",

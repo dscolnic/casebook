@@ -1615,7 +1615,7 @@ missions:
     - Why pressure is part of the methane temperature. Methane boils near 111.7 K at one atmosphere. The stream 
       therefore has to be at the condenser's defined pressure before a temperature such as 112 K means anything.
     takesAsRead:
-    - Intermolecular forces, and why they set a boiling point
+    - Vapour pressure, and reading a cryogenic tank by it
     assumes:
     - water and residual carbon dioxide are removed before the deepest cryogenic stage
     - the final methane condenser is operated near 1 bar
@@ -3391,7 +3391,7 @@ missions:
     title: What limits the current
     reason: >-
       Running the stacks harder would close the gap this batch leaves, if the cooling loop can take it
-    concept: "Overpotential: the voltage above the minimum, and where it goes"
+    concept: "Electrolysis losses: why current raises both production and thermal load"
     place: Electrolysis Hall
     scene: >-
       Sundqvist wants the stacks run 20% above rated current for the sols that remain. Achebe has the measured stack-voltage
@@ -3625,7 +3625,7 @@ missions:
     at: loadboard
     reason: The masses are aboard, every loaded batch has an assay, and the next valve the station opens belongs to the 
       flight.
-    concept: What an assay is for, and what a specification is a list of
+    concept: 'Evidence synthesis: measurement, specification, uncertainty, and irreversible release'
     place: Plant Control
     scene: 'Wells puts the final board beside the ascent vehicle telemetry. Methane: 6.6 tonnes. Oxygen: 23 tonnes. Every
       loaded batch is inside its own flight limits; the Sol 445 batch was rejected and remade. The conductivity trigger is

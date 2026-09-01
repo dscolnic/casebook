@@ -37,15 +37,15 @@ export const ROSTER = [
     "role": "Atmospheric Chemistry Lead",
     "division": "GASES",
     "color": "#2f7fa8",
-    "bio": "<p>Runs the Mobile Weather Station and the Gas Properties Lab. He is comfortable with an order-of-magnitude answer and openly hostile to a precise one built on the wrong model.</p><p>Two things decide where a released gas goes, and he insists on keeping them separate. The first is the gas itself: molar mass sets its density against air, so a vapour heavier than air pools in basements and trench bottoms while a lighter one lifts and dilutes. The second is the atmosphere: wind speed, wind direction, and how much the air is mixing vertically. A hot afternoon churns a plume into harmless dilution; a cold, still night lays it along the ground for a kilometre.</p><p>He gives the ratio of molar masses as the fastest useful calculation on site — a vapour twice the molar mass of air stays low. What he refuses to do is treat any of it as more than a scale estimate. Ask him for a plume forecast and he will tell you which part of the answer is thermodynamics, which part is weather, and which part is going to change when the wind turns.</p>",
+    "bio": "<p>Runs the Mobile Weather Station and the Gas Properties Lab. He is comfortable with an order-of-magnitude answer and openly hostile to a precise one built on the wrong model.</p><p>He keeps two questions separate. The first is the material itself: vapour density, temperature and release conditions can make a cloud initially slump into low ground. The second is the atmosphere: wind, turbulence, stability and terrain decide how long that dense-gas behaviour survives and where the material actually goes. A heavier-than-air vapour is therefore a warning about the near field, not a promise that it will stay on the ground for kilometres.</p><p>He uses gas-law and density calculations to set the scale, then insists on measurements before anyone turns that scale into a street map. Ask him for a plume forecast and he will tell you which part of the answer is thermodynamics, which part is weather, and which part is going to change when the wind turns.</p>",
     "quiz": [
       {
-        "q": "By Varga’s reasoning, what makes a released vapour pool in basements and trenches instead of lifting away?",
-        "a": "Its molar mass is well above that of air",
+        "q": "Why does Varga treat a heavier-than-air vapour as a near-field warning rather than a complete plume forecast?",
+        "a": "It may slump into low areas at first, but wind, turbulence and terrain control what happens next",
         "wrong": [
-          "It is warmer than the surrounding air when it leaves the container",
-          "It dissolves readily in water, so it is drawn downwards towards damp ground",
-          "It has a low boiling point, so it condenses at ground level"
+          "Molar mass stops mattering as soon as the vapour leaves its container",
+          "Any vapour heavier than air stays at ground level until it chemically reacts",
+          "Dense vapours can move only downhill and therefore need no wind measurements"
         ]
       }
     ]
@@ -131,7 +131,7 @@ export const ROSTER = [
     "role": "Treatment Engineering Lead",
     "division": "TREAT",
     "color": "#4a5b6e",
-    "bio": "<p>Runs the pilot treatment plant and the intake pipeline. He can lower almost any number you name; the useful half of his job is telling you what that costs somewhere else.</p><p>He works with three tools and each one moves the contaminant rather than destroying it. Activated carbon adsorbs organics onto an enormous internal surface area — the compound is now in the carbon bed, which becomes hazardous waste with a destination. Air stripping blows the volatile fraction out of the water and into the air, which is a genuine improvement only if the air is somewhere no one is standing. Chemical oxidation actually breaks bonds, but partially oxidised fragments are products too, and some are worse than what you started with.</p><p>So every option he offers arrives with the byproduct, the sludge and the destination attached. A treatment train that removes 99% of a contaminant and puts the rest through a neighbourhood’s air is not a success; it is a transfer, and he wants it named as 1.</p>",
+    "bio": "<p>Runs the pilot treatment plant and the intake pipeline. He can lower almost any number you name; the useful half of his job is telling you what that costs somewhere else.</p><p>He works with three tools and each one moves the contaminant rather than destroying it. Activated carbon adsorbs organics onto an enormous internal surface area — the compound is now in the carbon bed, which becomes hazardous waste with a destination. Air stripping blows the volatile fraction out of the water and into the air, which is a genuine improvement only if the air is somewhere no one is standing. Chemical oxidation actually breaks bonds, but partially oxidised fragments are products too, and some are worse than what you started with.</p><p>So every option he offers arrives with the byproduct, the sludge and the destination attached. A treatment train that removes 99% of a contaminant and puts the rest through a neighbourhood’s air is not a success; it is a transfer, and he wants it named as one.</p>",
     "quiz": [
       {
         "q": "Why does Osei describe activated carbon and air stripping as moving a contaminant rather than removing it?",
@@ -291,7 +291,7 @@ export const ROSTER = [
     "role": "Incident Commander",
     "division": "TREAT",
     "color": "#2c3e50",
-    "bio": "<p>Commands the response from City Command. She holds the time, the money and the authority to close or reopen the water system, and she is the only person here whose decisions cannot be deferred.</p><p>She works in a currency the laboratory does not use: every hour of analysis is an hour the intake stays shut, and closing a city’s drinking-water intake has its own casualties — dialysis clinics, a hospital, 12000 households on bottled supply. So she needs each finding costed as well as stated. Provisional identification in one hour and confirmation in six is a real choice; certainty at an unspecified time is not a choice at all.</p><p>What she asks for is therefore never certainty. It is what you know, what you do not, and which of the 2 is about to change — and she would rather have a number with an honest uncertainty attached in 20 minutes than a clean number after lunch.</p>",
+    "bio": "<p>Commands the response from City Command. She holds the time, the money and the authority to close or reopen the water system, and she is the only person here whose decisions cannot be deferred.</p><p>She works in a currency the laboratory does not use: every hour of analysis is an hour the intake stays shut, and closing a city’s drinking-water intake has its own casualties — dialysis clinics, a hospital, 12000 households on bottled supply. So she needs each finding costed as well as stated. Provisional identification in one hour and confirmation in six is a real choice; certainty at an unspecified time is not a choice at all.</p><p>What she asks for is therefore never certainty. It is what you know, what you do not, and which of the two is about to change — and she would rather have a number with an honest uncertainty attached in 20 minutes than a clean number after lunch.</p>",
     "quiz": [
       {
         "q": "What does Boateng actually want from the laboratory?",
@@ -470,7 +470,7 @@ export const ROSTER = [
     "role": "Riverfront Resident Association",
     "division": "WATER",
     "color": "#4c9c8d",
-    "bio": "<p>Speaks for the households along the riverfront: people who fish the river, keep gardens on the flood terrace, and let their children play at the water’s edge.</p><p>His questions are the ones the sampling plan is least good at answering. Not what the concentration in the water is today, but what is still in the mud, and what is in the fish. Some compounds concentrate as they move up a food chain — small amounts taken in and not excreted accumulate in the fat of each animal, so a fish can carry many times what the water around it ever held, long after the water reads clean.</p><p>He is not obstructing anybody. He wants what was released, where it went, and what remains — and he will accept an honest \"we do not know yet, here is when we will\" far more readily than a reassurance he can tell is being managed.</p>",
+    "bio": "<p>Speaks for the households along the riverfront: people who fish the river, keep gardens on the flood terrace, and let their children play at the water’s edge.</p><p>His questions are the ones the sampling plan is least good at answering. Not what the concentration in the water is today, but what is still in the mud, and what is in the fish. Some persistent, bioaccumulative compounds build up in organisms and can biomagnify through a food web. A fish can therefore carry far more of such a contaminant than a water grab suggests, long after the water column itself reads clean.</p><p>He is not obstructing anybody. He wants what was released, where it went, and what remains — and he will accept an honest \"we do not know yet, here is when we will\" far more readily than a reassurance he can tell is being managed.</p>",
     "quiz": [
       {
         "q": "Why can Abara’s fish carry far more contaminant than the river water they swim in?",

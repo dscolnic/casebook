@@ -68,7 +68,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Which of the three cannot wait",
-      "scene": "Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock, the assistant operator, is ready to take a handoff, but she refuses any instruction that amounts to “watch it.”.",
+      "scene": "Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock is ready to take a handoff, but she refuses any instruction that amounts to simply “watch it.”",
       "takeaway": "Urgency comes from how fast a condition is worsening, how reversible it is, and whether somebody else can own the next move.",
       "place": "System Operations",
       "guide": "Three live problems and one attention channel you can keep. For each of the other two, name an owner, the first real action they will take, and the reading or event that brings the problem back to you. Reyes will not accept anything that amounts to 'watch it'. Then take the watch on the one that needs your own judgement.",
@@ -77,7 +77,7 @@ export const CURRICULUM = {
         "What a return condition is for. It is not a promise to check in. It is the threshold at which the problem stops being theirs, agreed in advance, so nobody has to judge in the moment whether this is bad enough to interrupt you.",
         "How to choose what to keep. Compare the three on how fast they are getting worse, on whether they are already contained, and on what happens if nobody acts. The one that needs judgement rather than procedure is the one you cannot hand over."
       ],
-      "story": "Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock, the assistant operator, is ready to take a handoff, but she refuses any instruction that amounts to “watch it.”.",
+      "story": "Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock is ready to take a handoff, but she refuses any instruction that amounts to simply “watch it.”",
       "game": {
         "type": "DELEGATE",
         "title": "Which of the three cannot wait",
@@ -304,7 +304,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "The order somebody will read back to you",
-      "scene": "3 crews, 11 dead feeders, and a list in front of Reyes that mixes household counts with 1 clinic and 1 pumping station. The control-room phone is already ringing.. The shift log and network board are open beside them.",
+      "scene": "Three crews, eleven dead feeders, and a list in front of Reyes that mixes household counts with one dialysis clinic and one pumping station. The control-room phone is already ringing. The shift log and network board are open beside them.",
       "takeaway": "The first crew goes where the consequence of waiting is worst, not where the count is biggest.",
       "place": "System Operations",
       "guide": "Four feeders, and household count is only one of two things that matter. Ask of each what waiting costs, and how long the work takes. A one-hour job frees the crew for the next fault this shift. A four-hour job does not. One of these is measured in treatments rather than in inconvenience, and one is already on a standby supply.",
@@ -313,7 +313,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "3 crews, 11 dead feeders, and a list in front of Reyes that mixes household counts with 1 clinic and 1 pumping station. The control-room phone is already ringing.. The shift log and network board are open beside them.",
+      "story": "Three crews, eleven dead feeders, and a list in front of Reyes that mixes household counts with one dialysis clinic and one pumping station. The control-room phone is already ringing. The shift log and network board are open beside them.",
       "game": {
         "type": "CHOICE",
         "title": "The order somebody will read back to you",
@@ -970,42 +970,53 @@ export const CURRICULUM = {
     },
     {
       "day": 14,
-      "title": "What outlives the emergency",
-      "scene": "Four things the room started doing under pressure. Reyes asks which of them are worth their cost on an ordinary Monday, when nothing is going wrong. A printed network diagram lies on the desk.",
-      "takeaway": "Keep the practices that would have caught the fault early, and drop the ones that only paid off because the fortnight was abnormal.",
+      "title": "The rule you sign",
+      "scene": "Reyes turns the last page toward you. Four emergency practices are listed, but only one is cheap enough and powerful enough to become a standing rule on ordinary nights. Your choice is the final instruction in the winter case.",
+      "takeaway": "Keep the practice that would have exposed the hidden failure before the crisis, without making every ordinary shift pay for an emergency-level response.",
       "place": "System Operations",
-      "guide": "All four changes are defensible and all four cost something every day. Ask of each whether it would have caught this fortnight's failure, and whether the room will still be doing it in March. The sensor's offset survived months because nothing was compared against it. More frequent reports of a wrong number are not information.",
+      "guide": "All four changes are defensible and all four cost something every day. Ask of each whether it would have caught this campaign's failure, and whether the room will still be doing it in March. The sensor's offset survived months because nothing was compared against it. More frequent reports of a wrong number are not information.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Four things the room started doing under pressure. Reyes asks which of them are worth their cost on an ordinary Monday, when nothing is going wrong. A printed network diagram lies on the desk.",
+      "story": "Reyes turns the last page toward you. Four emergency practices are listed, but only one is cheap enough and powerful enough to become a standing rule on ordinary nights. Your choice is the final instruction in the winter case.",
       "game": {
         "type": "CHOICE",
-        "title": "What outlives the emergency",
+        "title": "The rule you sign",
         "setup": "System Operations",
-        "play": "Decide which of the fortnight's changes becomes permanent",
-        "task": "Decide which of the fortnight's changes becomes permanent",
-        "question": "Which of the fortnight's changes is most worth keeping permanently?",
-        "answer": "Cross-checking any instrument that a decision rests on against an independent method.",
-        "why": "One of these would have caught the whole thing. The sensor's offset survived for months because nothing was ever compared against it, and an independent check costs a survey and an afternoon. Elevated reserve is expensive every night and only useful on the rare ones. That is what a width is for deciding rather than a fortnight. More frequent loading reports would not have helped at all, because the readings were wrong rather than late. More of a wrong number is not information.",
+        "play": "Sign the one operating rule that should outlive the emergency.",
+        "task": "Sign the one operating rule that should outlive the emergency.",
+        "question": "Which operating rule do you sign into permanent practice?",
+        "answer": "Cross-check any instrument that an operating limit or emergency decision depends on against an independent method at defined intervals.",
+        "why": "The sensor offset survived for months because no independent method was routinely compared with the number carrying the operating decision. A cross-check would have exposed that failure before the corridor crisis. Permanently elevated reserve is expensive and should instead be sized to forecast uncertainty. Faster reporting would only repeat the same bad sensor more often. A second signature on urgent load shedding adds delay to a decision that sometimes has to be made in seconds.",
         "rebuttals": [
-          "Elevated reserve costs money every night for a benefit on a handful, which is a width question rather than a policy.",
-          "The loading readings were wrong, not late; reporting a wrong number four times as often adds nothing.",
-          "A second signature slows the one decision that was both correct and time-critical."
+          "Emergency-level reserve costs money every night; the forecast distribution should determine how much is needed.",
+          "The failure was accuracy, not reporting speed. Repeating the same wrong reading more often adds no independent information.",
+          "A mandatory second signature delays the one class of action that may need to occur before certainty or consensus is available."
         ],
         "choices": [
-          "Cross-checking any instrument that a decision rests on against an independent method.",
-          "Holding reserve at the fortnight's elevated level all winter.",
-          "Reporting corridor loading to the control room every 15 minutes rather than every hour.",
-          "Requiring two operators to sign any load-shedding decision."
+          "Cross-check any instrument that an operating limit or emergency decision depends on against an independent method at defined intervals.",
+          "Hold reserve at the campaign's emergency level for the entire winter, regardless of the forecast distribution.",
+          "Report corridor loading every fifteen minutes instead of every hour, using the same measurement chain.",
+          "Require two operators to sign every load-shedding action before any feeder can be opened."
         ],
-        "correctChoice": "Cross-checking any instrument that a decision rests on against an independent method."
+        "correctChoice": "Cross-check any instrument that an operating limit or emergency decision depends on against an independent method at defined intervals."
       },
       "assumes": [
         "a practice adopted under pressure has a cost that only shows up later"
-      ]
+      ],
+      "concept": {
+        "n": 32,
+        "c": "Load shedding as a decision under uncertainty",
+        "t": "Shedding load on purpose is how a shortfall is kept from becoming an uncontrolled collapse. The call is made before the picture is complete, so it is judged on whether it was proportionate to what was known, not on what was learned later.",
+        "of": 32,
+        "rests": [
+          "Frequency as the balance of supply and demand",
+          "Inertia, governor response and droop control",
+          "Load curves and demand forecasting"
+        ]
+      }
     },
     {
       "day": 15,
@@ -1086,7 +1097,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The reason the wires are not at wall voltage",
-      "scene": "A visitor asks Nadia Haddad, the generation lead, why the machine makes power at 20000 volts and the line outside runs at 400000. The room is waiting for a written instruction.",
+      "scene": "The replacement generation for tomorrow's peak is far from Calder Valley. Haddad points to the station transformer: the generator makes power at 20 kV, while the transmission line runs at 400 kV. Reyes wants to know what that voltage change buys before she counts the distant plant as useful reserve.",
       "takeaway": "The same power can be delivered in more than one way, and the ways are not equally wasteful.",
       "place": "Generation Hall",
       "guide": "All four options pair a change in current with a change in loss. Two of them get the current right and disagree about the heat. Ask what the loss depends on, and what power it depends on it to. Current falls in proportion to voltage. Heat follows the square of current. Work both halves before choosing, because three of these get one half right.",
@@ -1095,15 +1106,15 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "A visitor asks Nadia Haddad, the generation lead, why the machine makes power at 20000 volts and the line outside runs at 400000. The room is waiting for a written instruction.",
+      "story": "The replacement generation for tomorrow's peak is far from Calder Valley. Haddad points to the station transformer: the generator makes power at 20 kV, while the transmission line runs at 400 kV. Reyes wants to know what that voltage change buys before she counts the distant plant as useful reserve.",
       "game": {
         "type": "CHOICE",
         "title": "The reason the wires are not at wall voltage",
         "setup": "Generation Hall",
-        "play": "Work out what the voltage step-up does to current and line loss.",
-        "task": "Work out what the voltage step-up does to current and line loss.",
+        "play": "Explain why replacement power must be stepped up before it crosses the corridor.",
+        "task": "Explain why replacement power must be stepped up before it crosses the corridor.",
         "question": "For the same real power, what happens when voltage is stepped from 20 kV to 400 kV?",
-        "answer": "The voltage rises by 20×, so current falls by 20× for the same power. Resistive loss then falls by 20² = 400×, ignoring transformer losses.",
+        "answer": "For the same real power and power factor, the voltage rises by 20×, so current falls by 20×. With the same conductor resistance, resistive loss falls by about 20² = 400×, ignoring transformer losses.",
         "why": "For a given real power, raising voltage allows the same power to move with less current. Resistive loss then falls with current squared. Halving current cuts that loss to one quarter. A transformer makes the trade possible by changing voltage in proportion to turns while transferring nearly the same power, apart from losses. That is why long-distance transmission uses high voltage despite the harder insulation problem. The cost of insulation buys a much larger saving in conductor heating.",
         "rebuttals": [
           "At fixed power, current scales inversely with voltage. Loss then scales with the square of that current, not in direct proportion.",
@@ -1124,6 +1135,26 @@ export const CURRICULUM = {
         "faraday's law and electromagnetic induction — taken as read"
       ],
       "equations": [
+        {
+          "e": "V = IR",
+          "c": "Ohm's law, on a conductor and on a whole network",
+          "v": [
+            [
+              "V",
+              "voltage across it, in volts"
+            ],
+            [
+              "I",
+              "current through it, in amperes"
+            ],
+            [
+              "R",
+              "resistance, in ohms"
+            ]
+          ],
+          "s": "Current through a resistance produces a voltage across it, in proportion.",
+          "demanded": true
+        },
         {
           "e": "P = IV, and P = I²R",
           "c": "power delivered, and the loss that never arrives",
@@ -1149,6 +1180,31 @@ export const CURRICULUM = {
           "demanded": true
         },
         {
+          "e": "S = √(P² + Q²), pf = P/S",
+          "c": "apparent power and power factor",
+          "v": [
+            [
+              "S",
+              "apparent power, in volt-amperes"
+            ],
+            [
+              "P",
+              "real power, in watts"
+            ],
+            [
+              "Q",
+              "reactive power, in volt-amperes reactive"
+            ],
+            [
+              "pf",
+              "power factor, between 0 and 1"
+            ]
+          ],
+          "s": "Equipment is sized for the current it carries, which includes reactive power that does no work.",
+          "demanded": true,
+          "card": false
+        },
+        {
           "e": "N₁/N₂ = V₁/V₂",
           "c": "the transformer ratio, and why transmission is at high voltage",
           "v": [
@@ -1170,7 +1226,8 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A transformer trades voltage for current in the ratio of its turns, which is what makes long-distance transmission affordable.",
-          "demanded": true
+          "demanded": true,
+          "card": false
         }
       ],
       "takesAsRead": [
@@ -1432,7 +1489,7 @@ export const CURRICULUM = {
         "task": "Spend the quiet-shift check budget on the assumption most likely to change the fast-frequency plan.",
         "question": "Which evidence should be bought before the room trusts its present under-frequency timing?",
         "answer": "Buy the current machine-data inertia audit. It reveals about 18,000 MW·s rather than the inherited 25,000. For a 300 MW loss at 50 Hz, |df/dt| rises from 0.30 Hz/s to about 0.42 Hz/s.",
-        "why": "Three comforting numbers are current measurements or long-run evidence. The inherited inertia figure is different. The fleet has changed, and inverter-connected generation can supply real power without the same synchronous stored kinetic energy. That matters because stored energy sets how fast frequency moves after a sudden imbalance. Recomputing it from current machine data can therefore change protection timing immediately. If the old 25,000 MW·s figure has fallen to 18,000 MW·s. The same 300 MW trip moves frequency about 40% faster.",
+        "why": "Three comforting numbers are current measurements or long-run evidence. The inherited inertia figure is different: the fleet has changed, and inverter-connected generation can supply real power without the same directly coupled synchronous kinetic energy. Recomputing stored kinetic energy from current machine data therefore changes the expected rate of frequency fall. If the old 25,000 MW·s estimate has fallen to 18,000 MW·s, the same 300 MW trip moves frequency about 40% faster.",
         "value": {
           "budget": {
             "amount": 4,
@@ -1492,17 +1549,17 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "When the cheapest power cannot get out",
-      "scene": "Sarraf, the renewable operator, can produce 340 megawatts from the ridge tonight. The corridor out of the valley can carry about 190. There is no second export path available. A printed network diagram lies on the desk.",
+      "scene": "Sarraf can produce 340 MW from the ridge tonight, but the Calder export corridor can carry only about 190 MW under the current operating limit. There is no other export path available. A printed network diagram lies on the desk.",
       "takeaway": "Curtailment is what a network limit looks like from the generator's end.",
       "place": "Generation Hall",
-      "guide": "The ridge can produce 340 MW tonight and the corridor is rated at about 190 MW continuous. Nights like this occur perhaps 40 times a winter. Storage at the ridge would be 50 MW for four hours at 85 per cent round trip. That moves surplus in time rather than in space. The second circuit has been on the reinforcement list for two years without a date, and commissioning runs about three years from a start. Curtailment payments recur every night like this one. Running above a thermal rating anneals the conductor, and the annealing accumulates.",
+      "guide": "The ridge can produce 340 MW tonight and the corridor is limited to about 190 MW under the current operating case. Nights like this occur perhaps forty times a winter. Storage at the ridge would be 50 MW for four hours at 85% round-trip efficiency, moving surplus in time rather than in space. A third corridor circuit has been on the reinforcement list for two years without a construction window. Curtailment payments recur every constrained night. Operating hotter than the continuous case increases sag and can add cumulative thermal damage, so exceeding the limit is not a free fifth option.",
       "rules": "Spread the hundred points across the 4 proposals. At least 70 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
       "background": [
         "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
         "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
         "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
       ],
-      "story": "Sarraf, the renewable operator, can produce 340 megawatts from the ridge tonight. The corridor out of the valley can carry about 190. There is no second export path available. A printed network diagram lies on the desk.",
+      "story": "Sarraf can produce 340 MW from the ridge tonight, but the Calder export corridor can carry only about 190 MW under the current operating limit. There is no other export path available. A printed network diagram lies on the desk.",
       "game": {
         "type": "SCIENCETANK",
         "title": "When the cheapest power cannot get out",
@@ -1511,7 +1568,7 @@ export const CURRICULUM = {
         "task": "Decide what to do with more wind than the corridor can carry",
         "question": "Decide what to do with more wind than the corridor can carry",
         "answer": "",
-        "why": "Energy that cannot reach a customer is not energy, and a corridor at its thermal limit is a hard wall rather than a preference. So some of that output has to stop, and the question is only how the system pays for it and what it buys instead. Reinforcing the corridor fixes it permanently and takes years. Storage on the ridge moves the surplus in time rather than in space, which is exactly the right shape for this problem.",
+        "why": "Generation that cannot reach customers is not usable output for the system. The corridor limit is therefore an operating constraint, not a preference. Some ridge output must be curtailed unless storage can move it to a later hour or transmission can be reinforced. Storage moves surplus in time; another circuit increases the path available in space. Running hotter simply spends thermal and clearance margin and can add cumulative damage.",
         "proposals": [
           {
             "label": "A",
@@ -1523,7 +1580,7 @@ export const CURRICULUM = {
           },
           {
             "label": "C",
-            "text": "Reinforce the corridor with a second circuit, commissioned in about three years."
+            "text": "Reinforce the corridor with a third circuit, commissioned in about three years."
           },
           {
             "label": "D",
@@ -1737,7 +1794,7 @@ export const CURRICULUM = {
       "scene": "The corridor is at 108% of continuous rating and rising slowly. Novak, the transmission engineer, wants a response he can hand to Dube, the switching operator, before the relay makes the choice for them.",
       "takeaway": "A protection plan must be written before the number moves, with earlier thresholds for actions that take longer to arrive.",
       "place": "Transmission Control",
-      "guide": "One rule, written before the trend arrives and fixed once you release it. Moving 200 MW off the corridor takes six hours from the moment it is called, and at 120 % of continuous rating the protection takes the line out itself. So the line goes back from 120 by however far the loading climbs in those six hours — and not so far back that you are redispatching a corridor which has shown nothing.",
+      "guide": "The live trend is rising about 1.5 percentage points of continuous rating per hour. Redispatching 200 MW away from Calder takes six hours from the call, and 120% is the emergency ceiling. Work backward from 120 by the rise expected during those six hours. The rule has to be written before the trend is released, because a threshold chosen after seeing the peak is hindsight, not an operating rule.",
       "background": [
         "Why act before the relay. Protection will disconnect the corridor when its limit is reached, and it will do so without regard to what else that leaves connected. Anything you do before then is a controlled choice; anything after is a consequence.",
         "Why two thresholds rather than one. Redispatching generation takes minutes and shedding load takes seconds. A single threshold set for the slower action fires far too early for the faster one, and set for the faster one leaves no time for the slower. The lead time is the reason there are two numbers.",
@@ -1751,8 +1808,8 @@ export const CURRICULUM = {
         "play": "Set the overload action thresholds before the corridor trend is released.",
         "task": "Set the overload action thresholds before the corridor trend is released.",
         "question": "At what loading do you commit the redispatch, given the move takes six hours and protection acts at 120 %?",
-        "answer": "Commit the redispatch around 111 % of continuous rating. It then fires with the six hours the move needs still in hand, and the corridor is unloaded before the 120 % ceiling.",
-        "why": "An emergency rating is a time-limited thermal allowance, not permission to wait until the relay acts. Redispatch takes six hours from the moment it is called, so the loading at which it is committed has to sit back from the 120 per cent ceiling by however far the corridor climbs in those six hours. That is what makes the number smaller than the number the ceiling suggests. Writing the rule before the trend appears is what keeps hindsight from turning into policy, and a threshold that is physically sensible but fires after its action can still arrive is a failed rule.",
+        "answer": "Commit the redispatch at about 111% of continuous rating. At the observed rise of roughly 1.5 percentage points per hour, that leaves the six hours needed to finish the move before the corridor reaches 120%.",
+        "why": "The emergency ceiling is not the point at which a slow action should begin. At roughly 1.5 percentage points per hour, six hours consumes about nine percentage points of loading margin. Working backward from 120% therefore puts the redispatch trigger near 111%. The calculation matters because an action can be physically correct and still be useless if it starts too late to arrive.",
         "trigger": {
           "scale": {
             "label": "Loading on the corridor",
@@ -1785,45 +1842,57 @@ export const CURRICULUM = {
           ],
           "stream": [
             {
-              "at": "day 0",
+              "at": "now",
               "update": "108 % of continuous rating",
               "value": 108,
-              "hoursLeft": 576
+              "hoursLeft": 8
             },
             {
-              "at": "day 4",
-              "update": "110 % of continuous rating",
-              "value": 110,
-              "hoursLeft": 480
+              "at": "+1 h",
+              "update": "109.5 % of continuous rating",
+              "value": 109.5,
+              "hoursLeft": 7
             },
             {
-              "at": "day 8",
-              "update": "113 % of continuous rating",
-              "value": 113,
-              "hoursLeft": 384
+              "at": "+2 h",
+              "update": "111 % of continuous rating",
+              "value": 111,
+              "hoursLeft": 6
             },
             {
-              "at": "day 12",
-              "update": "116 % of continuous rating",
-              "value": 116,
-              "hoursLeft": 288
+              "at": "+3 h",
+              "update": "112.5 % of continuous rating",
+              "value": 112.5,
+              "hoursLeft": 5
             },
             {
-              "at": "day 16",
-              "update": "118 % of continuous rating",
-              "value": 118,
-              "hoursLeft": 192
+              "at": "+4 h",
+              "update": "114 % of continuous rating",
+              "value": 114,
+              "hoursLeft": 4
             },
             {
-              "at": "day 20",
-              "update": "119.5 % of continuous rating",
-              "value": 119.5,
-              "hoursLeft": 96
+              "at": "+5 h",
+              "update": "115.5 % of continuous rating",
+              "value": 115.5,
+              "hoursLeft": 3
             },
             {
-              "at": "day 24",
-              "update": "120.5 % of continuous rating",
-              "value": 120.5,
+              "at": "+6 h",
+              "update": "117 % of continuous rating",
+              "value": 117,
+              "hoursLeft": 2
+            },
+            {
+              "at": "+7 h",
+              "update": "118.5 % of continuous rating",
+              "value": 118.5,
+              "hoursLeft": 1
+            },
+            {
+              "at": "+8 h",
+              "update": "121.5 % of continuous rating",
+              "value": 121.5,
               "hoursLeft": 0
             }
           ],
@@ -1833,30 +1902,38 @@ export const CURRICULUM = {
             "stream": [
               {
                 "value": 105,
-                "hoursLeft": 576
+                "hoursLeft": 8
               },
               {
                 "value": 107,
-                "hoursLeft": 480
-              },
-              {
-                "value": 112,
-                "hoursLeft": 384
-              },
-              {
-                "value": 116,
-                "hoursLeft": 288
-              },
-              {
-                "value": 114,
-                "hoursLeft": 192
+                "hoursLeft": 7
               },
               {
                 "value": 109,
-                "hoursLeft": 96
+                "hoursLeft": 6
+              },
+              {
+                "value": 110.5,
+                "hoursLeft": 5
+              },
+              {
+                "value": 110,
+                "hoursLeft": 4
+              },
+              {
+                "value": 108.5,
+                "hoursLeft": 3
+              },
+              {
+                "value": 107,
+                "hoursLeft": 2
               },
               {
                 "value": 106,
+                "hoursLeft": 1
+              },
+              {
+                "value": 105,
                 "hoursLeft": 0
               }
             ]
@@ -2041,7 +2118,7 @@ export const CURRICULUM = {
         "task": "Estimate the current in the older circuit",
         "question": "Estimate the current flowing in the older, higher-impedance circuit.",
         "answer": "About 300 A in the older 6 Ω path and 600 A in the newer 3 Ω path.",
-        "why": "Both circuits connect the same two busbars, so they have the same voltage across them. Current therefore divides inversely with impedance. For two parallel paths, one path takes the other path’s impedance divided by the sum. With 6 Ω and 3 Ω, the lower-impedance circuit carries twice the current of the older 1. This is why a new parallel circuit does not split flow evenly. The total busbar current constrains the sum, but the impedances determine the share in each route.",
+        "why": "Both circuits connect the same two busbars, so they have the same voltage across them. Current therefore divides inversely with impedance. With 6 Ω and 3 Ω, the lower-impedance circuit carries twice the current of the older one. The total busbar current fixes the sum; the impedances determine the share. This is why adding a parallel circuit does not guarantee an even split.",
         "givens": [
           "Total current is 900 A",
           "The older circuit is 6 Ω and the newer is 3 Ω"
@@ -2109,8 +2186,8 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "What a rating is a statement about",
-      "scene": "The corridor's conductors may run continuously at 75 degrees and no hotter. Above that the aluminium starts to lose strength, and the span sags towards the road beneath it. Novak has the corrected figures and wants the current that limit allows, because a rating quoted in amps is really a statement about temperature.",
-      "takeaway": "A rating is a temperature expressed as a current, so a wrong temperature makes the current limit meaningless.",
+      "scene": "The corridor's continuous operating limit corresponds to a conductor temperature of 75 °C under the stated weather assumptions. Above that, sag increases immediately, while sufficiently hot or prolonged operation can also accelerate creep and annealing. Novak wants the current that reaches the 75 °C operating limit under the corrected conditions.",
+      "takeaway": "A thermal rating is a temperature translated into current under stated weather assumptions, so bad temperature data erase the operating margin you thought you had.",
       "place": "Transmission & Protection",
       "guide": "Drag the corridor current. The readout is the conductor's own temperature, not its rating, and only the currents you stop at get plotted. You want the current at which that temperature reaches the 75-degree limit named above. Heating rises faster than the current causing it, so the curve steepens as you go and the last hundred amps cost more than the first. Mark that current and commit.",
       "background": [
@@ -2118,7 +2195,7 @@ export const CURRICULUM = {
         "Why a rating is a temperature. The ampere figure printed on a corridor is the current that reaches the temperature limit under an assumed ambient, an assumed wind and an assumed sun. Change any of those and the same amps arrive at a different temperature. That is why a corrected weather figure can move a rating without anybody touching the line, and why a rating quoted without its assumptions is not a limit at all.",
         "What happens above the limit. Aluminium held above its continuous temperature begins to anneal, losing strength it does not get back, and the hotter span stretches and sags. The clearance over the road below is a legal minimum, so the temperature limit is doing two jobs at once: protecting the conductor, and keeping the line where the survey says it is."
       ],
-      "story": "The corridor's conductors may run continuously at 75 degrees and no hotter. Above that the aluminium starts to lose strength, and the span sags towards the road beneath it. Novak has the corrected figures and wants the current that limit allows, because a rating quoted in amps is really a statement about temperature.",
+      "story": "The corridor's continuous operating limit corresponds to a conductor temperature of 75 °C under the stated weather assumptions. Above that, sag increases immediately, while sufficiently hot or prolonged operation can also accelerate creep and annealing. Novak wants the current that reaches the 75 °C operating limit under the corrected conditions.",
       "game": {
         "type": "SWEEP",
         "title": "What a rating is a statement about",
@@ -2127,7 +2204,7 @@ export const CURRICULUM = {
         "task": "Say what the corrected temperature does to the rating",
         "question": "75 degrees is the limit the conductor was built to. What current does that allow it to carry all day?",
         "answer": "About 1,150 A. The corridor was carrying 1,280 A. The corrected figures put it near 89 degrees, about 14 degrees above the continuous limit.",
-        "why": "A rating is not a fuse setting. It is a temperature translated into a current, and the translation runs through the heating. That goes as the square of the current: the last hundred amps buy far more degrees than the first hundred. The curve steepens and the rating sits where it crosses the agreed temperature. Two consequences follow. A rating is only as good as the temperature measurement behind it. That is why a drifted sensor moves a limit that looks like a fixed property of the metal.",
+        "why": "A rating is not a fuse setting. It is the current that produces an agreed conductor temperature under assumed ambient conditions. The heating rises roughly with current squared, while cooling depends on wind, air temperature, radiation and the conductor itself. The corrected curve reaches 75 °C near 1,150 A and puts 1,280 A near 89 °C. That proves the operating limit was exceeded; it does not, by itself, measure how much permanent material damage occurred.",
         "sweep": {
           "mode": "peak",
           "axis": {
@@ -2232,17 +2309,17 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "What the window is worth",
-      "scene": "Two options, one budget, one afternoon. Novak points out that only one of them still exists tomorrow, and Haddad points out that only one of them fixes the corridor. The event board is still showing the overnight state.",
+      "scene": "Two options, one budget, one afternoon. Novak points out that only one option removes the corridor bottleneck; Haddad points out that only one construction window disappears at five. The corrected thermal record is on the table, and the exact conductor-strength test is still pending.",
       "takeaway": "When one path closes today, its value includes everything the eighteen-month delay would cost.",
       "place": "Transmission & Protection",
-      "guide": "The outage window closes at close of business and the next is 18 months out. The corrected record has the corridor above continuous rating for about 90 hours over three years. The storage quote expires with the window and does not change a thermal rating. Curtailment on nights like last Friday runs about 40 nights a winter. The review Farrow would want takes three weeks. The board will not approve both the storage and the circuit, and nobody who has read the corrected record has disputed it.",
+      "guide": "The construction window closes at five and the next one is eighteen months away. The corrected record already proves repeated operation above the continuous thermal case. The storage quote also expires today, but storage does not add transmission capacity. Curtailment on nights like last Friday occurs about forty nights a winter. Farrow's strength review will refine the asset condition, but it will not create another corridor path. The board will not approve both storage and reinforcement.",
       "rules": "Spread the hundred points across the 4 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
       "background": [
         "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
         "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
         "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
       ],
-      "story": "Two options, one budget, one afternoon. Novak points out that only one of them still exists tomorrow, and Haddad points out that only one of them fixes the corridor. The event board is still showing the overnight state.",
+      "story": "Two options, one budget, one afternoon. Novak points out that only one option removes the corridor bottleneck; Haddad points out that only one construction window disappears at five. The corrected thermal record is on the table, and the exact conductor-strength test is still pending.",
       "game": {
         "type": "SCIENCETANK",
         "title": "What the window is worth",
@@ -2251,11 +2328,11 @@ export const CURRICULUM = {
         "task": "Commit the money before the window closes",
         "question": "Commit the money before the window closes",
         "answer": "",
-        "why": "This is not the same question as last week, because one option now expires. Reinforcement is the only choice that removes the constraint rather than working around it. Today is the last day it can be started this year — so its cost includes 18 months of curtailment, 90 more hours of annealing. Every evening the room has to hold a corridor it has now measured as weaker than it thought.",
+        "why": "This is different from last week because one option now expires. A third circuit is the only proposal that removes the transmission bottleneck rather than working around it. Waiting eighteen months means more curtailment and more operation close to a thermal limit whose historical margin was overstated. The pending strength test should change maintenance assumptions if needed, but it does not erase the measured congestion or create a new path.",
         "proposals": [
           {
             "label": "A",
-            "text": "Commit the outage window today and string the second circuit this year."
+            "text": "Commit the outage window today and string the third circuit this year."
           },
           {
             "label": "B",
@@ -2630,7 +2707,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Why it cannot go faster",
-      "scene": "Obi has crews asking why restoration is moving a few streets at a time. The substation is live, and the whole feeder could be closed in one movement. The switching sheet is open beside him.",
+      "scene": "Obi has crews asking why restoration is moving a few streets at a time. The substation is live, and the whole feeder could be closed in one movement. The switching sheet is open beside her.",
       "takeaway": "Every restoration step is limited by something different, and hurrying the wrong one collapses it again.",
       "place": "Distribution Depot",
       "guide": "Four restoration steps, and four different limits. Pair them by asking what is small: the live system, the load on the line, or the agreement between two systems. One of these is the opposite of most people's instinct. A long circuit with almost nothing on it raises the voltage at its far end rather than lowering it.",
@@ -2639,7 +2716,7 @@ export const CURRICULUM = {
         "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
       ],
-      "story": "Obi has crews asking why restoration is moving a few streets at a time. The substation is live, and the whole feeder could be closed in one movement. The switching sheet is open beside him.",
+      "story": "Obi has crews asking why restoration is moving a few streets at a time. The substation is live, and the whole feeder could be closed in one movement. The switching sheet is open beside her.",
       "game": {
         "type": "CASEBOOK",
         "title": "Why it cannot go faster",
@@ -2880,7 +2957,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What comes out against what went in",
-      "scene": "The battery charged overnight on Saturday and discharged into Sunday's peak. Alvarez, the storage engineer, has both energy totals and the brochure figure. The three numbers do not agree. The weekend log is open on the desk beside them.",
+      "scene": "The battery is supposed to cover part of tomorrow's cold peak. Alvarez has the measured energy that went in Saturday night, the energy that came back Sunday, and the brochure rating. Reyes wants to know how much of tomorrow's reserve she can safely credit to it.",
       "takeaway": "Round-trip efficiency is measured on the energy, not on the power rating.",
       "place": "Load & Forecasting",
       "guide": "Four numbers, and two of them are the power rating and the rated duration. Those say how fast and for how long, not how much came back. Ask of each whether it is an energy or a rate. A round trip is what went in against what came out, over a whole cycle. Three numbers on the desk disagree, and the brochure figure is one of them.",
@@ -2888,7 +2965,7 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "The battery charged overnight on Saturday and discharged into Sunday's peak. Alvarez, the storage engineer, has both energy totals and the brochure figure. The three numbers do not agree. The weekend log is open on the desk beside them.",
+      "story": "The battery is supposed to cover part of tomorrow's cold peak. Alvarez has the measured energy that went in Saturday night, the energy that came back Sunday, and the brochure rating. Reyes wants to know how much of tomorrow's reserve she can safely credit to it.",
       "game": {
         "type": "BALLPARK",
         "title": "What comes out against what went in",
@@ -3968,40 +4045,41 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Hours over limit, added up",
-      "scene": "Farrow's corrected record has the corridor above continuous rating for about 90 hours over 3 years. She wants to know whether that is a maintenance note or a design problem.",
-      "takeaway": "Thermal damage integrates over time, so 90 scattered hours count as 90 hours.",
+      "scene": "Farrow's corrected record has the corridor above its continuous operating temperature for about ninety hours over three years. She wants one sentence for the board: what does that record justify saying before a conductor sample is tested?",
+      "takeaway": "Cumulative high-temperature exposure is a design concern, but the operating record alone does not measure the conductor’s remaining strength.",
       "place": "Metering & Standards",
-      "guide": "Four options, and they differ in whether the damage is reversible. Ask of each what happens when the conductor cools. Above about ninety-five degrees the aluminium's grain structure relaxes, and the strength it loses stays lost. That is why the hours are added up over three years rather than judged one event at a time. Nothing fails today, which is what makes this easy to file.",
+      "guide": "Separate exposure from damage. Higher temperature increases sag immediately, and sufficiently hot or prolonged operation can produce irreversible creep or annealing. But the amount depends on conductor construction, temperature and time. The record proves repeated operation outside the continuous case; it does not directly measure the remaining tensile strength.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Farrow's corrected record has the corridor above continuous rating for about 90 hours over 3 years. She wants to know whether that is a maintenance note or a design problem.",
+      "story": "Farrow's corrected record has the corridor above its continuous operating temperature for about ninety hours over three years. She wants one sentence for the board: what does that record justify saying before a conductor sample is tested?",
       "game": {
         "type": "CHOICE",
         "title": "Hours over limit, added up",
         "setup": "Metering & Standards",
-        "play": "Say what the corrected hours do to the conductor",
-        "task": "Say what the corrected hours do to the conductor",
-        "question": "What do 90 accumulated hours above continuous rating mean for the conductor?",
-        "answer": "The aluminium has lost strength for good, and its life is shorter than designed.",
-        "why": "Annealing is not a state the metal comes back from. Above about 95 degrees, aluminium's grain structure begins to relax, and the tensile strength it loses stays lost when it cools. The effect accumulates in hours-above-temperature, which is why the number is added up over three years rather than judged one event at a time. The consequence is not a failure today. It is a span that fails at a wind loading the design allowed for, some years from now.",
+        "play": "State what the corrected thermal history proves — and what it does not.",
+        "task": "State what the corrected thermal history proves — and what it does not.",
+        "question": "What does the ninety-hour record justify saying now?",
+        "answer": "The record proves repeated high-temperature exposure that may have reduced long-term margin; quantify remaining strength before assuming the original design margin still holds.",
+        "why": "The corrected history matters because thermal effects do not reset simply because the conductor cools between events. Higher temperatures increase sag immediately, and long or hot exposure can contribute to permanent creep or annealing. But the record is an exposure history, not a tensile test. The defensible conclusion is that the conductor’s remaining margin must be evaluated; claiming a specific permanent strength loss before modeling or testing would turn an inference into a measurement.",
         "rebuttals": [
-          "Cooling restores the temperature and not the strength; the loss is in the grain structure, and it is permanent.",
-          "Surviving a current is not the same as being rated for it, because the damage is cumulative rather than immediate.",
-          "The damage does not age out; hours from two years ago are still hours the metal spent losing strength."
+          "Cooling removes the immediate temperature but does not guarantee that every long-term material effect resets.",
+          "Surviving an operating point is not the same as establishing a safe continuous rating; ratings include thermal and clearance assumptions.",
+          "The exposure history supports concern, but a specific remaining-strength claim requires a conductor model or direct test."
         ],
         "choices": [
-          "Nothing, because the conductor cooled fully between every one of those periods.",
-          "The aluminium has lost strength for good, and its life is shorter than designed.",
-          "The conductor has been proven capable of the higher current and can be re-rated upward.",
-          "The record is too old to act on, since most of those hours were more than a year ago."
+          "The record proves repeated high-temperature exposure that may have reduced long-term margin; quantify remaining strength before assuming the original design margin still holds.",
+          "Nothing, because cooling after each event resets both conductor temperature and material condition.",
+          "The corridor has proved it can carry the higher current, so the continuous rating can be raised to match the record.",
+          "The record proves a specific permanent tensile-strength loss, even without a conductor model or sample test."
         ],
-        "correctChoice": "The aluminium has lost strength for good, and its life is shorter than designed."
+        "correctChoice": "The record proves repeated high-temperature exposure that may have reduced long-term margin; quantify remaining strength before assuming the original design margin still holds."
       },
       "assumes": [
-        "time spent above a thermal limit accumulates rather than resetting"
+        "thermal effects depend on both temperature and exposure time",
+        "an operating record can establish exposure without directly measuring remaining tensile strength"
       ],
       "concept": {
         "n": 15,
@@ -4325,8 +4403,8 @@ export const BALLPARK_CALCS = {
       11000
     ],
     "slots": 5,
-    "template": "{0} × ({1} × {2} + {3} × {4})",
-    "formula": "a*(b*c+d*e)",
+    "template": "1.732 × {0} × ({1} × {2} + {3} × {4})",
+    "formula": "1.732*a*(b*c+d*e)",
     "correct": [
       0,
       1,
@@ -4334,8 +4412,8 @@ export const BALLPARK_CALCS = {
       3,
       4
     ],
-    "target": 616.6,
-    "tolerance": 60,
+    "target": 1068.8,
+    "tolerance": 100,
     "units": "V",
     "solution": "ΔV_LL ≈ 1.732 × 310 × (1.8 × 0.95 + 0.9 × 0.31) ≈ 1,069 V ≈ 1.07 kV.",
     "explanation": "About 1.07 kV line-to-line, close to 10% of an 11 kV feeder. That is large enough to explain complaints at the far end while the sending-end meter looks normal. The nominal 11 kV is used to judge the percentage drop; it is not multiplied into the drop formula."

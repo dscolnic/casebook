@@ -4,10 +4,10 @@
 
 export const MISSIONS = [
   {
-    "title": "What the file claims",
+    "title": "What can the file actually support?",
     "objective": "Establish what the record asserts before anybody characterises it.",
-    "briefing": "Fifteen working days to the board, and nobody has read this file end to end since 2020.",
-    "stake": "Monday. The review board sits in fifteen working days. Elias Ward has served seven years of a fourteen year term for the robbery on Ferrier Street. One witness picked him out. Nothing else in the file backs it up. Ines Baptiste, the unit director, has read the file twice. She wants the recommendation built on the procedure alone. Ren Okada, the memory scientist, wants something first. He wants to know what the procedure actually was, before anybody describes it. Today you take the file as it arrived. Put a date and a name against every claim in it. Then find out which claims the store room can back up. The board weighs what the unit says against what the record holds.",
+    "briefing": "Fifteen working days. One identification put Ward at the robbery; before the board acts, determine what that identification can still carry.",
+    "stake": "Monday. The review board sits in fifteen working days. Elias Ward has served seven years of a fourteen-year term for the robbery on Ferrier Street. One witness picked him out, and that identification is the only evidence that independently put him at the shop. The file also contains a late-night statement Ward retracted, but it was built from the police account rather than from a new fact only he supplied. Ines Baptiste wants the recommendation built on the procedure. Ren Okada wants the procedure reconstructed before anybody characterises it. Today you separate what the file says from what the file can actually support. By tonight, every load-bearing claim either has evidence behind it or is marked for the next fourteen days.\n",
     "takeaway": "A file states things; the question is always which of them anything stands behind.",
     "stops": [
       {
@@ -18,7 +18,7 @@ export const MISSIONS = [
       {
         "group": "IDENT",
         "lesson": 0,
-        "task": "Establish what Cardoza was actually asked to do"
+        "task": "Calculate the equal-choice baseline without mistaking it for a measured false-identification rate."
       },
       {
         "group": "SOCIAL",
@@ -28,9 +28,9 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "What a face is at that distance",
+    "title": "What could she see from twenty-two metres?",
     "objective": "Turn the file's own distance into what an eye could have resolved.",
-    "briefing": "The reconstruction bay is built to the survey, and the first arithmetic is the file's own.",
+    "briefing": "Start with the file’s own twenty-two-metre claim and ask what visual information that distance could supply before memory or lineup procedure enters.",
     "stake": "Tuesday. The bay is finished. Dawit Bekele, the reconstruction technician, has built the Ferrier Street corner at full size. Kerb line, doorway and column, all of it. Halina Frey, the vision scientist, wants the file's own claim tested before anybody argues about it. The case summary says twenty-two metres. Nobody has ever put that number through anything. Today you work out what a face is at that range, measured as an angle at the eye. Then you read what Alma Cardoza's first account actually said. Ward is thirty-four. He has served seven years on what one person could make out across a street.",
     "takeaway": "A face at a distance arrives as an angle, and the angle is small long before the person is.",
     "stops": [
@@ -42,7 +42,7 @@ export const MISSIONS = [
       {
         "group": "MEMORY",
         "lesson": 0,
-        "task": "Establish how much time there was to take anything in"
+        "task": "Use a teaching model of limited attention to see which details compete; do not treat the allocation as a reconstruction of Cardoza’s actual eye movements."
       },
       {
         "group": "IDENT",
@@ -52,16 +52,16 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Walk it",
-    "objective": "Find the distance at which a face stops being a face.",
-    "briefing": "The bay is a straight sightline with marks on the floor, and today it gets used.",
-    "stake": "Wednesday. The bay was calibrated overnight. Twelve volunteers stood at marked distances yesterday. Each one reported what they could make out of a face from where they stood. Halina Frey has the readings. She has not yet looked at them in order. Today you take them station by station and find where the sightline breaks. Then you sit in the dark booth. Sit there long enough and you learn what the eye gives up in order to see at all. Grace Ntuli's panel hears \"I saw his face\" as one claim. The bay is where it turns into several.",
+    "title": "Where does this test fall to chance?",
+    "objective": "Use a small reconstruction study to bound identification performance without turning one sample into a universal human cutoff.",
+    "briefing": "The bay can show where this group’s performance begins to look like guessing. It cannot draw a universal line beyond which nobody can recognise a face.",
+    "stake": "Wednesday. Twelve volunteers have worked the reconstruction at seven marked distances. They could describe something from every mark, but description and identification are not the same task. Today you find the first station where this small sample no longer beats the six-way chance baseline. Then you learn what dim adaptation trades away and why “I saw his face” is several claims bundled into one. The result will be a bound the review can use, not a magic distance at which human recognition stops.\n",
     "takeaway": "There is a distance at which a face becomes a shape, and it is closer than anybody expects.",
     "stops": [
       {
         "group": "PERCEPT",
         "lesson": 1,
-        "task": "Find the station where face identification breaks down"
+        "task": "Find the first station where this small sample is no longer clearly above the six-way chance baseline."
       },
       {
         "group": "BRAIN",
@@ -76,15 +76,15 @@ export const MISSIONS = [
       {
         "group": "PERCEPT",
         "lesson": 2,
-        "task": "Hold the bay at the corner's light level."
+        "task": "Hold a deliberately chosen dim-light test condition steady so the bay’s results are interpretable."
       }
     ]
   },
   {
-    "title": "Two lamps and a wet road",
-    "objective": "Put a number on the light the corner had, using the file's own assumptions.",
-    "briefing": "The scene report says lighting was normal, which is a phrase rather than a reading.",
-    "stake": "Thursday. Ines Baptiste has spent the morning arguing that the unit already has enough. Not one of yesterday's findings needed Alma Cardoza at all. She is right about that. The distance, the light and the array are facts about a street and a procedure. None of them asks a frightened woman anything. Today you work out how much light fell on the doorway, using the file's own assumptions. Then you read what fear does to the edges of an event. Ren Okada wants the account kept safe. Baptiste wants a man's seventh year in prison to be his last.",
+    "title": "If the lamp was working",
+    "objective": "Model the light implied by the file without mistaking a correct calculation for proof that the lamp was actually on.",
+    "briefing": "The scene report says the lighting was “normal.” Today you calculate what that would mean if the listed streetlamp was working—and leave the premise open.",
+    "stake": "Thursday. Baptiste argues that the unit already has evidence that does not depend on asking Cardoza anything new. She is right about the method and not yet about the answer. Today you calculate the doorway illumination implied by the utility specification if column 4471 was working, then separate that model from the unmeasured word “normal.” You also ask what threat can plausibly do to attention without turning a population tendency into a diagnosis of one witness. By tonight the light claim becomes a testable assumption waiting on a historical record, not a fact copied from the scene report.\n",
     "takeaway": "Most of what decides an identification can be measured without ever asking the witness again.",
     "stops": [
       {
@@ -105,10 +105,10 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Four days before anybody asked",
+    "title": "What entered the first account?",
     "objective": "Establish how the first full account was taken, and who was in the room.",
     "briefing": "The account everybody has argued about since was recorded on 18 November.",
-    "stake": "Friday. The first full interview happened four days later than it should have. Ren Okada has the recording from 18 November. He also has a transcript that nobody has checked against it. Yara Solomon, the case analyst, has found something else. Cardoza's husband sat in for the whole hour. The file mentions that once, in a margin. Today you set out how an account ought to be taken. Then you work out what a kind, agreeing listener does to one. Last, you read the instruction Cardoza was given before the photographs came out. Everything the case rests on passed through that hour.",
+    "stake": "Friday. Cardoza’s first full interview happened four days after the robbery. Ren Okada has the recording and a transcript nobody has checked against it. Yara Solomon has found something else: Cardoza’s husband sat in for the whole hour. Today you rebuild an interview that protects a witness’s own account, test how agreement in a listening room can alter later repetition, and read the instruction Cardoza received before the photographs appeared. The goal is not to prove that any one later detail was contaminated. It is to identify which pathways were open before the lineup ever began.\n",
     "takeaway": "An account is not collected; it is produced, by a method, in a room, with people in it.",
     "stops": [
       {
@@ -129,7 +129,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "The photograph in the evening paper",
+    "title": "The photograph arrives",
     "objective": "Find out what entered the account after the night it describes.",
     "briefing": "The Hallam Register ran Ward's photograph on 19 November, the day after the interview.",
     "stake": "Monday of the second week. Solomon has three documents laid side by side, with their dates showing. The account from 18 November. The evening paper from the next day. And the statement Cardoza signed on 26 December. Tomas Weill, the psychometrician, has already said what interests him. It is not what any of them says. It is the order they were written in. Ines Baptiste wants to know if the review is calling the witness a liar. Ren Okada has spent the morning explaining why that is the wrong question. Today you work out what the arrival date of a detail tells you about where it came from. A frightening night can do a lot to a memory. It cannot plant a detail that first shows up five weeks later.",
@@ -153,7 +153,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Two witnesses who agree",
+    "title": "Two witnesses, one source",
     "objective": "Find out whether the agreement between the accounts is worth anything.",
     "briefing": "The shop assistant's statement matches Cardoza's in four particulars.",
     "stake": "Tuesday. The strongest looking page in the file is the one that lines the two witnesses up. Deniz Aktaş was behind the counter that night. His December statement agrees with Cardoza's on the jacket, the build, the way the man ran and the mark on his chin. Marcus Ilori has been saying for a week that agreement is the easiest thing in the world to make. Today you open each account and find out what it was built from. Then you work out what Aktaş could actually see through his own window. Elias Ward was convicted on two accounts. The two accounts had met.",
@@ -177,8 +177,8 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "How the six were chosen",
-    "objective": "Test the array on people who were never there.",
+    "title": "Did the array point at Ward?",
+    "objective": "Test whether the six-photo array offered real alternatives and identify reforms supported by evidence rather than by habit.",
     "briefing": "Forty volunteers have read Cardoza's description and seen nothing else.",
     "stake": "Wednesday. The mock witness run finished overnight. Forty volunteers read the description Cardoza gave on the night of the robbery. Then they saw the 2019 array of photographs and pointed at whoever fitted. Not one of them has ever seen the robbery. Marcus Ilori has the tally. He will not say the number out loud yet. First somebody has to work out what a fair number would be. Today you turn that tally into a size. Then you decide what would make the procedure a sound one. Last, you look at what a photograph asks an eye to do. Ward was picked out of six faces.",
     "takeaway": "A lineup's real size is how many of its members a stranger could plausibly pick.",
@@ -208,7 +208,7 @@ export const MISSIONS = [
   {
     "title": "Thirty-four metres",
     "objective": "Settle the distance, and work out what it leaves of the identification.",
-    "briefing": "Bekele's survey and the case summary do not agree, and nothing on the street has moved.",
+    "briefing": "The number the case has trusted for seven years is wrong. The file says twenty-two metres; the independent geometry says thirty-four.",
     "stake": "Thursday of the second week. Two numbers are up on the same wall. Dawit Bekele has surveyed Ferrier Street. His survey puts the doorway thirty-four metres from the spot where Cardoza says she stood. The case summary says twenty-two, and has said so since 2020. Nothing on that street has moved since the robbery. So one of these numbers is a measurement. The other one is not. Today you find out which is which. Then you work out what the eye can pick out at the distance that survives. Last, you decide what the review is allowed to say about the moment she picked Ward out. Everything the file argues rests on this.",
     "takeaway": "The most important number in a case can be wrong for seven years because nobody ever measured it.",
     "stops": [
@@ -230,7 +230,7 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Who was standing behind her",
+    "title": "What did the administrator change?",
     "objective": "Establish what the administrator's knowledge did, by removing it.",
     "briefing": "Loomis knew which photograph was the suspect, because in 2019 the administrator always did.",
     "stake": "Friday. Karen Loomis, the retired detective, has come in for the second time. She ran the photo array in 2019. She knew which of the six photographs was Ward. She remembers saying something to Cardoza afterwards. She does not remember what it was. Four things about that afternoon could have mattered. The file cannot pull them apart. Today you take them apart one at a time, in the unit's own rig. Then you work out how a belief travels from an officer to a witness with neither of them noticing. Last, you read what praise does to an account. Ilori trained the officers who replaced Loomis.",
@@ -254,9 +254,9 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "How sure, and when",
+    "title": "The streetlamp was out",
     "objective": "Date the certainty, and separate telling faces apart from being willing to choose.",
-    "briefing": "Nothing goes wrong today. Three things get confirmed, and one of them is the lamp.",
+    "briefing": "The distance was worse than the file said. Today the second load-bearing claim breaks: the streetlamp was out on the night of the robbery.",
     "stake": "Monday of the third week. It is the quietest day the review has had. Nothing has gone wrong. Three things have been confirmed. The custody record settles the date of the certainty statement. The mock witness rates are in from both procedures. And the power company has answered Yara Solomon's letter about column 4471. Tomas Weill wants the two procedures compared properly. Not by which one produced more picks. Today you separate seeing from choosing. Then you settle when Cardoza's certainty was written down. Last, you read what the power company says about that lamp. One of those three findings changes the case.",
     "takeaway": "A quiet day in a review is three confirmations, and one of them usually changes the case.",
     "stops": [
@@ -281,7 +281,7 @@ export const MISSIONS = [
     "title": "The nineteenth hour",
     "objective": "Read the interview that produced the only words the file has from Ward.",
     "briefing": "Nineteen hours in custody, no lawyer, and an agreement retracted the next morning.",
-    "stake": "Tuesday. The custody log is the last document in the file that nobody has read closely. Elias Ward was arrested at 06:40 on 3 December 2019. At 01:20 the next morning he agreed with an account put to him. Eight hours later he took it back. Samuel Oyelaran, the clinical psychologist, has the log. Priya Raghunathan has the times. Ren Okada has something from another part of the case. The appeal lawyer spoke to Deniz Aktaş again in 2023. Four details in his account have moved since 2019. Today you weigh the state a tired man was in. Then you name the tactic the interview used. Last, you find out what asking somebody again, years later, actually produces.",
+    "stake": "Tuesday. The custody log is the last major document nobody has read closely. Ward was arrested at 06:40 on 3 December 2019. At 01:20 the next morning, in the nineteenth hour of custody and with no recorded sleep opportunity, he agreed with an account put to him. Eight hours later, after sleep, he took it back. The log can establish the timing and conditions; it cannot read his mental state. Today you ask what conclusions remain defensible under a pessimistic range of cognitive control, then examine the minimised version he was offered. Last, you compare a witness’s later account with the one recorded before years of public exposure.\n",
     "takeaway": "An admission is evidence about the interview as well as about the event, and the interview is on the record.",
     "stops": [
       {
@@ -302,8 +302,8 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "What a match is worth",
-    "objective": "Put the identification in the pool it came from, and measure the procedure against itself.",
+    "title": "What is one identification worth?",
+    "objective": "Separate what a procedure can say about evidentiary weight from any unsupported numerical claim about guilt.",
     "briefing": "Three claims are ready and the board reads three weeks of work as one page.",
     "stake": "Wednesday. Three things are ready at once. Weill has worked out the pool of men who could have been on that street. Ilori has six hundred runs of the unit's own procedure, using arrays where the guilty man was not present. Baptiste wants one thing from you. She wants to know which finding goes at the top of a page the board will read in ten minutes. Today you work out what a witness pick multiplies. Then you find what the unit's own procedure cannot see. Last, you rank three claims by how hard each one is to argue with. The order they appear in is most of what the board will take away.",
     "takeaway": "The strength of a piece of evidence and the strength of a case are different quantities.",
@@ -311,7 +311,7 @@ export const MISSIONS = [
       {
         "group": "MEASURE",
         "lesson": 6,
-        "task": "Work out what the identification does to the odds"
+        "task": "Show why a likelihood ratio cannot become a case probability without a defensible prior."
       },
       {
         "group": "IDENT",
@@ -340,7 +340,7 @@ export const MISSIONS = [
       {
         "group": "MEMORY",
         "lesson": 6,
-        "task": "Spend the final three workdays on evidence that can still change the report without destroying evidence the unit cannot replace."
+        "task": "Spend the final three workdays on evidence that can still change the report without mistaking a new 2026 account for the lost 2019 memory state."
       },
       {
         "group": "MEASURE",
@@ -350,14 +350,14 @@ export const MISSIONS = [
       {
         "group": "BRAIN",
         "lesson": 4,
-        "task": "Settle what the witness's distress establishes"
+        "task": "Use the toy model to see why an unmeasured psychological state cannot be reconstructed from one outcome."
       }
     ]
   },
   {
-    "title": "Disposition",
-    "objective": "Say what the review holds, how strongly it holds each part, and what it does not claim.",
-    "briefing": "One page to the board, and every sentence on it has to survive being argued with.",
+    "title": "Sign the referral",
+    "objective": "Separate reproducible findings, witness-dependent findings and unresolved claims, then sign the recommendation the evidence can actually carry.",
+    "briefing": "Tonight you sign. The board is not deciding whether Ward is innocent; it is deciding whether this identification was strong enough to keep carrying his conviction.",
     "stake": "Friday. The report goes tonight. Ines Baptiste has the page in front of her. Ren Okada has a list of the things the review may not say. Marcus Ilori wants the recommendation to be about the procedure. He does not want it to be about Karen Loomis, who followed the policy of her year. Elias Ward has now served seven years and three weeks. Today you sort the review's claims by what stands behind each one. Then you settle what the recommendation actually asks the board to do. Last, you name which findings would still hold if every witness withdrew tomorrow. Nothing can be added after tonight.",
     "takeaway": "A review that says only what it can support is the only kind a board can act on.",
     "stops": [
@@ -367,14 +367,14 @@ export const MISSIONS = [
         "task": "Match each claim to what stands behind it."
       },
       {
-        "group": "IDENT",
-        "lesson": 9,
-        "task": "Settle what the recommendation actually asks for"
-      },
-      {
         "group": "PERCEPT",
         "lesson": 8,
         "task": "Name the findings that survive without any witness"
+      },
+      {
+        "group": "IDENT",
+        "lesson": 9,
+        "task": "Make the decision the fifteen-day review has been building toward."
       }
     ]
   }

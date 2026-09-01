@@ -943,7 +943,7 @@ missions:
               contributes to the accumulating safety profile even when it does not trigger the fastest reporting
               clock.
         takesAsRead:
-          - "Safety monitoring: adverse events, seriousness and expedited reporting"
+          - Hard endpoints against judged ones, and blinded adjudication
         assumes:
           - the protocol and applicable rules define which serious events require immediate investigator-to-sponsor reporting and which sponsor reports are expedited externally
         takeaway: Seriousness sets one reporting obligation; expectedness and suspected causality determine another. Endpoint adjudication is a separate path, not a substitute for safety surveillance.

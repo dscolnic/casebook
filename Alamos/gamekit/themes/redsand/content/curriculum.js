@@ -271,7 +271,7 @@ export const CURRICULUM = {
       "guide": "Kaur has stopped trusting her own explanation, which is the right moment to look at the material rather than the plant. Each of the four candidates would leave its own mark on the catalyst itself. Heat damage shows up in the size of the metal particles. Coking shows up as carbon on the surface. A bad batch shows up everywhere at once. So take each one and ask what the assay ought to show if it were true. Then read the five findings.",
       "background": [
         "How a catalyst dies of heat, and what it leaves behind. The nickel works as tiny particles, because small particles give a great deal of surface for their mass. Run them hot enough for long enough and neighbouring particles merge into bigger ones. That is sintering, and it destroys surface without destroying any nickel. It is permanent, and it is visible: the particles are measurably larger.",
-        "How a catalyst dies of poisoning, and why the inlet goes first. A poison arrives dissolved in the feed and sticks to the first free site it meets. The front of the bed sees the feed first and at full strength, so it takes the damage first. Behind that, the feed is already stripped. So poisoning eats a bed from the inlet downstream and leaves the outlet end lively. Chlorine on the surface is the fingerprint.",
+        "How poisoning can move down a bed. A poison arriving in the feed encounters the inlet first. If it is strongly captured there, the front loses activity before the back. As those sites fill, contamination penetrates farther downstream. A chlorine-rich inlet surface with a clean outlet is therefore evidence for a feed-borne chlorine-containing poison, not proof that dissolved chloride ions themselves travelled unchanged through every upstream process.",
         "Why two causes with one symptom are settled in the material. Sintering and poisoning both look identical from the control room. Conversion falls; the hot spot moves. Neither reading tells them apart. The catalyst itself does. Particle size answers the first question, surface chlorine answers the second, and a sealed can sat on a shelf for eleven sols holding both answers."
       ],
       "story": "The spent charge was assayed in three sections: the first 20 millimetres, the middle, and the outlet end. Kaur has the five findings on the board and is no longer sure of her own explanation.",
@@ -282,12 +282,12 @@ export const CURRICULUM = {
         "play": "Which explanation fits every finding?",
         "task": "Which explanation fits every finding?",
         "question": "Which explanation fits every finding?",
-        "answer": "Something in the feed is binding to the nickel",
-        "why": "One material observation settles it. The nickel particles are the same size as fresh material, so nothing has sintered. Only traces of carbon, so nothing has coked over. A bad batch would be weak along its whole length, and the outlet end is still working. What is left is 1.9 per cent chlorine on the inlet surface and none at the outlet. That is a poison arriving with the feed and landing on the first sites it meets. It also explains the walking hot spot: as the front loses its usable surface, the reaction starts further in.",
+        "answer": "A chlorine-bearing poison has been arriving with the feed",
+        "why": "One material observation settles the competing explanations. Nickel particle size matches fresh material, so the assay does not support sintering. Carbon deposit is only trace. A bad charge would be weak along its whole length, but the outlet end remains active. What remains is 1.9 percent chlorine on the inlet surface and none at the outlet: a spatial fingerprint of chlorine-bearing contamination arriving with the feed and being captured where it first meets nickel. That also explains the walking hot spot—the reaction begins farther downstream as the inlet loses usable surface.",
         "choices": [
           {
-            "label": "Something in the feed is binding to the nickel",
-            "mechanism": "A poison arrives with the feed, so it lands on the first catalyst it meets."
+            "label": "A chlorine-bearing poison has been arriving with the feed",
+            "mechanism": "Trace chlorine-bearing contamination reaches the nickel first, so the inlet loses active sites before the outlet."
           },
           {
             "label": "The bed has been run too hot and the metal has coarsened",
@@ -302,7 +302,7 @@ export const CURRICULUM = {
             "mechanism": "A bad batch never had the activity the plant assumed it had."
           }
         ],
-        "correctChoice": "Something in the feed is binding to the nickel"
+        "correctChoice": "A chlorine-bearing poison has been arriving with the feed"
       },
       "assumes": [
         "a catalyst can lose activity by heat or by a substance binding to it",
@@ -425,37 +425,37 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "The honest claim about the bed",
-      "scene": "Kaur is writing the final catalyst handover. The bed has run for five sols at one set of conditions using water from a fresh polishing column. It is the last charge available on the station.",
-      "takeaway": "The strength of a claim is set by what was varied while it was being tested.",
+      "scene": "Kaur is freezing the catalyst record on Sol 475. The last spare charge has run 175 sols since commissioning, inside the stated temperature/flow envelope, while the polishing outlet stayed below its halide warning line.",
+      "takeaway": "A long run strengthens the claim inside the tested operating envelope; it does not create evidence for conditions that were excluded.",
       "place": "Catalyst Bay",
-      "guide": "Kaur has five sols of evidence and four claims to choose between. So for each one, ask exactly what was varied while the evidence was collected. One set point. One flow. Water from a fresh column, which means no chloride in it at all. A claim can only reach as far as the conditions that were tested — and notice that this cuts both ways. Overclaiming is one failure. Refusing to claim what you did establish is another.",
+      "guide": "Kaur has a long run and four claims. Ask what conditions were actually varied. The charge saw the qualified temperature and flow envelope and 175 sols of clean feed. It did not see the chlorine-bearing contamination that killed the previous charge. A strong record supports a stronger duration claim than five sols did, but still cannot prove resistance to a poison that was deliberately excluded.",
       "background": [
-        "Why a claim carries its conditions with it. Evidence is collected somewhere specific: one temperature, one flow, one water quality, five sols. Strip those away and the sentence sounds stronger, and it is no longer supported. So the conditions are not hedging. They are part of what was measured, and a claim without them is a different claim than the one the data backs.",
-        "Why absence of a poison cannot prove resistance to it. Conversion has held since the column was changed. But the column was changed precisely so that chloride would not arrive. So the run contains no chloride, and a test needs the thing present to say anything about it. Nothing happening when nothing was tried is not a result.",
-        "Why refusing to claim anything is also wrong. Five sols at matched conditions is real evidence, and it settles a real question: this charge holds up against the sol-270 run in that window. Throwing that away because it is not everything leaves the next crew with nothing to build on. A narrow claim, written down with its conditions, is worth far more than an honest shrug."
+        "Why duration strengthens one claim and not every claim. One hundred seventy-five sols of stable conversion is strong evidence about durability inside the tested clean-feed operating envelope.",
+        "Why absence of a poison still cannot prove resistance to it. The water train was repaired precisely so halide breakthrough would not reach the reactor feed. The new run therefore contains no controlled test of chlorine-poison tolerance.",
+        "Why conditions stay attached to the handover. Temperature, flow, pressure and feed quality define the operating envelope in which the result was observed. Removing them turns a supported statement into a broader unsupported one."
       ],
-      "story": "Kaur is writing the final catalyst handover. The bed has run for five sols at one set of conditions using water from a fresh polishing column. It is the last charge available on the station.",
+      "story": "Kaur is freezing the catalyst record on Sol 475. The last spare charge has run 175 sols since commissioning, inside the stated temperature/flow envelope, while the polishing outlet stayed below its halide warning line.",
       "game": {
         "type": "CHOICE",
         "title": "The honest claim about the bed",
         "setup": "Catalyst Bay",
         "play": "State what is known about the catalyst and what is not",
         "task": "State what is known about the catalyst and what is not",
-        "question": "What is the honest claim to hand over about this charge?",
-        "answer": "It matches the sol-270 charge at matched conditions over 5 sols, on polished water.",
-        "why": "A claim reaches as far as the conditions it was tested under, and no further. Five sols at one set point on clean water supports a narrow statement about that window. It says nothing about other temperatures or flows, because none were tried. And it cannot say anything about chloride, because the column was changed so that no chloride would arrive. Nothing happening when nothing was tried is not a result. So the handover keeps the conditions attached to the claim. That way the next crew can tell a repeat of this test from a new one.",
+        "question": "What is the strongest claim the 175-sol record actually supports?",
+        "answer": "It held the qualified conversion over 175 sols inside the stated operating envelope on clean feed.",
+        "why": "The last charge has held stable conversion for 175 sols inside the qualified temperature, pressure, flow and clean-feed envelope. That is real durability evidence and should be stated plainly. It still does not show resistance to chlorine-bearing contamination, because the repaired water train kept that challenge out of the feed. The strongest defensible handover therefore includes both the duration and the conditions.",
         "rebuttals": [
-          "A comparison against every charge the station has run was not made, and two of them were never assayed.",
-          "Chloride was absent throughout, so the run says nothing about what the charge does when it is present.",
-          "Five sols supports a narrow claim rather than none at all, and the narrow claim is worth writing down."
+          "The poison was excluded by the repaired water train, so absence of failure is not a chlorine-resistance test.",
+          "Long duration does not substitute for conditions that were never tested outside the qualified envelope.",
+          "A parallel charge would add evidence, but 175 sols of controlled operation already supports a narrow, useful durability claim."
         ],
         "choices": [
-          "It matches the sol-270 charge at matched conditions over 5 sols, on polished water.",
-          "It performs as well as any charge the station has run, on the evidence available.",
-          "It is unaffected by chloride, since conversion has held since the column was changed.",
-          "Its behaviour cannot be stated, since five sols is too short a run to say anything."
+          "It held the qualified conversion over 175 sols inside the stated operating envelope on clean feed.",
+          "It is immune to chlorine poisoning because no second decline occurred after Sol 300.",
+          "It is proven across any temperature and flow the next crew may choose because the run lasted most of a season.",
+          "Nothing can be claimed until another catalyst charge is tested in parallel."
         ],
-        "correctChoice": "It matches the sol-270 charge at matched conditions over 5 sols, on polished water."
+        "correctChoice": "It held the qualified conversion over 175 sols inside the stated operating envelope on clean feed."
       },
       "assumes": [
         "a claim is limited by the conditions it was tested under",
@@ -838,8 +838,8 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "Compute which way it runs",
-      "scene": "Herrera freezes the 09:40 gas-analyser screen before the loop has settled. 4 partial pressures sit beside the equilibrium constant for 593 K. He wants the direction called before anyone changes a valve.",
-      "takeaway": "Q < K drives the reaction forward, Q > K drives it backward, and Q = K is equilibrium.",
+      "scene": "Herrera freezes the 09:40 gas-analyser screen before the loop has settled. Four partial pressures sit beside Kp = 80 for the plant's simplified 593 K equilibrium model. He wants the direction called before anyone changes a valve.",
+      "takeaway": "Q versus K predicts the direction this model expects the mixture to move from the measured snapshot; it does not say how fast.",
       "place": "Reactor Hall",
       "at": "skid",
       "guide": "Herrera has frozen the screen before the loop settled, which is exactly when Q is worth having. Build Q the same shape as K: each partial pressure raised to its coefficient, products over reactants. The difference is that Q uses the mixture on the screen right now. Then compare the two. Six numbers are on the board and two are not partial pressures at all. And be clear what the comparison gives you. It gives a direction. It says nothing about speed.",
@@ -848,7 +848,7 @@ export const CURRICULUM = {
         "Why total pressure is not one of the numbers you want. Q is built from partial pressures — each gas's own share of the total. The total is the sum of those shares. Putting it into Q as well would be counting the same gas twice. It sits on the board because it is a real reading on a real gauge, not because the quotient wants it.",
         "Why the answer is a direction and not a rate. Q against K tells you which way the mixture has to move. It says nothing about how long the move takes. A tired catalyst can leave a mixture far from equilibrium for hours. Temperature is the one setting that moves K itself; the catalyst only changes how fast the gap closes."
       ],
-      "story": "Herrera freezes the 09:40 gas-analyser screen before the loop has settled. 4 partial pressures sit beside the equilibrium constant for 593 K. He wants the direction called before anyone changes a valve.",
+      "story": "Herrera freezes the 09:40 gas-analyser screen before the loop has settled. Four partial pressures sit beside Kp = 80 for the plant's simplified 593 K equilibrium model. He wants the direction called before anyone changes a valve.",
       "game": {
         "type": "BALLPARK",
         "title": "Compute which way it runs",
@@ -874,8 +874,8 @@ export const CURRICULUM = {
         "calcKey": "EQUIL-5"
       },
       "assumes": [
-        "for CO₂ + 4H₂ ⇌ CH₄ + 2H₂O, Qp = PCH₄(PH₂O)² / [PCO₂(PH₂)⁴]",
-        "Kp is 80 at this bed temperature"
+        "the supplied Kp = 80 is the value used by this simplified loop model at 593 K",
+        "the gas snapshot is represented by the displayed partial pressures"
       ],
       "equations": [
         {
@@ -1130,8 +1130,8 @@ export const CURRICULUM = {
     {
       "day": 9,
       "title": "The line that fails",
-      "scene": "The loading crew is waiting at the methane umbilical. Bhatt has four assay lines beside four flight limits. Three are inside specification; one is not. Herrera wants the consequence named before the transfer valve opens.",
-      "takeaway": "A specification is a list of chemical limits tied to different downstream consequences, not a single purity score.",
+      "scene": "The loading crew is waiting at the methane umbilical. Bhatt has four assay lines beside four flight limits. Three are inside specification; water is 400 ppm against a 50 ppm limit. The batch can be remade before Sol 475 if it is rejected now; it cannot be removed after loading.",
+      "takeaway": "A batch outside one flight-critical specification line is rejected even if every other line is excellent.",
       "place": "Reactor Hall",
       "at": "spec-bench",
       "guide": "A specification is not one purity score. It is four separate limits, and each one is there to protect something different. So take the lines one at a time. Compare each against its own limit first. Then, for anything that is over, ask the question that actually matters. Where does that substance end up as the stream gets colder? And does that place have moving parts in it?",
@@ -1140,7 +1140,7 @@ export const CURRICULUM = {
         "Why the same amount of a substance can be harmless or fatal. It depends where it ends up. Carbon dioxide freezes out in the tank, sitting still, doing nothing. Water freezes at a far higher temperature, so it turns solid in the plumbing that the valves live in. Same physics, different address. One is ballast and the other stops a valve moving.",
         "Why an impurity can be a performance cost rather than a hazard. Carbon monoxide burns, but it releases far less energy per kilogram than methane does. So carrying it is carrying dead weight: it takes tank volume and gives little back. That is a reason to have a limit on it. It is not a reason to stop a loading."
       ],
-      "story": "The loading crew is waiting at the methane umbilical. Bhatt has four assay lines beside four flight limits. Three are inside specification; one is not. Herrera wants the consequence named before the transfer valve opens.",
+      "story": "The loading crew is waiting at the methane umbilical. Bhatt has four assay lines beside four flight limits. Three are inside specification; water is 400 ppm against a 50 ppm limit. The batch can be remade before Sol 475 if it is rejected now; it cannot be removed after loading.",
       "game": {
         "type": "PROTOCOL",
         "title": "The line that fails",
@@ -1149,7 +1149,7 @@ export const CURRICULUM = {
         "task": "Match each assay line to what it means for the vehicle.",
         "question": "Match each assay line to what it means for the vehicle.",
         "answer": "",
-        "why": "A specification is not one purity score. Each line protects a different piece of hardware. Water is the failure here: 400 ppm against a limit of 50, so eight times over. And water freezes at a temperature the vehicle's valves reach in use, which puts solid ice in something that has to move. Carbon monoxide and carbon dioxide are both inside their limits. Carbon monoxide would be dead weight if it rose; carbon dioxide freezes out in the tank, where nothing moves. So each line has to be read against its own limit and its own failure, before the valve opens.",
+        "why": "A specification is not one purity score. Each line protects a different piece of hardware. Water is the failure here: 400 ppm against a limit of 50, so eight times over. And water freezes at a temperature the vehicle's valves reach in use, which puts solid ice in something that has to move. Carbon monoxide and carbon dioxide are both inside their limits. Carbon monoxide would be dead weight if it rose; carbon dioxide freezes out in the tank, where nothing moves. So each line has to be read against its own limit and its own failure, before the valve opens. Because the water line is outside its own limit and loading is one-way, this batch is held and remade rather than averaged against three passing lines.",
         "scenarios": [
           "Methane at 99.1% against a limit of 99.0.",
           "Water at 400 parts per million against a limit of 50.",
@@ -1298,13 +1298,13 @@ export const CURRICULUM = {
       "day": 1,
       "title": "What freezes before methane condenses",
       "scene": "The cold line takes the product stream from 10 degrees down to 115 kelvin in one run of pipe. Mei-Ling Cho, the cryogenics engineer, will not accept a stream that has skipped the drier.",
-      "takeaway": "A cold line is a series of temperatures, and every substance in the stream leaves the gas at its own one.",
+      "takeaway": "A cold line is a path through pressure and temperature; remove each contaminant before the conditions at which it can foul the next stage.",
       "place": "Cold End",
       "guide": "Cho has a reason for refusing that stream, and it is not fussiness. Follow the cold line down with her. It starts near 10 degrees and finishes at 115 kelvin. The water, the carbon dioxide and the methane in the stream do not all stay gases that far. Each has its own temperature for leaving the gas. Keep that walk down the cold line in mind while you read the four.",
       "background": [
-        "Why every substance has its own temperature for leaving the gas. What holds molecules together in a liquid or a solid is the pull between them, called an intermolecular force. Water molecules pull on each other hard, so water needs a fairly high temperature to stay a gas at all. Methane molecules barely pull on each other, so methane stays a gas until it is very cold. The stronger the pull, the warmer it leaves.",
-        "Deposition, and why it is the awkward one. Most substances go gas, then liquid, then solid. Carbon dioxide at these pressures skips the middle step and goes straight to solid. That is called deposition, and it is the reverse of what dry ice does in the open air. There is no liquid to drain away. What forms sits on the metal where it formed.",
-        "Why a blocked cold line looks like something else. A solid layer growing inside a pipe narrows the passage a little at a time. Flow falls, the pressure behind it rises, and the refrigerator keeps making its set point because nothing is wrong with the refrigerator. From outside the pipe that reads like a half-shut valve or a cooling fault, which is why the drier and the trap get checked first."
+        "Why the temperatures need conditions attached. A phase boundary belongs to a pressure as well as a substance. Methane's normal boiling point is about 112 K near one atmosphere; at a different pressure its condensation temperature moves.",
+        "Why water and carbon dioxide are removed first. Their dew or frost conditions in this process occur well above the final methane condenser. If either reaches colder metal, it can accumulate as solid where the line was never meant to hold it.",
+        "Why a blockage can look like a valve fault. A solid layer growing inside a pipe gradually cuts flow while the refrigerator still holds temperature. From outside, pressure and flow have to rule out the alternatives."
       ],
       "story": "The cold line takes the product stream from 10 degrees down to 115 kelvin in one run of pipe. Mei-Ling Cho, the cryogenics engineer, will not accept a stream that has skipped the drier.",
       "game": {
@@ -1315,7 +1315,7 @@ export const CURRICULUM = {
         "task": "Say why the stream is cleaned before it is cooled",
         "question": "Why does the stream pass a drier and a carbon dioxide trap before it reaches the cold line?",
         "answer": "Water and carbon dioxide turn solid at temperatures the cold line passes on the way down, so they build up inside it.",
-        "why": "Every substance in the stream leaves the gas at its own temperature. Water freezes near 273 K. Carbon dioxide goes straight from gas to solid near 195 K — that jump is called deposition, and there is no liquid step in it. Methane stays a gas until about 112 K. So a cold line reaching 115 K passes the water and the carbon dioxide points long before the methane one. Left in, both build up as solid on the cold metal and narrow the passage.",
+        "why": "The stream has to be cleaned before deep cooling because phase changes depend on the local pressure and composition. Water that escapes the drier can condense or freeze on warmer hardware long before the methane condenser. Residual carbon dioxide can frost out in the dedicated trap before the stream reaches deep cryogenic temperatures. Only after those species are removed is the methane-rich stream brought to the condenser's defined pressure, near 1 bar here, where methane condenses near 112 K. The useful lesson is the order, not a universal list of magic temperatures.",
         "rebuttals": [
           "Neither one gets as far as the liquid methane; both are solid on the cold line's wall well before that.",
           "The heat they carry is real and small, and it is not what closes the cold line.",
@@ -1330,8 +1330,8 @@ export const CURRICULUM = {
         "correctChoice": "Water and carbon dioxide turn solid at temperatures the cold line passes on the way down, so they build up inside it."
       },
       "assumes": [
-        "a substance leaves the gas phase at a temperature that depends on the pressure",
-        "liquid methane needs about 112 K at loop pressure",
+        "a substance leaves the gas phase at conditions that depend on both temperature and pressure",
+        "the final purified methane stream is brought near 1 bar before the condenser, where methane condenses near 112 K",
         "intermolecular forces, and why they set a boiling point — taken as read"
       ],
       "takesAsRead": [
@@ -1353,12 +1353,12 @@ export const CURRICULUM = {
       "day": 2,
       "title": "Reading a blockage from outside the pipe",
       "scene": "Five readings are up on the cold end panel. Two are alarming and three are entirely ordinary. Cho says the ordinary ones are the reason most of the obvious answers do not survive.",
-      "takeaway": "The readings that are normal are what rule an explanation out.",
+      "takeaway": "A blockage is diagnosed from the pattern of pressure, flow and temperature; the material is inferred from where in this process it could freeze or frost.",
       "place": "Cold End",
       "at": "coldline",
       "guide": "Cho's point is the one worth taking. Two readings are shouting and three are perfectly ordinary, and it is the ordinary three that will do the work. A reading that has not moved is a positive result — it rules out every explanation that would have moved it. So take each candidate in turn and ask how many of the five it actually fits. And look at the shape of the flow trace, not only its value. A flow that dies away over three hours is not telling the same story as one that stops.",
       "background": [
-        "Why water is the suspect and not the methane. The cold line falls from about 10 degrees to 115 kelvin. Water turns solid at 273 K, right at the top of that run. Methane does not become liquid until about 112 K, at the very bottom. So water that gets past the drier has hundreds of degrees of pipe to freeze in. All of it comes before the methane end.",
+        "Why water is the suspect and not the methane. The cold line falls from about 10 degrees to 115 kelvin. Water turns solid at its process frost/freezing condition, right at the top of that run. Methane does not become liquid until about the methane condenser's defined condition, at the very bottom. So water that gets past the drier has hundreds of degrees of pipe to freeze in. All of it comes before the methane end.",
         "Why the unremarkable readings decide it. The alarming reading draws the eye, and it usually fits several explanations at once, so it rarely settles anything. The readings that separate candidates are the ones an explanation says should have moved and which have not. A normal value is a positive result against every mechanism that would have disturbed it.",
         "How to work the four without fooling yourself. Take each one and predict the panel it implies before you look again — which readings it drives, which way, and roughly how far. Then compare. Several will fit part of the panel, deliberately, and a partial fit is exactly what a confident wrong answer feels like from inside. When two are left, find the reading their predictions disagree on."
       ],
@@ -1449,32 +1449,32 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "The order the cold end has to work in",
+      "title": "Set the cold end in the only safe order",
       "scene": "Cho is rebuilding the cold end's written procedure after the blockage, and wants the four stages back in the order the stream meets them. 2 of the 4 exist because of what happened on sol 293.",
-      "takeaway": "Cleaning a stream is cheapest at the warmest temperature that will do it.",
+      "takeaway": "Phase temperatures are conditional on pressure; the safe sequence removes contaminants first, then sets the methane condenser's pressure and temperature.",
       "place": "Cold End",
       "at": "coldline",
-      "guide": "All four stages exist in Cho's plant, so this is not about which ones to keep. It is about what each one takes out before the next one gets the stream. So ask of each: what would this stage's leftovers do to the colder stage after it? Three of the four are removals at a particular temperature. One is different in kind — compression raises the temperature at which everything else condenses, which is a favour done to every stage below it.",
+      "guide": "The blockage taught the plant that temperature alone is not the procedure. Each phase boundary depends on pressure and composition. Put the steps in the order that removes water and carbon dioxide before deep cooling, then set the pressure for the methane condenser before using its roughly 112 K normal-boiling-point scale.",
       "background": [
-        "Why compressing the gas first helps everything after it. A substance condenses at a higher temperature when the pressure is higher. Squeeze a gas and it turns to liquid sooner on the way down. So compression at the top lets every stage below it work at a warmer temperature. And warmer refrigeration is cheaper refrigeration. That is the whole reason it goes first.",
-        "Why cleaning is cheapest at the warmest temperature that will do it. Every stage is there to take one substance out before it reaches metal cold enough to make it solid. Water comes out at 250 K over a desiccant. Carbon dioxide goes near 190 K in the trap. Only then does the clean remainder go down to 112 K, where methane runs as a liquid. Push a dirty stream colder than it needs to go and you pay twice — once in refrigeration, once in the blockage.",
-        "Why the order is graded whole. A sequence is a claim about what depends on what: each stage is here because the one before it has already happened. One swapped pair breaks that claim wherever it sits, so partial credit would be credit for a cold end that blocks."
+        "Why water comes out first. Residual water is removed while the stream is still warm enough that it cannot freeze onto cryogenic metal. Letting it reach the deep-cold section recreates Sol 293.",
+        "Why carbon dioxide has its own trap. Its frost point depends on its partial pressure, so the plant removes it in a dedicated adsorber/trap instead of pretending 195 K is a universal switch.",
+        "Why pressure is part of the methane temperature. Methane boils near 111.7 K at one atmosphere. The stream therefore has to be at the condenser's defined pressure before a temperature such as 112 K means anything."
       ],
       "story": "Cho is rebuilding the cold end's written procedure after the blockage, and wants the four stages back in the order the stream meets them. 2 of the 4 exist because of what happened on sol 293.",
       "game": {
         "type": "SEQUENCE",
-        "title": "The order the cold end has to work in",
+        "title": "Set the cold end in the only safe order",
         "setup": "Cold End",
-        "play": "Order the stages of the cold end, warmest to coldest.",
-        "task": "Order the stages of the cold end, warmest to coldest.",
-        "question": "Order the stages of the cold end, warmest to coldest.",
+        "play": "Order the cold-end steps from dirty warm gas to liquid methane.",
+        "task": "Order the cold-end steps from dirty warm gas to liquid methane.",
+        "question": "Order the cold-end steps from dirty warm gas to liquid methane.",
         "answer": "",
-        "why": "The stream is cleaned on the way down, and each stage sits at the warmest temperature that will do its job. Compression comes first because raising the pressure raises the temperature at which everything below it condenses, which makes every later stage cheaper. Then water comes out over a desiccant at 250 K, before it can reach metal cold enough to freeze it. Then carbon dioxide is trapped near 190 K, where the solid forms somewhere it can be managed. Only the cleaned remainder goes to 112 K, where methane runs as a liquid. Driving a dirty stream colder than it needs to go wastes refrigeration and builds the blockage.",
+        "why": "First remove residual water at a warm drying stage. Then remove carbon dioxide in its dedicated trap before deep cooling. Only the cleaned methane-rich stream is let down to the condenser's defined pressure, near one atmosphere here. At that pressure methane's normal condensation/boiling temperature is about 112 K, so the final cooler can liquefy it without asking a dirty stream to cross every frost boundary inside one pipe.",
         "cards": [
-          "Compress the dry product gas, so everything below condenses at a higher temperature.",
-          "Hold the stream at 250 K over a desiccant bed to take the water out as vapour.",
-          "Chill to 190 K across the trap, where carbon dioxide leaves as a solid.",
-          "Take the remainder to 112 K, where methane runs as a liquid into the tank."
+          "Remove residual water at the warm drying stage before it can reach cryogenic metal.",
+          "Remove residual carbon dioxide in the dedicated trap or adsorber before deep cooling.",
+          "Bring the cleaned methane-rich stream to the condenser's defined pressure, near 1 bar.",
+          "Cool the clean stream to about 112 K at that pressure and transfer the liquid methane."
         ],
         "order": [
           0,
@@ -1482,30 +1482,29 @@ export const CURRICULUM = {
           2,
           3
         ],
-        "axis": "Order the four stages by temperature, warmest first. The stream walks down the plant in that order, and the reason it does is the question — each stage removes what would otherwise foul the colder one after it.",
+        "axis": "Order the four steps by dependency. The point is not four universal temperatures; it is that cleaning and pressure definition have to happen before the methane condensation temperature is meaningful.",
         "ends": [
-          "Warmest stage",
-          "Coldest stage"
+          "Dirty warm stream",
+          "Liquid methane"
         ]
       },
       "assumes": [
-        "a substance condenses at a temperature that rises with pressure",
-        "carbon dioxide turns to solid near 195 K at these pressures",
-        "vapour pressure, and reading a cryogenic tank by it — taken as read"
+        "water and residual carbon dioxide are removed before the deepest cryogenic stage",
+        "the final methane condenser is operated near 1 bar",
+        "intermolecular forces, and why they set a boiling point — taken as read"
       ],
       "takesAsRead": [
         {
-          "n": 27,
-          "c": "Vapour pressure, and reading a cryogenic tank by it"
+          "n": 25,
+          "c": "Intermolecular forces, and why they set a boiling point"
         }
       ],
       "concept": {
-        "n": 26,
-        "c": "Deposition: gas straight to solid, with no liquid in between",
+        "n": 24,
+        "c": "Phase changes, and that every substance has its own temperature for one",
         "of": 33,
         "rests": [
-          "Phase changes, and that every substance has its own temperature for one",
-          "Vapour pressure, and reading a cryogenic tank by it"
+          "Intermolecular forces, and why they set a boiling point"
         ]
       }
     },
@@ -1518,7 +1517,7 @@ export const CURRICULUM = {
       "at": "farm-gauges",
       "guide": "Moreau wants a leak stated in kilograms, so this is a heat sum turned into a mass. Here is the piece to hold on to. A liquid already sitting at its boiling point cannot get any warmer. So heat arriving is spent boiling it away instead. The energy each kilogram needs is the latent heat of vaporisation. Two of the five numbers belong to other questions. And notice that 30 watts sounds small but acts every second of the sol.",
       "background": [
-        "Why heat into a boiling liquid is a mass and not a temperature. Warming something normally raises its temperature. A liquid at its boiling point is the exception. Every joule arriving goes into tearing molecules out of the liquid instead. The tank stays at 90 K all sol and gets lighter. That is what boil-off is.",
+        "Why this estimate can turn heat into mass. The tank is being treated as a pressure-controlled saturated cryogenic reservoir. Under that approximation the liquid remains near its saturation temperature and the dominant response to a small steady heat leak is vaporisation rather than a large temperature rise.",
         "What latent heat of vaporisation means. It is the energy needed to turn one kilogram of a liquid into gas, with no change of temperature at all. For liquid oxygen it is 213,000 joules a kilogram. Divide the heat that arrived by that number and you have the kilograms that left.",
         "Why 30 watts is not a small number. A watt is a joule every second, and a sol is 88,800 seconds long. So 30 watts delivers about 2.7 million joules a sol — enough to boil away 12.5 kg of oxygen. Nobody drew a drop from the tank. The insulation did it."
       ],
@@ -1531,14 +1530,14 @@ export const CURRICULUM = {
         "task": "Put a number on what the tank loses each sol",
         "question": "Estimate the oxygen the tank loses to boil-off each sol.",
         "answer": "",
-        "why": "A cryogenic liquid sits at its boiling point, so it cannot get warmer. Heat arriving is spent boiling it away instead. The energy each kilogram needs is the latent heat of vaporisation — 213,000 joules for liquid oxygen. So an insulation leak is a propellant loss rate, not a temperature problem. 30 watts sounds small. It acts every second of the sol, and 88,800 seconds of it boils away about 12.5 kg. Repeat that across a season and a modest heat leak has cost the plant a launch margin.",
+        "why": "Treat the pressure-controlled liquid-oxygen tank as saturated for this first-order estimate. Then the 30 W heat leak acts for 88,800 s and supplies about 2.66 MJ per sol. Dividing by the stated latent heat, 213 kJ/kg, gives about 12.5 kg of boil-off per sol. A real sealed or actively recondensed tank would need a fuller pressure-temperature model; this calculation is the loss scale under the stated operating assumption.",
         "givens": [],
         "relationship": "Boil-off mass = the heat reaching the tank × the time it reaches it for ÷ the energy needed to vaporise one kilogram.",
         "calcKey": "PHASE-4"
       },
       "assumes": [
-        "a boiling liquid takes in heat without rising in temperature",
-        "a sol is about 88,800 seconds long",
+        "for this first-order estimate the oxygen tank is held near a constant pressure by its pressure-control/vent system",
+        "the liquid is treated as saturated near 90 K and incoming heat is converted mainly into vaporisation",
         "vapour pressure, and reading a cryogenic tank by it — taken as read"
       ],
       "equations": [
@@ -1648,7 +1647,7 @@ export const CURRICULUM = {
         "task": "Say how full a cryogenic tank may be filled",
         "question": "Why is the flight tank filled to 95% rather than full?",
         "answer": "Vapour from boil-off needs somewhere to go, or the tank pressure climbs against its rating.",
-        "why": "A cryogenic tank always holds some vapour, because heat keeps arriving however good the insulation is. The gas space above the liquid is the ullage, and its job is to give that new vapour room. Fill the tank to the brim and the room is gone. Vapour then raises the pressure instead, quickly, and the relief valve has to vent propellant to protect the tank. So a small heat leak becomes a fuel loss before the vehicle has burned a gram. The 5 per cent is what buys the wait between filling and launch.",
+        "why": "A cryogenic propellant tank is designed with vapour space and a pressure-management scheme because heat keeps arriving, because heat keeps arriving however good the insulation is. The gas space above the liquid is the ullage, and its job is to give that new vapour room. Fill the tank to the brim and the room is gone. Vapour then raises the pressure instead, quickly, and the relief valve has to vent propellant to protect the tank. So a small heat leak becomes a fuel loss before the vehicle has burned a gram. The 5 per cent is what buys the wait between filling and launch.",
         "rebuttals": [
           "Liquid methane in a tank sits at its boiling point and is not cooling further.",
           "The gauge on this tank reads by pressure and temperature and does not need a surface to float on.",
@@ -1762,8 +1761,8 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "How much oxygen a tonne of methane needs",
-      "scene": "Bhatt wants the oxygen mass checked independently before the loading order is written. Methane burns with oxygen 2 moles to 1, and the vehicle carries 6.6 tonnes of fuel.",
-      "takeaway": "A mole ratio is not a mass ratio until both molar masses have been applied.",
+      "scene": "Bhatt writes the vehicle loading numbers beside the chemistry check. Complete combustion of methane would take 4.0 kg of O₂ per kilogram of CH₄, while the flight tanks are specified at 23,000/6,600 ≈ 3.48 kg/kg. She wants the room to say why both numbers can be correct.",
+      "takeaway": "Stoichiometry supplies a chemistry reference; the vehicle's flight mixture ratio is a separate engineering specification.",
       "place": "Cold End",
       "at": "umbilical",
       "guide": "Bhatt wants a mass, and the balanced equation gives moles. That gap is the whole question. Two moles of oxygen burn one mole of methane. But a mole of oxygen weighs 32 grams and a mole of methane only 16. So the mass ratio is not 2. Let the molar masses do the converting. Five numbers are on the board and two belong to other questions. And note in passing that a real engine runs away from this ratio on purpose.",
@@ -1772,16 +1771,16 @@ export const CURRICULUM = {
         "Why this is worth checking independently. The oxygen tank and the methane tank are filled from different plants on different sols. Nothing on the vehicle notices a mismatch until the engine runs, and by then the wrong answer has flown. So a second person does the arithmetic from the balanced equation rather than from the loading order, and the two are compared.",
         "Why the engine does not use this number exactly. Complete combustion is 4-to-1 by mass, and rocket engines usually run with a little less oxygen than that. Slightly fuel-rich exhaust is cooler, which the engine's own metal appreciates, and the lighter molecules leave faster. That is a design choice about performance. It does not change the stoichiometry the loading team has to know."
       ],
-      "story": "Bhatt wants the oxygen mass checked independently before the loading order is written. Methane burns with oxygen 2 moles to 1, and the vehicle carries 6.6 tonnes of fuel.",
+      "story": "Bhatt writes the vehicle loading numbers beside the chemistry check. Complete combustion of methane would take 4.0 kg of O₂ per kilogram of CH₄, while the flight tanks are specified at 23,000/6,600 ≈ 3.48 kg/kg. She wants the room to say why both numbers can be correct.",
       "game": {
         "type": "BALLPARK",
         "title": "How much oxygen a tonne of methane needs",
         "setup": "Cold End",
         "play": "Work out how much oxygen goes with the methane",
         "task": "Work out how much oxygen goes with the methane",
-        "question": "Estimate the mass of oxygen needed for each kilogram of methane burned.",
+        "question": "Why does the flight loading ratio (~3.48 kg O₂/kg CH₄) differ from the 4.0 kg/kg complete-combustion stoichiometric ratio?",
         "answer": "",
-        "why": "A balanced equation gives a mole ratio. Tanks are filled by mass. Burning methane completely takes two moles of oxygen per mole of methane. Two moles of O₂ weigh 64 grams; one mole of CH₄ weighs 16. So the mass ratio is 4 to 1, not 2 to 1. The factor of two is nothing but the difference in molar mass. A real engine runs slightly away from that ratio for performance, which is a design choice. It does not change the arithmetic the loading team has to be able to check.",
+        "why": "The balanced chemistry gives a reference: CH₄ + 2O₂ → CO₂ + 2H₂O, so complete combustion is 64/16 = 4.0 kg of oxygen per kilogram of methane. The vehicle specification is about 23,000/6,600 ≈ 3.48 kg/kg, deliberately fuel-rich relative to that complete-combustion value. Rocket engines choose an operating mixture ratio for performance, temperatures and hardware constraints. That design choice does not make the stoichiometric calculation wrong; it tells the loading team which number belongs to chemistry and which belongs to flight.",
         "givens": [],
         "relationship": "Mass ratio = the mole ratio from the balanced equation × the molar mass of the oxidiser ÷ the molar mass of the fuel.",
         "calcKey": "PHASE-8"
@@ -1813,16 +1812,19 @@ export const CURRICULUM = {
         }
       ],
       "concept": {
-        "n": 1,
-        "c": "Stoichiometry as a feed rate: turning a production target into kilograms in",
-        "of": 33
+        "n": 2,
+        "c": "The Sabatier reaction: what this plant actually makes and from what",
+        "of": 33,
+        "rests": [
+          "Stoichiometry as a feed rate: turning a production target into kilograms in"
+        ]
       }
     },
     {
       "day": 9,
       "title": "What freezes before methane condenses — Review",
-      "scene": "A different stream comes off the greenhouse: mostly nitrogen, with water vapour, some carbon dioxide and a little argon. It is being cooled to recover the argon as a liquid.",
-      "takeaway": "Cooling a mixture separates it in the order the attractions between its molecules run.",
+      "scene": "Cho has four species from a process stream and the phase boundaries calculated at the stated line pressure. She wants them ordered from the warmest removal condition to the coldest.",
+      "takeaway": "Phase boundaries can order a separation only after the pressure and composition have been stated.",
       "place": "Cold End",
       "guide": "All four are in the stream together, so nothing here happens before anything else. What sorts them is how strongly each one holds on to itself. So ask of each what kind of pull it has. Hydrogen bonds are the strongest of the three. Ordinary forces between whole molecules are weaker. Weakest of all is the fleeting attraction between electron clouds. And one of these is a single atom, with the least to hold on with.",
       "background": [
@@ -1830,7 +1832,7 @@ export const CURRICULUM = {
         "The three strengths, in order. A hydrogen bond forms when hydrogen sits next to oxygen, nitrogen or fluorine. It is much the strongest of these three. That is why water is still liquid at temperatures where the others are all gas. Next come ordinary attractions between whole molecules. Weakest of all are the fleeting pulls between electron clouds, which every substance has and some substances have nothing else.",
         "Why argon is last. It is a single atom, not a molecule. It has no shape and nothing sticking out. So nothing is available but that fleeting pull between electron clouds. And a small atom has a small cloud. It condenses near 87 K, colder than nitrogen, which is why recovering it means going deeper than anything else in this stream."
       ],
-      "story": "A different stream comes off the greenhouse: mostly nitrogen, with water vapour, some carbon dioxide and a little argon. It is being cooled to recover the argon as a liquid.",
+      "story": "Cho has four species from a process stream and the phase boundaries calculated at the stated line pressure. She wants them ordered from the warmest removal condition to the coldest.",
       "game": {
         "type": "SEQUENCE",
         "title": "What freezes before methane condenses — Review",
@@ -1839,7 +1841,7 @@ export const CURRICULUM = {
         "task": "Order the substances by the temperature at which they leave the gas, warmest first.",
         "question": "Order the substances by the temperature at which they leave the gas, warmest first.",
         "answer": "",
-        "why": "The order is the strength of the pull between the particles. Water hydrogen-bonds to itself, and that is much the strongest of these, so it leaves first by a wide margin. Carbon dioxide is held by weaker forces between whole molecules. At this pressure it goes straight from gas to solid. Nitrogen and argon have nothing but the fleeting pull between electron clouds, so both need deep cold. Argon is last, because a single atom has the least to hold on with. A cooling stream is a separation in exactly that order.",
+        "why": "At the stated process pressure, the supplied phase-boundary data put water first, then carbon dioxide, then nitrogen and argon in deep cold. The important rule is not memorising four universal temperatures: condensation and deposition conditions move with pressure. The plant therefore calculates or measures the boundary for its own line before using temperature as a separation tool.",
         "cards": [
           "Water, which hydrogen-bonds to itself and holds together far above room temperature.",
           "Carbon dioxide, which turns solid near 195 K at this pressure.",
@@ -1863,22 +1865,25 @@ export const CURRICULUM = {
         "stronger attractions between molecules mean a higher condensation temperature"
       ],
       "concept": {
-        "n": 25,
-        "c": "Intermolecular forces, and why they set a boiling point",
-        "of": 33
+        "n": 24,
+        "c": "Phase changes, and that every substance has its own temperature for one",
+        "of": 33,
+        "rests": [
+          "Intermolecular forces, and why they set a boiling point"
+        ]
       }
     },
     {
       "day": 10,
       "title": "Reading a blockage from outside the pipe — Review",
       "scene": "A line on the oxygen side has slowed over two sols. Cho has four readings from around it, and the plant needs to know whether to warm the line out or open it up.",
-      "takeaway": "What a blockage is made of decides whether warming the line clears it.",
+      "takeaway": "The same pressure-flow symptom can require a different repair depending on which material's phase boundary the line actually crossed.",
       "place": "Cold End",
       "guide": "Same discipline as the methane line, on a different pipe. Three of these five readings are doing the ruling out, so start with them rather than with the alarm. And look at the shape of the flow again. Something that closes in a minute is not the same story as something that closes over two sols. Then one extra question, because Cho has to choose an action: what is the blockage made of?",
       "background": [
-        "Why a normal reading is a result. The alarm draws the eye and usually fits several explanations at once. What separates candidates is a reading an explanation says should have moved and which has not. A cold head at its set point says the refrigerator has capacity. A steady jacket pressure says the insulation is intact. Both are positive findings, not the absence of one.",
-        "Why the shape of a trace is evidence too. A valve closing is an event. It changes the flow in the minute somebody moves it, and then stops changing. A solid building on a wall is a process. It takes the flow down gradually, over sols, and keeps going. So two sols of decline rules out the valve without anybody inspecting the valve.",
-        "Why the material decides the action, not just the diagnosis. Carbon dioxide turns solid near 195 K and turns back to gas near 220 K. So warming this line clears it, and nothing has to be opened. Water would be a different answer entirely — ice needs 273 K, which is far warmer than this line is built to go. Same symptom, same reasoning, two different repairs."
+        "Why a normal reading is a result. The alarm often fits several explanations; the quiet readings are what rule them out. A cold head at its set point says refrigeration is available, and a steady jacket pressure argues against insulation failure.",
+        "Why trace shape is evidence. A commanded valve change happens quickly and then stops. A solid layer accumulating on a wall can reduce flow gradually over many hours or sols.",
+        "Why material decides the repair. At this line's measured pressure and composition, the calculated carbon-dioxide frost/sublimation window is reachable by a controlled warm-up. Water ice would require a much warmer intervention. The procedure therefore uses the line's actual phase diagram rather than treating 195 K or 273 K as universal switches."
       ],
       "story": "A line on the oxygen side has slowed over two sols. Cho has four readings from around it, and the plant needs to know whether to warm the line out or open it up.",
       "game": {
@@ -1889,7 +1894,7 @@ export const CURRICULUM = {
         "task": "Which explanation fits every reading?",
         "question": "Which explanation fits every reading?",
         "answer": "Carbon dioxide past the trap is freezing in the line",
-        "why": "Three readings do the ruling out. A cold head at its set point has not lost capacity. A steady jacket pressure is intact insulation. And a valve moving would change the flow in the minute it moved, not over two sols. What is left is something accumulating on the wall, and the trap's 700 ppm names the material. Which material it is decides the repair. Carbon dioxide turns back to gas near 220 K, so warming the line clears this one without opening anything.",
+        "why": "The diagnosis uses both trace shape and process conditions. A gradual two-sol loss of flow points to material accumulating in the line rather than a one-time valve command. The cold head and jacket readings rule out other causes. Once a solid blockage is the leading explanation, its identity matters because each substance has a pressure-dependent phase boundary. Use the line's measured pressure and composition to decide whether a safe controlled warm-up can clear it or whether the hardware needs a different intervention.",
         "headline": "An oxygen line has slowed over two sols with the refrigerator holding temperature.",
         "readings": [
           {
@@ -1945,16 +1950,15 @@ export const CURRICULUM = {
         "correctChoice": "Carbon dioxide past the trap is freezing in the line"
       },
       "assumes": [
-        "a refrigerator at its set point is doing its job",
-        "carbon dioxide deposits as a solid near 195 K"
+        "phase boundaries are evaluated at the line's measured pressure and composition",
+        "the decline over two sols is inconsistent with a single instantaneous valve movement"
       ],
       "concept": {
-        "n": 26,
-        "c": "Deposition: gas straight to solid, with no liquid in between",
+        "n": 24,
+        "c": "Phase changes, and that every substance has its own temperature for one",
         "of": 33,
         "rests": [
-          "Phase changes, and that every substance has its own temperature for one",
-          "Vapour pressure, and reading a cryogenic tank by it"
+          "Intermolecular forces, and why they set a boiling point"
         ]
       }
     }
@@ -2129,42 +2133,42 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "What the extra volt is doing",
-      "scene": "The water stack needs 1.23 volts a cell in principle and Achebe runs it at 1.75. The difference is half a kilowatt across the stack, and Demir wants to know whether that energy ends up in the hydrogen.",
-      "takeaway": "A cell run fast costs more per mole than a cell run slowly, and the difference leaves as heat.",
+      "title": "Which part of 1.75 volts heats the stack?",
+      "scene": "The water stack has a reversible potential near 1.23 V at these reference conditions, a thermoneutral benchmark near 1.48 V, and it is operated at 1.75 V. Demir wants to know why subtracting 1.23 V and calling the whole remainder 'waste heat' is not the right energy story.",
+      "takeaway": "Reversible free energy, reaction enthalpy and real cell losses are different parts of the energy balance.",
       "place": "Electrolysis Hall",
-      "guide": "Demir's question is a good one: the plant is paying for 1.75 volts and the thermodynamics only asks for 1.23. Start from what that first 1.23 buys. It pays the free-energy bill for splitting the water, and below it nothing happens at all. Everything above it has a name — overpotential — and a different job. So for each option, ask whether the extra half-volt changes the product or only the cost. Energy does not vanish, so it has to end up somewhere.",
+      "guide": "Three voltage scales are on the board. About 1.23 V corresponds to the reversible Gibbs free-energy requirement. Around 1.48 V is the thermoneutral point where the electrical input matches the reaction enthalpy. Real kinetics and resistance push the operating voltage higher still. Separate those before deciding what becomes net stack heat.",
       "background": [
-        "What the first 1.23 volts is for. Splitting water is uphill. It needs about 237 kJ per mole of free energy supplied from outside, and 1.23 volts is what that works out to per electron. Below that voltage the reaction simply does not run. This part of the bill is set by the chemistry and cannot be negotiated.",
-        "What overpotential is, and why it is not optional. Real electrodes are not perfect. Current has to be pushed through the electrolyte, which resists it. Molecules have to be persuaded onto and off the electrode surface, and those steps are slow. Both need voltage above the minimum to happen at any useful rate. That excess is the overpotential, and it grows as you push more current.",
-        "Why the hydrogen is the same either way. A hydrogen molecule made at 1.75 volts is identical to one made at 1.23. It holds the same energy, because that energy lives in the molecule and not in the cell that produced it. So the extra half-volt cannot be in the product. It leaves as heat, which is why the stack needs a cooling loop at all."
+        "What 1.23 V means. It is the reversible electrical free-energy requirement under the stated reference conditions. It is not a promise that a practical cell can carry useful current there.",
+        "What the thermoneutral voltage adds. Splitting liquid water also has an enthalpy requirement. The difference between the reversible and thermoneutral scales can be supplied or removed as heat depending on cell conditions; it is not automatically electrical waste.",
+        "Where real losses appear. Electrode kinetics and ohmic resistance require extra driving voltage. At an operating voltage above the thermoneutral benchmark, those losses contribute to net heat that the cooling system must reject."
       ],
-      "story": "The water stack needs 1.23 volts a cell in principle and Achebe runs it at 1.75. The difference is half a kilowatt across the stack, and Demir wants to know whether that energy ends up in the hydrogen.",
+      "story": "The water stack has a reversible potential near 1.23 V at these reference conditions, a thermoneutral benchmark near 1.48 V, and it is operated at 1.75 V. Demir wants to know why subtracting 1.23 V and calling the whole remainder 'waste heat' is not the right energy story.",
       "game": {
         "type": "CHOICE",
-        "title": "What the extra volt is doing",
+        "title": "Which part of 1.75 volts heats the stack?",
         "setup": "Electrolysis Hall",
-        "play": "Account for the voltage above the thermodynamic minimum",
-        "task": "Account for the voltage above the thermodynamic minimum",
-        "question": "Where does the energy from the extra half-volt a cell end up?",
-        "answer": "It leaves the stack as heat, and the hydrogen carries the same energy either way.",
-        "why": "The first 1.23 volts pays the free-energy bill for splitting water. Below that, nothing happens. Anything above it is overpotential — the extra cost of pushing real current through real electrodes. Some of that goes on electrical resistance. Some goes on electrode steps that are slow and need extra driving force to hurry. Either way the energy leaves as heat in the stack. And the hydrogen is unchanged: a molecule made at 1.75 volts holds exactly what one made at 1.23 holds. Running a cell fast costs more per mole, and the difference warms the cooling loop.",
+        "play": "Separate reversible voltage, thermoneutral voltage and operating loss.",
+        "task": "Separate reversible voltage, thermoneutral voltage and operating loss.",
+        "question": "At 1.75 V, which interpretation of the cell's energy balance is defensible?",
+        "answer": "1.23 V is the reversible free-energy scale; about 1.48 V is thermoneutral; real losses help push operation to 1.75 V and add heat.",
+        "why": "The reversible 1.23 V scale corresponds to Gibbs free energy. The thermoneutral scale near 1.48 V accounts for the full reaction enthalpy under the simplified reference conditions. Real kinetics and resistance then push the operating cell to 1.75 V. So it is wrong to label every volt above 1.23 as waste heat. The cell's net heat balance depends on the thermoneutral benchmark, while kinetic and ohmic losses are the part that undeniably increase electrical cost and heat rejection. The hydrogen molecule itself is not 'higher energy' because the cell was inefficient.",
         "rebuttals": [
-          "Hydrogen is hydrogen, and the energy stored in it depends on the molecule rather than on the cell that made it.",
-          "Below 1.23 volts the reaction genuinely stops, and that first 1.23 is not the half-volt in question.",
-          "Some of the heat does warm the feed, and warming water does not change what a coulomb can split."
+          "Hydrogen's chemical state does not depend on the inefficiency of the electrolyser that made it.",
+          "ΔG and ΔH are not the same; the thermoneutral benchmark is above the reversible potential.",
+          "Faraday's constant is a charge-per-mole constant and does not increase with cell voltage."
         ],
         "choices": [
-          "It leaves the stack as heat, and the hydrogen carries the same energy either way.",
-          "It is stored in the hydrogen, which comes out at a higher energy than at 1.23 volts.",
-          "It is spent making the reaction go, since below that voltage no water would split.",
-          "It goes into warming the water feed, which raises the amount each coulomb can split."
+          "1.23 V is the reversible free-energy scale; about 1.48 V is thermoneutral; real losses help push operation to 1.75 V and add heat.",
+          "Everything above 1.23 V is stored in the hydrogen, so hydrogen made at 1.75 V carries more chemical energy.",
+          "Everything above 1.23 V is waste heat, because the reaction's enthalpy and free energy are the same quantity.",
+          "The extra voltage changes Faraday's constant, so each coulomb makes more hydrogen."
         ],
-        "correctChoice": "It leaves the stack as heat, and the hydrogen carries the same energy either way."
+        "correctChoice": "1.23 V is the reversible free-energy scale; about 1.48 V is thermoneutral; real losses help push operation to 1.75 V and add heat."
       },
       "assumes": [
-        "a cell has a minimum voltage set by the thermodynamics of the reaction",
-        "electrical power is current times voltage"
+        "the reference reversible voltage is about 1.23 V and thermoneutral voltage about 1.48 V for this simplified water-electrolysis comparison",
+        "real electrode and resistive losses require additional voltage at useful current"
       ],
       "concept": {
         "n": 19,
@@ -2324,17 +2328,17 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "What the dust leaves of the sun",
-      "scene": "Iosif Petrov, the array technician, has the optical depth from the station's own sun sensor: 2.4, against 0.4 on a clear sol. Above the dust the beam would deliver 490 watts to each square metre of panel.",
-      "takeaway": "Dust does not dim a beam in proportion; it multiplies it down, so each unit of depth costs more than the last.",
+      "scene": "Petrov has two different quantities on his panel. The optical-depth instrument reports τ = 2.4, while the array meter says total electrical output is about one fifth of a clear-sol value. He wants the direct beam calculated without pretending it is the whole photovoltaic measurement.",
+      "takeaway": "Optical depth predicts direct-beam attenuation; total photovoltaic output is a separate measurement with additional light paths and hardware response.",
       "place": "Electrolysis Hall",
       "at": "sun-sensor",
-      "guide": "Optical depth is a measure of how much is in the way. Here is the part worth getting right. Dust does not subtract from a beam. It multiplies it down. Each unit of depth divides what is left by a further factor of about 2.7. So the formula has e in it rather than a minus sign. Five numbers are on the board and three belong to the array rather than to the beam. And be clear what you are working out: the direct beam, not the array's output.",
+      "guide": "Use I = I₀e^(−τ) only for the direct solar beam. The array also receives diffuse light scattered by dust and its electrical output includes panel geometry, temperature and conversion efficiency. Calculate the direct-beam scale, then keep it separate from the measured one-fifth total output.",
       "background": [
         "Why attenuation multiplies rather than subtracts. Picture the dust as a stack of thin layers. Each layer stops the same fraction of whatever light reaches it — not the same amount. So the first layer takes a lot and the tenth takes a little, because there is less left for it to take. Repeated fractions of fractions is what an exponential is.",
         "What optical depth means as a number. Depth 1 leaves about a third of the beam. Depth 2 leaves about a tenth. Depth 2.4 leaves about a twelfth. So going from a clear sol at 0.4 to a storm at 2.4 is not five times worse. It is roughly sevenfold, because the two extra units of depth each divide again.",
         "Why the direct beam is not the array's output. What e^(−τ) describes is light that came straight through untouched. Dust also scatters light sideways, and some of that still lands on a panel from the sky. So the array does better than the direct beam alone suggests. It does not do anything like as well as a clear sol."
       ],
-      "story": "Iosif Petrov, the array technician, has the optical depth from the station's own sun sensor: 2.4, against 0.4 on a clear sol. Above the dust the beam would deliver 490 watts to each square metre of panel.",
+      "story": "Petrov has two different quantities on his panel. The optical-depth instrument reports τ = 2.4, while the array meter says total electrical output is about one fifth of a clear-sol value. He wants the direct beam calculated without pretending it is the whole photovoltaic measurement.",
       "game": {
         "type": "BALLPARK",
         "title": "What the dust leaves of the sun",
@@ -2343,7 +2347,7 @@ export const CURRICULUM = {
         "task": "Work out how much sunlight is reaching the panels",
         "question": "Estimate the direct beam reaching a panel through this dust.",
         "answer": "",
-        "why": "Dust attenuation multiplies; it does not subtract. Each further unit of optical depth removes the same fraction of whatever beam is left. So 490 × e^(−2.4) ≈ 44 watts a square metre, under a tenth of the above-dust value. That is why going from 0.4 to 2.4 is so much worse than it sounds — the two extra units each divide again. One limit on the answer. The array also picks up light the dust scattered sideways out of the sky, so its output is better than the direct beam alone. The exponential only describes light that came straight through.",
+        "why": "The Beer–Lambert-style attenuation model gives the direct beam: 490 × e^(−2.4) ≈ 44 W/m², about nine percent of the above-dust beam. The array meter, however, reports total electrical output near twenty percent of a clear sol. Those do not conflict automatically. Dust also scatters light into the sky, panels collect some diffuse illumination, and electrical output depends on more than the straight-through beam. The model and the measurement constrain different quantities, which is exactly why they should not be substituted for one another.",
         "givens": [],
         "relationship": "Transmitted beam = the beam above the dust × e raised to minus the optical depth: each unit of depth divides the beam by a further factor of about 2.7.",
         "calcKey": "ELEC-6"
@@ -2393,41 +2397,41 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "What limits the current",
-      "scene": "Sundqvist wants the stacks run 20% above their rated current for the sols that remain. Achebe has the cooling loop's capacity written on the board beside the request.",
-      "takeaway": "The ceiling on a cell is usually thermal rather than electrochemical.",
+      "scene": "Sundqvist wants the stacks run 20% above rated current for the sols that remain. Achebe has the measured stack-voltage curve and cooling-loop capacity beside the request.",
+      "takeaway": "Faraday's law sets product per coulomb; the stack's voltage-current curve and cooling system set how many coulombs per second the hardware can survive.",
       "place": "Electrolysis Hall",
-      "guide": "Sundqvist wants 20 per cent more current, and Achebe has put the cooling loop's capacity on the board beside the request. That is a hint about where to look. Take each candidate and ask one thing: does it actually get worse as the current goes up? Faraday's law does not — more charge is simply more product, in exact proportion. Something else in the cell does.",
+      "guide": "Faraday's law says more charge can make proportionally more product; it does not say the hardware can carry arbitrary current. As current rises, electrode and ohmic losses require more cell voltage. The thermal limit comes from the measured voltage-current behavior and the cooling loop, not from treating every volt above 1.23 V as one simple heat term.",
       "background": [
-        "Why Faraday's law sets no limit. It is a proportion, not a ceiling. Twice the charge is twice the product, and the constant in it is just the exchange rate between coulombs and moles. Nothing in the law says a cell will object to being driven harder. Whether it survives being driven harder is a different question, and a different part of physics. And overpotential is where that question lives.",
-        "Why the wasted voltage grows faster than the current. Overpotential is the voltage above the minimum, and it rises as the cell is pushed. Resistance costs more voltage at higher current, and slow electrode steps need more driving force to go faster. So the cell needs a higher voltage *and* is passing a higher current, and heat is voltage times current. Push the current 20 per cent and the heat can climb 40.",
-        "Why the limit is thermal rather than electrochemical. All that heat appears inside the stack, between the plates, next to the seals. It has to be carried away by the cooling loop or the stack cooks itself. So the real ceiling is not a number in a chemistry table. It is whatever the cooling loop can remove, which is why Achebe wrote that figure on the board."
+        "Why Faraday's law is not the hardware limit. Charge sets a theoretical amount of product. It does not tell you what voltage the real stack needs, how hot the plates become, or whether the cooling loop can remove that heat.",
+        "Why higher current costs more than proportional electrical power. Kinetic and resistive losses push the operating voltage upward as current rises. Electrical power is current times voltage, so the input can grow faster than current alone.",
+        "Why the limit is thermal in this operating case. Achebe's measured voltage-current curve and cooling capacity say how hard this particular stack can be driven without exceeding its temperature limit. That is an engineering measurement layered on top of Faraday's chemistry."
       ],
-      "story": "Sundqvist wants the stacks run 20% above their rated current for the sols that remain. Achebe has the cooling loop's capacity written on the board beside the request.",
+      "story": "Sundqvist wants the stacks run 20% above rated current for the sols that remain. Achebe has the measured stack-voltage curve and cooling-loop capacity beside the request.",
       "game": {
         "type": "CHOICE",
         "title": "What limits the current",
         "setup": "Electrolysis Hall",
         "play": "Say whether the stacks can be pushed harder",
         "task": "Say whether the stacks can be pushed harder",
-        "question": "What sets the highest current these stacks can be run at?",
-        "answer": "The heat the cooling loop can carry away, since the wasted voltage rises with the current.",
-        "why": "Faraday's law puts no ceiling on current. More charge is simply more product, in exact proportion. What rises with current is the overpotential. Resistance costs more voltage at higher current, and slow electrode steps need more push to go faster. So the cell needs a higher voltage while passing a higher current, and heat is the two multiplied. That heat appears inside the stack, next to the seals. So the ceiling is whatever the cooling loop can carry away. 20 per cent more current can cost 40 per cent more heat.",
+        "question": "What actually limits the proposed 20% current increase?",
+        "answer": "The measured stack thermal limit: higher current also raises the required operating voltage and the cooling load.",
+        "why": "Faraday's law is an amount-per-charge relationship, not a current ceiling. Pushing more current can make more product, but real electrode kinetics and resistance also push the required operating voltage upward. Because electrical power is current times voltage, the stack's electrical and thermal load rises faster than current alone. Achebe therefore uses the measured voltage-current curve and cooling-loop capacity to set the ceiling. The chemistry tells how much product a coulomb can buy; the hardware tells how quickly the station can safely spend those coulombs.",
         "rebuttals": [
-          "Faraday's constant converts charge into moles and does not cap the charge itself.",
-          "Water feed is a limit worth checking and this hall has buffer enough for the requested rate.",
-          "Collection pressure is held by a regulator and does not rise with production."
+          "Faraday's constant is a conversion between charge and moles and does not impose a one-sol current limit.",
+          "The reversible potential is a thermodynamic reference, not a maximum allowable operating current.",
+          "Hydrogen's chemical state does not become more energetic because the electrolyser was run at a higher voltage."
         ],
         "choices": [
-          "The heat the cooling loop can carry away, since the wasted voltage rises with the current.",
-          "Faraday's constant, which fixes how many moles a cell can pass in a sol.",
-          "The water supply, since a cell can split no more than it is fed.",
-          "The pressure in the hydrogen collection line, which rises with the production rate."
+          "The measured stack thermal limit: higher current also raises the required operating voltage and the cooling load.",
+          "Faraday's constant, which sets a maximum current once a cell has run for one sol.",
+          "The reversible 1.23 V potential, because any current above the value at 1.23 V is chemically impossible.",
+          "The hydrogen's chemical energy, which rises as the cell voltage is increased."
         ],
-        "correctChoice": "The heat the cooling loop can carry away, since the wasted voltage rises with the current."
+        "correctChoice": "The measured stack thermal limit: higher current also raises the required operating voltage and the cooling load."
       },
       "assumes": [
-        "the product a cell makes is proportional to the charge it passes",
-        "the voltage above the minimum leaves the cell as heat"
+        "the stack's measured operating voltage rises with current because of kinetic and resistive losses",
+        "the cooling loop has a finite heat-removal capacity"
       ],
       "concept": {
         "n": 19,
@@ -2442,13 +2446,13 @@ export const CURRICULUM = {
       "day": 8,
       "title": "Which electrode does which job — Review",
       "scene": "The station's oxygen generator splits water in a low-temperature cell rather than a hot one. Achebe wants it read the same way as the hot stacks, part by part.",
-      "takeaway": "The parts of an electrolysis cell do the same jobs whatever the cell is made of.",
+      "takeaway": "The electrode roles follow electron transfer; practical voltage and heat depend on the cell's thermodynamics, kinetics and resistance.",
       "place": "Electrolysis Hall",
       "guide": "A cold cell this time instead of a hot one, and the reading does not change. Ask of each part which way the electrons are being pushed. Electrons in means reduction, a gain. Electrons out means oxidation, a loss. That much is true of any water-splitting cell, whatever it is built from. One item on this board is not a place at all, so ask what a voltage does rather than where it is.",
       "background": [
-        "Why the electrode names do not depend on the cell. An electrode is named by what happens at it, not by what it is made of or how hot it runs. Electrons pushed in, something gains them, and that is reduction. Electrons drawn out, something loses them, and that is oxidation. Hot ceramic cell or cold polymer cell, the two halves are the same two halves.",
-        "What changes between the hot cell and this one. The ion the middle carries. The hot stack moves oxide ions, O²⁻, across a solid ceramic. This cold cell moves hydrogen ions, H⁺, across a polymer membrane. Different ion, opposite direction of travel, and exactly the same job: carry the charge, refuse the electrons, keep the two gases from meeting.",
-        "Why the voltage is on a board of parts. Because it is the one item that is not a part. It is a condition the whole cell has to satisfy before any of the parts do anything at all. Below the minimum the thermodynamics sets, nothing happens anywhere in the cell. Above it, the excess is what buys a useful rate, and it leaves as heat."
+        "Why the electrode names do not depend on the cell. An electrode is named by the process occurring there: reduction where electrons are supplied, oxidation where electrons are removed.",
+        "What changes between the hot and cold cells. Different electrolytes carry different ions, but in both cases the electrolyte carries ionic charge while keeping the product gases separated from the external electron path.",
+        "Why voltage belongs on a board of parts. The reversible potential is the thermodynamic reference. A practical cell needs additional kinetic and resistive driving voltage to carry useful current, and the full heat balance also depends on the thermoneutral voltage rather than on one simple subtraction from 1.23 V."
       ],
       "story": "The station's oxygen generator splits water in a low-temperature cell rather than a hot one. Achebe wants it read the same way as the hot stacks, part by part.",
       "game": {
@@ -2459,7 +2463,7 @@ export const CURRICULUM = {
         "task": "Match each part of this cell to what happens there.",
         "question": "Match each part of this cell to what happens there.",
         "answer": "",
-        "why": "A cell is one redox reaction with its two halves held apart. Which half sits where is fixed by the direction the electrons are pushed. Electrons in means reduction, so hydrogen comes off there in any water-splitting cell, hot or cold. Electrons out means oxidation, and oxygen. The membrane carries one ion and stops the gases mixing — hydrogen ions here, oxide ions in the hot stack, same job either way. And the voltage is not a part. Below the minimum nothing happens at all. Above it, the excess buys a rate and leaves as heat.",
+        "why": "A cell is one redox reaction with its two halves held apart. Electrons supplied to an electrode drive reduction; electrons removed drive oxidation. The electrolyte carries ions rather than the external electrons and helps keep products separated. The applied voltage is a system condition, not an electrode: the reversible value is a thermodynamic reference, while practical operation requires additional kinetic and resistive driving voltage. That additional voltage increases electrical cost, but the complete heat balance should not be reduced to 'everything above the minimum becomes heat.'",
         "scenarios": [
           "The electrode the supply pushes electrons into.",
           "The electrode electrons are drawn out of.",
@@ -2566,8 +2570,8 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "The temperature the reaction stops wanting to run",
-      "scene": "Demir has thermodynamic data for the Sabatier reaction on the desk. The sheet lists its enthalpy and entropy changes per mole of methane. He wants ΔG evaluated at the present bed temperature.",
-      "takeaway": "With fixed tabulated ΔH and ΔS, ΔG = ΔH − TΔS predicts the temperature where spontaneity changes sign.",
+      "scene": "Demir has the plant's simplified thermodynamic table for the Sabatier loop: ΔH = −123.6 kJ/mol and ΔS = −172 J/mol/K over the training range. He wants the temperature where this approximation makes ΔG cross zero, knowing the real plant uses temperature-dependent property data.",
+      "takeaway": "A simplified ΔG model can locate a thermodynamic trend; real reactor design uses temperature-dependent data and measured equilibrium.",
       "place": "Plant Control",
       "at": "ledger",
       "guide": "Demir has the data sheet and wants ΔG at the bed's own temperature. So this is ΔG = ΔH − TΔS with real numbers in it. Both terms here happen to be negative, and they pull against each other once the temperature multiplies the second one. That is the interesting part. As the bed gets hotter the second term grows, so somewhere up the scale the whole thing changes sign. Five numbers are on the board and two belong to other calculations. Ask of each whether this one needs it.",
@@ -2576,7 +2580,7 @@ export const CURRICULUM = {
         "Why the temperature decides which term wins. ΔH does not care how hot the bed is. TΔS does, because T is a multiplier sitting right on it. So heating the bed grows the term that opposes the reaction while leaving the term that favours it alone. Push far enough and ΔG crosses zero — with these tabulated numbers, near 720 K. Above that the reaction no longer runs on its own at all.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how you catch a unit that does not match, or a quantity belonging to a different problem, before you place it. That habit is the whole point of this format."
       ],
-      "story": "Demir has thermodynamic data for the Sabatier reaction on the desk. The sheet lists its enthalpy and entropy changes per mole of methane. He wants ΔG evaluated at the present bed temperature.",
+      "story": "Demir has the plant's simplified thermodynamic table for the Sabatier loop: ΔH = −123.6 kJ/mol and ΔS = −172 J/mol/K over the training range. He wants the temperature where this approximation makes ΔG cross zero, knowing the real plant uses temperature-dependent property data.",
       "game": {
         "type": "BALLPARK",
         "title": "The temperature the reaction stops wanting to run",
@@ -2692,10 +2696,10 @@ export const CURRICULUM = {
       "takeaway": "What a product costs to make and what it stores are two different numbers, and the gap is the price of running at a rate.",
       "place": "Plant Control",
       "at": "cell-stacks",
-      "guide": "Demir wants what the stacks spent, not what the hydrogen holds. Those are two different numbers and both are on the board. A kilogram of hydrogen stores about 39.4 kWh. This stack spends about 55 kWh to make one. The gap is real, and it is the overpotential you met in the hall — voltage above the minimum, leaving as heat. So ask of each tile which of the two questions it answers.",
+      "guide": "Demir wants what the stacks spent, not what the hydrogen stores. Those are different numbers. A kilogram of hydrogen carries about 39.4 kWh on the stated fuel-value basis, while this stack has measured electrical use near 55 kWh/kg. The gap includes the real cell's voltage losses, balance-of-plant loads and thermal management; it is an observed efficiency gap, not a claim that every joule above the reversible voltage becomes one simple heat term.",
       "background": [
         "Why a kilogram of hydrogen has two energy numbers. One is what it stores: burn it, or run it through a fuel cell, and about 39.4 kWh comes back out. The other is what it cost to make: about 55 kWh through this stack. Both are correct. They answer different questions, and a ledger wants the second.",
-        "Where the missing 15 kWh went. A cell only has to supply 1.23 volts in principle. This one runs at 1.75. Everything above the minimum is overpotential, and it leaves the stack as heat rather than going into the product. So the hydrogen is the same hydrogen, and the plant paid about 40 per cent more than the thermodynamics asked for.",
+        "Where the gap comes from. A practical electrolyser operates away from the reversible limit and also powers pumps, controls and thermal management. Electrode kinetics and resistance dissipate energy, while the cell's full heat balance is referenced to the thermoneutral as well as reversible voltage. The plant therefore uses measured kWh per kilogram for its ledger instead of reconstructing the whole loss from one voltage subtraction.",
         "Why using the wrong figure matters here. Put 39.4 into the sum and the sol's bill reads 272 kWh. The true figure is 380. That is a quarter of the entry missing from an energy ledger, on a station whose array is the only source of power. A cheerful number in the wrong column is worse than no number."
       ],
       "story": "Demir is closing the sol’s energy ledger. The stacks made 6.9 kg of hydrogen. He wants their electrical energy use written beside the array output before he signs the sheet.",
@@ -2707,7 +2711,7 @@ export const CURRICULUM = {
         "task": "Put a number on what the hydrogen costs",
         "question": "Estimate the electrical energy the stacks spent making hydrogen this sol.",
         "answer": "",
-        "why": "A kilogram of hydrogen has two energy numbers, and they are not the same. One is what it stores: about 39.4 kWh. The other is what this stack spent to make it: about 55 kWh. The second is larger because real cells run above the minimum voltage, and the excess leaves as heat. So 6.9 kg cost about 380 kWh. Using the stored figure would have given 272, and understated the sol's electricity by a quarter. On a station with one array, that is not a rounding error.",
+        "why": "A kilogram of hydrogen has an energy content and this plant has a measured electrical cost to make one. Those numbers answer different questions. At 6.9 kg and 55 kWh/kg, the stack used about 380 kWh. The difference from the hydrogen's stored energy reflects real electrolysis inefficiency and balance-of-plant costs; it should not be simplified to 'everything above 1.23 V became heat.' For the station ledger, the measured 55 kWh/kg is the quantity that matters.",
         "givens": [],
         "relationship": "Energy spent = the mass of hydrogen made × the energy this stack spends to make one kilogram of it.",
         "calcKey": "GIBBS-4"
@@ -2855,7 +2859,7 @@ export const CURRICULUM = {
       "guide": "Three people want to be first and all three have a case, so the ranking has to come from something other than who is asking. Use the same test you used on the storm plan. For each job, ask what the delay actually costs. Some delays cost time, and time can be made up. One of them is spending something the station has already made, every sol it waits. That is not the same kind of cost.",
       "background": [
         "The difference between a delay and a loss. Some jobs sit in a queue and cost nothing while they wait. The battery bank refills on the next clear sol. The comparison run is information, and information keeps. Other jobs are spending something every sol they are not done. Fourteen extra kilograms of oxygen a sol is propellant that took array output to make, and it is gone. Rank by that, not by urgency of tone.",
-        "Why boil-off is the one that cannot wait. The oxygen in that tank is stored work. Sols of power went into splitting the water and cooling the product. Let it boil and there is no recovering it. You have to start again from atmosphere and ice. Every other job on this board can be picked up on sol 305 for exactly what it would have cost on 303.",
+        "Why boil-off is the one that cannot wait. The oxygen in that tank is stored work. Sols of power went into splitting the water and cooling the product. Let it boil and there is no recovering it. You have to start again from atmosphere and ice. Every other job on this board can be picked up on the next clear sol for exactly what it would have cost on 421.",
         "Why finishing something is not a reason to choose it. Picking the job that fits in a sol ranks by convenience. It feels like progress because something gets closed, and it says nothing about what the other two cost while they wait. A ranking has to be about consequences. Neatness is not one."
       ],
       "story": "The three problems are on the board with the power to fix one of them today. Wells wants the order and the grounds for it in the log before anybody starts work.",
@@ -3021,61 +3025,50 @@ export const CURRICULUM = {
     },
     {
       "day": 8,
-      "title": "What to leave running",
-      "scene": "Only 2 improvements can be left in place for the crew arriving 300 sols from now. Wells and Demir have four candidates on the final board. The failed catalyst charge is on the floor beside them.",
-      "takeaway": "What outlives a crew is what somebody made automatic before they left.",
+      "title": "Release the full tank",
+      "scene": "Wells puts the final board beside the ascent vehicle telemetry. Methane: 6.6 tonnes. Oxygen: 23 tonnes. Every loaded batch is inside its own flight limits; the Sol 445 batch was rejected and remade. The conductivity trigger is armed, and the catalyst record is qualified rather than universal. The return window opens in eleven sols.",
+      "takeaway": "Readiness is a bounded claim: these measured tanks meet these flight requirements, with the remaining unknowns left attached to future production.",
       "place": "Plant Control",
-      "guide": "Here is the season in one sentence. It lost 38 sols of production to a measurement taken every sol, logged every sol, and read by nobody. Now the facts you are spending against. The bed already carries four thermocouples. The array has one sun sensor and it has never disagreed with the sky. And the next crew arrives 300 sols from now, having met nobody who was here. So think about what survives that gap. An alarm reaches somebody without being looked for. A written order tells whoever hears it what to do next.",
-      "rules": "Spread the hundred points across the 4 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "at": "loadboard",
+      "guide": "Do not ask whether every uncertainty on Mars has disappeared. Ask whether the flight decision's required claims are supported. The tank masses are measured. Batch acceptance is documented. The rejected batch stayed out. The water-control rule is armed. The remaining unknowns concern future column life, deeper ice and untested catalyst-poison conditions—not the specification of the propellant already aboard.",
       "background": [
-        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says three things at once: what you think is likely, what is worth hedging against, and what is not worth doing at all. Most of the information is in the last two. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. The small numbers count as much as the big one.",
-        "What the three numbers are for. Thirty-five is what makes a lead a lead. Below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
-        "Why a measurement is not a control. Conductivity was measured all season. What was missing was the pair of things that turn a number into an action. One shouts when the number moves. The other says what to do when it shouts. An alarm without a written order leaves the next crew a noise. An order without an alarm leaves them a page nobody reads. Neither half works alone."
+        "What release means. This is not a claim that the plant is solved forever. It is a decision that the propellant set now aboard satisfies the vehicle's stated mass and chemistry requirements.",
+        "Why unresolved science can remain. The next crew still needs better breakthrough statistics and deeper-ice chemistry. Those uncertainties belong to future production. They do not automatically invalidate measured, in-specification propellant already loaded.",
+        "Why the rejected batch matters. Readiness includes the decisions not taken. The Sol 445 water-contaminated batch never entered the vehicle, and the replacement production is included in the final mass. The audit trail therefore closes mass, chemistry and reversibility together."
       ],
-      "story": "Only 2 improvements can be left in place for the crew arriving 300 sols from now. Wells and Demir have four candidates on the final board. The failed catalyst charge is on the floor beside them.",
+      "story": "Wells puts the final board beside the ascent vehicle telemetry. Methane: 6.6 tonnes. Oxygen: 23 tonnes. Every loaded batch is inside its own flight limits; the Sol 445 batch was rejected and remade. The conductivity trigger is armed, and the catalyst record is qualified rather than universal. The return window opens in eleven sols.",
       "game": {
-        "type": "SCIENCETANK",
-        "title": "What to leave running",
+        "type": "CHOICE",
+        "title": "Release the full tank",
         "setup": "Plant Control",
-        "play": "Fund what the next crew should inherit.",
-        "task": "Fund what the next crew should inherit.",
-        "question": "Fund what the next crew should inherit.",
-        "answer": "Leave the feed-water conductivity alarm and the standing lead/lag changeover rule. Together they detect breakthrough and tell the next crew what action follows.",
-        "why": "The best thing to leave behind is a known failure turned into an automatic response. The conductivity alarm closes the exact gap that let breakthrough run for 38 sols unnoticed. The standing order tells the next crew what to do the moment it fires. Those two are a pair: an alarm with no order is a noise, and an order with no alarm is a page nobody opens. The spare thermocouples are useful, and the bed already has four. A second sun sensor addresses nothing that failed. Alarm plus procedure joins measurement to action, and needs nobody's memory.",
-        "proposals": [
-          {
-            "label": "A",
-            "text": "An alarm on feed-water conductivity, wired to the plant panel rather than to a log."
-          },
-          {
-            "label": "B",
-            "text": "A written standing order for changing the lead polishing column at breakthrough."
-          },
-          {
-            "label": "C",
-            "text": "A spare set of thermocouples for the catalyst bed."
-          },
-          {
-            "label": "D",
-            "text": "A second sun sensor at the far end of the array."
-          }
+        "play": "Decide whether the propellant set is ready to become a flight system.",
+        "task": "Decide whether the propellant set is ready to become a flight system.",
+        "question": "What do you sign eleven sols before the return window?",
+        "answer": "Release the propellant set to flight; the required masses and loaded-batch specifications are met, with the qualified operating limits recorded.",
+        "why": "The required flight claims are now supported independently. The tank masses are reconciled at 6.6 tonnes methane and 23 tonnes oxygen. Every batch that entered the vehicle passed its own specification; the batch that failed did not enter. The water system has a prewritten breakthrough response, and the catalyst record states only the conditions it actually survived. Waiting for every unknown about deeper regolith or future column lifetime would not improve the chemistry of propellant already measured aboard. Releasing without conditions would overstate what the season proved. The defensible action is to release this propellant set to flight and carry the remaining limits forward.",
+        "rebuttals": [
+          "Those are future-production uncertainties. They do not change the measured chemistry of the accepted propellant already aboard.",
+          "Correct tank mass does not erase the limits of the evidence about future catalyst and water-system operation.",
+          "One failed flight-critical specification line is enough to reject a batch; passing three others does not average it back into compliance."
         ],
-        "recommended": {
-          "A": 45,
-          "B": 35
-        },
-        "research": ""
+        "choices": [
+          "Release the propellant set to flight; the required masses and loaded-batch specifications are met, with the qualified operating limits recorded.",
+          "Hold the vehicle until deeper-ice chemistry and the next polishing-column lifetime are known, even though the propellant already aboard meets specification.",
+          "Release it unconditionally and remove the catalyst and water qualifications because the final tank masses are correct.",
+          "Add the rejected Sol 445 batch for extra margin, since three of its four assay lines passed."
+        ],
+        "correctChoice": "Release the propellant set to flight; the required masses and loaded-batch specifications are met, with the qualified operating limits recorded."
       },
       "assumes": [
-        "the fault that cost this season went undetected because nothing measured it",
-        "the next crew arrives without anybody from this one"
+        "the vehicle flight specification is the acceptance rule for propellant already loaded",
+        "all loaded batches have traceable assays and the displayed tank masses are reconciled"
       ],
       "concept": {
-        "n": 29,
-        "c": "Solutions: what dissolves out of frozen ground, and what each solute fouls",
+        "n": 33,
+        "c": "What an assay is for, and what a specification is a list of",
         "of": 33,
         "rests": [
-          "Intermolecular forces, and why they set a boiling point"
+          "Stoichiometry as a feed rate: turning a production target into kilograms in"
         ]
       }
     },
@@ -3357,13 +3350,13 @@ export const CURRICULUM = {
       "day": 3,
       "title": "What comes with the water",
       "scene": "The holding tank's analysis is on Abiola's bench: four dissolved species, none of them water. Each one has somewhere downstream that it matters, and the plant has one polishing column between them and everything else.",
-      "takeaway": "Water from the ground is a solution, and every solute has an address downstream.",
+      "takeaway": "The brine contains different ions; track each one by its downstream consequence instead of treating 'salt' as one contaminant.",
       "place": "Water Plant",
       "at": "columns",
       "guide": "Abiola has four dissolved species on the bench and one polishing column to spend. So for each one, ask where it ends up and what it touches when it gets there. A catalyst's nickel surface? The hot faces inside a cell, where something can come back out of solution as scale? A packed bed it can physically clog? Or somewhere the plant does not much mind, because not every impurity is equally dangerous.",
       "background": [
-        "What dissolving actually does. A salt in water does not sit there as a lump. It comes apart into ions — charged pieces that move about independently — and perchlorate salts give up chloride that way. This is why a filter cannot catch them: there is nothing left to catch, only ions the size of single atoms travelling with the water.",
-        "Why chloride is the one that ends a catalyst. The nickel works because gas molecules land on its surface, react, and leave again. Chloride lands and does not leave — it binds to those same sites and holds them. Every site it takes is gone for good. So a slow chloride feed is a slow, permanent loss of catalyst, not a fault that can be cleaned out later.",
+        "Why dissolved salts are not interchangeable. Martian brine can contain perchlorate, chloride and sulphate among other ions. Perchlorate ClO₄⁻ is not chloride Cl⁻; dissolving one does not turn it into the other. Each has to be tracked separately.",
+        "Why chloride is the warning species in this authored plant. Halide breakthrough into the electrolysis feed can create trace chlorine-bearing carryover downstream. Nickel methanation catalysts are sensitive to chlorine/halide poisoning, so a rising halide signal is treated as a catalyst-protection alarm rather than as proof that liquid chloride itself rode unchanged into the gas reactor.",
         "Why the harmless one is harmless. Dissolved carbon dioxide makes the water slightly acidic and then arrives at a reactor whose entire job is turning carbon dioxide into methane. It is already on the feed list. Worth noticing, because the instinct to remove everything measurable spends a polishing column's fixed capacity on something the plant wanted anyway."
       ],
       "story": "The holding tank's analysis is on Abiola's bench: four dissolved species, none of them water. Each one has somewhere downstream that it matters, and the plant has one polishing column between them and everything else.",
@@ -3375,15 +3368,15 @@ export const CURRICULUM = {
         "task": "Match each dissolved species to what it does downstream.",
         "question": "Match each dissolved species to what it does downstream.",
         "answer": "",
-        "why": "A dissolved species matters because of the surface it reaches. Chloride is the dangerous one here: it sticks to the nickel of the catalyst and takes those sites out of use for good. Sulphate comes back out of solution on hot surfaces as scale, and the cell's warm faces are where it finds them. Fine particles do no chemistry at all — they pack into the drier and throttle it a little more each sol. Dissolved carbon dioxide is a non-problem, because carbon dioxide is what the plant is trying to react anyway. So the polishing train is designed around consequences, not around treating every impurity alike.",
+        "why": "A dissolved species matters because of where it can travel and what it can damage. Chloride is distinct from perchlorate, and this plant treats halide breakthrough as a catalyst-protection signal because chlorine-bearing carryover can poison nickel. Sulphate can form scale on warm process surfaces. Fine particles can load filters and driers. Dissolved carbon dioxide is already part of the downstream carbon feed. The polishing train is therefore designed around separate consequences, not a single idea of 'salt'.",
         "scenarios": [
-          "Chloride ion, from dissolved perchlorate salt.",
+          "Chloride ion, from dissolved chloride salts in the regolith.",
           "Sulphate ion, at four grams a litre.",
           "Suspended fines, too small for the filter.",
           "Dissolved carbon dioxide, from the condenser headspace."
         ],
         "choices": [
-          "Binds to the nickel surface of the catalyst and takes those sites out of use.",
+          "If halide removal fails, chlorine-bearing carryover downstream can poison the nickel catalyst.",
           "Comes out of solution as scale on the hot faces of the electrolysis cell.",
           "Packs into the drier and raises the pressure drop across it sol by sol.",
           "Adds acidity and nothing else; the reactor is fed the same gas anyway."
@@ -3417,9 +3410,9 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "The tank that will not freeze",
+      "title": "The brine the ideal model cannot finish",
       "scene": "The holding tank sat at minus 40 overnight. It drained as a liquid this morning. Abiola has the analysis. It is magnesium perchlorate, and a great deal of it. He wants the freezing point that concentration implies.",
-      "takeaway": "In the ideal colligative model, freezing-point depression scales with the number of dissolved particles. Not with their chemical identity.",
+      "takeaway": "At extreme concentration, the ideal colligative calculation gives a scale; the tank's measured phase behavior is the evidence the plant operates on.",
       "place": "Water Plant",
       "at": "brinetank",
       "guide": "This tank drained as a liquid at minus 40. That tells you something about how much salt is in it. The rule is freezing-point depression. ΔTf = i × Kf × m. Molality m is moles of salt per kilogram of water. Kf is a constant belonging to water itself. And i is the particle count. It is how many separate ions one formula unit breaks into. That count is what matters here. Not how heavy the salt is. Two of the five numbers belong to other questions.",
@@ -3431,13 +3424,13 @@ export const CURRICULUM = {
       "story": "The holding tank sat at minus 40 overnight. It drained as a liquid this morning. Abiola has the analysis. It is magnesium perchlorate, and a great deal of it. He wants the freezing point that concentration implies.",
       "game": {
         "type": "BALLPARK",
-        "title": "The tank that will not freeze",
+        "title": "The brine the ideal model cannot finish",
         "setup": "Water Plant",
         "play": "Work out how much salt the brine is carrying",
         "task": "Work out how much salt the brine is carrying",
-        "question": "Estimate how far this brine's freezing point falls below that of pure water.",
-        "answer": "",
-        "why": "Dissolved particles get in the way. Water molecules cannot line up into ice. So freezing happens at a lower temperature. How far it drops depends on the number of particles. Not on what they are. Magnesium perchlorate breaks into three ions per formula unit. So i is three. That gives ΔTf = 3 × 1.86 × 8.0 ≈ 45 K. At 8 moles per kilogram the tank is packed. Real ions do interact. So 45 K is a magnitude rather than a value. It is still enough to explain this tank. It drained as a liquid at minus 40.",
+        "question": "What freezing-point drop does the ideal dilute-solution model predict, and what can that number actually support?",
+        "answer": "The ideal model gives about a 45 K depression. At 8 mol/kg that is only an order-of-magnitude guide; the observed liquid tank and measured phase curve, not the dilute formula, set the operating limit.",
+        "why": "The ideal colligative model counts dissolved particles. Magnesium perchlorate contributes roughly three ions per formula unit in that simplified picture, giving ΔTf = 3 × 1.86 × 8.0 ≈ 45 K. But 8 mol/kg is far outside the dilute regime where that equation is quantitatively trustworthy: ion interactions and real phase equilibria matter enormously. So 45 K is a first-order scale, not the tank's certified freezing point. The observation that the brine actually drained as liquid at −40 °C is a measurement; the calculation only shows why a very large depression is plausible.",
         "givens": [],
         "relationship": "ΔTf = i × Kf × m: the freezing point drops by the particle count i times the water constant Kf times the molality m.",
         "calcKey": "SOIL-4"
@@ -3563,7 +3556,7 @@ export const CURRICULUM = {
         "task": "Date the change in the water",
         "question": "What does the shape of that trace say?",
         "answer": "The column filled around sol 261 and has passed the feed straight through since.",
-        "why": "The shape of the record carries the history. A fresh exchange bed keeps the outlet clean while it still has free sites. As the loading front reaches the outlet, the reading climbs toward the inlet value and then stays there. Low, then rising, then high — that is the breakthrough signature. A saltier feed would show at the inlet too, and the inlet is flat. A sensor reset moves a trace within one sol, and this took four. So the trace dates breakthrough to about sol 261, and says the plant has been feeding the reactor unpolished water ever since.",
+        "why": "The shape of the record carries the history. A fresh exchange bed keeps the outlet clean while it still has free sites. As the loading front reaches the outlet, the reading climbs toward the inlet value and then stays there. Low, then rising, then high — that is the breakthrough signature. A saltier feed would show at the inlet too, and the inlet is flat. A sensor reset moves a trace within one sol, and this took four. So the trace dates breakthrough to about sol 261, and says the plant has been sending unpolished water into the electrolysis train ever since, opening a pathway for halide contamination to reach downstream feed.",
         "rebuttals": [
           "The inlet trace is flat across the whole period, so the water arriving at the column has not changed.",
           "Resetting a sensor moves a trace within a single sol, and this step took four of them.",
@@ -3675,8 +3668,8 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Write the rule before the trace moves",
-      "scene": "Abiola is writing a rule for a crew he will never meet. He loads last season’s conductivity trace into the alarm simulator. Once the replay starts, the thresholds are locked and the values run forward.",
-      "takeaway": "A breakthrough threshold must be written before the rise and early enough to cover the action’s lead time.",
+      "scene": "Abiola is freezing the water rule before flight release. He loads the historic conductivity breakthrough into the simulator. Once the replay starts, the thresholds are locked; the same rule will remain for the crew that inherits the plant.",
+      "takeaway": "A breakthrough warning is only useful if its trigger is written before the trace rises and leaves enough lead time for the swap.",
       "place": "Water Plant",
       "at": "columns",
       "guide": "One rule, written before the trace moves, and fixed the moment you release it. Two numbers set it. The changeover takes one update to complete once it is called. And past 3 × baseline the feed water is outside what the reactor will accept. So work backwards from 3 by however far this trace climbs in a single update. Then check the other direction too. Set the line too low and a perfectly good bed gets swapped out for a reading that meant nothing.",
@@ -3685,7 +3678,7 @@ export const CURRICULUM = {
         "Why a threshold has to allow for lead time. The swap is not instant. Call it and one update passes before the fresh bed is in service, and the trace keeps climbing through that update. So the line cannot sit at the limit. It has to sit far enough below the limit that the climb during the swap still lands underneath it. Work backwards from the consequence, never forwards from the reading.",
         "What writing for a crew you will never meet changes. Nobody will be there to exercise judgement when it fires. So the rule has to hold for a trace nobody has seen, including one that rises faster than this one. That argues for margin. But margin costs columns, and swapping a clean bed wastes the very capacity the rule exists to protect. Both errors are real, which is what makes this a decision."
       ],
-      "story": "Abiola is writing a rule for a crew he will never meet. He loads last season’s conductivity trace into the alarm simulator. Once the replay starts, the thresholds are locked and the values run forward.",
+      "story": "Abiola is freezing the water rule before flight release. He loads the historic conductivity breakthrough into the simulator. Once the replay starts, the thresholds are locked; the same rule will remain for the crew that inherits the plant.",
       "game": {
         "type": "TRIGGER",
         "title": "Write the rule before the trace moves",
@@ -3851,7 +3844,7 @@ export const CURRICULUM = {
       "guide": "Same four operations, a much poorer load. So ask a different question this time: what would you be unable to tell apart if a step were missing? A lean load gives little water. So does a broken plant. Something on this list is what separates those two. And note that the warming has a ceiling as well as a floor, because perchlorate salts come apart when they are heated hard.",
       "background": [
         "Why a lean load needs the sample and a rich one does not. Expect eight per cent water and get eight, and nothing needs explaining. Expect nothing in particular and get very little, and you cannot tell a poor load from a plant fault. The sample turns the second sol into a measurement instead of a shrug. That is why it moves to the front when the ground gets worse.",
-        "Why the warming has a ceiling. Perchlorate salts do not simply sit there when heated hard. They decompose, and what comes off includes chlorine compounds that end up in the vapour and then in the water. Chloride is exactly what kills the catalyst. So the hopper is held below that temperature — hot enough to drive the water off, cool enough to leave the salts intact.",
+        "Why the warming has a ceiling. Oxychlorine salts such as perchlorates can decompose when heated hard and create reactive chlorine-bearing products. The plant therefore heats only enough to recover water, and treats high-temperature decomposition as a separate contamination pathway—not as ordinary perchlorate simply dissolving into chloride.",
         "Why the order is the same on a poor load as on a good one. A leaner load carries the same salts in less water. It does not change what depends on what: still sealed before warmed, still condensed before polished. What changes is the yield, and the value of having predicted it. A poorer load changes the numbers and not the sequence."
       ],
       "story": "A load has come in at 3% water instead of eight, and the same four operations have to run on it. Sora Nakagawa, the drill and excavation operator, wants the order confirmed before the hopper is sealed.",
@@ -3863,7 +3856,7 @@ export const CURRICULUM = {
         "task": "Order the operations for a lean load.",
         "question": "Order the operations for a lean load.",
         "answer": "",
-        "why": "Sampling comes first on a lean load for a reason that hardly matters on a rich one. Without a figure to expect, a poor yield and a plant fault look identical. Warming has a ceiling as well as a floor, because perchlorate salts break down when heated hard and put chlorine compounds into the vapour. Measuring what was collected against what was predicted is what makes the sample worth taking. And the polishing rate does not change, because a leaner load carries the same salts in less water.",
+        "why": "Sampling comes first on a lean load because without an expected water yield, poor ground and a plant fault look the same. Warming then has both a floor and a ceiling: enough heat to recover the water, but not so much that oxychlorine salts decompose and create new reactive chlorine-bearing contamination. The vapour is condensed and measured against the predicted yield, and the liquid is polished at the qualified flow before it is sent downstream.",
         "cards": [
           "Weigh the load and sample it, so the water it should give is known in advance.",
           "Seal and warm the hopper, holding it below the temperature the salts decompose at.",
@@ -4080,7 +4073,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 3,
     "units": "K",
     "solution": "ΔTf = 3 × 1.86 × 8.0 ≈ 45 K below the freezing point of pure water.",
-    "explanation": "The particle count is what matters, so a salt giving three ions counts three times. The boiling-point constant and the molar mass belong to other questions."
+    "explanation": "The ideal particle-count model gives about 45 K. At this extreme concentration it is not a precise phase prediction, so the result is used as a scale and checked against measured brine behavior."
   },
   "EQUIL-5": {
     "prompt": "At 593 K: PCH₄ = 1.0 bar, PH₂O = 0.50 bar, PCO₂ = 1.0 bar, PH₂ = 2.0 bar, and Kp = 80.",
@@ -4117,7 +4110,7 @@ export const BALLPARK_CALCS = {
     "explanation": "Qp ≈ 0.016 and Kp = 80. Because Qp is smaller, the mixture moves toward products. Total loop pressure is not substituted separately into Qp."
   },
   "PHASE-4": {
-    "prompt": "About 30 watts of heat reaches the liquid oxygen tank. Vaporising liquid oxygen takes 213,000 joules per kilogram.",
+    "prompt": "For this estimate, the liquid-oxygen tank is held near constant pressure and treated as saturated. About 30 W of heat reaches it; vaporising liquid oxygen takes about 213,000 J/kg.",
     "question": "Estimate the oxygen the tank loses to boil-off each sol.",
     "labels": [
       "30 W  (heat reaching the liquid)",
@@ -4145,7 +4138,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 1.5,
     "units": "kg per sol",
     "solution": "30 W × 88,800 s ÷ 213,000 J/kg ≈ 12.5 kg a sol.",
-    "explanation": "Power times time is energy, and energy divided by the heat of vaporisation is a mass. The boiling point and the molar mass do not enter it."
+    "explanation": "Under the stated pressure-controlled saturated-tank approximation, power × time gives heat and heat ÷ latent heat gives a boil-off mass."
   },
   "ELEC-4": {
     "prompt": "The cell carried 640 amps for 88,800 seconds. Making 1 mole of hydrogen takes 2 moles of electrons, which is 192,970 coulombs.",
@@ -4211,7 +4204,7 @@ export const BALLPARK_CALCS = {
   },
   "ELEC-6": {
     "prompt": "Above the dust the beam is 490 watts a square metre. The station's sun sensor reports an optical depth of 2.4.",
-    "question": "Estimate the direct beam reaching a panel through this dust.",
+    "question": "Estimate the direct solar beam reaching a horizontal reference surface through this dust.",
     "labels": [
       "490 W/m²  (beam above the dust)",
       "2.4  (optical depth today)",
@@ -4237,10 +4230,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 8,
     "units": "W per square metre",
     "solution": "490 × e^(−2.4) ≈ 44 W per square metre of direct beam.",
-    "explanation": "The exponential is why a storm is so much worse than it looks. The panel efficiency and the array area turn this into kilowatts, and are a later step."
+    "explanation": "This exponential gives only the straight-through beam. It is not a prediction that total array electrical output must also be nine percent of clear-sol output."
   },
   "PHASE-8": {
-    "prompt": "Burning methane completely takes two moles of oxygen per mole of methane. Oxygen is 32.0 g per mole and methane is 16.0.",
+    "prompt": "Complete combustion of methane is CH₄ + 2O₂ → CO₂ + 2H₂O. Before reading the vehicle's deliberately fuel-rich flight specification, compute the stoichiometric oxygen-to-methane mass ratio.",
     "question": "Estimate the mass of oxygen needed for each kilogram of methane burned.",
     "labels": [
       "2  (moles of oxygen per mole of methane)",
@@ -4268,7 +4261,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.3,
     "units": "kg of oxygen per kg of methane",
     "solution": "2 × 32.0 ÷ 16.0 = 4.0 kilograms of oxygen for each kilogram of methane.",
-    "explanation": "The mole ratio is 2 to 1 and the mass ratio is 4 to 1, since oxygen is twice as heavy a molecule. The engine actually runs below this, which is a design choice rather than an arithmetic one."
+    "explanation": "The chemistry reference is 4.0 kg O₂/kg CH₄. The vehicle's actual loading ratio is lower by design; the two numbers answer different questions."
   }
 };
 
@@ -4503,7 +4496,7 @@ export const JARGON = [
       "overvoltage",
       "excess voltage"
     ],
-    "def": "The voltage a cell needs above the thermodynamic minimum to run at a useful rate. It leaves as heat.",
+    "def": "The extra electrode driving voltage needed above the reversible potential because real reactions and current paths have kinetic and resistive losses. It contributes to electrical inefficiency and heat; it is not the same thing as the reaction's reversible free-energy voltage.",
     "core": true
   },
   {
@@ -4512,7 +4505,7 @@ export const JARGON = [
       "faradaic efficiency",
       "coulombic efficiency"
     ],
-    "def": "The fraction of the charge passed that actually made the product you wanted.",
+    "def": "The fraction of charge passed that makes the intended product. Side reactions or leakage make the collected amount smaller than Faraday's-law ceiling.",
     "core": true
   },
   {
@@ -4530,7 +4523,7 @@ export const JARGON = [
       "condensation temperature",
       "condenses at"
     ],
-    "def": "The temperature at which vapour pressure reaches the surrounding pressure, so the liquid boils.",
+    "def": "The temperature at which a liquid's vapour pressure matches the surrounding pressure. It is not one universal temperature: change the pressure and the boiling or condensation temperature changes.",
     "core": true
   },
   {
@@ -4584,7 +4577,7 @@ export const JARGON = [
       "perchlorates",
       "perchlorate salt"
     ],
-    "def": "A salt of chlorine and oxygen, common in this ground, very soluble, and the source of the chloride in the water.",
+    "def": "The oxychlorine ion ClO₄⁻. Perchlorate salts are widespread on Mars, dissolve readily and can strongly depress water's freezing point. Perchlorate is chemically distinct from chloride and has to be treated as its own contaminant.",
     "core": true
   },
   {
@@ -4593,7 +4586,7 @@ export const JARGON = [
       "chloride ion",
       "chlorides"
     ],
-    "def": "The ion left when a chlorine-bearing salt dissolves. It sticks to a nickel catalyst and does not come off.",
+    "def": "The chloride ion Cl⁻, found in chloride salts and chemically distinct from perchlorate ClO₄⁻. In this plant, halide breakthrough is tracked because chlorine-bearing contamination reaching the reactor feed can poison nickel.",
     "core": true
   },
   {

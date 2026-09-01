@@ -218,7 +218,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Water first, or never water",
-      "scene": "The contractor lifts at four and wants the yard sorted by then. Nils Sørensen, who runs Fire Command, has hose crews standing by. Some drums are made safe by dilution; others react with water, and a hose is the worst thing that could reach them.",
+      "scene": "Fire Command has hose crews ready, but the mixed cargo contains both ordinary soluble materials and substances for which water can create heat or flammable/corrosive products. The drums cannot be sorted by appearance.",
       "takeaway": "The default response is right for most things and catastrophic for a short list.",
       "place": "Container Yard",
       "guide": "Two bins. Something that simply dissolves is diluted by water and made less dangerous by it. Something that reacts with water makes heat, gas or both, so water is what turns a spill into an event. Sort on what the substance does when water reaches it.",
@@ -226,7 +226,7 @@ export const CURRICULUM = {
         "Why this is the first question at a yard. The default response to almost anything is water — hoses are what a fire crew has. For most of what is here that is right, and for a short list it is the one action that makes the situation worse.",
         "What reacting with water looks like. Alkali metals and hydrides give off hydrogen. Concentrated acids give off enough heat to boil what is poured onto them. Carbides and some chlorides give off gas that is worse than what was in the drum."
       ],
-      "story": "The contractor lifts at four and wants the yard sorted by then. Nils Sørensen, who runs Fire Command, has hose crews standing by. Some drums are made safe by dilution; others react with water, and a hose is the worst thing that could reach them.",
+      "story": "Fire Command has hose crews ready, but the mixed cargo contains both ordinary soluble materials and substances for which water can create heat or flammable/corrosive products. The drums cannot be sorted by appearance.",
       "game": {
         "type": "BELT",
         "title": "Water first, or never water",
@@ -234,14 +234,14 @@ export const CURRICULUM = {
         "play": "Sort the drum labels before the contractor lifts them.",
         "task": "Sort the drum labels before the contractor lifts them.",
         "question": "Send each drum to the bin that says what water would do to it.",
-        "answer": "Anything that dissolves goes left and dilution helps. Anything that reacts with water goes right, and a hose is the last thing it should meet.",
-        "why": "Water is the default response to a spill because it is what everybody has, and for most of a yard it is the right one: a soluble salt or an acid already in dilute solution is made less dangerous by more water, and the concentration is the hazard. The short list is where the default inverts. Alkali metals and hydrides displace hydrogen from water and give off enough heat to light it. Concentrated sulphuric acid releases so much heat on dilution that water poured onto it boils and throws the acid back — which is why the rule is acid into water and never the reverse. Carbides give off acetylene, and some chlorides give off hydrogen chloride gas that is worse in air than the drum was on the ground. Nothing about the drums looks different. The label is the only thing that tells you which list a drum is on, which is why a yard of unlabelled drums is the emergency rather than an inconvenience.",
+        "answer": "Send materials for which controlled water contact only dilutes or dissolves them to the left. Send materials that can generate dangerous heat, flammable gas or corrosive products on contact with water to the right.",
+        "why": "The question is not whether a substance merely dissolves; it is whether contact with water creates a new acute hazard. Many salts and dilute aqueous solutions can be diluted safely under controlled response conditions. Alkali metals, hydrides, carbides and several reactive chlorides generate heat or flammable/corrosive gases. Concentrated sulphuric acid and quicklime can release dangerous heat on wetting. Powdered magnesium can also generate hydrogen. The labels matter because the same hose that helps one spill can worsen another.",
         "belt": {
           "left": {
-            "name": "Water dilutes it"
+            "name": "Controlled water contact is acceptable"
           },
           "right": {
-            "name": "Water reacts"
+            "name": "Keep water away"
           },
           "items": [
             {
@@ -262,7 +262,7 @@ export const CURRICULUM = {
             },
             {
               "name": "Sodium hydroxide pellets",
-              "bin": "left"
+              "bin": "right"
             },
             {
               "name": "Ethanol",
@@ -377,41 +377,41 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "What the position in the table tells you",
-      "scene": "Okonjo stands between two unlabelled drums — one holding sodium hydride, one caesium hydride, the same anion in both. She wants the bench to say which will be the more violent with water before either is opened.",
-      "takeaway": "An element's position in the periodic table predicts how it behaves.",
+      "title": "Which alkali metal is the greater water hazard?",
+      "scene": "Records narrow two unlabelled metal cans to sodium and potassium. Fire Command needs to know which one demands the larger water-exclusion zone before the cans are moved.",
+      "takeaway": "For elemental group-1 metals under comparable conditions, water reactivity generally increases down the group as the outer electron is lost more easily.",
       "place": "Molecular Identification Lab",
-      "guide": "Two drums share an anion, so the anion cannot separate them. Each option offers a different basis for the ranking: position in a group, atomic mass, the shared part, or refusal to predict. Ask what changes down group 1, and why. The table exists to rank two substances a bench has never handled. That ranking is what a crew works to before either drum is opened.",
+      "guide": "The records have already narrowed the problem to two elemental alkali metals. Ask what changes down group 1: shielding rises and ionisation energy falls. That trend is useful here precisely because the chemical form is held fixed.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Okonjo stands between two unlabelled drums — one holding sodium hydride, one caesium hydride, the same anion in both. She wants the bench to say which will be the more violent with water before either is opened.",
+      "story": "Records narrow two unlabelled metal cans to sodium and potassium. Fire Command needs to know which one demands the larger water-exclusion zone before the cans are moved.",
       "game": {
         "type": "CHOICE",
-        "title": "What the position in the table tells you",
+        "title": "Which alkali metal is the greater water hazard?",
         "setup": "Molecular Identification Lab",
-        "play": "Which drum is the more reactive with water, and on what grounds?",
-        "task": "Which drum is the more reactive with water, and on what grounds?",
-        "question": "Which drum is the more reactive with water, and on what grounds?",
-        "answer": "The caesium hydride, because reactivity with water increases down group 1.",
-        "why": "Group 1 reactivity rises going down the group. The outer electron sits further out and is more shielded, so it is lost more easily. That also makes the metal–hydride bond more ionic and easier to break. In both drums it is the hydride ion that attacks water. Caesium is below sodium, so caesium hydride is the more energetic of the two. The anion is shared, which is why the cation decides how violent it is. Note that the same comparison fails on the chlorides: there the cation is already oxidised, and neither drum reacts. This is what the table is for — it lets a bench rank two substances it has never handled, from position alone, before anything is opened.",
+        "play": "Two recovered metal samples are sodium and potassium. Use periodic trends to rank their water reactivity before either container is opened.",
+        "task": "Two recovered metal samples are sodium and potassium. Use periodic trends to rank their water reactivity before either container is opened.",
+        "question": "Two recovered metal samples are sodium and potassium. Use periodic trends to rank their water reactivity before either container is opened.",
+        "answer": "Potassium, because elemental group-1 metals generally become more water-reactive down the group.",
+        "why": "For elemental alkali metals, the outer electron is farther from the nucleus and more shielded going down group 1, so ionisation energy falls. Potassium therefore reacts more vigorously with water than sodium under comparable conditions. The trend applies to the elemental metals; it is not a licence to rank every compound containing sodium or potassium the same way.",
         "rebuttals": [
-          "Atomic mass is not the trend. What matters is how tightly the outer electron is held, and that weakens down the group.",
-          "The hydride ion is what reacts with water in both drums, and a shared anion is the reason the comparison works: it isolates the difference to the cation, which sets how violently.",
-          "Ranking 2 group 1 metals is exactly what periodic trends are for, and running an unknown violent reaction to find out is the wrong order of work."
+          "Sodium is lighter, but lower atomic mass is not what controls the group-1 water-reactivity trend.",
+          "Both metals are water-reactive; the periodic trend still predicts a difference in vigour.",
+          "A trend can rank these elemental metals under comparable conditions even though real hazard response still depends on amount and physical form."
         ],
         "choices": [
-          "The caesium hydride, because reactivity with water increases down group 1.",
-          "The sodium hydride, because sodium is the lighter and lighter elements react faster.",
-          "Neither, because the anion is the same in both drums.",
-          "It cannot be predicted without running both reactions."
+          "Potassium, because elemental group-1 metals generally become more water-reactive down the group.",
+          "Sodium, because the lighter element always reacts faster.",
+          "They should react identically because both form +1 ions.",
+          "No ranking is possible from periodic position even for the elemental metals."
         ],
-        "correctChoice": "The caesium hydride, because reactivity with water increases down group 1."
+        "correctChoice": "Potassium, because elemental group-1 metals generally become more water-reactive down the group."
       },
       "assumes": [
-        "the periodic table groups elements that behave alike",
+        "both samples are elemental alkali metals under comparable conditions",
         "atomic structure, ions and electron configuration — taken as read"
       ],
       "takesAsRead": [
@@ -817,7 +817,7 @@ export const CURRICULUM = {
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
       ],
-      "story": "The weather is changing while the plume is still moving. Two different physics are operating at once here: gas-law behaviour, which says how a fixed amount of substance responds to changes in temperature and pressure, and atmospheric transport, which says where the resulting parcel actually goes. Density relative to air decides whether the cloud hugs the ground or lifts; wind and turbulence decide how fast it dilutes; terrain decides where it pools. Each change on the board pushes on one of those and not necessarily the others, and the neighbourhood downwind is where the arithmetic lands.",
+      "story": "The weather is changing while the volatile fraction is still moving. Gas-law behaviour tells you how a fixed amount responds to temperature and pressure; atmospheric transport tells you where the cloud goes. A vapour denser than the surrounding air can initially slump into low ground, especially near the source, but wind, turbulence, terrain and release temperature decide how long that behaviour persists. A density calculation is therefore a warning about what to inspect, not a street map.",
       "game": {
         "type": "PROTOCOL",
         "title": "Interpret plume behavior",
@@ -826,7 +826,7 @@ export const CURRICULUM = {
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "1. Temperature rises at roughly constant pressure. → Volume rises in proportion to the absolute temperature. 2. External pressure falls for the same gas amount and temperature. → Volume rises in inverse proportion to the pressure. 3. A gas has greater molar mass than surrounding air. → It may initially favour lower-level accumulation, though turbulence matters. 4. Wind direction shifts while the source continues. → The downwind risk corridor must be updated.",
-        "why": "Two different physics are running at once. Gas-law behaviour says how a fixed amount of substance responds to temperature and pressure. Charles and Boyle are two statements about the same gas, one proportional and one inverse. Atmospheric transport says where the parcel actually goes. Density relative to air affects whether the cloud hugs the ground or lifts. Wind and turbulence control dilution, while terrain controls where vapour can pool. Each change on the board pushes on one part of that system, not necessarily the others.",
+        "why": "Gas-law behaviour and plume transport answer different questions. Higher absolute temperature increases the equilibrium volume of a fixed amount of gas at fixed pressure; lower pressure does the same. A vapour denser than ambient air may initially collect in low spots, but mixing and terrain can rapidly dominate. And a wind shift repoints the downwind corridor whether the chemistry changed or not.",
         "rebuttals": [
           "A temperature rise at roughly constant pressure is proportional — twice the absolute temperature, twice the volume.",
           "A pressure drop at constant amount and temperature is inverse — half the pressure, twice the volume.",
@@ -2167,9 +2167,9 @@ export const CURRICULUM = {
     },
     {
       "day": 9,
-      "title": "Predict whether the salty pond freezes",
-      "scene": "The holding pond sits liquid at −4 °C while the freshwater ditch beside it is frozen. Ferreira's analysis gives 1.2 mol of dissolved NaCl per kilogram of water. She asks whether the liquid pond is chemically expected or evidence of an unmeasured heat source.",
-      "takeaway": "Freezing-point depression depends on the number of dissolved particles, so concentration can predict whether a solution remains liquid below 0 °C.",
+      "title": "Will the holding pond freeze tonight?",
+      "scene": "The temporary holding pond feeds the treatment pumps. The forecast low is −4 °C; if the pond freezes at the surface intake, untreated water has to be bypassed or the plant shuts. Ferreira measures 1.2 mol of dissolved NaCl per kilogram of water and asks whether chemistry alone keeps it liquid.",
+      "takeaway": "A colligative-property estimate can decide whether a cold-weather observation is expected chemistry or evidence of another heat source.",
       "place": "Water and Sediment Laboratory",
       "guide": "Five numbers, and two of them are reference points rather than terms. One is the freezing point of pure water; one is the temperature the pond is at. Another is the number of particles each formula unit contributes, which is where the salt does its work. Ask of each whether the relationship needs it or the comparison does. The answer decides whether this is ordinary chemistry or an unmeasured heat source.",
       "background": [
@@ -2177,14 +2177,14 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "The holding pond sits liquid at −4 °C while the freshwater ditch beside it is frozen. Ferreira's analysis gives 1.2 mol of dissolved NaCl per kilogram of water. She asks whether the liquid pond is chemically expected or evidence of an unmeasured heat source.",
+      "story": "This is not a climate calculation; it is an operating decision. Dissolved particles lower water's freezing point, so the measured salt concentration tells the team whether a −4 °C night should stop the temporary treatment train. If the predicted freezing point is lower than the forecast, an extra heater is not the first explanation for liquid water.",
       "game": {
         "type": "BALLPARK",
-        "title": "Predict whether the salty pond freezes",
+        "title": "Will the holding pond freeze tonight?",
         "setup": "Use the salt analysis to predict the phase change before invoking another heat source.",
-        "play": "Use freezing-point depression to estimate the pond freezing point and compare it with −4 °C.",
-        "task": "Use freezing-point depression to estimate the pond freezing point and compare it with −4 °C.",
-        "question": "Should this pond still be liquid at −4 °C?",
+        "play": "Use freezing-point depression to decide whether the saline holding pond can remain liquid at the forecast low of −4 °C.",
+        "task": "Use freezing-point depression to decide whether the saline holding pond can remain liquid at the forecast low of −4 °C.",
+        "question": "Should the saline holding pond remain liquid at −4 °C?",
         "answer": "ΔTf ≈ 2 × 1.86 × 1.2 ≈ 4.5 °C, so the pond should freeze near −4.5 °C. Being liquid at −4 °C is therefore expected.",
         "why": "For an ideal solution, ΔTf = iKf m. Sodium chloride contributes roughly 2 dissolved ions, so i is about 2. With Kf = 1.86 °C kg/mol and m = 1.2 mol/kg, the depression is about 4.5 °C. That puts the expected freezing point near −4.5 °C, so liquid water at −4 °C is plausible without any extra heat source. The estimate is imperfect at high salt concentration, but it gives the correct scale and direction.",
         "rebuttals": [
@@ -2393,38 +2393,38 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "Map concentration with limited samples",
-      "scene": "Reyes wants a concentration map of 11 kilometres of river for the city, and the laboratory can run 30 samples. The 2 known hot spots are 400 metres apart, and the field kit reads to plus or minus 30% against the laboratory's 5.",
-      "takeaway": "Spatial coverage without analytical validity—or validity without spatial coverage—cannot protect the city.",
+      "title": "Spend thirty laboratory samples where they change the decision",
+      "scene": "Reyes needs a defensible map of eleven kilometres of river. The field kit can provide dense screening but is much noisier than the laboratory. Thirty laboratory analyses must cover the intake decision, movement of the contamination, and quality control.",
+      "takeaway": "Decision-focused sampling still needs spatial sentinels and quality control; precision at one point is not representativeness.",
       "place": "Quality Assurance Desk",
-      "guide": "Every option here buys something real, and they trade against one another. Coverage of the river runs against confidence in each number, and both against thirty samples. Ask of each what decision it improves. Perfect chemistry where nobody drinks misleads. So does dense coverage with an unproven method. Every decision the city makes happens in one place, and detail elsewhere is detail nobody acts on.",
+      "guide": "The field kit already buys coverage. Spend the scarce laboratory runs on the places and checks that can overturn the reopening decision: the intake/endpoints, movement sentinels, and quality control.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "The city wants a concentration map of 11 kilometres of river, and the laboratory can run 30 samples. The 2 known hot spots are 400 metres apart, and the field kit reads to plus or minus 30% against the laboratory's 5. A map is a compromise between two things that both cost money: analytical validity, which is whether each number can be trusted, and spatial coverage, which is whether the numbers are in the places the decision depends on. Neither alone protects anybody — perfect chemistry at the wrong points, or dense sampling with an unvalidated method, both produce a confident map that misleads. Decide where the decisions actually get made, then spend on the sampling that constrains them.",
+      "story": "A useful sampling plan spends precision where the decision is made without pretending the rest of the river does not exist. The field kit can screen densely; the scarce laboratory slots should anchor the intake and distribution decision, include upstream and downstream sentinels to detect movement, and reserve replicates, blanks and spikes so the map can fail visibly instead of silently.",
       "game": {
         "type": "CHOICE",
-        "title": "Map concentration with limited samples",
-        "setup": "You cannot sample every metre of river. Where do the samples go?",
-        "play": "You cannot sample every metre of river. Where do the samples go?",
-        "task": "You cannot sample every metre of river. Where do the samples go?",
-        "question": "You cannot sample every metre of river. Where do the samples go?",
-        "answer": "Densely, around the drinking-water intake.",
-        "why": "A map trades off two things that both cost money. Analytical validity is whether each number can be trusted. Spatial coverage is whether the numbers sit where the decision is made. Neither alone protects anybody: perfect chemistry at the wrong points and dense sampling with an unproven method both produce a confident map that misleads. Every decision the city is about to make happens at the intake, so detail anywhere else is detail nobody acts on.",
+        "title": "Spend thirty laboratory samples where they change the decision",
+        "setup": "You have only thirty high-quality laboratory analyses for eleven kilometres of river.",
+        "play": "Choose the sampling design that protects the intake decision while still detecting transport and laboratory failure.",
+        "task": "Choose the sampling design that protects the intake decision while still detecting transport and laboratory failure.",
+        "question": "Which design makes the strongest reopening decision with only thirty laboratory samples?",
+        "answer": "Cluster laboratory samples at the intake and representative endpoints, add upstream/downstream sentinels over time, and reserve some runs for blanks, spikes and duplicates.",
+        "why": "The intake deserves the densest high-quality sampling because reopening turns on it, but putting all thirty samples there leaves transport and background unconstrained. Even spacing all thirty once along the river spreads precision too thin at the decision point and says little about time. A mixed design uses the noisy field kit for coverage, anchors the intake with laboratory analyses, places upstream/downstream sentinels, and spends some runs on quality control.",
         "rebuttals": [
-          "Longitudinal sampling captures transport and is the second call. It answers where the contaminant is going rather than what the intake is drawing.",
-          "Replicates, blanks and spikes make each number defensible and place none of them. They are how you sample, not where.",
-          "Sampling the stained water samples the appearance. The compound that matters here is colourless."
+          "All thirty at the intake would measure one place very well and leave movement and background untested.",
+          "One evenly spaced snapshot across eleven kilometres can miss time variability and undersample the decision point.",
+          "Known hot spots matter, but sampling only them cannot tell whether the intake or downstream reach is safe."
         ],
         "choices": [
-          "Densely, around the drinking-water intake.",
-          "Spread along the river, upstream and downstream, over several days.",
-          "Into replicates, blanks and spikes at every site already planned.",
-          "Wherever the water is visibly stained."
+          "Cluster laboratory samples at the intake and representative endpoints, add upstream/downstream sentinels over time, and reserve some runs for blanks, spikes and duplicates.",
+          "Use all thirty at the intake so the one legal decision point has the smallest possible statistical error.",
+          "Space all thirty evenly along the eleven kilometres on one morning.",
+          "Use all thirty on the two known hot spots because they contain the highest concentrations."
         ],
-        "correctChoice": "Densely, around the drinking-water intake."
+        "correctChoice": "Cluster laboratory samples at the intake and representative endpoints, add upstream/downstream sentinels over time, and reserve some runs for blanks, spikes and duplicates."
       },
       "assumes": [
         "a map is only worth what the decisions it supports are worth"
@@ -2561,24 +2561,24 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "Reading a mass spectrum",
-      "scene": "Two candidate compounds fit the chromatography peak equally well. Their proposed formulas differ by one oxygen atom, and Okonjo has already measured the ion from that same fraction. Haddad wants the tie broken before release paperwork is signed.",
-      "takeaway": "A mass spectrum measures mass-to-charge, which distinguishes formulas that other methods cannot.",
+      "title": "Name the last unresolved treatment product",
+      "scene": "The last unresolved treatment-product peak has two candidate formulas that differ by one oxygen atom. Chromatography cannot separate the identities, but Okonjo has the molecular-ion measurement from that fraction. The release panel must know which product the water actually contains.",
+      "takeaway": "A release limit applies to a chemical identity, so resolving one formula can be as important as measuring its concentration.",
       "place": "Quantitative Analysis Suite",
-      "guide": "The two candidates differ by one oxygen, so the question is which measurement responds to that difference. Sort the options by what each one actually measures: how fast something travels, how much of it there is, or what it weighs. Retention time and peak area are both real numbers about the wrong property. Release paperwork gets signed on this identification, and one atom is the whole of the difference.",
+      "guide": "The candidates differ by one oxygen atom. Choose the measurement that responds directly to molecular mass rather than retention time or abundance.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Two candidate compounds fit the chromatography peak equally well. Their proposed formulas differ by one oxygen atom, and Okonjo has already measured the ion from that same fraction. Haddad wants the tie broken before release paperwork is signed.",
+      "story": "The last unresolved treatment-product peak has two candidate formulas that differ by one oxygen atom. Chromatography cannot separate the identities, but Okonjo has the molecular-ion measurement from that fraction. The release panel must know which product the water actually contains.",
       "game": {
         "type": "CHOICE",
-        "title": "Reading a mass spectrum",
+        "title": "Name the last unresolved treatment product",
         "setup": "Quantitative Analysis Suite",
-        "play": "Two candidates differing by one oxygen. What settles it, and how?",
-        "task": "Two candidates differing by one oxygen. What settles it, and how?",
-        "question": "Two candidates differing by one oxygen. What settles it, and how?",
+        "play": "Two candidate transformation products differ by one oxygen atom. Decide which mass-spectral feature can distinguish them before release paperwork is signed.",
+        "task": "Two candidate transformation products differ by one oxygen atom. Decide which mass-spectral feature can distinguish them before release paperwork is signed.",
+        "question": "Two candidate transformation products differ by one oxygen atom. Decide which mass-spectral feature can distinguish them before release paperwork is signed.",
         "answer": "The molecular ion's mass-to-charge ratio, which differs by 16 between them.",
         "why": "A mass spectrometer sorts ions by mass divided by charge. For a singly charged molecular ion, the molecular peak therefore reports molecular mass directly. 1 extra oxygen changes that mass by about 16 units, far larger than the ambiguity in the chromatographic retention time. Peak area instead measures response and abundance, not identity. The mass result supplies a different physical constraint from the separation. That is why it can break a tie between two candidates that chromatography alone cannot distinguish.",
         "rebuttals": [
@@ -2673,25 +2673,25 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "Approve, condition, or hold",
-      "scene": "Distribution pumps are idle while the board meets. The verification result is 9 units against a limit of 10, plus or minus 2. Reyes has operators waiting at the valves, and the city has already been given two different reopening times.",
-      "takeaway": "Changing a best estimate and reducing uncertainty are different operations; a boundary decision depends on where the full supported range lies.",
+      "scene": "Distribution pumps are idle while the board meets. The best estimate is 9 against a limit of 10, and the prewritten decision band extends two units either side. Reyes has operators waiting at the valves, and the city has already been given two different reopening times.",
+      "takeaway": "Changing a best estimate and reducing uncertainty are different operations; a boundary decision must use the uncertainty rule written before the result arrives.",
       "place": "Independent Review Board",
       "guide": "The band on screen is every result the measurement permits, not the one most likely — nine against a limit of ten, give or take two, so part of it is over the limit. Two pieces of follow-up work are available, and each does something different to the band: watch what happens to its middle and to its width separately. Apply what you would authorise, then say whether the release criterion is met.",
       "background": [
-        "What the band is. A single number with a plus-or-minus on it is a claim about a range: any value inside is consistent with what was measured. Reporting only the middle throws that away. The board is not asking whether the best estimate is under the limit — it is asking whether a result over the limit has been ruled out.",
-        "Moving the middle is not narrowing the band. A rerun that finds a bias corrects where the band sits and leaves its width alone: the same uncertainty, somewhere else. Only new information — more samples, a better method, an independent measurement — makes the band narrower. Both are useful; only one of them can clear a limit that the width is crossing.",
+        "What the band is. It is the guard band the team chose in advance for this decision, based on the method and sampling uncertainty. It is not a statement that every value inside is equally likely or that values outside are impossible. Its purpose is operational: if the upper edge crosses the limit, the unconditional release rule has not been met.",
+        "Moving the centre is not the same as narrowing uncertainty. A rerun that identifies a bias can move the estimate; more representative sampling or a better method can reduce uncertainty. A boundary decision needs both effects tracked separately.",
         "What is riding on the difference. Distribution pumps are idle and the city has already been given two reopening times. A decision taken on the middle alone reopens the network with a real chance of being over the limit, and the second retraction costs more than the first did."
       ],
-      "story": "The review board's decision is not binary, and treating it as though it were is how emergencies end badly in both directions — a premature release exposes the city, an indefinite hold deprives hospitals and homes of water they need now. A conditional approval with monitoring, staged reopening and defined triggers is a way of acting under uncertainty without pretending it has been resolved. What the board decides has to be defensible to a city that has been told several things already.",
+      "story": "The rule was written before the result arrived: the city will not call the water unconditionally clear while the predefined decision band still crosses the limit. That band is a decision guardrail built from the method and sampling uncertainty; it is not a claim that every value inside is equally likely or that values outside are impossible. Follow-up work can shift the estimate, narrow the band, or both. The board has to distinguish those operations before it opens the valves.",
       "game": {
         "type": "CLOUD",
         "title": "Approve, condition, or hold",
-        "setup": "The verification result is 9 units against a limit of 10, plus or minus 2. What does the board decide?",
+        "setup": "The verification result is 9 units against a limit of 10, with a predefined decision band extending ±2 units. What does the board decide?",
         "play": "Use the follow-up evidence to move or narrow the uncertainty band, then decide whether the valves can be opened under the release criterion.",
         "task": "Use the follow-up evidence to move or narrow the uncertainty band, then decide whether the valves can be opened under the release criterion.",
-        "question": "Can the whole plausible band be brought below the limit, or only its central value? Place the bars to report the mean and its one-sigma uncertainty.",
-        "answer": "Neither follow-up alone clears the strict limit. Apply both: the band becomes 8.6 ± 1.0, so its upper edge is 9.6 and the full supported range lies below 10.",
-        "why": "The initial result is 9 ± 2, so its supported range reaches to 11 and crosses the limit of 10. An independent rerun can move the centre without proving the original uncertainty was too wide. Representative sampling can narrow the range without changing the central estimate. In this authored case, neither action alone clears the boundary. Together they produce 8.6 ± 1.0, whose upper edge is 9.6. Only then does the evidence support an unconditional numerical pass rather than a reversible policy decision under unresolved uncertainty.",
+        "question": "Can the entire predefined decision band be brought below the limit, or only its best estimate?",
+        "answer": "Neither follow-up alone clears the prewritten rule. Apply both: the decision band becomes 8.6 ± 1.0, so its upper edge is 9.6, below the limit of 10.",
+        "why": "The initial decision band is 9 ± 2, so its upper edge reaches 11 and fails the prewritten rule. An independent rerun can correct the centre without proving the original spread was too wide. Representative endpoint sampling can narrow the band without necessarily moving the centre. In this authored case neither action alone clears the boundary; together they yield 8.6 ± 1.0, whose upper decision edge is 9.6. That satisfies the rule that was chosen before the answer was known.",
         "cloud": {
           "bounds": {
             "min": -16,
@@ -2718,7 +2718,7 @@ export const CURRICULUM = {
               "amount": 0.5
             }
           ],
-          "hint": "Apply the available follow-up evidence and watch both the centre and the width. The release criterion is cleared only when the entire displayed band lies below the boundary.",
+          "hint": "Apply the available follow-up evidence and watch the centre and width separately. The release rule is met only when the entire predefined decision band lies below the boundary.",
           "commit": "Declare it ready"
         }
       },
@@ -3645,7 +3645,7 @@ export const CURRICULUM = {
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
       ],
-      "story": "Acidic water and two different metals in contact are all corrosion needs. Corrosion is an electrochemical circuit with four parts that must all be present: an anode where metal is oxidised and lost, a cathode where a matching reduction occurs, an electron path through the metal, and an ion path through the water. Break any one of them and the circuit stops. That is why treating a corroding pipe as a materials problem alone misses most of the available fixes, and why the intake pipeline for a city's drinking water is a bad place to guess.",
+      "story": "The failed joint is an electrochemical circuit. Metal is lost at an anode, a reduction reaction consumes electrons at a cathode, the pipe or bonding cable carries electrons, and the water carries ions. Different metals can create a strong galvanic driving force; acidic or conductive water can accelerate the current, but acidity is not one of the four required circuit elements. Break the electrical coupling or another essential path and the galvanic cell stops.",
       "game": {
         "type": "PROTOCOL",
         "title": "Find the anode and cathode",
@@ -3654,7 +3654,7 @@ export const CURRICULUM = {
         "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "1. Metal atoms lose electrons and enter solution. → Anodic oxidation site. 2. A surface consumes electrons in a reduction reaction. → Cathodic reduction site. 3. Two different metals are electrically connected in an electrolyte. → A galvanic cell can form. 4. A protective coating is breached at one small point. → Localized attack may concentrate at the defect.",
-        "why": "Corrosion is an electrochemical circuit with four required parts. The anode is where metal is oxidised and lost. The cathode consumes the released electrons in a reduction reaction. Electrons also need a conducting path through the metal, while ions need a path through the water. Breaking any one part stops the circuit. Two different metals connected in an electrolyte can supply all four. A small coating breach can then concentrate anodic current into one patch and drive rapid local attack.",
+        "why": "Corrosion is an electrochemical circuit: oxidation at the anode, reduction at the cathode, an electron path through connected metal, and an ionic path through the electrolyte. Two dissimilar metals can increase the galvanic driving force. A coating defect concentrates current into a small area, which is why local penetration can be much faster than the average mass-loss rate suggests.",
         "rebuttals": [
           "Metal atoms losing electrons and entering solution is oxidation, and the site where it happens is the anode. This is where the metal is actually lost.",
           "A surface consuming electrons in a reduction reaction is the cathode. It is the other half of the circuit and it loses no metal.",
@@ -3885,7 +3885,7 @@ export const CURRICULUM = {
       "day": 6,
       "title": "Select a treatment train",
       "scene": "Osei spreads four unit processes on the table and wants them in an order before the plant commits. Riverton has one intake and cannot run this experiment twice while the water is off.",
-      "takeaway": "A treatment train is ordered by what each stage leaves the next one to work with.",
+      "takeaway": "A treatment train is ordered by the chemical form each stage creates for the next one.",
       "place": "Byproduct Analysis Lab",
       "guide": "These four are not independent machines. Each changes the chemical form that reaches the next. Ask of each card what has to exist before it can do anything at all. Nothing can be settled or filtered until there is a solid. There is no solid until the metal is in the right state at the right pH. Riverton has one intake and cannot run this twice.",
       "background": [
@@ -3893,7 +3893,7 @@ export const CURRICULUM = {
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
         "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
       ],
-      "story": "Four unit processes are on the table and the plant wants them in an order. A treatment train is not four independent machines: each one changes the chemical form of what reaches the next, so a stage that receives the wrong form does nothing at all — or worse than nothing, because a carbon bed that receives suspended solids blinds in hours and stops polishing anything. Solubility is the pivot. Riverton has one intake and cannot run this experiment twice while the water is off.",
+      "story": "Four unit processes are on the table and the plant wants them in an order. Each stage changes the chemical form reaching the next. Oxidation first creates the metal state that can precipitate; pH adjustment creates the solid; settling and filtration remove that solid; only then does a selective dissolved-ion polishing step make sense. Sending suspended solids into an ion-exchange or adsorptive polishing bed wastes capacity and can foul it.",
       "game": {
         "type": "SEQUENCE",
         "title": "Select a treatment train",
@@ -3901,19 +3901,19 @@ export const CURRICULUM = {
         "play": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
         "question": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check.",
-        "answer": "1. Oxidise the dissolved metal to the oxidation state that forms an insoluble hydroxide. 2. Raise the pH to the window where that hydroxide is least soluble. 3. Settle and filter, taking the solid out of the water. 4. Polish the filtered water on activated carbon for what stayed dissolved.",
-        "why": "A treatment train is not four independent machines. Each stage changes the chemical form reaching the next stage. Oxidation must first create the metal state that can form an insoluble hydroxide. The pH adjustment then creates that solid. Only after a solid exists can settling and filtration remove it. Activated carbon belongs last as a polishing step for material that remains dissolved. Sending suspended solids to carbon too early can blind the bed and disable everything downstream.",
+        "answer": "1. Oxidise to the precipitable oxidation state. 2. Adjust pH to form the insoluble hydroxide. 3. Settle and filter the solid. 4. Polish the remaining dissolved ions with a selective exchange or adsorptive medium matched to the contaminant.",
+        "why": "Oxidation must first create the oxidation state that forms the intended insoluble hydroxide. The pH adjustment then drives precipitation. Settling and filtration remove the resulting solids. A selective ion-exchange or contaminant-specific adsorptive medium belongs last to polish the dissolved fraction that remains. The choice of polishing media must match the ion and water chemistry; generic carbon is not a universal dissolved-metal treatment.",
         "rebuttals": [
-          "Oxidise first. Precipitation has nothing to work with until the metal is in the oxidation state that forms an insoluble hydroxide.",
-          "Raise the pH second, into the window where that hydroxide is least soluble. This is the step that actually makes the solid.",
-          "Settle and filter third, once there is a solid to remove. Filtering dissolved metal removes nothing.",
-          "Carbon last, as polishing. Send solids to a carbon bed and it blinds within hours, and everything downstream of it stops."
+          "Oxidise first. Precipitation cannot target an oxidation state that has not been created.",
+          "Raise the pH second into the window where the intended hydroxide is least soluble.",
+          "Settle and filter third, after a solid actually exists.",
+          "Polish the remaining dissolved ions last with a selective exchange or adsorptive medium matched to the contaminant."
         ],
         "cards": [
-          "Oxidise the dissolved metal to the oxidation state that forms an insoluble hydroxide.",
+          "Oxidise the dissolved metal to the oxidation state that forms the intended insoluble hydroxide.",
           "Raise the pH to the window where that hydroxide is least soluble.",
-          "Settle and filter, taking the solid out of the water.",
-          "Polish the filtered water on activated carbon for what stayed dissolved."
+          "Settle and filter, taking the precipitated solid out of the water.",
+          "Polish the remaining dissolved ions with a selective ion-exchange or adsorptive medium."
         ],
         "order": [
           0,
@@ -4147,41 +4147,42 @@ export const CURRICULUM = {
     },
     {
       "day": 10,
-      "title": "Fund the chemical legacy",
-      "scene": "The temporary laboratory is being packed up as the emergency budget closes. The plant is back online, but sediment still holds an estimated 71 kilograms. Stavros built four monitoring stations during the response; only one has permanent funding after next month.",
-      "takeaway": "Stewardship continues after concentrations fall below the immediate threshold.",
+      "title": "Sign the reopening order",
+      "scene": "The state reviewer has accepted the analytical package. Representative endpoint water meets the release rule, but contaminated sediment remains under management, the secondary transformation product is still provisional, and the intake main is safe only while chemistry and corrosion triggers stay inside their operating window. The mayor puts the reopening order in front of you.",
+      "takeaway": "A defensible reopening is conditional on the controls and monitoring that make the exposure pathway safe.",
       "place": "Long-Term Monitoring Office",
-      "guide": "All four options are defensible uses of the last of the money, and they protect different things. Ask of each what would go unnoticed if it were not funded. Seventy-one kilograms are in sediment, twenty are unaccounted for, and a transformation product is still being characterised. None of that was destroyed; it fell below a threshold. What outlasts a release is the part that went quiet, not the part that stopped.",
+      "guide": "Separate the drinking-water decision from the unresolved reservoirs. The water pathway now passes its rule. The remaining question is whether the controls and monitoring that made that true stay attached to the reopening order.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "The immediate emergency is over and the money is about to move somewhere else. What outlasts a release is the contamination that fell below a threshold rather than disappearing, the sediment and infrastructure holding it, and the institutional memory of how any of this was measured. Long-term monitoring, resilient treatment and preserved methods are what convert 15 days of crisis work into capacity the city keeps. What the city keeps is what will still matter when nobody remembers the fire.",
+      "story": "Reopening does not mean every molecule is gone. It means the exposure pathway the city is about to use is controlled well enough for the decision, with the unresolved hazards named, monitored and tied to triggers that reverse the decision if conditions change. The scientifically strongest choice is therefore neither a permanent all-clear nor an indefinite hold for zero contamination. It is a staged reopening whose controls remain part of the evidence package after the cameras leave.",
       "game": {
         "type": "CHOICE",
-        "title": "Fund the chemical legacy",
+        "title": "Sign the reopening order",
         "setup": "The emergency money is about to move elsewhere. What does the city keep?",
-        "play": "The emergency money is about to move elsewhere. What does the city keep?",
-        "task": "The emergency money is about to move elsewhere. What does the city keep?",
-        "question": "The emergency money is about to move elsewhere. What does the city keep?",
-        "answer": "Long-term water, sediment and air monitoring.",
-        "why": "Nothing was destroyed. 71 kilograms are in sediment, and 20 are unaccounted for. A transformation product is also still being characterised. These problems are below a threshold, not gone. Monitoring across water, sediment and air is the only item on the list that would notice any of it coming back. Corrosion control protects the infrastructure, which is a different hazard. Open records preserve the method and cost almost nothing. What outlasts a release is the part that fell quiet rather than the part that stopped.",
+        "play": "Use the final evidence package to choose the action that the science can actually support.",
+        "task": "Use the final evidence package to choose the action that the science can actually support.",
+        "question": "Use the final evidence package to choose the action that the science can actually support.",
+        "answer": "Reopen in stages under the verified treatment conditions, keep the long-term water, sediment and air monitoring, and automatically hold again if defined chemistry or corrosion triggers fail.",
+        "why": "The treated water now passes the prewritten release rule at representative endpoints, so an indefinite hold is no longer supported by the drinking-water evidence. But sediment, a provisional transformation product and corrosion remain open hazards. Reopening unconditionally would erase the very limits the evidence package documents. A staged reopening with continued water/sediment/air monitoring and automatic hold triggers matches what is known and preserves a way to act if the system changes.",
         "rebuttals": [
-          "Corrosion control and resilience protect the infrastructure, which is a different hazard from the one still sitting in the reservoir.",
-          "Open records and reference materials preserve the method, cost very little, and should be done regardless of what this budget funds.",
-          "Closing the records destroys the only account of how any of this was measured, and the next city to burn a freight yard starts from nothing."
+          "An unconditional all-clear discards the unresolved sediment, transformation-product and corrosion conditions.",
+          "Waiting for every contaminant in every reservoir to reach zero is not the release standard and can keep essential water shut without an exposure-based reason.",
+          "Reopening while postponing monitoring removes the mechanism that would detect remobilisation or treatment drift."
         ],
         "choices": [
-          "Long-term water, sediment and air monitoring.",
-          "Corrosion control and treatment-plant resilience.",
-          "Open analytical records, reference materials and validated methods.",
-          "Nothing — the records can be closed once the review is published."
+          "Reopen in stages under the verified treatment conditions, keep the long-term water, sediment and air monitoring, and automatically hold again if defined chemistry or corrosion triggers fail.",
+          "Reopen unconditionally and close the emergency record because the treated water is below the limit.",
+          "Keep the intake shut until sediment and every transformation product are reduced to zero.",
+          "Reopen now and decide whether to fund monitoring after the emergency budget closes."
         ],
-        "correctChoice": "Long-term water, sediment and air monitoring."
+        "correctChoice": "Reopen in stages under the verified treatment conditions, keep the long-term water, sediment and air monitoring, and automatically hold again if defined chemistry or corrosion triggers fail."
       },
       "assumes": [
-        "falling below a threshold is not the same as being gone"
+        "representative endpoint water satisfies the prewritten release rule",
+        "the treatment and corrosion controls are operating inside their validated ranges"
       ],
       "concept": {
         "n": 28,

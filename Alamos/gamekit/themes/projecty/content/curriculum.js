@@ -146,7 +146,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Radioactive decay law",
-      "scene": "A tracer sample has sat through a six-hour shift, and Seaborg needs to know what is left in it before the next separation starts. Every count taken here is a count of something that has been decaying since it was made.",
+      "scene": "A tracer sample has sat through a six-hour chemistry shift, and the separation team needs to know what remains before the next measurement starts. Every count here belongs to something that has been decaying since it was made.",
       "takeaway": "Half-life fixes both how a population falls with time and, through the decay constant, its activity at any moment.",
       "place": "",
       "guide": "Four numbers, and two of them are counts of half-lives that differ by a factor of ten. Ask of each whether it is a population, a fraction, or a number of halvings. Six hours of two-hour halvings is not thirty of them. And each halving multiplies by the same fraction.",
@@ -154,7 +154,7 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "A tracer sample has sat through a six-hour shift, and Seaborg needs to know what is left in it before the next separation starts. Every count taken here is a count of something that has been decaying since it was made.",
+      "story": "A tracer sample has sat through a six-hour chemistry shift, and the separation team needs to know what remains before the next measurement starts. Every count here belongs to something that has been decaying since it was made.",
       "game": {
         "type": "BALLPARK",
         "title": "Radioactive decay law",
@@ -425,51 +425,39 @@ export const CURRICULUM = {
     },
     {
       "day": 6,
-      "title": "Spontaneous fission and neutron backgrounds",
-      "scene": "A sample on the bench is emitting neutrons all by itself, at a rate Graves can measure on her counters. 2 assembly schemes are on the table, and one takes 1000 times longer than the other.",
-      "takeaway": "The same background source term is negligible or decisive depending on how long the system is exposed to it.",
+      "title": "How large is the neutron background?",
+      "scene": "The new reactor-produced plutonium gives a neutron background far above the earlier material. Before anyone connects that fact to a program decision, Bacher wants the size of the background written as an ordinary counting problem.",
+      "takeaway": "The decisive historical fact was a reproducibly higher spontaneous-neutron background in reactor-produced plutonium.",
       "place": "",
-      "guide": "Four numbers: two rates and two windows. Ask of each which assembly it belongs to. The rate is the same either way and the window is not. A thousandth of a second gives a thousand times as many chances as a millionth. The material stays identical while the verdict changes.",
+      "guide": "Rate times time gives an expected count. This is a laboratory-background calculation, not a device-timing calculation. Pick the measured rate and the observation time, then check whether the result is large enough that ordinary Poisson fluctuation cannot explain the difference from the old samples.",
       "background": [
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "A sample on the bench is emitting neutrons all by itself, at a rate Graves can measure on her counters. 2 assembly schemes are on the table, and one takes 1000 times longer than the other.",
+      "story": "The new reactor-produced plutonium gives a neutron background far above the earlier material. Before anyone connects that fact to a program decision, Bacher wants the size of the background written as an ordinary counting problem.",
       "game": {
         "type": "BALLPARK",
-        "title": "Spontaneous fission and neutron backgrounds",
+        "title": "How large is the neutron background?",
         "setup": "A sample emits spontaneous-fission neutrons at about 10^4 per second. A slow mechanical assembly takes about 10^-3 s; a fast one takes about 10^-6 s.",
-        "play": "Estimate the neutrons expected during the slow assembly, then compare with the fast one.",
-        "task": "Estimate the neutrons expected during the slow assembly, then compare with the fast one.",
-        "question": "Estimate the neutrons expected during the slow assembly, then compare with the fast one.",
-        "answer": "About 10 neutrons for the slow assembly, against about 0.01 for the fast 1.",
-        "why": "A spontaneous-fission source gives a steady random background of neutrons. Whether that background matters depends on the time spent vulnerable to an early neutron. The expected number in that window is simply rate times time. A process lasting a thousandth of a second sees 1000 times as many chances as 1 lasting a millionth. The material and source rate can stay the same while the timing changes the verdict completely. That is why the arithmetic matters.",
+        "play": "Use a measured background rate and counting interval to estimate the number of spontaneous-neutron counts expected during a laboratory measurement.",
+        "task": "Use a measured background rate and counting interval to estimate the number of spontaneous-neutron counts expected during a laboratory measurement.",
+        "question": "Use a measured background rate and counting interval to estimate the number of spontaneous-neutron counts expected during a laboratory measurement.",
+        "answer": "About 1,200 excess counts in 10 minutes.",
+        "why": "A count rate becomes comparable only when it is tied to an observation time. Here the new sample averages 120 counts per minute above background for 10 minutes, so about 1,200 excess counts are expected. The square-root statistical fluctuation of a count this large is only a few tens of counts, far smaller than the excess. That does not by itself choose a weapon architecture; it establishes that the material property is real enough to force the next question.",
         "givens": [
-          "Expected events = rate x exposure time",
-          "Slow assembly window = 10^-3 s",
-          "Fast assembly window = 10^-6 s"
+          "Excess count rate = 120 counts/min",
+          "Observation time = 10 min"
         ],
-        "relationship": "Expected events = the rate × the length of the window they could land in.",
+        "relationship": "Expected counts = count rate × observation time.",
         "calcKey": "T-6"
       },
       "assumes": [
-        "some heavy nuclei split without being hit by anything",
-        "radioactive decay modes: alpha, beta, gamma — taken as read"
-      ],
-      "takesAsRead": [
-        {
-          "n": 4,
-          "c": "Radioactive decay modes: alpha, beta, gamma"
-        }
+        "some heavy nuclei split without being hit by anything"
       ],
       "concept": {
-        "n": 7,
-        "c": "Fission, neutron multiplication and chain reactions",
-        "of": 30,
-        "rests": [
-          "Nuclear structure: protons, neutrons, isotopes, nuclide notation",
-          "Radioactive decay modes: alpha, beta, gamma"
-        ]
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     },
     {
@@ -520,31 +508,31 @@ export const CURRICULUM = {
     },
     {
       "day": 8,
-      "title": "Competing timescales",
-      "scene": "Kistiakowsky's assembly has failed twice on the bench while every channel checks out alone. On a test fixture, two initiation channels carry different timestamps, and the team has the measured wave speed and a ruler.",
-      "takeaway": "Processes separated by many orders of magnitude often require different numerical or experimental treatments.",
+      "title": "How far can a timing mismatch propagate?",
+      "scene": "An inert materials test sends a stress wave through a plate while two diagnostic channels start a fraction of a microsecond apart. The team wants to know whether that timing mismatch is large enough to matter to the measurement.",
+      "takeaway": "A small timing error becomes a spatial error when a physical front is moving quickly.",
       "place": "",
       "guide": "Four numbers, and two of them are channel spreads a hundred apart. Ask of each which spread the measurement gave. And note why this matters at all. Several clocks run at once here, and a timing disagreement becomes a distance the wave has already travelled.",
       "background": [
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "Kistiakowsky's assembly has failed twice on the bench while every channel checks out alone. On a test fixture, two initiation channels carry different timestamps, and the team has the measured wave speed and a ruler.",
+      "story": "An inert materials test sends a stress wave through a plate while two diagnostic channels start a fraction of a microsecond apart. The team wants to know whether that timing mismatch is large enough to matter to the measurement.",
       "game": {
         "type": "BALLPARK",
-        "title": "Competing timescales",
-        "setup": "A shock front crosses a test fixture at about 8 x 10^3 m/s. 2 initiation channels fire 0.5 microseconds apart.",
-        "play": "Estimate how far ahead the early side runs, in millimetres.",
-        "task": "Estimate how far ahead the early side runs, in millimetres.",
-        "question": "Estimate how far ahead the early side runs, in millimetres.",
-        "answer": "About 4 mm.",
-        "why": "Several clocks run at once. Neutron generations multiply on one. The material compresses on another. The assembly begins to blow itself apart on a third. The device works only if multiplication outruns disassembly. These processes differ by many powers of ten, so no single calculation or experiment can hold all of them. The interfaces between them are where it gets hard. This is one: a timing disagreement becomes a geometric error at the speed the wave travels. Half a microsecond is millimetres of asymmetry.",
+        "title": "How far can a timing mismatch propagate?",
+        "setup": "An inert stress wave crosses a test plate while two diagnostic trigger paths start 0.5 microseconds apart.",
+        "play": "Estimate the separation produced when two diagnostic triggers begin an inert stress-wave measurement at slightly different times.",
+        "task": "Estimate the separation produced when two diagnostic triggers begin an inert stress-wave measurement at slightly different times.",
+        "question": "Estimate the separation produced when two diagnostic triggers begin an inert stress-wave measurement at slightly different times.",
+        "answer": "About 2.5 mm.",
+        "why": "Distance equals speed times time. In the inert plate, a stress wave moving at 5×10^3 m/s travels 2.5 mm during a 0.5 microsecond timing mismatch. That converts a timing specification into the spatial error it creates in the measurement. The lesson applies to any fast diagnostic system: time synchronization matters because moving phenomena turn clock error into position error.",
         "givens": [
-          "Wave speed = 8 x 10^3 m/s",
-          "Channel spread = 0.5 microseconds = 5 x 10^-7 s",
-          "Lead distance = speed x time"
+          "Wave speed = 5×10^3 m/s",
+          "Timing mismatch = 5×10^-7 s",
+          "1 m = 1000 mm"
         ],
-        "relationship": "Distance = speed × time. Multiply by 1,000 to turn metres into millimetres.",
+        "relationship": "Distance error = propagation speed × timing error.",
         "calcKey": "T-8"
       },
       "assumes": [
@@ -833,49 +821,46 @@ export const CURRICULUM = {
     },
     {
       "day": 13,
-      "title": "Why light nuclei release energy too",
-      "scene": "The binding-energy curve on the board rises steeply from light nuclei toward iron. A younger theorist asks Maria Goeppert Mayer, a physicist in Teller's group, why an energy-releasing reaction does not simply happen whenever light nuclei meet.",
-      "takeaway": "Fusion of light nuclei releases energy for the same reason fission of heavy ones does, and it is harder to start.",
+      "title": "What the binding-energy curve can tell you",
+      "scene": "The binding-energy curve is still on Bethe's blackboard in August 1945. A younger physicist asks what the curve itself establishes—and what it does not.",
+      "takeaway": "Energetic favorability and reaction accessibility are different questions.",
       "place": "Theoretical Division",
-      "guide": "Four accounts of why fusion is hard. Ask of each whether it is about the energy released or about getting there. Two positive nuclei repel, and the force that binds them reaches only about a femtometre. So the difficulty is closing that gap, which costs temperature rather than a neutron.",
+      "guide": "The curve compares how tightly bound nuclei are. Moving toward more tightly bound products can release energy. It does not, by itself, tell you whether a reaction will occur quickly or how to make it occur.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "The binding-energy curve on the board rises steeply from light nuclei toward iron. A younger theorist asks Maria Goeppert Mayer, a physicist in Teller's group, why an energy-releasing reaction does not simply happen whenever light nuclei meet.",
+      "story": "The binding-energy curve is still on Bethe's blackboard in August 1945. A younger physicist asks what the curve itself establishes—and what it does not.",
       "game": {
         "type": "CHOICE",
-        "title": "Why light nuclei release energy too",
+        "title": "What the binding-energy curve can tell you",
         "setup": "Theoretical Division",
-        "play": "If fusion releases energy, why is it difficult to start?",
-        "task": "If fusion releases energy, why is it difficult to start?",
-        "question": "If fusion releases energy, why is it difficult to start?",
-        "answer": "Fusion can release energy and still be hard to start because two positive nuclei repel each other. They must get extremely close before the short-range nuclear force can bind them.",
-        "why": "Fusion moves up the binding-energy curve from the light end, so it releases energy — more per nucleon than fission does. The difficulty is getting there: two positive nuclei repel, and the nuclear force that binds them only reaches across about a femtometre. Closing that gap needs kinetic energy, which means temperatures of millions of kelvin, whereas fission needs only a slow neutron and no barrier at all. Energy released and ease of ignition are separate questions, and confusing them is the usual error.",
+        "play": "Use the binding-energy-per-nucleon curve to decide which direction of nuclear change can release energy, without turning that principle into an ignition or weapon-design lesson.",
+        "task": "Use the binding-energy-per-nucleon curve to decide which direction of nuclear change can release energy, without turning that principle into an ignition or weapon-design lesson.",
+        "question": "Use the binding-energy-per-nucleon curve to decide which direction of nuclear change can release energy, without turning that principle into an ignition or weapon-design lesson.",
+        "answer": "A reaction can release energy when its products are more tightly bound per nucleon than its reactants; the binding-energy curve alone does not tell you the reaction rate or how to initiate it.",
+        "why": "Binding energy per nucleon rises from very light nuclei toward iron and nickel and then falls gradually for heavier nuclei. Moving toward more tightly bound products can release energy through a mass difference. But an energy-releasing direction is not the same thing as an accessible reaction path. The curve tells you the energy bookkeeping, not the kinetics or engineering.",
         "rebuttals": [
-          "A neutron is not required to remove the Coulomb barrier in ordinary light-nucleus fusion; the reactant nuclei themselves must get close enough to interact.",
-          "The nuclear force is short-ranged, not switched on by high speed. High kinetic energy helps the nuclei approach despite their electrostatic repulsion.",
-          "Light nuclei begin well below the iron peak in binding energy per nucleon, which is why fusion can release substantial energy."
+          "The curve describes relative binding, not a required trigger or reaction mechanism.",
+          "A favorable energy difference does not imply a fast reaction.",
+          "The curve is useful for energy accounting even when the actual pathway is strongly suppressed."
         ],
         "choices": [
-          "The nuclei are positively charged, so they must approach through electrostatic repulsion before the short-range nuclear force can bind them.",
-          "The products are more tightly bound, but the released energy cannot appear until a neutron first removes the electrical charge barrier.",
-          "The strong nuclear force becomes effective only when nuclei are moving rapidly, so high temperature is needed to strengthen the force itself.",
-          "Light nuclei are already close to the peak of the binding-energy curve, so fusion releases too little energy to sustain further reactions."
+          "Products that are more tightly bound per nucleon can lie lower in mass-energy, so the difference can be released; the curve alone says nothing about how fast the reaction occurs.",
+          "Any reaction that moves upward on the binding-energy curve must occur spontaneously at ordinary conditions.",
+          "The curve specifies the temperature or neutron energy needed to start every nuclear reaction.",
+          "The curve matters only for fission and cannot describe why other nuclear changes may release energy."
         ],
-        "correctChoice": "The nuclei are positively charged, so they must approach through electrostatic repulsion before the short-range nuclear force can bind them."
+        "correctChoice": "Products that are more tightly bound per nucleon can lie lower in mass-energy, so the difference can be released; the curve alone says nothing about how fast the reaction occurs."
       },
       "assumes": [
         "like charges repel, and the nuclear force acts only at very short range"
       ],
       "concept": {
-        "n": 9,
-        "c": "Fusion",
-        "of": 30,
-        "rests": [
-          "Mass defect, binding energy and E = mc²"
-        ]
+        "n": 1,
+        "c": "Nuclear structure: protons, neutrons, isotopes, nuclide notation",
+        "of": 30
       }
     },
     {
@@ -1012,11 +997,11 @@ export const CURRICULUM = {
         ]
       },
       "concept": {
-        "n": 10,
-        "c": "Cross sections and mean free path",
+        "n": 11,
+        "c": "Attenuation of radiation through matter",
         "of": 30,
         "rests": [
-          "Fission, neutron multiplication and chain reactions"
+          "Cross sections and mean free path"
         ]
       }
     },
@@ -1926,103 +1911,111 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "Will it hold a chain, or will it not",
-      "scene": "Elizabeth Graves, the critical-assemblies physicist, wants the new shipment sorted before anything is stored together. Some of what is on this bench will sustain a chain reaction given enough of it. The rest will not, whatever you do with it.",
-      "takeaway": "What sustains a chain is decided by the nuclide, not by how radioactive a thing is.",
+      "title": "Radioactive is not the same as fissile",
+      "scene": "A safety briefing has mixed together three ideas: radioactivity, neutron interaction, and fissile behavior. Graves asks the room to separate the labels before anybody treats a loud counter as evidence for a chain reaction.",
+      "takeaway": "Radioactivity, neutron interaction and fissile behavior are different physical claims and must not be inferred from one another.",
       "place": "Physics Division",
       "guide": "Two bins. A nuclide that fissions on slow neutrons will hold a chain given enough mass and the right geometry. One that only fissions on fast neutrons, or not at all, will not — however heavy the piece is. Sort on the nuclide, not on how dangerous the label looks.",
       "background": [
         "Why the distinction is the whole of storage policy. Two pieces that each hold no chain can hold one together, so the rule about what may sit next to what is written from this sort. Nothing about mass or radioactivity substitutes for it.",
         "Why radioactive and fissile are different words. Cobalt-60 will make a counter scream across the room and will never sustain anything. Natural uranium is barely active and contains the isotope everything here is about."
       ],
-      "story": "Elizabeth Graves, the critical-assemblies physicist, wants the new shipment sorted before anything is stored together. Some of what is on this bench will sustain a chain reaction given enough of it. The rest will not, whatever you do with it.",
+      "story": "A safety briefing has mixed together three ideas: radioactivity, neutron interaction, and fissile behavior. Graves asks the room to separate the labels before anybody treats a loud counter as evidence for a chain reaction.",
       "game": {
         "type": "BELT",
-        "title": "Will it hold a chain, or will it not",
+        "title": "Radioactive is not the same as fissile",
         "setup": "Physics Division",
-        "play": "Sort the shipment before it goes to the vault.",
-        "task": "Sort the shipment before it goes to the vault.",
-        "question": "Send each item to the bin that says whether it can sustain a chain reaction.",
-        "answer": "Anything that fissions on slow neutrons can hold a chain given enough of it. Everything else cannot, however active it is.",
-        "why": "A chain reaction needs a nuclide that fissions when it absorbs a neutron and then releases enough neutrons to do it again. Uranium-235 and plutonium-239 do that with slow neutrons, so a large enough piece in the right shape sustains itself. Uranium-238 fissions only on fast neutrons and absorbs the slow ones, so it damps a chain rather than carrying one — which is why natural uranium is nine-tenths a moderator by mass. Everything else on this bench is a different property entirely. Cobalt-60 and radium are intensely radioactive and cannot sustain anything. Beryllium and graphite are not radioactive at all and change everything, because they reflect and slow neutrons, which is why they are stored under the same rule. That is the point of sorting this way rather than by how loud a counter gets: the storage policy is written about what can happen when two pieces are put near each other.",
+        "play": "Sort the examples by the physical claim they support: materials capable of sustaining neutron multiplication under appropriate conditions versus materials that are radioactive or neutron-active for other reasons.",
+        "task": "Sort the examples by the physical claim they support: materials capable of sustaining neutron multiplication under appropriate conditions versus materials that are radioactive or neutron-active for other reasons.",
+        "question": "Which examples illustrate fissile behavior, and which illustrate different nuclear properties?",
+        "answer": "Treat fissile behavior and radioactivity as separate labels. A loud counter is not evidence that a material can sustain neutron multiplication.",
+        "why": "Radioactivity describes spontaneous nuclear change. Fissile behavior describes whether neutron absorption can support continuing fission multiplication under appropriate physical conditions. Those are different properties. Uranium-235 and plutonium-239 are canonical fissile nuclides; uranium-238, cobalt-60, radium, graphite and beryllium illustrate other nuclear or material behaviors. A strong radiation signal therefore does not, by itself, identify a material as fissile.",
         "belt": {
           "left": {
-            "name": "Can hold a chain"
+            "name": "Fissile examples"
           },
           "right": {
-            "name": "Cannot"
+            "name": "Different nuclear property"
           },
           "items": [
             {
-              "name": "Uranium-235 metal",
+              "name": "Uranium-235",
               "bin": "left"
             },
             {
-              "name": "Plutonium-239 button",
+              "name": "Plutonium-239",
               "bin": "left"
             },
             {
-              "name": "Enriched uranium foil",
+              "name": "Uranium-233",
               "bin": "left"
             },
             {
-              "name": "Uranium-233 sample",
+              "name": "Plutonium-241",
               "bin": "left"
             },
             {
-              "name": "Highly enriched solution",
+              "name": "Highly enriched uranium",
               "bin": "left"
             },
             {
-              "name": "Plutonium nitrate",
+              "name": "Weapons-grade plutonium",
               "bin": "left"
             },
             {
-              "name": "Enriched-plant tailings",
+              "name": "Tabulated as fissile",
+              "bin": "left"
+            },
+            {
+              "name": "Slow-neutron fission demonstrated",
+              "bin": "left"
+            },
+            {
+              "name": "Neutron multiplication measured",
+              "bin": "left"
+            },
+            {
+              "name": "Critical mass known",
+              "bin": "left"
+            },
+            {
+              "name": "Large thermal cross-section",
+              "bin": "left"
+            },
+            {
+              "name": "Chain reaction sustained",
+              "bin": "left"
+            },
+            {
+              "name": "Cobalt-60",
               "bin": "right"
             },
             {
-              "name": "Reactor-grade plutonium",
-              "bin": "left"
-            },
-            {
-              "name": "Uranium-235 hemisphere",
-              "bin": "left"
-            },
-            {
-              "name": "Enriched hexafluoride",
-              "bin": "left"
-            },
-            {
-              "name": "Fissile foil stack",
-              "bin": "left"
-            },
-            {
-              "name": "Uranium-235 solution",
-              "bin": "left"
-            },
-            {
-              "name": "Uranium-238 metal",
+              "name": "Radium-226",
               "bin": "right"
             },
             {
-              "name": "Depleted uranium slug",
+              "name": "Polonium-210",
               "bin": "right"
             },
             {
-              "name": "Natural uranium oxide",
+              "name": "Strontium-90",
               "bin": "right"
             },
             {
-              "name": "Cobalt-60 source",
+              "name": "Tritium",
               "bin": "right"
             },
             {
-              "name": "Radium needle",
+              "name": "Uranium-238",
               "bin": "right"
             },
             {
-              "name": "Graphite block",
+              "name": "Thorium-232",
+              "bin": "right"
+            },
+            {
+              "name": "Graphite moderator",
               "bin": "right"
             },
             {
@@ -2030,15 +2023,7 @@ export const CURRICULUM = {
               "bin": "right"
             },
             {
-              "name": "Polonium-beryllium source",
-              "bin": "right"
-            },
-            {
-              "name": "Plutonium-238 heater",
-              "bin": "right"
-            },
-            {
-              "name": "Enriched boron sheet",
+              "name": "Heavy-water moderator",
               "bin": "right"
             },
             {
@@ -2046,23 +2031,23 @@ export const CURRICULUM = {
               "bin": "right"
             },
             {
-              "name": "Heavy water flask",
+              "name": "Cadmium control rod",
               "bin": "right"
             },
             {
-              "name": "Thorium-232 metal",
+              "name": "Lead shielding",
               "bin": "right"
             },
             {
-              "name": "Tritium ampoule",
+              "name": "Loud counter reading",
               "bin": "right"
             }
           ],
-          "need": 20,
+          "need": 10,
           "lives": 3,
           "pass": 0.8,
-          "hint": "Ask whether it fissions on slow neutrons, not how active it is.",
-          "commit": "Start the line"
+          "hint": "Sort by the physical property being claimed, not by how strong a radiation signal sounds.",
+          "commit": "Sort the properties"
         }
       },
       "assumes": [
@@ -2088,7 +2073,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Find what carries the background",
-      "scene": "A weak sample has been counting for an hour, and Graves wants to know whether it is emitting anything at all. This is where an experimental group either establishes a real signal or convinces itself of one.",
+      "scene": "A weak sample has been counting for an hour, and Elizabeth Graves wants to know whether the excess belongs to the sample or the counting hardware.",
       "takeaway": "A suspected cause is strongest when changing only that cause moves the reading and reversing the change restores it.",
       "place": "",
       "guide": "The number you are watching is the counting rate with no sample in the station, and the excess is how much of it cannot be accounted for. A change has told you something only when it moves that excess by more than the rate wanders on its own between runs. Several parts of the station changed when it was built, so choose one, run it, and put it back. Name the part the excess follows.",
@@ -2097,7 +2082,7 @@ export const CURRICULUM = {
         "Why one change at a time. Change two things and a response tells you only that one of them mattered. The station has a shield, a room and a detector, and each of them can carry background for its own reason, so the only reading that names a part is the one where nothing else moved.",
         "Why putting it back matters. A rate that drops when you shield the detector and stays down when you unshield it was falling for some other reason — drift, a decaying source, somebody switching off a pump down the corridor. A cause has to follow the change in both directions, and that is the whole of what reversal tests."
       ],
-      "story": "A weak sample has been counting for an hour, and Graves wants to know whether it is emitting anything at all. This is where an experimental group either establishes a real signal or convinces itself of one.",
+      "story": "A weak sample has been counting for an hour, and Elizabeth Graves wants to know whether the excess belongs to the sample or the counting hardware.",
       "game": {
         "type": "CONTROL",
         "title": "Find what carries the background",
@@ -3613,7 +3598,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Radiochemical tracers",
-      "scene": "Seaborg is running separations on quantities too small to weigh and wants to know how much is being lost between the steps. Every percent that goes missing is weeks of production at Hanford.",
+      "scene": "Chemistry & Metallurgy is running separations on quantities too small to weigh directly and needs to know how much is being lost between steps. A decaying tracer provides the bookkeeping signal.",
       "takeaway": "A tracer turns invisible material loss into a measurable fraction.",
       "place": "",
       "guide": "Four numbers, in two pairs, and only one pair belongs to this separation. Ask of each whether it is what went in or what came out. And note what makes a raw ratio dishonest here. The tracer decayed throughout, so both counts have to be corrected to the same moment.",
@@ -3621,7 +3606,7 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "Seaborg is running separations on quantities too small to weigh and wants to know how much is being lost between the steps. Every percent that goes missing is weeks of production at Hanford.",
+      "story": "Chemistry & Metallurgy is running separations on quantities too small to weigh directly and needs to know how much is being lost between steps. A decaying tracer provides the bookkeeping signal.",
       "game": {
         "type": "BALLPARK",
         "title": "Radiochemical tracers",
@@ -3650,7 +3635,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Close the material balance",
-      "scene": "A separation batch has come back and the numbers do not close. Seaborg will not release the report until the ledger does — downstream, somebody is going to cast this material assuming the numbers meant what they said.",
+      "scene": "A separation batch has come back and the numbers do not close. Chemistry & Metallurgy will not release the report until the ledger does; downstream work assumes the reported recovery really means what it says.",
       "takeaway": "A purity result cannot substitute for a closed material balance; losses outside measured process streams must still be counted.",
       "place": "",
       "guide": "Read every stream first, because reading costs nothing. Then count only the masses that belong to the same material ledger. The batch does not close, and the missing mass has gone somewhere real — an uncounted route rather than an arithmetic slip. Report the total when the ledger closes.",
@@ -3659,7 +3644,7 @@ export const CURRICULUM = {
         "Where material actually goes. Holdup in the equipment, residue on filters and vessel walls, a side stream taken for analysis, losses to a scrubber. Each is ordinary and each is invisible in the streams somebody thought to weigh.",
         "Why it matters downstream. Somebody is going to cast this material assuming the report means what they think it means. In this programme, an assay that is quietly wrong about how much is present is the kind of error that ends with a criticality rather than a memo."
       ],
-      "story": "A separation batch has come back and the numbers do not close. Seaborg will not release the report until the ledger does — downstream, somebody is going to cast this material assuming the numbers meant what they said.",
+      "story": "A separation batch has come back and the numbers do not close. Chemistry & Metallurgy will not release the report until the ledger does; downstream work assumes the reported recovery really means what it says.",
       "game": {
         "type": "BALANCE",
         "title": "Close the material balance",
@@ -4925,9 +4910,9 @@ export const CURRICULUM = {
   "E": [
     {
       "day": 1,
-      "title": "Two weapon architectures at Los Alamos",
-      "scene": "Oppenheimer has asked Ordnance for a recommendation before the next program meeting. Two assembly concepts are still alive, but choosing between them commits people, buildings, and months of work. The room is waiting for a decision that will reshape the Hill.",
-      "takeaway": "Weapon architecture determines the entire downstream engineering program.",
+      "title": "What each early program would have to prove",
+      "scene": "At a 1943 program meeting, Oppenheimer is comparing two historically competing approaches. The decision is about people, facilities and evidence: one program is comparatively mature; the other demands a new campaign of symmetry and diagnostics.",
+      "takeaway": "Weapon architecture changed the laboratory's evidence burden, staffing and test program; the historical lesson is the program consequence, not the construction detail.",
       "place": "",
       "guide": "Four situations and four responses, and both designs chase the same goal. Ask of each whether it is about the geometry of the assembly or about its timing. One route drives two pieces along a line. One squeezes inward, and nobody has built one. A measurement decides between them.",
       "background": [
@@ -4935,33 +4920,33 @@ export const CURRICULUM = {
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
       ],
-      "story": "Oppenheimer has asked Ordnance for a recommendation before the next program meeting. Two assembly concepts are still alive, but choosing between them commits people, buildings, and months of work. The room is waiting for a decision that will reshape the Hill.",
+      "story": "At a 1943 program meeting, Oppenheimer is comparing two historically competing approaches. The decision is about people, facilities and evidence: one program is comparatively mature; the other demands a new campaign of symmetry and diagnostics.",
       "game": {
         "type": "PROTOCOL",
-        "title": "Two weapon architectures at Los Alamos",
-        "setup": "Oppenheimer asks the Ordnance Division to classify the program consequences of the two early weapon concepts without using design dimensions.",
-        "play": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
-        "task": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
-        "question": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
-        "answer": "A design relies on bringing two separated pieces together along one axis. -> Gun-type architecture; A design relies on a converging wave that must preserve three-dimensional symmetry. -> Implosion architecture; A concept is comparatively straightforward to reason about but becomes unsuitable for reactor-produced plutonium. -> Gun-type program consequence; A concept demands a large diagnostic and high-explosive development program. -> Implosion program consequence",
-        "why": "Both concepts aim at the same goal. Bring subcritical material together fast enough that a chain reaction can grow before the assembly blows itself apart. They get there by completely different routes. A gun-type device drives one piece into another along one axis. That is a linear problem with a long history behind it. Implosion squeezes one piece inward with a converging wave, and nobody has built one. The two are not merely different shapes. They create different organisations, different test programmes and different risks.",
+        "title": "What each early program would have to prove",
+        "setup": "Match each program-level statement to the historical approach or consequence it describes.",
+        "play": "Match each high-level program claim to the kind of evidence it would require, without turning either historical architecture into a construction lesson.",
+        "task": "Match each high-level program claim to the kind of evidence it would require, without turning either historical architecture into a construction lesson.",
+        "question": "Match each high-level program claim to the kind of evidence it would require, without turning either historical architecture into a construction lesson.",
+        "answer": "Gun-type program -> comparatively mature linear-assembly concept; Implosion program -> new symmetry and diagnostics problem; Plutonium result -> invalidated the gun-type plutonium assumption; Program consequence -> major reorganization around measurement and integration.",
+        "why": "The important historical distinction is not a recipe for either device. It is that the two approaches imposed different evidence burdens on Los Alamos. The gun-type program relied on a comparatively mature linear-assembly concept. The implosion program required the laboratory to learn how to measure and control a three-dimensional compression process. That difference reorganized staffing, diagnostics, facilities and risk. Later plutonium measurements did not make the gun idea 'bad physics'; they made it unsuitable for that material.",
         "rebuttals": [
-          "A long device driving one subcritical piece into another along a single axis is the gun-type architecture. One dimension, and a well-understood one.",
-          "A compact device squeezing the material inward from every direction is implosion. The difficulty is that it has to work in three dimensions at once.",
-          "Plutonium measurements showing that a slow assembly can be interrupted early are what make the plutonium gun unusable, whatever its engineering merits.",
-          "Charges fired within microseconds of one another, explosives shaped to steer the wave and repeated full-scale rehearsals are the programme implosion demands. That is an organisation, not a drawing."
+          "The gun-type program was the comparatively mature linear concept; the point here is its program maturity, not its internal construction.",
+          "Implosion created a new symmetry-and-diagnostics problem for the laboratory.",
+          "The reactor-plutonium neutron background changed whether the gun-type plutonium program was viable.",
+          "The replacement program required new diagnostics, facilities and integration across divisions."
         ],
         "scenarios": [
-          "Engineers sketch a long device in which one subcritical piece would be driven into another along a single axis.",
-          "Engineers sketch a compact device in which explosive waves would squeeze the material inward from every direction.",
-          "Plutonium measurements show that a slower assembly could be interrupted by a stray neutron before full assembly.",
-          "The alternative requires many charges firing within microseconds of one another, explosives shaped to steer the wave, and repeated full-scale rehearsals before a nuclear trial."
+          "A program rests on a comparatively mature linear-assembly concept and therefore begins with lower integration uncertainty.",
+          "A program requires the laboratory to measure and control a three-dimensional compression process that has not yet been demonstrated.",
+          "New reactor-produced plutonium data invalidate a key material assumption behind one program.",
+          "The laboratory must create new diagnostics, facilities and cross-division integration work rather than simply improve an existing component."
         ],
         "choices": [
-          "Use the gun-type concept: bring two separated subcritical pieces together rapidly along one line.",
-          "Use the implosion concept: squeeze one piece inward from every side at once, with a pressure wave that closes on the centre.",
-          "Abandon the gun-type route for this material: the chain would begin before the pieces were fully together, whatever the engineering merits.",
-          "Build an implosion-development program focused on timing, on how evenly the squeeze arrives, on diagnostics, and on explosive components that behave the same way twice."
+          "Gun-type program",
+          "Implosion program",
+          "Plutonium program consequence",
+          "Implosion program consequence"
         ],
         "mapping": [
           0,
@@ -4976,57 +4961,56 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a chain reaction needs the material held together long enough to grow",
-        "fission, neutron multiplication and chain reactions — taken as read"
+        "pressure, temperature and equations of state — taken as read"
       ],
       "takesAsRead": [
         {
-          "n": 7,
-          "c": "Fission, neutron multiplication and chain reactions"
+          "n": 26,
+          "c": "Pressure, temperature and equations of state"
         }
       ],
       "concept": {
-        "n": 8,
-        "c": "Criticality: mass, geometry, reflectors, moderation",
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
         "of": 30,
         "rests": [
-          "Fission, neutron multiplication and chain reactions",
-          "Cross sections and mean free path"
+          "Pressure, temperature and equations of state"
         ]
       }
     },
     {
       "day": 2,
-      "title": "Why Thin Man was abandoned",
-      "scene": "Thin Man was the plutonium gun design, and much of the site's effort was pointed at it. Then the counters returned a number the concept could not survive, and within weeks Oppenheimer reorganised the laboratory.",
-      "takeaway": "In complex engineering, one new measurement can invalidate an entire development path.",
+      "title": "Why the plutonium gun program ended",
+      "scene": "The higher spontaneous-neutron background has now been reproduced. Oppenheimer must decide what it means for the plutonium gun program and how to reorganize the laboratory.",
+      "takeaway": "The plutonium gun program ended because a newly measured material property invalidated a key assumption, not because the underlying nuclear physics suddenly changed.",
       "place": "",
-      "guide": "These four are one chain, from a measurement to a decision that cost a year. Ask of each card what has to be known before it. Nothing is unacceptable before it is understood, and nothing is understood before it is measured. The reorganisation is the consequence rather than the argument.",
+      "guide": "Keep this at the level of assumptions and program consequences. The new material measurement comes first. Then identify which earlier assumption it invalidates, make the program decision, and only then reorganize staff and tests.",
       "background": [
         "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
         "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
       ],
-      "story": "Thin Man was the plutonium gun design, and much of the site's effort was pointed at it. Then the counters returned a number the concept could not survive, and within weeks Oppenheimer reorganised the laboratory.",
+      "story": "The higher spontaneous-neutron background has now been reproduced. Oppenheimer must decide what it means for the plutonium gun program and how to reorganize the laboratory.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Why Thin Man was abandoned",
+        "title": "Why the plutonium gun program ended",
         "setup": "Order the historical reasoning that turned an unexpected material result into a program-wide redesign.",
-        "play": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "task": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "question": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "answer": "1 -> 2 -> 3 -> 4 (Measure an unexpectedly high spontaneous-neutron background in reactor-produced plutonium. -> Recognize that a slow assembly could begin reacting before the intended configuration was reached. -> Conclude that the plutonium gun concept carried an unacceptable pre-initiation risk. -> Concentrate the plutonium effort on the faster implosion approach that became Fat Man.)",
-        "why": "This is what a measurement invalidating a development path looks like from inside: not a debate about opinion, but a chain from one new fact to a decision that costs a year. The unexpectedly high spontaneous-neutron background in reactor plutonium comes first, because it is the new evidence. That makes a slow assembly vulnerable to starting early. That vulnerability makes the plutonium gun unacceptable. And only then does the effort move to implosion, which is a decision rather than a fact.",
+        "play": "Order the historical evidence-to-decision chain without reconstructing the device.",
+        "task": "Order the historical evidence-to-decision chain without reconstructing the device.",
+        "question": "Order the historical evidence-to-decision chain without reconstructing the device.",
+        "answer": "Confirm the higher spontaneous-neutron background → identify the failed gun-program assumption → abandon the plutonium gun route → reorganize the plutonium effort around implosion research and new diagnostics.",
+        "why": "Reactor-produced plutonium carried a much higher spontaneous-neutron background than the early program had assumed. That made the plutonium gun approach unreliable. Los Alamos therefore abandoned that route for plutonium and concentrated the plutonium effort on implosion research. The historical lesson is how a new measurement can invalidate a design assumption and force a program-level pivot.",
         "rebuttals": [
-          "The unexpected spontaneous-neutron measurement comes first. It is the only new fact in the chain; everything after it is inference or decision.",
-          "Recognising that a slow assembly could begin reacting early is the inference from that fact — the step from a material property to a timing problem.",
-          "Concluding the plutonium gun carried unacceptable pre-initiation risk is the verdict on the concept, and it needs the two steps above it.",
-          "Concentrating the plutonium effort on implosion is the decision, and it is last. A programme reorganises after the conclusion, not before it."
+          "The material result has to be established first; otherwise the pivot is only a reaction to one instrument.",
+          "Name the failed assumption second. A program cannot learn from a pivot if it never states what became false.",
+          "The program decision follows the evidence. Sunk work is not a physical argument.",
+          "Reorganization comes last, once the replacement program's evidence needs are known."
         ],
         "cards": [
-          "Measure an unexpectedly high spontaneous-neutron background in reactor-produced plutonium.",
-          "Recognize that a slow assembly could begin reacting before the intended configuration was reached.",
-          "Conclude that the plutonium gun concept carried an unacceptable pre-initiation risk.",
-          "Concentrate the plutonium effort on the faster implosion approach that became Fat Man."
+          "Confirm the unexpectedly high spontaneous-neutron background in reactor-produced plutonium with independent measurements.",
+          "Identify the early plutonium gun-program assumption that the new material no longer satisfies.",
+          "End the plutonium gun program rather than treating the material result as an engineering nuisance.",
+          "Reorganize the plutonium effort around implosion research, diagnostics, and integration tests."
         ],
         "order": [
           0,
@@ -5056,28 +5040,28 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "Why simultaneity became an engineering requirement",
-      "scene": "Deak Parsons, the naval ordnance officer engineering the weapon, wants the delay budget explicit — several initiation channels have to act so nearly together that their wavefronts merge into one event. On the timing bench, path length is one measurable source of delay.",
-      "takeaway": "Timing synchronization is a physical interface, not merely a clock-setting problem.",
+      "title": "Why synchronization became an engineering requirement",
+      "scene": "Two fast diagnostic channels are supposed to observe the same inert event, but one signal path is longer. Parsons wants the delay budget written in a form a technician can inspect with a tape measure.",
+      "takeaway": "Synchronization is a physical measurement-chain problem: cable length, electronics, and reference clocks all contribute timing error.",
       "place": "",
-      "guide": "Four numbers, and two of them are signal speeds a hundred times apart. Ask of each whether it could carry a pulse down a cable. And note what the answer is about. A path difference is an arrival difference, so a small delay makes an asymmetric implosion rather than a slightly worse one.",
+      "guide": "A path difference becomes an arrival-time difference because signals travel at a finite speed. Choose the path mismatch, signal speed, and conversion to nanoseconds.",
       "background": [
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "Deak Parsons, the naval ordnance officer engineering the weapon, wants the delay budget explicit — several initiation channels have to act so nearly together that their wavefronts merge into one event. On the timing bench, path length is one measurable source of delay.",
+      "story": "Two fast diagnostic channels are supposed to observe the same inert event, but one signal path is longer. Parsons wants the delay budget written in a form a technician can inspect with a tape measure.",
       "game": {
         "type": "BALLPARK",
-        "title": "Why simultaneity became an engineering requirement",
-        "setup": "Two timing channels on the bench differ only in signal-cable path length.",
-        "play": "Estimate the delay difference.",
-        "task": "Estimate the delay difference.",
-        "question": "Estimate the delay difference.",
-        "answer": "Delta t = 0.40/(2.0 x 10^8) = 2 x 10^-9 s, or 2 ns.",
-        "why": "A small delay at one point does not produce a slightly worse implosion; it produces an asymmetric one. So simultaneity stops being a matter of setting clocks and becomes a physical interface problem: a difference in cable path length is a difference in arrival time, at the speed the signal travels. Divide the path mismatch by that speed and the answer is in nanoseconds. Cables, capacitors, switches and firing units all contribute time, and all of it has to be accounted for rather than assumed small.",
+        "title": "Why synchronization became an engineering requirement",
+        "setup": "Two diagnostic channels differ only in signal-cable path length.",
+        "play": "Estimate the timing difference created by unequal diagnostic-cable lengths.",
+        "task": "Estimate the timing difference created by unequal diagnostic-cable lengths.",
+        "question": "Estimate the timing difference created by unequal diagnostic-cable lengths.",
+        "answer": "Δt = 0.40/(2.0×10^8) ≈ 2×10^-9 s, or 2 ns.",
+        "why": "A small path-length difference in a fast diagnostic system becomes a measurable timing offset. Divide the extra cable length by the signal speed. This turns a vague requirement such as 'record together' into something inspectable. The lesson is metrology: a timing claim is only as good as the physical paths and references that define it.",
         "givens": [
-          "Signal speed in cable = 2.0 x 10^8 m/s",
-          "2 cable paths differ by 0.40 m",
+          "Signal speed in cable = 2.0 × 10^8 m/s",
+          "Two diagnostic cable paths differ by 0.40 m",
           "Delay difference = path difference / signal speed"
         ],
         "relationship": "Delay = path mismatch ÷ signal speed. Multiply by 10⁹ to turn seconds into nanoseconds.",
@@ -5094,74 +5078,73 @@ export const CURRICULUM = {
     },
     {
       "day": 4,
-      "title": "Why the limit is written down",
-      "scene": "Two half-assemblies go on the same bench this afternoon. Diz Graves, the physicist running critical assemblies, has set a mass limit and a spacing well inside the calculated boundary. The crew wants to know why the written margin is deliberately larger.",
-      "takeaway": "Administrative limits create margin against combinations of mass, geometry, reflection, moderation, and ordinary handling error.",
+      "title": "Why the acceptance limit is conservative",
+      "scene": "An inert support component has passed a controlled proof test, but the field procedure uses a lower operating limit. The crew wants to know why the margin is larger than the measurement uncertainty alone.",
+      "takeaway": "Conservative limits create margin against combinations of ordinary uncertainty, handling variation, and environmental change.",
       "place": "Chemistry and Metallurgy Building",
-      "guide": "Four arguments for a written limit. Ask of each what it assumes about the other terms. Criticality answers to mass, geometry, reflection and moderation, and any of those can move by accident. So a limit on mass alone cannot make a piece safe in isolation. And a written number does not depend on who is on shift.",
+      "guide": "Ask what changes outside the proof rig: temperature, alignment, repeated use, measurement error and handling variability. A written limit protects against combinations of ordinary deviations rather than assuming every input remains at its best-tested value.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Two half-assemblies go on the same bench this afternoon. Diz Graves, the physicist running critical assemblies, has set a mass limit and a spacing well inside the calculated boundary. The crew wants to know why the written margin is deliberately larger.",
+      "story": "An inert support component has passed a controlled proof test, but the field procedure uses a lower operating limit. The crew wants to know why the margin is larger than the measurement uncertainty alone.",
       "game": {
         "type": "CHOICE",
-        "title": "Why the limit is written down",
+        "title": "Why the acceptance limit is conservative",
         "setup": "Chemistry and Metallurgy Building",
-        "play": "The written limit is well below the critical mass. What is the argument for keeping it there?",
-        "task": "The written limit is well below the critical mass. What is the argument for keeping it there?",
-        "question": "The written limit is well below the critical mass. What is the argument for keeping it there?",
-        "answer": "The written limit is kept well inside the physical boundary so one credible handling mistake or environmental change does not consume the whole margin.",
-        "why": "Criticality depends on mass, geometry, reflection and moderation. Any of those can change by accident. A hand nearby reflects neutrons. A spilled solution moderates them. A second piece on the bench adds mass. The written limit sits far below the physical one, so one human error cannot reach it. It is written down so the margin does not depend on who is on shift. Two of this laboratory's fatal accidents were exactly that error.",
+        "play": "A tested component can tolerate 100 arbitrary load units in the qualification rig. Why is the written operating limit set substantially below that number?",
+        "task": "A tested component can tolerate 100 arbitrary load units in the qualification rig. Why is the written operating limit set substantially below that number?",
+        "question": "Why keep the written operating limit well below the proof-test boundary?",
+        "answer": "Keep the written operating limit below the proof-test boundary so one credible variation does not consume the entire margin.",
+        "why": "A proof test establishes what happened in one controlled configuration. Real use adds temperature changes, alignment error, wear, measurement uncertainty and ordinary handling variation. A written operating limit sits inside the demonstrated boundary so one credible deviation does not erase the full margin. The general engineering lesson is that a safety factor belongs to the system of uncertainties, not to one number alone.",
         "rebuttals": [
-          "The written margin is not primarily a penalty for bad theory. It is protection against inputs changing during real handling.",
-          "A subcritical piece can still interact with another piece or with reflecting and moderating material nearby.",
-          "Critical mass is not a single environment-free number. Geometry and surroundings remain part of the physical problem."
+          "Better measurement can shrink one uncertainty but cannot remove environmental and handling variation.",
+          "A passing component does not make every surrounding condition irrelevant.",
+          "The proof-test number describes the tested configuration, not every future configuration."
         ],
         "choices": [
-          "It keeps any single credible handling error from consuming the entire safety margin.",
-          "It mainly compensates for uncertainty in the calculated critical mass, so better calculations should let the limit move close to that value.",
-          "It guarantees each piece is safe in isolation, so spacing and nearby materials no longer matter once the mass limit is met.",
-          "It standardizes inventory control; the surrounding geometry is already fully represented by the critical-mass number."
+          "It leaves room for several credible variations to occur together without reaching the demonstrated boundary.",
+          "It exists mainly because the proof-test instrument is imprecise, so a better instrument should move the limit almost to the boundary.",
+          "It proves the component is safe in any configuration as long as its own load remains below the limit.",
+          "It is only an inventory-control convention; environmental and alignment changes are already included automatically."
         ],
-        "correctChoice": "It keeps any single credible handling error from consuming the entire safety margin."
+        "correctChoice": "It leaves room for several credible variations to occur together without reaching the demonstrated boundary."
       },
       "assumes": [
-        "criticality depends on geometry and surroundings as well as on mass"
+        "real operating conditions vary from a controlled qualification test"
       ],
       "concept": {
-        "n": 30,
-        "c": "Criticality safety: administrative limits and controls",
+        "n": 18,
+        "c": "Materials: phases, allotropes, alloys, density",
         "of": 30,
         "rests": [
-          "Criticality: mass, geometry, reflectors, moderation",
-          "Experimental method: controls, calibration, systematic vs random error"
+          "Units and conversions: MeV, u, barns, scientific notation"
         ]
       }
     },
     {
       "day": 5,
-      "title": "What evidence qualifies a lot?",
-      "scene": "Kistiakowsky's detonator programme has competing requests and 100 points of test credit. A production lot is waiting on a release decision, while the bench holds one carefully built prototype, inspection records, and access to a full-system trial.",
-      "takeaway": "Reliability is a property of a manufactured population, so acceptance evidence must measure its distribution rather than its best member.",
+      "title": "What evidence qualifies a production lot?",
+      "scene": "A production lot of timing modules is waiting on a release decision. The bench holds one carefully built prototype, dimensional inspection records, and access to a large integrated trial.",
+      "takeaway": "Reliability is a population property, so lot acceptance must sample the manufactured distribution rather than its best member.",
       "place": "",
-      "guide": "One hundred points of test credit, and a production lot waiting on a release decision. Open each option and ask what it would tell you about the lot rather than about the design. A carefully built prototype and a full-system trial are both evidence about something, and only one kind of evidence is about the units in the box.",
+      "guide": "Ask what each option tells you about the units in the lot. A champion prototype measures design potential. Inspection measures conformance. A large integrated trial entangles many causes. The release claim is about the distribution of the manufactured population.",
       "background": [
         "Why a prototype cannot qualify a lot. It was built by the best person available, slowly, with attention nobody can repeat a thousand times. It measures what the design can do, not what the production line did. Those are different questions and the release decision is about the second.",
         "What inspection records can and cannot show. They record that units passed the checks somebody chose. If the failure mode is not among those checks, a perfect record is consistent with a bad lot — which is why sampled functional testing exists at all.",
         "Why the full-system trial is seductive and expensive. It exercises everything at once, so a pass is reassuring and a failure is hard to attribute. Spending most of the credit on one integrated result can leave you knowing that something worked without knowing whether this lot will."
       ],
-      "story": "Kistiakowsky's detonator programme has competing requests and 100 points of test credit. A production lot is waiting on a release decision, while the bench holds one carefully built prototype, inspection records, and access to a full-system trial.",
+      "story": "A production lot of timing modules is waiting on a release decision. The bench holds one carefully built prototype, dimensional inspection records, and access to a large integrated trial.",
       "game": {
         "type": "VALUE",
-        "title": "What evidence qualifies a lot?",
-        "setup": "The detonator program has 3 competing requests for its next 100 credits.",
-        "play": "Spend the 100-point test budget on the evidence that can change the release decision for a manufactured lot.",
-        "task": "Spend the 100-point test budget on the evidence that can change the release decision for a manufactured lot.",
+        "title": "What evidence qualifies a production lot?",
+        "setup": "The timing-hardware program has competing requests for its next 100 credits.",
+        "play": "Spend the 100-point test budget on the evidence that can change the release decision for a manufactured timing-hardware lot.",
+        "task": "Spend the 100-point test budget on the evidence that can change the release decision for a manufactured timing-hardware lot.",
         "question": "Which measurement tells you whether a production lot is reliable?",
-        "answer": "Spend the test budget sampling several lots and measuring the timing spread of each. That evidence directly tests the population being accepted.",
-        "why": "A single excellent unit can be repeatable and still say nothing about the next units off the line. Lot acceptance is a population claim. The evidence therefore has to sample the population and measure the spread of the quantity that matters. Dimensional inspection checks conformance to a drawing, not timing performance. A full-system test mixes too many causes together. Sampling several lots gives a distribution, exposes tails, and directly answers the decision the programme must make.",
+        "answer": "Spend the test budget sampling several lots and measuring the timing spread. That evidence directly tests the population being accepted.",
+        "why": "A single excellent unit can be repeatable and still say nothing about the next units off the line. Lot acceptance is a population claim. Dimensional inspection checks conformance to a drawing, not functional timing. A large integrated trial mixes too many causes. Sampling the manufactured population exposes unit-to-unit and lot-to-lot spread and directly answers the release decision.",
         "value": {
           "budget": {
             "amount": 100,
@@ -5174,12 +5157,12 @@ export const CURRICULUM = {
               "label": "Sample several lots and measure timing spread",
               "cost": 100,
               "axis": "population timing distribution",
-              "reveals": "Whether the manufactured population, including its tail, meets the timing-performance requirement.",
+              "reveals": "Whether the manufactured population, including its tail, meets the stated timing-performance requirement.",
               "decisive": true
             },
             {
               "id": "champion",
-              "label": "Build one best-achievable unit and fire it repeatedly",
+              "label": "Build one best-achievable timing module and cycle it repeatedly",
               "cost": 100,
               "axis": "single-unit repeatability",
               "reveals": "How repeatable one specially prepared unit is, without showing lot-to-lot or unit-to-unit spread."
@@ -5193,7 +5176,7 @@ export const CURRICULUM = {
             },
             {
               "id": "system",
-              "label": "Wait for the next full-system trial",
+              "label": "Wait for the next large integrated inert trial",
               "cost": 100,
               "axis": "integrated outcome",
               "reveals": "Whether the whole system performed, while leaving many component causes entangled if it did not."
@@ -5257,37 +5240,37 @@ export const CURRICULUM = {
     },
     {
       "day": 7,
-      "title": "Trinity field engineering",
-      "scene": "The desert crew has the tower, cables, cameras, power and communications spread across a schedule running out of room. Norris Bradbury, who is assembling the shot, has a forecast that closes the window in four days, whatever is unfinished.",
-      "takeaway": "Field integration is ordered so that every interface is proved before the thing that needs it arrives.",
+      "title": "Integrate a one-shot field experiment",
+      "scene": "The desert site has power, communications, cameras, weather instruments and radiation-monitoring stations spread across a schedule threatened by weather. Bradbury wants every interface proved while it can still be fixed.",
+      "takeaway": "Field integration should preserve the ability to detect and correct a failed interface before an irreversible test.",
       "place": "",
-      "guide": "All four will happen, and field work succeeds or fails on interfaces. Ask of each card what has to be proved before the thing that depends on it arrives. An interface inspected while replacement is still possible is a different thing from one inspected afterwards.",
+      "guide": "Keep the sequence about experimental readiness. Establish site services and monitoring first, verify diagnostics and calibrations second, lock the approved test configuration only after those checks pass, and run only against explicit hold points with post-event monitoring already assigned.",
       "background": [
         "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
         "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
       ],
-      "story": "The desert crew has the tower, cables, cameras, power and communications spread across a schedule running out of room. Norris Bradbury, who is assembling the shot, has a forecast that closes the window in four days, whatever is unfinished.",
+      "story": "The desert site has power, communications, cameras, weather instruments and radiation-monitoring stations spread across a schedule threatened by weather. Bradbury wants every interface proved while it can still be fixed.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Trinity field engineering",
-        "setup": "Order the field-integration sequence.",
-        "play": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "task": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "question": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "answer": "1. Survey the site and establish power, communications and controlled access, which everything after this runs on. 2. Install and independently inspect each electrical and diagnostic interface, while there is still time to replace one. 3. Bring the approved assembly into the field configuration, once every interface it will use has been proved. 4. Run the countdown against defined hold points, then secure and document the site.",
-        "why": "Field integration succeeds or fails on interfaces, and each interface has to be proved before the thing that depends on it arrives. Site survey, power, communications, and controlled access come first. Electrical and diagnostic interfaces are installed and independently inspected while replacement is still possible. Only then does the approved assembly enter the field configuration. The countdown runs against defined hold points, and the site is secured and documented afterwards. The order preserves the ability to find and correct a failed interface before it becomes buried inside the next step.",
+        "title": "Integrate a one-shot field experiment",
+        "setup": "Order the readiness sequence for a one-shot field test.",
+        "play": "Arrange the field-experiment steps so that diagnostics, safety, and environmental monitoring are verified before the irreversible event.",
+        "task": "Arrange the field-experiment steps so that diagnostics, safety, and environmental monitoring are verified before the irreversible event.",
+        "question": "Arrange the field-experiment steps so that diagnostics, safety, and environmental monitoring are verified before the irreversible event.",
+        "answer": "Establish site services and environmental monitoring → verify diagnostics and calibrations end to end → lock the approved experimental configuration → run against hold points and continue post-event monitoring and documentation.",
+        "why": "A one-shot field experiment is only useful if the measurement and safety systems are ready before the event. Site services, controlled access, weather and environmental monitoring come first. Diagnostic channels and calibrations are then checked end to end. The approved experimental configuration is locked only after those checks pass. Finally, the run proceeds against hold points, followed by the monitoring and documentation already assigned before the event.",
         "rebuttals": [
-          "Survey, power, communications and access come first. Everything after this runs on them, and none of it can be installed before they exist.",
-          "Install and independently inspect each interface second — while there is still time to replace one, which is the whole reason it is here rather than later.",
-          "Bring the assembly into field configuration third, after every interface it will use has been proved. Once it is at the tower, fixing a cable means undoing this step.",
-          "Run the countdown against hold points and document the site last. A hold point is what makes a countdown stoppable rather than a commitment."
+          "Site services and monitoring come first because every later observation depends on them.",
+          "Diagnostics and calibrations are verified while failures can still be repaired.",
+          "The configuration is locked only after the evidence system is ready; otherwise the test article changes underneath the measurement plan.",
+          "The irreversible run is last, and post-event monitoring is part of the experiment rather than an afterthought."
         ],
         "cards": [
-          "Survey the site and establish power, communications and controlled access.",
-          "Install each electrical and diagnostic interface, and have every one independently inspected.",
-          "Bring the approved assembly up the tower into its field configuration.",
-          "Run the countdown against the defined hold points, and record what every instrument saw."
+          "Establish power, communications, controlled access, weather observations, and environmental monitoring.",
+          "Verify every diagnostic channel, calibration record, data path, and independent backup end to end.",
+          "Lock the approved experimental configuration only after the measurement and safety checks pass.",
+          "Run against defined hold points, then continue the post-event monitoring and documentation already assigned."
         ],
         "order": [
           0,
@@ -5307,37 +5290,37 @@ export const CURRICULUM = {
     },
     {
       "day": 8,
-      "title": "Post-Trinity design freeze",
-      "scene": "Trinity has produced new evidence and a last-minute improvement is already being argued over. Drawings are moving toward production while engineers keep proposing changes, and Bradbury wants somebody to say what may still change and what may not.",
-      "takeaway": "A freeze comes before the paperwork, or the paperwork describes something still changing.",
+      "title": "Freeze claims, not confidence",
+      "scene": "Trinity has produced new evidence and teams are already proposing last-minute changes. Bradbury wants the laboratory to separate what the data support from what people merely want to improve.",
+      "takeaway": "Post-test configuration control should freeze only changes supported by reconciled evidence, while preserving unresolved discrepancies.",
       "place": "",
-      "guide": "All four will happen, so ask what each one is the input to. There is nothing to compare with a prediction until the separate records agree with each other. And nothing can be frozen before the evidence has been weighed. Naming what stays unexplained is part of the comparison, not an afterthought.",
+      "guide": "Reconcile the records, compare them with pre-test predictions, name unresolved discrepancies, and only then approve evidence-supported changes and freeze the documented configuration.",
       "background": [
         "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
         "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
       ],
-      "story": "Trinity has produced new evidence and a last-minute improvement is already being argued over. Drawings are moving toward production while engineers keep proposing changes, and Bradbury wants somebody to say what may still change and what may not.",
+      "story": "Trinity has produced new evidence and teams are already proposing last-minute changes. Bradbury wants the laboratory to separate what the data support from what people merely want to improve.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Post-Trinity design freeze",
-        "setup": "Order the post-test decision process.",
-        "play": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "task": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "question": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "answer": "1. Recover and reconcile the timing, hydrodynamic and radiation records into one account of the shot. 2. Compare that account with the pre-test predictions, and name what is still unexplained. 3. Approve only the changes the evidence supports, and freeze the configuration. 4. Update assembly records, procedures and training against the frozen configuration.",
-        "why": "Each stage is the input to the next. The timing, hydrodynamic and radiation records are reconciled into one account of the shot, because there is nothing to compare until they agree with each other. That account is then compared with the pre-test predictions, and what remains unexplained is named rather than absorbed. Only then can the evidence-supported changes be approved and the configuration frozen. The freeze comes before the paperwork — reverse those two and the documents describe a configuration that is still moving.",
+        "title": "Freeze claims, not confidence",
+        "setup": "Order the post-test evidence and configuration-control process.",
+        "play": "Order the post-test evidence process from raw records to a controlled final technical configuration.",
+        "task": "Order the post-test evidence process from raw records to a controlled final technical configuration.",
+        "question": "Order the post-test evidence process from raw records to a controlled final technical configuration.",
+        "answer": "Reconcile independent records → compare with pre-test predictions and name discrepancies → approve only evidence-supported changes and freeze the documented configuration → update records and training against that frozen version.",
+        "why": "Separate records have to be reconciled before they can support one account of the event. That account is compared with predictions written beforehand, and unexplained discrepancies are kept visible rather than absorbed into a success narrative. Only then are evidence-supported changes approved and the technical documentation frozen. The lesson is configuration control and epistemic discipline, not weapon assembly.",
         "rebuttals": [
-          "Reconcile the records into one account of the shot first. Three disagreeing records are not evidence about anything yet.",
-          "Compare that account with the pre-test predictions second, and name what is still unexplained. An unnamed discrepancy is one nobody will return to.",
-          "Approve only the evidence-supported changes and freeze the configuration third. This is the step that ties the article to the test.",
-          "Update records, procedures and training last, against the frozen configuration. Do it earlier and the paperwork describes something still changing."
+          "Reconcile the records first; disagreeing records cannot yet support one claim.",
+          "Compare with pre-test predictions second and keep unresolved discrepancies visible.",
+          "Evidence-supported changes and the configuration freeze come third.",
+          "Documentation and training are updated last against the version that is actually frozen."
         ],
         "cards": [
-          "Recover and reconcile the timing, hydrodynamic and radiation records into one account of the shot.",
-          "Compare that account with the pre-test predictions, and name what is still unexplained.",
-          "Approve only the changes the evidence supports, and freeze the configuration.",
-          "Update assembly records, procedures and training against the frozen configuration."
+          "Recover and reconcile the independent diagnostic and environmental records into one account of the event.",
+          "Compare that account with the pre-test predictions, and name what remains unexplained.",
+          "Approve only changes supported by the evidence, and freeze the documented technical configuration.",
+          "Update records, procedures, and training against that frozen version."
         ],
         "order": [
           0,
@@ -5348,21 +5331,13 @@ export const CURRICULUM = {
       },
       "assumes": [
         "what was tested and what gets built can drift apart"
-      ],
-      "concept": {
-        "n": 19,
-        "c": "Shock waves, compression and hydrodynamics",
-        "of": 30,
-        "rests": [
-          "Pressure, temperature and equations of state"
-        ]
-      }
+      ]
     },
     {
       "day": 9,
-      "title": "Translate Fat Man into engineering requirements",
-      "scene": "Deak Parsons, who runs the Ordnance division, has the implosion assembly, the firing system, the casing, the aircraft and the field procedures on one list. Each is written as a broad need, and none of them yet says what would count as met.",
-      "takeaway": "A requirement becomes useful only when its owner and verification method are clear.",
+      "title": "Translate a complex wartime system into engineering requirements",
+      "scene": "By late 1944, the program is no longer one physics problem. A deployable wartime system has to survive handling, transport, measurement, environmental variation, and configuration control. Parsons wants those categories separated before teams write incompatible requirements.",
+      "takeaway": "Systems engineering begins by separating requirement categories before trying to optimize them.",
       "place": "",
       "guide": "Four situations and four kinds of requirement. Pair them by asking who has to agree with whom. The aircraft and the device? Two subsystems at a boundary? Several conditions that all have to hold? Or a claim and the evidence behind it? A requirement nobody can verify is a wish.",
       "background": [
@@ -5370,27 +5345,27 @@ export const CURRICULUM = {
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
       ],
-      "story": "Deak Parsons, who runs the Ordnance division, has the implosion assembly, the firing system, the casing, the aircraft and the field procedures on one list. Each is written as a broad need, and none of them yet says what would count as met.",
+      "story": "By late 1944, the program is no longer one physics problem. A deployable wartime system has to survive handling, transport, measurement, environmental variation, and configuration control. Parsons wants those categories separated before teams write incompatible requirements.",
       "game": {
         "type": "PROTOCOL",
-        "title": "Translate Fat Man into engineering requirements",
-        "setup": "Match each Fat Man program question to the requirement category it belongs to.",
+        "title": "Translate a complex wartime system into engineering requirements",
+        "setup": "Match each system-level question to the requirement category it belongs to.",
         "play": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
         "task": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
         "question": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
-        "answer": "The complete system must fit and function in the modified delivery aircraft -> An aircraft-integration requirement. It binds mass, balance, clearance, connections, and release, and it is verified by fit checks against the actual airframe; The firing system must not become enabled during normal handling -> A safety-and-arming requirement. Written as several conditions that must all hold, so no single failure can enable the chain; The high-explosive assembly, electrical unit, and diagnostic ports must agree on controlled interfaces -> An interface-control requirement. It fixes one approved set of dimensions and connections so independently built parts still mate; A claim about reliability must be backed by inspection, test, or rehearsal evidence -> A verification requirement. It names the evidence that will be produced and who accepts it, so a statement of confidence becomes a signed record",
-        "why": "Fat Man was a system of interacting subsystems, not a single physics package.",
+        "answer": "Environmental limits -> qualification; carrier compatibility -> mechanical interface; safe-state verification -> safety; tested-to-fielded identity -> configuration control.",
+        "why": "A complex program succeeds only when physical performance, interfaces, environment, safety, and records are treated as separate but coupled requirements.",
         "scenarios": [
-          "The complete system must fit and function in the modified delivery aircraft.",
-          "The firing system must not become enabled during normal handling.",
-          "The high-explosive assembly, electrical unit, and diagnostic ports must agree on controlled interfaces.",
-          "A claim about reliability must be backed by inspection, test, or rehearsal evidence."
+          "The scientific package must stay inside its validated environmental limits.",
+          "The carrier and payload must have compatible mass, geometry, and handling interfaces.",
+          "Safety state must remain controlled and independently verifiable during transport and preparation.",
+          "Every fielded configuration must be traceable to the tested and approved documentation."
         ],
         "choices": [
-          "An aircraft-integration requirement. It binds mass, balance, clearance, connections, and release, and it is verified by fit checks against the actual airframe.",
-          "A safety-and-arming requirement. Written as several conditions that must all hold, so no single failure can enable the chain.",
-          "An interface-control requirement. It fixes one approved set of dimensions and connections so independently built parts still mate.",
-          "A verification requirement. It names the evidence that will be produced and who accepts it, so a statement of confidence becomes a signed record."
+          "Environmental qualification requirement",
+          "Mechanical and carrier-interface requirement",
+          "Safety and state-verification requirement",
+          "Configuration-control and traceability requirement"
         ],
         "mapping": [
           0,
@@ -5401,14 +5376,6 @@ export const CURRICULUM = {
         "columns": [
           "What the statement demands",
           "Which kind of requirement that is"
-        ]
-      },
-      "concept": {
-        "n": 19,
-        "c": "Shock waves, compression and hydrodynamics",
-        "of": 30,
-        "rests": [
-          "Pressure, temperature and equations of state"
         ]
       }
     },
@@ -5448,9 +5415,9 @@ export const CURRICULUM = {
     },
     {
       "day": 11,
-      "title": "Integrate Fat Man with the Silverplate B-29",
-      "scene": "The Silverplate B-29 has been modified to carry and release an unusually shaped weapon. Bomb-bay clearance, electrical connections, crew procedures and flight performance are all now part of it. Parsons, who runs Ordnance, has three funding requests and one month.",
-      "takeaway": "Integration funding should target evidence at the boundary between systems.",
+      "title": "Integrate a new payload with a carrier aircraft",
+      "scene": "A new wartime payload has to be carried by a modified aircraft. The engineering question is not how the payload works internally, but whether mass properties, handling, release behavior, and aircraft systems remain within tested limits.",
+      "takeaway": "A carrier can be qualified against external interfaces without exposing or re-deriving the payload's internal design.",
       "place": "",
       "guide": "The failures at issue are at the boundary between two systems: bay clearance, electrical connections, loads, vibration, separation. An inert full-scale shape carried and released takes instruments through all of them at once, and needs an aircraft and a range. An internal bracket can be optimised now, but the interface drawing it has to match is not yet frozen. Casing work that changes neither fit nor loads nor release changes nothing at the boundary. A laboratory stand exercises none of it.",
       "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
@@ -5459,34 +5426,33 @@ export const CURRICULUM = {
         "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
         "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
       ],
-      "story": "The Silverplate B-29 has been modified to carry and release an unusually shaped weapon. Bomb-bay clearance, electrical connections, crew procedures and flight performance are all now part of it. Parsons, who runs Ordnance, has three funding requests and one month.",
+      "story": "A new wartime payload has to be carried by a modified aircraft. The engineering question is not how the payload works internally, but whether mass properties, handling, release behavior, and aircraft systems remain within tested limits.",
       "game": {
         "type": "SCIENCETANK",
-        "title": "Integrate Fat Man with the Silverplate B-29",
-        "setup": "The air-integration team can fund only the most decision-relevant work this month.",
+        "title": "Integrate a new payload with a carrier aircraft",
+        "setup": "Allocate effort across interface evidence rather than internal device design.",
         "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "answer": "Recommended: 75 to B, 15 to C after interface control, 10 in reserve; A receives none unless a functional problem emerges.",
-        "why": "The instrumented carriage-and-release test addresses the coupled aircraft-weapon interface and can expose multiple failure modes at once.",
+        "answer": "Recommended: put the large majority into inert interface testing and measured aircraft compatibility.",
+        "why": "Vehicle integration is an interface problem: the carrier only needs the properties that affect flight, handling, and release.",
         "proposals": [
           {
             "label": "A",
-            "text": "Repeat cosmetic casing refinements that do not affect fit, loads, or release."
+            "text": "Concentrate only on the payload interior and assume the aircraft can adapt later."
           },
           {
             "label": "B",
-            "text": "Instrument an inert full-scale shape during carriage and release tests, measuring loads, vibration, clearance, and separation."
+            "text": "Measure mass properties, structural interfaces, release behavior, and aircraft-system loads with inert test articles."
           },
           {
             "label": "C",
-            "text": "Optimize one internal bracket before the aircraft interface drawing is frozen."
+            "text": "Use one successful drop as complete qualification for every aircraft and environmental condition."
           }
         ],
         "recommended": {
-          "B": 75,
-          "C": 15,
-          "A": 0
+          "B": 90,
+          "A": 5
         },
         "research": ""
       }
@@ -5528,9 +5494,9 @@ export const CURRICULUM = {
     },
     {
       "day": 13,
-      "title": "The Fat Man firing chain",
-      "scene": "The firing chain carries an authorized command through power, switching, timing and many output channels, and every link has to stay dead during handling. Parsons, who runs Ordnance, wants the stages written down in order before anybody builds to them.",
-      "takeaway": "No single casual action should bridge the entire path from safe state to firing.",
+      "title": "A fast command-and-recording chain",
+      "scene": "An inert field experiment needs one authorized trigger to reach several diagnostic systems while preserving a traceable record of what happened. The integration team wants the logic written as functions, not hardware.",
+      "takeaway": "A fast system is safer and more diagnosable when authorization, permissives, distribution, and recording are explicit stages.",
       "place": "",
       "guide": "All four stages exist, so ask what each one has to be separated from. A stored device has to be inhibited, which is a different state from an armed one. Arming conditions have to arrive before a command can be conditioned. Each stage is traceable because it is separate.",
       "background": [
@@ -5538,21 +5504,21 @@ export const CURRICULUM = {
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
         "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
       ],
-      "story": "The firing chain carries an authorized command through power, switching, timing and many output channels, and every link has to stay dead during handling. Parsons, who runs Ordnance, wants the stages written down in order before anybody builds to them.",
+      "story": "An inert field experiment needs one authorized trigger to reach several diagnostic systems while preserving a traceable record of what happened. The integration team wants the logic written as functions, not hardware.",
       "game": {
         "type": "SEQUENCE",
-        "title": "The Fat Man firing chain",
-        "setup": "Order the high-level firing-chain logic used in a safety-critical ordnance system.",
+        "title": "A fast command-and-recording chain",
+        "setup": "Order a generic fast-system command chain without weapon-specific hardware.",
         "play": "Arrange the four cards from earliest cause or prerequisite to latest result.",
         "task": "Arrange the four cards from earliest cause or prerequisite to latest result.",
         "question": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "answer": "1 -> 2 -> 3 -> 4 (Maintain the system in a safe, inhibited state during storage and handling. -> Receive independent arming conditions and mission-authorized inputs. -> Condition and distribute the firing command through the controlled electrical system. -> Initiate the approved test or mission configuration and record the system state.)",
-        "why": "A safe firing chain separates storage, arming, command conditioning, and final action into traceable stages.",
+        "answer": "Verify state → confirm permissives and diagnostics → accept authorized trigger → distribute to recording systems and preserve the record.",
+        "why": "Authorization, state verification, trigger distribution, and recording are separate functions that should fail visibly rather than silently.",
         "cards": [
-          "Maintain the system in a safe, inhibited state during storage and handling.",
-          "Receive independent arming conditions and mission-authorized inputs.",
-          "Condition and distribute the firing command through the controlled electrical system.",
-          "Initiate the approved test or mission configuration and record the system state."
+          "Verify the experiment is in its approved safe and ready state.",
+          "Confirm the required independent permissives and diagnostic health checks.",
+          "Accept the authorized experiment trigger through the controlled command path.",
+          "Distribute the reference event to recording systems and preserve the complete timing record."
         ],
         "order": [
           0,
@@ -5562,20 +5528,16 @@ export const CURRICULUM = {
         ]
       },
       "concept": {
-        "n": 8,
-        "c": "Criticality: mass, geometry, reflectors, moderation",
-        "of": 30,
-        "rests": [
-          "Fission, neutron multiplication and chain reactions",
-          "Cross sections and mean free path"
-        ]
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     },
     {
       "day": 14,
-      "title": "Arming, fuzing, and safety interlocks",
-      "scene": "Transport is next week and the safe-state rules are still being argued in the corridor. Bradbury, who is assembling the Trinity device, wants one sheet saying which safeguard applies where, before a rehearsal is run against it.",
-      "takeaway": "A safe system makes its state constrained, visible, and independently checkable.",
+      "title": "Safe-state logic and interlocks",
+      "scene": "A transportable high-energy experiment can be safe, ready, or in transition. The safety team wants every state to be physically constrained, visible from outside the system, and independently checked.",
+      "takeaway": "Good interlock design makes hazardous states constrained, visible, and independently verifiable.",
       "place": "",
       "guide": "Four situations and four controls, and they solve different parts of one problem. Pair them by asking when each control acts: during handling, after release, at the final command, or afterwards for the record. Two independent conditions agreeing is a different guarantee from one condition holding.",
       "background": [
@@ -5583,27 +5545,27 @@ export const CURRICULUM = {
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
       ],
-      "story": "Transport is next week and the safe-state rules are still being argued in the corridor. Bradbury, who is assembling the Trinity device, wants one sheet saying which safeguard applies where, before a rehearsal is run against it.",
+      "story": "A transportable high-energy experiment can be safe, ready, or in transition. The safety team wants every state to be physically constrained, visible from outside the system, and independently checked.",
       "game": {
         "type": "PROTOCOL",
-        "title": "Arming, fuzing, and safety interlocks",
-        "setup": "Match each scenario to the most relevant ordnance control.",
+        "title": "Safe-state logic and interlocks",
+        "setup": "Match each safety requirement to a control that makes the state constrained and observable.",
         "play": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
         "task": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
         "question": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
-        "answer": "The weapon is being transported and must remain electrically inhibited -> Keep the transport safety device engaged so electrical energy cannot reach the firing chain during handling; The aircraft has released the weapon, but the firing chain should not respond until authorized conditions are met -> Use fuzing logic that waits for approved post-release conditions before allowing a firing command; Two independent states must agree before the final command can pass -> Use an interlock, or permissive, that requires two independent safe-to-fire conditions to agree; A technician must confirm which safe/armed state was present after a rehearsal -> Provide an indication that can be read from outside the case and a checklist entry signed at the time, so the condition is provable afterwards",
-        "why": "Safety, fuzing, interlocks, and indication solve different parts of the control problem.",
+        "answer": "Transport isolation; condition-based permissive; independent interlock; external indication plus signed record.",
+        "why": "A safe system prevents one command or one mistaken indication from silently creating an irreversible state.",
         "scenarios": [
-          "The weapon is being transported and must remain electrically inhibited.",
-          "The aircraft has released the weapon, but the firing chain should not respond until authorized conditions are met.",
-          "Two independent states must agree before the final command can pass.",
-          "A technician must confirm which safe/armed state was present after a rehearsal."
+          "Transport must keep stored energy isolated from the final experiment outputs.",
+          "The system may become active only after an approved external condition is reached.",
+          "Two independent safe-state checks must agree before the final command path is enabled.",
+          "A technician must be able to prove afterwards which state the system was in."
         ],
         "choices": [
-          "Keep the transport safety device engaged so electrical energy cannot reach the firing chain during handling.",
-          "Use fuzing logic that waits for approved post-release conditions before allowing a firing command.",
-          "Use an interlock, or permissive, that requires two independent safe-to-fire conditions to agree.",
-          "Provide an indication that can be read from outside the case and a checklist entry signed at the time, so the condition is provable afterwards."
+          "Keep the transport isolation engaged so stored energy cannot reach final outputs during handling.",
+          "Use permissive logic that enables the experiment only after the approved condition is verified.",
+          "Require two independent state checks before the command path can be enabled.",
+          "Provide an external state indication and a signed contemporaneous checklist record."
         ],
         "mapping": [
           0,
@@ -5619,9 +5581,9 @@ export const CURRICULUM = {
     },
     {
       "day": 15,
-      "title": "Explosive-lens segment interfaces",
-      "scene": "Segments for the lens assembly are machined in one shop and fitted in another, and the floor has stopped four times this morning. Kistiakowsky, who heads the explosives division, wants a written response to each before the next shift.",
-      "takeaway": "Configuration control is part of the physical design.",
+      "title": "Precision-component interfaces and traceability",
+      "scene": "Precision inert components are machined in one shop and fitted in another. The integration floor has stopped several times because identity, drawing revision, and fit are not all under the same authority.",
+      "takeaway": "Configuration control is part of the physical design because undocumented substitutions and fit changes alter the system being tested.",
       "place": "",
       "guide": "Four situations and four responses. Ask of each what has become informal: the identity, the geometry, the limit, or who is allowed to authorise a change. A precision assembly fails when any one of those four stops being written down, and none of these is a paperwork problem.",
       "background": [
@@ -5629,27 +5591,27 @@ export const CURRICULUM = {
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
       ],
-      "story": "Segments for the lens assembly are machined in one shop and fitted in another, and the floor has stopped four times this morning. Kistiakowsky, who heads the explosives division, wants a written response to each before the next shift.",
+      "story": "Precision inert components are machined in one shop and fitted in another. The integration floor has stopped several times because identity, drawing revision, and fit are not all under the same authority.",
       "game": {
         "type": "PROTOCOL",
-        "title": "Explosive-lens segment interfaces",
-        "setup": "Match each observed problem to the first engineering response.",
+        "title": "Precision-component interfaces and traceability",
+        "setup": "Match each interface problem to the first engineering response.",
         "play": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
         "task": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
         "question": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
-        "answer": "A segment arrives without a readable lot identifier. -> Quarantine and restore traceability; Two interface drawings specify different reference surfaces. -> Resolve the configuration conflict before assembly; A fitted assembly shows a gap outside the approved inspection limit. -> Stop and disposition the nonconformance; A technician proposes rotating a segment to make it fit without an approved change. -> Reject the unapproved field modification",
+        "answer": "Quarantine unknown identity; resolve drawing revision; disposition nonconformance; reject unapproved fit-by-rotation.",
         "why": "Precision assemblies fail when identity, geometry, and configuration authority become informal.",
         "scenarios": [
-          "A segment arrives without a readable lot identifier.",
+          "A precision component arrives without a readable lot identifier.",
           "Two interface drawings specify different reference surfaces.",
           "A fitted assembly shows a gap outside the approved inspection limit.",
-          "A technician proposes rotating a segment to make it fit without an approved change."
+          "A technician proposes rotating a component to make it fit without an approved change."
         ],
         "choices": [
-          "Quarantine the unidentified segment until its production lot and inspection history are restored.",
+          "Quarantine the unidentified component until its production lot and inspection history are restored.",
           "Stop assembly and resolve which drawing revision defines the correct reference surface.",
           "Record the out-of-limit gap as a nonconformance and obtain an authorized engineering disposition.",
-          "Reject the unapproved rotation because changing orientation can alter wave timing even if the part appears to fit."
+          "Reject the unapproved field modification because changing orientation changes the tested configuration."
         ],
         "mapping": [
           0,
@@ -5670,9 +5632,9 @@ export const CURRICULUM = {
     },
     {
       "day": 16,
-      "title": "Select high-explosive materials for a wave-shaping system",
-      "scene": "The lens program has to settle on a pair of explosives, and there are three proposals on the table for how to choose. Lilli Hornig, the chemist working on the castings, has to say which of the three the panel should back.",
-      "takeaway": "A material is suitable only when its performance and its production process are both controlled.",
+      "title": "Choose materials for an inert wave-propagation study",
+      "scene": "The inert wave-shaping program needs materials whose propagation properties are repeatable enough to support a model. The panel has to choose whether to chase ideal single-sample performance or reproducible material characterization.",
+      "takeaway": "Material selection is an evidence problem: performance matters only when the production and measurement process are controlled.",
       "place": "",
       "guide": "A lens works only if the wave behaviour and the castings both hold from segment to segment. Detonation velocity is one property and can be optimised on its own. Stability, compatibility, aging and casting quality are the others, and each is measured separately. Machinability is real and immediate, and says nothing about how a wave crosses a boundary. Inert characterisation with small authorized tests and aging observations is the slowest route. It is also the only one that reports on more than one property at a time.",
       "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
@@ -5681,28 +5643,28 @@ export const CURRICULUM = {
         "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
         "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
       ],
-      "story": "The lens program has to settle on a pair of explosives, and there are three proposals on the table for how to choose. Lilli Hornig, the chemist working on the castings, has to say which of the three the panel should back.",
+      "story": "The inert wave-shaping program needs materials whose propagation properties are repeatable enough to support a model. The panel has to choose whether to chase ideal single-sample performance or reproducible material characterization.",
       "game": {
         "type": "SCIENCETANK",
-        "title": "Select high-explosive materials for a wave-shaping system",
-        "setup": "Choose a safe research portfolio; no formulations or processing recipes are provided.",
+        "title": "Choose materials for an inert wave-propagation study",
+        "setup": "Choose a safe research portfolio; the lesson contains no energetic formulations or processing recipes.",
         "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "answer": "Recommended: 90 to B, 5 to A for bounded physics comparison, 5 in reserve.",
-        "why": "The lens program required materials to satisfy a coupled set of physical and production constraints.",
+        "answer": "Recommended: 90 to reproducible inert material characterization, 5 to a bounded comparison, 5 in reserve.",
+        "why": "A useful research material must have measurable propagation properties, batch consistency, manufacturability, and a safe repeatable test method.",
         "proposals": [
           {
             "label": "A",
-            "text": "Optimize only the highest detonation velocity, ignoring casting quality and compatibility."
+            "text": "Choose the single specimen with the most extreme propagation contrast and optimize around it."
           },
           {
             "label": "B",
-            "text": "Compare candidate materials using inert property characterization, small authorized tests, aging observations, and manufacturability evidence."
+            "text": "Characterize several safe inert materials across batches, measuring propagation speed, uniformity, and manufacturing repeatability."
           },
           {
             "label": "C",
-            "text": "Select the easiest material to machine even if its wave behavior is poorly characterized."
+            "text": "Choose by nominal handbook values and skip batch measurements to save test time."
           }
         ],
         "recommended": {
@@ -5710,35 +5672,40 @@ export const CURRICULUM = {
           "A": 5
         },
         "research": ""
+      },
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     },
     {
       "day": 17,
-      "title": "The X-unit as a pulsed-power subsystem",
-      "scene": "The X-unit sits on the bench in the electrical shop, and two groups are testing it to different written procedures. Kistiakowsky, whose explosives division owns the unit, wants one order of operations that both will work to.",
-      "takeaway": "A pulsed-power unit is an interface between mission logic and precise physical timing.",
+      "title": "A pulsed diagnostic unit as a system",
+      "scene": "Two groups are testing the same pulsed diagnostic unit to different written procedures. The integration team wants one order of operations that both groups can reproduce.",
+      "takeaway": "A fast diagnostic unit is an interface between experiment logic and precise physical timing.",
       "place": "",
-      "guide": "All four functions exist and each is tested separately as well as together. Ask of each card what has to be true before it. Energy cannot be stored safely unless the outputs are inhibited. And a command cannot be acted on before the state it acts from has been confirmed.",
+      "guide": "All four functions exist and each is tested separately as well as together. Ask what must be true before the next step: safe initialization, state verification, authorized trigger receipt, and distribution to recording channels.",
       "background": [
         "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
         "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
       ],
-      "story": "The X-unit sits on the bench in the electrical shop, and two groups are testing it to different written procedures. Kistiakowsky, whose explosives division owns the unit, wants one order of operations that both will work to.",
+      "story": "Two groups are testing the same pulsed diagnostic unit to different written procedures. The integration team wants one order of operations that both groups can reproduce.",
       "game": {
         "type": "SEQUENCE",
-        "title": "The X-unit as a pulsed-power subsystem",
-        "setup": "Order a conceptual pulsed-power sequence without circuit values or construction details.",
+        "title": "A pulsed diagnostic unit as a system",
+        "setup": "Order a conceptual fast-measurement sequence without circuit values or construction details.",
         "play": "Arrange the four cards from earliest cause or prerequisite to latest result.",
         "task": "Arrange the four cards from earliest cause or prerequisite to latest result.",
         "question": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "answer": "1 -> 2 -> 3 -> 4 (Charge and verify the energy-storage subsystem while final outputs remain inhibited. -> Confirm safe/armed state and continuity through approved checks. -> Receive the authorized firing command. -> Distribute the conditioned pulse to the initiation channels and record diagnostic evidence.)",
-        "why": "Energy storage, state verification, command receipt, and output distribution are separate functions that must be tested separately and together.",
+        "answer": "Initialize and verify → confirm safe state and continuity → receive the authorized experiment trigger → distribute the reference pulse to recording channels.",
+        "why": "Initialization, state verification, trigger receipt, and signal distribution are separate functions that must be tested separately and together.",
         "cards": [
-          "Charge and verify the energy-storage subsystem while final outputs remain inhibited.",
-          "Confirm safe/armed state and continuity through approved checks.",
-          "Receive the authorized firing command.",
-          "Distribute the conditioned pulse to the initiation channels and record diagnostic evidence."
+          "Initialize and verify the energy-storage and reference subsystem while outputs remain inhibited.",
+          "Confirm the diagnostic unit's safe state and continuity through approved checks.",
+          "Receive the authorized experiment trigger.",
+          "Distribute the conditioned reference pulse to the recording channels and preserve the diagnostic record."
         ],
         "order": [
           0,
@@ -5789,9 +5756,9 @@ export const CURRICULUM = {
     },
     {
       "day": 19,
-      "title": "V-Site assembly workflow",
-      "scene": "V-Site takes delivery of high-explosive and mechanical components this week, and the crews there have never assembled them in one place before. Bradbury, who is assembling the Trinity device, wants the workflow written and signed before the first component arrives.",
-      "takeaway": "Assembly is the moment when documentation becomes hardware.",
+      "title": "Controlled assembly workflow for a one-shot experiment",
+      "scene": "A field experiment brings precision components, electrical systems, tooling, and records together for the first time. Bradbury wants the workflow signed before any controlled hardware moves.",
+      "takeaway": "Controlled assembly means the final physical configuration can be reconstructed from its records.",
       "place": "",
       "guide": "All four steps happen, so ask what each one has to be true before it. A component of unknown identity cannot be assembled into a controlled configuration. And an electrical test proves the configuration that exists rather than the one on the drawing. The records are sealed last because they record all of it.",
       "background": [
@@ -5799,35 +5766,27 @@ export const CURRICULUM = {
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
         "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
       ],
-      "story": "V-Site takes delivery of high-explosive and mechanical components this week, and the crews there have never assembled them in one place before. Bradbury, who is assembling the Trinity device, wants the workflow written and signed before the first component arrives.",
+      "story": "A field experiment brings precision components, electrical systems, tooling, and records together for the first time. Bradbury wants the workflow signed before any controlled hardware moves.",
       "game": {
         "type": "SEQUENCE",
-        "title": "V-Site assembly workflow",
-        "setup": "Order a historically grounded but non-operational assembly-control workflow.",
+        "title": "Controlled assembly workflow for a one-shot experiment",
+        "setup": "Order a non-operational assembly-control workflow.",
         "play": "Arrange the four cards from earliest cause or prerequisite to latest result.",
         "task": "Arrange the four cards from earliest cause or prerequisite to latest result.",
         "question": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "answer": "1 -> 2 -> 3 -> 4 (Verify identity, inspection status, and approved configuration of incoming components. -> Use dedicated tooling to assemble controlled subassemblies with independent checks. -> Complete electrical continuity and state-verification tests on the authorized configuration. -> Seal records, photograph configuration, and release the assembly to the next controlled test or transport step.)",
-        "why": "The V-Site brought high explosives, electrical systems, tooling, and records together under strict safety and configuration controls.",
+        "answer": "Verify identity/configuration → controlled assembly with independent checks → approved system checks → seal records and release to the next authorized step.",
+        "why": "Assembly is the point where documentation becomes hardware, so identity, configuration, independent checks, and records have to remain linked.",
         "cards": [
-          "Verify identity, inspection status, and approved configuration of incoming components.",
-          "Use dedicated tooling to assemble controlled subassemblies with independent checks.",
-          "Complete electrical continuity and state-verification tests on the authorized configuration.",
-          "Seal the records, photograph the configuration, and certify the assembly for the transport it is authorized for."
+          "Verify identity, inspection status, and approved configuration of incoming experimental components.",
+          "Use dedicated tooling to assemble controlled inert or diagnostic subassemblies with independent checks.",
+          "Complete approved continuity, instrumentation, and state-verification tests on the assembled experimental configuration.",
+          "Seal records, photograph the configuration, and release it only to the next authorized test or transport step."
         ],
         "order": [
           0,
           1,
           2,
           3
-        ]
-      },
-      "concept": {
-        "n": 27,
-        "c": "Chemical explosives: energy release and detonation velocity",
-        "of": 30,
-        "rests": [
-          "Pressure, temperature and equations of state"
         ]
       }
     },
@@ -5963,25 +5922,25 @@ export const CURRICULUM = {
     },
     {
       "day": 23,
-      "title": "Reliability of a series firing chain",
-      "scene": "The readiness board meets on Friday and wants one reliability figure for the firing chain. Parsons, who runs Ordnance, has four required subsystems in front of him, each rated 0.98 for a single mission, and four separate certificates saying so.",
-      "takeaway": "System reliability cannot be inferred from the best component.",
+      "title": "Reliability of a required series chain",
+      "scene": "The readiness board wants one reliability figure for a diagnostic chain. Four required subsystems must all work for the result to be recorded.",
+      "takeaway": "System reliability cannot be inferred from the best component; required independent elements multiply.",
       "place": "",
       "guide": "Four numbers, in two pairs, and only one of each belongs here. Ask of each whether it is a per-link reliability or a number of links. And note what the arithmetic does. Each required element is another chance to fail, even when every one looks reliable on its own.",
       "background": [
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "The readiness board meets on Friday and wants one reliability figure for the firing chain. Parsons, who runs Ordnance, has four required subsystems in front of him, each rated 0.98 for a single mission, and four separate certificates saying so.",
+      "story": "The readiness board wants one reliability figure for a diagnostic chain. Four required subsystems must all work for the result to be recorded.",
       "game": {
         "type": "BALLPARK",
-        "title": "Reliability of a series firing chain",
-        "setup": "A generic chain has 4 required subsystems, each with independent reliability 0.98 for 1 mission.",
+        "title": "Reliability of a required series chain",
+        "setup": "A generic experiment has 4 required independent subsystems, each with reliability 0.98 for one run.",
         "play": "Estimate total reliability.",
         "task": "Estimate total reliability.",
         "question": "Estimate total reliability.",
-        "answer": "R approximately 0.98^4 approximately 0.92.",
-        "why": "Every required element creates another opportunity for failure, even when each appears highly reliable.",
+        "answer": "R ≈ 0.98^4 ≈ 0.92.",
+        "why": "Every required element creates another opportunity for failure, even when each subsystem looks highly reliable.",
         "givens": [
           "Four required subsystems",
           "Each reliability = 0.98",
@@ -6053,31 +6012,31 @@ export const CURRICULUM = {
     },
     {
       "day": 25,
-      "title": "Common-mode failure in simultaneous initiation",
-      "scene": "Many initiation channels have to fire together, and at present they share a trigger path, a power supply and a procedure. John von Neumann, the mathematician working on implosion, has three reliability proposals in front of him and a hundred credits.",
-      "takeaway": "The hardest reliability risks often hide in shared infrastructure.",
+      "title": "Common-mode failure in synchronized diagnostics",
+      "scene": "Many diagnostic channels must record the same fast event on one time base, and they currently share a reference clock, a power supply, and a procedure. Three reliability proposals compete for the next test budget.",
+      "takeaway": "The hardest reliability risks often hide in shared infrastructure rather than in the number of channels.",
       "place": "",
-      "guide": "Many channels have to fire together, and at present they share a trigger path, a power supply and a procedure. Adding channels on that same path multiplies the count and not the independence. Independent timing references measure whether the channels can fail apart. Testing the shared power and procedure is what finds a fault that makes all of them late at once. Physical separation is not independence: two boxes a metre apart can still run off one supply.",
+      "guide": "Adding channels on one shared reference multiplies the count but not the independence. Independent timing references test whether channels can fail separately. Testing shared power and procedure is how a common-mode fault is exposed. Physical separation alone is not independence.",
       "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
       "background": [
         "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
         "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
         "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
       ],
-      "story": "Many initiation channels have to fire together, and at present they share a trigger path, a power supply and a procedure. John von Neumann, the mathematician working on implosion, has three reliability proposals in front of him and a hundred credits.",
+      "story": "Many diagnostic channels must record the same fast event on one time base, and they currently share a reference clock, a power supply, and a procedure. Three reliability proposals compete for the next test budget.",
       "game": {
         "type": "SCIENCETANK",
-        "title": "Common-mode failure in simultaneous initiation",
-        "setup": "Choose the most valuable reliability investment.",
+        "title": "Common-mode failure in synchronized diagnostics",
+        "setup": "Choose the most valuable reliability investment for a multi-channel measurement system.",
         "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "answer": "Recommended: 90 to B, 10 in reserve; A and C receive none until common causes are addressed.",
+        "answer": "Recommended: 90 to B, 10 in reserve; A and C receive none until common-mode dependencies are addressed.",
         "why": "Redundancy protects only against failures that are genuinely independent.",
         "proposals": [
           {
             "label": "A",
-            "text": "Add more channels that all share the same untested trigger path."
+            "text": "Add more recording channels that all share the same untested reference path."
           },
           {
             "label": "B",
@@ -6085,7 +6044,7 @@ export const CURRICULUM = {
           },
           {
             "label": "C",
-            "text": "Assume identical channels fail independently because they are physically separate."
+            "text": "Assume physically separate channels fail independently even when they share the same reference and power."
           }
         ],
         "recommended": {
@@ -6241,8 +6200,8 @@ export const CURRICULUM = {
     },
     {
       "day": 29,
-      "title": "Project Alberta and Tinian logistics",
-      "scene": "Components, records, trained specialists and Silverplate support all have to reach Tinian, and the last assembly will happen there rather than here. Parsons, who runs Ordnance, has four requirements from the island to arrange.",
+      "title": "Move a secret technical capability to a distant field base",
+      "scene": "Components, records, trained specialists, and aircraft support must reach a distant base while identity, condition, and authority remain traceable. The lesson is controlled deployment, not weapon assembly.",
       "takeaway": "Deployment is a new integration phase, not merely transportation.",
       "place": "",
       "guide": "Four needs and four arrangements. Pair them by asking what each one has to survive. A journey? An outside depot? A base with no laboratory behind it? An anomaly nobody at home can be asked about? Each answer moves a piece of the laboratory rather than a piece of paper.",
@@ -6251,27 +6210,27 @@ export const CURRICULUM = {
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
       ],
-      "story": "Components, records, trained specialists and Silverplate support all have to reach Tinian, and the last assembly will happen there rather than here. Parsons, who runs Ordnance, has four requirements from the island to arrange.",
+      "story": "Components, records, trained specialists, and aircraft support must reach a distant base while identity, condition, and authority remain traceable. The lesson is controlled deployment, not weapon assembly.",
       "game": {
         "type": "PROTOCOL",
-        "title": "Project Alberta and Tinian logistics",
-        "setup": "Match each Tinian challenge to the needed Project Alberta capability.",
+        "title": "Move a secret technical capability to a distant field base",
+        "setup": "Match each deployment challenge to the needed logistics capability.",
         "play": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
         "task": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
         "question": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
-        "answer": "Specialized components and records must arrive securely and in known condition -> Controlled shipment with a signed transfer at every hand-off, so identity and handling history survive the journey intact; A modified B-29 requires depot-level support without exposing the program broadly -> A dedicated Silverplate maintenance unit, cleared and self-contained, so heavy work needs no explanation to an outside depot; Final assembly and checks must occur near the mission base under strict control -> Purpose-built buildings on the island and step-by-step procedures, so the last work happens beside the aircraft and still leaves a record; Scientific personnel must interpret anomalies without the full Los Alamos organization present -> Embed a Los Alamos technical team with authority to interpret anomalies and approve or stop field work",
-        "why": "Project Alberta extended the laboratory into a distant operational environment.",
+        "answer": "Controlled shipment; cleared self-contained support; controlled field facilities and procedures; embedded technical authority.",
+        "why": "A distant deployment creates a new integration problem: transport, cleared support, controlled facilities, and expert authority all have to travel with the technical system.",
         "scenarios": [
-          "Specialized components and records must arrive securely and in known condition.",
-          "A modified B-29 requires depot-level support without exposing the program broadly.",
-          "Final assembly and checks must occur near the mission base under strict control.",
-          "Scientific personnel must interpret anomalies without the full Los Alamos organization present."
+          "Specialized experimental hardware and records must arrive securely and in known condition.",
+          "A modified aircraft requires depot-level support without exposing the classified program broadly.",
+          "Final controlled checks must occur near the field base while preserving traceability.",
+          "Scientific personnel must interpret anomalies without the full home laboratory present."
         ],
         "choices": [
-          "Controlled shipment with a signed transfer at every hand-off, so identity and handling history survive the journey intact.",
-          "A dedicated Silverplate maintenance unit, cleared and self-contained, so heavy work needs no explanation to an outside depot.",
-          "Purpose-built buildings on the island and step-by-step procedures, so the last work happens beside the aircraft and still leaves a record.",
-          "Embed a Los Alamos technical team with authority to interpret anomalies and approve or stop field work."
+          "Use controlled shipment with signed transfer at every hand-off so identity and handling history survive the journey.",
+          "Use a dedicated cleared maintenance unit that can support the modified aircraft without outside depots.",
+          "Provide purpose-built controlled facilities and written procedures so field checks leave a complete record.",
+          "Embed a technical team with authority to interpret anomalies and approve or stop field work."
         ],
         "mapping": [
           0,
@@ -6283,13 +6242,18 @@ export const CURRICULUM = {
           "What the mission requires",
           "How it is arranged"
         ]
+      },
+      "concept": {
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     },
     {
       "day": 30,
-      "title": "Final Fat Man engineering readiness review",
-      "scene": "The board has to say whether Fat Man can be assembled, carried, armed, released and initiated in the one configuration the tests support. Groves has given it a fixed date, and three proposals are competing for the review effort.",
-      "takeaway": "A weapon-system readiness decision is broader than proof of its central physical concept.",
+      "title": "Final system readiness review",
+      "scene": "The final board has to decide whether the fielded system matches the configuration actually tested, whether the evidence chains are independent, and whether residual risks have explicit contingencies.",
+      "takeaway": "A readiness review should be able to say what would make it stop, not only why it wants to proceed.",
       "place": "",
       "guide": "Readiness is a claim about assembly, carriage, arming, release and initiation in one configuration, and Trinity tested a device rather than a mission. An evidence matrix names each mission-critical claim and the test, inspection, rehearsal or signature behind it. It is weeks of clerical work, and it exposes what is missing. Reviewing the Trinity result alone covers the physics and none of the interfaces. A fixed schedule is a constraint on the review and not evidence inside it.",
       "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
@@ -6298,42 +6262,40 @@ export const CURRICULUM = {
         "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
         "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
       ],
-      "story": "The board has to say whether Fat Man can be assembled, carried, armed, released and initiated in the one configuration the tests support. Groves has given it a fixed date, and three proposals are competing for the review effort.",
+      "story": "The final board has to decide whether the fielded system matches the configuration actually tested, whether the evidence chains are independent, and whether residual risks have explicit contingencies.",
       "game": {
         "type": "SCIENCETANK",
-        "title": "Final Fat Man engineering readiness review",
-        "setup": "The board must decide how to allocate its final review effort.",
+        "title": "Final system readiness review",
+        "setup": "Allocate review effort across evidence, independence, and residual risk.",
         "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "answer": "Recommended: 90 to B, 10 to independent challenge and reserve; A and C are insufficient.",
-        "why": "Trinity established the implosion principle, but readiness also depended on production, assembly, aircraft, safety, and field evidence.",
+        "answer": "Recommended: put the dominant share into tested-to-fielded configuration audit, independent evidence, and explicit stop criteria.",
+        "why": "Readiness is not a feeling of confidence; it is a traceable match between tested configuration, field configuration, evidence, and named residual risk.",
         "proposals": [
           {
             "label": "A",
-            "text": "Review only the successful Trinity result."
+            "text": "Approve because every division has signed its own subsystem page."
           },
           {
             "label": "B",
-            "text": "Build an evidence matrix linking every mission-critical claim to component tests, integrated tests, inspections, rehearsals, and responsible sign-off."
+            "text": "Audit tested-versus-fielded configuration, independent evidence, unresolved discrepancies, and stop criteria before approval."
           },
           {
             "label": "C",
-            "text": "Approve because the schedule is fixed and the major physics question has been answered."
+            "text": "Approve after one successful integrated rehearsal and defer configuration reconciliation until afterwards."
           }
         ],
         "recommended": {
-          "B": 90
+          "B": 90,
+          "A": 5
         },
         "research": ""
       },
       "concept": {
-        "n": 19,
-        "c": "Shock waves, compression and hydrodynamics",
-        "of": 30,
-        "rests": [
-          "Pressure, temperature and equations of state"
-        ]
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     },
     {
@@ -6465,37 +6427,37 @@ export const CURRICULUM = {
     },
     {
       "day": 2,
-      "title": "From outward detonation to inward compression",
-      "scene": "George Kistiakowsky, the explosives chemist running X Division, says it plainly — ordinary high explosive detonates outward from wherever it was lit, and every intuition on the Hill comes from that. Implosion needs the opposite, and nobody has done it before.",
-      "takeaway": "The central challenge is controlled convergence, not simply a larger explosion.",
+      "title": "How a laboratory survives a design pivot",
+      "scene": "Oppenheimer has ended one major plutonium line of work. People, facilities and diagnostics now have to move without losing the evidence that caused the change.",
+      "takeaway": "A successful pivot preserves the evidence that killed the old plan and gives the new plan explicit tests it can still fail.",
       "place": "",
-      "guide": "These four are one chain, and the problem is convergence rather than power. Ask of each card what has to happen first. One point of initiation gives one outward wave. Waves have to exist before they can be redirected. And the density change is the point of all of it.",
+      "guide": "This is a program-recovery sequence, not a device sequence. Preserve the failed assumption and its evidence, define what the replacement approach must demonstrate, build measurements that could falsify it, and only then commit the integrated schedule.",
       "background": [
         "Why the order is graded whole. A sequence is a claim about dependency: each step is here because the one before it has already happened, or has to have. One transposed pair falsifies that claim wherever it sits, so partial credit would be credit for a sequence that does not work.",
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
         "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
       ],
-      "story": "George Kistiakowsky, the explosives chemist running X Division, says it plainly — ordinary high explosive detonates outward from wherever it was lit, and every intuition on the Hill comes from that. Implosion needs the opposite, and nobody has done it before.",
+      "story": "Oppenheimer has ended one major plutonium line of work. People, facilities and diagnostics now have to move without losing the evidence that caused the change.",
       "game": {
         "type": "SEQUENCE",
-        "title": "From outward detonation to inward compression",
+        "title": "How a laboratory survives a design pivot",
         "setup": "Order the physical chain from initiation through inward compression.",
-        "play": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "task": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "question": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "answer": "1 -> 2 -> 3 -> 4 (Initiate the approved outer high-explosive system at multiple controlled points. -> Shape and redirect the resulting waves toward the center. -> Drive an inward-moving pressure front through inert surrounding layers and the plutonium assembly. -> Increase density rapidly enough to change the neutron-balance condition before expansion begins.)",
-        "why": "The central problem is controlled convergence rather than raw explosive power. The outer explosive system is initiated at multiple controlled points, because one point gives one outward wave and nothing else. Those waves are then shaped and redirected toward the centre — this is the step that has no precedent. The resulting inward front drives through the inert layers and the assembly. And the density has to rise fast enough to change the neutron balance before expansion begins, which is what makes speed part of the physics rather than a preference.",
+        "play": "Arrange the program steps that turn a failed assumption into a testable replacement program.",
+        "task": "Arrange the program steps that turn a failed assumption into a testable replacement program.",
+        "question": "Arrange the program steps that turn a failed assumption into a testable replacement program.",
+        "answer": "Record the failed assumption and evidence → state the replacement program's testable requirements → build independent diagnostics and inert tests → commit the integrated schedule only after pass/fail evidence exists.",
+        "why": "A pivot is more than moving people. The laboratory first records the failed assumption and the measurements that disproved it. It then states the new program-level requirements without pretending the replacement is already validated. Independent diagnostics are built around those requirements. Only after the tests can actually distinguish success from failure does the integrated schedule become meaningful.",
         "rebuttals": [
-          "Initiating at multiple controlled points comes first. A single point produces a single outward wave, and there is nothing to shape.",
-          "Shaping and redirecting the waves toward the centre is the step with no precedent, and it is what the lens programme exists for.",
-          "Driving the inward front through the surrounding layers and the assembly is the mechanical consequence of the shaping.",
-          "Raising density before expansion begins is the point of all of it. Compression that arrives late is compression that never happened."
+          "Preserve the evidence first. Otherwise the laboratory can later rewrite why the old program ended.",
+          "Requirements come before tests; a test without a claim is only activity.",
+          "Independent diagnostics come before integration so failures can still be attributed.",
+          "The schedule is last because dates built on undefined evidence are only promises."
         ],
         "cards": [
-          "Initiate the approved outer high-explosive system at multiple controlled points.",
-          "Shape and redirect the detonation waves toward the center.",
-          "Drive an inward-moving pressure front through inert surrounding layers and the plutonium assembly.",
-          "Increase density rapidly enough to change the neutron-balance condition before expansion begins."
+          "Record the failed assumption and the measurements that disproved it.",
+          "State the replacement program's system-level requirements as claims that can be tested.",
+          "Build independent diagnostics and inert experiments that can falsify those claims.",
+          "Commit the integrated schedule only after the pass/fail evidence is defined."
         ],
         "order": [
           0,
@@ -6525,43 +6487,43 @@ export const CURRICULUM = {
     },
     {
       "day": 3,
-      "title": "What an explosive lens does",
-      "scene": "Kistiakowsky’s lens programme has been given the problem of shaping a detonation front, and the name is a deliberate analogy. He wants every part of that analogy earned against real firing data before anybody uses it in a memo.",
-      "takeaway": "A conceptual analogy must still be tested against the actual nonlinear physics.",
+      "title": "What an inert wave-shaping test can establish",
+      "scene": "Kistiakowsky's group is studying how waves propagate through different materials. The player is not designing the weapon; the task is to decide which measurements make a claim about wave shape defensible.",
+      "takeaway": "Wave-shaping claims are earned by inert measurements of propagation, arrival-time uniformity, manufacturing variation, and independent reconstruction.",
       "place": "",
-      "guide": "Four questions and four ways to answer them. Pair them by asking what each measurement isolates. One material alone? Two acting together? The joints between segments? Or the whole wave around the assembly? Manufacturing is physics here, because a gap distorts the wave crossing it.",
+      "guide": "Pair each claim with the observation that isolates it: measure material propagation separately, then combined arrival times, then manufacturing repeatability, then cross-check the reconstructed front with an independent diagnostic.",
       "background": [
         "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
       ],
-      "story": "Kistiakowsky’s lens programme has been given the problem of shaping a detonation front, and the name is a deliberate analogy. He wants every part of that analogy earned against real firing data before anybody uses it in a memo.",
+      "story": "Kistiakowsky's group is studying how waves propagate through different materials. The player is not designing the weapon; the task is to decide which measurements make a claim about wave shape defensible.",
       "game": {
         "type": "PROTOCOL",
-        "title": "What an explosive lens does",
-        "setup": "Match each program question to the evidence needed to answer it.",
-        "play": "Match each lens-program question to the measurement or engineering action that can answer it.",
-        "task": "Match each lens-program question to the measurement or engineering action that can answer it.",
-        "question": "Match each lens-program question to the measurement or engineering action that can answer it.",
-        "answer": "Do the candidate materials carry fronts at different speeds? -> Measure each propagation speed separately; Can those differences produce the intended arrival surface? -> Compare arrival times around the driven surface; Are joints and density variations distorting the result? -> Qualify as-built segments against repeat diagnostic shots; Is the final wave symmetric? -> Use independent timing and radiographic records around the assembly.",
-        "why": "An explosive lens puts together explosives with different detonation speeds. A front crossing the boundary between them is reshaped, and that speed contrast is the working principle. The boundaries are shaped so faster and slower paths arrive together, as one inward-curving front. Manufacturing then matters as physics. A gap or a property change at a segment boundary distorts the wave crossing it. And symmetry has to be measured rather than assumed, because detonation is violent and nonlinear in a way light is not.",
+        "title": "What an inert wave-shaping test can establish",
+        "setup": "Match each inert-test question to the evidence that settles it.",
+        "play": "Match each wave-shaping question to a measurement that can answer it in an inert laboratory mockup.",
+        "task": "Match each wave-shaping question to a measurement that can answer it in an inert laboratory mockup.",
+        "question": "Match each wave-shaping question to a measurement that can answer it in an inert laboratory mockup.",
+        "answer": "Material propagation speed -> measure each material separately; composite arrival uniformity -> compare times around the inert test surface; manufacturing repeatability -> repeat as-built mockups across batches; independent confirmation -> reconstruct the same front with a second diagnostic.",
+        "why": "Different materials carry pressure waves differently, so a composite inert test can reshape an arriving front. The useful scientific questions are measurement questions: what are the propagation speeds, how uniform are arrival times in the mockup, how much do joints and batches change the result, and does a second diagnostic reconstruct the same front? The historical program depended on answering such questions, but the educational lesson is how an analogy becomes a measured physical claim.",
         "rebuttals": [
-          "The speed contrast has to be measured as a material property before geometry can use it.",
-          "Whether the interface does the intended shaping is an arrival-time question once the materials are combined.",
-          "Manufacturing variation matters because an as-built boundary can change the propagation path even when the drawing is correct.",
-          "Symmetry is an observed wavefront property. Build records alone cannot establish it."
+          "The component propagation speeds are measured separately before a composite result can be interpreted.",
+          "Relative arrival time is the direct observable for uniformity in the inert mockup.",
+          "Manufacturing variation is a population question, so repeated as-built tests are needed.",
+          "A second diagnostic matters because the first reconstruction can carry its own timing or calibration bias."
         ],
         "scenarios": [
-          "Do the candidate materials carry the detonation front at sufficiently different speeds to create a useful contrast?",
-          "When the materials are combined, do different paths arrive on the intended inward-moving surface together?",
-          "Are segment joints and material variation distorting otherwise repeatable results?",
-          "Is the wave actually converging symmetrically around the assembly?"
+          "Do the candidate materials carry a pressure front at measurably different speeds?",
+          "When combined in the inert mockup, do the monitored paths reach the target surface with the intended relative timing?",
+          "Do joints and batch-to-batch material variation change an otherwise repeatable result?",
+          "Does an independent diagnostic reconstruct the same overall wavefront?"
         ],
         "choices": [
-          "Measure the propagation speed of each candidate explosive separately before combining them.",
-          "Compare arrival times around the driven surface after the fast and slow regions have acted together.",
-          "Qualify as-built segments and joints against repeated diagnostic firings rather than relying only on dimensions.",
-          "Use independent timing and radiographic records around the assembly to reconstruct the wavefront."
+          "Measure the propagation speed of each candidate material separately before combining them.",
+          "Compare arrival times at distributed sensors around the inert test surface.",
+          "Repeat as-built mockups across batches and joints rather than trusting dimensions alone.",
+          "Cross-check the timing reconstruction with an independent imaging or radiographic diagnostic."
         ],
         "mapping": [
           0,
@@ -6570,7 +6532,7 @@ export const CURRICULUM = {
           3
         ],
         "columns": [
-          "Question the lens program must settle",
+          "Question the inert wave-shaping program must settle",
           "Evidence or action that settles it"
         ]
       },
@@ -6585,8 +6547,8 @@ export const CURRICULUM = {
         }
       ],
       "concept": {
-        "n": 27,
-        "c": "Chemical explosives: energy release and detonation velocity",
+        "n": 19,
+        "c": "Shock waves, compression and hydrodynamics",
         "of": 30,
         "rests": [
           "Pressure, temperature and equations of state"
@@ -6651,29 +6613,29 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "Just critical, for as long as it takes",
-      "scene": "The pile has to sit exactly critical while a foil is irradiated behind the shield, and Graves hands you the control rod — the only thing that answers it. Everything else in the room is quietly changing the balance.",
-      "takeaway": "A balance with no stable point is one somebody has to keep making.",
+      "title": "Hold a multiplication model at steady state",
+      "scene": "Bethe has put a simplified multiplication model on the board. The purpose is to understand feedback, not to operate a real reactor. A slider changes the model's loss term while several abstract parameters drift.",
+      "takeaway": "A dynamic steady state is a balance of rates, and feedback should be reasoned about through the model rather than by copying real hardware procedures.",
       "place": "Experimental Area",
-      "guide": "Hold the pile at the neutron level on the meter, inside the band. The band narrows as the run goes on, because the foil's exposure has to be known to a few per cent and every excursion has to be accounted for afterwards. The control rod is your control, and every change in the pile is a change in the rate rather than a step.",
+      "guide": "Keep the simulated level inside the band by balancing modeled growth and loss. Treat every disturbance as a change in a rate. The exercise teaches feedback and dynamic equilibrium without using real reactor controls.",
       "background": [
-        "Why a pile does not sit still. Exactly critical means each generation produces the same number of neutrons as the last. A little above and the population grows without limit; a little below and it dies away. There is no stable place except the one you hold.",
-        "What is moving it. The graphite warms and moderates a little differently. A xenon product builds up and absorbs neutrons. Somebody walks past the reflector. Each is a slow push in one direction, and it does not stop.",
-        "Why the rod is set rather than tapped. A rod moved and returned changes the population and leaves it changed. Holding the level means finding the rod position where growth and loss balance under whatever is currently pushing."
+        "In a multiplication model, a level grows when each generation produces more than replaces itself and falls when losses dominate. A steady trace therefore represents a balance of rates, not a system that has stopped changing.",
+        "The disturbances here are deliberately abstract model coefficients. They stand for any slow parameter drift in a feedback system and are not instructions for controlling nuclear hardware.",
+        "The useful habit is to anticipate a persistent rate change rather than chase the displayed level after it has already moved."
       ],
-      "story": "The pile has to sit exactly critical while a foil is irradiated behind the shield, and Graves hands you the control rod — the only thing that answers it. Everything else in the room is quietly changing the balance.",
+      "story": "Bethe has put a simplified multiplication model on the board. The purpose is to understand feedback, not to operate a real reactor. A slider changes the model's loss term while several abstract parameters drift.",
       "game": {
         "type": "HOLD",
-        "title": "Just critical, for as long as it takes",
+        "title": "Hold a multiplication model at steady state",
         "setup": "Experimental Area",
-        "play": "Hold the pile while the experiment runs.",
-        "task": "Hold the pile while the experiment runs.",
-        "question": "Hold the pile at the neutron level while the foil is irradiated.",
-        "answer": "Inside the band for most of the run, with the rod set where growth and loss balance rather than tapped after the meter has already climbed.",
-        "why": "Exactly critical is not a place a pile rests. Each generation either produces more neutrons than the last or fewer, so the level grows or decays and the only steady state is the one an operator makes continuously. That is why the rod is set to a position and held rather than tapped: every push here is a rate, and a rod returned to where it was leaves the population somewhere new. The pushes themselves are the physics of the pile. Warming graphite moderates a little differently, so the multiplication drifts as the run heats up. Fission products build up and absorb neutrons, which is a slow, one-way pressure downward that will not stop when you stop watching. And the band narrows because the foil is the experiment: an exposure known to a few per cent is a result, and one that wandered is a foil somebody has to irradiate again.",
+        "play": "Use the simulated feedback control to keep a numerical chain-reaction model near a steady level while its model parameters drift.",
+        "task": "Use the simulated feedback control to keep a numerical chain-reaction model near a steady level while its model parameters drift.",
+        "question": "Hold the simulated multiplication level near its target while the model coefficients drift.",
+        "answer": "Keep the model inside the band for most of the run by adjusting the abstract loss term to balance the modeled growth rate.",
+        "why": "The exercise is a numerical feedback model. If modeled gain exceeds modeled loss, the displayed level grows; if loss exceeds gain, it decays. A steady level therefore requires the two rates to balance. The control is intentionally abstract so the lesson is about dynamic equilibrium and feedback, not about operating a reactor.",
         "hold": {
-          "quantity": "Neutron level",
-          "control": "Control rod",
+          "quantity": "Simulated multiplication level",
+          "control": "Model loss setting",
           "unit": "relative",
           "hold": 1,
           "band": 0.4,
@@ -6684,27 +6646,27 @@ export const CURRICULUM = {
           "direction": "raise",
           "disturbances": [
             {
-              "label": "Graphite warms as the run goes on",
+              "label": "Model gain coefficient drifts slightly upward",
               "at": 4,
               "amount": -0.03
             },
             {
-              "label": "Reflector wheeled back into place",
+              "label": "A modeled loss term is removed",
               "at": 20,
               "amount": 0.05
             },
             {
-              "label": "Fission products build up",
+              "label": "A second modeled absorber term grows",
               "at": 38,
               "amount": -0.045
             }
           ],
-          "hint": "Every push here keeps pushing. Find the rod position that balances it rather than correcting the meter.",
-          "commit": "Report the run"
+          "hint": "Treat each disturbance as a persistent change in the model's rate balance.",
+          "commit": "Report the simulation"
         }
       },
       "assumes": [
-        "a chain reaction can grow, hold steady or die away",
+        "a multiplication model can grow, hold steady, or decay depending on the balance of gain and loss",
         "radioactive decay modes: alpha, beta, gamma — taken as read"
       ],
       "takesAsRead": [
@@ -6725,112 +6687,108 @@ export const CURRICULUM = {
     },
     {
       "day": 6,
-      "title": "Synchronizing many channels",
-      "scene": "The timing-budget meeting has stalled. George Kistiakowsky, who heads the Explosives Division, has three contributions on the board, and each subsystem lead insists that theirs is the small one. Nobody will sign the combined figure until one number closes the argument.",
-      "takeaway": "A timing budget must include the full measurement chain.",
+      "title": "Close the diagnostic timing budget",
+      "scene": "Three diagnostic timing contributions are on the board. Each subsystem lead calls theirs small, but the reconstruction cannot be better than the full chain.",
+      "takeaway": "A diagnostic timing budget must include the complete measurement chain and distinguish independent from shared errors.",
       "place": "",
       "guide": "Four numbers, and one of them is the other three added straight. Ask whether independent errors add that way. They do not. They combine in quadrature, so the largest term dominates. The straight sum is offered because it is the intuitive answer, and it overstates the total.",
       "background": [
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "The timing-budget meeting has stalled. George Kistiakowsky, who heads the Explosives Division, has three contributions on the board, and each subsystem lead insists that theirs is the small one. Nobody will sign the combined figure until one number closes the argument.",
+      "story": "Three diagnostic timing contributions are on the board. Each subsystem lead calls theirs small, but the reconstruction cannot be better than the full chain.",
       "game": {
         "type": "BALLPARK",
-        "title": "Synchronizing many channels",
-        "setup": "3 independent timing contributions are a 2 ns shared trigger, 3 ns of cable delay, and 4 ns of diagnostic registration.",
-        "play": "Estimate sigma_total.",
-        "task": "Estimate sigma_total.",
-        "question": "Estimate sigma_total.",
+        "title": "Close the diagnostic timing budget",
+        "setup": "Three independent diagnostic timing contributions are 2 ns, 3 ns, and 4 ns.",
+        "play": "Estimate the combined uncertainty of independent timing contributions in the diagnostic chain.",
+        "task": "Estimate the combined uncertainty of independent timing contributions in the diagnostic chain.",
+        "question": "Estimate the combined uncertainty of independent timing contributions in the diagnostic chain.",
         "answer": "sigma_total = sqrt(29), about 5.4 ns.",
-        "why": "The physical system contributes some delay, cable lengths contribute more, a trigger threshold shifts the moment a pulse is registered, and the recording instrument adds its own. Los Alamos handles this by building a timing budget: every contribution named, measured and combined. Independent contributions add in quadrature — squared, summed, square-rooted — so the largest term dominates and several smaller ones still raise the total. Two, three and four nanoseconds do not make nine; they make about five and a half.",
+        "why": "Independent timing uncertainties combine in quadrature. Two, three and four nanoseconds therefore give about 5.4 ns rather than 9 ns. The largest term contributes the most variance and is the best place to improve first. This is metrology: the numbers describe the measurement system, not a firing sequence.",
         "givens": [
           "Independent uncertainties combine in quadrature",
-          "sigma_total = sqrt(2^2 + 3^2 + 4^2) ns",
-          "Do not add signs, because these are uncertainty scales"
+          "sigma_total = sqrt(2^2 + 3^2 + 4^2) ns"
         ],
-        "relationship": "Independent timing errors add in quadrature: the root of the sum of the squares. They do not add straight.",
+        "relationship": "Independent timing errors add in quadrature: the root of the sum of the squares.",
         "calcKey": "X-6"
       },
       "assumes": [
         "independent errors do not simply add"
       ],
       "concept": {
-        "n": 28,
-        "c": "Timing, synchronisation and simultaneity of events",
+        "n": 17,
+        "c": "Order-of-magnitude estimation from givens",
         "of": 30
       }
     },
     {
       "day": 7,
-      "title": "Build the implosion uncertainty budget",
-      "scene": "An implosion trial has come back with two anomalies, and the next cycle can afford one major push. Kistiakowsky has the division leads waiting outside the analysis room. Name the wrong source and weeks disappear into the wrong fix.",
-      "takeaway": "Improvement starts by naming the dominant source of uncertainty.",
+      "title": "Build the integration uncertainty budget",
+      "scene": "An inert integration trial has returned two anomalies, and the next cycle can afford one major push. Name the wrong source and weeks disappear into the wrong fix.",
+      "takeaway": "Improvement starts by naming and ranking the dominant independent sources of uncertainty.",
       "place": "",
-      "guide": "The panel has more than one thing wrong, so no single cause covers it. Ask of each candidate which readings it leaves unexplained. A budget's value is the ranking rather than the total: improvement starts with the dominant source, and effort anywhere else changes nothing.",
+      "guide": "The panel has more than one thing wrong, so no single cause covers it. Ask which candidate explains each reading and which leaves evidence unexplained. The budget's value is the ranking rather than one total.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "An implosion trial has come back with two anomalies, and the next cycle can afford one major push. Kistiakowsky has the division leads waiting outside the analysis room. Name the wrong source and weeks disappear into the wrong fix.",
+      "story": "An inert integration trial has returned two anomalies, and the next cycle can afford one major push. Name the wrong source and weeks disappear into the wrong fix.",
       "game": {
         "type": "DIAGNOSIS",
-        "title": "Build the implosion uncertainty budget",
-        "setup": "You are assigning an implosion trial's anomalies to the right uncertainty terms.",
+        "title": "Build the integration uncertainty budget",
+        "setup": "Assign an inert trial's anomalies to the right uncertainty terms.",
         "play": "Read the whole reading panel, then select the two causes that together account for every reading. No single cause does.",
         "task": "Read the whole reading panel, then select the two causes that together account for every reading. No single cause does.",
         "question": "Read the whole reading panel, then select the two causes that together account for every reading. No single cause does.",
-        "answer": "Explosive lot-to-lot wave-speed variation + Attenuation-model error in the density inversion",
-        "why": "A budget lists the separate contributions: material properties, geometry, timing, diagnostics, models. For each one it estimates how much it moves the final claim. Its value is not the total but the ranking. Improvement starts with the dominant source, and effort spent anywhere else changes nothing. The honesty of it matters here too. When two anomalies sit in different subsystems, the budget has two entries. Force one cause onto both and you misattribute one of them — and that is the entry somebody then goes and works on.",
+        "answer": "Material-batch propagation variation + Imaging-model error in the state inversion",
+        "why": "An uncertainty budget lists separate contributions from material properties, geometry, timing, diagnostics and models, then asks how strongly each moves the final claim. Two anomalies in different evidence chains need not share one cause. Forcing one story onto both can send the program to improve the wrong subsystem.",
         "pack": "x18"
       },
       "assumes": [
         "two problems can have two different causes"
       ],
       "concept": {
-        "n": 19,
-        "c": "Shock waves, compression and hydrodynamics",
-        "of": 30,
-        "rests": [
-          "Pressure, temperature and equations of state"
-        ]
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     },
     {
       "day": 8,
-      "title": "What a scaled shot can and cannot tell you",
-      "scene": "Robert Bacher, who heads the Gadget physics division, has a half-scale shot on the table: an eighth of the explosive and a much shorter schedule. Detonation velocity is listed at both scales, with geometric dimensions, reaction-zone measurements and timing records beside it.",
-      "takeaway": "A scaled experiment reproduces the dimensionless quantities, and only what depends on them transfers.",
+      "title": "What a scaled inert experiment can and cannot tell you",
+      "scene": "Bacher has a half-scale inert mockup on the table. Geometric dimensions, propagation measurements and diagnostic records are listed at both scales. He wants the team to state the similarity assumptions before interpreting the result.",
+      "takeaway": "Scaled experiments transfer the phenomena controlled by matched dimensionless groups; intrinsic material scales must be checked separately.",
       "place": "Implosion Test Range",
-      "guide": "Four claims about a half-scale shot. Ask of each what it assumes scales. Ratios do, and the phenomena they govern come with them. A detonation velocity, a diffusion length and a reaction time do not, because halving the geometry does not halve them. So one option is too generous and one too harsh.",
+      "guide": "Ratios can transfer when the relevant dimensionless groups are matched. Intrinsic material lengths and times do not automatically scale with the geometry. Choose the claim that preserves that distinction.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Robert Bacher, who heads the Gadget physics division, has a half-scale shot on the table: an eighth of the explosive and a much shorter schedule. Detonation velocity is listed at both scales, with geometric dimensions, reaction-zone measurements and timing records beside it.",
+      "story": "Bacher has a half-scale inert mockup on the table. Geometric dimensions, propagation measurements and diagnostic records are listed at both scales. He wants the team to state the similarity assumptions before interpreting the result.",
       "game": {
         "type": "CHOICE",
-        "title": "What a scaled shot can and cannot tell you",
+        "title": "What a scaled inert experiment can and cannot tell you",
         "setup": "Implosion Test Range",
-        "play": "A half-scale shot is fired. Which of its results transfer to full scale?",
-        "task": "A half-scale shot is fired. Which of its results transfer to full scale?",
-        "question": "A half-scale shot is fired. Which of its results transfer to full scale?",
-        "answer": "Only conclusions governed by matched dimensionless groups transfer directly. Effects tied to fixed material length or time scales must be checked separately.",
-        "why": "Scaling works through dimensionless groups: reproduce those and the phenomena they govern reproduce too. What does not scale is anything with a dimension of its own — a detonation velocity, a diffusion length, a reaction time — because halving the geometry does not halve them. So a half-scale shot can settle a symmetry question governed by ratios and cannot settle a timing margin measured in microseconds. The discipline is to state, before firing, which quantities the shot is entitled to decide.",
+        "play": "A half-scale inert hydrodynamic mockup is run. Which conclusions are entitled to transfer to full scale?",
+        "task": "A half-scale inert hydrodynamic mockup is run. Which conclusions are entitled to transfer to full scale?",
+        "question": "A half-scale inert hydrodynamic mockup is run. Which conclusions are entitled to transfer to full scale?",
+        "answer": "Transfer only conclusions governed by matched dimensionless ratios; re-check effects tied to intrinsic material length or time scales.",
+        "why": "Similarity is controlled by dimensionless groups. If the governing ratios match, a scaled inert experiment can reproduce the behavior associated with them. But material diffusion lengths, relaxation times and propagation properties have their own dimensions and do not simply halve because the geometry does. The scientific discipline is to write down which similarities are preserved before the result is used.",
         "rebuttals": [
-          "Unchanged velocity does not make absolute timing transferable when the path length changes.",
-          "A single scale factor works only when every relevant physical length and time scales with the geometry; intrinsic material scales do not.",
-          "Scaled experiments can be quantitatively predictive when the dimensionless groups governing the phenomenon are matched."
+          "An unchanged propagation speed does not make every absolute time transferable when path lengths change.",
+          "A single geometric scale factor works only if all physically relevant intrinsic scales change with it, which they usually do not.",
+          "Scaled experiments can be quantitatively predictive when the governing dimensionless groups are matched."
         ],
         "choices": [
-          "Transfer only conclusions governed by matched dimensionless ratios; re-check effects tied to fixed material length or time scales.",
-          "Transfer the wave timing directly because detonation velocity is unchanged, even though every geometric path is shorter.",
-          "Transfer all geometric and timing conclusions after multiplying lengths and times by the same scale factor.",
-          "Treat the scaled shot as qualitative only, because material properties prevent any quantitative similarity between scales."
+          "Transfer only conclusions governed by matched dimensionless ratios; re-check effects tied to intrinsic material length or time scales.",
+          "Transfer all timing results directly because the material propagation speed is unchanged.",
+          "Transfer every geometric and timing conclusion after multiplying lengths and times by the same scale factor.",
+          "Treat every scaled result as qualitative only, because material properties make similarity impossible."
         ],
-        "correctChoice": "Transfer only conclusions governed by matched dimensionless ratios; re-check effects tied to fixed material length or time scales."
+        "correctChoice": "Transfer only conclusions governed by matched dimensionless ratios; re-check effects tied to intrinsic material length or time scales."
       },
       "assumes": [
         "a dimensionless ratio has the same value at any scale",
@@ -6854,9 +6812,9 @@ export const CURRICULUM = {
     },
     {
       "day": 9,
-      "title": "What Trinity had to answer",
-      "scene": "Hans Bethe, head of the Theoretical Division, wants Trinity written down as a set of questions before it becomes an event. One full-system attempt carries dozens of expectations, and every division wants its own result treated as decisive. There will be no second shot.",
-      "takeaway": "A full-system test should be written as a set of questions before it becomes an event.",
+      "title": "Write Trinity as an experiment",
+      "scene": "Bethe wants Trinity written down as questions before it becomes an event. One integrated test carries dozens of expectations, and a dramatic outcome cannot be allowed to count as proof of everything.",
+      "takeaway": "A one-shot full-system test should be written as a set of questions before the event, including questions about environmental and human consequences.",
       "place": "",
       "guide": "Four questions and four kinds of evidence. Pair them by asking what each question needs: the whole event, one subsystem's traces, a comparison with something written beforehand, or measurements taken afterwards. A test without its questions written down first becomes an argument later about what it proved.",
       "background": [
@@ -6864,33 +6822,33 @@ export const CURRICULUM = {
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
       ],
-      "story": "Hans Bethe, head of the Theoretical Division, wants Trinity written down as a set of questions before it becomes an event. One full-system attempt carries dozens of expectations, and every division wants its own result treated as decisive. There will be no second shot.",
+      "story": "Bethe wants Trinity written down as questions before it becomes an event. One integrated test carries dozens of expectations, and a dramatic outcome cannot be allowed to count as proof of everything.",
       "game": {
         "type": "PROTOCOL",
-        "title": "What Trinity had to answer",
-        "setup": "Match each pre-shot question to the evidence that can settle it.",
-        "play": "Match each question Trinity must answer to the evidence that can actually settle that question.",
-        "task": "Match each question Trinity must answer to the evidence that can actually settle that question.",
-        "question": "Match each question Trinity must answer to the evidence that can actually settle that question.",
-        "answer": "Integrated nuclear performance -> Full-system yield/effects record; firing coordination -> Independent timing traces; model validation -> Comparison with the pre-test prediction envelope; hazards -> Post-event measurements that track exposure, contamination, and changing conditions for people and surroundings.",
-        "why": "A test without its questions written down in advance becomes an argument afterwards about what it proved. Different questions need different evidence. Full-system nuclear performance requires the integrated event. Firing-system coordination comes from timing records and can be judged even if another part disappoints. Comparing observed effects with pre-test predictions tests the model. Safety evidence addresses hazards at and beyond the site. Writing those questions first keeps one dramatic outcome from swallowing every other claim the experiment was designed to answer.",
+        "title": "Write Trinity as an experiment",
+        "setup": "Match each pre-test question to the evidence that settles it.",
+        "play": "Match each pre-test question to the evidence that can actually answer it.",
+        "task": "Match each pre-test question to the evidence that can actually answer it.",
+        "question": "Match each pre-test question to the evidence that can actually answer it.",
+        "answer": "Integrated performance -> full-system effects record; diagnostic health -> independent channel checks; model validation -> comparison with the pre-test prediction envelope; consequences beyond the site -> post-event environmental and exposure monitoring.",
+        "why": "Different claims require different evidence. The integrated event can answer whether the full system functioned at all. Independent diagnostic records show whether the measurement system itself remained interpretable. A model is tested only against a prediction written before the observation. Consequences beyond the instrument field require measurements after the event and outside the apparatus. Writing those questions first prevents one spectacular outcome from swallowing every other claim.",
         "rebuttals": [
-          "Only the integrated event can answer the full-system performance question; component timing traces cannot substitute for it.",
-          "Coordination is a timing question, so it needs time-resolved records rather than a single overall outcome.",
-          "Model validation requires a prediction made before the observation, then a direct comparison with what occurred.",
-          "Consequences affecting people and surroundings cannot be read from the overall event alone. They need observations that continue afterward and show what changed where."
+          "Only the integrated event can answer whether the full system functioned in the broad sense being tested.",
+          "Diagnostic health is a measurement-system question and needs records independent of the overall outcome.",
+          "Model validation requires a prediction made before the observation.",
+          "Consequences to people and surroundings require observations outside and after the instrumented event."
         ],
         "scenarios": [
-          "Would the integrated implosion configuration produce the predicted nuclear chain reaction?",
-          "Did the firing and initiation system act in the required coordinated sequence?",
-          "How did observed effects compare with the broad range of pre-test yield predictions?",
-          "What radiological and physical hazards existed at and beyond the site?"
+          "Did the integrated test produce the broad class of effects the laboratory expected?",
+          "Did the independent diagnostic channels remain interpretable through the event?",
+          "How did the observations compare with the prediction envelope written before the test?",
+          "What radiological and physical consequences occurred at and beyond the site?"
         ],
         "choices": [
-          "The full-system yield and effects record from the event itself.",
-          "Independent timing traces showing when the firing and diagnostic channels acted.",
-          "A comparison between observed effects and the prediction envelope written before the shot.",
-          "A set of measurements collected after the event that tracks exposure, contamination, and changing conditions for people and surroundings."
+          "The full-system effects record from the event itself.",
+          "Independent channel-health, calibration and timing records from the diagnostic network.",
+          "A comparison between observed effects and the prediction envelope written before the test.",
+          "Post-event environmental and exposure measurements that show what changed where."
         ],
         "mapping": [
           0,
@@ -6951,45 +6909,45 @@ export const CURRICULUM = {
     },
     {
       "day": 11,
-      "title": "Scientific responsibility after Trinity",
-      "scene": "After Trinity the yield, fallout and uncertainty reports are spread across the laboratory. Officials outside the site are asking what they mean. Oppenheimer, the laboratory director, has to settle what belongs in a technical assessment before it leaves Los Alamos.",
-      "takeaway": "Technical expertise carries a duty to communicate consequences and uncertainty clearly without turning expertise into political authority.",
+      "title": "Sign the final scientific record",
+      "scene": "The last Evidence Chain is on the table. It contains the technical findings, their uncertainties, the observed consequences of Trinity, and a record of scientific disagreement about what should follow. Your signature decides what the laboratory claims as science.",
+      "takeaway": "The responsible scientific sign-off states evidence, uncertainty, and consequences clearly while marking the boundary between technical assessment and policy judgment.",
       "place": "",
-      "guide": "Four ways to draw one line. Ask of each what it gives away. One keeps the laboratory to raw readings, which leaves officials judging consequences nobody has shown them. One treats knowing the facts as authority to decide. The useful version separates the account from the recommendation and labels both.",
+      "guide": "The final document has to do four things at once: state the technical findings, preserve uncertainty, include observed consequences beyond the laboratory, and label policy recommendations as recommendations rather than measurements.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "After Trinity the yield, fallout and uncertainty reports are spread across the laboratory. Officials outside the site are asking what they mean. Oppenheimer, the laboratory director, has to settle what belongs in a technical assessment before it leaves Los Alamos.",
+      "story": "The last Evidence Chain is on the table. It contains the technical findings, their uncertainties, the observed consequences of Trinity, and a record of scientific disagreement about what should follow. Your signature decides what the laboratory claims as science.",
       "game": {
         "type": "CHOICE",
-        "title": "Scientific responsibility after Trinity",
-        "setup": "Separate what scientific expertise can establish from who has authority to decide.",
-        "play": "Which statement best separates the laboratory's technical responsibility from the political decision that follows?",
-        "task": "Which statement best separates the laboratory's technical responsibility from the political decision that follows?",
-        "question": "Which statement best separates the laboratory's technical responsibility from the political decision that follows?",
-        "answer": "Provide the technical consequences and uncertainties clearly, and distinguish that assessment from any policy recommendation. Expertise informs the decision without becoming the authority that makes it.",
-        "why": "Scientists can report what the instruments measured. They can estimate likely effects and state how uncertain those estimates are. That information matters because officials cannot judge consequences they have never been shown. Scientists can also explain which conclusions are well supported and which depend on assumptions. They do not get the final policy decision simply because they know the technical details. Their responsibility is to make the evidence and uncertainty clear before others decide what to do with it.",
+        "title": "Sign the final scientific record",
+        "setup": "Choose the scientific statement the evidence chain can support.",
+        "play": "Choose the statement you are willing to sign as the laboratory's final scientific record.",
+        "task": "Choose the statement you are willing to sign as the laboratory's final scientific record.",
+        "question": "Which final statement can you sign?",
+        "answer": "Sign the record that states the supported technical findings and uncertainties, includes observed human and environmental consequences, and labels policy recommendations separately from scientific conclusions.",
+        "why": "Technical expertise creates an obligation to explain what the measurements mean and how uncertain they are. It also means reporting consequences that the experiment produced beyond the apparatus, including fallout and exposure concerns. Scientists may make policy recommendations, and Manhattan Project scientists did disagree about use and demonstration, but a recommendation is not a measurement. The strongest record keeps all of those pieces visible without pretending one category automatically decides another.",
         "rebuttals": [
-          "Raw measurements require technical interpretation before non-specialists can understand their consequences; refusing that interpretation withholds part of the expertise.",
-          "Expertise strengthens a technical assessment but does not by itself confer authority over the political decision.",
-          "Waiting until after the decision defeats the purpose of technical advice: the relevant consequences and uncertainties are needed before the choice is made."
+          "Raw readings without interpretation hide consequences from the people making decisions.",
+          "Technical expertise does not turn a policy recommendation into a scientific result.",
+          "A record that omits observed consequences beyond the site is incomplete even if its instrument data are accurate."
         ],
         "choices": [
-          "Provide a clear technical account of expected consequences and uncertainties, while labeling separately any policy recommendation.",
-          "Limit the laboratory's contribution to raw instrument readings, because translating them into expected consequences would cross into policy.",
-          "Treat scientific expertise as authority to decide the policy, because the laboratory understands the technical facts better than outside officials.",
-          "Withhold a technical assessment until political leaders choose a course, so the laboratory cannot be seen as influencing the decision."
+          "State the supported technical findings and uncertainties, include observed human and environmental consequences, and label any policy recommendation separately.",
+          "Limit the record to raw instrument readings so the laboratory cannot be accused of influencing policy.",
+          "State one recommended policy as the scientific conclusion because the laboratory understands the technical facts best.",
+          "Report only the successful technical results and leave Trinity's off-site consequences to later agencies."
         ],
-        "correctChoice": "Provide a clear technical account of expected consequences and uncertainties, while labeling separately any policy recommendation."
+        "correctChoice": "State the supported technical findings and uncertainties, include observed human and environmental consequences, and label any policy recommendation separately."
       },
       "assumes": [
-        "a technical question and a decision about its use are different questions"
+        "technical findings, observed consequences, and policy judgments are related but not identical claims"
       ],
       "concept": {
-        "n": 24,
-        "c": "Descriptive statistics: mean, spread, standard deviation",
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
         "of": 30
       }
     },
@@ -7033,39 +6991,39 @@ export const CURRICULUM = {
     },
     {
       "day": 13,
-      "title": "Invest in multipoint initiation evidence",
-      "scene": "George Kistiakowsky, head of the Explosives Division, has a hundred credits for initiation research and three proposals in front of him. Multipoint initiation asks dozens of detonators, cables and firing channels to act together, and nobody can test every way that fails.",
-      "takeaway": "Precision must be demonstrated statistically and diagnostically.",
+      "title": "Invest in distributed timing evidence",
+      "scene": "The program needs many recording channels to observe the same fast inert event, but cable paths, reference clocks, manufactured timing modules, and the measurement software all contribute spread. Three proposals compete for the next test budget.",
+      "takeaway": "Precision must be demonstrated statistically and with independent diagnostics.",
       "place": "",
-      "guide": "Four things spread here: the detonators, the cables, the firing units, and the measurement itself. None of the four is presently separated from the others. A hand-selected set can be tuned until it performs, and says nothing about the lots the rest will come from. Several sets with independent timing, controlled cables and lot traceability separate the four terms. They cost detonators and range time. More initiation points on unimproved measurement adds channels the diagnostics cannot resolve.",
+      "guide": "A hand-selected system can be tuned until it performs and still say little about production spread. Multiple manufactured sets with independent references, controlled cable configurations, and lot traceability separate component variation from measurement error. Adding more channels without improving diagnostics adds data volume, not information.",
       "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
       "background": [
         "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
         "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
         "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
       ],
-      "story": "George Kistiakowsky, head of the Explosives Division, has a hundred credits for initiation research and three proposals in front of him. Multipoint initiation asks dozens of detonators, cables and firing channels to act together, and nobody can test every way that fails.",
+      "story": "The program needs many recording channels to observe the same fast inert event, but cable paths, reference clocks, manufactured timing modules, and the measurement software all contribute spread. Three proposals compete for the next test budget.",
       "game": {
         "type": "SCIENCETANK",
-        "title": "Invest in multipoint initiation evidence",
-        "setup": "The implosion group has 100 credits for initiation research.",
+        "title": "Invest in distributed timing evidence",
+        "setup": "The integration group has 100 credits for fast-diagnostic timing research.",
         "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "answer": "Recommended: 90 to B, 5 to A as a reference, 5 in reserve.",
-        "why": "The system needed reproducible simultaneity across manufactured components, not one exceptional assembly.",
+        "why": "The program needs reproducible synchronization across manufactured measurement hardware, not one exceptional bench setup.",
         "proposals": [
           {
             "label": "A",
-            "text": "Build one hand-selected set and optimize it until it gives a good result."
+            "text": "Build one hand-selected diagnostic set and optimize it until it gives an excellent result."
           },
           {
             "label": "B",
-            "text": "Test multiple sets with independent timing diagnostics, controlled cable configurations, and lot traceability."
+            "text": "Test multiple manufactured sets with independent timing references, controlled cable configurations, and lot traceability."
           },
           {
             "label": "C",
-            "text": "Add more initiation points without improving measurement or common-mode analysis."
+            "text": "Add more recording channels without improving timing measurement or common-mode analysis."
           }
         ],
         "recommended": {
@@ -7075,8 +7033,8 @@ export const CURRICULUM = {
         "research": ""
       },
       "concept": {
-        "n": 28,
-        "c": "Timing, synchronisation and simultaneity of events",
+        "n": 24,
+        "c": "Descriptive statistics: mean, spread, standard deviation",
         "of": 30
       }
     },
@@ -7180,9 +7138,9 @@ export const CURRICULUM = {
     },
     {
       "day": 16,
-      "title": "Density, geometry, and neutron multiplication",
-      "scene": "Hans Bethe, head of the Theoretical Division, wants the hydrodynamic measurements of compression set beside the neutron predictions in one chain. The integration group has both sets of numbers on the table and no agreed account of how the first leads to the second.",
-      "takeaway": "Hydrodynamics and neutron physics are coupled during the assembly.",
+      "title": "Density, geometry, and particle transport",
+      "scene": "Theory and experiment are comparing how compressing a material changes the distance particles travel before interacting or escaping. The lesson is transport physics, not a criticality calculation.",
+      "takeaway": "Hydrodynamics and transport are coupled because density changes both interaction probability and escape geometry.",
       "place": "",
       "guide": "These four are one chain, and compression changes two things at once. Ask of each card what has to happen before it. Leakage paths cannot shorten before the volume does. And the multiplication condition moves only once a larger share of neutrons stays inside.",
       "background": [
@@ -7190,21 +7148,21 @@ export const CURRICULUM = {
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
         "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
       ],
-      "story": "Hans Bethe, head of the Theoretical Division, wants the hydrodynamic measurements of compression set beside the neutron predictions in one chain. The integration group has both sets of numbers on the table and no agreed account of how the first leads to the second.",
+      "story": "Theory and experiment are comparing how compressing a material changes the distance particles travel before interacting or escaping. The lesson is transport physics, not a criticality calculation.",
       "game": {
         "type": "SEQUENCE",
-        "title": "Density, geometry, and neutron multiplication",
-        "setup": "Order the qualitative chain.",
+        "title": "Density, geometry, and particle transport",
+        "setup": "Order the qualitative chain in a generic transport model.",
         "play": "Arrange the four cards from earliest cause or prerequisite to latest result.",
         "task": "Arrange the four cards from earliest cause or prerequisite to latest result.",
         "question": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "answer": "1 -> 2 -> 3 -> 4 (Compression places the same fissile mass into a smaller volume. -> Average density rises and characteristic leakage paths shorten relative to the amount of material. -> A larger fraction of neutrons can induce additional fissions before escaping. -> The effective multiplication condition can move from subcritical toward supercritical.)",
-        "why": "Implosion changes both material density and the geometry that governs neutron leakage.",
+        "answer": "Compression → higher density/changed paths → different interaction-versus-escape probability → changed measured transport response.",
+        "why": "Changing density and geometry changes collision probability and leakage in many transport systems.",
         "cards": [
-          "Compression places the same fissile mass into a smaller volume.",
-          "Average density rises and characteristic leakage paths shorten relative to the amount of material.",
-          "A larger fraction of neutrons can induce additional fissions before escaping.",
-          "The effective multiplication condition can move from subcritical toward supercritical."
+          "Compress a fixed mass into a smaller volume in the generic model.",
+          "Average density rises and characteristic path lengths through the material change.",
+          "The probability of interaction before escape changes because number density and geometry both changed.",
+          "The measured transport response shifts, which can be compared with the model."
         ],
         "order": [
           0,
@@ -7224,9 +7182,9 @@ export const CURRICULUM = {
     },
     {
       "day": 17,
-      "title": "Reflector and tamper functions",
-      "scene": "James Chadwick, who heads the British Mission, has the tradeoff sheet for the layer that surrounds the core. Four different things are being asked of one shell, and the people arguing for each of them are all in the room.",
-      "takeaway": "Subsystem labels should not hide coupled functions.",
+      "title": "One layer can serve several physical functions",
+      "scene": "A surrounding shell in an inert experiment affects particle scattering, inertia, wave transmission, and diagnostics at the same time. The team keeps talking about it as though it had only one job.",
+      "takeaway": "Material selection is a coupled tradeoff when one layer participates in transport, mechanics, and measurement.",
       "place": "",
       "guide": "Four functions and four ways one layer serves them. Pair them by asking which physics each belongs to: neutron transport, inertia, or the explosive train. The same shell does all three at once. So it has to be qualified as part of the wave, not only as a wrapper.",
       "background": [
@@ -7234,27 +7192,27 @@ export const CURRICULUM = {
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
       ],
-      "story": "James Chadwick, who heads the British Mission, has the tradeoff sheet for the layer that surrounds the core. Four different things are being asked of one shell, and the people arguing for each of them are all in the room.",
+      "story": "A surrounding shell in an inert experiment affects particle scattering, inertia, wave transmission, and diagnostics at the same time. The team keeps talking about it as though it had only one job.",
       "game": {
         "type": "PROTOCOL",
-        "title": "Reflector and tamper functions",
-        "setup": "Match each statement to the relevant role.",
+        "title": "One layer can serve several physical functions",
+        "setup": "Match each observation to a different role of a surrounding layer in a generic high-pressure experiment.",
         "play": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
         "task": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
         "question": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
-        "answer": "Some escaping neutrons are scattered back toward the fissile region -> Wrap the core in a good scatterer, so a share of what leaves is turned around and gets a second chance to cause fission; Inward motion of surrounding mass helps delay rapid expansion -> Use the layer as a tamper, adding inertia that delays rapid expansion while the chain reaction grows; The layer must transmit the imploding pressure wave without intolerable asymmetry -> Qualify the shell and its seams as part of the explosive train, because whatever it does to the arriving front it does to the compression; Material choice also changes interfaces, inertia, and diagnostic interpretation -> Treat material selection as a coupled tradeoff because neutron reflection, inertia, shock behavior, and diagnostics all change together",
-        "why": "One physical layer can affect neutron transport, hydrodynamics, and mechanical timing simultaneously.",
+        "answer": "Transport role; inertial role; wave-transmission role; coupled diagnostics/material tradeoff.",
+        "why": "Subsystem labels can hide coupled functions; changing one material can move several physical observables at once.",
         "scenarios": [
-          "Some escaping neutrons are scattered back toward the fissile region.",
-          "Inward motion of surrounding mass helps delay rapid expansion.",
-          "The layer must transmit the imploding pressure wave without intolerable asymmetry.",
-          "Material choice also changes interfaces, inertia, and diagnostic interpretation."
+          "Some particles leaving the central region are scattered back toward it.",
+          "The surrounding mass delays rapid mechanical expansion of the inner sample.",
+          "The layer transmits a pressure wave and can distort it if seams or properties vary.",
+          "Changing the material also changes imaging contrast and how diagnostics must be interpreted."
         ],
         "choices": [
-          "Wrap the core in a good scatterer, so a share of what leaves is turned around and gets a second chance to cause fission.",
-          "Use the layer as a tamper, adding inertia that delays rapid expansion while the chain reaction grows.",
-          "Qualify the shell and its seams as part of the explosive train, because whatever it does to the arriving front it does to the compression.",
-          "Treat material selection as a coupled tradeoff because neutron reflection, inertia, shock behavior, and diagnostics all change together."
+          "Treat this as a scattering/transport role.",
+          "Treat this as an inertial/mechanical role.",
+          "Qualify the layer and seams as part of the wave-transmission path.",
+          "Treat material selection as a coupled experiment-and-diagnostics tradeoff."
         ],
         "mapping": [
           0,
@@ -7266,22 +7224,13 @@ export const CURRICULUM = {
           "What the layer has to do",
           "How it does it"
         ]
-      },
-      "concept": {
-        "n": 8,
-        "c": "Criticality: mass, geometry, reflectors, moderation",
-        "of": 30,
-        "rests": [
-          "Fission, neutron multiplication and chain reactions",
-          "Cross sections and mean free path"
-        ]
       }
     },
     {
       "day": 18,
-      "title": "The modulated neutron initiator as a timing problem",
-      "scene": "Robert Bacher, who runs the Gadget's physics division, will not leave the starting neutrons to whatever the background supplies. The initiator has to fire at a chosen moment inside the implosion, and that moment is now part of the synchronization argument.",
-      "takeaway": "In a fast transient system, source timing can be as important as source strength.",
+      "title": "A controlled reference event in a fast transient experiment",
+      "scene": "A fast inert experiment needs a dependable reference event at a selected moment so multiple diagnostics can align their records. Bacher wants the timing logic separated from the physical phenomenon being measured.",
+      "takeaway": "A controlled timing reference helps distinguish uncertainty in when an event began from uncertainty in how the system responded.",
       "place": "",
       "guide": "All four steps happen, and two separate risks live here. Ask of each card whether it is about when neutrons should arrive, or about when they might arrive uninvited. The initiator answers the first. The second is still there, and the comparison at the end is what tests either.",
       "background": [
@@ -7289,21 +7238,21 @@ export const CURRICULUM = {
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
         "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
       ],
-      "story": "Robert Bacher, who runs the Gadget's physics division, will not leave the starting neutrons to whatever the background supplies. The initiator has to fire at a chosen moment inside the implosion, and that moment is now part of the synchronization argument.",
+      "story": "A fast inert experiment needs a dependable reference event at a selected moment so multiple diagnostics can align their records. Bacher wants the timing logic separated from the physical phenomenon being measured.",
       "game": {
         "type": "SEQUENCE",
-        "title": "The modulated neutron initiator as a timing problem",
-        "setup": "Order the conceptual logic; no construction details are given.",
+        "title": "A controlled reference event in a fast transient experiment",
+        "setup": "Order the conceptual timing logic; no weapon or source-construction details are included.",
         "play": "Arrange the four cards from earliest cause or prerequisite to latest result.",
         "task": "Arrange the four cards from earliest cause or prerequisite to latest result.",
         "question": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "answer": "1 -> 2 -> 3 -> 4 (Maintain the pre-assembly neutron environment within the assumptions used by theory. -> Compress the plutonium assembly toward the intended high-density state. -> Produce a controlled burst of initiating neutrons near the selected time. -> Compare the resulting chain-reaction timing with predictions and diagnostic evidence.)",
-        "why": "The initiator addressed when a dependable starting population of neutrons would appear, while pre-initiation remained a separate risk.",
+        "answer": "Baseline timing/background → approved inert test state → controlled diagnostic reference event → compare response timing with prediction and independent records.",
+        "why": "In a fast transient experiment, the timing reference can matter as much as the reference amplitude because every diagnostic is compared against it.",
         "cards": [
-          "Maintain the pre-assembly neutron environment within the assumptions used by theory.",
-          "Compress the plutonium assembly toward the intended high-density state.",
-          "Produce a controlled burst of initiating neutrons near the selected time.",
-          "Compare chain-reaction timing against prediction and diagnostic evidence."
+          "Establish the baseline background and timing uncertainty before the transient begins.",
+          "Bring the inert experiment to the approved test state.",
+          "Generate a controlled reference event at the selected diagnostic time.",
+          "Compare the measured response timing with model predictions and independent records."
         ],
         "order": [
           0,
@@ -7311,49 +7260,44 @@ export const CURRICULUM = {
           2,
           3
         ]
-      },
-      "concept": {
-        "n": 18,
-        "c": "Materials: phases, allotropes, alloys, density",
-        "of": 30,
-        "rests": [
-          "Units and conversions: MeV, u, barns, scientific notation"
-        ]
       }
     },
     {
       "day": 19,
-      "title": "Pre-initiation probability as a time-window problem",
-      "scene": "Enrico Fermi, the physicist who built the Chicago pile, sets the classroom version on the board. Random neutrons arrive at a steady rate, and an assembly stays vulnerable for a very short window. The plutonium measurements are what made this the program's argument.",
-      "takeaway": "The plutonium problem was fundamentally a race between random neutrons and assembly speed.",
+      "title": "Random-event probability in a short observation window",
+      "scene": "Fermi puts a generic detector problem on the board: random events arrive at a steady rate and the instrument is vulnerable to a false trigger during a short gate. How likely is at least one event in that window?",
+      "takeaway": "Poisson event rates turn a time window into a probability; the same mathematics appears in detectors, communications, and reliability.",
       "place": "",
       "guide": "Four numbers, and two of them are windows a thousand apart. Ask of each which assembly this is. And note what the answer says. For a fixed random rate, the only lever is the length of the window. So the timing decides the risk rather than the material.",
       "background": [
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "Enrico Fermi, the physicist who built the Chicago pile, sets the classroom version on the board. Random neutrons arrive at a steady rate, and an assembly stays vulnerable for a very short window. The plutonium measurements are what made this the program's argument.",
+      "story": "Fermi puts a generic detector problem on the board: random events arrive at a steady rate and the instrument is vulnerable to a false trigger during a short gate. How likely is at least one event in that window?",
       "game": {
         "type": "BALLPARK",
-        "title": "Pre-initiation probability as a time-window problem",
-        "setup": "Invented classroom rates are used and do not represent plutonium or Fat Man.",
-        "play": "Estimate the probability of at least one event using P approximately lambda when lambda is small.",
-        "task": "Estimate the probability of at least one event using P approximately lambda when lambda is small.",
-        "question": "Estimate the probability of at least one event using P approximately lambda when lambda is small.",
-        "answer": "lambda = 200 x 10^-5 = 0.002, so P is about 0.2%.",
-        "why": "For a fixed random-event rate, a shorter vulnerable time lowers the chance of an event during assembly.",
+        "title": "Random-event probability in a short observation window",
+        "setup": "Invented classroom rates illustrate Poisson timing and do not represent any weapon material or device.",
+        "play": "Estimate the probability of at least one event using P ≈ lambda when lambda is small.",
+        "task": "Estimate the probability of at least one event using P ≈ lambda when lambda is small.",
+        "question": "Estimate the probability of at least one event using P ≈ lambda when lambda is small.",
+        "answer": "lambda = 200 × 10^-5 = 0.002, so P ≈ 0.2%.",
+        "why": "For a fixed random-event rate, shortening the vulnerable observation window lowers the probability of an accidental event.",
         "givens": [
-          "Random-event rate r = 200 per second",
-          "Vulnerable window t = 10 microseconds = 1 x 10^-5 s",
-          "Expected events lambda = r t"
+          "Random event rate = 200/s",
+          "Gate width = 10 microseconds = 1×10^-5 s"
         ],
         "relationship": "Probability ≈ the event rate × the length of the vulnerable window. Multiply by 100 for a percentage.",
         "calcKey": "X-19"
       },
       "concept": {
-        "n": 17,
-        "c": "Order-of-magnitude estimation from givens",
-        "of": 30
+        "n": 13,
+        "c": "Counting statistics and uncertainty",
+        "of": 30,
+        "rests": [
+          "Detectors: ionisation, count rate, efficiency, dead time",
+          "Descriptive statistics: mean, spread, standard deviation"
+        ]
       }
     },
     {
@@ -7596,8 +7540,8 @@ export const CURRICULUM = {
     },
     {
       "day": 25,
-      "title": "The Christy design simplification",
-      "scene": "Hans Bethe, head of the Theoretical Division, has the simplified core configuration on the table and wants the program to say plainly what it buys. Four divisions want different things from it, and only one arrangement can be carried into Trinity.",
+      "title": "Why late-stage design simplification can improve evidence",
+      "scene": "Bethe has a late-stage design review in which every extra interface adds manufacturing, modeling, and diagnostic uncertainty. The question is not which historic geometry to build, but why simpler configurations are often easier to validate.",
       "takeaway": "Robust design often wins by reducing the number of ways reality can differ from the model.",
       "place": "",
       "guide": "Four problems and four things the simplification buys. Pair them by asking who each one helps: the machinists, the theorists, the test programme, or the programme's need to freeze one configuration. Fewer manufactured interfaces is a physics answer and a systems answer at the same time.",
@@ -7606,27 +7550,27 @@ export const CURRICULUM = {
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
       ],
-      "story": "Hans Bethe, head of the Theoretical Division, has the simplified core configuration on the table and wants the program to say plainly what it buys. Four divisions want different things from it, and only one arrangement can be carried into Trinity.",
+      "story": "Bethe has a late-stage design review in which every extra interface adds manufacturing, modeling, and diagnostic uncertainty. The question is not which historic geometry to build, but why simpler configurations are often easier to validate.",
       "game": {
         "type": "PROTOCOL",
-        "title": "The Christy design simplification",
-        "setup": "Match each program concern to the benefit sought by simplifying the internal configuration.",
+        "title": "Why late-stage design simplification can improve evidence",
+        "setup": "Match each program concern to the benefit of reducing internal configuration complexity.",
         "play": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
         "task": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
         "question": "Match each situation to the best action, control, document, or interpretation. Each option is used once.",
-        "answer": "A complicated internal geometry amplifies manufacturing and assembly uncertainty -> Reduce internal geometric complexity so fewer manufactured interfaces can introduce asymmetry; Theoretical calculations need a more tractable starting configuration -> Begin from a solid sphere rather than a shell, so the equations have one boundary to follow instead of several; Hydrodynamic tests must map more directly onto the proposed final design -> Shoot the development trials in the geometry the weapon will actually use, so model and measurement compare like with like; The program needs one configuration to freeze for Trinity and Fat Man -> Establish one integration baseline that can be frozen for Trinity and the Fat Man weapon",
-        "why": "The Christy concept was valuable partly because it converted a difficult physics problem into a more controllable systems problem.",
+        "answer": "Fewer interfaces; simpler model; like-for-like test geometry; one documented integration baseline.",
+        "why": "Simplification can reduce the number of interfaces, assumptions, and configuration variants that separate a model from the thing actually tested.",
         "scenarios": [
-          "A complicated internal geometry amplifies manufacturing and assembly uncertainty.",
-          "Theoretical calculations need a more tractable starting configuration.",
-          "Hydrodynamic tests must map more directly onto the proposed final design.",
-          "The program needs one configuration to freeze for Trinity and Fat Man."
+          "A complicated internal configuration amplifies manufacturing and assembly uncertainty.",
+          "Theoretical calculations are dominated by poorly constrained internal boundaries.",
+          "Development tests are hard to compare because each uses a different internal configuration.",
+          "The program needs one integration baseline that can be frozen and documented."
         ],
         "choices": [
-          "Reduce internal geometric complexity so fewer manufactured interfaces can introduce asymmetry.",
-          "Begin from a solid sphere rather than a shell, so the equations have one boundary to follow instead of several.",
-          "Shoot the development trials in the geometry the weapon will actually use, so model and measurement compare like with like.",
-          "Establish one integration baseline that can be frozen for Trinity and the Fat Man weapon."
+          "Reduce internal geometric complexity so fewer manufactured interfaces can vary.",
+          "Choose a simpler model geometry with fewer poorly constrained boundaries.",
+          "Run development tests against the same simplified reference configuration.",
+          "Establish one documented integration baseline for the final test program."
         ],
         "mapping": [
           0,
@@ -7638,21 +7582,13 @@ export const CURRICULUM = {
           "What the program needs",
           "What the simplification gives it"
         ]
-      },
-      "concept": {
-        "n": 19,
-        "c": "Shock waves, compression and hydrodynamics",
-        "of": 30,
-        "rests": [
-          "Pressure, temperature and equations of state"
-        ]
       }
     },
     {
       "day": 26,
-      "title": "Freeze the implosion architecture",
-      "scene": "Oppenheimer, the laboratory director, has months before Trinity and a hundred credits left. Lenses, initiation, core geometry, surrounding layers and interfaces are all still being changed by the people who own them. No two successful tests describe quite the same system.",
-      "takeaway": "A design freeze is a decision about evidence, schedule, and residual risk.",
+      "title": "Freeze a late-stage experimental architecture",
+      "scene": "Multiple subsystems are still changing, so no two successful trials describe exactly the same configuration. Oppenheimer has to balance focused mainline development against independent challenge and a limited backup.",
+      "takeaway": "A design freeze is a decision about evidence, schedule, configuration identity, and residual risk.",
       "place": "",
       "guide": "Trinity can only test the configuration that is actually frozen. Every week without a baseline is a week of tests describing slightly different systems. One diagnostic discrepancy is still open, and it is the largest on the list. Carrying every concept equally keeps the options and buys qualification for none of them. Concentrating on one while a small team keeps challenging it costs the challenge team and slows nothing else. A freeze taken now settles the schedule and leaves the discrepancy inside the baseline.",
       "rules": "Spread the hundred points across the 3 proposals. At least 75 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
@@ -7661,42 +7597,35 @@ export const CURRICULUM = {
         "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
         "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
       ],
-      "story": "Oppenheimer, the laboratory director, has months before Trinity and a hundred credits left. Lenses, initiation, core geometry, surrounding layers and interfaces are all still being changed by the people who own them. No two successful tests describe quite the same system.",
+      "story": "Multiple subsystems are still changing, so no two successful trials describe exactly the same configuration. Oppenheimer has to balance focused mainline development against independent challenge and a limited backup.",
       "game": {
         "type": "SCIENCETANK",
-        "title": "Freeze the implosion architecture",
-        "setup": "The laboratory has 100 credits and only months before Trinity.",
+        "title": "Freeze a late-stage experimental architecture",
+        "setup": "The laboratory has 100 credits and only months before the integrated test.",
         "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "answer": "Recommended: 75 to B mainline development, 15 to independent challenge, 10 to targeted backup studies.",
+        "answer": "Recommended: dominant funding to the evidence-supported reference configuration, with a smaller independent challenge and targeted backup.",
         "why": "Late-stage programs need focus, but focus must be earned by evidence and protected against groupthink.",
         "proposals": [
           {
             "label": "A",
-            "text": "Continue every implosion concept equally to preserve optionality."
+            "text": "Keep every subsystem variant alive until the integrated test, even if no two trials use the same configuration."
           },
           {
             "label": "B",
-            "text": "Concentrate on the best-supported architecture while retaining a small independent challenge team and targeted backup studies."
+            "text": "Choose the best-supported reference configuration, freeze its interfaces, and concentrate mainline tests there while preserving an independent challenge path."
           },
           {
             "label": "C",
-            "text": "Freeze immediately without resolving the largest diagnostic discrepancy."
+            "text": "Freeze immediately on the most recent successful trial and stop independent review to protect the schedule."
           }
         ],
         "recommended": {
-          "B": 75
+          "B": 75,
+          "C": 0
         },
         "research": ""
-      },
-      "concept": {
-        "n": 19,
-        "c": "Shock waves, compression and hydrodynamics",
-        "of": 30,
-        "rests": [
-          "Pressure, temperature and equations of state"
-        ]
       }
     },
     {
@@ -7780,9 +7709,9 @@ export const CURRICULUM = {
     },
     {
       "day": 29,
-      "title": "From the Gadget to Fat Man",
-      "scene": "William Parsons, the naval ordnance officer on the delivery side, has a device that works on a tower and an aircraft to carry the next one. Casing, fuzing, safety, field assembly and the records are all still open.",
-      "takeaway": "Demonstrating physics is not the same as fielding a system.",
+      "title": "From successful experiment to controlled fielded system",
+      "scene": "A one-shot integrated experiment has worked, but a fielded system adds transport, carrier interfaces, safety state, training, records, and environmental variation that the test site did not exercise.",
+      "takeaway": "A successful integrated experiment must be followed by configuration control and field-interface qualification before deployment.",
       "place": "",
       "guide": "All four steps happen, and the two devices share a principle rather than a configuration. Ask of each card what has to be settled first. Nothing can be frozen before the results are reconciled with the predictions. And the aircraft and field interfaces are the layer combat adds.",
       "background": [
@@ -7790,35 +7719,27 @@ export const CURRICULUM = {
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
         "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
       ],
-      "story": "William Parsons, the naval ordnance officer on the delivery side, has a device that works on a tower and an aircraft to carry the next one. Casing, fuzing, safety, field assembly and the records are all still open.",
+      "story": "A one-shot integrated experiment has worked, but a fielded system adds transport, carrier interfaces, safety state, training, records, and environmental variation that the test site did not exercise.",
       "game": {
         "type": "SEQUENCE",
-        "title": "From the Gadget to Fat Man",
-        "setup": "Order the transition.",
+        "title": "From successful experiment to controlled fielded system",
+        "setup": "Order the transition without weapon-assembly details.",
         "play": "Arrange the four cards from earliest cause or prerequisite to latest result.",
         "task": "Arrange the four cards from earliest cause or prerequisite to latest result.",
         "question": "Arrange the four cards from earliest cause or prerequisite to latest result.",
-        "answer": "1 -> 2 -> 3 -> 4 (Reconcile Trinity results with pre-test predictions and identify configuration-specific lessons. -> Freeze the validated central implosion architecture and document any approved corrections. -> Complete aircraft, casing, fuzing, safety, assembly, and field-interface qualification. -> Transfer the controlled configuration, trained personnel, records, and spares to Project Alberta.)",
-        "why": "The Gadget and Fat Man shared the implosion principle, but combat deployment added a distinct engineering and logistics layer.",
+        "answer": "Reconcile test evidence → freeze reference configuration → qualify field interfaces → transfer the controlled system and records.",
+        "why": "Demonstrating the central physics is not the same as demonstrating the entire fielded system.",
         "cards": [
-          "Reconcile Trinity results with pre-test predictions and identify configuration-specific lessons.",
-          "Freeze the validated central implosion architecture and document any approved corrections.",
-          "Complete aircraft, casing, fuzing, safety, assembly, and field-interface qualification.",
-          "Transfer the controlled configuration, trained personnel, records, and spares to Project Alberta."
+          "Reconcile the integrated-test results with pre-test predictions and identify what was configuration-specific.",
+          "Freeze the evidence-supported reference configuration and document approved corrections.",
+          "Complete carrier, handling, safety-state, environmental, and field-interface qualification with inert or non-operational tests where possible.",
+          "Transfer the controlled configuration, trained personnel, records, and support equipment through a traceable deployment process."
         ],
         "order": [
           0,
           1,
           2,
           3
-        ]
-      },
-      "concept": {
-        "n": 19,
-        "c": "Shock waves, compression and hydrodynamics",
-        "of": 30,
-        "rests": [
-          "Pressure, temperature and equations of state"
         ]
       }
     },
@@ -7868,19 +7789,19 @@ export const CURRICULUM = {
         ]
       },
       "concept": {
-        "n": 4,
-        "c": "Radioactive decay modes: alpha, beta, gamma",
+        "n": 11,
+        "c": "Attenuation of radiation through matter",
         "of": 30,
         "rests": [
-          "Nuclear structure: protons, neutrons, isotopes, nuclide notation"
+          "Cross sections and mean free path"
         ]
       }
     },
     {
       "day": 31,
-      "title": "Final Fat Man implosion synthesis",
-      "scene": "The final review has a hundred credits and one page to say what Fat Man was. Oppenheimer, the laboratory director, will not let the record become a story about a clever device. The people who built it disagree about what belongs in it.",
-      "takeaway": "The complete lesson is how science, systems, institutions, and human consequences became inseparable.",
+      "title": "Final Project Y synthesis",
+      "scene": "The final review has one page to say what Project Y was without reducing it to a clever device. The record has to hold the physics, the evidence system, the organization, and the human consequences together.",
+      "takeaway": "The complete lesson is how science, systems, institutions, secrecy, and human consequences became inseparable.",
       "place": "",
       "guide": "The three chains on the board are not alternatives to one another. The weapon existed because all three held at once. The physics chain is what a measurement can settle, and it is the best documented of the three. The engineering chain is where reproducibility, timing and configuration control decide whether a principle becomes a device anybody can deliver. The third covers Trinity, Nagasaki, radiation effects, secrecy and dissent. Its evidence is the only kind here that is not a laboratory record.",
       "rules": "Spread the hundred points across the 3 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
@@ -7889,28 +7810,28 @@ export const CURRICULUM = {
         "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
         "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
       ],
-      "story": "The final review has a hundred credits and one page to say what Fat Man was. Oppenheimer, the laboratory director, will not let the record become a story about a clever device. The people who built it disagree about what belongs in it.",
+      "story": "The final review has one page to say what Project Y was without reducing it to a clever device. The record has to hold the physics, the evidence system, the organization, and the human consequences together.",
       "game": {
         "type": "SCIENCETANK",
-        "title": "Final Fat Man implosion synthesis",
+        "title": "Final Project Y synthesis",
         "setup": "The final review has 100 curriculum credits to preserve the most important lessons.",
         "play": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "task": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
         "question": "Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision criterion.",
-        "answer": "Recommended: about 35 to A, 35 to B, and 30 to C; nearby balanced allocations are acceptable if the learner explicitly connects the 3 chains.",
-        "why": "Fat Man cannot be understood as only a physics device, only an engineering project, or only a historical event.",
+        "answer": "Recommended: a balanced portfolio across physical reasoning, evidence-and-systems engineering, and historical/human consequences.",
+        "why": "Project Y cannot be understood as only a physics problem, only an engineering program, or only a historical event.",
         "proposals": [
           {
             "label": "A",
-            "text": "The physics chain: plutonium measurement, rapid assembly, compression, neutron multiplication, and diagnostics."
+            "text": "Preserve the nuclear-physics and measurement lessons: models, statistics, calibration, and uncertainty."
           },
           {
             "label": "B",
-            "text": "The engineering chain: reproducible components, timing, configuration control, aircraft and field integration."
+            "text": "Preserve the systems lessons: interfaces, independent diagnostics, configuration control, and program pivots."
           },
           {
             "label": "C",
-            "text": "The historical and ethical chain: Trinity, Nagasaki, radiation effects, secrecy, dissent, and nuclear legacy."
+            "text": "Preserve the historical and human record: secrecy, displacement, Trinity downwinders, Hiroshima and Nagasaki, scientific dissent, and postwar responsibility."
           }
         ],
         "recommended": {
@@ -7919,14 +7840,6 @@ export const CURRICULUM = {
           "C": 30
         },
         "research": ""
-      },
-      "concept": {
-        "n": 19,
-        "c": "Shock waves, compression and hydrodynamics",
-        "of": 30,
-        "rests": [
-          "Pressure, temperature and equations of state"
-        ]
       }
     }
   ]
@@ -8077,32 +7990,32 @@ export const BALLPARK_CALCS = {
     "explanation": "400 counts gives 5%. The scaling is what matters for planning: uncertainty falls as 1/√N, so halving it to 2.5% takes 1,600 counts — 4 times the run. Precision bought by counting longer gets expensive fast, which is why detector efficiency and background suppression are worth as much as extra hours."
   },
   "T-6": {
-    "prompt": "A sample emits spontaneous-fission neutrons at about 10⁴ per second, and a slow mechanical assembly takes about 10⁻³ s to complete. Estimate how many neutrons are expected during the assembly window.",
-    "question": "Choose the spontaneous-fission rate and the assembly time.",
+    "prompt": "A reactor-produced plutonium sample gives an excess neutron count rate of about 120 counts per minute above the laboratory background. It is observed for 10 minutes. Estimate the excess counts.",
+    "question": "Choose the excess rate and the counting time.",
     "labels": [
-      "10⁴ neutrons/s",
-      "10⁻³ s slow assembly",
-      "10⁻⁶ s fast assembly",
-      "10² neutrons/s"
+      "120 counts/min excess",
+      "10 min observation",
+      "1,200 counts/min",
+      "0.1 min observation"
     ],
     "values": [
-      10000,
-      0.001,
-      0.000001,
-      100
+      120,
+      10,
+      1200,
+      0.1
     ],
     "slots": 2,
-    "template": "expected neutrons ≈ {0} × {1}",
+    "template": "{0} × {1}",
     "formula": "a*b",
     "correct": [
       0,
       1
     ],
-    "target": 10,
-    "tolerance": 1.5,
-    "units": "neutrons",
-    "solution": "10⁴ s⁻¹ × 10⁻³ s ≈ 10 neutrons.",
-    "explanation": "Ten neutrons during assembly is not a risk of starting early, it is a certainty: the chain begins well before the pieces are together. Put the fast assembly time in instead and the same source gives 10⁻² neutrons — roughly a one-in-a-hundred chance. Nothing about the material changed; only the length of time it spent vulnerable did. That single factor of 1000 in assembly speed is the whole argument for abandoning the slow route."
+    "target": 1200,
+    "tolerance": 80,
+    "units": "counts",
+    "solution": "120 counts/min × 10 min ≈ 1,200 excess counts.",
+    "explanation": "This establishes the scale of the laboratory background measurement. It does not use or imply an assembly time."
   },
   "T-7": {
     "prompt": "A sample is compressed by an average pressure of 5×10⁹ Pa while its volume falls by 2×10⁻⁶ m³. Estimate the compression work.",
@@ -8166,7 +8079,7 @@ export const BALLPARK_CALCS = {
     "explanation": "Work in ratios, not differences. The rate falls by a constant factor each half-life."
   },
   "E-3": {
-    "prompt": "2 signal paths differ in length by 0.4 m, and signals travel at 2×10⁸ m/s in the cable. Estimate the timing difference in nanoseconds.",
+    "prompt": "Two diagnostic signal paths differ in length by 0.4 m, and signals travel at 2×10^8 m/s in the cable. Estimate the timing difference in nanoseconds.",
     "question": "Choose the path mismatch, the signal speed, and the seconds-to-nanoseconds conversion.",
     "labels": [
       "0.4 m path mismatch",
@@ -8192,7 +8105,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.25,
     "units": "ns",
     "solution": "0.4 m ÷ 2×10⁸ m/s × 10⁹ ns/s ≈ 2 ns.",
-    "explanation": "0.4 m of extra cable is 2 ns of delay. That is the number that turns \"fire together\" into an inspectable requirement: nobody measures simultaneity directly on a rack, but anyone can measure cable. Signals move at about two-thirds the speed of light in cable, so roughly every 20 cm costs a nanosecond — a rule worth carrying to the bench."
+    "explanation": "0.4 m of extra cable produces about 2 ns of additional delay. This is a diagnostic synchronization calculation, not a firing-system specification."
   },
   "P-8": {
     "prompt": "An object moving at 500 m/s is recorded with a 1-microsecond (10⁻⁶ s) exposure. Estimate the motion blur in millimetres.",
@@ -8224,48 +8137,48 @@ export const BALLPARK_CALCS = {
     "explanation": "0.5 mm of blur. Whether that is acceptable is not a property of the camera but a comparison: blur has to be small against the feature being resolved. A boundary moving across a 5 mm gap is measurable at this exposure; a 0.5 mm perturbation is not measurable at all, because it is smeared into its own width. Shortening the exposure is the only lever that does not also cost signal."
   },
   "T-8": {
-    "prompt": "A shock front crosses the assembly at about 8×10³ m/s. 2 initiation channels fire 0.5 microseconds (5×10⁻⁷ s) apart. Estimate how far ahead the early side’s front runs by the time the late one starts, in millimetres.",
-    "question": "Choose the wave speed, the channel spread, and the metres-to-millimetres conversion.",
+    "prompt": "An inert stress wave travels through a test plate at 5×10^3 m/s. Two diagnostic triggers differ by 0.5 microseconds (5×10^-7 s). Estimate how far the wave travels during that mismatch, in millimetres.",
+    "question": "Choose the wave speed, timing mismatch, and metres-to-millimetres conversion.",
     "labels": [
-      "8×10³ m/s wave speed",
-      "5×10⁻⁷ s channel spread",
+      "5×10³ m/s stress-wave speed",
+      "5×10⁻⁷ s trigger mismatch",
       "1,000 mm/m",
-      "5×10⁻⁵ s channel spread"
+      "5×10⁻⁵ s mismatch"
     ],
     "values": [
-      8000,
+      5000,
       5e-7,
       1000,
       0.00005
     ],
     "slots": 3,
-    "template": "lead distance ≈ {0} × {1} × {2}",
+    "template": "{0} × {1} × {2}",
     "formula": "a*b*c",
     "correct": [
       0,
       1,
       2
     ],
-    "target": 4,
-    "tolerance": 0.5,
+    "target": 2.5,
+    "tolerance": 0.2,
     "units": "mm",
-    "solution": "8×10³ m/s × 5×10⁻⁷ s × 1,000 mm/m ≈ 4 mm.",
-    "explanation": "Half a microsecond of disagreement puts 1 side of the front 4 mm ahead of the other — a visible dent in a convergence that was supposed to be spherical. The timing requirement is written in nanoseconds not because that is what the electronics can manage, but because that is how far the physics moves while the channels argue. Every timing contribution combined later gets judged against this millimetre-scale yardstick."
+    "solution": "5×10³ m/s × 5×10⁻⁷ s × 10³ mm/m ≈ 2.5 mm.",
+    "explanation": "The calculation converts a diagnostic clock mismatch into the spatial blur it creates in an inert fast-wave experiment."
   },
   "X-6": {
-    "prompt": "3 independent timing contributions — a shared trigger at 2 ns, cable delay at 3 ns, and diagnostic registration at 4 ns — must be combined. Estimate the total timing uncertainty.",
+    "prompt": "Three independent diagnostic timing contributions are 2 ns from a reference trigger, 3 ns from cable characterization, and 4 ns from recorder registration. Estimate the total timing uncertainty.",
     "question": "Choose the three component uncertainties to combine in quadrature.",
     "labels": [
-      "2 ns trigger",
-      "3 ns cable",
-      "4 ns recorder",
-      "12 ns linear sum"
+      "2 ns reference-trigger uncertainty",
+      "3 ns cable-characterization uncertainty",
+      "4 ns recorder uncertainty",
+      "9 ns linear sum"
     ],
     "values": [
       2,
       3,
       4,
-      12
+      9
     ],
     "slots": 3,
     "template": "σ_total ≈ √({0}²+{1}²+{2}²)",
@@ -8279,7 +8192,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.3,
     "units": "ns",
     "solution": "√(2² + 3² + 4²) = √29 ≈ 5.4 ns.",
-    "explanation": "Quadrature gives 5.4 ns, well under the 9 ns a straight sum predicts, because independent errors do not all peak together — and the 4 ns recorder term alone carries more than half the total variance, so it is the 1 worth attacking first. Then check the answer against what the front does with that time: at 8×10³ m/s, 5.4 ns is about 0.04 mm of lead. Comfortably inside a millimetre-scale symmetry limit, which a half-microsecond spread would not be."
+    "explanation": "Independent uncertainty scales add in quadrature. The result is a property of the diagnostic chain and says nothing about how a weapon system is constructed."
   },
   "T-9": {
     "prompt": "A predicted reaction rate carries an 8% cross-section uncertainty and a 6% flux uncertainty, and the 2 are independent. Estimate the combined uncertainty.",
@@ -8936,7 +8849,7 @@ export const BALLPARK_CALCS = {
     "explanation": "Worst-case tolerance stack-up adds aligned limits directly, unlike statistical root-sum-square combination."
   },
   "E-23": {
-    "prompt": "A firing chain needs 4 subsystems in series, each with independent reliability 0.98. Estimate the reliability of the whole chain.",
+    "prompt": "A diagnostic chain needs 4 required subsystems in series, each with independent reliability 0.98. Estimate the reliability of the whole chain.",
     "question": "Choose the per-subsystem reliability and the subsystem count.",
     "labels": [
       "0.98 per subsystem",
@@ -8960,7 +8873,7 @@ export const BALLPARK_CALCS = {
     "target": 0.922,
     "tolerance": 0.02,
     "units": "fraction",
-    "solution": "0.98⁴ ≈ 0.92.",
+    "solution": "0.98^4 ≈ 0.92.",
     "explanation": "Series-system reliability declines as more required components are added, even when each component is highly reliable."
   },
   "X-12": {
@@ -8993,13 +8906,13 @@ export const BALLPARK_CALCS = {
     "explanation": "Sphere volume scales with the cube of radius, so a modest radial reduction produces a larger fractional density increase."
   },
   "X-19": {
-    "prompt": "Random events arrive at 200 per second and the vulnerable window is 10 microseconds (10⁻⁵ s). When the expected number is small, the probability of at least one event is about the expected number. Estimate it as a percentage.",
+    "prompt": "Random detector events arrive at 200 per second and an electronic gate is open for 10 microseconds (10^-5 s). When the expected count is small, estimate the probability of at least one accidental event as a percentage.",
     "question": "Choose the event rate, the time window, and the percent conversion.",
     "labels": [
       "200 events/s",
-      "10⁻⁵ s",
+      "10^-5 s gate",
       "100%/unit",
-      "10⁻² s"
+      "10^-2 s gate"
     ],
     "values": [
       200,
@@ -9018,7 +8931,7 @@ export const BALLPARK_CALCS = {
     "target": 0.2,
     "tolerance": 0.03,
     "units": "%",
-    "solution": "200 s⁻¹ × 10⁻⁵ s × 100 ≈ 0.2%.",
+    "solution": "200 s^-1 × 10^-5 s × 100 ≈ 0.2%.",
     "explanation": "For a small expected count λ, the probability of at least one event is approximately λ. A short window can make even a substantial rate produce a small probability."
   }
 };
@@ -9339,7 +9252,7 @@ export const JARGON = [
       "detonator",
       "detonators"
     ],
-    "def": "A device that initiates a high-explosive detonation at a controlled time.",
+    "def": "A historical component that initiates an explosive event. In this game it appears only as part of the history of synchronization and reliability; no construction or firing details are taught.",
     "core": true
   },
   {
@@ -9402,7 +9315,7 @@ export const JARGON = [
       "explosive lenses",
       "lens system"
     ],
-    "def": "A shaped combination of explosive materials used to transform an outward detonation into a controlled converging shock pattern.",
+    "def": "A historical wave-shaping concept used in the implosion program. Here it is discussed only at the level of measurement, symmetry, and program history, not geometry or construction.",
     "core": true
   },
   {

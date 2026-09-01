@@ -60,8 +60,8 @@ export const CURRICULUM = {
       "guide": "Four steps, and the rail is not a clock — every one of them could be done in the next ten minutes. Order them by what each one protects: the thing that cannot be recovered if it is skipped goes first, and the thing that can be done afterwards without costing anybody anything goes last.",
       "background": [
         "Why the blind exists. It protects the comparison, not the participant. Every person who knows an assignment is a person whose judgement can drift with it — the treating team, the assessor, the participant. The trial's answer depends on that ignorance being intact across four hundred people, and one code being opened costs one of them.",
-        "Why the clinical decision comes first anyway. The blind is a research instrument and this is a patient in front of a registrar at three in the morning. If knowing the assignment changes what is safe to give her, the code is opened; the trial can lose a participant from the blinded analysis and cannot lose her.",
-        "What has to be written down and why the order matters. The reason, the time and who authorised it, recorded before the envelope is opened rather than reconstructed afterwards — because once the assignment is known, nobody can prove the request was made on clinical grounds. Telling the monitoring committee can wait; telling the site file cannot."
+        "Why the clinical decision comes first anyway. The blind is a research instrument and this is a patient in front of a registrar at three in the morning. If knowing the assignment changes what is safe to give her, the code is opened. The trial gives up one piece of blinding and does not put the participant's immediate care second.",
+        "What has to be written down and why the order matters. The reason, the time and who authorised it are recorded before the code is opened rather than reconstructed afterwards. The participant remains in the randomized assigned-arm analysis; the unblinding is an intercurrent event to document, not a reason to delete her. Later analyses can assess whether knowing the assignment could have affected subsequent measurements."
       ],
       "story": "Diouf has a call from an intensive care registrar at three in the morning, on speaker. A CLARION-3 participant is in front of him and the treatment he is considering depends on what she has been receiving.",
       "game": {
@@ -72,7 +72,7 @@ export const CURRICULUM = {
         "task": "Rule on a request to break one participant's code",
         "question": "Order the four steps by what is lost if the step is skipped.",
         "answer": "Establish that the decision turns on it, write down why before opening, open it, then enter it on the committee's log. The first two cannot be reconstructed afterwards; the last can be done in the morning.",
-        "why": "The first step cannot be recovered, because it cannot be established after the fact. Once the registrar knows the assignment, nobody can show the request rested on clinical need rather than curiosity. The written reason is the same problem in another form. A note made before the envelope is opened is evidence. One made afterwards is an account. Only then is the code opened, and the participant treated on what is known. Notifying the committee and flagging her in the analysis plan matters, and costs nothing by waiting until morning. That is why it is last rather than unimportant. The blind protects the comparison across four hundred people. It is opened for one of them when a decision for that person turns on it. The price is paid in the analysis, not argued about at three in the morning.",
+        "why": "The first step cannot be recovered, because it cannot be established after the fact. Once the registrar knows the assignment, nobody can show the request rested on clinical need rather than curiosity. The written reason therefore belongs before the code break. Only then is the code opened and the participant treated on what is known. The assignment does not disappear from the randomized analysis: she remains analysed in the group to which she was assigned under the prespecified treatment-strategy approach. What changes is that subsequent measurements may now have a route for treatment knowledge to affect them, so the unblinding is documented and handled in the estimand and sensitivity analyses. The blind protects the trial; immediate care comes first.",
         "cards": [
           "Establish that the clinical decision actually turns on the assignment",
           "Record the reason, the time and the authorising name before the code is opened",
@@ -273,9 +273,9 @@ export const CURRICULUM = {
         "type": "SEQUENCE",
         "title": "Concealment is not the same as blinding — Review",
         "setup": "Kit Warehouse & Cold Room",
-        "play": "Order the four steps so nobody at site 22 sees an assignment while entry is still a choice.",
-        "task": "Order the four steps so nobody at site 22 sees an assignment while entry is still a choice.",
-        "question": "Order the four steps so nobody at site 22 sees an assignment while entry is still a choice.",
+        "play": "Put site 22's four entry steps in an order that keeps the next slot hidden",
+        "task": "Put site 22's four entry steps in an order that keeps the next slot hidden",
+        "question": "Put site 22's four entry steps in an order that keeps the next slot hidden",
         "answer": "",
         "why": "Concealment is about what a site can know while it can still act. Envelopes in a drawer can be counted, held to the light, or taken out of order, and a coordinator doing any of that is choosing patients rather than accepting them. A central server closes the gap by ordering the steps: eligibility and consent are recorded, the entry is committed, and only then does a kit number come back. The number names a box rather than an arm, so the blind survives the entry as well.\n",
         "cards": [
@@ -307,8 +307,8 @@ export const CURRICULUM = {
   "ENDP": [
     {
       "day": 1,
-      "title": "One outcome, named in advance",
-      "scene": "Kwame Ansah, the endpoint adjudication chair, has four measurements from the same participant on his screen and a definition agreed four years ago. A journalist has asked the sponsor which of the 4 CLARION-3 is actually about.",
+      "title": "Why this outcome was chosen",
+      "scene": "Kwame Ansah has the original design memo beside the current event counts. Four years ago the team compared several candidate outcomes before anyone had trial data. A journalist has now asked why the protocol committed to the composite rather than the cleanest or easiest-to-measure alternative.",
       "takeaway": "The primary endpoint is the one question the trial was built to answer; the rest are collected, not promised.",
       "place": "Adjudication Room",
       "guide": "Four candidate primary endpoints, scored on two things the sponsor cares about. The slider is the event rate the trial actually gets, which nobody knows in advance — slide it to the pessimistic end and see which endpoint still answers the question there. The one that looks best at the expected rate is not necessarily the one that survives being wrong about it.",
@@ -317,16 +317,16 @@ export const CURRICULUM = {
         "Why naming it in advance matters. With four measurements per participant, somebody choosing afterwards has four chances to find a difference, and the reported result would be the best of four rather than the answer to one question. That is the whole of why the definition is four years old.",
         "Why the event rate is the assumption that bites. Every endpoint's power depends on how often its event happens. A rare, hard endpoint is unimpeachable and may never accumulate enough events to say anything; a composite happens more often and answers a blurrier question. That trade is what the slider makes visible."
       ],
-      "story": "Kwame Ansah, the endpoint adjudication chair, has four measurements from the same participant on his screen and a definition agreed four years ago. A journalist has asked the sponsor which of the 4 CLARION-3 is actually about.",
+      "story": "Kwame Ansah has the original design memo beside the current event counts. Four years ago the team compared several candidate outcomes before anyone had trial data. A journalist has now asked why the protocol committed to the composite rather than the cleanest or easiest-to-measure alternative.",
       "game": {
         "type": "STRESS",
-        "title": "One outcome, named in advance",
+        "title": "Why this outcome was chosen",
         "setup": "Adjudication Room",
-        "play": "Separate what the trial counts from what it also collects",
-        "task": "Separate what the trial counts from what it also collects",
-        "question": "Which primary endpoint still answers the question if the event rate comes in lower than anyone expected?",
-        "answer": "The composite of death, stroke or hospitalisation. Cardiovascular death alone is the cleanest question in the protocol and needs an event rate the trial has not got.",
-        "why": "Naming the endpoint in advance fixes how the answer gets reported. It comes out as an absolute risk reduction in percentage points, with the relative figure beside it. Every endpoint here is defensible. They fail differently when the assumption behind them turns out to be wrong. Cardiovascular death alone asks the crispest question and needs the most events. At 3.5 per cent a year it is decisive. At 1.6 per cent the trial never accumulates enough, and reports an interval that includes everything. The composite of death, stroke or hospitalisation happens often enough to answer even at the low end. The cost is that it blurs what \"the treatment worked\" means. The walk distance would give a number at any event rate. It answers a different question — how people felt, not what happened to them. So choosing well costs something. The composite is not the sharpest question on the list. It is the one still being asked when the trial's central assumption misses.",
+        "play": "Reconstruct why the protocol chose its primary endpoint before the first participant entered",
+        "task": "Reconstruct why the protocol chose its primary endpoint before the first participant entered",
+        "question": "Which prespecified endpoint was the most robust design choice before the event rate was known?",
+        "answer": "The composite of death, stroke or hospitalisation. This is a reconstruction of the design choice made before the trial began, not permission to switch endpoints now that the event rate is known.",
+        "why": "The important choice happened four years ago, before anyone knew the event rate or treatment result. The design team could stress-test candidate endpoints against plausible event rates, but once the trial began the primary endpoint was fixed. Cardiovascular death alone asks the crispest question and would need more events at the low end of the plausible range. The composite occurs more often and remains estimable across that range, at the cost of combining events of different clinical weight. Walk distance is measurable even when hard events are rare, but it answers a different clinical question. This board therefore reconstructs why the composite was a defensible prespecified compromise; it does not let today's data choose yesterday's endpoint.",
         "stress": {
           "candidates": [
             {
@@ -927,20 +927,20 @@ export const CURRICULUM = {
         "play": "Decide what moves now, before the next scheduled board meeting can help.",
         "task": "Decide what moves now, before the next scheduled board meeting can help.",
         "question": "What should happen to these two reports today?",
-        "answer": "Both go to the board unblinded now, and recruitment continues",
-        "why": "Safety reporting and endpoint analysis run on different clocks. A serious unexpected event may matter to treatment tomorrow, so it cannot wait 19 days for a board meeting. The site reports what happened now, with enough detail to judge urgency. Whether the event later counts toward a trial endpoint is a separate process. The same event can therefore travel down two paths at once: immediate safety reporting and later blinded adjudication. Waiting for one path to finish before starting the other loses time the safety system was built to protect.",
+        "answer": "Send both through the urgent sponsor-safety and independent-board channel today; keep the trial team blinded",
+        "why": "Safety reporting and endpoint analysis run on different clocks. Serious adverse events are reported promptly to the sponsor, with follow-up information as it becomes available; the independent monitoring board can receive arm-specific summaries through the protected unblinded channel. Whether the same event later counts toward a trial endpoint is a separate blinded process. The urgent report does not itself prove causality and it does not automatically decide recruitment. Pausing, continuing, or changing treatment is a separate risk decision made from the emerging safety picture. Waiting 19 days for the scheduled efficacy meeting would confuse those clocks.",
         "rebuttals": [
-          "Holding a safety signal so it arrives with the efficacy result is a scheduling decision, and people are still being infused.",
-          "Suspending recruitment is a decision that needs the arms, and nobody blinded can make it.",
-          "Complete files are worth having; the report goes now and the detail follows it."
+          "Holding a serious safety signal for an efficacy meeting delays a reporting path designed to move promptly.",
+          "An automatic suspension is not the same as an urgent risk assessment; the available safety evidence has to drive that decision.",
+          "Complete files are worth having, but prompt initial reporting is followed by additional detail rather than waiting for perfection."
         ],
         "choices": [
-          "Both go to the board unblinded now, and recruitment continues",
-          "Both wait for the interim pack so the board sees them beside the efficacy result",
-          "Recruitment stops today and the reports go with the suspension notice",
-          "The sites are asked for more detail and nothing leaves until the files are complete"
+          "Send both through the urgent sponsor-safety and independent-board channel today; keep the trial team blinded",
+          "Hold both for the interim pack so the board sees them beside the efficacy result",
+          "Stop recruitment automatically before anyone assesses whether the cases are related or arm-specific",
+          "Ask the sites for complete files and send nothing until every detail is available"
         ],
-        "correctChoice": "Both go to the board unblinded now, and recruitment continues"
+        "correctChoice": "Send both through the urgent sponsor-safety and independent-board channel today; keep the trial team blinded"
       },
       "assumes": [
         "serious harm during a trial is reported whether or not the drug is thought to have caused it",
@@ -1111,25 +1111,25 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "What has to go out today",
-      "scene": "Adverse event reports queue on the safety desk faster than they can all be assessed. The rule about which go out today is set by the safety physician, and it changes as the picture does — after the second case, after the regulator writes, after the board meets.",
-      "takeaway": "The cost of a withdrawn instruction is paid by whoever is still working to it.",
+      "title": "What needs extra escalation today",
+      "scene": "Every serious adverse event has already entered the sponsor's standard safety system. What is changing on this desk is the extra same-day escalation rule for the emerging liver signal: first serious unexpected cases, then anything matching the cluster, then anything the regulator specifically asks to see.",
+      "takeaway": "Standard reporting continues underneath the crisis; the changing rule only determines which cases receive extra same-day escalation.",
       "place": "Safety Desk",
-      "guide": "Send out what the current rule requires and hold the rest for assessment. The rule on the desk changes during the day and nobody announces it. What is scored is the reports either side of a change, because they are the only ones that show whether the desk is reading the rule.",
+      "guide": "Escalate what the current focused-signal rule requires. The underlying SAE reports are already in the safety system; this board is deciding which cases need an additional same-day alert or focused follow-up. The rule changes as the signal changes, so the scored moments are either side of each update.",
       "background": [
-        "Why the rule moves at all. Ordinarily what goes out today is anything serious and unexpected. Once a second case of the same thing appears, the rule becomes anything resembling it, whether or not it is serious. After a regulator asks, it is anything they have asked about, on their timetable rather than the trial's.",
-        "Why late is not a small failure. Expedited reporting exists so that somebody outside the trial can see a pattern the trial cannot. A report held for assessment is a report that is not in that view, and assessment is exactly what the recipient is supposed to do independently."
+        "Why the escalation rule moves. Standard safety reporting continues underneath this game. The additional signal-management rule broadens when a cluster appears: after the second similar liver case, even non-serious matching cases may deserve rapid aggregate review; after a regulator asks for a defined phenotype, that request sets the focused follow-up timetable.",
+        "Why the distinction matters. A case not selected for this extra alert is not being hidden or left unreported. It remains in the ordinary safety system. The game is about recognizing when new information changes the threshold for additional escalation, not about inventing a rule that some adverse events can simply be ignored."
       ],
-      "story": "Adverse event reports queue on the safety desk faster than they can all be assessed. The rule about which go out today is set by the safety physician, and it changes as the picture does — after the second case, after the regulator writes, after the board meets.",
+      "story": "Every serious adverse event has already entered the sponsor's standard safety system. What is changing on this desk is the extra same-day escalation rule for the emerging liver signal: first serious unexpected cases, then anything matching the cluster, then anything the regulator specifically asks to see.",
       "game": {
         "type": "SPOT",
-        "title": "What has to go out today",
+        "title": "What needs extra escalation today",
         "setup": "Safety Desk",
-        "play": "Work the safety queue while the reporting rule changes.",
-        "task": "Work the safety queue while the reporting rule changes.",
-        "question": "Report to the rule in force, and keep watching the rule.",
-        "answer": "Read the rule rather than the report. Every change leaves an hour in which the old rule still looks like today's.",
-        "why": "Three rules run across the day and each wants a different part of the queue. Anything serious and unexpected, then anything resembling the cluster, then anything the regulator has asked about. A report can answer two at once, which is what makes the change cost real rather than notional. The panel scores the window either side of each change, because most of the queue is wanted by neither rule and is correctly held for assessment by somebody who has read nothing. The desk's own version is the hour after a second case appears: the rule has changed to anything resembling it, and the reports going out are still the ones that were serious-and-unexpected when the morning started — which is precisely the hour in which the pattern was visible and nobody outside the trial could see it.",
+        "play": "Work the same-day safety-escalation queue while the signal-management rule changes.",
+        "task": "Work the same-day safety-escalation queue while the signal-management rule changes.",
+        "question": "Escalate to the focused safety rule in force, while ordinary SAE reporting continues underneath it.",
+        "answer": "Apply the current focused-escalation rule. Cases not selected here remain in the standard safety-reporting pathway.",
+        "why": "Three focused-escalation rules run across the day: serious unexpected cases for the initial alert, then anything resembling the emerging cluster, then anything matching the regulator's specific request. A report can answer two at once, which is what makes the change cost real rather than notional. The panel scores the window either side of each change, because most of the queue is wanted by neither rule and is correctly held for assessment by somebody who has read nothing. The desk's own version is the hour after a second case appears: the rule has changed to anything resembling it, and the reports going out are still the ones that were serious-and-unexpected when the morning started — which is precisely the hour in which the pattern was visible and nobody outside the trial could see it.",
         "spot": {
           "targets": [
             {
@@ -1193,19 +1193,19 @@ export const CURRICULUM = {
           ],
           "rules": [
             {
-              "say": "Anything serious and unexpected",
+              "say": "Extra alert — serious and unexpected",
               "want": [
                 "serious"
               ]
             },
             {
-              "say": "Anything resembling the cluster",
+              "say": "Extra alert — anything resembling the cluster",
               "want": [
                 "cluster"
               ]
             },
             {
-              "say": "Anything the regulator asked about",
+              "say": "Focused response — anything the regulator asked about",
               "want": [
                 "asked"
               ]
@@ -1348,9 +1348,9 @@ export const CURRICULUM = {
       "day": 1,
       "title": "A trial ends at a number of events",
       "scene": "Balogun wants to know when CLARION-3 will be finished and has been told, twice, that nobody can say. Feldman writes three quantities on the whiteboard and asks him to estimate it himself.",
-      "takeaway": "A trial that waits for events finishes when the events arrive, which is not a date.",
+      "takeaway": "In this event-driven design, precision is driven mainly by adjudicated events; calendar time only determines how quickly those events can accrue.",
       "place": "Statistics & Analysis",
-      "guide": "Five numbers, and three belong to other questions: the events adjudicated so far, the hospitals recruiting, and one of the two rates. Ask of each whether this schedule depends on it. A trial learns from events, not from people. So the duration is not a decision anybody makes. It is what the rate produces, and the rate belongs to the participants.",
+      "guide": "Five numbers, and three belong to other questions: the events adjudicated so far, the hospitals recruiting, and one of the two rates. Ask of each whether this schedule depends on it. In this event-driven design, the planned information is driven mainly by adjudicated events, while event-free follow-up still contributes time at risk. The duration is therefore a forecast from recruitment, follow-up and event accrual, not a date the sponsor can simply choose.",
       "background": [
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
@@ -1364,12 +1364,12 @@ export const CURRICULUM = {
         "task": "Work out what the trial is waiting for",
         "question": "Estimate how long CLARION-3 has to follow its participants to reach the events it needs.",
         "answer": "About two years of follow-up.",
-        "why": "A time-to-event trial learns from events, not from people. 2000 participants who stay well carry almost no information about which arm is better; the comparison rests on the ones something happened to. So the design fixes a number of events, and recruitment and follow-up run until that number arrives. How long that takes is not a decision anybody makes — it is the required events divided by the rate they arrive at, and that rate belongs to the participants rather than to the trial. A healthier-than-expected group is bad news for the schedule for exactly this reason, and it is why the interim looks are placed at fractions of the events rather than at fractions of the years.\n",
+        "why": "In a time-to-event trial, participants who remain event-free still contribute time at risk, but the precision of the treatment comparison is driven strongly by how many adjudicated events occur. So the design fixes a number of events, and recruitment and follow-up run until that number arrives. How long that takes is not a decision anybody makes — it is the required events divided by the rate they arrive at, and that rate belongs to the participants rather than to the trial. A healthier-than-expected group is bad news for the schedule for exactly this reason, and it is why the interim looks are placed at fractions of the events rather than at fractions of the years.\n",
         "givens": [
           "The design requires 380 primary events",
           "About 8 events per 100 participants per year, both arms together"
         ],
-        "relationship": "Years of follow-up ≈ events required ÷ (participants × events per participant per year).\n",
+        "relationship": "Rough person-time estimate: years ≈ events required ÷ (participants × average events per participant-year). This ignores staggered recruitment, censoring and changing hazards, so it is a planning scale rather than a promised finish date.\n",
         "calcKey": "STAT-1"
       },
       "assumes": [
@@ -1431,14 +1431,14 @@ export const CURRICULUM = {
         "play": "Say what a second look costs",
         "task": "Say what a second look costs",
         "question": "What do the planned looks already spend of the trial's error budget?",
-        "answer": "Exactly 0.025 — the whole of it. The unplanned look would add 0.015 on top, taking the trial to 0.040 with no boundary and no allowance for it.",
-        "why": "The rule is Σ α_spent ≤ α. This trial is run one-sided at 0.025, and the spending plan puts 0.001 at the first interim, 0.004 at the second and 0.020 at the final analysis: 0.001 + 0.004 + 0.020 = 0.025, which is the whole budget and exactly what the plan is allowed to be. That is why the interim boundaries are so hard to cross — an early look is cheap precisely because it demands an extreme result. An unplanned look priced at 0.015 takes the total to 0.040, and the trial can no longer state its own error rate: 4 per cent of trials with no real effect would report one. Nothing about the data changes when somebody looks, which is what makes this counter-intuitive. What changes is the number of chances the trial has taken to be fooled, and that number is in the denominator of every claim it goes on to make.",
+        "answer": "Exactly 0.025 — the whole prespecified one-sided Type I error budget. There is no free extra efficacy look: adding one requires revised boundaries that keep the overall error at 0.025.",
+        "why": "The trial has allocated its one-sided Type I error across the planned analyses: 0.001 + 0.004 + 0.020 = 0.025. Those are authored incremental spends, not universal prices for looking. An extra efficacy analysis does not come with a fixed automatic cost such as 0.015; its effect on the overall false-positive rate depends on the new boundary and on the correlation between sequential looks. If an extra formal look is scientifically necessary, the boundaries have to be revised with a valid group-sequential method so the overall error remains 0.025. What cannot happen is an unadjusted peek followed by pretending the original operating characteristics are unchanged. There is a second cost too: sponsor access to arm-specific interim efficacy data can change how the trial is managed even if nobody performs a formal test.",
         "givens": [
           "planned spending 0.001, 0.004 and 0.020",
           "the trial's total budget is 0.025, one-sided",
-          "three unadjusted looks would give P(at least one false positive) = 1 − (1 − 0.025)³ = 1 − 0.9268 = 0.073"
+          "repeated interim tests are correlated because they reuse accumulating participants; their trial-wide error cannot in general be computed as if the looks were independent"
         ],
-        "relationship": "Unadjusted, k looks give P(at least one false positive) = 1 − (1 − α)^k. Alpha spending answers that, obeying Σ α_spent ≤ α against one budget.",
+        "relationship": "A prespecified alpha-spending design allocates a fixed trial-wide Type I error across sequential analyses. Extra looks require revised valid boundaries; nominal p-value thresholds cannot simply be stacked as though repeated looks were independent.",
         "calcKey": "STAT-2"
       },
       "assumes": [
@@ -1446,26 +1446,6 @@ export const CURRICULUM = {
         "type I and type II error, and what α and β are for — taken as read"
       ],
       "equations": [
-        {
-          "e": "P(at least one false positive) = 1 − (1 − α)^k",
-          "c": "multiplicity — what testing k things costs",
-          "v": [
-            [
-              "α",
-              "the error rate allowed for a single test, usually 0.05"
-            ],
-            [
-              "k",
-              "how many independent tests were run"
-            ],
-            [
-              "P",
-              "chance that at least one of them clears the line by luck alone"
-            ]
-          ],
-          "s": "Each test carries its own chance of a false positive, so fourteen subgroups tested at five per cent give better than even odds that one of them looks real when nothing is there.",
-          "computed": true
-        },
         {
           "e": "Σ α_spent ≤ α",
           "c": "alpha spending — a budget for error that does not refill",
@@ -1523,7 +1503,7 @@ export const CURRICULUM = {
           "The design requires 380 adjudicated events",
           "246 have been adjudicated so far"
         ],
-        "relationship": "Information fraction = events observed ÷ events planned, and it sets the boundary: the number of looks at an unadjusted 0.05 would cost 1 − 0.95² ≈ 0.10, so alpha spent stays inside 0.05.\n",
+        "relationship": "In this simplified event-driven design, information fraction ≈ adjudicated events observed ÷ events planned. The exact information used by a sequential analysis depends on its statistical model and is not a calendar fraction.\n",
         "calcKey": "STAT-3"
       },
       "assumes": [
@@ -1549,26 +1529,6 @@ export const CURRICULUM = {
           ],
           "s": "A trial powered on events is measured in events and not in months, so its progress is the share of the planned events already in hand — and that share is what decides when an interim look is due.",
           "computed": true
-        },
-        {
-          "e": "P(at least one false positive) = 1 − (1 − α)^k",
-          "c": "multiplicity — what testing k things costs",
-          "v": [
-            [
-              "α",
-              "the error rate allowed for a single test, usually 0.05"
-            ],
-            [
-              "k",
-              "how many independent tests were run"
-            ],
-            [
-              "P",
-              "chance that at least one of them clears the line by luck alone"
-            ]
-          ],
-          "s": "Each test carries its own chance of a false positive, so fourteen subgroups tested at five per cent give better than even odds that one of them looks real when nothing is there.",
-          "computed": true
         }
       ],
       "concept": {
@@ -1584,13 +1544,13 @@ export const CURRICULUM = {
       "day": 4,
       "title": "Everyone as assigned",
       "scene": "Two analyses are on Feldman's desk. One counts everybody in the arm they were assigned. The other counts only those who completed treatment, and it shows a bigger effect.",
-      "takeaway": "Analysing people as assigned keeps the balance that randomisation bought.",
+      "takeaway": "Keeping people in their randomized groups preserves the baseline comparison; post-randomization events and missing outcomes still have to be handled in a way that matches the trial's estimand.",
       "place": "Statistics & Analysis",
       "guide": "Work the relative risk out for the analysis the board is shown — everybody in the arm they were assigned to, whatever they went on to do. Pick the event rate in the treatment arm and the event rate in the control arm and divide. Two of the tiles are the per-protocol rates, which is the other analysis and the other answer.",
       "background": [
         "What relative risk is. The event rate in the treatment arm divided by the event rate in the control arm. Below one means fewer events on treatment. It says nothing about how many people that is — a relative risk of 0.7 can be six fewer events per hundred or six per hundred thousand, which is why it needs the absolute difference beside it.",
-        "Why as-assigned is the analysis of record. Randomisation made the arms alike in everything, including what nobody measured, and that balance belongs to the groups as assigned. Remove people for something that happened afterwards — stopping the drug, missing visits — and they are removed for a reason connected to how they were doing.",
-        "Why the smaller effect is the honest one. As-assigned usually shows less benefit, and that is not a defect of the method. It is the effect of being offered the treatment, which is the decision a doctor actually faces in a clinic where some patients will not finish the course."
+        "Why randomized groups remain the starting point. Randomisation protects baseline comparability in expectation, including for factors nobody measured. Selecting participants after assignment on treatment completion or follow-up can reintroduce post-randomization differences. That does not make every as-assigned analysis automatically correct: the analysis still has to define how discontinuation, rescue treatment and missing outcomes enter the treatment effect being estimated.",
+        "Why the two analyses answer different questions. The assigned-arm treatment-policy analysis estimates the effect of assignment to the treatment strategy under the trial conditions, including the consequences of discontinuation as specified in the estimand. A completer-only comparison asks about a selected post-randomization subset and can be biased if completion depends on treatment or prognosis."
       ],
       "story": "Two analyses are on Feldman's desk. One counts everybody in the arm they were assigned. The other counts only those who completed treatment, and it shows a bigger effect.",
       "game": {
@@ -1601,7 +1561,7 @@ export const CURRICULUM = {
         "task": "Choose which population the board is shown",
         "question": "What is the relative risk in the analysis by assigned arm?",
         "answer": "0.70 — a 30 per cent relative reduction. The per-protocol analysis gives 0.60, and the difference between those two numbers is the people it removed.",
-        "why": "Relative risk is RR = p_treatment / p_control. As assigned, 84 of 600 on treatment had the event and 120 of 600 on control did, so the rates are 0.140 and 0.200 and RR = 0.70 — a 30 per cent relative reduction. Counting only those who completed gives 0.121 against 0.201 and RR = 0.60, which looks better and is not the same question. The people dropped from that second analysis stopped treatment, and stopping is connected to how they were doing, so the two arms are no longer alike in the way randomisation made them. The as-assigned figure is the effect of being offered the treatment, which is what a clinic faces. And note what neither number says: a relative risk hides how big the effect is. The absolute difference here is six events per hundred, so about 17 people have to be treated to prevent one — the honest headline, and it is not in the ratio.",
+        "why": "Relative risk is RR = p_treatment / p_control. In the assigned-arm analysis, 84 of 600 on treatment had the event and 120 of 600 on control did, giving 0.140/0.200 = 0.70. Among completers the authored rates give about 0.60, but that subset was defined after randomization and completion is related to what happened during treatment. The larger apparent benefit therefore cannot simply replace the randomized comparison. The assigned-arm analysis preserves the original groups, while the protocol must still specify how intercurrent events and missing outcomes are handled. Neither relative risk says the absolute scale: here the raw 12-month risk difference is six percentage points, corresponding to an NNT of about 17 at that stated horizon.",
         "givens": [
           "84 of 600 events on treatment and 120 of 600 on control, as assigned",
           "completers only give 0.121 and 0.201"
@@ -1652,6 +1612,23 @@ export const CURRICULUM = {
           ],
           "s": "A ratio says the treatment arm had a third fewer events without saying whether that was thirty in a hundred or three in ten thousand, which is why the same result sounds far stronger stated this way.",
           "computed": true
+        },
+        {
+          "e": "NNT = 1 / ARR",
+          "c": "number needed to treat, and why it is the honest headline",
+          "v": [
+            [
+              "NNT",
+              "number of people who must be treated for one to avoid the event"
+            ],
+            [
+              "ARR",
+              "absolute risk reduction, as a fraction rather than a percentage"
+            ]
+          ],
+          "s": "One divided by the absolute risk reduction says how many people have to be given the drug for one of them to benefit — a two per cent reduction means fifty people treated per event avoided.",
+          "demanded": true,
+          "card": false
         }
       ],
       "concept": {
@@ -1775,7 +1752,7 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "How big, and how wide",
-      "scene": "The press office has lifted “4.2 percentage points” into a draft briefing. Feldman circles the interval beside it. Before the number leaves the room, she wants the team to put both clinical size and sampling noise on the result.",
+      "scene": "The press office has lifted the prespecified 12-month risk difference, “4.2 percentage points,” into a draft briefing. Feldman circles the interval beside it. Before the number leaves the room, she wants the team to put both clinical size and sampling noise on this fixed-horizon risk.",
       "takeaway": "Effect size says how large the difference is; standard error says how much the estimate would move across repeated samples.",
       "place": "Statistics & Analysis",
       "guide": "Five numbers, and two of them are answers to other questions: the risk ratio, and the risk difference already worked out. Ask of each what this calculation needs. The number needed to treat is built from the absolute difference, not the ratio. And precision is a separate question from size, which is why the interval is circled beside the headline.",
@@ -1783,21 +1760,21 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "The press office has lifted “4.2 percentage points” into a draft briefing. Feldman circles the interval beside it. Before the number leaves the room, she wants the team to put both clinical size and sampling noise on the result.",
+      "story": "The press office has lifted the prespecified 12-month risk difference, “4.2 percentage points,” into a draft briefing. Feldman circles the interval beside it. Before the number leaves the room, she wants the team to put both clinical size and sampling noise on this fixed-horizon risk.",
       "game": {
         "type": "BALLPARK",
         "title": "How big, and how wide",
         "setup": "Statistics & Analysis",
         "play": "Translate the effect into NNT, then put a number on the sampling noise behind one arm rate.",
         "task": "Translate the effect into NNT, then put a number on the sampling noise behind one arm rate.",
-        "question": "Estimate the NNT, then estimate the standard error of the 18.9% control-arm event rate.",
+        "question": "At the prespecified 12-month horizon, estimate the NNT and the simple binomial standard error of the 18.9% control-arm risk.",
         "answer": "About 24 people treated for 1 event avoided; the control-arm event rate has SE ≈ 0.011, or 1.1 percentage points.",
         "why": "The risk difference and NNT describe the size of the observed benefit. Precision is a different question. For a proportion, standard error depends on both the event rate and the number measured. With about 1,200 people in the control arm, an 18.9% rate has an SE near 1.1 percentage points. A 95% margin is about twice that. Increasing the sample narrows this uncertainty only with the square root of n, so halving the SE takes about four times as many people.",
         "givens": [
           "Control arm event rate 18.9%",
           "Treatment arm event rate 14.7%"
         ],
-        "relationship": "ARR = p_control − p_treatment; NNT = 1/ARR; SE = √(p(1−p)/n); a 95% margin is about 1.96 × SE.",
+        "relationship": "At a stated fixed time horizon, ARR = p_control − p_treatment and NNT = 1/ARR. The displayed SE = √(p(1−p)/n) is a simple binomial approximation; a full time-to-event analysis with censoring uses survival methods rather than this shortcut.",
         "calcKey": "STAT-6"
       },
       "assumes": [
@@ -1889,7 +1866,7 @@ export const CURRICULUM = {
       "background": [
         "What the width says. A confidence interval is the estimate give or take about two standard errors, and the standard error grows as the group shrinks. A subgroup of a few hundred therefore carries an interval several times wider than the trial's, which is why subgroup estimates swing so far from the overall result.",
         "Why 14 subgroups is the other half of the problem. Testing fourteen slices at the usual threshold gives about a one-in-two chance that at least one clears the line by luck alone. A subgroup that crossed is therefore what an honest trial expects to see, not evidence that something is different about people over 70.",
-        "What the over-70 result is for. It is a hypothesis somebody could test in a trial designed to test it. Stated as a finding it becomes a treatment recommendation for a group whose interval, once you draw it, includes no benefit at all."
+        "What the over-70 result is for. Its nominal interval is just persuasive enough to tempt a treatment claim. The discipline is to remember that it is one row in a family of subgroup analyses, measured on the outcome most exposed to the blinding failure. That makes it a hypothesis to test, not a treatment recommendation for older participants."
       ],
       "story": "Participants over 70 show a difference that clears the line on its own. Feldman asks which of 14 prespecified subgroups this is, and whether anybody has looked at the other 13 yet.",
       "game": {
@@ -1899,10 +1876,10 @@ export const CURRICULUM = {
         "play": "Say what a subgroup crossing its line is worth",
         "task": "Say what a subgroup crossing its line is worth",
         "question": "How wide is the interval around the over-70 result, either side of the estimate?",
-        "answer": "About 6.7 percentage points either side of a 6.0-point estimate — so the interval runs from about −0.7 to 12.7 and includes no benefit at all.",
-        "why": "A confidence interval is CI ≈ estimate ± 1.96 × SE. The over-70 subgroup's absolute risk reduction is 6.0 percentage points with a standard error of 3.4, so the half-width is 1.96 × 3.4 ≈ 6.7 and the interval runs from about −0.7 to 12.7 points. It includes zero, which is the whole answer: the subgroup that 'crossed its line' has an interval that does not exclude no effect once it is drawn properly. The trial as a whole has a standard error of 1.5, so its interval is less than half as wide — precision improves with the square root of the sample, and a subgroup is a smaller sample by construction. Then there is the second problem: with fourteen prespecified subgroups, the chance that at least one clears the usual threshold by luck alone is about one in two. So this result is what a well-run trial expects to produce, and the honest sentence calls it a hypothesis rather than a finding.",
+        "answer": "About 5.3 percentage points either side of a 6.0-point estimate — so the nominal 95% interval runs from about 0.7 to 11.3 and just excludes no effect before any multiplicity adjustment.",
+        "why": "A nominal 95% interval is estimate ± 1.96 × SE. With an absolute risk reduction of 6.0 percentage points and SE 2.7, the half-width is about 5.3 points, so this single subgroup's nominal interval is roughly 0.7 to 11.3 and just excludes zero. That is exactly why the result is tempting. But the interval is for one test considered alone. Fourteen prespecified subgroup looks create a multiplicity problem, and the subgroups are correlated because they overlap. The proper question is therefore not whether this one row has p < 0.05, but whether the analysis plan controlled the family of subgroup claims and whether there is credible evidence of treatment-effect heterogeneity. The finding is hypothesis-generating unless that stronger standard was prespecified and met.",
         "givens": [
-          "subgroup risk reduction 6.0 points, standard error 3.4",
+          "subgroup risk reduction 6.0 points, standard error 2.7",
           "14 prespecified subgroups were planned"
         ],
         "relationship": "A confidence interval is CI ≈ estimate ± 1.96 × SE, and the width of the interval grows as the group gets smaller.",
@@ -2026,14 +2003,14 @@ export const CURRICULUM = {
         "setup": "Statistics & Analysis",
         "play": "Put a number on 14 looks",
         "task": "Put a number on 14 looks",
-        "question": "Estimate the chance that at least 1 of 14 subgroups clears the line by luck alone.",
+        "question": "Under the simplifying assumption that 14 subgroup tests were independent, what benchmark probability would there be of at least one nominal 5% false positive?",
         "answer": "About 51% — near enough a coin toss.",
-        "why": "Each test carries its own small chance of being wrong, and the chances do not stay small when they are stacked. With independent tests the probability that none misfires is 0.95 multiplied by itself once per test, so 14 tests leave barely half the outcomes clean. That is the arithmetic behind every impressive subgroup: not that anybody cheated, but that a room looking in 14 places will usually find something in one of them. Real subgroups overlap and correlate, which softens the number without changing the lesson.\n",
+        "why": "As an independence benchmark, fourteen separate 5% tests give 1 − 0.95^14 ≈ 0.51 for at least one false positive. Real subgroup tests are usually correlated because the same participants appear in several slices, so 51% is not CLARION-3's exact familywise error rate. The exact rate depends on those correlations and on the multiplicity method in the analysis plan. The point is structural: a nominal p-value from one selected row cannot be interpreted as though that row were the only question asked.\n",
         "givens": [
           "14 subgroups were prespecified",
           "Each is tested at the 5% level"
         ],
-        "relationship": "Chance of at least 1 false positive = 1 − (1 − α)^m, with α the level of each test and m the number of tests.\n",
+        "relationship": "If m tests were independent, P(at least one false positive) = 1 − (1 − α)^m. Overlapping subgroup tests are correlated, so this is an illustrative benchmark rather than a universal formula for the actual trial.\n",
         "calcKey": "STAT-8"
       },
       "assumes": [
@@ -2072,31 +2049,31 @@ export const CURRICULUM = {
     },
     {
       "day": 9,
-      "title": "What the rest of the trial would probably do",
-      "scene": "Feldman has computed what the trial would most likely conclude if it ran to 380 events, given the 246 in hand. Balogun asks the obvious question: if it is going to end positive, why wait.",
-      "takeaway": "A forecast about a study is not a statement about the treatment.",
+      "title": "What can 65% of the information actually tell us?",
+      "scene": "Feldman has 246 of the planned 380 events and an interim z-score of 1.42. Balogun asks for the probability that the final analysis will be positive. Feldman writes two different answers on the board because the forecast changes with what you assume about the treatment effect in the events that have not happened yet.",
+      "takeaway": "Information fraction is observed; conditional power is a forecast that changes with the assumption used for the future data.",
       "place": "Statistics & Analysis",
-      "guide": "The forecast rests on one number: how extreme the remaining events would have to be for the final analysis to clear its boundary. Work out the information fraction first — events in hand over events planned — and the verdict turns that into the conditional power. One tile is the events still to come, which is not the fraction.",
+      "guide": "Work out the one quantity the data determine without an extra assumption: the information fraction, events in hand over events planned. Then ask what is still missing before anyone can quote conditional power. The interim z-score describes what has happened. A forecast of the remaining 35% also needs an assumption about the effect in the future data.",
       "background": [
         "What the information fraction is. Events observed over events planned. It is how far through an event-driven trial actually is, and it is not the same as how far through its calendar or its recruitment — 246 of 380 events is about two thirds of the information, whatever the enrolment log says.",
-        "What conditional power is. The probability that the trial is significant at the end, given the data so far and assuming the effect really is what the protocol assumed. It is a forecast about a study: it answers \"will this trial clear its boundary\", and not \"does this treatment work\".",
-        "Why a high forecast is not a reason to stop. Stopping early converts a forecast into a conclusion and spends error rate that was budgeted for the final look. The trial was designed to answer the question at 380 events because that is how much information the question needs, and a probable answer is not one."
+        "What conditional power is. It is a model-based probability that the final analysis will cross a specified boundary, conditional on the data so far and on an explicit assumption about the treatment effect in the information still to come. Assuming the original design effect and assuming the current observed trend are different forecasts.",
+        "Why the forecast cannot replace the stopping rule. A high conditional power under one assumption is not the same thing as crossing a prespecified efficacy boundary. The board can use forecasts to understand consequences of continuing, but the decision rule and its operating characteristics were fixed before these data existed."
       ],
-      "story": "Feldman has computed what the trial would most likely conclude if it ran to 380 events, given the 246 in hand. Balogun asks the obvious question: if it is going to end positive, why wait.",
+      "story": "Feldman has 246 of the planned 380 events and an interim z-score of 1.42. Balogun asks for the probability that the final analysis will be positive. Feldman writes two different answers on the board because the forecast changes with what you assume about the treatment effect in the events that have not happened yet.",
       "game": {
         "type": "BALLPARK",
-        "title": "What the rest of the trial would probably do",
+        "title": "What can 65% of the information actually tell us?",
         "setup": "Statistics & Analysis",
-        "play": "Say how likely the trial is to finish positive",
-        "task": "Say how likely the trial is to finish positive",
-        "question": "How far through its information is the trial, and what does that make of the forecast?",
-        "answer": "0.65 of the information, and a conditional power of about 0.82 — a forecast that the trial will probably clear its boundary, which is a statement about the trial and not about the drug.",
-        "why": "The information fraction is t = events observed / events planned, so 246 ÷ 380 = 0.65: about two thirds of the way through, whatever the calendar says. That fraction is what the forecast is built on. Conditional power = P(significant at the end | data so far), and with the interim z-score at 1.42, a final boundary of 1.96 and 35 per cent of the information still to come, the remaining events would have to be mildly favourable rather than dramatic — which comes out at roughly 0.82. Two things follow. It is a forecast about a study, not a statement about the treatment: it assumes the effect is what the protocol assumed and asks whether this trial will clear its line. And a probable answer is not an answer — stopping now converts the forecast into a conclusion and spends error rate that was budgeted for 380 events. The mirror case is the one the format exists for: a conditional power of 0.05 is a futility signal, and it is still a statement about the trial rather than proof the treatment does nothing.",
+        "play": "Separate what the information fraction tells you from the assumptions needed to forecast the final result",
+        "task": "Separate what the information fraction tells you from the assumptions needed to forecast the final result",
+        "question": "How far through its planned information is the trial, and can that fraction by itself determine conditional power?",
+        "answer": "About 0.65 of the planned information. That fraction does not determine a unique conditional power: a forecast also needs a stated assumption about the treatment effect in the remaining data.",
+        "why": "The information fraction is fixed by the observed event count in this simplified design: 246/380 ≈ 0.65. The interim z-score of 1.42 is also observed. But conditional power is not a third observation hidden inside those two numbers. To predict the final result, the calculation must assume what treatment effect will govern the remaining events—for example, the original design alternative, the current estimated effect, or some more conservative value. Those assumptions can give materially different forecasts. The lesson is the distinction the board needs most today: 0.65 is measurement-derived progress; conditional power is a scenario. Neither is the prespecified stopping boundary itself.",
         "givens": [
           "246 events in hand of 380 planned",
           "interim z-score 1.42, final boundary 1.96"
         ],
-        "relationship": "The information fraction is t = events observed / events planned, and the conditional power = P(significant at the end | data so far) is read from it with the interim z-score.",
+        "relationship": "Information fraction t = events observed / events planned. Conditional power additionally requires a specified future-effect assumption and a specified final boundary; t and the interim z-score alone do not define a unique forecast.",
         "calcKey": "STAT-9"
       },
       "assumes": [
@@ -2167,6 +2144,23 @@ export const CURRICULUM = {
           ],
           "s": "Conditional power forecasts what the study would probably do, given how it has gone so far; it is a statement about the trial finishing, not about whether the treatment works.",
           "computed": true,
+          "card": false
+        },
+        {
+          "e": "Σ α_spent ≤ α",
+          "c": "alpha spending — a budget for error that does not refill",
+          "v": [
+            [
+              "α_spent",
+              "the error rate consumed by each look at the endpoint"
+            ],
+            [
+              "α",
+              "the total error rate the whole trial is allowed, fixed in advance"
+            ]
+          ],
+          "s": "Every look at the endpoint spends part of a fixed error budget, so an unplanned look is not free: it is taken out of what the final analysis has left to spend.",
+          "demanded": true,
           "card": false
         }
       ],
@@ -2257,7 +2251,7 @@ export const CURRICULUM = {
   "SITE": [
     {
       "day": 1,
-      "title": "What counts as a deviation",
+      "title": "Which deviation changes the question?",
       "scene": "Lucia Marchetti, the lead monitor, has four things sites did this month that were not what the protocol says. None of them harmed anybody. Site 12 has asked which of them are worth the paperwork.",
       "takeaway": "A deviation is recorded for what it does to the comparison, not for how bad it looks.",
       "place": "Monitors' Room",
@@ -2270,17 +2264,17 @@ export const CURRICULUM = {
       "story": "Lucia Marchetti, the lead monitor, has four things sites did this month that were not what the protocol says. None of them harmed anybody. Site 12 has asked which of them are worth the paperwork.",
       "game": {
         "type": "CHOICE",
-        "title": "What counts as a deviation",
+        "title": "Which deviation changes the question?",
         "setup": "Monitors' Room",
         "play": "Decide what a deviation is worth recording",
         "task": "Decide what a deviation is worth recording",
-        "question": "Which of these most threatens the comparison CLARION-3 is making?",
+        "question": "Which deviation most changes the population or treatment contrast CLARION-3 was designed to estimate?",
         "answer": "A site entered four people who did not qualify",
-        "why": "Deviations matter in proportion to what they do to the two arms. A late blood test and a late form are untidy and affect both arms equally, so the comparison survives them. A different pump delivers the same drug. Entering people the trial was not designed for changes who is in it — and if that site's entries are not spread evenly across the arms, it changes what is being compared. The test is always whether the two groups are still alike apart from the treatment.\n",
+        "why": "Every deviation is documented, but they threaten different parts of the question. Entering people who do not meet the eligibility criteria changes the population to which the randomized comparison applies. A late blood draw can matter if timing is related to outcome or differs by arm; a late form mainly threatens completeness; a different pump matters if it changes delivered treatment. None can simply be dismissed as \"equal in both arms\" without checking. Here the ineligible entries most directly alter the trial's target population, so they require the strongest immediate impact assessment while the other deviations are still recorded and reviewed.\n",
         "rebuttals": [
-          "A week's delay applies to both arms and leaves the comparison intact.",
-          "Late paperwork is a data-management problem; the visit itself happened on time.",
-          "A different pump is a deviation worth recording and does not alter who is in which arm."
+          "A week's delay may matter, especially if timing differs by arm or relates to outcome, but it does not directly redefine who the trial enrolled.",
+          "Late paperwork threatens completeness and traceability; the scene says the visit itself happened on time.",
+          "A different pump still needs equivalence or delivery verification; in this authored case there is no evidence that it changed the treatment contrast."
         ],
         "choices": [
           "A site entered four people who did not qualify",
@@ -2529,29 +2523,29 @@ export const CURRICULUM = {
     },
     {
       "day": 5,
-      "title": "Who a wider door lets in",
+      "title": "What changed, and what are we assuming?",
       "scene": "Marchetti has the entry criteria as they were and as they are, with the participants recruited under each. Balogun wants to know whether the amendment cost anything he should have seen coming.",
-      "takeaway": "Widening entry changes who is in the trial, and therefore how often the trial's event happens.",
+      "takeaway": "The amendment demonstrably slowed event accrual; a smaller relative treatment effect is a separate hypothesis to stress-test, not a fact inferred from lower risk.",
       "place": "Monitors' Room",
-      "guide": "The amendment brought in people at lower risk, so the hazard ratio the trial can expect moved from 0.75 toward 0.85. Work out how many events the trial now needs to answer its question at the same power. The numerator is the same for both; what changes is the squared logarithm underneath. One tile is that term for the original criteria, which is the comparison rather than the answer.",
+      "guide": "The amendment brought in people at lower baseline risk, and the observed event-accrual curve flattened. That does not tell us the treatment hazard ratio. The board therefore runs a sensitivity case: if the broadened population also had a smaller relative effect, HR 0.85 instead of the design assumption 0.75, how many events would the same power calculation require? The numerator is the same for both; what changes is the squared logarithm underneath. One tile is that term for the original criteria, which is the comparison rather than the answer.",
       "background": [
-        "Why events and not people. An event-driven trial is powered by how many events it observes, not by how many participants it enrols. Recruiting lower-risk people adds participants who contribute little to that count, which is why a wider door can grow the trial and slow it down at the same time.",
+        "What is actually observed. The broadened population has a lower primary-event rate, so events are accruing more slowly. That can lengthen an event-driven trial even if the relative treatment effect is unchanged.",
         "Why the effect size is squared underneath. The number of events needed goes as one over the square of the log hazard ratio, so a treatment effect that dilutes a little costs a lot. Moving from 0.75 to 0.85 roughly triples the events required, which is the amendment's real price.",
-        "What the amendment did not do. It did not make the treatment work less well. It changed who is in the trial, and therefore the average effect the trial is measuring and how often its event happens. Both belong in the sentence, and only one of them is usually said out loud."
+        "What is only a sensitivity assumption. Lower baseline risk does not imply a hazard ratio closer to one. Treatment-effect heterogeneity is a separate question. The HR = 0.85 case below asks what the event requirement would be if the effect were smaller; it is not evidence that the amendment caused that smaller effect."
       ],
       "story": "Marchetti has the entry criteria as they were and as they are, with the participants recruited under each. Balogun wants to know whether the amendment cost anything he should have seen coming.",
       "game": {
         "type": "BALLPARK",
-        "title": "Who a wider door lets in",
+        "title": "What changed, and what are we assuming?",
         "setup": "Monitors' Room",
-        "play": "Work out who the amendment brought in",
-        "task": "Work out who the amendment brought in",
-        "question": "How many events does the trial need now the wider criteria have diluted the expected effect?",
-        "answer": "About 1,190 events, against 380 under the original criteria. The amendment tripled the trial's information requirement without anybody changing the power or the threshold.",
-        "why": "The event requirement is events ≈ 4 (z_{α/2} + z_β)² / (ln HR)². At 5 per cent two-sided and 80 per cent power the z terms are 1.96 and 0.84, so the numerator is 4 × 2.80² ≈ 31.4 and it does not change. Under the original criteria the expected hazard ratio was 0.75, so (ln 0.75)² = 0.0828 and the trial needed 31.4 ÷ 0.0828 ≈ 380 events. The amendment admitted lower-risk participants whose expected benefit is smaller, moving the trial-wide hazard ratio to about 0.85: (ln 0.85)² = 0.0264, and 31.4 ÷ 0.0264 ≈ 1,190 events. Three times the information for the same question, because the effect size sits squared in the denominator. And the second cost compounds it: lower-risk participants have events less often, so each new enrolment contributes less to the count the trial is waiting for. The amendment grew the trial and slowed it down, and neither effect was on the form that authorised it.",
+        "play": "Separate the observed event-rate change from a sensitivity assumption about treatment effect",
+        "task": "Separate the observed event-rate change from a sensitivity assumption about treatment effect",
+        "question": "In the sensitivity case where the true hazard ratio is 0.85 rather than 0.75, how many events would the same design formula require?",
+        "answer": "About 1,190 events in the HR = 0.85 sensitivity case, versus about 380 under HR = 0.75. The arithmetic shows the cost of a smaller effect; the observed lower event rate alone does not establish that HR changed.",
+        "why": "For the simplified equal-allocation log-rank planning formula used here, required events scale roughly as 1/(ln HR)^2. With the original design assumption HR = 0.75, the authored numerator 31.4 gives about 380 events. If, as a sensitivity scenario, the true effect in the broadened population were only HR = 0.85, the same formula gives about 1,190 events. That is a useful stress test because a smaller relative effect is expensive. But it is not an inference from the observed lower event rate. Baseline risk controls how quickly events accrue; the hazard ratio describes relative treatment effect. The amendment can clearly change the first by changing who is enrolled. Whether it changes the second requires interaction evidence or a prespecified model, not intuition.",
         "givens": [
           "numerator 31.4 at 5 per cent two-sided and 80 per cent power",
-          "hazard ratio diluted from 0.75 to 0.85 by the wider criteria"
+          "sensitivity scenario compares the original HR = 0.75 design assumption with HR = 0.85; the observed lower baseline event rate does not establish that change"
         ],
         "relationship": "The trial needs events ≈ 4 (z_{α/2} + z_β)² / (ln HR)² — so the events needed to detect an effect rise as the square of the effect shrinks.",
         "calcKey": "SITE-5"
@@ -2560,6 +2554,26 @@ export const CURRICULUM = {
         "entry criteria decide who may be randomised"
       ],
       "equations": [
+        {
+          "e": "ARR = p_control − p_treatment",
+          "c": "absolute risk reduction — the difference the treatment made",
+          "v": [
+            [
+              "ARR",
+              "absolute risk reduction, a difference between two proportions"
+            ],
+            [
+              "p_control",
+              "proportion of the control arm that had the event"
+            ],
+            [
+              "p_treatment",
+              "proportion of the treatment arm that had the event"
+            ]
+          ],
+          "s": "Subtract one arm's event rate from the other's: the answer is how many events per hundred people the treatment prevented, in the population that was actually enrolled.",
+          "computed": true
+        },
         {
           "e": "events ≈ 4 (z_{α/2} + z_β)² / (ln HR)²",
           "c": "how many events a trial has to see to answer its question",
@@ -2586,9 +2600,12 @@ export const CURRICULUM = {
         }
       ],
       "concept": {
-        "n": 6,
-        "c": "Eligibility criteria, and what widening them changes",
-        "of": 33
+        "n": 14,
+        "c": "Sample size and statistical power",
+        "of": 33,
+        "rests": [
+          "The primary endpoint, named in advance, and everything else"
+        ]
       }
     },
     {
@@ -2749,7 +2766,7 @@ export const CURRICULUM = {
       "place": "Monitors' Room",
       "guide": "Forty monitoring hours, four recoverable gaps, and a fortnight before the lock. Watch the questions list rather than the site map: it shows what the interim analysis can still answer under your plan. The fourteen who withdrew consent are locked out and cannot be contacted, so no plan recovers them — spend the hours on what is still recoverable.",
       "background": [
-        "What makes a gap recoverable. A missing form that exists on paper, a visit whose data was never entered, a query nobody answered. Those can be closed by somebody going to look. A withdrawal cannot, because the data no longer belongs to the trial.",
+        "What makes a gap recoverable. A missing form that exists on paper, a visit whose data was never entered, or a query nobody answered can often be closed by somebody going to look. A participant who has withdrawn and asked for no further contact cannot be chased for new information. Data already collected are handled according to the consent, protocol and applicable rules; withdrawal does not automatically erase them.",
         "Why the interim analysis defines value. Not every gap affects it. A missing secondary endpoint at a small site may not move anything, while a handful of missing primary events at a large one can decide whether the trial continues.",
         "Why hours rather than sites. Monitoring time is the resource, and sites differ enormously in how long a gap takes to close. Four hours at a well-run site can recover more than a day at one in difficulty."
       ],
@@ -2989,61 +3006,6 @@ export const CURRICULUM = {
           "Missing data, and why it matters why it is missing"
         ]
       }
-    },
-    {
-      "day": 10,
-      "title": "What happens to the people in it",
-      "scene": "The board has said continue. At 8 Monday morning, 31 sites will open their phones and 2,400 participants will still be enrolled. Marchetti has one letter to tell every site what changes, and what does not.",
-      "takeaway": "Consent is maintained, not collected once.",
-      "place": "Monitors' Room",
-      "guide": "Four things participants might be owed. Ask of each whether it could travel back into the trial through them. Consent is a continuing decision, not a signature from four years ago, so saying nothing fails an obligation. But releasing the interim numbers or somebody's own arm lets treatment knowledge spread back through the sites still scoring outcomes.",
-      "background": [
-        "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
-      ],
-      "story": "The board has said continue. At 8 Monday morning, 31 sites will open their phones and 2,400 participants will still be enrolled. Marchetti has one letter to tell every site what changes, and what does not.",
-      "game": {
-        "type": "CHOICE",
-        "title": "What happens to the people in it",
-        "setup": "Monitors' Room",
-        "play": "Write the rule for what sites tell participants after the board says continue.",
-        "task": "Write the rule for what sites tell participants after the board says continue.",
-        "question": "What are the participants owed now that the board has reported?",
-        "answer": "That the trial reviewed its data and is continuing, and why",
-        "why": "Consent is a continuing decision, not a signature stored from four years ago. Participants should know facts that could reasonably affect whether they stay. Here the safe fact is that an independent board reviewed the trial and recommended continuing. Releasing the unblinded interim numbers would let treatment knowledge spread back through participants and sites. Telling somebody their own arm would do the same. Saying nothing also fails the obligation, because a meaningful review happened. The update should preserve both informed participation and the comparison still under way.",
-        "rebuttals": [
-          "Releasing the interim result to participants unblinds the trial by another route.",
-          "Silence leaves people unaware that a review happened at all.",
-          "Telling somebody their arm removes them from the comparison they consented to be part of."
-        ],
-        "choices": [
-          "That the trial reviewed its data and is continuing, and why",
-          "The interim result, so they can decide whether to stay",
-          "Nothing, since nothing about their treatment changes",
-          "Their own arm, now that an interim analysis has been done"
-        ],
-        "correctChoice": "That the trial reviewed its data and is continuing, and why"
-      },
-      "assumes": [
-        "participants continue treatment and follow-up until the trial ends",
-        "allocation concealment: protecting the moment of entry — taken as read"
-      ],
-      "takesAsRead": [
-        {
-          "n": 3,
-          "c": "Allocation concealment: protecting the moment of entry"
-        }
-      ],
-      "concept": {
-        "n": 33,
-        "c": "Consent, and the obligations a trial keeps to the people in it",
-        "of": 33,
-        "rests": [
-          "Allocation concealment: protecting the moment of entry",
-          "The recruitment funnel: screened, eligible, consented, entered"
-        ]
-      }
     }
   ],
   "REG": [
@@ -3064,9 +3026,9 @@ export const CURRICULUM = {
         "type": "SEQUENCE",
         "title": "The plan that was in force",
         "setup": "Regulatory & Registry",
-        "play": "Order what has to be true before an interim analysis can be called prespecified.",
-        "task": "Order what has to be true before an interim analysis can be called prespecified.",
-        "question": "Order what has to be true before an interim analysis can be called prespecified.",
+        "play": "Find what the trial promised about this analysis",
+        "task": "Find what the trial promised about this analysis",
+        "question": "Find what the trial promised about this analysis",
         "answer": "",
         "why": "Prespecification is a claim about time: this analysis was chosen before anybody could see what it would give. The only way to support that claim afterwards is a public record with dates on it, made before the data existed. That is why the plan is registered rather than filed, why the cut comes after the registration rather than before, and why the person who runs it is the one person already permitted to see the arms. Reverse any two of those steps and the analysis is still correct arithmetic about a question chosen after the fact.\n",
         "cards": [
@@ -3093,37 +3055,37 @@ export const CURRICULUM = {
     },
     {
       "day": 2,
-      "title": "What has to be told, and how fast",
-      "scene": "Umeh has a wall calendar with two windows marked on it in red and a stack of four events from this month. She has to sort them before Friday.",
-      "takeaway": "Expedited reporting is decided by what the event is, not by what anybody thinks caused it.",
+      "title": "Which clock does this event run on?",
+      "scene": "Umeh has four events from this month and three different clocks on the wall. Site investigators report serious adverse events promptly to the sponsor. The sponsor then decides which reports meet the applicable criteria for expedited regulatory reporting. One protocol-defined hospitalization is also the trial's primary endpoint and follows its blinded adjudication path.",
+      "takeaway": "Seriousness sets one reporting obligation; expectedness and suspected causality determine another. Endpoint adjudication is a separate path, not a substitute for safety surveillance.",
       "place": "Regulatory & Registry",
-      "guide": "Four events and four obligations. Pair them by asking three things of each: is it serious, was it unexpected, and could it be related? The combination sets the clock, not how dramatic it sounds. A death nobody thinks is related is still serious. And an admission for the trial's own condition is the thing being counted rather than a safety report.",
+      "guide": "Four events, four routes. Ask first whether the event is serious enough for prompt sponsor reporting. Then ask whether it is unexpected and reasonably suspected to be related to the drug — that is what can trigger expedited sponsor reporting to regulators under the applicable rules. A protocol-defined endpoint may have a specific reporting arrangement written in advance, but that does not make safety obligations disappear. Non-serious events still stay in the trial record and periodic safety picture.",
       "background": [
-        "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
-        "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why \"serious\" and \"related\" are different questions. A road-traffic death is serious even when nobody believes the investigational drug caused it. A liver hospitalization may be serious, unexpected and plausibly drug-related. The investigator reports the serious event promptly; the sponsor's causality and expectedness assessment determines whether an expedited suspected-adverse- reaction report is also required.",
+        "Why endpoints need their own lane. Trials sometimes specify that events already captured as efficacy or safety endpoints follow a protocol-defined reporting process rather than duplicate immediate reports in exactly the same form. They are still counted, adjudicated and included in safety surveillance. \"It is an endpoint\" is not permission to make it invisible to safety review.",
+        "Why the mild rash stays in the record. Non-serious does not mean nonexistent. It is captured and contributes to the accumulating safety profile even when it does not trigger the fastest reporting clock."
       ],
-      "story": "Umeh has a wall calendar with two windows marked on it in red and a stack of four events from this month. She has to sort them before Friday.",
+      "story": "Umeh has four events from this month and three different clocks on the wall. Site investigators report serious adverse events promptly to the sponsor. The sponsor then decides which reports meet the applicable criteria for expedited regulatory reporting. One protocol-defined hospitalization is also the trial's primary endpoint and follows its blinded adjudication path.",
       "game": {
         "type": "PROTOCOL",
-        "title": "What has to be told, and how fast",
+        "title": "Which clock does this event run on?",
         "setup": "Regulatory & Registry",
-        "play": "Match each event to what the trial owes and when.",
-        "task": "Match each event to what the trial owes and when.",
-        "question": "Match each event to what the trial owes and when.",
-        "answer": "",
-        "why": "The reporting window is set by the category, not by the drama. Serious, unexpected and possibly related is the combination that runs on a clock of days, because it is the combination that might change how the drug is used tomorrow. A death nobody thinks is related is still serious and still reported, on the ordinary schedule. An admission for the trial's own condition is the thing being counted, so it goes to adjudication rather than to the safety desk. Everything else lives in the file.\n",
+        "play": "Route each event through the correct safety or endpoint pathway without confusing seriousness, causality and timing.",
+        "task": "Route each event through the correct safety or endpoint pathway without confusing seriousness, causality and timing.",
+        "question": "Route each event through the correct safety or endpoint pathway without confusing seriousness, causality and timing.",
+        "answer": "Route the liver hospitalization promptly to sponsor safety for causality and expectedness assessment; report the unrelated death as a serious event without pretending it is a suspected drug reaction; keep the protocol-defined hospitalization in both its endpoint and required safety pathways; and record the mild rash as a non-serious adverse event.",
+        "why": "The clock is not set by how dramatic an event sounds. Investigators promptly report serious adverse events to the sponsor under the trial's rules. The sponsor then evaluates expectedness and reasonable causal possibility to determine whether an expedited suspected-adverse-reaction report is required. A protocol-defined endpoint can have a special reporting process written in advance, but it still contributes to safety surveillance. The mild rash does not trigger the serious-event clock and it still belongs in the record. Separating these routes prevents two opposite errors: treating every serious event as proof of drug harm, and treating an efficacy endpoint as though safety no longer needs to see it.\n",
         "scenarios": [
           "An admission with an unexpected liver picture, thought possibly drug-related.",
           "A fatal road accident with no plausible link to the treatment.",
-          "A hospital admission for the condition the trial is treating.",
+          "A hospital admission for the condition the trial is treating, named in the protocol as a primary endpoint.",
           "A rash that settled in two days without treatment."
         ],
         "choices": [
-          "Expedited report to the regulator, days rather than weeks.",
-          "Recorded as a serious event and reported in the routine safety update.",
-          "Recorded as a trial endpoint and adjudicated like any other.",
-          "Recorded as an adverse event in the participant's file."
+          "Prompt SAE report to the sponsor; sponsor assesses whether it is a serious unexpected suspected reaction requiring expedited external reporting.",
+          "Prompt serious-event report to the sponsor and routine safety accounting; lack of plausible drug relation means the death is not automatically a suspected adverse reaction.",
+          "Follow the protocol-defined endpoint and safety-reporting pathway, including blinded adjudication and any required serious-event notification.",
+          "Record as a non-serious adverse event and include it in the accumulating safety data."
         ],
         "mapping": [
           0,
@@ -3133,25 +3095,25 @@ export const CURRICULUM = {
         ],
         "columns": [
           "What happened",
-          "What is owed"
+          "What the trial owes"
         ]
       },
       "assumes": [
-        "regulators set deadlines for reporting harm during a trial",
-        "hard endpoints against judged ones, and blinded adjudication — taken as read"
+        "the protocol and applicable rules define which serious events require immediate investigator-to-sponsor reporting and which sponsor reports are expedited externally",
+        "safety monitoring: adverse events, seriousness and expedited reporting — taken as read"
       ],
       "takesAsRead": [
         {
-          "n": 9,
-          "c": "Hard endpoints against judged ones, and blinded adjudication"
+          "n": 27,
+          "c": "Safety monitoring: adverse events, seriousness and expedited reporting"
         }
       ],
       "concept": {
-        "n": 27,
-        "c": "Safety monitoring: adverse events, seriousness and expedited reporting",
+        "n": 28,
+        "c": "Causality assessment, and why reporting does not wait for it",
         "of": 33,
         "rests": [
-          "Hard endpoints against judged ones, and blinded adjudication"
+          "Safety monitoring: adverse events, seriousness and expedited reporting"
         ]
       }
     },
@@ -3172,9 +3134,9 @@ export const CURRICULUM = {
         "type": "SEQUENCE",
         "title": "Changing the plan, on the record",
         "setup": "Regulatory & Registry",
-        "play": "Order what has to happen before a widened criterion may enrol anybody.",
-        "task": "Order what has to happen before a widened criterion may enrol anybody.",
-        "question": "Order what has to happen before a widened criterion may enrol anybody.",
+        "play": "Establish what the amendment obliged the trial to do",
+        "task": "Establish what the amendment obliged the trial to do",
+        "question": "Establish what the amendment obliged the trial to do",
         "answer": "",
         "why": "The order is the protection. A change made for a stated reason, approved by people outside the trial, published before it is used and only then handed to sites, is a change nobody can have chosen after seeing what it would do to the results. Enrol first and register afterwards and there is no way, ever, to show the two were independent. The audit does not ask whether widening was wise — it asks whether the record was made before it mattered.\n",
         "cards": [
@@ -3194,8 +3156,8 @@ export const CURRICULUM = {
         "the entry criteria are part of the protocol and can be amended"
       ],
       "concept": {
-        "n": 6,
-        "c": "Eligibility criteria, and what widening them changes",
+        "n": 13,
+        "c": "Amendments and prespecification: a plan that can be dated",
         "of": 33
       }
     },
@@ -3593,6 +3555,54 @@ export const CURRICULUM = {
     },
     {
       "day": 9,
+      "title": "Sign the board pack",
+      "scene": "It is 2:42. Vogt's board meets at three. Four versions of the executive page are on Umeh's screen. They contain the same numbers and make different claims from them. Once you sign, Petrescu's closed arm-by-arm tables are attached and the pack leaves the trial team.",
+      "takeaway": "The pack is ready only when every claim is traceable to evidence and every unresolved question stays visible.",
+      "place": "Regulatory & Registry",
+      "guide": "Do not choose the version with the most cautious adjective or the most dramatic number. Trace each sentence back to the evidence chain. The adjudicated endpoint is promising and has not crossed the prespecified efficacy boundary. The symptom score has a demonstrated path for treatment knowledge to enter. The liver cases are a real safety signal whose arm pattern belongs to the board's protected review. The over-seventies row is one of fourteen subgroup looks. The signed page must preserve all four facts without deciding by wording what the board exists to decide.",
+      "background": [
+        "What the signature means. It does not certify that the drug works or that the trial should continue. It certifies that the board can see the prespecified question, the current estimate and uncertainty, the relevant limitations, and the unresolved safety evidence without one being hidden inside another.",
+        "Why the tempting versions fail. A large subjective effect is not independent of a blinding failure that reaches the scorer. A nominal subgroup result is not a new primary question. Four liver cases do not prove harm without the exposure and arm pattern, but they cannot be buried behind efficacy either. And a result can be statistically promising without satisfying the rule written for stopping early.",
+        "What happens next. The independent board sees the protected arm-specific data and makes its recommendation. The sponsor then acts on that recommendation under the protocol. If the trial continues, sites preserve the blind and participants receive whatever safety or consent information the protocol and ethics review require without publishing protected interim efficacy data."
+      ],
+      "story": "It is 2:42. Vogt's board meets at three. Four versions of the executive page are on Umeh's screen. They contain the same numbers and make different claims from them. Once you sign, Petrescu's closed arm-by-arm tables are attached and the pack leaves the trial team.",
+      "game": {
+        "type": "CHOICE",
+        "title": "Sign the board pack",
+        "setup": "Regulatory & Registry",
+        "play": "Choose the only version of the monitoring-board pack you can sign and release.",
+        "task": "Choose the only version of the monitoring-board pack you can sign and release.",
+        "question": "Which executive page can you sign and release to the monitoring board?",
+        "answer": "Sign the qualified page. It separates the protected primary endpoint, the compromised subjective outcome, the unresolved safety signal and the exploratory subgroup result, and it leaves the stop/continue recommendation to the independent board that is entitled to see the arms.",
+        "why": "Every sentence on the qualified page has a different evidential status. The adjudicated endpoint is the prespecified efficacy measurement least exposed to the blinding failure and is promising without crossing the early-stopping boundary. The symptom score is not erased, but its interpretation is limited because treatment knowledge can reach its scorer. Four liver cases require arm-specific safety review rather than an automatic causal conclusion. The over-seventies result is a nominally striking row inside a family of subgroup analyses, not a new primary claim. Signing anything stronger converts one of those limitations or assumptions into a fact. Signing anything weaker hides evidence the board is supposed to weigh. This is the job the fifteen days built toward: release a record strong enough for a consequential decision without making the decision by misdescribing the evidence.\n",
+        "rebuttals": [
+          "The over-seventies row is one of fourteen subgroup analyses and rests on the outcome most exposed to the blinding failure; a forecast about remaining events is not a stopping boundary.",
+          "The adjudicated endpoint remains interpretable because its readers were protected from arm and site; a leak in one measurement path does not erase independent evidence.",
+          "The liver cases are urgent safety evidence, but case count alone does not establish treatment causality without the protected arm-specific denominator and clinical review."
+        ],
+        "choices": [
+          "The adjudicated endpoint is promising but has not crossed the prespecified benefit boundary; the symptom score is limited by loss of blinding; the liver signal remains under protected review; subgroup findings are exploratory; the board should decide from the full closed evidence whether to continue.",
+          "CLARION-3 has shown a clinically important benefit, especially in participants over 70, and the remaining events are unlikely to change that conclusion.",
+          "The trial has no reliable efficacy evidence because the blind leaked, so all treatment comparisons should be discarded and recruitment stopped.",
+          "Four liver cases establish a drug safety problem, so efficacy should no longer enter the board's decision."
+        ],
+        "correctChoice": "The adjudicated endpoint is promising but has not crossed the prespecified benefit boundary; the symptom score is limited by loss of blinding; the liver signal remains under protected review; subgroup findings are exploratory; the board should decide from the full closed evidence whether to continue."
+      },
+      "assumes": [
+        "the trial team remains blinded to comparative interim efficacy data",
+        "the independent board receives the protected arm-specific safety and efficacy tables"
+      ],
+      "concept": {
+        "n": 21,
+        "c": "The monitoring committee and the firewall around it",
+        "of": 33,
+        "rests": [
+          "Interim analysis, alpha spending and stopping boundaries"
+        ]
+      }
+    },
+    {
+      "day": 10,
       "title": "The plan that was in force — Review",
       "scene": "Nkechi Umeh, the regulatory lead, has a reviewer's letter asking how CLARION-3 can show its main analysis was fixed before the data existed. Four documents are on her desk, and each one proves something different about when a decision was made.",
       "takeaway": "What a document proves about timing depends on who was able to set the date on it.",
@@ -3608,9 +3618,9 @@ export const CURRICULUM = {
         "type": "PROTOCOL",
         "title": "The plan that was in force — Review",
         "setup": "Regulatory & Registry",
-        "play": "Match each document to what it can prove about when the analysis was fixed.",
-        "task": "Match each document to what it can prove about when the analysis was fixed.",
-        "question": "Match each document to what it can prove about when the analysis was fixed.",
+        "play": "Match each document to what it can actually prove about timing",
+        "task": "Match each document to what it can actually prove about timing",
+        "question": "Match each document to what it can actually prove about timing",
         "answer": "",
         "why": "Prespecification is a claim about time, so what supports it is a date somebody outside the sponsor fixed. A registry timestamp is exactly that: the entry went up, and the registry recorded when. A working file proves nothing about timing, because its history belongs to the drive and its contents are whatever they are this morning. Signed minutes prove that a named group agreed something on a stated day, on a record the sponsor keeps itself. An email proves one person's intention. All four are evidence, and they are not the same evidence.\n",
         "scenarios": [
@@ -3687,7 +3697,7 @@ export const BALLPARK_CALCS = {
       "0.001  (spent at the first interim)",
       "0.004  (spent at the second interim)",
       "0.020  (spent at the final analysis)",
-      "0.015  (what the unplanned look would cost)",
+      "0.015  (a nominal threshold someone proposed for the unplanned look; it is not a fixed 'price')",
       "0.025  (the trial's total budget)"
     ],
     "values": [
@@ -3708,8 +3718,8 @@ export const BALLPARK_CALCS = {
     "target": 0.025,
     "tolerance": 0.001,
     "units": "of error rate spent",
-    "solution": "0.001 + 0.004 + 0.020 = 0.025, the whole budget. The unplanned look would take it to 0.040.",
-    "explanation": "The plan spends exactly what it has. An extra look has no boundary and no allowance, so it spends out of the final analysis."
+    "solution": "0.001 + 0.004 + 0.020 = 0.025, the whole prespecified budget. An additional formal look would require new valid boundaries rather than simple addition of a nominal threshold.",
+    "explanation": "The planned analyses exhaust the authored error-spending budget. An extra efficacy analysis is not free; it must be incorporated with revised boundaries that preserve the trial-wide error guarantee."
   },
   "STAT-3": {
     "prompt": "CLARION-3 was designed to need 380 adjudicated events. The database holds 246 of them this morning. The information fraction is the events in hand divided by the events planned.\n",
@@ -3742,13 +3752,13 @@ export const BALLPARK_CALCS = {
     "explanation": "About two thirds. By months the trial looks 3 quarters done — 41 of 54 — and the 2 numbers disagree because the amendment brought in people at lower risk. The boundary the board reads in a fortnight is set from the 0.65, not from the calendar.\n"
   },
   "SITE-5": {
-    "prompt": "At 5 per cent two-sided and 80 per cent power the numerator is 4 × (1.96 + 0.84)² ≈ 31.4. The diluted hazard ratio is 0.85, so (ln 0.85)² ≈ 0.0264.",
+    "prompt": "Sensitivity case only: at 5 per cent two-sided and 80 per cent power the numerator is 4 × (1.96 + 0.84)² ≈ 31.4. Suppose the true hazard ratio in the broadened population were 0.85; then (ln 0.85)² ≈ 0.0264.",
     "question": "Choose the numerator and the squared log hazard ratio for the wider criteria.",
     "labels": [
       "31.4  (4 × (z + z)² at 80 per cent power)",
       "0.0264  ((ln 0.85)², the diluted effect)",
       "0.0828  ((ln 0.75)², the original effect)",
-      "0.85  (the diluted hazard ratio itself)",
+      "0.85  (the hazard ratio assumed in the sensitivity case)",
       "380  (events needed under the original criteria)"
     ],
     "values": [
@@ -3768,8 +3778,8 @@ export const BALLPARK_CALCS = {
     "target": 1189,
     "tolerance": 80,
     "units": "events needed",
-    "solution": "31.4 ÷ 0.0264 ≈ 1,190 events, against 31.4 ÷ 0.0828 ≈ 380 before the amendment.",
-    "explanation": "The effect size is squared in the denominator, so a small dilution triples the events the trial has to see."
+    "solution": "31.4 ÷ 0.0264 ≈ 1,190 events in the HR = 0.85 sensitivity case, against about 380 under the original HR = 0.75 design assumption.",
+    "explanation": "A smaller relative effect can sharply increase the required event count. This calculation is conditional on HR = 0.85; the lower observed baseline event rate does not itself imply that HR."
   },
   "STAT-4": {
     "prompt": "As assigned, 84 of 600 on treatment had the event and 120 of 600 on control did. Counting completers only gives 0.121 and 0.201.",
@@ -3799,10 +3809,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.03,
     "units": "relative risk",
     "solution": "0.140 ÷ 0.200 = 0.70 as assigned, against 0.121 ÷ 0.201 = 0.60 among completers.",
-    "explanation": "0.70 is the effect of being offered the treatment. The 0.60 is what the trial looks like once the people who stopped are removed."
+    "explanation": "0.70 is the assigned-arm treatment-strategy comparison in this authored example. The 0.60 is a completer-only comparison after post-randomization selection, so it answers a different and potentially biased question."
   },
   "STAT-6": {
-    "prompt": "The adjudicated event happened in 18.9% of control and 14.7% of treatment, with about 1,200 people per arm. First use ARR = p_control − p_treatment and NNT = 1/ARR. Then use SE = √(p(1−p)/n) for the control rate and 1.96 × SE for a 95% margin.",
+    "prompt": "For this simplified fixed 12-month risk calculation, the adjudicated event occurred in 18.9% of control and 14.7% of treatment, with about 1,200 people per arm. Use ARR = p_control − p_treatment and NNT = 1/ARR. Then use SE = √(p(1−p)/n) as the simple binomial approximation for the control risk.",
     "question": "Choose the two event rates and the approximate number in one arm.",
     "labels": [
       "0.189  (control arm event rate)",
@@ -3833,18 +3843,18 @@ export const BALLPARK_CALCS = {
     "explanation": "NNT is about 24. The control-arm SE is about 0.011, or 1.1 percentage points, so its 95% margin is about 2.2 points. The first number describes clinical size; the second describes sampling precision. Halving that SE would require about four times the sample, not twice."
   },
   "STAT-7": {
-    "prompt": "The over-70 subgroup shows an absolute risk reduction of 6.0 percentage points with a standard error of 3.4. The whole trial's standard error is 1.5.",
+    "prompt": "The over-70 subgroup shows an absolute risk reduction of 6.0 percentage points with a standard error of 2.7. The whole trial's standard error is 1.5.",
     "question": "Choose the multiplier for a 95 per cent interval and the subgroup's standard error.",
     "labels": [
       "1.96  (multiplier for a 95 per cent interval)",
-      "3.4  (SE of the over-70 subgroup, in percentage points)",
+      "2.7  (SE of the over-70 subgroup, in percentage points)",
       "1.5  (SE of the whole trial, in percentage points)",
       "6.0  (the subgroup's estimated risk reduction)",
       "14  (prespecified subgroups)"
     ],
     "values": [
       1.96,
-      3.4,
+      2.7,
       1.5,
       6,
       14
@@ -3856,14 +3866,14 @@ export const BALLPARK_CALCS = {
       0,
       1
     ],
-    "target": 6.66,
+    "target": 5.29,
     "tolerance": 0.5,
     "units": "percentage points either side",
-    "solution": "1.96 × 3.4 ≈ 6.7 points, so 6.0 ± 6.7 runs from −0.7 to 12.7 and includes zero.",
-    "explanation": "Drawn properly, the interval around the subgroup that crossed does not exclude no effect."
+    "solution": "1.96 × 2.7 ≈ 5.3 points, so the nominal interval is about 6.0 ± 5.3, or 0.7 to 11.3.",
+    "explanation": "Considered alone, the nominal interval just excludes zero. That makes the row interesting, not automatically confirmatory, because it is one of 14 subgroup looks."
   },
   "STAT-8": {
-    "prompt": "14 subgroups are each tested at 5% level. If nothing is really different anywhere, the chance that none of them clears the line is 0.95 raised to the fourteenth power. The chance that at least one does is one minus that.\n",
+    "prompt": "For an illustrative independence benchmark only, suppose 14 subgroup tests were independent and each used a nominal 5% level. The chance that none clears the line is 0.95^14; one minus that is the chance that at least one does.\n",
     "question": "Choose the per-test pass rate and the number of tests.",
     "labels": [
       "0.95  (chance 1 test does not misfire)",
@@ -3891,7 +3901,7 @@ export const BALLPARK_CALCS = {
     "tolerance": 0.06,
     "units": "chance of at least one",
     "solution": "1 − 0.95¹⁴ = 1 − 0.49 ≈ 0.51.",
-    "explanation": "About 1 in 16 honest looks at a trial where the treatment does the same thing in everybody will produce at least 1 subgroup clearing the line about half the time, which is why the over-seventies finding is not evidence on its own.\n"
+    "explanation": "The independence benchmark is about 51%. Actual subgroup tests overlap, so the exact familywise probability is different. Either way, the nominal over-seventies result has to be interpreted with the full subgroup family and the prespecified multiplicity plan.\n"
   },
   "STAT-9": {
     "prompt": "The trial has 246 events in hand of the 380 it was designed for. The interim z-score is 1.42 against a final boundary of 1.96.",
@@ -3920,8 +3930,8 @@ export const BALLPARK_CALCS = {
     "target": 0.647,
     "tolerance": 0.03,
     "units": "of the planned information",
-    "solution": "246 ÷ 380 = 0.65 of the information, which with z = 1.42 gives a conditional power of about 0.82.",
-    "explanation": "Two thirds of the information, and a probable result. Neither is a conclusion, and stopping early spends error rate budgeted for the final look."
+    "solution": "246 ÷ 380 = 0.65 of the planned information. No unique conditional power follows until the future-effect assumption is specified.",
+    "explanation": "About two thirds of the planned information. The forecast of the final result is assumption-dependent, so it belongs in a scenario table rather than being presented as another measured fact."
   },
   "STAT-10": {
     "prompt": "HELIOS was designed to need 210 primary events. It has randomised 900 people, and across both arms together about 14 events occur per 100 participants per year — that is 0.14 events per participant per year.\n",
@@ -4058,14 +4068,14 @@ export const JARGON = [
       "intention-to-treat",
       "ITT"
     ],
-    "def": "Analysing every participant in the arm they were assigned, whatever they went on to take."
+    "def": "Keeping participants in the group they were randomised to for the primary treatment-strategy analysis. What happens after randomisation still has to be handled explicitly; assignment alone does not make missing outcomes disappear."
   },
   {
     "name": "Per protocol",
     "aliases": [
       "per-protocol"
     ],
-    "def": "Analysing only participants who received what they were assigned and stayed in the trial. It breaks the balance randomisation bought.",
+    "def": "Analysing a subset defined by adherence to the protocol. It answers a different question and can lose the baseline comparability randomisation created because adherence is determined after assignment.",
     "core": true
   },
   {
@@ -4102,7 +4112,7 @@ export const JARGON = [
       "intervals",
       "CI"
     ],
-    "def": "The range of true effects the data are compatible with. Its width says how much is still unknown."
+    "def": "A range produced by a repeated-sampling procedure that, under its model, would cover the true effect at the stated rate. In this game it is used as a compatibility range, not as a probability that the true effect lies inside this one interval."
   },
   {
     "name": "Information fraction",
@@ -4110,7 +4120,7 @@ export const JARGON = [
       "information",
       "events accrued"
     ],
-    "def": "How far through a trial really is — the events collected so far as a share of the events planned.",
+    "def": "How far through an event-driven analysis it is. In this simplified trial it is approximated by adjudicated events collected divided by events planned; exact information can depend on the analysis and event timing.",
     "core": true
   },
   {
@@ -4191,7 +4201,7 @@ export const JARGON = [
     "aliases": [
       "fragility index"
     ],
-    "def": "How many participants' outcomes would have to change for a significant result to stop being significant."
+    "def": "A descriptive sensitivity measure: how many binary outcomes would have to change for a nominal significance result to cross its threshold. It is not a substitute for an effect estimate, interval, or prespecified sensitivity analysis."
   },
   {
     "name": "Regression to the mean",

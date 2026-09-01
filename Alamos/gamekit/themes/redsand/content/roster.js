@@ -66,7 +66,7 @@ export const ROSTER = [
     "role": "Power and Electrolysis Engineer",
     "division": "ELEC",
     "color": "#3f9e8c",
-    "bio": "<p>Runs the stacks and the array that feeds them. Everything she does converts electrical charge into moles, and the conversion is exact: a known current for a known time is a known number of molecules, if every electron did the job it was sent to do.</p><p>Her interest is the gap between that and what the plant actually collects. Some of the current crosses the cell without splitting anything, some of the voltage above the thermodynamic minimum turns into heat, and both show up as hydrogen that was paid for and never arrived.</p><p>Her limit is the array. Her stacks can take more current than the field can supply on most sols, so the number she works to is not an electrochemical one at all.</p>",
+    "bio": "<p>Runs the stacks and the array that feeds them. Everything she does converts electrical charge into moles, and the conversion is exact: a known current for a known time is a known number of molecules, if every electron did the job it was sent to do.</p><p>Her interest is the gap between that and what the plant actually collects. Some charge can go to side reactions rather than the intended product, and real cells also need kinetic and resistive driving voltage. Those losses lower current efficiency and add heat to the stack, so the gap between charge passed, hydrogen collected and electrical energy spent has to be measured rather than assumed.</p><p>Her limit is the array. Her stacks can take more current than the field can supply on most sols, so the number she works to is not an electrochemical one at all.</p>",
     "quiz": [
       {
         "q": "Why does Achebe distrust a hydrogen figure calculated from the current alone?",
@@ -104,7 +104,7 @@ export const ROSTER = [
     "role": "Regolith and Water Lead",
     "division": "SOIL",
     "color": "#9a8352",
-    "bio": "<p>Gets water out of frozen ground, which on this plain means ice cemented through the soil rather than ice in a sheet. His plant warms a sealed load, catches the vapour and condenses it, and what he collects is not water so much as a solution of whatever the ground had in it.</p><p>Most of that is salt of one kind or another, and one of them is perchlorate, which is common here, dissolves readily, and lowers the freezing point of the brine far enough that it stays liquid at temperatures no fresh water would survive.</p><p>His limit is the polishing column. It holds a finite number of ions, it gives no warning as it fills, and the sol it is full the water leaving it is as dirty as the water going in.</p>",
+    "bio": "<p>Gets water out of frozen ground, which on this plain means ice cemented through the soil rather than ice in a sheet. His plant warms a sealed load, catches the vapour and condenses it, and what he collects is not water so much as a solution of whatever the ground had in it.</p><p>Most of that is salt of one kind or another. Perchlorates are common here and can keep concentrated brines liquid far below the freezing point of fresh water. Chloride and sulphate salts are present too, and they are different ions with different addresses downstream.</p><p>His limit is the polishing column. It holds a finite number of ions, it gives no warning as it fills, and the sol it is full the water leaving it is as dirty as the water going in.</p>",
     "quiz": [
       {
         "q": "Why does Abiola describe his product as a solution rather than as water?",

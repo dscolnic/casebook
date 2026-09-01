@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "The Failure",
     "objective": "Create a trusted state vector and a prioritized anomaly list before commanding the crew.",
     "briefing": "A crewed lunar spacecraft reports an explosion, falling electrical power, and contradictory telemetry. The player takes the flight-director console and must first determine what can still be measured reliably.",
-    "stake": "The bang was four minutes ago. Commander Hale called it in. No instrument caught it first, and that should worry you. Three consoles now hold numbers that do not agree. One power bus reads zero. The guidance computer has restarted with nothing loaded. Several cabin pressure channels dropped in the same second. Evelyn Carter, the mission integration lead, is already saying one thing. Channels that drop together are one fault, not three. This shift you decide what is wrong with the vehicle. Nobody commands the crew until the room holds one agreed picture. You also set how this room will work for the next five days. Hale, Ruiz and Sato hear every word of it.",
+    "stake": "The bang was four minutes ago. Commander Hale heard it before any instrument did. Now one power bus reads zero, the guidance computer has restarted blank, and three cabin-pressure channels have fallen together. You are the flight director. Before the crew opens a panel or fires a thruster, this room has to decide which failures are real and which are only bad measurements. A wrong diagnosis spends air, power, or crew time that cannot be replaced. This shift you build the first trusted picture of the spacecraft and the rule the room will use for every call after it.",
     "takeaway": "Use units, vectors, graphs, measurement uncertainty, common-mode failure as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -31,7 +31,7 @@ export const MISSIONS = [
     "title": "Find the Spacecraft",
     "objective": "Produce a consistent trajectory estimate and identify which new observation most reduces uncertainty.",
     "briefing": "Tracking data are intermittent, and the onboard computer has restarted. The team must reconstruct position and velocity from range, bearing, and timed observations.",
-    "stake": "Nine hours after the bang. The one station that carries the whole solution sets in 40 minutes. Camila Reyes, the guidance lead, will not sign the trajectory yet. She wants one measurement that did not come through the same computer. Today you rebuild where the spacecraft is and how fast it is going. Fitting the measurements together is the job. Only one station is still up, so you also buy the next look. Her trajectory officer, Dale Whitaker, wants a number now. The room cannot start planning the correction without one. Reyes wants the right number. They are both right, and there are 40 minutes.",
+    "stake": "Nine hours after the bang, the spacecraft is still coming home only if the ground can say where it is. The best tracking station sets in forty minutes, the onboard guidance computer has restarted, and the surviving measurements do not all share the same clock or geometry. Reyes needs a state she can defend; Whitaker needs one soon enough to plan the correction. This shift you reconstruct position and velocity from independent pieces of evidence, then choose the next observation that most reduces what the room still does not know.",
     "takeaway": "Use position, velocity, acceleration, coordinate systems, graphs of motion as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -47,7 +47,7 @@ export const MISSIONS = [
       {
         "group": "NAV",
         "lesson": 2,
-        "task": "Why does the spacecraft need any speed at all to stay in that orbit?"
+        "task": "Why does the free-return path bend around the Moon instead of simply hitting it?"
       }
     ]
   },
@@ -55,7 +55,7 @@ export const MISSIONS = [
     "title": "The Wrong Trajectory",
     "objective": "Choose a correction that restores a safe return while preserving fuel and engine options.",
     "briefing": "The spacecraft is drifting away from its planned free-return path. The player must use Newtonian gravity and impulse to determine whether a small correction now can prevent a large correction later.",
-    "stake": "18 hours in, and the drift is confirmed. This is where Whitaker and Carter stop agreeing, and they do not start again. The path misses the entry corridor by 400 kilometres. Whitaker wants a small burn this shift. A correction gets cheaper the earlier you make it. Carter wants to wait for the next tracking pass. Fixing a number you have not measured well is how a small error becomes a locked-in one. This shift you settle it between them. That is Whitaker's whole case, and today it is the better one. There is no more propellant coming, and no way to send any.",
+    "stake": "Eighteen hours in, the drift is real: the present trajectory misses the entry corridor by about four hundred kilometres. Whitaker wants a small correction now. Carter wants one more independent look before turning an uncertain error into an irreversible burn. Both can be right in different circumstances. This shift you decide whether the measured miss is large enough, and well enough known, to spend propellant on. The same few metres per second that look trivial now decide where the spacecraft is days later.",
     "takeaway": "Use Newton’s laws, gravity, orbits, impulse, trajectory sensitivity as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -79,7 +79,7 @@ export const MISSIONS = [
     "title": "Turn Without Wasting Fuel",
     "objective": "Develop a controlled reorientation procedure that stops the rotation at the required attitude.",
     "briefing": "The main guidance platform is unavailable, and the crew must reorient the spacecraft using limited thrusters and visible reference objects.",
-    "stake": "26 hours in. The guidance platform is off to save power. One thruster quad is dead. Hale has to turn the spacecraft 90 degrees by hand. Sato will read the angles aloud to him. Kwame Mensah, the dynamics and structures lead, has done the sums. He does not like them. This shift you write the turn procedure. That means agreeing what the rotation numbers mean, and what a thruster actually does. Every degree of turn is paid for twice. Once to start the turn, once to stop it. Let the ship tumble and three things go together. The antenna, the array and the burn attitude.",
+    "stake": "Twenty-six hours in, the main guidance platform is powered down and one thruster quad is dead. Hale has to turn the spacecraft ninety degrees by hand for the next burn. Start the rotation and it keeps going; stop too late and the ship overshoots, taking the antenna and burn attitude with it. This shift you write a turn procedure that controls both angle and angular rate while spending as little propellant as possible.",
     "takeaway": "Use torque, angular acceleration, moment of inertia, angular momentum, center of mass as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -108,7 +108,7 @@ export const MISSIONS = [
     "title": "The Power Budget",
     "objective": "Build a load-shedding plan that preserves essential functions through the next critical maneuver.",
     "briefing": "Fuel cells and batteries are degraded. Every electrical load now competes with guidance, communications, thermal control, and life support.",
-    "stake": "34 hours in, and the argument changes shape. Priya Shah, the power systems lead, has the reserve down to hours. She wants everything non-essential off by the end of the shift. Brooks has two things on his list. The scrubber fan and the cabin heaters. His crew are already sleeping in everything they own. The bus is sagging at 24 volts instead of 28. The current sits near where it should be, which is Shah's other problem. This shift you choose what goes off. Getting that right means knowing how long the batteries last, and why the voltage is low.",
+    "stake": "Thirty-four hours in, power has become a clock. Shah has forty-one amp-hours left to cover a sixty-two-hour return. Life support must run continuously, guidance needs a few specific windows, thermal loads have to protect the coldest batteries, and communications wants everything that remains. At the same time the main bus is sagging four volts and one junction is getting warm. This shift you find where the missing electrical power is going and decide exactly what stays on.",
     "takeaway": "Use current, voltage, resistance, electrical power, energy budget as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -124,7 +124,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 7,
-        "task": "Allocate 41 amp-hours across life support, thermal control, guidance windows, and communications. Keep every required mission condition satisfied through the 62-hour return."
+        "task": "Allocate 41 amp-hours across continuous life support, six hours of thermal protection, four guidance windows, and whatever communications time remains."
       }
     ]
   },
@@ -132,7 +132,7 @@ export const MISSIONS = [
     "title": "A Dangerous Battery Configuration",
     "objective": "Approve only a configuration whose voltage, current sharing, and failure behavior are understood.",
     "briefing": "Engineers propose reconnecting battery modules, but a mismatched module could overheat or reverse-charge. The player must reason through series, parallel, internal resistance, and fault isolation.",
-    "stake": "42 hours in. The electrical load officer, Ana Ferreira, has found a battery module on the damaged bus. Connected, it would buy 11 hours. Shah wants it on before the next pass. Nobody knows how much charge is left in it. The connectors were never meant for this. Ferreira has already found one connector on that bus running warm, and cannot say why. This shift you decide whether that setup is safe to fly. Nothing gets connected until you say what has to be measured first. Shah is counting the hours. Brooks is counting the people. Sealed cabin. Three of them. 11 hours is not worth a fire.",
+    "stake": "Forty-two hours in, Ferreira has found an emergency battery module that could buy roughly eleven more hours. It is also at a different voltage from the live bus, its charge state is uncertain, and the improvised connector on that path is already warm. Eleven hours is valuable; a cabin electrical fire is not survivable. This shift you predict the equalising current, test the configuration under protection, and decide whether the module is safe to connect for flight.",
     "takeaway": "Use series circuits, parallel circuits, internal resistance, Joule heating, fault isolation as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -156,7 +156,7 @@ export const MISSIONS = [
     "title": "The Cabin Is Cooling",
     "objective": "Create a thermal survival plan that protects crew, electronics, and batteries with minimal power.",
     "briefing": "With most systems powered down, cabin temperature falls and condensation forms. The player must balance conduction, convection, radiation, metabolic heat, and battery performance.",
-    "stake": "Two days after the bang. Brooks wins one, and it costs Shah her margin. The cabin is at four degrees and still falling. Water is running down the walls. Ruiz can no longer write so anyone can read it. Today you choose what to insulate. There is power to fight the cold one way, not three. So you need how fast the heat is leaving, and which way it goes out. The average cabin temperature is the wrong number to watch. A battery fails at its own local temperature. The coldest spot is the wall behind the pack the entry sequence depends on. Brooks argues for the crew, Shah for the batteries, and they want the same watts.",
+    "stake": "Two days after the bang, the cabin is near four degrees Celsius and still falling. Condensed water beads cling to walls, panels, and wiring. The crew can tolerate cold longer than some batteries can, and the coldest battery is the one needed for entry. There is not enough power to heat the whole vehicle. This shift you work out how quickly heat is leaving and spend the remaining thermal margin where cold would do the most damage.",
     "takeaway": "Use heat capacity, conduction, convection, radiation, energy balance as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -185,7 +185,7 @@ export const MISSIONS = [
     "title": "The Air Problem",
     "objective": "Develop a safe temporary air-cleaning and circulation strategy using only validated physical principles and monitored limits.",
     "briefing": "Carbon dioxide removal is failing, and pressure readings differ between compartments. The player must connect gas laws, partial pressure, fluid flow, and filter resistance.",
-    "stake": "58 hours in. Carbon dioxide is climbing in a cabin built for two and holding three. Petra Novak, the life support engineer, has been on the loop with the crew for an hour. The canisters that fit are aboard the module they cannot use. The scrubber fan still draws its full rated current. Brooks refuses to call that good news. Today you build an air cleaner out of what is already aboard. First you need to know why the air is not being cleaned, and how fast three people fill a cabin. Hale has started making small mistakes reading numbers back. That is the first symptom. He cannot notice it himself.",
+    "stake": "Fifty-eight hours in, carbon dioxide is climbing. The scrubber fan sounds normal and draws normal current, but the air through the bed does not. The spare canisters aboard do not fit the socket that needs them. Hale has repeated two numbers wrong on the loop; cold, exhaustion, and rising carbon dioxide are all plausible contributors, so nobody gets to diagnose him by story. This shift you find the blocked transport path, estimate the carbon-dioxide load, and build a sealed route that actually forces cabin air through working sorbent.",
     "takeaway": "Use ideal gases, partial pressure, flow resistance, pressure difference, filtration as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -209,7 +209,7 @@ export const MISSIONS = [
     "title": "Communication Fades",
     "objective": "Restore a reliable low-bandwidth link and use the signal itself as a navigation measurement.",
     "briefing": "The spacecraft signal weakens and shifts in frequency as geometry changes. The team must separate transmitter failure from antenna pointing, range loss, and Doppler effects.",
-    "stake": "66 hours in. The link went weak at the moment the vehicle turned. It is down 12 decibels, and Hale is answering calls he can barely hear. Naomi Ito, the communications lead, has the link budget open. Her network officer wants to blame a different term in it. Ito wants the pointing checked first. He wants the receiver checked first. This shift you find the cause and get the link back. Losing the link costs two things at once. The signal is also a navigation measurement. The room would go deaf and half blind in the same minute, with a burn still to fly.",
+    "stake": "Sixty-six hours in, the radio link loses twelve decibels at the same moment the vehicle turns. Hale can barely hear the ground, and the same carrier the crew talks over is also one of navigation's measurements. Ito has transmitter health, receiver health, Doppler, and attitude all on one board. This shift you make the fade follow a reversible cause, recover the link, and preserve the tracking data the next maneuver depends on.",
     "takeaway": "Use waves, frequency, wavelength, inverse-square behavior, Doppler effect as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -233,7 +233,7 @@ export const MISSIONS = [
     "title": "A Blind Maneuver",
     "objective": "Design a manual alignment procedure whose dominant angular errors are bounded.",
     "briefing": "The crew must align for an engine burn using a window view, a reticle, and imperfect star references. The player must connect optics, angular measurement, and reference frames.",
-    "stake": "74 hours in, and this is the quiet shift. There is no guidance platform and no star tracker. Ruiz will aim the burn by eye, through a sight in the window. Sato will hold a stopwatch. Reyes has spent the shift sorting what really moves the spacecraft's aim from what only looks as if it does. This shift you decide how many sightings make an alignment worth trusting. A tenth of a degree is invisible in that window. At the far end it is hundreds of kilometres. Some of what Ruiz sees is real motion. Some is the window, the light, or his own eye at four degrees. Each sighting costs him 20 minutes of cold.",
+    "stake": "Seventy-four hours in, the powered guidance platform is unavailable and illuminated debris has made star identification unreliable. Ruiz will aim the next maneuver through a window reticle using the Earth and Sun as coarse references while Sato holds the clock. A tenth of a degree is almost nothing in the window and hundreds of kilometres at Earth. This shift you separate real spacecraft rotation from apparent motion in the sight and decide how much manual alignment evidence is enough to trust a burn.",
     "takeaway": "Use lenses, angular measurement, parallax, reference frames, error propagation as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -257,7 +257,7 @@ export const MISSIONS = [
     "title": "Crossing the Atmosphere",
     "objective": "Choose a corridor and monitoring strategy robust to atmospheric and navigation uncertainty.",
     "briefing": "The return corridor is narrow: too steep causes extreme heating and deceleration; too shallow risks skipping back into space. The player must integrate drag, energy conversion, and atmospheric density.",
-    "stake": "82 hours in. Nothing goes wrong this shift. That is its own kind of unnerving. The capsule will arrive at about 11 kilometres a second. The way in is a corridor roughly a degree wide. Erika Lindqvist, who integrates the flight dynamics, wants the room to understand that. Nobody votes before they do. This shift you decide how to protect the corridor. That means following where all that energy goes, and putting a number on it. Come in too shallow and the capsule skips back out. Nothing is left aboard for a second try. Come in too steep and the shield takes everything in seconds. The same physics keeps them alive and would kill them.",
+    "stake": "Eighty-two hours in, the room finally has time to think about the last thing that can still kill the crew: entry. The capsule will meet the atmosphere near eleven kilometres per second, and the safe flight-path-angle corridor is only a few degrees wide. Too shallow can leave too much energy and send the vehicle far downrange or back toward space; too steep loads the heat shield and crew too quickly. This shift you turn the tracking uncertainty into an entry decision, not just a good-looking centre value.",
     "takeaway": "Use kinetic energy, drag, work-energy, heating, deceleration as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -281,7 +281,7 @@ export const MISSIONS = [
     "title": "The Structure Is Vibrating",
     "objective": "Move the system away from resonance and verify that the mitigation works across operating conditions.",
     "briefing": "A pump and flexible panel produce a growing oscillation near one operating speed. The player must identify resonance and protect the structure without disabling life support.",
-    "stake": "90 hours in. Chidi Okoye, a structural dynamics engineer, caught this one early, and nothing else this week has been caught early. A panel starts shaking whenever a pump runs near one particular speed. A line behind that panel has been rubbing for an hour. Mensah has the numbers ready. This shift you stop the shaking. To do that you need what is driving it, and the structure's own natural rhythm. The shaking dies away as soon as the pump moves off that speed. Okoye thinks that is the part that matters. This is a shift where something is simply fixed, which the room could use.",
+    "stake": "Ninety hours in, a pump begins exciting a panel whenever its rotor passes through one narrow speed band near 3,200 rpm. A line behind that panel has already been rubbing for an hour. The vibration dies when the pump moves away from that speed, then returns when it comes back. This shift you test whether the forcing rate actually matches the structure's natural rate and move the operating point before a reversible vibration becomes broken hardware.",
     "takeaway": "Use simple harmonic motion, natural frequency, resonance, damping, forced oscillation as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -292,7 +292,7 @@ export const MISSIONS = [
       {
         "group": "STRUCT",
         "lesson": 2,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the mounted mass and stiffness to estimate the natural period, then compare its frequency with the 3,200 rpm pump forcing."
       },
       {
         "group": "INTEG",
@@ -310,7 +310,7 @@ export const MISSIONS = [
     "title": "Choose the Return Path",
     "objective": "Select a return plan with explicit margins and contingencies for the dominant uncertainties.",
     "briefing": "Several return trajectories trade fuel, time, heating, communications, and life-support consumption. The player must make a multi-constraint physical decision rather than optimize one variable.",
-    "stake": "98 hours in. The correction Whitaker flew on the third shift has come back with a bill. Tracking now says the path he chose is the expensive one. Carter has said nothing about it, which is somehow worse. Four routes are on the board. Fastest. Least propellant. Coolest entry. Best tracking coverage. Once the burn flies, most of them close for good. This shift you pick the path that survives being wrong. First you have to find what really limits this vehicle. What you want is the route with something left when the next thing breaks.",
+    "stake": "Ninety-eight hours in, four return paths are still possible and each buys safety by spending something else: time, propellant, entry margin, or consumables. The life-support endurance is uncertain by nearly a day, and water is now the tightest supply. This shift you choose the path that still works when the most important estimate is wrong in the bad direction. Fastest is not the same thing as safest.",
     "takeaway": "Use optimization, constraints, trade spaces, margins, critical path as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -334,7 +334,7 @@ export const MISSIONS = [
     "title": "The Last Correction",
     "objective": "Decide whether to burn using the expected benefit relative to navigation and propulsion uncertainty.",
     "briefing": "Hours before entry, tracking stations disagree slightly. The player must combine measurements with correlated errors and decide whether another burn reduces or increases total risk.",
-    "stake": "106 hours in, and it is Carter's turn. She has waited four days for it. Several ground stations have suddenly put the spacecraft ahead of its predicted path. They agree closely with each other. They are also fed from the same timing reference. Whitaker wants the burn now. It is the same argument he was right about on the third shift. This shift you decide whether the trajectory really moved. Carter has a rule for this. A correction is worth making only when it is bigger than the error in knowing it. She will say so in front of the whole room.",
+    "stake": "One hundred six hours in, several ground solutions suddenly put the spacecraft ahead of prediction. They agree closely, which would normally be reassuring, but they also inherit the same ground timebase. Whitaker has one last correction ready. Carter wants an observation that does not depend on that clock before spending propellant. This shift you decide whether the spacecraft moved or the reference moved, and whether a burn is bigger than the uncertainty in knowing it.",
     "takeaway": "Use random and systematic error, weighted averages, errors that move together, propagation, decision thresholds as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -345,7 +345,7 @@ export const MISSIONS = [
       {
         "group": "NAV",
         "lesson": 7,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the two perpendicular one-sigma components to estimate the root-sum-square position-error scale used in the brief."
       },
       {
         "group": "INTEG",
@@ -356,9 +356,9 @@ export const MISSIONS = [
   },
   {
     "title": "Reentry",
-    "objective": "Conduct a claim-by-claim readiness review and execute entry with predefined triggers and authority.",
-    "briefing": "The final minutes require every physical model and procedure to agree: attitude, center of mass, velocity, atmosphere, thermal shield, communications, and recovery.",
-    "stake": "118 hours in. The sequence starts in 11 minutes. Four of those minutes have no communications, and nothing in the sequence can be undone. This shift you take the claims one at a time and say whether this vehicle is ready. They are not equally strong. A heat shield cold for four days. A battery charged through a path Ferreira invented on the sixth shift. An alignment Ruiz flew by hand against the stars. A corridor entered on Carter's own independent measurement. Every one of them has to hold at the same moment. After the first event there are no decisions left, only things to watch. Hale, Ruiz and Sato have heard every word for five days. Today they say very little.",
+    "objective": "Spend the last verification checks, lock the blackout sequence, and make the final go/no-go entry decision.",
+    "briefing": "Atmospheric entry is minutes away. The player must verify the two highest-consequence physical claims, order everything that requires ground input before blackout, and then decide whether the evidence supports committing the crew to entry.",
+    "stake": "One hundred eighteen hours in, atmospheric entry begins in eleven minutes. For about four of those minutes the ground will hear nothing. The heat-shield configuration, entry state, onboard guidance, battery path, and manual alignment all have to be right at the same time, and only two physical checks still fit before commitment. This shift you spend those checks, lock the sequence, and make the final call: send Hale, Ruiz, and Sato into the atmosphere or do not.",
     "takeaway": "Use integrated mechanics, thermodynamics, waves, fluids, uncertainty, ethics of command as an evidence chain rather than as isolated facts.",
     "stops": [
       {
@@ -372,9 +372,9 @@ export const MISSIONS = [
         "task": "Order the entry around the four minutes with no communications."
       },
       {
-        "group": "NAV",
-        "lesson": 8,
-        "task": "The review board can fund three follow-up efforts. Which proposal deserves first priority because it removes the repeated physical cause?"
+        "group": "INTEG",
+        "lesson": 22,
+        "task": "Make the final go/no-go call using the verified entry state, shield configuration, onboard guidance status, and remaining uncertainty."
       }
     ]
   }

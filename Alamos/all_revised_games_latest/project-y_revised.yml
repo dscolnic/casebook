@@ -1973,7 +1973,7 @@ missions:
       pair looks forced: the fault is usually not in the join you are struggling
       with, but in one you made early and stopped questioning.
     takesAsRead:
-    - Pressure, temperature and equations of state
+    - Fission, neutron multiplication and chain reactions
     assumes:
     - a chain reaction needs the material held together long enough to grow
     takeaway: Weapon architecture changed the laboratory's evidence burden, staffing and test program; the historical 
@@ -2062,32 +2062,30 @@ missions:
       pass: 0.8
       hint: Sort by the physical property being claimed, not by how strong a radiation signal sounds.
       items:
-      - {name: Uranium-235, bin: left}
-      - {name: Plutonium-239, bin: left}
-      - {name: Uranium-233, bin: left}
-      - {name: Plutonium-241, bin: left}
-      - {name: Highly enriched uranium, bin: left}
-      - {name: Weapons-grade plutonium, bin: left}
-      - {name: Tabulated as fissile, bin: left}
-      - {name: Slow-neutron fission demonstrated, bin: left}
-      - {name: Neutron multiplication measured, bin: left}
-      - {name: Critical mass known, bin: left}
-      - {name: Large thermal cross-section, bin: left}
-      - {name: Chain reaction sustained, bin: left}
-      - {name: Cobalt-60, bin: right}
-      - {name: Radium-226, bin: right}
-      - {name: Polonium-210, bin: right}
-      - {name: Strontium-90, bin: right}
-      - {name: Tritium, bin: right}
-      - {name: Uranium-238, bin: right}
-      - {name: Thorium-232, bin: right}
-      - {name: Graphite moderator, bin: right}
-      - {name: Beryllium reflector, bin: right}
-      - {name: Heavy-water moderator, bin: right}
-      - {name: Boron carbide, bin: right}
-      - {name: Cadmium control rod, bin: right}
-      - {name: Lead shielding, bin: right}
-      - {name: Loud counter reading, bin: right}
+      - name: Uranium-235 (fissile nuclide)
+        bin: left
+      - name: Plutonium-239 (fissile nuclide)
+        bin: left
+      - name: Uranium-233 (fissile nuclide)
+        bin: left
+      - name: A reference-table entry explicitly labeled fissile
+        bin: left
+      - name: A sample whose neutron-induced fission has been demonstrated
+        bin: left
+      - name: Cobalt-60 (radioactive source)
+        bin: right
+      - name: Radium (radioactive source)
+        bin: right
+      - name: Graphite (neutron moderator)
+        bin: right
+      - name: Beryllium (neutron-interacting material)
+        bin: right
+      - name: Uranium-238 (fertile, not fissile with thermal neutrons)
+        bin: right
+      - name: Tritium (radioactive hydrogen isotope)
+        bin: right
+      - name: Boron carbide (strong neutron absorber)
+        bin: right
       commit: Sort the properties
 - title: The Counts Do Not Agree
   objective: Use decay, tracer recovery, and background measurements to determine whether conflicting laboratory yields 
@@ -2801,6 +2799,8 @@ missions:
       relationship it is going into. Reading the label is how a unit mismatch, or a
       quantity belonging to a different part of the problem, is caught before it is
       placed — which is the habit this format exists to build.
+    takesAsRead:
+    - "Radioactive decay modes: alpha, beta, gamma"
     assumes:
     - some heavy nuclei split without being hit by anything
     takeaway: The decisive historical fact was a reproducibly higher spontaneous-neutron background in reactor-produced 
@@ -3084,7 +3084,7 @@ missions:
   - group: X
     task: Match each wave-shaping question to a measurement that can answer it in an inert laboratory mockup.
     title: What an inert wave-shaping test can establish
-    concept: Shock waves, compression and hydrodynamics
+    concept: "Wave propagation, measurement, and model validation"
     scene: Kistiakowsky's group is studying how waves propagate through different materials. The player is not designing
       the weapon; the task is to decide which measurements make a claim about wave shape defensible.
     guide: >-
@@ -3956,7 +3956,7 @@ missions:
     - two problems can have two different causes
     takeaway: Improvement starts by naming and ranking the dominant independent sources of uncertainty.
     format: DIAGNOSIS
-    answerText: Material-batch propagation variation + Imaging-model error in the state inversion
+    answerText: Material-property variation + diagnostic-reconstruction model error
     why: "An uncertainty budget lists separate contributions from material properties, geometry, timing, diagnostics and models,
       then asks how strongly each moves the final claim. Two anomalies in different evidence chains need not share one cause.
       Forcing one story onto both can send the program to improve the wrong subsystem."

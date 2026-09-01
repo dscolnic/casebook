@@ -4,10 +4,10 @@
 
 export const MISSIONS = [
   {
-    "title": "The Unknown Containers",
-    "objective": "Create a provisional identity list and choose the next discriminating measurements.",
-    "briefing": "A freight-yard fire damages several unlabeled containers beside Riverton's river. The response team must establish chemical identity and hazard classes before firefighters, residents, and the water utility act on rumors. A wrong identity can cause an incompatible firefighting or treatment decision.",
-    "stake": "Day one. The freight yard fire has been out for six hours. A row of containers sits 80 metres from the river. They are damaged, and nobody can tell you what was inside them. Three names are going around the site. One came from a driver. One came from a manifest that is half burnt. One came from a label nobody can read. Adaeze Okonjo, who leads the analytical chemistry, wants two methods on the same sample before anybody writes a name down. The fire chief wants a name now. Today you turn those rumours into a short list you would defend. You also decide how to spend the one round of lab work you get. Sampling has an order of its own. Some steps destroy what the next step needed.",
+    "title": "What Burned?",
+    "objective": "Turn damaged cargo, records and first laboratory measurements into a defensible provisional hazard list.",
+    "briefing": "The freight-yard fire involved mixed chemical cargo beside Riverton's river. Fire Command needs to know which materials can meet water, which need isolation, and which identities are still only guesses.",
+    "stake": "Day 1. The fire is out, but seven damaged containers sit 80 metres from the river and three different chemical names are already moving over the radio. The cargo was mixed: a wrong name can put water on a water-reactive drum or send the wrong sample into the lab. Today you decide what can be said now, what must stay provisional, and which independent measurement is worth buying before Fire Command acts.",
     "takeaway": "Create a provisional identity list and choose the next discriminating measurements.",
     "stops": [
       {
@@ -33,10 +33,10 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "The Vapor Cloud",
-    "objective": "Provide a bounded plume assessment and decision triggers for evacuation zones.",
-    "briefing": "A colorless plume moves toward two neighborhoods as the weather changes. The team must estimate expansion, density, and direction without treating an ideal-gas model as a complete atmospheric forecast. A delayed evacuation risks exposure; an overbroad evacuation can block emergency access and overwhelm shelters.",
-    "stake": "Second morning, first light. The wind has backed 40 degrees. A plume is drifting off the yard toward 2 neighbourhoods, and you cannot see it. Miklós Varga, the atmospheric chemistry lead, has a forecast. The incident commander has a map. The two disagree about where the plume goes by 11. Sipho Mbeki, who briefs the public, has to tell residents something by eight. Today you decide how large the evacuation zone should be. To do that you work out how much air the release can fill. The morning is warming, and that changes it. Then you choose which measurement to buy next. Both mistakes cost people. Evacuate too small an area and somebody is left standing downwind. Evacuate the whole district and you block the roads the fire crews need.",
+    "title": "The Invisible Cloud",
+    "objective": "Bound the volatile release and set evacuation or shelter triggers from measurements rather than from gas-law volume alone.",
+    "briefing": "One volatile fraction from the mixed cargo is moving toward two neighbourhoods. Gas laws set its scale; wind, turbulence, terrain and chemistry decide exposure.",
+    "stake": "Day 2. Before sunrise the wind turns forty degrees and the volatile fraction points toward two neighbourhoods. The plume is colourless. Police need a corridor, residents need instructions, and Fire Command needs the roads kept open. Today you use the gas calculation only for scale, then decide which measurements actually deserve to move the evacuation line.",
     "takeaway": "Provide a bounded plume assessment and decision triggers for evacuation zones.",
     "stops": [
       {
@@ -57,10 +57,10 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "A Reaction Underground",
-    "objective": "Estimate the maximum reaction scale and define measurements that verify whether the assumed chemistry is occurring.",
-    "briefing": "Two drainage streams may mix in a confined tunnel. The player must determine limiting reactants, plausible products, and gas or heat generation before crews enter. Entering before bounding the chemistry could expose crews to heat, pressure, or oxygen displacement.",
-    "stake": "Day 3. Two drains may be meeting in a closed tunnel under the yard. Femi Oyelaran, the closed-space safety officer, has a crew suited up at the hatch. They are waiting on your word. He will not send them in on a story. He has monitors at the hatch and two hours of bottled air per man. Today you work out the largest reaction that could be running down there. You also decide whether the reaction you assumed is the one really going on. What hurts people in a closed space is ordinary. Heat. Pressure. Air pushed aside until there is not enough oxygen left to breathe.",
+    "title": "Do Not Open the Hatch",
+    "objective": "Bound the largest plausible underground reaction and decide what evidence is required before confined-space entry.",
+    "briefing": "Runoff from two parts of the mixed cargo may be meeting in a closed drainage tunnel. The chemistry must be bounded before anyone enters.",
+    "stake": "Day 3. Two contaminated drains disappear into the same closed tunnel. Oyelaran has a crew at the hatch and will not send them down on a chemical story somebody has not balanced. Today you calculate the maximum gas and heat the plausible reaction can make, then ask whether the observations show that reaction is actually occurring. The hatch stays shut until both questions have answers.",
     "takeaway": "Estimate the maximum reaction scale and define measurements that verify whether the assumed chemistry is occurring.",
     "stops": [
       {
@@ -81,16 +81,16 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Identify the Unknowns",
-    "objective": "Assign confidence-ranked identities to mixture components using independent evidence.",
-    "briefing": "Chromatography reveals several peaks, while spectroscopy suggests overlapping functional groups. The player must combine separation and structural evidence rather than forcing one peak to equal one compound. A false identification could lead the treatment plant to use chemistry that creates a more hazardous byproduct.",
-    "stake": "Four days in. The lab has run a chromatogram. That is a chart with one peak for each thing the method managed to separate out. There are more peaks than the team has names. Two methods ran on the same sample, and they disagree. Kwabena Osei, the treatment engineer, wants a list this morning. His plant has to start ordering chemistry. Okonjo will not hand him a list she cannot defend. Today you decide what is really in that mixture. You say how sure you are willing to be about each name on it. Name something that is not there and the plant treats the water for it. Miss something that is there and the plant does not.",
+    "title": "One Result Is Lying",
+    "objective": "Confirm the major cargo components and identify a common-mode laboratory failure before the wrong compound enters the treatment plan.",
+    "briefing": "The chromatogram contains more peaks than the manifest explains, and two apparently agreeing measurements share a hidden dependency.",
+    "stake": "Day 4. The lab finally has enough data to name the major fractions of the mixed cargo. Then one result refuses to fit: duplicate chromatograms agree beautifully, but an independent structural spectrum does not. Osei is already ordering treatment chemicals from the identity list. Today you decide which evidence is real and whether two agreeing numbers are actually one mistake repeated twice.",
     "takeaway": "Assign confidence-ranked identities to mixture components using independent evidence.",
     "stops": [
       {
         "group": "IDENT",
         "lesson": 4,
-        "task": "From mixture to supported identity"
+        "task": "Which alkali metal is the greater water hazard?"
       },
       {
         "group": "IDENT",
@@ -105,10 +105,10 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "What Dissolved in the River?",
-    "objective": "Predict where each chemical class will be found and design a mass-balance sampling plan.",
-    "briefing": "Runoff from the accident enters the river. Some compounds remain in surface films, some dissolve, and others bind to sediment. The player must predict partitioning from molecular interactions and verify it with sampling. If the team samples only water, a persistent sediment reservoir may be missed until it re-enters the water supply.",
-    "stake": "Day 6. Runoff reached the river on the first night. Riverton's drinking-water intake is 900 metres downstream of the yard. Inês Ferreira, who owns water and sediment, has been out since four. She wants the reach sampled. The state's auditor wants a water survey, because that is what a water survey means. Today you design that survey. You choose where to sample, and in what order. You also choose which parts of the river get sampled at all. That last choice decides everything else. Test only the water and the result may come back clean. It would be honestly clean, today. Then the next flood stirs the riverbed up, and what settled there goes back into the water.",
+    "title": "Where Did the Metal Go?",
+    "objective": "Predict how the dissolved-metal fraction partitions among water, particles and sediment, then design a mass-balance survey.",
+    "briefing": "Firewater carried a dissolved-metal fraction into the river. A clean surface-water grab cannot show whether the material disappeared or merely moved.",
+    "stake": "Day 6. The first runoff reached the river on the night of the fire. The intake is 900 metres downstream, but the metal is no longer all in the water: some is dissolved, some is on particles, and some may already be in the bed. Today you decide where to sample so “the water looks better” cannot be mistaken for “the contaminant is gone.”",
     "takeaway": "Predict where each chemical class will be found and design a mass-balance sampling plan.",
     "stops": [
       {
@@ -129,10 +129,10 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "The Concentration Problem",
-    "objective": "Produce concentration maps whose units, detection limits, and quality controls are explicit.",
-    "briefing": "City leaders ask whether the contaminant is \"high,\" but samples differ in dilution, path length, and what else is in the sample. The team must turn signals into defensible concentrations. An incorrect concentration map can either close a safe water system or expose residents through a false reassurance.",
-    "stake": "A week and a day in. The utility director, Marisol Reyes, and her quality assurance lead, Rie Nakamura, stop agreeing this morning. The results are back as numbers. The city holds each number against a legal limit, one water system at a time. Nakamura wants every result run again before anything reopens. Reyes points out that four systems are shut on numbers nobody has checked. Hospitals are on tankers. A week of caution has a cost too, and today she is right. Today you turn raw readings into what was really in the river. You decide whether one of those numbers can be trusted at all. You choose where the next sample comes from. The instrument was calibrated over a set range of values. Nobody has checked what it does outside that range.",
+    "title": "Can We Trust the Numbers?",
+    "objective": "Turn instrument signals into concentrations with calibration, dilution, quality control and a sampling design tied to the reopening decision.",
+    "briefing": "The city now has concentration results, but some are over-range, some were diluted, and the limited sample map can still miss the places that matter.",
+    "stake": "Day 8. The first concentration map is on the wall and four systems are shut because of it. Nakamura points to over-range readings, dilution factors and a field kit that is much noisier than the laboratory. Reyes points to hospitals on tankers. Today you decide which numbers are real enough to act on and where the next thirty samples must go so the intake decision is not built on a beautiful map of the wrong places.",
     "takeaway": "Produce concentration maps whose units, detection limits, and quality controls are explicit.",
     "stops": [
       {
@@ -148,7 +148,7 @@ export const MISSIONS = [
       {
         "group": "QUANT",
         "lesson": 2,
-        "task": "Map concentration with limited samples"
+        "task": "Spend thirty laboratory samples where they change the decision"
       },
       {
         "group": "QUANT",
@@ -158,10 +158,10 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "The Water Changes pH",
-    "objective": "Select a controlled neutralization strategy and determine when buffer capacity will be exhausted.",
-    "briefing": "The river intake becomes acidic, while one proposed treatment could overshoot into strongly basic conditions. The player must use acid-base equilibria and buffering to control pH without masking chemical risk. A pH correction can mobilize metals, damage infrastructure, or injure workers if the chemical context is ignored.",
-    "stake": "Eleven days after the fire. The intake water has turned acidic. Reyes wants a neutralising dose in it this morning. Petra Novák, who maintains the pipeline, wants to know what that dose will do to her mains first. Ferreira ran a titration overnight. Her curve is nearly flat for four millilitres, and then it turns over hard. Today you pick a dose. To do that you work out how much acid is really in the water. You also read what the shape of that curve says about it. There is one dosing pump, and no way to take a dose back out. Overshoot and metals come off the pipe walls and into the water. Novák's question is the right one.",
+    "title": "The Dose That Overshot",
+    "objective": "Use pH, titration and buffer behaviour to choose a neutralisation strategy without overshooting the treatment window.",
+    "briefing": "The intake has turned acidic, but the starting pH measures only free hydrogen ion and badly underpredicts how much base the water will consume.",
+    "stake": "Day 11. Operators dosed from the pH reading and the pilot overshot. Ferreira's titration says why: the water carries a weak-acid reservoir that pH alone barely sees. Today you separate free hydrogen ion from total neutralisation demand and set a control rule that keeps the outfall inside its allowed window while the feed keeps changing.",
     "takeaway": "Select a controlled neutralization strategy and determine when buffer capacity will be exhausted.",
     "stops": [
       {
@@ -182,10 +182,10 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Equilibrium in the Reservoir",
-    "objective": "Predict how pH and ligands shift dissolved concentration and design monitoring for the metal coming back.",
-    "briefing": "After pH adjustment, dissolved contaminant decreases but sediment concentrations rise. The team must determine whether precipitation and complexation have transferred rather than destroyed the hazard. An apparently clean reservoir can become contaminated again when chemistry or flow changes.",
-    "stake": "A fortnight in. Two weeks of results have been clean. The amount dissolved in the water is down. The amount held in the riverbed is up by about as much. Elena Stavros, who will have to monitor this for a decade, is the only person in the room still asking about that. Everybody else has moved on to the treatment plant. Today you predict where the contaminant goes the next time conditions move. Then you design monitoring that would catch it coming back. Nothing was destroyed by the fix. It was moved into a form that is not in the water today. It is still in the reservoir. What tests that claim is a storm, a warm month, or the autumn week when the lake turns over.",
+    "title": "The Riverbed Is Not Clean",
+    "objective": "Show how equilibrium can move the metal between dissolved and solid phases and design monitoring for remobilisation.",
+    "briefing": "Dissolved metal has fallen while sediment metal has risen. Treatment changed where the hazard sits; it did not destroy the metal.",
+    "stake": "Day 14. Two weeks of water samples look reassuring. The sediment cores do not. Stavros puts them side by side: the amount leaving the water is showing up in the bed. Today you predict which future changes could put that metal back into solution, and you decide what must still be watched after everyone else wants to call the river clean.",
     "takeaway": "Predict how pH and ligands shift dissolved concentration and design monitoring for the metal coming back.",
     "stops": [
       {
@@ -201,15 +201,15 @@ export const MISSIONS = [
       {
         "group": "WATER",
         "lesson": 8,
-        "task": "Predict whether the salty pond freezes"
+        "task": "Will the holding pond freeze tonight?"
       }
     ]
   },
   {
-    "title": "The Air Is Not Clear Yet",
-    "objective": "Identify likely secondary products and update monitoring locations and times.",
-    "briefing": "Sunlight and atmospheric oxidants transform remaining vapors into secondary products. The player must reason about radicals, reaction pathways, and changing exposure after the source is controlled. Residents may return after the primary plume clears while secondary pollutants are still forming.",
-    "stake": "Seventeen days after the fire. The main plume cleared a week ago. Residents came home the day after that. Since then Varga's monitors climb every afternoon and drop again overnight. He has raised it twice and been told the release is over. He has three fixed monitors, all of them on the yard fence, and one van. Today you work out what is forming out there in the afternoon air. Then you move the monitoring to where and when it could see it. Monitoring built for the release will keep reporting that the release is over. It will be right, too. People are back in their houses with the windows open.",
+    "title": "The Plume Came Back",
+    "objective": "Identify secondary atmospheric products and move monitoring to the places and times that can still change the return-home decision.",
+    "briefing": "The primary volatile has fallen, but an afternoon secondary product is rising downwind after the source is sealed.",
+    "stake": "Day 17. The original vapour is nearly gone and residents have already been told the air emergency is ending. Then the neighbourhood monitor climbs again every afternoon. Today you test whether sunlight is turning the remaining vapour into something new, and you move the monitoring from the fence to where people are actually breathing it. A sealed source does not end chemistry already in the air.",
     "takeaway": "Identify likely secondary products and update monitoring locations and times.",
     "stops": [
       {
@@ -230,10 +230,10 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "The Heat Is Rising",
-    "objective": "Create an energy balance and choose a monitoring plan that detects self-heating early.",
-    "briefing": "A storage zone continues warming after the visible fire is out. The team must distinguish stored heat from ongoing exothermic reaction and estimate whether cooling can keep up. If self-heating is mistaken for leftover warmth, responders may leave before runaway conditions develop.",
-    "stake": "Three weeks after the fire, eleven in the morning. The fire has been out for three weeks, and one storage bay is still getting warmer. Tomas Brandt, who owns reactions and energy, has been reading it hourly since midnight. He has 11 readings. Fire Command wants the site released tonight, and the crews have been on shift for 14 hours. Today you decide whether that bay is holding leftover heat or running a reaction. To do it you work out how much energy it takes to warm that much material. Then you set up monitoring, whichever way you call it. Fire Command wants your answer after the next reading, not after the trend.",
+    "title": "Why Is It Still Heating?",
+    "objective": "Distinguish stored heat from continuing reaction and require monitoring that can detect self-heating before release of the storage zone.",
+    "briefing": "A storage bay is warming three weeks after the fire. The decision is whether it is slowly cooling from the original event or still generating heat.",
+    "stake": "Day 22. One storage bay is hotter than it was at midnight even though the visible fire has been out for weeks. Fire Command wants the cordon down tonight. Today you convert temperature into an energy scale, compare the time histories, and decide what evidence would prove the heat source is gone rather than merely hidden.",
     "takeaway": "Create an energy balance and choose a monitoring plan that detects self-heating early.",
     "stops": [
       {
@@ -259,10 +259,10 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "The Corrosion Failure",
-    "objective": "Identify the corrosion cell and choose controls that address both chemistry and electrical coupling.",
-    "briefing": "Acidic water and different metals threaten the intake pipeline. The player must identify redox couples and stop a small leak from becoming a system-wide failure. A hidden localized failure could interrupt drinking water during the emergency.",
-    "stake": "Day 26. A section of the intake pipeline has failed. Novák is standing in the hole in Third Street. It is also the main your own team clamped an earth cable to a fortnight ago. That pipe carries the water 140000 people drink. The city is already on its reserves. Today you find where the metal is being lost, and why. You work out how fast it is going. Then you choose the protection. Speed decides your answer. The same loss spread over ten years is maintenance. The same loss over a fortnight is a burst main under a street.",
+    "title": "The Pipe We Damaged",
+    "objective": "Identify the galvanic corrosion circuit, estimate the scale of wall loss, and choose a control that breaks the electrical coupling.",
+    "briefing": "The intake main fails at a mixed-metal joint that the response itself connected electrically during the emergency.",
+    "stake": "Day 26. The city's intake main has sprung a leak at a mixed-metal joint. Then Novák finds the response team's temporary earth cable clamped across the same section. Today you identify the anode, cathode, electrolyte and electrical path, estimate what the average mass loss means for wall thickness, and choose the control that breaks the circuit before a second leak closes the intake again.",
     "takeaway": "Identify the corrosion cell and choose controls that address both chemistry and electrical coupling.",
     "stops": [
       {
@@ -283,10 +283,10 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Will the Reaction Run Away?",
-    "objective": "Identify the controlling rate factors and define a safe operating envelope with automatic shutdown triggers.",
-    "briefing": "A treatment chemical reacts slowly at room temperature but rapidly as the vessel warms. The team must connect rate laws and activation energy to thermal feedback. A treatment intended to remove contamination could become the largest hazard on the site.",
-    "stake": "A month in. The treatment chemical sat quietly in a drum all week. In Brandt's warm pilot vessel it is lively. His own trace shows an hour of almost nothing, and then a step. Osei plans to run it at full scale on Monday. The pilot vessel holds 40 litres. The plant tank holds 9000. Today you set the temperature range this process is allowed to run in. You also decide what shuts it down without asking anybody first. Remember what treatment does. It gathers a spill spread thin across a whole yard into one tank. If that tank runs away, all of it leaves at once, and hot.",
+    "title": "Can the Treatment Run Away?",
+    "objective": "Stress-test the treatment kinetics and define a thermal operating envelope that remains safe when the reaction is more temperature-sensitive than expected.",
+    "briefing": "A treatment chemistry that was quiet in a drum accelerates in the warm pilot vessel. Full-scale operation concentrates the reacting material and the heat.",
+    "stake": "Day 31. The pilot looks calm at first and then its temperature trace bends upward. Osei plans to scale from 40 litres to 9,000 on Monday. Today you build the feedback loop, push the uncertain temperature dependence in the dangerous direction, and choose the operating plan that still keeps heat generation below cooling when the optimistic assumption is wrong.",
     "takeaway": "Identify the controlling rate factors and define a safe operating envelope with automatic shutdown triggers.",
     "stops": [
       {
@@ -307,10 +307,10 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Remove It Without Making It Worse",
-    "objective": "Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.",
-    "briefing": "Three treatment methods can lower the target contaminant, but one creates a toxic byproduct and another shifts the contaminant into sludge. The player must compare complete chemical consequences. A rapid treatment can create a less visible but more persistent hazard.",
-    "stake": "Day 38. Osei's pilot treatment works. By the outlet, 98% of the compound you identified is gone. He wants to scale it up this week. Nakamura points out that the test panel it was measured against was written for that compound and nothing else. Today you work out what the treatment actually did. What it removed. What it made instead. Where the rest of it went. A panel written for the original compound reports success either way, because it is not looking for whatever you made. The hazard that lasts longest here may be one there is still no test for.",
+    "title": "Gone From the Water Is Not Gone",
+    "objective": "Choose a treatment train from complete mass balance, byproducts, waste fate and operational reliability rather than target removal alone.",
+    "briefing": "The pilot removes most of the target from water, but the mass has moved into sludge, off-gas and an incompletely characterised transformation-product pool.",
+    "stake": "Day 38. The pilot outlet is 98 percent lower for the target compound and everyone wants to call that success. Delgado lays out the other streams: sludge, off-gas and a new signal the target-only method cannot quantify. Today you close the mass balance, order the treatment stages by the chemistry each one leaves the next, and choose the pilot question that can reveal whether the “removal” created a new hazard.",
     "takeaway": "Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.",
     "stops": [
       {
@@ -331,16 +331,16 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Can the Water Be Released?",
-    "objective": "Make a transparent release decision with conditional monitoring and explicit treatment of borderline results.",
-    "briefing": "Treatment results cluster near the decision threshold. The player must account for uncertainty, detection limits, and sampling representativeness before reopening the water system. A premature release exposes the city; an unnecessary hold can deprive hospitals and homes of essential water.",
-    "stake": "Day 45, and Nakamura gets her day. The verification results are in. One of them sits just under the limit. It is also the re-run of a sample whose first quality check failed. She has the instrument's own repeatability, measured over 40 duplicate runs, and she would like somebody to look at it. Reyes has schools and two hospitals on tankers. She wants the release signed this morning. Today you decide between three things: release, release with conditions, or hold. Nakamura's name goes on that form under Reyes's. Both mistakes are real. Letting bad water out and holding good water back are not the same size of wrong.",
+    "title": "Are We Ready to Reopen?",
+    "objective": "Close the last analytical and sampling gaps and make a release decision using a predefined decision band rather than the best estimate alone.",
+    "briefing": "Verification is near the release limit. The last identity question, sampling representativeness and measurement uncertainty all have to be resolved before the distribution network is pressurised.",
+    "stake": "Day 45. The treated water is near the release limit, one transformation-product peak still has two plausible identities, and the first quality check on the critical sample failed. Reyes has schools and hospitals on tankers. Today you close the identity and verification gaps, then decide whether the evidence supports release, conditional release, or a continued hold. The rule is written before you look at the answer.",
     "takeaway": "Make a transparent release decision with conditional monitoring and explicit treatment of borderline results.",
     "stops": [
       {
         "group": "QUANT",
         "lesson": 4,
-        "task": "A borderline result"
+        "task": "Name the last unresolved treatment product"
       },
       {
         "group": "QUANT",
@@ -355,10 +355,10 @@ export const MISSIONS = [
     ]
   },
   {
-    "title": "Reopen the City",
-    "objective": "Deliver a claim-by-claim chemical evidence package and a long-term monitoring plan.",
-    "briefing": "The final board must explain what was released, how chemicals moved and changed, which treatments worked, and what contamination remains in solids, infrastructure, and ecosystems. Without a complete fate and uncertainty record, the city cannot know whether the emergency is over or merely hidden.",
-    "stake": "Seven weeks in. The mayor wants one word tonight, and Mbeki has to put it on a screen behind him. Behind that one word sits everything your teams have worked out in seven weeks. Those conclusions are not all equally strong. Stavros wants the monitoring programme funded before the emergency budget closes on Friday. Nobody else in the room has mentioned it. Today you take the claims one at a time. What was measured. What was worked out from it. What is still open. Then you decide what the city keeps paying for after everyone goes home. The sentence people quote back to you for years is usually the one you were least sure of.",
+    "title": "Sign the Water Back On",
+    "objective": "Deliver the claim-by-claim evidence package and decide whether Riverton can reopen under explicit controls, triggers and long-term monitoring.",
+    "briefing": "The final board must separate what is established, what remains provisional, and what is safe only while a control continues. Reopening is a managed decision, not a declaration that every contaminant is gone.",
+    "stake": "Seven weeks in. The state reviewer is at the table and the mayor wants one word tonight: reopen or hold. The treated water now meets the predefined release rule at representative endpoints, but contaminated sediment remains, a transformation product is still provisional, and the pipeline is safe only inside a chemistry window. Today you classify those claims, audit one last treatment number, and then sign — or refuse to sign — the order that puts Riverton's water back into its own pipes.",
     "takeaway": "Deliver a claim-by-claim chemical evidence package and a long-term monitoring plan.",
     "stops": [
       {
@@ -374,7 +374,7 @@ export const MISSIONS = [
       {
         "group": "TREAT",
         "lesson": 9,
-        "task": "Fund the chemical legacy"
+        "task": "Sign the reopening order"
       }
     ]
   }
