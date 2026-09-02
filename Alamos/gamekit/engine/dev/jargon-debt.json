@@ -1,0 +1,165 @@
+{
+  "_": [
+    "Hard words used and never introduced, per theme; days whose primer covers none of",
+    "the words the day leaves unexplained; and terms a junior edition explains only once.",
+    "",
+    "Same two properties as concept-debt.json: a row NOT on this list fails immediately,",
+    "so nothing new drifts in; and a row on this list that has since been fixed also",
+    "fails, naming the line to delete, so the file cannot become a standing excuse. It",
+    "only shrinks. Regenerate one theme's rows with `checkJargon.mjs <theme> --record`.",
+    "",
+    "This file exists because askedText was widened to read `guide`, `background` and a",
+    "reading's value and note. Those fields carry much of the prose on a modern card and",
+    "had never been inspected, so 16 themes went red at once. Red Sand is absent because",
+    "its four were paid off rather than recorded.",
+    "",
+    "Some rows are noise the hard-word test itself produces rather than real defects --",
+    "`value`, `abcd`, `rgb`, `cv`, `ir`, `rate` come from the two-to-five-letter acronym",
+    "rule and from TERMS entries that are ordinary English in these games. Those want",
+    "fixing in the lexicon, not glossing on a card. They are recorded rather than hidden",
+    "so that the triage stays visible."
+  ],
+  "neverIntroduced": {
+    "contamcity": [
+      "ppb"
+    ],
+    "projecty": [
+      "equilibrium",
+      "scrubber"
+    ],
+    "deepwatch": [
+      "doppler",
+      "spectrum"
+    ],
+    "outbreak_riverton": [
+      "hypoperfusion",
+      "solubility"
+    ],
+    "aftershock": [
+      "value"
+    ],
+    "quantum": [
+      "spectroscopy"
+    ],
+    "instruments": [
+      "quadrature",
+      "rate"
+    ],
+    "the_trial": [
+      "calibrated",
+      "value"
+    ],
+    "headwater": [
+      "precipitation",
+      "quadrature",
+      "rms",
+      "transducer"
+    ],
+    "icecore": [
+      "quadrature",
+      "saturated"
+    ],
+    "seedbank": [
+      "calibration"
+    ],
+    "icecore_ms": [
+      "error bar"
+    ],
+    "groundtruth": [
+      "calibration",
+      "cv",
+      "equilibrium",
+      "ir",
+      "value"
+    ],
+    "redsand_ms": [
+      "enthalpy",
+      "entropy",
+      "molar",
+      "ppm"
+    ],
+    "the_trial_ms": [
+      "calibrated"
+    ],
+    "deepwatch_hs": [
+      "doppler",
+      "torque"
+    ],
+    "contamcity_hs": [
+      "ppb",
+      "saturated",
+      "solvent",
+      "undersaturated"
+    ],
+    "the_trial_hs": [
+      "calibrated",
+      "value"
+    ],
+    "carrying": [
+      "buffer",
+      "epidemic",
+      "mg/l",
+      "oxidis",
+      "reservoir"
+    ],
+    "ghostlight": [
+      "calibration",
+      "rgb"
+    ],
+    "darkfibre": [
+      "isotope"
+    ],
+    "qd_dna": [
+      "abcd"
+    ],
+    "qd_higgs": [
+      "calibration"
+    ],
+    "qd_cmb": [
+      "equilibrium"
+    ],
+    "qd_hubble": [
+      "miscalibrated"
+    ],
+    "qd_penicillin": [
+      "solvent"
+    ],
+    "qd_crispr": [
+      "antibody",
+      "dna"
+    ],
+    "qd_periodic": [
+      "spectroscope"
+    ],
+    "qd_memory": [
+      "calibrated"
+    ]
+  },
+  "blindDays": {
+    "groundtruth": [
+      6
+    ],
+    "redsand_ms": [
+      2
+    ],
+    "ghostlight": [
+      11
+    ]
+  },
+  "explainedOnce": {
+    "icecore_ms": [
+      "calibrated",
+      "calibration",
+      "error bar"
+    ],
+    "redsand_ms": [
+      "enthalpy",
+      "entropy",
+      "molar",
+      "ppm"
+    ],
+    "the_trial_ms": [
+      "calibrated"
+    ]
+  }
+}

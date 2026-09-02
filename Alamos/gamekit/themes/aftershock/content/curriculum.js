@@ -865,7 +865,7 @@ export const CURRICULUM = {
         "setup": "Structural Assessment",
         "play": "Decide what the lean actually costs",
         "task": "Decide what the lean actually costs",
-        "question": "What is the engineering objection to leaving Marina Court standing?",
+        "question": "Settlement — the ground sinking under the raft — has left Marina Court leaning eight degrees. What is the engineering objection to leaving the block standing?",
         "answer": "That the weight now acts off-centre, adding bending to columns built to be squashed.",
         "why": "Once the whole building is tilted, gravity no longer acts through the same geometry for which the columns and frame were proportioned. The lateral offset creates additional bending and second-order P–Δ effects, and an eight-degree lean is far beyond something that can be dismissed because the members are visibly uncracked. The survey therefore supports a red restriction while engineers check global stability, member demand and whether the ground has stopped moving. The angle does not guarantee that the lean will keep increasing on its own; renewed settlement or aftershocks are separate mechanisms that have to be monitored.",
         "rebuttals": [

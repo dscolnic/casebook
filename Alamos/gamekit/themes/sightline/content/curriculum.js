@@ -2627,7 +2627,7 @@ export const CURRICULUM = {
         "setup": "Dark Adaptation Booth",
         "play": "Work out what a witness in a dark street is reliable about",
         "task": "Work out what a witness in a dark street is reliable about",
-        "question": "What is a witness at two lux most likely to be right about?",
+        "question": "What is a dark-adapted witness — one whose eyes have had time to adjust — most likely to be right about at two lux?",
         "answer": "The way the man moved and the direction he went",
         "why": "Rods pool their signals, which buys reach in the dark and costs resolution, and they are absent from the very centre of gaze — so a dark scene delivers movement, outline and heading well and everything fine badly. A report that treats a witness as reliable or unreliable as a whole gets this wrong in both directions. The useful question is always which part of the account the conditions could support, and gait and direction are the parts that survive two lux at thirty-four metres.\n",
         "rebuttals": [

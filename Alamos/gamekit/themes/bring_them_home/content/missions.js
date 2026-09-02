@@ -154,7 +154,7 @@ export const MISSIONS = [
       {
         "group": "ELEC",
         "lesson": 1,
-        "task": "Match each case to the best scientific answer. Use each choice once.",
+        "task": "Ferreira wants redundancy — a spare that carries on if one cell fails. Match each wiring change to what it actually does. Use each choice once.",
         "reason": "The wrong wiring can remove power or spread a fault."
       },
       {
@@ -355,7 +355,7 @@ export const MISSIONS = [
       {
         "group": "INTEG",
         "lesson": 17,
-        "task": "Match each case to the best scientific answer. Use each choice once.",
+        "task": "Match each path to the dependency it pushes closest to its limit — the thing that runs out first. Use each choice once.",
         "reason": "The safest path is set by the limit it nearly breaks."
       },
       {

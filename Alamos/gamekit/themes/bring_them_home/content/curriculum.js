@@ -768,9 +768,9 @@ export const CURRICULUM = {
         "type": "PROTOCOL",
         "title": "Series or parallel?",
         "setup": "Battery Test Bench",
-        "play": "Match each case to the best scientific answer. Use each choice once.",
-        "task": "Match each case to the best scientific answer. Use each choice once.",
-        "question": "Match each case to the best scientific answer. Use each choice once.",
+        "play": "Ferreira wants redundancy — a spare that carries on if one cell fails. Match each wiring change to what it actually does. Use each choice once.",
+        "task": "Ferreira wants redundancy — a spare that carries on if one cell fails. Match each wiring change to what it actually does. Use each choice once.",
+        "question": "Ferreira wants redundancy — a spare that carries on if one cell fails. Match each wiring change to what it actually does. Use each choice once.",
         "answer": "",
         "why": "Circuit topology determines voltage, current sharing, and fault behavior. Equal cells in series add voltage while carrying the same current. One open cell can therefore break the whole series path. Equal cells in parallel keep about the same voltage and share the current. That arrangement can add useful capacity. A resistive parallel branch carries less than its share, forcing the other branches to carry more. Redundancy only helps when the connection and protection rules prevent one fault from defeating the whole arrangement.",
         "rebuttals": [
@@ -2054,7 +2054,7 @@ export const CURRICULUM = {
         "setup": "Spacecraft Systems Console",
         "play": "Ten minutes to the next tracking pass. What does the flight director do first?",
         "task": "Ten minutes to the next tracking pass. What does the flight director do first?",
-        "question": "Ten minutes to the next tracking pass. What does the flight director do first?",
+        "question": "Ten minutes to the next tracking pass. Four teams are working the same failure mode — the same broken system — from four different sets of numbers. What does the flight director do first?",
         "answer": "Open one anomaly log and one command authority.",
         "why": "Attention is a physical resource in an emergency, just like propellant. The first decision determines where that resource goes. Four controllers are already working one failure from four sets of numbers. Without one log and one command authority, the same analysis can be repeated or contradicted. The crew may then execute whichever version reaches them first. Organising the room is not a delay before the technical work. It is what lets every later calculation and command count once.",
         "rebuttals": [
@@ -2074,13 +2074,9 @@ export const CURRICULUM = {
         "two rooms acting on different versions of one number is worse than either acting alone"
       ],
       "concept": {
-        "n": 10,
-        "c": "Gravitation and orbits",
-        "of": 30,
-        "rests": [
-          "Circular motion and centripetal force",
-          "Newton's laws and free-body reasoning"
-        ]
+        "n": 20,
+        "c": "Systems thinking: dependency, redundancy, failure modes",
+        "of": 30
       }
     },
     {
@@ -3139,9 +3135,9 @@ export const CURRICULUM = {
         "type": "PROTOCOL",
         "title": "Name the binding constraint",
         "setup": "Mission Design Center",
-        "play": "Match each case to the best scientific answer. Use each choice once.",
-        "task": "Match each case to the best scientific answer. Use each choice once.",
-        "question": "Match each case to the best scientific answer. Use each choice once.",
+        "play": "Match each path to the dependency it pushes closest to its limit — the thing that runs out first. Use each choice once.",
+        "task": "Match each path to the dependency it pushes closest to its limit — the thing that runs out first. Use each choice once.",
+        "question": "Match each path to the dependency it pushes closest to its limit — the thing that runs out first. Use each choice once.",
         "answer": "",
         "why": "A trajectory is a system choice because its costs land on different subsystems. More flight time spends oxygen, water, scrubber capacity, and electrical energy. A larger correction burn spends propellant and increases execution error. A steeper atmospheric entry raises peak heating and deceleration. A long communications blackout leaves the crew without ground support when navigation is most difficult. No single path minimizes every cost. The useful question is which constraint each path pushes closest to its limit.",
         "rebuttals": [
@@ -3177,13 +3173,9 @@ export const CURRICULUM = {
         "a spacecraft carries a fixed amount of everything it needs"
       ],
       "concept": {
-        "n": 28,
-        "c": "Capacitance, RC time constants and transients",
-        "of": 30,
-        "rests": [
-          "Circuits: current, voltage, resistance, Ohm's law",
-          "Electrical power and energy budgets"
-        ]
+        "n": 20,
+        "c": "Systems thinking: dependency, redundancy, failure modes",
+        "of": 30
       }
     },
     {

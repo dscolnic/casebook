@@ -4541,7 +4541,8 @@ missions:
     - 2
     - 3
   - group: P
-    task: Which transformation makes exponential decay linear, and what physical quantity comes from the slope?
+    task: Which transformation makes exponential decay a straight line, and what physical quantity comes from the slope
+      of the line?
     title: The plot that makes a decay a straight line
     concept: "Graphical analysis: semi-log plots and slopes"
     place: Diagnostics Bay
@@ -6604,6 +6605,7 @@ lessons:
     Arrange the four cards from earliest cause or prerequisite to latest result, for a spectrum whose
     peaks have to be identified after calibration.
   title: Gamma-ray spectroscopy
+  concept: "Experimental method: controls, calibration, systematic vs random error"
   setup: Order the analysis from raw spectrum to line identification.
   scene: >-
     A counting run on fission products has finished and Wu has the raw spectrum on the

@@ -442,7 +442,8 @@ missions:
           - participants are assigned to arms by chance rather than by choice
         takeaway: If the next assignment can be seen in advance, chance is no longer the only thing choosing.
         format: CHOICE
-        question: What has site 7's readable diary cost CLARION-3?
+        question: Site 7 has lost allocation concealment — the next arm is no longer hidden when a patient is entered.
+          What has that cost CLARION-3?
         choices:
           - The groups can differ by who was picked, not only by luck
           - The nurse giving the infusion will be able to tell what is in the bag

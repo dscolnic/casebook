@@ -23,7 +23,7 @@ export const CURRICULUM = {
         "setup": "Kit Warehouse & Cold Room",
         "play": "Work out which protection site 7 has lost",
         "task": "Work out which protection site 7 has lost",
-        "question": "What has site 7's readable diary cost CLARION-3?",
+        "question": "Site 7 has lost allocation concealment — the next arm is no longer hidden when a patient is entered. What has that cost CLARION-3?",
         "answer": "The groups can differ by who was picked, not only by luck",
         "why": "Randomisation only buys balanced groups if nobody can see what is coming. A nurse who knows the next slot is the drug can wait a day for a patient she thinks will do well, or enter a frailer one when the next slot is standard care. Neither is dishonest and both destroy the comparison, because the arms now differ in who was entered as well as in what they were given. Concealment protects the moment of entry. Blinding protects everything after it, and the two fail separately.\n",
         "rebuttals": [

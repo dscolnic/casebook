@@ -121,7 +121,7 @@ export const MISSIONS = [
       {
         "group": "DIST",
         "lesson": 0,
-        "task": "Match each connection to what it shares",
+        "task": "Match each connection — end to end in series, side by side in parallel — to what it shares",
         "reason": "Obi is training a new starter at the depot whiteboard, and the depot has eleven dead circuits tonight"
       },
       {

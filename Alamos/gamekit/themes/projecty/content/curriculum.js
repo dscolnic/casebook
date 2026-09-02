@@ -2594,9 +2594,9 @@ export const CURRICULUM = {
         "type": "CHOICE",
         "title": "The plot that makes a decay a straight line",
         "setup": "Diagnostics Bay",
-        "play": "Which transformation makes exponential decay linear, and what physical quantity comes from the slope?",
-        "task": "Which transformation makes exponential decay linear, and what physical quantity comes from the slope?",
-        "question": "Which transformation makes exponential decay linear, and what physical quantity comes from the slope?",
+        "play": "Which transformation makes exponential decay a straight line, and what physical quantity comes from the slope of the line?",
+        "task": "Which transformation makes exponential decay a straight line, and what physical quantity comes from the slope of the line?",
+        "question": "Which transformation makes exponential decay a straight line, and what physical quantity comes from the slope of the line?",
         "answer": "Plot ln(count rate) versus time. The slope is −λ, and the half-life follows from t½ = ln2/λ.",
         "why": "An exponential plotted on linear axes is a curve, which is hard to check by eye. Take the logarithm of the count rate and the same data becomes a straight line. Its slope is minus the decay constant, so the half-life follows from t½ = ln2/λ. The transformed plot also exposes failures: a second component can change the slope, while background can flatten the line at late times. Choosing the axes is part of the measurement.",
         "rebuttals": [
@@ -3087,12 +3087,9 @@ export const CURRICULUM = {
         ]
       },
       "concept": {
-        "n": 4,
-        "c": "Radioactive decay modes: alpha, beta, gamma",
-        "of": 30,
-        "rests": [
-          "Nuclear structure: protons, neutrons, isotopes, nuclide notation"
-        ]
+        "n": 20,
+        "c": "Experimental method: controls, calibration, systematic vs random error",
+        "of": 30
       }
     },
     {

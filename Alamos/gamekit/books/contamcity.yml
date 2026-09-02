@@ -1955,7 +1955,8 @@ missions:
     title: Heat release is not the spontaneity test
     place: Reactions and Energy Bay
     setup: Separate the thermodynamic calculation from the observation about rate.
-    question: At 18 °C, what is ΔG, and what does the lack of product say about the reaction rate?
+    question: At 18 °C, what is ΔG — the free energy change — and what does the lack of product say about the reaction
+      rate?
     scene: A clean-up reagent is staged beside the tunnel; the tank test shows no product after 6 days at 18 °C. Léa 
       Moreau, the energy division's researcher, hands over the measured ΔH and ΔS and asks whether the chemistry is 
       impossible or simply slow.

@@ -2892,7 +2892,7 @@ export const CURRICULUM = {
         "setup": "Separate the thermodynamic calculation from the observation about rate.",
         "play": "Calculate ΔG at 18 °C, then decide whether thermodynamics favors the reaction and what the 6 quiet days imply about its rate.",
         "task": "Calculate ΔG at 18 °C, then decide whether thermodynamics favors the reaction and what the 6 quiet days imply about its rate.",
-        "question": "At 18 °C, what is ΔG, and what does the lack of product say about the reaction rate?",
+        "question": "At 18 °C, what is ΔG — the free energy change — and what does the lack of product say about the reaction rate?",
         "answer": "ΔG ≈ −64 kJ/mol at 291 K, so the reaction is thermodynamically favored. Six quiet days point to a slow reaction rate, not unfavorable free energy.",
         "why": "Free energy combines enthalpy, entropy and temperature. At 291 K, ΔG = −180 − 291(−0.40) ≈ −64 kJ/mol, so the reaction is thermodynamically favorable. That does not make it fast. The unchanged tank points to a substantial activation barrier at this temperature. This distinction matters in treatment design. Temperature or a catalyst can change reaction rate without changing the sign of ΔG. A favorable ΔG alone never guarantees useful speed.",
         "rebuttals": [

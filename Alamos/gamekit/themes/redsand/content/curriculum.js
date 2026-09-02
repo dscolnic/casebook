@@ -1958,36 +1958,36 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Which electrode does which job",
-      "scene": "The hall runs two kinds of cell: one splits water, the other splits carbon dioxide at 800 degrees. Rosalind Achebe, the power and electrolysis engineer, has the four parts listed on the board.",
-      "takeaway": "The two halves of one electron transfer can be run in separate places, so long as something carries an ion between them.",
+      "scene": "The hall runs two kinds of cell. One splits water. The other splits carbon dioxide, and it runs at about 1,070 K to do it. Rosalind Achebe, the power and electrolysis engineer, has four parts listed on the board.",
+      "takeaway": "The giving and the taking can happen in two different places, as long as something carries an ion between them.",
       "place": "Electrolysis Hall",
       "at": "stack",
-      "guide": "Achebe's board is really one question asked four times: what is this item for? Two of them are electrodes. An electrode is named by which way electrons move there. In means reduction, a gain of electrons. Out means oxidation, a loss. One item is the electrolyte sitting between the two, and it has a job of its own. The last is not part of the cell at all, so ask whether it settles a direction or an amount.",
+      "guide": "Achebe's board is one question asked four times: what is this part for?\n\nElectrons are tiny bits of electricity. Every one of these reactions is electrons moving from one substance to another. Somebody gives. Somebody takes. Giving electrons away is called oxidation. Taking them is called reduction.\n\nTwo items on the board are electrodes. An electrode is named by which way electrons move there. In means taking, so reduction. Out means giving, so oxidation.\n\nOne item is the electrolyte, sitting between the two, with a job of its own. The last one is not part of the cell at all. Ask whether it decides a direction or an amount.",
       "background": [
-        "Why an electron transfer always has two halves. Each of these reactions is one substance losing electrons and another gaining them. The two always happen together. Nothing loses electrons with nobody there to take them. Oxidation is the losing half; reduction is the gaining half. A cell's trick is to make those two halves happen a few centimetres apart.",
+        "Why giving and taking always happen together. Each of these reactions is one substance losing electrons and another gaining them. The two always happen at the same time. Nothing gives electrons away with nobody there to take them. Losing is oxidation. Gaining is reduction. A cell's trick is to make those two halves happen a few centimetres apart.",
         "What the electrolyte does, and why it has to refuse electrons. Charge has to get back somehow or the cell stops in a moment. The electrolyte lets ions carry it — here oxide ions, O²⁻, crossing the solid. What it will not carry is electrons. That refusal is the whole design. The electrons have no way home except the outside wire. That is where the work gets done, and where the current is measured.",
-        "Why the current setting is a different kind of thing. The two electrodes and the electrolyte decide what happens. The current decides how much. Faraday's law makes that exact. A fixed amount of charge is a fixed number of moles, because each molecule of product needs a set number of electrons. Two for a molecule of hydrogen. Four for one of oxygen. Charge is not a rough guide to yield. It is the count."
+        "Why the current setting is a different kind of thing. The two electrodes and the electrolyte decide what happens. The current decides how much. Faraday's law makes that exact. A fixed amount of charge is a fixed number of moles. A mole is just a fixed, very large count of molecules. The link is exact because each molecule needs a set number of electrons. Two for a molecule of hydrogen. Four for one of oxygen. Charge is not a rough guide to how much you get. It is the count."
       ],
-      "story": "The hall runs two kinds of cell: one splits water, the other splits carbon dioxide at 800 degrees. Rosalind Achebe, the power and electrolysis engineer, has the four parts listed on the board.",
+      "story": "The hall runs two kinds of cell. One splits water. The other splits carbon dioxide, and it runs at about 1,070 K to do it. Rosalind Achebe, the power and electrolysis engineer, has four parts listed on the board.",
       "game": {
         "type": "PROTOCOL",
         "title": "Which electrode does which job",
         "setup": "Electrolysis Hall",
-        "play": "Match each item on Achebe's board to what it does.",
-        "task": "Match each item on Achebe's board to what it does.",
-        "question": "Match each item on Achebe's board to what it does.",
+        "play": "Match each part on Achebe's board to what it does.",
+        "task": "Match each part on Achebe's board to what it does.",
+        "question": "Match each part on Achebe's board to what it does.",
         "answer": "",
-        "why": "Electrolysis splits one electron transfer into two places. At the cathode the supply pushes electrons in, so whatever is there gains them — that is reduction. At the anode electrons are pulled back out, so whatever is there loses them — that is oxidation. The electrolyte between carries ions across and refuses electrons, which forces the circuit through the wire and keeps the two products apart. The current setting is different in kind: by Faraday's law, charge is moles, so it fixes the amount rather than the direction.",
+        "why": "Electrolysis splits one handover of electrons into two places. At the cathode the supply pushes electrons in, so whatever is there takes them — that is reduction. At the anode electrons are pulled back out, so whatever is there gives them up — that is oxidation. The electrolyte between carries ions across and refuses electrons, which forces the circuit through the wire and keeps the two products apart. The current setting is different in kind: charge is moles, so it fixes how much, not which way.",
         "scenarios": [
-          "The cathode, where the supply pushes electrons into the stream.",
+          "The cathode, where the supply pushes electrons in.",
           "The anode, where electrons are pulled back out.",
           "The solid electrolyte between them.",
           "The setting on the power supply."
         ],
         "choices": [
-          "Reduction: carbon dioxide takes electrons in here, and leaves an oxide ion behind.",
+          "Reduction: carbon dioxide takes electrons here, and leaves an oxide ion behind.",
           "Oxidation: oxide ions give their electrons up here, and leave as oxygen gas.",
-          "It carries oxide ions across and refuses electrons, so the circuit has to run through the wire.",
+          "It carries oxide ions across and refuses electrons, so the circuit must run through the wire.",
           "It sets how many moles a sol the cell can make, because charge and moles go together exactly."
         ],
         "mapping": [
@@ -1998,7 +1998,7 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "oxidation is loss of electrons and reduction is gain of electrons",
+        "oxidation is giving electrons away and reduction is taking them",
         "a current is a flow of charge",
         "stoichiometry as a feed rate: turning a production target into kilograms in — taken as read"
       ],
@@ -2020,31 +2020,31 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Where 8% of the charge went",
-      "scene": "The cell held 640 amps for a full sol. Faraday’s law predicts about 594 grams of hydrogen, but the separator collected only 546. Achebe has already checked the collection-line pressure and the hydrogen inventory downstream.",
-      "takeaway": "Faraday’s law fixes the theoretical product from charge; current efficiency measures how much of that charge reached the intended reaction.",
+      "scene": "The cell held 640 amps for a whole sol. Faraday's law says that is about 594 grams of hydrogen. The separator collected 546. Achebe has already checked the collection line and the store downstream.",
+      "takeaway": "Charge sets the ceiling. Current efficiency says how much of that charge actually did the job.",
       "place": "Electrolysis Hall",
       "at": "stack",
-      "guide": "Achebe has done the sensible checks already, so start where she left off. Faraday's law turns charge into a mass of product. 640 amps held for a sol should give about 594 grams of hydrogen. The separator collected 546. She has cleared the collection line and the inventory downstream, so nothing is hiding in a pipe. Read every stream on the ledger. Then count only what genuinely belongs in it.",
+      "guide": "Achebe has done the sensible checks, so start where she left off.\n\nFaraday's law is a counting rule. Every electron that crosses the cell makes a fixed amount of hydrogen — two electrons for each molecule. So count the electrons and you know the hydrogen. 640 amps for a sol counts out at about 594 grams.\n\nThe separator collected 546. Nothing is sitting in a pipe; she has checked. So 48 grams' worth of electrons crossed the cell and made nothing anyone could collect.\n\nRead every stream on the ledger. Then count only what really belongs in it.",
       "background": [
-        "What Faraday's law claims. Every electron that crosses the cell makes a fixed amount of hydrogen — two electrons for each molecule of H₂. So the predicted mass is arithmetic on the charge. It is an upper bound rather than a forecast. It assumes every single electron did the job it was sent to do.",
-        "Why the gap is a measurement and not an error. Electrons that did something else still crossed, and still counted as charge. Some drove a side reaction at the electrode. Some ran as a shuttle current, carrying charge back and forth to no purpose. Some made hydrogen that recombined inside the cell before it ever reached the separator. What is left over measures how much of the current did useful work. That fraction has a name: current efficiency.",
-        "Why checking the line first was right. A leak would explain the whole gap. So would hydrogen standing in the collection line that was not standing there yesterday. Neither says anything about the cell. Ruling both out is what turns an awkward discrepancy into evidence about the electrochemistry."
+        "What Faraday's law claims. Every electron that crosses the cell makes a fixed amount of hydrogen — two electrons for each molecule of H₂. So the predicted mass is just arithmetic on the charge. It is a ceiling, not a forecast. It assumes every single electron did the job it was sent to do.",
+        "Why the gap is a measurement and not a mistake. Electrons that did something else still crossed, and still counted as charge. Some drove a different reaction at the electrode. Some ran back and forth to no purpose. Some made hydrogen that turned back inside the cell before it ever reached the separator. What is left over measures how much of the current did the job. That fraction has a name: current efficiency.",
+        "Why checking the line first was right. A leak would explain the whole gap. So would hydrogen standing in the collection line that was not standing there yesterday. Neither says anything about the cell. Ruling both out is what turns an awkward difference into evidence about the cell itself."
       ],
-      "story": "The cell held 640 amps for a full sol. Faraday’s law predicts about 594 grams of hydrogen, but the separator collected only 546. Achebe has already checked the collection-line pressure and the hydrogen inventory downstream.",
+      "story": "The cell held 640 amps for a whole sol. Faraday's law says that is about 594 grams of hydrogen. The separator collected 546. Achebe has already checked the collection line and the store downstream.",
       "game": {
         "type": "BALANCE",
         "title": "Where 8% of the charge went",
         "setup": "Electrolysis Hall",
         "play": "Close the hydrogen-equivalent charge ledger and identify the part of the current that did not become collected hydrogen.",
         "task": "Close the hydrogen-equivalent charge ledger and identify the part of the current that did not become collected hydrogen.",
-        "question": "What term closes the charge ledger, and what does that term measure about the cell?",
-        "answer": "The ledger is short by about 48 g of hydrogen-equivalent charge. The cell collected 546/594 ≈ 92% of the Faraday-law maximum, so its current efficiency is about 92%.",
-        "why": "Current times time gives charge. Faraday’s law turns that charge into a mass of product, because each electron makes a fixed amount of hydrogen. This run's charge is worth about 594 grams. Only 546 were collected. The line inventory and the measured vent loss both sat still, so the missing 48 grams are not hydrogen hiding downstream. They are charge that crossed the cell and did something other than make collectable hydrogen. 546/594 is about 92 per cent. That ratio is the cell's current efficiency for the run.",
+        "question": "What row closes the charge ledger, and what does that row measure about the cell?",
+        "answer": "The ledger is short by about 48 grams of hydrogen. The cell collected 546 of the 594 that the charge allowed, which is about 92 percent. That is its current efficiency.",
+        "why": "Current times time gives charge. Faraday's law turns that charge into a mass, because each electron makes a fixed amount of hydrogen. This run's charge is worth about 594 grams. Only 546 were collected. The collection line and the vent both sat still, so the missing 48 grams are not hiding downstream. They are electrons that crossed the cell and did something other than make hydrogen anyone could collect. 546 out of 594 is about 92 percent, and that is the cell's current efficiency for the run.",
         "balance": {
           "total": {
             "amount": 594,
             "unit": "g H₂-equivalent",
-            "label": "Product allowed by measured charge"
+            "label": "The most hydrogen this charge could make"
           },
           "streams": [
             {
@@ -2055,7 +2055,7 @@ export const CURRICULUM = {
             },
             {
               "id": "line_inventory",
-              "label": "Change in hydrogen held in the collection line",
+              "label": "Change in the hydrogen held in the collection line",
               "value": 0,
               "display": "No change"
             },
@@ -2067,50 +2067,20 @@ export const CURRICULUM = {
             },
             {
               "id": "nonproductive",
-              "label": "Charge not recovered as collected H₂",
+              "label": "Charge that made no hydrogen anyone could collect",
               "value": 48,
               "display": "48 g-equivalent",
               "hidden": true
             }
           ],
           "tolerance": 3,
-          "hint": "All rows are written in hydrogen-equivalent grams. Count the measured product and any real downstream storage or loss before deciding what must be assigned to the cell itself.",
+          "hint": "Every row is written in grams of hydrogen. Count what was actually measured, and anything really stored or lost downstream, before deciding what has to be put down to the cell itself.",
           "commit": "Report the total"
         }
       },
       "assumes": [
-        "Faraday’s law converts charge into a theoretical amount of product",
-        "current efficiency is collected product divided by theoretical product from charge"
-      ],
-      "equations": [
-        {
-          "e": "m = (I t / nF) × M",
-          "c": "Faraday's law: charge into kilograms",
-          "v": [
-            [
-              "I",
-              "the current, in amps"
-            ],
-            [
-              "t",
-              "the time it flows for, in seconds"
-            ],
-            [
-              "n",
-              "the electrons needed per molecule of product — two for hydrogen"
-            ],
-            [
-              "F",
-              "Faraday's constant, 96,485 coulombs per mole of electrons"
-            ],
-            [
-              "M",
-              "the molar mass of the product"
-            ]
-          ],
-          "s": "Electrons are countable, so an electrolysis cell is the one place in a chemical plant where the arithmetic is exact — everything else about the cell changes what the product costs rather than how much of it there is.",
-          "demanded": true
-        }
+        "Faraday's law turns charge into the most product you could possibly get",
+        "current efficiency is what you collected divided by what the charge allowed"
       ],
       "concept": {
         "n": 20,
@@ -2125,41 +2095,41 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Which part of 1.75 volts heats the stack?",
-      "scene": "The water stack has three voltage marks. Its reversible potential is near 1.23 V. Its thermoneutral mark is near\n1.48 V, and it runs at 1.75 V. Plant Control asks why the whole gap above 1.23 V is not simply waste heat.",
-      "takeaway": "Three voltage marks answer three questions about direction, total energy, and practical cell costs.",
+      "scene": "The water stack has three voltage marks on the board. One is 1.23 V. One is 1.48 V. It actually runs at 1.75 V. Plant Control wants to know why everything above 1.23 V is not simply wasted.",
+      "takeaway": "Three marks answer three different questions: can it happen, who pays for the heat, and what does it really cost.",
       "place": "Electrolysis Hall",
-      "guide": "Three voltage scales are on the board. About 1.23 V corresponds to the reversible Gibbs free-energy requirement. Around 1.48 V is the thermoneutral point where the electrical input matches the reaction enthalpy. Real kinetics and resistance push the operating voltage higher still. Separate those before deciding what becomes net stack heat.",
+      "guide": "Splitting water needs energy. Part of that energy has to arrive as electricity. Part of it could arrive as heat.\n\n1.23 V is the electricity part on its own. That is the least any cell could ever get away with, and only if it could borrow the rest as heat.\n\n1.48 V is electricity doing the whole job, the heat part included. Run there and the cell needs no heat from outside and makes none.\n\nThe stack runs at 1.75 V. Ask what the gap from 1.23 to 1.48 is doing, and then ask what the gap above 1.48 is doing. They are not the same thing.",
       "background": [
-        "What 1.23 V means. It is the reversible electrical free-energy requirement under the stated reference conditions. It is not a promise that a practical cell can carry useful current there.",
-        "What the thermoneutral voltage adds. Splitting liquid water also has an enthalpy requirement. The difference between the reversible and thermoneutral scales can be supplied or removed as heat depending on cell conditions; it is not automatically electrical waste.",
-        "Where real losses appear. Electrode kinetics and ohmic resistance require extra driving voltage. At an operating voltage above the thermoneutral benchmark, those losses contribute to net heat that the cooling system must reject."
+        "What 1.23 V is. It is the electricity a perfect cell would need if it could take the rest of the energy as heat from its surroundings. The official name for that part is the free energy. It is a floor, not a promise. A real cell sitting at 1.23 V passes almost no current at all.",
+        "What 1.48 V adds. Splitting water needs more total energy than 1.23 V of electricity supplies. The rest is heat. At 1.48 V the electricity is carrying all of it, so the cell neither takes heat in nor gives it off. That mark has a name: thermoneutral. Below it a cell cools itself. Above it a cell warms itself.",
+        "Where the real waste is. Electrodes are slow and wires resist, so a cell carrying useful current needs more push than either mark. That extra push has a name: overpotential. Above 1.48 V it comes out as heat the cooling system has to carry away. It is the only part of the 1.75 V that is genuinely wasted."
       ],
-      "story": "The water stack has three voltage marks. Its reversible potential is near 1.23 V. Its thermoneutral mark is near\n1.48 V, and it runs at 1.75 V. Plant Control asks why the whole gap above 1.23 V is not simply waste heat.",
+      "story": "The water stack has three voltage marks on the board. One is 1.23 V. One is 1.48 V. It actually runs at 1.75 V. Plant Control wants to know why everything above 1.23 V is not simply wasted.",
       "game": {
         "type": "CHOICE",
         "title": "Which part of 1.75 volts heats the stack?",
         "setup": "Electrolysis Hall",
         "play": "Separate reversible voltage, thermoneutral voltage and operating loss.",
         "task": "Separate reversible voltage, thermoneutral voltage and operating loss.",
-        "question": "At 1.75 V, which interpretation of the cell's energy balance is defensible?",
-        "answer": "1.23 V is the reversible free-energy scale; about 1.48 V is thermoneutral; real losses help push operation to 1.75 V and add heat.",
-        "why": "The reversible 1.23 V scale corresponds to Gibbs free energy. The thermoneutral scale near 1.48 V accounts for the full reaction enthalpy under the simplified reference conditions. Real kinetics and resistance then push the operating cell to 1.75 V. So it is wrong to label every volt above 1.23 as waste heat. The cell's net heat balance depends on the thermoneutral benchmark, while kinetic and ohmic losses are the part that undeniably increase electrical cost and heat rejection. The hydrogen molecule itself is not 'higher energy' because the cell was inefficient.",
+        "question": "The stack runs at 1.75 V. What is actually true about where those volts go?",
+        "answer": "1.23 V is electricity alone, 1.48 V covers the heat as well, and the volts above that turn into heat.",
+        "why": "1.23 V is the electricity a perfect cell would need if it could take the rest as heat. 1.48 V is electricity carrying the whole job, heat included. Real electrodes are slow and real wires resist, so this stack needs 1.75 V to pass useful current. So it is wrong to call every volt above 1.23 waste. The gap up to 1.48 is energy the splitting genuinely needs. Only the push above 1.48 comes out as heat the cooling has to carry away.",
         "rebuttals": [
-          "Hydrogen's chemical state does not depend on the inefficiency of the electrolyser that made it.",
-          "ΔG and ΔH are not the same; the thermoneutral benchmark is above the reversible potential.",
-          "Faraday's constant is a charge-per-mole constant and does not increase with cell voltage."
+          "Hydrogen is hydrogen. What it holds does not depend on how wasteful the cell that made it was.",
+          "They are not the same. The everything mark sits above the electricity-only mark, which is the whole point.",
+          "Faraday's constant is a fixed charge for every mole. It does not grow when you push harder."
         ],
         "choices": [
-          "1.23 V is the reversible free-energy scale; about 1.48 V is thermoneutral; real losses help push operation to 1.75 V and add heat.",
-          "Everything above 1.23 V is stored in the hydrogen, so hydrogen made at 1.75 V carries more chemical energy.",
-          "Everything above 1.23 V is waste heat, because the reaction's enthalpy and free energy are the same quantity.",
-          "The extra voltage changes Faraday's constant, so each coulomb makes more hydrogen."
+          "1.23 V is electricity alone, 1.48 V covers the heat as well, and the volts above that turn into heat.",
+          "Everything above 1.23 V is stored in the hydrogen, so hydrogen made at 1.75 V holds more energy.",
+          "Everything above 1.23 V is wasted heat, because the energy needed and the electricity needed are the same.",
+          "The extra volts change Faraday's constant, so every unit of charge makes more hydrogen than before."
         ],
-        "correctChoice": "1.23 V is the reversible free-energy scale; about 1.48 V is thermoneutral; real losses help push operation to 1.75 V and add heat."
+        "correctChoice": "1.23 V is electricity alone, 1.48 V covers the heat as well, and the volts above that turn into heat."
       },
       "assumes": [
-        "the reference reversible voltage is about 1.23 V and thermoneutral voltage about 1.48 V for this simplified water-electrolysis comparison",
-        "real electrode and resistive losses require additional voltage at useful current"
+        "for this comparison the electricity-only mark is about 1.23 V and the everything mark about 1.48 V",
+        "real electrodes and real wires need extra push to carry useful current"
       ],
       "concept": {
         "n": 19,
@@ -2173,17 +2143,17 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "From amps to kilograms",
-      "scene": "1 cell in the water stack carried 640 amps for the whole sol. Achebe wants the hydrogen that represents, worked out from the charge rather than from what the collection line reported.",
-      "takeaway": "Charge and moles are one measurement in two units, once the electrons per molecule are known.",
+      "scene": "One cell in the water stack carried 640 amps for the whole sol. Achebe wants the hydrogen that adds up to. Worked out from the charge, not from what the collection line said.",
+      "takeaway": "Charge and moles are one measurement in two units, once you know how many electrons each molecule takes.",
       "place": "Electrolysis Hall",
       "at": "store-scales",
-      "guide": "Achebe wants the hydrogen worked out from the charge, not from what the collection line reported. That is Faraday's law, and it is bookkeeping. Current times time gives charge, in coulombs. Divide by the charge one mole of product needs and you have moles. Multiply by the molar mass and you have grams. Five numbers are on the board, and one is the cell voltage, which belongs to the energy bill rather than to the amount. And note what this answer assumes: every electron doing the job it was sent to do. The real figure will be lower.",
+      "guide": "Achebe wants the hydrogen counted from the charge, not read off the collection line.\n\nThat is Faraday's law, and it is just careful counting. Current tells you how many electrons cross each second. Multiply by the seconds and you have the total. Every molecule of hydrogen takes two electrons. So divide, and you know how many molecules. Then weigh them.\n\nFive numbers are on the board. One of them is the cell voltage, which belongs to the energy bill, not to the amount.\n\nAnd notice what this answer assumes: every single electron doing the job it was sent to do. The real figure will be lower.",
       "background": [
-        "What Faraday's law actually says. Charge is counted in coulombs, and one mole of electrons carries 96,485 of them. That number is the Faraday constant. Making one molecule of hydrogen takes two electrons, so one mole of hydrogen takes two moles of them: 192,970 coulombs. Charge and moles are the same measurement in different units.",
-        "Why voltage has nothing to do with the amount. Current is how many electrons cross each second. Voltage is how hard each one is pushed. The amount of product depends only on how many crossed. So only the current and the time enter this sum. Voltage decides the energy bill, which is a different question.",
-        "Why this is a maximum and not a prediction. The sum assumes every electron did the intended reaction. Some never do. They drive a side reaction, or make hydrogen that recombines before it is collected. So the real mass is always lower. Comparing this number with what the separator actually caught is how a cell's current efficiency gets measured."
+        "What Faraday's law actually says. Charge is counted in coulombs, and one mole of electrons carries 96,485 of them. That number has a name: the Faraday constant. Making one molecule of hydrogen takes two electrons, so one mole of hydrogen takes two moles of them — 192,970 coulombs. Charge and moles are the same measurement in different units.",
+        "Why voltage has nothing to do with the amount. Current is how many electrons cross each second. Voltage is how hard each one is pushed. How much you get depends only on how many crossed. So only the current and the time go into this sum. Voltage decides the energy bill, which is a different question.",
+        "Why this is a ceiling and not a forecast. The sum assumes every electron did the job it was sent to do. Some never do. They drive a different reaction, or make hydrogen that turns back before anyone collects it. So the real mass is always lower. Comparing this number with what the separator actually caught is how a cell's current efficiency gets measured."
       ],
-      "story": "1 cell in the water stack carried 640 amps for the whole sol. Achebe wants the hydrogen that represents, worked out from the charge rather than from what the collection line reported.",
+      "story": "One cell in the water stack carried 640 amps for the whole sol. Achebe wants the hydrogen that adds up to. Worked out from the charge, not from what the collection line said.",
       "game": {
         "type": "BALLPARK",
         "title": "From amps to kilograms",
@@ -2192,9 +2162,9 @@ export const CURRICULUM = {
         "task": "Turn a sol of current into kilograms of hydrogen",
         "question": "Estimate the hydrogen one cell should produce over a sol.",
         "answer": "",
-        "why": "Faraday’s law is charge bookkeeping. Current times time gives the total charge. Divide by the charge one mole of product needs and you have moles. Multiply by the molar mass and you have grams. Voltage does not enter it. Voltage sets the energy cost, not the amount. And the answer is a ceiling rather than a forecast. It assumes every electron did the intended reaction, and some never do. Comparing this figure with the hydrogen actually collected is how a real cell's current efficiency gets measured.",
+        "why": "Faraday's law is careful counting. Current times time gives the total charge. Divide by the charge one mole of hydrogen needs and you have moles. Multiply by what a mole weighs and you have grams. Voltage never enters it. Voltage sets the cost, not the amount. And the answer is a ceiling, not a forecast. It assumes every electron did the job it was sent to do, and some never do. Comparing this with the hydrogen actually collected is how a real cell's current efficiency gets measured.",
         "givens": [],
-        "relationship": "Mass = current × time ÷ the charge needed for one mole of product × the molar mass of that product.",
+        "relationship": "Mass = current × time ÷ the charge needed for one mole × what one mole of that product weighs.",
         "calcKey": "ELEC-4"
       },
       "assumes": [
@@ -2254,10 +2224,10 @@ export const CURRICULUM = {
       "scene": "The station has parts and crew time for one improvement. One catalyst charge is already lost, and there is no spare after the new one. Achebe puts four candidates on the board before anyone starts cutting pipe.",
       "takeaway": "The work worth doing first is the work that would have caught the fault nobody caught.",
       "place": "Electrolysis Hall",
-      "guide": "Here is what the last fortnight established, and it is worth having straight before you spend anything. The plant ran 38 sols on water no column was polishing. It lost a catalyst charge to that water. Conductivity was logged on every one of those sols, and read by nobody. The array has not been the limit on a single sol this season. There are already four probes in the bed. A second column in series would let the lead bed be swapped at breakthrough, and it needs pipe and a shutdown. And one catalyst charge is left, with no spare behind it.",
-      "rules": "Spread the hundred points across the 4 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
+      "guide": "Here is what the last two weeks established.\n\nThe plant ran 38 sols on water no column was cleaning. It lost a catalyst charge to that water. Conductivity was logged every one of those sols, and read by nobody.\n\nA polishing column is a sponge. It holds an amount, not a fraction, and when it is full everything goes straight through. That moment has a name: breakthrough. The column gives no warning as it arrives.\n\nThe array has not been the limit on a single sol this season. Four probes are already in the bed. A second column would let the full one be swapped at breakthrough, but it needs pipe and a shutdown.",
+      "rules": "Spread the hundred points across the four proposals. At least 80 have to be committed, because a panel that funds almost nothing has not decided anything. Your biggest single amount must be 35 or more, and it has to land on whatever the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
       "background": [
-        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says three things at once: what you think is likely, what is worth hedging against, and what is not worth doing at all. Most of the information is in the last two. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. The small numbers count as much as the big one.",
+        "Why the whole spread is graded. Funding is not a vote for one idea. How you split it says three things at once: what you think is likely, what is worth hedging against, and what is not worth doing at all. Most of the information is in the last two. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. The small numbers count as much as the big one.",
         "What the three numbers are for. Thirty-five is what makes a lead a lead. Below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
         "Why there is a floor on the total. Points held back are not caution. They are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
       ],
@@ -2270,11 +2240,11 @@ export const CURRICULUM = {
         "task": "Fund the change that would most alter what the plant does next.",
         "question": "Fund the change that would most alter what the plant does next.",
         "answer": "Fit the conductivity monitor and alarm on reactor feed water. It turns the measurement that already existed into an action before unpolished water reaches the catalyst.",
-        "why": "The plant did not lack a measurement. Conductivity was recorded every single sol. What it lacked was a rule that turned the measurement into an action. An alarm on the feed water would have made breakthrough visible while the catalyst could still be saved. A second column adds capacity, and it still needs something to tell you when to switch over. Extra array power addresses nothing that failed, and the bed already has four probes. The change worth funding first is the one that closes the gap between a signal you already have and a loss you cannot undo.",
+        "why": "The plant did not lack a measurement. Conductivity was recorded every single sol. What it lacked was a rule that turned the measurement into an action. An alarm on the feed water would have made breakthrough visible while the catalyst could still be saved. A second column adds capacity, and it still needs something to tell you when to switch over. Extra array power fixes nothing that failed, and the bed already has four probes. The change worth funding first is the one that closes the gap between a signal you already have and a loss you cannot undo.",
         "proposals": [
           {
             "label": "A",
-            "text": "Plumb a second polishing column behind the first, so the lead bed can be changed at breakthrough."
+            "text": "Plumb a second polishing column behind the first, so the full one can be changed at breakthrough."
           },
           {
             "label": "B",
@@ -2296,7 +2266,7 @@ export const CURRICULUM = {
         "research": ""
       },
       "assumes": [
-        "the polishing column gives no warning as it fills",
+        "a polishing column holds an amount and then stops holding anything, with no warning",
         "the plant has no spare catalyst charge after this one",
         "stoichiometry as a feed rate: turning a production target into kilograms in — taken as read"
       ],
@@ -2319,33 +2289,33 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "What the dust leaves of the sun",
-      "scene": "Petrov, the array technician, has two numbers that do not agree. The dust instrument reports an optical depth of τ = 2.4. The array meter says the panels are making about one fifth of a clear-sol output. He wants the direct beam worked out on its own.",
-      "takeaway": "Optical depth predicts direct-beam attenuation; total photovoltaic output is a separate measurement with additional light paths and hardware response.",
+      "scene": "Petrov, the array technician, has two numbers that disagree. The dust instrument reports an optical depth of 2.4. The array is making about a fifth of a clear sol. He wants the straight-through beam on its own.",
+      "takeaway": "Optical depth tells you the straight-through beam. What the array actually makes is a different measurement, with other light and other hardware in it.",
       "place": "Electrolysis Hall",
       "at": "sun-sensor",
-      "guide": "Use I = I₀e^(−τ) only for the direct solar beam. The array also receives diffuse light scattered by dust and its electrical output includes panel geometry, temperature and conversion efficiency. Calculate the direct-beam scale, then keep it separate from the measured one-fifth total output.",
+      "guide": "Dust does not take a fixed amount of light away. It takes a fixed share of whatever reaches it.\n\nThink of the dust as a stack of thin layers. Each layer lets the same fraction through. Stack them up and you are taking a share of a share of a share. That is what the formula I = I₀e^(−τ) is saying. The τ is the optical depth — how many layers deep the dust is, in effect.\n\nUse that formula for the straight-through beam only. The array does better than that, because dust also scatters light sideways and some of it still lands on a panel. Work out the beam. Then keep it separate from the meter's one fifth.",
       "background": [
         "Why attenuation — how much of the light the dust takes out — multiplies rather than subtracts. Picture the dust as a stack of thin layers. Each layer stops the same fraction of whatever light reaches it — not the same amount. So the first layer takes a lot and the tenth takes a little, because there is less left for it to take. Repeated fractions of fractions is what an exponential is.",
-        "What optical depth means as a number. Depth 1 leaves about a third of the beam. Depth 2 leaves about a tenth. Depth 2.4 leaves about a twelfth. So going from a clear sol at 0.4 to a storm at 2.4 is not five times worse. It is roughly sevenfold, because the two extra units of depth each divide again.",
-        "Why the direct beam is not the array's output. What e^(−τ) describes is light that came straight through untouched. Dust also scatters light sideways, and some of that still lands on a panel from the sky. So the array does better than the direct beam alone suggests. It does not do anything like as well as a clear sol."
+        "What optical depth means as a number. Depth 1 leaves about a third of the beam. Depth 2 leaves about a tenth. Depth 2.4 leaves about a twelfth. So going from a clear sol at 0.4 to a storm at 2.4 is not five times worse. It is roughly seven times worse, because each extra unit of depth divides again.",
+        "Why the straight-through beam is not the array's output. What e^(−τ) describes is light that came through untouched. Dust also scatters light sideways, and some of that still lands on a panel from the sky. So the array does better than the straight-through beam alone suggests. It does not do anything like as well as a clear sol."
       ],
-      "story": "Petrov, the array technician, has two numbers that do not agree. The dust instrument reports an optical depth of τ = 2.4. The array meter says the panels are making about one fifth of a clear-sol output. He wants the direct beam worked out on its own.",
+      "story": "Petrov, the array technician, has two numbers that disagree. The dust instrument reports an optical depth of 2.4. The array is making about a fifth of a clear sol. He wants the straight-through beam on its own.",
       "game": {
         "type": "BALLPARK",
         "title": "What the dust leaves of the sun",
         "setup": "Electrolysis Hall",
         "play": "Work out how much sunlight is reaching the panels",
         "task": "Work out how much sunlight is reaching the panels",
-        "question": "Estimate the direct beam reaching a panel through this dust.",
+        "question": "Estimate the straight-through beam reaching a panel through this dust.",
         "answer": "",
-        "why": "The Beer–Lambert-style attenuation model gives the direct beam: 490 × e^(−2.4) ≈ 44 W/m², about nine percent of the above-dust beam. The array meter, however, reports total electrical output near twenty percent of a clear sol. Those do not conflict automatically. Dust also scatters light into the sky, panels collect some diffuse illumination, and electrical output depends on more than the straight-through beam. The model and the measurement constrain different quantities, which is exactly why they should not be substituted for one another.",
+        "why": "The formula gives the straight-through beam: 490 × e^(−2.4) ≈ 44 watts a square metre, about nine percent of the beam above the dust. The array meter says the total output is nearer twenty percent of a clear sol. Those two do not conflict. Dust scatters light sideways, panels pick some of that up from the sky, and what the array makes depends on more than the straight-through beam. The model and the meter measure different things, which is exactly why one must not be swapped for the other.",
         "givens": [],
         "relationship": "Transmitted beam = the beam above the dust × e raised to minus the optical depth: each unit of depth divides the beam by a further factor of about 2.7.",
         "calcKey": "ELEC-6"
       },
       "assumes": [
-        "each unit of optical depth cuts a beam by a further factor",
-        "a beam is attenuated as an exponential of the depth it passes through",
+        "each unit of optical depth cuts the beam by a further factor",
+        "the beam falls off as a share of a share, not by a fixed amount",
         "stoichiometry as a feed rate: turning a production target into kilograms in — taken as read"
       ],
       "equations": [
@@ -2388,41 +2358,41 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "What limits the current",
-      "scene": "Sundqvist wants the stacks run 20% above rated current for the sols that remain. Achebe has the measured stack-voltage curve and cooling-loop capacity beside the request.",
-      "takeaway": "Faraday's law sets product per coulomb; the stack's voltage-current curve and cooling system set how many coulombs per second the hardware can survive.",
+      "scene": "Sundqvist wants the stacks run 20 percent above their rated current for the sols that are left. Achebe has two things beside the request: how this stack's voltage climbs with current, and what the cooling loop can carry away.",
+      "takeaway": "Faraday's law says how much you get for each unit of charge. The stack and the cooling loop say how fast you are allowed to spend charge.",
       "place": "Electrolysis Hall",
-      "guide": "Faraday's law says a bigger current makes proportionally more hydrogen. It does not say the hardware can carry that current. Push more amps through a stack and every cell needs more volts than before. That extra is the overpotential — the voltage above the least the chemistry itself needs. Volts times amps is power, and power that does no chemistry leaves as heat. So work from Achebe's voltage-current curve and her cooling capacity rather than from the 1.23 V figure.",
+      "guide": "Faraday's law says more current makes more hydrogen, straight in proportion. It does not say the hardware can carry that current.\n\nPush more amps through a stack and every cell needs more volts than before. Electrodes are slow and wires resist, and both get worse the harder you push. That extra push is the overpotential — the volts above the least the chemistry itself needs.\n\nNow watch what that does to the bill. Power is volts times amps. Both go up. So a fifth more current costs more than a fifth more power, and the extra comes out as heat.\n\nWork from Achebe's two measurements, not from the 1.23 V mark.",
       "background": [
         "Why Faraday's law is not the hardware limit. Charge sets how much product is possible. It does not tell you what voltage the real stack needs. It does not say how hot the plates get. And it says nothing about whether the cooling loop can carry that heat away.",
-        "Why more current costs more than its share of the power. Slow electrode reactions and plain resistance both push the working voltage up as the current rises. Electrical power is current times voltage. So a fifth more current costs more than a fifth more power.",
-        "Why the limit is a thermal one here. Achebe has measured how this stack's voltage climbs with current, and she knows what her cooling loop can carry away. Between them they say how hard this particular stack can be driven before it runs too hot. That is an engineering measurement sitting on top of Faraday's chemistry."
+        "Why more current costs more than its share. Slow electrodes and plain resistance both push the working voltage up as the current rises. Power is current times voltage, and here both are climbing. So a fifth more current costs more than a fifth more power.",
+        "Why the limit here is a heat limit. Achebe has measured how this stack's voltage climbs with current, and she knows what her cooling loop can carry away. Between them they say how hard this particular stack can be driven before it runs too hot. That is an engineering measurement sitting on top of Faraday's chemistry."
       ],
-      "story": "Sundqvist wants the stacks run 20% above rated current for the sols that remain. Achebe has the measured stack-voltage curve and cooling-loop capacity beside the request.",
+      "story": "Sundqvist wants the stacks run 20 percent above their rated current for the sols that are left. Achebe has two things beside the request: how this stack's voltage climbs with current, and what the cooling loop can carry away.",
       "game": {
         "type": "CHOICE",
         "title": "What limits the current",
         "setup": "Electrolysis Hall",
         "play": "Say whether the stacks can be pushed harder",
         "task": "Say whether the stacks can be pushed harder",
-        "question": "What actually limits the proposed 20% current increase?",
-        "answer": "The measured stack thermal limit: higher current also raises the required operating voltage and the cooling load.",
-        "why": "Faraday's law is an amount per charge, not a ceiling on current. More current can make more hydrogen. But real electrode kinetics and resistance push the working voltage up while it does. Electrical power is current times voltage, so the power drawn and the heat made climb faster than the current alone. That is why Achebe sets the ceiling from her measured voltage-current curve and her cooling loop. The chemistry says how much product a coulomb buys. The hardware says how fast the station can spend coulombs.",
+        "question": "What actually limits the proposed 20 percent increase in current?",
+        "answer": "The stack's measured heat limit: more current raises the voltage needed and the heat to remove.",
+        "why": "Faraday's law is an amount for each unit of charge, not a ceiling on current. More current can make more hydrogen. But slow electrodes and resistance push the working voltage up while it does. Power is current times voltage, so the power drawn and the heat made climb faster than the current alone. That is why Achebe sets the ceiling from her measured curve and her cooling loop. The chemistry says how much a coulomb buys. The hardware says how fast the station can spend coulombs.",
         "rebuttals": [
-          "Faraday's constant is a conversion between charge and moles and does not impose a one-sol current limit.",
-          "The reversible potential is a thermodynamic reference, not a maximum allowable operating current.",
+          "Faraday's constant turns charge into moles. It sets no limit on current at all.",
+          "The 1.23 V mark is a reference for energy, not a maximum current.",
           "Hydrogen's chemical state does not become more energetic because the electrolyser was run at a higher voltage."
         ],
         "choices": [
-          "The measured stack thermal limit: higher current also raises the required operating voltage and the cooling load.",
-          "Faraday's constant, which sets a maximum current once a cell has run for one sol.",
-          "The reversible 1.23 V potential, because any current above the value at 1.23 V is chemically impossible.",
-          "The hydrogen's chemical energy, which rises as the cell voltage is increased."
+          "The stack's measured heat limit: more current raises the voltage needed and the heat to remove.",
+          "Faraday's constant, which sets the most current a cell is allowed to carry in a sol.",
+          "The 1.23 V mark, because any current above the value there is chemically impossible.",
+          "The hydrogen's chemical energy, which climbs as the cell voltage is pushed higher."
         ],
-        "correctChoice": "The measured stack thermal limit: higher current also raises the required operating voltage and the cooling load."
+        "correctChoice": "The stack's measured heat limit: more current raises the voltage needed and the heat to remove."
       },
       "assumes": [
-        "the stack's measured operating voltage rises with current because of kinetic and resistive losses",
-        "the cooling loop has a finite heat-removal capacity"
+        "this stack's working voltage rises with current, because electrodes are slow and wires resist",
+        "the cooling loop can only carry so much heat away"
       ],
       "concept": {
         "n": 19,
@@ -2436,16 +2406,16 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Which electrode does which job — Review",
-      "scene": "The station's oxygen generator splits water in a low-temperature cell rather than a hot one. Achebe wants it read the same way as the hot stacks, part by part.",
-      "takeaway": "The electrode roles follow electron transfer; practical voltage and heat depend on the cell's thermodynamics, kinetics and resistance.",
+      "scene": "The station's oxygen generator splits water in a cold cell rather than a hot one. Achebe wants it read the same way as the hot stacks, part by part.",
+      "takeaway": "Which electrode is which follows the electrons. What the cell costs, and how hot it runs, follow the voltage.",
       "place": "Electrolysis Hall",
-      "guide": "A cold cell this time instead of a hot one, and the reading does not change. Ask of each part which way the electrons are being pushed. Electrons in means reduction, a gain. Electrons out means oxidation, a loss. That much is true of any water-splitting cell, whatever it is built from. One item on this board is not a place at all, so ask what a voltage does rather than where it is.",
+      "guide": "A cold cell this time instead of a hot one. The reading does not change.\n\nAsk of each part which way the electrons are being pushed. Electrons in means taking, so reduction. Electrons out means giving, so oxidation. That is true of any water-splitting cell, whatever it is built from.\n\nOne item on this board is not a place at all. So for that one, ask what a voltage does rather than where it sits.",
       "background": [
-        "Why the electrode names do not depend on the cell. An electrode is named by the process occurring there: reduction where electrons are supplied, oxidation where electrons are removed.",
-        "What changes between the hot and cold cells. Different electrolytes carry different ions, but in both cases the electrolyte carries ionic charge while keeping the product gases separated from the external electron path.",
-        "Why voltage belongs on a board of parts. The reversible potential is the thermodynamic reference — the least voltage the chemistry can be done at, which is 1.23 V here. A working cell always needs more than that. Some of the extra pushes the reactions along at the electrodes. Some is simply lost to resistance in the cell. And the heat balance answers to the thermoneutral voltage as well, so it is not one subtraction from 1.23 V."
+        "Why the electrode names do not depend on the cell. An electrode is named by what happens there. Reduction is where electrons are pushed in. Oxidation is where electrons are pulled out. Hot cell or cold cell, that does not change.",
+        "What does change between the hot cell and the cold one. They use different electrolytes, so different ions cross. But in both cells the electrolyte carries ions, refuses electrons, and keeps the two gases apart from each other.",
+        "Why a voltage belongs on a board of parts. 1.23 V is the least the chemistry can be done at. A working cell always needs more. Some of the extra pushes the reactions along at the electrodes. Some is simply lost to resistance. And the heat depends on the 1.48 V mark as well, so it is not one subtraction from 1.23 V."
       ],
-      "story": "The station's oxygen generator splits water in a low-temperature cell rather than a hot one. Achebe wants it read the same way as the hot stacks, part by part.",
+      "story": "The station's oxygen generator splits water in a cold cell rather than a hot one. Achebe wants it read the same way as the hot stacks, part by part.",
       "game": {
         "type": "PROTOCOL",
         "title": "Which electrode does which job — Review",
@@ -2454,7 +2424,7 @@ export const CURRICULUM = {
         "task": "Match each part of this cell to what happens there.",
         "question": "Match each part of this cell to what happens there.",
         "answer": "",
-        "why": "A cell is one redox reaction with its two halves held apart. Electrons supplied to an electrode drive reduction. Electrons removed drive oxidation. The electrolyte carries ions rather than the external electrons, and it keeps the two products apart. The applied voltage is not an electrode at all. It is a condition set on the whole cell. The reversible value is the thermodynamic reference, and a working cell needs more than it to carry any useful current. That extra voltage costs electricity, but the heat balance is not simply 'everything above the minimum becomes heat.'",
+        "why": "A cell is one handover of electrons with its two halves held apart. Electrons pushed into an electrode drive reduction. Electrons pulled out drive oxidation. The electrolyte carries ions rather than electrons, and it keeps the two products apart. The voltage is not an electrode at all. It is a setting on the whole cell. 1.23 V is the least the chemistry can be done at, and a working cell needs more than that to carry any useful current. That extra costs electricity — but not every volt above the least becomes heat.",
         "scenarios": [
           "The electrode the supply pushes electrons into.",
           "The electrode electrons are drawn out of.",
@@ -2465,7 +2435,7 @@ export const CURRICULUM = {
           "Water gains electrons here and hydrogen comes off.",
           "Water loses electrons here and oxygen comes off.",
           "It passes hydrogen ions and keeps the two gases apart.",
-          "It has to exceed the minimum the thermodynamics sets before anything happens at all."
+          "It has to beat the least the chemistry needs before anything happens at all."
         ],
         "mapping": [
           0,
@@ -2492,17 +2462,17 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What has to be paid for",
-      "scene": "Yusuf Demir, the life support officer, has the sol’s energy ledger open. The reactor releases heat while it runs, while electrolysis takes most of the array output. He wants the difference stated plainly in the log.",
-      "takeaway": "Whether a change runs on its own and how fast it goes are two separate questions, and one of them has a bill.",
+      "scene": "Yusuf Demir, the life support officer, has the sol's energy ledger open. The reactor gives off heat while it runs. Electrolysis eats most of what the array makes. He wants the difference written plainly in the log.",
+      "takeaway": "Whether a change runs on its own and how fast it goes are two different questions, and only one of them has a bill.",
       "place": "Plant Control",
       "at": "ledger",
-      "guide": "Demir wants the direction written down as a number, and the number is the free-energy change: ΔG = ΔH − TΔS. Splitting water has a known enthalpy change, ΔH. That is the heat it takes in. It has a known entropy change too, ΔS, which is how much more spread out things end up. A positive ΔG means the change will not run on its own. One warning before you place the tiles. One is in joules and the others in kilojoules, so it wants converting rather than adding.",
+      "guide": "Demir wants the direction written down as a number.\n\nSome changes run on their own. Downhill. Others have to be paid for. Uphill. Two things decide which: does the change let go of heat, and does it end up more spread out?\n\nThe heat part has a name — the enthalpy change, ΔH. The spread-out part has a name too — the entropy change, ΔS. And the spread-out part gets multiplied by the temperature. Put them together: ΔG = ΔH − TΔS.\n\nA positive ΔG means uphill. It will not run on its own.\n\nOne warning before you place the tiles. One number is in joules and the others in kilojoules. It wants converting, not adding.",
       "background": [
-        "What the two terms are doing. The enthalpy term, ΔH, is the heat the change takes in or gives out. The entropy term, ΔS, is how much more spread out the matter and its energy end up — and it is multiplied by the temperature. That multiplication is why heating something can turn a change that will not run into one that will.",
-        "Why a positive answer is a bill. A positive free-energy change means the products sit higher than the reactants, so the energy has to come from outside the reaction. Here it comes from the solar array, through the cell, at a price in kilowatt-hours that the ledger on Demir's desk has to carry.",
+        "What the two parts are doing. The enthalpy change, ΔH, is the heat the change takes in or gives out. The entropy change, ΔS, is how much more spread out the matter and its energy end up. And ΔS gets multiplied by the temperature. That multiplication is why heating something can turn a change that will not run into one that will.",
+        "Why a positive answer is a bill. A positive free-energy change means the products sit higher than what you started with. So the energy has to come from outside the reaction. Here it comes from the solar array, through the cell, at a price in kilowatt-hours that the ledger on Demir's desk has to carry.",
         "Why the reverse is free. Making methane is water splitting run backwards, and it gives out what the splitting takes in. That is one number with two signs, not two separate facts. It is why this plant can run one step on its own and never the other."
       ],
-      "story": "Yusuf Demir, the life support officer, has the sol’s energy ledger open. The reactor releases heat while it runs, while electrolysis takes most of the array output. He wants the difference stated plainly in the log.",
+      "story": "Yusuf Demir, the life support officer, has the sol's energy ledger open. The reactor gives off heat while it runs. Electrolysis eats most of what the array makes. He wants the difference written plainly in the log.",
       "game": {
         "type": "BALLPARK",
         "title": "What has to be paid for",
@@ -2510,8 +2480,8 @@ export const CURRICULUM = {
         "play": "State which of the plant's steps have a bill",
         "task": "State which of the plant's steps have a bill",
         "question": "The free-energy change says whether a reaction runs on its own. What is it for splitting a mole of water at the cell's working temperature?",
-        "answer": "About +237 kJ per mole. It is positive, so the change does not run on its own at any temperature the cell can reach, and the array has to pay for it.",
-        "why": "Direction is set by the free-energy change: ΔG = ΔH − TΔS. Splitting a mole of liquid water takes in 286 kJ, so ΔH is positive. It makes two gases out of a liquid, so things end up more spread out. ΔS is positive too, at 163 J per kelvin per mole. At 298 K the TΔS term is 298 × 0.163 = 48.6 kJ. That leaves ΔG = 286 − 48.6 ≈ +237 kJ per mole. Positive means the products sit higher than the reactants, and no change of equipment moves that. The energy has to arrive from outside, which is what the array is for. Making methane is the same number with the sign flipped. That is why one step runs on its own and the other never will.",
+        "answer": "About +237 kJ per mole. Positive, so it is uphill at any temperature the cell can reach, and the array has to pay for it.",
+        "why": "Direction is set by ΔG = ΔH − TΔS. Splitting a mole of liquid water takes in 286 kJ, so ΔH is positive, and that counts against it. It turns a liquid into two gases, so things end up more spread out. ΔS is positive too, at 163 J per kelvin per mole. At 298 K the TΔS part is 298 × 0.163 = 48.6 kJ. That leaves ΔG = 286 − 48.6 ≈ +237 kJ per mole. Positive means uphill, and no change of equipment moves that. The energy has to arrive from outside, which is what the array is for. Making methane is the same number with the sign flipped. That is why one step runs on its own and the other never will.",
         "givens": [
           "ΔH = +286 kJ per mole and ΔS = +163 J per kelvin per mole",
           "the cell works at 298 K"
@@ -2561,17 +2531,17 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "The temperature the reaction stops wanting to run",
-      "scene": "Demir has the plant's simplified table for the Sabatier loop: ΔH = −123.6 kJ/mol and ΔS = −172 J/mol/K over the training range. He wants the temperature at which that approximation makes ΔG cross zero. The real plant uses data that moves with temperature.",
-      "takeaway": "A simplified ΔG model can locate a thermodynamic trend; real reactor design uses temperature-dependent data and measured equilibrium.",
+      "scene": "Demir has the plant's simple table for the Sabatier loop. ΔH is −123.6 kJ for every mole. ΔS is −172 J for every mole per kelvin. He wants the temperature where those numbers make ΔG cross zero.",
+      "takeaway": "A simple ΔG sum can find the trend. A real reactor is designed from numbers that move with the temperature, and from what the plant actually measures.",
       "place": "Plant Control",
       "at": "ledger",
-      "guide": "Demir has the data sheet and wants ΔG at the bed's own temperature. So this is ΔG = ΔH − TΔS with real numbers in it. Both terms here happen to be negative, and they pull against each other once the temperature multiplies the second one. That is the interesting part. As the bed gets hotter the second term grows, so somewhere up the scale the whole thing changes sign. Five numbers are on the board and two belong to other calculations. Ask of each whether this one needs it.",
+      "guide": "Demir wants ΔG at the bed's own temperature. So this is ΔG = ΔH − TΔS with real numbers in it.\n\nHere is what makes it interesting. Both numbers are negative, and they pull against each other.\n\nMaking methane gives off heat, and that helps. But it also turns five gas molecules into three, so things end up less spread out, and that hurts. Subtracting a negative TΔS adds a positive amount.\n\nNow notice which one the temperature touches. ΔH does not care how hot the bed is. TΔS does, because T is sitting right on it. So heating the bed grows the part that fights and leaves the part that helps alone.\n\nFive numbers are on the board. Two belong to other sums.",
       "background": [
-        "Why both terms are negative here, and why that matters. Making methane gives off heat, so ΔH is negative and the reaction is favoured on those grounds. But five gas molecules go in and three come out. The mixture ends up less spread out than it started, so ΔS is negative too. Subtracting a negative TΔS adds a positive amount. Entropy is working against this reaction, not for it.",
-        "Why the temperature decides which term wins. ΔH does not care how hot the bed is. TΔS does, because T is a multiplier sitting right on it. So heating the bed grows the term that opposes the reaction while leaving the term that favours it alone. Push far enough and ΔG crosses zero — with these tabulated numbers, near 720 K. Above that the reaction no longer runs on its own at all.",
+        "Why both numbers are negative here, and why that matters. Making methane gives off heat, so ΔH is negative, and that counts in the reaction's favour. But five gas molecules go in and three come out. The mixture ends up less spread out than it started, so ΔS is negative too. Subtracting a negative TΔS adds a positive amount. Being spread out is working against this reaction, not for it.",
+        "Why the temperature decides which part wins. ΔH does not care how hot the bed is. TΔS does, because T is a multiplier sitting right on it. So heating the bed grows the part that opposes the reaction and leaves the part that favours it alone. Push far enough and ΔG crosses zero — with these table numbers, near 720 K. Above that the reaction no longer runs on its own at all.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how you catch a unit that does not match, or a quantity belonging to a different problem, before you place it. That habit is the whole point of this format."
       ],
-      "story": "Demir has the plant's simplified table for the Sabatier loop: ΔH = −123.6 kJ/mol and ΔS = −172 J/mol/K over the training range. He wants the temperature at which that approximation makes ΔG cross zero. The real plant uses data that moves with temperature.",
+      "story": "Demir has the plant's simple table for the Sabatier loop. ΔH is −123.6 kJ for every mole. ΔS is −172 J for every mole per kelvin. He wants the temperature where those numbers make ΔG cross zero.",
       "game": {
         "type": "BALLPARK",
         "title": "The temperature the reaction stops wanting to run",
@@ -2580,7 +2550,7 @@ export const CURRICULUM = {
         "task": "Work out the free-energy change at the bed's temperature",
         "question": "Estimate the free-energy change for the reaction at the bed's temperature.",
         "answer": "",
-        "why": "The two terms pull against each other. Making methane gives off heat, so ΔH is negative and that favours the products. But it also turns five gas molecules into three. So ΔS is negative as well, and a negative ΔS works against the reaction once the temperature multiplies it. ΔH does not change with temperature; TΔS does. So the hotter the bed, the more the opposing term weighs. At 593 K, ΔG = −123,600 − (593 × −172) = −21,600 J per mole. Still comfortably negative. The same tabulated numbers cross zero near 720 K. Real values drift with temperature, so treat 720 K as this course's threshold rather than an exact plant limit.",
+        "why": "The two parts pull against each other. Making methane gives off heat, so ΔH is negative, and that favours the products. But it also turns five gas molecules into three. So ΔS is negative as well, and that works against the reaction once the temperature multiplies it. ΔH does not change with temperature. TΔS does. So the hotter the bed, the more the opposing part weighs. At 593 K, ΔG = −123,600 − (593 × −172) = −21,600 J per mole. Still comfortably negative. The same table numbers cross zero near 720 K. Real values drift with temperature, so treat 720 K as this course's threshold rather than an exact plant limit.",
         "givens": [],
         "relationship": "ΔG = ΔH − TΔS, with ΔG the free-energy change, ΔH the heat given out at constant pressure, T the absolute temperature in kelvin and ΔS the entropy change of the reaction.",
         "calcKey": "GIBBS-2"
@@ -2627,16 +2597,16 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "The reaction that likes being hot",
-      "scene": "Dana Stern, the analytical chemist, has carbon monoxide rising in the assay each time the reactor set point is raised. Methane falls by almost the same carbon amount. Kaur has the two candidate reactions on the board and wants the temperature effect explained.",
-      "takeaway": "Temperature can change selectivity because competing reactions can have different thermodynamic responses to heating.",
+      "scene": "Dana Stern, the analytical chemist, has carbon monoxide rising every time the reactor set point goes up. Methane falls by almost the same amount of carbon. Kaur wants the temperature effect explained.",
+      "takeaway": "Temperature can change what a bed makes, not only how much, because two reactions can answer heat in opposite directions.",
       "place": "Plant Control",
-      "guide": "Kaur has two reactions on the board, not one, and they are competing for the same carbon. That is the thing to hold on to. Making methane gives off heat. Making carbon monoxide takes heat in. Ask of each option whether it keeps the two reactions separate, or treats the bed as doing one thing faster. What is changing here is not just how much converts. It is how the carbon gets divided up. The word for that is selectivity.",
+      "guide": "There are two reactions on this board, not one, and they are competing for the same carbon. Two doors, and the feed can go through either.\n\nMaking methane gives off heat. Making carbon monoxide takes heat in.\n\nHeat pushes back on a reaction that gives off heat. Heat pulls forward a reaction that takes it in. So turning the bed up does not open both doors equally. It opens one wider.\n\nAsk of each answer whether it keeps the two reactions separate, or treats the bed as doing one thing faster. What is changing is not how much converts. It is how the carbon gets divided. The word for that is selectivity.",
       "background": [
-        "What selectivity means, and why it is a separate question from conversion. Conversion asks how much of the feed reacted. Selectivity asks what it turned into. A bed can convert more feed and still hand you less of what you wanted, if the extra went somewhere else. Two reactions sharing one carbon feed is exactly that situation.",
-        "Why heating helps one and hurts the other. Making methane gives off heat, so adding heat pushes that balance back. Making carbon monoxide takes heat in, so adding heat pulls that balance forward. Same bed, same set point, opposite effects. The two equilibrium constants simply do not move together. Endothermic and exothermic reactions respond to temperature in opposite directions, always.",
+        "What selectivity is, and why it is a different question from conversion. Conversion asks how much of the feed reacted. Selectivity asks what it turned into. A bed can convert more feed and still hand you less of what you wanted, if the extra went somewhere else. Two reactions sharing one carbon feed is exactly that situation.",
+        "Why heating helps one and hurts the other. Making methane gives off heat, so adding heat pushes that balance back. Making carbon monoxide takes heat in, so adding heat pulls that balance forward. Same bed, same set point, opposite effects. The two balance points simply do not move together. A reaction that takes heat in and one that gives heat off always answer temperature in opposite directions.",
         "Why speed is not the explanation. Both reactions do get faster as the bed warms. But suppose both sped up by the same sort of factor. The split between them would stay where it was, and the assay would read the same proportions. It does not. So the change is in the two balances, not in the two speeds."
       ],
-      "story": "Dana Stern, the analytical chemist, has carbon monoxide rising in the assay each time the reactor set point is raised. Methane falls by almost the same carbon amount. Kaur has the two candidate reactions on the board and wants the temperature effect explained.",
+      "story": "Dana Stern, the analytical chemist, has carbon monoxide rising every time the reactor set point goes up. Methane falls by almost the same amount of carbon. Kaur wants the temperature effect explained.",
       "game": {
         "type": "CHOICE",
         "title": "The reaction that likes being hot",
@@ -2644,20 +2614,20 @@ export const CURRICULUM = {
         "play": "Explain the gas nobody asked for",
         "task": "Explain the gas nobody asked for",
         "question": "Why does the hotter bed make relatively more carbon monoxide?",
-        "answer": "Heating favours the reaction that takes heat in and pushes the other back.",
-        "why": "Two reactions are competing for the same carbon, and they have to be judged separately. Making methane gives off heat, so heating pushes that balance back toward the feed. Making carbon monoxide takes heat in, so heating pulls that balance forward. Both get faster too, but speed alone would leave the proportions unchanged. What moved is the split. That split is selectivity, and it moved because the two equilibrium constants do not travel in the same direction. So a set point does not only decide how much converts. It decides what the carbon becomes.",
+        "answer": "Heating favours the reaction that takes heat in, and pushes the other back.",
+        "why": "Two reactions are competing for the same carbon, and they have to be judged separately. Making methane gives off heat, so heating pushes that balance back toward the feed. Making carbon monoxide takes heat in, so heating pulls that balance forward. Both get faster too, but speed alone would leave the proportions unchanged. What moved is the split. That split is selectivity, and it moved because the two balance points do not move the same way. So a set point does not only decide how much converts. It decides what the carbon becomes.",
         "rebuttals": [
-          "Both reactions do speed up with temperature, and speed alone would leave the proportions where they were.",
-          "The catalyst offers both paths at every temperature, and it is the two balances that move.",
-          "Stability is not one ranking; which product is favoured depends on the temperature being asked about."
+          "Both reactions do speed up with heat, and speed alone would leave the proportions where they were.",
+          "The catalyst offers both doors at every temperature. It is the two balance points that move.",
+          "Stability is not one fixed ranking. Which product is favoured depends on the temperature you are asking about."
         ],
         "choices": [
-          "Heating favours the reaction that takes heat in and pushes the other back.",
-          "Carbon monoxide forms faster than methane does, so a bed running faster makes more of it.",
-          "The catalyst changes what it makes once it is above 300 degrees.",
+          "Heating favours the reaction that takes heat in, and pushes the other back.",
+          "Carbon monoxide forms faster than methane, so a faster bed simply makes more of it.",
+          "The catalyst changes what it makes once the bed goes above 573 K.",
           "Carbon monoxide is the more stable product, and heat lets the mixture reach it."
         ],
-        "correctChoice": "Heating favours the reaction that takes heat in and pushes the other back."
+        "correctChoice": "Heating favours the reaction that takes heat in, and pushes the other back."
       },
       "assumes": [
         "free energy combines an enthalpy term with a temperature times an entropy term",
@@ -2683,17 +2653,17 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "The bill for a kilogram of hydrogen",
-      "scene": "Demir is closing the sol’s energy ledger. The stacks made 6.9 kg of hydrogen. He wants their electrical energy use written beside the array output before he signs the sheet.",
-      "takeaway": "What a product costs to make and what it stores are two different numbers, and the gap is the price of running at a rate.",
+      "scene": "Demir is closing the sol's energy ledger. The stacks made 6.9 kg of hydrogen. He wants the electricity they spent written beside what the array made, before he signs the sheet.",
+      "takeaway": "What something costs to make and what it holds are two different numbers. The gap is what you pay for making it at a useful speed.",
       "place": "Plant Control",
       "at": "cell-stacks",
-      "guide": "Plant Control wants what the stacks spent, not what the hydrogen stores. Those are different numbers. A kilogram of hydrogen stores about 39.4 kWh on this scale. This stack uses about 55 kWh to make it. The gap includes cell losses, pumps, and cooling. It is not one simple heat term.",
+      "guide": "A kilogram of hydrogen has two energy numbers, and they are not the same number.\n\nOne is what it holds. Burn it, and about 39.4 kWh comes back out.\n\nThe other is what it cost to make. This stack spends about 55 kWh for every kilogram. The extra went to slow electrodes, to resistance, and to the pumps and cooling that keep the stack running.\n\nDemir is closing a ledger, so he wants the second number. Ask yourself which of the two the sheet is actually asking for.",
       "background": [
-        "Why a kilogram of hydrogen has two energy numbers. One is what it stores: burn it, or run it through a fuel cell, and about 39.4 kWh comes back out. The other is what it cost to make: about 55 kWh through this stack. Both are correct. They answer different questions, and a ledger wants the second.",
-        "Where the gap comes from. A practical electrolyser operates away from the reversible limit and also powers pumps, controls and thermal management. Electrode kinetics and resistance dissipate energy, while the cell's full heat balance is referenced to the thermoneutral as well as reversible voltage. The plant therefore uses measured kWh per kilogram for its ledger instead of reconstructing the whole loss from one voltage subtraction.",
-        "Why using the wrong figure matters here. Put 39.4 into the sum and the sol's bill reads 272 kWh. The true figure is 380. That is a quarter of the entry missing from an energy ledger, on a station whose array is the only source of power. A cheerful number in the wrong column is worse than no number."
+        "Why a kilogram of hydrogen has two energy numbers. One is what it holds. Burn it, or run it through a fuel cell, and about 39.4 kWh comes back out. The other is what it cost to make, which is about 55 kWh through this stack. Both are correct. They answer different questions, and a ledger wants the second.",
+        "Where the gap comes from. A real cell runs well above the least voltage the chemistry needs, and it also has to power pumps, controls and cooling. Slow electrodes and plain resistance turn some of the electricity into heat. And the heat balance answers to the 1.48 V mark, not only to 1.23 V. So the plant puts a measured kWh per kilogram in its ledger instead of trying to rebuild the whole loss from one subtraction.",
+        "Why using the wrong number matters here. Put 39.4 into the sum and the sol's bill reads 272 kWh. The real figure is 380. That is a quarter of the entry missing from an energy ledger, on a station whose array is the only power there is. A cheerful number in the wrong column is worse than no number at all."
       ],
-      "story": "Demir is closing the sol’s energy ledger. The stacks made 6.9 kg of hydrogen. He wants their electrical energy use written beside the array output before he signs the sheet.",
+      "story": "Demir is closing the sol's energy ledger. The stacks made 6.9 kg of hydrogen. He wants the electricity they spent written beside what the array made, before he signs the sheet.",
       "game": {
         "type": "BALLPARK",
         "title": "The bill for a kilogram of hydrogen",
@@ -2702,14 +2672,14 @@ export const CURRICULUM = {
         "task": "Put a number on what the hydrogen costs",
         "question": "Estimate the electrical energy the stacks spent making hydrogen this sol.",
         "answer": "",
-        "why": "Stored energy and the energy used to make hydrogen answer different questions. At 6.9 kg and 55 kWh/kg, the stack used about 380 kWh. The gap includes cell losses and support equipment. It does not mean every volt above 1.23 V became heat. The station ledger must use the measured 55 kWh/kg.",
+        "why": "What hydrogen holds and what it cost to make answer different questions. At 6.9 kg and 55 kWh for every kilogram, the stack spent about 380 kWh. The gap covers losses in the cell and the equipment around it. It does not mean every volt above 1.23 V became heat. The station's ledger has to use the measured 55.",
         "givens": [],
         "relationship": "Energy spent = the mass of hydrogen made × the energy this stack spends to make one kilogram of it.",
         "calcKey": "GIBBS-4"
       },
       "assumes": [
         "electrical energy can be counted in kilowatt-hours",
-        "a stack costs more energy per kilogram than the hydrogen itself carries"
+        "a stack spends more energy on each kilogram than that kilogram holds"
       ],
       "concept": {
         "n": 17,
@@ -2724,17 +2694,17 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What the station stops doing",
-      "scene": "The dust storm has cut the sol from about 2,000 kilowatt-hours to 600. Tank refrigeration is already drawing power, and six other demands are queued. Marion Wells, who commands the station, wants the sacrifices written down before breakers are opened.",
-      "takeaway": "Loads are ranked by what stopping them costs to undo, rather than by what they draw.",
+      "scene": "The dust storm has cut the sol from about 2,000 kilowatt-hours to 600. Tank cooling is already drawing power, and six other jobs are queued. Marion Wells, who commands the station, wants the sacrifices written down before any breaker is opened.",
+      "takeaway": "Rank a load by what it would cost to undo, not by what it draws.",
       "place": "Plant Control",
       "at": "loadboard",
-      "guide": "Six hundred kilowatt-hours for the whole sol, against about two thousand on a clear one. Watch the answers list rather than the equipment. It shows what the station can still say at the end of the sol under your plan. The habitat is not a load and comes out first. After that, rank what is left by one question: if you stop this, can you get it back? Some of these you can. One of them you cannot.",
+      "guide": "Six hundred kilowatt-hours for the whole sol. A clear sol gives about two thousand.\n\nWatch the answers list, not the equipment. It shows what the station can still say at the end of the sol, under the plan you build.\n\nThe habitat is not a load. It comes out first, and it is not a choice.\n\nThen rank what is left by one question. If you stop this, can you get it back? Some of these you can. One of them you cannot.\n\nAnd be careful with the biggest number on the list. The one that costs the most to run is not automatically the one to cut.",
       "background": [
-        "Why reversibility is the ranking, not power drawn. Digging can wait — the ground will still be there. Batteries can recharge on the next clear sol. Electrolysis can be made up later if there is schedule margin left. None of those losses is permanent. Refrigeration is different in kind, and that is what puts it at the top rather than its 210 kWh.",
-        "Why stopping the refrigerator costs more power than it saves. Propellant already in the tanks took sols of array output to make. Stop cooling it and heat keeps arriving, so it boils away. The only way to get it back is to make it again, from the beginning, with power you do not have during a storm. Saving 210 kWh today to spend a thousand next week is not a saving.",
+        "Why \"can you get it back\" is the ranking, and not power drawn. Digging can wait — the ground will still be there. Batteries can recharge on the next clear sol. Electrolysis can be made up later if there is any slack in the schedule. None of those losses is permanent. Cooling is different in kind, and that is what puts it at the top. Not its 210 kWh.",
+        "Why stopping the cooling costs more power than it saves. The fuel already in the tanks took sols of array output to make. Stop cooling it and heat keeps arriving, so it boils away. The only way to get it back is to make it again, from the start, with power you do not have during a storm. Saving 210 kWh today to spend a thousand next week is not a saving.",
         "Why writing the sacrifices down matters. Breakers opened without a record become an argument afterwards about what was agreed. Demir and Wells want the list because the storm will outlast everybody's memory of the reasoning. A plan that names what it gave up can be defended. A plan that only names what it kept cannot."
       ],
-      "story": "The dust storm has cut the sol from about 2,000 kilowatt-hours to 600. Tank refrigeration is already drawing power, and six other demands are queued. Marion Wells, who commands the station, wants the sacrifices written down before breakers are opened.",
+      "story": "The dust storm has cut the sol from about 2,000 kilowatt-hours to 600. Tank cooling is already drawing power, and six other jobs are queued. Marion Wells, who commands the station, wants the sacrifices written down before any breaker is opened.",
       "game": {
         "type": "ALLOCATE",
         "title": "What the station stops doing",
@@ -2828,8 +2798,8 @@ export const CURRICULUM = {
         }
       },
       "assumes": [
-        "stopping a process can be reversible or costly to reverse",
-        "a cryogenic tank warms up when its refrigerator stops"
+        "some jobs can be stopped and picked up again, and some cannot",
+        "a cold tank warms up when its cooling stops"
       ],
       "concept": {
         "n": 23,
@@ -2844,16 +2814,16 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "Which of the three cannot wait",
-      "scene": "The three problems are on the board with the power to fix one of them today. Wells wants the order and the grounds for it in the log before anybody starts work.",
-      "takeaway": "What cannot be undone goes first, whatever is loudest.",
+      "scene": "Three problems are on the board, and there is power to fix one of them today. Wells wants the order, and the reasons for it, in the log before anybody starts work.",
+      "takeaway": "What cannot be undone goes first, however loud the rest are.",
       "place": "Plant Control",
-      "guide": "Three people want to be first and all three have a case, so the ranking has to come from something other than who is asking. Use the same test you used on the storm plan. For each job, ask what the delay actually costs. Some delays cost time, and time can be made up. One of them is spending something the station has already made, every sol it waits. That is not the same kind of cost.",
+      "guide": "Three people want to be first and all three have a case. So the order has to come from something other than who is asking.\n\nUse the same test you used on the storm plan. For each job, ask what waiting actually costs.\n\nSome delays cost time, and time can be made up. One of these is spending something the station has already made, every sol it waits. That is not the same kind of cost at all.\n\nAnd a job you can finish today is not thereby the job to do today.",
       "background": [
-        "The difference between a delay and a loss. Some jobs sit in a queue and cost nothing while they wait. The battery bank refills on the next clear sol. The comparison run is information, and information keeps. Other jobs are spending something every sol they are not done. Fourteen extra kilograms of oxygen a sol is propellant that took array output to make, and it is gone. Rank by that, not by urgency of tone.",
-        "Why boil-off is the one that cannot wait. The oxygen in that tank is stored work. Sols of power went into splitting the water and cooling the product. Let it boil and there is no recovering it. You have to start again from atmosphere and ice. Every other job on this board can be picked up on the next clear sol for exactly what it would have cost on 421.",
-        "Why finishing something is not a reason to choose it. Picking the job that fits in a sol ranks by convenience. It feels like progress because something gets closed, and it says nothing about what the other two cost while they wait. A ranking has to be about consequences. Neatness is not one."
+        "The difference between a delay and a loss. Some jobs sit in a queue and cost nothing while they wait. The battery bank refills on the next clear sol. The comparison run is information, and information keeps. Other jobs are spending something every sol they are not done. Fourteen extra kilograms of oxygen a sol is fuel that took array output to make, and it is gone. Rank by that, not by who sounds most urgent.",
+        "Why boil-off is the one that cannot wait. The oxygen in that tank is stored work. Sols of power went into splitting the water and cooling what came out. Let it boil and there is no getting it back. You have to start again from the air and the ice. Every other job on this board can be picked up on the next clear sol for exactly what it would have cost on 421.",
+        "Why finishing something is not a reason to choose it. Picking the job that fits in a sol is ranking by convenience. It feels like progress, because something gets closed. But it says nothing about what the other two cost while they wait. An order has to be about consequences. Neatness is not one."
       ],
-      "story": "The three problems are on the board with the power to fix one of them today. Wells wants the order and the grounds for it in the log before anybody starts work.",
+      "story": "Three problems are on the board, and there is power to fix one of them today. Wells wants the order, and the reasons for it, in the log before anybody starts work.",
       "game": {
         "type": "CHOICE",
         "title": "Which of the three cannot wait",
@@ -2861,23 +2831,23 @@ export const CURRICULUM = {
         "play": "Rank three faults against each other",
         "task": "Rank three faults against each other",
         "question": "Which of the three is dealt with first?",
-        "answer": "The radiator, since every sol of doubled boil-off is propellant that leaves for good.",
-        "why": "Rank by what the delay costs, and whether it can be got back. Boil-off is the loss of something already made. Fourteen extra kilograms a sol, and no later work returns them. Batteries recharge on the next clear sol at no permanent cost. A comparison run is information, and information waits for nothing so long as the bed is watched. Only one of the three is spending an asset while it sits in the queue. That is the one that goes first.",
+        "answer": "The radiator, because every sol of doubled boil-off is fuel that leaves for good.",
+        "why": "Rank by what waiting costs, and by whether it can be got back. Boil-off is losing something already made. Fourteen extra kilograms a sol, and no later work returns them. Batteries recharge on the next clear sol at no lasting cost. A comparison run is information, and information keeps as long as somebody watches the bed. Only one of the three is spending the station's own work while it sits in the queue. That one goes first.",
         "rebuttals": [
           "The battery bank refills on the next clear sol at no permanent cost, and one has been forecast.",
           "The comparison matters and loses nothing by waiting two sols, since the bed is under watch.",
           "Choosing by what fits in a sol ranks by convenience and ignores what each delay is costing."
         ],
         "choices": [
-          "The radiator, since every sol of doubled boil-off is propellant that leaves for good.",
-          "The battery bank, since another storm without reserve would stop the whole station.",
-          "The charge comparison, since the season's production depends on knowing the bed is good.",
-          "Whichever can be finished today, since a finished job is worth more than a started one."
+          "The radiator, because every sol of doubled boil-off is fuel that leaves for good.",
+          "The battery bank, because another storm with no reserve would stop the whole station.",
+          "The charge comparison, because the season's output depends on knowing the bed is good.",
+          "Whichever can be finished today, because a finished job beats a started one."
         ],
-        "correctChoice": "The radiator, since every sol of doubled boil-off is propellant that leaves for good."
+        "correctChoice": "The radiator, because every sol of doubled boil-off is fuel that leaves for good."
       },
       "assumes": [
-        "propellant vented from a tank cannot be recovered",
+        "fuel that boils out of a tank cannot be got back",
         "a comparison run and a battery charge can both be done later"
       ],
       "concept": {
@@ -2897,11 +2867,11 @@ export const CURRICULUM = {
       "takeaway": "The cost of a withdrawn instruction is paid by whoever is still working to it.",
       "place": "Plant Control",
       "at": "loadboard",
-      "guide": "Keep the loads the current rule protects, and let the rest drop. One thing to know before you start. The rule at the top of the board changes during the sol, and nobody announces it. What gets scored is the loads either side of a change. Those are the only ones that show whether you are reading the rule, or working to the last one you saw.",
+      "guide": "Keep the loads the current rule protects. Let the rest drop.\n\nOne thing to know before you start. The rule at the top of the board changes during the sol, and nobody announces it.\n\nWhat gets scored is the loads either side of a change. Those are the only ones that show whether you are reading the rule, or still working to the last one you saw.\n\nA load that no rule protects is easy. Dropping it proves nothing about whether you looked.",
       "background": [
-        "Why the rule changes at all. On a clear sol the plant protects production, because the tank has a schedule to meet. In a storm it protects the crew and the propellant already made, because neither can be remade. Close to the window it protects whatever the launch depends on. Three situations, three lists, and the same eight loads on the board.",
-        "Why a load can be right under one rule and wrong under the next. The stacks are production, so they are protected on a clear sol and dropped in a storm. Tank pressurisation counts twice. It serves the launch, and it protects what cannot be remade, so it survives two rules of the three. Nothing on this board is simply important or unimportant. It depends what is being protected.",
-        "What the changeover actually costs. Picture a desk still running the production rule through the first hour of a storm. It keeps the stacks warm and lets the liquefier go off. The propellant that boils away took forty sols of array output to make, and it has to be made again from the beginning. The instruction was withdrawn; the cost is paid by whoever was still working to it."
+        "Why the rule changes at all. On a clear sol the plant protects production, because the tank has a schedule to meet. In a storm it protects the crew and the fuel already made, because neither can be made again. Close to the window it protects whatever the launch depends on. Three situations, three lists, and the same eight loads on the board.",
+        "Why a load can be right under one rule and wrong under the next. The stacks are production, so they are protected on a clear sol and dropped in a storm. Tank pressure counts twice. It serves the launch, and it protects what cannot be made again, so it survives two rules out of the three. Nothing on this board is simply important or unimportant. It depends what is being protected.",
+        "What the changeover actually costs. Picture a desk still running the production rule through the first hour of a storm. It keeps the stacks warm and lets the cooling go off. The fuel that boils away took forty sols of array output to make, and it has to be made again from the start. The instruction was withdrawn. The cost is paid by whoever was still working to it."
       ],
       "story": "Loads come up on the board through the sol. The station runs to one power rule at a time. Demir changes it as the sol does: after the dust thickens, after the tank pressure rises, after the window gets closer.",
       "game": {
@@ -2912,7 +2882,7 @@ export const CURRICULUM = {
         "task": "Work the load board while the power rule changes.",
         "question": "Protect what the current rule protects, and keep watching the rule.",
         "answer": "Read the rule rather than the load list. Every change leaves a few minutes in which the old rule still looks like the right one.",
-        "why": "Three rules run across the sol, and each protects a different part of the board. Production first. Then whatever cannot be remade. Then whatever the launch depends on. A load can answer two rules at once, which is what makes a switch cost something real. So the panel scores the window either side of each change. A load protected by no rule at all is dropped correctly by somebody who has read nothing. It proves nothing. The station's own version of this is the first hour of a dust storm. The rule has moved to protecting what cannot be remade. A desk still running the production rule keeps the stacks warm and lets the liquefier go off. That boils away propellant which took forty sols of array output to make.",
+        "why": "Three rules run across the sol, and each protects a different part of the board. Production first. Then whatever cannot be made again. Then whatever the launch depends on. A load can answer two rules at once, which is what makes a switch cost something real. So the panel scores the window either side of each change. A load protected by no rule at all is dropped correctly by somebody who has read nothing. It proves nothing. The station's own version of this is the first hour of a dust storm. The rule has moved to protecting what cannot be remade. A desk still running the production rule keeps the stacks warm and lets the liquefier go off. That boils away propellant which took forty sols of array output to make.",
         "spot": {
           "targets": [
             {
@@ -3017,42 +2987,42 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Release the full tank",
-      "scene": "Wells puts the final board beside the ascent vehicle telemetry. Methane: 6.6 tonnes. Oxygen: 23 tonnes. Every loaded batch is inside its own flight limits; the Sol 445 batch was rejected and remade. The conductivity trigger is armed, and the catalyst record is qualified rather than universal. The return window opens in eleven sols.",
-      "takeaway": "Readiness is a bounded claim: these measured tanks meet these flight requirements, with the remaining unknowns left attached to future production.",
+      "scene": "Wells puts the final board beside the rocket's own readouts. Methane: 6.6 tonnes. Oxygen: 23 tonnes. Every batch that went aboard passed its own limits. The Sol 445 batch failed and was remade. The window opens in eleven sols.",
+      "takeaway": "Readiness is a narrow claim: these measured tanks meet these stated limits. What is still unknown stays attached to the next batch.",
       "place": "Plant Control",
       "at": "loadboard",
-      "guide": "Do not ask whether every uncertainty on Mars has disappeared. Ask whether the flight decision's required claims are supported. The tank masses are measured. Batch acceptance is documented. The rejected batch stayed out. The water-control rule is armed. The remaining unknowns concern future column life, deeper ice and untested catalyst-poison conditions—not the specification of the propellant already aboard.",
+      "guide": "Do not ask whether Mars has stopped being uncertain. Ask the narrower question: is what this signature actually claims supported?\n\nAn assay is what is actually in a batch. A specification is what is allowed to be in it. Every line has to pass. Nine out of ten is a fail — which is why the Sol 445 batch was remade instead of argued about.\n\nSo check what is on the board. The tank masses are measured. Every batch aboard has an assay that passed. The failed batch stayed out. The water alarm is armed.\n\nWhat is still unknown is all about future production: how long a column lasts, what deeper ice holds. Ask whether those change the chemistry of fuel already loaded.",
       "background": [
-        "What release means. This is not a claim that the plant is solved forever. It is a decision that the propellant set now aboard satisfies the vehicle's stated mass and chemistry requirements.",
-        "Why unresolved science can remain. The next crew still needs better breakthrough statistics and deeper-ice chemistry. Those uncertainties belong to future production. They do not automatically invalidate measured, in-specification propellant already loaded.",
-        "Why the rejected batch matters. Readiness includes the decisions not taken. The Sol 445 water-contaminated batch never entered the vehicle, and the replacement production is included in the final mass. The audit trail therefore closes mass, chemistry and reversibility together."
+        "What release means. This is not a claim that the plant is solved forever. It is a decision that the fuel now aboard meets the mass and the chemistry the rocket asks for.",
+        "Why unfinished science can stay unfinished. The next crew still needs better numbers on how long a column lasts, and on what deeper ice holds. Those unknowns belong to future production. They do not make measured, in-limit fuel already loaded any worse than it is.",
+        "Why the rejected batch matters. Being ready includes the decisions you did not take. The Sol 445 batch was contaminated with water and never entered the rocket, and what replaced it is in the final mass. That is what closes the record: the mass, the chemistry, and the one thing that was kept out."
       ],
-      "story": "Wells puts the final board beside the ascent vehicle telemetry. Methane: 6.6 tonnes. Oxygen: 23 tonnes. Every loaded batch is inside its own flight limits; the Sol 445 batch was rejected and remade. The conductivity trigger is armed, and the catalyst record is qualified rather than universal. The return window opens in eleven sols.",
+      "story": "Wells puts the final board beside the rocket's own readouts. Methane: 6.6 tonnes. Oxygen: 23 tonnes. Every batch that went aboard passed its own limits. The Sol 445 batch failed and was remade. The window opens in eleven sols.",
       "game": {
         "type": "CHOICE",
         "title": "Release the full tank",
         "setup": "Plant Control",
         "play": "Decide whether the propellant set is ready to become a flight system.",
         "task": "Decide whether the propellant set is ready to become a flight system.",
-        "question": "What do you sign eleven sols before the return window?",
-        "answer": "Release the propellant set to flight; the required masses and loaded-batch specifications are met, with the qualified operating limits recorded.",
-        "why": "The required flight claims are now supported independently. The tank masses are reconciled at 6.6 tonnes methane and 23 tonnes oxygen. Every batch that entered the vehicle passed its own specification; the batch that failed did not enter. The water system has a prewritten breakthrough response, and the catalyst record states only the conditions it actually survived. Waiting for every unknown about deeper regolith or future column lifetime would not improve the chemistry of propellant already measured aboard. Releasing without conditions would overstate what the season proved. The defensible action is to release this propellant set to flight and carry the remaining limits forward.",
+        "question": "What do you sign, eleven sols before the return window?",
+        "answer": "Release the fuel to flight. The masses and every loaded batch meet their limits, and the operating limits are on record.",
+        "why": "Each thing the signature claims is now supported on its own. The tank masses are settled at 6.6 tonnes of methane and 23 of oxygen. Every batch that went aboard passed its own limits, and the one that failed did not go aboard. The water system has a written response ready if the column breaks through. The catalyst record states only the conditions it actually survived. Waiting for every unknown about deeper ground or the next column would not change the chemistry of fuel already measured and loaded. Releasing with no conditions would claim more than the season proved. So release this fuel to flight, and carry the limits forward in writing.",
         "rebuttals": [
-          "Those are future-production uncertainties. They do not change the measured chemistry of the accepted propellant already aboard.",
-          "Correct tank mass does not erase the limits of the evidence about future catalyst and water-system operation.",
-          "One failed flight-critical specification line is enough to reject a batch; passing three others does not average it back into compliance."
+          "Those unknowns belong to the next batch. They do not change the measured chemistry of the fuel already aboard.",
+          "Correct tank masses do not erase what the evidence about the catalyst and the water system does not cover.",
+          "One failed line is enough to reject a batch. Passing three others does not average it back into being allowed."
         ],
         "choices": [
-          "Release the propellant set to flight; the required masses and loaded-batch specifications are met, with the qualified operating limits recorded.",
-          "Hold the vehicle until deeper-ice chemistry and the next polishing-column lifetime are known, even though the propellant already aboard meets specification.",
-          "Release it unconditionally and remove the catalyst and water qualifications because the final tank masses are correct.",
-          "Add the rejected Sol 445 batch for extra margin, since three of its four assay lines passed."
+          "Release the fuel to flight. The masses and every loaded batch meet their limits, and the operating limits are on record.",
+          "Hold the rocket until deeper ice and the next column's life are known, even though the fuel aboard meets its limits.",
+          "Release it with no conditions at all, and drop the catalyst and water limits, because the masses are right.",
+          "Add the rejected Sol 445 batch for extra margin, because three of its four assay lines did pass."
         ],
-        "correctChoice": "Release the propellant set to flight; the required masses and loaded-batch specifications are met, with the qualified operating limits recorded."
+        "correctChoice": "Release the fuel to flight. The masses and every loaded batch meet their limits, and the operating limits are on record."
       },
       "assumes": [
-        "the vehicle flight specification is the acceptance rule for propellant already loaded",
-        "all loaded batches have traceable assays and the displayed tank masses are reconciled"
+        "the rocket's specification is the rule that fuel already loaded has to pass",
+        "every loaded batch has an assay you can trace, and the tank masses on the board agree"
       ],
       "concept": {
         "n": 33,
@@ -3909,7 +3879,7 @@ export const BALLPARK_CALCS = {
     "explanation": "Contact time is the bed's volume divided by the flow through it. The pressure and the temperature are already inside that flow figure, which is quoted at reactor conditions."
   },
   "GIBBS-1": {
-    "prompt": "Splitting a mole of liquid water takes in 286 kJ and raises entropy by 163 J per kelvin per mole. The cell works at 298 K.",
+    "prompt": "Splitting a mole of liquid water takes in 286 kJ, and leaves things more spread out by 163 J per kelvin per mole. The cell works at 298 K.",
     "question": "Choose the enthalpy change, the temperature, and the entropy change in the same units as the enthalpy.",
     "labels": [
       "286  (ΔH, kJ per mole taken in)",
@@ -4005,7 +3975,7 @@ export const BALLPARK_CALCS = {
     "explanation": "Equal moles of the two gases, so the mass ratio is the ratio of the molar masses. The hydrogen and the water are elsewhere in the ledger."
   },
   "GIBBS-2": {
-    "prompt": "For this reaction the enthalpy change is −123,600 J per mole and the entropy change is −172 J per mole per kelvin. The bed is at 593 K.",
+    "prompt": "For this reaction the enthalpy change is −123,600 J for every mole, and the entropy change is −172 J for every mole per kelvin. The bed is at 593 K.",
     "question": "Estimate the free-energy change for the reaction at the bed's temperature.",
     "labels": [
       "−123600 J/mol  (enthalpy change)",
@@ -4132,7 +4102,7 @@ export const BALLPARK_CALCS = {
     "explanation": "The liquid cannot warm up, so power × time gives the heat that arrived, and heat ÷ the energy each kilogram needs gives the mass that left."
   },
   "ELEC-4": {
-    "prompt": "The cell carried 640 amps for 88,800 seconds. Making 1 mole of hydrogen takes 2 moles of electrons, which is 192,970 coulombs.",
+    "prompt": "The cell carried 640 amps for 88,800 seconds. Making one mole of hydrogen takes two moles of electrons, which is 192,970 coulombs of charge.",
     "question": "Estimate the hydrogen one cell should produce over a sol.",
     "labels": [
       "640 A  (current through the cell)",
@@ -4161,10 +4131,10 @@ export const BALLPARK_CALCS = {
     "tolerance": 40,
     "units": "g per sol",
     "solution": "640 A × 88,800 s ÷ 192,970 C/mol × 2.016 g/mol ≈ 594 g.",
-    "explanation": "Current times time is charge, charge divided by the charge per mole is moles, and moles times the molar mass is grams. The voltage decides the energy bill rather than the amount."
+    "explanation": "Current times time is charge. Charge divided by the charge one mole needs is moles. Moles times what a mole weighs is grams. The voltage decides the energy bill, not the amount."
   },
   "GIBBS-4": {
-    "prompt": "The stacks made 6.9 kg of hydrogen. At the voltage they run, this stack spends about 55 kWh for each kilogram it makes.",
+    "prompt": "The stacks made 6.9 kg of hydrogen. At the voltage they run, this stack spends about 55 kWh for every kilogram it makes.",
     "question": "Estimate the electrical energy the stacks spent making hydrogen this sol.",
     "labels": [
       "6.9 kg  (hydrogen made this sol)",
@@ -4195,7 +4165,7 @@ export const BALLPARK_CALCS = {
   },
   "ELEC-6": {
     "prompt": "Above the dust the beam is 490 watts a square metre. The station's sun sensor reports an optical depth of 2.4.",
-    "question": "Estimate the direct solar beam reaching a horizontal reference surface through this dust.",
+    "question": "Estimate the straight-through beam reaching a flat surface through this dust.",
     "labels": [
       "490 W/m²  (beam above the dust)",
       "2.4  (optical depth today)",
@@ -4220,8 +4190,8 @@ export const BALLPARK_CALCS = {
     "target": 44.5,
     "tolerance": 8,
     "units": "W per square metre",
-    "solution": "490 × e^(−2.4) ≈ 44 W per square metre of direct beam.",
-    "explanation": "This exponential gives only the straight-through beam. It is not a prediction that total array electrical output must also be nine percent of clear-sol output."
+    "solution": "490 × e^(−2.4) ≈ 44 watts a square metre of straight-through beam.",
+    "explanation": "This gives only the straight-through beam. It does not say the array's total output must also be nine percent of a clear sol."
   },
   "PHASE-8": {
     "prompt": "Burning methane completely is CH₄ + 2O₂ → CO₂ + 2H₂O. Before you look at what the rocket actually loads, work out how many kilograms of oxygen one kilogram of methane needs.",

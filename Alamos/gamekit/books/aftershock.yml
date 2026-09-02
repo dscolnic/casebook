@@ -986,7 +986,8 @@ missions:
     - a leaning column carries its load off-centre
     takeaway: The lean matters because gravity now acts with eccentricity, creating P–Δ effects and extra bending demand in the frame.
     format: CHOICE
-    question: What is the engineering objection to leaving Marina Court standing?
+    question: Settlement — the ground sinking under the raft — has left Marina Court leaning eight degrees. What is the
+      engineering objection to leaving the block standing?
     why: Once the whole building is tilted, gravity no longer acts through the same geometry for which the columns and frame were proportioned.
       The lateral offset creates additional bending and second-order P–Δ effects, and an eight-degree lean is far beyond something that
       can be dismissed because the members are visibly uncracked. The survey therefore supports a red restriction while engineers check

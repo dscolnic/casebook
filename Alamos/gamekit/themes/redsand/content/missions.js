@@ -46,7 +46,7 @@ export const MISSIONS = [
       {
         "group": "ELEC",
         "lesson": 0,
-        "task": "Match each item on Achebe's board to what it does.",
+        "task": "Match each part on Achebe's board to what it does.",
         "reason": "This hall is the only source of hydrogen on the station, so start by learning how its cells work"
       },
       {

@@ -26,20 +26,29 @@
 // nothing the questions use is decoration.
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { themeDir as resolveTheme } from './registry.mjs';
 
-const themeName = process.argv[2];
+const selftestMode = process.argv.includes('--selftest');
+const themeName = selftestMode ? null : process.argv[2];
 const verbose = process.argv.includes('--verbose');
 const advisory = process.argv.includes('--advisory');
-if(!themeName){
+const record = process.argv.includes('--record');
+if(!selftestMode && !themeName){
   console.error('usage: node engine/dev/checkJargon.mjs <theme> [--verbose] [--advisory]');
+  console.error('       node engine/dev/checkJargon.mjs --selftest');
   process.exit(2);
 }
-const dir = resolveTheme(themeName);
-const theme = (await import(pathToFileURL(resolve(dir, 'theme.js')).href)).default;
-const { normalizeContent } = await import('../content/normalize.js');
-const content = theme.content ?? {};
-normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
+// `--selftest` loads no theme: it exercises the pure collector and the in-place
+// detector, and exits before the campaign walk below.
+let theme = {}, content = {};
+if(!selftestMode){
+  const dir = resolveTheme(themeName);
+  theme = (await import(pathToFileURL(resolve(dir, 'theme.js')).href)).default;
+  const { normalizeContent } = await import('../content/normalize.js');
+  content = theme.content ?? {};
+  normalizeContent(content, theme.site ?? null, theme.fixtures ?? {});
+}
 
 const CURRICULUM = content.CURRICULUM ?? {};
 const MISSIONS = content.MISSIONS ?? [];
@@ -223,6 +232,78 @@ function countExplanations(term, text, where){
   if(definedInPlace(term, text)) explainedBy(term, where);
 }
 
+// ——— everything the player reads BEFORE answering ————————————————————
+//
+// `guide` and `background` were added to the card contract after this file was
+// written, and it went on reading the six fields that existed then. Both
+// directions cost: a term glossed only in the guide read as never introduced,
+// and — the direction that matters — a hard word appearing only in a guide was
+// never checked at all. A reading's `value` and `note` are here for the same
+// reason: "900 ppm" lives in `value`, and the note beside it is where the card
+// glosses it.
+//
+// Named rather than inline so `--selftest` can hold it to the equality case
+// this repo insists on: the same term, glossed in the scene and glossed in the
+// guide, has to score the same.
+//
+// The verdict is excluded on purpose: it is allowed to introduce a word, and
+// does so for the next day.
+export function askedText(l, ch){
+  const lab = (x) => label(x);
+  return [l?.scene, l?.guide, ch?.task ?? ch?.play, ch?.question, ch?.headline,
+    ...(ch?.choices ?? []).map(lab), ...(ch?.cards ?? []).map(lab),
+    ...(ch?.scenarios ?? []).map(lab), ...(ch?.givens ?? []).map(lab),
+    ...(ch?.readings ?? []).map(r => `${r?.label ?? ''} ${r?.zone ?? ''} ${r?.value ?? ''} ${r?.note ?? ''}`),
+    ...(ch?.proposals ?? []).map(lab), ch?.relationship,
+    ...(l?.background ?? []),
+  ].filter(Boolean).join('  ');
+}
+
+// ——— selftest ————————————————————————————————————————————————————————
+//
+//   node engine/dev/checkJargon.mjs --selftest
+//
+// The equality case first, because it is the one that says the collector is a
+// measurement rather than a habit: the SAME term, glossed in the scene and
+// glossed in the guide, must score the same. It did not for most of this file's
+// life, and the way that surfaced was a term defined on the face of a day-3
+// card being reported as never introduced anywhere.
+//
+// Then the bug put back: drop `guide` from the collector and confirm that the
+// guide case, and only the guide case, fails.
+if(selftestMode){
+  let bad = 0;
+  const ok = (name, cond) => { if(!cond){ bad++; console.log(`  ✗ ${name}`); } else console.log(`  ✓ ${name}`); };
+
+  const GLOSS = 'It says 900 ppm — that means 900 parts out of every million.';
+  const inScene = askedText({ scene: GLOSS }, {});
+  const inGuide = askedText({ scene: 'Five gauges are up.', guide: GLOSS }, {});
+  const inNote  = askedText({ scene: 'Five gauges are up.' },
+    { readings: [{ label: 'Water', zone: 'Drier', value: '900 ppm', note: 'ppm means parts per million' }] });
+  const inBg    = askedText({ scene: 'Five gauges are up.', background: [GLOSS] }, {});
+
+  ok('a term glossed in the scene is defined', definedInPlace('ppm', inScene));
+  ok('EQUALITY: the same gloss in the guide scores the same', definedInPlace('ppm', inGuide));
+  ok('EQUALITY: the same gloss in a reading note scores the same', definedInPlace('ppm', inNote));
+  ok('EQUALITY: the same gloss in background scores the same', definedInPlace('ppm', inBg));
+
+  // A word nobody glossed is still undefined — the checker has not been made
+  // toothless by widening what it reads.
+  ok('an unglossed term stays undefined',
+    !definedInPlace('ppm', askedText({ scene: 'The gauge reads 900 ppm and nobody says what that is.' }, {})));
+
+  // The bug, put back.
+  const withoutGuide = (l, ch) => [l?.scene, ch?.question].filter(Boolean).join('  ');
+  ok('BUG BACK: dropping `guide` breaks the guide case',
+    !definedInPlace('ppm', withoutGuide({ scene: 'Five gauges are up.', guide: GLOSS }, {})));
+  ok('BUG BACK: and leaves the scene case passing',
+    definedInPlace('ppm', withoutGuide({ scene: GLOSS }, {})));
+
+  console.log(bad ? `\ncheckJargon selftest: ${bad} case(s) failed.`
+                  : '\ncheckJargon selftest: all cases pass.');
+  process.exit(bad ? 1 : 0);
+}
+
 const firstUse = new Map();    // word -> { day, where, kind }
 const perDay = [];
 
@@ -239,12 +320,7 @@ MISSIONS.forEach((m, mi) => {
     const ch = l.game ?? {};
     // Everything the player reads BEFORE answering. The verdict is excluded on
     // purpose: it is allowed to introduce a word, and does so for the next day.
-    const asked = [l.scene, ch.task ?? ch.play, ch.question, ch.headline,
-      ...(ch.choices ?? []).map(label), ...(ch.cards ?? []).map(label),
-      ...(ch.scenarios ?? []).map(label), ...(ch.givens ?? []).map(label),
-      ...(ch.readings ?? []).map(r => `${r?.label ?? ''} ${r?.zone ?? ''}`),
-      ...(ch.proposals ?? []).map(label), ch.relationship,
-    ].filter(Boolean).join('  ');
+    const asked = askedText(l, ch);
     const assumed = new Set(words((l.assumes ?? []).join(' ')).map(flat));
 
     for(const raw of words(asked)){
@@ -348,16 +424,76 @@ const onceOnly = !junior ? [] : usedTerms.filter((t) => {
 // content decision for a person.
 const { editionBase } = await import('./registry.mjs');
 const isEdition = !!editionBase(themeName);
-if(onceOnly.length && isEdition) problems.push(
-  `${onceOnly.length} term(s) are explained once or not at all, for an audience of grade ${grade}`
-  + ` — say it again somewhere else, in different words`);
+const debtPath = new URL('./jargon-debt.json', import.meta.url);
+let DEBT = { neverIntroduced: {}, blindDays: {}, explainedOnce: {} };
+try { DEBT = JSON.parse(readFileSync(debtPath, 'utf8')); } catch { /* first run */ }
+const DEBT_ONCE = DEBT.explainedOnce ?? {};
+const RECORD_ONCE = { list: null };
+
+// Held the same way as the other two classes; see the debt-file note below.
+const debtOnce = new Set(DEBT_ONCE?.[themeName] ?? []);
+const newOnce = onceOnly.filter(t => !debtOnce.has(t));
+const paidOnce = [...debtOnce].filter(t => !onceOnly.includes(t));
+if(record){ RECORD_ONCE.list = [...onceOnly].sort(); }
+for(const t of paidOnce) problems.push(
+  `engine/dev/jargon-debt.json lists "${t}" under explainedOnce for ${themeName}, which is`
+  + ' explained more than once now — delete the line');
+if(newOnce.length && isEdition) problems.push(
+  `${newOnce.length} term(s) are explained once or not at all, for an audience of grade ${grade}`
+  + ` — say it again somewhere else, in different words: ${newOnce.join(', ')}`);
 else if(onceOnly.length) notes.push(
   `${onceOnly.length} term(s) are explained once or not at all, for grade ${grade} (advisory — not an edition)`);
 
-if(neverTaught.length) problems.push(
-  `${neverTaught.length} hard word(s) are used and never introduced — no glossary entry, no primer, no definition in place`);
-if(blindDays.length) problems.push(
-  `${blindDays.length} day(s) leave two or more terms unexplained and the primer names none of them`);
+// ——— the debt file ————————————————————————————————————————————————
+//
+// Widening what this checker reads (see askedText) turned 13 themes red at a
+// stroke, because a hard word sitting in a guide had never been looked at
+// before. Every one of those is a real card nobody glossed — but shipping them
+// as a hard gate is the failure this repo names outright: a wall of false
+// failures is how a gate stops being read.
+//
+// So the same two properties as concept-debt.json and curriculum-debt.json. A
+// word NOT on the list fails immediately, so nothing new drifts in. A word on
+// the list that has since been glossed ALSO fails, naming the line to delete,
+// so the file cannot become a standing excuse. It only shrinks.
+//
+// Regenerate with `--record` after paying some off. Some entries are noise the
+// hard-word test itself produces — `value`, `abcd`, `rgb`, `cv` — and those
+// want deleting from TERMS rather than glossing on a card; they are recorded
+// rather than hidden so the triage is visible.
+const debtWords = new Set(DEBT.neverIntroduced?.[themeName] ?? []);
+const debtDays  = new Set(DEBT.blindDays?.[themeName] ?? []);
+
+if(record){
+  const out = JSON.parse(JSON.stringify(DEBT));
+  out.neverIntroduced ??= {}; out.blindDays ??= {};
+  if(neverTaught.length) out.neverIntroduced[themeName] = [...neverTaught].sort();
+  else delete out.neverIntroduced[themeName];
+  if(blindDays.length) out.blindDays[themeName] = blindDays.map(d => d.day).sort((a,b) => a - b);
+  else delete out.blindDays[themeName];
+  out.explainedOnce ??= {};
+  if(RECORD_ONCE.list?.length) out.explainedOnce[themeName] = RECORD_ONCE.list;
+  else delete out.explainedOnce[themeName];
+  writeFileSync(debtPath, JSON.stringify(out, null, 2) + '\n');
+  console.log(`recorded ${neverTaught.length} word(s) and ${blindDays.length} day(s) for "${themeName}"`);
+}
+
+const newWords = neverTaught.filter(w => !debtWords.has(w));
+const paidWords = [...debtWords].filter(w => !neverTaught.includes(w));
+const newBlind = blindDays.filter(d => !debtDays.has(d.day));
+const paidBlind = [...debtDays].filter(d => !blindDays.some(b => b.day === d));
+
+if(newWords.length) problems.push(
+  `${newWords.length} hard word(s) are used and never introduced — no glossary entry, no primer,`
+  + ` no definition in place: ${newWords.join(', ')}`);
+if(newBlind.length) problems.push(
+  `${newBlind.length} day(s) leave two or more terms unexplained and the primer names none of them`);
+for(const w of paidWords) problems.push(
+  `engine/dev/jargon-debt.json lists "${w}" for ${themeName}, which is introduced now — delete the line`);
+for(const d of paidBlind) problems.push(
+  `engine/dev/jargon-debt.json lists blind day ${d} for ${themeName}, which is covered now — delete it`);
+if(debtWords.size && !newWords.length && !paidWords.length)
+  notes.push(`${debtWords.size} known un-introduced word(s) held at their recorded numbers`);
 if(thinDays.length) notes.push(
   `${thinDays.length} day(s) whose primer covers under a third of the day's hard words`);
 for(const d of perDay) if(d.decorative.length) notes.push(

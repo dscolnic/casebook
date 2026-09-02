@@ -23,7 +23,7 @@ export const CURRICULUM = {
         "setup": "System Operations",
         "play": "Say what the busbar meter can and cannot tell you",
         "task": "Say what the busbar meter can and cannot tell you",
-        "question": "What does the 900 A total tell you about the 2 circuits?",
+        "question": "What does the 900 A total at the node — the junction where the two circuits meet — tell you about them?",
         "answer": "The branch currents must add to 900 A. Their individual values require another relation, such as the branch impedances.",
         "why": "Charge does not build up at a junction, so current entering a node must equal current leaving it. Kirchhoff’s current law gives that conservation rule. It fixes the sum of the branch currents without telling you how the total divides. The split needs another relation, such as the branch impedances. Assuming an even split is wrong when the paths differ. Assuming each branch carries the full total confuses parallel and series circuits. One equation constrains two unknown branch currents; it does not determine both alone.",
         "rebuttals": [
@@ -2062,7 +2062,7 @@ export const CURRICULUM = {
         "setup": "Transmission & Protection",
         "play": "Check whether the scope and meter are consistent with the same sine-wave voltage.",
         "task": "Check whether the scope and meter are consistent with the same sine-wave voltage.",
-        "question": "Which numerical relation should hold if both instruments are correct?",
+        "question": "One instrument reads a peak voltage and the other reads RMS — root mean square, the steady voltage that would heat a resistor the same. Which numerical relation should hold if both are correct?",
         "answer": "325 V ≈ 230 V × √2, or equivalently 325/√2 ≈ 230 V. The scope and meter are reporting peak and RMS values of the same sine wave.",
         "why": "An alternating voltage does not have one value, so any single number is a summary and the summary has to be named. The peak is the highest the waveform reaches. The RMS value is the steady voltage that would deliver the same power into a resistance. For a sine wave it is the peak divided by root two. Divide 325 by 1.414 and the meter's 230 comes straight out. This is why mains voltages are quoted as RMS everywhere: it is the figure that predicts heating and power.",
         "rebuttals": [
@@ -2480,9 +2480,9 @@ export const CURRICULUM = {
         "type": "PROTOCOL",
         "title": "What is common and what divides",
         "setup": "Distribution Depot",
-        "play": "Match each connection to what it shares",
-        "task": "Match each connection to what it shares",
-        "question": "Match each connection to what it shares",
+        "play": "Match each connection — end to end in series, side by side in parallel — to what it shares",
+        "task": "Match each connection — end to end in series, side by side in parallel — to what it shares",
+        "question": "Match each connection — end to end in series, side by side in parallel — to what it shares",
         "answer": "",
         "why": "Series and parallel circuits differ by what stays common. In series there is one path, so every element carries the same current. The supply voltage divides across the elements. In parallel every branch connects to the same two nodes, so each branch has the same voltage. The current divides instead. Adding a parallel branch lowers the equivalent resistance and raises total current. Adding a series resistance raises the equivalent resistance and lowers the loop current. Mixing these rules leads directly to wrong fuse and conductor sizing.",
         "rebuttals": [
@@ -2915,7 +2915,7 @@ export const CURRICULUM = {
         "setup": "Distribution Depot",
         "play": "Choose the last protection step before the crew approaches the conductor.",
         "task": "Choose the last protection step before the crew approaches the conductor.",
-        "question": "What must happen after isolation and a successful dead test?",
+        "question": "A touch potential — voltage between the conductor and the ground a worker stands on — can still appear here. What must happen after isolation and a successful dead test?",
         "answer": "Apply portable earths at the point of work. Isolation and testing dead establish the condition; earthing holds it near local ground potential if something changes.",
         "why": "Isolation and proving dead answer different questions. Opening both ends removes the known sources, while the dead test confirms the condition at that moment. Neither guarantees the conductor will stay safe if switching changes or induced voltage appears. Portable earths provide a low-impedance path for unexpected current and keep the work conductor close to local ground potential. That is why earthing follows the dead test rather than replacing it. The sequence turns a measured safe state into a maintained safe state.",
         "rebuttals": [

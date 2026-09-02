@@ -527,6 +527,7 @@ missions:
   - group: INTEG
     task: Ten minutes to the next tracking pass. What does the flight director do first?
     title: Spend the first ten minutes
+    concept: "Systems thinking: dependency, redundancy, failure modes"
     place: Spacecraft Systems Console
     scene: Four teams want the crew's radio at once. The next tracking pass starts in ten
       minutes. You must set one order before mixed commands reach the ship.
@@ -553,7 +554,8 @@ missions:
     - two rooms acting on different versions of one number is worse than either acting alone
     takeaway: Attention is a scarce physical resource during a fast-moving systems failure.
     format: CHOICE
-    question: Ten minutes to the next tracking pass. What does the flight director do first?
+    question: Ten minutes to the next tracking pass. Four teams are working the same failure mode — the same broken
+      system — from four different sets of numbers. What does the flight director do first?
     why: Attention is a physical resource in an emergency, just like propellant. The first
       decision determines where that resource goes. Four controllers are already working one
       failure from four sets of numbers. Without one log and one command authority, the same
@@ -1514,7 +1516,8 @@ missions:
     isolation as an evidence chain rather than as isolated facts.
   stops:
   - group: ELEC
-    task: Match each case to the best scientific answer. Use each choice once.
+    task: Ferreira wants redundancy — a spare that carries on if one cell fails. Match each wiring change to what it
+      actually does. Use each choice once.
     title: Series or parallel?
     place: Battery Test Bench
     scene: A spare battery may buy more time. Ferreira asks how each wiring plan changes voltage,
@@ -3050,8 +3053,10 @@ missions:
     chain rather than as isolated facts.
   stops:
   - group: INTEG
-    task: Match each case to the best scientific answer. Use each choice once.
+    task: Match each path to the dependency it pushes closest to its limit — the thing that runs out first. Use each
+      choice once.
     title: Name the binding constraint
+    concept: "Systems thinking: dependency, redundancy, failure modes"
     place: Mission Design Center
     scene: Four paths home are on the board. Each spends fuel, time, water, heat, or radio
       cover. Name the limit each path comes closest to.
