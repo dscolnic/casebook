@@ -40,7 +40,8 @@ export const CURRICULUM = {
         "correctChoice": "The soft ground under the Flats amplified and lengthened the shaking."
       },
       "assumes": [
-        "an instrument records the shaking where it stands, not the earthquake itself"
+        "an instrument records the shaking where it stands, not the earthquake itself",
+        "peak ground acceleration and what a building feels — taken as read"
       ],
       "equations": [
         {
@@ -78,6 +79,12 @@ export const CURRICULUM = {
           ],
           "s": "Soft ground can multiply the shaking several times over, which is how one earthquake produces two different disasters in one town.",
           "demanded": true
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 6,
+          "c": "Peak ground acceleration and what a building feels"
         }
       ],
       "concept": {
@@ -151,36 +158,35 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "The instrument in the basement",
-      "scene": "There is an accelerograph in the hospital basement, installed in 1998 and finally useful. Cardoso has processed the record into a 5%-damped response spectrum. Around the hospital's roughly 0.4 s fundamental period, the spectral acceleration is about 0.31 g. The comparable screening coefficient used for the old design check is 0.35.",
+      "scene": "There is an accelerograph in the hospital basement, installed in 1998 and finally useful. Cardoso has turned the record into a 5%-damped response spectrum — a chart of how hard the shaking pushed buildings of each different sway time. Around the hospital's roughly 0.4 s fundamental period, the spectral acceleration is about 0.31 g. The comparable screening coefficient used for the old design check is 0.35.",
       "takeaway": "A building record is most useful when converted to the response quantity the structure actually uses; raw PGA is not automatically the building base shear.",
       "place": "Seismic Network",
-      "guide": "Do not use the raw peak ground acceleration as though the whole building were a rigid block. Use the period-specific spectral ordinate already read from the record, then apply the same simplified V = C·W screening relation used in the design comparison.",
+      "guide": "Do not use the raw peak ground acceleration as though the whole building were a rigid block. Read the seismic coefficient off the spectrum at the building's own period, then put it through the same base-shear screen the design comparison used, V = C_s · W.",
       "background": [
         "What the instrument gives you. An accelerograph records acceleration versus time. From that record, engineers can compute a response spectrum showing the demand on idealized oscillators at different periods.",
         "Why period matters. A multi-storey building does not necessarily respond at the instant of the record's largest ground acceleration. The spectrum near the building's period is a better screening input than raw PGA for comparing dynamic demand.",
         "What the comparison still cannot prove. A simplified spectral base-shear screen does not inspect the plant-room restraints, duration effects, higher modes, irregularity or damaged details. A value below the historical design comparison is useful evidence, not a clearance."
       ],
-      "story": "There is an accelerograph in the hospital basement, installed in 1998 and finally useful. Cardoso has processed the record into a 5%-damped response spectrum. Around the hospital's roughly 0.4 s fundamental period, the spectral acceleration is about 0.31 g. The comparable screening coefficient used for the old design check is 0.35.",
+      "story": "There is an accelerograph in the hospital basement, installed in 1998 and finally useful. Cardoso has turned the record into a 5%-damped response spectrum — a chart of how hard the shaking pushed buildings of each different sway time. Around the hospital's roughly 0.4 s fundamental period, the spectral acceleration is about 0.31 g. The comparable screening coefficient used for the old design check is 0.35.",
       "game": {
         "type": "BALLPARK",
         "title": "The instrument in the basement",
         "setup": "Seismic Network",
         "play": "Check what the hospital actually experienced",
         "task": "Check what the hospital actually experienced",
-        "question": "Using the period-specific spectral coefficient, what simplified base-shear demand does the record imply, compared with the old design check?",
-        "answer": "About 26 MN from the recorded 0.31 spectral coefficient, versus about 30 MN from the 0.35 design-check coefficient.",
-        "why": "For this screening calculation the same simplified relation is used on both sides: V = C·W. The processed record gives C ≈ 0.31 at about 0.4 s and the hospital's seismic weight is about 85 MN, so V ≈ 0.31 × 85 ≈ 26 MN. The historical design-screen coefficient 0.35 gives about 30 MN. The useful result is a like-for-like comparison of a measured period-specific demand with the old screening check. It is not proof that every component remained below capacity, and it is deliberately not obtained by treating raw PGA as the force coefficient for the entire building.",
+        "question": "Using the seismic coefficient read at the building's own period, what base shear does the record imply, compared with the old design check?",
+        "answer": "About 26 MN of base shear from the recorded coefficient of 0.31, against about 30 MN from the 0.35 used in the design check.",
+        "why": "Both sides of this screen use one relation, V = C_s · W. Here V is the base shear, C_s is the seismic coefficient and W is the building's seismic weight. The record gives C_s ≈ 0.31 at about 0.4 s, and the hospital weighs about 85 MN, so V ≈ 0.31 × 85 ≈ 26 MN. The old design coefficient of 0.35 gives about 30 MN. That is a like-for-like comparison of a measured period-specific demand against the old screening check. It is not proof that every component stayed below capacity, and it deliberately does not treat raw PGA as C_s for the whole building.",
         "givens": [
           "the hospital is about four storeys, giving a rough fundamental period near 0.4 s for this exercise",
-          "seismic weight is about 85 MN",
-          "the recorded response spectrum gives about 0.31 g near that period; the old comparison used 0.35"
+          "seismic weight W is about 85 MN (a meganewton is a million newtons of force)",
+          "the recorded response spectrum gives a seismic coefficient of about 0.31 near that period; the old comparison used 0.35"
         ],
-        "relationship": "For this simplified screen, V = C · W using the period-specific spectral coefficient C. Raw PGA is not substituted for C.",
+        "relationship": "Base shear V = C_s · W, with the seismic coefficient C_s read at the building's own period. Raw PGA is not substituted for C_s.",
         "calcKey": "SEIS-3"
       },
       "assumes": [
         "a building can be instrumented, and the record is about that building",
-        "peak ground acceleration and what a building feels — taken as read",
         "peak ground acceleration and what a building feels — taken as read"
       ],
       "equations": [
@@ -199,13 +205,29 @@ export const CURRICULUM = {
           ],
           "s": "A rule of thumb: about a tenth of a second per floor, which is how you know whether a building and the ground it stands on want to swing at the same rate.",
           "computed": true
+        },
+        {
+          "e": "V = C_s · W",
+          "c": "base shear — the sideways force it is designed for",
+          "v": [
+            [
+              "V",
+              "base shear, in kilonewtons"
+            ],
+            [
+              "C_s",
+              "seismic coefficient, a fraction of weight"
+            ],
+            [
+              "W",
+              "the weight of the building above the base, in kilonewtons"
+            ]
+          ],
+          "s": "Design treats the earthquake as a fraction of the building's own weight pushed sideways at its base.",
+          "computed": true
         }
       ],
       "takesAsRead": [
-        {
-          "n": 6,
-          "c": "Peak ground acceleration and what a building feels"
-        },
         {
           "n": 6,
           "c": "Peak ground acceleration and what a building feels"
@@ -311,7 +333,7 @@ export const CURRICULUM = {
         "setup": "Seismic Network",
         "play": "Decide what is worth doing now",
         "task": "Decide what is worth doing now",
-        "question": "Decide what is worth doing now",
+        "question": "The recurrence interval on this fault — the average gap between big earthquakes — is about 140 years. Decide what is worth doing now.",
         "answer": "",
         "why": "Tying parapets back has an unusually strong case: the failure mode occurred repeatedly, the retrofit acts directly on it, and scaffolding already in place makes the marginal cost much lower. The quoted 140-year recurrence interval is not a promise of 140 quiet years after this event; earthquakes do not reset a calendar. That statistic belongs in long-term hazard context, not in the argument for waiting. Act now because the defect is known, the consequence is falling masonry, and the cheapest access window is open.",
         "proposals": [
@@ -370,7 +392,7 @@ export const CURRICULUM = {
         "setup": "Seismic Network",
         "play": "Open the dependency chain behind each conclusion, keep the ones that stand independently, and identify the shared reference source behind the conclusions that must be revised.",
         "task": "Open the dependency chain behind each conclusion, keep the ones that stand independently, and identify the shared reference source behind the conclusions that must be revised.",
-        "question": "Which conclusions actually inherit the bad reference, and which remain supported by independent evidence?",
+        "question": "Which conclusions in the fortnight's record actually inherit the bad reference, and which stand on evidence of their own?",
         "answer": "Revise the 1 Hz Flats site-response comparison because it used the vault as its denominator. Withdraw the district's universal ×3 design-demand shortcut because a single spectral ratio from one event is not a building-code spectrum. Keep the hospital's independent record, the network moment magnitude and the Marina Court ground-failure diagnosis.",
         "why": "Dependency tracing separates two issues. First, the measured Flats-to-vault ratio inherits the reference-station error: if the vault itself is about ×1.6 relative to competent rock in the same band, a published ×3 Flats-to-vault ratio becomes about ×4.8 Flats-to-rock for that measured band. Second, the planning memo made an additional inference by using a single event- and frequency-specific ratio as a universal design multiplier. That shortcut should be withdrawn rather than merely changed from 3 to 4.8. The hospital record, multi-station M_w solution and Marina Court field diagnosis do not depend on the vault and therefore remain supported.",
         "trace": {
@@ -461,11 +483,12 @@ export const CURRICULUM = {
         "a comparison is only as good as the thing compared against"
       ],
       "concept": {
-        "n": 4,
-        "c": "Moment magnitude, and what it is made of",
+        "n": 30,
+        "c": "Documentation: the record somebody inherits",
         "of": 30,
         "rests": [
-          "Magnitude as a logarithmic scale"
+          "Rapid assessment against detailed evaluation",
+          "Sampling and testing damaged material"
         ]
       }
     },
@@ -552,7 +575,7 @@ export const CURRICULUM = {
         "setup": "Seismic Network",
         "play": "Pair four instruments with what each one recorded",
         "task": "Pair four instruments with what each one recorded",
-        "question": "Pair four instruments with what each one recorded",
+        "question": "One magnitude, four intensities. Pair each instrument with the shaking intensity it wrote down.",
         "answer": "",
         "why": "Magnitude belongs to the source and there is one of it. What an instrument writes down is the shaking where it stands, which is the source motion after spreading, after attenuation, and after whatever the last few tens of metres of ground did to it. Distance removes amplitude across the whole band. Soft ground puts some of it back in a narrow band of periods and stretches the shaking out. So a far station on deep sediment can beat a near station on rock at long period, and both records are honest.",
         "rebuttals": [
@@ -678,7 +701,7 @@ export const CURRICULUM = {
         "setup": "Structural Assessment",
         "play": "Allocate the six assessor-days across the four inspection packages, then check which operational questions the plan can answer.",
         "task": "Allocate the six assessor-days across the four inspection packages, then check which operational questions the plan can answer.",
-        "question": "Can your allocation preserve a same-day re-occupancy decision for the waiting Flats households while accepting that some lower-value questions will wait?",
+        "question": "Can your allocation preserve a same-day re-occupancy decision for the 400 displaced Flats households, while accepting that some lower-value questions will wait?",
         "answer": "Keep at least four assessor-days on the Flats sweep so the waiting households can receive an occupancy decision today. Spend the remaining two days on one optional question; the other useful questions have to wait because the team cannot buy all four packages.",
         "why": "Assessment capacity is a finite pool, so every useful inspection has an opportunity cost. The Flats package can resolve an occupancy decision for hundreds of displaced households. Marina Court and the Parade already have protective controls in place, so extra detail there changes less today. Upper Town follow-up is useful but not essential to the immediate re-occupancy decision. The allocation should therefore preserve the Flats question first, then spend remaining capacity only where another answer is worth the assessor-days it consumes.",
         "allocate": {
@@ -859,7 +882,14 @@ export const CURRICULUM = {
         "correctChoice": "That the weight now acts off-centre, adding bending to columns built to be squashed."
       },
       "assumes": [
-        "a leaning column carries its load off-centre"
+        "a leaning column carries its load off-centre",
+        "stress, strain and the yield point — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 12,
+          "c": "Stress, strain and the yield point"
+        }
       ],
       "concept": {
         "n": 16,
@@ -1245,7 +1275,7 @@ export const CURRICULUM = {
         "setup": "Structural Assessment",
         "play": "Which explanation fits the pattern?",
         "task": "Which explanation fits the pattern?",
-        "question": "Which explanation fits the pattern?",
+        "question": "These columns cracked in many fine lines rather than splitting in one brittle break. Which explanation fits the pattern?",
         "answer": "Shear from reversing earthquake load",
         "why": "Diagonal cracking is consistent with principal tension produced by shear, and crossed diagonals fit load reversals during earthquake shaking. The pattern is therefore much more consistent with cyclic shear demand than with simple long-term settlement or axial crushing. Fine, distributed cracks can indicate that reinforcement is controlling crack widths rather than allowing one brittle split, but that is not the same as proving the column is safe. Crack pattern identifies a likely mechanism; residual capacity still needs an engineering check.",
         "rebuttals": [
@@ -1274,7 +1304,14 @@ export const CURRICULUM = {
         "correctChoice": "Shear from reversing earthquake load"
       },
       "assumes": [
-        "a crack runs across the direction of the tension that opened it"
+        "a crack runs across the direction of the tension that opened it",
+        "stress, strain and the yield point — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 12,
+          "c": "Stress, strain and the yield point"
+        }
       ],
       "concept": {
         "n": 11,
@@ -1428,7 +1465,7 @@ export const CURRICULUM = {
         "play": "Work out what the 5.1 did to the shored buildings",
         "task": "Work out what the 5.1 did to the shored buildings",
         "question": "What do the two buildings with new cracking tell the office?",
-        "answer": "That the two buildings accumulated new distress under the smaller aftershock, so their restrictions and shoring need focused reassessment.",
+        "answer": "That the two damaged buildings took on new distress, so their shoring and restrictions need a focused re-check.",
         "why": "New cracking after a smaller aftershock is evidence of additional distress in already damaged structures. It justifies maintaining or tightening restrictions and checking the damaged mechanism and the shoring. It does not by itself locate the building on a precise capacity curve, prove the shoring failed, or invalidate the first assessment. The observed change is the reason to re-enter the evidence loop.",
         "rebuttals": [
           "The shoring is still standing and doing its job; nothing about it failed.",
@@ -1436,12 +1473,12 @@ export const CURRICULUM = {
           "The original assessment said these buildings had reduced capacity, which is exactly what this confirms."
         ],
         "choices": [
-          "That the shoring failed and must automatically be replaced.",
-          "That the two buildings accumulated new distress under the smaller aftershock, so their restrictions and shoring need focused reassessment.",
+          "That the shoring failed under the smaller shake and has to be replaced today.",
+          "That the two damaged buildings took on new distress, so their shoring and restrictions need a focused re-check.",
           "That the aftershock must have been much stronger on those two streets than the network measured.",
-          "That the original assessment was necessarily wrong."
+          "That the original assessment was wrong about those two buildings from the start."
         ],
-        "correctChoice": "That the two buildings accumulated new distress under the smaller aftershock, so their restrictions and shoring need focused reassessment."
+        "correctChoice": "That the two damaged buildings took on new distress, so their shoring and restrictions need a focused re-check."
       },
       "assumes": [
         "a shored building is being held rather than repaired",
@@ -1564,7 +1601,14 @@ export const CURRICULUM = {
         ]
       },
       "assumes": [
-        "ground can be natural or placed by people"
+        "ground can be natural or placed by people",
+        "peak ground acceleration and what a building feels — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 6,
+          "c": "Peak ground acceleration and what a building feels"
+        }
       ],
       "concept": {
         "n": 7,
@@ -1595,8 +1639,8 @@ export const CURRICULUM = {
         "play": "Which explanation fits every observation?",
         "task": "Which explanation fits every observation?",
         "question": "Which explanation fits every observation?",
-        "answer": "Liquefaction-related ground deformation removed support under part of the raft, rotating the building as a unit.",
-        "why": "The observations point below the raft rather than to yielding inside the frame. A rigid-body rotation of about eight degrees across a twelve-metre foundation corresponds to roughly 1.7 metres of differential elevation, which matches the survey. Fresh ejecta and the concentration of movement on one side are consistent with liquefaction-related loss of bearing resistance and ground deformation. The evidence does not reveal every detail beneath an inaccessible raft, so this remains a strong geotechnical inference rather than a direct view of the failure surface.",
+        "answer": "Liquefaction took the support out from under part of the raft, turning the block as one piece.",
+        "why": "Everything the survey found points below the raft, not to yielding inside the frame. A rigid-body rotation is the whole block turning as one piece. Eight degrees of it across a twelve-metre foundation needs about 1.7 metres of height difference edge to edge. That is what the survey measured. Fresh ejecta, and movement gathered on one side, fit a liquefaction-related loss of bearing resistance in the ground below. Nobody can see under the raft, so this stays a strong geotechnical inference rather than a direct view of the failure surface.",
         "rebuttals": [
           "A yielded frame should show internal distortion; the survey says the frame and raft rotated together.",
           "The tilt appeared with the earthquake and fresh ejecta, so it is not a long-standing construction condition.",
@@ -1604,26 +1648,33 @@ export const CURRICULUM = {
         ],
         "choices": [
           {
-            "label": "The frame yielded on one side and pulled the raft with it",
+            "label": "The frame yielded on one side and pulled the raft over with it.",
             "mechanism": "Internal frame distortion would be visible if this were the primary mechanism."
           },
           {
-            "label": "Liquefaction-related ground deformation removed support under part of the raft, rotating the building as a unit.",
+            "label": "Liquefaction took the support out from under part of the raft, turning the block as one piece.",
             "mechanism": "The intact frame, rigid-body tilt, ejecta and differential ground movement point below the raft."
           },
           {
-            "label": "The raft was originally built eight degrees out of level",
+            "label": "The raft was built eight degrees out of level when the block first went up.",
             "mechanism": "That would predate the quake and would not explain fresh ejecta or sudden displacement."
           },
           {
-            "label": "A one-sided aftershock simply pushed the whole building over",
+            "label": "A single one-sided aftershock simply pushed the whole building over.",
             "mechanism": "A directional pulse does not by itself explain the permanent foundation-level differential movement."
           }
         ],
-        "correctChoice": "Liquefaction-related ground deformation removed support under part of the raft, rotating the building as a unit."
+        "correctChoice": "Liquefaction took the support out from under part of the raft, turning the block as one piece."
       },
       "assumes": [
-        "a foundation spreads a building's weight into the ground"
+        "a foundation spreads a building's weight into the ground",
+        "stress, strain and the yield point — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 12,
+          "c": "Stress, strain and the yield point"
+        }
       ],
       "concept": {
         "n": 16,
@@ -1655,20 +1706,20 @@ export const CURRICULUM = {
         "play": "Say whether the liquefied street is dangerous or just unusable",
         "task": "Say whether the liquefied street is dangerous or just unusable",
         "question": "What is the defensible status of Ferry Street now?",
-        "answer": "Drained and disturbed — pedestrian access may be possible, but heavy-load capacity is unverified and susceptible layers can liquefy again.",
-        "why": "Liquefaction is a transient loss of effective stress during shaking as excess pore pressure builds. After the shaking, excess pressure dissipates and grain contacts recover, but settlement, lateral displacement, ejecta, voids and heterogeneous stiffness remain. A dry surface therefore does not prove adequate bearing capacity for trucks. Susceptible saturated layers may also reliquefy in later strong shaking. The defensible placard decision is to separate what has been observed—pedestrian bearing at the surface—from the heavy-load and future-shaking questions that remain unverified.",
+        "answer": "Drained but disturbed: people can walk on it, and heavy loads are still unproven.",
+        "why": "Liquefaction is a loss of effective stress — the grip between grains — while shaking drives pore water pressure up. When the shaking stops, that pressure drains away and the grains touch again. What does not come back is the shape of the ground. Settlement, sideways movement, ejecta, voids and patchy stiffness all stay. So a dry surface proves nothing about bearing capacity, which is the weight the ground can take. Layers that liquefied once can liquefy again in the next strong shake. The defensible placard separates what has been seen, a surface that bears a person, from the heavy-load and future-shaking questions still open.",
         "rebuttals": [
-          "Pore pressure dissipates in hours, so the ground is not still liquefied three days on.",
+          "Pore pressure drains away in hours, so the ground is not still liquefied three days on, and any lateral spreading stopped when the shaking did.",
           "Dry at the surface is not recovered underneath; the fabric of the ground has changed.",
           "Nothing here says the street is beyond repair, and most liquefied ground is repaired rather than replaced."
         ],
         "choices": [
-          "Still liquefied everywhere, so nobody can stand on the street.",
-          "Drained and disturbed — pedestrian access may be possible, but heavy-load capacity is unverified and susceptible layers can liquefy again.",
-          "Fully recovered because the sand fans are dry.",
-          "Permanently unusable; liquefied ground cannot be repaired."
+          "Still liquefied everywhere, and still spreading laterally toward the water, so nobody can stand on it.",
+          "Drained but disturbed: people can walk on it, and heavy loads are still unproven.",
+          "Fully recovered, because the sand fans on the surface have dried out completely.",
+          "Permanently unusable, because liquefied ground cannot be put right again."
         ],
-        "correctChoice": "Drained and disturbed — pedestrian access may be possible, but heavy-load capacity is unverified and susceptible layers can liquefy again."
+        "correctChoice": "Drained but disturbed: people can walk on it, and heavy loads are still unproven."
       },
       "assumes": [
         "liquefied ground regains strength as pore pressure dissipates"
@@ -1738,7 +1789,14 @@ export const CURRICULUM = {
         }
       },
       "assumes": [
-        "water pressure between grains reduces the strength of sandy ground"
+        "water pressure between grains reduces the strength of sandy ground",
+        "stress, strain and the yield point — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 12,
+          "c": "Stress, strain and the yield point"
+        }
       ],
       "concept": {
         "n": 18,
@@ -1768,7 +1826,7 @@ export const CURRICULUM = {
         "setup": "Geotechnical",
         "play": "Sort the fortnight's conclusions",
         "task": "Sort the fortnight's conclusions",
-        "question": "Sort the fortnight's conclusions",
+        "question": "Sort the fortnight's conclusions for the record the next coordinator inherits.",
         "answer": "",
         "why": "Trace each conclusion to its evidence. The Flats spectral ratio used the vault directly and must be restated. The district design shortcut also depended on that ratio, but it should be withdrawn rather than assigned a new universal factor because site response varies with period and input motion. Marina Court's diagnosis came from survey, ejecta and geotechnical observations. The hospital motion came from its own instrument, and moment magnitude came from the network source solution.",
         "rebuttals": [
@@ -1784,7 +1842,7 @@ export const CURRICULUM = {
           "The Parade's unbraced parapets need a positive tie-back detail."
         ],
         "choices": [
-          "Falls as stated and is restated: the corrected Flats/competent-rock ratio is about 4.8 in that 1 Hz band.",
+          "Falls as written, and has to be restated against competent rock instead — about 4.8 in the same narrow band.",
           "Stands as a strong inference from independent field evidence.",
           "Stands as a direct, building-specific instrumental measurement.",
           "Stands as a structural diagnosis from observed failure and load-path details."
@@ -1804,11 +1862,12 @@ export const CURRICULUM = {
         "a conclusion can rest on one measurement or on several"
       ],
       "concept": {
-        "n": 4,
-        "c": "Moment magnitude, and what it is made of",
+        "n": 30,
+        "c": "Documentation: the record somebody inherits",
         "of": 30,
         "rests": [
-          "Magnitude as a logarithmic scale"
+          "Rapid assessment against detailed evaluation",
+          "Sampling and testing damaged material"
         ]
       }
     },
@@ -1842,7 +1901,8 @@ export const CURRICULUM = {
         "calcKey": "GEO-6"
       },
       "assumes": [
-        "liquefaction requires saturated ground"
+        "liquefaction requires saturated ground",
+        "stress, strain and the yield point — taken as read"
       ],
       "equations": [
         {
@@ -1932,6 +1992,12 @@ export const CURRICULUM = {
           "card": false
         }
       ],
+      "takesAsRead": [
+        {
+          "n": 12,
+          "c": "Stress, strain and the yield point"
+        }
+      ],
       "concept": {
         "n": 18,
         "c": "Effective stress, and why water pressure matters",
@@ -1945,7 +2011,7 @@ export const CURRICULUM = {
       "day": 7,
       "title": "Fixing the ground instead of the building",
       "scene": "Navarro has three options costed: stone columns, deep densification, and doing nothing to the ground while designing stiffer foundations on top of it. The council wants one approach written into the rebuild guidance.",
-      "takeaway": "Ground improvement reduces liquefaction susceptibility or its consequences; structural foundations can instead bypass or accommodate some ground deformation.",
+      "takeaway": "Two remedies for one hazard act in different places, and a town-wide rule has to say which consequence it is buying down and to what standard.",
       "place": "Geotechnical",
       "guide": "Three costed options and four readings of what separates them. Ask of each option where in the system it acts: on the soil, on the structure, or on neither. A stiff foundation can carry a building across ground that moves. It does nothing for the road, the buried services or the site next door. Both approaches can be right, and the council is writing one of them into guidance.",
       "background": [
@@ -1961,7 +2027,7 @@ export const CURRICULUM = {
         "play": "Say what ground improvement actually does",
         "task": "Say what ground improvement actually does",
         "question": "What is the engineering difference between improving the ground and designing foundations to tolerate the hazard?",
-        "answer": "Ground improvement can reduce liquefaction susceptibility or deformation; foundation design can instead bypass or tolerate some remaining ground movement.",
+        "answer": "Ground improvement acts on the soil; foundation design acts on the building and tolerates some movement.",
         "why": "The strategies act at different places. Densification can increase density and cyclic resistance; drains or stone columns may reduce excess pore-pressure buildup or its consequences, depending on the design. None of those guarantees that the soil can never liquefy. Piles, rafts or other foundation strategies can bypass weak layers or tolerate some deformation, but roads, utilities and neighbouring sites may still move. A town-level rule therefore has to state which consequence it is trying to reduce and what performance is required.",
         "rebuttals": [
           "Neither strategy eliminates all earthquake or ground-deformation risk.",
@@ -1969,15 +2035,22 @@ export const CURRICULUM = {
           "Foundation stiffness changes structural response; it does not shield the building from ground motion."
         ],
         "choices": [
-          "There is no important difference; both eliminate liquefaction.",
-          "Ground improvement can reduce liquefaction susceptibility or deformation; foundation design can instead bypass or tolerate some remaining ground movement.",
-          "Ground improvement is always cheaper because a whole street can be treated at once.",
-          "A stiffer foundation prevents earthquake shaking from reaching the building."
+          "There is no important difference, because both of them get rid of liquefaction for good.",
+          "Ground improvement acts on the soil; foundation design acts on the building and tolerates some movement.",
+          "Ground improvement is always cheaper, because a whole street can be treated at once.",
+          "A stiffer foundation stops earthquake shaking from reaching the building at all."
         ],
-        "correctChoice": "Ground improvement can reduce liquefaction susceptibility or deformation; foundation design can instead bypass or tolerate some remaining ground movement."
+        "correctChoice": "Ground improvement acts on the soil; foundation design acts on the building and tolerates some movement."
       },
       "assumes": [
-        "liquefaction can be addressed in the ground or accommodated in the structure"
+        "liquefaction can be addressed in the ground or accommodated in the structure",
+        "stress, strain and the yield point — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 12,
+          "c": "Stress, strain and the yield point"
+        }
       ],
       "concept": {
         "n": 16,
@@ -2056,7 +2129,7 @@ export const CURRICULUM = {
         "setup": "Materials & Testing",
         "play": "Compare the measured anchor capacity with the estimated earthquake demand",
         "task": "Compare the measured anchor capacity with the estimated earthquake demand",
-        "question": "Estimate the observed capacity-to-demand ratio for the two tested anchors.",
+        "question": "Estimate the capacity-to-demand ratio for the two tested anchors — the ratio a factor of safety is built from.",
         "answer": "About 0.8 — below 1.",
         "why": "The two pulls average 25.5 kN against an assessed demand of 31 kN, so the observed specimen-capacity-to-demand ratio is about 0.82. That is enough to show that the tested connection detail cannot simply be accepted from the 40 kN drawing value. It is not a code resistance factor or a formal factor of safety: two specimens do not characterize variability, failure mode, deterioration or the required design margins. The operational decision does not need those questions settled today—keep the gym restricted, expand the testing, and design the connection repair.",
         "givens": [
@@ -2067,7 +2140,8 @@ export const CURRICULUM = {
         "calcKey": "MAT-1"
       },
       "assumes": [
-        "a designed capacity is a claim to be checked"
+        "a designed capacity is a claim to be checked",
+        "stress, strain and the yield point — taken as read"
       ],
       "equations": [
         {
@@ -2089,6 +2163,12 @@ export const CURRICULUM = {
           ],
           "s": "A factor of safety below one does not mean collapse and above one does not mean safe: it says how much of the margin the event used up.",
           "computed": true
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 12,
+          "c": "Stress, strain and the yield point"
         }
       ],
       "concept": {
@@ -2130,7 +2210,8 @@ export const CURRICULUM = {
         "calcKey": "MAT-2"
       },
       "assumes": [
-        "concrete strength is measured by crushing a sample of known size"
+        "concrete strength is measured by crushing a sample of known size",
+        "stress, strain and the yield point — taken as read"
       ],
       "equations": [
         {
@@ -2160,6 +2241,12 @@ export const CURRICULUM = {
           ],
           "s": "Stress is force spread over area and strain is the stretch it causes; up to the yield point the material comes back, and past it the deformation stays.",
           "computed": true
+        }
+      ],
+      "takesAsRead": [
+        {
+          "n": 12,
+          "c": "Stress, strain and the yield point"
         }
       ],
       "concept": {
@@ -2208,7 +2295,14 @@ export const CURRICULUM = {
         "correctChoice": "A construction joint at the top of the first pour."
       },
       "assumes": [
-        "a defect that repeats in a pattern usually has a construction cause"
+        "a defect that repeats in a pattern usually has a construction cause",
+        "stress, strain and the yield point — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 12,
+          "c": "Stress, strain and the yield point"
+        }
       ],
       "concept": {
         "n": 16,
@@ -2325,7 +2419,14 @@ export const CURRICULUM = {
         "calcKey": "MAT-5"
       },
       "assumes": [
-        "CPT stands for cone penetration test: a standard cone is pushed into the ground and its resistance is recorded"
+        "CPT stands for cone penetration test: a standard cone is pushed into the ground and its resistance is recorded",
+        "stress, strain and the yield point — taken as read"
+      ],
+      "takesAsRead": [
+        {
+          "n": 12,
+          "c": "Stress, strain and the yield point"
+        }
       ],
       "concept": {
         "n": 13,
@@ -2415,7 +2516,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "One unit of magnitude is about thirty-two times the energy, so a 7 is not a bit worse than a 6.",
-          "demanded": true
+          "computed": true
         }
       ],
       "takesAsRead": [
@@ -2500,7 +2601,7 @@ export const CURRICULUM = {
         "setup": "Hazard & Forecasting",
         "play": "Put the cost of waiting into the same units",
         "task": "Put the cost of waiting into the same units",
-        "question": "How should the office weigh four more days of evidence-gathering?",
+        "question": "How should the office weigh four more days of detailed evaluation against the rapid assessment it already has?",
         "answer": "Against what the delay costs, and what the evidence could change.",
         "why": "Both sides of the decision have consequences and both can be estimated. Delay carries transfers, postponed care and operational strain. Additional testing is worthwhile when it has a realistic chance of changing the safety decision. Here the frame has already been inspected and the unresolved item is the unvisited roof plant room with heavy tanks; a four-day coring programme answers a different question. The disciplined test is therefore value of information: what decision could this evidence change, how likely is that, and what is paid while waiting for it?",
         "rebuttals": [
@@ -2520,11 +2621,12 @@ export const CURRICULUM = {
         "a delay has consequences that can be counted"
       ],
       "concept": {
-        "n": 10,
-        "c": "Load path, and what happens where it stops",
+        "n": 22,
+        "c": "Rapid assessment against detailed evaluation",
         "of": 30,
         "rests": [
-          "Base shear — the horizontal force a building is designed for"
+          "Load path, and what happens where it stops",
+          "Unreinforced masonry, and why it fails outward"
         ]
       }
     },
@@ -2600,26 +2702,26 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a commitment can be tied to a date or to an event",
-        "peak ground acceleration and what a building feels — taken as read",
-        "p and S waves, and what the gap between them measures — taken as read"
+        "factor of safety, and what it is protecting against — taken as read",
+        "rapid assessment against detailed evaluation — taken as read"
       ],
       "takesAsRead": [
         {
-          "n": 6,
-          "c": "Peak ground acceleration and what a building feels"
+          "n": 13,
+          "c": "Factor of safety, and what it is protecting against"
         },
         {
-          "n": 1,
-          "c": "P and S waves, and what the gap between them measures"
+          "n": 22,
+          "c": "Rapid assessment against detailed evaluation"
         }
       ],
       "concept": {
-        "n": 24,
-        "c": "Instruments: what an accelerograph actually records",
+        "n": 21,
+        "c": "Placarding as a decision under uncertainty",
         "of": 30,
         "rests": [
-          "Peak ground acceleration and what a building feels",
-          "P and S waves, and what the gap between them measures"
+          "Factor of safety, and what it is protecting against",
+          "Rapid assessment against detailed evaluation"
         ]
       }
     },
@@ -2691,7 +2793,7 @@ export const CURRICULUM = {
         "play": "State the forecast as a range",
         "task": "State the forecast as a range",
         "question": "Why must the aftershock forecast include a range or probability distribution rather than only one expected count?",
-        "answer": "Because future counts vary around the expectation, and staffing decisions need to know how much higher or lower the sequence could plausibly run.",
+        "answer": "Because counts vary around the expected one, and staffing has to know how high the week could run.",
         "why": "An aftershock forecast is probabilistic. The expected count alone hides the spread of plausible outcomes, while staffing and inspection capacity are decisions made against that spread. Publishing the distribution or a clearly defined interval also makes the forecast testable and keeps model uncertainty visible. The range is not decorative caution and it does not mean the model lacks an expected value.",
         "rebuttals": [
           "The range is an input to planning, not a rhetorical signal of caution.",
@@ -2699,12 +2801,12 @@ export const CURRICULUM = {
           "The model can have a well-defined expected count while individual realizations vary around it."
         ],
         "choices": [
-          "Because a range merely sounds more cautious after a damaging earthquake.",
-          "Because future counts vary around the expectation, and staffing decisions need to know how much higher or lower the sequence could plausibly run.",
-          "Because a model that reports a range cannot later be evaluated.",
-          "Because the expected value is mathematically undefined for aftershock sequences."
+          "Because a range merely sounds more cautious after an earthquake this damaging.",
+          "Because counts vary around the expected one, and staffing has to know how high the week could run.",
+          "Because a model that reports a range can no longer be tested against what happens.",
+          "Because the expected count is mathematically undefined for an aftershock sequence."
         ],
-        "correctChoice": "Because future counts vary around the expectation, and staffing decisions need to know how much higher or lower the sequence could plausibly run."
+        "correctChoice": "Because counts vary around the expected one, and staffing has to know how high the week could run."
       },
       "assumes": [
         "a forecast is a distribution rather than a single value"
@@ -3257,7 +3359,7 @@ export const CURRICULUM = {
         "setup": "Public Safety",
         "play": "Keep one incident under your own engineering attention and delegate the others with an owner, a first action and a return condition.",
         "task": "Keep one incident under your own engineering attention and delegate the others with an owner, a first action and a return condition.",
-        "question": "How do you divide the team so the worsening condition is stopped, the life-safety consequence is checked and the stable deadline does not consume the field response?",
+        "question": "One problem is still worsening, one needs a rapid assessment of shored buildings, and one is a stable deadline. How do you divide the team so that the stable one does not consume the field response?",
         "answer": "Keep the post-aftershock building checks under direct engineering attention. Send the utility liaison to isolate the burst main immediately. Give the school communication to the desk engineer. Every handoff needs an owner, a first action and a return condition, so field judgment stays on uncertain building consequences.",
         "why": "The burst main is actively worsening the ground condition, so utility isolation starts immediately. The M5.1 aftershock is over, but vulnerable or shored buildings may have new distress. That uncertainty needs engineering judgment before restrictions change. The school decision is already technically settled and mainly needs communication. Parallel work is therefore better than a single ranked list. Stop the growing input, keep direct attention on uncertain building consequences, and hand the stable message to the desk.",
         "delegate": {
@@ -3325,11 +3427,12 @@ export const CURRICULUM = {
         "a problem still growing is different from one that has finished"
       ],
       "concept": {
-        "n": 19,
-        "c": "Aftershock decay as a power law",
+        "n": 22,
+        "c": "Rapid assessment against detailed evaluation",
         "of": 30,
         "rests": [
-          "Magnitude as a logarithmic scale"
+          "Load path, and what happens where it stops",
+          "Unreinforced masonry, and why it fails outward"
         ]
       }
     },
@@ -3386,7 +3489,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a decision to require something is also a decision about who pays for it"
-      ]
+      ],
+      "concept": {
+        "n": 7,
+        "c": "Site effect: soft ground amplifies",
+        "of": 30,
+        "rests": [
+          "Peak ground acceleration and what a building feels"
+        ]
+      }
     },
     {
       "day": 11,
@@ -3538,10 +3649,10 @@ export const BALLPARK_CALCS = {
     "explanation": "About 0.82, below 1. This is an observed ratio from two specimens, not by itself a formal code factor of safety; variability and design resistance factors still matter."
   },
   "SEIS-3": {
-    "prompt": "The hospital's seismic weight is about 85 MN. From the recorded motion, the 5%-damped spectral coefficient near the building's 0.4 s period is 0.31; the comparable historical design-screen coefficient is 0.35.",
-    "question": "Choose the recorded coefficient and the building's seismic weight.",
+    "prompt": "The hospital's seismic weight is about 85 MN (a meganewton is a million newtons of force). The record gives a 5%-damped seismic coefficient of 0.31 near the building's 0.4 s period. The comparable historical design-screen coefficient is 0.35.",
+    "question": "Choose the recorded seismic coefficient and the building's seismic weight.",
     "labels": [
-      "0.31  (recorded spectral coefficient near T ≈ 0.4 s)",
+      "0.31  (recorded seismic coefficient C_s near T ≈ 0.4 s)",
       "85  (W, the building's seismic weight in MN)",
       "0.35  (historical design-screen coefficient)",
       "14  (the weight of one floor, in MN)",
@@ -3564,7 +3675,7 @@ export const BALLPARK_CALCS = {
     "target": 26.35,
     "tolerance": 2,
     "units": "meganewtons (MN) of base shear",
-    "solution": "0.31 × 85 ≈ 26 MN, versus 0.35 × 85 ≈ 30 MN for the historical screening check.",
+    "solution": "Base shear V = C_s · W = 0.31 × 85 ≈ 26 MN, against 0.35 × 85 ≈ 30 MN for the historical screening check.",
     "explanation": "A useful like-for-like screening comparison, not a clearance and not a conversion of raw PGA directly into building force."
   },
   "HAZ-4": {

@@ -2459,7 +2459,16 @@ export const CURRICULUM = {
       "assumes": [
         "a claim is limited by the working that supports it",
         "an unresolved question is not the same as a negative finding"
-      ]
+      ],
+      "concept": {
+        "n": 35,
+        "c": "Safety factor: what a part can take over what it is asked to take",
+        "of": 36,
+        "rests": [
+          "Newton's second law as the definition of a net force",
+          "Static equilibrium: forces and torques both adding to zero"
+        ]
+      }
     }
   ],
   "BUMPER": [
@@ -2845,7 +2854,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Momentum is conserved in any collision where nothing outside pushes on the pair, and kinetic energy is not — the difference between those two facts is most of what a bumper car is for.",
-          "demanded": true
+          "computed": true
         },
         {
           "e": "FΔt = mΔv",

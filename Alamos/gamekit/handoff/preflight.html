@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<title>Bundle Pre-Flight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground: #eef1f4; --panel: #ffffff; --panel-2: #f7f9fb;
+    --ink: #11151a; --ink-2: #39434d; --muted: #5f6b76;
+    --rule: #d9e0e6; --rule-2: #eaeff3;
+    --accent: #16697a;
+    --blocker: #a33529; --invisible: #7a3f6d; --tradeoff: #9a4f1c; --etiquette: #22705a;
+    --serif: 'Zilla Slab', 'Bitter', Georgia, serif;
+    --sans: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0f1216; --panel: #171b21; --panel-2: #1d222a;
+      --ink: #e8ebee; --ink-2: #bcc5ce; --muted: #8d99a4;
+      --rule: #262d36; --rule-2: #202730;
+      --accent: #5fb3c4;
+      --blocker: #e08277; --invisible: #c98cba; --tradeoff: #d9925c; --etiquette: #62b799;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0f1216; --panel: #171b21; --panel-2: #1d222a;
+    --ink: #e8ebee; --ink-2: #bcc5ce; --muted: #8d99a4;
+    --rule: #262d36; --rule-2: #202730;
+    --accent: #5fb3c4;
+    --blocker: #e08277; --invisible: #c98cba; --tradeoff: #d9925c; --etiquette: #62b799;
+  }
+
+  * { box-sizing: border-box; }
+  body { background: var(--ground); color: var(--ink); font: 400 17px/1.6 var(--sans); margin: 0;
+    -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 62rem; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+  code { font: 500 0.9em/1.4 var(--mono); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .mast { border-bottom: 2px solid var(--ink); padding-bottom: 1.75rem; }
+  .eyebrow { font: 500 0.8rem/1 var(--mono); letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--accent); margin: 0; }
+  h1 { font: 700 clamp(2.4rem, 6vw, 3.6rem)/1.02 var(--serif); letter-spacing: -0.015em;
+    margin: 0.7rem 0 0.5rem; text-wrap: balance; }
+  .lede { font: 400 1.16rem/1.62 var(--sans); color: var(--ink-2); max-width: 45rem; margin: 0; }
+
+  .runbook { margin: 2.25rem 0 0; background: var(--panel); border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent); padding: 1.35rem 1.5rem 1.5rem; }
+  .runbook h2 { font: 600 0.86rem/1 var(--mono); letter-spacing: 0.11em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 0.9rem; }
+  .runbook p { margin: 0 0 0.9rem; color: var(--muted); font-size: 0.98rem; max-width: 45rem; }
+  .runbook p.aside { margin: 1.4rem 0 0; padding-top: 1rem; border-top: 1px solid var(--rule-2);
+    font-size: 0.94rem; }
+  .checks { margin: 0; padding: 0 0 0 1.6rem; display: grid; gap: 0.7rem;
+    counter-reset: none; }
+  .checks li { color: var(--ink-2); font-size: 1rem; line-height: 1.55; max-width: 46rem; }
+  .checks li::marker { color: var(--accent); font: 500 0.9rem var(--mono); }
+  .checks strong { color: var(--ink); font-weight: 600; }
+  pre { overflow-x: auto; background: var(--panel-2); border: 1px solid var(--rule-2);
+    padding: 0.9rem 1rem; font: 400 0.86rem/1.75 var(--mono); color: var(--ink-2); margin: 0; }
+
+  .band { margin: 3.5rem 0 0; }
+  .band__head { border-top: 1px solid var(--rule); padding-top: 1.5rem; }
+  .band__head h2 { font: 600 0.86rem/1 var(--mono); letter-spacing: 0.11em; text-transform: uppercase;
+    color: var(--band); margin: 0 0 0.55rem; }
+  .band__head p { margin: 0 0 1.75rem; color: var(--muted); max-width: 45rem; font-size: 1rem; }
+  .band--blocker { --band: var(--blocker); }
+  .band--invisible { --band: var(--invisible); }
+  .band--tradeoff { --band: var(--tradeoff); }
+  .band--etiquette { --band: var(--etiquette); }
+  .items { display: grid; gap: 1.25rem; }
+
+  .item { background: var(--panel); border: 1px solid var(--rule); border-left: 3px solid var(--band);
+    padding: 1.35rem 1.5rem 1.5rem; }
+  .item__head { display: flex; flex-wrap: wrap; gap: 0.6rem 1rem; align-items: baseline;
+    justify-content: space-between; padding-bottom: 0.9rem; border-bottom: 1px solid var(--rule-2); }
+  .item__head h3 { margin: 0; font: 600 1.14rem/1.3 var(--serif); letter-spacing: -0.005em;
+    text-wrap: balance; }
+  .count { font: 500 0.78rem/1.4 var(--mono); letter-spacing: 0.03em; color: var(--band);
+    font-variant-numeric: tabular-nums; text-align: right; }
+  .item dl { margin: 1.1rem 0 0; display: grid; gap: 1rem; }
+  .item dt { font: 500 0.72rem/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--band); margin-bottom: 0.3rem; }
+  .item dd { margin: 0; color: var(--ink-2); font-size: 0.99rem; line-height: 1.58; max-width: 46rem; }
+  .item dd.q { color: var(--muted); font-style: italic; }
+  .item pre { margin-top: 0.5rem; }
+
+  .colophon { margin: 4rem 0 0; border-top: 2px solid var(--ink); padding-top: 1.5rem; }
+  .colophon h2 { font: 600 0.86rem/1 var(--mono); letter-spacing: 0.11em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 1rem; }
+  .colophon p { color: var(--muted); font-size: 0.96rem; max-width: 45rem; }
+  .colophon ul { color: var(--muted); font-size: 0.96rem; padding-left: 1.1rem; }
+  .colophon li { margin-bottom: 0.4rem; }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <p class="eyebrow">Alamos · authoring a revised bundle</p>
+    <h1>Bundle Pre-Flight</h1>
+    <p class="lede">Twelve books landed across two bundles, and eleven of them were refused by the
+      importer on first contact — nothing written, no gate run, the campaign still shipping its old
+      content. This page is for whoever writes the next one, and it assumes you cannot run the
+      checks: every rule below is stated as something to satisfy while writing the YAML, and every
+      one is verifiable by reading what you wrote.</p>
+  </header>
+
+  <section class="runbook" aria-labelledby="runbook">
+    <h2 id="runbook">The eight things to check by reading, before you hand the book over</h2>
+    <p>In this order, because the first three decide whether anything is written at all. Each maps to
+      a section below.</p>
+    <ol class="checks">
+      <li><strong>Every <code>takesAsRead:</code> entry is a prerequisite of that stop's own
+        <code>concept:</code></strong> — not a related idea, and never the concept itself. This one
+        defect accounts for 25 of the refusals.</li>
+      <li><strong>Every <code>concept:</code> is copied from the syllabus, character for
+        character</strong> — or given as its number, which cannot drift.</li>
+      <li><strong>Every instrument's own data lets it be lost, won and graded</strong> — a keyed
+        answer that is one of its options, a board a do-nothing run fails, a belt bank of 24+ split
+        8/8 or better with names of three words or fewer.</li>
+      <li><strong>Every apostrophe inside a single-quoted string in <code>theme.js</code> is
+        escaped</strong> — <code>\'</code>. An unescaped one means the file does not parse, and no
+        gate in the repo looks for it.</li>
+      <li><strong>A compound diagnosis pack's stop carries its <code>answerText</code> as the
+        hypothesis labels joined by <code>" + "</code></strong>, verbatim. The pack's own
+        <code>answer:</code> field is read by nothing.</li>
+      <li><strong>The opening card is five sentences, 70–180 words, one paragraph, four beats</strong>
+        — and names the thing the campaign builds.</li>
+      <li><strong>Each day's stake plus briefing is four sentences or fewer</strong>, and says what
+        the player decides in the "Today you …" shape.</li>
+      <li><strong>Each warm-up card's <code>why</code> is one sentence of twelve words or
+        more</strong> — the run cards are read standing in the world with the run about to start.</li>
+    </ol>
+    <p class="aside">Nothing here needs a terminal. If you do have one, the single most valuable
+      command is a dry import — it writes nothing and reports every blocker at once — followed by a
+      syntax check on the manifest and a play-through. Those three catch everything in the first two
+      sections of this page.</p>
+  </section>
+
+  <section class="band band--blocker" aria-labelledby="blockers">
+    <header class="band__head">
+      <h2 id="blockers">Blockers — the importer writes nothing</h2>
+      <p>Ranked by how often they actually occurred. None of these is a content gate: while any one
+        of them stands, <code>import-book.mjs</code> prints the problems and exits without touching
+        a file, so the campaign ships its previous content and every green check is about the old
+        version.</p>
+    </header>
+    <div class="items">
+
+      <article class="item">
+        <header class="item__head">
+          <h3>A <code>takesAsRead</code> the concept is not built out of</h3>
+          <span class="count">25 across two bundles<br>every book that failed</span>
+        </header>
+        <dl>
+          <div><dt>The rule</dt><dd><code>takesAsRead:</code> names the syllabus concepts a stop is
+            entitled to assume, and it is checked against the <em>prerequisites of that stop's own
+            concept</em> — not against the syllabus at large. A declaration the claim does not need
+            is one nothing will ever check, so the importer refuses it rather than let a dead line
+            sit in the book.</dd></div>
+          <div><dt>The three shapes it takes</dt><dd>A concept that is on the syllabus but is not a
+            prerequisite of this stop. A concept that is not on the syllabus at all, usually a
+            paraphrase of one that is. And the commonest: the stop declaring <em>its own</em>
+            concept — <code>takesAsRead: Kinematics</code> on a Kinematics stop, which the error
+            reports as "is not something &quot;Kinematics&quot; is built out of (it needs
+            &quot;Vectors and components&quot;)".</dd></div>
+          <div><dt>Before you write the line</dt><dd class="q">Which concept does this stop claim,
+            and what does <code>tools/syllabus.js</code> say that concept <code>needs</code>? The
+            answer to the second question is the only legal content of
+            <code>takesAsRead</code>.</dd></div>
+          <div><dt>The fix, when it is already written</dt><dd>The error names the prerequisite the
+            stop actually needs. Swap to that, or delete the line. Deleting is always safe — the
+            declaration is an optimisation for <code>conceptOrder</code>, not a requirement.</dd></div>
+        </dl>
+      </article>
+
+      <article class="item">
+        <header class="item__head">
+          <h3>A <code>concept:</code> that is not on the syllabus</h3>
+          <span class="count">7 in one bundle<br>4 in one book</span>
+        </header>
+        <dl>
+          <div><dt>The rule</dt><dd>A stop's <code>concept:</code> must be a syllabus entry's exact
+            title, or its number. Anything else is unresolvable, and an unresolved concept means
+            nothing checks the claim the card makes.</dd></div>
+          <div><dt>What it looks like</dt><dd>Always a plausible paraphrase, never nonsense —
+            "Site response — one earthquake, different local ground motion" for "Site effect: soft
+            ground amplifies"; "Response spectrum: turning a measured record into period-specific
+            demand" for "Natural period, and resonance between building and ground". The author knew
+            the physics and re-titled it.</dd></div>
+          <div><dt>Before you write the line</dt><dd class="q">Is this string copied from
+            <code>tools/syllabus.js</code>, or typed from memory? Copy it.</dd></div>
+          <div><dt>Cheap defence</dt><dd>Give the number instead of the title. A number cannot drift
+            from the syllabus and cannot be paraphrased.</dd></div>
+        </dl>
+      </article>
+
+      <article class="item">
+        <header class="item__head">
+          <h3>An instrument whose own data makes it unplayable</h3>
+          <span class="count">6 in one bundle<br>4 formats</span>
+        </header>
+        <dl>
+          <div><dt>The rule</dt><dd>Every live instrument is simulated at import. A board that
+            cannot be lost, cannot be won, or cannot be graded is refused — it would render
+            perfectly and ask nothing.</dd></div>
+          <div><dt>The four that actually occurred</dt><dd><strong>TRIGGER</strong> —
+            <code>consequenceLimit</code> sat exactly on the top of its own stream, so the needle
+            could neither cross it nor stay under it. It must be strictly inside the range the
+            stream reaches. <strong>HOLD</strong> — the do-nothing run stayed inside the band for
+            100% of the run against an 80% pass, so a player who never touched the control passed.
+            The importer integrates the disturbance rate steps in closed form and tells you the
+            worst drift. <strong>BELT</strong> — a 12-item bank (24 minimum, because the bank is
+            shuffled and only part of it is played), a 5/7 bin split (8 minimum each), and item
+            names over three words, which are unreadable on a moving tile.
+            <strong>DIAGNOSIS</strong> — the keyed <code>answer</code> was not one of the
+            candidates, and grading compares labels.</dd></div>
+          <div><dt>Before you author a panel</dt><dd class="q">What does a player who does nothing
+            score? If the answer is "a pass", the board is decoration.</dd></div>
+        </dl>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="band band--invisible" aria-labelledby="invisible">
+    <header class="band__head">
+      <h2 id="invisible">Invisible to every gate</h2>
+      <p>Both of these passed <code>npm run check</code> and would have shipped. One surfaced when a
+        PDF build printed a parse error; the other when a play-through found an ungradeable stop.
+        This is the class the repo's own tripwire is about: a clean check is not evidence.</p>
+    </header>
+    <div class="items">
+
+      <article class="item">
+        <header class="item__head">
+          <h3>An unescaped apostrophe in a single-quoted manifest string</h3>
+          <span class="count">2 in one file<br>caught by a PDF build</span>
+        </header>
+        <dl>
+          <div><dt>What happened</dt><dd>A revised <code>theme.js</code> carried
+            <code>'Then Farrow's independent checks…'</code> inside single quotes. The file does not
+            parse. <code>make-cardbook</code> reported <code>Unexpected identifier 's'</code> and
+            nothing in <code>npm run check</code> pointed at that file, because a theme whose
+            manifest will not load is a theme most gates skip rather than fail.</dd></div>
+          <div><dt>How to avoid it while writing</dt><dd>Prefer double quotes for any string
+            containing an apostrophe, or escape it as <code>\'</code>. The strings that carry this
+            risk are the ones with prose in them — <code>opening</code>, <code>ending</code>, and
+            <code>delivery.what</code> — and English prose about people is full of possessives.</dd></div>
+        </dl>
+      </article>
+
+      <article class="item">
+        <header class="item__head">
+          <h3>A diagnosis pack graded against the wrong field</h3>
+          <span class="count">1 stop<br>caught by smokeCampaign</span>
+        </header>
+        <dl>
+          <div><dt>What happened</dt><dd>A DIAGNOSIS stop referencing a pack was ungradeable. The
+            pack carried its own <code>answer: lotvariation</code> — a hypothesis <em>key</em> — and
+            <code>applyPack</code> in <code>engine/content/normalize.js</code> never reads it. It
+            grades against the <em>stop's</em> <code>answerText</code>, split on
+            <code>" + "</code>, matched against hypothesis <em>labels</em>. The stop's
+            <code>answerText</code> was a paraphrase of the two labels rather than the labels.</dd></div>
+          <div><dt>The rule to write down</dt><dd>For a compound pack, the stop's
+            <code>answerText</code> must be the hypothesis labels joined by <code>" + "</code>,
+            verbatim. The pack's own <code>answer:</code> field is read by nothing.</dd></div>
+          <div><dt>Why no gate saw it</dt><dd>Only a play-through of every stop catches an
+            ungradeable one, and the importer's own DIAGNOSIS check does not run on the pack path —
+            it validates the pack exists and stops there. Reading the stop is the defence: if its
+            <code>answerText</code> is not two labels from the pack's <code>hypotheses</code> with
+            <code>" + "</code> between them, it cannot be graded.</dd></div>
+        </dl>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="band band--tradeoff" aria-labelledby="tradeoff">
+    <header class="band__head">
+      <h2 id="tradeoff">The trade-offs that bit the third bundle</h2>
+      <p>The third bundle was written to bring the reading level down, and it did — one campaign's
+        sixteen unavoidable cards went from mean grade 9.0 to 4.5. Three things broke on the way, and
+        all three are the same mistake: a card cut until the number was right, past the point where
+        the card still did its job. The caps below are the shape to write to instead.</p>
+    </header>
+    <div class="items">
+
+      <article class="item">
+        <header class="item__head">
+          <h3>The three card caps, and which one applies where</h3>
+          <span class="count">one splitter<br>three settings</span>
+        </header>
+        <dl>
+          <div><dt>The caps</dt><dd>They step down with how little of the reader's attention the card
+            is entitled to. The <strong>opening card</strong> gets <strong>five sentences</strong> —
+            it is read once and carries four beats. A <strong>day card</strong> — the stake plus any
+            briefing that adds to it — gets <strong>four</strong>, because it is read before every
+            one of fifteen days. A <strong>warm-up card</strong> gets <strong>one</strong>: the
+            player is standing in the world with a run about to start and the card is over the top of
+            it, so the only thing that has to survive is why this run is happening today.</dd></div>
+          <div><dt>The floors that pull the other way</dt><dd>The opening card also has a 70-word
+            floor, and a warm-up <code>why</code> has a twelve-word floor. So a warm-up card is one
+            sentence of twelve words or more — a narrower target than it looks, and 276 of the 308
+            cards in the repo miss it today. Write to the beat, then count; do not cut to the number
+            and hope the beat survived.</dd></div>
+          <div><dt>Why they cannot disagree</dt><dd>All three are counted by one function in
+            <code>engine/dev/dayCard.mjs</code>. A decimal is not a full stop, a colon is not a full
+            stop, and a paragraph break is not a sentence boundary — so "it holds 3.9 tonnes today"
+            is one sentence at every cap.</dd></div>
+        </dl>
+      </article>
+
+      <article class="item">
+        <header class="item__head">
+          <h3>A grade bought by deleting course vocabulary</h3>
+          <span class="count">1 campaign<br>gated, and it fired</span>
+        </header>
+        <dl>
+          <div><dt>What the gate said</dt><dd><code>plainQuestions</code>: "syllables/word
+            <strong>FELL</strong>: 1.669 → 1.575 — a grade bought by deleting course vocabulary is
+            the one thing the pass forbids." Three of its six figures are gated and
+            <code>spw</code> is the one that may not <em>fall</em>, precisely because a falling
+            syllable count is what vocabulary deletion looks like from the outside.</dd></div>
+          <div><dt>The rule it enforces</dt><dd>Never delete the official term to lower a reading
+            level. Name it and gloss it on the spot — <em>"its rate — how fast the gas reacts"</em>.
+            A student who never meets the word cannot read their own textbook.</dd></div>
+          <div><dt>Before you simplify a card</dt><dd class="q">Did the grade fall because the
+            sentences got shorter, or because a term went missing? The number cannot tell you. Read
+            the card.</dd></div>
+        </dl>
+      </article>
+
+      <article class="item">
+        <header class="item__head">
+          <h3>An opening card cut under its floor</h3>
+          <span class="count">2 campaigns<br>55 and 58 words</span>
+        </header>
+        <dl>
+          <div><dt>What happened</dt><dd>Both openings now clear the five-sentence cap and fail the
+            70-word floor instead. One also lost its closing stake — it ends on "Build the Return
+            Checklist and make each call before air, power, or fuel…", which carries no number, no
+            clock and nobody in it.</dd></div>
+          <div><dt>The shape to hit</dt><dd>Five sentences, 70 to 180 words, one paragraph, and four
+            beats: what has happened and to whom; the job stated as authority ("You are the …,
+            which means …"); the clock or the argument; and last, what it costs, in a line with a
+            number, a clock or a person in it. The cap and the floor are both real and they are
+            eleven words apart at five sentences — write to the beats, then count.</dd></div>
+        </dl>
+      </article>
+
+      <article class="item">
+        <header class="item__head">
+          <h3>The delivery's name dropped out of the opening</h3>
+          <span class="count">4 campaigns<br>2 of them regressions</span>
+        </header>
+        <dl>
+          <div><dt>What happened</dt><dd>Every course campaign builds one named thing, a piece a day,
+            on a board in a room the player can walk into. The opening card has to name it. Two of
+            the shortened openings dropped the name that the previous version carried, so the player
+            is told the stakes and not the job.</dd></div>
+          <div><dt>The cheap version of the beat</dt><dd>"In fifteen days you sign the
+            &lt;named thing&gt;: what X, what Y, and what nobody has checked yet." One clause, and it
+            satisfies the delivery gate and the third beat at once.</dd></div>
+        </dl>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="band band--etiquette" aria-labelledby="etiquette">
+    <header class="band__head">
+      <h2 id="etiquette">Ratchet etiquette</h2>
+      <p>Most gates in this repo are ratcheted against a debt file, and the mechanism cuts both ways
+        — which surprises people the first time a <em>fix</em> shows up as a failure.</p>
+    </header>
+    <div class="items">
+
+      <article class="item">
+        <header class="item__head">
+          <h3>A fixed card fails until it is re-banked</h3>
+          <span class="count">56 lines in one campaign</span>
+        </header>
+        <dl>
+          <div><dt>What it looks like</dt><dd>"<code>reasoncoverage-debt.json</code> lists this stop
+            as missing a reason, and it now has one — delete the line." Forty-five of these appeared
+            at once when a revised book wrote the reason lines a debt file was still recording as
+            owed. They read like defects and are the opposite.</dd></div>
+          <div><dt>The fix, and it is not yours</dt><dd>Re-banking is a maintainer step
+            (<code>checkStory.mjs &lt;theme&gt; --write-debt</code>), not an authoring one. What you
+            can do is say in the handover which cards you fixed, so whoever re-banks knows the
+            failures are cleared debt rather than new defects.</dd></div>
+          <div><dt>The catch worth knowing</dt><dd><code>--write-debt</code> is per theme and
+            all-or-nothing: it banks current gaps as well as clearing fixed ones. On the third bundle
+            it absorbed a genuine regression — fifteen stakes that had lost their "Today you …"
+            clause were banked in the same pass that cleared forty-five fixes. Read the before/after
+            counts it prints rather than trusting the exit code.</dd></div>
+          <div><dt>What never to do</dt><dd>Delete a debt line to quiet a gate. A line whose card now
+            passes fails on its own and names itself for deletion; that is the mechanism working.
+            Deleting a line whose card still fails converts a tracked gap into an untracked
+            one.</dd></div>
+        </dl>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="colophon" aria-labelledby="colophon">
+    <h2 id="colophon">Where this came from</h2>
+    <p>Every count and every quoted error is from landing two revised bundles on branch
+      <code>deep-watch-integration</code> — nine campaigns from
+      <code>Alamos/all_revised_games_latest/</code> and three from
+      <code>Alamos/chat_themes/</code>, on 1 September 2026. Twelve books, eleven first-contact
+      refusals, two defects that no gate in the repo looks for.</p>
+    <p>The per-campaign documents beside this one carry what each campaign owes today, with the
+      gate definitions and the concrete findings. This page carries only what generalises.</p>
+    <h2 style="margin-top:2.25rem">The three things worth reading first</h2>
+    <ul>
+      <li><code>gamekit/tools/BOOK_TEMPLATE.md</code> — the book format, with a worked example of
+        every question format. The importer checks against it rather than guessing.</li>
+      <li><code>alamos-accessibility</code> — the seven defects to find in a card before touching its
+        reading level, and the keep-the-term-and-gloss-it rule the <code>spw</code> gate
+        enforces.</li>
+      <li><code>gamekit/tools/syllabus.js</code> — the concepts and their <code>needs</code>, which
+        is the only source for a legal <code>concept:</code> or <code>takesAsRead:</code> line. Two of
+        the three blockers below are cured by copying out of this file instead of writing from
+        memory.</li>
+    </ul>
+  </section>
+</div>
+</head>
+<body></body>
+</html>

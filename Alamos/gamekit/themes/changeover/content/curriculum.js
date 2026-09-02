@@ -722,22 +722,6 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "index = (basket now ÷ basket in the base year) × 100",
-          "c": "a price index",
-          "v": [
-            [
-              "basket now",
-              "what the fixed basket costs this month"
-            ],
-            [
-              "basket in the base year",
-              "what the same basket cost in the base period"
-            ]
-          ],
-          "s": "Price the same list of goods twice and the ratio is what prices have done, with the basket held still on purpose.",
-          "demanded": true
-        },
-        {
           "e": "inflation = (index₂ − index₁) ÷ index₁ × 100",
           "c": "an inflation rate from two index values",
           "v": [
@@ -751,6 +735,22 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Inflation is the rate the price level is changing at, which is a percentage change in an index rather than the index itself.",
+          "computed": true
+        },
+        {
+          "e": "index = (basket now ÷ basket in the base year) × 100",
+          "c": "a price index",
+          "v": [
+            [
+              "basket now",
+              "what the fixed basket costs this month"
+            ],
+            [
+              "basket in the base year",
+              "what the same basket cost in the base period"
+            ]
+          ],
+          "s": "Price the same list of goods twice and the ratio is what prices have done, with the basket held still on purpose.",
           "demanded": true
         }
       ],

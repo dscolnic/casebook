@@ -1,0 +1,3855 @@
+theme:
+  id: bring_them_home
+  title: Bring Them Home
+  subtitle: Flight Director · Lunar Return Mission
+groups:
+- id: NAV
+  code: NAV
+  name: Guidance & Motion
+  color: '#315c78'
+  desc: Kinematics, forces, gravity, trajectories, and navigation evidence.
+  defaultLeader: reyes
+  milestones:
+  - Reconstruct the state
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+- id: ELEC
+  code: ELEC
+  name: Power & Circuits
+  color: '#9a741d'
+  desc: Voltage, current, resistance, batteries, generation, and electrical faults.
+  defaultLeader: shah
+  milestones:
+  - Close the power budget
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+- id: THERM
+  code: THERM
+  name: Thermal & Life Support
+  color: '#4b775f'
+  desc: Heat transfer, gas behavior, pressure, flow, and life-support transport.
+  defaultLeader: brooks
+  milestones:
+  - Keep the cabin stable
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+- id: COMMS
+  code: COMMS
+  name: Waves & Communications
+  color: '#704f88'
+  desc: Radio waves, link budgets, pointing, optics, and signal timing.
+  defaultLeader: ito
+  milestones:
+  - Recover the link
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+- id: STRUCT
+  code: STRUCT
+  name: Rotation & Structures
+  color: '#9a3f36'
+  desc: Torque, angular motion, oscillations, resonance, and structural response.
+  defaultLeader: mensah
+  milestones:
+  - Control motion and vibration
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+- id: INTEG
+  code: INTEG
+  name: Mission Integration
+  color: '#3d6f52'
+  desc: Uncertainty, competing constraints, robust decisions, and final readiness.
+  defaultLeader: carter
+  milestones:
+  - Integrate the evidence
+  - Connect the evidence
+  - Verify with an independent check
+  - Ready to hand off
+roster:
+- id: reyes
+  name: Dr. Camila Reyes
+  role: Guidance Lead
+  division: NAV
+  quiz:
+  - q: How does Reyes tell a real trajectory change from a measurement artefact?
+    a: By seeing whether independent sources moved, or only one
+    wrong:
+    - By re-running the same navigation solution with much tighter tolerances
+    - By waiting for the next scheduled navigation update
+    - By comparing the result against the pre-launch plan
+  bio: 'Sits at the front of the guidance row and owns what the room believes about
+
+    where the vehicle is. Three tracking stations, a star sight and the crew''s own
+
+    inertial platform, and her job on a quiet shift is deciding which of them to
+
+    trust when they stop agreeing.
+
+
+    Her first question about any apparent trajectory change is how many independent
+
+    sources moved. One source moving is a measurement; every source moving is a
+
+    spacecraft. She has watched this room spend two hours chasing a burn that turned
+
+    out to be a station''s clock.'
+- id: shah
+  name: Priya Shah
+  role: Power Systems Lead
+  division: ELEC
+  quiz:
+  - q: Why does Shah read voltage, current and heat as one system?
+    a: They are three views of one energy budget
+    wrong:
+    - Three separate instruments together are more accurate than any one of them
+    - Heat is the only quantity that can be measured directly in flight
+    - The three meters share a single power supply
+  bio: 'Keeps the electrical picture for the whole vehicle, which on this flight is one
+
+    battery stack, two fuel cells and a long list of things that would like to draw
+
+    from them.
+
+
+    She will not look at a voltage on its own. Voltage, current and the heat coming
+
+    off a component are the same energy accounted for three ways, and a fault that
+
+    hides in one of them is usually plain in another. A bus holding its voltage
+
+    while running warm is spending something, and the question is what.'
+- id: brooks
+  name: Dr. Aaron Brooks
+  role: Thermal and Life Support Lead
+  division: THERM
+  quiz:
+  - q: What does Brooks mean by asking whether hardware is transporting what it should?
+    a: Power to a fan is not proof that air is moving
+    wrong:
+    - Hardware telemetry becomes unreliable during a power-down and cannot be trusted
+    - Transport rates can only be measured on the ground
+    - The crew cannot hear whether a fan is running
+  bio: 'Answers for the air the crew breathes and the heat the vehicle has to throw
+
+    away, both of which are transport problems before they are anything else.
+
+
+    His standing objection is that a powered box is not a working box. Current
+
+    reaching a fan says the motor is turning, not that air is moving through the
+
+    duct behind it. What he asks for is the transport itself — a flow, a temperature
+
+    difference, a carbon dioxide reading coming down — and he has been shown
+
+    telemetry proving a scrubber was running while the cabin said it was not.'
+- id: ito
+  name: Naomi Ito
+  role: Communications Lead
+  division: COMMS
+  quiz:
+  - q: Why does Ito treat received power as only part of a link diagnosis?
+    a: Pointing, range and a transmitter fault all look the same in it
+    wrong:
+    - Received power is sampled too slowly to be useful during a fast fade
+    - Power readings are quantised too coarsely at long range
+    - Only frequency measurements are calibrated
+  bio: 'Owns the link, which for the next four days means one high-gain antenna, two
+
+    ground stations and a spacecraft that is slowly rotating.
+
+
+    Received power is where everybody looks first and the reading she trusts least
+
+    on its own. A weak signal can be an antenna pointing off, the range opening, or
+
+    a transmitter failing, and all three arrive at the receiver looking the same.
+
+    What separates them is whatever else moved at that moment: attitude, range rate,
+
+    the temperature at the amplifier.'
+- id: mensah
+  name: Kwame Mensah
+  role: Dynamics and Structures Lead
+  division: STRUCT
+  quiz:
+  - q: Why does Mensah care about the frequency something is shaken at, not just how hard?
+    a: A structure answers strongly only near its own natural frequency
+    wrong:
+    - Forcing at high frequency always does more damage than forcing at low frequency
+    - Frequency determines how far the vibration travels through the hull
+    - Accelerometers only respond above a threshold frequency
+  bio: 'Reads the accelerometers, which means he spends a flight arguing that how hard
+
+    something is shaken matters less than how fast.
+
+
+    A panel takes up a shake hardest when the rate it is shaken at matches the rate
+
+    it wants to ring at, and the same force applied away from that rate is felt and
+
+    forgotten. So the number he wants first is a rate rather than an amplitude: a
+
+    thruster pulsing at four hertz into a panel that rings at four hertz is a
+
+    different event from the same thruster at twenty.'
+- id: carter
+  name: Dr. Evelyn Carter
+  role: Mission Integration Lead
+  division: INTEG
+  quiz:
+  - q: What is Carter guarding against by demanding independent evidence?
+    a: Two instruments sharing a step can be wrong together
+    wrong:
+    - Crew reports become unreliable when the people making them are under stress
+    - A single instrument cannot be calibrated in flight
+    - Independent teams work faster than one large team
+  bio: 'Sits at the back of the room where the recommendations arrive, and is the last
+
+    person to say yes. Eleven missions, two of which she stopped.
+
+
+    What she looks for is not agreement but independence. Two instruments sharing a
+
+    power supply, a calibration or a line of software can be wrong together and
+
+    confident together, and a room reading them side by side hears that as
+
+    confirmation. Her question is always which step the two answers have in
+
+    common.'
+- id: whitaker
+  name: Dale Whitaker
+  role: Trajectory Officer
+  division: NAV
+  bio: 'Fits trajectories to whatever tracking exists, which on a bad shift is three
+
+    numbers taken hours apart. A fit that matches the data he has is easy; a fit
+
+    that predicts the next observation is the only kind he will sign.
+
+
+    He treats residuals as the real output. A pattern in what the model got
+
+    wrong points at an unmodelled force or a clock error, and both of those have
+
+    hidden themselves inside a good-looking fit before.'
+  quiz:
+  - q: Why does Whitaker judge a trajectory fit by its residuals rather than by how closely
+      it matches the tracking?
+    a: Structure in the errors shows a force or a clock the fit is hiding
+    wrong:
+    - Residuals are the only quantity the tracking stations report back to the room
+    - A fit with small residuals always has small uncertainty
+    - Residuals convert range measurements into velocity
+- id: ferreira
+  name: Ana Ferreira
+  role: Electrical Load Officer
+  division: ELEC
+  bio: 'Keeps the power budget, which during this flight means keeping a list of
+
+    everything aboard that consumes energy and what happens the hour after it is
+
+    switched off.
+
+
+    Her rule is that no load is switched off in isolation. A heater turned off to
+
+    save amp-hours becomes a thermal problem that costs more amp-hours to
+
+    reverse, and the ledger has to be kept across systems rather than within one.'
+  quiz:
+  - q: Why does Ferreira refuse to evaluate a load in isolation?
+    a: Switching one off moves the cost somewhere else
+    wrong:
+    - Every load aboard draws the same current
+    - Loads can only be measured while the fuel cells are running
+    - A load's cost is fixed by its rating rather than by its use
+- id: novak
+  name: Petra Novak
+  role: Life Support Engineer
+  division: THERM
+  bio: 'Works the three things a sealed cabin runs out of — heat, breathable gas and
+
+    water — and the ways they interfere with each other. Cooling the cabin
+
+    condenses water onto the coldest surfaces, and the coldest surfaces are
+
+    usually the electronics.
+
+
+    She measures in more than one place on principle. A single cabin sensor
+
+    reports the air beside itself, and a compartment with poor circulation can be
+
+    perfectly comfortable at the sensor and dangerous two metres away.'
+  quiz:
+  - q: Why does Novak insist on carbon dioxide readings from several cabin locations?
+    a: With poor circulation the gas is not uniform, so a sensor reads its own corner
+    wrong:
+    - Sensors drift too quickly to be trusted individually
+    - The crew cannot reach the primary sensor while the module is powered down for the test
+    - Multiple readings are averaged to remove instrument noise
+- id: haldane
+  name: Marcus Haldane
+  role: Link Analyst
+  division: COMMS
+  bio: 'Accounts for every decibel between the spacecraft transmitter and the ground
+
+    receiver. A fade is never mysterious to him; it is one term in a budget that
+
+    changed, and the work is finding which.
+
+
+    Range, antenna pointing, receiver bandwidth and transmitter health all reduce
+
+    the same received power, and they are told apart by what else changed at the
+
+    same moment rather than by the signal level itself.'
+  quiz:
+  - q: How does Haldane separate a pointing problem from a transmitter failure?
+    a: By what changed alongside it — attitude, range and schedule leave traces
+    wrong:
+    - A transmitter failure always removes the carrier completely
+    - Pointing errors change the frequency and failures do not
+    - The received power alone identifies the cause without any other measurement
+- id: okoye
+  name: Chidi Okoye
+  role: Structural Dynamics Engineer
+  division: STRUCT
+  bio: 'Studies how a spacecraft responds to being pushed at particular rates. A
+
+    structure has frequencies at which a small repeated force produces a large
+
+    motion, and hardware that is perfectly strong at rest can fail there.
+
+
+    He never accepts a single accelerometer as a description of a mode. One
+
+    sensor sits at one point, and a point that happens to sit at a node reads
+
+    almost nothing while the panel beside it moves.'
+  quiz:
+  - q: Why will Okoye not characterise a vibration mode from one accelerometer?
+    a: At a still point of that mode there is nothing to feel
+    wrong:
+    - Accelerometers cannot measure below one hertz
+    - A single sensor cannot record frequency, only amplitude
+    - One sensor is enough only if the pump speed is constant
+- id: lindqvist
+  name: Erika Lindqvist
+  role: Flight Dynamics Integrator
+  division: INTEG
+  bio: 'Sits between the back rooms and the loop, and her job is the one nobody else
+
+    has: deciding which of six correct answers the flight director hears first.
+
+
+    She keeps the anomaly log, because in a fast failure the expensive mistake is
+
+    not a wrong number but two rooms acting on different versions of the same
+
+    number an hour apart.'
+  quiz:
+  - q: What does Lindqvist treat as the main risk during a fast-moving failure?
+    a: Two teams working from figures that disagree
+    wrong:
+    - A back room refusing to give an estimate at all
+    - The crew asking questions over the loop
+    - Telemetry arriving faster than it can be plotted
+glossary:
+- name: Calibration
+  aliases:
+  - calibration
+  - calibrated
+  - calibrate
+  def: The correction between what an instrument reads and what is true, established against
+    something known. A shared calibration is why two instruments can be wrong together.
+- name: Common-mode error
+  aliases:
+  - common-mode error
+  def: A shared error that makes several measurements agree for the same wrong reason.
+- name: Doppler shift
+  aliases:
+  - doppler shift
+  def: A frequency change caused by relative motion between source and observer.
+- name: Parallax
+  aliases:
+  - parallax
+  def: The apparent shift of a nearby object against a distant background when the viewpoint
+    moves. With a known baseline it gives a distance.
+- name: Power
+  aliases:
+  - power
+  def: The rate at which energy is transferred or used.
+- name: Resonance
+  aliases:
+  - resonance
+  def: Large oscillation produced when forcing is near a system natural frequency.
+- name: Scrubber
+  aliases:
+  - scrubber
+  - scrubbers
+  def: The unit that removes carbon dioxide from the cabin air. It cleans only the air that
+    reaches it.
+- name: State vector
+  aliases:
+  - state vector
+  def: A compact description of position and velocity at one time.
+- name: Torque
+  aliases:
+  - torque
+  def: The rotational effect of a force applied with a lever arm.
+- name: Transponder
+  aliases:
+  - transponder
+  def: The box aboard the spacecraft that answers a radio pulse from the ground, which is
+    what makes timing the round trip a distance measurement.
+- name: GO
+  aliases:
+  - go
+  - GO
+  def: Flight-control approval to carry out the stated plan. It means the known risks fit
+    inside the agreed safety limits.
+missions:
+- title: The Failure
+  objective: Create a trusted state vector and a prioritized anomaly list before commanding
+    the crew.
+  briefing: An explosion has damaged the ship and its sensors disagree. Decide what is real
+    before the crew acts.
+  stake: An explosion hit the ship four minutes ago. Power is falling, and three pressure
+    screens show the same sharp drop. You must find whether the cabin is leaking before a
+    wrong order wastes air, power, or crew time.
+  takeaway: Use units, vectors, graphs, measurement uncertainty, common-mode failure as an
+    evidence chain rather than as isolated facts.
+  stops:
+  - group: INTEG
+    task: Open the dependency chain behind each pressure reading. Keep the evidence that stands
+      on its own, then name the shared source that explains the false alarm.
+    title: 'What failed: the spacecraft or the sensors?'
+    place: Mission Control
+    scene: Three digital pressure screens fall at once. A hand gauge stays steady, and a sound
+      sensor hears no leak. Carter, the mission integration lead, needs one call before the
+      crew opens a panel.
+    guide: Open each pressure channel to see what it depends on. Keep the ones that would
+      still stand if the sensor electronics were at fault, and untick the rest. Then name
+      the shared source that moved the others. Three channels falling together is not three
+      measurements agreeing; it is one measurement repeated three times if they share a supply.
+    background:
+    - Why three digital channels can be one measurement. Redundant transducers usually share
+      a power supply, a reference voltage and a signal conditioning card. Any of those failing
+      moves all three readings the same way at the same moment, which is exactly what a real
+      depressurisation looks like on the display.
+    - What the other two instruments are for. A mechanical gauge has no electronics between
+      the cabin and the needle. An acoustic monitor listens for escaping gas rather than measuring
+      pressure at all. Neither depends on the suspect chain, which is why they carry more
+      weight here than any number of digital channels.
+    - Why the diagnosis has to come before the panels. Opening panels in a cabin that is genuinely
+      losing air spends time the crew may not have. Sending them to chase an instrumentation
+      fault costs the same hour with no leak to find. The flight director needs one answer,
+      not a list of possibilities.
+    assumes:
+    - several instruments can share one reference circuit
+    - an independent measurement does not inherit that shared failure
+    takeaway: Three screens share one circuit, so they can share one fault. The hand gauge
+      and sound sensor use other paths.
+    format: TRACE
+    question: Which pressure evidence survives the dependency check. What shared source moved
+      the rest?
+    trace:
+      decision: Decide whether the cabin pressure really changed or several readouts inherited
+        one bad reference.
+      hint: Open each channel to see what physical sources it depends on. Keep channels whose
+        measurement path does not pass through the suspect shared source.
+      channels:
+      - id: digital_a
+        label: Pressure channel A
+        reading: drops sharply
+        depends:
+        - cabin
+        - sensor_ref
+      - id: digital_b
+        label: Pressure channel B
+        reading: drops sharply
+        depends:
+        - cabin
+        - sensor_ref
+      - id: digital_c
+        label: Pressure channel C
+        reading: drops sharply
+        depends:
+        - cabin
+        - sensor_ref
+      - id: mechanical
+        label: Direct pressure gauge
+        reading: steady
+        depends:
+        - cabin
+        - mechanical_path
+      - id: acoustic
+        label: Leak monitor
+        reading: no leak signature
+        depends:
+        - acoustic_path
+      resources:
+      - id: cabin
+        label: Cabin gas pressure
+      - id: sensor_ref
+        label: Shared electrical reference
+      - id: mechanical_path
+        label: Mechanical gauge linkage
+      - id: acoustic_path
+        label: Acoustic leak monitor
+      target: sensor_ref
+      independent:
+      - mechanical
+      - acoustic
+    answerText: Keep the mechanical pressure evidence and reject the three digital channels
+      as independent votes.
+    why: Three screens share one circuit, so they can share one fault. The hand gauge and
+      sound sensor use other paths. A false leak call could waste the crew's air and time.
+    headline: Mission Control receives a sudden cabin-pressure warning on several digital
+      channels.
+    reason: A false leak call could waste the crew's air and time.
+  - group: INTEG
+    task: Put the four cards in order. Start with the step that must happen first.
+    title: Build the first state estimate
+    place: Telemetry Analysis Room
+    scene: One power bus reads zero. The guidance unit has lost its record. Carter asks you
+      to rebuild the log so the next shift can trust it.
+    guide: All four of these will be done, so this is not a list of options. Ask of each what
+      would be lost or wasted if it came later. Telemetry across the failure is overwritten
+      within minutes. A fit across mixed clocks produces a confident answer that is wrong.
+      And a command is only worth issuing once the estimate it rests on carries an uncertainty.
+    background:
+    - 'Why the order is graded whole. A sequence is a claim about dependency: each step is
+      here because the one before it has already happened, or has to have. One transposed
+      pair falsifies that claim wherever it sits, so partial credit would be credit for a
+      sequence that does not work.'
+    - Why the ends are the place to start. The first and last cards are constrained by having
+      nothing before or after them, which usually makes them the two you can settle from the
+      scene alone. Pinning them collapses the remaining arrangements sharply, and what is
+      left in the middle is where the actual judgement lives.
+    - What the rail can be ordered on. Time is the usual axis, but it is not the only one.
+      An order can run on cost, on risk, or on reversibility — every observation that leaves
+      the sample as it was, before any that consumes it. On those boards a chronological reading
+      finds nothing, because none of the steps has to happen at a particular hour.
+    assumes:
+    - a number without its units and its time is not a measurement
+    takeaway: Save the raw data first. Then align units and clocks before making a best estimate.
+    format: SEQUENCE
+    why: Save the raw data first. Then align units and clocks before making a best estimate.
+      Every later order depends on a log the next shift can trust.
+    rebuttals:
+    - keep the telemetry first.
+    - Check units, timestamps and shared dependencies second.
+    - Build the estimates third, with uncertainties attached.
+    - Command last.
+    cards:
+    - Freeze and preserve the pre- and post-failure telemetry.
+    - Verify units, timestamps, calibration states, and shared dependencies.
+    - Construct position, velocity, attitude, power, pressure, and temperature estimates with
+      uncertainties.
+    - Issue only commands whose benefits remain robust across the plausible states.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    reason: Every later order depends on a log the next shift can trust.
+  - group: INTEG
+    task: Ten minutes to the next tracking pass. What does the flight director do first?
+    title: Spend the first ten minutes
+    place: Spacecraft Systems Console
+    scene: Four teams want the crew's radio at once. The next tracking pass starts in ten
+      minutes. You must set one order before mixed commands reach the ship.
+    guide: All four options are real work that has to happen in the next hour. Ask of each
+      what it costs in the only resource that is short, which is attention. Four controllers
+      are already working one failure from four sets of numbers. Two versions of the same
+      analysis can reach the crew, and they will fly whichever arrives first.
+    background:
+    - Why the wrong options are the interesting ones. Each distractor is written to be the
+      answer under one specific misreading — a step skipped, a quantity confused with a rate,
+      a correlation taken for a cause. Identifying which misreading each belongs to is where
+      the learning is; the right answer alone can be reached on instinct and teach nothing.
+    - Why the shape of an option tells you nothing. A correct answer collects the qualifying
+      clause and the unit. So across a whole game the key used to be the longest option far
+      more often than chance — 88 per cent of passage quizzes here, before it was fixed. It
+      is now checked per game as a binomial tail, so length, hedging and specificity have
+      had the signal taken out of them deliberately.
+    - 'What the verdict adds. Every wrong option carries its own rebuttal, and the verdict
+      prints them — the reason that option fails, not a restatement of the right one. They
+      are worth reading after a correct answer as well: a right choice made for an approximate
+      reason is indistinguishable from a sound one until the day the approximation is what
+      is being tested.'
+    assumes:
+    - two rooms acting on different versions of one number is worse than either acting alone
+    takeaway: One log and one leader keep four teams from sending mixed orders.
+    format: CHOICE
+    question: Ten minutes to the next tracking pass. What does the flight director do first?
+    why: One log and one leader keep four teams from sending mixed orders. One clear order
+      keeps the crew from acting on mixed commands.
+    choices:
+    - Open one anomaly log and one command authority.
+    - Reconstruct the electrical and pressure timeline.
+    - Verify the path and attitude on its own.
+    - Ask every subsystem for a complete report at once.
+    answer: Open one anomaly log and one command authority.
+    rebuttals:
+    - The electrical and pressure timeline is the first real analysis.
+    - Independent path check decides whether the vehicle can come home.
+    - Six complete subsystem reports arrive after the tracking pass and consume the ten minutes
+      that were supposed to prepare for it.
+    reason: One clear order keeps the crew from acting on mixed commands.
+- title: Find the Spacecraft
+  objective: Produce a consistent trajectory estimate and identify which new observation most
+    reduces uncertainty.
+  briefing: The ship's computer lost its position and speed. Rebuild both from the tracking
+    data that remain.
+  stake: Nine hours have passed. The ground still cannot place the ship. Reyes, the guidance
+    lead, needs its position, while Whitaker, the trajectory officer, needs a path. You must
+    join the last readings before the best tracking site drops from view.
+  takeaway: Use position, velocity, acceleration, coordinate systems, graphs of motion as
+    an evidence chain rather than as isolated facts.
+  stops:
+  - group: NAV
+    task: Match each quantity the state estimate needs to the measurement that provides it.
+    title: Which measurement constrains what?
+    place: Deep-Space Tracking Station
+    scene: The ship's computer lost its state, and tracking comes and goes. Each tool measures
+      a different part of motion. Choose what the next pass must collect.
+    guide: Four things the state estimate needs, and four ways of measuring. Pair them by
+      asking what each measurement is physically sensitive to. An angle? A travel time? A
+      frequency shift? Or a difference between two earlier answers? One of the four is built
+      out of the others, which is why it is the noisiest. The next pass is intermittent, so
+      what gets scheduled has to be chosen.
+    background:
+    - Why this is a matching board and not four separate questions. Responses on boards like
+      this are written to be plausible for more than one situation, so choosing them one at
+      a time lets a nearly-right answer through unexamined. Having to place all of them forces
+      the comparison — not "is this reasonable here", but "is it more right here than there".
+    - How to use the one-each rule. Because the responses are a set to be distributed rather
+      than a list to be sampled, every join you make constrains the rest. Settling the two
+      you are confident of can leave the remaining pair decided by elimination. Where it does
+      not, two responses are still competing for one situation, and that is exactly the distinction
+      the stop is testing.
+    - 'Why you cannot be wrong about exactly one. With every response used once, three correct
+      joins leave the fourth with only one place to go. Any error therefore involves at least
+      two joins. That is worth remembering when the last pair looks forced: the fault is usually
+      not in the join you are struggling with, but in one you made early and stopped questioning.'
+    takesAsRead:
+    - 'Waves: frequency, wavelength, speed'
+    assumes:
+    - describing where something is and how it is moving takes six numbers
+    takeaway: An angle gives direction. Radio time gives range. Doppler shift gives speed
+      along the beam.
+    format: PROTOCOL
+    why: An angle gives direction. Radio time gives range. Doppler shift gives speed along
+      the beam. The next pass must fill the largest gap in the ship's state.
+    columns:
+    - What we want to measure
+    - How we measure it
+    rebuttals:
+    - Direction is an angle.
+    - Line-of-sight velocity is carried in carrier phase and frequency.
+    - A distance is a time multiplied by a speed, which is what the round trip provides.
+    - Rates come from repetition.
+    scenarios:
+    - Direction on the sky.
+    - Line-of-sight velocity.
+    - Range along the line of sight.
+    - How fast it is going, and whether that is steady.
+    choices:
+    - Photograph the ship against catalogued stars. The angle between it and stars whose places
+      are already fixed gives the line it lies along, to the precision of the catalogue and
+      the optics.
+    - Measure the Doppler shift of a stable carrier. A one-way beacon gives a fractional shift
+      of about v/c. A coherent two-way tracking link contains the motion on both legs.
+    - Time a pulse out to the ship and back through its transponder. Radio travels at a known
+      speed. So half the round-trip time multiplied by that speed is the distance.
+    - Repeat the same position measurement at recorded times. Subtracting positions gives
+      velocity. Subtracting those velocities gives acceleration.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    reason: The next pass must fill the largest gap in the ship's state.
+  - group: NAV
+    task: Put the four cards in order. Start with the step that must happen first.
+    title: Reconstruct the state vector
+    place: Guidance Room
+    scene: One range, two angles, and one Doppler trace remain. Their clocks do not match.
+      Build a state that can predict the next pass.
+    guide: All four steps will happen, so ask what each one needs to be true already. A fit
+      across two clocks can look clean and still be wrong, so the frames come first. Range,
+      angle and Doppler constrain different parts of the motion and are fitted together. Residuals
+      separate a missing force from noise. And the burn is committed at an hour, not now.
+    background:
+    - 'Why the order is graded whole. A sequence is a claim about dependency: each step is
+      here because the one before it has already happened, or has to have. One transposed
+      pair falsifies that claim wherever it sits, so partial credit would be credit for a
+      sequence that does not work.'
+    - Why the ends are the place to start. The first and last cards are constrained by having
+      nothing before or after them, which usually makes them the two you can settle from the
+      scene alone. Pinning them collapses the remaining arrangements sharply, and what is
+      left in the middle is where the actual judgement lives.
+    - What the rail can be ordered on. Time is the usual axis, but it is not the only one.
+      An order can run on cost, on risk, or on reversibility — every observation that leaves
+      the sample as it was, before any that consumes it. On those boards a chronological reading
+      finds nothing, because none of the steps has to happen at a particular hour.
+    assumes:
+    - measurements only combine when they share a frame and a clock
+    takeaway: Put each reading on one clock and one set of axes. Then test the result against
+      new data.
+    format: SEQUENCE
+    why: Put each reading on one clock and one set of axes. Then test the result against new
+      data. The next burn needs a position and speed that predict new data.
+    rebuttals:
+    - One coordinate system and one time standard first.
+    - Fit range, angle and Doppler together second.
+    - Read the residuals third, for structure rather than size.
+    - Propagate state and uncertainty to the decision time last.
+    cards:
+    - Transform all observations into one coordinate and time system.
+    - Fit a trajectory that predicts range, angle, and Doppler together.
+    - Examine residuals for bias or unmodeled acceleration.
+    - Propagate the state and its uncertainty forward to the hour the burn is committed.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    reason: The next burn needs a position and speed that predict new data.
+  - group: NAV
+    task: Why does the free-return path bend around the Moon instead of simply hitting it?
+    title: What holds it in the curve
+    place: Guidance Computer Room
+    scene: The ship is falling past the Moon, not circling it. Its path bends while its speed
+      and range change. Explain why it misses the surface.
+    guide: 'Gravity is the external force here and it points toward the Moon. The spacecraft
+      also arrives with sideways velocity. Ask which answer describes those two facts without
+      inventing lift or an outward force. This is a flyby: the speed and direction keep changing
+      as gravity bends the path.'
+    background:
+    - Why the wrong options are the interesting ones. Each distractor is written to be the
+      answer under one specific misreading — a step skipped, a quantity confused with a rate,
+      a correlation taken for a cause. Identifying which misreading each belongs to is where
+      the learning is; the right answer alone can be reached on instinct and teach nothing.
+    - Why the shape of an option tells you nothing. A correct answer collects the qualifying
+      clause and the unit. So across a whole game the key used to be the longest option far
+      more often than chance — 88 per cent of passage quizzes here, before it was fixed. It
+      is now checked per game as a binomial tail, so length, hedging and specificity have
+      had the signal taken out of them deliberately.
+    - 'What the verdict adds. Every wrong option carries its own rebuttal, and the verdict
+      prints them — the reason that option fails, not a restatement of the right one. They
+      are worth reading after a correct answer as well: a right choice made for an approximate
+      reason is indistinguishable from a sound one until the day the approximation is what
+      is being tested.'
+    takesAsRead:
+    - Kinematics
+    - Newton's laws and free-body reasoning
+    - Circular motion and centripetal force
+    assumes:
+    - gravity continuously changes a spacecraft's velocity vector during a flyby
+    takeaway: Gravity pulls toward the Moon while sideways speed carries the ship past it.
+      The two motions bend the path.
+    format: CHOICE
+    question: Why does the free-return path bend around the Moon instead of simply hitting
+      it?
+    why: Gravity pulls toward the Moon while sideways speed carries the ship past it. The
+      two motions bend the path. The room must know why this path misses the Moon.
+    choices:
+    - Its sideways velocity carries it past the Moon while lunar gravity continuously bends
+      the path.
+    - An outward inertial force balances gravity so the ship has no acceleration.
+    - Its speed reduces how strongly lunar gravity acts on the ship.
+    - Its forward motion produces lift that supports it against lunar gravity.
+    answer: Its sideways velocity carries it past the Moon while lunar gravity continuously
+      bends the path.
+    rebuttals:
+    - In an inertial frame there is no real outward force balancing gravity.
+    - Speed does not weaken lunar gravity.
+    - There is essentially no atmosphere to provide aerodynamic lift on this flyby.
+    reason: The room must know why this path misses the Moon.
+- title: The Wrong Trajectory
+  objective: Choose a correction that restores a safe return while preserving fuel and engine
+    options.
+  briefing: The ship will miss the safe path to Earth. Decide if the evidence is strong enough
+    to burn fuel now.
+  stake: The drift is real, and the current path misses safe entry by about 400 kilometres.
+    A small burn now may fix it, but a burn based on bad data would make things worse. You
+    must decide if the miss is large and clear enough to spend fuel.
+  takeaway: Use Newton’s laws, gravity, orbits, impulse, trajectory sensitivity as an evidence
+    chain rather than as isolated facts.
+  stops:
+  - group: INTEG
+    task: Put the four cards in order. Start with the step that must happen first.
+    title: From force to trajectory change
+    concept: Newton's laws and free-body reasoning
+    place: Orbital Analysis Room
+    scene: The ship is a little off course now, but the miss grows with time. The crew asks
+      why a short burn now can replace a long burn later.
+    guide: These four are one chain, so each card has something before it and something after.
+      Ask what has to exist first. A force before an acceleration. An acceleration before
+      a change in velocity. The last card is why any of it matters. The changed velocity is
+      carried for hours before arrival, which is why seconds now beat minutes tomorrow.
+    background:
+    - 'Why the order is graded whole. A sequence is a claim about dependency: each step is
+      here because the one before it has already happened, or has to have. One transposed
+      pair falsifies that claim wherever it sits, so partial credit would be credit for a
+      sequence that does not work.'
+    - Why the ends are the place to start. The first and last cards are constrained by having
+      nothing before or after them, which usually makes them the two you can settle from the
+      scene alone. Pinning them collapses the remaining arrangements sharply, and what is
+      left in the middle is where the actual judgement lives.
+    - What the rail can be ordered on. Time is the usual axis, but it is not the only one.
+      An order can run on cost, on risk, or on reversibility — every observation that leaves
+      the sample as it was, before any that consumes it. On those boards a chronological reading
+      finds nothing, because none of the steps has to happen at a particular hour.
+    takesAsRead:
+    - Kinematics
+    assumes:
+    - a force acting on a mass produces an acceleration
+    takeaway: Force over time changes speed. The ship carries that small change for the rest
+      of the trip.
+    format: SEQUENCE
+    why: Force over time changes speed. The ship carries that small change for the rest of
+      the trip. An early change in speed can prevent a fatal miss later.
+    rebuttals:
+    - Force for a measured time is where the chain starts.
+    - Force divided by mass is acceleration.
+    - Acceleration integrated over the burn is the velocity change.
+    - The new velocity changes position hours later.
+    cards:
+    - An engine produces a force for a measured time.
+    - The force gives the spacecraft an acceleration.
+    - Acceleration changes velocity by an impulse-dependent amount.
+    - The new velocity changes the later orbit and encounter geometry.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    reason: An early change in speed can prevent a fatal miss later.
+  - group: NAV
+    task: Use the values shown. Write the equation and give a rounded answer with units.
+    title: Small burn, large consequence
+    concept: Momentum, impulse and conservation
+    place: Guidance Console
+    scene: A 30,000 kg ship gets 6,000 N of thrust for 20 seconds. Find its change in speed
+      before the burn is approved.
+    guide: Five numbers, and two of them belong to other questions. Surface gravity and specific
+      impulse are not in this chain. Ask of each whether it is a force, a mass, or a time.
+      And note the scale of the answer. Four metres per second looks like nothing beside an
+      orbital speed. Days out, it moves the arrival by hundreds of kilometres.
+    background:
+    - Why an estimate rather than a calculation. Every quantity on this board is already measured
+      or stated, so nothing here has to be derived. What is being tested is whether you can
+      pick the quantities the relationship actually needs, and whether the size of the answer
+      looks right once they are in place.
+    - Why the tiles carry labels. A bare number cannot be checked against the relationship
+      it is going into. Reading the label is how a unit mismatch, or a quantity belonging
+      to a different part of the problem, is caught before it is placed — which is the habit
+      this format exists to build.
+    takesAsRead:
+    - Newton's laws and free-body reasoning
+    assumes:
+    - force applied over a time is an impulse
+    takeaway: Force divided by mass is 0.20 m/s². In 20 seconds, speed changes by 4 m/s.
+    format: BALLPARK
+    question: Estimate the change in speed.
+    why: Force divided by mass is 0.20 m/s². In 20 seconds, speed changes by 4 m/s. The burn
+      is approved only if its effect is large enough.
+    estimate:
+      relationship: Net force ÷ mass is the acceleration. Thrust is steady, so at constant
+        acceleration the velocity change is acceleration × burn time.
+      prompt: A 30,000 kg spacecraft receives 6,000 N of thrust for 20 seconds.
+      question: Estimate the change in speed.
+      labels:
+      - 6,000 N (thrust)
+      - 20 s (burn duration)
+      - 30,000 kg (vehicle mass)
+      - 9.81 m/s² (surface gravity)
+      - 1,500 s (specific impulse)
+      values:
+      - 6000
+      - 20
+      - 30000
+      - 9.81
+      - 1500
+      slots: 3
+      template: '{0} × {1} ÷ {2}'
+      formula: a*b/c
+      correct:
+      - 0
+      - 1
+      - 2
+      target: 4
+      tolerance: 0.3
+      units: m/s
+      solution: Δv = Ft/m = 4 m/s.
+      explanation: Force times time is impulse; impulse divided by mass is the velocity change.
+        Surface gravity has no bearing on a vehicle in free flight, and specific impulse would
+        tell you what the burn costs in propellant rather than what it achieves.
+    reason: The burn is approved only if its effect is large enough.
+  - group: THERM
+    task: The tank reads 40 psi and the regulator wants 15. What is the flow doing?
+    title: What the pressure difference is for
+    place: Life Support Lab
+    scene: The oxygen tank is at 40 psi, and the regulator is set to 15 psi. Yet the flow
+      has fallen by half. Brooks, the life support lead, asks what could block it.
+    guide: 'All four options explain a flow that has halved. They differ in what they hold
+      responsible: the difference, the path, the sensor, or the temperature. Ask of each whether
+      the line is the same line it was yesterday. A pressure difference drives the flow, and
+      how restrictive the path is decides the rate. A high-pressure tank delivers nothing
+      through a blocked line.'
+    background:
+    - Why the wrong options are the interesting ones. Each distractor is written to be the
+      answer under one specific misreading — a step skipped, a quantity confused with a rate,
+      a correlation taken for a cause. Identifying which misreading each belongs to is where
+      the learning is; the right answer alone can be reached on instinct and teach nothing.
+    - Why the shape of an option tells you nothing. A correct answer collects the qualifying
+      clause and the unit. So across a whole game the key used to be the longest option far
+      more often than chance — 88 per cent of passage quizzes here, before it was fixed. It
+      is now checked per game as a binomial tail, so length, hedging and specificity have
+      had the signal taken out of them deliberately.
+    - 'What the verdict adds. Every wrong option carries its own rebuttal, and the verdict
+      prints them — the reason that option fails, not a restatement of the right one. They
+      are worth reading after a correct answer as well: a right choice made for an approximate
+      reason is indistinguishable from a sound one until the day the approximation is what
+      is being tested.'
+    takesAsRead:
+    - Newton's laws and free-body reasoning
+    assumes:
+    - gas flows from higher pressure to lower pressure
+    takeaway: Pressure pushes gas, but the path can block it. A high tank reading does not
+      prove good flow.
+    format: CHOICE
+    question: The tank reads 40 psi and the regulator wants 15. What is the flow doing?
+    why: Pressure pushes gas, but the path can block it. A high tank reading does not prove
+      good flow. Tank pressure means little if gas cannot reach the cabin.
+    choices:
+    - The pressure difference still drives flow. The lower rate points to more resistance
+      in the path.
+    - The regulator fixes the flow rate. So a lower measured rate must be a bad flow sensor.
+    - The 40 psi tank pressure alone sets the flow. So the regulator cannot explain any change.
+    - The cabin temperature can reverse the flow even while the tank remains at higher pressure.
+    answer: The pressure difference still drives flow. The lower rate points to more resistance
+      in the path.
+    rebuttals:
+    - A regulator sets downstream pressure, not a guaranteed flow.
+    - Flow depends on the whole pressure drop and the resistance between the two ends, not
+      on tank pressure alone.
+    - A warmer cabin can change gas density and pressure.
+    reason: Tank pressure means little if gas cannot reach the cabin.
+- title: Turn Without Wasting Fuel
+  objective: Develop a controlled reorientation procedure that stops the rotation at the required
+    attitude.
+  briefing: The main guidance unit is off and one thruster set is dead. Write a hand-flown
+    turn that stops on target.
+  stake: The main guidance unit is off, and one thruster set is dead. The crew must turn the
+    ship 90 degrees by hand and stop at the right angle. A bad turn could lose the radio link
+    and the next burn.
+  takeaway: Use torque, angular acceleration, moment of inertia, angular momentum, center
+    of mass as an evidence chain rather than as isolated facts.
+  stops:
+  - group: STRUCT
+    task: Match each case to the best scientific answer. Use each choice once.
+    title: Read rotational motion
+    place: Attitude Dynamics Lab
+    scene: The crew must fly the turn by hand. Mensah, the dynamics lead, wants the rules
+      of rotation clear before any thruster fires.
+    guide: 'Four changes on the left, and four consequences on the right. Pair them by asking
+      what each change does to the two terms that matter: the torque, and the resistance to
+      turning. One of the four adds no external torque at all, which is what makes it different
+      from the others. The crew is about to fly this by hand and will feel every one of them.'
+    background:
+    - Why this is a matching board and not four separate questions. Responses on boards like
+      this are written to be plausible for more than one situation, so choosing them one at
+      a time lets a nearly-right answer through unexamined. Having to place all of them forces
+      the comparison — not "is this reasonable here", but "is it more right here than there".
+    - How to use the one-each rule. Because the responses are a set to be distributed rather
+      than a list to be sampled, every join you make constrains the rest. Settling the two
+      you are confident of can leave the remaining pair decided by elimination. Where it does
+      not, two responses are still competing for one situation, and that is exactly the distinction
+      the stop is testing.
+    - 'Why you cannot be wrong about exactly one. With every response used once, three correct
+      joins leave the fourth with only one place to go. Any error therefore involves at least
+      two joins. That is worth remembering when the last pair looks forced: the fault is usually
+      not in the join you are struggling with, but in one you made early and stopped questioning.'
+    takesAsRead:
+    - Newton's laws and free-body reasoning
+    assumes:
+    - a torque is what makes something start or stop turning
+    takeaway: Torque starts a turn. A matching torque in the other direction is needed to
+      stop it.
+    format: PROTOCOL
+    why: Torque starts a turn. A matching torque in the other direction is needed to stop
+      it. The crew must know how the ship will keep turning.
+    columns:
+    - What you change
+    - What happens to the rotation
+    rebuttals:
+    - The same force farther from the centre of mass is a longer lever arm and so a larger
+      torque.
+    - The same torque on a larger moment of inertia gives less angular acceleration.
+    - Equal and opposite torques for equal times cancel the net angular impulse, which is
+      what a start pulse and a stop pulse are for.
+    - Moving internal mass with no external torque redistributes the rotation and conserves
+      the total.
+    scenarios:
+    - Apply the same force farther from the center of mass.
+    - Increase moment of inertia with the same torque.
+    - Apply equal and opposite torques for equal times.
+    - Move internal masses while no external torque acts.
+    choices:
+    - Larger torque.
+    - Smaller angular acceleration.
+    - about cancel the net angular impulse.
+    - Total angular momentum remains conserved, though rotation distribution can change.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    reason: The crew must know how the ship will keep turning.
+  - group: INTEG
+    task: Choose the opening pulse and the angle where counter-torque begins. Run the maneuver
+      and stop the ship at 90 degrees with almost no remaining rotation.
+    title: Execute a manual attitude maneuver
+    place: Crew Procedures Room
+    scene: The crew must turn the ship 90 degrees with two thruster pairs. Every extra pulse
+      spends fuel saved for entry. Start the turn, then brake before the target.
+    guide: 'You set two things: how hard to start the turn and where to start braking. Then
+      the plan runs and you watch it. Nothing damps this rotation, so whatever you start you
+      must stop deliberately, and the braking has to lead the target rather than meet it.
+      Every extra correction spends propellant reserved for entry.'
+    background:
+    - Why the brake has to lead. With nothing to slow the spacecraft, the rotation continues
+      at whatever rate you gave it until an equal impulse takes it away. Firing at the target
+      means arriving at the target still turning, and then correcting past it — which is where
+      the propellant goes.
+    - What the reticle actually gives you. A mark on the window and a star or a horizon is
+      enough to see the attitude, not the rate. Rate has to be inferred from how fast the
+      view moves, which is why a small starting impulse is easier to fly than a large one
+      even though it takes longer.
+    - Why the propellant matters more than the minutes. What is being spent belongs to the
+      entry budget. A turn flown in half the time with three corrections can cost the margin
+      that the atmosphere entry needs, and there is no way to get it back.
+    takesAsRead:
+    - Newton's laws and free-body reasoning
+    - Rotational kinematics
+    assumes:
+    - a torque changes angular speed
+    - rotation continues after a thruster stops firing
+    takeaway: A ship keeps turning after a thruster stops. Braking must start before the target
+      angle.
+    format: FLY
+    question: How hard do you start the turn. Where do you begin braking so the ship arrives
+      at rest?
+    fly:
+      hint: Pick a start-pulse duration, then set the angle where the opposite thruster begins
+        firing. The run ends only when the vehicle has stopped rotating.
+      target: 90
+      accel: 2
+      tolerance: 3
+      rateTolerance: 1
+      start: 0
+      startRate: 0
+      pulse:
+        min: 4
+        max: 6
+        step: 2
+        unit: s
+      budget: 16
+      brake:
+        min: 35
+        max: 90
+        step: 1
+    answerText: Brake before the target.
+    why: A ship keeps turning after a thruster stops. Braking must start before the target
+      angle. A clean stop saves fuel and protects the burn angle.
+    reason: A clean stop saves fuel and protects the burn angle.
+  - group: NAV
+    task: Use the values shown. Write the equation and give a rounded answer with units.
+    title: Torque from a thruster
+    place: Guidance Console
+    scene: A 200 N thruster fires at a right angle, 3 metres from the ship's centre. Find
+      the torque before the crew predicts the turn.
+    guide: 'Five numbers, and three of them belong elsewhere: the vehicle mass, the docking
+      ring, and a cosine. Ask of each whether the turning effect depends on it. The force
+      is at right angles here, so no angle factor is needed. And note what the crew can actually
+      change. Choosing a different thruster pair changes the lever arm without changing the
+      thruster.'
+    background:
+    - Why an estimate rather than a calculation. Every quantity on this board is already measured
+      or stated, so nothing here has to be derived. What is being tested is whether you can
+      pick the quantities the relationship actually needs, and whether the size of the answer
+      looks right once they are in place.
+    - Why the tiles carry labels. A bare number cannot be checked against the relationship
+      it is going into. Reading the label is how a unit mismatch, or a quantity belonging
+      to a different part of the problem, is caught before it is placed — which is the habit
+      this format exists to build.
+    takesAsRead:
+    - Newton's laws and free-body reasoning
+    - Rotational kinematics
+    assumes:
+    - a longer lever arm gives the same force more turning effect
+    takeaway: Torque is force times the lever arm. Here the torque is 600 N·m.
+    format: BALLPARK
+    question: Estimate the torque about the centre of mass.
+    why: Torque is force times the lever arm. Here the torque is 600 N·m. Torque sets how
+      fast the hand-flown turn begins.
+    estimate:
+      relationship: Torque = force × lever arm, when the force is at right angles to the arm.
+      prompt: A 200 N thruster fires at right angles, 3 metres from the centre of mass.
+      question: Estimate the torque about the centre of mass.
+      labels:
+      - 3 m (lever arm to the centre of mass)
+      - 200 N (thruster force)
+      - 1.5 m (distance to the docking ring)
+      - 30,000 kg (vehicle mass)
+      - 0.5 (cosine of 60°)
+      values:
+      - 3
+      - 200
+      - 1.5
+      - 30000
+      - 0.5
+      slots: 2
+      template: '{0} × {1}'
+      formula: a*b
+      correct:
+      - 0
+      - 1
+      target: 600
+      tolerance: 40
+      units: N m
+      solution: τ = rF = 600 N m, with the force at right angles.
+      explanation: Torque is force times lever arm times the sine of the angle between them,
+        and at right angles that last factor is one — which is why it does not appear. The
+        lever arm has to be measured to the centre of mass, not to whatever structure is nearest.
+    reason: Torque sets how fast the hand-flown turn begins.
+  - group: INTEG
+    task: Sort the telemetry flags before the handover.
+    title: Off-nominal, or off-scale
+    concept: Measurement uncertainty and error propagation
+    place: Telemetry Room
+    scene: The screen has more alarms than the team can check. Some show a real change in
+      the ship. Others show a bad sensor. Lindqvist, the flight dynamics integrator, needs
+      them sorted.
+    guide: Two bins. A spacecraft doing something unexpected moves in ways that are physically
+      possible and that other parameters agree with. A measurement failing moves in ways nothing
+      else corroborates — instantly, off the end of the scale, or to exactly zero. Sort on
+      whether the rest of the vehicle agrees.
+    background:
+    - 'Why this is the first question, always. The response to the spacecraft misbehaving
+      and the response to an instrument misbehaving are opposite: one is an intervention,
+      the other is ignoring a reading and fixing a sensor. Getting it backwards spends a consumable
+      answering something that never happened.'
+    - What a failed sensor looks like. A step no physical process could produce, a value past
+      the end of the range, a reading that has not changed in an hour when everything around
+      it has, or a number that agrees with nothing else on the vehicle.
+    assumes:
+    - a reading comes from a sensor, and a sensor can fail
+    takeaway: A real change has support from other sensors. A bad sensor may jump, freeze,
+      or run off its scale.
+    format: BELT
+    question: Send each flag to the bin that says whether the vehicle or the sensor is the
+      problem.
+    answerText: Anything physically possible and backed is the vehicle.
+    why: A real change has support from other sensors. A bad sensor may jump, freeze, or run
+      off its scale. A bad sensor and a bad ship need opposite responses.
+    belt:
+      left:
+        name: The vehicle
+      right:
+        name: The measurement
+      need: 20
+      lives: 3
+      pass: 0.8
+      hint: Ask whether anything else on the vehicle agrees with it.
+      items:
+      - name: Slow warming trend
+        bin: left
+      - name: Power draw rising
+        bin: left
+      - name: Radiator outlet up
+        bin: left
+      - name: Pressure falling steadily
+        bin: left
+      - name: Attitude drifting slowly
+        bin: left
+      - name: Battery state falling
+        bin: left
+      - name: Corroborated by two
+        bin: left
+      - name: Physically possible rate
+        bin: left
+      - name: Follows the burn
+        bin: left
+      - name: Tracks sun angle
+        bin: left
+      - name: Matches the model
+        bin: left
+      - name: Crew confirms it
+        bin: left
+      - name: Instant step
+        bin: right
+      - name: Past full-scale
+        bin: right
+      - name: Frozen an hour
+        bin: right
+      - name: Exactly zero
+        bin: right
+      - name: Contradicts two others
+        bin: right
+      - name: Physically impossible rate
+        bin: right
+      - name: Toggling every sample
+        bin: right
+      - name: Negative temperature
+        bin: right
+      - name: Changed at reset
+        bin: right
+      - name: One string only
+        bin: right
+      - name: Noise floor gone
+        bin: right
+      - name: Off the scale
+        bin: right
+      - name: Stuck at maximum
+        bin: right
+      - name: Uncorroborated jump
+        bin: right
+      commit: Start the line
+    reason: A bad sensor and a bad ship need opposite responses.
+- title: The Power Budget
+  objective: Build a load-shedding plan that preserves essential functions through the next
+    critical maneuver.
+  briefing: The fuel cells are gone and the batteries must last to entry. Find the power loss
+    and choose what stays on.
+  stake: Power must now last 62 more hours. Shah, the power systems lead, sees a four-volt
+    drop and a hot joint while every system asks to stay on. You must find the loss and save
+    enough power for air, heat, guidance, and entry.
+  takeaway: Use current, voltage, resistance, electrical power, energy budget as an evidence
+    chain rather than as isolated facts.
+  stops:
+  - group: ELEC
+    task: Use the values shown. Write the equation and give a rounded answer with units.
+    title: How long can the battery last?
+    place: Electrical Systems Room
+    scene: The fuel cells are gone. Entry batteries are now carrying the ship days too soon.
+      Shah needs a rough count of hours before the next power cut.
+    guide: 'Five numbers, and three of them belong to other questions: the bus voltage, the
+      brief peak, and the time to the next burn. Ask of each whether it is an amount of energy
+      or a rate of use. Energy divided by a rate leaves a time. And note what the answer assumes:
+      a flat load, and every last watt-hour available. A cold battery gives less than its
+      rating.'
+    background:
+    - Why an estimate rather than a calculation. Every quantity on this board is already measured
+      or stated, so nothing here has to be derived. What is being tested is whether you can
+      pick the quantities the relationship actually needs, and whether the size of the answer
+      looks right once they are in place.
+    - Why the tiles carry labels. A bare number cannot be checked against the relationship
+      it is going into. Reading the label is how a unit mismatch, or a quantity belonging
+      to a different part of the problem, is caught before it is placed — which is the habit
+      this format exists to build.
+    takeaway: Energy divided by power gives time. The result is a rough limit, since cold
+      cuts battery use.
+    format: BALLPARK
+    takesAsRead:
+    - 'Circuits: current, voltage, resistance, Ohm''s law'
+    assumes:
+    - energy is a stock, and power is the rate it is drawn at
+    why: Energy divided by power gives time. The result is a rough limit, since cold cuts
+      battery use. The crew cannot plan the return without a power clock.
+    question: Estimate the ideal endurance.
+    estimate:
+      relationship: Endurance = energy stored ÷ power drawn.
+      prompt: The fuel cells are gone. The entry batteries hold about 18 kilowatt-hours of
+        usable energy and the essential loads draw about 3 kilowatts.
+      question: Estimate the ideal endurance.
+      labels:
+      - 18 kWh (usable energy)
+      - 3 kW (essential load)
+      - 28 V (bus voltage)
+      - 3.5 kW (peak load, briefly)
+      - 6 h (time to the next burn)
+      values:
+      - 18
+      - 3
+      - 28
+      - 3.5
+      - 6
+      slots: 2
+      template: '{0} ÷ {1}'
+      formula: a/b
+      correct:
+      - 0
+      - 1
+      target: 6
+      tolerance: 0.4
+      units: h
+      solution: 18 kWh ÷ 3 kW = 6 h.
+      explanation: Energy is an inventory and power is the rate it is spent at; the hours
+        come from dividing one by the other. Bus voltage describes how the energy is delivered
+        and says nothing about how much there is.
+    reason: The crew cannot plan the return without a power clock.
+  - group: INTEG
+    task: Which fault fits the voltage, current, generation. Thermal evidence?
+    title: Why is bus voltage collapsing?
+    place: Spacecraft Load Panel
+    scene: The main bus has fallen from 28 volts to 24. Total current is near the plan, but
+      one joint is hot. Find the fault before more gear is shut off.
+    guide: Four options, and three readings have to be explained together. Generation is normal.
+      Total load current is near plan. Something is hot. Ask of each option how many of those
+      it covers. A failed array or a hidden load would move the current. A bad meter would
+      not make anything warm. Equipment is about to be pulled off the bus on this answer.
+    background:
+    - Why the wrong options are the interesting ones. Each distractor is written to be the
+      answer under one specific misreading — a step skipped, a quantity confused with a rate,
+      a correlation taken for a cause. Identifying which misreading each belongs to is where
+      the learning is; the right answer alone can be reached on instinct and teach nothing.
+    - Why the shape of an option tells you nothing. A correct answer collects the qualifying
+      clause and the unit. So across a whole game the key used to be the longest option far
+      more often than chance — 88 per cent of passage quizzes here, before it was fixed. It
+      is now checked per game as a binomial tail, so length, hedging and specificity have
+      had the signal taken out of them deliberately.
+    - 'What the verdict adds. Every wrong option carries its own rebuttal, and the verdict
+      prints them — the reason that option fails, not a restatement of the right one. They
+      are worth reading after a correct answer as well: a right choice made for an approximate
+      reason is indistinguishable from a sound one until the day the approximation is what
+      is being tested.'
+    assumes:
+    - current through a resistance drops voltage and makes heat
+    takeaway: A bad joint drops voltage and gives off heat. Normal total current rules out
+      a large hidden load.
+    format: CHOICE
+    why: A bad joint drops voltage and gives off heat. Normal total current rules out a large
+      hidden load. Blind load cuts may waste power and leave the fault hot.
+    rebuttals:
+    - A hidden load would show as total load current above plan.
+    - A failed array would show as low array current.
+    - A bad voltmeter explains the reading and not the hot junction or the extra battery current.
+    headline: The spacecraft power bus sags under a normal load.
+    readings:
+    - zone: Main bus voltage
+      label: Main bus voltage
+      value: 24 V instead of 28 V
+      status: alarm
+      note: Significant sag under load
+    - zone: Battery current
+      label: Battery current
+      value: Higher than expected
+      status: alarm
+      note: Battery is supporting the bus
+    - zone: Solar-array current
+      label: Solar-array current
+      value: Normal
+      status: normal
+      note: Primary generation has not collapsed
+    - zone: Total load current
+      label: Total load current
+      value: Near planned value
+      status: alarm
+      note: No large unexpected load surge
+    - zone: Connector temperature
+      label: Connector temperature
+      value: Hot spot at one junction
+      status: alarm
+      note: Local electrical heating
+    choices:
+    - label: High-resistance connection
+      mechanism: A resistive junction drops voltage and converts electrical power to heat.
+    - label: Large hidden load
+      mechanism: An unexpected device draws much more current and pulls down the bus.
+    - label: Solar-array failure
+      mechanism: Generation falls sharply, forcing the battery to replace missing array current.
+    - label: Bad voltmeter only
+      mechanism: The bus is healthy and the low voltage exists only in one measurement channel.
+    answer: High-resistance connection
+    reason: Blind load cuts may waste power and leave the fault hot.
+    takesAsRead:
+    - 'Circuits: current, voltage, resistance, Ohm''s law'
+  - group: INTEG
+    task: Allocate 41 amp-hours across continuous life support, six hours of thermal protection,
+      four guidance windows. Whatever radio time remains.
+    title: Shed load without losing the mission
+    place: Mission Planning Desk
+    scene: The battery holds 41 amp-hours. Air, heat, and guidance need fixed blocks of time.
+      Work out how much radio time remains.
+    guide: 'Forty-one amp-hours, sixty-two hours to fly, and a current draw of 4.2 amps that
+      does not fit. Watch the questions list rather than the loads: it shows what the spacecraft
+      can still do under the current plan. Every hour you buy for one load is an hour you
+      have taken from another, and at least one has to come down within minutes.'
+    background:
+    - 'What an amp-hour buys. One amp for one hour. At 4.2 amps the whole reserve lasts under
+      ten hours, against sixty-two to fly, so this is not a trimming exercise: the load has
+      to fall by a factor of several and stay down.'
+    - Why the loads are not equal. Guidance and communications can be intermittent — used
+      for a pass and switched off. Thermal control has a time constant of hours, so it can
+      be cycled. Life support cannot be interrupted at all. That difference is what makes
+      a plan possible.
+    - Why minutes matter for the first cut. Every hour spent deciding is drawn at the current
+      rate, so a slow decision has already spent part of what it was allocating. The first
+      reduction buys the time to make the rest of the plan properly.
+    takesAsRead:
+    - Electrical power and energy budgets
+    - 'Circuits: current, voltage, resistance, Ohm''s law'
+    assumes:
+    - amp-hours equal current multiplied by time
+    - some loads can be duty-cycled while others must run continuously
+    takeaway: Current times time gives amp-hours. Fixed needs use 38.6 Ah and leave 2.4 Ah
+      for the radio.
+    format: ALLOCATE
+    question: How many hours of each load can the ship afford?
+    allocate:
+      hint: 'Meet the required runtimes first: 62 h of life support, 6 h of thermal protection,
+        and 4 h of guidance. Then see how many amp-hours remain for broadband communications.'
+      pool:
+        amount: 41
+        unit: Ah
+      items:
+      - id: life
+        label: Life support and circulation
+        rate: 0.4
+        unit: A
+        cost: 24.8
+        hours: 62
+      - id: thermal
+        label: Thermal survival loads
+        rate: 1.1
+        unit: A
+        cost: 6.6
+        hours: 6
+      - id: guidance
+        label: Guidance and navigation windows
+        rate: 1.8
+        unit: A
+        cost: 7.2
+        hours: 4
+      - id: comms
+        label: High-bandwidth communications
+        rate: 0.9
+        unit: A
+        cost: 55.8
+        hours: 62
+      answers:
+      - required: true
+        requires:
+        - life
+        - thermal
+        question: Keep crew and critical batteries within survival limits
+      - required: true
+        requires:
+        - guidance
+        question: Power the planned navigation and burn windows
+      - required: false
+        requires:
+        - comms
+        question: Maintain continuous high-bandwidth communications
+    answerText: The required loads use 38.6 Ah, leaving 2.4 Ah.
+    why: Current times time gives amp-hours. Fixed needs use 38.6 Ah and leave 2.4 Ah for
+      the radio. Every saved amp-hour must protect a needed flight task.
+    reason: Every saved amp-hour must protect a needed flight task.
+- title: A Dangerous Battery Configuration
+  objective: Approve only a configuration whose voltage, current sharing, and failure behavior
+    are understood.
+  briefing: A spare battery could add hours, but a bad link could start a fire. Test the setup
+    before it is used in flight.
+  stake: Ferreira, the electrical load officer, found a spare battery. It may add 11 hours,
+    but its voltage does not match the live bus. The new joint is warm. You must test the
+    current before the battery starts a cabin fire.
+  takeaway: Use series circuits, parallel circuits, internal resistance, Joule heating, fault
+    isolation as an evidence chain rather than as isolated facts.
+  stops:
+  - group: ELEC
+    task: Match each case to the best scientific answer. Use each choice once.
+    title: Series or parallel?
+    place: Battery Test Bench
+    scene: A spare battery may buy more time. Ferreira asks how each wiring plan changes voltage,
+      current, and the effect of one bad cell.
+    guide: 'Four wiring changes, and four consequences. Pair them by asking what stays the
+      same in that arrangement: the voltage across each part, or the current through it. Then
+      ask what one fault does. Adding a module can take capability away, because a single
+      open cell can break a whole series path. This is being bolted up to buy hours of endurance.'
+    background:
+    - Why this is a matching board and not four separate questions. Responses on boards like
+      this are written to be plausible for more than one situation, so choosing them one at
+      a time lets a nearly-right answer through unexamined. Having to place all of them forces
+      the comparison — not "is this reasonable here", but "is it more right here than there".
+    - How to use the one-each rule. Because the responses are a set to be distributed rather
+      than a list to be sampled, every join you make constrains the rest. Settling the two
+      you are confident of can leave the remaining pair decided by elimination. Where it does
+      not, two responses are still competing for one situation, and that is exactly the distinction
+      the stop is testing.
+    - 'Why you cannot be wrong about exactly one. With every response used once, three correct
+      joins leave the fourth with only one place to go. Any error therefore involves at least
+      two joins. That is worth remembering when the last pair looks forced: the fault is usually
+      not in the join you are struggling with, but in one you made early and stopped questioning.'
+    assumes:
+    - a battery has both a voltage and a current it can supply
+    takeaway: Cells in series add voltage. Cells in parallel share current and can add useful
+      run time.
+    format: PROTOCOL
+    why: Cells in series add voltage. Cells in parallel share current and can add useful run
+      time. The wrong wiring can remove power or spread a fault.
+    columns:
+    - What you change
+    - What happens
+    rebuttals:
+    - Cells in series add their voltages.
+    - Cells in parallel hold the voltage and add current capacity.
+    - A resistive parallel branch carries less than its share.
+    - One open cell in series interrupts the entire path.
+    scenarios:
+    - Add equal cells in series.
+    - Add equal cells in parallel.
+    - One parallel branch gains resistance.
+    - One series cell opens.
+    choices:
+    - Total voltage increases.
+    - Current capacity can increase while voltage stays similar.
+    - That branch carries less current and sharing becomes unequal.
+    - The entire series path is interrupted.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    reason: The wrong wiring can remove power or spread a fault.
+  - group: ELEC
+    task: Use the values shown. Write the equation and give a rounded answer with units.
+    title: Heating at a bad connection
+    place: Electrical Integration Room
+    scene: A new battery joint has 0.05 ohms of resistance and carries 20 amps. Find its heat
+      rate before it starts a fire.
+    guide: 'Five numbers, and three of them belong elsewhere: the bus voltage, the whole cable
+      run, and half the current. Ask of each whether the heating at this joint depends on
+      it. Note the square: at half the current the same joint gives off a quarter of the power.
+      And note where it is. Twenty watts is nothing on a radiator and a great deal in one
+      connector in a sealed cabin.'
+    background:
+    - Why an estimate rather than a calculation. Every quantity on this board is already measured
+      or stated, so nothing here has to be derived. What is being tested is whether you can
+      pick the quantities the relationship actually needs, and whether the size of the answer
+      looks right once they are in place.
+    - Why the tiles carry labels. A bare number cannot be checked against the relationship
+      it is going into. Reading the label is how a unit mismatch, or a quantity belonging
+      to a different part of the problem, is caught before it is placed — which is the habit
+      this format exists to build.
+    assumes:
+    - a resistance carrying current turns electrical power into heat
+    takeaway: Heat is current squared times resistance. This joint gives off 20 watts in one
+      small spot.
+    format: BALLPARK
+    question: Estimate the heating power at the connection.
+    why: Heat is current squared times resistance. This joint gives off 20 watts in one small
+      spot. A small bad joint can start a fire at high current.
+    estimate:
+      relationship: Power dissipated = current² × resistance.
+      prompt: A connector in the improvised path develops 0.05 ohms while carrying 20 amps.
+      question: Estimate the heating power at the connection.
+      labels:
+      - 20 A (current through the joint)
+      - 0.05 Ω (joint resistance)
+      - 28 V (bus voltage)
+      - 0.5 Ω (resistance of the whole cable run)
+      - 10 A (half the current)
+      values:
+      - 20
+      - 0.05
+      - 28
+      - 0.5
+      - 10
+      slots: 2
+      template: '{0}² × {1}'
+      formula: a*a*b
+      correct:
+      - 0
+      - 1
+      target: 20
+      tolerance: 2
+      units: W
+      solution: P = I²R = 20 W, in a joint the size of a thumbnail.
+      explanation: 'The bus voltage is the wrong term: the power lost in a series joint depends
+        on the current through it and the voltage across it, not the voltage of the system
+        it sits in. Current enters squared, so the same joint at 10 A would dissipate a quarter
+        as much.'
+    reason: A small bad joint can start a fire at high current.
+  - group: INTEG
+    task: Lock a predicted equalization current, make the protected test connection, then
+      choose whether to spend a check on the current that actually flows.
+    title: Qualify the emergency battery plan
+    place: Crew Procedure Simulator
+    scene: The spare battery and live bus have different voltages. The cable can carry only
+      8 amps. Predict the first current, then test it through a safe limit.
+    guide: Lock what current you expect before anything is connected. Then make the connection
+      and decide whether to spend what it costs to measure the electrical effect. The connector
+      is rated for 8 amps and the module reads 31 volts against a nominal 37, so the prediction
+      is about whether this is safe as well as whether it helps.
+    background:
+    - Why the voltage matters more than it looks. A module at 31 volts against 37 nominal
+      is either partly discharged or damaged, and those imply very different currents when
+      it is connected to a healthy bus. The current is set by the difference between the two,
+      divided by the resistance of everything between them.
+    - What the connector rating means. Eight amps is what the hardware can carry continuously.
+      Exceeding it inside a sealed cabin is not a component failure — it is heat, and possibly
+      smoke, in the volume the crew is breathing.
+    - 'Why measure rather than assume. The prediction can be right and the hardware still
+      behave differently: a damaged cell, a high-resistance joint, a connector not fully seated.
+      Spending the measurement is what converts a plan into a qualification, and not spending
+      it leaves the crew relying on arithmetic.'
+    assumes:
+    - a voltage difference between connected batteries drives current
+    - a current rating is a physical limit, not a suggestion
+    takeaway: A voltage gap drives a large first current. A current limit makes the first
+      test safe.
+    format: VERIFY
+    question: What current do you expect. Will you verify the electrical effect before qualifying
+      the module?
+    verify:
+      hint: Enter a predicted current before connecting. After the protected test succeeds,
+        spend one check to read either clamp current or connector temperature; a completed
+        connection alone does not pass.
+      prediction:
+        min: 6
+        max: 16
+        unit: A
+        step: 0.2
+      truth: 14
+      passRatio:
+      - 0.9
+      - 1.1
+      intervention:
+        id: protected_test
+        label: Connect through fused test lead
+        alwaysSucceeds: true
+      checks: 1
+      requiredMeasurement: true
+      limit:
+        value: 8
+        unit: A
+        label: connector rating
+      unit: A
+      measurement:
+        label: Clamp-current reading
+        note: 14 A equalization current
+        cost: 1
+    answerText: The protected test produces about 14 A.
+    why: A voltage gap drives a large first current. A current limit makes the first test
+      safe. The spare battery helps only if its first current is safe.
+    reason: The spare battery helps only if its first current is safe.
+- title: The Cabin Is Cooling
+  objective: Create a thermal survival plan that protects crew, electronics, and batteries
+    with minimal power.
+  briefing: The power cuts have made the cabin cold and wet. Protect the crew and the entry
+    batteries with very little heat.
+  stake: The power cuts have pushed the cabin near 4°C. Water now beads on panels, and the
+    coldest battery is needed for entry. You must place the last heater time where cold can
+    do the most harm.
+  takeaway: Use heat capacity, conduction, convection, radiation, energy balance as an evidence
+    chain rather than as isolated facts.
+  stops:
+  - group: THERM
+    task: Use the values shown. Write the equation and give a rounded answer with units.
+    title: How much does the cabin cool?
+    place: Thermal Control Lab
+    scene: The cabin loses about one kilowatt more heat than it makes. Find the three-hour
+      drop before using scarce heater power.
+    guide: Five numbers, and two of them are the same three hours written in different units.
+      Another is the present cabin temperature, which the drop does not use. Ask of each whether
+      the relationship needs it. And note what the answer means. The cabin cools slowly because
+      of what it is made of, which buys hours now and costs the same energy to reheat later.
+    background:
+    - Why an estimate rather than a calculation. Every quantity on this board is already measured
+      or stated, so nothing here has to be derived. What is being tested is whether you can
+      pick the quantities the relationship actually needs, and whether the size of the answer
+      looks right once they are in place.
+    - Why the tiles carry labels. A bare number cannot be checked against the relationship
+      it is going into. Reading the label is how a unit mismatch, or a quantity belonging
+      to a different part of the problem, is caught before it is placed — which is the habit
+      this format exists to build.
+    takeaway: Net heat loss lowers the cabin's stored heat. The first result is only a rough
+      three-hour scale.
+    format: BALLPARK
+    assumes:
+    - it takes energy to warm a mass, and the same energy leaves when it cools
+    why: Net heat loss lowers the cabin's stored heat. The first result is only a rough three-hour
+      scale. Cold cuts battery life and puts water on live wires.
+    question: Estimate the temperature drop over three hours.
+    estimate:
+      relationship: Temperature drop = energy lost ÷ heat capacity. Energy lost = power ×
+        time.
+      prompt: With the systems powered down the cabin is losing about a kilowatt more than
+        it generates, over the next three hours. Treat the cabin and its contents as 1 thermal
+        mass of about 12 million joules per kelvin.
+      question: Estimate the temperature drop over three hours.
+      labels:
+      - 1,000 W (net heat loss)
+      - 10,800 s (3 hours)
+      - 12e6 J/K (heat capacity)
+      - 3 h (3 hours, in hours)
+      - 4 °C (present cabin temperature)
+      values:
+      - 1000
+      - 10800
+      - 12000000
+      - 3
+      - 4
+      slots: 3
+      template: '{0} × {1} ÷ {2}'
+      formula: a*b/c
+      correct:
+      - 0
+      - 1
+      - 2
+      target: 0.9
+      tolerance: 0.1
+      units: K
+      solution: 1 kW for 10,800 s is 10.8 MJ; divided by 12 MJ/K, about 0.9 K.
+      explanation: A watt is a joule per second, so the time has to be in seconds or the answer
+        is out by 3,600. That is the arithmetic slip this problem exists to catch.
+    reason: Cold cuts battery life and puts water on live wires.
+  - group: THERM
+    task: Match each case to the best scientific answer. Use each choice once.
+    title: Choose the heat-transfer mechanism
+    place: Cabin Environment Console
+    scene: The cabin keeps getting colder. Name how heat leaves each part before choosing
+      a fix.
+    guide: 'Four situations, and four ways heat moves. Pair them by asking what carries the
+      energy: touching, moving air, or nothing at all. One of these needs no material medium.
+      The pairing decides what a fix looks like, because insulation, circulation and reflective
+      surfaces each act on a different pathway. Naming the wrong one buys nothing.'
+    background:
+    - Why this is a matching board and not four separate questions. Responses on boards like
+      this are written to be plausible for more than one situation, so choosing them one at
+      a time lets a nearly-right answer through unexamined. Having to place all of them forces
+      the comparison — not "is this reasonable here", but "is it more right here than there".
+    - How to use the one-each rule. Because the responses are a set to be distributed rather
+      than a list to be sampled, every join you make constrains the rest. Settling the two
+      you are confident of can leave the remaining pair decided by elimination. Where it does
+      not, two responses are still competing for one situation, and that is exactly the distinction
+      the stop is testing.
+    - 'Why you cannot be wrong about exactly one. With every response used once, three correct
+      joins leave the fourth with only one place to go. Any error therefore involves at least
+      two joins. That is worth remembering when the last pair looks forced: the fault is usually
+      not in the join you are struggling with, but in one you made early and stopped questioning.'
+    assumes:
+    - heat moves by contact, by moving fluid, or by radiation
+    takeaway: Heat can cross a solid, ride with moving gas, or travel as light. Each path
+      needs a different fix.
+    format: PROTOCOL
+    why: Heat can cross a solid, ride with moving gas, or travel as light. Each path needs
+      a different fix. The right heat fix depends on how heat is escaping.
+    columns:
+    - What is happening in the cabin
+    - Which mechanism that is
+    rebuttals:
+    - Bodies in direct contact exchange heat by conduction.
+    - 'Air carrying warmth around the cabin is convection: the heat rides on moving fluid
+      rather than passing through it.'
+    - A cold wall absorbing infrared from warmer objects is radiation.
+    - A metal strut to external structure is conduction along a solid path, straight to a
+      sink.
+    scenarios:
+    - Crew huddle and share direct contact.
+    - Air circulation moves heat around the cabin.
+    - A cold wall receives infrared energy from warmer objects.
+    - A metal strut conducts heat to an external structure.
+    choices:
+    - Conduction between bodies.
+    - Convection or forced air transport.
+    - Radiation.
+    - Conduction through a solid path.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    reason: The right heat fix depends on how heat is escaping.
+  - group: INTEG
+    task: Four degrees and falling, on a fixed energy budget. What do you spend it on?
+    title: Keep the cabin survivable
+    place: Materials and Insulation Shop
+    scene: The cabin is near 4°C, and water is forming on the walls. There is not enough power
+      to heat the whole ship. Protect the parts that matter most.
+    guide: All four options are ways to spend a fixed energy budget. Ask of each whether it
+      slows the loss or replaces energy already gone. Insulation does the first and cannot
+      do the second. Then ask where cold costs most. Cold batteries deliver less usable energy,
+      so a thermal problem becomes a power problem. The crew is asleep in their suits at four
+      degrees.
+    background:
+    - Why the wrong options are the interesting ones. Each distractor is written to be the
+      answer under one specific misreading — a step skipped, a quantity confused with a rate,
+      a correlation taken for a cause. Identifying which misreading each belongs to is where
+      the learning is; the right answer alone can be reached on instinct and teach nothing.
+    - Why the shape of an option tells you nothing. A correct answer collects the qualifying
+      clause and the unit. So across a whole game the key used to be the longest option far
+      more often than chance — 88 per cent of passage quizzes here, before it was fixed. It
+      is now checked per game as a binomial tail, so length, hedging and specificity have
+      had the signal taken out of them deliberately.
+    - 'What the verdict adds. Every wrong option carries its own rebuttal, and the verdict
+      prints them — the reason that option fails, not a restatement of the right one. They
+      are worth reading after a correct answer as well: a right choice made for an approximate
+      reason is indistinguishable from a sound one until the day the approximation is what
+      is being tested.'
+    takesAsRead:
+    - Newton's laws and free-body reasoning
+    assumes:
+    - slowing a loss and replacing it are different things
+    takeaway: Heat only the parts that cold can ruin. Keep air moving so wet spots and gas
+      do not build up.
+    format: CHOICE
+    question: Four degrees and falling, on a fixed energy budget. What do you spend it on?
+    why: Heat only the parts that cold can ruin. Keep air moving so wet spots and gas do not
+      build up. The last heater time must protect people and entry power.
+    choices:
+    - Insulate the crew zone and the critical batteries.
+    - Spend the remaining energy on brief whole-cabin reheating cycles.
+    - Run cabin circulation continuously to keep every location at the same temperature.
+    - Concentrate heating on the electronics bay and let the crew rely on suits.
+    answer: Insulate the crew zone and the critical batteries.
+    rebuttals:
+    - Whole-cabin reheating replaces lost energy but does little to slow the next loss.
+    - Continuous circulation reduces temperature gradients but costs power continuously and
+      does not reduce heat leaving the ship.
+    - Protecting electronics alone keeps hardware while the crew zone and batteries continue
+      to cool.
+    reason: The last heater time must protect people and entry power.
+  - group: THERM
+    task: Hold the cabin while the crew works.
+    title: Cabin pressure, through the work period
+    place: Environmental Console
+    scene: The crew works in the middle cabin while an airlock cycles. A scrubber starts,
+      and an old leak stays on the log. Track which change moves the pressure.
+    guide: Hold the cabin pressure inside the band on the console. The band narrows through
+      the work period, because the crew are moving toward the module with the suspect seal
+      and a margin that was comfortable at the start is not comfortable there. The makeup
+      valve is your control.
+    background:
+    - 'Why a leak is not a step. A leak is a rate: the cabin loses gas for as long as the
+      hole is open, so the pressure keeps falling and does not settle anywhere. That is why
+      a cabin with a small leak is held rather than corrected.'
+    - Why the airlock and the scrubber are different in kind. Cycling the airlock takes a
+      volume of gas out once. The scrubber changes what the cabin is doing continuously. Both
+      show up on the same gauge and want different answers.
+    - Why the margin matters more later. Everything the crew are doing is reversible except
+      being in the wrong module when the pressure goes. The band narrows because the cost
+      of the same excursion rises as they move.
+    assumes:
+    - a sealed volume loses pressure if gas escapes from it
+    takeaway: A pressure change must match an event that can add or remove gas.
+    format: HOLD
+    question: Hold the cabin inside the band through the work period.
+    answerText: Inside the band for most of the period, with the makeup valve set to match
+      the leak rate rather than opened after the pressure has already fallen.
+    why: A pressure change must match an event that can add or remove gas. The crew needs
+      stable air while they build the filter fix.
+    hold:
+      quantity: Cabin pressure
+      unit: kPa
+      control: Makeup valve
+      hold: 101
+      band: 0.4
+      narrowTo: 0.2
+      duration: 45
+      direction: raise
+      authority: 0.1
+      pass: 0.8
+      hint: A leak keeps leaking. Set the valve to match it rather than correcting after the
+        gauge moves.
+      disturbances:
+      - label: Suspect seal opens up a little
+        at: 4
+        amount: -0.03
+      - label: Scrubber comes on line
+        at: 20
+        amount: 0.05
+      - label: Sample airlock cycles
+        at: 38
+        amount: -0.045
+      commit: Report the period
+    reason: The crew needs stable air while they build the filter fix.
+- title: The Air Problem
+  objective: Develop a safe temporary air-cleaning and circulation strategy using only validated
+    physical principles and monitored limits.
+  briefing: Carbon dioxide is rising even though the scrubber fan runs. Find the blocked air
+    path and build a safe fix.
+  stake: Carbon dioxide is rising even though the scrubber fan sounds normal. The spare filters
+    do not fit, and the crew is starting to make small mistakes. You must find the blocked
+    flow and force cabin air through a working filter.
+  takeaway: Use ideal gases, partial pressure, flow resistance, pressure difference, filtration
+    as an evidence chain rather than as isolated facts.
+  stops:
+  - group: INTEG
+    task: Trace the air path from the cabin through the scrubber loop. Put the links in order,
+      then name the link that governs how much carbon dioxide reaches the sorbent.
+    title: Diagnose the air system
+    place: Life-Support Laboratory
+    scene: Carbon dioxide keeps rising. The fan sounds normal and draws normal power, but
+      little air crosses the filter. Use the pressure readings to find the block.
+    guide: Build the path the air takes, in order, and then name the link where it becomes
+      limiting. The fan sounds normal and draws its usual current, which tells you the fan
+      is working. Pressure on both sides of the filter and the bed is what locates the restriction,
+      so read those rather than trusting the sound.
+    background:
+    - Why a working fan and low flow means a restriction. A fan draws current according to
+      how much air it is actually moving. A fan meeting a blockage moves less air, works less
+      hard, and sounds entirely normal — which is why the current reading is evidence that
+      the fan is fine and not that the system is.
+    - What a pressure difference across a component tells you. Flow through a restriction
+      costs pressure. A large drop across the filter with a small one across the bed says
+      the filter is the restriction, and the reverse says the bed is. That is the measurement
+      that separates two very different repairs.
+    - Why carbon dioxide is the clock. It rises whenever removal is slower than production,
+      and the crew's symptoms begin well before the level is dangerous. The chain has to be
+      diagnosed while everyone can still think clearly, which is the real deadline.
+    assumes:
+    - a running motor does not guarantee useful flow
+    - air must pass through every required link in a closed loop
+    takeaway: A fan can draw power while air stays blocked. A pressure drop across the filter
+      shows the block.
+    format: CHAIN
+    question: Where does the air-transfer chain become limiting?
+    chain:
+      hint: Put the air-transfer links in physical order. Then use the observed flow and pressure
+        pattern to name the one required link that governs the entire loop.
+      links:
+      - id: intake
+        label: Cabin intake
+        transfers: cabin air into the loop
+        reading: intake open
+      - id: fan
+        label: Scrubber fan
+        transfers: pressure rise to the moving air
+        reading: normal current and sound
+      - id: filter
+        label: Filter section
+        transfers: air through the particulate barrier
+        reading: large pressure drop across this section
+      - id: sorbent
+        label: CO2 sorbent bed
+        transfers: carbon dioxide from air into sorbent
+        reading: bed installed
+      - id: return
+        label: Return duct
+        transfers: treated air back to the cabin
+        reading: duct open
+      distractor: fan
+      order:
+      - intake
+      - fan
+      - filter
+      - sorbent
+      - return
+      governing: filter
+    answerText: The filter is the governing link.
+    why: A fan can draw power while air stays blocked. A pressure drop across the filter shows
+      the block. A powered fan cannot clean air that does not flow.
+    headline: Cabin carbon dioxide rises even though the scrubber fan still draws power.
+    reason: A powered fan cannot clean air that does not flow.
+  - group: THERM
+    task: Use the values shown. Write the equation and give a rounded answer with units.
+    title: CO2 production scale
+    place: Cabin Air Console
+    scene: Each crew member makes about 20 litres of carbon dioxide per hour. Find the six-hour
+      total before sizing the new filter path.
+    guide: 'Five numbers, and two of them belong to a different question: a whole day, and
+      a figure by mass rather than by volume. Ask of each whether it is a rate, a count, or
+      a duration. What comes out is the minimum a scrubber has to keep up with. Anything slower
+      than that only slows the rise rather than holding it steady.'
+    background:
+    - Why an estimate rather than a calculation. Every quantity on this board is already measured
+      or stated, so nothing here has to be derived. What is being tested is whether you can
+      pick the quantities the relationship actually needs, and whether the size of the answer
+      looks right once they are in place.
+    - Why the tiles carry labels. A bare number cannot be checked against the relationship
+      it is going into. Reading the label is how a unit mismatch, or a quantity belonging
+      to a different part of the problem, is caught before it is placed — which is the habit
+      this format exists to build.
+    assumes:
+    - a rate multiplied by a time is a total
+    takeaway: Three people make about 60 litres each hour. In six hours, they make about 360
+      litres.
+    format: BALLPARK
+    question: Estimate the carbon dioxide produced in six hours.
+    why: Three people make about 60 litres each hour. In six hours, they make about 360 litres.
+      The new filter path must handle what three people make.
+    estimate:
+      relationship: Total = rate per person × number of people × time.
+      prompt: 3 crew members each exhale roughly 20 litres of carbon dioxide an hour, and
+        the improvised scrubber has to keep up for the next 6 hours.
+      question: Estimate the carbon dioxide produced in six hours.
+      labels:
+      - 3 people
+      - 20 L/person/hour
+      - 6 hours
+      - 24 hours (a full day)
+      - 1.0 kg/person/day (mass basis)
+      values:
+      - 3
+      - 20
+      - 6
+      - 24
+      - 1
+      slots: 3
+      template: '{0} × {1} × {2}'
+      formula: a*b*c
+      correct:
+      - 0
+      - 1
+      - 2
+      target: 360
+      tolerance: 25
+      units: L
+      solution: 3 × 20 × 6 = 360 L over the 6 hours.
+      explanation: A rate per person per hour needs a head count and an interval, and both
+        have to match the question asked. A daily mass figure describes the same crew and
+        cannot be multiplied into this one without a density and a different arithmetic.
+    reason: The new filter path must handle what three people make.
+  - group: INTEG
+    task: Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?
+    title: Restore breathable air
+    place: Crew Hardware Workshop
+    scene: Carbon dioxide is near its limit. The spare filter is square, but its socket is
+      round. Build a sealed path from the parts on board.
+    guide: All four options describe something the fix could be judged on. Ask of each whether
+      it changes how much air actually crosses the sorbent. Carbon dioxide is only removed
+      from air that goes through, not past. A big canister with a gap around it does worse
+      than a small one sealed tight. The fan makes the same noise either way.
+    background:
+    - Why the wrong options are the interesting ones. Each distractor is written to be the
+      answer under one specific misreading — a step skipped, a quantity confused with a rate,
+      a correlation taken for a cause. Identifying which misreading each belongs to is where
+      the learning is; the right answer alone can be reached on instinct and teach nothing.
+    - Why the shape of an option tells you nothing. A correct answer collects the qualifying
+      clause and the unit. So across a whole game the key used to be the longest option far
+      more often than chance — 88 per cent of passage quizzes here, before it was fixed. It
+      is now checked per game as a binomial tail, so length, hedging and specificity have
+      had the signal taken out of them deliberately.
+    - 'What the verdict adds. Every wrong option carries its own rebuttal, and the verdict
+      prints them — the reason that option fails, not a restatement of the right one. They
+      are worth reading after a correct answer as well: a right choice made for an approximate
+      reason is indistinguishable from a sound one until the day the approximation is what
+      is being tested.'
+    assumes:
+    - air, like water, takes the easiest path it is offered
+    takeaway: Air must be forced through the filter, not around it. A sealed hose and cover
+      can make the path.
+    format: CHOICE
+    question: Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?
+    why: Air must be forced through the filter, not around it. A sealed hose and cover can
+      make the path. The crew needs a sealed filter path before the gas reaches its limit.
+    choices:
+    - A sealed flow path that forces cabin air through the scrubber.
+    - As much exposed scrubber surface as the canister allows.
+    - A carbon dioxide reading taken at several cabin locations.
+    - Enough fan speed that the crew can hear it running.
+    answer: A sealed flow path that forces cabin air through the scrubber.
+    rebuttals:
+    - Exposed area helps only for the fraction of the air that reaches it.
+    - Measuring in several places is how the crew finds out whether the fix worked, which
+      is necessary and is not the fix.
+    - An audible fan proves a motor is turning.
+    reason: The crew needs a sealed filter path before the gas reaches its limit.
+- title: Communication Fades
+  objective: Restore a reliable low-bandwidth link and use the signal itself as a navigation
+    measurement.
+  briefing: The radio fades when the ship turns. Find the cause, restore the link, and save
+    the tracking signal.
+  stake: The radio loses 12 decibels when the ship turns. Ito, the communications lead, must
+    tell a bad sender from a bad aim. You must restore the link before it is needed to guide
+    the next burn.
+  takeaway: Use waves, frequency, wavelength, inverse-square behavior, Doppler effect as an
+    evidence chain rather than as isolated facts.
+  stops:
+  - group: COMMS
+    task: Change one link condition at a time, measure received power. Reverse the change.
+      Identify the cause only when the signal follows the change both ways.
+    title: Why did the signal fade?
+    place: Deep-Space Antenna
+    scene: Both ground stations lose 12 decibels when the ship turns. The transmitter looks
+      healthy. Test the antenna path before changing radio hardware.
+    guide: The number you are watching is the received signal strength, currently about twelve
+      decibels low at both stations. Each test swaps or corrects one part of the path without
+      committing the mission, and a response counts only if it is larger than the noise on
+      the link. Two stations failing together already narrows what can be common to both.
+      Run one test, undo it, and name the part the fade follows.
+    background:
+    - Why two stations at once is the clue. The two ground stations are on opposite sides
+      of the Earth, with separate receivers, separate crews and separate weather. A fault
+      in one of those cannot show up at the other, so anything that explains both has to be
+      common to both — which means the spacecraft end, or the geometry between them.
+    - 'What twelve decibels means. Decibels are a ratio on a logarithmic scale: three of them
+      is about half the power, ten is a tenth, and twelve is about one sixteenth of the power
+      arriving. That is the difference between voice you can work with and voice you cannot,
+      which is why the number matters more than it sounds.'
+    - Why every test is reversible here. There is a crew aboard, so a test that cannot be
+      undone is not a test but a decision. The pointing correction, the redundant transmitter
+      chain and the backup receiver path were chosen because each can be tried and put back,
+      which is what makes the reversal half of the method available at all.
+    takesAsRead:
+    - Kinematics
+    assumes:
+    - decibels add gains and losses on a link budget
+    - a causal test changes one condition while the others stay fixed
+    takeaway: A turn that matches the fade points to antenna aim. Two ground sites make a
+      ground fault less likely.
+    format: CONTROL
+    question: Which reversible change makes the 12 dB fade appear and disappear?
+    control:
+      hint: Run one reversible test at a time. A cause has to produce a response larger than
+        the noise and reproduce that response when the change is reversed.
+      baseline: -12
+      noise: 0.2
+      variables:
+      - id: receiver_path
+        label: Ground receiver path
+      - id: tx_chain
+        label: Spacecraft transmitter chain
+      - id: pointing
+        label: Antenna pointing correction
+      reversalRequired: true
+      acceptResponseDb: 0.6
+      observable:
+        label: received power db relative
+      response: 11
+      truth: pointing
+    answerText: The antenna pointing is the cause.
+    why: A turn that matches the fade points to antenna aim. Two ground sites make a ground
+      fault less likely. The next burn needs both a voice link and tracking data.
+    headline: Voice and telemetry suddenly become weak.
+    reason: The next burn needs both a voice link and tracking data.
+  - group: COMMS
+    task: Use the values shown. Write the equation and give a rounded answer with units.
+    title: Wavelength of the radio link
+    place: Communications Analysis Room
+    scene: The ship sends at 2.0 gigahertz. Find the wavelength so the team can check the
+      antenna's aim.
+    guide: 'Five numbers, and three of them are traps. One is the carrier misread as megahertz.
+      One is the speed of sound. One is the observed loss. Ask of each whether it belongs
+      to this wave at all. And note what the answer feeds: the beam width scales with wavelength
+      over aperture, so this number sets how forgiving the pointing can be.'
+    background:
+    - Why an estimate rather than a calculation. Every quantity on this board is already measured
+      or stated, so nothing here has to be derived. What is being tested is whether you can
+      pick the quantities the relationship actually needs, and whether the size of the answer
+      looks right once they are in place.
+    - Why the tiles carry labels. A bare number cannot be checked against the relationship
+      it is going into. Reading the label is how a unit mismatch, or a quantity belonging
+      to a different part of the problem, is caught before it is placed — which is the habit
+      this format exists to build.
+    takesAsRead:
+    - Kinematics
+    assumes:
+    - frequency and wavelength are two descriptions of one wave
+    takeaway: Wavelength is wave speed divided by rate. At 2.0 GHz, it is about 0.15 metre.
+    format: BALLPARK
+    question: Estimate the wavelength.
+    why: Wavelength is wave speed divided by rate. At 2.0 GHz, it is about 0.15 metre. Wavelength
+      sets how sharply the antenna must point.
+    estimate:
+      relationship: Wavelength = speed of light ÷ frequency.
+      prompt: The carrier is at 2.0 gigahertz, and beam width scales with wavelength over
+        aperture.
+      question: Estimate the wavelength.
+      labels:
+      - 3.0e8 m/s (speed of light)
+      - 2.0e9 Hz (carrier frequency)
+      - 2.0e6 Hz (the carrier, misread as megahertz)
+      - 343 m/s (speed of sound)
+      - 12 dB (the observed loss)
+      values:
+      - 300000000
+      - 2000000000
+      - 2000000
+      - 343
+      - 12
+      slots: 2
+      template: '{0} ÷ {1}'
+      formula: a/b
+      correct:
+      - 0
+      - 1
+      target: 0.15
+      tolerance: 0.015
+      units: m
+      solution: λ = c/f = 0.15 m.
+      explanation: A factor of 1000 in the frequency is a factor of 1000 in the wavelength,
+        and a 150-metre wave would need an antenna nobody could fly. Reading the exponent
+        is most of this calculation.
+    reason: Wavelength sets how sharply the antenna must point.
+  - group: STRUCT
+    task: Put the four cards in order. Start with the step that must happen first.
+    title: Recover the weak link
+    place: Spacecraft Attitude Console
+    scene: The radio is weak and its pitch is moving. The crew can barely hear the ground.
+      Put the checks in the order that can restore the link.
+    guide: 'All four steps will be taken, so ask which buys the most for the least. Pointing
+      is the largest term in the link budget and costs nothing but attitude. Narrowing the
+      bandwidth buys signal without touching the spacecraft. And one of these four is not
+      a recovery action at all: it is what the recovered data are then used for.'
+    background:
+    - 'Why the order is graded whole. A sequence is a claim about dependency: each step is
+      here because the one before it has already happened, or has to have. One transposed
+      pair falsifies that claim wherever it sits, so partial credit would be credit for a
+      sequence that does not work.'
+    - Why the ends are the place to start. The first and last cards are constrained by having
+      nothing before or after them, which usually makes them the two you can settle from the
+      scene alone. Pinning them collapses the remaining arrangements sharply, and what is
+      left in the middle is where the actual judgement lives.
+    - What the rail can be ordered on. Time is the usual axis, but it is not the only one.
+      An order can run on cost, on risk, or on reversibility — every observation that leaves
+      the sample as it was, before any that consumes it. On those boards a chronological reading
+      finds nothing, because none of the steps has to happen at a particular hour.
+    takeaway: Check the safe, easy causes first. A small turn can test antenna aim without
+      changing radio hardware.
+    format: SEQUENCE
+    rebuttals:
+    - Attitude and antenna geometry first.
+    - 'Lower rate and narrower bandwidth second: less noise in the channel.'
+    - Large ground antennas with predicted Doppler third.
+    - Feed the recovered range and Doppler into navigation last.
+    takesAsRead:
+    - 'Waves: frequency, wavelength, speed'
+    assumes:
+    - a slower signal needs less power to be read
+    cards:
+    - Verify spacecraft attitude and antenna geometry.
+    - Reduce data rate and narrow the receiver bandwidth.
+    - Coordinate high-gain ground antennas and predicted Doppler tracking.
+    - Use recovered range and Doppler data to refine navigation.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Check the safe, easy causes first. A small turn can test antenna aim without changing
+      radio hardware. The fastest safe test can restore contact before the burn.
+    reason: The fastest safe test can restore contact before the burn.
+- title: A Blind Maneuver
+  objective: Design a manual alignment procedure whose dominant angular errors are bounded.
+  briefing: The crew must aim a burn without the main guidance unit. Bound the sighting errors
+    before trusting the turn.
+  stake: The main guidance unit is still off, and bright debris hides many stars. The crew
+    will aim through a window with Earth and the Sun as guides. You must tell a real turn
+    from a sighting shift before a tiny angle becomes a large miss at Earth.
+  takeaway: Use lenses, angular measurement, parallax, reference frames, error propagation
+    as an evidence chain rather than as isolated facts.
+  stops:
+  - group: COMMS
+    task: Match each case to the best scientific answer. Use each choice once.
+    title: What shifts the apparent direction?
+    place: Optics Test Room
+    scene: Bright debris hides many stars. The crew will use Earth, the Sun, and a window
+      grid. First tell a true ship turn from a shift caused by eye position.
+    guide: 'Four apparent shifts, four causes. Ask what physically moved: the eye, the optics,
+      the viewpoint, or the spacecraft. The crew is about to aim a burn with this sight, so
+      an apparent reticle shift cannot be allowed to masquerade as attitude error.'
+    background:
+    - Why this is a matching board and not four separate questions. Responses on boards like
+      this are written to be plausible for more than one situation, so choosing them one at
+      a time lets a nearly-right answer through unexamined. Having to place all of them forces
+      the comparison — not "is this reasonable here", but "is it more right here than there".
+    - How to use the one-each rule. Because the responses are a set to be distributed rather
+      than a list to be sampled, every join you make constrains the rest. Settling the two
+      you are confident of can leave the remaining pair decided by elimination. Where it does
+      not, two responses are still competing for one situation, and that is exactly the distinction
+      the stop is testing.
+    - 'Why you cannot be wrong about exactly one. With every response used once, three correct
+      joins leave the fourth with only one place to go. Any error therefore involves at least
+      two joins. That is worth remembering when the last pair looks forced: the fault is usually
+      not in the join you are struggling with, but in one you made early and stopped questioning.'
+    assumes:
+    - what you see through an eyepiece depends on where your eye is
+    takeaway: Eye motion can shift the grid without turning the ship. Two eye positions can
+      reveal that shift.
+    format: PROTOCOL
+    why: Eye motion can shift the grid without turning the ship. Two eye positions can reveal
+      that shift. A sighting error could aim the next burn the wrong way.
+    columns:
+    - What you see change
+    - What causes the shift
+    rebuttals:
+    - Eye moving against a nearby reticle is instrument parallax.
+    - A focus change alters how sharp the image is and leaves the direction where it was.
+    - A near object shifting against distant stars as the viewpoint moves is geometric parallax.
+    - The star field is fixed in inertial space.
+    scenarios:
+    - The eye moves relative to a nearby reticle.
+    - A lens focal setting changes image sharpness.
+    - A nearby object shifts against distant stars as viewpoint changes.
+    - The spacecraft rotates while the star field remains fixed inertially.
+    choices:
+    - Parallax between eye and reticle.
+    - Focus change.
+    - Geometric parallax.
+    - Change of body-frame orientation relative to the inertial frame.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    reason: A sighting error could aim the next burn the wrong way.
+    takesAsRead:
+    - Circular motion and centripetal force
+  - group: INTEG
+    task: Match each feature of the plotted trace to what it tells you about the motion.
+    title: Reading the trace instead of the number
+    place: Flight Director console
+    scene: The board shows 90 minutes of range data. The latest point is only one clue. Use
+      the line's shape to find speed, force, noise, or a bad offset.
+    guide: Four features of one plotted line, and four things they could mean. Pair them by
+      asking what changes and what does not. A slope is a rate. A change of slope means something
+      acted. Scatter around a smooth line is the instrument. A step with the same slope after
+      it is bookkeeping, and that is the one the room will explain with an invented manoeuvre.
+    background:
+    - Why this is a matching board and not four separate questions. Responses on boards like
+      this are written to be plausible for more than one situation, so choosing them one at
+      a time lets a nearly-right answer through unexamined. Having to place all of them forces
+      the comparison — not "is this reasonable here", but "is it more right here than there".
+    - How to use the one-each rule. Because the responses are a set to be distributed rather
+      than a list to be sampled, every join you make constrains the rest. Settling the two
+      you are confident of can leave the remaining pair decided by elimination. Where it does
+      not, two responses are still competing for one situation, and that is exactly the distinction
+      the stop is testing.
+    - 'Why you cannot be wrong about exactly one. With every response used once, three correct
+      joins leave the fourth with only one place to go. Any error therefore involves at least
+      two joins. That is worth remembering when the last pair looks forced: the fault is usually
+      not in the join you are struggling with, but in one you made early and stopped questioning.'
+    takesAsRead:
+    - Kinematics
+    assumes:
+    - the slope of a distance-time graph is a speed
+    takeaway: Slope gives speed. A change in slope shows a force. A sudden step may show a
+      bad offset.
+    format: PROTOCOL
+    question: Match each feature of the plotted trace to what it tells you about the motion.
+    why: Slope gives speed. A change in slope shows a force. A sudden step may show a bad
+      offset. The line can reveal a force or a bad sensor step.
+    columns:
+    - What the trace shows
+    - What it means
+    scenarios:
+    - The slope of the line
+    - A change in the slope
+    - Scatter about a smooth line
+    - A step with no slope change after it
+    choices:
+    - The rate the quantity is changing at.
+    - An acceleration. So something acted.
+    - Measurement noise rather than motion.
+    - An instrument or bookkeeping offset, not a manoeuvre.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    rebuttals:
+    - The slope is the rate.
+    - A slope change is the acceleration, which is the only feature that means a force acted.
+    - Scatter is the instrument.
+    reason: The line can reveal a force or a bad sensor step.
+  - group: NAV
+    task: Use the values shown. Write the equation and give a rounded answer with units.
+    title: How far it drifts while nobody is steering
+    place: Guidance Computer Room
+    scene: A small push of 0.004 m/s² acts for 90 seconds. Find how far the ship drifts before
+      the team decides if it matters.
+    guide: Four numbers, and one of them is surface gravity, offered for scale rather than
+      for use. Another is the one-half that belongs in the relationship. Ask of each whether
+      it is an acceleration, a time, or a constant. And note the square on the time. Double
+      the coast and the drift is four times larger, which is why the coast length is the thing
+      to argue about.
+    background:
+    - Why an estimate rather than a calculation. Every quantity on this board is already measured
+      or stated, so nothing here has to be derived. What is being tested is whether you can
+      pick the quantities the relationship actually needs, and whether the size of the answer
+      looks right once they are in place.
+    - Why the tiles carry labels. A bare number cannot be checked against the relationship
+      it is going into. Reading the label is how a unit mismatch, or a quantity belonging
+      to a different part of the problem, is caught before it is placed — which is the habit
+      this format exists to build.
+    takesAsRead:
+    - Kinematics
+    - Newton's laws and free-body reasoning
+    assumes:
+    - an object under constant acceleration covers half the acceleration times the time squared
+    takeaway: For steady acceleration, distance grows with time squared. The 90-second drift
+      is about 16 metres.
+    format: BALLPARK
+    question: Estimate the drift over the 90 seconds.
+    why: For steady acceleration, distance grows with time squared. The 90-second drift is
+      about 16 metres. A small push may grow into an entry miss.
+    estimate:
+      relationship: Displacement = ½ × acceleration × time², for a constant acceleration from
+        rest.
+      prompt: A residual acceleration of 0.004 m/s² acts for 90 s with the engine off.
+      question: Estimate the drift over the 90 seconds.
+      labels:
+      - 0.004 m/s² (residual acceleration)
+      - 90 s (unpowered coast)
+      - 0.5 (the 1 half in the relationship)
+      - 9.81 m/s² (surface gravity, for scale)
+      values:
+      - 0.004
+      - 90
+      - 0.5
+      - 9.81
+      slots: 3
+      template: '{2} × {0} × {1}²'
+      formula: c*a*b*b
+      correct:
+      - 0
+      - 1
+      - 2
+      target: 16
+      tolerance: 3
+      units: m
+      solution: 0.5 × 0.004 × 90² = 0.002 × 8,100 ≈ 16 m.
+      explanation: The time is squared. Use it once and the answer is 0.36 m, which would
+        look like nothing worth correcting.
+    reason: A small push may grow into an entry miss.
+- title: Crossing the Atmosphere
+  objective: Choose a corridor and monitoring strategy robust to atmospheric and navigation
+    uncertainty.
+  briefing: The ship is nearing a narrow entry path. Choose a target that stays safe when
+    the air and tracking are uncertain.
+  stake: The capsule will strike the air near 11 kilometres per second. Too shallow may send
+    it back toward space, while too steep may crush or burn the crew. You must turn a range
+    of possible paths into one safe entry call.
+  takeaway: Use kinetic energy, drag, work-energy, heating, deceleration as an evidence chain
+    rather than as isolated facts.
+  stops:
+  - group: INTEG
+    task: Put the four cards in order. Start with the step that must happen first.
+    title: Where orbital energy goes
+    place: Entry Dynamics Room
+    scene: The capsule reaches the air with huge kinetic energy. It must lose nearly all of
+      it before splashdown. Trace where that energy goes.
+    guide: These four are one chain, and reentry is an energy problem before it is a temperature
+      problem. Ask of each card what has to be true first. There is no atmospheric braking
+      before there is atmosphere. Energy cannot become heat until it has left the vehicle's
+      motion. The last card is where the shield and the trajectory decide the rates rather
+      than the total.
+    background:
+    - 'Why the order is graded whole. A sequence is a claim about dependency: each step is
+      here because the one before it has already happened, or has to have. One transposed
+      pair falsifies that claim wherever it sits, so partial credit would be credit for a
+      sequence that does not work.'
+    - Why the ends are the place to start. The first and last cards are constrained by having
+      nothing before or after them, which usually makes them the two you can settle from the
+      scene alone. Pinning them collapses the remaining arrangements sharply, and what is
+      left in the middle is where the actual judgement lives.
+    - What the rail can be ordered on. Time is the usual axis, but it is not the only one.
+      An order can run on cost, on risk, or on reversibility — every observation that leaves
+      the sample as it was, before any that consumes it. On those boards a chronological reading
+      finds nothing, because none of the steps has to happen at a particular hour.
+    takesAsRead:
+    - Newton's laws and free-body reasoning
+    assumes:
+    - energy is not destroyed, it is moved somewhere else
+    takeaway: Drag turns the ship's motion into heat in the air, shield, and wake. The shield
+      controls where that heat goes.
+    format: SEQUENCE
+    why: Drag turns the ship's motion into heat in the air, shield, and wake. The shield controls
+      where that heat goes. The crew survives only if entry sheds energy at a safe rate.
+    rebuttals:
+    - The vehicle arrives carrying the energy, overwhelmingly as kinetic energy at lunar-return
+      speed.
+    - Drag does negative work.
+    - The energy becomes heat in the shocked gas and the wake.
+    - Falling velocity and altitude are the result.
+    cards:
+    - The spacecraft reaches atmospheric interface with enormous mechanical energy, dominated
+      by kinetic energy.
+    - Atmospheric drag performs negative work on the spacecraft.
+    - Energy becomes heat in shocked gas, the vehicle, and the wake.
+    - Velocity and altitude fall while thermal protection and trajectory shape control the
+      rates.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    reason: The crew survives only if entry sheds energy at a safe rate.
+  - group: THERM
+    task: Use the values shown. Write the equation and give a rounded answer with units.
+    title: Kinetic-energy scale
+    place: Thermal Protection Lab
+    scene: A 5,000 kg capsule enters at about 11,000 m/s. Find the energy that drag and the
+      heat shield must handle.
+    guide: 'Five numbers, and two of them belong to other entries: the speed from low orbit,
+      and surface gravity. Ask of each whether this energy depends on it. And note the square
+      on the speed. Forty per cent more speed is nearly twice the energy at the same mass.
+      That is the whole difference between the two entries on the list.'
+    background:
+    - Why an estimate rather than a calculation. Every quantity on this board is already measured
+      or stated, so nothing here has to be derived. What is being tested is whether you can
+      pick the quantities the relationship actually needs, and whether the size of the answer
+      looks right once they are in place.
+    - Why the tiles carry labels. A bare number cannot be checked against the relationship
+      it is going into. Reading the label is how a unit mismatch, or a quantity belonging
+      to a different part of the problem, is caught before it is placed — which is the habit
+      this format exists to build.
+    takesAsRead:
+    - Newton's laws and free-body reasoning
+    - Circular motion and centripetal force
+    assumes:
+    - kinetic energy depends on mass and on speed
+    takeaway: Kinetic energy is one-half mass times speed squared. Here it is about 3.0×10^11
+      joules.
+    format: BALLPARK
+    question: Estimate the kinetic energy to be dissipated.
+    why: Kinetic energy is one-half mass times speed squared. Here it is about 3.0×10^11 joules.
+      The heat team needs the true size of the entry problem.
+    estimate:
+      relationship: Kinetic energy = ½ × mass × speed².
+      prompt: A 5,000 kg capsule returns from the Moon at about 11,000 metres per second.
+      question: Estimate the kinetic energy to be dissipated.
+      labels:
+      - 5.0e3 kg (capsule mass)
+      - 1.1e4 m/s (entry speed)
+      - 7.8e3 m/s (speed from low Earth orbit)
+      - 9.81 m/s² (surface gravity)
+      - 0.5 (the one-half in the formula)
+      values:
+      - 5000
+      - 11000
+      - 7800
+      - 9.81
+      - 0.5
+      slots: 2
+      template: 0.5 × {0} × {1}²
+      formula: 0.5*a*b*b
+      correct:
+      - 0
+      - 1
+      target: 302500000000
+      tolerance: 30000000000
+      units: J
+      solution: ½mv² ≈ 3.0 × 10¹¹ J.
+      explanation: 'The one-half is written into the template rather than offered as a tile,
+        because it is part of the relationship and not a measured quantity. The low-orbit
+        speed is there to be compared: 40% slower is half the energy, through the same heat
+        shield.'
+    reason: The heat team needs the true size of the entry problem.
+  - group: INTEG
+    task: Use the available tracking and targeting actions to place enough of the entry-angle
+      distribution inside the safe corridor.
+    title: Protect the entry corridor
+    place: Crew G-Load Console
+    scene: Safe entry lies from 5.3° to 7.7°. The best path is 6.2° with a 0.5° one-sigma
+      spread. Use two actions to make the full range safer.
+    guide: The display is a probability distribution, not a hard band of every possible angle.
+      Its centre is 6.2 degrees and its one-sigma width is 0.5 degrees; the safe corridor
+      spans 5.3 to 7.7. One action shifts the centre, while an independent tracking pass reduces
+      the statistical width. Apply the actions and judge the probability left outside either
+      boundary.
+    background:
+    - Why one sigma is not a fence. A standard deviation describes the width of a probability
+      distribution; it is not the set of all angles the vehicle could have. Entry safety therefore
+      depends on how much probability remains outside the corridor, not simply whether the
+      drawn one-sigma interval fits between the lines.
+    - 'Two different actions. A targeting correction moves the nominal, which slides the whole
+      band along the corridor. A tracking pass adds information, which is the only thing that
+      makes it narrower. Confusing them is the classic error in this room: the number on the
+      display gets better and the risk does not.'
+    - Why 'when is it ready' is part of the question. Every action costs time on a clock the
+      vehicle sets, and the crew cannot wait for an arbitrarily tight solution. So the decision
+      is not merely what to do but when the band is inside the corridor by enough that the
+      next hour is better spent elsewhere.
+    assumes:
+    - an uncertainty band describes a range of plausible states
+    - a narrower distribution puts more probability near its center
+    takeaway: Moving the mean changes the centre. New tracking narrows the spread. Safe entry
+      needs both.
+    format: CLOUD
+    question: Can you make the entry solution robust without confusing a better center with
+      a narrower uncertainty? Place the bars to report the mean and its one-sigma uncertainty.
+    cloud:
+      hint: The horizontal position is the nominal entry angle; the width is its one-sigma
+        uncertainty. Try each action separately before combining them.
+      actions:
+      - id: recenter
+        label: Small targeting correction
+        effect: shift
+        amount: 1
+      - id: track
+        label: Independent tracking pass
+        effect: narrow
+        amount: 0.7
+      centre: 6.2
+      spread: 0.5
+      bounds:
+        min: 5.3
+        max: 7.7
+      pass: 0.995
+    answerText: 'Use both actions: center the solution near 6.5 degrees and narrow the one-sigma
+      width to about 0.35 degrees.'
+    why: Moving the mean changes the centre. New tracking narrows the spread. Safe entry needs
+      both. A good center is unsafe if the possible paths are too wide.
+    reason: A good center is unsafe if the possible paths are too wide.
+- title: The Structure Is Vibrating
+  objective: Move the system away from resonance and verify that the mitigation works across
+    operating conditions.
+  briefing: A pump is making a panel shake near one speed. Move the system away from resonance
+    before a line breaks.
+  stake: A pump makes one panel shake hard near 3,200 rpm. A line behind the panel has rubbed
+    for an hour, and the motion grows each time the pump returns to that speed. You must test
+    for resonance and move away from it before the line breaks.
+  takeaway: Use simple harmonic motion, natural frequency, resonance, damping, forced oscillation
+    as an evidence chain rather than as isolated facts.
+  stops:
+  - group: INTEG
+    task: Which explanation fits the frequency, speed dependence. Independent accelerometers?
+    title: What is driving the vibration?
+    place: Structural Dynamics Lab
+    scene: The panel shakes hard only near 3,200 rpm. The motion fades above and below that
+      speed. Okoye, the structures engineer, asks if the pump is driving resonance.
+    guide: 'Three facts have to agree: the response peaks near 3,200 rpm, it falls on either
+      side, and two independent accelerometers see the same mode. Ask which explanation predicts
+      all three. A loose sensor cannot make a second sensor respond, and an impact would not
+      switch on and off with rotor speed.'
+    background:
+    - Why the wrong options are the interesting ones. Each distractor is written to be the
+      answer under one specific misreading — a step skipped, a quantity confused with a rate,
+      a correlation taken for a cause. Identifying which misreading each belongs to is where
+      the learning is; the right answer alone can be reached on instinct and teach nothing.
+    - Why the shape of an option tells you nothing. A correct answer collects the qualifying
+      clause and the unit. So across a whole game the key used to be the longest option far
+      more often than chance — 88 per cent of passage quizzes here, before it was fixed. It
+      is now checked per game as a binomial tail, so length, hedging and specificity have
+      had the signal taken out of them deliberately.
+    - 'What the verdict adds. Every wrong option carries its own rebuttal, and the verdict
+      prints them — the reason that option fails, not a restatement of the right one. They
+      are worth reading after a correct answer as well: a right choice made for an approximate
+      reason is indistinguishable from a sound one until the day the approximation is what
+      is being tested.'
+    assumes:
+    - every structure has speeds at which it prefers to shake
+    takeaway: The pump drives about 53.3 cycles each second. A panel with the same natural
+      rate can build a large motion.
+    format: CHOICE
+    why: The pump drives about 53.3 cycles each second. A panel with the same natural rate
+      can build a large motion. The pump speed must change before the hidden line breaks.
+    rebuttals:
+    - A loose sensor rattles on its own mount.
+    - An impact is a single kick and would not care what speed the wheel is running at.
+    - Structural breakup gives large vibration across many frequencies and operating states.
+    headline: A structural vibration becomes severe only during a narrow band of pump speed.
+    readings:
+    - zone: Vibration amplitude
+      label: Vibration amplitude
+      value: Sharp peak near 3,200 rpm
+      status: alarm
+      note: Falls again above and below that speed
+    - zone: Measured vibration frequency
+      label: Measured vibration frequency
+      value: Matches known structural mode
+      status: alarm
+      note: Frequency alignment is repeatable
+    - zone: Pump-speed change
+      label: Pump-speed change
+      value: Moving away from 3200 rpm reduces vibration
+      status: alarm
+      note: Immediate reversible response
+    - zone: Second accelerometer
+      label: Second accelerometer
+      value: Sees the same mode
+      status: alarm
+      note: Not confined to one sensor mount
+    - zone: Impact monitor
+      label: Impact monitor
+      value: No impulse recorded
+      status: normal
+      note: No evidence of a discrete strike
+    choices:
+    - label: Resonance driven by pump forcing
+      mechanism: The pump forcing frequency approaches a structural natural frequency and
+        amplifies motion.
+    - label: Loose accelerometer
+      mechanism: One sensor mechanically rattles while the ship structure remains quiet.
+    - label: One-time impact
+      mechanism: A collision gives the structure an impulsive kick independent of wheel speed.
+    - label: Broad structural breakup
+      mechanism: Damage creates large vibration across a wide range of frequencies and operating
+        states.
+    answer: Resonance driven by pump forcing
+    reason: The pump speed must change before the hidden line breaks.
+  - group: STRUCT
+    task: Use the mounted mass and stiffness to estimate the natural period, then compare
+      its frequency with the 3,200 rpm pump forcing.
+    title: Does the natural frequency match the pump?
+    place: Spacecraft Vibration Console
+    scene: Treat the panel as a 4 kg mass on a spring of 4.5×10^5 N/m. Find its natural rate
+      and compare it with the pump.
+    guide: The component's mode depends on effective mass and stiffness. First calculate the
+      period from 2π√(m/k), then invert it for frequency and compare with 3,200 rpm ÷ 60.
+      A resonance claim only earns its place if the two frequencies actually meet.
+    background:
+    - Why an estimate rather than a calculation. Every quantity on this board is already measured
+      or stated, so nothing here has to be derived. What is being tested is whether you can
+      pick the quantities the relationship actually needs, and whether the size of the answer
+      looks right once they are in place.
+    - Why the tiles carry labels. A bare number cannot be checked against the relationship
+      it is going into. Reading the label is how a unit mismatch, or a quantity belonging
+      to a different part of the problem, is caught before it is placed — which is the habit
+      this format exists to build.
+    takesAsRead:
+    - Newton's laws and free-body reasoning
+    assumes:
+    - a stiffer spring vibrates faster and a heavier mass vibrates slower
+    takeaway: The simple spring model gives about 53.4 Hz. That matches the pump's 53.3 Hz
+      forcing.
+    format: BALLPARK
+    question: Estimate the natural period and compare the implied frequency with the pump
+      forcing.
+    why: The simple spring model gives about 53.4 Hz. That matches the pump's 53.3 Hz forcing.
+      Matching rates are the key test for resonance.
+    estimate:
+      relationship: Period = 2π × the square root of (mass ÷ stiffness).
+      prompt: A mounted component is modelled as a 4 kg effective mass with 4.5×10^5 N/m equivalent
+        stiffness.
+      question: Estimate the natural period.
+      labels:
+      - 4 kg (component mass)
+      - 4.5×10^5 N/m (equivalent stiffness)
+      - 3,200 rpm (pump rotor speed)
+      - 0.5 kg (the damper)
+      - 10 Hz (a nearby mode)
+      values:
+      - 4
+      - 450000
+      - 3200
+      - 0.5
+      - 10
+      slots: 2
+      template: 2π √({0} ÷ {1})
+      formula: 2*Math.PI*Math.sqrt(a/b)
+      correct:
+      - 0
+      - 1
+      target: 0.0187
+      tolerance: 0.002
+      units: s
+      solution: T = 2π√(4/4.5×10^5) ≈ 0.0187 s, so f ≈ 53.4 Hz ≈ 3,200 rpm.
+      explanation: Mass and stiffness set the natural mode. The calculated 53.4 Hz natural
+        frequency nearly equals the pump's 3,200 rpm ÷ 60 ≈ 53.3 Hz forcing rate, supporting
+        the resonance diagnosis.
+    reason: Matching rates are the key test for resonance.
+  - group: INTEG
+    task: The pump is needed and the panel is entering resonance. What is the safest immediate
+      control-panel action?
+    title: Stop the resonance
+    place: Operations Planning Room
+    scene: The panel's motion grows each time the pump reaches 3,200 rpm. The pump must stay
+      on, but its speed can change now. Choose the safest first move.
+    guide: 'Resonance needs two things: a structure, and a forcing frequency. All four options
+      act on one of them, or on neither. Ask of each which, and how fast it can be done from
+      where the crew is sitting. The amplitude has already grown for three cycles. So one
+      option''s assumption, that the structure survives the passage, is no longer safe.'
+    background:
+    - Why the wrong options are the interesting ones. Each distractor is written to be the
+      answer under one specific misreading — a step skipped, a quantity confused with a rate,
+      a correlation taken for a cause. Identifying which misreading each belongs to is where
+      the learning is; the right answer alone can be reached on instinct and teach nothing.
+    - Why the shape of an option tells you nothing. A correct answer collects the qualifying
+      clause and the unit. So across a whole game the key used to be the longest option far
+      more often than chance — 88 per cent of passage quizzes here, before it was fixed. It
+      is now checked per game as a binomial tail, so length, hedging and specificity have
+      had the signal taken out of them deliberately.
+    - 'What the verdict adds. Every wrong option carries its own rebuttal, and the verdict
+      prints them — the reason that option fails, not a restatement of the right one. They
+      are worth reading after a correct answer as well: a right choice made for an approximate
+      reason is indistinguishable from a sound one until the day the approximation is what
+      is being tested.'
+    takesAsRead:
+    - Newton's laws and free-body reasoning
+    assumes:
+    - a resonance needs both a structure and something driving it
+    takeaway: Move the pump away from the matching rate. Then check that the panel's motion
+      falls.
+    format: CHOICE
+    question: What is the safest immediate control-panel action?
+    why: Move the pump away from the matching rate. Then check that the panel's motion falls.
+      A quick speed change can save the panel without stopping the pump.
+    choices:
+    - Shift the pump's operating speed away from the measured resonance.
+    - Add or restore damping at the panel.
+    - Measure the response at several more locations first.
+    - Drive the pump harder to pass through the band faster.
+    answer: Shift the pump's operating speed away from the measured resonance.
+    rebuttals:
+    - Damping bleeds energy out of the mode and is the right permanent fix.
+    - Measuring in more places is how you confirm the fix worked or merely moved the problem.
+    - Passing through faster assumes the structure survives the passage, which is the assumption
+      the growing amplitude across three cycles is calling into question.
+    reason: A quick speed change can save the panel without stopping the pump.
+  - group: COMMS
+    task: Work the call board while the flight rule changes.
+    title: What the room is calling now
+    concept: 'Systems thinking: dependency, redundancy, failure modes'
+    place: Flight Director's Console
+    scene: Calls reach the flight loop faster than you can answer. The top risk changes after
+      the burn, the leak, and crew wake-up. Follow the rule now in force.
+    guide: Answer the calls the current rule wants and hold the rest. The rule is called once
+      on the loop and then it stands; nobody repeats it. What is scored is the calls either
+      side of a change, because they are the only ones that show whether the room is working
+      to this rule or to the one before it.
+    background:
+    - Why a flight rule changes. Before a burn everything defers to the burn. Once a leak
+      is confirmed everything defers to the leak. When the crew are asleep the rule is different
+      again, because a call that wakes them costs something a call to the ground does not.
+    - Why the changeover is the dangerous part. A room working to the old rule for two more
+      minutes gives the loop to a call that no longer matters, and the call that does matter
+      waits behind it with nothing to say it was displaced.
+    assumes:
+    - a control room answers calls in an order somebody decides
+    takeaway: The top risk sets the call order. When the risk changes, the old order must
+      stop too.
+    format: SPOT
+    question: Answer to the rule in force. Keep listening for the rule.
+    answerText: Work the rule rather than the loudest call.
+    why: The top risk sets the call order. When the risk changes, the old order must stop
+      too. Old priorities can waste the few minutes left for a new risk.
+    spot:
+      duration: 40
+      switchEvery: 12
+      pass: 0.75
+      hint: The flight rule is called once on the loop and then it stands.
+      targets:
+      - id: k1
+        label: Burn attitude query
+        tags:
+        - burn
+      - id: k2
+        label: Leak rate update
+        tags:
+        - leak
+      - id: k3
+        label: Burn timing, leak affected
+        tags:
+        - burn
+        - leak
+      - id: k4
+        label: Crew sleep shift request
+        tags:
+        - crew
+      - id: k5
+        label: Ground station handover
+        tags:
+        - routine
+      - id: k6
+        label: Leak fix needs crew
+        tags:
+        - leak
+        - crew
+      - id: k7
+        label: Consumables report
+        tags:
+        - routine
+      - id: k8
+        label: Burn cut-off check
+        tags:
+        - burn
+      rules:
+      - say: Anything affecting the burn
+        want:
+        - burn
+      - say: Anything affecting the leak
+        want:
+        - leak
+      - say: Anything that wakes the crew
+        want:
+        - crew
+      commit: Open the loop
+    reason: Old priorities can waste the few minutes left for a new risk.
+- title: Choose the Return Path
+  objective: Select a return plan with explicit margins and contingencies for the dominant
+    uncertainties.
+  briefing: Four paths home spend fuel, time, water, and entry margin in different ways. Choose
+    the one that survives a bad estimate.
+  stake: Four paths home remain, and each spends a different safety margin. Water may run
+    out almost a day earlier than the best estimate. You must choose the path that still works
+    when that estimate is wrong.
+  takeaway: Use optimization, constraints, trade spaces, margins, critical path as an evidence
+    chain rather than as isolated facts.
+  stops:
+  - group: INTEG
+    task: Match each case to the best scientific answer. Use each choice once.
+    title: Name the binding constraint
+    place: Mission Design Center
+    scene: Four paths home are on the board. Each spends fuel, time, water, heat, or radio
+      cover. Name the limit each path comes closest to.
+    guide: 'Four return paths, and four subsystems that pay for them. Pair them by asking
+      what each path spends: consumables, propellant, heating, or the crew''s own ability
+      to navigate. No path is cheapest on every count. So the useful question is not which
+      is fastest but which constraint each one pushes closest to its limit.'
+    background:
+    - Why this is a matching board and not four separate questions. Responses on boards like
+      this are written to be plausible for more than one situation, so choosing them one at
+      a time lets a nearly-right answer through unexamined. Having to place all of them forces
+      the comparison — not "is this reasonable here", but "is it more right here than there".
+    - How to use the one-each rule. Because the responses are a set to be distributed rather
+      than a list to be sampled, every join you make constrains the rest. Settling the two
+      you are confident of can leave the remaining pair decided by elimination. Where it does
+      not, two responses are still competing for one situation, and that is exactly the distinction
+      the stop is testing.
+    - 'Why you cannot be wrong about exactly one. With every response used once, three correct
+      joins leave the fourth with only one place to go. Any error therefore involves at least
+      two joins. That is worth remembering when the last pair looks forced: the fault is usually
+      not in the join you are struggling with, but in one you made early and stopped questioning.'
+    assumes:
+    - a spacecraft carries a fixed amount of everything it needs
+    takeaway: Each path spends a different margin. The binding limit is the one closest to
+      failure.
+    format: PROTOCOL
+    why: Each path spends a different margin. The binding limit is the one closest to failure.
+      The safest path is set by the limit it nearly breaks.
+    columns:
+    - What the option changes
+    - What runs out first
+    rebuttals:
+    - More days is more oxygen, more water, more scrubber capacity and more power.
+    - A larger burn is fuel.
+    - A steeper entry raises peak heating and deceleration together.
+    - A long blackout is time with no ground support.
+    scenarios:
+    - Longer return time.
+    - Larger correction burn.
+    - Steeper atmospheric entry.
+    - Long communications blackout.
+    choices:
+    - Consumables and thermal survival.
+    - Fuel and propulsion reliability.
+    - Heating and deceleration.
+    - Crew autonomy and navigation confidence.
+    mapping:
+    - 0
+    - 1
+    - 2
+    - 3
+    reason: The safest path is set by the limit it nearly breaks.
+  - group: INTEG
+    task: Move the consumable-endurance assumption through its allowed range and choose the
+      return path that remains feasible at the pessimistic end.
+    title: Select the robust trajectory
+    place: Life-Support Desk
+    scene: The four paths take 58, 63, 66, or 71 hours. Their fuel and entry margins differ.
+      Choose the one that still works if water runs short early.
+    guide: Four return paths, and the consumable estimate is uncertain by about a day. Move
+      that estimate to its pessimistic end before choosing, and watch which trajectories go
+      dark. A path that works at the nominal estimate and fails a day short is not a plan.
+      Water is the tightest supply, so it is the one to test against.
+    background:
+    - Why the pessimistic end rather than the expected one. The endurance figure is an estimate
+      with a spread, not a measurement. Choosing at the middle of it means accepting a real
+      chance of running out, and running out of water on a return trajectory is not recoverable
+      by any later decision.
+    - What the trade actually is. A faster path uses more propellant and leaves less entry
+      margin; a slower one asks more of the consumables. Neither end is safe, which is why
+      the choice is made by testing both against their uncertain quantity rather than by minimising
+      one number.
+    - Why water rather than oxygen or power. It is the supply with the least margin, so it
+      fails first, and every hour added to the trajectory costs it directly. The binding constraint
+      is the one worth stressing; testing against a comfortable supply proves nothing.
+    assumes:
+    - a constraint can eliminate an otherwise attractive option
+    - uncertainty should be tested in the direction that makes the plan hardest
+    takeaway: Test each path with the worst fair water estimate. The 63-hour path still clears
+      all key limits.
+    format: STRESS
+    question: Which path still works when the life-support estimate is wrong in the bad direction?
+    stress:
+      hint: Drag usable consumable endurance from the nominal value toward the pessimistic
+        end. A candidate goes dark when any required criterion crosses its limit.
+      assumption:
+        id: consumable_endurance
+        label: Usable consumable endurance
+        nominal: 88
+        min: 64
+        max: 112
+        unit: h
+        step: 1
+      criteria:
+      - id: life_support
+        label: Return before consumables run out
+        type: returnHours<=assumption
+        key: returnHours
+      - id: entry_margin
+        label: Entry-angle margin
+        minimum: 0.4
+        unit: deg
+        key: entryMarginDeg
+      - id: propellant_margin
+        label: Propellant reserve
+        minimum: 6
+        unit: kg
+        key: propellantMarginKg
+      candidates:
+      - id: fast
+        label: Fast return
+      - id: balanced
+        label: Balanced return
+      - id: cool
+        label: Low-heating return
+      - id: fuel
+        label: Low-fuel return
+      robust: balanced
+      feasible:
+        fast: 224
+        balanced: 63
+        cool: 66
+        fuel: 71
+      optimiseOn: returnHours
+      scores:
+        fast:
+          returnHours: 58
+          entryMarginDeg: 0.25
+          propellantMarginKg: 7
+        balanced:
+          returnHours: 63
+          entryMarginDeg: 0.6
+          propellantMarginKg: 9
+        cool:
+          returnHours: 66
+          entryMarginDeg: 0.8
+          propellantMarginKg: 11
+        fuel:
+          returnHours: 71
+          entryMarginDeg: 0.55
+          propellantMarginKg: 15
+    answerText: Choose the 63-hour balanced return.
+    why: Test each path with the worst fair water estimate. The 63-hour path still clears
+      all key limits. The crew needs a path that survives a bad water estimate.
+    reason: The crew needs a path that survives a bad water estimate.
+  - group: THERM
+    task: Order the commitment so the abort trigger still has something to act on.
+    title: Commit to the path
+    place: Thermal and Entry Review
+    scene: The burn will close most other paths. Before it starts, write the sign that would
+      prove this plan unsafe while there is still time to act.
+    guide: All four of these will happen, and the burn closes most of the alternatives. Ask
+      of each what would be impossible afterwards. Comparing candidates under the nominal
+      case settles nothing, because the nominal case was never in doubt. And an abort trigger
+      defined after the burn is a trigger with nothing left to act on.
+    background:
+    - 'Why the order is graded whole. A sequence is a claim about dependency: each step is
+      here because the one before it has already happened, or has to have. One transposed
+      pair falsifies that claim wherever it sits, so partial credit would be credit for a
+      sequence that does not work.'
+    - Why the ends are the place to start. The first and last cards are constrained by having
+      nothing before or after them, which usually makes them the two you can settle from the
+      scene alone. Pinning them collapses the remaining arrangements sharply, and what is
+      left in the middle is where the actual judgement lives.
+    - What the rail can be ordered on. Time is the usual axis, but it is not the only one.
+      An order can run on cost, on risk, or on reversibility — every observation that leaves
+      the sample as it was, before any that consumes it. On those boards a chronological reading
+      finds nothing, because none of the steps has to happen at a particular hour.
+    takeaway: Set the bad sign before the burn. After the burn, the same sign may come too
+      late to help.
+    format: SEQUENCE
+    rebuttals:
+    - 'Quantify the margins first: fuel, consumables, thermal, corridor width.'
+    - Compare under off-planned conditions second.
+    - Name the abort observation and its time third.
+    - Burn last.
+    assumes:
+    - a decision can only be undone while the means to undo it still exist
+    cards:
+    - 'Quantify the margins: propellant, consumables, thermal, and the corridor width.'
+    - Compare the candidates under the off-nominal cases, not the nominal one.
+    - Name the observation that would show the choice was wrong, and the time it arrives.
+    - Burn, and keep updating the margins against what the tracking returns.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    why: Set the bad sign before the burn. After the burn, the same sign may come too late
+      to help. An abort rule helps only while fuel remains to use it.
+    reason: An abort rule helps only while fuel remains to use it.
+- title: The Last Correction
+  objective: Decide whether to burn using the expected benefit relative to navigation and
+    propulsion uncertainty.
+  briefing: Ground tracking says the ship moved, but the stations share one clock. Decide
+    whether to burn or check the clock first.
+  stake: Several ground results now place the ship ahead of its path. They agree, but they
+    also use the same clock. You must decide whether the ship moved or the clock moved before
+    the last burn window closes.
+  takeaway: Use random and systematic error, weighted averages, errors that move together,
+    propagation, decision thresholds as an evidence chain rather than as isolated facts.
+  stops:
+  - group: NAV
+    task: Which explanation fits the ranging, angle, clock. Independent-time checks?
+    title: Real trajectory error or common clock drift?
+    place: Global Tracking Network
+    scene: Range and Doppler place the ship ahead of its path. Both use one ground clock.
+      Compare them with the star angle and the clock log before burning.
+    guide: Several radiometric products agree, but agreement is not independence. Ask which
+      products inherit the same station time-and-frequency reference, then compare them with
+      the optical angle and an independent timing standard before authorising a burn.
+    background:
+    - Why the wrong options are the interesting ones. Each distractor is written to be the
+      answer under one specific misreading — a step skipped, a quantity confused with a rate,
+      a correlation taken for a cause. Identifying which misreading each belongs to is where
+      the learning is; the right answer alone can be reached on instinct and teach nothing.
+    - Why the shape of an option tells you nothing. A correct answer collects the qualifying
+      clause and the unit. So across a whole game the key used to be the longest option far
+      more often than chance — 88 per cent of passage quizzes here, before it was fixed. It
+      is now checked per game as a binomial tail, so length, hedging and specificity have
+      had the signal taken out of them deliberately.
+    - 'What the verdict adds. Every wrong option carries its own rebuttal, and the verdict
+      prints them — the reason that option fails, not a restatement of the right one. They
+      are worth reading after a correct answer as well: a right choice made for an approximate
+      reason is indistinguishable from a sound one until the day the approximation is what
+      is being tested.'
+    assumes:
+    - several instruments can be wrong together if they share a part
+    takeaway: Range and Doppler share one clock. The star angle does not, so it can break
+      the tie.
+    format: CHOICE
+    why: Range and Doppler share one clock. The star angle does not, so it can break the tie.
+      A burn for a clock error would create a real miss.
+    rebuttals:
+    - A real path change needs a force.
+    - Independent failures do not drift in the same direction at the same moment.
+    - A star tracker fault would put the angular solution in the wrong place.
+    headline: Several ground measurements suddenly place the spacecraft ahead of its predicted
+      path.
+    readings:
+    - zone: Range/Doppler residuals
+      label: Range/Doppler residuals
+      value: Shift together
+      status: alarm
+      note: Both channels use the same ground time reference
+    - zone: Star-angle navigation
+      label: Star-angle navigation
+      value: Matches predicted direction
+      status: normal
+      note: Independent angular geometry is stable
+    - zone: Ground timing reference
+      label: Ground timing reference
+      value: Offset detected
+      status: alarm
+      note: Shared clock is late relative to an independent standard
+    - zone: Reprocessed data
+      label: Reprocessed data
+      value: Residual largely disappears with corrected time
+      status: alarm
+      note: Same raw observations, new timestamps
+    - zone: Onboard dynamics
+      label: Onboard dynamics
+      value: No unmodeled acceleration
+      status: normal
+      note: No physical force explains a sudden trajectory jump
+    choices:
+    - label: Real trajectory error
+      mechanism: The ship has physically moved away from the predicted path.
+    - label: Common timing-reference error
+      mechanism: Shared timestamps bias several derived range and velocity measurements together.
+    - label: Independent sensor failures
+      mechanism: Multiple unrelated instruments happen to drift in the same direction at once.
+    - label: Star tracker failure
+      mechanism: The angular navigation system alone is producing the bad state estimate.
+    answer: Common timing-reference error
+    reason: A burn for a clock error would create a real miss.
+  - group: NAV
+    task: Use the two perpendicular one-sigma components to estimate the root-sum-square position-error
+      scale used in the brief.
+    title: Combine the orthogonal error components
+    place: Navigation Covariance Room
+    scene: The position error is 6 km on one axis and 8 km on the other. Find the root-sum-square
+      scale without calling it a 68% circle.
+    guide: The two components are independent and perpendicular, so their variances add. The
+      square root of 6²+8² is a useful RMS/RSS size for the two-dimensional error vector.
+      It is not, by itself, the radius containing 68% of a two-dimensional Gaussian.
+    background:
+    - Why an estimate rather than a calculation. Every quantity on this board is already measured
+      or stated, so nothing here has to be derived. What is being tested is whether you can
+      pick the quantities the relationship actually needs, and whether the size of the answer
+      looks right once they are in place.
+    - Why the tiles carry labels. A bare number cannot be checked against the relationship
+      it is going into. Reading the label is how a unit mismatch, or a quantity belonging
+      to a different part of the problem, is caught before it is placed — which is the habit
+      this format exists to build.
+    assumes:
+    - the two quoted axis errors are independent one-sigma components
+    takeaway: Square the 6 km and 8 km parts, add them, then take the root. The scale is 10
+      km.
+    format: BALLPARK
+    question: Estimate the root-sum-square position-error scale.
+    why: Square the 6 km and 8 km parts, add them, then take the root. The scale is 10 km.
+      The final burn rule needs one honest error scale.
+    estimate:
+      relationship: 'Independent errors along perpendicular axes add in quadrature: the root
+        of the sum of the squares.'
+      prompt: Two independent one-sigma position components are 6 km and 8 km on perpendicular
+        axes.
+      question: Estimate the root-sum-square position-error scale.
+      labels:
+      - 6 km (one-sigma, first axis)
+      - 8 km (one-sigma, second axis)
+      - 14 km (the 2 added)
+      - 7 km (their average)
+      - 2 (number of axes)
+      values:
+      - 6
+      - 8
+      - 14
+      - 7
+      - 2
+      slots: 2
+      template: √({0}² + {1}²)
+      formula: Math.sqrt(a*a+b*b)
+      correct:
+      - 0
+      - 1
+      target: 10
+      tolerance: 0.5
+      units: km
+      solution: √(6² + 8²) = 10 km RSS.
+      explanation: The variances of independent orthogonal components add. The 10 km result
+        is an RSS/RMS scale for the vector error, not automatically a 68% radial confidence
+        radius.
+    reason: The final burn rule needs one honest error scale.
+  - group: INTEG
+    task: Spend the remaining tracking budget on the observation that can actually change
+      the burn decision.
+    title: Burn or observe?
+    place: Flight Director Console
+    scene: Two tracking results use the same clock. A burn is ready, but one more check can
+      still fit. Buy evidence that can fail in a different way.
+    guide: Two tracking solutions disagree, and both are computed through the same station
+      clock model. Open each piece of evidence and ask what its result would change about
+      the burn decision. Buy the evidence that could distinguish a real trajectory error from
+      a clock error, not the evidence that would refine a number both solutions already share.
+    background:
+    - Why two disagreeing solutions can share a fault. Both are derived from timing measurements
+      referred to the same clock model. A modelling error moves both, and it can move them
+      by different amounts because they use different station geometries — which looks exactly
+      like a genuine disagreement about where the spacecraft is.
+    - 'What would separate the two explanations. A measurement that does not depend on that
+      clock model: an optical sighting, a different tracking technique, a station whose timing
+      comes from elsewhere. Any of those either confirms the trajectory or exonerates it.'
+    - Why the burn makes it urgent. Correcting a trajectory that is not wrong introduces the
+      error you were trying to remove, and spends propellant doing it. The decision closes
+      shortly, which is what makes the choice of evidence a decision rather than a preference.
+    takesAsRead:
+    - Newton's laws and free-body reasoning
+    assumes:
+    - two measurements that share a clock do not provide independent timing evidence
+    - an observation can be valuable even if it is less precise
+    takeaway: More clock-based data share the same weak link. A star angle can fail in a different
+      way.
+    format: VALUE
+    question: Which evidence is worth buying before committing the correction burn?
+    value:
+      decision: Decide whether to execute the correction burn or hold it for more evidence.
+      hint: Each option costs tracking budget. Open an option to see what it would reveal
+        and which evidence axis it uses before you spend.
+      budget:
+        amount: 2
+      options:
+      - id: reprocess
+        label: Reprocess the same range data
+        cost: 1
+        axis: shared timing
+        decisive: false
+        reveals: whether numerical reduction noise changed the timing-based solution
+      - id: second_range
+        label: Take another clock-linked range pass
+        cost: 1
+        axis: shared timing
+        decisive: false
+        reveals: whether a new range point repeats the same clock-dependent offset
+      - id: optical
+        label: Take an optical star-angle fix
+        cost: 2
+        axis: independent geometry
+        decisive: true
+        reveals: whether the spacecraft direction is displaced without using the suspect ground
+          clock
+      - id: propagate
+        label: Run a denser trajectory propagation
+        cost: 1
+        axis: model prediction
+        decisive: false
+        reveals: how the current state estimate evolves if its inputs are accepted
+    answerText: Buy the independent optical star-angle observation.
+    why: More clock-based data share the same weak link. A star angle can fail in a different
+      way. One independent check can prevent a needless last burn.
+    reason: One independent check can prevent a needless last burn.
+- title: Reentry
+  objective: Spend the last verification checks, lock the blackout sequence, and make the
+    final go/no-go entry decision.
+  briefing: Entry starts in minutes and the radio will soon go silent. Spend the last checks
+    and make the final call.
+  stake: Entry starts in 11 minutes, and the ground will soon lose the radio for four minutes.
+    The shield, flight path, guidance unit, battery link, and hand aim must all work together.
+    You have two checks left, then you must send the crew into the air or call no-go.
+  takeaway: Use integrated mechanics, thermodynamics, waves, fluids, uncertainty, ethics of
+    command as an evidence chain rather than as isolated facts.
+  stops:
+  - group: INTEG
+    task: Choose which readiness claims to verify before entry. You have two checks for four
+      signed claims. So spend them where an unverified error would matter most.
+    title: Disposition final readiness
+    place: Integrated Flight Room
+    scene: Entry starts in 11 minutes. Four claims are signed, but one lacks a check outside
+      its own team. Spend the last two checks where failure would hurt most.
+    guide: Four signed readiness claims, eleven minutes, and two physical checks that can
+      still be completed. Open each claim and read what backs it. Some rest on independent
+      evidence and one does not. Hold what the evidence does not support, and spend the checks
+      where being wrong would matter most once the vehicle is in blackout.
+    background:
+    - Why blackout changes the arithmetic. During entry there is no telemetry and no way to
+      intervene. Every claim on that console is a decision that cannot be revisited for several
+      minutes, which is why an unverified claim is worse here than anywhere else in the mission.
+    - What a signature means at this point. Somebody has taken responsibility for a statement.
+      Under time pressure, signatures are given on the basis of what somebody was told, which
+      is how a claim with nothing behind it acquires the same appearance as one with a test
+      behind it.
+    - How to choose between two unbacked claims. By consequence during entry, not by how doubtful
+      each is. A claim whose failure is survivable is worth less verification than one that
+      is not, however much more likely the first is to be wrong.
+    assumes:
+    - a signature records responsibility, not physical truth
+    - verification time should be spent according to consequence and existing evidence
+    takeaway: Use final checks on claims with high harm and weak support. A signature alone
+      is not proof.
+    format: ATTEST
+    question: Which claims deserve the final physical check before the vehicle enters blackout?
+    attest:
+      hint: Open each signed claim to see what evidence already backs it. You can perform
+        only two final checks before the clock expires.
+      checks: 2
+      claims:
+      - id: entry_state
+        label: Entry state lies inside the robust corridor
+        signedBy: Navigation
+        critical: true
+        backed: true
+        evidence: independent range, Doppler, and optical solution
+      - id: shield_config
+        label: Thermal-shield configuration matches the approved state
+        signedBy: Configuration
+        critical: true
+        backed: false
+        evidence: undocumented change after the last signed configuration record
+      - id: blackout_guidance
+        label: Onboard guidance is ready for the blackout
+        signedBy: Guidance
+        critical: false
+        backed: true
+        evidence: completed autonomous guidance self-test
+      - id: station_bias
+        label: Known station bias has been removed
+        signedBy: Tracking
+        critical: false
+        backed: true
+        evidence: reprocessed residual check under the validated correction rule
+      priority:
+      - shield_config
+      - entry_state
+    answerText: Physically verify the heat-shield setup first, then confirm the entry state
+      remains inside the approved corridor.
+    why: Use final checks on claims with high harm and weak support. A signature alone is
+      not proof. The last checks must target the least-backed fatal claims.
+    reason: The last checks must target the least-backed fatal claims.
+  - group: INTEG
+    task: Order the entry around the four minutes with no radio.
+    title: Execute the final physical chain
+    place: Crew Capsule
+    scene: Entry starts in 11 minutes. The radio will go dark for four. Put each ground-led
+      step before that silence.
+    guide: Four minutes with no radio is what orders these four. Ask of each whether it needs
+      ground input, and whether it can be done after the interface. Anything the ground has
+      to approve happens before the blackout. Anything compared against a prediction can only
+      happen once entry has begun. And the record is the only direct test the predicted envelope
+      will ever get.
+    background:
+    - 'Why the order is graded whole. A sequence is a claim about dependency: each step is
+      here because the one before it has already happened, or has to have. One transposed
+      pair falsifies that claim wherever it sits, so partial credit would be credit for a
+      sequence that does not work.'
+    - Why the ends are the place to start. The first and last cards are constrained by having
+      nothing before or after them, which usually makes them the two you can settle from the
+      scene alone. Pinning them collapses the remaining arrangements sharply, and what is
+      left in the middle is where the actual judgement lives.
+    - What the rail can be ordered on. Time is the usual axis, but it is not the only one.
+      An order can run on cost, on risk, or on reversibility — every observation that leaves
+      the sample as it was, before any that consumes it. On those boards a chronological reading
+      finds nothing, because none of the steps has to happen at a particular hour.
+    assumes:
+    - you cannot fix from the ground what happens while the radio is quiet
+    takeaway: Do ground-led work before the radio goes dark. Then let ship guidance fly.
+    format: SEQUENCE
+    why: Do ground-led work before the radio goes dark. Then let ship guidance fly. The ground
+      cannot change the order in silence.
+    rebuttals:
+    - Set the aim and ship setup first.
+    - Set who will guide the ship before the radio goes dark.
+    - Check slowing and heat after entry starts.
+    - Save the flight record through splashdown.
+    cards:
+    - Set the approved attitude and configuration, because nothing can be changed through
+      the blackout.
+    - Commit to the interface with the onboard and ground roles already unambiguous.
+    - Monitor deceleration and heating against the predicted envelope.
+    - Transition to descent, preserving the record of what the envelope actually did.
+    order:
+    - 0
+    - 1
+    - 2
+    - 3
+    reason: The ground cannot fix the order once the radio goes dark.
+  - group: INTEG
+    task: Use the checked shield, path, and guidance to make the final call.
+    title: Give the entry GO
+    concept: 'Systems thinking: dependency, redundancy, failure modes'
+    place: Flight Director Console
+    scene: The shield matches its safe setup. Two kinds of tracking keep the ship inside the
+      entry path. Guidance can fly through the radio blackout. Make the final call.
+    guide: This is the decision the previous fourteen shifts built. Ask whether any unresolved
+      item is both capable of changing the entry outcome and still actionable before interface.
+      Do not demand certainty the measurements cannot provide, and do not spend propellant
+      correcting an error that independent evidence says is in the ground system.
+    background:
+    - A go/no-go is not a vote on whether every uncertainty vanished. It is a decision about
+      whether the remaining uncertainty lies inside the margins the vehicle was designed and
+      targeted to survive.
+    - The dangerous temptation is to react to the newest alarming number. The last tracking
+      anomaly shared a ground timebase and disappeared under an independent timing correction;
+      burning against it would create a real trajectory change to fix a measurement error.
+    - Once entry begins, the ground loses command authority during plasma blackout. That is
+      why the configuration, state, and onboard roles were verified before this call.
+    assumes:
+    - the heat-shield configuration has been physically verified
+    - the entry state is supported by independent tracking
+    - onboard guidance has passed its autonomous test
+    takeaway: The shield, path, and guidance have separate checks. The last radio error came
+      from the ground clock, not the ship.
+    format: CHOICE
+    question: What is the flight director’s final call?
+    why: The shield, path, and guidance have separate checks. The last radio error came from
+      the ground clock, not the ship. This is the final choice the whole return has built
+      toward.
+    choices:
+    - GO for entry on the signed checklist and the checked path.
+    - Burn now to remove the clock-based offset.
+    - Wait for entry data before choosing.
+    - Open the checked shield again.
+    answer: GO for entry on the signed checklist and the checked path.
+    rebuttals:
+    - The offset came from the ground clock, not the ship.
+    - Entry starts before new data can guide this choice.
+    - The shield already has a separate check.
+    answerText: GO for entry.
+    reason: This is the final choice the whole return has built toward.
+interiors:
+  NAV:
+    caption: A state estimate that cannot predict the next observation is a number, not a
+      position.
+    standLine: Range from 1 station, 2 bearings 90 minutes apart, and a Doppler trace in a
+      different time standard.
+    station:
+      kind: panel
+      title: Guidance console
+      rows:
+      - label: Last good state
+        value: 04:12 GET
+        status: normal
+      - label: Tracking gap
+        value: 96 min
+        status: alarm
+      - label: Residual
+        value: 4.1 km
+        status: high
+  ELEC:
+    caption: Power is a rate. Endurance is what the inventory divided by that rate buys you.
+    standLine: Fuel cells gone, entry batteries carrying loads they were never budgeted for.
+    station:
+      kind: vitals
+      title: Main bus B
+      rows:
+      - label: Usable energy
+        value: 18 kWh
+        status: low
+      - label: Essential load
+        value: 3.0 kW
+        status: alarm
+      - label: Bus voltage
+        value: 26.4 V
+        status: normal
+  THERM:
+    caption: The cabin cools whether or not anybody is watching the number.
+    standLine: Condensation on the panels, four degrees and falling, crew sleeping in suits.
+    station:
+      kind: vitals
+      title: Cabin environment
+      rows:
+      - label: Cabin temperature
+        value: 4.2 C
+        status: alarm
+      - label: CO2 partial pressure
+        value: 13 mmHg
+        status: alarm
+      - label: Cabin pressure
+        value: 5.0 psia
+        status: normal
+  COMMS:
+    caption: A link budget is arithmetic. Which term broke it is evidence.
+    standLine: Carrier down 12 decibels and drifting, with attitude, range and antenna schedule
+      all changed.
+    station:
+      kind: panel
+      title: Downlink
+      rows:
+      - label: Carrier level
+        value: -12 dB
+        status: alarm
+      - label: Doppler residual
+        value: 30 Hz
+        status: high
+      - label: Ground antenna
+        value: 64 m
+        status: normal
+  STRUCT:
+    caption: A structure fails at the frequency you are driving it at, not the one on the
+      drawing.
+    standLine: A panel oscillating whenever the pump runs near one speed, and one accelerometer
+      watching it.
+    station:
+      kind: panel
+      title: Vibration
+      rows:
+      - label: Peak response
+        value: 0.9 g
+        status: alarm
+      - label: Pump speed
+        value: 3050 rpm
+        status: high
+      - label: Damping
+        value: not measured
+        status: low
+  INTEG:
+    caption: Every call here is made on numbers somebody else measured, late.
+    standLine: One anomaly log, six back rooms, and a crew who can hear the loop.
+    station:
+      kind: panel
+      title: Flight director loop
+      rows:
+      - label: Open calls
+        value: 3
+        status: alarm
+      - label: Consumables
+        value: 89 h
+        status: high
+      - label: Entry interface
+        value: 62 h
+        status: normal
+warmups:
+  greet:
+    title: Meet the six people who can save the crew
+    why: Meet each lead now so you know who owns the ship's path, power, air, radio, motion,
+      and final calls.
+  trial-near:
+    title: Carry the first alarm across Mission Control
+    why: Reach the pressure, power, and guidance consoles before the crew acts on three readings
+      that may share one fault.
+  follow:
+    title: Shadow the live handover
+    why: Follow the outgoing controller so no lost fact becomes the next shift's wrong order.
+  hunt:
+    title: Find the missing survival logs
+    item:
+      name: consumable log
+      plural: consumable logs
+    why: Recover the air, water, power, fuel, heat, and filter logs so the room knows how long
+      the crew can live.
+  canvass:
+    title: Find who truly saw the explosion
+    why: Ask each console what it measured so one bad data path is not mistaken for damage across
+      the ship.
+  evade:
+    title: Keep an unverified story off the air
+    why: Avoid the press officer until the room knows whether the crew faces a leak or a sensor
+      fault.
+  tag:
+    title: Catch Reyes before the first burn call
+    why: Reach Reyes with the corrected ship mass before she locks a burn based on the old number.
+copy:
+  NAV: <p>Guidance. Where the spacecraft is, how fast, and how much of that is actually known.</p>
+  ELEC: <p>Electrical systems. Every watt aboard is drawn from an inventory that is not being
+    refilled.</p>
+  THERM: <p>Thermal and life support. Heat, gas and water — the three things a cabin runs
+    out of.</p>
+  COMMS: <p>Communications. Everything known about the vehicle arrives through this room.</p>
+  STRUCT: <p>Structures and dynamics. Rotation, vibration and the loads a spacecraft was built
+    to take.</p>
+  INTEG: <p>Mission operations. Six rooms report here and one person decides.</p>
+  SIGNIN: <p>Badge and sign-in. Nobody reaches the operations floor without appearing on this
+    sheet.</p>
+  GALLERY: <p>The viewing gallery. Off-shift controllers wait out a burn here rather than
+    at home.</p>
+  QUIET: <p>The crew family room. Kept staffed, and kept away from the loop.</p>
+  LIBRARY: <p>The trajectory library. Every plot, every burn, every version that was superseded.</p>
+lessons:
+- group: NAV
+  title: Which measurement constrains what? — Review
+  concept: Doppler shift
+  place: Deep-Space Tracking Station
+  task: Match each observation to the part of the state it leaves unmeasured.
+  scene: Whitaker has one station and a 20-minute pass. Each reading misses part of the ship's
+    state. Name each blind part before the pass begins.
+  guide: Four observations, and four things none of them can see. Pair them by asking what
+    the instrument is physically sensitive to, then take the complement. A frequency shift
+    responds to motion along the beam. A travel time responds to distance along a line. An
+    angle fixes the line and nothing on it. And one of the four is built by subtracting two
+    earlier answers.
+  background:
+  - Why this is a matching board and not four separate questions. Responses on boards like
+    this are written to be plausible for more than one situation, so choosing them one at
+    a time lets a nearly-right answer through unexamined. Having to place all of them forces
+    the comparison — not "is this reasonable here", but "is it more right here than there".
+  - Why a blind axis is worth scheduling against. A pass is short and the station can only
+    be pointed at one thing at a time, so the observation worth buying is the one whose blind
+    axis is already covered by something else. Two measurements blind in the same direction
+    cost twice and buy once.
+  - Why the transverse direction is the hard one here. A Doppler track is the cheapest measurement
+    on the list and the one the room trusts most, and it responds only to the component of
+    velocity along the beam. A spacecraft drifting sideways at a kilometre a second moves
+    the carrier by nothing.
+  takesAsRead:
+  - 'Waves: frequency, wavelength, speed'
+  - Circular motion and centripetal force
+  assumes:
+  - a measurement responds to one component of the motion and not to the others
+  - subtracting two measured numbers carries both of their errors into the answer
+  takeaway: Every observation is blind along some axis.
+  format: PROTOCOL
+  columns:
+  - The observation
+  - What it cannot see
+  scenarios:
+  - A Doppler track held through the whole pass.
+  - A round-trip range measurement at closest approach.
+  - A pair of star-camera bearings ninety minutes apart.
+  - Two positions differenced to give a velocity.
+  choices:
+  - Motion across the beam. A velocity at right angles to the line of sight shifts the returned
+    frequency by nothing at all.
+  - Direction. A distance says how far along a line the spacecraft has got and never which
+    of the lines it is on.
+  - Distance. An angle fixes the line the spacecraft lies along and says nothing whatever
+    about how far out it is.
+  - Precision. Each position arrives with its own error, and the subtraction carries both
+    of them into the rate.
+  mapping:
+  - 0
+  - 1
+  - 2
+  - 3
+  rebuttals:
+  - Doppler is a frequency shift.
+  - Range is a time multiplied by a speed.
+  - A bearing is an angle against catalogued stars.
+  - A rate built by subtraction inherits the errors of both numbers subtracted, which is why
+    it is the noisiest quantity on the board.
+  why: Each observation responds to one part of the motion and is silent about the rest. So
+    the useful question about a short pass is not which measurement is best but which axis
+    is still uncovered. Doppler carries the line-of-sight component of velocity and nothing
+    across it.
+  reason: A short pass must measure the part no other tool can see.
+- group: NAV
+  title: Reconstruct the state vector — Review
+  concept: Vectors and components
+  place: Guidance Room
+  task: Arrange the four cards from the earliest prerequisite or cause to the latest result.
+  scene: The guidance unit has reset again. Hand-read star angles remain, but their clocks
+    differ. Agree on the axes and clock before using them.
+  guide: All four of these will be done, so ask what each one needs to be true already. A
+    direction is only a direction once somebody has said which way the axes point. Components
+    cannot be added until they are components on the same axes. A velocity is a difference
+    between two positions. And the crew read attitude in their own frame, not in the room's.
+  background:
+  - 'Why the order is graded whole. A sequence is a claim about dependency: each step is here
+    because the one before it has already happened, or has to have. One transposed pair falsifies
+    that claim wherever it sits, so partial credit would be credit for a sequence that does
+    not work.'
+  - What a hand-taken mark actually is. A sextant angle between a star and a landmark is a
+    direction and a moment, and nothing else. It carries no distance, no frame and no clock
+    of its own, which is why all three have to be supplied before any arithmetic is done to
+    it.
+  - Why the last step is a rotation rather than a calculation. The state is computed in the
+    frame the ground works in, and the crew fly the vehicle in theirs. The same vector has
+    different numbers in the two, so a state handed across without the rotation is right and
+    unusable.
+  assumes:
+  - a direction is only a set of numbers once the axes have been named
+  - components add only when they are components on the same axes
+  takeaway: A vector is numbers plus the axes they are measured against.
+  format: SEQUENCE
+  cards:
+  - Name one set of axes and one clock, and record which way each axis points.
+  - Resolve every sextant mark into components along the three named axes.
+  - Add the components against the last trusted range for a position, and difference two positions
+    for a velocity.
+  - Rotate the finished state into the crew's own body axes before any burn attitude is read
+    off it.
+  order:
+  - 0
+  - 1
+  - 2
+  - 3
+  rebuttals:
+  - Name the axes and the clock first.
+  - Resolve the marks into components second.
+  - Combine into a position and difference for velocity third.
+  - Rotate into body axes last.
+  why: A vector is a set of numbers together with the axes they are measured against. The
+    numbers mean nothing without the axes. So the frame and the clock are settled before anything
+    is resolved.
+  reason: A burn vector is useless until its axes and clock agree.
+- group: INTEG
+  title: 'What failed: the spacecraft or the sensors? — Review'
+  concept: 'Systems thinking: dependency, redundancy, failure modes'
+  place: Mission Control
+  task: Open the dependency chain behind each temperature reading, keep what stands on its
+    own, and name the shared source.
+  scene: Three tank sensors rise after one circuit card was changed. Two other tools stay
+    steady. Decide if the tank is hot before venting fuel.
+  guide: Open each temperature channel to see what it depends on. Keep the ones that would
+    still stand if the new card were faulty, and untick the rest. Then name the shared source.
+    Venting the tank is not free and it is not reversible, so the question is whether the
+    gas is warming or the measurement chain is.
+  background:
+  - Why three thermocouples can be one measurement. Redundant temperature channels are usually
+    amplified and digitised by one conditioning card, which supplies the excitation and the
+    cold-junction reference. A fault in either moves all three readings the same way at the
+    same moment, which is exactly what a warming tank looks like on the display.
+  - Why the boil-off rate is worth more than three thermocouples here. Gas leaving a tank
+    through a relief path is a flow, measured by a different instrument on a different chain,
+    and it is a direct consequence of the tank being warm. It cannot inherit a fault in the
+    temperature electronics because it does not pass through them.
+  - Why the timing matters as much as the pattern. The card was fitted this morning, and the
+    divergence starts hours later rather than at the swap, which is how a marginal connection
+    behaves as it warms. A shared cause does not have to act at the instant it is installed.
+  assumes:
+  - redundant sensors often share one amplifier and one reference
+  - an instrument on a different physical principle does not inherit that fault
+  takeaway: Redundancy only buys independence when the redundant paths do not meet.
+  format: TRACE
+  question: Which temperature evidence survives the dependency check, and what shared source
+    moved the rest?
+  trace:
+    decision: Decide whether the tank gas is really warming or three channels inherited a
+      fault in the new conditioning card.
+    hint: Open each channel to see what it depends on. Keep the channels whose measurement
+      path does not run through the suspect card.
+    channels:
+    - id: tc_a
+      label: Tank thermocouple A
+      reading: up nine degrees Celsius in four minutes
+      depends:
+      - tank
+      - cond_card
+    - id: tc_b
+      label: Tank thermocouple B
+      reading: up nine degrees Celsius in four minutes
+      depends:
+      - tank
+      - cond_card
+    - id: tc_c
+      label: Tank thermocouple C
+      reading: up eight degrees Celsius in four minutes
+      depends:
+      - tank
+      - cond_card
+    - id: boiloff
+      label: Relief line boil-off rate
+      reading: steady at 0.4 kilograms an hour since the bang
+      depends:
+      - tank
+      - vent_path
+    - id: handheld
+      label: Crew hand-held infrared reading
+      reading: within a degree of the figure taken this morning
+      depends:
+      - tank
+      - crew_optics
+    resources:
+    - id: tank
+      label: Tank gas temperature
+    - id: cond_card
+      label: Signal conditioning card fitted this morning
+    - id: vent_path
+      label: Relief line flow meter
+    - id: crew_optics
+      label: Hand-held infrared thermometer
+    target: cond_card
+    independent:
+    - boiloff
+    - handheld
+  answerText: Keep the boil-off rate and the crew's hand-held reading.
+  why: Three channels agreeing is three votes only if they can fail separately. These three
+    are amplified and referenced by one card. A fault in that card moves all of them the same
+    way at once, which is indistinguishable on the display from a tank that is genuinely warming.
+  reason: Venting for a bad card would throw away fuel the crew needs.
+- group: THERM
+  title: What the pressure difference is for — Review
+  concept: Fluid pressure and flow
+  place: Life Support Lab
+  task: The pump still holds 24 psi across the loop and the flow has fallen by a third. What
+    does that combination mean?
+  scene: Coolant flow falls by one third, but the pump still adds 24 psi. Decide whether the
+    push or the path changed.
+  guide: 'All four options explain a flow that has fallen. They differ in what they hold responsible:
+    the path, the pump, the instrument, or the fluid. Ask of each whether it is consistent
+    with a driving difference that has not moved. A pressure difference makes the fluid go;
+    how obstructed the path is decides how much of it goes per minute.'
+  background:
+  - Why the wrong options are the interesting ones. Each distractor is written to be the answer
+    under one specific misreading — a step skipped, a quantity confused with a rate, a correlation
+    taken for a cause. Identifying which misreading each belongs to is where the learning
+    is; the right answer alone can be reached on instinct and teach nothing.
+  - 'Why an unchanged difference is the informative half. Two numbers describe this loop:
+    what pushes and what resists. If the push is where it was and the flow has fallen, the
+    resistance is the only term left to have moved. Had the difference fallen with the flow,
+    the pump would be the first thing to look at instead.'
+  - What can add resistance in a cold loop. A partly closed valve, a loaded filter, gas collected
+    at a high point, or glycol thickening as the cabin cools. All four reduce the flow at
+    an unchanged pressure difference, and the way to separate them is where in the loop the
+    pressure is lost rather than how much.
+  takesAsRead:
+  - Newton's laws and free-body reasoning
+  assumes:
+  - a pressure difference drives a flow and the path decides its rate
+  takeaway: When the push has not changed and the flow has, the path is what moved.
+  format: CHOICE
+  question: The pump still holds 24 psi across the loop and the flow has fallen by a third.
+    What does that combination mean?
+  choices:
+  - The push is unchanged, so the loss of flow points to added resistance in the loop.
+  - A pump holding its pressure rise cannot have lost flow, so the flow meter is at fault.
+  - Pressure difference and flow are one measurement in two units, so both readings cannot
+    be right together.
+  - Colder glycol is denser, and a denser fluid always carries more flow at the same pressure
+    difference.
+  answer: The push is unchanged, so the loss of flow points to added resistance in the loop.
+  rebuttals:
+  - A pump sets the pressure rise it can hold, not the flow that results.
+  - They are two different quantities.
+  - Cooling thickens glycol rather than helping it along.
+  why: Two quantities describe this loop and only one of them has moved. The pressure difference
+    is what drives the glycol. The resistance of the path decides how much arrives per minute.
+  reason: The crew needs flow, not just a healthy pump reading.

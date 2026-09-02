@@ -387,7 +387,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A contact closing on you raises the frequency you hear, by a fraction equal to the closing speed over the speed of sound.",
-          "demanded": true
+          "computed": true
         }
       ],
       "takesAsRead": [
@@ -775,26 +775,6 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "v = fλ",
-          "c": "wave speed, frequency and wavelength",
-          "v": [
-            [
-              "v",
-              "speed of sound in water, about 1500 metres per second"
-            ],
-            [
-              "f",
-              "frequency, in hertz"
-            ],
-            [
-              "λ",
-              "wavelength, in metres"
-            ]
-          ],
-          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other.",
-          "demanded": true
-        },
-        {
           "e": "f_beat = |f₁ − f₂|",
           "c": "beats between two close frequencies",
           "v": [
@@ -812,6 +792,26 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Two close tones rise and fall together at the difference of their frequencies, which is how two machines are told from one.",
+          "computed": true
+        },
+        {
+          "e": "v = fλ",
+          "c": "wave speed, frequency and wavelength",
+          "v": [
+            [
+              "v",
+              "speed of sound in water, about 1500 metres per second"
+            ],
+            [
+              "f",
+              "frequency, in hertz"
+            ],
+            [
+              "λ",
+              "wavelength, in metres"
+            ]
+          ],
+          "s": "Sound speed in water is roughly fixed, so frequency and wavelength trade off against each other.",
           "demanded": true
         }
       ],
@@ -1134,6 +1134,28 @@ export const CURRICULUM = {
       "assumes": [
         "an echo time is a round trip",
         "two displays that share one source can share one error"
+      ],
+      "equations": [
+        {
+          "e": "d = ½vt",
+          "c": "echo ranging on a two-way travel time",
+          "v": [
+            [
+              "d",
+              "range to the contact, in metres"
+            ],
+            [
+              "v",
+              "speed of sound in water"
+            ],
+            [
+              "t",
+              "the round-trip travel time, in seconds"
+            ]
+          ],
+          "s": "The ping goes out and comes back, so the range is half of what the travel time would otherwise give.",
+          "demanded": true
+        }
       ],
       "concept": {
         "n": 19,
@@ -3008,13 +3030,9 @@ export const CURRICULUM = {
         "the planes only work while water is flowing past them"
       ],
       "concept": {
-        "n": 12,
-        "c": "Trim, stability and centre of gravity",
-        "of": 30,
-        "rests": [
-          "Pressure, depth and hydrostatics",
-          "Buoyancy and Archimedes"
-        ]
+        "n": 10,
+        "c": "Buoyancy and Archimedes",
+        "of": 30
       }
     },
     {

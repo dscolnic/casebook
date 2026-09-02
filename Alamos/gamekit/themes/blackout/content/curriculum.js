@@ -13,8 +13,8 @@ export const CURRICULUM = {
       "guide": "All four options say something about two parallel circuits. They differ in whether they need one equation or two. Ask of each whether the meter reading alone could establish it. Charge does not pile up at a junction, so the branch currents have to add to the total. That fixes their sum and nothing else. Two of these options confuse parallel with series.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested."
       ],
       "story": "The busbar meter reads 900 A out. Reyes wants to know what that single figure rules out about the two circuits underneath it. A printed network diagram lies on the desk.",
       "game": {
@@ -68,16 +68,16 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Which of the three cannot wait",
-      "scene": "Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock is ready to take a handoff, but she refuses any instruction that amounts to simply “watch it.”",
+      "scene": "Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock, the assistant operator, is ready to take a handoff, but she refuses any instruction that amounts to simply “watch it.”",
       "takeaway": "Urgency comes from how fast a condition is worsening, how reversible it is, and whether somebody else can own the next move.",
       "place": "System Operations",
       "guide": "Three live problems and one attention channel you can keep. For each of the other two, name an owner, the first real action they will take, and the reading or event that brings the problem back to you. Reyes will not accept anything that amounts to 'watch it'. Then take the watch on the one that needs your own judgement.",
       "background": [
         "Why 'watch it' fails. An owner who has been told to observe will come back at the moment they need instructions, which is the moment you are busiest. A first action is what lets somebody hold a problem without you, and naming it is the difference between delegating and deferring.",
-        "What a return condition is for. It is not a promise to check in. It is the threshold at which the problem stops being theirs, agreed in advance, so nobody has to judge in the moment whether this is bad enough to interrupt you.",
+        "What a return condition is for. It is not a promise to check in. It is the threshold at which the problem stops being theirs, agreed in advance. Nobody then has to judge in the moment whether this is bad enough to interrupt you.",
         "How to choose what to keep. Compare the three on how fast they are getting worse, on whether they are already contained, and on what happens if nobody acts. The one that needs judgement rather than procedure is the one you cannot hand over."
       ],
-      "story": "Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock is ready to take a handoff, but she refuses any instruction that amounts to simply “watch it.”",
+      "story": "Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock, the assistant operator, is ready to take a handoff, but she refuses any instruction that amounts to simply “watch it.”",
       "game": {
         "type": "DELEGATE",
         "title": "Which of the three cannot wait",
@@ -154,7 +154,7 @@ export const CURRICULUM = {
       "background": [
         "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning."
       ],
       "story": "The wall shows frequency dropping for eight seconds, then flattening low. Aaron Whitlock, the assistant operator, has the log open. Two people have already named a cause, and he wants a statement the record can defend.",
       "game": {
@@ -165,7 +165,7 @@ export const CURRICULUM = {
         "task": "From a falling trend to a statement about the system",
         "question": "From a falling trend to a statement about the system",
         "answer": "",
-        "why": "System frequency reflects the balance between real power entering the interconnection and real power being demanded. After a sudden generation loss, stored kinetic energy in synchronized machines supplies the deficit briefly, so frequency begins to fall. The initial rate of change depends on both the power mismatch and that stored energy. A later flattening can be governor response at a lower frequency, not full recovery. Frequency is therefore strong evidence of a system-wide imbalance, while voltage is much more local.",
+        "why": "System frequency reflects the balance between real power entering the interconnection and real power being demanded. After a sudden generation loss, stored kinetic energy in synchronized machines supplies the deficit briefly. So frequency begins to fall. The initial rate of change depends on the power mismatch and on that stored energy. A later flattening can be governor response at a lower frequency. It is not full recovery. Frequency is therefore strong evidence of a system-wide imbalance. Voltage is much more local.",
         "rebuttals": [
           "A common frequency across the system is the machines turning in step, not a coincidence of separate meters.",
           "The rate of fall measures the size of the mismatch against the inertia available, which is why it is the first number to read.",
@@ -223,11 +223,11 @@ export const CURRICULUM = {
       "scene": "Reyes has the switching order for the second circuit in front of her. Novak has read the path's own figures out of the records: 3.1 ohms of resistance, and 12.4 ohms of reactance at 50 hertz. She wants one number before she signs.",
       "takeaway": "Two oppositions that peak a quarter of a cycle apart combine at right angles, so the larger of them dominates the total.",
       "place": "System Operations",
-      "guide": "Five numbers, and only two of them are properties of the path. Ask of each whether it describes what the path is, or what is being pushed through it. Resistance and reactance are both measured in ohms and both oppose the current, but they do it at different moments in the cycle, so they do not add end to end. Combine them the way you would two sides of a right-angled triangle, and notice before you commit how little the smaller one moves the answer.",
+      "guide": "Five numbers, and only two of them are properties of the path. Ask of each whether it describes what the path is, or what is being pushed through it. Resistance and reactance are both measured in ohms, and both oppose the current. But they do it at different moments in the cycle, so they do not add end to end. Combine them the way you would two sides of a right-angled triangle, and notice before you commit how little the smaller one moves the answer.",
       "background": [
         "Why the two do not simply add. Resistance turns electrical energy into heat and opposes the current itself. An inductance stores energy in a magnetic field and hands it back a quarter of a cycle later, so what it opposes is the change of current. The two oppositions peak at different instants, and adding them arithmetically would count a maximum that never happens.",
-        "Why an overhead path is mostly reactance. A long circuit is a large loop of wire, and its inductance grows with the area that loop encloses. At the spacings a 400 kV tower needs, that inductance dominates: on this path the reactance is four times the resistance, so the resistance contributes about three per cent of the total, and heat is a small part of the story.",
-        "What the frequency has to do with it. Reactance is proportional to frequency, so a figure like this one is only true at the frequency it was measured at. Resistance is nearly a property of the metal; reactance is a property of the metal and the cycle together, which is why a record of it has to say 50 hertz."
+        "Why an overhead path is mostly reactance. A long circuit is a large loop of wire, and its inductance grows with the area that loop encloses. At the spacings a 400 kV tower needs, that inductance dominates. On this path the reactance is four times the resistance. So the resistance contributes about three per cent of the total, and heat is a small part of the story.",
+        "What the frequency has to do with it. Reactance is proportional to frequency, so a figure like this one is only true at the frequency it was measured at. Resistance is nearly a property of the metal. Reactance is a property of the metal and the cycle together. That is why a record of it has to say 50 hertz."
       ],
       "story": "Reyes has the switching order for the second circuit in front of her. Novak has read the path's own figures out of the records: 3.1 ohms of resistance, and 12.4 ohms of reactance at 50 hertz. She wants one number before she signs.",
       "game": {
@@ -238,7 +238,7 @@ export const CURRICULUM = {
         "task": "Work out what the path opposes before the order is signed",
         "question": "Estimate what the corridor path opposes at 50 hertz.",
         "answer": "About 12.8 ohms.",
-        "why": "Resistance opposes the current itself and turns part of it into heat. Reactance opposes the change of current, because an inductance answers a rising current by pushing back, and it does that a quarter of a cycle away from the resistance. Two oppositions that peak at different moments cannot be added end to end; they combine as the two shorter sides of a right-angled triangle. Here the reactance is four times the resistance, so the resistance moves the total by about three per cent.",
+        "why": "Resistance opposes the current itself and turns part of it into heat. Reactance opposes the change of current, because an inductance answers a rising current by pushing back. It does that a quarter of a cycle away from the resistance. Two oppositions that peak at different moments cannot be added end to end; they combine as the two shorter sides of a right-angled triangle. Here the reactance is four times the resistance, so the resistance moves the total by about three per cent.",
         "givens": [
           "Resistance of the path is 3.1 Ω",
           "Reactance of the path at 50 Hz is 12.4 Ω"
@@ -310,8 +310,8 @@ export const CURRICULUM = {
       "guide": "Four feeders, and household count is only one of two things that matter. Ask of each what waiting costs, and how long the work takes. A one-hour job frees the crew for the next fault this shift. A four-hour job does not. One of these is measured in treatments rather than in inconvenience, and one is already on a standby supply.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested."
       ],
       "story": "Three crews, eleven dead feeders, and a list in front of Reyes that mixes household counts with one dialysis clinic and one pumping station. The control-room phone is already ringing. The shift log and network board are open beside them.",
       "game": {
@@ -348,8 +348,8 @@ export const CURRICULUM = {
       "place": "System Operations",
       "guide": "Five evidence credits, four things you could find out, and a reserve decision at six o'clock. Open each card and ask what its result would change. A measurement that confirms something already settled is not worth a credit, however clean it would be. Buy the ones that could still move the decision, and commit before the peak.",
       "background": [
-        "What makes evidence worth its credit. Two possible results that point at different actions. If both outcomes leave you doing the same thing about the reserve, the measurement is interesting and not useful — and tonight the difference between those two words is a credit you cannot get back.",
-        "Why the deadline is part of the question. A result that arrives at seven is a result about a decision already made. So a slower, better measurement can be worth less than a rough one in time, which is the opposite of how the same choice would be scored in a laboratory.",
+        "What makes evidence worth its credit. Two possible results that point at different actions. If both outcomes leave you doing the same thing about the reserve, the measurement is interesting and not useful. Tonight, the difference between those two words is a credit you cannot get back.",
+        "Why the deadline is part of the question. A result that arrives at seven is a result about a decision already made. So a slower, better measurement can be worth less than a rough one in time. That is the opposite of how the same choice would be scored in a laboratory.",
         "What the shift log is doing open beside her. It records what has already been decided and why, which is the fastest way to see which of the four questions are still open. Half of buying evidence well is knowing what is already settled."
       ],
       "story": "Reyes has a small budget and four things she could find out before the evening peak. Only some of them would change what she does about the reserve. The shift log is open beside them.",
@@ -571,7 +571,7 @@ export const CURRICULUM = {
       "scene": "One hydro set that can start unaided, a dead network, and a room full of people who want the big station back first. Reyes needs the sequence written before anybody switches anything.",
       "takeaway": "A black start is a dependency chain: the largest generator is useless until a smaller source can energise its auxiliaries through a complete path.",
       "place": "System Operations",
-      "guide": "Build the path in the order the energy actually travels, from the machine that can start unaided to the one that cannot. Then name the required link that limits it. The biggest station is not the answer, and neither is the largest number on the board: a path is limited by the link with the least to give, and the readings tell you which.",
+      "guide": "Build the path in the order the energy actually travels, from the machine that can start unaided to the one that cannot. Then name the required link that limits it. The biggest station is not the answer, and neither is the largest number on the board. A path is limited by the link with the least to give. The readings tell you which.",
       "background": [
         "What black start means. Almost every generator needs power to start: excitation, auxiliaries, pumps, controls. A hydro set with a battery, a governor and a head of water behind it does not, which makes it the only place a dead network can begin. Everything else is downstream of it.",
         "Why the order is not a preference. Energising a path means charging line capacitance and picking up auxiliaries in an order the equipment can survive. Take too much at once and the small starting machine collapses, and the network is dead again with less to try next.",
@@ -666,7 +666,7 @@ export const CURRICULUM = {
       "background": [
         "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
         "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning."
       ],
       "story": "Reyes has the week's decisions on the board and one wrong input underneath several of them. She wants each one marked as still good, now unsupported, or wrong. The yard radio is still live beside them.",
       "game": {
@@ -731,8 +731,8 @@ export const CURRICULUM = {
       "guide": "All four options describe something a clean contingency check might mean. They differ in scope: one failure or two, survivable or likely. Ask of each whether the check's own list could support it. The check is exactly as broad as that list. Last Friday was a corridor already above a limit nobody knew about, and then a trip.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested."
       ],
       "story": "The screen says every single contingency is survivable tonight. Whitlock asks what the check does not cover, and Reyes says that is the right question on a quiet shift. The event board is still showing the overnight state.",
       "game": {
@@ -743,7 +743,7 @@ export const CURRICULUM = {
         "task": "Say what the contingency check is actually asking",
         "question": "What does a clean contingency check tell you tonight?",
         "answer": "A clean N-1 check says each listed single failure leaves the modeled system inside limits. It says nothing about failure probability or simultaneous failures.",
-        "why": "The check is exactly as broad as its list. It takes each credible single failure in turn, works out the flows afterwards, and confirms nothing ends up over a limit. That is a genuinely strong statement and a narrow one. It does not cover two failures at once, it does not cover a failure outside the list. It says nothing at all about what is likely — only about what is survivable. Last Friday was two things: a corridor already above a limit nobody knew about, and then the trip. When a second thing lands on neighbours checked only one at a time, each trips correctly in turn, and the sequence of events is what has to be reconstructed afterwards.",
+        "why": "The check is exactly as broad as its list. It takes each credible single failure in turn, works out the flows afterwards, and confirms nothing ends up over a limit. That is a genuinely strong statement and a narrow one. It does not cover two failures at once, it does not cover a failure outside the list. It says nothing at all about what is likely — only about what is survivable. Last Friday was two things: a corridor already above a limit nobody knew about, and then the trip. When a second thing lands on neighbours checked only one at a time, each trips correctly in turn. The sequence of events is what has to be reconstructed afterwards.",
         "rebuttals": [
           "Contingency analysis tests survivability after an assumed failure, not the probability that the failure will occur.",
           "An N-1 study is explicitly a one-at-a-time test. It does not establish N-2 survivability.",
@@ -781,7 +781,7 @@ export const CURRICULUM = {
       "background": [
         "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
         "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning."
       ],
       "story": "Four plants and an order to sign. Reyes wants each one matched to the actual reason it sits where it does in the stack, rather than to its price alone.",
       "game": {
@@ -841,11 +841,11 @@ export const CURRICULUM = {
       "scene": "The evening rise is starting and the frequency is drifting under it. Governors are answering, and the only thing left on the desk is the regulating set's raise-lower control.",
       "takeaway": "A mismatch you do not answer is not a mismatch that goes away.",
       "place": "Control Room",
-      "guide": "Hold the frequency inside the band on the wall display. The band narrows as the evening goes on, because the tolerance a system can live with at seven o'clock is not the one it can live with at peak. The raise-lower control is what you have, and every load that comes on is a mismatch that keeps pushing until generation answers it.",
+      "guide": "Hold the frequency inside the band on the wall display. The band narrows as the evening goes on. The tolerance a system can live with at seven o'clock is not the one it can live with at peak. The raise-lower control is what you have, and every load that comes on is a mismatch that keeps pushing until generation answers it.",
       "background": [
-        "Why frequency drifts at all. Frequency is the running balance between what is being generated and what is being drawn. A load that comes on is not a step in the frequency — it is a step in the *rate*, and the machines slow for as long as the mismatch lasts.",
-        "What the governors have already done. Droop has answered part of each step automatically and left an offset behind: that is what droop is for, and it is why the frequency settles low rather than returning. Bringing it back to fifty is the operator's job, and it is what this control is.",
-        "Why the band narrows. Early evening the system has inertia and reserve to spare. At peak, with less spinning and more load, the same excursion is closer to the settings that shed feeders — so the same skill has to be exercised more tightly on exactly the hour it is hardest."
+        "Why frequency drifts at all. Frequency is the running balance between what is being generated and what is being drawn. A load that comes on is not a step in the frequency. It is a step in the *rate*, and the machines slow for as long as the mismatch lasts.",
+        "What the governors have already done. Droop has answered part of each step automatically and left an offset behind. That is what droop is for. It is why the frequency settles low rather than returning. Bringing it back to fifty is the operator's job, and it is what this control is.",
+        "Why the band narrows. Early evening the system has inertia and reserve to spare. At peak, with less spinning and more load, the same excursion is closer to the settings that shed feeders. So the same skill has to be exercised more tightly, on exactly the hour it is hardest."
       ],
       "story": "The evening rise is starting and the frequency is drifting under it. Governors are answering, and the only thing left on the desk is the regulating set's raise-lower control.",
       "game": {
@@ -856,7 +856,7 @@ export const CURRICULUM = {
         "task": "Hold the system frequency while the evening load comes on.",
         "question": "Hold the system at fifty hertz through the evening rise.",
         "answer": "Inside the band for most of the rise, with the regulating set moved to a new output for each step rather than nudged after the frequency has already left the band.",
-        "why": "Every event here is a step in the rate rather than a step in the reading. A block of load coming on does not drop the frequency by twenty millihertz and stop; it makes the system lose speed and it goes on losing while the mismatch stands. That is why the raise-lower control has to be moved to a new position and left there rather than nudged and released, and it is the whole difference between operating a system and chasing a needle. Droop has already answered part of each step and left an offset — a system that settles at 49.94 has done exactly what it was designed to do — so returning to fifty is a separate action taken by somebody. And the band narrows for a reason that is not arbitrary: at peak there is less inertia spinning and less reserve behind it, so the same excursion sits closer to the frequency at which feeders start coming off on their own.",
+        "why": "Every event here is a step in the rate rather than a step in the reading. A block of load coming on does not drop the frequency by twenty millihertz and stop. It makes the system lose speed, and it goes on losing while the mismatch stands. That is why the raise-lower control has to be moved to a new position and left there, rather than nudged and released. It is the whole difference between operating a system and chasing a needle. Droop has already answered part of each step and left an offset. A system that settles at 49.94 has done exactly what it was designed to do. Returning to fifty is a separate action, taken by somebody. And the band narrows for a reason that is not arbitrary. At peak there is less inertia spinning and less reserve behind it. So the same excursion sits closer to the frequency at which feeders start coming off on their own.",
         "hold": {
           "quantity": "System frequency",
           "control": "Regulating set raise-lower",
@@ -913,7 +913,7 @@ export const CURRICULUM = {
       "background": [
         "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning."
       ],
       "story": "Reyes wants the consequences written down before the decision is signed, so that the next shift inherits a plan rather than a mood. The room is waiting for a written instruction.",
       "game": {
@@ -977,8 +977,8 @@ export const CURRICULUM = {
       "guide": "All four changes are defensible and all four cost something every day. Ask of each whether it would have caught this campaign's failure, and whether the room will still be doing it in March. The sensor's offset survived months because nothing was compared against it. More frequent reports of a wrong number are not information.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested."
       ],
       "story": "Reyes turns the last page toward you. Four emergency practices are listed, but only one is cheap enough and powerful enough to become a standing rule on ordinary nights. Your choice is the final instruction in the winter case.",
       "game": {
@@ -1028,7 +1028,7 @@ export const CURRICULUM = {
       "background": [
         "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning."
       ],
       "story": "A relay upgrade has left one branch meter dead on a four-way node, and the yard wants to know whether the shift can carry on without it. Aaron Whitlock, the assistant operator, has the four readings in front of him, one of them blank.",
       "game": {
@@ -1097,16 +1097,16 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The reason the wires are not at wall voltage",
-      "scene": "The replacement generation for tomorrow's peak is far from Calder Valley. Haddad points to the station transformer: the generator makes power at 20 kV, while the transmission line runs at 400 kV. Reyes wants to know what that voltage change buys before she counts the distant plant as useful reserve.",
+      "scene": "The replacement generation for tomorrow's peak is far from Calder Valley. Haddad, the generation lead, points to the station transformer: the generator makes power at 20 kV, while the transmission line runs at 400 kV. Reyes wants to know what that voltage change buys before she counts the distant plant as useful reserve.",
       "takeaway": "The same power can be delivered in more than one way, and the ways are not equally wasteful.",
       "place": "Generation Hall",
       "guide": "All four options pair a change in current with a change in loss. Two of them get the current right and disagree about the heat. Ask what the loss depends on, and what power it depends on it to. Current falls in proportion to voltage. Heat follows the square of current. Work both halves before choosing, because three of these get one half right.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested."
       ],
-      "story": "The replacement generation for tomorrow's peak is far from Calder Valley. Haddad points to the station transformer: the generator makes power at 20 kV, while the transmission line runs at 400 kV. Reyes wants to know what that voltage change buys before she counts the distant plant as useful reserve.",
+      "story": "The replacement generation for tomorrow's peak is far from Calder Valley. Haddad, the generation lead, points to the station transformer: the generator makes power at 20 kV, while the transmission line runs at 400 kV. Reyes wants to know what that voltage change buys before she counts the distant plant as useful reserve.",
       "game": {
         "type": "CHOICE",
         "title": "The reason the wires are not at wall voltage",
@@ -1259,8 +1259,8 @@ export const CURRICULUM = {
       "place": "Generation Hall",
       "guide": "Five numbers, and two of them belong to the aftermath rather than the first instant. The settled deviation is what the governors did afterwards. The generation online is the denominator of a different question. Ask of each number whether it describes the first two seconds. A figure that is right about a later moment is wrong here, and the control room acts on whatever comes out.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build."
       ],
       "story": "Haddad, the generation lead, needs a number before starting anything. The only clean evidence is the first two seconds of the trend and the stored-energy figure for the machines that were online overnight.",
       "game": {
@@ -1405,8 +1405,8 @@ export const CURRICULUM = {
       "place": "Generation Hall",
       "guide": "Four numbers, and two of them belong to other questions: the household count and the frequency before the split. Ask of each whether it is a power, a duration, or neither. Power says how fast energy is delivered. Energy says how much arrived, and it is what a settlement runs on. Both get called demand, which is where this goes wrong.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build."
       ],
       "story": "The valley was drawing about 300 megawatts when it went. Haddad expects the restoration to take two and a half hours, and the report will want the figure in energy rather than power.",
       "game": {
@@ -1489,7 +1489,7 @@ export const CURRICULUM = {
         "task": "Spend the quiet-shift check budget on the assumption most likely to change the fast-frequency plan.",
         "question": "Which evidence should be bought before the room trusts its present under-frequency timing?",
         "answer": "Buy the current machine-data inertia audit. It reveals about 18,000 MW·s rather than the inherited 25,000. For a 300 MW loss at 50 Hz, |df/dt| rises from 0.30 Hz/s to about 0.42 Hz/s.",
-        "why": "Three comforting numbers are current measurements or long-run evidence. The inherited inertia figure is different: the fleet has changed, and inverter-connected generation can supply real power without the same directly coupled synchronous kinetic energy. Recomputing stored kinetic energy from current machine data therefore changes the expected rate of frequency fall. If the old 25,000 MW·s estimate has fallen to 18,000 MW·s, the same 300 MW trip moves frequency about 40% faster.",
+        "why": "Three comforting numbers are current measurements or long-run evidence. The inherited inertia figure is different. The fleet has changed, and inverter-connected generation can supply real power without the same directly coupled synchronous kinetic energy. Recomputing stored kinetic energy from current machine data therefore changes the expected rate of frequency fall. The old estimate was 25,000 MW·s. If it has fallen to 18,000, the same 300 MW trip moves frequency about 40% faster.",
         "value": {
           "budget": {
             "amount": 4,
@@ -1549,24 +1549,24 @@ export const CURRICULUM = {
     {
       "day": 6,
       "title": "When the cheapest power cannot get out",
-      "scene": "Sarraf can produce 340 MW from the ridge tonight, but the Calder export corridor can carry only about 190 MW under the current operating limit. There is no other export path available. A printed network diagram lies on the desk.",
+      "scene": "Sarraf, the wind fleet controller, can produce 340 MW from the ridge tonight. The Calder export corridor can carry only about 190 MW under the current operating limit. There is no other export path available. A printed network diagram lies on the desk.",
       "takeaway": "Curtailment is what a network limit looks like from the generator's end.",
       "place": "Generation Hall",
       "guide": "The ridge can produce 340 MW tonight and the corridor is limited to about 190 MW under the current operating case. Nights like this occur perhaps forty times a winter. Storage at the ridge would be 50 MW for four hours at 85% round-trip efficiency, moving surplus in time rather than in space. A third corridor circuit has been on the reinforcement list for two years without a construction window. Curtailment payments recur every constrained night. Operating hotter than the continuous case increases sag and can add cumulative thermal damage, so exceeding the limit is not a free fifth option.",
       "rules": "Spread the hundred points across the 4 proposals. At least 70 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
       "background": [
-        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says three things: what you think is likely, what is worth hedging against, and what is not worth pursuing at all. The last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
         "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
         "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
       ],
-      "story": "Sarraf can produce 340 MW from the ridge tonight, but the Calder export corridor can carry only about 190 MW under the current operating limit. There is no other export path available. A printed network diagram lies on the desk.",
+      "story": "Sarraf, the wind fleet controller, can produce 340 MW from the ridge tonight. The Calder export corridor can carry only about 190 MW under the current operating limit. There is no other export path available. A printed network diagram lies on the desk.",
       "game": {
         "type": "SCIENCETANK",
         "title": "When the cheapest power cannot get out",
         "setup": "Generation Hall",
-        "play": "Decide what to do with more wind than the corridor can carry",
-        "task": "Decide what to do with more wind than the corridor can carry",
-        "question": "Decide what to do with more wind than the corridor can carry",
+        "play": "Decide what merit order does with more wind than the corridor can carry",
+        "task": "Decide what merit order does with more wind than the corridor can carry",
+        "question": "Decide what merit order does with more wind than the corridor can carry",
         "answer": "",
         "why": "Generation that cannot reach customers is not usable output for the system. The corridor limit is therefore an operating constraint, not a preference. Some ridge output must be curtailed unless storage can move it to a later hour or transmission can be reinforced. Storage moves surplus in time; another circuit increases the path available in space. Running hotter simply spends thermal and clearance margin and can add cumulative damage.",
         "proposals": [
@@ -1615,8 +1615,8 @@ export const CURRICULUM = {
       "guide": "All four options divide the loss into two parts and disagree about which part the load controls. The test is what each part is dissipated in, and what has to be present for it to appear at all. Work out what is still going on inside a transformer that is connected and carrying nothing. The distinction decides whether leaving spare plant hot is free or is a bill every night of the year.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested."
       ],
       "story": "The spare bank at the far end of the yard has been left energised through three quiet nights so it can be picked up instantly. Nadia Haddad, the generation lead, wants the standing cost of that decision written down before the audit.",
       "game": {
@@ -1627,7 +1627,7 @@ export const CURRICULUM = {
         "task": "Say what a transformer costs while it carries nothing",
         "question": "A transformer bank sits energised all night carrying almost no load. What is it costing?",
         "answer": "The core loss carries on at close to its full-load figure while the winding loss falls away with the load.",
-        "why": "A transformer has two families of loss and they answer to different things. Copper loss is dissipated in the windings by the current through them, so it rises and falls with the load and disappears when the load does. Iron loss is dissipated in the core by the flux reversing fifty times a second, and the flux is set by the applied voltage rather than by the load. Energise the bank and you pay it, all night, carrying nothing.",
+        "why": "A transformer has two families of loss and they answer to different things. Copper loss is dissipated in the windings by the current through them, so it rises and falls with the load and disappears when the load does. Iron loss is dissipated in the core by the flux reversing fifty times a second. The flux is set by the applied voltage rather than by the load. Energise the bank and you pay it, all night, carrying nothing.",
         "rebuttals": [
           "Only the winding loss is set by the current; the core is magnetised by the applied voltage, and that does not go away when the load does.",
           "Voltage across a winding is not current through it, and it is the current that heats the copper.",
@@ -1703,8 +1703,8 @@ export const CURRICULUM = {
       "place": "Transmission & Protection",
       "guide": "Five numbers, and two of them are the current an hour ago and the conductor temperature. Neither belongs in the loss. Ask of each number whether the heat depends on it. And note the square. Current has risen about eleven per cent, and the heat rises by nearly a quarter. The rating is thermal, so that is a bigger bite of the margin than it looks.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build."
       ],
       "story": "With the feeder out, flow has redistributed and the corridor is carrying more. Novak, the protection engineer, wants the heat figure before he decides whether the evening needs a switching change. A printed network diagram lies on the desk.",
       "game": {
@@ -1981,7 +1981,7 @@ export const CURRICULUM = {
       "background": [
         "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning."
       ],
       "story": "Novak is asked to allow more current down a circuit for the afternoon. He wants each reason for saying no matched to the thing it is actually about. The shift log is open beside them.",
       "game": {
@@ -2052,8 +2052,8 @@ export const CURRICULUM = {
       "guide": "Four relations, and both instruments are in calibration. So the question is what each number is a summary of. An alternating voltage has no single value. One instrument reports the highest the waveform reaches. The other reports the steady voltage that would heat a resistor the same. Ask which way the conversion runs before choosing, because two of these options have it backwards.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested."
       ],
       "story": "An oscilloscope on the busbar shows a peak of 325 volts. The panel meter beside it reads 230. Both were calibrated last month and neither has moved. The yard radio is still live beside them.",
       "game": {
@@ -2106,17 +2106,17 @@ export const CURRICULUM = {
       "place": "Transmission & Protection",
       "guide": "Four numbers, and one of them is the busbar voltage, which cancels out of a divider. Both circuits connect the same two busbars, so they see the same voltage. Ask of each number whether it describes this path, the other path, or both. Current divides against impedance, so the path being asked about is not the impedance the formula wants.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build."
       ],
       "story": "900 amps leave the busbar for the same destination by 2 routes. The older circuit is six ohms, the newer one three, and only the total is metered. The control-room phone is already ringing.",
       "game": {
         "type": "BALLPARK",
         "title": "How the flow splits between two paths",
         "setup": "Transmission & Protection",
-        "play": "Estimate the current in the older circuit",
-        "task": "Estimate the current in the older circuit",
-        "question": "Estimate the current flowing in the older, higher-impedance circuit.",
+        "play": "Estimate the current in the older circuit, in parallel with the newer",
+        "task": "Estimate the current in the older circuit, in parallel with the newer",
+        "question": "The two circuits are in parallel across the corridor. Estimate the current flowing in the older, higher-impedance one.",
         "answer": "About 300 A in the older 6 Ω path and 600 A in the newer 3 Ω path.",
         "why": "Both circuits connect the same two busbars, so they have the same voltage across them. Current therefore divides inversely with impedance. With 6 Ω and 3 Ω, the lower-impedance circuit carries twice the current of the older one. The total busbar current fixes the sum; the impedances determine the share. This is why adding a parallel circuit does not guarantee an even split.",
         "givens": [
@@ -2148,8 +2148,8 @@ export const CURRICULUM = {
       "place": "Transmission & Protection",
       "guide": "Four numbers, and two of them belong to the healthy circuit and the protection. Normal load current is set by equipment drawing power, and a fault bypasses that equipment. Ask of each number whether it describes the load or the path back to the source. The clearing time decides how long the current flows, not how large it is.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build."
       ],
       "story": "The cable failed phase to earth. Phase voltage is 6,350 volts and the total impedance back to the source is 0.42 ohms. Novak wants the current the switchgear had to interrupt.",
       "game": {
@@ -2186,16 +2186,16 @@ export const CURRICULUM = {
     {
       "day": 7,
       "title": "What a rating is a statement about",
-      "scene": "The corridor's continuous operating limit corresponds to a conductor temperature of 75 °C under the stated weather assumptions. Above that, sag increases immediately, while sufficiently hot or prolonged operation can also accelerate creep and annealing. Novak wants the current that reaches the 75 °C operating limit under the corrected conditions.",
+      "scene": "The corridor is rated to hold its conductor at 75 °C all day. It ran at 1,280 A last night, with a sensor reading 11 degrees low. Novak, the protection engineer, wants the current the corrected weather figures allow.",
       "takeaway": "A thermal rating is a temperature translated into current under stated weather assumptions, so bad temperature data erase the operating margin you thought you had.",
       "place": "Transmission & Protection",
       "guide": "Drag the corridor current. The readout is the conductor's own temperature, not its rating, and only the currents you stop at get plotted. You want the current at which that temperature reaches the 75-degree limit named above. Heating rises faster than the current causing it, so the curve steepens as you go and the last hundred amps cost more than the first. Mark that current and commit.",
       "background": [
-        "What sets the temperature. Current heats a conductor as the square of itself, and the conductor loses that heat to the air by convection and to the sky by radiation. The temperature settles where the two balance, which is why the curve is not a straight line: doubling the current asks the cooling to remove four times as much heat.",
-        "Why a rating is a temperature. The ampere figure printed on a corridor is the current that reaches the temperature limit under an assumed ambient, an assumed wind and an assumed sun. Change any of those and the same amps arrive at a different temperature. That is why a corrected weather figure can move a rating without anybody touching the line, and why a rating quoted without its assumptions is not a limit at all.",
-        "What happens above the limit. Aluminium held above its continuous temperature begins to anneal, losing strength it does not get back, and the hotter span stretches and sags. The clearance over the road below is a legal minimum, so the temperature limit is doing two jobs at once: protecting the conductor, and keeping the line where the survey says it is."
+        "What sets the temperature. Current heats a conductor as the square of itself, and the conductor loses that heat to the air by convection and to the sky by radiation. The temperature settles where the two balance. That is why the curve is not a straight line: doubling the current asks the cooling to remove four times as much heat.",
+        "Why a rating is a temperature. The ampere figure printed on a corridor is the current that reaches the temperature limit under an assumed ambient, an assumed wind and an assumed sun. Change any of those and the same amps arrive at a different temperature. That is why a corrected weather figure can move a rating without anybody touching the line. And why a rating quoted without its assumptions is not a limit at all.",
+        "What happens above the limit. Aluminium held above its continuous temperature begins to anneal, losing strength it does not get back, and the hotter span stretches and sags. The clearance over the road below is a legal minimum. So the temperature limit is doing two jobs at once: protecting the conductor, and keeping the line where the survey says it is."
       ],
-      "story": "The corridor's continuous operating limit corresponds to a conductor temperature of 75 °C under the stated weather assumptions. Above that, sag increases immediately, while sufficiently hot or prolonged operation can also accelerate creep and annealing. Novak wants the current that reaches the 75 °C operating limit under the corrected conditions.",
+      "story": "The corridor is rated to hold its conductor at 75 °C all day. It ran at 1,280 A last night, with a sensor reading 11 degrees low. Novak, the protection engineer, wants the current the corrected weather figures allow.",
       "game": {
         "type": "SWEEP",
         "title": "What a rating is a statement about",
@@ -2315,7 +2315,7 @@ export const CURRICULUM = {
       "guide": "The construction window closes at five and the next one is eighteen months away. The corrected record already proves repeated operation above the continuous thermal case. The storage quote also expires today, but storage does not add transmission capacity. Curtailment on nights like last Friday occurs about forty nights a winter. Farrow's strength review will refine the asset condition, but it will not create another corridor path. The board will not approve both storage and reinforcement.",
       "rules": "Spread the hundred points across the 4 proposals. At least 80 of them have to be committed, because a panel that funds almost nothing has not decided anything. Your largest single allocation must be 35 or more, and it has to land on what the evidence supports most. Keep the total sitting on proposals the evidence does not support under fifteen. And a proposal it does support should not be left under twenty.",
       "background": [
-        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says what you think is likely, what is worth hedging against, and what is not worth pursuing at all — and the last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
+        "Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says three things: what you think is likely, what is worth hedging against, and what is not worth pursuing at all. The last two are where most of the information is. Backing the right proposal while quietly funding a bad one is a worse answer than it looks. That is why the small numbers count as much as the big one.",
         "What the three numbers are for. Thirty-five is what makes a lead a lead: below it you have hedged rather than chosen. Fifteen is the most that can sit on unsupported work before it stops being a rounding error. Past that it is a second opinion nobody argued for. Twenty is the floor under a line of work you have already called strong, because funding it too thin to finish spends the money and buys nothing.",
         "Why there is a floor on the total. Points held back are not caution; they are a decision not to decide, taken with somebody else's money and somebody else's deadline. The floor is what forces the panel to say something."
       ],
@@ -2324,9 +2324,9 @@ export const CURRICULUM = {
         "type": "SCIENCETANK",
         "title": "What the window is worth",
         "setup": "Transmission & Protection",
-        "play": "Commit the money before the window closes",
-        "task": "Commit the money before the window closes",
-        "question": "Commit the money before the window closes",
+        "play": "Commit the money, or keep curtailing, before the window closes",
+        "task": "Commit the money, or keep curtailing, before the window closes",
+        "question": "Commit the money, or keep curtailing, before the window closes",
         "answer": "",
         "why": "This is different from last week because one option now expires. A third circuit is the only proposal that removes the transmission bottleneck rather than working around it. Waiting eighteen months means more curtailment and more operation close to a thermal limit whose historical margin was overstated. The pending strength test should change maintenance assumptions if needed, but it does not erase the measured congestion or create a new path.",
         "proposals": [
@@ -2375,8 +2375,8 @@ export const CURRICULUM = {
       "place": "Transmission & Protection",
       "guide": "Five numbers, and two of them are about the circuit rather than about tonight. The current it normally carries belongs to a comparison you can make afterwards. The operating voltage belongs to a different relationship entirely. Ask of each number whether the heat depends on it. Then notice that the flow has doubled, and decide what that does to a quantity the current enters twice.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build."
       ],
       "story": "Thabo Dube, the substation technician, is standing at the second circuit with a clamp meter and a drawing. It has picked up flow it does not normally carry, and Piotr Novak, the protection engineer, wants the heat figure before dark.",
       "game": {
@@ -2387,7 +2387,7 @@ export const CURRICULUM = {
         "task": "Work out the heat in the circuit standing in",
         "question": "Estimate the power now lost as heat in the second circuit.",
         "answer": "About 13 MW.",
-        "why": "Resistive heating in one phase is the current squared times the resistance, and three phases carry three times that. This circuit is holding twice its usual flow, so it sheds four times its usual heat — about thirteen megawatts against a little over three. What matters is what that does to the margin. A conductor's limit is a temperature reached over time, and it is the heat that drives the temperature, so a doubled current spends the margin far faster than the current figure suggests.",
+        "why": "Resistive heating in one phase is the current squared times the resistance, and three phases carry three times that. This circuit is holding twice its usual flow, so it sheds four times its usual heat — about thirteen megawatts against a little over three. What matters is what that does to the margin. A conductor's limit is a temperature reached over time, and it is the heat that drives the temperature. So a doubled current spends the margin far faster than the current figure suggests.",
         "givens": [
           "RMS current is now 820 A in each phase",
           "Resistance is 6.5 Ω per phase",
@@ -2473,7 +2473,7 @@ export const CURRICULUM = {
       "background": [
         "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning."
       ],
       "story": "Obi, the distribution supervisor, is training a new starter. Four circuit sketches are on the whiteboard, and he wants each matched to the quantity that stays common across that arrangement.",
       "game": {
@@ -2543,8 +2543,8 @@ export const CURRICULUM = {
       "place": "Distribution Depot",
       "guide": "Six numbers, and one of them is the feeder's nominal voltage, which the drop does not use. Two pairs go together: resistance with the in-phase part, reactance with the out-of-phase part. Ask of each number which half of the impedance it belongs to. And note the rating. Eleven kilovolts is measured between lines, which is why a factor arrives with it.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build."
       ],
       "story": "The substation end of the feeder is at nominal voltage. Customers four kilometres along it are complaining, and the only meter is back at the substation. The room is waiting for a written instruction.",
       "game": {
@@ -2663,8 +2663,8 @@ export const CURRICULUM = {
       "guide": "Four options, and the island has one dispatchable machine already at maximum. So ask what lever each option actually uses. Two of them are bets on something outside the room. One costs all twenty-six thousand households and a restoration measured in hours, because a dead network is built back piece by piece. The frequency is still falling while you choose.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested."
       ],
       "story": "Obi has 26,000 households inside the island and a frequency still falling. Holding it needs demand off. Collapsing it means all of them, and a longer way back. The event board is still showing the overnight state.",
       "game": {
@@ -2714,7 +2714,7 @@ export const CURRICULUM = {
       "background": [
         "Why explanations rather than labels. Naming a finding is not accounting for it, and a plausible-sounding mechanism attached to the wrong observation is the commonest way a wrong story survives. Committing an explanation to one clue means claiming it accounts for that clue specifically and not for its neighbour, which is where the two come apart.",
         "How to use the one-each rule. The explanations are a set to be distributed, not a list to be sampled, so every join constrains the rest. Settling the two you are confident of can decide the remaining pair by elimination. Where it does not, two explanations are still competing for one clue, and that competition is the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why you cannot be wrong about exactly one. With every explanation used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning."
       ],
       "story": "Obi has crews asking why restoration is moving a few streets at a time. The substation is live, and the whole feeder could be closed in one movement. The switching sheet is open beside her.",
       "game": {
@@ -2773,22 +2773,22 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What the desk is chasing now",
-      "scene": "Faults arrive on the board all evening. The desk works to one standing priority, and the shift manager changes it as the picture changes — after the storm crosses, after the hospital calls, after the count of customers off passes ten thousand.",
+      "scene": "Faults arrive on the board all evening. The desk works to one standing priority, and the shift manager changes it as the picture changes. After the storm crosses. After the hospital calls. After the count of customers off passes ten thousand.",
       "takeaway": "The cost of a withdrawn instruction is paid by whoever is still working to it.",
       "place": "Distribution Control",
       "guide": "Take the faults the standing priority currently wants and leave the rest. The priority at the top of the board is replaced during the evening and nobody announces it. What is scored is the faults either side of a change, because they are the only ones that show whether the desk is reading the board.",
       "background": [
         "Why the priority changes at all. Early in an event the work is restoring the most customers per crew-hour. Once a hospital is on generator the work is that hospital. After midnight it is whatever cannot be left overnight in the weather. Each of those is a different order of the same list.",
-        "Why the changeover is where it goes wrong. A desk that keeps dispatching to the old priority for ten more minutes sends its last free crew to the job that mattered an hour ago, and nothing on the board says that is what happened."
+        "Why the changeover is where it goes wrong. A desk that keeps dispatching to the old priority for ten more minutes sends its last free crew to the job that mattered an hour ago. Nothing on the board says that is what happened."
       ],
-      "story": "Faults arrive on the board all evening. The desk works to one standing priority, and the shift manager changes it as the picture changes — after the storm crosses, after the hospital calls, after the count of customers off passes ten thousand.",
+      "story": "Faults arrive on the board all evening. The desk works to one standing priority, and the shift manager changes it as the picture changes. After the storm crosses. After the hospital calls. After the count of customers off passes ten thousand.",
       "game": {
         "type": "SPOT",
         "title": "What the desk is chasing now",
         "setup": "Distribution Control",
-        "play": "Work the fault board while the standing instruction changes.",
-        "task": "Work the fault board while the standing instruction changes.",
-        "question": "Dispatch to the priority on the board, and keep watching the board.",
+        "play": "Work the fault board while the restoration order changes.",
+        "task": "Work the fault board while the restoration order changes.",
+        "question": "Dispatch to the restoration priority on the board, and keep watching the board.",
         "answer": "Read the top of the board, not the fault list. Every change leaves a few minutes in which the old priority still feels like the right one.",
         "why": "Three priorities run across the evening. Each one wants a different part of the board. Most customers restored first. Then anything with a vulnerable customer behind it. Then anything that cannot be left out overnight in the weather. A fault can answer two of those at once, and that is what makes the switch cost real. What the panel scores is the window either side of each change. Everything else on the board is wanted by neither priority, so it is left alone correctly by somebody who has read nothing. The desk's own version is the ten minutes after a hospital calls. The priority has already changed, and the crews rolling are rolling to the order in force when they left.",
         "spot": {
@@ -2905,8 +2905,8 @@ export const CURRICULUM = {
       "guide": "All four options are things a crew could do next, and three of them sound careful. Ask of each what it would protect against: a source you know about, or one that arrives later. Isolation removes the known sources. A dead test confirms one moment. Neither holds the conductor down if switching changes or a voltage is induced nearby.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested."
       ],
       "story": "The cable is isolated at both ends and a tester reads dead at the work point. Kowalczyk, the safety lead, stops the crew because one protection step is still missing. The substation remains connected to live equipment nearby.",
       "game": {
@@ -2957,15 +2957,15 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "What comes out against what went in",
-      "scene": "The battery is supposed to cover part of tomorrow's cold peak. Alvarez has the measured energy that went in Saturday night, the energy that came back Sunday, and the brochure rating. Reyes wants to know how much of tomorrow's reserve she can safely credit to it.",
+      "scene": "The battery is supposed to cover part of tomorrow's cold peak. Alvarez, the demand analyst, has the energy that went in on Saturday and the energy that came back on Sunday, plus the brochure rating. Reyes, the shift supervisor, wants to know how much reserve she can credit to it.",
       "takeaway": "Round-trip efficiency is measured on the energy, not on the power rating.",
       "place": "Load & Forecasting",
       "guide": "Four numbers, and two of them are the power rating and the rated duration. Those say how fast and for how long, not how much came back. Ask of each whether it is an energy or a rate. A round trip is what went in against what came out, over a whole cycle. Three numbers on the desk disagree, and the brochure figure is one of them.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build."
       ],
-      "story": "The battery is supposed to cover part of tomorrow's cold peak. Alvarez has the measured energy that went in Saturday night, the energy that came back Sunday, and the brochure rating. Reyes wants to know how much of tomorrow's reserve she can safely credit to it.",
+      "story": "The battery is supposed to cover part of tomorrow's cold peak. Alvarez, the demand analyst, has the energy that went in on Saturday and the energy that came back on Sunday, plus the brochure rating. Reyes, the shift supervisor, wants to know how much reserve she can credit to it.",
       "game": {
         "type": "BALLPARK",
         "title": "What comes out against what went in",
@@ -3027,7 +3027,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "An order that survives being carried out",
-      "scene": "Lindgren has four moves for the evening and no view on the order. Two of them change what the others are worth, and one of them cannot be reversed inside the shift.",
+      "scene": "Lindgren, the load forecasting analyst, has four moves for the evening and no view on the order. Two of them change what the others are worth, and one of them cannot be reversed inside the shift.",
       "takeaway": "Do the moves that improve your information first and the moves you cannot undo last.",
       "place": "Load & Forecasting",
       "guide": "All four moves are available right now, so this is not a clock. Ask of each two things. What does it improve about the numbers you are working from? And how easily can it be taken back? One of these sizes every other figure in the shift. One of them costs money rather than customers, and one takes real minutes to load.",
@@ -3036,7 +3036,7 @@ export const CURRICULUM = {
         "Why the ends are the place to start. The first and last cards are constrained by having nothing before or after them, which usually makes them the two you can settle from the scene alone. Pinning them collapses the remaining arrangements sharply, and what is left in the middle is where the actual judgement lives.",
         "What the rail can be ordered on. Time is the usual axis, but it is not the only one. An order can run on cost, on risk, or on reversibility — every observation that leaves the sample as it was, before any that consumes it. On those boards a chronological reading finds nothing, because none of the steps has to happen at a particular hour."
       ],
-      "story": "Lindgren has four moves for the evening and no view on the order. Two of them change what the others are worth, and one of them cannot be reversed inside the shift.",
+      "story": "Lindgren, the load forecasting analyst, has four moves for the evening and no view on the order. Two of them change what the others are worth, and one of them cannot be reversed inside the shift.",
       "game": {
         "type": "SEQUENCE",
         "title": "An order that survives being carried out",
@@ -3076,22 +3076,22 @@ export const CURRICULUM = {
       "place": "Load & Forecasting",
       "guide": "Five numbers, and two of them are the voltage and the power factor. Neither appears in a resistive loss. Ask of each number whether the heat depends on it. Heat comes from current and resistance, and it is paid once per phase. Note the square while you are choosing. Ten per cent more current is about twenty-one per cent more heat.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build."
       ],
       "story": "Sten Lindgren, who forecasts demand, wants the loss figure before the morning call. The argument about moving generation is really an argument about waste. The yard radio is still live beside them.",
       "game": {
         "type": "BALLPARK",
         "title": "The power that never arrives",
         "setup": "Load & Forecasting",
-        "play": "Estimate the loss in the loaded corridor",
-        "task": "Estimate the loss in the loaded corridor",
-        "question": "Estimate the power lost as heat in the loaded corridor.",
+        "play": "Estimate the resistive loss in the loaded corridor",
+        "task": "Estimate the resistive loss in the loaded corridor",
+        "question": "Estimate the power lost as heat in the corridor's resistive path.",
         "answer": "About 17 MW.",
         "why": "Resistive loss in one phase is the RMS current squared times that phase resistance. A balanced three-phase corridor has three such conductors, so the total is three times I squared R. The square is the key. 10% more current means about 21% more heat. High transmission voltage helps because the same real power can be moved with less current. Lower current then cuts resistive loss sharply, which is why a modest overload can consume thermal margin faster than its percentage suggests.",
         "givens": [
           "RMS current is 1,150 A in each phase",
-          "Resistance is 4.2 Ω per phase over the corridor",
+          "Resistance is 4.2 ohms per phase over the corridor",
           "There are three phases"
         ],
         "relationship": "Line loss = 3 × I_rms² × R_phase, the electrical power P = I²R paid once per phase. The current is RMS, the resistance per phase.",
@@ -3188,8 +3188,8 @@ export const CURRICULUM = {
       "place": "Load & Forecasting",
       "guide": "Four numbers, and one of them is the reserve held, which belongs to the width of the forecast rather than its centre. Ask of each whether it is a base, a sensitivity, or a temperature. A sensitivity is megawatts per degree on this system, measured from this winter. What comes out is the centre of a forecast, and the reserve covers the rest.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build."
       ],
       "story": "The base peak for a Friday in this week of the year is 6,400 megawatts. Lindgren's own figure for this winter is 120 megawatts of extra demand per degree below 0, and tomorrow is minus 4.",
       "game": {
@@ -3264,18 +3264,18 @@ export const CURRICULUM = {
       "guide": "Two bins. A feeder can be shed if the load behind it tolerates an hour without power and comes back the way it went off. It cannot be shed if something behind it needs power to stay safe, or cannot be restarted at will. Sort on what is behind the feeder, not on how important it sounds.",
       "background": [
         "Why sheddable is not the same as unimportant. A large industrial customer with its own standby plant is sheddable; a small clinic on one supply is not. Size, revenue and prominence have nothing to do with it, which is why the list is written in advance and not argued out at the time.",
-        "What makes a load unsheddable. Something behind it that fails unsafely without power, or that cannot be brought back on demand — a furnace that sets solid, a pumped drain that floods, a process that has to be run to a finish once started."
+        "What makes a load unsheddable. Something behind it that fails unsafely without power, or that cannot be brought back on demand. A furnace that sets solid. A pumped drain that floods. A process that has to be run to a finish once started."
       ],
       "story": "A shed order needs a list in ten minutes. Some feeders can be dropped and restored an hour later with nobody harmed. Others carry something that cannot simply be switched off and switched back.",
       "game": {
         "type": "BELT",
         "title": "What can come off, and what cannot",
         "setup": "Load Dispatch",
-        "play": "Sort the feeder list before the shed order goes out.",
-        "task": "Sort the feeder list before the shed order goes out.",
-        "question": "Send each feeder to the bin that says whether the shed order can take it.",
+        "play": "Sort the feeder list before the order to shed load goes out.",
+        "task": "Sort the feeder list before the order to shed load goes out.",
+        "question": "Send each feeder to the bin that says whether tonight's order to shed load can take it.",
         "answer": "Anything that can be dropped and restored with nothing harmed goes left. Anything that fails unsafely or cannot be restarted goes right.",
-        "why": "A shed order is written to the state of what is behind each feeder. On one side sit the loads that tolerate an hour off and come back exactly as they went — cold stores with thermal mass, offices, street lighting, a works with its own standby set. On the other side are loads where an hour without power is not an hour of inconvenience: a hospital on one supply, a smelter whose bath sets solid, a pumped drain under a town, a process that has to run to a finish once it has started. None of that maps onto size or importance, which is exactly why the list is prepared cold and not decided at four in the morning by whoever is loudest on the phone. The one thing a dispatcher cannot do is work it out during the event.",
+        "why": "A shed order is written to the state of what is behind each feeder. On one side sit the loads that tolerate an hour off and come back exactly as they went. Cold stores with thermal mass, offices, street lighting, a works with its own standby set. On the other side are loads where an hour without power is not an hour of inconvenience. A hospital on one supply. A smelter whose bath sets solid. A pumped drain under a town. A process that has to run to a finish once it has started. None of that maps onto size or importance. That is exactly why the list is prepared cold, and not decided at four in the morning by whoever is loudest on the phone. The one thing a dispatcher cannot do is work it out during the event.",
         "belt": {
           "left": {
             "name": "Can be shed"
@@ -3421,7 +3421,7 @@ export const CURRICULUM = {
       "background": [
         "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning."
       ],
       "story": "Lindgren's forecast has tracked within 30 megawatts all evening. He wants to know what that does and does not license the room to assume about tomorrow. The room is waiting for a written instruction.",
       "game": {
@@ -3492,8 +3492,8 @@ export const CURRICULUM = {
       "guide": "Four reasons for a range, and they differ in what the width is for. Ask of each whether it is about blame, measurement, or planning. Reserve is not held against the expected peak. It is held against the amount by which the peak might exceed it, and that is the width. A single figure deletes the only quantity a planner needs.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested."
       ],
       "story": "Lindgren's winter peak goes into the report. He wants the width in the sentence, and Reyes wants to know what the width is for. The control-room phone is already ringing.",
       "game": {
@@ -3502,7 +3502,7 @@ export const CURRICULUM = {
         "setup": "Load & Forecasting",
         "play": "Put a range on the forecast rather than a number",
         "task": "Put a range on the forecast rather than a number",
-        "question": "Why does the winter peak go in as a range rather than as a single figure?",
+        "question": "Why does the winter peak — a power figure in megawatts — go in as a range rather than as a single number?",
         "answer": "The width quantifies how far the actual peak could plausibly sit above the centre. That upper-tail uncertainty is what reserve planning has to cover.",
         "why": "Reserve is not held against the expected peak. It is held against the amount by which the peak might exceed it. That is a property of the width and not of the centre. A report that states a single megawatt figure has deleted the only quantity a planner needs. The planner then invents one — usually badly, and usually optimistically. The width is also the honest part: it says which conditions the model was calibrated for and which it was not.",
         "rebuttals": [
@@ -3547,8 +3547,8 @@ export const CURRICULUM = {
       "place": "Load & Forecasting",
       "guide": "Four numbers, and only two of them are energies. The other two say how hard the unit can push and for how long it can keep pushing, which is a different claim about the same machine. Ask of each tile what it would be measured in. A round trip is one energy divided by another energy of the same kind, over one complete cycle. This unit is smaller and older than the one on Sunday's log, and nobody has cycled it deliberately since spring.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build."
       ],
       "story": "Sten Lindgren, the load forecasting analyst, has a second store's Thursday cycle open: one charge overnight, one discharge into the morning rise. Rafael Alvarez, the demand analyst, wants to know whether it is worth counting as reserve at all.",
       "game": {
@@ -3621,7 +3621,7 @@ export const CURRICULUM = {
       "guide": "Open each record to see which clock and which physical input it depends on. Keep the ones that would still stand if one clock were wrong, and untick the rest. Then name the shared source behind the false early timestamps. Three records disagreeing about the order is evidence about the records, not only about the event.",
       "background": [
         "Why a clock is part of the measurement. A record's timestamp is as good as the clock that made it, and a clock nobody has checked since spring can be seconds out. Every event stamped by it moves together, which is exactly what makes a false ordering look consistent.",
-        "How to tell dependence from agreement. Two records agreeing prove nothing if both were stamped by the same clock. What matters is whether a record's timing came from somewhere else — a synchronised source, a physical input with its own time base — because only those constrain the order independently.",
+        "How to tell dependence from agreement. Two records agreeing prove nothing if both were stamped by the same clock. What matters is whether a record's timing came from somewhere else: a synchronised source, or a physical input with its own time base. Only those constrain the order independently.",
         "What the order is for. Sequence-of-events analysis is how a blackout is explained: what tripped first decides whether this was a protection failure, an operator action or a cascade. Getting the order wrong produces a confident and wrong account of the night."
       ],
       "story": "June Farrow, the metering engineer, has three records of the same eight seconds. They disagree about what happened first. One record was stamped by a clock nobody has checked since spring.",
@@ -3629,9 +3629,9 @@ export const CURRICULUM = {
         "type": "TRACE",
         "title": "The order the records claim things happened in",
         "setup": "Metering & Standards",
-        "play": "Open the timing dependencies, keep the evidence that stands independently, and name the failed time source.",
-        "task": "Open the timing dependencies, keep the evidence that stands independently, and name the failed time source.",
-        "question": "Which records still support the event order, and what shared source explains the false early timestamps?",
+        "play": "Open the timing of each telemetry record, keep the evidence that stands independently, and name the failed time source.",
+        "task": "Open the timing of each telemetry record, keep the evidence that stands independently, and name the failed time source.",
+        "question": "Which telemetry records still support the event order, and what shared source explains the false early timestamps?",
         "answer": "Keep the GPS disturbance recorder for event order and the SCADA record only for coarse breaker state. The relay event log and local relay annunciator share the drifted relay clock; that clock is the failed source.",
         "why": "A timestamp contains a physical event and a clock claim. Those can fail separately. Two relay-derived records can agree because they share one internal clock, so their agreement is not two independent measurements. The GPS disturbance recorder uses a different time source and preserves the physical ordering. The slower SCADA record can still confirm breaker state, even though its two-second scan cannot resolve sub-second order. Dependency tracing keeps useful evidence instead of discarding every channel touched by the bad clock.",
         "trace": {
@@ -3734,8 +3734,8 @@ export const CURRICULUM = {
       "place": "Metering & Standards",
       "guide": "Six numbers, and two of them are traps that look right. There are three phases, and the factor is not three. And the sine of the angle is not what selects real power. Ask of each number what definition it belongs to. A voltage measured between two phases differs from one measured to neutral, and that is where the factor comes from. A report already claims a figure nobody has reproduced.",
       "background": [
-        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
-        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
+        "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.",
+        "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build."
       ],
       "story": "Farrow has line voltage, line current and a power factor from the night of the event. The report claims a figure for delivered power that nobody has reproduced. A printed network diagram lies on the desk.",
       "game": {
@@ -3834,7 +3834,7 @@ export const CURRICULUM = {
       "place": "Metering & Standards",
       "guide": "The rig is a current transformer: a conductor carrying current, and a core around it with a winding that reports a scaled copy. The number you are watching is that secondary current. Three controls can be changed, and a response counts only if it is larger than the bench's own wander. Change one, run it, put it back, and name the control the secondary current follows.",
       "background": [
-        "How a current transformer works, and why nothing touches the conductor. Current in the primary makes a changing magnetic field, the core carries that field around the winding, and the changing field induces a proportional current in it. Nothing is connected to the primary at all — which is exactly why the instrument is safe on a live circuit, and why what it needs is change rather than contact.",
+        "How a current transformer works, and why nothing touches the conductor. Current in the primary makes a changing magnetic field, the core carries that field around the winding, and the changing field induces a proportional current in it. Nothing is connected to the primary at all. That is exactly why the instrument is safe on a live circuit. And why what it needs is change rather than contact.",
         "Why a steady current reads nothing. Induction responds to a field that is changing. Hold the primary current constant and the field stops changing, so the winding reports nothing while the conductor is still carrying full load. An instrument that reads zero on a live conductor looks broken and is behaving exactly as designed.",
         "Why the core is the third control. Open the magnetic path and the field no longer links the winding, so the secondary falls away even with a changing primary. Two different controls therefore kill the reading for two different reasons, and telling them apart is what the reversal is for."
       ],
@@ -3845,7 +3845,7 @@ export const CURRICULUM = {
         "setup": "Metering & Standards",
         "play": "Use the test loop to isolate what makes the current transformer produce a secondary signal.",
         "task": "Use the test loop to isolate what makes the current transformer produce a secondary signal.",
-        "question": "Which change makes the secondary current disappear, and does the signal return when that change is reversed?",
+        "question": "Which change stops the flux from inducing a secondary current, and does the signal return when that change is reversed?",
         "answer": "The waveform is the causal control. With the core closed and 100 A primary current, AC gives about 5.0 A secondary. Changing only AC to steady DC drops the settled signal to about 0.05 A; restoring AC brings it back to 5.0 A.",
         "why": "A current transformer needs no electrical connection between primary and secondary. Alternating primary current creates changing magnetic flux in the core. Faraday’s law then induces an emf in the secondary, and the turns ratio sets the secondary current approximately. A steady DC current can still create a magnetic field. After the switching transient, however, the flux stops changing and the secondary signal falls almost to zero. Removing the suspected cause and then restoring it is stronger evidence than changing several controls together.",
         "control": {
@@ -3914,7 +3914,7 @@ export const CURRICULUM = {
       "background": [
         "Why this is a matching board and not four separate questions. Responses on boards like this are written to be plausible for more than one situation, so choosing them one at a time lets a nearly-right answer through unexamined. Having to place all of them forces the comparison — not \"is this reasonable here\", but \"is it more right here than there\".",
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
-        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
+        "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning."
       ],
       "story": "Farrow is asked to list what the island has to draw on in the first ten seconds. Two of the four things on her list cannot help at that timescale.",
       "game": {
@@ -3990,8 +3990,8 @@ export const CURRICULUM = {
       "guide": "Four options, and three temperature sources have to be accounted for. Two agree with each other and neither of them shares the corridor sensor. Ask of each option how many of the three it explains. Small scatter shows an instrument repeats, not that it is right. And the firmware date marks where the disagreement starts.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested."
       ],
       "story": "Farrow has three sources for the corridor's temperature that week: the sensor, an infrared survey from the ground. The sag measured off a photograph. Two of them agree with each other.",
       "game": {
@@ -4051,8 +4051,8 @@ export const CURRICULUM = {
       "guide": "Separate exposure from damage. Higher temperature increases sag immediately, and sufficiently hot or prolonged operation can produce irreversible creep or annealing. But the amount depends on conductor construction, temperature and time. The record proves repeated operation outside the continuous case; it does not directly measure the remaining tensile strength.",
       "background": [
         "Why the wrong options are the interesting ones. Each distractor is written to be the answer under one specific misreading — a step skipped, a quantity confused with a rate, a correlation taken for a cause. Identifying which misreading each belongs to is where the learning is; the right answer alone can be reached on instinct and teach nothing.",
-        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
-        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
+        "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
+        "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested."
       ],
       "story": "Farrow's corrected record has the corridor above its continuous operating temperature for about ninety hours over three years. She wants one sentence for the board: what does that record justify saying before a conductor sample is tested?",
       "game": {
@@ -4063,7 +4063,7 @@ export const CURRICULUM = {
         "task": "State what the corrected thermal history proves — and what it does not.",
         "question": "What does the ninety-hour record justify saying now?",
         "answer": "The record proves repeated high-temperature exposure that may have reduced long-term margin; quantify remaining strength before assuming the original design margin still holds.",
-        "why": "The corrected history matters because thermal effects do not reset simply because the conductor cools between events. Higher temperatures increase sag immediately, and long or hot exposure can contribute to permanent creep or annealing. But the record is an exposure history, not a tensile test. The defensible conclusion is that the conductor’s remaining margin must be evaluated; claiming a specific permanent strength loss before modeling or testing would turn an inference into a measurement.",
+        "why": "The corrected history matters. Thermal effects do not reset simply because the conductor cools between events. Higher temperatures increase sag immediately, and long or hot exposure can contribute to permanent creep or annealing. But the record is an exposure history, not a tensile test. The defensible conclusion is that the conductor’s remaining margin must be evaluated. Claiming a specific permanent strength loss before modeling or testing would turn an inference into a measurement.",
         "rebuttals": [
           "Cooling removes the immediate temperature but does not guarantee that every long-term material effect resets.",
           "Surviving an operating point is not the same as establishing a safe continuous rating; ratings include thermal and clearance assumptions.",
@@ -4111,7 +4111,7 @@ export const CURRICULUM = {
         "setup": "Metering & Standards",
         "play": "Choose which report claims to verify before signing, with fewer checks than claims.",
         "task": "Choose which report claims to verify before signing, with fewer checks than claims.",
-        "question": "Which claims deserve the limited verification budget before they become findings?",
+        "question": "The storage round-trip figure is one of four claims. Which of them deserve the limited verification budget before they become findings?",
         "answer": "Use the two checks on conductor strength and the proposed relay cause. The sensor offset is already independently backed, while the storage-efficiency result is lower-stakes for the inquiry finding.",
         "why": "The report contains claims at different evidence levels. The sensor offset is critical but already backed by two independent methods and a firmware date. Permanent conductor-strength loss is plausible metallurgy, yet no sample has tested it. The storage result is measured but not central to the cause finding. The proposed relay cause is both critical and still unproved. With only two verification slots, checking everything is impossible. Spend them on the critical claims whose present evidence cannot support a final finding.",
         "attest": {

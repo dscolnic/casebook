@@ -386,9 +386,12 @@ export const CURRICULUM = {
         "the periodic table groups elements that behave alike"
       ],
       "concept": {
-        "n": 1,
-        "c": "The mole as a count, and molar mass as the bridge to a mass",
-        "of": 30
+        "n": 5,
+        "c": "A balanced equation as a ratio of amounts",
+        "of": 30,
+        "rests": [
+          "The mole as a count, and molar mass as the bridge to a mass"
+        ]
       }
     },
     {
@@ -826,8 +829,8 @@ export const CURRICULUM = {
         "a gas has a state and also a place, and they change for different reasons"
       ],
       "concept": {
-        "n": 24,
-        "c": "Enthalpy of reaction, and calorimetry as a measurement",
+        "n": 8,
+        "c": "The ideal gas law, and a headspace that tells you what is dissolved",
         "of": 30
       }
     },
@@ -2925,6 +2928,26 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
+          "e": "n = m / M",
+          "c": "moles from a mass and a molar mass",
+          "v": [
+            [
+              "n",
+              "number of moles, in mol"
+            ],
+            [
+              "m",
+              "mass of the sample, in grams"
+            ],
+            [
+              "M",
+              "molar mass of the substance, in grams per mole"
+            ]
+          ],
+          "s": "Divide a weighed mass by the mass of one mole to get how many moles you are holding.",
+          "computed": true
+        },
+        {
           "e": "yield % = actual / theoretical × 100",
           "c": "percent yield",
           "v": [
@@ -2989,6 +3012,32 @@ export const CURRICULUM = {
         "temperature in ΔG = ΔH − TΔS must be in kelvin",
         "a negative ΔG means the forward reaction is thermodynamically favored",
         "endothermic and exothermic, and what temperature does to an equilibrium — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "ΔG = ΔH − TΔS",
+          "c": "free energy, and which way a change runs",
+          "v": [
+            [
+              "ΔG",
+              "change in free energy, in kJ per mole"
+            ],
+            [
+              "ΔH",
+              "change in enthalpy"
+            ],
+            [
+              "T",
+              "absolute temperature, in kelvin"
+            ],
+            [
+              "ΔS",
+              "change in entropy, in kJ per mole per kelvin"
+            ]
+          ],
+          "s": "A change runs on its own when the free-energy change is negative, and temperature decides which term wins.",
+          "computed": true
+        }
       ],
       "takesAsRead": [
         {
@@ -3352,12 +3401,9 @@ export const CURRICULUM = {
         "a trend says something a single reading cannot"
       ],
       "concept": {
-        "n": 4,
-        "c": "Dilution, and carrying a factor back to the sample",
-        "of": 30,
-        "rests": [
-          "Molarity, and ppm as the same statement in another unit"
-        ]
+        "n": 24,
+        "c": "Enthalpy of reaction, and calorimetry as a measurement",
+        "of": 30
       }
     },
     {
@@ -4017,7 +4063,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a method that removes a compound has to put it somewhere"
-      ]
+      ],
+      "concept": {
+        "n": 30,
+        "c": "Reading a number as a claim about a sample, not about a river",
+        "of": 30,
+        "rests": [
+          "Molarity, and ppm as the same statement in another unit"
+        ]
+      }
     },
     {
       "day": 8,

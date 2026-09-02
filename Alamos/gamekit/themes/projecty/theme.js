@@ -60,10 +60,11 @@ export default {
     + 'and postwar control. Those were not disagreements that one more detector could settle. The people '
     + 'outside the fence who experienced displacement, secrecy, bombing, and fallout were part of the '
     + 'history even when they were not part of the experiment.',
-    'What you leave behind is therefore not a victory report. It is a record that separates measurement '
-    + 'from inference, names uncertainty instead of hiding it, preserves the evidence that forced the '
-    + 'laboratory to change course, and states consequences that technical success does not erase. That '
-    + 'is the part of Project Y worth carrying forward.',
+    'You closed the Evidence Chain by signing a record rather than a victory report. You kept '
+    + 'measurement apart from inference, named the uncertainty instead of hiding it, preserved the '
+    + 'evidence that forced the laboratory to change course, and stated the consequences that technical '
+    + 'success does not erase. What you left later readers is a record they can test instead of a claim '
+    + 'they are asked to trust.',
   ],
 
   content: {
@@ -121,12 +122,11 @@ export default {
     ],
   },
   opening: [
-    'It is April 1943. The Los Alamos Ranch School closed weeks ago, and Army crews are turning '
-    + 'the mesa into a secret laboratory. You are a scientist newly posted to Project Y. Five '
-    + 'divisions are trying to make one evidence chain out of nuclear physics, chemistry, measurements, '
-    + 'materials, and engineering. One link is settled each stage: what was observed, what was inferred, '
-    + 'and how well it is known. A war has set the schedule, but a deadline cannot make a bad measurement '
-    + 'true. What this laboratory gets wrong can reach far beyond the fence.',
+    'It is April 1943, and the Army has built a secret lab on a mesa in New Mexico. You are a scientist '
+    + 'at Project Y. Five teams work here, and each one uses its own words, its own tools and its own '
+    + 'tests, so their numbers do not yet fit together. Over fifteen stages you sign The Evidence Chain: '
+    + 'what the lab measured, what it worked out from that, and what nobody has checked yet. Get one link '
+    + 'wrong and people far beyond the fence pay for it.'
   ],
 
   look: {

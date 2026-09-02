@@ -395,19 +395,17 @@ missions:
     objective: Establish what CLARION-3 promised before it had any data.
     briefing: Three weeks to the second interim, and the board pack starts today.
     stake: >-
-      Monday. The second interim analysis is 21 days away. CLARION-3 has now entered 2,400
-      people at 31 hospitals. Professor Vogt chairs the independent monitoring board. In three
-      weeks she reads the trial arm by arm. Then she says whether it goes on. Yemi Balogun, the
-      trial chair, wants that meeting to end the trial. Miriam Feldman wants it to end nothing
-      that was not written down first. Today you go back over what CLARION-3 promised before the
-      first patient joined. How people are put in each arm. What counts as an event. How big a
-      gap the trial was built to find. Those promises are what the board measures the trial
-      against. Not what anybody now hopes.
+      Monday, 21 days before the board meets. CLARION-3 has entered 2,400 people at 31 hospitals, and
+      the trial chair already wants it stopped. Today you write down what the trial promised before the
+      first patient joined.
     takeaway: A trial's claims are the ones it made before it had data.
     stops:
       - group: RAND
         task: Work out which protection site 7 has lost
         title: Concealment is not the same as blinding
+        reason: >-
+          Farida Diouf, the trial pharmacist, has site 7's diary in her hand and cannot say how long it
+          has been readable
         concept: "Allocation concealment: protecting the moment of entry"
         place: Kit Warehouse & Cold Room
         scene: >
@@ -465,10 +463,13 @@ missions:
       - group: ENDP
         task: Reconstruct why the protocol chose its primary endpoint before the first participant entered
         title: Why this outcome was chosen
+        reason: >-
+          The board measures the trial against the outcome the protocol named, and nobody has read that
+          page since the trial opened
         concept: The primary endpoint, named in advance, and everything else
         place: Adjudication Room
         scene: >
-          Kwame Ansah has the original design memo beside the current event counts. Four years ago the team compared several candidate outcomes before anyone had trial data. A journalist has now asked why the protocol committed to the composite rather than the cleanest or easiest-to-measure alternative.
+          Kwame Ansah chairs the endpoint adjudication committee. He has the original design memo beside the current event counts. Four years ago the team compared several candidate outcomes before anyone had trial data. A journalist has now asked why the protocol committed to the composite rather than the cleanest alternative.
         guide: >-
           Four candidate primary endpoints, scored on two things the sponsor cares about. The
           slider is the event rate the trial actually gets, which nobody knows in advance —
@@ -540,10 +541,13 @@ missions:
       - group: STAT
         task: Work out what the trial is waiting for
         title: A trial ends at a number of events
+        reason: >-
+          The pack has to say how far through the trial is, and that is counted in events rather than in
+          days
         concept: Event-driven trials, and information fraction as progress
         place: Statistics & Analysis
         scene: >
-          Balogun wants to know when CLARION-3 will be finished and has been told, twice, that
+          Yemi Balogun, the trial chair, wants to know when CLARION-3 will be finished and has been told, twice, that
           nobody can say. Feldman writes three quantities on the whiteboard and asks him to estimate
           it himself.
         guide: >-
@@ -569,7 +573,8 @@ missions:
           - events accumulate over time, at some rate per participant per year
         takeaway: In this event-driven design, precision is driven mainly by adjudicated events; calendar time only determines how quickly those events can accrue.
         format: BALLPARK
-        question: Estimate how long CLARION-3 has to follow its participants to reach the events it needs.
+        question: CLARION-3 is an event-driven trial. Estimate how long it has to follow its
+          participants to reach the 380 planned events.
         why: >
           In a time-to-event trial, participants who remain event-free still contribute time at risk, but the precision of the treatment comparison is driven strongly by how many adjudicated events occur. So the design fixes a number of events, and recruitment
           and follow-up run until that number arrives. How long that takes is not a decision anybody
@@ -617,21 +622,19 @@ missions:
     objective: Find out where a number is made before deciding what it is worth.
     briefing: Two outcomes, two ways of measuring, and only one of them has a committee.
     stake: >-
-      Tuesday. 20 days to the interim, and the board pack has two outcomes in it rather than
-      one. CLARION-3 counts a clinical event. A committee rules on each one from the notes. The
-      trial also carries a symptom score. The treating doctor writes that down at every visit.
-      Kwame Ansah trusts the first and says so at every meeting. Nuno Iriarte, the principal
-      investigator at site 12, thinks the second is the one that matters to patients. Maggie
-      Doyle, who speaks for the participants, agrees with him. Today you work out where each
-      number is really made, and what each is worth when the two arms are compared. In three
-      weeks both will sit on the same page.
+      Tuesday, 20 days out, and the pack carries two outcomes rather than one. A committee rules on each
+      event, while the site doctor writes down the symptom score. Today you find out where each number
+      is made, and what each is worth.
     takeaway: A measurement is worth what the procedure that made it is worth.
     stops:
       - group: ENDP
         task: Match each measurement to the weakness that can bend what it means.
         title: A number can be precise and still be the wrong outcome
+        reason: >-
+          Two outcomes go to the board, and only one of them is ruled on by a committee that cannot see
+          the arms
         place: Adjudication Room
-        scene: Kwame Ansah has 4 CLARION-3 measurements on his table. One comes from a national register, one from blinded readers, one from a treating doctor, and one from a central laboratory. Doyle wants to know what can go wrong with each.
+        scene: Kwame Ansah has 4 CLARION-3 measurements on his table. One comes from a national register, one from blinded readers, one from a treating doctor, and one from a central laboratory. Maggie Doyle, who speaks for the participants, wants to know what can go wrong with each.
         guide: >-
           Four measurements and four weaknesses. Pair them by asking how much trial
           judgement each measurement passes through. A death in a national register goes
@@ -680,6 +683,9 @@ missions:
       - group: SITE
         task: Decide what a deviation is worth recording
         title: Which deviation changes the question?
+        reason: >-
+          Lucia Marchetti, the lead monitor, has a fortnight of deviation reports and no rule for which
+          of them the board is owed
         place: Monitors' Room
         scene: >
           Lucia Marchetti, the lead monitor, has four things sites did this month that were not what the protocol says.
@@ -730,6 +736,9 @@ missions:
       - group: REG
         task: Find what the trial promised about this analysis
         title: The plan that was in force
+        reason: >-
+          Nkechi Umeh, the regulatory lead, keeps every version of the plan, and only one version was in
+          force when this analysis was promised
         place: Regulatory & Registry
         scene: >
           Nkechi Umeh, the regulatory lead, has four versions of the analysis plan, each dated. Feldman wants to know which
@@ -782,20 +791,18 @@ missions:
     objective: Decide what has to be reported today rather than at the next meeting.
     briefing: Two sites have sent the same kind of event in the same fortnight.
     stake: >-
-      Wednesday morning, 19 days out. Site 4 and site 19 have each sent in a case. Both patients
-      went into hospital with the same odd liver picture, 11 days apart. Neither report says
-      which arm the patient was on. Neither site knows. Feldman's instinct is that two cases is
-      a number you see in a trial this size. The board meets in 19 days anyway. Balogun wants it
-      in front of Vogt this week. Today you decide what gets reported, to whom, and how fast.
-      There is a second half to that. The trial keeps running while it waits, and somebody has
-      to say what it may do in the meantime.
+      Wednesday, 19 days out. Site 4 and site 19 have each sent in a patient who went into hospital with
+      the same odd liver picture, 11 days apart. Today you decide what gets reported, to whom, and how
+      fast.
     takeaway: Safety reporting runs on a different clock from the analysis.
     stops:
       - group: SAFE
         task: Decide what moves now, before the next scheduled board meeting can help.
         title: The clock that is not the analysis clock
+        reason: >-
+          The board does not meet for 19 days, and a reportable event does not wait for a meeting
         place: Monitoring Board Room
-        scene: The second admission arrived 18 minutes ago. 1 patient is still on the ward, and the 2 sites are 400 kilometres apart. Vogt is reachable this afternoon. The next board meeting is 19 days away.
+        scene: The second admission arrived 18 minutes ago. 1 patient is still on the ward, and the 2 sites are 400 kilometres apart. Helena Vogt, who chairs the independent monitoring board, is reachable this afternoon. The next board meeting is 19 days away.
         guide: >-
           Four options, and two clocks are running. One patient is still on the ward and
           the board meets in nineteen days. Ask of each option which clock it obeys. A
@@ -841,6 +848,10 @@ missions:
       - group: SITE
         task: Spend the call time on evidence that could change whether the two cases form a pattern.
         title: Ten minutes on each case
+        reason: >-
+          Two cases either are a pattern or are not, and the call time is the only way to find out
+          before the report goes
+        concept: "Safety monitoring: adverse events, seriousness and expedited reporting"
         place: Monitors' Room
         scene: Lucia Marchetti has ten minutes with each site before the reports go to Vogt. One coordinator is at a bedside. Five useful questions are on her screen, but asking all of them would take longer than either call.
         guide: >-
@@ -865,13 +876,14 @@ missions:
               memory. A call that asks five questions gets three rushed answers, and the
               rushed ones are the least reliable data in the trial.
         takesAsRead:
-          - Eligibility criteria, and what widening them changes
+          - Hard endpoints against judged ones, and blinded adjudication
         assumes:
           - a safety pattern depends on whether cases share timing and clinical features
           - a VALUE board charges time for each piece of evidence
         takeaway: When time is scarce, collect the evidence that can change the decision before collecting detail that only decorates it.
         format: VALUE
-        question: What should Marchetti spend the ten minutes finding out before the reports leave?
+        question: What should Marchetti spend the ten minutes finding out before the safety reports
+          leave?
         value:
           budget:
             amount: 10
@@ -914,6 +926,9 @@ missions:
       - group: REG
         task: Route each event through the correct safety or endpoint pathway without confusing seriousness, causality and timing.
         title: Which clock does this event run on?
+        reason: >-
+          Nkechi Umeh cannot file anything until each event is on the right pathway, and seriousness,
+          cause and timing are three separate questions
         place: Regulatory & Registry
         scene: >
           Umeh has four events from this month and three different clocks on the wall. Site investigators
@@ -976,19 +991,17 @@ missions:
     objective: Establish what looking early costs and who is allowed to do it.
     briefing: Somebody senior would like a peek at the numbers before the board sees them.
     stake: >-
-      Thursday, 18 days out. The sponsor's medical director has put a request in writing. He
-      wants the primary endpoint pooled and split by arm, before the board meets. The liver
-      cases have made everybody nervous. Feldman has said no twice. She has now been asked to
-      explain why, in words that do not sound like she is stalling. Alina Petrescu, the
-      unblinded statistician, is the only person who could build that table. She has said
-      nothing at all. Today you work out what an extra look really costs the trial. Two
-      questions come with it. Who is allowed to take one, and what can be offered instead of the
-      answer.
+      Thursday, 18 days out. The sponsor's medical director has asked in writing for the results split
+      by arm, before the board meets. Today you work out what an extra look costs the trial, and who is
+      allowed to take one.
     takeaway: A trial's small budget for being wrong is spent by looking, not by finding.
     stops:
       - group: STAT
         task: Say what a second look costs
         title: What an extra look spends
+        reason: >-
+          The request on the desk is for one more look at the endpoint, and the trial has a fixed budget
+          for being wrong
         place: Statistics & Analysis
         scene: The medical director wants one unplanned endpoint summary before noon and has already drafted the email asking for it. Feldman has the two planned looks on the whiteboard and an empty box where this new request would sit.
         guide: >-
@@ -1048,9 +1061,12 @@ missions:
       - group: SAFE
         task: Decide who is entitled to see what
         title: Why the board looks and the team does not
+        reason: >-
+          The medical director has asked in writing, so the answer owed back is a rule rather than a
+          refusal
         place: Monitoring Board Room
         scene: |-
-          Vogt is in the building for an hour. Petrescu's closed report is on the table, face down. The medical director is copied on everything the trial team writes and on nothing the board writes.
+          Vogt is in the building for an hour. The closed report kept by Alina Petrescu, the unblinded statistician, is on the table, face down. The medical director is copied on everything the trial team writes and on nothing the board writes.
         guide: >-
           Four options, and somebody has to see the arms or a harmful treatment
           continues unnoticed. Ask of each whether it names a route from knowledge into
@@ -1097,6 +1113,9 @@ missions:
       - group: RAND
         task: Rule on a request to break one participant's code
         title: When the blind is opened for one person
+        reason: >-
+          One participant's own doctor needs to know what they were given, which is a different request
+          from the one on the sponsor's desk
         concept: Unblinding an individual for their own care
         place: Kit Warehouse & Cold Room
         scene: >
@@ -1149,18 +1168,17 @@ missions:
     objective: Work out why site 12 recruits twice as fast as anyone else.
     briefing: One site's screening log is shorter than every other site's.
     stake: >-
-      Friday, 17 days out. Site 12 has entered more than twice its expected share of patients.
-      Nuno Iriarte has been thanked for it in public twice. Marchetti has now laid site 12's
-      screening log beside the other 30. Most sites look at four people to enter one. Site 12
-      enters almost everyone it sees. Balogun reads that as a site that has organised itself
-      well. There is another way to read it. Today you work out which reading the log actually
-      supports. The rest of the day is what that would mean for the trial. A fast site may also
-      be a site taking in a different kind of patient from everybody else.
+      Friday, 17 days out. Site 12 has entered twice its share of patients, and its screening log is far
+      shorter than the rest. Today you work out whether that site is well run, or taking in a different
+      kind of patient.
     takeaway: A site cannot see what is unusual about itself.
     stops:
       - group: SITE
         task: Choose the explanation that fits the whole screening log, not just the high entry rate.
         title: What a short screening log says
+        reason: >-
+          Site 12's log is the only evidence that separates a well-run site from one taking in a
+          different kind of patient
         place: Monitors' Room
         scene: 31 screening logs on 1 page. Most sites screen four and enter one. Site 12 screens 11 and enters 9, and its consent rate is the highest in the trial.
         guide: >-
@@ -1234,6 +1252,9 @@ missions:
       - group: RAND
         task: Check how the assignments have landed at site 12
         title: Balance is bought in blocks
+        reason: >-
+          If the assignments at site 12 have drifted, the fast recruiting is the smaller half of the
+          problem
         concept: "Randomisation: what chance assignment buys, and what it cannot buy"
         place: Kit Warehouse & Cold Room
         scene: >
@@ -1289,8 +1310,12 @@ missions:
           - Blocking makes the sequence a little more guessable, not less; varying the block length is the fix.
           - Supply is planned from recruitment forecasts and does not drive the allocation sequence.
       - group: ENDP
-        task: Change 1 feature of the re-scoring setup at a time and find which change removes site 12's offset.
+        task: Change 1 feature of the re-scoring setup at a time and find which change removes the
+          three-point offset between site 12's raters.
         title: Make the three-point offset move
+        reason: >-
+          Site 12 scores three points higher than everybody else, and nobody yet knows which part of the
+          setup does it
         place: Adjudication Room
         scene: Kwame Ansah has matched visit records from site 12 and 3 comparison sites. The symptom score sits about 3 points higher at site 12. A re-scoring console can change one feature of the setup for the same records.
         guide: >-
@@ -1350,6 +1375,9 @@ missions:
       - group: SITE
         task: Hold the recruitment rate while the sites vary.
         title: Eleven a week, through the summer
+        reason: >-
+          The trial needs eleven patients a week through the summer, and the sites do not all send the
+          same number
         takesAsRead:
           - "Eligibility criteria, and what widening them changes"
         concept: "The recruitment funnel: screened, eligible, consented, entered"
@@ -1411,21 +1439,19 @@ missions:
           commit: Report the summer
   - title: The fix that slowed the trial
     objective: Separate what the amendment demonstrably changed from what the team is only assuming it changed.
-    briefing: Recruitment recovered. The event rate did not.
+    briefing: Recruitment recovered, but the event rate did not.
     stake: >-
-      Monday, 14 days out. Eight months ago the trial widened two of its entry rules, to keep
-      recruiting on schedule. The amendment worked. The trial filled. The data manager, Tobias
-      Renner, has now plotted events against months. The curve has flattened since. Feldman
-      thinks the trial is further from its answer than the calendar says. Balogun signed that
-      amendment. He says the other choice was a trial that never finished at all. Today you work
-      out how much information CLARION-3 is actually holding. That sets what the flattening does
-      to the interim in a fortnight. It also settles whether the two of them are arguing about
-      anything real.
+      Monday, 14 days out. The trial widened two entry rules eight months ago to keep patients coming,
+      and the event curve has flattened since. Today you put a number on how much of the trial has
+      actually happened.
     takeaway: Widening eligibility can change event accrual and the target population; it does not by itself prove that the relative treatment effect changed.
     stops:
       - group: STAT
         task: Work out how far through the trial really is
         title: How much of the trial has happened
+        reason: >-
+          The interim is a fortnight away, and a flattened event curve moves how far through the trial
+          actually is
         concept: Sample size and statistical power
         place: Statistics & Analysis
         scene: >
@@ -1496,6 +1522,9 @@ missions:
       - group: SITE
         task: Separate the observed event-rate change from a sensitivity assumption about treatment effect
         title: What changed, and what are we assuming?
+        reason: >-
+          Two people are arguing about the amendment, and only one of their two claims is something the
+          data can settle
         place: Monitors' Room
         scene: >
           Marchetti has the entry criteria as they were and as they are, with the participants
@@ -1548,6 +1577,8 @@ missions:
       - group: REG
         task: Establish what the amendment obliged the trial to do
         title: Changing the plan, on the record
+        reason: >-
+          Nkechi Umeh has the amendment on file, and what it obliged the trial to do belongs in the pack
         place: Regulatory & Registry
         scene: >
           Umeh has the amendment file open: the change, the approvals, the registry update and the
@@ -1596,6 +1627,9 @@ missions:
       - group: SITE
         task: Sort the screening log before the meeting.
         title: Eligible, or nearly
+        reason: >-
+          The widened rules let in patients the first version would have turned away, and the screening
+          log is where that shows
         concept: "Eligibility criteria, and what widening them changes"
         place: Monitors' Room
         scene: The screening log has more entries than the meeting has time for. Some of these people meet the protocol as written. The rest are close, and close is not a category the protocol has.
@@ -1616,7 +1650,8 @@ missions:
           - a protocol states who may be entered into a trial
         takeaway: A criterion read generously is a criterion the trial no longer has.
         format: BELT
-        question: Send each screening entry to the bin that says whether the protocol admits them.
+        question: Send each screening entry to the bin that says whether the protocol's eligibility
+          criteria admit them.
         answerText: Anything that satisfies every criterion as written is eligible. Anything needing a generous reading is not, however reasonable the generosity looks.
         why: >-
           Eligibility criteria are what make a trial's population the population its question is
@@ -1669,21 +1704,19 @@ missions:
     objective: Decide what to do about the participants the trial has lost track of.
     briefing: 91 people have no outcome recorded, and they are not a random 91.
     stake: >-
-      Tuesday, 13 days out. Renner has matched the records against each other. 91 patients have
-      no twelve-month outcome at all. Some moved. Some withdrew. Some stopped answering the
-      phone. Ansah cannot rule on what nobody wrote down. And 48 of the 91 stopped coming in the
-      weeks after a bad turn was noted in their file. Doyle asked the steering group what the
-      trial means to say about the people it lost. She also asked whether that answer changes
-      with the arm they were on. Today you decide how the missing are handled in the analysis
-      the board reads in 13 days. The sites have a fortnight to chase whoever can still be
-      found. About the rest, the trial has to be honest.
+      Tuesday, 13 days out. 91 patients have no twelve-month outcome, and 48 of them stopped coming
+      after a bad turn was noted in the file. Today you decide what the trial says about the people it
+      has lost.
     takeaway: What you do about missing outcomes is a decision, and it has to be made before you see them.
     stops:
       - group: ENDP
         task: Match each gap to what it does to the comparison.
         title: Missing is not one thing
+        reason: >-
+          The 91 outcomes are missing for several different reasons, and the reasons do not cost the
+          comparison the same
         place: Adjudication Room
-        scene: Friday’s database lock is now on the wall clock. Four kinds of missing record are still in the queue, each with a count beside it. Renner wants one rule for all of them before the next site call starts.
+        scene: Friday’s database lock is now on the wall clock. Four kinds of missing record are still in the queue, each with a count beside it. Tobias Renner, the data management lead, wants one rule for all of them before the next site call starts.
         guide: >-
           Four gaps and four consequences. Pair them by asking whether the reason for
           the gap is connected to how the person was doing. A move abroad is not.
@@ -1731,6 +1764,9 @@ missions:
       - group: STAT
         task: Choose which population the board is shown
         title: Everyone as assigned
+        reason: >-
+          The board is shown one population, and which one is a decision that has to be made before the
+          numbers are seen
         concept: Intention to treat against per-protocol
         place: Statistics & Analysis
         scene: >
@@ -1784,6 +1820,9 @@ missions:
       - group: SITE
         task: Allocate the monitoring time so the required questions can still be answered before the file is frozen.
         title: Forty hours before the lock
+        reason: >-
+          Lucia Marchetti has forty monitoring hours left and more sites asking for them than that will
+          cover
         place: Monitors' Room
         scene: Lucia Marchetti has a fortnight, 31 sites and 40 monitoring hours she can still deploy. Four recoverable gaps compete for that time. 14 people who withdrew consent are locked out of the plan and cannot be contacted again.
         guide: >-
@@ -1856,17 +1895,17 @@ missions:
     objective: Work out which kit is compromised and what that obliges the trial to do.
     briefing: A freezer alarm at one site was silenced for two days in July.
     stake: >-
-      Wednesday, 12 days out. The fridge logger at site 19 shows 41 hours above the safe storage
-      range in July. The alarm was signed off twice. Nobody passed it up the line. Farida Diouf
-      has the kit numbers that sat in that fridge. She can say exactly who received each one.
-      What she cannot say, and will not find out, is which of those boxes held the drug. Today
-      you decide what a warm fridge means for the patients who took that kit. Two things follow.
-      Somebody has to be told, and the trial has to stay blind while that happens.
+      Wednesday, 12 days out. The fridge logger at site 19 shows 41 hours above the safe range in July,
+      and the alarm was signed off twice. Today you decide what a warm fridge means for the nine
+      patients who took that kit.
     takeaway: A material problem becomes an analysis problem the moment it is not spread evenly across the arms.
     stops:
       - group: RAND
         task: Choose what the warm-storage excursion does to the comparison.
         title: Kit that cannot be vouched for
+        reason: >-
+          The warm boxes went to nine patients, and whether they fell evenly across the arms decides
+          what the excursion costs
         place: Kit Warehouse & Cold Room
         scene: Site 19 has already dispensed 11 boxes from the warm fridge to 9 participants. Farida Diouf has the logger trace, dispensing list and stability sheets open. A replacement shipment will not reach the site until morning.
         guide: >-
@@ -1938,6 +1977,9 @@ missions:
       - group: SITE
         task: Decide what the nine participants are told
         title: What the nine are owed
+        reason: >-
+          Nine people took kit nobody can vouch for, and they have to be told without being told their
+          arm
         place: Monitors' Room
         scene: >
           Nine people received kit from that fridge. Marchetti has to tell site 19 what to say to
@@ -1994,6 +2036,9 @@ missions:
       - group: REG
         task: Use two verification checks on the claims in the excursion record before signing it as reviewable.
         title: What the excursion record can actually prove
+        reason: >-
+          The trial will sign this record, so every claim in it has to be checked before the signature
+          goes on
         place: Regulatory & Registry
         scene: Nkechi Umeh has the site 19 excursion form, the logger trace, dispensing records and an inventory statement. Four claims on the form are signed. She has time to verify only two before the deviation file closes.
         guide: >-
@@ -2053,20 +2098,19 @@ missions:
   # ---------------------------------------------------------------- day 9
   - title: The blind has leaked
     objective: Find out whether the people scoring the outcome knew which arm they were scoring.
-    briefing: Investigators were asked to guess. They were right far more often than chance.
+    briefing: Investigators were asked to guess the arm, and they were right far more often than chance.
     stake: >-
-      Thursday, 11 days out. A routine questionnaire has come back wrong. At the last yearly
-      visit, every site doctor was asked to guess which arm each of their patients was on.
-      Across 1,180 guesses they were right 71% of the time. Ansah's committee see no arms at
-      all, so their work is untouched. The symptom score is another matter. The treating doctor
-      writes that one down. Iriarte and Doyle have both called it the score patients care about.
-      Today you work out what a guessing rate like that does to each of the trial's two
-      outcomes. The board has to be told before it reads either of them.
+      Thursday, 11 days out. Site doctors were asked to guess which arm each patient was on, and across
+      1,180 guesses they were right 71% of the time. Today you work out what a guessing rate like that
+      does to each outcome.
     takeaway: A blind that has already failed cannot be restored by insisting on it.
     stops:
       - group: ENDP
         task: Choose the explanation that fits the guessing survey and the visible flush.
         title: The blind that had already gone
+        reason: >-
+          A 71% guessing rate has an explanation, and the pack cannot report the symptom score without
+          naming it
         place: Adjudication Room
         scene: At the annual visit, investigators and participants guessed each person's arm. Investigators were correct 71% across 1,180 guesses. The case packet also contains first-fortnight symptom logs, the allocation audit and the adjudicated outcome summary.
         guide: >-
@@ -2138,6 +2182,9 @@ missions:
       - group: STAT
         task: Open each measurement's dependencies, keep the ones that do not inherit the blinding leak, and name the shared source.
         title: Which measurements share the leak
+        reason: >-
+          Some of the trial's numbers pass through the treating doctor and some do not, and only the
+          first group inherits the leak
         place: Statistics & Analysis
         scene: Feldman has 4 CLARION-3 measurements on the wall. The guessing survey says the blind has leaked. Each measurement came through a different path, and the sponsor wants to know which evidence still stands on its own.
         guide: >-
@@ -2215,6 +2262,9 @@ missions:
       - group: SAFE
         task: Decide what has to enter tonight’s pack before the board sees the interim results.
         title: Telling the board what it does not yet know
+        reason: >-
+          Prof. Helena Vogt reads the interim results this month, and a leak she has not been told about
+          is worse than the leak
         place: Monitoring Board Room
         scene: Vogt reads the interim pack in 11 days, and the PDF is queued for sign-off tonight. The guessing survey is absent because nobody expected it to matter. Balogun wants to leave it for the annual report.
         guide: >-
@@ -2262,19 +2312,17 @@ missions:
     objective: Re-read the trial on the outcome the unblinding could not reach.
     briefing: Take the compromised score out and see what is left.
     stake: >-
-      Friday, ten days out. Ansah's committee has re-read every unclear file from the past year.
-      The site and the arm were stripped out first, as always. Petrescu has run the adjudicated
-      endpoint for the closed report. The effect on the symptom score was large. On the
-      adjudicated events it is smaller, and it is still there. Feldman says that is the number
-      the trial always had. Balogun says a smaller real effect is still a reason to stop giving
-      people the other arm. Today you work out what the surviving result says, and how tightly
-      it says it. There are patients joining this week, and the blind still has to hold for
-      them.
+      Friday, ten days out. The committee has re-read every unclear file with the arm stripped out, and
+      the effect there is smaller than on the symptom score. Today you say what is left, and how tightly
+      it holds.
     takeaway: A finding that shrinks when the bias is removed was partly the bias.
     stops:
       - group: ENDP
-        task: Check the committee's re-read for the thing it could still get wrong
+        task: Check the committee's re-read for the measurement error it could still carry
         title: Reading the same files twice
+        reason: >-
+          The committee's re-read is the one number the leak could not reach, so what it could still get
+          wrong matters most
         place: Adjudication Room
         scene: |-
           The committee has re-read 400 files. Ansah is asked whether a second reading by the same three people, who now know a guessing survey exists, can be trusted at all.
@@ -2342,6 +2390,8 @@ missions:
       - group: STAT
         task: Translate the effect into NNT, then put a number on the sampling noise behind one arm rate.
         title: How big, and how wide
+        reason: >-
+          A surviving effect is only useful to the board with a size and a width attached to it
         place: Statistics & Analysis
         scene: The press office has lifted the prespecified 12-month risk difference, “4.2 percentage points,” into a draft briefing. Feldman circles the interval beside it. Before the number leaves the room, she wants the team to put both clinical size and sampling noise on this fixed-horizon risk.
         guide: >-
@@ -2393,10 +2443,12 @@ missions:
           givens:
             - Control arm event rate 18.9%
             - Treatment arm event rate 14.7%
-          relationship: At a stated fixed time horizon, ARR = p_control − p_treatment and NNT = 1/ARR. The displayed SE = √(p(1−p)/n) is a simple binomial approximation; a full time-to-event analysis with censoring uses survival methods rather than this shortcut.
+          relationship: At a fixed time point, ARR = p_control − p_treatment and NNT = 1/ARR. The displayed SE = √(p(1−p)/n) is a binomial approximation; a full time-to-event analysis with censoring uses survival methods instead.
       - group: RAND
         task: Decide what to do about the blind for everybody still enrolling
         title: What to do about a blind that leaks
+        reason: >-
+          Patients are joining this week, and the blind still has to mean something for them
         place: Kit Warehouse & Cold Room
         scene: >
           600 participants are still in follow-up and the flush has not stopped happening.
@@ -2455,20 +2507,18 @@ missions:
   # ---------------------------------------------------------------- day 11
   - title: Freeze the evidence
     objective: Close the file that the board will read.
-    briefing: Nothing has gone wrong. The cut is on Thursday.
+    briefing: No crisis today, only a database lock on Thursday.
     stake: >-
-      Monday, six days out, and nothing is wrong. Open queries are down to 41. The sites have
-      sent in what they owe. Renner's check of the records balanced on the first run, for the
-      first time in two years. Umeh has the lock plan on the wall with Thursday circled. Vogt
-      reads the pack the Tuesday after that. Until then Petrescu is the only person who will
-      have seen it. Today you close the file. That means saying what still has to be true before
-      the data can be frozen. It means saying what a locked database really promises. And it
-      means naming which of the 41 open queries cannot wait until after Thursday.
+      Monday, six days out, and nothing is wrong. Open queries are down to 41 and the file is locked on
+      Thursday. Today you close the file, and say what a locked database really promises.
     takeaway: A locked file is a promise about a moment, not about perfection.
     stops:
       - group: REG
         task: Say what the lock protects, and what kind of problem could justify breaking it.
         title: Freezing something that was moving
+        reason: >-
+          Thursday's lock is what the board's pack rests on, and what a lock promises has to be written
+          down first
         place: Regulatory & Registry
         scene: "The database-lock checklist is projected on the wall and the cut is three days away. Umeh has one question from the sponsor and another from Renner: once the file freezes, what exactly would justify opening it again?"
         guide: >-
@@ -2516,6 +2566,9 @@ missions:
       - group: SITE
         task: Keep the one query that cannot miss Thursday's cut and delegate the others with an owner, first action and return condition.
         title: Three days, forty-one queries
+        reason: >-
+          There are 41 open queries and three days, and only some of them can still change what the
+          board reads
         place: Monitors' Room
         scene: 41 queries remain and the interim file locks in 3 working days. One concerns a primary-event date, one a duplicated visit, and 39 are contact-field corrections. Renner has two people available, and you can keep only one problem yourself.
         guide: >-
@@ -2595,6 +2648,9 @@ missions:
       - group: ENDP
         task: Decide what the committee still owes before the lock
         title: Nothing left in the tray
+        reason: >-
+          Kwame Ansah's committee cannot rule after the lock, so whatever is left in the tray on
+          Thursday stays unresolved
         concept: Hard endpoints against judged ones, and blinded adjudication
         place: Adjudication Room
         scene: >
@@ -2631,7 +2687,7 @@ missions:
           - an event is only counted once the committee has ruled on it
         takeaway: An unadjudicated event is invisible to the analysis, whatever the notes say.
         format: CHOICE
-        question: Why must the committee clear its tray before the file is locked?
+        question: Why must the adjudication committee clear its tray before the file is locked?
         choices:
           - Events without a ruling are absent from the analysis
           - A ruling made after the lock cannot be entered into any database
@@ -2655,18 +2711,16 @@ missions:
     objective: Rank what the board is told when everything arrives on the same morning.
     briefing: A subgroup has crossed its line, a rival has published, and the regulator has written.
     stake: >-
-      Tuesday, five days out, and three things landed before nine. Petrescu's closed tables show
-      one subgroup crossing the boundary on its own. It is the patients over 70. A group in Lyon
-      has published a smaller trial of a related drug, with a strong result. And the regulator
-      wants the liver cases from day three written up as a formal safety update, due Friday.
-      Balogun has read the Lyon paper twice. He wants the board told about all three together.
-      Today you decide what goes in the pack, and in what order. Each of the three is evidence
-      about something different. The pack has to say which is which.
+      Tuesday, five days out, and three things landed before nine. A subgroup crossed its line, a Lyon
+      team published a rival trial, and the regulator wants the liver cases by Friday. Today you decide
+      what goes in the pack, and in what order.
     takeaway: Three urgent things are not one big thing, and the board is owed the difference.
     stops:
       - group: STAT
         task: Say what a subgroup crossing its line is worth
         title: The subgroup that crossed
+        reason: >-
+          One subgroup crossed its boundary on its own, and the board will ask what that is worth
         concept: Subgroup analysis, and why a subgroup finding is a hypothesis
         place: Statistics & Analysis
         scene: >
@@ -2723,6 +2777,8 @@ missions:
       - group: SAFE
         task: Assemble the safety update the regulator has asked for
         title: The update that is due Friday
+        reason: >-
+          The regulator has set Friday, and the liver cases from day three are what it has asked to see
         place: Monitoring Board Room
         scene: |-
           The regulator wants the liver cases written up by Friday. There are now four, not two. Vogt has seen all four by arm; nobody else in the building has.
@@ -2772,6 +2828,9 @@ missions:
       - group: REG
         task: Spend tonight's review budget on the parts of the Lyon result that could change what CLARION-3 asks its board to consider.
         title: What the Lyon paper is worth tonight
+        reason: >-
+          The Lyon result is outside evidence, and tonight is the only time there is to work out how
+          much of it bears on CLARION-3
         place: Regulatory & Registry
         scene: The Lyon trial published a large benefit at 6:10 this morning. By lunch, Balogun wants CLARION-3 to respond. Nkechi Umeh has the paper, its supplement and four review hours before she must state the trial’s position.
         guide: >-
@@ -2843,9 +2902,15 @@ missions:
       - group: SAFE
         task: Work the same-day safety-escalation queue while the signal-management rule changes.
         title: What needs extra escalation today
+        reason: >-
+          The safety desk queue is full and the rule for escalating a case changed this morning
         concept: "Causality assessment, and why reporting does not wait for it"
         place: Safety Desk
-        scene: "Every serious adverse event has already entered the sponsor's standard safety system. What is changing on this desk is the extra same-day escalation rule for the emerging liver signal: first serious unexpected cases, then anything matching the cluster, then anything the regulator specifically asks to see."
+        scene: >-
+          Every serious adverse event is already in the sponsor's standard safety system. What changes
+          on this desk is the extra same-day alert rule for the liver signal. It starts with serious
+          unexpected cases. Then it widens to anything matching the cluster. Then to anything the
+          regulator has asked to see.
         guide: >-
           Escalate what the current focused-signal rule requires. The underlying SAE reports are already in the safety system; this board is deciding which cases need an additional same-day alert or focused follow-up. The rule changes as the signal changes, so the scored moments are either side of each update.
         background:
@@ -2860,14 +2925,14 @@ missions:
         question: Escalate to the focused safety rule in force, while ordinary SAE reporting continues underneath it.
         answerText: Apply the current focused-escalation rule. Cases not selected here remain in the standard safety-reporting pathway.
         why: >-
-          Three focused-escalation rules run across the day: serious unexpected cases for the initial alert, then anything resembling the emerging cluster, then anything matching the regulator's specific request. A report can answer two at once, which is what makes the
-          change cost real rather than notional. The panel scores the window either side of
-          each change, because most of the queue is wanted by neither rule and is correctly
-          held for assessment by somebody who has read nothing. The desk's own version is the
-          hour after a second case appears: the rule has changed to anything resembling it, and
-          the reports going out are still the ones that were serious-and-unexpected when the
-          morning started — which is precisely the hour in which the pattern was visible and
-          nobody outside the trial could see it.
+          Three focused-escalation rules run across the day. The first alerts on serious unexpected
+          cases. The second widens to anything resembling the emerging cluster. The third covers
+          anything the regulator has asked about. One report can satisfy two rules at once, which is
+          what makes each change cost something real. The panel scores the window either side of each
+          change. Most of the queue is wanted by neither rule and is correctly held for ordinary
+          assessment. The hour after a second case appears is the hard one. The rule has already
+          widened, and the reports still going out are the ones that were serious-and-unexpected when
+          the morning started.
         spot:
           duration: 40
           switchEvery: 12
@@ -2908,20 +2973,19 @@ missions:
           commit: Open the desk
   - title: The result that looks too good
     objective: Work out what the over-seventies result would have cost if it had been believed.
-    briefing: Feldman has the list of every subgroup the plan named.
+    briefing: The list of subgroups the plan named in advance has 14 entries on it.
     stake: >-
-      Wednesday, four days out. The subgroup list written in advance has 14 entries on it. The
-      over-seventies are the eleventh. Feldman has spent the morning showing what 14 looks like.
-      Cut the trial 14 ways, and one of those slices clearing the usual line is close to
-      expected. That holds even when the drug does the same thing in everybody. Balogun has
-      argued all fortnight for acting sooner. He agrees before she has finished. Today you put a
-      number on how often 14 separate looks throw up a false positive. What the board is told
-      about the over-seventies follows from that number.
+      Wednesday, four days out. The plan named 14 subgroups before the trial began,
+      and the over-70 group is number eleven. Today you work out how often 14 looks
+      throw up one false positive by luck.
     takeaway: A nominally striking subgroup result must be judged inside the family of subgroup analyses that produced it.
     stops:
       - group: STAT
         task: Put a number on 14 looks
         title: How often something clears the line by luck
+        reason: >-
+          The over-seventies row is one of 14 looks, and the board is owed the number that says what one
+          look is worth
         concept: Type I and type II error, and what α and β are for
         place: Statistics & Analysis
         scene: >
@@ -2949,7 +3013,8 @@ missions:
           - each test has a 5% chance of a false positive on its own
         takeaway: The chance of at least one false positive rises fast with the number of tests.
         format: BALLPARK
-        question: Under the simplifying assumption that 14 subgroup tests were independent, what benchmark probability would there be of at least one nominal 5% false positive?
+        question: Assume for a moment that the 14 subgroup tests were independent. What is the benchmark
+          chance that at least one looks statistically significant at 5% by luck alone?
         why: >
           As an independence benchmark, fourteen separate 5% tests give 1 − 0.95^14 ≈ 0.51 for at least one false positive. Real subgroup tests are usually correlated because the same participants appear in several slices, so 51% is not CLARION-3's exact familywise error rate. The exact rate depends on those correlations and on the multiplicity method in the analysis plan. The point is structural: a nominal p-value from one selected row cannot be interpreted as though that row were the only question asked.
         estimate:
@@ -2977,11 +3042,14 @@ missions:
             - 14 subgroups were prespecified
             - Each is tested at the 5% level
           relationship: >
-            If m tests were independent, P(at least one false positive) = 1 − (1 − α)^m. Overlapping subgroup tests are correlated, so this is an illustrative benchmark rather than a universal formula for the actual trial.
+            If m tests were independent, P(at least one false positive) = 1 − (1 − α)^m. Subgroup tests overlap, so this is an illustrative benchmark rather than a formula for this trial.
         answerText: About 51% — near enough a coin toss.
       - group: ENDP
         task: Check what the over-seventies analysis actually measured
         title: The slice, and what it was scored on
+        reason: >-
+          The over-seventies result rests on a score, and which score it was decides how much of it
+          survives
         place: Adjudication Room
         scene: |-
           The over-seventies result is on the symptom score rather than the adjudicated event. Ansah points out that this is the outcome the guessing survey landed on, and that older participants attend most often.
@@ -3030,6 +3098,9 @@ missions:
       - group: SAFE
         task: Write what the board is told about the subgroup
         title: What to say about a slice
+        reason: >-
+          The board will read one sentence about the over-seventies, and a sentence is where a
+          hypothesis turns into a claim
         place: Monitoring Board Room
         scene: >
           Vogt will see the over-seventies table whatever the pack says about it. What the pack can
@@ -3086,20 +3157,17 @@ missions:
   # ---------------------------------------------------------------- day 14
   - title: What would we lose by stopping?
     objective: Prepare the case the board will decide on, and be honest about what stopping costs.
-    briefing: The board meets tomorrow. After that the decisions are made.
+    briefing: The board meets tomorrow, and after that the decisions are made.
     stake: >-
-      Thursday, one day out. The pack is printed and the file is locked. Petrescu has run the
-      analyses the plan named, and nothing else. Tomorrow Vogt's board sits for four hours. It
-      will recommend one of three things. Stop for benefit, stop for futility, or carry on to
-      the end. Balogun will be in the open session, saying what he has said all fortnight. Doyle
-      will be in the room too. She has asked what a patient who joined last month is owed by
-      either decision. Today you put together what the board has to weigh. That is how likely
-      the trial is to finish positive, and what each way of stopping would leave unknown.
+      Thursday, one day out. The pack is printed, the file is locked, and tomorrow the board sits for
+      four hours to recommend one of three things. Today you put together what it has to weigh.
     takeaway: Stopping is a decision about what will never be known, as much as about what is known.
     stops:
       - group: SAFE
         task: Match each recommendation to what the board gives up by making it.
         title: Three things the board can say
+        reason: >-
+          Tomorrow's board picks one of three recommendations, and each of the three gives something up
         place: Monitoring Board Room
         scene: Vogt’s board meets behind a closed door in 40 minutes. The adjudicated effect is modest, the stopping boundary is not crossed, and four liver cases remain unexplained. Three recommendations are printed on separate cards in front of her.
         guide: >-
@@ -3151,6 +3219,8 @@ missions:
       - group: STAT
         task: Separate what the information fraction tells you from the assumptions needed to forecast the final result
         title: What can 65% of the information actually tell us?
+        reason: >-
+          The pack has to say what two thirds of the information can settle, and what it cannot
         place: Statistics & Analysis
         scene: |-
           Feldman has 246 of the planned 380 events and an interim z-score of 1.42. Balogun asks for the probability that the final analysis will be positive. Feldman writes two different answers on the board because the forecast changes with what you assume about the treatment effect in the events that have not happened yet.
@@ -3201,6 +3271,9 @@ missions:
       - group: REG
         task: Order what has to happen if the board recommends stopping tomorrow.
         title: What a stop obliges
+        reason: >-
+          If the board says stop, a long list of things has to happen in order, and somebody has to have
+          written the order down
         place: Regulatory & Registry
         scene: Umeh has the registry entry, protocol and publication policy open before the board call. One participant is due an infusion on Monday. Doyle asks what happens, in what order, if the board recommends stopping tomorrow.
         guide: >-
@@ -3244,21 +3317,18 @@ missions:
   # ---------------------------------------------------------------- day 15
   - title: Release the pack
     objective: Assemble and sign the monitoring-board pack without turning a promising interim signal into a conclusion.
-    briefing: The board meets this afternoon. This is the last chance to decide what evidence it actually receives.
+    briefing: The board meets this afternoon, and the score that looks best is the one the leak can reach.
     stake: >-
-      Friday, board day. Helena Vogt arrives at three. Petrescu's closed tables show a promising
-      adjudicated effect, but the prespecified benefit boundary has not been crossed. The symptom
-      score looks larger and is the outcome the blinding failure can reach. Four liver cases remain
-      unresolved. The over-seventies row is nominally striking and is one of fourteen subgroup looks.
-      Balogun sees people still being randomized to the arm that may be worse. Feldman sees a trial
-      one early decision away from overstating what it knows. You have the last editable copy of the
-      monitoring-board pack. Today you decide what each number is allowed to claim, then you sign the
-      version Vogt will use to decide whether CLARION-3 continues.
+      Friday, board day. The adjudicated effect is promising but has not crossed the line
+      the plan set. Today you decide what each number may claim, then you sign
+      The Monitoring Board Pack.
     takeaway: The final job is to hand the board a decision-ready record that keeps measurements, assumptions, limitations and recommendations separate.
     stops:
       - group: REG
         task: Move the two event rates until they reproduce the reported relative risk, then use the absolute risk reduction to collapse the possibilities.
         title: One relative risk, many absolute effects
+        reason: >-
+          The same relative risk sits on very different pairs of event rates, and the pack quotes both
         place: Regulatory & Registry
         scene: 2 lines for the board chair’s closed briefing describe the same CLARION-3 result. One says risk fell about 22%; the other says roughly 4 events were prevented per hundred people. Umeh puts both arm rates on a two-control display.
         guide: >-
@@ -3334,6 +3404,9 @@ missions:
       - group: ENDP
         task: State what the trial has established about its endpoint
         title: What can be claimed
+        reason: >-
+          This is the sentence the board reads first, and it is the easiest place in the pack to claim
+          too much
         place: Adjudication Room
         scene: |-
           Ansah is asked to write one sentence about the adjudicated endpoint for the board's minutes. He has the effect, the interval, and the fact that the trial has not finished.
@@ -3383,6 +3456,9 @@ missions:
       - group: REG
         task: Choose the only version of the monitoring-board pack you can sign and release.
         title: Sign the board pack
+        reason: >-
+          Prof. Helena Vogt arrives at three, and the version on the desk at that moment is the one she
+          decides from
         place: Regulatory & Registry
         scene: >
           It is 2:42. Vogt's board meets at three. Four versions of the executive page are on Umeh's
@@ -3421,11 +3497,11 @@ missions:
         format: CHOICE
         question: Which executive page can you sign and release to the monitoring board?
         choices:
-          - The adjudicated endpoint is promising but has not crossed the prespecified benefit boundary; the symptom score is limited by loss of blinding; the liver signal remains under protected review; subgroup findings are exploratory; the board should decide from the full closed evidence whether to continue.
-          - CLARION-3 has shown a clinically important benefit, especially in participants over 70, and the remaining events are unlikely to change that conclusion.
-          - The trial has no reliable efficacy evidence because the blind leaked, so all treatment comparisons should be discarded and recruitment stopped.
-          - Four liver cases establish a drug safety problem, so efficacy should no longer enter the board's decision.
-        answer: The adjudicated endpoint is promising but has not crossed the prespecified benefit boundary; the symptom score is limited by loss of blinding; the liver signal remains under protected review; subgroup findings are exploratory; the board should decide from the full closed evidence whether to continue.
+          - The adjudicated endpoint is promising and has not crossed the prespecified benefit boundary. The symptom score is limited by the loss of blinding. The liver signal stays under protected review. The subgroup rows are exploratory. The board decides from the closed evidence.
+          - CLARION-3 has shown a clinically important benefit. It is clearest in participants over 70. The symptom score points the same way. The remaining events are unlikely to change that. The board should stop the trial for benefit.
+          - The blind leaked, so no comparison in this trial can be trusted. The adjudicated endpoint is compromised along with the symptom score. Every treatment comparison should be withdrawn. Recruitment should stop today.
+          - Four liver cases establish a drug safety problem. Efficacy should no longer enter the board's decision. The trial should be halted this afternoon. Every site should be told which arm its patients were on.
+        answer: The adjudicated endpoint is promising and has not crossed the prespecified benefit boundary. The symptom score is limited by the loss of blinding. The liver signal stays under protected review. The subgroup rows are exploratory. The board decides from the closed evidence.
         answerText: Sign the qualified page. It separates the protected primary endpoint, the compromised subjective outcome, the unresolved safety signal and the exploratory subgroup result, and it leaves the stop/continue recommendation to the independent board that is entitled to see the arms.
         why: >
           Every sentence on the qualified page has a different evidential status. The adjudicated
@@ -3656,7 +3732,8 @@ lessons:
       - events accumulate over time, at some rate per participant per year
     takeaway: A finish date is an output of the event rate, and the event rate is not the sponsor's to set.
     format: BALLPARK
-    question: Estimate how long HELIOS has to follow its participants to reach the events it needs.
+    question: HELIOS is an event-driven trial too. Estimate how long it has to follow its
+      participants to reach the planned events it needs.
     why: >
       A trial that waits for events finishes when the events arrive. Nine hundred participants who
       stay well carry almost no information about which arm is better; the comparison rests on the

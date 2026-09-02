@@ -75,22 +75,17 @@ export default {
       'The blind-administration finding',
       'The streetlamp outage and confidence timeline',
       'The nineteenth-hour statement, weighted',
-      'The identification\'s bounded evidentiary weight',
+      'What one identification can carry',
       'The evidence not worth consuming',
       'The signed referral',
     ],
   },
   opening: [
-    'On a November night in 2019 Alma Cardoza watched a robbery from across Ferrier Street and later '
-    + 'picked Elias Ward from six photographs. Her identification was the evidence that put Ward at the '
-    + 'shop; no fingerprint, video or other physical evidence did. Police also recorded Ward agreeing with '
-    + 'their account late in a long night of custody, and he took it back the next morning. He has served '
-    + 'seven years of a fourteen-year sentence. You are the review analyst at the Conviction Integrity Unit. '
-    + 'In fifteen days the board decides whether this identification can keep carrying the conviction. The '
-    + 'file says Cardoza was twenty-two metres away under normal street lighting and later became absolutely '
-    + 'certain. Your job is to separate what was measured, what was assumed, what changed after the robbery, '
-    + 'and what the board is actually entitled to conclude. If the referral fails, Ward gets no new review '
-    + 'until 2033.',
+    'In 2019 Alma Cardoza watched a robbery across Ferrier Street. Weeks later she picked Elias Ward '
+    + 'out of six photos. Her choice is the only thing that put him in that shop, and he has served '
+    + 'seven years of fourteen. You are the review analyst, and in fifteen days you hand the board the '
+    + 'Ward Referral. The board does not ask who was in the doorway; if it says no, nobody looks at '
+    + 'this case until 2033.'
   ],
   // The last thing anybody reads. What happened, what it cost, what is left.
   ending: [

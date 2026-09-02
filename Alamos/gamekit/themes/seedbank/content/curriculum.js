@@ -1419,7 +1419,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Genetic loss is set by how many individuals contribute rather than how many stand in the plot, so an unequal or a small contribution makes a population drift like one much smaller than it looks.",
-          "demanded": true
+          "computed": true
         }
       ],
       "concept": {

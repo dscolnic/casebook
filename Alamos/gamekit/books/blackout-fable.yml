@@ -527,8 +527,7 @@ missions:
               an operator action or a cascade. Getting the order wrong produces a confident
               and wrong account of the night.
         takesAsRead:
-          - RMS against peak and average
-          - Faraday's law and electromagnetic induction
+          - Charge, current, voltage and resistance
         assumes:
           - a timestamp combines a measured event with a clock reference
           - two channels can agree because they share the same source

@@ -703,11 +703,11 @@ export const CURRICULUM = {
         "an instrument reports an average over its own response time"
       ],
       "concept": {
-        "n": 19,
-        "c": "Instrument bandwidth: what a slow instrument cannot see",
+        "n": 2,
+        "c": "The electric field as a vector field, and field lines",
         "of": 30,
         "rests": [
-          "The RC circuit, and what a time constant means"
+          "Charge, and where it sits on a conductor"
         ]
       }
     },
@@ -3964,7 +3964,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the launch rule sets thresholds for actions with lead times"
-      ]
+      ],
+      "concept": {
+        "n": 14,
+        "c": "Capacitors in series and parallel",
+        "of": 30,
+        "rests": [
+          "Capacitance as a ratio, before it is a formula"
+        ]
+      }
     },
     {
       "day": 4,
@@ -4460,11 +4468,11 @@ export const CURRICULUM = {
         "a test is worth what it could change"
       ],
       "concept": {
-        "n": 26,
-        "c": "Mutual inductance: one circuit talking to another",
+        "n": 14,
+        "c": "Capacitors in series and parallel",
         "of": 30,
         "rests": [
-          "Faraday's law: an EMF from a changing flux"
+          "Capacitance as a ratio, before it is a formula"
         ]
       }
     },
@@ -4590,12 +4598,12 @@ export const CURRICULUM = {
         "a report should distinguish measurement, tested model, inference and unresolved prediction"
       ],
       "concept": {
-        "n": 30,
-        "c": "Measurement in the right regime: shunts, dividers and what they load",
+        "n": 16,
+        "c": "Resistance, resistivity and the ground as a resistor",
         "of": 30,
         "rests": [
-          "Resistance, resistivity and the ground as a resistor",
-          "Instrument bandwidth: what a slow instrument cannot see"
+          "Current as a flow, and current density",
+          "Electric potential as a line integral of the field"
         ]
       }
     }

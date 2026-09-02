@@ -1741,6 +1741,26 @@ export const CURRICULUM = {
           ],
           "s": "Speed is how much ground is covered divided by how long it took.",
           "computed": true
+        },
+        {
+          "e": "distance = speed × time",
+          "c": "distance from a radar echo",
+          "v": [
+            [
+              "distance",
+              "in kilometres"
+            ],
+            [
+              "speed",
+              "the speed of light, 300,000 kilometres per second"
+            ],
+            [
+              "time",
+              "the round trip, in seconds"
+            ]
+          ],
+          "s": "A radar pulse travels out and back at a known speed, so the time it takes gives the distance — halved, because it went twice.",
+          "computed": true
         }
       ],
       "concept": {

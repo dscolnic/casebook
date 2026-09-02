@@ -6,375 +6,423 @@ export const MISSIONS = [
   {
     "title": "The Failure",
     "objective": "Create a trusted state vector and a prioritized anomaly list before commanding the crew.",
-    "briefing": "A crewed lunar spacecraft reports an explosion, falling electrical power, and contradictory telemetry. The player takes the flight-director console and must first determine what can still be measured reliably.",
-    "stake": "The bang was four minutes ago. Commander Hale heard it before any instrument did. Now one power bus reads zero, the guidance computer has restarted blank, and three cabin-pressure channels have fallen together. You are the flight director. Before the crew opens a panel or fires a thruster, this room has to decide which failures are real and which are only bad measurements. A wrong diagnosis spends air, power, or crew time that cannot be replaced. This shift you build the first trusted picture of the spacecraft and the rule the room will use for every call after it.",
+    "briefing": "An explosion has damaged the ship and its sensors disagree. Decide what is real before the crew acts.",
+    "stake": "Shift 1. An explosion hit the ship four minutes ago. Power is falling, and three pressure screens show the same sharp drop. You must find whether the cabin is leaking before a wrong order wastes air, power, or crew time.",
     "takeaway": "Use units, vectors, graphs, measurement uncertainty, common-mode failure as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "INTEG",
         "lesson": 0,
-        "task": "Open the dependency chain behind each pressure reading. Keep the evidence that stands independently, then name the shared source that explains the false alarm."
+        "task": "Open the dependency chain behind each pressure reading. Keep the evidence that stands on its own, then name the shared source that explains the false alarm.",
+        "reason": "A false leak call could waste the crew's air and time."
       },
       {
         "group": "INTEG",
         "lesson": 1,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Put the four cards in order. Start with the step that must happen first.",
+        "reason": "Every later order depends on a log the next shift can trust."
       },
       {
         "group": "INTEG",
         "lesson": 2,
-        "task": "Ten minutes to the next tracking pass. What does the flight director do first?"
+        "task": "Ten minutes to the next tracking pass. What does the flight director do first?",
+        "reason": "One clear order keeps the crew from acting on mixed commands."
       }
     ]
   },
   {
     "title": "Find the Spacecraft",
     "objective": "Produce a consistent trajectory estimate and identify which new observation most reduces uncertainty.",
-    "briefing": "Tracking data are intermittent, and the onboard computer has restarted. The team must reconstruct position and velocity from range, bearing, and timed observations.",
-    "stake": "Nine hours after the bang, the spacecraft is still coming home only if the ground can say where it is. The best tracking station sets in forty minutes, the onboard guidance computer has restarted, and the surviving measurements do not all share the same clock or geometry. Reyes needs a state she can defend; Whitaker needs one soon enough to plan the correction. This shift you reconstruct position and velocity from independent pieces of evidence, then choose the next observation that most reduces what the room still does not know.",
+    "briefing": "The ship's computer lost its position and speed. Rebuild both from the tracking data that remain.",
+    "stake": "Shift 2. Nine hours have passed. The ground still cannot place the ship. Reyes, the guidance lead, needs its position, while Whitaker, the trajectory officer, needs a path. You must join the last readings before the best tracking site drops from view.",
     "takeaway": "Use position, velocity, acceleration, coordinate systems, graphs of motion as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "NAV",
         "lesson": 0,
-        "task": "Match each quantity the state estimate needs to the measurement that provides it."
+        "task": "Match each quantity the state estimate needs to the measurement that provides it.",
+        "reason": "The next pass must fill the largest gap in the ship's state."
       },
       {
         "group": "NAV",
         "lesson": 1,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Put the four cards in order. The state vector comes out at the end, so start with the step that must happen first.",
+        "reason": "The next burn needs a position and speed that predict new data."
       },
       {
         "group": "NAV",
         "lesson": 2,
-        "task": "Why does the free-return path bend around the Moon instead of simply hitting it?"
+        "task": "Why does the free-return path bend around the Moon instead of simply hitting it?",
+        "reason": "The room must know why this path misses the Moon."
       }
     ]
   },
   {
     "title": "The Wrong Trajectory",
     "objective": "Choose a correction that restores a safe return while preserving fuel and engine options.",
-    "briefing": "The spacecraft is drifting away from its planned free-return path. The player must use Newtonian gravity and impulse to determine whether a small correction now can prevent a large correction later.",
-    "stake": "Eighteen hours in, the drift is real: the present trajectory misses the entry corridor by about four hundred kilometres. Whitaker wants a small correction now. Carter wants one more independent look before turning an uncertain error into an irreversible burn. Both can be right in different circumstances. This shift you decide whether the measured miss is large enough, and well enough known, to spend propellant on. The same few metres per second that look trivial now decide where the spacecraft is days later.",
+    "briefing": "The ship will miss the safe path to Earth. Decide if the evidence is strong enough to burn fuel now.",
+    "stake": "Shift 3. The drift is real, and the current path misses safe entry by about 400 kilometres. A small burn now may fix it, but a burn based on bad data would make things worse. You must decide if the miss is large and clear enough to spend fuel.",
     "takeaway": "Use Newton’s laws, gravity, orbits, impulse, trajectory sensitivity as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "INTEG",
         "lesson": 3,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Put the four cards in order. Each card is one link from the engine thrust to the trajectory it changes.",
+        "reason": "An early change in speed can prevent a fatal miss later."
       },
       {
         "group": "NAV",
         "lesson": 3,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the values shown. Write the equation and give a rounded answer with units.",
+        "reason": "The burn is approved only if its effect is large enough."
       },
       {
         "group": "THERM",
         "lesson": 0,
-        "task": "The tank reads 40 psi and the regulator wants 15. What is the flow doing?"
+        "task": "The tank reads 40 psi and the regulator wants 15. What is the flow doing?",
+        "reason": "Tank pressure means little if gas cannot reach the cabin."
       }
     ]
   },
   {
     "title": "Turn Without Wasting Fuel",
     "objective": "Develop a controlled reorientation procedure that stops the rotation at the required attitude.",
-    "briefing": "The main guidance platform is unavailable, and the crew must reorient the spacecraft using limited thrusters and visible reference objects.",
-    "stake": "Twenty-six hours in, the main guidance platform is powered down and one thruster quad is dead. Hale has to turn the spacecraft ninety degrees by hand for the next burn. Start the rotation and it keeps going; stop too late and the ship overshoots, taking the antenna and burn attitude with it. This shift you write a turn procedure that controls both angle and angular rate while spending as little propellant as possible.",
+    "briefing": "The main guidance unit is off and one thruster set is dead. Write a hand-flown turn that stops on target.",
+    "stake": "Shift 4. The main guidance unit is off, and one thruster set is dead. The crew must turn the ship 90 degrees by hand and stop at the right angle. A bad turn could lose the radio link and the next burn.",
     "takeaway": "Use torque, angular acceleration, moment of inertia, angular momentum, center of mass as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "STRUCT",
         "lesson": 0,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each case to the best scientific answer. Use each choice once.",
+        "reason": "The crew must know how the ship will keep turning."
       },
       {
         "group": "INTEG",
         "lesson": 4,
-        "task": "Choose the opening pulse and the angle where counter-torque begins. Run the maneuver and stop the spacecraft at 90 degrees with almost no remaining rotation."
+        "task": "Choose the opening pulse and the angle where counter-torque begins. Run the maneuver and stop the ship at 90 degrees with almost no remaining rotation.",
+        "reason": "A clean stop saves fuel and protects the burn angle."
       },
       {
         "group": "NAV",
         "lesson": 4,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the values shown. Write the equation and give a rounded answer with units.",
+        "reason": "Torque sets how fast the hand-flown turn begins."
       },
       {
         "group": "INTEG",
         "lesson": 5,
-        "task": "Sort the telemetry flags before the handover."
+        "task": "Sort the telemetry flags before the handover.",
+        "reason": "A bad sensor and a bad ship need opposite responses."
       }
     ]
   },
   {
     "title": "The Power Budget",
     "objective": "Build a load-shedding plan that preserves essential functions through the next critical maneuver.",
-    "briefing": "Fuel cells and batteries are degraded. Every electrical load now competes with guidance, communications, thermal control, and life support.",
-    "stake": "Thirty-four hours in, power has become a clock. Shah has forty-one amp-hours left to cover a sixty-two-hour return. Life support must run continuously, guidance needs a few specific windows, thermal loads have to protect the coldest batteries, and communications wants everything that remains. At the same time the main bus is sagging four volts and one junction is getting warm. This shift you find where the missing electrical power is going and decide exactly what stays on.",
+    "briefing": "The fuel cells are gone and the batteries must last to entry. Find the power loss and choose what stays on.",
+    "stake": "Shift 5. Power must now last 62 more hours. Shah, the power systems lead, sees a four-volt drop and a hot joint while every system asks to stay on. You must find the loss and save enough power for air, heat, guidance, and entry.",
     "takeaway": "Use current, voltage, resistance, electrical power, energy budget as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "ELEC",
         "lesson": 0,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the values shown. Write the equation and give a rounded answer with units.",
+        "reason": "The crew cannot plan the return without a power clock."
       },
       {
         "group": "INTEG",
         "lesson": 6,
-        "task": "Which fault fits the voltage, current, generation, and thermal evidence?"
+        "task": "Which fault fits the voltage, current, generation and thermal evidence?",
+        "reason": "Blind load cuts may waste power and leave the fault hot."
       },
       {
         "group": "INTEG",
         "lesson": 7,
-        "task": "Allocate 41 amp-hours across continuous life support, six hours of thermal protection, four guidance windows, and whatever communications time remains."
+        "task": "Allocate 41 amp-hours across continuous life support, six hours of thermal protection, four guidance windows. Whatever radio time remains.",
+        "reason": "Every saved amp-hour must protect a needed flight task."
       }
     ]
   },
   {
     "title": "A Dangerous Battery Configuration",
     "objective": "Approve only a configuration whose voltage, current sharing, and failure behavior are understood.",
-    "briefing": "Engineers propose reconnecting battery modules, but a mismatched module could overheat or reverse-charge. The player must reason through series, parallel, internal resistance, and fault isolation.",
-    "stake": "Forty-two hours in, Ferreira has found an emergency battery module that could buy roughly eleven more hours. It is also at a different voltage from the live bus, its charge state is uncertain, and the improvised connector on that path is already warm. Eleven hours is valuable; a cabin electrical fire is not survivable. This shift you predict the equalising current, test the configuration under protection, and decide whether the module is safe to connect for flight.",
+    "briefing": "A spare battery could add hours, but a bad link could start a fire. Test the setup before it is used in flight.",
+    "stake": "Shift 6. Ferreira, the electrical load officer, found a spare battery. It may add 11 hours, but its voltage does not match the live bus. The new joint is warm. You must test the current before the battery starts a cabin fire.",
     "takeaway": "Use series circuits, parallel circuits, internal resistance, Joule heating, fault isolation as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "ELEC",
         "lesson": 1,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each case to the best scientific answer. Use each choice once.",
+        "reason": "The wrong wiring can remove power or spread a fault."
       },
       {
         "group": "ELEC",
         "lesson": 2,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the values shown. Write the equation and give a rounded answer with units.",
+        "reason": "A small bad joint can start a fire at high current."
       },
       {
         "group": "INTEG",
         "lesson": 8,
-        "task": "Lock a predicted equalization current, make the protected test connection, then choose whether to spend a check on the current that actually flows."
+        "task": "Lock a predicted equalization current, make the protected test connection, then choose whether to spend a check on the current that actually flows.",
+        "reason": "The spare battery helps only if its first current is safe."
       }
     ]
   },
   {
     "title": "The Cabin Is Cooling",
     "objective": "Create a thermal survival plan that protects crew, electronics, and batteries with minimal power.",
-    "briefing": "With most systems powered down, cabin temperature falls and condensation forms. The player must balance conduction, convection, radiation, metabolic heat, and battery performance.",
-    "stake": "Two days after the bang, the cabin is near four degrees Celsius and still falling. Condensed water beads cling to walls, panels, and wiring. The crew can tolerate cold longer than some batteries can, and the coldest battery is the one needed for entry. There is not enough power to heat the whole vehicle. This shift you work out how quickly heat is leaving and spend the remaining thermal margin where cold would do the most damage.",
+    "briefing": "The power cuts have made the cabin cold and wet. Protect the crew and the entry batteries with very little heat.",
+    "stake": "Shift 7. The power cuts have pushed the cabin near 4°C. Water now beads on panels, and the coldest battery is needed for entry. You must place the last heater time where cold can do the most harm.",
     "takeaway": "Use heat capacity, conduction, convection, radiation, energy balance as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "THERM",
         "lesson": 1,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the values shown. Write the equation and give a rounded answer with units.",
+        "reason": "Cold cuts battery life and puts water on live wires."
       },
       {
         "group": "THERM",
         "lesson": 2,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each case to the best scientific answer. Use each choice once.",
+        "reason": "The right heat fix depends on how heat is escaping."
       },
       {
         "group": "INTEG",
         "lesson": 9,
-        "task": "Four degrees and falling, on a fixed energy budget. What do you spend it on?"
+        "task": "Four degrees and falling, on a fixed energy budget. What do you spend it on?",
+        "reason": "The last heater time must protect people and entry power."
       },
       {
         "group": "THERM",
         "lesson": 3,
-        "task": "Hold the cabin while the crew works."
+        "task": "Hold the cabin while the crew works.",
+        "reason": "The crew needs stable air while they build the filter fix."
       }
     ]
   },
   {
     "title": "The Air Problem",
     "objective": "Develop a safe temporary air-cleaning and circulation strategy using only validated physical principles and monitored limits.",
-    "briefing": "Carbon dioxide removal is failing, and pressure readings differ between compartments. The player must connect gas laws, partial pressure, fluid flow, and filter resistance.",
-    "stake": "Fifty-eight hours in, carbon dioxide is climbing. The scrubber fan sounds normal and draws normal current, but the air through the bed does not. The spare canisters aboard do not fit the socket that needs them. Hale has repeated two numbers wrong on the loop; cold, exhaustion, and rising carbon dioxide are all plausible contributors, so nobody gets to diagnose him by story. This shift you find the blocked transport path, estimate the carbon-dioxide load, and build a sealed route that actually forces cabin air through working sorbent.",
+    "briefing": "Carbon dioxide is rising even though the scrubber fan runs. Find the blocked air path and build a safe fix.",
+    "stake": "Shift 8. Carbon dioxide is rising even though the scrubber fan sounds normal. The spare filters do not fit, and the crew is starting to make small mistakes. You must find the blocked flow and force cabin air through a working filter.",
     "takeaway": "Use ideal gases, partial pressure, flow resistance, pressure difference, filtration as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "INTEG",
         "lesson": 10,
-        "task": "Trace the air path from the cabin through the scrubber loop. Put the links in order, then name the link that governs how much carbon dioxide reaches the sorbent."
+        "task": "Trace the air path from the cabin through the scrubber loop. Put the links in order, then name the link that governs how much carbon dioxide reaches the sorbent.",
+        "reason": "A powered fan cannot clean air that does not flow."
       },
       {
         "group": "THERM",
         "lesson": 4,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the values shown. Write the equation and give a rounded answer with units.",
+        "reason": "The new filter path must handle what three people make."
       },
       {
         "group": "INTEG",
         "lesson": 11,
-        "task": "Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?"
+        "task": "Tape, a suit hose, a sock and a flight-plan cover. What must the fix get right?",
+        "reason": "The crew needs a sealed filter path before the gas reaches its limit."
       }
     ]
   },
   {
     "title": "Communication Fades",
     "objective": "Restore a reliable low-bandwidth link and use the signal itself as a navigation measurement.",
-    "briefing": "The spacecraft signal weakens and shifts in frequency as geometry changes. The team must separate transmitter failure from antenna pointing, range loss, and Doppler effects.",
-    "stake": "Sixty-six hours in, the radio link loses twelve decibels at the same moment the vehicle turns. Hale can barely hear the ground, and the same carrier the crew talks over is also one of navigation's measurements. Ito has transmitter health, receiver health, Doppler, and attitude all on one board. This shift you make the fade follow a reversible cause, recover the link, and preserve the tracking data the next maneuver depends on.",
+    "briefing": "The radio fades when the ship turns. Find the cause, restore the link, and save the tracking signal.",
+    "stake": "Shift 9. The radio loses 12 decibels when the ship turns. Ito, the communications lead, must tell a bad sender from a bad aim. You must restore the link before it is needed to guide the next burn.",
     "takeaway": "Use waves, frequency, wavelength, inverse-square behavior, Doppler effect as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "COMMS",
         "lesson": 0,
-        "task": "Change one link condition at a time, measure received power, and reverse the change. Identify the cause only when the signal follows the change both ways."
+        "task": "Change one link condition at a time, measure received power. Reverse the change. Identify the cause only when the signal follows the change both ways.",
+        "reason": "The next burn needs both a voice link and tracking data."
       },
       {
         "group": "COMMS",
         "lesson": 1,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the values shown. Write the equation and give a rounded answer with units.",
+        "reason": "Wavelength sets how sharply the antenna must point."
       },
       {
         "group": "STRUCT",
         "lesson": 1,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Put the four cards in order. Start with the step that must happen first.",
+        "reason": "The fastest safe test can restore contact before the burn."
       }
     ]
   },
   {
     "title": "A Blind Maneuver",
     "objective": "Design a manual alignment procedure whose dominant angular errors are bounded.",
-    "briefing": "The crew must align for an engine burn using a window view, a reticle, and imperfect star references. The player must connect optics, angular measurement, and reference frames.",
-    "stake": "Seventy-four hours in, the powered guidance platform is unavailable and illuminated debris has made star identification unreliable. Ruiz will aim the next maneuver through a window reticle using the Earth and Sun as coarse references while Sato holds the clock. A tenth of a degree is almost nothing in the window and hundreds of kilometres at Earth. This shift you separate real spacecraft rotation from apparent motion in the sight and decide how much manual alignment evidence is enough to trust a burn.",
+    "briefing": "The crew must aim a burn without the main guidance unit. Bound the sighting errors before trusting the turn.",
+    "stake": "Shift 10. The main guidance unit is still off, and bright debris hides many stars. The crew will aim through a window with Earth and the Sun as guides. You must tell a real turn from a sighting shift before a tiny angle becomes a large miss at Earth.",
     "takeaway": "Use lenses, angular measurement, parallax, reference frames, error propagation as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "COMMS",
         "lesson": 2,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each apparent shift to what physically moved, and keep angular error apart from a real turn of the ship. Use each choice once.",
+        "reason": "A sighting error could aim the next burn the wrong way."
       },
       {
         "group": "INTEG",
         "lesson": 12,
-        "task": "Match each feature of the plotted trace to what it tells you about the motion."
+        "task": "Match each feature of the plotted trace to what it tells you about the motion.",
+        "reason": "The line can reveal a force or a bad sensor step."
       },
       {
         "group": "NAV",
         "lesson": 5,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the values shown. Write the equation and give a rounded answer with units.",
+        "reason": "A small push may grow into an entry miss."
       }
     ]
   },
   {
     "title": "Crossing the Atmosphere",
     "objective": "Choose a corridor and monitoring strategy robust to atmospheric and navigation uncertainty.",
-    "briefing": "The return corridor is narrow: too steep causes extreme heating and deceleration; too shallow risks skipping back into space. The player must integrate drag, energy conversion, and atmospheric density.",
-    "stake": "Eighty-two hours in, the room finally has time to think about the last thing that can still kill the crew: entry. The capsule will meet the atmosphere near eleven kilometres per second, and the safe flight-path-angle corridor is only a few degrees wide. Too shallow can leave too much energy and send the vehicle far downrange or back toward space; too steep loads the heat shield and crew too quickly. This shift you turn the tracking uncertainty into an entry decision, not just a good-looking centre value.",
+    "briefing": "The ship is nearing a narrow entry path. Choose a target that stays safe when the air and tracking are uncertain.",
+    "stake": "Shift 11. The capsule will strike the air near 11 kilometres per second. Too shallow may send it back toward space, while too steep may crush or burn the crew. You must turn a range of possible paths into one safe entry call.",
     "takeaway": "Use kinetic energy, drag, work-energy, heating, deceleration as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "INTEG",
         "lesson": 13,
-        "task": "Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock correctly placed cards after each check."
+        "task": "Put the four cards in order. Start with the step that must happen first.",
+        "reason": "The crew survives only if entry sheds energy at a safe rate."
       },
       {
         "group": "THERM",
         "lesson": 5,
-        "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation."
+        "task": "Use the values shown. Write the equation and give a rounded answer with units.",
+        "reason": "The heat team needs the true size of the entry problem."
       },
       {
         "group": "INTEG",
         "lesson": 14,
-        "task": "Use the available tracking and targeting actions to place enough of the entry-angle distribution inside the safe corridor."
+        "task": "Use the available tracking and targeting actions to place enough of the entry-angle distribution inside the safe corridor.",
+        "reason": "A good center is unsafe if the possible paths are too wide."
       }
     ]
   },
   {
     "title": "The Structure Is Vibrating",
     "objective": "Move the system away from resonance and verify that the mitigation works across operating conditions.",
-    "briefing": "A pump and flexible panel produce a growing oscillation near one operating speed. The player must identify resonance and protect the structure without disabling life support.",
-    "stake": "Ninety hours in, a pump begins exciting a panel whenever its rotor passes through one narrow speed band near 3,200 rpm. A line behind that panel has already been rubbing for an hour. The vibration dies when the pump moves away from that speed, then returns when it comes back. This shift you test whether the forcing rate actually matches the structure's natural rate and move the operating point before a reversible vibration becomes broken hardware.",
+    "briefing": "A pump is making a panel shake near one speed. Move the system away from resonance before a line breaks.",
+    "stake": "Shift 12. A pump makes one panel shake hard near 3,200 rpm. A line behind the panel has rubbed for an hour, and the motion grows each time the pump returns to that speed. You must test for resonance and move away from it before the line breaks.",
     "takeaway": "Use simple harmonic motion, natural frequency, resonance, damping, forced oscillation as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "INTEG",
         "lesson": 15,
-        "task": "Which explanation fits the frequency, speed dependence, and independent accelerometers?"
+        "task": "Which explanation fits the frequency, the speed dependence and the independent accelerometers?",
+        "reason": "The pump speed must change before the hidden line breaks."
       },
       {
         "group": "STRUCT",
         "lesson": 2,
-        "task": "Use the mounted mass and stiffness to estimate the natural period, then compare its frequency with the 3,200 rpm pump forcing."
+        "task": "Use the mounted mass and stiffness to estimate the natural period, then compare its frequency with the 3,200 rpm pump forcing.",
+        "reason": "Matching rates are the key test for resonance."
       },
       {
         "group": "INTEG",
         "lesson": 16,
-        "task": "The pump is needed and the panel is entering resonance. What is the safest immediate control-panel action?"
+        "task": "The pump is needed and the panel is entering resonance. What is the safest immediate control-panel action?",
+        "reason": "A quick speed change can save the panel without stopping the pump."
       },
       {
         "group": "COMMS",
         "lesson": 3,
-        "task": "Work the call board while the flight rule changes."
+        "task": "Work the call board while the flight rule changes.",
+        "reason": "Old priorities can waste the few minutes left for a new risk."
       }
     ]
   },
   {
     "title": "Choose the Return Path",
     "objective": "Select a return plan with explicit margins and contingencies for the dominant uncertainties.",
-    "briefing": "Several return trajectories trade fuel, time, heating, communications, and life-support consumption. The player must make a multi-constraint physical decision rather than optimize one variable.",
-    "stake": "Ninety-eight hours in, four return paths are still possible and each buys safety by spending something else: time, propellant, entry margin, or consumables. The life-support endurance is uncertain by nearly a day, and water is now the tightest supply. This shift you choose the path that still works when the most important estimate is wrong in the bad direction. Fastest is not the same thing as safest.",
+    "briefing": "Four paths home spend fuel, time, water, and entry margin in different ways. Choose the one that survives a bad estimate.",
+    "stake": "Shift 13. Four paths home remain, and each spends a different safety margin. Water may run out almost a day earlier than the best estimate. You must choose the path that still works when that estimate is wrong.",
     "takeaway": "Use optimization, constraints, trade spaces, margins, critical path as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "INTEG",
         "lesson": 17,
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once."
+        "task": "Match each case to the best scientific answer. Use each choice once.",
+        "reason": "The safest path is set by the limit it nearly breaks."
       },
       {
         "group": "INTEG",
         "lesson": 18,
-        "task": "Move the consumable-endurance assumption through its allowed range and choose the return path that remains feasible at the pessimistic end."
+        "task": "Move the consumable-endurance assumption through its allowed range and choose the return path that remains feasible at the pessimistic end.",
+        "reason": "The crew needs a path that survives a bad water estimate."
       },
       {
         "group": "THERM",
         "lesson": 6,
-        "task": "Order the commitment so the abort trigger still has something to act on."
+        "task": "Order the commitment so the abort trigger still has something to act on.",
+        "reason": "An abort rule helps only while fuel remains to use it."
       }
     ]
   },
   {
     "title": "The Last Correction",
     "objective": "Decide whether to burn using the expected benefit relative to navigation and propulsion uncertainty.",
-    "briefing": "Hours before entry, tracking stations disagree slightly. The player must combine measurements with correlated errors and decide whether another burn reduces or increases total risk.",
-    "stake": "One hundred six hours in, several ground solutions suddenly put the spacecraft ahead of prediction. They agree closely, which would normally be reassuring, but they also inherit the same ground timebase. Whitaker has one last correction ready. Carter wants an observation that does not depend on that clock before spending propellant. This shift you decide whether the spacecraft moved or the reference moved, and whether a burn is bigger than the uncertainty in knowing it.",
+    "briefing": "Ground tracking says the ship moved, but the stations share one clock. Decide whether to burn or check the clock first.",
+    "stake": "Shift 14. Several ground results now place the ship ahead of its path. They agree, but they also use the same clock. You must decide whether the ship moved or the clock moved before the last burn window closes.",
     "takeaway": "Use random and systematic error, weighted averages, errors that move together, propagation, decision thresholds as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "NAV",
         "lesson": 6,
-        "task": "Which explanation fits the ranging, angle, clock, and independent-time checks?"
+        "task": "Which explanation fits the range, angle and Doppler evidence, and the independent timing check beside it?",
+        "reason": "A burn for a clock error would create a real miss."
       },
       {
         "group": "NAV",
         "lesson": 7,
-        "task": "Use the two perpendicular one-sigma components to estimate the root-sum-square position-error scale used in the brief."
+        "task": "Use the two perpendicular one-sigma components to estimate the root-sum-square position-error scale used in the brief.",
+        "reason": "The final burn rule needs one honest error scale."
       },
       {
         "group": "INTEG",
         "lesson": 19,
-        "task": "Spend the remaining tracking budget on the observation that can actually change the burn decision."
+        "task": "Spend the remaining tracking budget on the observation that can actually change the burn decision.",
+        "reason": "One independent check can prevent a needless last burn."
       }
     ]
   },
   {
     "title": "Reentry",
     "objective": "Spend the last verification checks, lock the blackout sequence, and make the final go/no-go entry decision.",
-    "briefing": "Atmospheric entry is minutes away. The player must verify the two highest-consequence physical claims, order everything that requires ground input before blackout, and then decide whether the evidence supports committing the crew to entry.",
-    "stake": "One hundred eighteen hours in, atmospheric entry begins in eleven minutes. For about four of those minutes the ground will hear nothing. The heat-shield configuration, entry state, onboard guidance, battery path, and manual alignment all have to be right at the same time, and only two physical checks still fit before commitment. This shift you spend those checks, lock the sequence, and make the final call: send Hale, Ruiz, and Sato into the atmosphere or do not.",
+    "briefing": "Entry starts in minutes and the radio will soon go silent. Spend the last checks and make the final call.",
+    "stake": "Shift 15. Entry starts in 11 minutes, and the ground will soon lose the radio for four minutes. The shield, flight path, guidance unit, battery link, and hand aim must all work together. You have two checks left, then you must send the crew into the air or call no-go.",
     "takeaway": "Use integrated mechanics, thermodynamics, waves, fluids, uncertainty, ethics of command as an evidence chain rather than as isolated facts.",
     "stops": [
       {
         "group": "INTEG",
         "lesson": 20,
-        "task": "Choose which readiness claims to verify before entry. You have two checks for four signed claims, so spend them where an unverified error would matter most."
+        "task": "Choose which readiness claims to verify before entry. You have two checks for four signed claims. So spend them where an unverified error would matter most.",
+        "reason": "The last checks must target the least-backed fatal claims."
       },
       {
         "group": "INTEG",
         "lesson": 21,
-        "task": "Order the entry around the four minutes with no communications."
+        "task": "Order the entry around the four minutes with no radio.",
+        "reason": "The ground cannot fix the order once the radio goes dark."
       },
       {
         "group": "INTEG",
         "lesson": 22,
-        "task": "Make the final go/no-go call using the verified entry state, shield configuration, onboard guidance status, and remaining uncertainty."
+        "task": "Use the checked shield, path, and guidance to make the final call.",
+        "reason": "This is the final choice the whole return has built toward."
       }
     ]
   }
@@ -382,35 +430,35 @@ export const MISSIONS = [
 
 export const WARMUPS = {
   "greet": {
-    "title": "Four tiers of consoles and one crew you have not met",
-    "why": "Mission Control is one room in four tiers stepping down to the plot boards, and the teams are rows rather than offices. Reyes, the guidance lead, wants you known to every row before the shift, because a call on the loop is answered by whoever recognises the voice, and the room runs on exactly that."
+    "title": "Meet the six people who can save the crew",
+    "why": "Meet each lead now so you know who owns the ship's path, power, air, radio, motion, and final calls."
   },
   "trial-near": {
-    "title": "Walk the room, back tier to the boards",
-    "why": "Everything in this room is arranged by how directly it touches the spacecraft, and the geography is the org chart. Walk it once before the shift. A question asked to the wrong row is a question that gets answered by somebody guessing rather than by the person holding the number."
+    "title": "Carry the first alarm across Mission Control",
+    "why": "Reach the pressure, power, and guidance consoles before the crew acts on three readings that may share one fault."
   },
   "follow": {
-    "title": "The handover walk, done once at the pace it happens",
-    "why": "A shift handover moves along the tiers in a fixed order, and each console hands over a state rather than a summary. Stay with whoever is doing it. The stops are where the state actually changes hands, and skipping one is how a shift starts with an assumption."
+    "title": "Shadow the live handover",
+    "why": "Follow the outgoing controller so no lost fact becomes the next shift's wrong order."
   },
   "hunt": {
-    "title": "Six consumable logs, and the board reconciles four",
+    "title": "Find the missing survival logs",
     "item": {
       "name": "consumable log",
       "plural": "consumable logs"
     },
-    "why": "Everything the crew has left is tracked in logs that update at different times, and two of them do not match the board. Until they are found and reconciled the room does not know how many days it has, and every plan on the wall is built on that number."
+    "why": "Recover the air, water, power, fuel, heat, and filter logs so the room knows how long the crew can live."
   },
   "canvass": {
-    "title": "Which consoles actually saw the transient",
-    "why": "Something moved on the telemetry at 04:12 and only one console flagged it. Ask along the tiers until enough answers have come back to say whether the spacecraft did something or one string glitched, because those two decide whether anybody wakes the crew."
+    "title": "Find who truly saw the explosion",
+    "why": "Ask each console what it measured so one bad data path is not mistaken for damage across the ship."
   },
   "evade": {
-    "title": "The public affairs officer who wants a line for the networks",
-    "why": "He has been at the back of the room since the anomaly wanting something to say, and the room has not yet agreed what happened. Keep out of his way. A description given before the room agrees is a description the room then has to correct on television."
+    "title": "Keep an unverified story off the air",
+    "why": "Avoid the press officer until the room knows whether the crew faces a leak or a sensor fault."
   },
   "tag": {
-    "title": "Catch Reyes before the burn briefing",
-    "why": "Reyes, the guidance lead, has the updated attitude numbers, and once the burn briefing starts the room is committed to whatever is on the board. The version up there is from before the leak was confirmed, and the burn is calculated against the mass the leak has been changing."
+    "title": "Catch Reyes before the first burn call",
+    "why": "Reach Reyes, the guidance lead, with the corrected ship mass before she locks a burn based on the old number."
   }
 };

@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<title>The Nine-Agent Pass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground: #eef1f4; --panel: #ffffff; --panel-2: #f7f9fb;
+    --ink: #11151a; --ink-2: #39434d; --muted: #5f6b76;
+    --rule: #d9e0e6; --rule-2: #eaeff3;
+    --accent: #16697a;
+    --agent: #2b5f9c; --mine: #22705a; --risk: #a33529;
+    --serif: 'Zilla Slab', 'Bitter', Georgia, serif;
+    --sans: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0f1216; --panel: #171b21; --panel-2: #1d222a;
+      --ink: #e8ebee; --ink-2: #bcc5ce; --muted: #8d99a4;
+      --rule: #262d36; --rule-2: #202730;
+      --accent: #5fb3c4; --agent: #7fb0e0; --mine: #62b799; --risk: #e08277;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0f1216; --panel: #171b21; --panel-2: #1d222a;
+    --ink: #e8ebee; --ink-2: #bcc5ce; --muted: #8d99a4;
+    --rule: #262d36; --rule-2: #202730;
+    --accent: #5fb3c4; --agent: #7fb0e0; --mine: #62b799; --risk: #e08277;
+  }
+
+  * { box-sizing: border-box; }
+  body { background: var(--ground); color: var(--ink); font: 400 17px/1.6 var(--sans); margin: 0;
+    -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 62rem; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+  code { font: 500 0.9em/1.4 var(--mono); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .mast { border-bottom: 2px solid var(--ink); padding-bottom: 1.75rem; }
+  .eyebrow { font: 500 0.8rem/1 var(--mono); letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--accent); margin: 0; }
+  h1 { font: 700 clamp(2.4rem, 6vw, 3.6rem)/1.02 var(--serif); letter-spacing: -0.015em;
+    margin: 0.7rem 0 0.5rem; text-wrap: balance; }
+  .lede { font: 400 1.16rem/1.62 var(--sans); color: var(--ink-2); max-width: 45rem; margin: 0; }
+
+  .figures { display: grid; gap: 1px; margin: 2rem 0 0;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    background: var(--rule); border: 1px solid var(--rule); }
+  .fig { background: var(--panel); padding: 1rem 1.1rem 1.05rem; }
+  .fig b { display: block; font: 600 2rem/1 var(--serif); font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em; }
+  .fig span { display: block; margin-top: 0.4rem; color: var(--muted);
+    font: 400 0.82rem/1.3 var(--sans); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  section { margin: 3.25rem 0 0; }
+  section > h2 { font: 600 0.86rem/1 var(--mono); letter-spacing: 0.11em; text-transform: uppercase;
+    color: var(--band, var(--muted)); margin: 0 0 0.55rem; border-top: 1px solid var(--rule);
+    padding-top: 1.5rem; }
+  section > h2:first-child { border-top: 0; padding-top: 0; }
+  section > p { color: var(--muted); max-width: 45rem; font-size: 1rem; margin: 0 0 1.5rem; }
+  .s--agent { --band: var(--agent); }
+  .s--mine { --band: var(--mine); }
+  .s--risk { --band: var(--risk); }
+
+  .panel { background: var(--panel); border: 1px solid var(--rule);
+    border-left: 3px solid var(--band, var(--accent)); padding: 1.3rem 1.5rem 1.45rem; }
+  .panel + .panel { margin-top: 1.1rem; }
+  .panel h3 { margin: 0 0 0.8rem; font: 600 1.12rem/1.3 var(--serif); text-wrap: balance; }
+  .panel p { margin: 0 0 0.8rem; color: var(--ink-2); font-size: 0.99rem; line-height: 1.58;
+    max-width: 46rem; }
+  .panel p:last-child { margin-bottom: 0; }
+  .panel ul { margin: 0; padding-left: 1.15rem; color: var(--ink-2); font-size: 0.99rem;
+    display: grid; gap: 0.5rem; }
+  .panel ul li::marker { color: var(--band, var(--accent)); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.96rem; }
+  .scroll { overflow-x: auto; }
+  th { text-align: left; font: 500 0.72rem/1 var(--mono); letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--muted); padding: 0 0.9rem 0.6rem 0;
+    border-bottom: 1px solid var(--rule); white-space: nowrap; }
+  td { padding: 0.6rem 0.9rem 0.6rem 0; border-bottom: 1px solid var(--rule-2);
+    color: var(--ink-2); vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
+  td.n { font: 500 0.98rem/1 var(--mono); font-variant-numeric: tabular-nums; color: var(--ink);
+    white-space: nowrap; }
+  td.first { color: var(--ink); font-weight: 600; }
+
+  ol.steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 1rem; counter-reset: step; }
+  ol.steps li { display: grid; grid-template-columns: 2.2rem 1fr; gap: 1rem;
+    color: var(--ink-2); font-size: 1rem; line-height: 1.58; }
+  ol.steps li::before { counter-increment: step; content: counter(step, decimal-leading-zero);
+    font: 500 0.85rem/1.6 var(--mono); color: var(--band, var(--accent)); }
+  ol.steps b { color: var(--ink); font-weight: 600; }
+
+  .keyline { margin: 1.4rem 0 0; padding: 0.9rem 1.05rem; background: var(--panel-2);
+    border-left: 2px solid var(--band, var(--accent)); font-size: 0.97rem; line-height: 1.55;
+    color: var(--ink-2); }
+  .keyline span { display: block; font: 500 0.7rem/1 var(--mono); letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--band, var(--accent)); margin-bottom: 0.45rem; }
+
+  .colophon { margin: 4rem 0 0; border-top: 2px solid var(--ink); padding-top: 1.5rem; }
+  .colophon h2 { font: 600 0.86rem/1 var(--mono); letter-spacing: 0.11em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 1rem; }
+  .colophon p { color: var(--muted); font-size: 0.96rem; max-width: 45rem; }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <p class="eyebrow">Alamos · repairing the second revised bundle</p>
+    <h1>The Nine-Agent Pass</h1>
+    <p class="lede">684 gate findings across the nine campaigns of the second revised bundle. One
+      agent per campaign, working its own book and nothing else, in an order chosen so that the
+      passes do not undo one another. The pilot is one campaign, because the risk in this plan is not
+      collisions — it is nine agents each writing plausible prose that satisfies a number.</p>
+    <div class="figures">
+      <div class="fig"><b>684</b><span>Findings in scope</span></div>
+      <div class="fig"><b>9</b><span>Agents, one per campaign</span></div>
+      <div class="fig"><b>2</b><span>Files each agent may edit</span></div>
+      <div class="fig"><b>1</b><span>Pilot before the fan-out</span></div>
+    </div>
+  </header>
+
+  <section class="s--agent">
+    <h2>What each agent owns</h2>
+    <p>One campaign, and exactly two files. Every other path an agent touches is derived from these
+      by a tool it runs itself.</p>
+    <div class="panel">
+      <h3>Two files, and the reason it is only two</h3>
+      <ul>
+        <li><code>books/&lt;book&gt;.yml</code> — every card edit. Never
+          <code>themes/&lt;id&gt;/content/*</code> by hand: <code>bookParity</code> requires the book
+          to regenerate what ships, so a hand-edit there is a defect that surfaces two commits
+          later.</li>
+        <li><code>themes/&lt;id&gt;/theme.js</code> — the opening card, the ending card and
+          <code>delivery.what</code>. Four of the failing gates live in this file, not in the
+          book.</li>
+      </ul>
+      <p style="margin-top:0.9rem">Then the agent runs <code>import-book.mjs</code> for its own
+        theme, which writes only <code>themes/&lt;id&gt;/content/</code>. Those three paths are
+        disjoint across all nine agents.</p>
+      <div class="keyline">
+        <span>Why no worktrees</span>
+        Because the paths are disjoint, the same tree is safe — which saves nine merges and nine
+        re-imports. Isolation buys nothing here; the discipline below is what buys safety.
+      </div>
+    </div>
+  </section>
+
+  <section class="s--risk">
+    <h2>The three shared things that would corrupt</h2>
+    <p>This is the load-bearing part of the plan, and one of the three is not obvious.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th scope="col">Off-limits to agents</th><th scope="col">What goes wrong</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="first"><code>engine/dev/*-debt.json</code></td>
+            <td>Each is a whole-file JSON keyed by theme. Two agents calling
+              <code>--write-debt</code> concurrently clobber each other's themes, and the loss is
+              silent. <strong>A single serialized re-bank happens at the end instead.</strong></td>
+          </tr>
+          <tr>
+            <td class="first"><code>engine/dev/*.mjs</code><br><code>tools/syllabus.js</code></td>
+            <td>A gate or the syllabus changing under a running agent invalidates every measurement
+              taken before it, including the baseline the agent is working against. Frozen for the
+              duration of the pass.</td>
+          </tr>
+          <tr>
+            <td class="first"><code>books/cards/*</code>, <code>shots/</code>,<br>
+              <code>npm run check</code></td>
+            <td>Global build steps that read every theme. Nine agents running them in parallel is
+              nine conflicting writes and nine wasted minutes. Mine, once, at the end.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel" style="margin-top:1.25rem">
+      <h3>What agents may run freely</h3>
+      <p>Per-theme gate runs — <code>conceptVisible</code>, <code>plainQuestions</code>,
+        <code>checkStory</code>, <code>probeQuestions</code>, <code>smokeCampaign</code> and the rest
+        — are read-only and take a theme name. They are parallel-safe, and each agent is expected to
+        measure itself continuously rather than at the end.</p>
+    </div>
+  </section>
+
+  <section class="s--agent">
+    <h2>The work order inside a campaign</h2>
+    <p>These passes are not independent, and one ordering is materially better than the others.</p>
+    <ol class="steps">
+      <li><b>Mechanical.</b> Glossary entries for undefined terms, a job beside each first-named
+        person (<code>checkNames</code>, <code>warmupOrder</code>), the delivery's name into the
+        opening card, the over-long board caption, warm-up cards down to one sentence. No judgement
+        calls, and it closes whole gates.</li>
+      <li><b>Concept visibility.</b> Put the concept's own term into the question or one option.
+        <em>Before</em> the reading-level pass, because this step raises course vocabulary — doing it
+        afterwards means fighting the pass that has just removed words.</li>
+      <li><b>Reading level.</b> <code>plainCards</code>, <code>plainQuestions</code>, and the
+        per-card grade ceiling — now operating on cards that already carry their term, so a grade
+        cannot be bought by deleting it.</li>
+      <li><b>Story shape.</b> The <code>reason</code> line under every call, the "Today you …"
+        clause, stake length, and the three card caps.</li>
+      <li><b>Curriculum order.</b> <code>conceptOrder</code>, <code>equationOrder</code>,
+        <code>takesAsRead</code>. Last, because steps 2 to 4 move cards around.</li>
+    </ol>
+    <div class="keyline">
+      <span>The reason step 2 precedes step 3</span>
+      Bring Them Home's <code>plainQuestions</code> gate fired this session on exactly this: grade
+      8.21 → 6.13 with syllables per word <em>falling</em> 1.669 → 1.575. A grade bought by deleting
+      the course's vocabulary is the one thing the accessibility pass forbids, and the gate that
+      watches for it is the one that caught it.
+    </div>
+  </section>
+
+  <section class="s--agent">
+    <h2>The brief carries constraints, not just targets</h2>
+    <p>Each agent receives its campaign's handoff document, its baseline gate output, the
+      <strong>Bundle Pre-Flight</strong> page and the <code>alamos-accessibility</code> rules. Plus
+      four hard rules, because each is a way to make a number improve while the content gets
+      worse.</p>
+    <div class="panel">
+      <ul>
+        <li><b>Never delete an official term to lower a grade.</b> Name it and gloss it on the spot.
+          <code>plainQuestions</code> gates <code>spw</code> against falling for precisely this.</li>
+        <li><b>Do not make the concept keyword the giveaway.</b> Adding a term to one option can hand
+          the answer away by length or wording; <code>probeQuestions</code> LEAK and ECHO catch that,
+          and the agent re-runs it after every batch.</li>
+        <li><b>Never touch a debt file.</b> Report what was fixed; re-banking is serialized.</li>
+        <li><b>Do not commit.</b> The deliverable is a diff plus a before/after gate table.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="s--mine">
+    <h2>Pilot, then fan out</h2>
+    <p>Nine agents on an unvalidated brief is the expensive mistake. One campaign first.</p>
+    <div class="panel">
+      <h3>Red Sand goes first</h3>
+      <p>Fifteen findings — the smallest debt of the nine — and it already imports clean, so it
+        exercises every category of work at the lowest price. Its diff and its numbers are read
+        before anything else starts, and the brief is corrected from what they show.</p>
+      <p>Then the remaining eight in one batch, ordered by cost so the cheapest two act as further
+        calibration:</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th scope="col">Order</th><th scope="col">Campaign</th><th scope="col">Findings</th><th scope="col">Gates</th><th scope="col">Cards not naming their concept</th></tr></thead>
+          <tbody>
+            <tr><td class="n">pilot</td><td class="first">Red Sand</td><td class="n">15</td><td class="n">7</td><td class="n">6</td></tr>
+            <tr><td class="n">2</td><td class="first">Bring Them Home</td><td class="n">40</td><td class="n">7</td><td class="n">9</td></tr>
+            <tr><td class="n">3</td><td class="first">Aftershock</td><td class="n">43</td><td class="n">8</td><td class="n">11</td></tr>
+            <tr><td class="n">4</td><td class="first">Project Y</td><td class="n">65</td><td class="n">6</td><td class="n">41</td></tr>
+            <tr><td class="n">5</td><td class="first">Blackout</td><td class="n">87</td><td class="n">7</td><td class="n">10</td></tr>
+            <tr><td class="n">6</td><td class="first">The Trial</td><td class="n">95</td><td class="n">8</td><td class="n">7</td></tr>
+            <tr><td class="n">7</td><td class="first">Sightline</td><td class="n">110</td><td class="n">11</td><td class="n">22</td></tr>
+            <tr><td class="n">8</td><td class="first">Ice Core</td><td class="n">110</td><td class="n">10</td><td class="n">14</td></tr>
+            <tr><td class="n">9</td><td class="first">The Contaminated City</td><td class="n">119</td><td class="n">7</td><td class="n">13</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="s--mine">
+    <h2>What is serialized, and why it is not delegated</h2>
+    <div class="panel">
+      <ul>
+        <li><b>Before:</b> freeze the shared files, snapshot a per-campaign baseline for every gate.</li>
+        <li><b>After each agent:</b> re-run its gates rather than trusting its report — specifically
+          <code>probeQuestions</code> and <code>plainQuestions</code>, the two an agent can game
+          without meaning to. A report is a claim; the gate is the evidence.</li>
+        <li><b>At the end:</b> one <code>--write-debt</code> pass, the cardbook PDFs, the shots, one
+          full <code>npm run check</code>, one commit.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="s--mine">
+    <h2>Done, per campaign</h2>
+    <p>Not "green". Several of these cannot go green and should not be forced to.</p>
+    <div class="panel">
+      <ul>
+        <li>Zero new failures in any gate.</li>
+        <li><code>spw</code> did not fall; <code>wps</code> and the over-28 sentence count did not
+          rise.</li>
+        <li><code>conceptVisible</code> UNNAMED at zero. UNREACHED needs a new stop, so it is
+          reported rather than required.</li>
+        <li><code>probeQuestions</code> no worse than the baseline.</li>
+        <li>Everything still outstanding is written into the campaign's handoff document with the
+          reason it was left.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="s--risk">
+    <h2>The honest risk</h2>
+    <div class="panel">
+      <p>Nine campaigns at roughly fifty cards each is the largest content job this repo has taken
+        on, and it is genuinely expensive. The pilot exists so the price can be read off one campaign
+        rather than nine.</p>
+      <p>The risk that matters is not file conflicts — the disjoint-paths argument handles those. It
+        is <strong>684 findings closed and the cards worse to read</strong>: nine agents each
+        producing prose that satisfies a measurement. Two things guard against it, and neither is a
+        gate. The first is that step 2 precedes step 3, so vocabulary goes in before reading level
+        comes down. The second is that every agent's numbers are re-measured rather than
+        accepted.</p>
+    </div>
+  </section>
+
+  <section class="colophon">
+    <h2>Where the numbers come from</h2>
+    <p>Every count is the gate's own output against the shipped content on branch
+      <code>deep-watch-integration</code>, 1 September 2026, after the second revised bundle landed
+      and after <code>conceptVisible</code> and the warm-up card cap went in. The per-campaign
+      handoff documents carry the findings themselves; this page carries only the plan for clearing
+      them.</p>
+  </section>
+</div>
+</head>
+<body></body>
+</html>

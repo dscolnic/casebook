@@ -2215,11 +2215,11 @@ export const CURRICULUM = {
         "a loop stops when any one part of it is broken"
       ],
       "concept": {
-        "n": 2,
-        "c": "A mixture is things sharing a space without becoming one another",
+        "n": 12,
+        "c": "Acids and bases, and why the middle is where things are stable",
         "of": 16,
         "rests": [
-          "Everything is made of matter, and matter comes in solids, liquids and gases"
+          "Dissolving, and why some things dissolve and others do not"
         ]
       }
     },

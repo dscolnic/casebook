@@ -1732,6 +1732,22 @@ export const CURRICULUM = {
           ],
           "s": "A decibel is a logarithm, so losses along a path add where the power ratios would multiply, and ten decibels is a factor of ten however many stages it took.",
           "computed": true
+        },
+        {
+          "e": "R = ((n₁ − n₂)/(n₁ + n₂))²",
+          "c": "the reflection at a step in index",
+          "v": [
+            [
+              "R",
+              "the fraction of the power reflected straight back"
+            ],
+            [
+              "n₁, n₂",
+              "the indices either side of the step"
+            ]
+          ],
+          "s": "Any abrupt change of index sends part of the light back, and the size of the step decides how much — which is why a break reflects and a bend does not.",
+          "computed": true
         }
       ],
       "takesAsRead": [
@@ -1995,6 +2011,32 @@ export const CURRICULUM = {
       "assumes": [
         "a wave reflected at each face of a film travels an extra distance of twice the thickness",
         "snell's law at a boundary — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "2·n·t = (m + ½)·λ",
+          "c": "a film that cancels a reflection",
+          "v": [
+            [
+              "n",
+              "the index of the film"
+            ],
+            [
+              "t",
+              "its thickness"
+            ],
+            [
+              "λ",
+              "the wavelength being cancelled"
+            ],
+            [
+              "m",
+              "a whole number"
+            ]
+          ],
+          "s": "A film a quarter of a wavelength thick sends the second reflection back exactly out of step with the first, so the two cancel and the light goes on instead of coming back.",
+          "computed": true
+        }
       ],
       "takesAsRead": [
         {
@@ -2980,22 +3022,6 @@ export const CURRICULUM = {
       ],
       "equations": [
         {
-          "e": "loss(dB) = 10·log₁₀(P_in/P_out)",
-          "c": "power ratios in decibels",
-          "v": [
-            [
-              "P_in, P_out",
-              "the powers going in and coming out, in the same unit"
-            ],
-            [
-              "loss",
-              "the loss, in decibels"
-            ]
-          ],
-          "s": "A decibel is a logarithm, so losses along a path add where the power ratios would multiply, and ten decibels is a factor of ten however many stages it took.",
-          "demanded": true
-        },
-        {
           "e": "R_λ = η·e/(h·f)",
           "c": "a photodiode’s responsivity",
           "v": [
@@ -3013,6 +3039,22 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A detector counts photons and delivers electrons, so its current per watt is fixed by how many photons a watt is — which is a property of the wavelength, not of the detector.",
+          "computed": true
+        },
+        {
+          "e": "loss(dB) = 10·log₁₀(P_in/P_out)",
+          "c": "power ratios in decibels",
+          "v": [
+            [
+              "P_in, P_out",
+              "the powers going in and coming out, in the same unit"
+            ],
+            [
+              "loss",
+              "the loss, in decibels"
+            ]
+          ],
+          "s": "A decibel is a logarithm, so losses along a path add where the power ratios would multiply, and ten decibels is a factor of ten however many stages it took.",
           "demanded": true
         }
       ],

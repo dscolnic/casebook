@@ -308,7 +308,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Why this outcome was chosen",
-      "scene": "Kwame Ansah has the original design memo beside the current event counts. Four years ago the team compared several candidate outcomes before anyone had trial data. A journalist has now asked why the protocol committed to the composite rather than the cleanest or easiest-to-measure alternative.",
+      "scene": "Kwame Ansah chairs the endpoint adjudication committee. He has the original design memo beside the current event counts. Four years ago the team compared several candidate outcomes before anyone had trial data. A journalist has now asked why the protocol committed to the composite rather than the cleanest alternative.",
       "takeaway": "The primary endpoint is the one question the trial was built to answer; the rest are collected, not promised.",
       "place": "Adjudication Room",
       "guide": "Four candidate primary endpoints, scored on two things the sponsor cares about. The slider is the event rate the trial actually gets, which nobody knows in advance — slide it to the pessimistic end and see which endpoint still answers the question there. The one that looks best at the expected rate is not necessarily the one that survives being wrong about it.",
@@ -317,7 +317,7 @@ export const CURRICULUM = {
         "Why naming it in advance matters. With four measurements per participant, somebody choosing afterwards has four chances to find a difference, and the reported result would be the best of four rather than the answer to one question. That is the whole of why the definition is four years old.",
         "Why the event rate is the assumption that bites. Every endpoint's power depends on how often its event happens. A rare, hard endpoint is unimpeachable and may never accumulate enough events to say anything; a composite happens more often and answers a blurrier question. That trade is what the slider makes visible."
       ],
-      "story": "Kwame Ansah has the original design memo beside the current event counts. Four years ago the team compared several candidate outcomes before anyone had trial data. A journalist has now asked why the protocol committed to the composite rather than the cleanest or easiest-to-measure alternative.",
+      "story": "Kwame Ansah chairs the endpoint adjudication committee. He has the original design memo beside the current event counts. Four years ago the team compared several candidate outcomes before anyone had trial data. A journalist has now asked why the protocol committed to the composite rather than the cleanest alternative.",
       "game": {
         "type": "STRESS",
         "title": "Why this outcome was chosen",
@@ -398,7 +398,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "A number can be precise and still be the wrong outcome",
-      "scene": "Kwame Ansah has 4 CLARION-3 measurements on his table. One comes from a national register, one from blinded readers, one from a treating doctor, and one from a central laboratory. Doyle wants to know what can go wrong with each.",
+      "scene": "Kwame Ansah has 4 CLARION-3 measurements on his table. One comes from a national register, one from blinded readers, one from a treating doctor, and one from a central laboratory. Maggie Doyle, who speaks for the participants, wants to know what can go wrong with each.",
       "takeaway": "Before trusting a number, ask both how it was made and whether it measures the outcome people actually care about.",
       "place": "Adjudication Room",
       "guide": "Four measurements and four weaknesses. Pair them by asking how much trial judgement each measurement passes through. A death in a national register goes through almost none. A borderline admission goes through a definition. A symptom score goes through a person who may believe something. And one of them can be measured perfectly and still stand in for the wrong thing.",
@@ -407,7 +407,7 @@ export const CURRICULUM = {
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
       ],
-      "story": "Kwame Ansah has 4 CLARION-3 measurements on his table. One comes from a national register, one from blinded readers, one from a treating doctor, and one from a central laboratory. Doyle wants to know what can go wrong with each.",
+      "story": "Kwame Ansah has 4 CLARION-3 measurements on his table. One comes from a national register, one from blinded readers, one from a treating doctor, and one from a central laboratory. Maggie Doyle, who speaks for the participants, wants to know what can go wrong with each.",
       "game": {
         "type": "PROTOCOL",
         "title": "A number can be precise and still be the wrong outcome",
@@ -470,8 +470,8 @@ export const CURRICULUM = {
         "type": "CONTROL",
         "title": "Make the three-point offset move",
         "setup": "Adjudication Room",
-        "play": "Change 1 feature of the re-scoring setup at a time and find which change removes site 12's offset.",
-        "task": "Change 1 feature of the re-scoring setup at a time and find which change removes site 12's offset.",
+        "play": "Change 1 feature of the re-scoring setup at a time and find which change removes the three-point offset between site 12's raters.",
+        "task": "Change 1 feature of the re-scoring setup at a time and find which change removes the three-point offset between site 12's raters.",
         "question": "Which single change makes the offset disappear, and does putting it back restore the offset?",
         "answer": "Changing the reader removes the offset: it falls from about 3.0 points to 0.2, a 2.8-point shift. Restoring the site reader brings it back to about 3.1, while the other changes stay inside the noise threshold.",
         "why": "A site-wide offset can come from the patients, the timing of visits or the person applying the scale. The hard endpoint already argues against a healthier site 12 population. The control test goes further. It keeps the same records and changes one candidate cause at a time. Only the reader change moves the score by far more than the background noise. When the original reader is restored, the offset returns. That reversal is much stronger evidence than a correlation between site and score.",
@@ -527,7 +527,7 @@ export const CURRICULUM = {
     {
       "day": 4,
       "title": "Missing is not one thing",
-      "scene": "Friday’s database lock is now on the wall clock. Four kinds of missing record are still in the queue, each with a count beside it. Renner wants one rule for all of them before the next site call starts.",
+      "scene": "Friday’s database lock is now on the wall clock. Four kinds of missing record are still in the queue, each with a count beside it. Tobias Renner, the data management lead, wants one rule for all of them before the next site call starts.",
       "takeaway": "A gap that depends on what happened is not the same as a gap that does not.",
       "place": "Adjudication Room",
       "guide": "Four gaps and four consequences. Pair them by asking whether the reason for the gap is connected to how the person was doing. A move abroad is not. Stopping attendance after worsening is. A lost fax batch is recoverable. And one of them closes the door permanently, which is a different problem from either.",
@@ -536,7 +536,7 @@ export const CURRICULUM = {
         "How to use the one-each rule. Because the responses are a set to be distributed rather than a list to be sampled, every join you make constrains the rest. Settling the two you are confident of can leave the remaining pair decided by elimination. Where it does not, two responses are still competing for one situation, and that is exactly the distinction the stop is testing.",
         "Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault is usually not in the join you are struggling with, but in one you made early and stopped questioning."
       ],
-      "story": "Friday’s database lock is now on the wall clock. Four kinds of missing record are still in the queue, each with a count beside it. Renner wants one rule for all of them before the next site call starts.",
+      "story": "Friday’s database lock is now on the wall clock. Four kinds of missing record are still in the queue, each with a count beside it. Tobias Renner, the data management lead, wants one rule for all of them before the next site call starts.",
       "game": {
         "type": "PROTOCOL",
         "title": "Missing is not one thing",
@@ -652,8 +652,8 @@ export const CURRICULUM = {
         "type": "CLOUD",
         "title": "Reading the same files twice",
         "setup": "Adjudication Room",
-        "play": "Check the committee's re-read for the thing it could still get wrong",
-        "task": "Check the committee's re-read for the thing it could still get wrong",
+        "play": "Check the committee's re-read for the measurement error it could still carry",
+        "task": "Check the committee's re-read for the measurement error it could still carry",
         "question": "Report where the first-to-second-reading differences centre and how far they scatter, and get the spread inside what the definition tolerates.",
         "answer": "Centred near 0.2 events per hundred files with a spread of about 1.6 once the ambiguous case is defined and a fourth reader added. Re-centring alone never gets there — only a sharper rule narrows the scatter.",
         "why": "A re-read is worth something only if the rule did the deciding. Plotted as first reading minus second, 400 files scatter around a centre near 0.6 events per hundred, with a spread of about 2.9. That is a committee both slightly drifted and quite inconsistent. Those are two defects, and they have different repairs. Restating the definition moves the centre and leaves the width alone. Defining the one ambiguous case narrows it. A fourth reader who has never seen these files narrows it again. Apply every re-centring and no rule change, and the spread sits exactly where it was. That is the lesson. Agreement between two readings by the same people can be manufactured by memory. Only a rule that decides the ambiguous case the same way twice makes it evidence. The guessing survey matters for that reason. Three readers who suspect the blind has leaked have a reason to read the ambiguous files differently, and agreeing with each other would never reveal it.",
@@ -738,7 +738,7 @@ export const CURRICULUM = {
         "setup": "Adjudication Room",
         "play": "Decide what the committee still owes before the lock",
         "task": "Decide what the committee still owes before the lock",
-        "question": "Why must the committee clear its tray before the file is locked?",
+        "question": "Why must the adjudication committee clear its tray before the file is locked?",
         "answer": "Events without a ruling are absent from the analysis",
         "why": "Adjudication is not paperwork after the fact; it is the step that turns something that happened into a countable event. 19 files sitting in a tray are 19 events the analysis will behave as though nobody had. That is not neutral: files wait longest where the evidence is thinnest, and the thin files are not evenly spread between arms. Rulings made after the lock go into the next version, which means the interim was read on a trial that was quietly missing part of itself.\n",
         "rebuttals": [
@@ -910,7 +910,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "The clock that is not the analysis clock",
-      "scene": "The second admission arrived 18 minutes ago. 1 patient is still on the ward, and the 2 sites are 400 kilometres apart. Vogt is reachable this afternoon. The next board meeting is 19 days away.",
+      "scene": "The second admission arrived 18 minutes ago. 1 patient is still on the ward, and the 2 sites are 400 kilometres apart. Helena Vogt, who chairs the independent monitoring board, is reachable this afternoon. The next board meeting is 19 days away.",
       "takeaway": "A safety report does not wait for the analysis it might belong to.",
       "place": "Monitoring Board Room",
       "guide": "Four options, and two clocks are running. One patient is still on the ward and the board meets in nineteen days. Ask of each option which clock it obeys. A serious unexpected event may change treatment tomorrow. Whether it also counts as an endpoint is a separate path, and the same event can travel both at once.",
@@ -919,7 +919,7 @@ export const CURRICULUM = {
         "What to look for in the options. Two things separate them: which is still changing, and which is a precondition for the others. A situation that is deteriorating has a cost per hour attached to it, and a step that unblocks the rest multiplies the value of the hours after it. Everything else is a preference about where to start.",
         "Why only one answer is marked. In the situation these options describe all of them eventually happen; what is being tested is the head of the queue, because that is where the reasoning is visible. The verdict names what each of the others was waiting on, which is worth reading even when the choice was right — the ordering behind the first place is the rest of the answer."
       ],
-      "story": "The second admission arrived 18 minutes ago. 1 patient is still on the ward, and the 2 sites are 400 kilometres apart. Vogt is reachable this afternoon. The next board meeting is 19 days away.",
+      "story": "The second admission arrived 18 minutes ago. 1 patient is still on the ward, and the 2 sites are 400 kilometres apart. Helena Vogt, who chairs the independent monitoring board, is reachable this afternoon. The next board meeting is 19 days away.",
       "game": {
         "type": "TRIAGE",
         "title": "The clock that is not the analysis clock",
@@ -964,7 +964,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Why the board looks and the team does not",
-      "scene": "Vogt is in the building for an hour. Petrescu's closed report is on the table, face down. The medical director is copied on everything the trial team writes and on nothing the board writes.",
+      "scene": "Vogt is in the building for an hour. The closed report kept by Alina Petrescu, the unblinded statistician, is on the table, face down. The medical director is copied on everything the trial team writes and on nothing the board writes.",
       "takeaway": "The people who could act on an early result are the people kept from seeing it.",
       "place": "Monitoring Board Room",
       "guide": "Four options, and somebody has to see the arms or a harmful treatment continues unnoticed. Ask of each whether it names a route from knowledge into the trial's own conduct. The board does not recruit, treat or score. The team does all three. Confidentiality cannot close those routes, and being advisory does not either.",
@@ -973,7 +973,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "Vogt is in the building for an hour. Petrescu's closed report is on the table, face down. The medical director is copied on everything the trial team writes and on nothing the board writes.",
+      "story": "Vogt is in the building for an hour. The closed report kept by Alina Petrescu, the unblinded statistician, is on the table, face down. The medical director is copied on everything the trial team writes and on nothing the board writes.",
       "game": {
         "type": "CHOICE",
         "title": "Why the board looks and the team does not",
@@ -1112,7 +1112,7 @@ export const CURRICULUM = {
     {
       "day": 5,
       "title": "What needs extra escalation today",
-      "scene": "Every serious adverse event has already entered the sponsor's standard safety system. What is changing on this desk is the extra same-day escalation rule for the emerging liver signal: first serious unexpected cases, then anything matching the cluster, then anything the regulator specifically asks to see.",
+      "scene": "Every serious adverse event is already in the sponsor's standard safety system. What changes on this desk is the extra same-day alert rule for the liver signal. It starts with serious unexpected cases. Then it widens to anything matching the cluster. Then to anything the regulator has asked to see.",
       "takeaway": "Standard reporting continues underneath the crisis; the changing rule only determines which cases receive extra same-day escalation.",
       "place": "Safety Desk",
       "guide": "Escalate what the current focused-signal rule requires. The underlying SAE reports are already in the safety system; this board is deciding which cases need an additional same-day alert or focused follow-up. The rule changes as the signal changes, so the scored moments are either side of each update.",
@@ -1120,7 +1120,7 @@ export const CURRICULUM = {
         "Why the escalation rule moves. Standard safety reporting continues underneath this game. The additional signal-management rule broadens when a cluster appears: after the second similar liver case, even non-serious matching cases may deserve rapid aggregate review; after a regulator asks for a defined phenotype, that request sets the focused follow-up timetable.",
         "Why the distinction matters. A case not selected for this extra alert is not being hidden or left unreported. It remains in the ordinary safety system. The game is about recognizing when new information changes the threshold for additional escalation, not about inventing a rule that some adverse events can simply be ignored."
       ],
-      "story": "Every serious adverse event has already entered the sponsor's standard safety system. What is changing on this desk is the extra same-day escalation rule for the emerging liver signal: first serious unexpected cases, then anything matching the cluster, then anything the regulator specifically asks to see.",
+      "story": "Every serious adverse event is already in the sponsor's standard safety system. What changes on this desk is the extra same-day alert rule for the liver signal. It starts with serious unexpected cases. Then it widens to anything matching the cluster. Then to anything the regulator has asked to see.",
       "game": {
         "type": "SPOT",
         "title": "What needs extra escalation today",
@@ -1129,7 +1129,7 @@ export const CURRICULUM = {
         "task": "Work the same-day safety-escalation queue while the signal-management rule changes.",
         "question": "Escalate to the focused safety rule in force, while ordinary SAE reporting continues underneath it.",
         "answer": "Apply the current focused-escalation rule. Cases not selected here remain in the standard safety-reporting pathway.",
-        "why": "Three focused-escalation rules run across the day: serious unexpected cases for the initial alert, then anything resembling the emerging cluster, then anything matching the regulator's specific request. A report can answer two at once, which is what makes the change cost real rather than notional. The panel scores the window either side of each change, because most of the queue is wanted by neither rule and is correctly held for assessment by somebody who has read nothing. The desk's own version is the hour after a second case appears: the rule has changed to anything resembling it, and the reports going out are still the ones that were serious-and-unexpected when the morning started — which is precisely the hour in which the pattern was visible and nobody outside the trial could see it.",
+        "why": "Three focused-escalation rules run across the day. The first alerts on serious unexpected cases. The second widens to anything resembling the emerging cluster. The third covers anything the regulator has asked about. One report can satisfy two rules at once, which is what makes each change cost something real. The panel scores the window either side of each change. Most of the queue is wanted by neither rule and is correctly held for ordinary assessment. The hour after a second case appears is the hard one. The rule has already widened, and the reports still going out are the ones that were serious-and-unexpected when the morning started.",
         "spot": {
           "targets": [
             {
@@ -1347,7 +1347,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "A trial ends at a number of events",
-      "scene": "Balogun wants to know when CLARION-3 will be finished and has been told, twice, that nobody can say. Feldman writes three quantities on the whiteboard and asks him to estimate it himself.",
+      "scene": "Yemi Balogun, the trial chair, wants to know when CLARION-3 will be finished and has been told, twice, that nobody can say. Feldman writes three quantities on the whiteboard and asks him to estimate it himself.",
       "takeaway": "In this event-driven design, precision is driven mainly by adjudicated events; calendar time only determines how quickly those events can accrue.",
       "place": "Statistics & Analysis",
       "guide": "Five numbers, and three belong to other questions: the events adjudicated so far, the hospitals recruiting, and one of the two rates. Ask of each whether this schedule depends on it. In this event-driven design, the planned information is driven mainly by adjudicated events, while event-free follow-up still contributes time at risk. The duration is therefore a forecast from recruitment, follow-up and event accrual, not a date the sponsor can simply choose.",
@@ -1355,14 +1355,14 @@ export const CURRICULUM = {
         "Why an estimate rather than a calculation. Every quantity on this board is already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs, and whether the size of the answer looks right once they are in place.",
         "Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit this format exists to build."
       ],
-      "story": "Balogun wants to know when CLARION-3 will be finished and has been told, twice, that nobody can say. Feldman writes three quantities on the whiteboard and asks him to estimate it himself.",
+      "story": "Yemi Balogun, the trial chair, wants to know when CLARION-3 will be finished and has been told, twice, that nobody can say. Feldman writes three quantities on the whiteboard and asks him to estimate it himself.",
       "game": {
         "type": "BALLPARK",
         "title": "A trial ends at a number of events",
         "setup": "Statistics & Analysis",
         "play": "Work out what the trial is waiting for",
         "task": "Work out what the trial is waiting for",
-        "question": "Estimate how long CLARION-3 has to follow its participants to reach the events it needs.",
+        "question": "CLARION-3 is an event-driven trial. Estimate how long it has to follow its participants to reach the 380 planned events.",
         "answer": "About two years of follow-up.",
         "why": "In a time-to-event trial, participants who remain event-free still contribute time at risk, but the precision of the treatment comparison is driven strongly by how many adjudicated events occur. So the design fixes a number of events, and recruitment and follow-up run until that number arrives. How long that takes is not a decision anybody makes — it is the required events divided by the rate they arrive at, and that rate belongs to the participants rather than to the trial. A healthier-than-expected group is bad news for the schedule for exactly this reason, and it is why the interim looks are placed at fractions of the events rather than at fractions of the years.\n",
         "givens": [
@@ -1461,6 +1461,26 @@ export const CURRICULUM = {
           ],
           "s": "Every look at the endpoint spends part of a fixed error budget, so an unplanned look is not free: it is taken out of what the final analysis has left to spend.",
           "computed": true
+        },
+        {
+          "e": "P(at least one false positive) = 1 − (1 − α)^k",
+          "c": "multiplicity — what testing k things costs",
+          "v": [
+            [
+              "α",
+              "the error rate allowed for a single test, usually 0.05"
+            ],
+            [
+              "k",
+              "how many independent tests were run"
+            ],
+            [
+              "P",
+              "chance that at least one of them clears the line by luck alone"
+            ]
+          ],
+          "s": "Each test carries its own chance of a false positive, so fourteen subgroups tested at five per cent give better than even odds that one of them looks real when nothing is there.",
+          "demanded": true
         }
       ],
       "takesAsRead": [
@@ -1774,7 +1794,7 @@ export const CURRICULUM = {
           "Control arm event rate 18.9%",
           "Treatment arm event rate 14.7%"
         ],
-        "relationship": "At a stated fixed time horizon, ARR = p_control − p_treatment and NNT = 1/ARR. The displayed SE = √(p(1−p)/n) is a simple binomial approximation; a full time-to-event analysis with censoring uses survival methods rather than this shortcut.",
+        "relationship": "At a fixed time point, ARR = p_control − p_treatment and NNT = 1/ARR. The displayed SE = √(p(1−p)/n) is a binomial approximation; a full time-to-event analysis with censoring uses survival methods instead.",
         "calcKey": "STAT-6"
       },
       "assumes": [
@@ -1837,7 +1857,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Precision answers to the square root of the sample, so halving the width of an interval costs four times the participants — which is why sample size is decided before the trial rather than during it.",
-          "demanded": true,
+          "computed": true,
           "card": false
         }
       ],
@@ -2003,14 +2023,14 @@ export const CURRICULUM = {
         "setup": "Statistics & Analysis",
         "play": "Put a number on 14 looks",
         "task": "Put a number on 14 looks",
-        "question": "Under the simplifying assumption that 14 subgroup tests were independent, what benchmark probability would there be of at least one nominal 5% false positive?",
+        "question": "Assume for a moment that the 14 subgroup tests were independent. What is the benchmark chance that at least one looks statistically significant at 5% by luck alone?",
         "answer": "About 51% — near enough a coin toss.",
         "why": "As an independence benchmark, fourteen separate 5% tests give 1 − 0.95^14 ≈ 0.51 for at least one false positive. Real subgroup tests are usually correlated because the same participants appear in several slices, so 51% is not CLARION-3's exact familywise error rate. The exact rate depends on those correlations and on the multiplicity method in the analysis plan. The point is structural: a nominal p-value from one selected row cannot be interpreted as though that row were the only question asked.\n",
         "givens": [
           "14 subgroups were prespecified",
           "Each is tested at the 5% level"
         ],
-        "relationship": "If m tests were independent, P(at least one false positive) = 1 − (1 − α)^m. Overlapping subgroup tests are correlated, so this is an illustrative benchmark rather than a universal formula for the actual trial.\n",
+        "relationship": "If m tests were independent, P(at least one false positive) = 1 − (1 − α)^m. Subgroup tests overlap, so this is an illustrative benchmark rather than a formula for this trial.\n",
         "calcKey": "STAT-8"
       },
       "assumes": [
@@ -2198,7 +2218,7 @@ export const CURRICULUM = {
         "setup": "Statistics & Analysis",
         "play": "Work out how long a second trial has to follow its participants",
         "task": "Work out how long a second trial has to follow its participants",
-        "question": "Estimate how long HELIOS has to follow its participants to reach the events it needs.",
+        "question": "HELIOS is an event-driven trial too. Estimate how long it has to follow its participants to reach the planned events it needs.",
         "answer": "A little under two years of follow-up.",
         "why": "A trial that waits for events finishes when the events arrive. Nine hundred participants who stay well carry almost no information about which arm is better; the comparison rests on the ones something happened to. So the design fixes a number of events, and the calendar follows from the rate those events arrive at, which belongs to the participants rather than to the sponsor. A finish date written before the rate is known is a forecast in the clothes of a commitment, and it is why progress is reported as events accumulated rather than months elapsed.\n",
         "givens": [
@@ -2316,7 +2336,7 @@ export const CURRICULUM = {
         "setup": "Monitors' Room",
         "play": "Spend the call time on evidence that could change whether the two cases form a pattern.",
         "task": "Spend the call time on evidence that could change whether the two cases form a pattern.",
-        "question": "What should Marchetti spend the ten minutes finding out before the reports leave?",
+        "question": "What should Marchetti spend the ten minutes finding out before the safety reports leave?",
         "answer": "Buy the exposure timeline first. The dates of first dose, first symptom and admission can show whether the cases share the same exposure clock. Other details can support that judgement, but they cannot replace it.",
         "why": "Two reports become a signal only when their details line up in a way that could matter. Timing is the fastest discriminator here. A case three days after first exposure tells a different story from one eight months later. Matching intervals in two distant sites would strengthen the case for a shared cause. Different intervals would weaken it. Investigator opinions, recruitment totals and withdrawal status may still matter, but none can establish that temporal pattern before the reports leave.",
         "value": {
@@ -2370,20 +2390,20 @@ export const CURRICULUM = {
       "assumes": [
         "a safety pattern depends on whether cases share timing and clinical features",
         "a VALUE board charges time for each piece of evidence",
-        "eligibility criteria, and what widening them changes — taken as read"
+        "hard endpoints against judged ones, and blinded adjudication — taken as read"
       ],
       "takesAsRead": [
         {
-          "n": 6,
-          "c": "Eligibility criteria, and what widening them changes"
+          "n": 9,
+          "c": "Hard endpoints against judged ones, and blinded adjudication"
         }
       ],
       "concept": {
-        "n": 7,
-        "c": "The recruitment funnel: screened, eligible, consented, entered",
+        "n": 27,
+        "c": "Safety monitoring: adverse events, seriousness and expedited reporting",
         "of": 33,
         "rests": [
-          "Eligibility criteria, and what widening them changes"
+          "Hard endpoints against judged ones, and blinded adjudication"
         ]
       }
     },
@@ -2626,7 +2646,7 @@ export const CURRICULUM = {
         "setup": "Monitors' Room",
         "play": "Sort the screening log before the meeting.",
         "task": "Sort the screening log before the meeting.",
-        "question": "Send each screening entry to the bin that says whether the protocol admits them.",
+        "question": "Send each screening entry to the bin that says whether the protocol's eligibility criteria admit them.",
         "answer": "Anything that satisfies every criterion as written is eligible. Anything needing a generous reading is not, however reasonable the generosity looks.",
         "why": "Eligibility criteria are what make a trial's population the population its question is about, and they only work if they are applied as written. The dangerous entries are never the obviously ineligible ones — nobody enrols a patient twenty years outside the age range. They are the ones a sensible person would let through: an eGFR of 29 against a limit of 30, an ejection fraction measured six weeks ago instead of four, a diagnosis made clinically rather than by the stated test. Each is defensible alone. A hundred of them together produce a trial population nobody planned, whose result applies to nobody in particular, and the analysis cannot separate them out afterwards because the log records that they were eligible. That is why the honest handling of a near-miss is a protocol amendment, prospectively, with the reason written down — and not a decision at the screening desk on a Thursday.",
         "belt": {
@@ -3581,12 +3601,12 @@ export const CURRICULUM = {
           "The liver cases are urgent safety evidence, but case count alone does not establish treatment causality without the protected arm-specific denominator and clinical review."
         ],
         "choices": [
-          "The adjudicated endpoint is promising but has not crossed the prespecified benefit boundary; the symptom score is limited by loss of blinding; the liver signal remains under protected review; subgroup findings are exploratory; the board should decide from the full closed evidence whether to continue.",
-          "CLARION-3 has shown a clinically important benefit, especially in participants over 70, and the remaining events are unlikely to change that conclusion.",
-          "The trial has no reliable efficacy evidence because the blind leaked, so all treatment comparisons should be discarded and recruitment stopped.",
-          "Four liver cases establish a drug safety problem, so efficacy should no longer enter the board's decision."
+          "The adjudicated endpoint is promising and has not crossed the prespecified benefit boundary. The symptom score is limited by the loss of blinding. The liver signal stays under protected review. The subgroup rows are exploratory. The board decides from the closed evidence.",
+          "CLARION-3 has shown a clinically important benefit. It is clearest in participants over 70. The symptom score points the same way. The remaining events are unlikely to change that. The board should stop the trial for benefit.",
+          "The blind leaked, so no comparison in this trial can be trusted. The adjudicated endpoint is compromised along with the symptom score. Every treatment comparison should be withdrawn. Recruitment should stop today.",
+          "Four liver cases establish a drug safety problem. Efficacy should no longer enter the board's decision. The trial should be halted this afternoon. Every site should be told which arm its patients were on."
         ],
-        "correctChoice": "The adjudicated endpoint is promising but has not crossed the prespecified benefit boundary; the symptom score is limited by loss of blinding; the liver signal remains under protected review; subgroup findings are exploratory; the board should decide from the full closed evidence whether to continue."
+        "correctChoice": "The adjudicated endpoint is promising and has not crossed the prespecified benefit boundary. The symptom score is limited by the loss of blinding. The liver signal stays under protected review. The subgroup rows are exploratory. The board decides from the closed evidence."
       },
       "assumes": [
         "the trial team remains blinded to comparative interim efficacy data",

@@ -810,6 +810,34 @@ export const CURRICULUM = {
           ],
           "s": "A count on its own says nothing about how surprising it is; divided by the number of chances it had, it becomes a fraction two experiments can be compared on.",
           "demanded": true
+        },
+        {
+          "e": "r_min = 2Zke² / E",
+          "c": "the closest approach of an alpha turned right round",
+          "v": [
+            [
+              "r_min",
+              "how close the particle got before it stopped, in metres"
+            ],
+            [
+              "Z",
+              "the number of protons in the nucleus it approached"
+            ],
+            [
+              "k",
+              "the Coulomb constant"
+            ],
+            [
+              "e",
+              "the elementary charge"
+            ],
+            [
+              "E",
+              "the kinetic energy the particle started with"
+            ]
+          ],
+          "s": "A particle turned straight back has converted all of its kinetic energy into electrical potential energy, and setting the two equal gives the one distance the experiment can measure.",
+          "demanded": true
         }
       ],
       "concept": {

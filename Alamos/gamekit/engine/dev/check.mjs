@@ -96,6 +96,12 @@ for(const theme of wanted){
                      // an earlier day or declared in `takesAsRead`, and never on the
                      // same day — the engine opens a day's stops in any order.
                      'conceptOrder.mjs',
+                     // Is the concept on the card the player answers from, and does
+                     // every concept reach a question at all? conceptOrder asserts the
+                     // order and curriculumDelivery asserts the equations are computed;
+                     // neither asked whether the idea is ever said out loud in an ask or
+                     // an option, which is the only place a player is paying attention.
+                     'conceptVisible.mjs',
                      // Does the player have the equation the card's own arithmetic
                      // uses? Blackout's day 1 worked "current falls by 20×, loss by
                      // 400×" over four options with P = IV printed nowhere and
@@ -198,6 +204,10 @@ if(!process.argv[2]){
                      // the same day, and that a declared exception is counted rather
                      // than waved through.
                      'conceptOrder.mjs --selftest',
+                     // And its pairs: naming a concept in the question and naming it in
+                     // an option score the same, a keyword inside a longer word is not a
+                     // mention, and a thin card is not a buried one.
+                     'conceptVisible.mjs --selftest',
                      // And the ninth, whose whole rule is what counts as having
                      // been given an equation: an earlier day that computes it,
                      // this stop's own working, or the card printing it — and a
@@ -258,6 +268,11 @@ if(!process.argv[2]){
                      // card has to score the same, or every number it prints compares two
                      // different measurements.
                      'plainCards.mjs --selftest',
+                     // The two card caps — the day blurb's four sentences and the
+                     // opening card's five — counted by one splitter, because they
+                     // were two regexes in two files and a card could pass one gate
+                     // and fail the other on nothing but a decimal point.
+                     'dayCard.mjs --selftest',
                      // And checkNames', whose silent inversion is a schedule rather than a
                      // word: the warm-up cards it reads come off the near/far tiers, so a
                      // campaign normalised without its site read as one-tier and this check

@@ -947,7 +947,7 @@ glossary:
   aliases:
   - detonator
   - detonators
-  def: A historical component that initiates an explosive event. In this game it appears only as part of the history of 
+  def: A historical component that initiates an explosive event. In this game it appears only in past work on 
     synchronization and reliability; no construction or firing details are taught.
 - name: Diffusion
   aliases:
@@ -990,7 +990,7 @@ glossary:
   - explosive lenses
   - lens system
   def: A historical wave-shaping concept used in the implosion program. Here it is discussed only at the level of 
-    measurement, symmetry, and program history, not geometry or construction.
+    measurement, symmetry, and the program record, not geometry or construction.
 - name: Exponential attenuation
   aliases:
   - exponential attenuation
@@ -1145,7 +1145,7 @@ glossary:
   - lot traceability
   - lot record
   - batch traceability
-  def: The ability to connect each finished item to its production batch, materials, process history, inspections, and 
+  def: The ability to connect each finished item to its production batch, materials, process records, inspections, and 
     test records.
 - name: Macroscopic cross section, Σ
   aliases:
@@ -1573,21 +1573,24 @@ missions:
   briefing: 'Los Alamos is only weeks old. Physicists, chemists, engineers, and military staff are using the same words to
     mean different things. Before the laboratory can compare evidence, the player must make the measurements commensurable:
     identify what was measured, in what units, and through which instrument chain.'
-  stake: "April 1943. The Ranch School is gone and a secret laboratory has replaced it almost overnight. Five divisions are
-    filling blackboards with different notations for the same physical system. Oppenheimer has started a weekly colloquium
-    because one misunderstood symbol can send a whole group down the wrong path. Your first job is not to choose a design.
-    It is to make sure that when two people say they measured the same thing, they actually did. Until the laboratory has
-    one language for nuclei, isotopes, signals, units and uncertainty, every later disagreement is impossible to diagnose."
+  stake: >-
+    It is April 1943, and a secret lab now stands where a school once stood. Five teams use
+    different words for the same things, so their results do not fit together. The director has
+    asked for one shared language before anybody signs a number, and asked for it this week. The
+    place is only weeks old, and it is already making calls it cannot take back. Nobody here has the
+    time to redo a count they are not sure how to read. Today you must fix what each symbol and each
+    signal means, and write it down. If you fail, later choices may rest on errors no one can see.
   takeaway: A large scientific program cannot integrate evidence until measurements share definitions, units, and 
     traceable physical meaning.
   stops:
   - group: T
     call: Decode the nucleus
+    reason: The teams cannot compare any later result until the symbols on their boards mean the same physical things.
     task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
     title: The nucleus as a physical system
     setup: A theorist receives four unfamiliar nuclide labels and must extract the right quantity before doing any 
       calculation.
-    scene: Your first morning on the Hill. Oppenheimer stops at your bench with four nuclide labels and no explanation, 
+    scene: Your first morning on the Hill. Oppenheimer, the laboratory director, stops at your bench with four nuclide labels and no explanation, 
       and expects the right quantity pulled out of each one before anybody calculates anything.
     guide: >-
       Four things you need and four ways to get them. Pair them by asking what each
@@ -1691,6 +1694,7 @@ missions:
       spectrometry sorts by mass-to-charge ratio, responding to the difference chemistry mostly ignores. That is why isotopic
       separation is a physical problem as well as a chemical one."
     call: Connect isotopes to chemistry
+    reason: Today you must keep chemical form and isotope makeup separate or the shared records will start with a false match.
     setup: Match each question to the relevant property.
     rebuttals:
     - Two isotopes form similar compounds, because bonding is set by electron structure and extra neutrons barely 
@@ -1715,7 +1719,9 @@ missions:
     - "Yes: the proton count fixes the electron structure and therefore the chemical identity."
     mapping: [0, 1, 2, 3]
   - group: P
-    task: Arrange the four cards from earliest cause or prerequisite to latest result.
+    task: >-
+      Arrange the four cards from earliest cause or prerequisite to latest result, for a detector turning
+      deposited energy into a recorded pulse.
     title: Ionization and detector signals
     scene: Robert Bacher, who heads the physics division, puts it plainly — nobody here can see a single neutron or 
       alpha particle. Everything the Hill will claim about cross sections, backgrounds and yields rests on a chain of 
@@ -1757,6 +1763,7 @@ missions:
       Electronics then collect and amplify a response too small to handle raw. The data system digitises and stores a 
       pulse last. Get the chain wrong and you are measuring your own apparatus.
     call: Turn ionization into a signal
+    reason: The lab needs this signal chain now so every team knows what its counters actually measured.
     setup: Order the detector chain from deposited energy to stored data.
     rebuttals:
     - Energy deposited in the sensitive material is where everything starts. No deposit, no signal, however good the 
@@ -1778,11 +1785,13 @@ missions:
   briefing: The laboratory can calculate enormous nuclear energies, but the numbers are only useful if the instruments 
     and assumptions behind them are sound. The player checks the mass-energy scale, breaks a calibration degeneracy, and
     compares the evidence demands of two historically competing design programs at a high level.
-  stake: "May 1943. Groves wants a program that can be staffed and scheduled. Oppenheimer has more plausible ideas than people,
-    buildings or months. Before he shifts resources, the laboratory has to answer a more basic question: which claims come
-    from nuclear physics, which come from calibration, and which come from engineering assumptions that have not yet been
-    tested? Today you trace one energy calculation all the way back to its inputs, then decide what the early competing approaches
-    would demand from the laboratory—not how to build either one, but what evidence each would have to earn."
+  stake: >-
+    It is May 1943, and the lab has more plans than people or time. A strong equation can still
+    mislead if its inputs or tools are wrong. The theory division wants each number traced back to
+    its source before it goes in a notebook. Two rival designs are both asking for staff, and only
+    one can have them first. Today you must trace an energy claim back to its source and decide what
+    proof each plan would need. Your choice will shape where the lab puts its staff and its tests
+    for the next year.
   takeaway: A correct equation is only one link in an evidence chain; calibration and assumptions decide whether its 
     result can support a program decision.
   stops:
@@ -1819,6 +1828,7 @@ missions:
       1 unit is about 931 MeV. That is what turns a defect of 8 thousandths of a unit per nucleon into more than 1000 
       MeV for the whole nucleus.
     call: Estimate binding energy
+    reason: This estimate sets the energy scale for today's program debate, but only if every input and unit can be checked.
     setup: A medium-heavy nucleus has about 200 nucleons and a mass defect of about 0.008 atomic mass units per nucleon.
     estimate:
       prompt: A medium-heavy nucleus has about 200 nucleons, with a mass defect of roughly 0.008 atomic mass units per 
@@ -1940,14 +1950,14 @@ missions:
       a second equation. The two allowed loci cross at one point, fixing both parameters. This is why a convincing-looking
       one-point calibration can still place every unknown peak at the wrong energy."
     call: Calibrate measured energy
+    reason: The two spectra cannot guide a program choice until you know whether their gap comes from the samples or the instruments.
     setup: Order the calibration workflow.
   - group: E
     task: Match each high-level program claim to the kind of evidence it would require, without turning either 
       historical architecture into a construction lesson.
     title: What each early program would have to prove
-    scene: 'At a 1943 program meeting, Oppenheimer is comparing two historically competing approaches. The decision is about
-      people, facilities and evidence: one program is comparatively mature; the other demands a new campaign of symmetry and
-      diagnostics.'
+    scene: At a 1943 meeting, laboratory director Oppenheimer weighs two plans. One uses ideas the teams know well. The
+      other needs new tests of shape and timing. You must decide what proof each plan needs before people and rooms are assigned.
     guide: >-
       Four situations and four responses, and both designs chase the same goal. Ask
       of each whether it is about the geometry of the assembly or about its timing.
@@ -1988,6 +1998,7 @@ missions:
       compression process. That difference reorganized staffing, diagnostics, facilities and risk. Later plutonium 
       measurements did not make the gun idea 'bad physics'; they made it unsuitable for that material.
     call: Compare the evidence burden
+    reason: Staff and test space are scarce today, so the lab must know what each plan would have to prove before backing it.
     setup: Match each program-level statement to the historical approach or consequence it describes.
     rebuttals:
     - The gun-type program was the comparatively mature linear concept; the point here is its program maturity, not its 
@@ -2017,15 +2028,19 @@ missions:
     - 2
     - 3
   - group: P
-    task: 'Sort the examples by the physical claim they support: materials capable of sustaining neutron multiplication under
-      appropriate conditions versus materials that are radioactive or neutron-active for other reasons.'
+    task: >-
+      Sort the examples by the physical claim they support. One group can sustain neutron multiplication
+      in a critical arrangement. The other group is radioactive or neutron-active for some other reason.
     title: Radioactive is not the same as fissile
+    reason: The lab must separate a loud radiation signal from fissile behavior before it writes rules for the new materials.
     takesAsRead:
     - "Fission, neutron multiplication and chain reactions"
     concept: "Criticality: mass, geometry, reflectors, moderation"
     place: Physics Division
-    scene: 'A safety briefing has mixed together three ideas: radioactivity, neutron interaction, and fissile behavior. Graves
-      asks the room to separate the labels before anybody treats a loud counter as evidence for a chain reaction.'
+    scene: >-
+      A safety briefing has run three ideas together: radioactivity, neutron interaction and fissile
+      behavior. Graves, a critical-assemblies physicist, wants the labels pulled apart. Somebody in the
+      room has already read a loud counter as proof of a chain reaction.
     guide: >-
       Two bins. A nuclide that fissions on slow neutrons will hold a chain given enough
       mass and the right geometry. One that only fissions on fast neutrons, or not at all,
@@ -2049,11 +2064,9 @@ missions:
     answerText: Treat fissile behavior and radioactivity as separate labels. A loud counter is not evidence that a 
       material can sustain neutron multiplication.
     why: >-
-      Radioactivity describes spontaneous nuclear change. Fissile behavior describes whether neutron absorption can support
-      continuing fission multiplication under appropriate physical conditions. Those are different properties. Uranium-235
-      and plutonium-239 are canonical fissile nuclides; uranium-238, cobalt-60, radium, graphite and beryllium illustrate
-      other nuclear or material behaviors. A strong radiation signal therefore does not, by itself, identify a material as
-      fissile.
+      Radioactivity means a nucleus changes on its own. Fissile means an absorbed neutron can help a chain of fissions grow
+      in the right setting. These are different traits. Uranium-235 and plutonium-239 are fissile; the other examples show
+      other nuclear or material traits. A strong counter reading alone does not show that a sample is fissile.
     belt:
       left: {name: Fissile examples}
       right: {name: Different nuclear property}
@@ -2095,11 +2108,13 @@ missions:
   briefing: Three groups report incompatible yields from the same material stream. The player follows a decaying tracer 
     through a separation, corrects measurements to a common time, and isolates a background-count problem before the 
     disagreement gets mistaken for new physics.
-  stake: "July 1943. Three yield reports are on Oppenheimer's desk and they cannot all be right. Chemistry says material disappeared.
-    Physics says the counting rate changed. The sample itself is radioactive, so the amount visible to the counter is changing
-    while the separation is still running. Today you force every result onto the same clock, then measure the counter with
-    nothing in front of it. If the discrepancy follows the sample, it is chemistry or decay. If it follows the instrument,
-    the argument ends somewhere else."
+  stake: >-
+    It is July 1943, and three reports give three amounts for the same material. The sample changes
+    with time, while the counter may add signals of its own. The physics division will not pick
+    between the three reports until they share a clock. Each one was taken on a different day, at a
+    different bench, with a different counter. No two of them were read by the same pair of eyes.
+    Today you must put every result on one clock and find where the gap begins. Until you do, the
+    lab may blame the wrong team and lose stock it cannot replace.
   takeaway: Time-dependent samples and instrument backgrounds must be separated before a count rate can be treated as a 
     material yield.
   stops:
@@ -2141,6 +2156,7 @@ missions:
       λ is about 9.6×10⁻⁵ s⁻¹. Activity is then A = λN, so the remaining sample produces about 0.12 decays each second. Population
       and count rate are linked by the same decay law."
     call: Model radioactive decay
+    reason: The three reports were taken at different times, so today's first task is to place them on one clock.
     setup: A tracer with a 2-hour half-life starts at 10,000 nuclei and is left for a 6-hour shift.
     estimate:
       prompt: A tracer starts with 10,000 nuclei, has a two-hour half-life, and sits for 6 hours. Estimate how many 
@@ -2169,6 +2185,7 @@ missions:
       relationship: First λ = ln2/t½. Then N(t) = N₀e^(−λt), and activity is A = λN.
   - group: CM
     call: Use a radiochemical tracer
+    reason: The lab must learn whether material was truly lost during the separation before it blames decay or the counter.
     task: Estimate the chemical yield.
     title: Radiochemical tracers
     setup: A process begins with 5,000 tracer counts per minute and, once corrected for decay during the separation, 
@@ -2227,8 +2244,9 @@ missions:
       relationship: Yield = recovered ÷ started, as a percentage.
     answerText: About 80%.
   - group: P
-    task: Change one condition at a time, compare the count rate, and confirm the cause by removing it and then 
-      restoring it.
+    task: >-
+      Change one condition at a time — the sample, the shielding thickness, the hardware — and compare the
+      count rate. Confirm the cause by removing it and then restoring it.
     title: Find what carries the background
     concept: Attenuation of radiation through matter
     scene: A weak sample has been counting for an hour, and Elizabeth Graves wants to know whether the excess belongs to
@@ -2292,6 +2310,7 @@ missions:
       back and the excess returns. That reversal makes contamination of the detector or holder a causal result rather than
       a correlation."
     call: Measure the background
+    reason: A blank reading can show whether the last part of today's count gap follows the instrument instead of the sample.
     setup: You are deciding whether a weak sample is really emitting anything.
 - title: Is the Difference Real?
   objective: Use cross sections, counting statistics, and material balance to decide whether an apparent disagreement is
@@ -2299,10 +2318,13 @@ missions:
   briefing: Two groups believe their measurements disagree. The player converts interaction probability into a 
     measurable scale, asks whether the count difference exceeds ordinary statistical fluctuation, and refuses a 
     chemistry result whose mass balance does not close.
-  stake: "October 1943. Two experimental groups have been arguing about a gap between their counts for a week. A remote analysis
-    from Columbia says the difference may be ordinary counting noise. Bethe wants the measurements repeated independently
-    before scarce material is reassigned on the strength of them. Today you decide what size of difference is actually evidence,
-    and you make Chemistry close its ledger before anybody calls a missing fraction a discovery."
+  stake: >-
+    It is October 1943, and two teams disagree about a gap in their counts. The gap may be real, or
+    it may be normal noise, or metal that went missing. The bench that runs the neutron counts has
+    watched them drift for both of those reasons. The sample they are arguing over is rare, and
+    there is no second one on the mesa. Today you must decide how much the gap proves, and make the
+    metal ledger close. A bad call could waste that sample and send the lab after a result that is
+    not there.
   takeaway: A scientific disagreement becomes actionable only after random fluctuation, missing material, and shared 
     measurement errors have been ruled out.
   stops:
@@ -2341,6 +2363,7 @@ missions:
       Σ also controls attenuation: I/I₀ = e⁻Σx. After 1 mean free path, x = 1/Σ, so the exponent is minus 1 and about 37%
       of an uncollided beam remains. One parameter connects all three ideas."
     call: Interpret a cross section
+    reason: Today's count gap means little until you turn interaction chance into the scale the experiment should produce.
     setup: A solid has number density n = 10^22 cm^-3, and the cross section is 1 barn = 10^-24 cm^2.
     estimate:
       prompt: A solid has number density 10^22 cm^-3 and a neutron cross section of 1 barn = 10^-24 cm^2. Estimate Σ, 
@@ -2400,6 +2423,7 @@ missions:
       to 2.5%, you need 4 times as many counts. That slow square-root improvement is why counting statistics are a planning
       tool: longer runs buy precision, but they buy it expensively."
     call: Use Poisson statistics
+    reason: The lab must decide now whether the reported gap is larger than the random swing expected from counting.
     setup: A run records 400 net counts with negligible background uncertainty.
     estimate:
       prompt: A counting run records 400 net counts, and Poisson fluctuations are about √N. Estimate the fractional 
@@ -2427,8 +2451,10 @@ missions:
       - Fractional uncertainty is sqrt(N)/N
       relationship: Fractional uncertainty = 1 ÷ the square root of the number of counts.
   - group: CM
-    task: Read the reported quantities, decide which belong in the material ledger, and close the input to within the 
-      allowed tolerance.
+    task: >-
+      Read the reported quantities, decide which belong in the material ledger, and close the input to
+      within the allowed tolerance. One of them needs a unit conversion before it can be added to
+      anything.
     title: Close the material balance
     concept: "Units and conversions: MeV, u, barns, scientific notation"
     scene: A separation batch has come back and the numbers do not close. Chemistry & Metallurgy will not release the 
@@ -2496,6 +2522,7 @@ missions:
       swab finds 5.8% of the input on the vessel surface. Add that loss route and the balance closes to 99.7%, inside 
       rounding. Yield, purity, and material balance are different claims.
     call: Verify yield and purity
+    reason: No one can call the missing fraction new physics today until Chemistry shows where the full sample went.
     setup: You are reconciling a separation batch whose numbers do not close.
 - title: The Material Changes the Plan
   objective: Use neutron transport and independent detector evidence to understand why reactor-produced plutonium forced
@@ -2503,16 +2530,20 @@ missions:
   briefing: 'New material from the production reactors does not behave like the earlier samples. The player separates neutron-transport
     physics from detector failure and then interprets the historically decisive result: reactor-produced plutonium carried
     a much higher spontaneous-neutron background than the plutonium gun program could tolerate.'
-  stake: "Spring 1944. The first reactor-produced plutonium reaching Los Alamos carries an unwelcome fact with it. Its neutron
-    background is not the one the early gun program assumed. Before Oppenheimer reorganizes anything, the laboratory has to
-    know whether the extra counts belong to the material or to the counters. Today you trace that distinction with independent
-    evidence. If the material is really different, a year of engineering work may no longer answer the problem the laboratory
-    actually has."
+  stake: >-
+    It is spring 1944, and new plutonium gives far more stray neutron counts than expected. The
+    counts could come from the metal itself, or from counters that have gone bad. The chemists on
+    the plutonium work say the new samples are not like last year's. Both groups are sure of their
+    reading, and they cannot both be right. The lab has spent a year on a plan that assumed the
+    metal would not change. Today you must use independent evidence to decide which of the two
+    readings is true. If the metal has changed, that year of work may no longer solve the real
+    problem.
   takeaway: When a material property invalidates a design assumption, the responsible response is to verify the property
     independently and then change the program—not defend sunk work.
   stops:
   - group: T
     call: Follow neutron moderation
+    reason: The team must predict how neutrons move through today's test before it can judge whether the extra counts are physical.
     task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
     title: Neutron energy and moderation
     setup: Match each physical observation to the most relevant interaction idea.
@@ -2687,6 +2718,7 @@ missions:
       Those observations can all be true together only if neutrons are arriving and real detector pulses are being rejected.
       Agreement among dependent readouts is not independent evidence."
     call: Detect neutrons reliably
+    reason: Independent counters are needed now to show whether the surprising signal belongs to the new material.
     setup: You are checking a neutron counter that reads well below prediction.
   - group: X
     task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
@@ -2738,6 +2770,7 @@ missions:
       is pre-initiation. It is a property of the material, not a defect better workmanship can fix. Implosion is the answer:
       squeeze from all sides, and cut the vulnerable time."
     call: Explain why plutonium required implosion
+    reason: Once the material result is trusted, you must decide today whether it breaks the key timing assumption behind the old plan.
     setup: Match each observation to its implication for the plutonium weapon program.
     rebuttals:
     - The higher spontaneous-neutron background in reactor-produced plutonium is a material measurement. It is the fact 
@@ -2771,18 +2804,23 @@ missions:
   briefing: The higher spontaneous-neutron background is confirmed. The player estimates a laboratory background count, 
     follows the evidence chain that ended the plutonium gun program, and sequences the reorganization needed to test a 
     different approach without treating the device itself as an instructional object.
-  stake: "July 1944. The result is no longer a rumour or one bad counter. Reactor-produced plutonium has a higher spontaneous-neutron
-    background, and the plutonium gun program was built around the opposite assumption. Oppenheimer now has to end work people
-    have spent a year on and move staff into a program that is far less mature. Today you do the part that makes that decision
-    defensible: show what changed, show which assumption failed, and make the reorganization follow the evidence rather than
-    the prestige of the people involved."
+  stake: >-
+    It is July 1944, and several tests now show that the old plutonium plan rests on a false claim.
+    Ending it will throw away a year of work and move people to a less tested plan. The director
+    will not close a whole program on the strength of one result. Groups will be broken up, and the
+    people who led them have to be told why. Today you must show what failed and decide how the lab
+    should change course. The new plan must answer to evidence, not to pride or to a year already
+    spent.
   takeaway: A scientific pivot is strongest when the failed assumption is named explicitly and the new program is 
     organized around tests that can falsify its replacement.
   stops:
   - group: T
-    task: Use a measured background rate and counting interval to estimate the number of spontaneous-neutron counts 
-      expected during a laboratory measurement.
+    task: >-
+      Use the measured excess count rate and the counting interval to estimate the excess counts, then
+      weigh them against the statistical uncertainty on a count that size.
     title: How large is the neutron background?
+    takesAsRead:
+    - 'Descriptive statistics: mean, spread, standard deviation'
     scene: The new reactor-produced plutonium gives a neutron background far above the earlier material. Before anyone 
       connects that fact to a program decision, Bacher wants the size of the background written as an ordinary counting 
       problem.
@@ -2813,6 +2851,7 @@ missions:
       not by itself choose a weapon architecture; it establishes that the material property is real enough to force the 
       next question.
     call: Understand spontaneous-fission backgrounds
+    reason: The lab needs the size of the unwanted neutron signal today to show why the old timing claim cannot stand.
     setup: A sample emits spontaneous-fission neutrons at about 10^4 per second. A slow mechanical assembly takes about 
       10^-3 s; a fast one takes about 10^-6 s.
     estimate:
@@ -2847,6 +2886,7 @@ missions:
       relationship: Expected counts = count rate × observation time.
   - group: E
     call: Explain why Thin Man was abandoned
+    reason: You must link the measured material change to the failed program assumption before ending a year of work.
     task: Order the historical evidence-to-decision chain without reconstructing the device.
     title: Why the plutonium gun program ended
     setup: Order the historical reasoning that turned an unexpected material result into a program-wide redesign.
@@ -2944,6 +2984,7 @@ missions:
       validated. Independent diagnostics are built around those requirements. Only after the tests can actually 
       distinguish success from failure does the integrated schedule become meaningful.
     call: Move from outward detonation to inward compression
+    reason: The replacement effort needs testable claims now, or the lab will trade one unsupported plan for another.
     setup: Order the physical chain from initiation through inward compression.
     rebuttals:
     - Preserve the evidence first. Otherwise the laboratory can later rewrite why the old program ended.
@@ -2951,10 +2992,10 @@ missions:
     - Independent diagnostics come before integration so failures can still be attributed.
     - The schedule is last because dates built on undefined evidence are only promises.
     cards:
-    - Record the failed assumption and the measurements that disproved it.
-    - State the replacement program's system-level requirements as claims that can be tested.
-    - Build independent diagnostics and inert experiments that can falsify those claims.
-    - Commit the integrated schedule only after the pass/fail evidence is defined.
+    - A written record names the failed assumption and the measurements that disproved it.
+    - The replacement program has system-level requirements stated as testable claims.
+    - Independent diagnostics and inert experiments can falsify the replacement claims.
+    - The integrated schedule has defined pass/fail evidence at each gate.
     order:
     - 0
     - 1
@@ -2967,20 +3008,23 @@ missions:
     phase behavior are uncertain outside ordinary laboratory conditions. The player checks compression work, diagnoses a
     phase-model mismatch, and designs an inert wave-shaping measurement that can test symmetry without revealing 
     weapon-construction details.
-  stake: "September 1944. The laboratory has reorganized, but the replacement program is built on material behavior nobody
-    can simply look up in a handbook. A metal changes phase. A pressure model extrapolates far beyond the bench data. An inert
-    wave-shaping trial looks symmetric in one diagnostic and not in another. Today you decide what the models actually know
-    and which measurement would make them less wrong. The danger now is not ignorance. It is confidence carried farther than
-    the evidence."
+  stake: >-
+    It is September 1944, and the new plan leans on matter at pressures no table covers. A metal
+    shifts form, and two tools disagree about an inert test. The explosives division wants a test it
+    can repeat before it will trust a model. Nobody has yet run the same shot twice and got the same
+    trace. The danger is not what the lab does not know, but what it thinks it knows. Today you must
+    decide what the models truly support, and which new check is needed. Guess here and every later
+    shot rests on a number that nobody ever measured.
   takeaway: Extreme-condition models need independent material measurements and inert validation tests before their 
     extrapolations can be trusted.
   stops:
   - group: T
     call: Use an equation of state
+    reason: Today's pressure model reaches beyond the data, so you must mark what is measured and what is only an estimate.
     task: Estimate the work scale.
     title: Equations of state
     setup: A notional sample experiences an average pressure of 5 x 10^9 Pa while its volume decreases by 2 x 10^-6 m^3.
-    scene: Von Neumann is calculating work done on a material at pressures nothing in the laboratory has ever measured, 
+    scene: Von Neumann, a mathematician on the implosion work, is calculating work done on a material at pressures nothing in the laboratory has ever measured, 
       and wants the units checked line by line. An error in the units looks exactly like an error in the physics.
     guide: >-
       Four numbers: two pressures and two volumes, each pair a hundredfold apart.
@@ -3037,11 +3081,12 @@ missions:
     answerText: About 1 x 10^4 J.
   - group: CM
     call: Read a phase diagram
+    reason: The unexpected metal structure may explain the model gap, but only if the phase evidence is read with its limits.
     task: Read the whole reading panel, including the calm readings, then select the one cause that fits all of it.
     title: Phase diagrams
     concept: "Materials: phases, allotropes, alloys, density"
     setup: You are explaining a microstructure the phase diagram does not predict.
-    scene: Hornig has a microstructure under the microscope that the phase diagram says should not be there. Everything 
+    scene: Hornig, a chemist studying plutonium and test materials, has a microstructure under the microscope that the phase diagram says should not be there. Everything 
       the laboratory does with this metal is an argument with a diagram drawn from very little data.
     guide: >-
       A phase diagram is drawn for one composition. Ask of each candidate whether it
@@ -3082,10 +3127,12 @@ missions:
     pack: cm12
     answerText: A trace impurity stabilised an extra phase
   - group: X
-    task: Match each wave-shaping question to a measurement that can answer it in an inert laboratory mockup.
+    task: >-
+      Match each wave-shaping question to a measurement that can answer it in an inert hydrodynamic
+      mockup.
     title: What an inert wave-shaping test can establish
     concept: Shock waves, compression and hydrodynamics
-    scene: Kistiakowsky's group is studying how waves propagate through different materials. The player is not designing
+    scene: Kistiakowsky, the head of the explosives division, has his group studying how waves move through different materials. The player is not designing
       the weapon; the task is to decide which measurements make a claim about wave shape defensible.
     guide: >-
       Pair each claim with the observation that isolates it: measure material propagation separately, then combined arrival
@@ -3119,12 +3166,11 @@ missions:
     answerText: Material propagation speed -> measure each material separately; composite arrival uniformity -> compare 
       times around the inert test surface; manufacturing repeatability -> repeat as-built mockups across batches; 
       independent confirmation -> reconstruct the same front with a second diagnostic.
-    why: 'Different materials carry pressure waves differently, so a composite inert test can reshape an arriving front. The
-      useful scientific questions are measurement questions: what are the propagation speeds, how uniform are arrival times
-      in the mockup, how much do joints and batches change the result, and does a second diagnostic reconstruct the same front?
-      The historical program depended on answering such questions, but the educational lesson is how an analogy becomes a
-      measured physical claim.'
+    why: Pressure waves move at different speeds in different materials. An inert test can show how even their arrival is,
+      how much joints or batches change it, and whether a second tool sees the same front. Each claim needs its own measure.
+      The test supports only the parts that those measures can check.
     call: Turn wave-shaping claims into measurements
+    reason: The two tools disagree today, so the lab needs a clear measure of wave timing and an independent check.
     setup: Match each inert-test question to the evidence that settles it.
     rebuttals:
     - The component propagation speeds are measured separately before a composite result can be interpreted.
@@ -3156,16 +3202,19 @@ missions:
   briefing: Different groups are using words such as 'simultaneous' and 'symmetric' without a shared quantitative test. 
     The player dates a decaying source, traces timing jitter through an instrument chain, calculates a cable-delay 
     mismatch, and controls a numerical chain-reaction model rather than operating real critical hardware.
-  stake: "October 1944. 'Nearly simultaneous' has appeared in memos for months, but Theory, Physics and Engineering do not
-    mean the same thing by it. Kistiakowsky wants a number; Bacher wants to know how that number is measured; Bethe wants
-    the uncertainty beside it. Today you turn the adjective into evidence. The important shift is cultural: after this stage,
-    nobody gets to call a result symmetric or simultaneous without saying compared with what, measured how, and known how
-    well."
+  stake: >-
+    It is October 1944, and three teams use the words "nearly at once" in three different ways. A
+    vague claim cannot guide a test or show that a system works. Nobody can yet tell the theory
+    group how near is near enough, or why. No one has put a number on it, or on how well that number
+    is known. A test cannot be built on a phrase that three teams read three ways. Today you must
+    choose a shared measure, show how to read it, and state its doubt. After this, every timing
+    claim must come with a number and a check.
   takeaway: Engineering language becomes scientific evidence only when qualitative requirements are tied to calibrated 
     observables and uncertainty.
   stops:
   - group: X
     call: Define an arrival-time symmetry metric
+    reason: The teams need one timing measure today before they can compare whether an inert test is truly even.
     task: Use the supplied values and give a sensible rounded result with units.
     title: How many half-lives have passed
     place: Diagnostics Bay
@@ -3284,12 +3333,13 @@ missions:
       about 1 ns. When the live detector path is restored, the broad spread returns. The changing element is therefore 
       the live pulse-formation stage upstream of the injection point.
     call: Calibrate timing channels
+    reason: A shared measure is useless unless today's channels agree on time and show how much they may drift.
     setup: You are finding out why a timing array disagrees with itself.
   - group: E
     task: Estimate the timing difference created by unequal diagnostic-cable lengths.
     title: Why synchronization became an engineering requirement
     scene: Two fast diagnostic channels are supposed to observe the same inert event, but one signal path is longer. 
-      Parsons wants the delay budget written in a form a technician can inspect with a tape measure.
+      Parsons, an ordnance engineer, wants the delay budget written in a form a technician can inspect with a tape measure.
     guide: >-
       A path difference becomes an arrival-time difference because signals travel at a finite speed. Choose the path mismatch,
       signal speed, and conversion to nanoseconds.
@@ -3314,6 +3364,7 @@ missions:
       cable length by the signal speed. This turns a vague requirement such as 'record together' into something inspectable.
       The lesson is metrology: a timing claim is only as good as the physical paths and references that define it."
     call: Translate synchronization into measurement
+    reason: The engineering team must turn the new timing limit into checks a technician can make before the next trial.
     setup: Two diagnostic channels differ only in signal-cable path length.
     estimate:
       prompt: Two diagnostic signal paths differ in length by 0.4 m, and signals travel at 2×10^8 m/s in the cable. 
@@ -3344,6 +3395,7 @@ missions:
     task: Use the simulated feedback control to keep a numerical chain-reaction model near a steady level while its 
       model parameters drift.
     title: Hold a multiplication model at steady state
+    reason: The shared timing limit needs a stable model today so changes in the output can be tied to one input at a time.
     takesAsRead:
     - "Radioactive decay modes: alpha, beta, gamma"
     concept: "Fission, neutron multiplication and chain reactions"
@@ -3401,10 +3453,13 @@ missions:
   briefing: A full nuclear system cannot be used as an iterative laboratory test. The player therefore has to decide 
     what individual material tests and inert mockups are entitled to prove, and where conservative acceptance criteria 
     are needed because the real system cannot be repeatedly tested.
-  stake: "December 1944. The laboratory cannot learn by repeatedly trying the final thing. That makes every stand-in dangerous
-    in a different way: it can answer the question it was built for and tempt the program to believe it answered three more.
-    Bacher's integration committees exist to stop that. Today you qualify materials against written limits, decide what a
-    mockup can represent, and use fast imaging to measure motion rather than infer it from a damaged object afterwards."
+  stake: >-
+    It is December 1944, and the lab cannot test the final system again and again. Each stand-in can
+    answer one question but may hide what it cannot copy. The field-test group has one mockup on the
+    bench and a long list of claims to check. Every stand-in test also spends metal the mesa cannot
+    get more of. A mockup trusted too far is worse than no mockup at all. Today you must set
+    material limits, judge a mockup, and measure motion during the test. If you claim too much, the
+    final plan may rest on proof the stand-in never gave.
   takeaway: A surrogate experiment is powerful only when the claim it is allowed to support is written down before the 
     result arrives.
   stops:
@@ -3454,6 +3509,7 @@ missions:
       tough, so choosing the wrong one of these as 'strong' is how a part that passed every specification arrives 
       cracked. A part is only as good as the property nobody inspected.
     call: Characterize mechanical properties
+    reason: The mockup cannot test the right question today unless its materials meet written and measured limits.
     setup: You are running the failure analysis on a component that broke in service.
     pack: cm17
   - group: E
@@ -3500,6 +3556,7 @@ missions:
       inside the demonstrated boundary so one credible deviation does not erase the full margin. The general engineering
       lesson is that a safety factor belongs to the system of uncertainties, not to one number alone.
     call: Apply a conservative engineering margin
+    reason: Because the final system cannot be tried many times, today's acceptance rule must leave room for unknown variation.
     rebuttals:
     - Better measurement can shrink one uncertainty but cannot remove environmental and handling variation.
     - A passing component does not make every surrounding condition irrelevant.
@@ -3512,7 +3569,9 @@ missions:
     - It is only an inventory-control convention; environmental and alignment changes are already included 
       automatically.
     answer: It leaves room for several credible variations to occur together without reaching the demonstrated boundary.
-    question: Why keep the written operating limit well below the proof-test boundary?
+    question: >-
+      Why is the written operating limit — an administrative limit, set by people rather than by the metal
+      — kept well below the proof-test boundary?
   - group: P
     task: Estimate the blur distance.
     title: High-speed imaging and radiography
@@ -3549,6 +3608,7 @@ missions:
       is especially useful because it is calculable before the shot, so the diagnostic can be designed around the feature
       size rather than judged afterwards."
     call: Apply high-speed imaging and radiography
+    reason: The lab needs to see motion during today's inert test instead of guessing from broken parts after it ends.
     setup: An object moves at 500 m/s during a 1 microsecond exposure.
     estimate:
       prompt: An object moving at 500 m/s is recorded with a 1-microsecond (10⁻⁶ s) exposure. Estimate the motion blur 
@@ -3581,11 +3641,13 @@ missions:
   briefing: Bench tests pass, but the integrated system does not. The player compares physical timescales in an inert 
     test, chooses population-level qualification evidence instead of a champion prototype, and combines independent 
     diagnostic timing errors without turning component synchronization into a weapon recipe.
-  stake: "February 1945. The latest integrated bench trial failed, yet every subsystem lead can show a passing component test.
-    That is exactly why the failure matters. Something happens only when the pieces are connected. Bradbury wants the procedure
-    rewritten before the next attempt; Kistiakowsky wants to know whether manufacturing spread or the measurement chain is
-    responsible. Today you stop asking whether each part works and start asking whether the system preserves the assumptions
-    the part tests depended on."
+  stake: >-
+    It is February 1945, and the joined system has failed even though each part passed alone. The
+    fault may sit at an interface, across a batch, or inside the tools that measure time. The
+    British Mission on the Hill has been asked for a check that nobody here made. Two batches of the
+    same part went in, and nobody wrote down which was which. Every group can show that its own
+    piece was good, and that is the problem. Today you must decide which shared claim broke when the
+    parts met. Until you know, another test may fail for the same hidden reason.
   takeaway: Integration failures often live in interfaces and population variation, so qualification must test the 
     connected system and the manufactured distribution—not just ideal components.
   stops:
@@ -3622,6 +3684,7 @@ missions:
       The lesson applies to any fast diagnostic system: time synchronization matters because moving phenomena turn clock error
       into position error."
     call: Compare competing timescales
+    reason: The team must compare the linked system's time scales today to find an effect no single-part test could show.
     setup: An inert stress wave crosses a test plate while two diagnostic trigger paths start 0.5 microseconds apart.
     estimate:
       prompt: An inert stress wave travels through a test plate at 5×10^3 m/s. Two diagnostic triggers differ by 0.5 
@@ -3730,6 +3793,7 @@ missions:
       large integrated trial mixes too many causes. Sampling the manufactured population exposes unit-to-unit and 
       lot-to-lot spread and directly answers the release decision.
     call: Qualify timing-hardware lots
+    reason: One good part cannot clear a whole batch, so today's decision must use the spread across many units.
     setup: The timing-hardware program has competing requests for its next 100 credits.
   - group: X
     task: Estimate the combined uncertainty of independent timing contributions in the diagnostic chain.
@@ -3763,6 +3827,7 @@ missions:
       ns rather than 9 ns. The largest term contributes the most variance and is the best place to improve first. This is
       metrology: the numbers describe the measurement system, not a firing sequence."
     call: Synchronize many channels
+    reason: The failed trial may come from a shared timing error, so the full channel budget must be closed before a rerun.
     setup: Three independent diagnostic timing contributions are 2 ns, 3 ns, and 4 ns.
     estimate:
       prompt: Three independent diagnostic timing contributions are 2 ns from a reference trigger, 3 ns from cable 
@@ -3798,11 +3863,13 @@ missions:
   briefing: New measurements have narrowed some uncertainties and exposed others. The player combines independent terms 
     correctly, follows conservation laws through fission fragments, diagnoses competing sources in an integration model,
     and applies a pre-declared rule to a borderline material measurement.
-  stake: "March 1945. Groves sees more data and expects more confidence. Bethe sees the same data and is less confident, because
-    the new measurements exposed assumptions that had been hidden inside the old error bars. Today you build the uncertainty
-    budget the program should have had earlier. The point is not to produce one grand percentage. It is to identify which
-    uncertainty actually controls the decision, which two measurements can be wrong together, and which borderline result
-    the laboratory is not yet entitled to call a pass."
+  stake: >-
+    It is March 1945, and more data have made the lab less sure, not more. New tests exposed doubts
+    that the old error bars hid. The mathematicians say those error bars were never added up
+    properly in the first place. More tests were meant to settle this, and so far they have not.
+    Some of the tools meant to check each other share a part, and can fail together. Today you must
+    find which doubt controls the choice and which tools can fail as one. A weak pass now could
+    freeze a bad part into the final system.
   takeaway: An uncertainty budget is a map of what to improve next, not decoration around a central estimate.
   stops:
   - group: T
@@ -3840,6 +3907,7 @@ missions:
       a laboratory with limited people and time which measurement is worth improving first, rather than treating every error
       bar as equally urgent."
     call: Carry independent uncertainties through
+    reason: The lab needs the true size of today's combined doubt before it can rank which problem matters most.
     setup: A predicted reaction rate has an 8% cross-section uncertainty and a 6% flux uncertainty.
     estimate:
       prompt: A predicted reaction rate carries an 8% cross-section uncertainty and a 6% flux uncertainty, and the 2 are
@@ -3912,6 +3980,7 @@ missions:
       Momentum conservation fixes the relation between the motions; the energy formula then tells how the released 
       energy is divided.
     call: Recognize measurements that share an error
+    reason: Two agreeing tools may share one fault, so today's budget must not count them as separate proof.
     rebuttals:
     - Kinetic energy at fixed momentum falls with mass rather than rising with it.
     - Equal momenta do not mean equal energies, because energy depends on momentum squared over mass.
@@ -3961,6 +4030,7 @@ missions:
       then asks how strongly each moves the final claim. Two anomalies in different evidence chains need not share one cause.
       Forcing one story onto both can send the program to improve the wrong subsystem."
     call: Build the integration uncertainty budget
+    reason: The next test should target the doubt that controls the system choice, not the easiest number to improve.
     setup: Assign an inert trial's anomalies to the right uncertainty terms.
     pack: x18
   - group: CM
@@ -3996,6 +4066,7 @@ missions:
       is 102, but the lower plausible value is 99. That falls below the 100-unit requirement, so the measurement does not
       demonstrate a clean pass. Reading only the midpoint treats an uncertain measurement as though it were exact."
     call: Set acceptance criteria
+    reason: A borderline material result must face a rule written before the final parts are accepted.
     setup: A property must be at least 100 units. The measurement is 102 with uncertainty +/-3 units.
     estimate:
       prompt: A property must be at least 100 units. The measurement reads 102 units with an uncertainty of ±3 units. 
@@ -4027,11 +4098,13 @@ missions:
   briefing: The full program is converging on one integrated non-nuclear campaign. The player spends scarce test access 
     on the experiment that can actually separate hypotheses, calculates schedule float, and states scaling limits before
     interpreting an inert hydrodynamic mockup.
-  stake: "April 1945. The schedule looks like dozens of parallel jobs until Bacher's committee puts the dependencies on one
-    wall and finds that the whole program runs through one bottleneck. Groves wants a date. Bacher refuses to spend the remaining
-    test access on a dramatic shot that cannot distinguish the leading explanations. Today you decide what test changes the
-    next decision, what chain actually controls the calendar, and which conclusions a scaled inert experiment is entitled
-    to carry forward."
+  stake: >-
+    It is April 1945, and one hidden bottleneck now controls the whole schedule. Only a few full
+    tests remain, and a dramatic test may not tell the two main ideas apart. The Army wants a date
+    it can hold people to, and it wants it now. The work that sets that date is not the work most
+    people are busy with. Today you must choose a useful test, find the work that sets the date, and
+    limit what a small mockup can prove. The wrong choice could spend the last test and still leave
+    the key question open.
   takeaway: The best integrated test is the one whose possible outcomes change the decision, and the best schedule is 
     the one that exposes the dependency that really sets the date.
   stops:
@@ -4067,7 +4140,9 @@ missions:
     takeaway: A test is valuable when its possible outcomes distinguish competing explanations, not when it merely 
       produces more data.
     format: VALUE
-    question: Which test changes the programme's next decision?
+    question: >-
+      Which test changes the programme's next decision, rather than only improving its counting
+      statistics?
     value:
       hint: You have one facility week. Open each plan to see what its result would tell you, then spend the week on the
         evidence that can separate the two timing explanations.
@@ -4110,12 +4185,13 @@ missions:
       move the same output. The valuable test is the smallest one whose outcomes differ between the hypotheses, with 
       diagnostics aimed directly at that difference.
     call: Instrument the non-nuclear test
+    reason: With few trials left, today's test must record evidence that can separate the two live explanations.
     setup: Three test concepts compete for one week of facility time.
   - group: E
     task: Estimate how much a parallel chain can slip before it controls the date.
-    title: Critical path to an integrated trial
+    title: The chain that sets the date
     scene: >-
-      Groves wants a date for the integrated trial, and three chains of work are running
+      Groves, the Army officer who commands the Manhattan Project, wants a date for the integrated trial, and three chains of work are running
       in parallel toward it. Lens inspection, electrical qualification and casing work
       each report their own weeks, and nobody has put the three on one sheet.
     guide: >-
@@ -4145,6 +4221,7 @@ missions:
       finite. Enough slippage on a parallel chain makes that chain the new critical path. At which point the whole 
       calculation has to be done again.
     call: Identify the critical path
+    reason: The promised date is false unless you find the one chain of jobs that controls when the trial can happen.
     setup: "A simplified schedule has three dependency chains: lens inspection at 3 + 4 + 2 weeks, electrical qualification
       at 2 + 3 + 2, and casing work at 2 + 2 + 3."
     estimate:
@@ -4204,11 +4281,11 @@ missions:
       choice made for an approximate reason is indistinguishable from a sound one
       until the day the approximation is what is being tested.
     takesAsRead:
-    - "Units and conversions: MeV, u, barns, scientific notation"
+    - Pressure, temperature and equations of state
     assumes:
     - a dimensionless ratio has the same value at any scale
-    takeaway: Scaled experiments transfer the phenomena controlled by matched dimensionless groups; intrinsic material 
-      scales must be checked separately.
+    takeaway: A smaller model is useful only when the lab states which parts of the physics stay alike and which need a
+      fresh test.
     format: CHOICE
     answerText: Transfer only conclusions governed by matched dimensionless ratios; re-check effects tied to intrinsic 
       material length or time scales.
@@ -4217,6 +4294,7 @@ missions:
       their own dimensions and do not simply halve because the geometry does. The scientific discipline is to write down which
       similarities are preserved before the result is used."
     call: Decide what scaling preserves
+    reason: The small mockup can guide the final choice only if the lab states which effects truly carry to full size.
     rebuttals:
     - An unchanged propagation speed does not make every absolute time transferable when path lengths change.
     - A single geometric scale factor works only if all physically relevant intrinsic scales change with it, which they 
@@ -4231,8 +4309,11 @@ missions:
     answer: Transfer only conclusions governed by matched dimensionless ratios; re-check effects tied to intrinsic 
       material length or time scales.
   - group: T
-    task: Work the shop queue while the priority changes.
+    task: >-
+      Work the shop queue while the priority changes. What the test date needs comes first. Then what an
+      independent measurement is waiting on, and last what a division head asked for in person.
     title: What the shop is making today
+    reason: The schedule can be trusted only if today's work, tests, and handoffs all refer to the same approved item.
     concept: "Experimental method: controls, calibration, systematic vs random error"
     place: Theoretical Division
     scene: >-
@@ -4315,11 +4396,13 @@ missions:
   briefing: A single full-scale test is about to carry years of expectations. The player must prevent the event from 
     becoming its own proof by writing the questions first, establishing independent diagnostics and environmental 
     measurements, and separating what an integrated outcome can show from what only post-event monitoring can reveal.
-  stake: "July 1945. There will be one Trinity shot and no chance to rerun it because somebody wished afterwards that another
-    instrument had been pointed somewhere else. Groves wants the date held. Bethe wants every question written down before
-    the desert becomes an answer. On this point Bethe wins. Today you decide what evidence would count for each claim, which
-    observations need independent channels, and what must still be measured after the flash—especially beyond the instrument
-    field, where people and land can be affected without being part of the experiment."
+  stake: >-
+    It is July 1945, and the Trinity test can happen only once. A missing tool or a vague question
+    cannot be fixed after the event. The lab wants each question written down before the shot rather
+    than after it. The site is a stretch of desert with ranches and small towns downwind of it.
+    People and land outside the site may bear effects they did not choose. Today you must decide
+    what proof each claim needs and what must be watched beyond the test field. A test that is asked
+    nothing proves only that something happened.
   takeaway: A one-shot experiment must define its questions and evidence in advance, including measurements of 
     consequences outside the apparatus itself.
   stops:
@@ -4369,6 +4452,7 @@ missions:
       require measurements after the event and outside the apparatus. Writing those questions first prevents one 
       spectacular outcome from swallowing every other claim.
     call: Write Trinity as an experiment
+    reason: The questions and proof must be fixed today so one striking result cannot be used to support every claim.
     setup: Match each pre-test question to the evidence that settles it.
     rebuttals:
     - Only the integrated event can answer whether the full system functioned in the broad sense being tested.
@@ -4381,12 +4465,12 @@ missions:
     scenarios:
     - Did the integrated test produce the broad class of effects the laboratory expected?
     - Did the independent diagnostic channels remain interpretable through the event?
-    - How did the observations compare with the prediction envelope written before the test?
+    - Did the event fall within the range the model committed to in advance?
     - What radiological and physical consequences occurred at and beyond the site?
     choices:
     - The full-system effects record from the event itself.
     - Independent channel-health, calibration and timing records from the diagnostic network.
-    - A comparison between observed effects and the prediction envelope written before the test.
+    - Place the recorded effects beside the dated upper and lower model bounds.
     - Post-event environmental and exposure measurements that show what changed where.
     mapping:
     - 0
@@ -4394,12 +4478,14 @@ missions:
     - 2
     - 3
   - group: E
-    task: Arrange the field-experiment steps so that diagnostics, safety, and environmental monitoring are verified 
-      before the irreversible event.
+    task: >-
+      Arrange the field-experiment steps so that diagnostics, calibration records, safety and
+      environmental monitoring are all verified before the irreversible event.
     title: Integrate a one-shot field experiment
     scene: >-
-      The desert site has power, communications, cameras, weather instruments and radiation-monitoring stations spread across
-      a schedule threatened by weather. Bradbury wants every interface proved while it can still be fixed.
+      The desert site has power, telephones, cameras, weather instruments and radiation monitors spread
+      over many miles. Bad weather is already eating into the schedule. Bradbury, the Trinity assembly
+      leader, wants every interface proved while it can still be fixed.
     guide: >-
       Keep the sequence about experimental readiness. Establish site services and monitoring first, verify diagnostics and
       calibrations second, lock the approved test configuration only after those checks pass, and run only against explicit
@@ -4436,6 +4522,7 @@ missions:
       checks pass. Finally, the run proceeds against hold points, followed by the monitoring and documentation already 
       assigned before the event.
     call: Coordinate the field experiment
+    reason: Every tool, safety check, and outside monitor must work together before the one event that cannot be repeated.
     setup: Order the readiness sequence for a one-shot field test.
     rebuttals:
     - Site services and monitoring come first because every later observation depends on them.
@@ -4444,10 +4531,10 @@ missions:
       the measurement plan.
     - The irreversible run is last, and post-event monitoring is part of the experiment rather than an afterthought.
     cards:
-    - Establish power, communications, controlled access, weather observations, and environmental monitoring.
-    - Verify every diagnostic channel, calibration record, data path, and independent backup end to end.
-    - Lock the approved experimental configuration only after the measurement and safety checks pass.
-    - Run against defined hold points, then continue the post-event monitoring and documentation already assigned.
+    - Working power, communications, access control, weather stations, and outside monitors cover the site.
+    - Diagnostic channels, calibration records, data paths, and independent backups pass end-to-end checks.
+    - The approved experimental configuration is locked with its measurement and safety records.
+    - Event operations use defined hold points, with assigned monitors and records spanning the run.
     order:
     - 0
     - 1
@@ -4497,6 +4584,7 @@ missions:
       t½ = ln2/λ. The transformed plot also exposes failures: a second component can change the slope, while background can
       flatten the line at late times. Choosing the axes is part of the measurement."
     call: Linearize an exponential
+    reason: The team needs a readable form of the detector curve now to compare the event with the forecast made before it.
     rebuttals:
     - A straight-line fit on linear axes is only a local approximation to an exponential and its slope changes with 
       time.
@@ -4554,11 +4642,12 @@ missions:
       out. Carbon splitting would move down it, so energy would have to go in. The same curve is why fusion of light 
       nuclei also releases energy — from the other side of the peak.
     call: Read the binding-energy curve
+    reason: The energy scale must be tied to known nuclear trends before the lab writes its final prediction range.
     rebuttals:
     - Coulomb repulsion contributes to why heavy nuclei are less tightly bound, but the reaction energy is the total 
       binding-energy difference between initial and final nuclei.
-    - The number of fragments does not determine the sign of the reaction energy. The binding energies of reactants and 
-      products do.
+    - Fusion of light nuclei releases energy too, from the low-mass side of the same peak. Which way a reaction moves 
+      along the curve sets the sign, not whether nuclei split or join.
     - Radioactivity concerns whether a process occurs spontaneously and how fast. The energy balance is set by the 
       masses and binding energies of the states.
     choices:
@@ -4566,8 +4655,8 @@ missions:
       mass difference appears as released energy.
     - The fragments separate electrically after the split, so nearly all released energy is simply Coulomb repulsion and
       the binding-energy change is secondary bookkeeping.
-    - Any heavy nucleus releases energy when divided because the same mass is distributed among more particles and 
-      therefore more kinetic degrees of freedom.
+    - Splitting always releases energy and fusion always absorbs it, so uranium gives energy out while light nuclei 
+      can only take energy in.
     - Uranium releases energy because it is radioactive; a stable nucleus such as carbon would have no available nuclear
       energy to release.
     answer: The fragments lie higher on the binding-energy-per-nucleon curve, so the products are more tightly bound and
@@ -4579,16 +4668,19 @@ missions:
     eliminating every uncertainty. The player interprets a prediction-band comparison, distinguishes isotope physics 
     from chemistry, spends follow-up work on independent checks, and controls configuration changes without turning 
     post-test evidence into a recipe.
-  stake: "Late July 1945. Trinity worked, which is precisely when a laboratory is most tempted to stop asking what did not.
-    One yield estimate sits away from another. Some diagnostic channels agree; others do not. Fallout was measured downwind,
-    but civilians nearby had not been warned before the test. Today you decide which claims the event strengthened, which
-    systematics still need independent checks, and which changes can be justified by evidence rather than by the relief of
-    having seen the system function once."
+  stake: >-
+    It is late July 1945, and Trinity worked, but the records do not all agree. Some tools match,
+    one estimate stands apart, and fallout was found beyond the site. Observers forty miles off at
+    Carrizozo were reading counters as the cloud went over. Cattle on ranches north of the site have
+    burns along their backs. One test that works is not the same as a model that has been checked.
+    Today you must decide which claims grew stronger and which still need a new check. Success
+    cannot erase doubt, or harm outside the test field.
   takeaway: A successful integrated test validates claims selectively; it does not erase discrepancies, environmental 
     consequences, or model uncertainty.
   stops:
   - group: X
     call: Compare prediction with observation
+    reason: The lab must compare the result with the range written before the test, not move the range after seeing it.
     task: Estimate the offset in units of the measurement uncertainty, then state the strongest justified conclusion.
     title: Compare a prediction band with an observation
     setup: A classroom model predicts an observable between 15 and 25 units; the measurement reads 21 units with an 
@@ -4698,6 +4790,7 @@ missions:
       respond to mass or mass-to-charge ratio. The tiny size of that contrast is why isotope enrichment requires 
       repeated separation stages rather than one ordinary chemical reaction.
     call: Identify the usable isotope contrast
+    reason: Today's material record must separate isotope evidence from chemistry before either is used to explain the event.
     rebuttals:
     - The limitation is not mainly reaction speed or handling. The electronic structures that drive ordinary chemistry 
       are almost the same.
@@ -4720,7 +4813,7 @@ missions:
       physics discrepancy.
     title: Spend the follow-up checks on independence
     scene: >-
-      Fermi's blast estimate and the theory prediction disagree by three standard
+      Fermi, a senior physicist known for quick estimates, has a blast estimate that disagrees with the theory prediction by three standard
       deviations. The division can complete two follow-up checks before the next review,
       and every extra run that repeats the same dependency consumes one of those
       chances.
@@ -4795,6 +4888,7 @@ missions:
       calibration path. If the discrepancy survives independent evidence, the case for missing physics strengthens. If 
       it disappears, the original measurement chain becomes the leading suspect.
     call: Reconcile theory and experiment
+    reason: Only a few follow-up checks are possible, so they must test causes that can fail apart from the first estimate.
     setup: Theory and experiment disagree by three standard deviations.
   - group: E
     task: Order the post-test evidence process from raw records to a controlled final technical configuration.
@@ -4836,6 +4930,7 @@ missions:
       into a success narrative. Only then are evidence-supported changes approved and the technical documentation 
       frozen. The lesson is configuration control and epistemic discipline, not weapon assembly.
     call: Control the post-test evidence freeze
+    reason: Changes made after success still need records, or later teams will not know which tested form the claims describe.
     setup: Order the post-test evidence and configuration-control process.
     rebuttals:
     - Reconcile the records first; disagreeing records cannot yet support one claim.
@@ -4859,13 +4954,13 @@ missions:
     disagree about demonstration, combat use, secrecy, and postwar control. The player finishes the evidence record, 
     preserves diagnostic and materials capability, and signs a final statement that distinguishes what the laboratory 
     knows from what it recommends.
-  stake: "August 1945. The technical work is ending and the argument is widening. Reports and petitions circulate among Manhattan
-    Project scientists. Some argue for a demonstration before combat use; others support the military plan; many agree on
-    the physics and disagree sharply on what should follow from it. Trinity has also left a human record outside the fence:
-    nearby and downwind communities were not warned beforehand, and fallout was measured after the shot. Today you finish
-    the evidence chain with those limits visible. Your last act is not to decide national policy. It is to decide what a scientist
-    can responsibly sign: what the measurements support, what remains uncertain, what consequences have been observed, and
-    where technical authority ends."
+  stake: >-
+    It is August 1945, and the lab's technical work is ending while the moral fight grows.
+    Scientists can agree on the data and still disagree on what a nation should do. The lab has to
+    hand on a record that later readers are able to test. Some of the people who built this want it
+    shown once; some want it never used again. Today you must sign a record of what is known, what
+    is in doubt, and who was harmed. Your last choice is where scientific proof ends and public
+    policy begins.
   takeaway: Scientific expertise carries a duty to state evidence, uncertainty, and consequences clearly while 
     distinguishing those findings from political authority.
   stops:
@@ -4911,6 +5006,7 @@ missions:
       direction is not the same thing as an accessible reaction path. The curve tells you the energy bookkeeping, not the
       kinetics or engineering."
     call: Separate energy bookkeeping from reaction access
+    reason: The final record must not confuse energy that is possible on paper with a reaction the system can actually reach.
     rebuttals:
     - The curve describes relative binding, not a required trigger or reaction mechanism.
     - A favorable energy difference does not imply a fast reaction.
@@ -4967,6 +5063,7 @@ missions:
       take a whole answer with it. Deployment is approved with the residual risks named and a backup for each. Readiness
       means failures will be recognised, not that there are none.
     call: Hold the diagnostic readiness review
+    reason: The lab must preserve tools whose records can still test later claims after the wartime team breaks apart.
     setup: Order the final readiness chain.
     rebuttals:
     - Verify calibration and configuration records first. An instrument nobody can describe afterwards produces data 
@@ -4983,8 +5080,9 @@ missions:
     - Approve deployment with named residual risks and contingencies
     order: [0, 1, 2, 3]
   - group: CM
-    task: Spend the final 100-credit improvement budget on the evidence system that will remain useful when the next 
-      batch behaves differently.
+    task: >-
+      Spend the final 100-credit improvement budget on the evidence chain that will still be worth having
+      when the next batch behaves differently.
     title: Leave a materials capability, not just better numbers
     scene: >-
       Hornig's final dossier has to show more than that components existed. The division
@@ -5060,9 +5158,12 @@ missions:
       remeasurement, and higher throughput all have value, but none creates that causal record. The durable capability 
       is the evidence chain linking process history to measured properties.
     call: Complete the materials dossier
+    reason: Each final claim needs a traceable sample and process record before staff and materials leave the program.
     setup: The division has 1 final 100-credit improvement budget.
   - group: X
-    task: Choose the statement you are willing to sign as the laboratory's final scientific record.
+    task: >-
+      Choose the statement you are willing to sign as the laboratory's final scientific record, the last
+      link in the evidence chain.
     title: Sign the final scientific record
     scene: >-
       The last Evidence Chain is on the table. It contains the technical findings, their uncertainties, the observed consequences
@@ -5098,12 +5199,11 @@ missions:
     format: CHOICE
     answerText: Sign the record that states the supported technical findings and uncertainties, includes observed human 
       and environmental consequences, and labels policy recommendations separately from scientific conclusions.
-    why: Technical expertise creates an obligation to explain what the measurements mean and how uncertain they are. It 
-      also means reporting consequences that the experiment produced beyond the apparatus, including fallout and 
-      exposure concerns. Scientists may make policy recommendations, and Manhattan Project scientists did disagree about
-      use and demonstration, but a recommendation is not a measurement. The strongest record keeps all of those pieces 
-      visible without pretending one category automatically decides another.
+    why: Scientists must say what the measurements show and how sure they are. They must also report harm beyond the test
+      site, such as fallout and possible exposure. Scientists may argue for a policy, but that advice is not a measurement.
+      The final record keeps facts, doubt, harm, and advice in separate parts.
     call: Sign the final record
+    reason: This is the last act, so you must state what the evidence supports while keeping harm, doubt, and policy distinct.
     setup: Choose the scientific statement the evidence chain can support.
     rebuttals:
     - Raw readings without interpretation hide consequences from the people making decisions.
@@ -5217,7 +5317,9 @@ lessons:
     detected events -> Multiply by detector efficiency; Correct a measured gross rate -> Subtract background rate; 
     Compare two sources measured at different efficiencies -> Divide by efficiency before comparison
 - group: T
-  task: Arrange the four cards from earliest cause or prerequisite to latest result.
+  task: >-
+    Arrange the four cards from earliest cause or prerequisite to latest result. The subject is
+    exponential attenuation across a slab, and what a mean free path is an average of.
   title: Exponential attenuation and mean free path
   setup: Order the conceptual chain behind exponential attenuation.
   scene: >-
@@ -5314,7 +5416,8 @@ lessons:
     relationship: A random walk goes net distance ≈ step length × the square root of the number of steps.
   answerText: About 20 cm.
 - group: T
-  task: Estimate the population after two generations.
+  task: >-
+    Estimate the neutron population after two generations at the given multiplication factor.
   title: Neutron multiplication factor
   setup: A simplified system begins with 1,000 neutrons and has k=0.95.
   scene: >-
@@ -5409,8 +5512,10 @@ lessons:
     characteristic delay or lifetime -> Weight each contribution by its fraction -> Combine them to predict the system 
     response)
 - group: T
-  task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision 
-    criterion.
+  task: >-
+    Criticality safety means the administrative limits and controls that stop an accidental assembly.
+    Allocate 100 research credits across the 3 proposals, and say what criterion decided it. You may
+    hold credits in reserve.
   title: Criticality safety as a systems concept
   setup: A laboratory has 100 credits to reduce uncertainty in routine handling of fissile materials.
   scene: >-
@@ -5615,8 +5720,9 @@ lessons:
   answerText: 2 -> 3 -> 4 -> 5 (Describe the neutron flux as a function of energy -> Use an energy-dependent cross 
     section -> Multiply flux and cross section within each energy range -> Integrate or sum over the spectrum)
 - group: T
-  task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision 
-    criterion.
+  task: >-
+    Allocate 100 research credits across the 3 proposals, and say what each one buys — new structure
+    found, or calibration held. You may hold credits in reserve.
   title: Resonances and thresholds
   setup: Only one of three measurement campaigns can be fully supported.
   scene: >-
@@ -5928,7 +6034,9 @@ lessons:
     gridded.; First-order hand estimate -> A scaling argument. Gives no absolute number, only how the answer moves with 
     size or density — often the decision that actually matters.
 - group: T
-  task: Arrange the four cards from earliest cause or prerequisite to latest result.
+  task: >-
+    Arrange the four cards from earliest cause or prerequisite to latest result, for the jump across a
+    shock wave front.
   title: Shock waves and conservation laws
   setup: Order the reasoning for a one-dimensional shock calculation.
   scene: >-
@@ -6086,7 +6194,8 @@ lessons:
     easy to count, useless for spectroscopy.; Avoid operation where continuous discharge dominates -> Below electrical breakdown.
     Past it the discharge sustains itself and the output stops depending on the radiation at all."
 - group: P
-  task: Estimate the fractional statistical fluctuation.
+  task: >-
+    Estimate the fractional statistical fluctuation on the detector's photoelectron count.
   title: Scintillation detectors
   setup: A scintillator produces about 10,000 detected photoelectrons for a reference event.
   scene: >-
@@ -6137,7 +6246,9 @@ lessons:
     relationship: "Counting fluctuation is Poisson: the fractional noise = 1 ÷ the square root of the number counted."
   answerText: About 1%.
 - group: P
-  task: Arrange the four cards from earliest cause or prerequisite to latest result.
+  task: >-
+    Arrange the four cards from earliest cause or prerequisite to latest result, for a semiconductor
+    detector reading out one event.
   title: Semiconductor detectors
   setup: Order the detector preparation and measurement steps.
   scene: >-
@@ -6284,7 +6395,8 @@ lessons:
       √(sample + background).
   answerText: 900 +/- about 33 counts.
 - group: P
-  task: Estimate the live fraction.
+  task: >-
+    Estimate the live fraction from the count rate and the detector's dead time.
   title: Dead time
   setup: A detector has nonparalyzable dead time tau = 10 microseconds and records 2,000 counts/s.
   scene: >-
@@ -6488,7 +6600,9 @@ lessons:
     relationship: Speed = distance ÷ time.
   answerText: About 3 x 10^7 m/s.
 - group: P
-  task: Arrange the four cards from earliest cause or prerequisite to latest result.
+  task: >-
+    Arrange the four cards from earliest cause or prerequisite to latest result, for a spectrum whose
+    peaks have to be identified after calibration.
   title: Gamma-ray spectroscopy
   setup: Order the analysis from raw spectrum to line identification.
   scene: >-
@@ -6745,7 +6859,9 @@ lessons:
     values alternate between maximum and normal -> Diagnose analog-to-digital converter saturation when recorded values 
     repeatedly hit the maximum digital code even though the analog signal continues to change
 - group: P
-  task: Arrange the four cards from earliest cause or prerequisite to latest result.
+  task: >-
+    Arrange the four cards from earliest cause or prerequisite to latest result, for a detector whose
+    gain has drifted and needs recalibration.
   title: Gain drift and environmental control
   setup: Order a responsible drift response.
   scene: >-
@@ -6787,8 +6903,9 @@ lessons:
   answerText: 2 -> 3 -> 4 -> 5 (Confirm the shift with a stable reference source -> Check temperature, bias, and 
     electronics logs -> Recalibrate or correct the gain model -> Verify the correction on independent reference data)
 - group: P
-  task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision 
-    criterion.
+  task: >-
+    Allocate 100 research credits across the 3 proposals, and say what criterion decided it, given that
+    the detectors may fail together. You may hold credits in reserve.
   title: Redundancy and common-mode failure
   setup: The current system relies on two detectors sharing the same clock and amplifier design.
   scene: >-
@@ -6886,7 +7003,9 @@ lessons:
   answerText: 2 -> 3 -> 4 -> 5 (Condition and amplify the analog sensor output -> Apply a trigger or continuous sampling
     rule -> Digitize and timestamp the waveform -> Store data with configuration and calibration metadata)
 - group: P
-  task: Match each information need or situation to the best action, instrument, or control. Each option is used once.
+  task: >-
+    Match each field-instrument failure mode to the control that protects the timing of the recorded
+    pulse. Each option is used once.
   title: Field instrumentation
   setup: Match each field risk to the best mitigation.
   scene: >-
@@ -7369,7 +7488,9 @@ lessons:
     C: 60
   answerText: "Recommended: 35 to A, 60 to C, 5 held; none to B."
 - group: CM
-  task: Arrange the four cards from earliest cause or prerequisite to latest result.
+  task: >-
+    Arrange the four cards from earliest cause or prerequisite to latest result, for a metal crossing an
+    allotropic phase transformation.
   title: Allotropy and polymorphism
   setup: Order a generic transformation analysis.
   scene: >-
@@ -7597,8 +7718,9 @@ lessons:
   answerText: 2 -> 3 -> 4 -> 5 (Processing changes grain size or defect density -> Dislocation motion becomes easier or 
     harder -> Yield behavior changes -> Mechanical testing verifies the effect)
 - group: CM
-  task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision 
-    criterion.
+  task: >-
+    Allocate 100 research credits across the 3 proposals, and say what criterion decided it, given that
+    hardness and structure are what will be compared afterwards. You may hold credits in reserve.
   title: Heat treatment
   setup: A material shows inconsistent hardness after fabrication.
   scene: >-
@@ -8310,7 +8432,9 @@ lessons:
     relationship: For a drop from rest, time = the square root of (2 × height ÷ g).
   answerText: t approximately sqrt(16,000/9.8) approximately 40 seconds.
 - group: E
-  task: Arrange the four cards from earliest cause or prerequisite to latest result.
+  task: >-
+    Arrange the four cards from earliest cause or prerequisite to latest result. The authorization, the
+    checks and the timing of the event all have to leave a traceable record.
   title: A fast command-and-recording chain
   setup: Order a generic fast-system command chain without weapon-specific hardware.
   scene: >-
@@ -8394,14 +8518,14 @@ lessons:
   - What the situation requires
   - Which safeguard delivers it
   scenarios:
-  - Transport must keep stored energy isolated from the final experiment outputs.
+  - A device being moved must remain unable to feed its stored energy into the test.
   - The system may become active only after an approved external condition is reached.
-  - Two independent safe-state checks must agree before the final command path is enabled.
+  - One false reading must not open the final command route.
   - A technician must be able to prove afterwards which state the system was in.
   choices:
-  - Keep the transport isolation engaged so stored energy cannot reach final outputs during handling.
+  - Keep a physical transport barrier engaged throughout handling.
   - Use permissive logic that enables the experiment only after the approved condition is verified.
-  - Require two independent state checks before the command path can be enabled.
+  - Use two sensors with separate failure modes and require agreement.
   - Provide an external state indication and a signed contemporaneous checklist record.
   mapping:
   - 0
@@ -8411,7 +8535,9 @@ lessons:
   answerText: Transport isolation; condition-based permissive; independent interlock; external indication plus signed 
     record.
 - group: E
-  task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
+  task: >-
+    Match each situation to the action, control, document or interpretation that keeps the part
+    traceable. Each option is used once.
   title: Precision-component interfaces and traceability
   setup: Match each interface problem to the first engineering response.
   scene: >-
@@ -8466,8 +8592,9 @@ lessons:
   answerText: Quarantine unknown identity; resolve drawing revision; disposition nonconformance; reject unapproved 
     fit-by-rotation.
 - group: E
-  task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision 
-    criterion.
+  task: >-
+    Allocate 100 research credits across the 3 proposals, and say what makes a propagation measurement
+    reproducible enough to build on. You may hold credits in reserve.
   title: Choose materials for an inert wave-propagation study
   setup: Choose a safe research portfolio; the lesson contains no energetic formulations or processing recipes.
   scene: >-
@@ -8569,7 +8696,9 @@ lessons:
   answerText: Initialize and verify → confirm safe state and continuity → receive the authorized experiment trigger → 
     distribute the reference pulse to recording channels.
 - group: E
-  task: Estimate the largest allowed path mismatch, then state the engineering response.
+  task: >-
+    Estimate the largest allowed path mismatch, then say what it means for the timing of the recorded
+    signals.
   title: Cable routing and signal integrity
   setup: An inert test rack must hold 2 signal paths matched to within 2 ns; signal speed in the cable is 2.0 x 10^8 
     m/s. These are classroom values.
@@ -8593,7 +8722,8 @@ lessons:
     relationship it is going into. Reading the label is how a unit mismatch, or a
     quantity belonging to a different part of the problem, is caught before it is
     placed — which is the habit this format exists to build.
-  takeaway: Seemingly passive hardware can carry critical timing information.
+  takeaway: >-
+    Seemingly passive hardware can carry timing information the whole system depends on.
   format: BALLPARK
   why: Cable geometry can become part of the timing system.
   estimate:
@@ -8661,11 +8791,10 @@ lessons:
   why: Assembly is the point where documentation becomes hardware, so identity, configuration, independent checks, and 
     records have to remain linked.
   cards:
-  - Verify identity, inspection status, and approved configuration of incoming experimental components.
-  - Use dedicated tooling to assemble controlled inert or diagnostic subassemblies with independent checks.
-  - Complete approved continuity, instrumentation, and state-verification tests on the assembled experimental 
-    configuration.
-  - Seal records, photograph the configuration, and release it only to the next authorized test or transport step.
+  - Incoming experimental components carry verified identity, inspection status, and configuration records.
+  - Dedicated tooling and independent checks control each inert or diagnostic subassembly.
+  - The assembled experimental configuration has approved continuity, instrument, and state checks.
+  - A sealed record and photograph capture the configuration exactly as it stands at the end.
   order:
   - 0
   - 1
@@ -8727,7 +8856,8 @@ lessons:
     relationship: Worst-case stack-up = tolerance per interface × the number of interfaces.
   answerText: Worst case = +/-0.45 mm.
 - group: E
-  task: Match each situation to the best action, control, document, or interpretation. Each option is used once.
+  task: >-
+    Match each traceability question to the record that answers it. Each option is used once.
   title: Inspection and lot traceability
   setup: Match each record to the question it answers.
   scene: >-
@@ -8961,8 +9091,9 @@ lessons:
     schedule problem. No safety or function consequence, so handle it through configuration control rather than 
     escalation.
 - group: E
-  task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision 
-    criterion.
+  task: >-
+    Allocate 100 research credits across the 3 proposals, and say what criterion decided it, given that
+    the synchronized channels may share a failure. You may hold credits in reserve.
   title: Common-mode failure in synchronized diagnostics
   setup: Choose the most valuable reliability investment for a multi-channel measurement system.
   scene: >-
@@ -9057,8 +9188,10 @@ lessons:
     drawings, travelers, trainers, and spares. -> Retest the changed functions and preserve the evidence linking old and
     new configurations.)
 - group: E
-  task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision 
-    criterion.
+  task: >-
+    Allocate 100 research credits across the 3 proposals for Jumbo, the containment vessel built for a
+    shot in which only the high explosive fires. Say what criterion decided it, and you may hold credits
+    in reserve.
   title: The Jumbo contingency decision
   setup: The Trinity team must decide where to invest as confidence in implosion rises.
   scene: >-
@@ -9229,8 +9362,9 @@ lessons:
   answerText: Controlled shipment; cleared self-contained support; controlled field facilities and procedures; embedded 
     technical authority.
 - group: E
-  task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision 
-    criterion.
+  task: >-
+    Allocate 100 research credits across the 3 proposals for the readiness review, and say what
+    independent inspection a signature ought to rest on. You may hold credits in reserve.
   title: Final system readiness review
   setup: Allocate review effort across evidence, independence, and residual risk.
   scene: >-
@@ -9288,7 +9422,8 @@ lessons:
   answerText: "Recommended: put the dominant share into tested-to-fielded configuration audit, independent evidence, and explicit
     stop criteria."
 - group: X
-  task: Estimate final density divided by initial density.
+  task: >-
+    Estimate the density ratio, final over initial, after the compression.
   title: Spherical compression and density
   setup: This is a generic sphere calculation, not a Fat Man dimension or compression claim.
   scene: >-
@@ -9343,8 +9478,9 @@ lessons:
       ratio)³.
   answerText: rho_f/rho_i = 1/(0.90)^3 approximately 1.37.
 - group: X
-  task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision 
-    criterion.
+  task: >-
+    Allocate 100 research credits across the 3 proposals, and say what criterion decided it, given that
+    the timing of the diagnostics is what is being bought. You may hold credits in reserve.
   title: Invest in distributed timing evidence
   setup: The integration group has 100 credits for fast-diagnostic timing research.
   scene: >-
@@ -9397,7 +9533,9 @@ lessons:
     A: 5
   answerText: "Recommended: 90 to B, 5 to A as a reference, 5 in reserve."
 - group: X
-  task: Arrange the four cards from earliest cause or prerequisite to latest result.
+  task: >-
+    Arrange the four cards from earliest cause or prerequisite to latest result, for a scaled
+    hydrodynamic study in inert mock materials.
   title: Hydrodynamic scaling with inert mock materials
   setup: Order the logic of a useful scaled hydrodynamic experiment.
   scene: >-
@@ -9501,7 +9639,9 @@ lessons:
     a local jet; Two nominally identical interfaces produce different records -> Unexplained variation. Before calling 
     this physics, rule out machining tolerance and diagnostic differences between the two records
 - group: X
-  task: Arrange the four cards from earliest cause or prerequisite to latest result.
+  task: >-
+    Arrange the four cards from earliest cause or prerequisite to latest result, for a fixed mass under
+    compression in a generic transport model.
   title: Density, geometry, and particle transport
   setup: Order the qualitative chain in a generic transport model.
   scene: >-
@@ -9535,10 +9675,10 @@ lessons:
   format: SEQUENCE
   why: Changing density and geometry changes collision probability and leakage in many transport systems.
   cards:
-  - Compress a fixed mass into a smaller volume in the generic model.
-  - Average density rises and characteristic path lengths through the material change.
-  - The probability of interaction before escape changes because number density and geometry both changed.
-  - The measured transport response shifts, which can be compared with the model.
+  - A fixed mass occupies a smaller volume in the generic model.
+  - The model assigns higher density and altered path lengths.
+  - Updated number density and geometry set a new interaction-to-escape probability.
+  - A shifted transport response provides the model comparison.
   order:
   - 0
   - 1
@@ -9636,10 +9776,10 @@ lessons:
   why: In a fast transient experiment, the timing reference can matter as much as the reference amplitude because every 
     diagnostic is compared against it.
   cards:
-  - Establish the baseline background and timing uncertainty before the transient begins.
-  - Bring the inert experiment to the approved test state.
-  - Generate a controlled reference event at the selected diagnostic time.
-  - Compare the measured response timing with model predictions and independent records.
+  - Baseline background and timing uncertainty are recorded.
+  - The inert experiment meets its approved test state.
+  - A controlled reference event marks the chosen diagnostic time.
+  - Response timing is compared with model forecasts and independent records.
   order:
   - 0
   - 1
@@ -9648,7 +9788,9 @@ lessons:
   answerText: Baseline timing/background → approved inert test state → controlled diagnostic reference event → compare 
     response timing with prediction and independent records.
 - group: X
-  task: Estimate the probability of at least one event using P ≈ lambda when lambda is small.
+  task: >-
+    Estimate the probability of at least one event, using the Poisson result P ≈ lambda while lambda
+    stays small.
   title: Random-event probability in a short observation window
   setup: Invented classroom rates illustrate Poisson timing and do not represent any weapon material or device.
   scene: >-
@@ -9853,8 +9995,9 @@ lessons:
     timing, radiographic, and physical records. -> Compare observations with models, inspect recovered evidence when 
     possible, and update the next test.)
 - group: X
-  task: Allocate 100 research credits across the 3 proposals. You may hold credits in reserve, but explain the decision 
-    criterion.
+  task: >-
+    Allocate 100 research credits across the 3 proposals for the hydrodynamic instability seen in the
+    radiographs, and say what criterion decided it. You may hold credits in reserve.
   title: Control jets and hydrodynamic instabilities
   setup: The group has 100 credits after radiography reveals a narrow high-velocity feature near an interface.
   scene: >-
@@ -9911,7 +10054,9 @@ lessons:
     C: 0
   answerText: "Recommended: 90 to B, 10 in reserve; A and C receive none."
 - group: X
-  task: Arrange the four cards from earliest cause or prerequisite to latest result.
+  task: >-
+    Arrange the four cards from earliest cause or prerequisite to latest result, for correlating a
+    hydrodynamic model with the shots that test it.
   title: Model-test correlation
   setup: Order the correlation workflow.
   scene: >-
@@ -9996,12 +10141,12 @@ lessons:
   - A complicated internal configuration amplifies manufacturing and assembly uncertainty.
   - Theoretical calculations are dominated by poorly constrained internal boundaries.
   - Development tests are hard to compare because each uses a different internal configuration.
-  - The program needs one integration baseline that can be frozen and documented.
+  - Many teams need a single version they can all build and test.
   choices:
   - Reduce internal geometric complexity so fewer manufactured interfaces can vary.
   - Choose a simpler model geometry with fewer poorly constrained boundaries.
   - Run development tests against the same simplified reference configuration.
-  - Establish one documented integration baseline for the final test program.
+  - Freeze and record one common baseline for the last trial.
   mapping:
   - 0
   - 1
@@ -12282,49 +12427,23 @@ interiors:
 warmups:
   greet:
     title: The mesa is full of people who cannot tell you what they do
-    why: >-
-      Everybody here has arrived in the last year and half of them are not allowed to say what
-      they are working on. Oppenheimer, the laboratory director, takes new staff round the
-      divisions once, because compartmentalisation means the only way you will know who to ask
-      is having been introduced to them by somebody who knows what you are cleared for.
+    why: Meet the people in each division so you know who can help when the work begins.
   trial-near:
     title: Walk the mesa before you are trusted with an errand on it
-    why: >-
-      The site is a mesa with one road, and the buildings that matter are not the ones with the
-      signs. Walk it once now — theoretical, the physics building, chemistry and metallurgy, the
-      shops — because an errand across this site in the dark with a box you may not open is not
-      the time to be learning it.
+    why: Visit the main buildings now so you can cross the mesa quickly when an urgent job starts.
   follow:
-    title: Groves walks the site the way he walks it
-    why: >-
-      Groves, the commanding general, inspects on foot, fast, and stops where he stops for
-      reasons he does not explain. Stay with him. What he looks at is the fastest available
-      education in what this project is actually short of, and dropping behind means missing the
-      half sentence in which he says it.
+    title: Keep up with the commanding general
+    why: Keep up with the commanding general so you can see which parts of the lab need help.
   hunt:
     title: Five detectors signed out, and the log accounts for three
     item: {name: detector, plural: detectors}
-    why: >-
-      Every detector on this mesa is signed out against a name, and two of them are against
-      nobody. A detector nobody can account for is a count somebody may have taken and not
-      written down, and the whole measurement rests on knowing which instrument read what.
+    why: Find the two missing detectors so every later count can be tied to the right instrument.
   canvass:
     title: Who is worried about the same thing you are
-    why: >-
-      Somebody on this mesa has already thought about the problem in front of you and security
-      means you will not be told who. Ask around the divisions until enough answers come back to
-      say whether it has been solved, half solved, or never raised.
+    why: Ask each division about the problem so you know whether anyone has already solved part of it.
   evade:
     title: The security officer with questions about your notebook
-    why: >-
-      A counter-intelligence officer has been waiting outside theoretical since eight about a
-      notebook you took to the wrong building, and everybody here has learned that the
-      conversation is shorter with a division head present. Stay out of his way until
-      Oppenheimer, the laboratory director, is back.
+    why: Avoid the security officer until the laboratory director can explain why your notebook was in the wrong building.
   tag:
-    title: Catch Bethe before he goes into the Tuesday colloquium
-    why: >-
-      Bethe, who heads the Theoretical Division, has the corrected cross-section figure, and once the colloquium
-      starts he is at the board for two hours. Every estimate on your desk this afternoon is
-      built out of that number, and the version you have is the one from before he found the
-      error.
+    title: Catch the theory chief before the Tuesday meeting
+    why: Reach the theory chief before his meeting so your team uses the corrected number this afternoon.

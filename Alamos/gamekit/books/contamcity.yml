@@ -1008,6 +1008,13 @@ glossary:
   - intermolecular forces
   def: A course concept used in Mission 3. In the game, the term should be defined through the evidence and decision in 
     that mission rather than presented only as vocabulary.
+- name: Kinetic Molecular Theory
+  aliases:
+  - kinetic molecular theory
+  - kinetic molecular
+  - kinetic
+  def: The picture of a gas as huge numbers of molecules in constant motion. Warm them and they move faster, which is
+    why a gas pushes harder on its container and spreads through a room on its own.
 - name: Le Châtelier Principle
   aliases:
   - le châtelier principle
@@ -1305,15 +1312,12 @@ glossary:
 missions:
 - title: What Burned?
   objective: Turn damaged cargo, records and first laboratory measurements into a defensible provisional hazard list.
-  briefing: The freight-yard fire involved mixed chemical cargo beside Riverton's river. Fire Command needs to know 
-    which materials can meet water, which need isolation, and which identities are still only guesses.
-  stake: "Day 1. The fire is out, but seven damaged containers sit 80 metres from the river and three different chemical names
-    are already moving over the radio. The cargo was mixed: a wrong name can put water on a water-reactive drum or send the
-    wrong sample into the lab. Today you decide what can be said now, what must stay provisional, and which independent measurement
-    is worth buying before Fire Command acts."
+  briefing: "Fire Command needs to know which materials can meet water, which need isolation, and which identities are still only guesses."
+  stake: "On day 1 the fire is out, but seven damaged drums sit 80 metres from the river. The radio is already passing three different names for what is inside them. Today you say what is known, what is still a guess, and which test to buy first."
   takeaway: Create a provisional identity list and choose the next discriminating measurements.
   stops:
   - group: IDENT
+    reason: "Three names for one drum are chalked up at the command post, and only the formulas can rule any of them out"
     call: Read the formula, not the rumor
     task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is
       used once.
@@ -1384,6 +1388,7 @@ missions:
       3. A particle has more electrons than protons. → It is negatively charged. 4. A label gives a common name with no 
       composition or concentration. → The record is insufficient for hazard prediction.
   - group: IDENT
+    reason: "The first sealed sample is on the bench and there is liquid for two runs, so the order you spend it in is today's decision"
     call: From damaged container to provisional identity
     task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock
       correctly placed cards after each check.
@@ -1445,6 +1450,7 @@ missions:
       headspace vapour onto a sorbent tube, without breaching the bulk liquid. 3. Draw a small aliquot and run a 
       non-destructive spectrum on it. 4. Commit part of that aliquot to a method that destroys it to identify it.
   - group: IDENT
+    reason: "Eight hundred dollars of laboratory time is all that is left, and the crews at the fence are waiting on whatever identity it buys"
     call: Spend the first of the lab budget
     task: Spend the $800 laboratory budget on the evidence that most changes whether the provisional identity is 
       defensible.
@@ -1522,7 +1528,10 @@ missions:
       working identity using different physics; the other purchases answer provenance, quality-control or precision 
       questions.
   - group: IDENT
-    task: Sort the drum labels before the contractor lifts them.
+    reason: "Hose crews want to wet the whole row down, and some of these drums answer water with heat"
+    call: Sort the drum labels before the contractor lifts them
+    task: Sort the drum labels before the contractor lifts them, using what the periodic table says each element
+      can do.
     title: Water first, or never water
     place: Container Yard
     question: Send each drum to the bin that says what water would do to it.
@@ -1620,22 +1629,19 @@ missions:
 - title: The Invisible Cloud
   objective: Bound the volatile release and set evacuation or shelter triggers from measurements rather than from 
     gas-law volume alone.
-  briefing: One volatile fraction from the mixed cargo is moving toward two neighbourhoods. Gas laws set its scale; 
-    wind, turbulence, terrain and chemistry decide exposure.
-  stake: "Day 2. Before sunrise the wind turns forty degrees and the volatile fraction points toward two neighbourhoods. The
-    plume is colourless. Police need a corridor, residents need instructions, and Fire Command needs the roads kept open.
-    Today you use the gas calculation only for scale, then decide which measurements actually deserve to move the evacuation
-    line."
+  briefing: "Gas laws set the scale of the volatile release; wind, terrain and chemistry decide the exposure."
+  stake: "On day 2 the wind turned forty degrees at dawn, and the vapour now drifts toward two streets of homes. The cloud cannot be seen, and police hold the exit roads open. Today you use the gas-law volume for scale, then pick the readings that move the line."
   takeaway: Provide a bounded plume assessment and decision triggers for evacuation zones.
   stops:
   - group: GASES
+    reason: "The release inventory finally came in, and the corridor drawn on the map still rests on nothing but a gas-law volume"
     call: How much volume can the gas occupy?
     task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and 
       interpretation. Estimate the gas volume at ambient conditions.
     title: How much volume can the gas occupy?
     place: Mobile Weather Station
     setup: Use an idealized release only to establish scale.
-    question: Estimate the gas volume at ambient conditions.
+    question: Use the ideal gas law to estimate the gas volume at ambient conditions.
     scene: At the command trailer, a colourless plume is moving toward two neighbourhoods. Police are holding the 
       evacuation roads open while the wind shifts. The release inventory is finally known, and the incident commander, 
       Grace Boateng, wants the gas scale before moving her roadblocks.
@@ -1656,7 +1662,7 @@ missions:
     estimate:
       prompt: A colorless plume is leaving the yard. Command wants the equilibrium gas volume before anyone draws an 
         evacuation corridor.
-      question: Estimate the gas volume at ambient conditions.
+      question: Use the ideal gas law to estimate the gas volume at ambient conditions.
       labels:
       - 2.0×10⁴ mol  (n, amount released)
       - 8.31 J mol⁻¹ K⁻¹  (R)
@@ -1698,14 +1704,15 @@ missions:
     concept: Gas laws and the ideal gas equation
     answerText: V ≈ 2.0×10^4×8.31×300/10^5 ≈ 500 m³.
   - group: GASES
+    reason: "Temperature, pressure and wind have all moved since that corridor was drawn, and nobody has said which of them should redraw it"
     call: Interpret plume behavior
-    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is
-      used once.
+    task: Kinetic molecular theory sets what the gas itself does; the wind sets where it goes. Match each situation
+      to the most scientifically justified interpretation, control, or response. Each choice is used once.
     title: Interpret plume behavior
     place: Gas Properties Lab
     setup: Match each change to its first-order consequence.
-    scene: At the weather station, Varga reads out rising temperature, falling pressure and a strengthening afternoon 
-      wind while the plume is still moving. Ground crews also report vapour pooling in a low drainage channel on the 
+    scene: Varga leads atmospheric chemistry. At the weather station he reads out rising temperature, falling pressure
+      and a strengthening afternoon wind. The plume is still moving. Ground crews also report vapour pooling in a low drainage channel on the 
       downwind side of the freight yard.
     story: "The weather is changing while the volatile fraction is still moving. Gas-law behaviour tells you how a fixed amount
       responds to temperature and pressure; atmospheric transport tells you where the cloud goes. A vapour denser than the
@@ -1764,6 +1771,7 @@ missions:
       lower-level accumulation, though turbulence matters. 4. Wind direction shifts while the source continues. → The 
       downwind risk corridor must be updated.
   - group: GASES
+    reason: "The same open drum read three times the vapour at two in the afternoon, and the shelter advice was written off the morning number"
     call: Choose the next plume evidence
     task: Same drum, same liquid, three times the vapour. Why?
     title: Why the drum is worse in the afternoon
@@ -1810,23 +1818,20 @@ missions:
 - title: Do Not Open the Hatch
   objective: Bound the largest plausible underground reaction and decide what evidence is required before confined-space
     entry.
-  briefing: Runoff from two parts of the mixed cargo may be meeting in a closed drainage tunnel. The chemistry must be 
-    bounded before anyone enters.
-  stake: "Day 3. Two contaminated drains disappear into the same closed tunnel. Oyelaran has a crew at the hatch and will
-    not send them down on a chemical story somebody has not balanced. Today you calculate the maximum gas and heat the plausible
-    reaction can make, then ask whether the observations show that reaction is actually occurring. The hatch stays shut until
-    both questions have answers."
+  briefing: "Runoff from two parts of the mixed cargo may be meeting in a closed drainage tunnel, and the chemistry must be bounded before anyone enters."
+  stake: "On day 3 two dirty drains vanish into the same closed tunnel, and a repair crew waits at the hatch. Nobody sends them down on chemistry that has not been balanced. Today you bound the most gas and heat that reaction could make, then ask whether it is running."
   takeaway: Estimate the maximum reaction scale and define measurements that verify whether the assumed chemistry is 
     occurring.
   stops:
   - group: ENERGY
+    reason: "Both drain analyses are back, and the hatch stays shut until the steps between them are put in an order that holds"
     call: From identity to reaction estimate
     task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock
       correctly placed cards after each check.
     title: From identity to reaction estimate
     place: Sewer Monitoring Station
     setup: Order the stoichiometric workflow.
-    scene: At the tunnel entrance, two drainage streams may be meeting behind a closed access door. Oyelaran holds his 
+    scene: At the tunnel entrance, two drainage streams may be meeting behind a closed access door. Oyelaran, the confined-space safety officer, holds his 
       repair crew at the barricade, and the storm bypass remains shut. The laboratory has analyses from both drains but 
       no reaction estimate yet.
     story: "Two drainage streams may be meeting in a confined tunnel, and crews are waiting for permission to enter. Every
@@ -1875,6 +1880,7 @@ missions:
     answerText: Write and balance the plausible reaction. → Convert measured amounts to moles. → Use mole ratios to 
       identify the limiting reactant. → Calculate theoretical products and compare with observed gas or heat.
   - group: ENERGY
+    reason: "The two reactants are arriving in the tunnel in amounts nobody chose, and entry waits on which of them runs out first"
     call: Which reactant limits?
     task: Use the masses and molar masses to identify the limiting reactant, the maximum amount of B that can react, and
       the percent yield from the recovered product.
@@ -1942,6 +1948,7 @@ missions:
     answerText: A is limiting. The masses correspond to 10 mol A and 8 mol B, so at most 5.0 mol B can react. A 
       recovered 4.2 mol equivalent is an 84% yield.
   - group: ENERGY
+    reason: "The tank test has made no product in six days, and the crew is being told that this proves the reaction cannot happen"
     call: Heat release is not the spontaneity test
     task: Calculate ΔG at 18 °C, then decide whether thermodynamics favors the reaction and what the 6 quiet days imply 
       about its rate.
@@ -2010,15 +2017,12 @@ missions:
 - title: One Result Is Lying
   objective: Confirm the major cargo components and identify a common-mode laboratory failure before the wrong compound 
     enters the treatment plan.
-  briefing: The chromatogram contains more peaks than the manifest explains, and two apparently agreeing measurements 
-    share a hidden dependency.
-  stake: "Day 4. The lab finally has enough data to name the major fractions of the mixed cargo. Then one result refuses to
-    fit: duplicate chromatograms agree beautifully, but an independent structural spectrum does not. Osei is already ordering
-    treatment chemicals from the identity list. Today you decide which evidence is real and whether two agreeing numbers are
-    actually one mistake repeated twice."
+  briefing: "The chromatogram contains more peaks than the manifest explains, and two apparently agreeing measurements share a hidden dependency."
+  stake: "On day 4 the lab has enough data to name the main parts of the cargo. Two runs of one method agree well, and a second method does not agree at all. Today you say which result is real, and whether two matching numbers are one error made twice."
   takeaway: Assign confidence-ranked identities to mixture components using independent evidence.
   stops:
   - group: IDENT
+    reason: "Two unlabelled metal cans are down to sodium and potassium, and the water-exclusion zone has to be sized before either is moved"
     call: Which alkali metal is the greater water hazard?
     task: Two recovered metal samples are sodium and potassium. Use periodic trends to rank their water reactivity 
       before either container is opened.
@@ -2030,8 +2034,8 @@ missions:
     - Atomic structure, ions and electron configuration
     assumes:
     - both samples are elemental alkali metals under comparable conditions
-    takeaway: For elemental group-1 metals under comparable conditions, water reactivity generally increases down the 
-      group as the outer electron is lost more easily.
+    takeaway: A periodic trend predicts behaviour for elements held in the same chemical form, and it stops
+      predicting anything the moment the form changes.
     format: CHOICE
     why: "For elemental alkali metals, the outer electron is farther from the nucleus and more shielded going down group 1,
       so ionisation energy falls. Potassium therefore reacts more vigorously with water than sodium under comparable conditions.
@@ -2064,9 +2068,11 @@ missions:
       for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
     concept: Periodic trends and what an element can do
   - group: IDENT
+    reason: "Two methods were run on one extract and they disagree, and the treatment order goes out on whichever one is believed"
     call: Read analytical disagreement
-    task: Trace which measurements share dependencies, keep the evidence that stands independently, and name the source 
-      that explains the 3.1-minute signal.
+    task: Read the run's quality control — the duplicate and the blank — then trace which measurements share
+      dependencies, keep the evidence that stands independently, and name the source that explains the 3.1-minute
+      signal.
     title: Read analytical disagreement
     place: Spectroscopy Suite
     setup: Match each pattern to the best response.
@@ -2150,11 +2156,14 @@ missions:
       structural spectrum as evidence against the target identity. Do not count the two chromatograms as independent 
       confirmation.
   - group: IDENT
+    reason: "One peak matches two candidates to within three seconds, and the review board wants it settled before the plant buys chemicals"
     call: Resolve the ambiguous peak
-    task: One peak is still ambiguous and the review board wants it settled. What settles it?
+    task: One peak is still ambiguous, in a river sample carrying chloride at 40 mg/L and detergent from the fire
+      foam. What settles it?
     title: Resolve the ambiguous peak
     place: Reference Library
-    setup: One peak is still ambiguous and the review board wants it settled. What settles it?
+    setup: One peak is still ambiguous, in a river sample carrying chloride at 40 mg/L and detergent from the fire
+      foam. What settles it?
     scene: 1 peak at 4.2 minutes matches 2 candidates to within 0.05 minutes, and Ana Kowalski, who keeps the reference 
       library, has both on the shortlist. The river sample also carries humic matter, chloride at 40 mg/L, and a 
       detergent from the fire foam.
@@ -2204,14 +2213,12 @@ missions:
 - title: Where Did the Metal Go?
   objective: Predict how the dissolved-metal fraction partitions among water, particles and sediment, then design a 
     mass-balance survey.
-  briefing: Firewater carried a dissolved-metal fraction into the river. A clean surface-water grab cannot show whether 
-    the material disappeared or merely moved.
-  stake: "Day 6. The first runoff reached the river on the night of the fire. The intake is 900 metres downstream, but the
-    metal is no longer all in the water: some is dissolved, some is on particles, and some may already be in the bed. Today
-    you decide where to sample so “the water looks better” cannot be mistaken for “the contaminant is gone.”"
+  briefing: "A clean surface-water grab cannot show whether the dissolved-metal fraction disappeared or merely moved."
+  stake: "On day 6 the water at the intake looks better, but the metal has not left the river. Some is dissolved, some is stuck to particles, and some is in the bed. Today you choose where to sample, so cleaner water cannot be read as clean."
   takeaway: Predict where each chemical class will be found and design a mass-balance sampling plan.
   stops:
   - group: WATER
+    reason: "The sampling boat is at the bank with empty bottles, waiting to be told which phase the contaminant actually went into"
     call: Where will the chemical go?
     task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is
       used once.
@@ -2280,6 +2287,7 @@ missions:
       hydrogen bonding. → Often has appreciable water solubility. 4. Water-avoiding compound that sticks strongly to 
       organic-rich sediment. → May concentrate in suspended particles or sediment.
   - group: WATER
+    reason: "The filtered water is six times over the permit limit, and the pilot can raise dissolved carbonate today without waiting for anything"
     call: Use the common-ion effect to clear the limit
     task: If carbonate is raised eightfold and the salt behaves as a 1:1 solid, estimate the new dissolved-metal 
       concentration.
@@ -2288,7 +2296,7 @@ missions:
     setup: Use the Ksp relationship as a ratio; you do not need the absolute value of Ksp.
     question: "Eight times the carbonate: what happens to the dissolved metal?"
     scene: The filtered water has 3.1 mg/L of dissolved metal against a 0.5 mg/L permit limit. The solid is a 1:1 metal 
-      carbonate and pH is fixed. Osei can raise dissolved carbonate eightfold at the pilot without changing the water 
+      carbonate and pH is fixed. Osei, the treatment engineering lead, can raise dissolved carbonate eightfold at the pilot without changing the water 
       volume.
     assumes:
     - a saturated solution is in equilibrium with a 1:1 solid
@@ -2330,6 +2338,7 @@ missions:
       for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
     concept: Solubility product and the common-ion effect
   - group: WATER
+    reason: "Twenty bottles have to cover nine hundred metres of river, and two grab samples already disagree by a factor of four"
     call: Spend the river survey budget
     task: Allocate 20 sample bottles so the survey can answer the intake, background and phase-partitioning questions 
       this week.
@@ -2418,15 +2427,12 @@ missions:
 - title: Can We Trust the Numbers?
   objective: Turn instrument signals into concentrations with calibration, dilution, quality control and a sampling 
     design tied to the reopening decision.
-  briefing: The city now has concentration results, but some are over-range, some were diluted, and the limited sample 
-    map can still miss the places that matter.
-  stake: "Day 8. The first concentration map is on the wall and four systems are shut because of it. Nakamura points to over-range
-    readings, dilution factors and a field kit that is much noisier than the laboratory. Reyes points to hospitals on tankers.
-    Today you decide which numbers are real enough to act on and where the next thirty samples must go so the intake decision
-    is not built on a beautiful map of the wrong places."
+  briefing: "Some concentration results are over-range, some were diluted, and a thin sample map can still miss the places that matter."
+  stake: "On day 8 the first map of the numbers went up, and four systems shut because of it. Some readings ran off the top of the scale, and some were watered down first. Today you say which numbers can carry a decision, and where the next thirty samples go."
   takeaway: Produce concentration maps whose units, detection limits, and quality controls are explicit.
   stops:
   - group: QUANT
+    reason: "City leaders are holding a diluted laboratory reading up against the threshold, and four systems are already shut on the strength of it"
     call: Undo the dilution
     task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and 
       interpretation. Estimate the original concentration.
@@ -2434,8 +2440,8 @@ missions:
     place: Quantitative Analysis Lab
     setup: A river sample is diluted before analysis.
     question: Estimate the original concentration.
-    scene: Nakamura hands you the raw reading with its preparation log — the instrument reports what was in the vial, 
-      not what was in the river. City leaders are comparing your number against a threshold and closing or opening a 
+    scene: Nakamura runs quality assurance. She hands you the raw reading with its preparation log. The instrument
+      reports what was in the vial, not what was in the river. City leaders are comparing your number against a threshold and closing or opening a 
       water system with it.
     story: The instrument reports what was in the vial, not what was in the river. Samples are diluted so that the 
       signal falls inside the range the method can actually measure, and the analyst has to carry that factor back 
@@ -2493,6 +2499,7 @@ missions:
     concept: Solutions, molarity and dilution
     answerText: C_original = 2.5×100/10 = 25 mg/L.
   - group: QUANT
+    reason: "An instrument will return a number for almost anything put in front of it, and this is the number the intake decision rests on"
     call: Protect the calibration
     task: Predict the result of a 1:1 dilution, make the dilution, then verify it with an in-range measurement before 
       reporting the original concentration.
@@ -2550,14 +2557,15 @@ missions:
     answerText: Predict about 0.67 absorbance, make the 1:1 dilution, and rerun it. The observed 0.68 supports the 
       dilution. An in-range result near 6.9 mg/L corresponds to about 13.8 mg/L in the original sample.
   - group: QUANT
+    reason: "Eleven kilometres of river, thirty laboratory analyses, and a field kit far noisier than the bench it is standing in for"
     call: Spend thirty laboratory samples where they change the decision
     task: Choose the sampling design that protects the intake decision while still detecting transport and laboratory 
       failure.
     title: Spend thirty laboratory samples where they change the decision
     place: Quality Assurance Desk
     setup: You have only thirty high-quality laboratory analyses for eleven kilometres of river.
-    scene: Reyes needs a defensible map of eleven kilometres of river. The field kit can provide dense screening but is 
-      much noisier than the laboratory. Thirty laboratory analyses must cover the intake decision, movement of the 
+    scene: Reyes runs the water utility. She needs a defensible map of eleven kilometres of river. The field kit screens
+      densely, but it is much noisier than the laboratory. Thirty laboratory analyses must cover the intake decision, movement of the 
       contamination, and quality control.
     story: "A useful sampling plan spends precision where the decision is made without pretending the rest of the river does
       not exist. The field kit can screen densely; the scarce laboratory slots should anchor the intake and distribution decision,
@@ -2577,13 +2585,13 @@ missions:
     - One evenly spaced snapshot across eleven kilometres can miss time variability and undersample the decision point.
     - Known hot spots matter, but sampling only them cannot tell whether the intake or downstream reach is safe.
     choices:
-    - Cluster laboratory samples at the intake and representative endpoints, add upstream/downstream sentinels over 
-      time, and reserve some runs for blanks, spikes and duplicates.
-    - Use all thirty at the intake so the one legal decision point has the smallest possible statistical error.
-    - Space all thirty evenly along the eleven kilometres on one morning.
-    - Use all thirty on the two known hot spots because they contain the highest concentrations.
-    answer: Cluster laboratory samples at the intake and representative endpoints, add upstream/downstream sentinels 
-      over time, and reserve some runs for blanks, spikes and duplicates.
+    - Cluster at the intake and the endpoints, add sentinels upstream and downstream, and keep runs for blanks and
+      spikes.
+    - Use all thirty at the intake, so the one legal decision point carries the smallest statistical error possible.
+    - Space all thirty evenly along the eleven kilometres of river, and collect every one of them on one morning.
+    - Use all thirty on the two known hot spots, because those are the places holding the highest concentrations.
+    answer: Cluster at the intake and the endpoints, add sentinels upstream and downstream, and keep runs for blanks
+      and spikes.
     guide: 'The field kit already buys coverage. Spend the scarce laboratory runs on the places and checks that can overturn
       the reopening decision: the intake/endpoints, movement sentinels, and quality control.'
     background:
@@ -2601,10 +2609,12 @@ missions:
     concept: "Sampling: representative samples and sample handling"
     question: Which design makes the strongest reopening decision with only thirty laboratory samples?
   - group: QUANT
+    reason: "The queue on the bench is longer than the day, and the priority written on the card keeps changing as the incident does"
     task: Work the sample queue while the priority changes.
     title: What the bench is running now
     place: Analytical Laboratory
-    question: Run to the priority on the bench card, and keep watching the card.
+    question: Run to the priority on the bench card, and keep watching the card. A sample run past its hold time
+      carries an uncertainty nobody can bound.
     scene: Samples queue on the bench all day. Nakamura holds one priority, and changes it as the incident does — after 
       the river result, after the schools ask, after the hold times start expiring.
     assumes:
@@ -2684,14 +2694,12 @@ missions:
 - title: The Dose That Overshot
   objective: Use pH, titration and buffer behaviour to choose a neutralisation strategy without overshooting the 
     treatment window.
-  briefing: The intake has turned acidic, but the starting pH measures only free hydrogen ion and badly underpredicts 
-    how much base the water will consume.
-  stake: "Day 11. Operators dosed from the pH reading and the pilot overshot. Ferreira's titration says why: the water carries
-    a weak-acid reservoir that pH alone barely sees. Today you separate free hydrogen ion from total neutralisation demand
-    and set a control rule that keeps the outfall inside its allowed window while the feed keeps changing."
+  briefing: "The starting pH measures only free hydrogen ion, and badly underpredicts how much base the water will consume."
+  stake: "On day 11 the plant dosed the tank from the pH reading, and it shot past the target. This water holds a store of acid that pH alone barely shows. Today you split free acid from total demand, then set a rule that stops the feed in time."
   takeaway: Select a controlled neutralization strategy and determine when buffer capacity will be exhausted.
   stops:
   - group: WATER
+    reason: "A thousand-litre test volume sat at pH 4 overnight, and the dose now being prepared is sized off that reading alone"
     call: How many moles of acid are present?
     task: Convert pH 4.0 to [H⁺], then estimate the moles of free hydrogen ion in 1,000 L.
     title: How many moles of acid are present?
@@ -2754,6 +2762,7 @@ missions:
     concept: Acids, bases and pH
     answerText: pH 4.0 gives [H⁺] = 1.0×10⁻⁴ mol/L. In 1,000 L, n = cV = 0.10 mol of free H⁺.
   - group: WATER
+    reason: "The bench titration and the plant's pH meter tell two different stories about one water, and the overshoot is the evidence"
     call: Read the titration curve
     task: The titration curve is on screen. Which explanation accounts for the plateau, the equivalence point and the 
       dose the trial actually needed?
@@ -2880,6 +2889,7 @@ missions:
       their predictions differ and let it decide. If no reading separates them you have not finished reading the panel.
     concept: Buffers and titration
   - group: WATER
+    reason: "The base pump is primed and the tank is climbing towards its limit, and every change shows up one sampling interval late"
     call: Control pH without overshoot
     task: Write the step-down and stop rules for the base pump before the mixed-tank pH stream is released.
     title: Control pH without overshoot
@@ -2991,14 +3001,12 @@ missions:
 - title: The Riverbed Is Not Clean
   objective: Show how equilibrium can move the metal between dissolved and solid phases and design monitoring for 
     remobilisation.
-  briefing: Dissolved metal has fallen while sediment metal has risen. Treatment changed where the hazard sits; it did 
-    not destroy the metal.
-  stake: "Day 14. Two weeks of water samples look reassuring. The sediment cores do not. Stavros puts them side by side: the
-    amount leaving the water is showing up in the bed. Today you predict which future changes could put that metal back into
-    solution, and you decide what must still be watched after everyone else wants to call the river clean."
+  briefing: "Treatment changed where the hazard sits; it did not destroy the metal."
+  stake: "On day 14 two weeks of water samples read low, and the sediment cores read high. The metal leaving the water is turning up in the river bed. Today you say which changes could put it back into the water, and what must still be watched."
   takeaway: Predict how pH and ligands shift dissolved concentration and design monitoring for the metal coming back.
   stops:
   - group: WATER
+    reason: "Dissolved metal fell and sediment metal rose after the pH change, and the two curves have to be read as one story"
     call: From condition change to new equilibrium
     task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock
       correctly placed cards after each check.
@@ -3053,6 +3061,7 @@ missions:
       relationships and mass balance. → Change pH, ligand concentration, or ionic strength in the model. → Predict how 
       much ends up dissolved and how much stays solid, and measure it.
   - group: WATER
+    reason: "Solids were removed, a new ligand arrived on an upstream discharge, and pH swings through the day, all in the same reservoir"
     call: Interpret the shift
     task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is
       used once.
@@ -3060,7 +3069,7 @@ missions:
     place: Equilibrium Chemistry Group
     setup: Match each change to the likely direction.
     scene: Reservoir conditions are changing as the treatment continues. Operators have removed some solids, a new 
-      ligand has entered with an upstream discharge, and pH varies through the day. Stavros points out that next spring 
+      ligand has entered with an upstream discharge, and pH varies through the day. Stavros, the long-term monitoring officer, points out that next spring 
       nobody will be sampling continuously for remobilised metal.
     story: "A treatment that works today has to keep working when the conditions change, and reservoirs change constantly
       — pH, temperature, ionic strength, dissolved oxygen and the removal of a solid phase all push on the same equilibria.
@@ -3119,9 +3128,10 @@ missions:
       dissolved concentration. 3. pH shifts to favor an insoluble hydroxide. → Precipitation is favored. 4. Sediment 
       later encounters acidic water. → Material that settled out earlier may dissolve again.
   - group: WATER
+    reason: "The forecast low is minus four, and a frozen pond surface means either bypassing untreated water or stopping the plant"
     call: Will the holding pond freeze tonight?
-    task: Use freezing-point depression to decide whether the saline holding pond can remain liquid at the forecast low 
-      of −4 °C.
+    task: Use freezing point depression — a colligative property — to decide whether the saline holding pond can
+      remain liquid at the forecast low of −4 °C.
     title: Will the holding pond freeze tonight?
     place: Water and Sediment Laboratory
     setup: Use the salt analysis to predict the phase change before invoking another heat source.
@@ -3190,15 +3200,12 @@ missions:
 - title: The Plume Came Back
   objective: Identify secondary atmospheric products and move monitoring to the places and times that can still change 
     the return-home decision.
-  briefing: The primary volatile has fallen, but an afternoon secondary product is rising downwind after the source is 
-    sealed.
-  stake: "Day 17. The original vapour is nearly gone and residents have already been told the air emergency is ending. Then
-    the neighbourhood monitor climbs again every afternoon. Today you test whether sunlight is turning the remaining vapour
-    into something new, and you move the monitoring from the fence to where people are actually breathing it. A sealed source
-    does not end chemistry already in the air."
+  briefing: "The primary volatile has fallen, but an afternoon secondary product is rising downwind after the source was sealed."
+  stake: "On day 17 the first vapour is nearly gone, and the city was told the air scare had ended. Then the street monitor climbs again each afternoon. Today you test whether the sun is making a new gas, and move the monitors to where people live."
   takeaway: Identify likely secondary products and update monitoring locations and times.
   stops:
   - group: GASES
+    reason: "Sunlight, oxidant and a falling primary vapour are pinned on the board out of order, and the shelter notice expires today"
     call: Build a secondary-pollutant pathway
     task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock
       correctly placed cards after each check.
@@ -3253,6 +3260,7 @@ missions:
     answerText: A primary vapor is emitted. → Sunlight or oxidants create reactive intermediates. → Intermediates react 
       through branching pathways. → Secondary products form and are transported.
   - group: GASES
+    reason: "Two stations ran through the night and the afternoon, and the shelter advice is renewed or dropped on what their pattern means"
     call: Read the day-night pattern
     task: The source is controlled and exposure went up. Which explanation fits the whole day at both monitors well 
       enough to renew or lift the shelter advice?
@@ -3391,13 +3399,15 @@ missions:
       their predictions differ and let it decide. If no reading separates them you have not finished reading the panel.
     concept: Reaction kinetics, rate laws and activation energy
   - group: GASES
+    reason: "Residents want to come home this week, and the monitoring van can only be parked in one place at a time"
     call: Monitor the transformed plume
     task: Spend two monitoring channels on the evidence that can decide whether residents are still being exposed after 
       the original source was sealed.
     title: Monitor the transformed plume
     place: Neighborhood Health Desk
     setup: Residents want to come home. What does the monitoring plan measure?
-    question: Which measurements can change the return-home decision this week?
+    question: Sunlight is making a secondary product downwind. Which measurements can change the return-home
+      decision this week?
     scene: Residents want to come home, and Varga has the monitoring van idling at the fence. The released compound is 
       down to 3 parts per billion at both monitors. Total oxidant is up fourfold since Tuesday, and afternoon readings 
       remain highest six days after sealing.
@@ -3469,14 +3479,12 @@ missions:
 - title: Why Is It Still Heating?
   objective: Distinguish stored heat from continuing reaction and require monitoring that can detect self-heating before
     release of the storage zone.
-  briefing: A storage bay is warming three weeks after the fire. The decision is whether it is slowly cooling from the 
-    original event or still generating heat.
-  stake: "Day 22. One storage bay is hotter than it was at midnight even though the visible fire has been out for weeks. Fire
-    Command wants the cordon down tonight. Today you convert temperature into an energy scale, compare the time histories,
-    and decide what evidence would prove the heat source is gone rather than merely hidden."
+  briefing: "The decision is whether the storage bay is slowly cooling from the original fire or still generating heat of its own."
+  stake: "On day 22 one storage bay is hotter than it was at midnight, weeks after the fire went out. Fire Command wants the cordon down tonight. Today you turn that heating into an energy figure, and say what would prove the heat source is gone."
   takeaway: Create an energy balance and choose a monitoring plan that detects self-heating early.
   stops:
   - group: ENERGY
+    reason: "The containment bath beside the damaged bay is still warming, and the size of the stored heat decides whether cooling stays on"
     call: How much energy raises the temperature?
     task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units and 
       interpretation. Estimate the absorbed heat.
@@ -3543,6 +3551,7 @@ missions:
     concept: "Thermochemistry: enthalpy, calorimetry, energy balance"
     answerText: q ≈ 2,000×4.2×5 = 42,000 kJ = 42 MJ.
   - group: ENERGY
+    reason: "Two bays met the same fire, and ninety minutes after cooling stopped one is falling while the other is climbing"
     call: Stored heat or continuing reaction?
     task: Fire Command needs to know whether this is heat left over from the fire or a reaction still running. Which 
       explanation fits every zone?
@@ -3677,6 +3686,7 @@ missions:
       their predictions differ and let it decide. If no reading separates them you have not finished reading the panel.
     concept: "Thermochemistry: enthalpy, calorimetry, energy balance"
   - group: ENERGY
+    reason: "Bay 3 went from 31 to 44 degrees in eight hours with the rise steepening, and the cordon is due down tonight"
     call: Control the self-heating risk
     task: Fire Command wants the site released tonight. What do you require first?
     title: Control the self-heating risk
@@ -3726,6 +3736,7 @@ missions:
       for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
     concept: "Thermochemistry: enthalpy, calorimetry, energy balance"
   - group: TREAT
+    reason: "Acid liquor arrives in batches, one lime pump is the only control, and nothing leaves for the river above pH 7"
     task: Hold the neutralisation tank while the plant feeds it.
     title: pH seven, while the plant keeps feeding
     place: Treatment Works
@@ -3785,15 +3796,12 @@ missions:
 - title: The Pipe We Damaged
   objective: Identify the galvanic corrosion circuit, estimate the scale of wall loss, and choose a control that breaks 
     the electrical coupling.
-  briefing: The intake main fails at a mixed-metal joint that the response itself connected electrically during the 
-    emergency.
-  stake: "Day 26. The city's intake main has sprung a leak at a mixed-metal joint. Then Novák finds the response team's temporary
-    earth cable clamped across the same section. Today you identify the anode, cathode, electrolyte and electrical path, estimate
-    what the average mass loss means for wall thickness, and choose the control that breaks the circuit before a second leak
-    closes the intake again."
+  briefing: "The intake main fails at a mixed-metal joint that the response itself connected electrically during the emergency."
+  stake: "On day 26 the city's water main sprang a leak where two different metals are joined. Our own emergency earth cable is clamped across the same length of pipe. Today you find the circuit, work out how much metal is gone, and pick the control that breaks it."
   takeaway: Identify the corrosion cell and choose controls that address both chemistry and electrical coupling.
   stops:
   - group: TREAT
+    reason: "Two joined metals, acidic water and a temporary earth cable all sit on one section, and the gallery stays cleared until the circuit is named"
     call: Find the anode and cathode
     task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is
       used once.
@@ -3862,6 +3870,7 @@ missions:
       in an electrolyte. → A galvanic cell can form. 4. A protective coating is breached at one small point. → Localized
       attack may concentrate at the defect.
   - group: TREAT
+    reason: "Two kilograms of steel a year across four square metres sounds small until somebody turns it into wall thickness"
     call: How fast can material disappear?
     task: Estimate the uniform corrosion rate in millimetres per year and the corresponding time to lose 6 mm of wall.
     title: How fast can material disappear?
@@ -3932,6 +3941,7 @@ missions:
     concept: Redox and electrochemistry
     answerText: About 0.063 mm/year, corresponding to roughly 95 years to lose 6 mm if the attack were truly uniform.
   - group: TREAT
+    reason: "The thinnest wall is down to three millimetres, and corrosion has run eight times faster since the emergency earth went on"
     call: Protect the pipeline
     task: The gallery stays cleared until the first control is chosen. Which intervention breaks the corrosion problem 
       most directly?
@@ -3988,14 +3998,12 @@ missions:
 - title: Can the Treatment Run Away?
   objective: Stress-test the treatment kinetics and define a thermal operating envelope that remains safe when the 
     reaction is more temperature-sensitive than expected.
-  briefing: A treatment chemistry that was quiet in a drum accelerates in the warm pilot vessel. Full-scale operation 
-    concentrates the reacting material and the heat.
-  stake: "Day 31. The pilot looks calm at first and then its temperature trace bends upward. Osei plans to scale from 40 litres
-    to 9,000 on Monday. Today you build the feedback loop, push the uncertain temperature dependence in the dangerous direction,
-    and choose the operating plan that still keeps heat generation below cooling when the optimistic assumption is wrong."
+  briefing: "A treatment chemistry that was quiet in a drum accelerates in the warm pilot vessel, and full scale concentrates both the reacting material and the heat."
+  stake: "On day 31 the pilot vessel sat calm for an hour, then its temperature curve bent upward. The plan is to scale it from 40 litres to 9,000 on Monday. Today you build the feedback loop, and pick a plan whose heat stays below the cooling."
   takeaway: Identify the controlling rate factors and define a safe operating envelope with automatic shutdown triggers.
   stops:
   - group: ENERGY
+    reason: "The same mixture is quiet in a cool drum and vigorous in the warm pilot, and only one change on the bench explains that"
     call: What changes the rate?
     task: Match each change to its direct kinetic effect. For the concentration case, use rate = k[A]².
     title: What changes the rate?
@@ -4065,6 +4073,7 @@ missions:
       available. 4. Change product energy without changing the pathway. → Thermodynamic driving force changes, but the 
       kinetic barrier need not.
   - group: ENERGY
+    reason: "Four events from the runaway run are printed out of order on the control-room board, and Monday's batch is nine thousand litres"
     call: Build a runaway feedback loop
     task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock
       correctly placed cards after each check.
@@ -4117,6 +4126,7 @@ missions:
     answerText: Reaction releases heat. → Temperature rises because heat removal lags. → The rate constant increases. → 
       Faster reaction releases heat still more rapidly.
   - group: ENERGY
+    reason: "Bench work stopped at 55 degrees, the proposed vessel runs at 60, and the cooling jacket tops out at 40 kilowatts"
     call: Define the safe operating envelope
     task: Stress-test the three scale-up plans against the pessimistic end of the measured temperature sensitivity, then
       choose the plan that still has thermal margin.
@@ -4210,23 +4220,21 @@ missions:
 - title: Gone From the Water Is Not Gone
   objective: Choose a treatment train from complete mass balance, byproducts, waste fate and operational reliability 
     rather than target removal alone.
-  briefing: The pilot removes most of the target from water, but the mass has moved into sludge, off-gas and an 
-    incompletely characterised transformation-product pool.
-  stake: "Day 38. The pilot outlet is 98 percent lower for the target compound and everyone wants to call that success. Delgado
-    lays out the other streams: sludge, off-gas and a new signal the target-only method cannot quantify. Today you close the
-    mass balance, order the treatment stages by the chemistry each one leaves the next, and choose the pilot question that
-    can reveal whether the “removal” created a new hazard."
+  briefing: "The pilot removes most of the target from the water, but the mass has moved into sludge, off-gas and a poorly characterised pool of transformation products."
+  stake: "On day 38 the treated water reads 98 percent lower, and the city wants to call that a win. The sludge, the waste gas and one new signal have not been counted. Today you close the mass balance, and choose the one pilot question worth four weeks."
   takeaway: Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational 
     reliability.
   stops:
   - group: TREAT
+    reason: "A hundred kilograms went in, the treated water, sludge and off-gas have all been weighed, and the city wants to hear destruction"
     call: What did the treatment actually do?
     task: Close the 100 kg contaminant ledger across the pilot streams and identify the mass that the water-removal 
       headline does not account for.
     title: What did the treatment actually do?
     place: Pilot Treatment Plant
     setup: Match each observation to the process implication.
-    question: How much material is missing from the measured streams, and does the ledger support a destruction claim?
+    question: Close the mass balance. How much material is missing from the measured streams, and does the ledger
+      support a destruction claim?
     scene: The pilot treatment processed a batch containing 100 kilograms of contaminant. Rafael Delgado, the byproduct 
       analyst, has measured the treated water, sludge and off-gas. City officials are waiting to hear whether the 
       process destroyed the material or moved it into another reservoir.
@@ -4291,6 +4299,7 @@ missions:
     answerText: The measured streams account for 80 kg, so 20 kg remain unaccounted for. Until that term is identified 
       and shown benign, the pilot supports a transfer/transformation claim, not 94% destruction.
   - group: TREAT
+    reason: "Four unit processes are spread out on the table, and Riverton has one intake and cannot run this experiment twice"
     call: Select a treatment train
     task: Arrange the four cards from the earliest prerequisite or cause to the latest result. The interface should lock
       correctly placed cards after each check.
@@ -4322,7 +4331,7 @@ missions:
     - Oxidise the dissolved metal to the oxidation state that forms the intended insoluble hydroxide.
     - Raise the pH to the window where that hydroxide is least soluble.
     - Settle and filter, taking the precipitated solid out of the water.
-    - Polish the remaining dissolved ions with a selective ion-exchange or adsorptive medium.
+    - Polish the dissolved fraction with a selective ion-exchange or adsorptive medium.
     order:
     - 0
     - 1
@@ -4347,6 +4356,7 @@ missions:
       and filter the solid. 4. Polish the remaining dissolved ions with a selective exchange or adsorptive medium 
       matched to the contaminant.
   - group: TREAT
+    reason: "The pilot has room for one question in four weeks, and three of the four proposals lean on the same unmeasured quantity"
     call: Choose the safest pilot program
     task: All three methods claim removal. What does the pilot have to measure?
     title: Choose the safest pilot program
@@ -4380,7 +4390,7 @@ missions:
     choices:
     - The transformation products, and the stand-ins that track how toxic they are.
     - Removal of the target compound under representative water chemistry.
-    - Whether the media wears out, whether it can be recharged, and where the used solids go.
+    - Whether the sorbent media wears out, whether it can be recharged, and where the used solids go.
     - The highest achievable removal, at whatever dose it takes.
     answer: The transformation products, and the stand-ins that track how toxic they are.
     guide: Every method on the table removes the target compound, which is why all of them are on the table. So a pilot 
@@ -4403,16 +4413,13 @@ missions:
 - title: Are We Ready to Reopen?
   objective: Close the last analytical and sampling gaps and make a release decision using a predefined decision band 
     rather than the best estimate alone.
-  briefing: Verification is near the release limit. The last identity question, sampling representativeness and 
-    measurement uncertainty all have to be resolved before the distribution network is pressurised.
-  stake: "Day 45. The treated water is near the release limit, one transformation-product peak still has two plausible identities,
-    and the first quality check on the critical sample failed. Reyes has schools and hospitals on tankers. Today you close
-    the identity and verification gaps, then decide whether the evidence supports release, conditional release, or a continued
-    hold. The rule is written before you look at the answer."
+  briefing: "The last identity question, sampling representativeness and measurement uncertainty all have to be resolved before the distribution network is pressurised."
+  stake: "On day 45 the treated water sits just under the release limit, and the first check on the key sample failed. One peak still has two possible names. Today you close those gaps, then decide on release, release with rules, or a hold."
   takeaway: Make a transparent release decision with conditional monitoring and explicit treatment of borderline 
     results.
   stops:
   - group: QUANT
+    reason: "Two candidate products differ by a single oxygen atom, and the release paperwork cannot be signed with both of them on it"
     call: Name the last unresolved treatment product
     task: Two candidate transformation products differ by one oxygen atom. Decide which mass-spectral feature can 
       distinguish them before release paperwork is signed.
@@ -4457,6 +4464,7 @@ missions:
       for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
     concept: Mass spectrometry and molecular mass
   - group: QUANT
+    reason: "The evidence package is being carried into the network room, and the mains go back up to pressure on what is in it"
     call: Close the verification gaps
     task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is
       used once.
@@ -4525,6 +4533,7 @@ missions:
       sensitive validated method. 4. The same laboratory tuned the treatment and then checked the final results. → Add 
       an independent check or review.
   - group: QUANT
+    reason: "The best estimate is 9 against a limit of 10, the prewritten band reaches 11, and operators are waiting at the valves"
     call: Approve, condition, or hold
     task: Use the follow-up evidence to move or narrow the uncertainty band, then decide whether the valves can be 
       opened under the release criterion.
@@ -4594,23 +4603,19 @@ missions:
 - title: Sign the Water Back On
   objective: Deliver the claim-by-claim evidence package and decide whether Riverton can reopen under explicit controls,
     triggers and long-term monitoring.
-  briefing: The final board must separate what is established, what remains provisional, and what is safe only while a 
-    control continues. Reopening is a managed decision, not a declaration that every contaminant is gone.
-  stake: "Seven weeks in. The state reviewer is at the table and the mayor wants one word tonight: reopen or hold. The treated
-    water now meets the predefined release rule at representative endpoints, but contaminated sediment remains, a transformation
-    product is still provisional, and the pipeline is safe only inside a chemistry window. Today you classify those claims,
-    audit one last treatment number, and then sign — or refuse to sign — the order that puts Riverton's water back into its
-    own pipes."
+  briefing: "The final board must separate what is established, what remains provisional, and what is safe only while a control keeps working."
+  stake: "Seven weeks in, the state reviewer is at the table and the mayor wants one word tonight. The water meets the rule, but the river bed is still dirty and one product is still a guess. Today you sort those claims, audit one last number, and sign or refuse."
   takeaway: Deliver a claim-by-claim chemical evidence package and a long-term monitoring plan.
   stops:
   - group: TREAT
+    reason: "The city wants one sentence on the screen tonight, and the chemistry supports three different kinds of claim instead of one"
     call: Disposition the final chemical claims
-    task: Match each situation to the most scientifically justified interpretation, control, or response. Each choice is
-      used once.
+    task: Every claim here carries its own uncertainty, and no two carry the same amount. Match each situation to
+      the most scientifically justified interpretation, control, or response. Each choice is used once.
     title: Disposition the final chemical claims
     place: Scientific Review Hall
     setup: Match each evidence state to the correct recommendation.
-    scene: The city wants one sentence tonight and Mbeki has to put it on the screen. The chemistry does not support one
+    scene: The city wants one sentence tonight and Mbeki, the public briefing officer, has to put it on the screen. The chemistry does not support one
       — collapsing everything into a single green light is how a site gets reoccupied above a problem nobody wrote down.
     story: "The city wants one sentence and the chemistry does not support one. At the end of a release the evidence is in
       several different states at once: some claims are established and can be closed, some are unresolved and need work,
@@ -4672,12 +4677,14 @@ missions:
       managing the sediment, and keep watching for the metal coming back. 4. Pipeline corrosion is controlled only while
       chemistry remains within a narrow range. → Use conditional operation with chemistry and corrosion triggers.
   - group: TREAT
+    reason: "The polishing cell ran six hours at forty amperes, and the meter on its outlet has never been checked against the charge"
     call: Audit the electrochemical removal from the charge passed
-    task: Use the current, time and ion charge to estimate the maximum moles of divalent metal that could plate out.
+    task: Use Faraday's law — the charge passed divided by the charge each ion needs — to estimate the maximum
+      moles of divalent metal that could plate out.
     title: Audit the electrochemical removal from the charge passed
     place: Treatment Plant Gallery
     setup: Use the electrical log to set a theoretical ceiling before trusting the water analysis.
-    question: What upper bound does 6 hours at 40 A place on metal removal?
+    question: What upper bound does 6 hours of electrolysis at 40 A place on metal removal?
     scene: The electrochemical polishing cell has run for 6 hours at 40 amperes. Before Osei trusts the meter on the 
       water leaving it, he wants to know how much metal that run should have taken out.
     assumes:
@@ -4736,15 +4743,15 @@ missions:
     answerText: Q = It = 864,000 C. That is about 8.95 mol e⁻, so a divalent ion can deposit at most 8.95/2 ≈ 4.48 mol 
       of metal.
   - group: TREAT
+    reason: "Endpoint water meets the rule while the sediment, one product and a chemistry window are all still open, and the order is in front of you"
     call: Sign the reopening order
     task: Use the final evidence package to choose the action that the science can actually support.
     title: Sign the reopening order
     place: Long-Term Monitoring Office
     setup: The emergency money is about to move elsewhere. What does the city keep?
-    scene: The state reviewer has accepted the analytical package. Representative endpoint water meets the release rule,
-      but contaminated sediment remains under management, the secondary transformation product is still provisional, and
-      the intake main is safe only while chemistry and corrosion triggers stay inside their operating window. The mayor 
-      puts the reopening order in front of you.
+    scene: The state reviewer has accepted the package. Water at the representative endpoints meets the release rule.
+      The sediment is still under management, one transformation product is still provisional, and the intake main is
+      safe only inside a chemistry window. The mayor puts the order in front of you.
     story: Reopening does not mean every molecule is gone. It means the exposure pathway the city is about to use is 
       controlled well enough for the decision, with the unresolved hazards named, monitored and tied to triggers that 
       reverse the decision if conditions change. The scientifically strongest choice is therefore neither a permanent 
@@ -4755,24 +4762,23 @@ missions:
     - the treatment and corrosion controls are operating inside their validated ranges
     takeaway: A defensible reopening is conditional on the controls and monitoring that make the exposure pathway safe.
     format: CHOICE
-    why: The treated water now passes the prewritten release rule at representative endpoints, so an indefinite hold is 
-      no longer supported by the drinking-water evidence. But sediment, a provisional transformation product and 
-      corrosion remain open hazards. Reopening unconditionally would erase the very limits the evidence package 
-      documents. A staged reopening with continued water/sediment/air monitoring and automatic hold triggers matches 
-      what is known and preserves a way to act if the system changes.
+    why: The treated water now passes the prewritten release rule at the representative endpoints. An open-ended hold
+      is therefore no longer supported by the evidence. But three hazards are still open. The sediment stays
+      contaminated, one transformation product has no validated standard, and corrosion returns to the intake main if the
+      chemistry drifts out of range. Reopening with no conditions would erase those limits from the record that documents them. A
+      staged reopening keeps them attached. Monitoring of water, sediment and air continues, and a failed chemistry or
+      corrosion trigger puts the hold back on by itself.
     rebuttals:
     - An unconditional all-clear discards the unresolved sediment, transformation-product and corrosion conditions.
     - Waiting for every contaminant in every reservoir to reach zero is not the release standard and can keep essential 
       water shut without an exposure-based reason.
     - Reopening while postponing monitoring removes the mechanism that would detect remobilisation or treatment drift.
     choices:
-    - Reopen in stages under the verified treatment conditions, keep the long-term water, sediment and air monitoring, 
-      and automatically hold again if defined chemistry or corrosion triggers fail.
-    - Reopen unconditionally and close the emergency record because the treated water is below the limit.
-    - Keep the intake shut until sediment and every transformation product are reduced to zero.
-    - Reopen now and decide whether to fund monitoring after the emergency budget closes.
-    answer: Reopen in stages under the verified treatment conditions, keep the long-term water, sediment and air 
-      monitoring, and automatically hold again if defined chemistry or corrosion triggers fail.
+    - Reopen in stages, keep the long-term monitoring, and hold again by itself if a defined trigger fails.
+    - Reopen with no conditions and close the emergency record, because the treated water is now below the limit.
+    - Keep the intake shut until the sediment and every transformation product have been reduced to zero.
+    - Reopen now, and decide whether to fund the monitoring after the emergency budget has closed.
+    answer: Reopen in stages, keep the long-term monitoring, and hold again by itself if a defined trigger fails.
     guide: Separate the drinking-water decision from the unresolved reservoirs. The water pathway now passes its rule. 
       The remaining question is whether the controls and monitoring that made that true stay attached to the reopening 
       order.
@@ -4791,8 +4797,7 @@ missions:
     concept: "Sampling: representative samples and sample handling"
 
 # Why this campaign takes each of the seven runs that open a morning.
-    answerText: Reopen in stages under the verified treatment conditions, keep the long-term water, sediment and air 
-      monitoring, and automatically hold again if defined chemistry or corrosion triggers fail.
+    answerText: Reopen in stages, keep the long-term monitoring, and hold again by itself if a defined trigger fails.
 warmups:
   greet:
     title: Six leads, one incident, and nobody has worked together before
@@ -5183,7 +5188,7 @@ lessons:
   task: Use the supplied values, show the governing relationship, and give a sensible rounded result with units. 
     Estimate the gas volume at the conditions in the store.
   place: Mobile Weather Station
-  question: Estimate the gas volume at the conditions measured in the store.
+  question: Use the ideal gas law to estimate the gas volume at the conditions measured in the store.
   concept: Gas laws and the ideal gas equation
   scene: >-
     Erik Lindqvist, the dispersion modeller, has a second cylinder logged in the vented store on
@@ -5195,7 +5200,7 @@ lessons:
   format: BALLPARK
   estimate:
     prompt: A second cylinder is logged in the vented store, and the shelter order is being held on what it would fill.
-    question: Estimate the gas volume at the conditions measured in the store.
+    question: Use the ideal gas law to estimate the gas volume at the conditions measured in the store.
     labels:
     - 8.0×10³ mol  (n, the cylinder inventory)
     - 8.31 J mol⁻¹ K⁻¹  (R)

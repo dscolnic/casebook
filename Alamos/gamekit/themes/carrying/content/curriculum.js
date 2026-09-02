@@ -2192,7 +2192,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A kilogram of methane traps far more heat than a kilogram of carbon dioxide, so the two are compared by multiplying up to a common unit.",
-          "demanded": true
+          "computed": true
         }
       ],
       "takesAsRead": [
@@ -2259,6 +2259,22 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Emissions are not measured at the chimney here; they are counted from what went into the tank.",
+          "computed": true
+        },
+        {
+          "e": "CO₂e = mass × GWP",
+          "c": "putting two greenhouse gases on one scale",
+          "v": [
+            [
+              "mass",
+              "mass of the gas released"
+            ],
+            [
+              "GWP",
+              "its global warming potential over a stated period, relative to carbon dioxide"
+            ]
+          ],
+          "s": "A kilogram of methane traps far more heat than a kilogram of carbon dioxide, so the two are compared by multiplying up to a common unit.",
           "computed": true
         }
       ],

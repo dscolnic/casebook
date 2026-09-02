@@ -30,6 +30,15 @@ export default {
   // not consecutive.
   dayNoun: 'Day',
 
+  // The brief plan card — see gamekit/BRIEFING_PASS.md. A date stamp and two
+  // sentences: what is true this morning, and what the player does about it.
+  // The long form could not be reconciled with `plainCards`: the 90-word floor
+  // `checkStory` applies to a grade-12 campaign, inside the four-sentence cap on
+  // stake plus briefing, is 30 words a sentence, and no vocabulary reaches
+  // grade 6.5 at that length. The cast, the argument and the consequence moved
+  // out to the calls' own `reason` lines, which is where a player meets them.
+  stakeStyle: 'brief',
+
   id: 'contamcity',
   title: 'The Contaminated City',
   subtitle: 'Chief Scientific Officer · Riverton Contamination Response',
@@ -79,13 +88,11 @@ export default {
     ],
   },
   opening: [
-    'A freight yard beside Riverton\'s river burned last night, rupturing mixed chemical cargo only '
-    + '900 metres upstream of the city\'s drinking-water intake. The intake is shut, 140000 people are '
-    + 'living on stored water, and nobody yet knows which part of the release is in the air, the river '
-    + 'or the mud. You are the Chief Scientific Officer. Across the next seven weeks you get fifteen '
-    + 'working days to prove what escaped, where it moved or changed, and what conditions must hold '
-    + 'before the valves can open again. A wrong call can put firefighters into incompatible chemistry '
-    + 'or contaminated water into the city. The reserves are measured in days.',
+    'A freight yard burned last night, 900 metres up the river from Riverton\'s water intake. '
+    + 'The intake is shut and the whole city is living on stored water. You are the Chief Scientific '
+    + 'Officer, so no valve opens until you say it can. In fifteen days you sign The Riverton Evidence '
+    + 'Package: what escaped, where it went, and what must keep working. Get it wrong and the city '
+    + 'drinks what burned.'
   ],
 
   people: {

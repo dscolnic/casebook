@@ -79,7 +79,6 @@
   "redsand": [
     "Current efficiency: the gap between charge passed and product collected ← Faraday's law: charge is moles, exactly",
     "Current efficiency: the gap between charge passed and product collected ← Overpotential: the voltage above the minimum, and where it goes",
-    "Deposition: gas straight to solid, with no liquid in between ← Vapour pressure, and reading a cryogenic tank by it",
     "Equilibrium as a balance still running both ways ← The Sabatier reaction: what this plant actually makes and from what",
     "Exothermic and endothermic, and heat as something on one side of the equation ← Stoichiometry as a feed rate: turning a production target into kilograms in",
     "Le Châtelier: pressure, temperature and taking a product away ← Exothermic and endothermic, and heat as something on one side of the equation",
@@ -143,20 +142,15 @@
     "Placarding as a decision under uncertainty ← Rapid assessment against detailed evaluation",
     "Rapid assessment against detailed evaluation ← Load path, and what happens where it stops",
     "Rapid assessment against detailed evaluation ← Unreinforced masonry, and why it fails outward",
-    "Sampling and testing damaged material ← Rapid assessment against detailed evaluation",
-    "Stress, strain and the yield point ← Peak ground acceleration and what a building feels"
+    "Sampling and testing damaged material ← Rapid assessment against detailed evaluation"
   ],
   "icecore": [
     "Annual layer counting, and where counting fails ← Accumulation rate, and what a site with little snow buys and costs",
     "Model against data, and what a mismatch can mean ← Correlation between two records is not attribution",
-    "Radiative forcing: turning a concentration into a temperature push ← Carbon dioxide and methane records, and what a ppm is",
-    "Resolution against record length — what choosing a site decides ← Thinning with depth: flow, and where a record runs out",
-    "Volcanic sulphate horizons as dated tie points ← Depth–age scales, and putting two cores on one clock"
+    "Radiative forcing: turning a concentration into a temperature push ← Carbon dioxide and methane records, and what a ppm is"
   ],
   "sightline": [
     "Confidence and accuracy: a relationship that survives only at the moment ← Retrieval is reconstruction, not playback",
-    "Simultaneous against sequential presentation ← How a lineup is built: fillers, and the ones nobody would pick",
-    "The misinformation effect: what arrives after the event gets in ← Retrieval is reconstruction, not playback",
     "Weapon focus, and what an arousing object does to a description ← Arousal and encoding: the amygdala, cortisol and the inverted U"
   ],
   "projecty": [

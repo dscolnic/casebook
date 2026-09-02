@@ -412,6 +412,8 @@ missions:
     - 'What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails,
       not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate
       reason is indistinguishable from a sound one until the day the approximation is what is being tested.'
+    takesAsRead:
+    - Peak ground acceleration and what a building feels
     assumes:
     - an instrument records the shaking where it stands, not the earthquake itself
     takeaway: A soft-soil/rock ratio from one band and one event is evidence of site response, not a universal multiplier for every
@@ -454,6 +456,8 @@ missions:
     - 'Why you cannot be wrong about exactly one. With every response used once, three correct joins leave the fourth with only one
       place to go. Any error therefore involves at least two joins. That is worth remembering when the last pair looks forced: the fault
       is usually not in the join you are struggling with, but in one you made early and stopped questioning.'
+    takesAsRead:
+    - Peak ground acceleration and what a building feels
     assumes:
     - ground can be natural or placed by people
     takeaway: Liquefaction needs susceptible soil, enough saturation and strong cyclic loading; young hydraulic fill often supplies
@@ -511,8 +515,8 @@ missions:
     - an assessment programme is a queue, and the order is a decision
     takeaway: A finite inspection team should be spent on the questions whose answers can still change what happens today.
     format: ALLOCATE
-    question: Can your allocation preserve a same-day re-occupancy decision for the waiting Flats households while accepting that some
-      lower-value questions will wait?
+    question: Can your allocation preserve a same-day re-occupancy decision for the 400 displaced Flats households, while accepting
+      that some lower-value questions will wait?
     allocate:
       hint: Drag inspection packages into the six-day pool. The live panel shows which questions the current plan can answer; you do
         not need to answer every question today.
@@ -806,6 +810,7 @@ missions:
   - group: SAFE
     task: Explain exactly what the green placard allows the office to claim
     title: Green is not a guarantee
+    reason: Adeyemi has three residents at the counter now, and whatever sentence he gives them will be quoted back at the office later.
     place: Public Safety
     scene: 'Delacroix has three residents outside with green placards and one question between them: is my house all right? Adeyemi
       will not say yes and needs a sentence that is not a dodge.'
@@ -882,12 +887,12 @@ missions:
 - title: The building that looks worst
   objective: Work out why Marina Court tilted as one piece and decide what evidence matters for the twelve neighbouring buildings.
   briefing: Marina Court looks like the obvious structural failure. The first question is whether the structure failed at all.
-  stake: Monday, and Marina Court is on the front page. Six storeys of flats now stand about eight degrees out of plumb above the marina.
-    The frame has not racked; the raft and superstructure rotated together. A survey across the roughly twelve-metre foundation finds
-    about 1.7 metres of elevation difference from one edge to the other, with fresh sand ejecta concentrated toward the low side. Bram
-    Halvorsen wants the block demolished this week because the lean looks like the town's obvious structural failure. Elena Navarro
-    wants the cordon kept but the next five investigation-days spent on the reclaimed ground under the twelve neighbouring buildings.
-    Before either decision, you have to identify what actually failed.
+  stake: Monday, and Marina Court is on the front page. Six floors of flats now lean about eight degrees above the marina. The frame
+    itself has not racked. The raft and the block above it turned as one piece. Across the twelve-metre base, one edge sits about 1.7
+    metres lower than the other. Fresh ejecta — sand and water pushed up from below — lie thickest on the low side. Bram Halvorsen wants
+    the block pulled down this week, because the lean looks like the worst failure in town. Elena Navarro wants the cordon kept and
+    the next five days spent on the made ground under the twelve blocks next door. Today you decide what actually gave way, and which
+    of those two plans the town pays for.
   takeaway: A building can be badly unsafe because its support moved even when its frame did not fracture.
   stops:
   - group: GEO
@@ -908,16 +913,18 @@ missions:
     - 'What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails,
       not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate
       reason is indistinguishable from a sound one until the day the approximation is what is being tested.'
+    takesAsRead:
+    - Stress, strain and the yield point
     assumes:
     - a foundation spreads a building's weight into the ground
     takeaway: A structure can fail without anything in the structure breaking.
     format: CHOICE
     question: Which explanation fits every observation?
-    why: The observations point below the raft rather than to yielding inside the frame. A rigid-body rotation of about eight degrees
-      across a twelve-metre foundation corresponds to roughly 1.7 metres of differential elevation, which matches the survey. Fresh
-      ejecta and the concentration of movement on one side are consistent with liquefaction-related loss of bearing resistance and ground
-      deformation. The evidence does not reveal every detail beneath an inaccessible raft, so this remains a strong geotechnical inference
-      rather than a direct view of the failure surface.
+    why: Everything the survey found points below the raft, not to yielding inside the frame. A rigid-body rotation is the whole block
+      turning as one piece. Eight degrees of it across a twelve-metre foundation needs about 1.7 metres of height difference edge to
+      edge. That is what the survey measured. Fresh ejecta, and movement gathered on one side, fit a liquefaction-related loss of bearing
+      resistance in the ground below. Nobody can see under the raft, so this stays a strong geotechnical inference rather than a direct
+      view of the failure surface.
     headline: A six-storey block is eight degrees out of plumb, with no damage to its structure.
     readings:
     - zone: Raft foundation
@@ -941,15 +948,15 @@ missions:
       value: heavy on the north side
       status: alarm
     choices:
-    - label: The frame yielded on one side and pulled the raft with it
+    - label: The frame yielded on one side and pulled the raft over with it.
       mechanism: Internal frame distortion would be visible if this were the primary mechanism.
-    - label: Liquefaction-related ground deformation removed support under part of the raft, rotating the building as a unit.
+    - label: Liquefaction took the support out from under part of the raft, turning the block as one piece.
       mechanism: The intact frame, rigid-body tilt, ejecta and differential ground movement point below the raft.
-    - label: The raft was originally built eight degrees out of level
+    - label: The raft was built eight degrees out of level when the block first went up.
       mechanism: That would predate the quake and would not explain fresh ejecta or sudden displacement.
-    - label: A one-sided aftershock simply pushed the whole building over
+    - label: A single one-sided aftershock simply pushed the whole building over.
       mechanism: A directional pulse does not by itself explain the permanent foundation-level differential movement.
-    answer: Liquefaction-related ground deformation removed support under part of the raft, rotating the building as a unit.
+    answer: Liquefaction took the support out from under part of the raft, turning the block as one piece.
     rebuttals:
     - A yielded frame should show internal distortion; the survey says the frame and raft rotated together.
     - The tilt appeared with the earthquake and fresh ejecta, so it is not a long-standing construction condition.
@@ -973,6 +980,8 @@ missions:
     - 'What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails,
       not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate
       reason is indistinguishable from a sound one until the day the approximation is what is being tested.'
+    takesAsRead:
+    - Stress, strain and the yield point
     assumes:
     - a leaning column carries its load off-centre
     takeaway: The lean matters because gravity now acts with eccentricity, creating P–Δ effects and extra bending demand in the frame.
@@ -1154,12 +1163,14 @@ missions:
     - Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how
       a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit
       this format exists to build.
+    takesAsRead:
+    - Stress, strain and the yield point
     assumes:
     - a designed capacity is a claim to be checked
     takeaway: Two pull tests can demonstrate a serious shortfall, but they do not define the statistical design resistance of every
       anchor in the school.
     format: BALLPARK
-    question: Estimate the observed capacity-to-demand ratio for the two tested anchors.
+    question: Estimate the capacity-to-demand ratio for the two tested anchors — the ratio a factor of safety is built from.
     answerText: About 0.8 — below 1.
     why: 'The two pulls average 25.5 kN against an assessed demand of 31 kN, so the observed specimen-capacity-to-demand ratio is about
       0.82. That is enough to show that the tested connection detail cannot simply be accepted from the 40 kN drawing value. It is not
@@ -1309,6 +1320,7 @@ missions:
   - group: HAZ
     task: Put the cost of waiting into the same units
     title: What four more days buys
+    concept: Rapid assessment against detailed evaluation
     place: Hazard & Forecasting
     scene: Tanaka has the aftershock rate for the coming week. Ives has the transfer log. Halvorsen wants both of them stated as consequences
       rather than as principles. The review board meets again at the end of the week.
@@ -1329,7 +1341,7 @@ missions:
     - a delay has consequences that can be counted
     takeaway: A decision to wait is a decision with an outcome, and it has to be compared with the outcome of deciding now.
     format: CHOICE
-    question: How should the office weigh four more days of evidence-gathering?
+    question: How should the office weigh four more days of detailed evaluation against the rapid assessment it already has?
     why: 'Both sides of the decision have consequences and both can be estimated. Delay carries transfers, postponed care and operational
       strain. Additional testing is worthwhile when it has a realistic chance of changing the safety decision. Here the frame has already
       been inspected and the unresolved item is the unvisited roof plant room with heavy tanks; a four-day coring programme answers
@@ -1350,11 +1362,13 @@ missions:
     title: The instrument in the basement
     concept: Natural period, and resonance between building and ground
     place: Seismic Network
-    scene: There is an accelerograph in the hospital basement, installed in 1998 and finally useful. Cardoso has processed the record
-      into a 5%-damped response spectrum. Around the hospital's roughly 0.4 s fundamental period, the spectral acceleration is about
-      0.31 g. The comparable screening coefficient used for the old design check is 0.35.
-    guide: Do not use the raw peak ground acceleration as though the whole building were a rigid block. Use the period-specific spectral
-      ordinate already read from the record, then apply the same simplified V = C·W screening relation used in the design comparison.
+    scene: There is an accelerograph in the hospital basement, installed in 1998 and finally useful. Cardoso has turned the record into
+      a 5%-damped response spectrum — a chart of how hard the shaking pushed buildings of each different sway time. Around the hospital's
+      roughly 0.4 s fundamental period, the spectral acceleration is about 0.31 g. The comparable screening coefficient used for the
+      old design check is 0.35.
+    guide: Do not use the raw peak ground acceleration as though the whole building were a rigid block. Read the seismic coefficient
+      off the spectrum at the building's own period, then put it through the same base-shear screen the design comparison used, V = C_s
+      · W.
     background:
     - What the instrument gives you. An accelerograph records acceleration versus time. From that record, engineers can compute a response
       spectrum showing the demand on idealized oscillators at different periods.
@@ -1365,26 +1379,26 @@ missions:
       a clearance.
     takesAsRead:
     - Peak ground acceleration and what a building feels
-    - Peak ground acceleration and what a building feels
     assumes:
     - a building can be instrumented, and the record is about that building
     takeaway: A building record is most useful when converted to the response quantity the structure actually uses; raw PGA is not automatically
       the building base shear.
     format: BALLPARK
-    question: Using the period-specific spectral coefficient, what simplified base-shear demand does the record imply, compared with
-      the old design check?
-    answerText: About 26 MN from the recorded 0.31 spectral coefficient, versus about 30 MN from the 0.35 design-check coefficient.
-    why: 'For this screening calculation the same simplified relation is used on both sides: V = C·W. The processed record gives C ≈
-      0.31 at about 0.4 s and the hospital''s seismic weight is about 85 MN, so V ≈ 0.31 × 85 ≈ 26 MN. The historical design-screen
-      coefficient 0.35 gives about 30 MN. The useful result is a like-for-like comparison of a measured period-specific demand with
-      the old screening check. It is not proof that every component remained below capacity, and it is deliberately not obtained by
-      treating raw PGA as the force coefficient for the entire building.'
+    question: Using the seismic coefficient read at the building's own period, what base shear does the record imply, compared with the
+      old design check?
+    answerText: About 26 MN of base shear from the recorded coefficient of 0.31, against about 30 MN from the 0.35 used in the design
+      check.
+    why: 'Both sides of this screen use one relation, V = C_s · W. Here V is the base shear, C_s is the seismic coefficient and W is
+      the building''s seismic weight. The record gives C_s ≈ 0.31 at about 0.4 s, and the hospital weighs about 85 MN, so V ≈ 0.31 ×
+      85 ≈ 26 MN. The old design coefficient of 0.35 gives about 30 MN. That is a like-for-like comparison of a measured period-specific
+      demand against the old screening check. It is not proof that every component stayed below capacity, and it deliberately does not
+      treat raw PGA as C_s for the whole building.'
     estimate:
-      prompt: The hospital's seismic weight is about 85 MN. From the recorded motion, the 5%-damped spectral coefficient near the building's
-        0.4 s period is 0.31; the comparable historical design-screen coefficient is 0.35.
-      question: Choose the recorded coefficient and the building's seismic weight.
+      prompt: The hospital's seismic weight is about 85 MN (a meganewton is a million newtons of force). The record gives a 5%-damped
+        seismic coefficient of 0.31 near the building's 0.4 s period. The comparable historical design-screen coefficient is 0.35.
+      question: Choose the recorded seismic coefficient and the building's seismic weight.
       labels:
-      - 0.31  (recorded spectral coefficient near T ≈ 0.4 s)
+      - 0.31  (recorded seismic coefficient C_s near T ≈ 0.4 s)
       - 85  (W, the building's seismic weight in MN)
       - 0.35  (historical design-screen coefficient)
       - 14  (the weight of one floor, in MN)
@@ -1404,15 +1418,15 @@ missions:
       target: 26.35
       tolerance: 2
       units: meganewtons (MN) of base shear
-      solution: 0.31 × 85 ≈ 26 MN, versus 0.35 × 85 ≈ 30 MN for the historical screening check.
+      solution: Base shear V = C_s · W = 0.31 × 85 ≈ 26 MN, against 0.35 × 85 ≈ 30 MN for the historical screening check.
       explanation: A useful like-for-like screening comparison, not a clearance and not a conversion of raw PGA directly into building
         force.
       givens:
       - the hospital is about four storeys, giving a rough fundamental period near 0.4 s for this exercise
-      - seismic weight is about 85 MN
-      - the recorded response spectrum gives about 0.31 g near that period; the old comparison used 0.35
-      relationship: For this simplified screen, V = C · W using the period-specific spectral coefficient C. Raw PGA is not substituted
-        for C.
+      - seismic weight W is about 85 MN (a meganewton is a million newtons of force)
+      - the recorded response spectrum gives a seismic coefficient of about 0.31 near that period; the old comparison used 0.35
+      relationship: Base shear V = C_s · W, with the seismic coefficient C_s read at the building's own period. Raw PGA is not substituted
+        for C_s.
   - group: STRUCT
     task: Sort the damage photographs before the panel sits.
     title: The frame, or the finish
@@ -1705,6 +1719,8 @@ missions:
       for this simplified exercise. Concrete does not have a sharp metal-like yield point that this stop needs to identify.
     - What a core cannot settle. A column's residual capacity also depends on reinforcement, confinement, axial load, damage geometry
       and the load path. Those do not travel with a concrete cylinder into the press.
+    takesAsRead:
+    - Stress, strain and the yield point
     assumes:
     - concrete strength is measured by crushing a sample of known size
     takeaway: Core crushing tests characterize sampled concrete strength; the damaged column still requires a member-level structural
@@ -1765,12 +1781,14 @@ missions:
     - 'What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails,
       not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate
       reason is indistinguishable from a sound one until the day the approximation is what is being tested.'
+    takesAsRead:
+    - Stress, strain and the yield point
     assumes:
     - a crack runs across the direction of the tension that opened it
     takeaway: The shape and repetition of damage can narrow the failure mechanism, but pattern recognition alone cannot establish remaining
       strength.
     format: CHOICE
-    question: Which explanation fits the pattern?
+    question: These columns cracked in many fine lines rather than splitting in one brittle break. Which explanation fits the pattern?
     why: Diagonal cracking is consistent with principal tension produced by shear, and crossed diagonals fit load reversals during earthquake
       shaking. The pattern is therefore much more consistent with cyclic shear demand than with simple long-term settlement or axial
       crushing. Fine, distributed cracks can indicate that reinforcement is controlling crack widths rather than allowing one brittle
@@ -1946,26 +1964,26 @@ missions:
       pore pressure dissipates.
     format: CHOICE
     question: What is the defensible status of Ferry Street now?
-    why: Liquefaction is a transient loss of effective stress during shaking as excess pore pressure builds. After the shaking, excess
-      pressure dissipates and grain contacts recover, but settlement, lateral displacement, ejecta, voids and heterogeneous stiffness
-      remain. A dry surface therefore does not prove adequate bearing capacity for trucks. Susceptible saturated layers may also reliquefy
-      in later strong shaking. The defensible placard decision is to separate what has been observed—pedestrian bearing at the surface—from
-      the heavy-load and future-shaking questions that remain unverified.
+    why: Liquefaction is a loss of effective stress — the grip between grains — while shaking drives pore water pressure up. When the
+      shaking stops, that pressure drains away and the grains touch again. What does not come back is the shape of the ground. Settlement,
+      sideways movement, ejecta, voids and patchy stiffness all stay. So a dry surface proves nothing about bearing capacity, which is
+      the weight the ground can take. Layers that liquefied once can liquefy again in the next strong shake. The defensible placard separates
+      what has been seen, a surface that bears a person, from the heavy-load and future-shaking questions still open.
     choices:
-    - Still liquefied everywhere, so nobody can stand on the street.
-    - Drained and disturbed — pedestrian access may be possible, but heavy-load capacity is unverified and susceptible layers can liquefy
-      again.
-    - Fully recovered because the sand fans are dry.
-    - Permanently unusable; liquefied ground cannot be repaired.
-    answer: Drained and disturbed — pedestrian access may be possible, but heavy-load capacity is unverified and susceptible layers
-      can liquefy again.
+    - Still liquefied everywhere, and still spreading laterally toward the water, so nobody can stand on it.
+    - 'Drained but disturbed: people can walk on it, and heavy loads are still unproven.'
+    - Fully recovered, because the sand fans on the surface have dried out completely.
+    - Permanently unusable, because liquefied ground cannot be put right again.
+    answer: 'Drained but disturbed: people can walk on it, and heavy loads are still unproven.'
     rebuttals:
-    - Pore pressure dissipates in hours, so the ground is not still liquefied three days on.
+    - Pore pressure drains away in hours, so the ground is not still liquefied three days on, and any lateral spreading stopped when
+      the shaking did.
     - Dry at the surface is not recovered underneath; the fabric of the ground has changed.
     - Nothing here says the street is beyond repair, and most liquefied ground is repaired rather than replaced.
   - group: HAZ
     task: Set what has to be true for people to go home
     title: A condition, not a date
+    concept: Placarding as a decision under uncertainty
     place: Hazard & Forecasting
     question: What should the office commit to?
     scene: Halvorsen wants a date. Delacroix wants a condition. Tanaka, the hazard seismologist, points out that a date makes a promise
@@ -1974,8 +1992,8 @@ missions:
       to promise. So ask of each option one thing: is this a promise about the ground, or a promise about the office? The office controls
       one of those and not the other. Tanaka has already said which is which, and the update goes out before the office closes.'
     takesAsRead:
-    - Peak ground acceleration and what a building feels
-    - P and S waves, and what the gap between them measures
+    - Factor of safety, and what it is protecting against
+    - Rapid assessment against detailed evaluation
     assumes:
     - a commitment can be tied to a date or to an event
     takeaway: Tie a decision to a condition somebody can check, and it stays honest whatever the ground does next.
@@ -2065,6 +2083,8 @@ missions:
     - 'What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails,
       not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate
       reason is indistinguishable from a sound one until the day the approximation is what is being tested.'
+    takesAsRead:
+    - Stress, strain and the yield point
     assumes:
     - a defect that repeats in a pattern usually has a construction cause
     takeaway: A repeated crack at the same construction elevation is evidence for a shared detail, but the detail must still be checked
@@ -2146,6 +2166,8 @@ missions:
     - Why this is related to—but not the same as—liquefaction. Earthquake liquefaction is produced by cyclic loading that generates
       excess pore pressure. Excavation instability from groundwater is a static seepage/effective-stress problem unless new shaking
       occurs.
+    takesAsRead:
+    - Stress, strain and the yield point
     assumes:
     - water pressure between grains reduces the strength of sandy ground
     takeaway: Dewatering protects an excavation by controlling pore pressure and hydraulic gradients; that is related to effective stress
@@ -2344,7 +2366,8 @@ missions:
     takeaway: Fix a repeatedly observed, low-cost life-safety failure mode while access is already in place; do not let an average recurrence
       interval become a countdown clock.
     format: SCIENCETANK
-    question: Decide what is worth doing now
+    question: The recurrence interval on this fault — the average gap between big earthquakes — is about 140 years. Decide what is worth
+      doing now.
     why: 'Tying parapets back has an unusually strong case: the failure mode occurred repeatedly, the retrofit acts directly on it,
       and scaffolding already in place makes the marginal cost much lower. The quoted 140-year recurrence interval is not a promise
       of 140 quiet years after this event; earthquakes do not reset a calendar. That statistic belongs in long-term hazard context,
@@ -2366,12 +2389,12 @@ missions:
   objective: Trace every conclusion that depended on the reference station, correct the measured site-response ratio and withdraw the
     design shortcut that copied one ratio into every future building.
   briefing: The reference station is not on competent bedrock. One correction now runs through every conclusion that used it.
-  stake: 'Tuesday, and Inês Cardoso has found the reference error. The station above Upper Town was treated as competent bedrock, but
-    the 1998 trench log shows several metres of weathered, fractured granite beneath it. A temporary sensor on nearby competent rock
-    has now recorded five days of common aftershocks with the vault. In the 1 Hz band used for the Flats comparison, the vault motion
-    is about 1.6 times the competent-rock motion. That means the published Flats-to-vault spectral ratio of about 3 was understating
-    the Flats-to-rock ratio. The correction matters. So does a second mistake: the district planning memo copied that single-band ratio
-    straight into a universal design-demand factor. You have to decide what gets corrected, what gets withdrawn and what remains untouched.'
+  stake: Tuesday, and Inês Cardoso has found the error under everything. The station above Upper Town was treated as sound bedrock.
+    The 1998 trench log shows metres of cracked, weathered granite under it. So she put a new sensor on competent rock nearby — rock
+    hard enough to trust — and watched both for five days. In the 1 Hz band, the old station shakes about 1.6 times as hard as that rock.
+    Every ratio measured against it is therefore too small. There is a second mistake as well. The planning memo took that one ratio,
+    in that one band, and made it a design rule for every new building. Today you decide what gets fixed, what gets pulled, and what
+    still stands.
   takeaway: A bad reference contaminates only the conclusions that depend on it; correcting a measurement does not justify turning one
     event-specific ratio into a universal design factor.
   stops:
@@ -2379,6 +2402,7 @@ missions:
     task: Open the dependency chain behind each conclusion, keep the ones that stand independently, and identify the shared reference
       source behind the conclusions that must be revised.
     title: Measuring against the wrong zero
+    concept: 'Documentation: the record somebody inherits'
     place: Seismic Network
     scene: Cardoso's five-day side-by-side check is finished, and the benchmark used since day one no longer stands unchanged. Navarro
       lays five fortnight conclusions beside the corrected station report. Some may survive untouched; others may force a redraw before
@@ -2401,7 +2425,7 @@ missions:
     takeaway: 'Trace both the measurement dependency and the inference built on top of it: the first may be corrected while the second
       must sometimes be withdrawn.'
     format: TRACE
-    question: Which conclusions actually inherit the bad reference, and which remain supported by independent evidence?
+    question: Which conclusions in the fortnight's record actually inherit the bad reference, and which stand on evidence of their own?
     trace:
       hint: Open each conclusion and inspect the sources underneath it. Keep conclusions whose evidence chain does not pass through
         the suspect reference, then name the source shared by the conclusions that fail.
@@ -2469,6 +2493,7 @@ missions:
   - group: GEO
     task: Sort the fortnight's conclusions
     title: What still stands
+    concept: 'Documentation: the record somebody inherits'
     place: Geotechnical
     scene: Navarro puts four of the fortnight's conclusions on the board. One used the suspect vault directly; the others have independent
       evidence chains.
@@ -2488,7 +2513,7 @@ missions:
     - a conclusion can rest on one measurement or on several
     takeaway: A reference error propagates through dependent measurements, not through every conclusion made during the same emergency.
     format: CASEBOOK
-    question: Sort the fortnight's conclusions
+    question: Sort the fortnight's conclusions for the record the next coordinator inherits.
     why: Trace each conclusion to its evidence. The Flats spectral ratio used the vault directly and must be restated. The district
       design shortcut also depended on that ratio, but it should be withdrawn rather than assigned a new universal factor because site
       response varies with period and input motion. Marina Court's diagnosis came from survey, ejecta and geotechnical observations.
@@ -2508,7 +2533,7 @@ missions:
     - The hospital record gives about 0.31 g spectral acceleration near its 0.4 s period.
     - The Parade's unbraced parapets need a positive tie-back detail.
     choices:
-    - 'Falls as stated and is restated: the corrected Flats/competent-rock ratio is about 4.8 in that 1 Hz band.'
+    - Falls as written, and has to be restated against competent rock instead — about 4.8 in the same narrow band.
     - Stands as a strong inference from independent field evidence.
     - Stands as a direct, building-specific instrumental measurement.
     - Stands as a structural diagnosis from observed failure and load-path details.
@@ -2521,6 +2546,7 @@ missions:
     task: Correct the measured site-response ratio without turning it into a universal design number
     title: Four point eight — in one band
     concept: 'Site effect: soft ground amplifies'
+    reason: The old ratio is still in the planning memo, and Tanaka cannot withdraw the design shortcut until the corrected number exists.
     place: Hazard & Forecasting
     scene: The dependency trace leaves one clean numerical correction. In the 1 Hz band used in the original comparison, the Flats-to-vault
       spectral ratio was about 3.0. Five days of common aftershocks show the vault itself is about 1.6 times competent rock in that
@@ -2673,6 +2699,7 @@ missions:
     task: Keep one incident under your own engineering attention and delegate the others with an owner, a first action and a return
       condition.
     title: Which of the three cannot wait
+    concept: Rapid assessment against detailed evaluation
     place: Public Safety
     scene: Three calls land within minutes. A burst main is feeding water into the Flats. Several vulnerable buildings need checks after
       the M5.1 aftershock, and Bay Road School needs its reopening message issued. Four engineers are available.
@@ -2693,8 +2720,8 @@ missions:
     takeaway: Good delegation couples every handoff to a first action and a condition for returning the problem, while scarce expert
       attention stays on the judgment that cannot be automated.
     format: DELEGATE
-    question: How do you divide the team so the worsening condition is stopped, the life-safety consequence is checked and the stable
-      deadline does not consume the field response?
+    question: One problem is still worsening, one needs a rapid assessment of shored buildings, and one is a stable deadline. How do
+      you divide the team so that the stable one does not consume the field response?
     delegate:
       hint: Assign each handoff to a role that can take its first real action. The handoff is incomplete until it also says what result
         or threshold brings the problem back to you.
@@ -2786,6 +2813,8 @@ missions:
       that now takes.
     - Why Upper Town is different. On competent granite the same burst main is a plumbing problem. There is no loose saturated skeleton
       whose grain contacts can be unloaded by water pressure, so the mechanism has nothing to act on.
+    takesAsRead:
+    - Stress, strain and the yield point
     assumes:
     - liquefaction requires saturated ground
     takeaway: A higher water table lowers effective stress and can worsen liquefaction susceptibility, but the triggering margin is
@@ -2865,12 +2894,11 @@ missions:
       precise capacity curve, prove the shoring failed, or invalidate the first assessment. The observed change is the reason to re-enter
       the evidence loop.
     choices:
-    - That the shoring failed and must automatically be replaced.
-    - That the two buildings accumulated new distress under the smaller aftershock, so their restrictions and shoring need focused reassessment.
+    - That the shoring failed under the smaller shake and has to be replaced today.
+    - That the two damaged buildings took on new distress, so their shoring and restrictions need a focused re-check.
     - That the aftershock must have been much stronger on those two streets than the network measured.
-    - That the original assessment was necessarily wrong.
-    answer: That the two buildings accumulated new distress under the smaller aftershock, so their restrictions and shoring need focused
-      reassessment.
+    - That the original assessment was wrong about those two buildings from the start.
+    answer: That the two damaged buildings took on new distress, so their shoring and restrictions need a focused re-check.
     rebuttals:
     - The shoring is still standing and doing its job; nothing about it failed.
     - Network stations either side of those streets recorded the same motion, so the shaking was not local.
@@ -2905,10 +2933,12 @@ missions:
     - 'What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails,
       not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate
       reason is indistinguishable from a sound one until the day the approximation is what is being tested.'
+    takesAsRead:
+    - Stress, strain and the yield point
     assumes:
     - liquefaction can be addressed in the ground or accommodated in the structure
-    takeaway: Ground improvement reduces liquefaction susceptibility or its consequences; structural foundations can instead bypass
-      or accommodate some ground deformation.
+    takeaway: Two remedies for one hazard act in different places, and a town-wide rule has to say which consequence it is buying down
+      and to what standard.
     format: CHOICE
     question: What is the engineering difference between improving the ground and designing foundations to tolerate the hazard?
     why: The strategies act at different places. Densification can increase density and cyclic resistance; drains or stone columns may
@@ -2917,13 +2947,11 @@ missions:
       and neighbouring sites may still move. A town-level rule therefore has to state which consequence it is trying to reduce and what
       performance is required.
     choices:
-    - There is no important difference; both eliminate liquefaction.
-    - Ground improvement can reduce liquefaction susceptibility or deformation; foundation design can instead bypass or tolerate some
-      remaining ground movement.
-    - Ground improvement is always cheaper because a whole street can be treated at once.
-    - A stiffer foundation prevents earthquake shaking from reaching the building.
-    answer: Ground improvement can reduce liquefaction susceptibility or deformation; foundation design can instead bypass or tolerate
-      some remaining ground movement.
+    - There is no important difference, because both of them get rid of liquefaction for good.
+    - Ground improvement acts on the soil; foundation design acts on the building and tolerates some movement.
+    - Ground improvement is always cheaper, because a whole street can be treated at once.
+    - A stiffer foundation stops earthquake shaking from reaching the building at all.
+    answer: Ground improvement acts on the soil; foundation design acts on the building and tolerates some movement.
     rebuttals:
     - Neither strategy eliminates all earthquake or ground-deformation risk.
     - Cost depends strongly on site, treatment depth, access and foundation scheme; there is no universal ordering.
@@ -2944,6 +2972,8 @@ missions:
     - Why the tiles carry labels. A bare number cannot be checked against the relationship it is going into. Reading the label is how
       a unit mismatch, or a quantity belonging to a different part of the problem, is caught before it is placed — which is the habit
       this format exists to build.
+    takesAsRead:
+    - Stress, strain and the yield point
     assumes:
     - 'CPT stands for cone penetration test: a standard cone is pushed into the ground and its resistance is recorded'
     takeaway: CPT resistance is a measurable quality-control result; the acceptance criterion still has to be tied to a liquefaction
@@ -3135,13 +3165,11 @@ missions:
       the forecast testable and keeps model uncertainty visible. The range is not decorative caution and it does not mean the model
       lacks an expected value.
     choices:
-    - Because a range merely sounds more cautious after a damaging earthquake.
-    - Because future counts vary around the expectation, and staffing decisions need to know how much higher or lower the sequence could
-      plausibly run.
-    - Because a model that reports a range cannot later be evaluated.
-    - Because the expected value is mathematically undefined for aftershock sequences.
-    answer: Because future counts vary around the expectation, and staffing decisions need to know how much higher or lower the sequence
-      could plausibly run.
+    - Because a range merely sounds more cautious after an earthquake this damaging.
+    - Because counts vary around the expected one, and staffing has to know how high the week could run.
+    - Because a model that reports a range can no longer be tested against what happens.
+    - Because the expected count is mathematically undefined for an aftershock sequence.
+    answer: Because counts vary around the expected one, and staffing has to know how high the week could run.
     rebuttals:
     - The range is an input to planning, not a rhetorical signal of caution.
     - A stated distribution or interval makes the forecast more testable, not less.
@@ -3149,6 +3177,7 @@ missions:
   - group: STRUCT
     task: Make the final sign-off decision on the Placard Register
     title: Sign the register
+    reason: Okonkwo has left one line blank above the signature, and after today the register is the only thing the next coordinator has.
     place: Structural Assessment
     scene: 'The fifteen entries are on the table. Okonkwo has left one blank line above the signature. It is for the condition under
       which you are willing to sign: what happens to every uninspected space and every unresolved hazard after today''s report leaves
@@ -3373,7 +3402,7 @@ lessons:
   takeaway: There is one number for the earthquake and one record for every place, and what the last few tens of metres of ground are
     made of decides the difference between them.
   format: PROTOCOL
-  question: Pair four instruments with what each one recorded
+  question: One magnitude, four intensities. Pair each instrument with the shaking intensity it wrote down.
   columns:
   - Where the instrument stands
   - What its record of the same event shows

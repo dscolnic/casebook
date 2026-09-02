@@ -26,8 +26,13 @@ import { themeDir as resolveTheme, themeNames } from './registry.mjs';
 import { warmupPlan, warmupDue, WARMUP_TAIL, WARMUP_OPENERS, WARMUP_MIN_DAYS, WARMUP_SLOT_DAYS } from '../core/warmups.js';
 import { tiersFor, unlockDay } from '../core/orientation.js';
 import { introduces, names, nameOf } from './introRule.mjs';
+import { warmupSentenceCount, WARMUP_SENTENCE_CAP } from './dayCard.mjs';
 
 const DEBT_FILE = 'engine/dev/warmup-debt.json';
+// The card-length debt, kept apart from the unwritten-story debt above because
+// they are different gaps: that one is a run with no story, this one is a story
+// too long for where it is read.
+const CARD_DEBT_FILE = 'engine/dev/warmupcard-debt.json';
 
 /**
  * Everything a theme needs to be judged: how many days it runs, whether its
@@ -131,6 +136,30 @@ export function unintroduced(authored, cast){
   return out;
 }
 
+/**
+ * Warm-up cards that run past one sentence.
+ *
+ * A warm-up card is not read the way the other cards are. The player is standing
+ * in the world with a run about to start, the card is over the top of it, and the
+ * only thing that has to survive is why this run is happening today — so the cap
+ * is one sentence, against four for a day card and five for the opening. All
+ * three are counted by `dayCard.mjs`, so a card cannot pass one cap and fail
+ * another on nothing but punctuation.
+ *
+ * The floor is the importer's and stays where it is: a `why` under twelve words
+ * is a tutorial with a heading. One sentence of twelve or more words is the shape
+ * this asks for, and it is a narrower target than it sounds — which is why the
+ * 276 cards that predate the cap are recorded rather than failed.
+ */
+export function overlongCards(authored){
+  const out = [];
+  for(const [slot, w] of Object.entries(authored ?? {})){
+    const n = warmupSentenceCount(w);
+    if(n > WARMUP_SENTENCE_CAP) out.push({ slot, sentences: n });
+  }
+  return out;
+}
+
 /** Which scheduled runs this campaign has not given a reason. */
 export function unwritten(plan, authored){
   return plan.filter(p => {
@@ -145,6 +174,8 @@ if(RAN_DIRECTLY){
   if(args.includes('--selftest')) await selftest();
   else {
     const debt = existsSync(DEBT_FILE) ? JSON.parse(readFileSync(DEBT_FILE, 'utf8')) : {};
+    const cardDebt = existsSync(CARD_DEBT_FILE)
+      ? JSON.parse(readFileSync(CARD_DEBT_FILE, 'utf8')) : { _comment: '', themes: {} };
     const wanted = args.includes('--all') || !args.find(a => !a.startsWith('--'))
       ? themeNames() : [args.find(a => !a.startsWith('--'))];
     const verbose = args.includes('--verbose');
@@ -177,6 +208,20 @@ if(RAN_DIRECTLY){
       for(const slot of listed){
         if(gaps.includes(slot)) continue;
         console.log(`✗ ${themeName}: ${DEBT_FILE} lists "${slot}", which is written now — delete the line`);
+        failures++;
+      }
+      const longCards = overlongCards(info.authored);
+      const cardListed = new Set(cardDebt.themes?.[themeName] ?? []);
+      for(const { slot, sentences } of longCards){
+        if(cardListed.has(slot)) continue;
+        console.log(`✗ ${themeName}: the ${slot} warm-up card runs ${sentences} sentences —`
+          + ` ${WARMUP_SENTENCE_CAP} is the limit on a card read with a run about to start`);
+        failures++;
+      }
+      for(const slot of cardListed){
+        if(longCards.some(c => c.slot === slot)) continue;
+        console.log(`✗ ${themeName}: ${CARD_DEBT_FILE} lists "${slot}" as an over-long card,`
+          + ' and it is one sentence now — delete the line');
         failures++;
       }
       for(const miss of unintroduced(info.authored, info.cast)){

@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<title>The Contaminated City Gate Handoff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground: #eef1f4;
+    --panel: #ffffff;
+    --panel-2: #f7f9fb;
+    --ink: #11151a;
+    --ink-2: #39434d;
+    --muted: #5f6b76;
+    --rule: #d9e0e6;
+    --rule-2: #eaeff3;
+    --accent: #16697a;
+    --mechanical: #22705a;
+    --prose: #9a4f1c;
+    --curriculum: #2b5f9c;
+    --serif: 'Zilla Slab', 'Bitter', Georgia, serif;
+    --sans: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0f1216;
+      --panel: #171b21;
+      --panel-2: #1d222a;
+      --ink: #e8ebee;
+      --ink-2: #bcc5ce;
+      --muted: #8d99a4;
+      --rule: #262d36;
+      --rule-2: #202730;
+      --accent: #5fb3c4;
+      --mechanical: #62b799;
+      --prose: #d9925c;
+      --curriculum: #7fb0e0;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0f1216;
+    --panel: #171b21;
+    --panel-2: #1d222a;
+    --ink: #e8ebee;
+    --ink-2: #bcc5ce;
+    --muted: #8d99a4;
+    --rule: #262d36;
+    --rule-2: #202730;
+    --accent: #5fb3c4;
+    --mechanical: #62b799;
+    --prose: #d9925c;
+    --curriculum: #7fb0e0;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font: 400 17px/1.6 var(--sans);
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 62rem; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+  code { font: 500 0.9em/1.4 var(--mono); }
+  a { color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ——— masthead ——— */
+  .mast { border-bottom: 2px solid var(--ink); padding-bottom: 1.75rem; }
+  .eyebrow {
+    font: 500 0.8rem/1 var(--mono);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: baseline;
+  }
+  .eyebrow span:not(:first-child)::before { content: '·'; margin-right: 1rem; color: var(--muted); }
+  h1 {
+    font: 700 clamp(2.4rem, 6vw, 3.6rem)/1.02 var(--serif);
+    letter-spacing: -0.015em;
+    margin: 0.7rem 0 0.35rem;
+    text-wrap: balance;
+  }
+  .sub { font: 400 1.05rem/1.45 var(--sans); color: var(--muted); margin: 0; }
+  .sub em { font-style: italic; color: var(--ink-2); }
+  .lede { font: 400 1.16rem/1.62 var(--sans); color: var(--ink-2); max-width: 44rem; margin: 1.5rem 0 0; }
+
+  /* ——— the four figures ——— */
+  .figures {
+    display: grid; gap: 1px; margin: 2rem 0 0;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    background: var(--rule); border: 1px solid var(--rule);
+  }
+  .fig { background: var(--panel); padding: 1rem 1.1rem 1.05rem; }
+  .fig b {
+    display: block; font: 600 2rem/1 var(--serif);
+    font-variant-numeric: tabular-nums; letter-spacing: -0.01em;
+  }
+  .fig span {
+    display: block; margin-top: 0.4rem; color: var(--muted);
+    font: 400 0.82rem/1.3 var(--sans); text-transform: uppercase; letter-spacing: 0.05em;
+  }
+
+  /* ——— where to start ——— */
+  .start { margin: 3rem 0 0; }
+  .start h2, .band__head h2, .colophon h2 {
+    font: 600 0.86rem/1 var(--mono);
+    letter-spacing: 0.11em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 1rem;
+  }
+  .start ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.85rem; }
+  .start li {
+    display: grid; grid-template-columns: 1.6rem 1fr; gap: 0.9rem;
+    color: var(--ink-2); font-size: 1.02rem;
+  }
+  .start li::before {
+    content: '→'; color: var(--accent); font: 500 1rem/1.6 var(--mono);
+  }
+  .start strong { color: var(--ink); font-weight: 600; }
+
+  /* ——— bands ——— */
+  .band { margin: 3.5rem 0 0; }
+  .band__head { border-top: 1px solid var(--rule); padding-top: 1.5rem; }
+  .band__head h2 { color: var(--band); }
+  .band--mechanical { --band: var(--mechanical); }
+  .band--prose { --band: var(--prose); }
+  .band--curriculum { --band: var(--curriculum); }
+  .band__head p { margin: 0 0 1.75rem; color: var(--muted); max-width: 44rem; font-size: 1rem; }
+  .gates { display: grid; gap: 1.25rem; }
+
+  .gate {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--band);
+    padding: 1.35rem 1.5rem 1.5rem;
+  }
+  .gate__head {
+    display: flex; flex-wrap: wrap; gap: 0.75rem 1rem;
+    align-items: baseline; justify-content: space-between;
+    padding-bottom: 0.9rem; border-bottom: 1px solid var(--rule-2);
+  }
+  .gate__head h3 { margin: 0; font-size: 1rem; }
+  .gate__head code { font-weight: 500; font-size: 1.02rem; color: var(--ink); }
+  .tally {
+    font: 500 0.78rem/1 var(--mono); letter-spacing: 0.04em;
+    color: var(--band); white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  .gate__def {
+    display: grid; gap: 1.1rem 2rem; margin: 1.1rem 0 1.35rem;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  }
+  .gate__def p { margin: 0.3rem 0 0; color: var(--muted); font-size: 0.97rem; line-height: 1.55; }
+  .lbl {
+    font: 500 0.72rem/1 var(--mono); letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--band);
+  }
+  .gate__owed ul { margin: 0.6rem 0 0; padding: 0 0 0 1.1rem; display: grid; gap: 0.5rem; }
+  .gate__owed li { color: var(--ink-2); font-size: 0.99rem; line-height: 1.55; }
+  .gate__owed li::marker { color: var(--rule); }
+  .note {
+    margin: 1.25rem 0 0; padding: 0.85rem 1rem;
+    background: var(--panel-2); border-left: 2px solid var(--band);
+    font-size: 0.96rem; line-height: 1.55; color: var(--ink-2);
+  }
+  .note span {
+    display: block; font: 500 0.7rem/1 var(--mono);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--band); margin-bottom: 0.45rem;
+  }
+
+  /* ——— colophon ——— */
+  .colophon { margin: 4rem 0 0; border-top: 2px solid var(--ink); padding-top: 1.5rem; }
+  .colophon p { color: var(--muted); font-size: 0.96rem; max-width: 44rem; }
+  .colophon pre {
+    overflow-x: auto; background: var(--panel); border: 1px solid var(--rule);
+    padding: 0.9rem 1rem; font: 400 0.85rem/1.7 var(--mono); color: var(--ink-2); margin: 1.1rem 0;
+  }
+  .colophon ul { color: var(--muted); font-size: 0.96rem; padding-left: 1.1rem; }
+  .colophon li { margin-bottom: 0.4rem; }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <p class="eyebrow">
+      <span>THEME=contamcity</span><span>52 stops · 15 days</span><span>builds The Riverton Evidence Package</span>
+    </p>
+    <h1>The Contaminated City</h1>
+    <p class="sub">College chemistry · <em>Riverton, and a freight yard that burned upstream of the intake</em></p>
+    <p class="lede">The only book in the bundle that imported clean, and the largest story debt of the nine: eighty-eight problems, forty-eight of them calls with no reason line. The curriculum is in order; the cards around it are not.</p>
+    <div class="figures">
+      <div class="fig"><b>7</b><span>Gates failing</span></div><div class="fig"><b>119</b><span>Findings</span></div><div class="fig"><b>88</b><span>Story problems</span></div><div class="fig"><b>15 / 16</b><span>Opening + stake cards over 6.5</span></div>
+    </div>
+  </header>
+
+  <section class="start" aria-labelledby="start">
+    <h2 id="start">Where to start</h2>
+    <ol><li><span><strong>2 mechanical gates</strong> — <code>checkNames</code>, <code>delivery</code>. Glossary lines, captions and stale debt entries. No judgement calls.</span></li><li><span><strong>The curriculum band next</strong> — every question stays where it is; what moves is the order concepts are claimed in, or a <code>takesAsRead:</code> line.</span></li><li><span><strong>The prose band last, and card by card.</strong> Read <code>alamos-accessibility</code> first — the seven defects to find in a card before touching its reading level, and the rule that the official term stays and gets glossed.</span></li></ol>
+  </section>
+
+  
+      <section class="band band--mechanical" aria-labelledby="band-mechanical">
+        <header class="band__head">
+          <h2 id="band-mechanical">Mechanical</h2>
+          <p>One edit each, no judgement call in any of them — a glossary line, a caption cut, a stale debt entry deleted. Cheapest work in the document and it closes whole gates.</p>
+        </header>
+        <div class="gates">
+          
+      <article class="gate">
+        <header class="gate__head">
+          <h3><code>checkNames</code></h3>
+          <span class="tally">8 findings</span>
+        </header>
+        <div class="gate__def">
+          <div><span class="lbl">What it checks</span><p>A person’s job arrives with their name the first time they are named — “Reyes, the shift supervisor, …” — wherever that first mention happens.</p></div>
+          <div><span class="lbl">Why it exists</span><p>Names now live on the calls rather than the plan card, so the first mention moved and the gloss did not move with it.</p></div>
+        </div>
+        <div class="gate__owed">
+          <span class="lbl">What The Contaminated City owes it</span>
+          <ul><li>Eight of the twenty-four cast are first named without their job beside them. The largest roster in the bundle, and the largest name debt.</li></ul>
+        </div>
+        
+      </article>
+      <article class="gate">
+        <header class="gate__head">
+          <h3><code>delivery</code></h3>
+          <span class="tally">1 finding</span>
+        </header>
+        <div class="gate__def">
+          <div><span class="lbl">What it checks</span><p>The campaign builds one named thing, one piece a day, on a board in a room the player can walk into. The opening card names it, and every piece caption fits a board cell.</p></div>
+          <div><span class="lbl">Why it exists</span><p>A campaign whose opening card never names what is being built tells the player the stakes and not the job. A caption too long for its cell is invisible on the board and renders perfectly in a screenshot.</p></div>
+        </div>
+        <div class="gate__owed">
+          <span class="lbl">What The Contaminated City owes it</span>
+          <ul><li>The opening card never names The Riverton Evidence Package: the player is told what is at stake and not what they are building.</li></ul>
+        </div>
+        
+      </article>
+        </div>
+      </section>
+      <section class="band band--prose" aria-labelledby="band-prose">
+        <header class="band__head">
+          <h2 id="band-prose">Prose</h2>
+          <p>Reading level and card shape. Real editing, card by card, at the bar <code>alamos-accessibility</code> sets: reading level down, the course’s judgement untouched, the official term kept and glossed.</p>
+        </header>
+        <div class="gates">
+          
+      <article class="gate">
+        <header class="gate__head">
+          <h3><code>checkStory</code></h3>
+          <span class="tally">88 findings</span>
+        </header>
+        <div class="gate__def">
+          <div><span class="lbl">What it checks</span><p>The story contract. The opening card’s four beats and its five-sentence cap; a day’s stake and briefing inside four sentences; a <code>reason</code> line under every call saying why it matters today; no cast names on the plan card or the debrief; a closing card with a turn in it; an ending addressed to the player.</p></div>
+          <div><span class="lbl">Why it exists</span><p>A campaign can be correct and still read as a list of problems. This is the gate that says so, and it is the largest single debt in every book in the bundle.</p></div>
+        </div>
+        <div class="gate__owed">
+          <span class="lbl">What The Contaminated City owes it</span>
+          <ul><li>48 calls carry no <code>reason</code> line — the single largest count in the bundle.</li><li>15 stakes are too short to say what happened, what you decide and why.</li><li>15 opening blurbs run past four sentences.</li><li>9 day cards name somebody on the plan card or the debrief.</li><li>The opening reads as a campaign of problem statements rather than a story.</li></ul>
+        </div>
+        
+      </article>
+      <article class="gate">
+        <header class="gate__head">
+          <h3><code>probeQuestions</code></h3>
+          <span class="tally">4 findings</span>
+        </header>
+        <div class="gate__def">
+          <div><span class="lbl">What it checks</span><p>Probes on the shape of an answer rather than its content, reported in three classes. <strong>LEAK</strong> — the keyed answer gives itself away: either the takeaway, shown before the question, repeats its words, or its length alone identifies it. <strong>ORDER</strong> — a sequence’s prose fixes its own order, so the science is not what settles it. <strong>ECHO</strong> — the prompt’s own content words reappear in the keyed option.</p></div>
+          <div><span class="lbl">Why it exists</span><p>Every one of these lets a reader answer correctly without understanding anything. The length signal was 88 per cent of one game’s passage quizzes before it was measured.</p></div>
+        </div>
+        <div class="gate__owed">
+          <span class="lbl">What The Contaminated City owes it</span>
+          <ul><li>LEAK ×1, by takeaway — M4.1 “Which alkali metal is the greater water hazard?”: the takeaway repeats 64% of the keyed answer’s own words.</li><li>LEAK ×2, by length — M6.3 “Spend thirty laboratory samples where they change the decision” (1.9×) and M15.3 “Sign the reopening order” (2.1×).</li><li>ORDER — TREAT[5] “Select a treatment train”: one card refers to another card’s output (“the remaining”), so the prose fixes the order.</li></ul>
+        </div>
+        
+      </article>
+      <article class="gate">
+        <header class="gate__head">
+          <h3><code>validateContent</code></h3>
+          <span class="tally">2 findings</span>
+        </header>
+        <div class="gate__def">
+          <div><span class="lbl">What it checks</span><p>The content invariants, plus a reading-level ceiling per card at the campaign’s own declared grade. Every lesson has a real scene, <code>takeaway</code> never repeats <code>why</code>, <code>choices</code> contains <code>correctChoice</code> verbatim, and no scene or verdict reads above <code>audience.grade</code>.</p></div>
+          <div><span class="lbl">Why it exists</span><p>The invariants are what make a card gradeable at all. The grade ceiling is the softer half and the one that fails here: a card written for a graduate reader inside a course declared for grade 12.</p></div>
+        </div>
+        <div class="gate__owed">
+          <span class="lbl">What The Contaminated City owes it</span>
+          <ul><li>“Sign the reopening order”: scene reads at grade 14.7 and verdict at 14.3, theme declares 12. The campaign’s last card is its hardest to read.</li></ul>
+        </div>
+        
+      </article>
+      <article class="gate">
+        <header class="gate__head">
+          <h3><code>plainCards</code></h3>
+          <span class="tally">1 finding</span>
+        </header>
+        <div class="gate__def">
+          <div><span class="lbl">What it checks</span><p>The two cards nobody can avoid — the opening card and every day’s stake — measured against grade 6.5 whatever the campaign declares, with a pile-up count for sentences that run long.</p></div>
+          <div><span class="lbl">Why it exists</span><p>These sixteen cards are read before any question is asked, by every player. This is the gate the whole philosophy is expressed through, and it ratchets: a campaign may not gain a card over the bar.</p></div>
+        </div>
+        <div class="gate__owed">
+          <span class="lbl">What The Contaminated City owes it</span>
+          <ul><li>mean 8.7 · worst 11.1 · 15 of 16 cards over grade 6.5 · 8 sentence pile-ups.</li></ul>
+        </div>
+        
+      </article>
+        </div>
+      </section>
+      <section class="band band--curriculum" aria-labelledby="band-curriculum">
+        <header class="band__head">
+          <h2 id="band-curriculum">Curriculum</h2>
+          <p>When the campaign teaches each idea. Every question stays where it is; what moves is the order the concepts are claimed in, or a <code>takesAsRead:</code> declaration, or one new stop that computes an equation nothing computes yet.</p>
+        </header>
+        <div class="gates">
+          
+      <article class="gate">
+        <header class="gate__head">
+          <h3><code>conceptVisible</code></h3>
+          <span class="tally">15 findings</span>
+        </header>
+        <div class="gate__def">
+          <div><span class="lbl">What it checks</span><p>Two questions about the same thing. Per card: is the stop’s own syllabus concept named in the <em>question or one of the options</em> — the only text a player has in front of them at the moment they answer? And per campaign: does every syllabus concept reach at least one question that way? Three findings: <strong>UNNAMED</strong>, a card that names its concept nowhere in the ask or the options; <strong>BURIED</strong>, the same card also carrying four or more of the campaign’s own glossary terms, which is the detail crowding out the subject; <strong>UNREACHED</strong>, a concept no question in the campaign says out loud.</p></div>
+          <div><span class="lbl">Why it exists</span><p>A concept is assigned in metadata and taught in the scene, the guide and the background — and a card can do all of that and then ask a question in which neither the idea nor any of its words appears. The player answers correctly, every other gate is green, and what they practised was reading comprehension. This gate reads only the ask and the options, deliberately, because the other four zones are where a concept hides.</p></div>
+        </div>
+        <div class="gate__owed">
+          <span class="lbl">What The Contaminated City owes it</span>
+          <ul><li><strong>UNNAMED</strong> — “Water first, or never water”: asks about "Periodic trends and what an element can do" and names it nowhere in the question or the options</li><li><strong>UNNAMED</strong> — “Read analytical disagreement”: asks about "Quality control: standards, spikes and recovery" and names it nowhere in the question or the options</li><li><strong>UNNAMED</strong> — “Resolve the ambiguous peak”: asks about "Concentration units and conversions: ppm, mg/L, molarity" and names it nowhere in the question or the options</li><li><strong>UNNAMED</strong> — “How much volume can the gas occupy?”: asks about "Gas laws and the ideal gas equation" and names it nowhere in the question or the options</li><li><strong>UNNAMED</strong> — “Interpret plume behavior”: asks about "Kinetic molecular theory, diffusion and volatility" and names it nowhere in the question or the options</li><li><strong>UNNAMED</strong> — “Monitor the transformed plume”: asks about "Reaction kinetics, rate laws and activation energy" and names it nowhere in the question or the options</li><li><strong>UNNAMED</strong> — “How much volume can the gas occupy? — Review”: asks about "Gas laws and the ideal gas equation" and names it nowhere in the question or the options</li><li><strong>UNNAMED</strong> — “Will the holding pond freeze tonight?”: asks about "Colligative properties" and names it nowhere in the question or the options</li><li><strong>UNNAMED</strong> — “What the bench is running now”: asks about "Measurement: significant figures, blanks, detection limits, uncertainty" and names it nowhere in the question or the options</li><li><strong>UNNAMED</strong> — “What did the treatment actually do?”: asks about "The mole, molar mass and stoichiometry" and names it nowhere in the question or the options</li><li><strong>UNNAMED</strong> — “Choose the safest pilot program”: asks about "Separation science: chromatography and extraction" and names it nowhere in the question or the options</li><li><strong>UNNAMED</strong> — “Disposition the final chemical claims”: asks about "Measurement: significant figures, blanks, detection limits, uncertainty" and names it nowhere in the question or the options</li><li><strong>UNNAMED</strong> — “Audit the electrochemical removal from the charge passed”: asks about "Electrolysis and quantitative electrochemistry" and names it nowhere in the question or the options</li><li><strong>UNREACHED</strong> — “Colligative properties”: no question in the campaign names it, in the ask or in an option</li><li>…and 1 more of the same shape. Run <code>node engine/dev/conceptVisible.mjs contamcity</code> for the full list.</li></ul>
+        </div>
+        <p class="note"><span>Read this first</span>38 of 51 question cards name their own concept, and 2 of 30 concepts reach no question at all. Nothing here has been fixed — the gate was written to surface it.</p>
+      </article>
+        </div>
+      </section>
+
+  <section class="colophon" aria-labelledby="colophon">
+    <h2 id="colophon">How these numbers were produced</h2>
+    <p>Every count and every quoted line above is the gate’s own output, run against the shipped
+      content of <code>contamcity</code> on 1 September 2026, on branch
+      <code>deep-watch-integration</code> after the second revised bundle landed. Reproduce any block
+      with the gate named in it:</p>
+    <pre>cd gamekit
+node engine/dev/checkStory.mjs contamcity
+node engine/dev/plainCards.mjs contamcity
+node engine/dev/conceptOrder.mjs contamcity
+npm run check contamcity          # all of them, this campaign only</pre>
+    <p>119 findings across 7 failing gates. Nothing here is
+      structural: <code>contamcity</code> passes <code>bookParity</code> — its book regenerates every
+      content file it ships — and <code>smokeCampaign</code> plays it end to end with every stop
+      gradeable. The revised copy was landed under instruction to overrule content gates, so this
+      document is the record of what that instruction bought, not an argument against it.</p>
+    <h2 style="margin-top:2.25rem">What the importer refused, and what was changed to get past it</h2>
+    <p>None of these are content gates — the importer writes nothing at all while any of them
+      stands, so the campaign could not ship until each was resolved. They are listed here because
+      the same class has blocked every bundle so far, and an author regenerating this book from the
+      same source will reintroduce them unless they are fixed upstream. The full catalogue, with
+      the rule behind each, is in <strong>Bundle Pre-Flight</strong>.</p>
+    <ul><li>None recorded for this campaign.</li></ul>
+    <h2 style="margin-top:2.25rem">What changed under these numbers</h2>
+    <ul>
+      <li>The book and <code>theme.js</code> were replaced from the revised bundle and every content
+        file regenerated by <code>tools/import-book.mjs</code>.</li>
+      <li>The opening card now has a five-sentence cap in <code>checkStory</code>, counted by the same
+        splitter as the day blurb’s four-sentence cap — one function in
+        <code>engine/dev/dayCard.mjs</code>, with a selftest that fails if the two ever disagree. The
+        48 campaigns whose openings predate the cap are recorded in
+        <code>engine/dev/openinglength-debt.json</code>.</li>
+      <li>Where this campaign’s opening ran long it was cut to five sentences. That trade is visible in
+        <code>plainCards</code>: fewer sentences carrying the same four beats means longer sentences,
+        so the reading grade moved up slightly on some cards. The cap and the reading level pull
+        against each other and both numbers are above.</li>
+    </ul>
+  </section>
+</div>
+</head>
+<body></body>
+</html>

@@ -66,7 +66,8 @@ export const MISSIONS = [
       {
         "group": "SAFE",
         "lesson": 1,
-        "task": "Explain exactly what the green placard allows the office to claim"
+        "task": "Explain exactly what the green placard allows the office to claim",
+        "reason": "Adeyemi has three residents at the counter now, and whatever sentence he gives them will be quoted back at the office later."
       },
       {
         "group": "HAZ",
@@ -79,7 +80,7 @@ export const MISSIONS = [
     "title": "The building that looks worst",
     "objective": "Work out why Marina Court tilted as one piece and decide what evidence matters for the twelve neighbouring buildings.",
     "briefing": "Marina Court looks like the obvious structural failure. The first question is whether the structure failed at all.",
-    "stake": "Monday, and Marina Court is on the front page. Six storeys of flats now stand about eight degrees out of plumb above the marina. The frame has not racked; the raft and superstructure rotated together. A survey across the roughly twelve-metre foundation finds about 1.7 metres of elevation difference from one edge to the other, with fresh sand ejecta concentrated toward the low side. Bram Halvorsen wants the block demolished this week because the lean looks like the town's obvious structural failure. Elena Navarro wants the cordon kept but the next five investigation-days spent on the reclaimed ground under the twelve neighbouring buildings. Before either decision, you have to identify what actually failed.",
+    "stake": "Monday, and Marina Court is on the front page. Six floors of flats now lean about eight degrees above the marina. The frame itself has not racked. The raft and the block above it turned as one piece. Across the twelve-metre base, one edge sits about 1.7 metres lower than the other. Fresh ejecta — sand and water pushed up from below — lie thickest on the low side. Bram Halvorsen wants the block pulled down this week, because the lean looks like the worst failure in town. Elena Navarro wants the cordon kept and the next five days spent on the made ground under the twelve blocks next door. Today you decide what actually gave way, and which of those two plans the town pays for.",
     "takeaway": "A building can be badly unsafe because its support moved even when its frame did not fracture.",
     "stops": [
       {
@@ -281,7 +282,7 @@ export const MISSIONS = [
     "title": "The record that was wrong all along",
     "objective": "Trace every conclusion that depended on the reference station, correct the measured site-response ratio and withdraw the design shortcut that copied one ratio into every future building.",
     "briefing": "The reference station is not on competent bedrock. One correction now runs through every conclusion that used it.",
-    "stake": "Tuesday, and Inês Cardoso has found the reference error. The station above Upper Town was treated as competent bedrock, but the 1998 trench log shows several metres of weathered, fractured granite beneath it. A temporary sensor on nearby competent rock has now recorded five days of common aftershocks with the vault. In the 1 Hz band used for the Flats comparison, the vault motion is about 1.6 times the competent-rock motion. That means the published Flats-to-vault spectral ratio of about 3 was understating the Flats-to-rock ratio. The correction matters. So does a second mistake: the district planning memo copied that single-band ratio straight into a universal design-demand factor. You have to decide what gets corrected, what gets withdrawn and what remains untouched.",
+    "stake": "Tuesday, and Inês Cardoso has found the error under everything. The station above Upper Town was treated as sound bedrock. The 1998 trench log shows metres of cracked, weathered granite under it. So she put a new sensor on competent rock nearby — rock hard enough to trust — and watched both for five days. In the 1 Hz band, the old station shakes about 1.6 times as hard as that rock. Every ratio measured against it is therefore too small. There is a second mistake as well. The planning memo took that one ratio, in that one band, and made it a design rule for every new building. Today you decide what gets fixed, what gets pulled, and what still stands.",
     "takeaway": "A bad reference contaminates only the conclusions that depend on it; correcting a measurement does not justify turning one event-specific ratio into a universal design factor.",
     "stops": [
       {
@@ -297,7 +298,8 @@ export const MISSIONS = [
       {
         "group": "HAZ",
         "lesson": 5,
-        "task": "Correct the measured site-response ratio without turning it into a universal design number"
+        "task": "Correct the measured site-response ratio without turning it into a universal design number",
+        "reason": "The old ratio is still in the planning memo, and Tanaka cannot withdraw the design shortcut until the corrected number exists."
       },
       {
         "group": "SAFE",
@@ -374,7 +376,8 @@ export const MISSIONS = [
       {
         "group": "STRUCT",
         "lesson": 11,
-        "task": "Make the final sign-off decision on the Placard Register"
+        "task": "Make the final sign-off decision on the Placard Register",
+        "reason": "Okonkwo has left one line blank above the signature, and after today the register is the only thing the next coordinator has."
       }
     ]
   }

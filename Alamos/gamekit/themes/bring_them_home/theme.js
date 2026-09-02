@@ -32,6 +32,18 @@ export default {
   // and what this game's own copy already assumed.
   dayNoun: 'Shift',
 
+  // The plan card's opening blurb is a date stamp and two sentences: the one
+  // thing that is true this shift, and the one thing the player does about it.
+  // This campaign's fifteen stakes are already written that way — 36 to 48 words
+  // apiece — and the manifest line was the half nobody added, so `checkStory`
+  // measured them against the 90-word floor written for a card that has to carry
+  // a fortnight of context. The long form is not merely unnecessary here, it is
+  // unreachable: the floor needs ~90 words, the blurb cap allows four sentences,
+  // and 22 words a sentence puts the card a full grade over `plainCards`' 6.5
+  // whatever its vocabulary. The cast, the argument and the consequences live on
+  // the calls' own `reason` lines, on the people and in the debrief. See
+  // gamekit/BRIEFING_PASS.md.
+  stakeStyle: 'brief',
 
   id: 'bring_them_home',
   title: 'Bring Them Home',
@@ -126,29 +138,27 @@ export default {
       'The entry checklist, signed',
     ],
   },
+  // The closing line is where the cost goes. It used to read "make each call
+  // before air, power, or fuel runs out" — true, and a specification: no number,
+  // no clock and nobody in it, so the reader is left to supply the consequence.
   opening: [
-    'An explosion has crippled a crewed spacecraft on its way home from the Moon. Three people are '
-    + 'a quarter-million miles from Earth, and no rescue can reach them. Power is falling, the cabin '
-    + 'is getting colder, and the ship is drifting off the narrow path back through the atmosphere. '
-    + 'You are the flight director. For the next five days, every procedure sent to Hale, Ruiz and '
-    + 'Sato is your call. In fifteen shifts you build the Return Checklist: the turns, power cuts, '
-    + 'burns and entry steps that get them to splashdown. A wrong command can spend power, air or '
-    + 'propellant they cannot replace.',
+    'An explosion has crippled a ship coming home from the Moon. Three people are five days from '
+    + 'Earth. Power is low, the cabin is cold, and the ship is drifting off its safe path. You are '
+    + 'the flight director, which means every call the room makes is signed by you. Build the Return '
+    + 'Checklist: one procedure a shift, and three people get home only if each one holds.'
   ],
 
   // How it ends. Shown when the campaign closes and printed as the book's last page.
   ending: [
-    'The carrier disappears on schedule. Four minutes of plasma blackout pass with nobody on the '
-    + 'ground able to change a thing. Then the speaker cracks and Hale is reading altitude. Drogues '
-    + 'come out. Three main parachutes fill above the Pacific. At 12:07 the capsule hits the water '
-    + 'upright, and all three crew members are on the recovery deck inside the hour.',
-    'The return worked because the room kept separating a spacecraft problem from a measurement '
-    + 'problem. A shared pressure reference did not become a fake cabin leak. A shared ground clock '
-    + 'did not become an unnecessary burn. Power, heat, carbon dioxide, pointing and entry uncertainty '
-    + 'were each turned into a physical margin the next decision could use.',
-    'The checklist closes with one line under your signature: GO for entry. You made that call with '
-    + 'what was known, what was still uncertain, and enough margin left for both. Three people are '
-    + 'home tonight because the numbers became decisions before the decisions became irreversible.',
+    'The capsule vanishes into the radio blackout. Four minutes pass. Then the speaker cracks, and '
+    + 'Hale reads the altitude. Small chutes open. Three main chutes fill above the Pacific. At 12:07, '
+    + 'the capsule hits the water upright. All three crew members reach the recovery deck.',
+    'The return worked because you kept asking what had changed: the ship or the reading. A shared '
+    + 'power source did not become a false cabin leak. A shared clock did not become a needless burn. '
+    + 'You turned each risk into a margin the next call could use.',
+    'The last line under your name reads: GO for entry. Some doubt remained, but each known risk fit '
+    + 'inside a checked limit. Three people are home tonight because you made the hard calls before '
+    + 'the last safe choice closed.',
   ],
   look: {
     fov: 66,            // a 72° field distorts badly in a corridor

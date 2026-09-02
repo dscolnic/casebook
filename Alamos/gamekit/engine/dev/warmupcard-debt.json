@@ -1,0 +1,359 @@
+{
+  "_comment": "Warm-up cards running past one sentence (engine/dev/warmupOrder.mjs). A warm-up card is read standing in the world with a run about to start, so the cap is one sentence — against four for a day card and five for the opening, all three counted by engine/dev/dayCard.mjs. The importer's twelve-word floor on `why` still applies, so the target is one sentence of twelve or more words. A card not listed here fails now if it runs long; one listed here that has since been cut fails too, naming the line to delete. Recorded when the cap went in, so the cards that predate it are visible debt rather than a wall of failures nobody reads.",
+  "themes": {
+    "contamcity": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "hospital": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "deepwatch": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "outbreak_riverton": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-far",
+      "trial-near"
+    ],
+    "planetary_defense": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-far",
+      "trial-near"
+    ],
+    "blackout": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "aftershock": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-far",
+      "trial-near"
+    ],
+    "quantum": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "instruments": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "the_trial": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "headwater": [
+      "canvass",
+      "evade",
+      "follow",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "icecore": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "seedbank": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-far",
+      "trial-near"
+    ],
+    "midway": [
+      "canvass",
+      "evade",
+      "follow",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "planetary_defense_ms": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-far",
+      "trial-near"
+    ],
+    "deepwatch_ms": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "aftershock_ms": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-far",
+      "trial-near"
+    ],
+    "icecore_ms": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "sightline": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "seedbank_ms": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-far",
+      "trial-near"
+    ],
+    "outbreak_riverton_ms": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-far",
+      "trial-near"
+    ],
+    "blackout_ms": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "bring_them_home_ms": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "contamcity_ms": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "groundtruth": [
+      "canvass",
+      "evade",
+      "follow",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "blackout_fable": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "yellowbay": [
+      "canvass",
+      "evade",
+      "follow",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "sightline_ms": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "redsand_ms": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-far",
+      "trial-near"
+    ],
+    "the_trial_ms": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "deepwatch_hs": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "contamcity_hs": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "the_trial_hs": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "carrying": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-far"
+    ],
+    "ghostlight": [
+      "canvass",
+      "evade",
+      "follow",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "changeover": [
+      "canvass",
+      "evade",
+      "follow",
+      "hunt",
+      "tag",
+      "trial-near"
+    ],
+    "slackwater": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-far"
+    ],
+    "overwind": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-far"
+    ],
+    "darkfibre": [
+      "canvass",
+      "evade",
+      "follow",
+      "greet",
+      "hunt",
+      "tag",
+      "trial-far"
+    ]
+  }
+}

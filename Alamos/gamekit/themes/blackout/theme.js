@@ -35,6 +35,12 @@ export default {
   // Each mission really is one working day, so the plan card's "Day N" is right.
   dayNoun: 'Day',
 
+  // The morning card is the event and the turn, not a fortnight of context read
+  // fifteen times — see BRIEFING_PASS.md. The cast is met on the calls, where
+  // each stop's own `reason` says why it matters tonight, and the running
+  // delivery count moves to the card that closes the day.
+  stakeStyle: 'brief',
+
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
   //   'interior'  engine/world/interiorSite.js — a spine with rooms off it
@@ -111,13 +117,11 @@ export default {
   },
 
   opening: [
-    'Calder Valley is heading into its coldest stretch of winter, and almost all of its outside '
-    + 'power crosses one transmission corridor that already has little spare margin. You are the '
-    + 'night system operator for a network serving four million people. A bad call can cut power '
-    + 'to homes, a dialysis clinic and the valley pumps; a worse one can let a local failure spread. '
-    + 'Across fifteen shifts you must keep supply and demand balanced, determine how hard the Calder '
-    + 'corridor can safely be pushed, and write the restart plan before the winter case is signed. '
-    + 'The catch is that every one of those decisions depends on numbers you may not be able to trust.',
+    'You are the night operator for the Calder grid. Four million people are on it, and nearly '
+    + 'all their power crosses one line. The coldest week of the winter starts tonight. Over '
+    + 'fifteen shifts you write The Calder Winter Survival Plan: what reserve is real, how hard the '
+    + 'line may be pushed, and how to restart from dark. A bad call puts homes, a kidney clinic and '
+    + 'the valley pumps in the dark for hours.',
   ],
 
   ending: [
@@ -130,11 +134,12 @@ export default {
     + 'history shows roughly ninety hours above the intended continuous-temperature case. That '
     + 'exposure is now being used to test the conductor\'s remaining margin instead of being turned '
     + 'into a strength claim the measurements cannot yet prove. The exact relay cause remains open.',
-    'You sign the Calder Winter Survival Plan with reserve sized to uncertainty, the third corridor '
-    + 'circuit committed to the construction window, and one permanent operating rule: any instrument '
-    + 'that carries an operating limit or emergency decision gets an independent check. Four million '
-    + 'people finish the campaign with power, and the next night shift inherits a plan that says '
-    + 'clearly what is measured, what is inferred, and what is still unknown.',
+    'You signed the Calder Winter Survival Plan with reserve sized to uncertainty, the third '
+    + 'corridor circuit committed to the construction window, and one permanent operating rule: any '
+    + 'instrument that carries an operating limit or an emergency decision gets an independent '
+    + 'check. You wrote that rule because you found what one trusted number had cost. Four million '
+    + 'people finish the fortnight with power, and the next night shift inherits your plan — a plan '
+    + 'that says plainly what is measured, what is inferred, and what is still unknown.',
   ],
 
   look: {

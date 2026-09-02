@@ -43,11 +43,11 @@ export const CURRICULUM = {
         "ice spreads outwards from the high points of an ice sheet"
       ],
       "concept": {
-        "n": 2,
-        "c": "Counting layers is counting years, and deeper means older",
+        "n": 6,
+        "c": "A ratio can be turned into a temperature using a known relationship",
         "of": 16,
         "rests": [
-          "Snow that never melts piles up in layers, one year at a time"
+          "Something measured today can stand in for something nobody measured then"
         ]
       }
     },

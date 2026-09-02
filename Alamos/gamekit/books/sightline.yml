@@ -184,7 +184,7 @@ roster:
     nobody offered Ward a bed for nineteen hours.
   quiz:
   - q: Why does Raghunathan reject the idea that fear makes a memory more complete?
-    a: Threat can narrow attention, making peripheral details less likely to be encoded well
+    a: Fear changes where attention lands rather than how much of a scene gets in
     wrong:
     - Memories formed under fear are stored in a separate system that decays faster than ordinary memory
     - People under threat close their eyes for most of the event and encode almost nothing
@@ -360,9 +360,15 @@ glossary:
 - name: Lux
   aliases: [lux, illuminance]
   def: A measure of how much light is falling on a surface; a supermarket aisle is about 500, a lit street about 5.
+- name: Calibration
+  aliases: [calibration, calibrated]
+  def: Checking a meter or a room against a level somebody has already fixed, so a reading taken from it can be trusted.
 - name: Acuity
   aliases: [acuity, visual acuity]
   def: How small a detail vision can separate, measured as an angle rather than as a size.
+- name: Retina
+  aliases: [retina, retinal]
+  def: The layer at the back of the eye where light is turned into a nerve signal.
 - name: Cone
   aliases: [cone, cones]
   def: The retinal cell that carries colour and small detail, and needs a reasonably bright scene to work.
@@ -372,8 +378,8 @@ glossary:
     and no colour vision.
 - name: Dark adaptation
   aliases: [dark adaptation, dark-adapted, adapted eye]
-  def: The gradual increase in visual sensitivity after moving into darkness; cones adapt first, while rod sensitivity 
-    continues improving for roughly twenty to thirty minutes.
+  def: The gradual rise in how well a person can see after moving into darkness; cones adapt first, while rod sensitivity
+    keeps improving for roughly twenty to thirty minutes.
 - name: Encoding
   aliases: [encoding, encoded]
   def: What actually gets into memory at the moment of an event, which is only ever part of what was in front of the 
@@ -389,8 +395,8 @@ glossary:
   def: Failing to register something in plain view because attention was on something else.
 - name: Weapon focus
   aliases: [weapon focus]
-  def: A tendency for a visible weapon to draw attention and reduce memory for other details, including the perpetrator;
-    it changes probabilities, not what every witness must remember.
+  def: A visible weapon often draws attention and reduces memory for other details, including the perpetrator; it changes
+    probabilities, not what every witness must remember.
 - name: Misinformation effect
   aliases: [misinformation effect, misinformation, post-event information]
   def: A detail that arrived after an event turning up in the account of the event itself.
@@ -403,20 +409,20 @@ glossary:
     corroboration.
 - name: Cross-race effect
   aliases: [cross-race effect, cross-race, own-race]
-  def: The average tendency for face recognition to be more accurate for groups a person has more visual experience 
-    distinguishing; the size of the effect varies with experience and context.
+  def: On average, face recognition is more accurate for groups a person has more practice telling apart; the size of the
+    effect varies with experience and context.
 - name: Flashbulb memory
   aliases: [flashbulb memory, flashbulb]
   def: A vivid, confident memory for the circumstances around a surprising event; vividness can remain high even when 
     details become inconsistent over time.
 - name: Amygdala
   aliases: [amygdala]
-  def: A brain structure involved in detecting biologically important or threatening information and in emotional 
-    learning and memory.
+  def: A brain structure that flags biologically important or threatening information and helps fix emotional events in
+    memory.
 - name: Cortisol
   aliases: [cortisol]
-  def: A hormone involved in the stress response. Its effects on learning and memory depend on timing, intensity and 
-    context; it is not a simple meter of eyewitness accuracy.
+  def: A hormone involved in the stress response. What it does to memory depends on timing, intensity and context; it is
+    not a simple meter of eyewitness accuracy.
 - name: Filler
   aliases: [filler, fillers]
   def: A person in a lineup whom the police know did not do it, included so that a choice means something.
@@ -478,19 +484,20 @@ missions:
   objective: Establish what the record asserts before anybody characterises it.
   briefing: Fifteen working days. One identification put Ward at the robbery; before the board acts, determine what that
     identification can still carry.
-  stake: >
+  stake: >-
     Monday. The review board sits in fifteen working days. Elias Ward has served seven years of a fourteen-year term for the
-    robbery on Ferrier Street. One witness picked him out, and that identification is the only evidence that independently
-    put him at the shop. The file also contains a late-night statement Ward retracted, but it was built from the police account
-    rather than from a new fact only he supplied. Ines Baptiste wants the recommendation built on the procedure. Ren Okada
-    wants the procedure reconstructed before anybody characterises it. Today you separate what the file says from what the
-    file can actually support. By tonight, every load-bearing claim either has evidence behind it or is marked for the next
-    fourteen days.
+    robbery on Ferrier Street. One witness picked him out. That pick is the only evidence that put him in the shop on its
+    own. The file holds a late statement as well. Ward agreed to it in custody and took it back the next day, and it added
+    no fact of his own. The unit is split on where to start, the procedure or the night. Today you separate what the file
+    says from what the file can hold up. By tonight every claim the case rests on either has something behind it or is marked
+    for the next fourteen days.
   takeaway: A file states things; the question is always which of them anything stands behind.
   stops:
   - group: MEASURE
     task: Separate what is asserted from what is supported
     title: The signature and the thing it stands for
+    reason: >-
+      Achterberg opens the file this morning and three checks is all the day buys, so choose them before anybody reads further
     place: Records Store
     scene: Records custodian Nell Achterberg, the records custodian, opens the Ward file on the hall's long table. The 
       cover says seven years served of fourteen. Every page is signed. The unit has fifteen working days, and this 
@@ -516,7 +523,8 @@ missions:
     - a review has less time than a file has pages
     takeaway: A record is evidence that a claim was accepted, which is not evidence for the claim.
     format: ATTEST
-    question: Verify what the morning allows, and hold whatever the store cannot stand behind.
+    question: Verify what the morning allows — a distance, a lamp, a date, a statement of how sure she was — and
+      hold whatever the store cannot stand behind.
     attest:
       hint: All six are signed and none has ever been questioned. Going behind one costs the best part of an hour.
       checks: 3
@@ -561,6 +569,8 @@ missions:
   - group: IDENT
     task: Calculate the equal-choice baseline without mistaking it for a measured false-identification rate.
     title: One in six is not an error rate
+    reason: >-
+      Ilori has the 4 December array record out, and the board will be quoted a one-in-six figure whatever the unit says
     place: Identification Suite
     scene: Marcus Ilori, the identification procedures adviser, has the 4 December 2019 array record on the table. Six 
       photographs were laid out together. The witness was asked whether the man she saw was among them. It was standard 
@@ -628,6 +638,8 @@ missions:
   - group: SOCIAL
     task: Guard the review against the answer it wants
     title: What a clean file would look like
+    reason: >-
+      Ntuli has stopped the first meeting to get the standard on the board before the file is opened
     place: Deliberation Room
     scene: |-
       Grace Ntuli stops the first meeting four minutes in. Everybody in the room came here to find bad procedure, she says, and the file has not been opened yet. She wants something written on the whiteboard before it is.
@@ -653,7 +665,8 @@ missions:
     - people find more of what they are looking for than of what they are not
     takeaway: Write down what would count against you before you look, or you will not recognise it later.
     format: CHOICE
-    question: What does writing down the features of a sound 2019 procedure protect the review from?
+    question: Expectancy — what the people running a review already believe — changes what they notice. What does
+      writing down the features of a sound 2019 procedure protect the review from?
     why: Expectancy changes what people notice and remember without making them fabricate evidence. Reviewers who expect
       bad procedure naturally recognize faults faster than facts pointing the other way. Writing the standard first 
       creates a comparison instead of a search. The same logic supports preregistration in experiments. Evidence that 
@@ -686,6 +699,8 @@ missions:
   - group: PERCEPT
     task: Work out the angle a face subtends at the file's distance
     title: Twenty-two metres, as an angle
+    reason: >-
+      Frey has the tape on the bay floor, and the file's own distance is the first number the review can test
     place: Reconstruction Bay
     scene: Vision scientist Frey lights the reconstruction bay and runs a tape to the twenty-two-metre floor mark. She 
       puts a face at the doorway and asks what its features become at an eye across the rebuilt street.
@@ -746,9 +761,11 @@ missions:
     task: Use a teaching model of limited attention to see which details compete; do not treat the allocation as a 
       reconstruction of Cardoza’s actual eye movements.
     title: Six seconds is not six measurements
+    reason: >-
+      Okada has the doorway paragraph open, and six seconds is the only figure the account gives for how long she looked
     concept: "Selective attention: attending is choosing, and choosing costs"
     place: Interview Suite A
-    scene: Memory scientist Ren Okada opens Alma Cardoza's first full account at the doorway paragraph. Six seconds, by 
+    scene: Ren Okada, the memory scientist, opens Alma Cardoza's first full account at the doorway paragraph. Six seconds, by 
       her estimate, separate the shout from the man crossing the kerb. The bay clock is set to six.
     guide: >-
       Six seconds of attention, and a list of things that would take longer than that between them. Spend it, and read off
@@ -828,6 +845,8 @@ missions:
     task: Predict the description-only suspect-pick share, run the forty-person check, then spend the measurement to see
       where the choices actually landed.
     title: Predict it before the forty cards turn
+    reason: >-
+      The forty description-only cards are ready to turn, and a prediction made first is worth more than one made after
     place: Identification Suite
     scene: Marcus Ilori lays Cardoza's first description beside the six 2019 photographs at the identification bench. 
       Forty mock-witness cards are face down beside them. Nobody holding a card has seen the robbery.
@@ -852,8 +871,9 @@ missions:
     takeaway: A procedure can be tested by people who know the description but not the event; where they land measures 
       the array rather than memory.
     format: VERIFY
-    question: What suspect-pick share do you expect from the description alone, and does the measured distribution 
-      support a fair six-person array?
+    question: Functional size is how many of the six were real alternatives to somebody working from the description
+      alone. What suspect-pick share do you expect from forty mock witnesses, and does the measured spread support a
+      fair six-person array?
     verify:
       decision: Does the description-only mock-witness test behave like a fair six-person array?
       hint: Lock a predicted share before the cards turn. Then run all forty volunteers and spend the one check on the 
@@ -887,17 +907,19 @@ missions:
     universal human cutoff.
   briefing: The bay can show where this group’s performance begins to look like guessing. It cannot draw a universal 
     line beyond which nobody can recognise a face.
-  stake: >
+  stake: >-
     Wednesday. Twelve volunteers have worked the reconstruction at seven marked distances. They could describe something from
-    every mark, but description and identification are not the same task. Today you find the first station where this small
-    sample no longer beats the six-way chance baseline. Then you learn what dim adaptation trades away and why “I saw his
-    face” is several claims bundled into one. The result will be a bound the review can use, not a magic distance at which
-    human recognition stops.
+    every mark. Describing and identifying are not the same task. The file treats them as one. Today you find the first mark
+    where this small sample stops beating the one-in-six chance rate. Then you learn what a dim scene trades away. You also
+    learn why I saw his face is really four claims tied together. Twelve people is a small sample. So what comes out is a
+    bound the review can use, not a magic distance at which people stop knowing a face. Say which of the two it is tonight.
   takeaway: There is a distance at which a face becomes a shape, and it is closer than anybody expects.
   stops:
   - group: PERCEPT
     task: Find the first station where this small sample is no longer clearly above the six-way chance baseline.
     title: Where this sample stops beating chance
+    reason: >-
+      Bekele has twelve volunteers' results at seven marks, and the bay is reset tomorrow morning
     place: Reconstruction Bay
     scene: >-
       Twelve volunteers stood at each of seven marks down the bay floor and described a face at the far end. Later each tried
@@ -922,13 +944,17 @@ missions:
       Why the distance is worth writing down. Testimony arrives as a description and an identification in one sentence, and
       a jury hears both as one claim. Knowing the distance at which naming failed in a controlled test on this same bay gives
       the court a number to put against the sentence rather than an impression.
+    takesAsRead:
+    - "Storage and forgetting: the curve is steep at the start"
     assumes:
     - features can be described without the person being identifiable
     - the same face was used at every distance
     takeaway: A controlled reconstruction can bound performance under its own conditions; it does not create a universal
       distance limit.
     format: PROBE
-    question: At which station does this small sample first perform no better than the six-way chance expectation?
+    question: Each later pick is a retrieval: the face is rebuilt each time from what the eye actually got, not played
+      back from a recording. At which station does this small sample first perform no better than the six-way chance
+      expectation?
     answerText: "At twenty metres the observed count is two of twelve, exactly the six-way chance expectation. With only twelve
       volunteers, that is evidence that performance has become weak here—not a universal twenty-metre cutoff for face identification."
     why: Large features such as build, clothing and gait survive distance longer than identity-carrying facial 
@@ -979,6 +1005,8 @@ missions:
   - group: BRAIN
     task: Establish what the eye gives up in a dark street
     title: What the dark takes
+    reason: >-
+      The bay is held at five lux tonight, which is the only chance to ask what a dark street costs the eye
     concept: "Rods, cones and scotopic vision: what the dark takes away"
     place: Dark Adaptation Booth
     scene: Priya Raghunathan, the psychophysiologist, shuts the booth door and waits ten minutes. She can then find the 
@@ -1028,6 +1056,8 @@ missions:
   - group: SOCIAL
     task: Take apart the sentence the panel actually hears
     title: One claim, or four
+    reason: >-
+      'I saw his face' is the sentence the conviction rests on, and nobody in seven years has taken it apart
     place: Deliberation Room
     scene: Grace Ntuli plays a panel recording in the hall. A volunteer juror repeats 'she saw his face' eleven times 
       across forty minutes. By the end, nobody in the room is asking how far away the face was.
@@ -1072,6 +1102,8 @@ missions:
   - group: PERCEPT
     task: Hold a deliberately chosen dim-light test condition steady so the bay’s results are interpretable.
     title: Hold a dim-light test steady
+    reason: >-
+      Before any result from this bay counts, the bay has to be shown holding the light level it claims
     concept: "Illuminance, and the light a scene actually had"
     place: Reconstruction Bay
     scene: Before anyone claims to have reconstructed 2019, the bay team runs a control at five lux. Lamps warm and 
@@ -1127,17 +1159,20 @@ missions:
     actually on.
   briefing: The scene report says the lighting was “normal.” Today you calculate what that would mean if the listed 
     streetlamp was working—and leave the premise open.
-  stake: >
-    Thursday. Baptiste argues that the unit already has evidence that does not depend on asking Cardoza anything new. She
-    is right about the method and not yet about the answer. Today you calculate the doorway illumination implied by the utility
-    specification if column 4471 was working, then separate that model from the unmeasured word “normal.” You also ask what
-    threat can plausibly do to attention without turning a population tendency into a diagnosis of one witness. By tonight
-    the light claim becomes a testable assumption waiting on a historical record, not a fact copied from the scene report.
+  stake: >-
+    Thursday. The unit can settle some of this without asking Cardoza a thing. That is right about the method. It is not yet
+    right about the answer. The scene report says the street light was normal. Nobody put a meter on it. Nobody has found
+    the ticket that would prove it either. Today you work out how much light the doorway had if column 4471 was on. Then
+    you keep that math apart from the word normal, which is not a number. You also ask what fear does to what a person takes
+    in. Do not turn a rule about people at large into a claim about one witness. By tonight the light claim is a test waiting
+    on a paper trail, not a fact copied off a report.
   takeaway: Most of what decides an identification can be measured without ever asking the witness again.
   stops:
   - group: PERCEPT
     task: Work out the illuminance on the doorway from the column
     title: How much light the corner had
+    reason: >-
+      The utility specification for column 4471 is the one lighting number in the file that can still be checked
     place: Reconstruction Bay
     scene: |-
       Frey has the column's specification from the utility: a 1,800 candela lantern, twelve metres from the shop doorway along the kerb. The scene report's word for this is "normal".
@@ -1197,6 +1232,8 @@ missions:
   - group: BRAIN
     task: Which explanation fits all four readings rather than the loudest one?
     title: The middle of the event and its edges
+    reason: >-
+      Raghunathan has four parts of the account on one screen and wants a mechanism that fits all four
     concept: Weapon focus, and what an arousing object does to a description
     place: Physiology Bay
     scene: Priya Raghunathan has four parts of Cardoza's account on the screen. One shows detailed recall, one shows 
@@ -1222,8 +1259,8 @@ missions:
     assumes:
     - a threat triggers a fast alarm response before any decision is made
     - attention narrows under threat
-    takeaway: Threat can narrow attention and make some details more vulnerable; it does not tell the review exactly 
-      which details were or were not encoded.
+    takeaway: A record dense in one place and empty in another is telling the review where a witness was looking, not
+      that the whole account is worthless.
     format: DIAGNOSIS
     why: 'Threat can draw attention toward the most urgent object and reduce processing of other information. That makes weapon-focus-like
       trade-offs a plausible explanation for a record rich in central threat details and weaker elsewhere. But it is a tendency,
@@ -1268,8 +1305,10 @@ missions:
   - group: MEASURE
     task: Decide what the phrase in the scene report is worth
     title: A word where a reading should be
+    reason: >-
+      Baptiste is asking how much longer Ward serves while the word normal is treated as a measurement
     place: Records Store
-    scene: Unit Director Ines Baptiste stands on the rebuilt corner beside the lux meter and the scene report. The 
+    scene: Ines Baptiste, the unit director, stands on the rebuilt corner beside the lux meter and the scene report. The 
       report says only 'street lighting normal.' No night reading survives. She asks how much longer Ward should serve 
       while the unit treats that word as data.
     guide: >-
@@ -1316,17 +1355,19 @@ missions:
 - title: What entered the first account?
   objective: Establish how the first full account was taken, and who was in the room.
   briefing: The account everybody has argued about since was recorded on 18 November.
-  stake: >
-    Friday. Cardoza’s first full interview happened four days after the robbery. Ren Okada has the recording and a transcript
-    nobody has checked against it. Yara Solomon has found something else: Cardoza’s husband sat in for the whole hour. Today
-    you rebuild an interview that protects a witness’s own account, test how agreement in a listening room can alter later
-    repetition, and read the instruction Cardoza received before the photographs appeared. The goal is not to prove that any
-    one later detail was contaminated. It is to identify which pathways were open before the lineup ever began.
+  stake: >-
+    Friday. Cardoza’s first full interview happened four days after the robbery. The unit has the recording, and a transcript
+    nobody has checked against it. There is something else in the file. Her husband sat in for the whole hour. Today you rebuild
+    an interview that protects what a witness has of her own. You test how a nod in a listening room can change what she
+    says next time. You read the words she was given before the photos came out. The point is not to prove that any one later
+    detail was fed to her. It is to name which routes into her account were open before the lineup began.
   takeaway: An account is not collected; it is produced, by a method, in a room, with people in it.
   stops:
   - group: MEMORY
     task: Order the steps of an interview that protects what the witness actually has.
     title: The order an account is taken in
+    reason: >-
+      Okada has the 18 November recording queued, and the order the questions arrived in decides what the account is worth
     place: Interview Suite A
     scene: Ren Okada lays five interview steps along the corridor floor and queues the 18 November recording. In the 
       audio, the second question arrives eleven seconds after Cardoza begins. He asks the room to rebuild the order 
@@ -1364,12 +1405,14 @@ missions:
     - Take an uninterrupted account in the witness's own words, asking nothing during it
     - Return to what the witness raised, using open questions that name no new detail
     - Put closed questions only about things the witness has already brought up
-    - Record how sure the witness is of each element, before any photographs exist
+    - Record the witness's confidence in each element, before any photograph or any feedback arrives
     order: [0, 1, 2, 3, 4]
   - group: SOCIAL
     task: Change one feature of the listening room at a time, then reverse the change that moves which details survive 
       into the second telling.
     title: Eleven small agreements
+    reason: >-
+      Cardoza's husband agreed at eleven points in that hour, and the listening room can be re-run with one feature changed
     place: Deliberation Room
     scene: Grace Ntuli plays the 18 November interview in the listening room. Cardoza's husband is present throughout 
       and agrees at eleven points. A second console can replay the same account with one feature of the room changed.
@@ -1385,8 +1428,8 @@ missions:
     takeaway: A controlled study can establish that social feedback can move an account; the case record still has to 
       show whether that mechanism reached this witness.
     format: CONTROL
-    question: Which room feature is causing reinforced details to survive, and does the effect return when that feature 
-      is restored?
+    question: Feedback from the room — a nod, a pause, an agreement — can change what a witness repeats. Which room
+      feature is causing reinforced details to survive, and does the effect return when that feature is restored?
     control:
       hint: Change one control from baseline, read the number of details that survive into the second telling, then 
         restore it. Do not change two room features together.
@@ -1415,6 +1458,8 @@ missions:
   - group: IDENT
     task: Find the instruction that was not given
     title: The man may not be here
+    reason: >-
+      One instruction is missing from the 2019 array record, and it is the one that changes what a pick means
     concept: "Signal detection: sensitivity against where the line is set"
     place: Identification Suite
     scene: |-
@@ -1443,7 +1488,8 @@ missions:
     takeaway: A may-not-be-present instruction makes rejection explicit and reduces pressure to choose; its absence does
       not make a choice inevitable.
     format: PROTOCOL
-    question: Match each array outcome to what it costs and who carries it.
+    question: Signal detection splits an array into four outcomes: a hit, a miss, a false alarm and a filler pick.
+      Match each outcome to what it costs and who carries it.
     scenarios:
     - The offender is in the array and the witness picks the suspect
     - The offender is absent and the witness picks the suspect
@@ -1470,7 +1516,7 @@ missions:
   objective: Find out what entered the account after the night it describes.
   briefing: The Hallam Register ran Ward's photograph on 19 November, the day after the interview.
   stake: >-
-    Monday of the second week. Solomon has three documents laid side by side, with their dates showing. The account from 18
+    Monday of the second week. Yara Solomon, the case analyst, has three documents laid side by side, with their dates showing. The account from 18
     November. The evening paper from the next day. And the statement Cardoza signed on 26 December. Tomas Weill, the psychometrician,
     has already said what interests him. It is not what any of them says. It is the order they were written in. Ines Baptiste
     wants to know if the review is calling the witness a liar. Ren Okada has spent the morning explaining why that is the
@@ -1482,6 +1528,8 @@ missions:
   - group: MEMORY
     task: Which explanation fits every dated item rather than the most damning one?
     title: The scar
+    reason: >-
+      Baptiste has asked outright whether Cardoza is lying, and the dates answer that before anybody's character does
     place: Interview Suite B
     scene: Ren Okada has four dated items on the screen when Unit Director Ines Baptiste asks whether Cardoza is lying 
       about the scar. Okada says that question arrives too late. He puts the dates across the corridor instead.
@@ -1513,8 +1561,8 @@ missions:
       no scar; Ward’s photograph appears the next day; the scar appears later. That chronology makes the photograph a plausible
       source of the new detail. It does not prove the photograph caused it, and later confidence cannot repair the missing
       source information.'
-    headline: A chin scar is absent from the account taken four days after the robbery and present in the statement five
-      weeks later.
+    headline: One account taken twice — no chin scar four days after the robbery, a chin scar five weeks later. A
+      reliability problem before it is an honesty problem.
     readings:
     - zone: 18 November account
       label: Mention of a scar
@@ -1557,6 +1605,8 @@ missions:
     task: Close the chronology from the robbery to the later certainty statement and find the interval the simplified 
       file leaves out.
     title: Close the forty-two days
+    reason: >-
+      Achterberg has independent records for four dates and one interval nobody has yet accounted for
     concept: "Storage and forgetting: the curve is steep at the start"
     place: Records Store
     scene: "Tomas Weill lays four dates along the identification corridor: 14 November, 18 November, 19 November and 26 December.
@@ -1583,8 +1633,8 @@ missions:
     takeaway: Chronology is only as complete as the intervals it preserves, especially when a missing interval contains 
       a new source of information.
     format: BALANCE
-    question: Where do all forty-two days go, and which missing interval changes what sources were available to the 
-      witness?
+    question: Forgetting is steepest in the first days, so the delay before each document matters. Where do all
+      forty-two days go, and which missing interval changes what sources were available to the witness?
     balance:
       total:
         amount: 42
@@ -1622,6 +1672,8 @@ missions:
   - group: BRAIN
     task: Rule the biology in or out for a change five weeks later
     title: What the hormones cannot explain
+    reason: >-
+      Raghunathan has been asked whether fear could have delayed a detail by five weeks, and she has the time course
     place: Physiology Bay
     scene: |-
       Raghunathan is asked whether the stress of the robbery could have delayed the scar into the account. She draws the time course of the alarm response on the board: seconds, minutes, and hours.
@@ -1678,6 +1730,8 @@ missions:
   - group: SOCIAL
     task: Find the source the agreeing accounts have in common
     title: Agreement is not independence
+    reason: >-
+      Two accounts agree on four particulars, and the report is about to call that corroboration
     place: Deliberation Room
     scene: Five items in the file point the same way. Grace Ntuli has them on the board with their derivations closed. 
       Ines Baptiste asks why the unit is spending a morning on the part of the case nobody disputes.
@@ -1755,6 +1809,8 @@ missions:
   - group: MEMORY
     task: Work out what twenty minutes of waiting cost
     title: Twenty minutes on the kerb
+    reason: >-
+      The two witnesses stood together on the kerb for twenty minutes before anybody took a statement
     concept: "Co-witness contamination: two accounts that have met are one account"
     place: Interview Suite B
     scene: |-
@@ -1832,6 +1888,8 @@ missions:
   - group: PERCEPT
     task: Work out what the man behind the counter could see
     title: Looking out of a lit room
+    reason: >-
+      The shop assistant's account is the other identification in the file, and he was standing in the light
     concept: Dark adaptation, and how long the eye takes to arrive
     place: Reconstruction Bay
     scene: |-
@@ -1857,8 +1915,8 @@ missions:
     - the eye adjusts to the general level of light it is in
     takeaway: An eye set for a lit room is the wrong eye for a dark street, and the glass makes it worse.
     format: VERIFY
-    question: Predict what the counter position can resolve out on the street after two minutes, then run the bay and 
-      measure.
+    question: His eyes are set to the counter light, and dark adaptation has not begun. Predict what the counter
+      position can resolve out on the street after two minutes, then run the bay and measure.
     answerText: About 0.9 metres of detail at the corner — enough to see that somebody is there and their direction, not
       enough to describe a face. Fully dark-adapted the same eye reaches about 0.25 m, and it takes twenty minutes to 
       get there.
@@ -1909,6 +1967,8 @@ missions:
   - group: IDENT
     task: Turn the mock-witness tally into the array's real size
     title: Six photographs, and how many alternatives
+    reason: >-
+      The six photographs from 2019 are on the table, and the description they were chosen against is in the file
     place: Identification Suite
     scene: Marcus Ilori spreads forty mock-witness tally marks across the identification bench. Twenty-six sit under one
       photograph. The volunteers had Cardoza's description and nothing else. He asks how many real alternatives the 
@@ -1971,6 +2031,8 @@ missions:
   - group: MEASURE
     task: Bring the procedure inside the fair band
     title: Moving the middle is not narrowing the spread
+    reason: >-
+      The report has to recommend a procedure rather than only criticise one, and that goes in tonight
     place: Data Room
     scene: |-
       Weill has the mock-witness result as a distribution against the band a fair six-member array would sit in. Four changes are available to the unit's recommendation and each of them costs days of drafting.
@@ -1999,8 +2061,9 @@ missions:
     takeaway: Improve the parts of a lineup with well-supported failure modes—fillers, instructions, blinding and 
       documentation—without claiming one presentation format always wins.
     format: CLOUD
-    question: Bring the recommended procedure inside the fair band, and say when it is defensible. Place the bars to 
-      report the mean and its one-sigma uncertainty.
+    question: A lineup built out of six photographs is fair when about one choice in six goes to the suspect. Place
+      the bars to report the mean and its one-sigma uncertainty, then bring the recommended procedure inside the fair
+      band and say when it is defensible.
     cloud:
       hint: The band is where a fair six-member array lands. The cloud is what this procedure produces across 
         administrators and sites, not what it produces on a good day.
@@ -2047,6 +2110,8 @@ missions:
   - group: PERCEPT
     task: Work out what a photograph asks the eye to do
     title: A face on paper
+    reason: >-
+      Every one of the six is a single frozen view, which is not what face recognition normally runs on
     place: Reconstruction Bay
     scene: |-
       Frey has the array photographs and a live volunteer at the same distance under the same lamp. She asks the room which of the two tasks is closer to what Cardoza was doing on 14 November.
@@ -2073,7 +2138,7 @@ missions:
     takeaway: A stand-in for a task is easier or harder than the task itself, and the difference is whatever it leaves 
       out.
     format: CHOICE
-    question: What does an array of photographs remove from the recognition task?
+    question: What does a lineup built out of six photographs remove from the recognition task?
     why: Real face recognition draws on changing views. Head turns, expression, gait and feature motion all add 
       information across time. A lineup photograph freezes one angle under one lighting condition. The witness must 
       compare that single view with a memory that was never a still image. That makes the task harder and can make 
@@ -2094,6 +2159,8 @@ missions:
   - group: IDENT
     task: Sort the lineup photographs before the array is built.
     title: A filler, or a giveaway
+    reason: >-
+      Ilori wants the array rebuilt before the mock witnesses see it, so the fillers get looked at first
     concept: "How a lineup is built: fillers, and the ones nobody would pick"
     place: Identification Suite
     scene: The array has to be built from the photograph library before the witness arrives. A filler works if somebody 
@@ -2336,7 +2403,8 @@ missions:
     - a limit on what could be seen is not evidence about who was there
     takeaway: A measurement can show that an identification deserves less weight without showing who was actually there.
     format: ATTEST
-    question: Which statements in the draft cannot be held, given what the review's evidence actually supports?
+    question: An identification is a retrieval: the account is rebuilt each time, not played back. Which statements
+      in the draft cannot be held, given what the review's evidence actually supports?
     answerText: Hold the 34.2-metre survey and the missing caution line. Hold the historical-lighting claim for another 
       record. Do not hold either sentence that says who was on Ferrier Street or that Cardoza must have been mistaken.
     why: "The review now has strong evidence for two kinds of claim: geometry and procedure. Bekele’s survey gives 34.2 metres
@@ -2401,6 +2469,8 @@ missions:
   - group: IDENT
     task: Isolate which feature of the 2019 procedure inflates certainty
     title: Change one thing
+    reason: >-
+      Four features of the 2019 procedure could be inflating certainty, and the volunteer rig can test one at a time
     place: Identification Suite
     scene: The unit's rig runs twenty volunteer administrations at a time. Four features of the 2019 procedure can be 
       switched independently. The readout is reported certainty after a choice, and the room has to isolate which 
@@ -2427,7 +2497,8 @@ missions:
     takeaway: A controlled experiment can establish a mechanism; a historical file still has to show whether and how 
       strongly that mechanism reached the case.
     format: CONTROL
-    question: Four features, one effect on certainty. Establish which of them is producing it and prove it.
+    question: Four features, one effect on certainty. Change one thing at a time, hold the rest constant, and prove
+      which of them is producing it.
     control:
       hint: Switch what you like and run the block. What you change is a decision; what it tells you depends on how many
         things moved at once.
@@ -2466,6 +2537,8 @@ missions:
   - group: SOCIAL
     task: Work out how a belief reaches a witness without being stated
     title: Nobody said anything
+    reason: >-
+      Loomis did not point or prompt, and Ntuli has a recording where that is also true and the effect shows anyway
     concept: Double-blind administration, and expectancy
     place: Deliberation Room
     scene: |-
@@ -2492,7 +2565,8 @@ missions:
     takeaway: Blind administration closes an expectancy pathway; a historical review should not turn a laboratory effect
       into an unmeasured case-specific number.
     format: CONTROL
-    question: Which difference between the sessions is actually moving how often the suspect is picked?
+    question: Expectancy travels from whoever runs a procedure to whoever takes part in it, without anybody saying a
+      word. Which difference between the sessions is actually moving how often the suspect is picked?
     answerText: In this authored volunteer rig, whether the administrator knows the suspect moves the suspect-pick rate.
       Blind administration removes that pathway. The run demonstrates the risk mechanism, not the size of Loomis’s 
       effect on Cardoza.
@@ -2529,6 +2603,8 @@ missions:
   - group: MEMORY
     task: Find what confirmation changed besides the confidence
     title: What "that's our man" moves
+    reason: >-
+      Half the volunteers were told their choice matched the suspect, and what moved besides their confidence is on the screen
     place: Interview Suite A
     scene: Ren Okada puts the unit's replication on the confidence screen. Half the volunteers are told their choice 
       matched the suspect. Both groups then report how good their original view was and how long they looked.
@@ -2590,6 +2666,8 @@ missions:
   - group: MEASURE
     task: Compare the two procedures on how well witnesses told the faces apart
     title: Seeing, and being willing to say so
+    reason: >-
+      The outage is confirmed, so the question is now what a witness says when she can see less
     place: Data Room
     scene: |-
       Weill has two procedure conditions on the board. The 2019-style condition produced more identifications than a reformed blind condition, and Baptiste asks whether “more identifications” means “better identification.”
@@ -2651,6 +2729,8 @@ missions:
     task: Spend two authentication credits on the records that determine what Cardoza's confidence can legitimately say 
       about the 4 December choice.
     title: Buy the confidence that still means something
+    reason: >-
+      The certainty on the array form and the certainty three weeks later are two documents, and only one is dated usefully
     place: Identification Suite
     scene: Case analyst Solomon brings four sealed record pulls to the confidence desk. Two can be authenticated before 
       the day's board packet closes. Somewhere in them are Cardoza's words on 4 December and her certainty statement on 
@@ -2723,6 +2803,8 @@ missions:
   - group: PERCEPT
     task: Read what the utility says about the lamp
     title: Column 4471
+    reason: >-
+      The power company answered Solomon's letter this morning, and its ticket covers the night of the robbery
     place: Reconstruction Bay
     scene: Vision scientist Frey lays the utility fault ticket for column 4471 beside the bay switch. It runs from 2 to 
       21 November 2019. She kills the modeled lantern; the doorway meter settles near two lux from shop-window spill.
@@ -2768,13 +2850,13 @@ missions:
 - title: The nineteenth hour
   objective: Read the interview that produced the only words the file has from Ward.
   briefing: Nineteen hours in custody, no lawyer, and an agreement retracted the next morning.
-  stake: >
-    Tuesday. The custody log is the last major document nobody has read closely. Ward was arrested at 06:40 on 3 December
-    2019. At 01:20 the next morning, in the nineteenth hour of custody and with no recorded sleep opportunity, he agreed with
-    an account put to him. Eight hours later, after sleep, he took it back. The log can establish the timing and conditions;
-    it cannot read his mental state. Today you ask what conclusions remain defensible under a pessimistic range of cognitive
-    control, then examine the minimised version he was offered. Last, you compare a witness’s later account with the one recorded
-    before years of public exposure.
+  stake: >-
+    Tuesday. The custody log is the last big document nobody has read closely. Ward was arrested at 06:40 on 3 December 2019.
+    At 01:20 the next morning he agreed with an account put to him. That was the nineteenth hour, and the log shows no chance
+    to sleep in any of them. Eight hours later, after sleep, he took it back. The log can fix the timing and the conditions.
+    It cannot read what was going on in his head. Today you ask which findings hold up under the worst honest guess about
+    his judgement, then look at the softened version of the act he was offered. Last, you set a witness’s later account beside
+    the one taken before years of news coverage.
   takeaway: An admission is evidence about the interview as well as about the event, and the interview is on the record.
   stops:
   - group: BRAIN
@@ -2972,12 +3054,15 @@ missions:
       What follows for the decision. A fresh interview cannot recover the 2019 account, because nothing subtracts what has
       arrived since. It can only produce a 2023 account, and the unit already has one. The 2019 statement is the evidence;
       a re-interview adds a document about the intervening four years.
+    takesAsRead:
+    - "Encoding: memory is built at the moment, from what was attended to"
     assumes:
     - an account can be compared with an earlier account by the same person
     takeaway: A later account includes years of forgetting, retrieval and post-event exposure; it cannot simply be 
       subtracted back to recover the 2019 memory state.
     format: VERIFY
-    question: Predict how much of the 2019 account the 2023 interview still reproduces, then run the comparison.
+    question: Four years of forgetting sit between the two accounts. Predict how much of the 2019 account the 2023
+      interview still reproduces, then run the comparison.
     answerText: About 70 per cent of the original particulars survive — and four new ones arrive, each traceable to the 
       public record. The loss is the predictable part; the additions are what make a re-interview useless as evidence.
     why: The forgetting curve is steep at the start and shallow afterwards, so most of what was going to be lost from 
@@ -3029,6 +3114,8 @@ missions:
   - group: MEASURE
     task: Show why a likelihood ratio cannot become a case probability without a defensible prior.
     title: A multiplier still needs a starting point
+    reason: >-
+      The board will be handed a likelihood figure, and a figure with no starting pool behind it means nothing
     place: Data Room
     scene: |-
       Weill writes two deliberately hypothetical numbers on the board and refuses to call them Ward’s odds. One is a starting odds assumption; the other describes how strongly an identification procedure discriminates in a test population.
@@ -3092,6 +3179,8 @@ missions:
   - group: IDENT
     task: Measure the unit's own procedure against a population it knows the truth about
     title: Six hundred arrays with no offender in them
+    reason: >-
+      The unit's own current procedure has never been measured against cases whose answer is already known
     place: Identification Suite
     scene: |-
       Ilori has six hundred synthetic cases where the offender is known to be absent, and four versions of the procedure to push them through. What comes back is a measurement of the procedure rather than of anybody's guilt.
@@ -3118,7 +3207,8 @@ missions:
     takeaway: Running a known population through your own procedure measures the procedure, and the errors it makes are 
       the ones your real cases contain.
     format: INJECT
-    question: Run the versions you want, then recommend the one that actually buys something.
+    question: Six hundred lineups were built with no offender in them, so every pick was a filler. Run the versions
+      you want, then recommend the one that actually buys something.
     inject:
       hint: The offender is absent from every one of these arrays, so every pick is an error. What differs is where the 
         errors land.
@@ -3160,6 +3250,8 @@ missions:
   - group: SOCIAL
     task: Rank three findings by how hard each is to argue with
     title: The order the board reads them in
+    reason: >-
+      The packet is being assembled today, and what the board reads first sets what the rest of it looks like
     place: Deliberation Room
     scene: Three findings sit on one page and the board has ten minutes. Grace Ntuli places the cards along the corridor
       from the rebuilt corner to the interview room. She asks which finding should make the reader stop first.
@@ -3206,6 +3298,8 @@ missions:
   - group: SOCIAL
     task: Work the file review while the standing question changes.
     title: What the review is looking for now
+    reason: >-
+      The file is bigger than the time left, and Ntuli changes the standing question during the day without announcing it
     concept: "Post-identification feedback and confidence inflation"
     place: Deliberation Room
     scene: The file is larger than the review has time for. Ntuli sets one question the team is answering, and changes 
@@ -3227,7 +3321,8 @@ missions:
     - a review works to a stated question that somebody can change
     takeaway: The cost of a withdrawn instruction is paid by whoever is still working to it.
     format: SPOT
-    question: Pull to the question on the board, and keep watching the board.
+    question: Pull to the question on the board, and keep watching the board. It runs from the procedure, to what
+      could be seen, to the feedback the witness met after the identification.
     answerText: Read the board rather than the file. Every change leaves an hour in which the old question still looks 
       like today's.
     why: >-
@@ -3317,7 +3412,8 @@ missions:
     takeaway: The best evidence purchase changes the decision without consuming information that cannot be recovered 
       later.
     format: VALUE
-    question: Which work do you buy with the last three days?
+    question: Which work do you buy with the last three days: a physical measurement, a dated document, a new
+      account, or more mock witnesses?
     value:
       decision: What evidence should the unit buy before the final recommendation is locked?
       budget:
@@ -3429,6 +3525,8 @@ missions:
   - group: BRAIN
     task: Use the toy model to see why an unmeasured psychological state cannot be reconstructed from one outcome.
     title: What distress cannot tell you
+    reason: >-
+      Oyelaran has been asked twice this week whether her distress supports the identification, and once whether it sinks it
     concept: "Arousal and encoding: the amygdala, cortisol and the inverted U"
     place: Physiology Bay
     scene: |-
@@ -3450,22 +3548,23 @@ missions:
       What does separate them. Central-detail accuracy against peripheral-detail accuracy, measured separately: high arousal
       at encoding predicts a specific pattern — good on the weapon, poor on the face — that moderate arousal does not. That
       is the second measurement, and it is why the answer is a family of possibilities until it arrives.
+    takesAsRead:
+    - "Encoding: memory is built at the moment, from what was attended to"
     assumes:
     - distress can be assessed without assessing what caused it
     takeaway: A psychological mechanism can suggest vulnerabilities without reconstructing an unmeasured state years 
       later.
     format: DEGENERACY
-    question: Use the toy model to find multiple states that fit the same overall performance. What, if anything, does 
-      Cardoza’s distress now establish about her identification in 2019?
+    question: Use the toy model to find several arousal states that fit the same overall performance. What, if
+      anything, does Cardoza’s distress now establish about her identification in 2019?
     answerText: More than one encoding state fits the same overall performance in the toy model. A 
       central-versus-peripheral pattern can distinguish scenarios inside the simulation, but Cardoza’s distress years 
       later does not identify her 2019 arousal state or establish whether the identification was accurate.
-    why: "The inverted-U board is a teaching model of non-identifiability, not a physiological reconstruction of Cardoza.
-      Different unobserved states can produce the same overall performance, and real stress-memory effects depend on timing,
-      task and individual differences. Looking separately at central and peripheral details can test a prediction of an attention-narrowing
-      model, but it still does not recover an exact arousal value from a seven-year-old record. Current distress is even less
-      diagnostic because both a correct and an incorrect identification can be deeply distressing. The defensible conclusion
-      is about limits on inference, not a diagnosis of the witness."
+    why: "The inverted-U board is a teaching model, not a picture of Cardoza's body. Two different states can give the same
+      overall score, so one score cannot choose between them. Real stress effects depend on timing, on the task and on the
+      person. Comparing central detail with peripheral detail tests one prediction of an attention-narrowing model. It still cannot
+      recover an arousal value from a seven-year-old file. Distress now is weaker still: a correct pick and a wrong pick can
+      both leave a witness shaken. What holds is a limit on what can be claimed, not a finding about her."
     degeneracy:
       controls:
       - id: encode
@@ -3518,6 +3617,8 @@ missions:
   - group: SOCIAL
     task: Match each claim to what stands behind it.
     title: What stands behind each sentence
+    reason: >-
+      The closing sentences are drafted, and each one has to trace back to something the review actually measured
     place: Deliberation Room
     scene: |-
       Four sentences from the draft are on the table. Ntuli asks the room to put each one beside the kind of support it actually has, and warns that one of them has none.
@@ -3562,6 +3663,8 @@ missions:
   - group: PERCEPT
     task: Name the findings that survive without any witness
     title: What holds if everybody withdraws
+    reason: >-
+      Frey is shutting the bay down, and the findings that survive without a witness are the ones the board can lean on
     place: Reconstruction Bay
     scene: Vision scientist Frey shuts the bay lamps down for the last time. She repeats the question from the first 
       morning. Which findings would remain true if nobody involved in the case ever spoke again?
@@ -3589,11 +3692,11 @@ missions:
       witness-dependent accounts instead of treating them as one kind of evidence.
     format: CHOICE
     question: Which evidence would remain available if every witness in the case withdrew tomorrow?
-    why: Some evidence survives because it is not stored in a person’s memory. The sightline can be re-surveyed, the 
-      utility outage is a dated external record, and the reconstruction method can be repeated under stated conditions. 
-      Those are different kinds of support—a measurement, a historical record and a modelled experiment—but none depends
-      on asking Cardoza or Aktaş to remember again. The confidence statement and co-witness agreement remain important 
-      records, but they are records of people’s accounts rather than independently reproducible properties of the scene.
+    why: Some evidence survives because it is not stored in anybody’s memory. The sightline can be surveyed again. The
+      utility outage is a dated record kept by the power company. The reconstruction can be run again under stated conditions.
+      Those are three different kinds of support: a measurement, a record and a repeatable model. None of them needs Cardoza
+      or Aktaş to remember anything. The array form and the co-witness agreement still matter. They are records of what people said,
+      and they leave with the people who said it.
     choices:
     - The 34.2 m survey, the utility outage record and the repeatable reconstruction of the viewing conditions
     - The certainty recorded on the array form at the time of the choice
@@ -3607,6 +3710,8 @@ missions:
   - group: IDENT
     task: Make the decision the fifteen-day review has been building toward.
     title: Put your name on it
+    reason: >-
+      The packet closes tonight, after seven years of a fourteen-year sentence
     place: Identification Suite
     scene: Ines Baptiste has three versions of the closing sentence and has struck out two. Marcus Ilori reads the 
       survivor at the end of the sightline. The board packet closes tonight, after seven years of a fourteen-year 
@@ -3635,7 +3740,8 @@ missions:
     - a review recommends a course of action rather than reaching a verdict
     takeaway: A recommendation should be no broader than the evidence chain that can still support it under challenge.
     format: CHOICE
-    question: What do you sign and send to the board tonight?
+    question: The review has weighed how one identification was assembled, not who stood in the doorway. What do you
+      sign and send to the board tonight?
     why: The review can assess the weight of the identification without reconstructing the robbery itself. Referral asks
       the body with authority to reopen a conviction to examine evidence that cannot carry the role assigned to it. The 
       same procedural finding also matters beyond Ward because Loomis followed the policy then in force. Discipline 
@@ -3979,7 +4085,7 @@ lessons:
   - Attitudes are a different subject; this effect turns up in people who hold none.
   - A witness who does not notice the difficulty is exactly the case the effect describes.
 - group: BRAIN
-  title: What nineteen hours takes away — Review
+  title: What a flashbulb memory is worth — Review
   task: Weigh how vivid a memory feels against how accurate it is
   place: Physiology Bay
   scene: >
@@ -4007,7 +4113,8 @@ lessons:
   - people can report how clear a memory feels to them
   takeaway: Vividness and accuracy are separately measurable, and studies that measure both find them barely related.
   format: CHOICE
-  question: What does a memory feeling photographic tell you about its accuracy?
+  question: A flashbulb memory is one that feels like a photograph of the moment. What does that feeling tell you
+    about the account's accuracy?
   choices:
   - Almost nothing, since the two have been measured separately and barely track
   - That the event was emotionally significant enough to be stored well

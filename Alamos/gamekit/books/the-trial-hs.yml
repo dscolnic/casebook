@@ -2728,7 +2728,6 @@ missions:
         task: Assemble the safety update the regulator has asked for
         title: The update that is due Friday
         takesAsRead:
-          - 'A distribution of one variable: shape, centre and spread'
         place: Monitoring Board Room
         scene: |-
           The regulator wants the liver cases written up by Friday. There are now four, not two. Vogt has seen all four by arm; nobody else in the building has.

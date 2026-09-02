@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "What the plateau has been writing down",
     "objective": "Establish how fast Vestri writes time, what the core can preserve, and what can already bias the comparison.",
     "briefing": "Before the first drill run, the team has to know how fast this site turns snowfall into a climate record.",
-    "stake": "First morning. Vestri and Skarv are supposed to describe the same regional cold interval, but their published curves do not line up. Before you can decide whether that is climate or a mistake, you need the basic clock at Vestri: how much snow becomes one year of ice, why the hole is on a dome, and what counts as a year in the core. Get the accumulation wrong and the modelled ages below the counted section all shift together. The dangerous error is the one that leaves a smooth-looking record behind.",
+    "stake": "First morning. Vestri and Skarv should describe the same cold spell, and their curves do not line up. Nobody can say yet whether that gap is climate or a measuring mistake. Today you fix the clock this site runs on. That means how much snow makes one year, why the hole sits on the dome, and what a year looks like in the ice.",
     "takeaway": "The comparison is only as good as the clock underneath it.",
     "stops": [
       {
@@ -23,7 +23,7 @@ export const MISSIONS = [
       {
         "group": "CORE",
         "lesson": 0,
-        "task": "Read a year off the core"
+        "task": "Read one annual layer off the core"
       }
     ]
   },
@@ -31,105 +31,119 @@ export const MISSIONS = [
     "title": "Every metre gets one recovery",
     "objective": "Recover, label, and protect the ice without adding uncertainty that can never be removed later.",
     "briefing": "The drill enters the brittle zone and one unlabelled section is already testing the chain of custody.",
-    "stake": "Second day. The drill is going back down through ice that can fracture on the way up. A section from last season has lost its exact depth mark, and the cold lab has one sodium result that may belong to the ice or to the bench. Every metre can be analysed many ways, but it can only be recovered once, and every destructive cut spends part of it forever. Today you decide what damage can be repaired, what uncertainty has to travel with a sample, and what evidence can still be trusted.",
+    "stake": "Second day. The drill is going back into ice that fractures on the way up, and one section has lost its depth mark. Today you decide what damage can be repaired, and what doubt has to travel with a sample.",
     "takeaway": "A clean measurement is useless if nobody can say what depth it belongs to.",
     "stops": [
       {
         "group": "DRILL",
         "lesson": 1,
-        "task": "Bring a brittle section up whole"
+        "task": "Bring a brittle section up whole",
+        "reason": "The barrel is in the cracking band at 780 metres, and the lift order must be settled before the winch moves"
       },
       {
         "group": "CORE",
         "lesson": 1,
-        "task": "Decide what an unmarked section is worth"
+        "task": "Decide what an unmarked section is worth",
+        "reason": "A section came up with its depth mark broken, and the isotope team has already asked for it"
       },
       {
         "group": "COLD",
         "lesson": 0,
-        "task": "Find out where a signal came from"
+        "task": "Find out where a signal came from",
+        "reason": "One sodium result is four times the run before it, and nobody knows if the ice or the bench did it"
       },
       {
         "group": "DRILL",
         "lesson": 2,
-        "task": "Hold the borehole fluid while the hole is open."
+        "task": "Hold the borehole fluid while the hole is open.",
+        "reason": "The hole is trying to close while the drill runs, and the fluid level is the only thing holding it open"
       }
     ]
   },
   {
     "title": "Where the count stops",
     "objective": "Find the end of the annually counted record and separate physical depth from age in compacting firn.",
-    "briefing": "Okonkwo needs the depth where annual layers become too thin to separate before anyone trusts the deep chronology.",
-    "stake": "Wednesday. Okonkwo can count years only while separate annual signals remain resolvable. Deeper down, the layers thin until the line cannot tell one year from the next, and the chronology has to lean on a model plus independent tie points. At the top of the core there is a different trap: firn compacts as it is buried, so eighty-eight metres of firn is not eighty-eight metres divided by today's snow thickness. Today you mark where counting ends and build the mass-based step that the gas-age calculation will need later.",
+    "briefing": "There is a second trap at the top of the core: buried firn compacts, so depth is not yet time.",
+    "stake": "Wednesday. The layers thin with depth until the line cannot tell one year from the next. Today you mark where counting ends, and turn eighty-eight metres of firn into the mass it really holds.",
     "takeaway": "A date is a method plus the depth range where that method still works.",
     "stops": [
       {
         "group": "CORE",
         "lesson": 2,
-        "task": "Find where the layers stop being countable"
+        "task": "Find where the layers stop being countable",
+        "reason": "Nobody can trust a deep date until somebody says at what depth the line stops separating one year from the next"
       },
       {
         "group": "COLD",
         "lesson": 1,
-        "task": "Choose the signal to count with"
+        "task": "Choose the signal to count with",
+        "reason": "At 1,400 metres a year is 26 millimetres thick, and not every annual signal is still readable there"
       },
       {
         "group": "FIELD",
         "lesson": 1,
-        "task": "Account for compaction before turning firn depth into time"
+        "task": "Account for compaction before turning firn depth into time",
+        "reason": "The gas-age estimate needs the mass in the firn column, and physical depth is not that mass"
       },
       {
         "group": "CORE",
         "lesson": 3,
-        "task": "Log the core sections before the light goes."
+        "task": "Log the core sections before the light goes.",
+        "reason": "Sections are arriving faster than they can be logged, and every one has to be sorted before the light goes"
       }
     ]
   },
   {
     "title": "Before the other core leaves",
     "objective": "Use the last shared day with Skarv ice to test whether part of the disagreement belongs to the laboratories.",
-    "briefing": "The Skarv samples leave Thursday; after that, the two laboratories cannot put the same water on the same instrument for two years.",
-    "stake": "Thursday is the first hard deadline. Eleven Skarv samples are still in Vestri's store, and the raw isotope records differ by about 0.9 per mil through the disputed interval. In a few hours those samples leave on the aircraft. Halvorsen wants to know whether the gap is climate. Okonkwo wants the two labs put on one scale first. You get four instrument runs. Spend them on measurements that can tell a real difference from a reporting offset while both cores are still in the same building.",
+    "briefing": "After tonight the two laboratories cannot put the same water on the same instrument for two years.",
+    "stake": "Thursday, and the Skarv samples fly out tonight. The two records differ by 0.9 per mil, and nobody knows if the gap is the ice or the two labs. Today you spend four runs on the one question only today can answer.",
     "takeaway": "Before comparing two records, make sure the measuring scales themselves agree.",
     "stops": [
       {
         "group": "DATA",
         "lesson": 0,
-        "task": "Spend the last day of access"
+        "task": "Spend the last day of access",
+        "reason": "Eleven Skarv samples leave tonight, the line can take four runs, and the choice cannot be made twice"
       },
       {
         "group": "COLD",
         "lesson": 2,
-        "task": "Say what one instrument removes"
+        "task": "Say what one instrument removes",
+        "reason": "Both groups' standards are on the bench with thirty minutes of instrument time, which never happens again after tonight"
       },
       {
         "group": "GAS",
         "lesson": 0,
-        "task": "Sort what a joint run can and cannot settle"
+        "task": "Sort what a joint run can and cannot settle",
+        "reason": "Four ways the records could differ are on the board, and one working day with both cores to test them"
       }
     ]
   },
   {
     "title": "How cold was it?",
     "objective": "Turn the isotope shift into a temperature estimate without pretending the proxy is a direct thermometer.",
-    "briefing": "The laboratory-scale correction is in; a 0.5 per mil mismatch remains, and Vestri still needs its own temperature reconstruction.",
-    "stake": "Friday. Yesterday's shared run found a 0.4 per mil offset between the laboratories. Correcting it shrinks the original 0.9 per mil mismatch to about 0.5, but it does not remove it. Tanabe now has to say what Vestri's own isotope curve means in degrees and how much uncertainty belongs to that conversion. The isotope ratio is a proxy carried by precipitation, not a thermometer buried in the ice. Today you decide what can be calibrated, what remains an assumption, and how strongly the cooling can be stated.",
+    "briefing": "Vestri still needs its own temperature curve, and the slope that turns a ratio into degrees is somebody's",
+    "stake": "Friday. Yesterday's shared run found 0.4 per mil of the gap inside the labs, which leaves about 0.5. Today you turn Vestri's own isotope curve into degrees, and say how much of that number is assumed.",
     "takeaway": "A proxy becomes a temperature only through a calibration whose limits stay attached.",
     "stops": [
       {
         "group": "COLD",
         "lesson": 3,
-        "task": "Put the profile into degrees"
+        "task": "Put the profile into degrees",
+        "reason": "The cold interval sits 1.8 per mil below the modern surface, and nobody has yet put that in degrees"
       },
       {
         "group": "FIELD",
         "lesson": 2,
-        "task": "State the cooling with its uncertainty"
+        "task": "State the cooling with its uncertainty",
+        "reason": "The season summary wants to say the interval was colder, and it has to say how sure anybody is"
       },
       {
         "group": "DATA",
         "lesson": 1,
-        "task": "Keep the proxy chain honest"
+        "task": "Keep the proxy chain honest",
+        "reason": "A draft line says the isotopes give the temperature, and that sentence goes out unless it is narrowed today"
       }
     ]
   },
@@ -137,23 +151,26 @@ export const MISSIONS = [
     "title": "The air is younger than the ice",
     "objective": "Build the two clocks inside one core: the age of the ice and the younger age of the gas trapped inside it.",
     "briefing": "The same depth carries two ages because the snow became old while its pores were still connected to the atmosphere.",
-    "stake": "Saturday. Adeyemi has carbon dioxide and methane from the same depths as the isotope record, but those gases are not the same age as the surrounding ice. Air keeps exchanging through the firn until the pores close, so a bubble can be centuries younger than the layer that holds it. At a dry site like Vestri, that difference is large enough to move the apparent timing of a climate event. Today you make a first-order estimate of that offset, identify what fixes it, and see why the gas record is smoothed before it is ever measured.",
+    "stake": "Saturday. The gas in a bubble is younger than the ice around it, because air keeps moving through the snow until the pores seal. Today you put a first number on that gap, and find the stage that sets it.",
     "takeaway": "One depth in an ice core can carry two different clocks.",
     "stops": [
       {
         "group": "GAS",
         "lesson": 1,
-        "task": "Put a number on the age offset"
+        "task": "Put a number on the age offset",
+        "reason": "The pores here seal at 88 metres, and the age gap that opens above it has never been costed"
       },
       {
         "group": "DRILL",
         "lesson": 3,
-        "task": "Name the step that fixes the offset"
+        "task": "Name the step that fixes the offset",
+        "reason": "Five stages sit between a snowflake landing and air being locked away, each with a measurement against it"
       },
       {
         "group": "CORE",
         "lesson": 4,
-        "task": "Explain the smoother record"
+        "task": "Explain the smoother record",
+        "reason": "The ice record has features a few years wide and the gas record from the same depths has none"
       }
     ]
   },
@@ -161,7 +178,7 @@ export const MISSIONS = [
     "title": "What the wind brought",
     "objective": "Use chemistry as evidence about transport, source, and chronology without turning concentration into a single cause.",
     "briefing": "Dust, sea salt, and a volcanic sulphate spike offer clues that do not come from the isotope thermometer.",
-    "stake": "Sunday. The cold interval is dusty, salty, and interrupted by one sharp sulphate spike. These signals came from outside Vestri, but they do not all mean the same thing. Dust concentration can rise because the source got dustier, transport got stronger, or snowfall got weaker. Volcanic material can do something more valuable: give the chronology an independent marker. Today you translate the isotope notation, separate concentration from cause, and decide which chemistry is worth buying if the real problem is the clock.",
+    "stake": "Sunday. The cold spell is dusty, salty and cut by one sharp sulphate spike. All of it blew in from somewhere else, and none of it means only one thing. Today you separate how much of a signal there is from what caused it. Then you decide which chemistry is worth buying if the real problem is the clock.",
     "takeaway": "A chemical signal is strongest when you know which link in the chain it constrains.",
     "stops": [
       {
@@ -185,76 +202,86 @@ export const MISSIONS = [
     "title": "The year written in both cores",
     "objective": "Use a volcanic horizon to anchor the ice chronology, while keeping the gas chronology separate.",
     "briefing": "Glass shards at 1,642 metres may give both cores a date neither flow model produced.",
-    "stake": "Monday. A sulphate spike at 1,642 metres contains volcanic glass. If the chemistry identifies the eruption, Vestri gets a fixed ice-age tie point and Skarv may have the same layer. That is exactly the kind of evidence the flow model cannot manufacture. But it dates the ice, not the younger gas in nearby bubbles. Today you identify the horizon, state precisely which clock it fixes, and use one clear-weather day on the field measurement that cannot be recreated after the storm.",
+    "stake": "Monday. A sulphate spike at 1,642 metres has volcanic glass in it. Today you name the eruption, say which of the two clocks it fixes, and spend the one clear day before the storm.",
     "takeaway": "An independent tie point is valuable because it can test the clock rather than inherit it.",
     "stops": [
       {
         "group": "CORE",
         "lesson": 6,
-        "task": "Identify the horizon"
+        "task": "Identify the horizon",
+        "reason": "Two eruptions of similar age fit one sulphate spike, and a tie point is worth nothing until it is named"
       },
       {
         "group": "GAS",
         "lesson": 2,
-        "task": "Say what the tie point does for the gas"
+        "task": "Say what the tie point does for the gas",
+        "reason": "The eruption date is in hand, and the bubbles in that section are already being read as if it dated them"
       },
       {
         "group": "FIELD",
         "lesson": 3,
-        "task": "Spend the clear day"
+        "task": "Spend the clear day",
+        "reason": "One clear day, then four of blowing snow, and three outstanding jobs that each take most of a day"
       }
     ]
   },
   {
     "title": "Below the last count",
     "objective": "Show why the deepest chronology is model-dependent and decide which uncertainty is worth reducing.",
-    "briefing": "The drill has passed 2,400 metres, far below the last annually resolved layers.",
-    "stake": "Tuesday. The deepest ice is coming up clean, but the chronology there is no longer a count. A simple thinning model predicts layers much thicker than the line actually sees near the bed, which is a warning that the model's assumptions matter. Aalto also has a dust-flux result whose width is dominated by one uncertain input. Today you compare model to measurement, decide which uncertainty is worth the remaining effort, and separate disturbed basal ice that still contains useful material from stratigraphy that no longer preserves order.",
+    "briefing": "Below the last counted layer every age comes from a flow model, and its assumptions start to show.",
+    "stake": "Tuesday. The drill is past 2,400 metres, well below the last year anybody could count. Today you check the thinning model against what the line really sees, and pick the one uncertainty worth the time left.",
     "takeaway": "The deepest result is often the one with the longest chain of assumptions behind it.",
     "stops": [
       {
         "group": "DRILL",
         "lesson": 4,
-        "task": "Work out how thin a year is down there"
+        "task": "Work out how thin a year is down there",
+        "reason": "The barrel is at 2,400 metres in ice 3,010 thick, and nobody has said what one year should measure there"
       },
       {
         "group": "DATA",
         "lesson": 3,
-        "task": "Find the uncertainty worth reducing"
+        "task": "Find the uncertainty worth reducing",
+        "reason": "Four quantities sit behind the dust flux and there is time to improve exactly one of them"
       },
       {
         "group": "CORE",
         "lesson": 7,
-        "task": "Say what the deepest ice is good for"
+        "task": "Say what the deepest ice is good for",
+        "reason": "The deepest core is folded and has isotope reversals in it that no year could have produced"
       },
       {
         "group": "COLD",
         "lesson": 5,
-        "task": "Work the cutting list while the sampling plan changes."
+        "task": "Work the cutting list while the sampling plan changes.",
+        "reason": "The cutting priority has changed three times this season, and a section can only be cut up once"
       }
     ]
   },
   {
     "title": "The disagreement that survived the lab test",
     "objective": "Put Vestri and Skarv on one measurement scale and identify which parts of their chronology are genuinely independent.",
-    "briefing": "The 0.4 per mil laboratory offset is gone; about 0.5 per mil of apparent temperature difference remains.",
-    "stake": "Wednesday. The easy explanation has been removed. After both laboratories are put on the same isotope scale, Vestri and Skarv still differ by about 0.5 per mil when the cold interval is paired using the published age labels. Halvorsen calls that different climates. Okonkwo asks a harder question: which age labels came from independent evidence, and which came through the same flow assumptions? Today you map the shared dependencies, translate the remaining isotope gap into degrees, and keep the gas record separate from the ice thermometer.",
+    "briefing": "What is left could be climate, or it could be two age scales resting on the same assumption.",
+    "stake": "Wednesday. The easy answer is gone: both labs are on one scale, and about 0.5 per mil still stands. Today you map what the two records quietly share, and put the rest of the gap into degrees.",
     "takeaway": "Two records do not independently confirm a result when the same assumption built both clocks.",
     "stops": [
       {
         "group": "DATA",
         "lesson": 4,
-        "task": "Find what the two records share"
+        "task": "Find what the two records share",
+        "reason": "Five pieces of the comparison are on the screen, and each was computed from something else"
       },
       {
         "group": "GAS",
         "lesson": 3,
-        "task": "Turn a gas record into an energy number"
+        "task": "Turn a gas record into an energy number",
+        "reason": "Carbon dioxide ran 190 parts per million in the cold spell against 280 at the top of the core"
       },
       {
         "group": "COLD",
         "lesson": 6,
-        "task": "Say what the offset is worth in degrees"
+        "task": "Say what the offset is worth in degrees",
+        "reason": "Half a per mil is about to be called different climates, and nobody has said what it is in degrees"
       }
     ]
   },
@@ -262,31 +289,34 @@ export const MISSIONS = [
     "title": "The two clocks inside one core",
     "objective": "Test whether the remaining mismatch comes from pairing ice samples to the wrong atmospheric time.",
     "briefing": "The two sites have very different gas–ice age offsets, so the same atmospheric event was paired to different ice ages.",
-    "stake": "Thursday. Adeyemi finds the comparison has been lining up the two isotope curves using age labels inherited from nearby gas measurements. That is a problem because Vestri's gas is roughly 450 years younger than its ice while Skarv's is only about 110 years younger. The same atmospheric methane change therefore points to different ice depths at the two sites unless each offset is applied separately. Today you predict how much the isotope mismatch should shrink, remap the gas-defined event onto the ice records, and check the gas clocks against a methane feature shared by both sites. The nominal correction is not the final uncertainty.",
+    "stake": "Thursday. Vestri's gas is about 450 years younger than its ice, and Skarv's is only 110. Today you remap the same air event onto each site's own ice ages, and see how much of the gap that removes.",
     "takeaway": "A clock correction changes which samples are comparable; it does not change what the isotope instrument measured.",
     "stops": [
       {
         "group": "GAS",
         "lesson": 4,
-        "task": "Predict, remap, then check the two clocks"
+        "task": "Predict, remap, then check the two clocks",
+        "reason": "The two curves were lined up on gas ages, and the two sites do not share one gas clock"
       },
       {
         "group": "CORE",
         "lesson": 8,
-        "task": "Date ice the counting cannot reach"
+        "task": "Date ice the counting cannot reach",
+        "reason": "One deep section has a radiocarbon activity of 0.55, which is a date the flow model did not produce"
       },
       {
         "group": "DATA",
         "lesson": 5,
-        "task": "Separate a discovered cause from a finished explanation"
+        "task": "Separate a discovered cause from a finished explanation",
+        "reason": "The best-estimate correction leaves only 0.15 per mil, and the firn model behind it still has a range"
       }
     ]
   },
   {
     "title": "A day when nothing is wrong",
     "objective": "Spend the remaining season on measurements that can still change the final claim.",
-    "briefing": "With the main failure modes identified, nine drilling days remain and not every good project can fit.",
-    "stake": "Friday. For the first time this season, nothing is broken. That makes the choice harder rather than easier. Nine drilling days remain. Some jobs would improve the station; others can directly test the chronology and the volcanic tie point on which the comparison now depends. Today you commit the last drilling time, decide what one stake can and cannot establish, and make the isotope run auditable from blank to drift correction. Good work is not automatically work this season needs.",
+    "briefing": "Good work and work this season needs are not the same list, and the fuel was committed before anybody",
+    "stake": "Friday. For the first time this season nothing is broken, and that makes the choice harder. Nine drilling days are left and four good jobs want them. Today you commit the last of the drill time. Some of that work would help the station, and only some of it can still change the record.",
     "takeaway": "When time is scarce, fund the measurement that can still change the conclusion.",
     "stops": [
       {
@@ -310,7 +340,7 @@ export const MISSIONS = [
     "title": "The night the generator stopped",
     "objective": "Decide what the cold-chain excursion actually invalidates, what must be quarantined, and what uncertainty it leaves behind.",
     "briefing": "The core store crossed its validated handling limit overnight and the log does not say when.",
-    "stake": "Saturday. The number-two generator failed during the night. When power returned, the store was at minus 19 rather than its validated minus-20 handling limit for the gas sections. That does not prove the gas escaped, but it means four sections can no longer be treated as unquestionably within protocol. Those were the sections meant to tighten the firn-age correction before the report. Today you distinguish a signed claim from an observed condition, restart the system that is still drifting first, and quantify the random part of the temperature uncertainty without pretending systematic calibration error averages away.",
+    "stake": "Saturday. The number-two generator died in the night, and the store came back at minus 19 instead of minus 20. Four gas sections can no longer be called clean. Today you say what the broken record actually spoils. Then you restart what is still drifting, and put a number on the scatter.",
     "takeaway": "When the evidence chain breaks, record the break; do not convert uncertainty into certainty in either direction.",
     "stops": [
       {
@@ -334,23 +364,26 @@ export const MISSIONS = [
     "title": "What survives the uncertainty",
     "objective": "Choose the comparison statement that remains true across the credible range of the clock correction.",
     "briefing": "The nominal alignment removed most of the mismatch, but the generator incident left the gas-age correction wider than planned.",
-    "stake": "Sunday. On the best estimate, matching each site's gas and ice clocks leaves only about 0.15 per mil between the records. But the four quarantined gas sections would have tightened that correction, and the credible range is wider: the chronology correction could remove only 0.1 or as much as 0.4 per mil of the 0.5 per mil residual. The report closes tomorrow. Today you choose the strongest sentence that survives that whole range, state what the gas record itself measures, and freeze the exact analysis that will leave the station.",
+    "stake": "Sunday. Matching each site's two clocks leaves about 0.15 per mil between the records, and the honest range runs out to 0.4. Today you pick the strongest sentence that holds across all of it.",
     "takeaway": "A publishable claim must survive the uncertainty in the assumptions that produced it.",
     "stops": [
       {
         "group": "DATA",
         "lesson": 7,
-        "task": "Choose the sentence that survives"
+        "task": "Choose the sentence that survives",
+        "reason": "Four possible report sentences are on the board and the correction behind them is a range, not a number"
       },
       {
         "group": "GAS",
         "lesson": 5,
-        "task": "Say what the gas record alone establishes"
+        "task": "Say what the gas record alone establishes",
+        "reason": "The carbon dioxide record was reproduced on the replicate core, and what it supports on its own is still open"
       },
       {
         "group": "CORE",
         "lesson": 9,
-        "task": "Fix what happens before the report goes"
+        "task": "Fix what happens before the report goes",
+        "reason": "Four things are outstanding before the report closes in the morning, and their order is not obvious"
       }
     ]
   },
@@ -358,23 +391,26 @@ export const MISSIONS = [
     "title": "Sign the record",
     "objective": "Separate measurement, calibration, model, and inference—then make the final release decision.",
     "briefing": "The Vestri Record is complete; the last job is deciding exactly what you are willing to sign.",
-    "stake": "Monday. The report is assembled and the aircraft leaves Wednesday. Vestri has a measured accumulation rate, a counted chronology that ends where the layers disappear, a modelled deep section anchored by volcanic evidence, a local isotope-temperature reconstruction, and atmospheric gases on their own clock. It also has an unresolved remainder in the Skarv comparison. Today you sort what is measured from what is assumed, put a number on the shortest event the isotope record can preserve, and then sign—or refuse to sign—the sentence that everyone else will quote.",
+    "stake": "Monday. The report is written and the aircraft leaves on Wednesday. Today you sort what was measured from what was guessed, then sign — or refuse to sign — the sentence others will quote.",
     "takeaway": "The final scientific act is not another calculation. It is deciding what the evidence licenses you to say.",
     "stops": [
       {
         "group": "FIELD",
         "lesson": 5,
-        "task": "Sort measurement, calibration, model, and inference"
+        "task": "Sort measurement, calibration, model, and inference",
+        "reason": "The season's headline numbers are on the wall, and none of them can be signed until it is labelled"
       },
       {
         "group": "COLD",
         "lesson": 9,
-        "task": "State the time resolution the ice can actually preserve"
+        "task": "State the time resolution the ice can actually preserve",
+        "reason": "The next team wants one number for the shortest event this archive could keep, and nobody has stated it"
       },
       {
         "group": "DATA",
         "lesson": 8,
-        "task": "Make the release decision"
+        "task": "Make the release decision",
+        "reason": "The final page is on the screen, the aircraft leaves Wednesday, and four dispositions are still possible"
       }
     ]
   }

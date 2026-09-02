@@ -7,23 +7,26 @@ export const MISSIONS = [
     "title": "What can the file actually support?",
     "objective": "Establish what the record asserts before anybody characterises it.",
     "briefing": "Fifteen working days. One identification put Ward at the robbery; before the board acts, determine what that identification can still carry.",
-    "stake": "Monday. The review board sits in fifteen working days. Elias Ward has served seven years of a fourteen-year term for the robbery on Ferrier Street. One witness picked him out, and that identification is the only evidence that independently put him at the shop. The file also contains a late-night statement Ward retracted, but it was built from the police account rather than from a new fact only he supplied. Ines Baptiste wants the recommendation built on the procedure. Ren Okada wants the procedure reconstructed before anybody characterises it. Today you separate what the file says from what the file can actually support. By tonight, every load-bearing claim either has evidence behind it or is marked for the next fourteen days.\n",
+    "stake": "Monday. The review board sits in fifteen working days. Elias Ward has served seven years of a fourteen-year term for the robbery on Ferrier Street. One witness picked him out. That pick is the only evidence that put him in the shop on its own. The file holds a late statement as well. Ward agreed to it in custody and took it back the next day, and it added no fact of his own. The unit is split on where to start, the procedure or the night. Today you separate what the file says from what the file can hold up. By tonight every claim the case rests on either has something behind it or is marked for the next fourteen days.",
     "takeaway": "A file states things; the question is always which of them anything stands behind.",
     "stops": [
       {
         "group": "MEASURE",
         "lesson": 0,
-        "task": "Separate what is asserted from what is supported"
+        "task": "Separate what is asserted from what is supported",
+        "reason": "Achterberg opens the file this morning and three checks is all the day buys, so choose them before anybody reads further"
       },
       {
         "group": "IDENT",
         "lesson": 0,
-        "task": "Calculate the equal-choice baseline without mistaking it for a measured false-identification rate."
+        "task": "Calculate the equal-choice baseline without mistaking it for a measured false-identification rate.",
+        "reason": "Ilori has the 4 December array record out, and the board will be quoted a one-in-six figure whatever the unit says"
       },
       {
         "group": "SOCIAL",
         "lesson": 0,
-        "task": "Guard the review against the answer it wants"
+        "task": "Guard the review against the answer it wants",
+        "reason": "Ntuli has stopped the first meeting to get the standard on the board before the file is opened"
       }
     ]
   },
@@ -37,17 +40,20 @@ export const MISSIONS = [
       {
         "group": "PERCEPT",
         "lesson": 0,
-        "task": "Work out the angle a face subtends at the file's distance"
+        "task": "Work out the angle a face subtends at the file's distance",
+        "reason": "Frey has the tape on the bay floor, and the file's own distance is the first number the review can test"
       },
       {
         "group": "MEMORY",
         "lesson": 0,
-        "task": "Use a teaching model of limited attention to see which details compete; do not treat the allocation as a reconstruction of Cardoza’s actual eye movements."
+        "task": "Use a teaching model of limited attention to see which details compete; do not treat the allocation as a reconstruction of Cardoza’s actual eye movements.",
+        "reason": "Okada has the doorway paragraph open, and six seconds is the only figure the account gives for how long she looked"
       },
       {
         "group": "IDENT",
         "lesson": 1,
-        "task": "Predict the description-only suspect-pick share, run the forty-person check, then spend the measurement to see where the choices actually landed."
+        "task": "Predict the description-only suspect-pick share, run the forty-person check, then spend the measurement to see where the choices actually landed.",
+        "reason": "The forty description-only cards are ready to turn, and a prediction made first is worth more than one made after"
       }
     ]
   },
@@ -55,28 +61,32 @@ export const MISSIONS = [
     "title": "Where does this test fall to chance?",
     "objective": "Use a small reconstruction study to bound identification performance without turning one sample into a universal human cutoff.",
     "briefing": "The bay can show where this group’s performance begins to look like guessing. It cannot draw a universal line beyond which nobody can recognise a face.",
-    "stake": "Wednesday. Twelve volunteers have worked the reconstruction at seven marked distances. They could describe something from every mark, but description and identification are not the same task. Today you find the first station where this small sample no longer beats the six-way chance baseline. Then you learn what dim adaptation trades away and why “I saw his face” is several claims bundled into one. The result will be a bound the review can use, not a magic distance at which human recognition stops.\n",
+    "stake": "Wednesday. Twelve volunteers have worked the reconstruction at seven marked distances. They could describe something from every mark. Describing and identifying are not the same task. The file treats them as one. Today you find the first mark where this small sample stops beating the one-in-six chance rate. Then you learn what a dim scene trades away. You also learn why I saw his face is really four claims tied together. Twelve people is a small sample. So what comes out is a bound the review can use, not a magic distance at which people stop knowing a face. Say which of the two it is tonight.",
     "takeaway": "There is a distance at which a face becomes a shape, and it is closer than anybody expects.",
     "stops": [
       {
         "group": "PERCEPT",
         "lesson": 1,
-        "task": "Find the first station where this small sample is no longer clearly above the six-way chance baseline."
+        "task": "Find the first station where this small sample is no longer clearly above the six-way chance baseline.",
+        "reason": "Bekele has twelve volunteers' results at seven marks, and the bay is reset tomorrow morning"
       },
       {
         "group": "BRAIN",
         "lesson": 0,
-        "task": "Establish what the eye gives up in a dark street"
+        "task": "Establish what the eye gives up in a dark street",
+        "reason": "The bay is held at five lux tonight, which is the only chance to ask what a dark street costs the eye"
       },
       {
         "group": "SOCIAL",
         "lesson": 1,
-        "task": "Take apart the sentence the panel actually hears"
+        "task": "Take apart the sentence the panel actually hears",
+        "reason": "'I saw his face' is the sentence the conviction rests on, and nobody in seven years has taken it apart"
       },
       {
         "group": "PERCEPT",
         "lesson": 2,
-        "task": "Hold a deliberately chosen dim-light test condition steady so the bay’s results are interpretable."
+        "task": "Hold a deliberately chosen dim-light test condition steady so the bay’s results are interpretable.",
+        "reason": "Before any result from this bay counts, the bay has to be shown holding the light level it claims"
       }
     ]
   },
@@ -84,23 +94,26 @@ export const MISSIONS = [
     "title": "If the lamp was working",
     "objective": "Model the light implied by the file without mistaking a correct calculation for proof that the lamp was actually on.",
     "briefing": "The scene report says the lighting was “normal.” Today you calculate what that would mean if the listed streetlamp was working—and leave the premise open.",
-    "stake": "Thursday. Baptiste argues that the unit already has evidence that does not depend on asking Cardoza anything new. She is right about the method and not yet about the answer. Today you calculate the doorway illumination implied by the utility specification if column 4471 was working, then separate that model from the unmeasured word “normal.” You also ask what threat can plausibly do to attention without turning a population tendency into a diagnosis of one witness. By tonight the light claim becomes a testable assumption waiting on a historical record, not a fact copied from the scene report.\n",
+    "stake": "Thursday. The unit can settle some of this without asking Cardoza a thing. That is right about the method. It is not yet right about the answer. The scene report says the street light was normal. Nobody put a meter on it. Nobody has found the ticket that would prove it either. Today you work out how much light the doorway had if column 4471 was on. Then you keep that math apart from the word normal, which is not a number. You also ask what fear does to what a person takes in. Do not turn a rule about people at large into a claim about one witness. By tonight the light claim is a test waiting on a paper trail, not a fact copied off a report.",
     "takeaway": "Most of what decides an identification can be measured without ever asking the witness again.",
     "stops": [
       {
         "group": "PERCEPT",
         "lesson": 3,
-        "task": "Work out the illuminance on the doorway from the column"
+        "task": "Work out the illuminance on the doorway from the column",
+        "reason": "The utility specification for column 4471 is the one lighting number in the file that can still be checked"
       },
       {
         "group": "BRAIN",
         "lesson": 1,
-        "task": "Which explanation fits all four readings rather than the loudest one?"
+        "task": "Which explanation fits all four readings rather than the loudest one?",
+        "reason": "Raghunathan has four parts of the account on one screen and wants a mechanism that fits all four"
       },
       {
         "group": "MEASURE",
         "lesson": 1,
-        "task": "Decide what the phrase in the scene report is worth"
+        "task": "Decide what the phrase in the scene report is worth",
+        "reason": "Baptiste is asking how much longer Ward serves while the word normal is treated as a measurement"
       }
     ]
   },
@@ -108,23 +121,26 @@ export const MISSIONS = [
     "title": "What entered the first account?",
     "objective": "Establish how the first full account was taken, and who was in the room.",
     "briefing": "The account everybody has argued about since was recorded on 18 November.",
-    "stake": "Friday. Cardoza’s first full interview happened four days after the robbery. Ren Okada has the recording and a transcript nobody has checked against it. Yara Solomon has found something else: Cardoza’s husband sat in for the whole hour. Today you rebuild an interview that protects a witness’s own account, test how agreement in a listening room can alter later repetition, and read the instruction Cardoza received before the photographs appeared. The goal is not to prove that any one later detail was contaminated. It is to identify which pathways were open before the lineup ever began.\n",
+    "stake": "Friday. Cardoza’s first full interview happened four days after the robbery. The unit has the recording, and a transcript nobody has checked against it. There is something else in the file. Her husband sat in for the whole hour. Today you rebuild an interview that protects what a witness has of her own. You test how a nod in a listening room can change what she says next time. You read the words she was given before the photos came out. The point is not to prove that any one later detail was fed to her. It is to name which routes into her account were open before the lineup began.",
     "takeaway": "An account is not collected; it is produced, by a method, in a room, with people in it.",
     "stops": [
       {
         "group": "MEMORY",
         "lesson": 1,
-        "task": "Order the steps of an interview that protects what the witness actually has."
+        "task": "Order the steps of an interview that protects what the witness actually has.",
+        "reason": "Okada has the 18 November recording queued, and the order the questions arrived in decides what the account is worth"
       },
       {
         "group": "SOCIAL",
         "lesson": 2,
-        "task": "Change one feature of the listening room at a time, then reverse the change that moves which details survive into the second telling."
+        "task": "Change one feature of the listening room at a time, then reverse the change that moves which details survive into the second telling.",
+        "reason": "Cardoza's husband agreed at eleven points in that hour, and the listening room can be re-run with one feature changed"
       },
       {
         "group": "IDENT",
         "lesson": 2,
-        "task": "Find the instruction that was not given"
+        "task": "Find the instruction that was not given",
+        "reason": "One instruction is missing from the 2019 array record, and it is the one that changes what a pick means"
       }
     ]
   },
@@ -132,23 +148,26 @@ export const MISSIONS = [
     "title": "The photograph arrives",
     "objective": "Find out what entered the account after the night it describes.",
     "briefing": "The Hallam Register ran Ward's photograph on 19 November, the day after the interview.",
-    "stake": "Monday of the second week. Solomon has three documents laid side by side, with their dates showing. The account from 18 November. The evening paper from the next day. And the statement Cardoza signed on 26 December. Tomas Weill, the psychometrician, has already said what interests him. It is not what any of them says. It is the order they were written in. Ines Baptiste wants to know if the review is calling the witness a liar. Ren Okada has spent the morning explaining why that is the wrong question. Today you work out what the arrival date of a detail tells you about where it came from. A frightening night can do a lot to a memory. It cannot plant a detail that first shows up five weeks later.",
+    "stake": "Monday of the second week. Yara Solomon, the case analyst, has three documents laid side by side, with their dates showing. The account from 18 November. The evening paper from the next day. And the statement Cardoza signed on 26 December. Tomas Weill, the psychometrician, has already said what interests him. It is not what any of them says. It is the order they were written in. Ines Baptiste wants to know if the review is calling the witness a liar. Ren Okada has spent the morning explaining why that is the wrong question. Today you work out what the arrival date of a detail tells you about where it came from. A frightening night can do a lot to a memory. It cannot plant a detail that first shows up five weeks later.",
     "takeaway": "A detail that is absent before a photograph and present after it has a source, and the source is not the night.",
     "stops": [
       {
         "group": "MEMORY",
         "lesson": 2,
-        "task": "Which explanation fits every dated item rather than the most damning one?"
+        "task": "Which explanation fits every dated item rather than the most damning one?",
+        "reason": "Baptiste has asked outright whether Cardoza is lying, and the dates answer that before anybody's character does"
       },
       {
         "group": "MEASURE",
         "lesson": 2,
-        "task": "Close the chronology from the robbery to the later certainty statement and find the interval the simplified file leaves out."
+        "task": "Close the chronology from the robbery to the later certainty statement and find the interval the simplified file leaves out.",
+        "reason": "Achterberg has independent records for four dates and one interval nobody has yet accounted for"
       },
       {
         "group": "BRAIN",
         "lesson": 2,
-        "task": "Rule the biology in or out for a change five weeks later"
+        "task": "Rule the biology in or out for a change five weeks later",
+        "reason": "Raghunathan has been asked whether fear could have delayed a detail by five weeks, and she has the time course"
       }
     ]
   },
@@ -162,17 +181,20 @@ export const MISSIONS = [
       {
         "group": "SOCIAL",
         "lesson": 3,
-        "task": "Find the source the agreeing accounts have in common"
+        "task": "Find the source the agreeing accounts have in common",
+        "reason": "Two accounts agree on four particulars, and the report is about to call that corroboration"
       },
       {
         "group": "MEMORY",
         "lesson": 3,
-        "task": "Work out what twenty minutes of waiting cost"
+        "task": "Work out what twenty minutes of waiting cost",
+        "reason": "The two witnesses stood together on the kerb for twenty minutes before anybody took a statement"
       },
       {
         "group": "PERCEPT",
         "lesson": 4,
-        "task": "Work out what the man behind the counter could see"
+        "task": "Work out what the man behind the counter could see",
+        "reason": "The shop assistant's account is the other identification in the file, and he was standing in the light"
       }
     ]
   },
@@ -186,22 +208,26 @@ export const MISSIONS = [
       {
         "group": "IDENT",
         "lesson": 3,
-        "task": "Turn the mock-witness tally into the array's real size"
+        "task": "Turn the mock-witness tally into the array's real size",
+        "reason": "The six photographs from 2019 are on the table, and the description they were chosen against is in the file"
       },
       {
         "group": "MEASURE",
         "lesson": 3,
-        "task": "Bring the procedure inside the fair band"
+        "task": "Bring the procedure inside the fair band",
+        "reason": "The report has to recommend a procedure rather than only criticise one, and that goes in tonight"
       },
       {
         "group": "PERCEPT",
         "lesson": 5,
-        "task": "Work out what a photograph asks the eye to do"
+        "task": "Work out what a photograph asks the eye to do",
+        "reason": "Every one of the six is a single frozen view, which is not what face recognition normally runs on"
       },
       {
         "group": "IDENT",
         "lesson": 4,
-        "task": "Sort the lineup photographs before the array is built."
+        "task": "Sort the lineup photographs before the array is built.",
+        "reason": "Ilori wants the array rebuilt before the mock witnesses see it, so the fillers get looked at first"
       }
     ]
   },
@@ -239,17 +265,20 @@ export const MISSIONS = [
       {
         "group": "IDENT",
         "lesson": 6,
-        "task": "Isolate which feature of the 2019 procedure inflates certainty"
+        "task": "Isolate which feature of the 2019 procedure inflates certainty",
+        "reason": "Four features of the 2019 procedure could be inflating certainty, and the volunteer rig can test one at a time"
       },
       {
         "group": "SOCIAL",
         "lesson": 4,
-        "task": "Work out how a belief reaches a witness without being stated"
+        "task": "Work out how a belief reaches a witness without being stated",
+        "reason": "Loomis did not point or prompt, and Ntuli has a recording where that is also true and the effect shows anyway"
       },
       {
         "group": "MEMORY",
         "lesson": 4,
-        "task": "Find what confirmation changed besides the confidence"
+        "task": "Find what confirmation changed besides the confidence",
+        "reason": "Half the volunteers were told their choice matched the suspect, and what moved besides their confidence is on the screen"
       }
     ]
   },
@@ -263,17 +292,20 @@ export const MISSIONS = [
       {
         "group": "MEASURE",
         "lesson": 5,
-        "task": "Compare the two procedures on how well witnesses told the faces apart"
+        "task": "Compare the two procedures on how well witnesses told the faces apart",
+        "reason": "The outage is confirmed, so the question is now what a witness says when she can see less"
       },
       {
         "group": "IDENT",
         "lesson": 7,
-        "task": "Spend two authentication credits on the records that determine what Cardoza's confidence can legitimately say about the 4 December choice."
+        "task": "Spend two authentication credits on the records that determine what Cardoza's confidence can legitimately say about the 4 December choice.",
+        "reason": "The certainty on the array form and the certainty three weeks later are two documents, and only one is dated usefully"
       },
       {
         "group": "PERCEPT",
         "lesson": 7,
-        "task": "Read what the utility says about the lamp"
+        "task": "Read what the utility says about the lamp",
+        "reason": "The power company answered Solomon's letter this morning, and its ticket covers the night of the robbery"
       }
     ]
   },
@@ -281,7 +313,7 @@ export const MISSIONS = [
     "title": "The nineteenth hour",
     "objective": "Read the interview that produced the only words the file has from Ward.",
     "briefing": "Nineteen hours in custody, no lawyer, and an agreement retracted the next morning.",
-    "stake": "Tuesday. The custody log is the last major document nobody has read closely. Ward was arrested at 06:40 on 3 December 2019. At 01:20 the next morning, in the nineteenth hour of custody and with no recorded sleep opportunity, he agreed with an account put to him. Eight hours later, after sleep, he took it back. The log can establish the timing and conditions; it cannot read his mental state. Today you ask what conclusions remain defensible under a pessimistic range of cognitive control, then examine the minimised version he was offered. Last, you compare a witness’s later account with the one recorded before years of public exposure.\n",
+    "stake": "Tuesday. The custody log is the last big document nobody has read closely. Ward was arrested at 06:40 on 3 December 2019. At 01:20 the next morning he agreed with an account put to him. That was the nineteenth hour, and the log shows no chance to sleep in any of them. Eight hours later, after sleep, he took it back. The log can fix the timing and the conditions. It cannot read what was going on in his head. Today you ask which findings hold up under the worst honest guess about his judgement, then look at the softened version of the act he was offered. Last, you set a witness’s later account beside the one taken before years of news coverage.",
     "takeaway": "An admission is evidence about the interview as well as about the event, and the interview is on the record.",
     "stops": [
       {
@@ -311,22 +343,26 @@ export const MISSIONS = [
       {
         "group": "MEASURE",
         "lesson": 6,
-        "task": "Show why a likelihood ratio cannot become a case probability without a defensible prior."
+        "task": "Show why a likelihood ratio cannot become a case probability without a defensible prior.",
+        "reason": "The board will be handed a likelihood figure, and a figure with no starting pool behind it means nothing"
       },
       {
         "group": "IDENT",
         "lesson": 8,
-        "task": "Measure the unit's own procedure against a population it knows the truth about"
+        "task": "Measure the unit's own procedure against a population it knows the truth about",
+        "reason": "The unit's own current procedure has never been measured against cases whose answer is already known"
       },
       {
         "group": "SOCIAL",
         "lesson": 6,
-        "task": "Rank three findings by how hard each is to argue with"
+        "task": "Rank three findings by how hard each is to argue with",
+        "reason": "The packet is being assembled today, and what the board reads first sets what the rest of it looks like"
       },
       {
         "group": "SOCIAL",
         "lesson": 7,
-        "task": "Work the file review while the standing question changes."
+        "task": "Work the file review while the standing question changes.",
+        "reason": "The file is bigger than the time left, and Ntuli changes the standing question during the day without announcing it"
       }
     ]
   },
@@ -350,7 +386,8 @@ export const MISSIONS = [
       {
         "group": "BRAIN",
         "lesson": 4,
-        "task": "Use the toy model to see why an unmeasured psychological state cannot be reconstructed from one outcome."
+        "task": "Use the toy model to see why an unmeasured psychological state cannot be reconstructed from one outcome.",
+        "reason": "Oyelaran has been asked twice this week whether her distress supports the identification, and once whether it sinks it"
       }
     ]
   },
@@ -364,17 +401,20 @@ export const MISSIONS = [
       {
         "group": "SOCIAL",
         "lesson": 8,
-        "task": "Match each claim to what stands behind it."
+        "task": "Match each claim to what stands behind it.",
+        "reason": "The closing sentences are drafted, and each one has to trace back to something the review actually measured"
       },
       {
         "group": "PERCEPT",
         "lesson": 8,
-        "task": "Name the findings that survive without any witness"
+        "task": "Name the findings that survive without any witness",
+        "reason": "Frey is shutting the bay down, and the findings that survive without a witness are the ones the board can lean on"
       },
       {
         "group": "IDENT",
         "lesson": 9,
-        "task": "Make the decision the fifteen-day review has been building toward."
+        "task": "Make the decision the fifteen-day review has been building toward.",
+        "reason": "The packet closes tonight, after seven years of a fourteen-year sentence"
       }
     ]
   }

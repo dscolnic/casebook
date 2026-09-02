@@ -231,8 +231,8 @@ export const CURRICULUM = {
         "type": "BELT",
         "title": "Water first, or never water",
         "setup": "Container Yard",
-        "play": "Sort the drum labels before the contractor lifts them.",
-        "task": "Sort the drum labels before the contractor lifts them.",
+        "play": "Sort the drum labels before the contractor lifts them, using what the periodic table says each element can do.",
+        "task": "Sort the drum labels before the contractor lifts them, using what the periodic table says each element can do.",
         "question": "Send each drum to the bin that says what water would do to it.",
         "answer": "Send materials for which controlled water contact only dilutes or dissolves them to the left. Send materials that can generate dangerous heat, flammable gas or corrosive products on contact with water to the right.",
         "why": "The question is not whether a substance merely dissolves; it is whether contact with water creates a new acute hazard. Many salts and dilute aqueous solutions can be diluted safely under controlled response conditions. Alkali metals, hydrides, carbides and several reactive chlorides generate heat or flammable/corrosive gases. Concentrated sulphuric acid and quicklime can release dangerous heat on wetting. Powdered magnesium can also generate hydrogen. The labels matter because the same hose that helps one spill can worsen another.",
@@ -379,7 +379,7 @@ export const CURRICULUM = {
       "day": 5,
       "title": "Which alkali metal is the greater water hazard?",
       "scene": "Records narrow two unlabelled metal cans to sodium and potassium. Fire Command needs to know which one demands the larger water-exclusion zone before the cans are moved.",
-      "takeaway": "For elemental group-1 metals under comparable conditions, water reactivity generally increases down the group as the outer electron is lost more easily.",
+      "takeaway": "A periodic trend predicts behaviour for elements held in the same chemical form, and it stops predicting anything the moment the form changes.",
       "place": "Molecular Identification Lab",
       "guide": "The records have already narrowed the problem to two elemental alkali metals. Ask what changes down group 1: shielding rises and ionisation energy falls. That trend is useful here precisely because the chemical form is held fixed.",
       "background": [
@@ -446,8 +446,8 @@ export const CURRICULUM = {
         "type": "TRACE",
         "title": "Read analytical disagreement",
         "setup": "Match each pattern to the best response.",
-        "play": "Trace which measurements share dependencies, keep the evidence that stands independently, and name the source that explains the 3.1-minute signal.",
-        "task": "Trace which measurements share dependencies, keep the evidence that stands independently, and name the source that explains the 3.1-minute signal.",
+        "play": "Read the run's quality control — the duplicate and the blank — then trace which measurements share dependencies, keep the evidence that stands independently, and name the source that explains the 3.1-minute signal.",
+        "task": "Read the run's quality control — the duplicate and the blank — then trace which measurements share dependencies, keep the evidence that stands independently, and name the source that explains the 3.1-minute signal.",
         "question": "Which channels remain trustworthy, and what shared source is at fault?",
         "answer": "The preparation-solvent lot is the shared fault. Keep the blank as evidence of contamination and the structural spectrum as evidence against the target identity. Do not count the two chromatograms as independent confirmation.",
         "why": "The sample and duplicate chromatograms agree because they share the same preparation solvent, retention reference and detector path. Their agreement therefore does not provide two independent identifications. The blank carries almost the same 3.1-minute feature even though it contains no river sample, which points to preparation contamination. The structural spectrum uses a different measurement path and does not match the target. Together, the blank and the independent spectrum overturn the retention-time identification while leaving the rest of the run interpretable.",
@@ -547,10 +547,10 @@ export const CURRICULUM = {
       "game": {
         "type": "CHOICE",
         "title": "Resolve the ambiguous peak",
-        "setup": "One peak is still ambiguous and the review board wants it settled. What settles it?",
-        "play": "One peak is still ambiguous and the review board wants it settled. What settles it?",
-        "task": "One peak is still ambiguous and the review board wants it settled. What settles it?",
-        "question": "One peak is still ambiguous and the review board wants it settled. What settles it?",
+        "setup": "One peak is still ambiguous, in a river sample carrying chloride at 40 mg/L and detergent from the fire foam. What settles it?",
+        "play": "One peak is still ambiguous, in a river sample carrying chloride at 40 mg/L and detergent from the fire foam. What settles it?",
+        "task": "One peak is still ambiguous, in a river sample carrying chloride at 40 mg/L and detergent from the fire foam. What settles it?",
+        "question": "One peak is still ambiguous, in a river sample carrying chloride at 40 mg/L and detergent from the fire foam. What settles it?",
         "answer": "A second method of a different kind, run on the same extract.",
         "why": "There are two honest ways out of an overlap. Improve the separation until the components stop coming off the column together, or bring in evidence of a different kind so the answer no longer depends on the separation at all. The second is faster, and it cannot inherit the problem: a method that identifies by structure does not care that two compounds travelled at the same speed. The third way is to present the same weak data more attractively, and it adds no measurement.",
         "rebuttals": [
@@ -731,7 +731,7 @@ export const CURRICULUM = {
         "setup": "Use an idealized release only to establish scale.",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation. Estimate the gas volume at ambient conditions.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units and interpretation. Estimate the gas volume at ambient conditions.",
-        "question": "Estimate the gas volume at ambient conditions.",
+        "question": "Use the ideal gas law to estimate the gas volume at ambient conditions.",
         "answer": "V ≈ 2.0×10^4×8.31×300/10^5 ≈ 500 m³.",
         "why": "The ideal gas law turns an amount of gas into a volume you can reason about. At ordinary temperature and pressure, the scale is about 24 litres per mole. It is a first-order tool and nothing more: it says how big the release is, not where it goes. The hazardous footprint depends on mixing, wind, terrain and chemistry, none of which appear in the calculation. The number still has to be right, because evacuating too little exposes people and evacuating too much blocks the roads the response needs.",
         "givens": [
@@ -808,7 +808,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Interpret plume behavior",
-      "scene": "At the weather station, Varga reads out rising temperature, falling pressure and a strengthening afternoon wind while the plume is still moving. Ground crews also report vapour pooling in a low drainage channel on the downwind side of the freight yard.",
+      "scene": "Varga leads atmospheric chemistry. At the weather station he reads out rising temperature, falling pressure and a strengthening afternoon wind. The plume is still moving. Ground crews also report vapour pooling in a low drainage channel on the downwind side of the freight yard.",
       "takeaway": "A plume is a coupled thermodynamic and transport problem.",
       "place": "Gas Properties Lab",
       "guide": "Two different physics run at once here, and the four situations do not all belong to one. Some change what a fixed amount of gas occupies. Others change where the parcel goes. Ask which of the two each one acts on before pairing it. Read a transport change as a gas-law change and the corridor is drawn from the wrong physics. The vapour is pooling in a drainage channel.",
@@ -822,9 +822,9 @@ export const CURRICULUM = {
         "type": "PROTOCOL",
         "title": "Interpret plume behavior",
         "setup": "Match each change to its first-order consequence.",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "play": "Kinetic molecular theory sets what the gas itself does; the wind sets where it goes. Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "task": "Kinetic molecular theory sets what the gas itself does; the wind sets where it goes. Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "question": "Kinetic molecular theory sets what the gas itself does; the wind sets where it goes. Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "1. Temperature rises at roughly constant pressure. → Volume rises in proportion to the absolute temperature. 2. External pressure falls for the same gas amount and temperature. → Volume rises in inverse proportion to the pressure. 3. A gas has greater molar mass than surrounding air. → It may initially favour lower-level accumulation, though turbulence matters. 4. Wind direction shifts while the source continues. → The downwind risk corridor must be updated.",
         "why": "Gas-law behaviour and plume transport answer different questions. Higher absolute temperature increases the equilibrium volume of a fixed amount of gas at fixed pressure; lower pressure does the same. A vapour denser than ambient air may initially collect in low spots, but mixing and terrain can rapidly dominate. And a wind shift repoints the downwind corridor whether the chemistry changed or not.",
         "rebuttals": [
@@ -1236,7 +1236,7 @@ export const CURRICULUM = {
         "setup": "Residents want to come home. What does the monitoring plan measure?",
         "play": "Spend two monitoring channels on the evidence that can decide whether residents are still being exposed after the original source was sealed.",
         "task": "Spend two monitoring channels on the evidence that can decide whether residents are still being exposed after the original source was sealed.",
-        "question": "Which measurements can change the return-home decision this week?",
+        "question": "Sunlight is making a secondary product downwind. Which measurements can change the return-home decision this week?",
         "answer": "Fund the secondary-product measurement first. With the second channel, measure sunlight and oxidants. Those data connect exposure to the formation mechanism and help forecast when the afternoon peak should recur.",
         "why": "The source compound is already low at both existing monitors, so measuring it more precisely does little to test the new hazard. Sunlight and oxidants explain why secondary chemistry should occur, but they are not themselves the exposure. The decisive channel measures the predicted secondary products where people breathe them. A second channel can then measure the chemical drivers to explain and forecast the pattern. This ordering separates evidence that changes the return-home decision from evidence that merely makes the mechanism easier to describe.",
         "value": {
@@ -1312,7 +1312,7 @@ export const CURRICULUM = {
         "setup": "Mobile Weather Station",
         "play": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units. Estimate the gas volume at the conditions in the store.",
         "task": "Use the supplied values, show the governing relationship, and give a sensible rounded result with units. Estimate the gas volume at the conditions in the store.",
-        "question": "Estimate the gas volume at the conditions measured in the store.",
+        "question": "Use the ideal gas law to estimate the gas volume at the conditions measured in the store.",
         "answer": "V ≈ 8.0×10^3 × 8.31 × 288 / 1.02×10^5 ≈ 190 m³, which is a scale for the release and not a hazard footprint.",
         "why": "The ideal gas law converts an inventory into the volume it would fill at the conditions it is at, and that is all it does. The temperature and the pressure in the store are both off the round figures. The relationship takes the measured ones, or it answers a different question. Temperature has to be absolute, so degrees Celsius put straight in is not a small error but a different quantity. What comes out is a scale for the release rather than a footprint for it.",
         "givens": [
@@ -1462,7 +1462,7 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Use the common-ion effect to clear the limit",
-      "scene": "The filtered water has 3.1 mg/L of dissolved metal against a 0.5 mg/L permit limit. The solid is a 1:1 metal carbonate and pH is fixed. Osei can raise dissolved carbonate eightfold at the pilot without changing the water volume.",
+      "scene": "The filtered water has 3.1 mg/L of dissolved metal against a 0.5 mg/L permit limit. The solid is a 1:1 metal carbonate and pH is fixed. Osei, the treatment engineering lead, can raise dissolved carbonate eightfold at the pilot without changing the water volume.",
       "takeaway": "For a 1:1 sparingly soluble salt, increasing 1 ion lowers the equilibrium concentration of the other in inverse proportion.",
       "place": "Water and Sediment Laboratory",
       "guide": "All four options give a number and a reason. The reasons are what differ: fixed solubility, a product held constant, both ions rising, or a squared dependence. Check the stoichiometry of the solid first. The exponents in the solubility product come from it. This has to clear a permit limit. An answer out by a factor of eight is a discharge that fails its consent.",
@@ -1471,7 +1471,7 @@ export const CURRICULUM = {
         "Why the shape of an option tells you nothing. A correct answer collects the qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance — 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so length, hedging and specificity have had the signal taken out of them deliberately.",
         "What the verdict adds. Every wrong option carries its own rebuttal, and the verdict prints them — the reason that option fails, not a restatement of the right one. They are worth reading after a correct answer as well: a right choice made for an approximate reason is indistinguishable from a sound one until the day the approximation is what is being tested."
       ],
-      "story": "The filtered water has 3.1 mg/L of dissolved metal against a 0.5 mg/L permit limit. The solid is a 1:1 metal carbonate and pH is fixed. Osei can raise dissolved carbonate eightfold at the pilot without changing the water volume.",
+      "story": "The filtered water has 3.1 mg/L of dissolved metal against a 0.5 mg/L permit limit. The solid is a 1:1 metal carbonate and pH is fixed. Osei, the treatment engineering lead, can raise dissolved carbonate eightfold at the pilot without changing the water volume.",
       "game": {
         "type": "CHOICE",
         "title": "Use the common-ion effect to clear the limit",
@@ -2104,7 +2104,7 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Interpret the shift",
-      "scene": "Reservoir conditions are changing as the treatment continues. Operators have removed some solids, a new ligand has entered with an upstream discharge, and pH varies through the day. Stavros points out that next spring nobody will be sampling continuously for remobilised metal.",
+      "scene": "Reservoir conditions are changing as the treatment continues. Operators have removed some solids, a new ligand has entered with an upstream discharge, and pH varies through the day. Stavros, the long-term monitoring officer, points out that next spring nobody will be sampling continuously for remobilised metal.",
       "takeaway": "Treatment plans must anticipate the next environment, not only the current sample.",
       "place": "Equilibrium Chemistry Group",
       "guide": "Four changes to the reservoir, and each pushes the same equilibrium a different way. Ask of each which side it takes something from or adds something to. One of them raises the total dissolved metal while lowering the free metal, which reads as a treatment failure and is not. Next spring nobody will be sampling continuously, so the answer has to be about the environment the sediment will be in then.",
@@ -2182,8 +2182,8 @@ export const CURRICULUM = {
         "type": "BALLPARK",
         "title": "Will the holding pond freeze tonight?",
         "setup": "Use the salt analysis to predict the phase change before invoking another heat source.",
-        "play": "Use freezing-point depression to decide whether the saline holding pond can remain liquid at the forecast low of −4 °C.",
-        "task": "Use freezing-point depression to decide whether the saline holding pond can remain liquid at the forecast low of −4 °C.",
+        "play": "Use freezing point depression — a colligative property — to decide whether the saline holding pond can remain liquid at the forecast low of −4 °C.",
+        "task": "Use freezing point depression — a colligative property — to decide whether the saline holding pond can remain liquid at the forecast low of −4 °C.",
         "question": "Should the saline holding pond remain liquid at −4 °C?",
         "answer": "ΔTf ≈ 2 × 1.86 × 1.2 ≈ 4.5 °C, so the pond should freeze near −4.5 °C. Being liquid at −4 °C is therefore expected.",
         "why": "For an ideal solution, ΔTf = iKf m. Sodium chloride contributes roughly 2 dissolved ions, so i is about 2. With Kf = 1.86 °C kg/mol and m = 1.2 mol/kg, the depression is about 4.5 °C. That puts the expected freezing point near −4.5 °C, so liquid water at −4 °C is plausible without any extra heat source. The estimate is imperfect at high salt concentration, but it gives the correct scale and direction.",
@@ -2227,7 +2227,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Only the number of dissolved particles matters, which is why a salt that splits in two counts twice.",
-          "demanded": true
+          "computed": true
         }
       ],
       "concept": {
@@ -2245,7 +2245,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Undo the dilution",
-      "scene": "Nakamura hands you the raw reading with its preparation log — the instrument reports what was in the vial, not what was in the river. City leaders are comparing your number against a threshold and closing or opening a water system with it.",
+      "scene": "Nakamura runs quality assurance. She hands you the raw reading with its preparation log. The instrument reports what was in the vial, not what was in the river. City leaders are comparing your number against a threshold and closing or opening a water system with it.",
       "takeaway": "Sample preparation is part of the quantitative result.",
       "place": "Quantitative Analysis Lab",
       "guide": "Five numbers, and two of them belong to different questions: a detection limit and the volume of the bottle. Two others are the volumes before and after the dilution, and only their ratio matters. Ask of each number whether it describes the vial, the river, or the method. A dilution not carried back understates the river tenfold, and nothing about the reported number says it was diluted.",
@@ -2394,7 +2394,7 @@ export const CURRICULUM = {
     {
       "day": 3,
       "title": "Spend thirty laboratory samples where they change the decision",
-      "scene": "Reyes needs a defensible map of eleven kilometres of river. The field kit can provide dense screening but is much noisier than the laboratory. Thirty laboratory analyses must cover the intake decision, movement of the contamination, and quality control.",
+      "scene": "Reyes runs the water utility. She needs a defensible map of eleven kilometres of river. The field kit screens densely, but it is much noisier than the laboratory. Thirty laboratory analyses must cover the intake decision, movement of the contamination, and quality control.",
       "takeaway": "Decision-focused sampling still needs spatial sentinels and quality control; precision at one point is not representativeness.",
       "place": "Quality Assurance Desk",
       "guide": "The field kit already buys coverage. Spend the scarce laboratory runs on the places and checks that can overturn the reopening decision: the intake/endpoints, movement sentinels, and quality control.",
@@ -2411,7 +2411,7 @@ export const CURRICULUM = {
         "play": "Choose the sampling design that protects the intake decision while still detecting transport and laboratory failure.",
         "task": "Choose the sampling design that protects the intake decision while still detecting transport and laboratory failure.",
         "question": "Which design makes the strongest reopening decision with only thirty laboratory samples?",
-        "answer": "Cluster laboratory samples at the intake and representative endpoints, add upstream/downstream sentinels over time, and reserve some runs for blanks, spikes and duplicates.",
+        "answer": "Cluster at the intake and the endpoints, add sentinels upstream and downstream, and keep runs for blanks and spikes.",
         "why": "The intake deserves the densest high-quality sampling because reopening turns on it, but putting all thirty samples there leaves transport and background unconstrained. Even spacing all thirty once along the river spreads precision too thin at the decision point and says little about time. A mixed design uses the noisy field kit for coverage, anchors the intake with laboratory analyses, places upstream/downstream sentinels, and spends some runs on quality control.",
         "rebuttals": [
           "All thirty at the intake would measure one place very well and leave movement and background untested.",
@@ -2419,12 +2419,12 @@ export const CURRICULUM = {
           "Known hot spots matter, but sampling only them cannot tell whether the intake or downstream reach is safe."
         ],
         "choices": [
-          "Cluster laboratory samples at the intake and representative endpoints, add upstream/downstream sentinels over time, and reserve some runs for blanks, spikes and duplicates.",
-          "Use all thirty at the intake so the one legal decision point has the smallest possible statistical error.",
-          "Space all thirty evenly along the eleven kilometres on one morning.",
-          "Use all thirty on the two known hot spots because they contain the highest concentrations."
+          "Cluster at the intake and the endpoints, add sentinels upstream and downstream, and keep runs for blanks and spikes.",
+          "Use all thirty at the intake, so the one legal decision point carries the smallest statistical error possible.",
+          "Space all thirty evenly along the eleven kilometres of river, and collect every one of them on one morning.",
+          "Use all thirty on the two known hot spots, because those are the places holding the highest concentrations."
         ],
-        "correctChoice": "Cluster laboratory samples at the intake and representative endpoints, add upstream/downstream sentinels over time, and reserve some runs for blanks, spikes and duplicates."
+        "correctChoice": "Cluster at the intake and the endpoints, add sentinels upstream and downstream, and keep runs for blanks and spikes."
       },
       "assumes": [
         "a map is only worth what the decisions it supports are worth"
@@ -2456,7 +2456,7 @@ export const CURRICULUM = {
         "setup": "Analytical Laboratory",
         "play": "Work the sample queue while the priority changes.",
         "task": "Work the sample queue while the priority changes.",
-        "question": "Run to the priority on the bench card, and keep watching the card.",
+        "question": "Run to the priority on the bench card, and keep watching the card. A sample run past its hold time carries an uncertainty nobody can bound.",
         "answer": "Read the card rather than the rack. Every change leaves twenty minutes in which the old priority still feels like the right one.",
         "why": "Three priorities run across the day and each wants a different part of the rack. Anything the commander is waiting on, then anything near its hold time, then anything from a drinking water source. A sample can answer two at once, which is what makes the change cost real. The panel scores the window either side of each change, because most of the rack is wanted by neither priority and is correctly left queued by somebody who has read nothing. The laboratory's own version is the twenty minutes after the schools ask: the priority has changed to drinking water, and the instrument is still working through river samples that were urgent an hour ago. And the cost is invisible afterwards — a sample past its hold time comes out of the fridge looking exactly like a sample that is still valid.",
         "spot": {
@@ -2740,7 +2740,7 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "From identity to reaction estimate",
-      "scene": "At the tunnel entrance, two drainage streams may be meeting behind a closed access door. Oyelaran holds his repair crew at the barricade, and the storm bypass remains shut. The laboratory has analyses from both drains but no reaction estimate yet.",
+      "scene": "At the tunnel entrance, two drainage streams may be meeting behind a closed access door. Oyelaran, the confined-space safety officer, holds his repair crew at the barricade, and the storm bypass remains shut. The laboratory has analyses from both drains but no reaction estimate yet.",
       "takeaway": "Stoichiometry is a conditional prediction based on a specified reaction.",
       "place": "Sewer Monitoring Station",
       "guide": "These four are not four independent tasks. Each needs the output of another. Ask of each card what it requires before it can be done at all. Coefficients cannot be used until the equation is balanced. Masses cannot be compared until they are moles. A prediction is worth making only once there is a measurement to compare it against. A repair crew is at the barricade.",
@@ -3827,7 +3827,7 @@ export const CURRICULUM = {
         "setup": "Match each observation to the process implication.",
         "play": "Close the 100 kg contaminant ledger across the pilot streams and identify the mass that the water-removal headline does not account for.",
         "task": "Close the 100 kg contaminant ledger across the pilot streams and identify the mass that the water-removal headline does not account for.",
-        "question": "How much material is missing from the measured streams, and does the ledger support a destruction claim?",
+        "question": "Close the mass balance. How much material is missing from the measured streams, and does the ledger support a destruction claim?",
         "answer": "The measured streams account for 80 kg, so 20 kg remain unaccounted for. Until that term is identified and shown benign, the pilot supports a transfer/transformation claim, not 94% destruction.",
         "why": "The treated water contains only 6 kg, but that does not mean 94 kg were destroyed. 71 kilograms are measured in sludge and 3 kg appear in off-gas. Those visible streams total 80 kg, leaving a 20 kg term required to close the original 100 kg ledger. The bench already sees an unquantified transformation-product signal, so that missing mass has a plausible destination. The mass balance supports transfer and transformation, not a claim that the contaminant vanished.",
         "balance": {
@@ -3913,7 +3913,7 @@ export const CURRICULUM = {
           "Oxidise the dissolved metal to the oxidation state that forms the intended insoluble hydroxide.",
           "Raise the pH to the window where that hydroxide is least soluble.",
           "Settle and filter, taking the precipitated solid out of the water.",
-          "Polish the remaining dissolved ions with a selective ion-exchange or adsorptive medium."
+          "Polish the dissolved fraction with a selective ion-exchange or adsorptive medium."
         ],
         "order": [
           0,
@@ -3964,7 +3964,7 @@ export const CURRICULUM = {
         "choices": [
           "The transformation products, and the stand-ins that track how toxic they are.",
           "Removal of the target compound under representative water chemistry.",
-          "Whether the media wears out, whether it can be recharged, and where the used solids go.",
+          "Whether the sorbent media wears out, whether it can be recharged, and where the used solids go.",
           "The highest achievable removal, at whatever dose it takes."
         ],
         "correctChoice": "The transformation products, and the stand-ins that track how toxic they are."
@@ -3985,7 +3985,7 @@ export const CURRICULUM = {
     {
       "day": 8,
       "title": "Disposition the final chemical claims",
-      "scene": "The city wants one sentence tonight and Mbeki has to put it on the screen. The chemistry does not support one — collapsing everything into a single green light is how a site gets reoccupied above a problem nobody wrote down.",
+      "scene": "The city wants one sentence tonight and Mbeki, the public briefing officer, has to put it on the screen. The chemistry does not support one — collapsing everything into a single green light is how a site gets reoccupied above a problem nobody wrote down.",
       "takeaway": "Chemical readiness is claim-by-claim, not a single green light.",
       "place": "Scientific Review Hall",
       "guide": "At the end of a release the evidence sits in four different states at once. Each state calls for a different sentence. Ask of each claim what would have to happen for it to become settled. Another method? A validated standard? Continued funding? A chemistry trigger? Collapsing four states into one is how the sentence stops being true.",
@@ -3999,9 +3999,9 @@ export const CURRICULUM = {
         "type": "PROTOCOL",
         "title": "Disposition the final chemical claims",
         "setup": "Match each evidence state to the correct recommendation.",
-        "play": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "task": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
-        "question": "Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "play": "Every claim here carries its own uncertainty, and no two carry the same amount. Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "task": "Every claim here carries its own uncertainty, and no two carry the same amount. Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
+        "question": "Every claim here carries its own uncertainty, and no two carry the same amount. Match each situation to the most scientifically justified interpretation, control, or response. Each choice is used once.",
         "answer": "1. Identity confirmed by independent methods and controls. → Treat identity as established with documented methods. 2. A transformation product is plausible but lacks a validated standard. → Label provisional and continue method development. 3. Filtered water meets criteria, but sediment remains contaminated. → Keep managing the sediment, and keep watching for the metal coming back. 4. Pipeline corrosion is controlled only while chemistry remains within a narrow range. → Use conditional operation with chemistry and corrosion triggers.",
         "why": "At the end of a release the evidence is in several states at once, and each calls for a different recommendation. An identity confirmed by independent methods with controls is established and can be closed. A transformation product that is plausible but has no validated standard is provisional, and saying so is what keeps the record honest. Filtered water meeting criteria over contaminated sediment is a control that has to keep being funded. And corrosion held inside a narrow chemistry window is conditional operation with triggers.",
         "rebuttals": [
@@ -4062,9 +4062,9 @@ export const CURRICULUM = {
         "type": "BALLPARK",
         "title": "Audit the electrochemical removal from the charge passed",
         "setup": "Use the electrical log to set a theoretical ceiling before trusting the water analysis.",
-        "play": "Use the current, time and ion charge to estimate the maximum moles of divalent metal that could plate out.",
-        "task": "Use the current, time and ion charge to estimate the maximum moles of divalent metal that could plate out.",
-        "question": "What upper bound does 6 hours at 40 A place on metal removal?",
+        "play": "Use Faraday's law — the charge passed divided by the charge each ion needs — to estimate the maximum moles of divalent metal that could plate out.",
+        "task": "Use Faraday's law — the charge passed divided by the charge each ion needs — to estimate the maximum moles of divalent metal that could plate out.",
+        "question": "What upper bound does 6 hours of electrolysis at 40 A place on metal removal?",
         "answer": "Q = It = 864,000 C. That is about 8.95 mol e⁻, so a divalent ion can deposit at most 8.95/2 ≈ 4.48 mol of metal.",
         "why": "Current times time is charge. Dividing charge by the Faraday constant gives moles of electrons, and a divalent metal needs two electrons per metal ion. 6 hours at 40 A passes 864,000 C, or about 8.95 mol of electrons. The theoretical maximum is therefore about 4.48 mol of metal. Real removal is lower when side reactions carry some current. Comparing measured removal with this bound gives current efficiency and catches impossible treatment claims.",
         "rebuttals": [
@@ -4148,7 +4148,7 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Sign the reopening order",
-      "scene": "The state reviewer has accepted the analytical package. Representative endpoint water meets the release rule, but contaminated sediment remains under management, the secondary transformation product is still provisional, and the intake main is safe only while chemistry and corrosion triggers stay inside their operating window. The mayor puts the reopening order in front of you.",
+      "scene": "The state reviewer has accepted the package. Water at the representative endpoints meets the release rule. The sediment is still under management, one transformation product is still provisional, and the intake main is safe only inside a chemistry window. The mayor puts the order in front of you.",
       "takeaway": "A defensible reopening is conditional on the controls and monitoring that make the exposure pathway safe.",
       "place": "Long-Term Monitoring Office",
       "guide": "Separate the drinking-water decision from the unresolved reservoirs. The water pathway now passes its rule. The remaining question is whether the controls and monitoring that made that true stay attached to the reopening order.",
@@ -4165,20 +4165,20 @@ export const CURRICULUM = {
         "play": "Use the final evidence package to choose the action that the science can actually support.",
         "task": "Use the final evidence package to choose the action that the science can actually support.",
         "question": "Use the final evidence package to choose the action that the science can actually support.",
-        "answer": "Reopen in stages under the verified treatment conditions, keep the long-term water, sediment and air monitoring, and automatically hold again if defined chemistry or corrosion triggers fail.",
-        "why": "The treated water now passes the prewritten release rule at representative endpoints, so an indefinite hold is no longer supported by the drinking-water evidence. But sediment, a provisional transformation product and corrosion remain open hazards. Reopening unconditionally would erase the very limits the evidence package documents. A staged reopening with continued water/sediment/air monitoring and automatic hold triggers matches what is known and preserves a way to act if the system changes.",
+        "answer": "Reopen in stages, keep the long-term monitoring, and hold again by itself if a defined trigger fails.",
+        "why": "The treated water now passes the prewritten release rule at the representative endpoints. An open-ended hold is therefore no longer supported by the evidence. But three hazards are still open. The sediment stays contaminated, one transformation product has no validated standard, and corrosion returns to the intake main if the chemistry drifts out of range. Reopening with no conditions would erase those limits from the record that documents them. A staged reopening keeps them attached. Monitoring of water, sediment and air continues, and a failed chemistry or corrosion trigger puts the hold back on by itself.",
         "rebuttals": [
           "An unconditional all-clear discards the unresolved sediment, transformation-product and corrosion conditions.",
           "Waiting for every contaminant in every reservoir to reach zero is not the release standard and can keep essential water shut without an exposure-based reason.",
           "Reopening while postponing monitoring removes the mechanism that would detect remobilisation or treatment drift."
         ],
         "choices": [
-          "Reopen in stages under the verified treatment conditions, keep the long-term water, sediment and air monitoring, and automatically hold again if defined chemistry or corrosion triggers fail.",
-          "Reopen unconditionally and close the emergency record because the treated water is below the limit.",
-          "Keep the intake shut until sediment and every transformation product are reduced to zero.",
-          "Reopen now and decide whether to fund monitoring after the emergency budget closes."
+          "Reopen in stages, keep the long-term monitoring, and hold again by itself if a defined trigger fails.",
+          "Reopen with no conditions and close the emergency record, because the treated water is now below the limit.",
+          "Keep the intake shut until the sediment and every transformation product have been reduced to zero.",
+          "Reopen now, and decide whether to fund the monitoring after the emergency budget has closed."
         ],
-        "correctChoice": "Reopen in stages under the verified treatment conditions, keep the long-term water, sediment and air monitoring, and automatically hold again if defined chemistry or corrosion triggers fail."
+        "correctChoice": "Reopen in stages, keep the long-term monitoring, and hold again by itself if a defined trigger fails."
       },
       "assumes": [
         "representative endpoint water satisfies the prewritten release rule",
@@ -4199,7 +4199,7 @@ export const CURRICULUM = {
 export const BALLPARK_CALCS = {
   "GASES-1": {
     "prompt": "A colorless plume is leaving the yard. Command wants the equilibrium gas volume before anyone draws an evacuation corridor.",
-    "question": "Estimate the gas volume at ambient conditions.",
+    "question": "Use the ideal gas law to estimate the gas volume at ambient conditions.",
     "labels": [
       "2.0×10⁴ mol  (n, amount released)",
       "8.31 J mol⁻¹ K⁻¹  (R)",
@@ -4477,7 +4477,7 @@ export const BALLPARK_CALCS = {
   },
   "GASES-7": {
     "prompt": "A second cylinder is logged in the vented store, and the shelter order is being held on what it would fill.",
-    "question": "Estimate the gas volume at the conditions measured in the store.",
+    "question": "Use the ideal gas law to estimate the gas volume at the conditions measured in the store.",
     "labels": [
       "8.0×10³ mol  (n, the cylinder inventory)",
       "8.31 J mol⁻¹ K⁻¹  (R)",
@@ -4889,6 +4889,16 @@ export const JARGON = [
       "intermolecular forces"
     ],
     "def": "A course concept used in Mission 3. In the game, the term should be defined through the evidence and decision in that mission rather than presented only as vocabulary.",
+    "core": true
+  },
+  {
+    "name": "Kinetic Molecular Theory",
+    "aliases": [
+      "kinetic molecular theory",
+      "kinetic molecular",
+      "kinetic"
+    ],
+    "def": "The picture of a gas as huge numbers of molecules in constant motion. Warm them and they move faster, which is why a gas pushes harder on its container and spreads through a room on its own.",
     "core": true
   },
   {

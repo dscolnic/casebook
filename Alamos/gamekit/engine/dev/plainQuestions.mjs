@@ -328,10 +328,16 @@ for(const theme of wanted){
   if(was.long !== undefined && t.long > was.long)
     regressions.push(`over-${LONGEST} sentences: ${was.long} → ${t.long}`);
   // A tenth of a word of slack, so re-wrapping a paragraph is not a failure.
-  if(was.wps !== undefined && +t.wps.toFixed(1) > was.wps + 0.1)
+  // ROUND BOTH SIDES. `was.wps + 0.1` is floating point: 15.2 + 0.1 is
+  // 15.299999999999999, so a theme measuring exactly 15.3 — the value this
+  // tolerance is written to allow — failed with no regression in it at all.
+  // Blackout hit it in that direction and Red Sand's pass hit it from the other,
+  // reading the same epsilon as "zero margin". A tolerance a card can fail by
+  // 0.000000000000001 is not a tolerance.
+  if(was.wps !== undefined && +t.wps.toFixed(1) > +(was.wps + 0.1).toFixed(1))
     regressions.push(`words/sentence: ${was.wps} → ${t.wps.toFixed(1)}`);
   // The anti-cheat. Vocabulary may rise freely; it may not be traded for a grade.
-  if(was.spw !== undefined && +t.spw.toFixed(3) < was.spw - 0.03)
+  if(was.spw !== undefined && +t.spw.toFixed(3) < +(was.spw - 0.03).toFixed(3))
     regressions.push(`syllables/word FELL: ${was.spw} → ${t.spw.toFixed(3)}`
       + ' — a grade bought by deleting course vocabulary is the one thing the pass forbids');
   if(regressions.length){

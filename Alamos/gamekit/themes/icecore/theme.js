@@ -35,6 +35,17 @@ export default {
   // Each mission is one day of the season before the aircraft comes in. The plan card prints this in front of the mission number.
   dayNoun: 'Day',
 
+  // The morning card is a date stamp and two or three sentences: what happened,
+  // and what you do about it. See gamekit/BRIEFING_PASS.md. The long form had to
+  // carry a fortnight of context on a card read fifteen times, which is why the
+  // stakes here ran to ninety words and grade 8 — and why nine of them were
+  // failing the 90-word floor written for that form while also failing
+  // plainCards. Opting in drops both floors, keeps the ceilings, and moves the
+  // cast off the plan card onto the calls, where the player meets them anyway.
+  // It also suppresses `deliveryPlanLine`; the Vestri Record is named on the
+  // opening card and counted on the card that closes each day.
+  stakeStyle: 'brief',
+
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
   //   'interior'  engine/world/interiorSite.js — a spine with rooms off it
@@ -106,14 +117,11 @@ export default {
     ],
   },
   opening: [
-    'Vestri Dome and Skarv Camp drilled ice four hundred kilometres apart to recover the same stretch '
-    + 'of climate history. Their records do not agree. If the difference is real, the region changed '
-    + 'differently from place to place. If it comes from a measuring scale or a bad clock, publishing it '
-    + 'as climate would put the mistake into every record matched to these cores later. You are the season '
-    + 'science lead at Vestri. The Skarv samples leave on Thursday, and the final Vestri Record is signed '
-    + 'in fifteen days. Two kilometres of core are already out of the ground. Your job is to find how much '
-    + 'of the disagreement belongs to the ice, how much belongs to the methods, and what you can defend when '
-    + 'the aircraft takes the shared samples away.',
+    'Vestri Dome and Skarv Camp drilled ice four hundred kilometres apart. Both cores cover one cold '
+    + 'spell, and the two records do not agree. You are the season science lead at Vestri, so the '
+    + 'signing is yours. In fifteen days you sign the Vestri Record: what the ice measured, which '
+    + 'clocks turn that into dates, and where the proof stops. If the gap is really the two labs and '
+    + 'you call it climate, every record tied to these cores carries it for years.'
   ],
 
   // The last thing anybody reads. Says what happened, what it cost and what is

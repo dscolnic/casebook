@@ -880,7 +880,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the interval around an estimate says what the data are compatible with"
-      ]
+      ],
+      "concept": {
+        "n": 25,
+        "c": "A significance test: null, alternative, and what a p-value is",
+        "of": 30,
+        "rests": [
+          "The sampling distribution of a statistic, and why it has a spread at all"
+        ]
+      }
     },
     {
       "day": 10,
@@ -1103,22 +1111,12 @@ export const CURRICULUM = {
         "correctChoice": "The four cases, the exposed population, and the timing and clinical pattern"
       },
       "assumes": [
-        "serious events are reported to regulators on a stated schedule",
-        "a distribution of one variable: shape, centre and spread — taken as read"
-      ],
-      "takesAsRead": [
-        {
-          "n": 1,
-          "c": "A distribution of one variable: shape, centre and spread"
-        }
+        "serious events are reported to regulators on a stated schedule"
       ],
       "concept": {
-        "n": 2,
-        "c": "Mean against median, and which one an outlier moves",
-        "of": 30,
-        "rests": [
-          "A distribution of one variable: shape, centre and spread"
-        ]
+        "n": 11,
+        "c": "A sample and the population it is supposed to stand for",
+        "of": 30
       }
     },
     {
@@ -1279,7 +1277,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the board sees the trial's subgroup tables in closed session"
-      ]
+      ],
+      "concept": {
+        "n": 2,
+        "c": "Mean against median, and which one an outlier moves",
+        "of": 30,
+        "rests": [
+          "A distribution of one variable: shape, centre and spread"
+        ]
+      }
     },
     {
       "day": 7,

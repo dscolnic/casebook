@@ -7,7 +7,7 @@ export const MISSIONS = [
     "title": "The tank misses the window",
     "objective": "Establish what the plant is actually limited by before anybody changes a set point.",
     "briefing": "The tank reconciliation says the ascent vehicle will miss its methane target unless the plant's real bottleneck is found.",
-    "stake": "Sol 291. The ascent vehicle holds 3.9 tonnes of methane and needs 6.6 before the Earth-return window. At the present average the projection lands short. Sundqvist wants more temperature because yesterday's plant was slow; Herrera says a hotter reactor can make methane faster and still leave less methane at equilibrium. Today you walk the whole chain—reaction, catalyst and cold end—and decide which limit is actually costing kilograms.",
+    "stake": "On sol 291 the tank holds 3.9 tonnes of methane and needs 6.6 before the window. A hotter bed makes methane faster, but it can end up with less. Today you read the bed, the loop and the cold line, then name the limit.",
     "takeaway": "A plant has a speed and a ceiling, and they are not the same limit.",
     "stops": [
       {
@@ -34,7 +34,7 @@ export const MISSIONS = [
     "title": "The hot run",
     "objective": "Find what else the same power could be doing, now that the bed is where it should have been.",
     "briefing": "One hotter night raised output, but the gain is meaningless until the plant knows whether it came from rate, feed, or borrowed power.",
-    "stake": "Sol 292. The hot run made 11.4 kilograms of methane, up from 9.7. That looks like Sundqvist winning the argument. But the same array must also make hydrogen, dig water and keep the station alive. Today you find how long gas actually sees the catalyst, what charge the electrolysis cells turn into, and whether the extra methane was bought by moving the bottleneck somewhere else.",
+    "stake": "On sol 292 the hot run made 11.4 kilograms of methane, against 9.7 the night before. The same power must make hydrogen, dig water and keep six people alive. Today you time the gas in the bed, check the cells, and say what the gain cost.",
     "takeaway": "A loop that recycles can afford a poor pass, and a plant with no hydrogen cannot afford anything.",
     "stops": [
       {
@@ -67,13 +67,13 @@ export const MISSIONS = [
     "title": "The line that froze shut",
     "objective": "Find what closed the cold line, and what the hot run has to do with it.",
     "briefing": "The cold end stops passing liquid, turning yesterday's production gain into a blockage that has to be diagnosed from outside the pipe.",
-    "stake": "Sol 293. Three hours after the hot run began, methane stopped reaching the transfer tank. The refrigerator still makes its set point and the valve command says open. Something inside the line is closing the passage. Today you use pressure, temperature and flow to decide what froze, then trace that material back through the plant to the water system that let it through.",
+    "stake": "On sol 293 no methane has reached the tank since this morning. The cold unit is on target and the valve reads open. Today you read pressure, temperature and flow to say what is closing the pipe, and where.",
     "takeaway": "A plant is a chain, and the fastest step decides nothing on its own.",
     "stops": [
       {
         "group": "PHASE",
         "lesson": 1,
-        "task": "Which explanation fits every reading, not the loudest one?",
+        "task": "Which guess fits every gauge, not just the loudest one?",
         "reason": "The blockage is here and the pipe cannot be opened, so the gauges are the only way in"
       },
       {
@@ -94,7 +94,7 @@ export const MISSIONS = [
     "title": "The feed that caps the plant",
     "objective": "Size the feed the plant needs, and find where the current is going.",
     "briefing": "With the cold line clear, the question becomes whether carbon dioxide, hydrogen, or clean water is the feed that actually sets today's ceiling.",
-    "stake": "Sol 294. Liquid is flowing again, but the plant cannot make methane from a feed it does not have. Today you turn the methane target into a carbon-dioxide requirement, audit where electrolysis charge is being lost, and follow every dissolved species in the recovered water to the equipment it can damage. The bottleneck is now a supply chain, not a reactor set point.",
+    "stake": "On sol 294 liquid is flowing again after the thaw, and the feed has to match it. The plant needs gas and clean water, and some charge is lost inside the cells. Today you size each feed and say which shortage sets the fuel limit.",
     "takeaway": "A plant is limited by whichever feed runs out first, and it will not be the same one every sol.",
     "stops": [
       {
@@ -127,7 +127,7 @@ export const MISSIONS = [
     "title": "The ceiling on heat",
     "objective": "Put a number on how far the temperature argument can be taken.",
     "briefing": "Another temperature increase is proposed, and this time the plant has enough evidence to separate a faster reaction from a better equilibrium.",
-    "stake": "Sol 295. The first hot run helped because the bed was short of time. Now another 40 °C is on the board. Herrera says the plant is close enough to equilibrium that more heat will lower the methane ceiling; Sundqvist says time still matters. Today you put numbers on the thermodynamic limit, state what the catalyst can change, and rebuild the cold-end procedure so yesterday's blockage cannot recur.",
+    "stake": "On sol 295 the first hot run has helped, and another 40 °C is asked for. More heat speeds the reaction, but it can lower the methane the mixture settles at. Today you work out both effects and decide whether the bed goes hotter.",
     "takeaway": "An argument that has an arithmetic answer should not be settled by seniority.",
     "stops": [
       {
@@ -145,7 +145,7 @@ export const MISSIONS = [
       {
         "group": "PHASE",
         "lesson": 2,
-        "task": "Order the cold-end steps from dirty warm gas to liquid methane.",
+        "task": "Put the cold end steps in order, from dirty warm gas to liquid methane.",
         "reason": "The cold end is being rebuilt after the blockage, and its stages go back in only one workable order"
       }
     ]
@@ -154,7 +154,7 @@ export const MISSIONS = [
     "title": "The water bottleneck",
     "objective": "Find the feed that actually caps the plant, and what it costs to clean.",
     "briefing": "The shallow cut has fallen to four percent water, forcing the plant to distinguish measured brine behavior from an ideal chemistry model.",
-    "stake": "Sol 296. The drill is bringing in ground with only four percent water. The holding tank is saltier than anything the plant has used this season, and the electrolysis stacks are already power-hungry. Today you estimate what an ideal freezing-point model predicts, compare that with what the tank actually did overnight, and decide what the extra cell voltage means for the station's heat and power budget.",
+    "stake": "On sol 296 this morning's cut came in at four per cent water, and the brine holds far more salt. The cells need more power than the simple model says. Today you test that model and work out the extra heat and power it missed.",
     "takeaway": "The step that limits a plant is not the step anybody is arguing about.",
     "stops": [
       {
@@ -181,7 +181,7 @@ export const MISSIONS = [
     "title": "The bed is dying",
     "objective": "Find out what is happening inside a bed nobody can see into.",
     "briefing": "The reactor still reaches its usual peak temperature, but the hot zone is walking downstream while conversion falls.",
-    "stake": "Sol 297. The hottest point in the catalyst bed has moved 30 centimetres in nine sampled sols, and methane conversion is falling. Kaur says a working bed is becoming shorter; others blame flow, sensors or heat damage. Today you use the quiet readings to decide what is actually changing, while the tank farm turns a small heat leak into a measurable loss of flight oxygen.",
+    "stake": "On sol 297 the bed's hot spot has moved a third of a metre since the hot run. Output is down, and heat damage or a dying catalyst could each explain it. Today you compare nine sols of readings and say what is taking the bed away.",
     "takeaway": "A measurement taken every sol becomes evidence when somebody lays nine of them side by side.",
     "stops": [
       {
@@ -208,7 +208,7 @@ export const MISSIONS = [
     "title": "The compound nobody asked for",
     "objective": "Turn current into kilograms, and find out what is actually in the product.",
     "briefing": "A full product assay finds a compound the routine panel never looked for, while the water column shows the first signs of exhaustion.",
-    "stake": "Sol 298. Stern has run the first full product assay since spring. One carbon-bearing compound has been present without a line on the routine report. At the same time, the water-polishing bed is approaching breakthrough. Today you turn current into a theoretical hydrogen ceiling, distinguish that ceiling from what is collected, and ask what a measurement misses when nobody asks the question.",
+    "stake": "On sol 298 a full assay has found a carbon compound the usual report never lists. The water-cleaning bed may soon let harmful ions through. Today you check what the cells should make, then pick the test that would show it.",
     "takeaway": "A measurement nobody asks for is a measurement that arrives later at full size.",
     "stops": [
       {
@@ -235,7 +235,7 @@ export const MISSIONS = [
     "title": "The poison in the spent charge",
     "objective": "Find out what has been taking the bed apart, and for how long.",
     "briefing": "The spent catalyst finally supplies evidence that can separate heat damage from poisoning and date when the real failure began.",
-    "stake": "Sol 299. The dead charge came back from the assay bench an hour ago. Nickel particle size is normal, carbon deposit is only trace, but chlorine is concentrated at the inlet surface. That is the first finding able to distinguish the two explanations the plant has argued about for days. Today you identify the mechanism and then use the water-plant record to find when the contamination path opened.",
+    "stake": "On sol 299 the spent charge came out of the bed overnight with normal grains and little carbon. Its inlet end is rich in chlorine, which points away from heat and toward a poison. Today you name the cause and say when the path opened.",
     "takeaway": "The plant was arguing about temperature while a contamination path was taking the catalyst away.",
     "stops": [
       {
@@ -262,7 +262,7 @@ export const MISSIONS = [
     "title": "The last spare charge",
     "objective": "Get a bed back into service and decide what stops this happening again.",
     "briefing": "There is one catalyst charge left on Mars, so commissioning it has to produce evidence rather than merely restore production.",
-    "stake": "Sol 300. The final spare catalyst charge is out of stores. If it is damaged, there is no replacement before launch. Today you bring it into service in a reversible order, spend the one hardware improvement the station can still make, and write the operating comparison that will tell later crews what this charge actually proved.",
+    "stake": "On sol 300 the last spare charge on Mars is ready, and damage done to it cannot be undone before launch. The plant can pay for one change to the hardware, and no more. Today you bring the bed up in safe steps and choose that change.",
     "takeaway": "A part with no replacement is commissioned by procedure rather than by enthusiasm.",
     "stops": [
       {
@@ -289,7 +289,7 @@ export const MISSIONS = [
     "title": "Forty clean sols",
     "objective": "Close the plant's own books while there is nothing to firefight.",
     "briefing": "The replacement charge has held for forty sols on qualified feed, giving the team a quiet checkpoint to reconcile energy, carbon and cryogenic losses.",
-    "stake": "Sol 340. Forty sols after the last spare charge went in, conversion is holding inside its qualified operating window and the polishing outlet has stayed below its warning line. Nothing is on fire, which is exactly why today matters. You close the electrical ledger against what the array supplied, close one-pass carbon bookkeeping, and check that the tank is being filled without hiding losses in a cheerful production number.",
+    "stake": "On sol 340 the new charge has held for forty sols since the swap, and the water outlet is still clean. A quiet stretch can hide losses behind a good output number. Today you close the energy and carbon ledgers, and ask what the tank really gained.",
     "takeaway": "The sol to check the books is the sol when nothing is going wrong.",
     "stops": [
       {
@@ -301,7 +301,7 @@ export const MISSIONS = [
       {
         "group": "PHASE",
         "lesson": 5,
-        "task": "Say how full a cryogenic tank may be filled",
+        "task": "Say how full a cold tank is allowed to be filled",
         "reason": "The loading procedure stops the tank short of full, and nobody has explained that to the people counting kilograms"
       },
       {
@@ -316,7 +316,7 @@ export const MISSIONS = [
     "title": "Dust over the array",
     "objective": "Decide what the station stops doing when the power halves.",
     "briefing": "A regional storm cuts total array output to about one fifth of a clear-sol value; the direct-beam model predicts something different and the distinction matters.",
-    "stake": "Sol 420. A regional dust storm crossed Arcadia Rise overnight. Measured array output is about one fifth of a clear sol, but the sun sensor and optical-depth model describe only the direct beam. Today you calculate what comes straight through the dust, keep that model separate from total photovoltaic output, and decide which loads can stop without destroying propellant or putting the habitat at risk.",
+    "stake": "On sol 420 a dust storm since last night has cut the array to a fifth of what a clear sol gives. The sunlight model covers only the direct beam, not all the light the panels see. Today you compare model and meter, then say which loads can stop.",
     "takeaway": "A model of the direct beam and a measurement of total array output are related evidence, not the same quantity.",
     "stops": [
       {
@@ -343,13 +343,13 @@ export const MISSIONS = [
     "title": "Three failures after the storm",
     "objective": "Rank three faults that arrived together, and act on them in that order.",
     "briefing": "The storm leaves three urgent problems, and the plant must rank them by irreversible loss rather than by which alarm sounds loudest.",
-    "stake": "Sol 421. The sky cleared, but the storm left three problems: oxygen boil-off is high, the battery bank is at 30 percent, and the spare catalyst still needs its comparison run. All three matter. Today you follow the radiator fault to the oxygen vent, make the catalyst comparison fair, and decide which problem spends something unrecoverable every hour it waits.",
+    "stake": "On sol 421 the storm has passed overnight and left three faults behind. Oxygen is boiling off, the battery is low, and the catalyst test is late. Today you rank the three and decide which is fixed first.",
     "takeaway": "Three reasonable people wanting to be first is a ranking problem rather than an argument.",
     "stops": [
       {
         "group": "PHASE",
         "lesson": 6,
-        "task": "Build the refrigerator heat path in order and identify the transfer that dust has made limiting.",
+        "task": "Build the heat path in order, and name the handover the dust has made the worst one.",
         "reason": "Oxygen boil-off has more than doubled since the storm, and the fault is somewhere on the heat path"
       },
       {
@@ -376,7 +376,7 @@ export const MISSIONS = [
     "title": "The batch you cannot take back",
     "objective": "Decide whether this batch goes into the vehicle.",
     "briefing": "A 410-kilogram transfer batch fails one flight-specification line; rejecting it leaves only enough time to remake it if the decision is made now.",
-    "stake": "Sol 445. A 410-kilogram methane batch is in the transfer tank and one assay line is outside the vehicle specification. There are thirty sols until the planned full-tank date—just enough to remake roughly this much at the plant's present rate. Once the loading valve opens, the batch cannot be taken back out. Today you decide whether it flies, then reconcile the chemistry's 4:1 combustion ratio with the vehicle's deliberately fuel-rich loading specification.",
+    "stake": "On sol 445 a 410-kilogram batch failed one flight limit, and once it is loaded it cannot come back. Thirty sols are left before the window, only just time to make it again. Today you say whether it flies, and set the oxygen to match.",
     "takeaway": "Irreversible loading decisions are made against each specification line, with enough time left to recover from a rejection.",
     "stops": [
       {
@@ -403,7 +403,7 @@ export const MISSIONS = [
     "title": "Release the full tank",
     "objective": "Say what is known, how well it is known, and what was never established.",
     "briefing": "The target masses and final assays are in; the last job is to decide whether the propellant set is ready to become a flight system.",
-    "stake": "Sol 475. Eleven sols before the return window, the ascent vehicle has 6.6 tonnes of methane and 23 tonnes of oxygen aboard. The rejected Sol 445 batch never entered the vehicle, every loaded batch has an assay, the water-breakthrough alarm is armed, and the final catalyst charge has held through the qualified clean-feed operating window. Today you freeze the rule the next crew inherits, state exactly what the catalyst evidence supports, and make the one-way decision this whole season has been building toward: release the propellant set for flight.",
+    "stake": "On sol 475, eleven sols before the window, the tanks hold 6.6 tonnes of methane and 23 of oxygen. Every batch aboard passed its test, but doubt is left. Today you write the rule the next crew works to, and say whether the tanks are released.",
     "takeaway": "Readiness means the required mass is aboard, every loaded batch meets its limits, and the remaining uncertainty is stated rather than hidden.",
     "stops": [
       {
@@ -431,19 +431,19 @@ export const MISSIONS = [
 export const WARMUPS = {
   "greet": {
     "title": "Six people, and the next crew is eighteen months away",
-    "why": "There are six of you and no relief. Sundqvist, the plant production lead, wants you known to as many of them as you can before the first sol of production, because a disagreement here is not settled by anybody leaving the room — there is nowhere to go, and the transfer window is 486 sols out."
+    "why": "Meet the six-person crew now, because during a crisis you must know who understands each part of the plant."
   },
   "trial-near": {
     "title": "Walk the plant while your suit is fresh",
-    "why": "Nine modules buried to the eaves along one track, and an ascent vehicle four hundred metres past the last of them. Walk the whole line once early, on a clear sol, because the next time you do it will be in a dust storm on a suit that has been out for three hours already."
+    "why": "Walk the full plant route on a clear sol so you can find every module fast when a dust storm hides the track."
   },
   "trial-far": {
     "title": "The rover, and the three hundred metres to the ice cut",
-    "why": "The water this plant runs on is cut out of the ground 338 metres north-west, and until today nobody has asked you to go there. It is too far to walk in a suit and get any work done afterwards, which is what the rovers are for and why they are signed out this morning. Drive it once while the sky is clear, so you know the track before you need it in a storm."
+    "why": "Drive to the ice cut while the sky is clear so you know the route when the plant needs water during a storm."
   },
   "follow": {
     "title": "Cho walks the cold end once",
-    "why": "The liquefier's cold end is the part of the plant nobody has a diagram of at the level that matters — which joint frosts first, which line ticks when it is cooling. Cho, the cryogenics engineer, walks it once. Stay with her and keep off the lines; a boot on a cold transfer line is a leak you cannot weld out here."
+    "why": "Follow Cho, the cryogenics engineer, through the cold end now so you learn which pipes and joints can freeze or leak before a fault hits."
   },
   "hunt": {
     "title": "Six regolith bins, and the tally says four",
@@ -477,18 +477,18 @@ export const WARMUPS = {
         "z": 22
       }
     ],
-    "why": "The feedstock tally is what the whole propellant schedule is planned against, and two bins are not where it says they are. A bin nobody can find is either full and idle or empty and counted, and those two mean very different launch dates."
+    "why": "Find the two missing soil bins because the launch fuel plan counts water from all six."
   },
   "canvass": {
     "title": "Who has actually seen the seal on module four",
-    "why": "The habitat's leak rate went up on sol 9 and the log blames a seal nobody has inspected since landing. Ask round the crew until enough of them have said what they have actually seen rather than what the log says, because six people is a small enough sample that one assumption becomes a fact."
+    "why": "Ask who saw the module-four seal because the log may blame a leak that no one has checked."
   },
   "evade": {
     "title": "Earth wants a call and the window is closing",
-    "why": "There is a downlink slot in twenty minutes and the flight surgeon wants a personal medical conference that will take all of it. The tank pressure survey has to go this window or wait a sol. Keep out of the way until the data is queued."
+    "why": "Get the tank survey into the downlink before a private call uses the only slot."
   },
   "tag": {
     "title": "Catch Achebe before the array goes into storm mode",
-    "why": "Achebe, the power and electrolysis engineer, has the only measurement of what the array actually delivered before the dust thickened, and once it folds into storm mode the sensors read nothing useful for days. Every power decision this week is against that number."
+    "why": "Reach Achebe, the power and electrolysis engineer, before storm mode hides the array reading needed for every power choice this week."
   }
 };

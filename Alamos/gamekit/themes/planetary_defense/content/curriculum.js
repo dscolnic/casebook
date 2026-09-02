@@ -2494,7 +2494,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Impact energy rises with the square of speed, so a body arriving twice as fast carries four times the energy.",
-          "demanded": true
+          "computed": true
         },
         {
           "e": "v² = v∞² + v_esc²",
@@ -2514,7 +2514,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "Earth's gravity accelerates anything falling toward it, so nothing can arrive slower than escape speed.",
-          "demanded": true
+          "computed": true
         }
       ],
       "takesAsRead": [

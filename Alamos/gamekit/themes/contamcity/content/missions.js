@@ -6,77 +6,87 @@ export const MISSIONS = [
   {
     "title": "What Burned?",
     "objective": "Turn damaged cargo, records and first laboratory measurements into a defensible provisional hazard list.",
-    "briefing": "The freight-yard fire involved mixed chemical cargo beside Riverton's river. Fire Command needs to know which materials can meet water, which need isolation, and which identities are still only guesses.",
-    "stake": "Day 1. The fire is out, but seven damaged containers sit 80 metres from the river and three different chemical names are already moving over the radio. The cargo was mixed: a wrong name can put water on a water-reactive drum or send the wrong sample into the lab. Today you decide what can be said now, what must stay provisional, and which independent measurement is worth buying before Fire Command acts.",
+    "briefing": "Fire Command needs to know which materials can meet water, which need isolation, and which identities are still only guesses.",
+    "stake": "On day 1 the fire is out, but seven damaged drums sit 80 metres from the river. The radio is already passing three different names for what is inside them. Today you say what is known, what is still a guess, and which test to buy first.",
     "takeaway": "Create a provisional identity list and choose the next discriminating measurements.",
     "stops": [
       {
         "group": "IDENT",
         "lesson": 0,
-        "task": "Read the formula, not the rumor"
+        "task": "Read the formula, not the rumor",
+        "reason": "Three names for one drum are chalked up at the command post, and only the formulas can rule any of them out"
       },
       {
         "group": "IDENT",
         "lesson": 1,
-        "task": "From damaged container to provisional identity"
+        "task": "From damaged container to provisional identity",
+        "reason": "The first sealed sample is on the bench and there is liquid for two runs, so the order you spend it in is today's decision"
       },
       {
         "group": "IDENT",
         "lesson": 2,
-        "task": "Spend the first of the lab budget"
+        "task": "Spend the first of the lab budget",
+        "reason": "Eight hundred dollars of laboratory time is all that is left, and the crews at the fence are waiting on whatever identity it buys"
       },
       {
         "group": "IDENT",
         "lesson": 3,
-        "task": "Sort the drum labels before the contractor lifts them."
+        "task": "Sort the drum labels before the contractor lifts them",
+        "reason": "Hose crews want to wet the whole row down, and some of these drums answer water with heat"
       }
     ]
   },
   {
     "title": "The Invisible Cloud",
     "objective": "Bound the volatile release and set evacuation or shelter triggers from measurements rather than from gas-law volume alone.",
-    "briefing": "One volatile fraction from the mixed cargo is moving toward two neighbourhoods. Gas laws set its scale; wind, turbulence, terrain and chemistry decide exposure.",
-    "stake": "Day 2. Before sunrise the wind turns forty degrees and the volatile fraction points toward two neighbourhoods. The plume is colourless. Police need a corridor, residents need instructions, and Fire Command needs the roads kept open. Today you use the gas calculation only for scale, then decide which measurements actually deserve to move the evacuation line.",
+    "briefing": "Gas laws set the scale of the volatile release; wind, terrain and chemistry decide the exposure.",
+    "stake": "On day 2 the wind turned forty degrees at dawn, and the vapour now drifts toward two streets of homes. The cloud cannot be seen, and police hold the exit roads open. Today you use the gas-law volume for scale, then pick the readings that move the line.",
     "takeaway": "Provide a bounded plume assessment and decision triggers for evacuation zones.",
     "stops": [
       {
         "group": "GASES",
         "lesson": 0,
-        "task": "How much volume can the gas occupy?"
+        "task": "How much volume can the gas occupy?",
+        "reason": "The release inventory finally came in, and the corridor drawn on the map still rests on nothing but a gas-law volume"
       },
       {
         "group": "GASES",
         "lesson": 1,
-        "task": "Interpret plume behavior"
+        "task": "Interpret plume behavior",
+        "reason": "Temperature, pressure and wind have all moved since that corridor was drawn, and nobody has said which of them should redraw it"
       },
       {
         "group": "GASES",
         "lesson": 2,
-        "task": "Choose the next plume evidence"
+        "task": "Choose the next plume evidence",
+        "reason": "The same open drum read three times the vapour at two in the afternoon, and the shelter advice was written off the morning number"
       }
     ]
   },
   {
     "title": "Do Not Open the Hatch",
     "objective": "Bound the largest plausible underground reaction and decide what evidence is required before confined-space entry.",
-    "briefing": "Runoff from two parts of the mixed cargo may be meeting in a closed drainage tunnel. The chemistry must be bounded before anyone enters.",
-    "stake": "Day 3. Two contaminated drains disappear into the same closed tunnel. Oyelaran has a crew at the hatch and will not send them down on a chemical story somebody has not balanced. Today you calculate the maximum gas and heat the plausible reaction can make, then ask whether the observations show that reaction is actually occurring. The hatch stays shut until both questions have answers.",
+    "briefing": "Runoff from two parts of the mixed cargo may be meeting in a closed drainage tunnel, and the chemistry must be bounded before anyone enters.",
+    "stake": "On day 3 two dirty drains vanish into the same closed tunnel, and a repair crew waits at the hatch. Nobody sends them down on chemistry that has not been balanced. Today you bound the most gas and heat that reaction could make, then ask whether it is running.",
     "takeaway": "Estimate the maximum reaction scale and define measurements that verify whether the assumed chemistry is occurring.",
     "stops": [
       {
         "group": "ENERGY",
         "lesson": 0,
-        "task": "From identity to reaction estimate"
+        "task": "From identity to reaction estimate",
+        "reason": "Both drain analyses are back, and the hatch stays shut until the steps between them are put in an order that holds"
       },
       {
         "group": "ENERGY",
         "lesson": 1,
-        "task": "Which reactant limits?"
+        "task": "Which reactant limits?",
+        "reason": "The two reactants are arriving in the tunnel in amounts nobody chose, and entry waits on which of them runs out first"
       },
       {
         "group": "ENERGY",
         "lesson": 2,
-        "task": "Heat release is not the spontaneity test"
+        "task": "Heat release is not the spontaneity test",
+        "reason": "The tank test has made no product in six days, and the crew is being told that this proves the reaction cannot happen"
       }
     ]
   },
@@ -84,177 +94,200 @@ export const MISSIONS = [
     "title": "One Result Is Lying",
     "objective": "Confirm the major cargo components and identify a common-mode laboratory failure before the wrong compound enters the treatment plan.",
     "briefing": "The chromatogram contains more peaks than the manifest explains, and two apparently agreeing measurements share a hidden dependency.",
-    "stake": "Day 4. The lab finally has enough data to name the major fractions of the mixed cargo. Then one result refuses to fit: duplicate chromatograms agree beautifully, but an independent structural spectrum does not. Osei is already ordering treatment chemicals from the identity list. Today you decide which evidence is real and whether two agreeing numbers are actually one mistake repeated twice.",
+    "stake": "On day 4 the lab has enough data to name the main parts of the cargo. Two runs of one method agree well, and a second method does not agree at all. Today you say which result is real, and whether two matching numbers are one error made twice.",
     "takeaway": "Assign confidence-ranked identities to mixture components using independent evidence.",
     "stops": [
       {
         "group": "IDENT",
         "lesson": 4,
-        "task": "Which alkali metal is the greater water hazard?"
+        "task": "Which alkali metal is the greater water hazard?",
+        "reason": "Two unlabelled metal cans are down to sodium and potassium, and the water-exclusion zone has to be sized before either is moved"
       },
       {
         "group": "IDENT",
         "lesson": 5,
-        "task": "Read analytical disagreement"
+        "task": "Read analytical disagreement",
+        "reason": "Two methods were run on one extract and they disagree, and the treatment order goes out on whichever one is believed"
       },
       {
         "group": "IDENT",
         "lesson": 6,
-        "task": "Resolve the ambiguous peak"
+        "task": "Resolve the ambiguous peak",
+        "reason": "One peak matches two candidates to within three seconds, and the review board wants it settled before the plant buys chemicals"
       }
     ]
   },
   {
     "title": "Where Did the Metal Go?",
     "objective": "Predict how the dissolved-metal fraction partitions among water, particles and sediment, then design a mass-balance survey.",
-    "briefing": "Firewater carried a dissolved-metal fraction into the river. A clean surface-water grab cannot show whether the material disappeared or merely moved.",
-    "stake": "Day 6. The first runoff reached the river on the night of the fire. The intake is 900 metres downstream, but the metal is no longer all in the water: some is dissolved, some is on particles, and some may already be in the bed. Today you decide where to sample so “the water looks better” cannot be mistaken for “the contaminant is gone.”",
+    "briefing": "A clean surface-water grab cannot show whether the dissolved-metal fraction disappeared or merely moved.",
+    "stake": "On day 6 the water at the intake looks better, but the metal has not left the river. Some is dissolved, some is stuck to particles, and some is in the bed. Today you choose where to sample, so cleaner water cannot be read as clean.",
     "takeaway": "Predict where each chemical class will be found and design a mass-balance sampling plan.",
     "stops": [
       {
         "group": "WATER",
         "lesson": 0,
-        "task": "Where will the chemical go?"
+        "task": "Where will the chemical go?",
+        "reason": "The sampling boat is at the bank with empty bottles, waiting to be told which phase the contaminant actually went into"
       },
       {
         "group": "WATER",
         "lesson": 1,
-        "task": "Use the common-ion effect to clear the limit"
+        "task": "Use the common-ion effect to clear the limit",
+        "reason": "The filtered water is six times over the permit limit, and the pilot can raise dissolved carbonate today without waiting for anything"
       },
       {
         "group": "WATER",
         "lesson": 2,
-        "task": "Spend the river survey budget"
+        "task": "Spend the river survey budget",
+        "reason": "Twenty bottles have to cover nine hundred metres of river, and two grab samples already disagree by a factor of four"
       }
     ]
   },
   {
     "title": "Can We Trust the Numbers?",
     "objective": "Turn instrument signals into concentrations with calibration, dilution, quality control and a sampling design tied to the reopening decision.",
-    "briefing": "The city now has concentration results, but some are over-range, some were diluted, and the limited sample map can still miss the places that matter.",
-    "stake": "Day 8. The first concentration map is on the wall and four systems are shut because of it. Nakamura points to over-range readings, dilution factors and a field kit that is much noisier than the laboratory. Reyes points to hospitals on tankers. Today you decide which numbers are real enough to act on and where the next thirty samples must go so the intake decision is not built on a beautiful map of the wrong places.",
+    "briefing": "Some concentration results are over-range, some were diluted, and a thin sample map can still miss the places that matter.",
+    "stake": "On day 8 the first map of the numbers went up, and four systems shut because of it. Some readings ran off the top of the scale, and some were watered down first. Today you say which numbers can carry a decision, and where the next thirty samples go.",
     "takeaway": "Produce concentration maps whose units, detection limits, and quality controls are explicit.",
     "stops": [
       {
         "group": "QUANT",
         "lesson": 0,
-        "task": "Undo the dilution"
+        "task": "Undo the dilution",
+        "reason": "City leaders are holding a diluted laboratory reading up against the threshold, and four systems are already shut on the strength of it"
       },
       {
         "group": "QUANT",
         "lesson": 1,
-        "task": "Protect the calibration"
+        "task": "Protect the calibration",
+        "reason": "An instrument will return a number for almost anything put in front of it, and this is the number the intake decision rests on"
       },
       {
         "group": "QUANT",
         "lesson": 2,
-        "task": "Spend thirty laboratory samples where they change the decision"
+        "task": "Spend thirty laboratory samples where they change the decision",
+        "reason": "Eleven kilometres of river, thirty laboratory analyses, and a field kit far noisier than the bench it is standing in for"
       },
       {
         "group": "QUANT",
         "lesson": 3,
-        "task": "Work the sample queue while the priority changes."
+        "task": "Work the sample queue while the priority changes.",
+        "reason": "The queue on the bench is longer than the day, and the priority written on the card keeps changing as the incident does"
       }
     ]
   },
   {
     "title": "The Dose That Overshot",
     "objective": "Use pH, titration and buffer behaviour to choose a neutralisation strategy without overshooting the treatment window.",
-    "briefing": "The intake has turned acidic, but the starting pH measures only free hydrogen ion and badly underpredicts how much base the water will consume.",
-    "stake": "Day 11. Operators dosed from the pH reading and the pilot overshot. Ferreira's titration says why: the water carries a weak-acid reservoir that pH alone barely sees. Today you separate free hydrogen ion from total neutralisation demand and set a control rule that keeps the outfall inside its allowed window while the feed keeps changing.",
+    "briefing": "The starting pH measures only free hydrogen ion, and badly underpredicts how much base the water will consume.",
+    "stake": "On day 11 the plant dosed the tank from the pH reading, and it shot past the target. This water holds a store of acid that pH alone barely shows. Today you split free acid from total demand, then set a rule that stops the feed in time.",
     "takeaway": "Select a controlled neutralization strategy and determine when buffer capacity will be exhausted.",
     "stops": [
       {
         "group": "WATER",
         "lesson": 3,
-        "task": "How many moles of acid are present?"
+        "task": "How many moles of acid are present?",
+        "reason": "A thousand-litre test volume sat at pH 4 overnight, and the dose now being prepared is sized off that reading alone"
       },
       {
         "group": "WATER",
         "lesson": 4,
-        "task": "Read the titration curve"
+        "task": "Read the titration curve",
+        "reason": "The bench titration and the plant's pH meter tell two different stories about one water, and the overshoot is the evidence"
       },
       {
         "group": "WATER",
         "lesson": 5,
-        "task": "Control pH without overshoot"
+        "task": "Control pH without overshoot",
+        "reason": "The base pump is primed and the tank is climbing towards its limit, and every change shows up one sampling interval late"
       }
     ]
   },
   {
     "title": "The Riverbed Is Not Clean",
     "objective": "Show how equilibrium can move the metal between dissolved and solid phases and design monitoring for remobilisation.",
-    "briefing": "Dissolved metal has fallen while sediment metal has risen. Treatment changed where the hazard sits; it did not destroy the metal.",
-    "stake": "Day 14. Two weeks of water samples look reassuring. The sediment cores do not. Stavros puts them side by side: the amount leaving the water is showing up in the bed. Today you predict which future changes could put that metal back into solution, and you decide what must still be watched after everyone else wants to call the river clean.",
+    "briefing": "Treatment changed where the hazard sits; it did not destroy the metal.",
+    "stake": "On day 14 two weeks of water samples read low, and the sediment cores read high. The metal leaving the water is turning up in the river bed. Today you say which changes could put it back into the water, and what must still be watched.",
     "takeaway": "Predict how pH and ligands shift dissolved concentration and design monitoring for the metal coming back.",
     "stops": [
       {
         "group": "WATER",
         "lesson": 6,
-        "task": "From condition change to new equilibrium"
+        "task": "From condition change to new equilibrium",
+        "reason": "Dissolved metal fell and sediment metal rose after the pH change, and the two curves have to be read as one story"
       },
       {
         "group": "WATER",
         "lesson": 7,
-        "task": "Interpret the shift"
+        "task": "Interpret the shift",
+        "reason": "Solids were removed, a new ligand arrived on an upstream discharge, and pH swings through the day, all in the same reservoir"
       },
       {
         "group": "WATER",
         "lesson": 8,
-        "task": "Will the holding pond freeze tonight?"
+        "task": "Will the holding pond freeze tonight?",
+        "reason": "The forecast low is minus four, and a frozen pond surface means either bypassing untreated water or stopping the plant"
       }
     ]
   },
   {
     "title": "The Plume Came Back",
     "objective": "Identify secondary atmospheric products and move monitoring to the places and times that can still change the return-home decision.",
-    "briefing": "The primary volatile has fallen, but an afternoon secondary product is rising downwind after the source is sealed.",
-    "stake": "Day 17. The original vapour is nearly gone and residents have already been told the air emergency is ending. Then the neighbourhood monitor climbs again every afternoon. Today you test whether sunlight is turning the remaining vapour into something new, and you move the monitoring from the fence to where people are actually breathing it. A sealed source does not end chemistry already in the air.",
+    "briefing": "The primary volatile has fallen, but an afternoon secondary product is rising downwind after the source was sealed.",
+    "stake": "On day 17 the first vapour is nearly gone, and the city was told the air scare had ended. Then the street monitor climbs again each afternoon. Today you test whether the sun is making a new gas, and move the monitors to where people live.",
     "takeaway": "Identify likely secondary products and update monitoring locations and times.",
     "stops": [
       {
         "group": "GASES",
         "lesson": 3,
-        "task": "Build a secondary-pollutant pathway"
+        "task": "Build a secondary-pollutant pathway",
+        "reason": "Sunlight, oxidant and a falling primary vapour are pinned on the board out of order, and the shelter notice expires today"
       },
       {
         "group": "GASES",
         "lesson": 4,
-        "task": "Read the day-night pattern"
+        "task": "Read the day-night pattern",
+        "reason": "Two stations ran through the night and the afternoon, and the shelter advice is renewed or dropped on what their pattern means"
       },
       {
         "group": "GASES",
         "lesson": 5,
-        "task": "Monitor the transformed plume"
+        "task": "Monitor the transformed plume",
+        "reason": "Residents want to come home this week, and the monitoring van can only be parked in one place at a time"
       }
     ]
   },
   {
     "title": "Why Is It Still Heating?",
     "objective": "Distinguish stored heat from continuing reaction and require monitoring that can detect self-heating before release of the storage zone.",
-    "briefing": "A storage bay is warming three weeks after the fire. The decision is whether it is slowly cooling from the original event or still generating heat.",
-    "stake": "Day 22. One storage bay is hotter than it was at midnight even though the visible fire has been out for weeks. Fire Command wants the cordon down tonight. Today you convert temperature into an energy scale, compare the time histories, and decide what evidence would prove the heat source is gone rather than merely hidden.",
+    "briefing": "The decision is whether the storage bay is slowly cooling from the original fire or still generating heat of its own.",
+    "stake": "On day 22 one storage bay is hotter than it was at midnight, weeks after the fire went out. Fire Command wants the cordon down tonight. Today you turn that heating into an energy figure, and say what would prove the heat source is gone.",
     "takeaway": "Create an energy balance and choose a monitoring plan that detects self-heating early.",
     "stops": [
       {
         "group": "ENERGY",
         "lesson": 3,
-        "task": "How much energy raises the temperature?"
+        "task": "How much energy raises the temperature?",
+        "reason": "The containment bath beside the damaged bay is still warming, and the size of the stored heat decides whether cooling stays on"
       },
       {
         "group": "ENERGY",
         "lesson": 4,
-        "task": "Stored heat or continuing reaction?"
+        "task": "Stored heat or continuing reaction?",
+        "reason": "Two bays met the same fire, and ninety minutes after cooling stopped one is falling while the other is climbing"
       },
       {
         "group": "ENERGY",
         "lesson": 5,
-        "task": "Control the self-heating risk"
+        "task": "Control the self-heating risk",
+        "reason": "Bay 3 went from 31 to 44 degrees in eight hours with the rise steepening, and the cordon is due down tonight"
       },
       {
         "group": "TREAT",
         "lesson": 0,
-        "task": "Hold the neutralisation tank while the plant feeds it."
+        "task": "Hold the neutralisation tank while the plant feeds it.",
+        "reason": "Acid liquor arrives in batches, one lime pump is the only control, and nothing leaves for the river above pH 7"
       }
     ]
   },
@@ -262,119 +295,134 @@ export const MISSIONS = [
     "title": "The Pipe We Damaged",
     "objective": "Identify the galvanic corrosion circuit, estimate the scale of wall loss, and choose a control that breaks the electrical coupling.",
     "briefing": "The intake main fails at a mixed-metal joint that the response itself connected electrically during the emergency.",
-    "stake": "Day 26. The city's intake main has sprung a leak at a mixed-metal joint. Then Novák finds the response team's temporary earth cable clamped across the same section. Today you identify the anode, cathode, electrolyte and electrical path, estimate what the average mass loss means for wall thickness, and choose the control that breaks the circuit before a second leak closes the intake again.",
+    "stake": "On day 26 the city's water main sprang a leak where two different metals are joined. Our own emergency earth cable is clamped across the same length of pipe. Today you find the circuit, work out how much metal is gone, and pick the control that breaks it.",
     "takeaway": "Identify the corrosion cell and choose controls that address both chemistry and electrical coupling.",
     "stops": [
       {
         "group": "TREAT",
         "lesson": 1,
-        "task": "Find the anode and cathode"
+        "task": "Find the anode and cathode",
+        "reason": "Two joined metals, acidic water and a temporary earth cable all sit on one section, and the gallery stays cleared until the circuit is named"
       },
       {
         "group": "TREAT",
         "lesson": 2,
-        "task": "How fast can material disappear?"
+        "task": "How fast can material disappear?",
+        "reason": "Two kilograms of steel a year across four square metres sounds small until somebody turns it into wall thickness"
       },
       {
         "group": "TREAT",
         "lesson": 3,
-        "task": "Protect the pipeline"
+        "task": "Protect the pipeline",
+        "reason": "The thinnest wall is down to three millimetres, and corrosion has run eight times faster since the emergency earth went on"
       }
     ]
   },
   {
     "title": "Can the Treatment Run Away?",
     "objective": "Stress-test the treatment kinetics and define a thermal operating envelope that remains safe when the reaction is more temperature-sensitive than expected.",
-    "briefing": "A treatment chemistry that was quiet in a drum accelerates in the warm pilot vessel. Full-scale operation concentrates the reacting material and the heat.",
-    "stake": "Day 31. The pilot looks calm at first and then its temperature trace bends upward. Osei plans to scale from 40 litres to 9,000 on Monday. Today you build the feedback loop, push the uncertain temperature dependence in the dangerous direction, and choose the operating plan that still keeps heat generation below cooling when the optimistic assumption is wrong.",
+    "briefing": "A treatment chemistry that was quiet in a drum accelerates in the warm pilot vessel, and full scale concentrates both the reacting material and the heat.",
+    "stake": "On day 31 the pilot vessel sat calm for an hour, then its temperature curve bent upward. The plan is to scale it from 40 litres to 9,000 on Monday. Today you build the feedback loop, and pick a plan whose heat stays below the cooling.",
     "takeaway": "Identify the controlling rate factors and define a safe operating envelope with automatic shutdown triggers.",
     "stops": [
       {
         "group": "ENERGY",
         "lesson": 6,
-        "task": "What changes the rate?"
+        "task": "What changes the rate?",
+        "reason": "The same mixture is quiet in a cool drum and vigorous in the warm pilot, and only one change on the bench explains that"
       },
       {
         "group": "ENERGY",
         "lesson": 7,
-        "task": "Build a runaway feedback loop"
+        "task": "Build a runaway feedback loop",
+        "reason": "Four events from the runaway run are printed out of order on the control-room board, and Monday's batch is nine thousand litres"
       },
       {
         "group": "ENERGY",
         "lesson": 8,
-        "task": "Define the safe operating envelope"
+        "task": "Define the safe operating envelope",
+        "reason": "Bench work stopped at 55 degrees, the proposed vessel runs at 60, and the cooling jacket tops out at 40 kilowatts"
       }
     ]
   },
   {
     "title": "Gone From the Water Is Not Gone",
     "objective": "Choose a treatment train from complete mass balance, byproducts, waste fate and operational reliability rather than target removal alone.",
-    "briefing": "The pilot removes most of the target from water, but the mass has moved into sludge, off-gas and an incompletely characterised transformation-product pool.",
-    "stake": "Day 38. The pilot outlet is 98 percent lower for the target compound and everyone wants to call that success. Delgado lays out the other streams: sludge, off-gas and a new signal the target-only method cannot quantify. Today you close the mass balance, order the treatment stages by the chemistry each one leaves the next, and choose the pilot question that can reveal whether the “removal” created a new hazard.",
+    "briefing": "The pilot removes most of the target from the water, but the mass has moved into sludge, off-gas and a poorly characterised pool of transformation products.",
+    "stake": "On day 38 the treated water reads 98 percent lower, and the city wants to call that a win. The sludge, the waste gas and one new signal have not been counted. Today you close the mass balance, and choose the one pilot question worth four weeks.",
     "takeaway": "Choose a treatment train using contaminant removal, byproduct formation, waste fate, and operational reliability.",
     "stops": [
       {
         "group": "TREAT",
         "lesson": 4,
-        "task": "What did the treatment actually do?"
+        "task": "What did the treatment actually do?",
+        "reason": "A hundred kilograms went in, the treated water, sludge and off-gas have all been weighed, and the city wants to hear destruction"
       },
       {
         "group": "TREAT",
         "lesson": 5,
-        "task": "Select a treatment train"
+        "task": "Select a treatment train",
+        "reason": "Four unit processes are spread out on the table, and Riverton has one intake and cannot run this experiment twice"
       },
       {
         "group": "TREAT",
         "lesson": 6,
-        "task": "Choose the safest pilot program"
+        "task": "Choose the safest pilot program",
+        "reason": "The pilot has room for one question in four weeks, and three of the four proposals lean on the same unmeasured quantity"
       }
     ]
   },
   {
     "title": "Are We Ready to Reopen?",
     "objective": "Close the last analytical and sampling gaps and make a release decision using a predefined decision band rather than the best estimate alone.",
-    "briefing": "Verification is near the release limit. The last identity question, sampling representativeness and measurement uncertainty all have to be resolved before the distribution network is pressurised.",
-    "stake": "Day 45. The treated water is near the release limit, one transformation-product peak still has two plausible identities, and the first quality check on the critical sample failed. Reyes has schools and hospitals on tankers. Today you close the identity and verification gaps, then decide whether the evidence supports release, conditional release, or a continued hold. The rule is written before you look at the answer.",
+    "briefing": "The last identity question, sampling representativeness and measurement uncertainty all have to be resolved before the distribution network is pressurised.",
+    "stake": "On day 45 the treated water sits just under the release limit, and the first check on the key sample failed. One peak still has two possible names. Today you close those gaps, then decide on release, release with rules, or a hold.",
     "takeaway": "Make a transparent release decision with conditional monitoring and explicit treatment of borderline results.",
     "stops": [
       {
         "group": "QUANT",
         "lesson": 4,
-        "task": "Name the last unresolved treatment product"
+        "task": "Name the last unresolved treatment product",
+        "reason": "Two candidate products differ by a single oxygen atom, and the release paperwork cannot be signed with both of them on it"
       },
       {
         "group": "QUANT",
         "lesson": 5,
-        "task": "Close the verification gaps"
+        "task": "Close the verification gaps",
+        "reason": "The evidence package is being carried into the network room, and the mains go back up to pressure on what is in it"
       },
       {
         "group": "QUANT",
         "lesson": 6,
-        "task": "Approve, condition, or hold"
+        "task": "Approve, condition, or hold",
+        "reason": "The best estimate is 9 against a limit of 10, the prewritten band reaches 11, and operators are waiting at the valves"
       }
     ]
   },
   {
     "title": "Sign the Water Back On",
     "objective": "Deliver the claim-by-claim evidence package and decide whether Riverton can reopen under explicit controls, triggers and long-term monitoring.",
-    "briefing": "The final board must separate what is established, what remains provisional, and what is safe only while a control continues. Reopening is a managed decision, not a declaration that every contaminant is gone.",
-    "stake": "Seven weeks in. The state reviewer is at the table and the mayor wants one word tonight: reopen or hold. The treated water now meets the predefined release rule at representative endpoints, but contaminated sediment remains, a transformation product is still provisional, and the pipeline is safe only inside a chemistry window. Today you classify those claims, audit one last treatment number, and then sign — or refuse to sign — the order that puts Riverton's water back into its own pipes.",
+    "briefing": "The final board must separate what is established, what remains provisional, and what is safe only while a control keeps working.",
+    "stake": "Seven weeks in, the state reviewer is at the table and the mayor wants one word tonight. The water meets the rule, but the river bed is still dirty and one product is still a guess. Today you sort those claims, audit one last number, and sign or refuse.",
     "takeaway": "Deliver a claim-by-claim chemical evidence package and a long-term monitoring plan.",
     "stops": [
       {
         "group": "TREAT",
         "lesson": 7,
-        "task": "Disposition the final chemical claims"
+        "task": "Disposition the final chemical claims",
+        "reason": "The city wants one sentence on the screen tonight, and the chemistry supports three different kinds of claim instead of one"
       },
       {
         "group": "TREAT",
         "lesson": 8,
-        "task": "Audit the electrochemical removal from the charge passed"
+        "task": "Audit the electrochemical removal from the charge passed",
+        "reason": "The polishing cell ran six hours at forty amperes, and the meter on its outlet has never been checked against the charge"
       },
       {
         "group": "TREAT",
         "lesson": 9,
-        "task": "Sign the reopening order"
+        "task": "Sign the reopening order",
+        "reason": "Endpoint water meets the rule while the sediment, one product and a chemistry window are all still open, and the order is in front of you"
       }
     ]
   }

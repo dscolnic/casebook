@@ -239,48 +239,42 @@ export const LEADERS = [
     "name": "Pär Lindqvist",
     "role": "Drill Engineer",
     "science": 4,
-    "management": 4,
-    "trait": ""
+    "management": 4
   },
   {
     "id": "okonkwo",
     "name": "Ines Okonkwo",
     "role": "Chronology Lead",
     "science": 4,
-    "management": 4,
-    "trait": ""
+    "management": 4
   },
   {
     "id": "tanabe",
     "name": "Yuki Tanabe",
     "role": "Isotope Chemist",
     "science": 4,
-    "management": 4,
-    "trait": ""
+    "management": 4
   },
   {
     "id": "adeyemi",
     "name": "Samuel Adeyemi",
     "role": "Gas Geochemist",
     "science": 4,
-    "management": 4,
-    "trait": ""
+    "management": 4
   },
   {
     "id": "brandt",
     "name": "Nadia Brandt",
     "role": "Field Glaciologist",
     "science": 4,
-    "management": 4,
-    "trait": ""
+    "management": 4
   },
   {
     "id": "halvorsen",
     "name": "Marit Halvorsen",
     "role": "Chief Scientist",
     "science": 4,
-    "management": 4,
-    "trait": ""
+    "management": 4
   }
 ];
 

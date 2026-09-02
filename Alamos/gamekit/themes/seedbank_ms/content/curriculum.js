@@ -383,6 +383,28 @@ export const CURRICULUM = {
       "assumes": [
         "a sample can support a statement about the group it came from"
       ],
+      "equations": [
+        {
+          "e": "part = whole × share",
+          "c": "how many of a batch will do something",
+          "v": [
+            [
+              "part",
+              "how many"
+            ],
+            [
+              "whole",
+              "how many there are altogether"
+            ],
+            [
+              "share",
+              "the percentage, written as a decimal"
+            ]
+          ],
+          "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it.",
+          "computed": true
+        }
+      ],
       "concept": {
         "n": 14,
         "c": "A label and a record are part of the seed",
@@ -525,12 +547,9 @@ export const CURRICULUM = {
         "young plants get half their genes from each parent"
       ],
       "concept": {
-        "n": 3,
-        "c": "Two parents each give half, so the young are not copies",
-        "of": 16,
-        "rests": [
-          "Living things pass traits to their offspring"
-        ]
+        "n": 1,
+        "c": "Living things pass traits to their offspring",
+        "of": 16
       }
     },
     {

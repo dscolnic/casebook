@@ -2453,21 +2453,20 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a second measurement is only a check if it could disagree",
-        "calibration drift, and the tuning that has to happen daily — taken as read"
+        "superposition as an amplitude, not a mixture — taken as read"
       ],
       "takesAsRead": [
         {
-          "n": 15,
-          "c": "Calibration drift, and the tuning that has to happen daily"
+          "n": 4,
+          "c": "Superposition as an amplitude, not a mixture"
         }
       ],
       "concept": {
-        "n": 29,
-        "c": "Reproducibility: a result on one device is not a result",
+        "n": 5,
+        "c": "Measurement collapses the state and returns one outcome",
         "of": 30,
         "rests": [
-          "Randomised benchmarking: what it measures and what it does not",
-          "Calibration drift, and the tuning that has to happen daily"
+          "Superposition as an amplitude, not a mixture"
         ]
       }
     },
@@ -3234,11 +3233,12 @@ export const CURRICULUM = {
         "a claim can rest on a measurement, an inference, or a projection"
       ],
       "concept": {
-        "n": 21,
-        "c": "Quantum error correction and the threshold idea",
+        "n": 14,
+        "c": "Readout, discriminators, and how a classifier can cheat",
         "of": 30,
         "rests": [
-          "Gate fidelity, and how error compounds with depth"
+          "Measurement collapses the state and returns one outcome",
+          "Probability from amplitude, and why one shot tells you nothing"
         ]
       }
     },

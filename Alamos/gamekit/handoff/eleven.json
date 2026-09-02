@@ -1,0 +1,1193 @@
+{
+ "FILES": {
+  "taskclause-debt.json": {
+   "label": "taskclause",
+   "gate": "checkStory",
+   "band": "daycards",
+   "what": "A day’s stake has to say what the player decides, in the “Today you …” shape.",
+   "owed": "day(s) whose stake never says what you decide"
+  },
+  "stakelength-debt.json": {
+   "label": "stakelength",
+   "gate": "checkStory",
+   "band": "daycards",
+   "what": "The opening blurb — stake plus any briefing that says something the stake did not — runs to four sentences at most.",
+   "owed": "day card(s) past four sentences"
+  },
+  "namefree-debt.json": {
+   "label": "namefree",
+   "gate": "checkStory",
+   "band": "daycards",
+   "what": "A plan card and a debrief name nobody. Names belong on the call’s own reason, at the moment the person is standing in front of you.",
+   "owed": "day(s) naming somebody on the plan card or the debrief"
+  },
+  "openinglength-debt.json": {
+   "label": "openinglength",
+   "gate": "checkStory",
+   "band": "daycards",
+   "what": "The opening card runs to five sentences at most — one more than a day card, because it carries four beats and a day card carries one. Counted by the same splitter as the day cap.",
+   "owed": "opening card past five sentences"
+  },
+  "segue-drama-debt.json": {
+   "label": "segue-drama",
+   "gate": "checkStory",
+   "band": "closing",
+   "what": "A closing card has to turn: a complication or a forced consequence, in any wording, with something concrete at risk — and it may not simply echo the next stake or the day’s own takeaway.",
+   "owed": "closing card(s) with no turn in them"
+  },
+  "seguegrade-debt.json": {
+   "label": "seguegrade",
+   "gate": "checkStory",
+   "band": "closing",
+   "what": "A closing card reads at grade 8 or below — a flat ceiling rather than the campaign’s own audience grade, since a closing card motivates rather than teaches.",
+   "owed": "closing card(s) above the ceiling"
+  }
+ },
+ "NUMBERS": {
+  "plaincards-debt.json": {
+   "label": "plainCards",
+   "keys": [
+    [
+     "over",
+     "cards over grade 6.5",
+     "of 16"
+    ],
+    [
+     "long",
+     "sentence pile-ups past 28 words",
+     ""
+    ],
+    [
+     "worst",
+     "worst single card",
+     "grade"
+    ]
+   ],
+   "rule": "All three are high-water marks. <code>plainCards</code> fails this campaign if any of them rises. They only ever fall, and they fall by rewriting cards and re-banking with <code>--write-debt</code>."
+  },
+  "plainquestions-debt.json": {
+   "label": "plainQuestions",
+   "keys": [
+    [
+     "long",
+     "sentences past 28 words",
+     "GATED"
+    ],
+    [
+     "wps",
+     "words per sentence",
+     "GATED"
+    ],
+    [
+     "spw",
+     "syllables per word",
+     "GATED — may not FALL"
+    ],
+    [
+     "grade",
+     "reading grade",
+     "reported"
+    ],
+    [
+     "over",
+     "cards over grade 6.5",
+     "reported"
+    ],
+    [
+     "worst",
+     "worst single card",
+     "reported"
+    ]
+   ],
+   "rule": "Three of the six are gated and three are only reported, and the asymmetry is the point. <code>long</code> and <code>wps</code> may not rise; <code>spw</code> may not <em>fall</em>, because a reading grade bought by deleting the course’s vocabulary is the one thing the accessibility pass forbids. The grade itself is reported, never gated."
+  }
+ },
+ "rows": [
+  {
+   "id": "carrying",
+   "title": "Carrying Capacity",
+   "subtitle": "Island Resources Officer · Vellan Island, fifteen days to the ferry vote",
+   "course": "AP Environmental Science",
+   "dayNoun": "day",
+   "delivery": "The Second-Ferry Plan",
+   "files": {
+    "taskclause-debt.json": [
+     "Day 1 (What does Vellan actually depend on?)",
+     "Day 4 (The salt warning)",
+     "Day 11 (What the diesel is really costing)"
+    ],
+    "stakelength-debt.json": [
+     "Day 2 (How much water does Vellan actually get?)",
+     "Day 4 (The salt warning)",
+     "Day 5 (How much can the bay replace?)",
+     "Day 6 (A rule nobody checks is not a rule)",
+     "Day 8 (The school tap)",
+     "Day 9 (What can change before the vote?)",
+     "Day 11 (What the diesel is really costing)",
+     "Day 12 (The ferry is not the water problem)",
+     "Day 14 (Will there still be a school?)",
+     "Day 15 (Should Vellan add the second ferry?)"
+    ],
+    "namefree-debt.json": [
+     "Day 2 (How much water does Vellan actually get?)",
+     "Day 4 (The salt warning)",
+     "Day 5 (How much can the bay replace?)",
+     "Day 6 (A rule nobody checks is not a rule)",
+     "Day 7 (What is Vellan wasting already?)",
+     "Day 8 (The school tap)",
+     "Day 9 (What can change before the vote?)",
+     "Day 10 (What is really happening to the reef?)",
+     "Day 13 (What else comes off the ferry?)",
+     "Day 14 (Will there still be a school?)"
+    ],
+    "openinglength-debt.json": [
+     "opening"
+    ],
+    "segue-drama-debt.json": [
+     "Day 1 (What does Vellan actually depend on?)",
+     "Day 5 (How much can the bay replace?)",
+     "Day 6 (A rule nobody checks is not a rule)",
+     "Day 7 (What is Vellan wasting already?)",
+     "Day 9 (What can change before the vote?)",
+     "Day 10 (What is really happening to the reef?)",
+     "Day 11 (What the diesel is really costing)",
+     "Day 12 (The ferry is not the water problem)",
+     "Day 15 (Should Vellan add the second ferry?)"
+    ],
+    "seguegrade-debt.json": [
+     "Day 1 (What does Vellan actually depend on?)",
+     "Day 2 (How much water does Vellan actually get?)",
+     "Day 3 (How much life can the island support?)",
+     "Day 4 (The salt warning)",
+     "Day 5 (How much can the bay replace?)",
+     "Day 6 (A rule nobody checks is not a rule)",
+     "Day 7 (What is Vellan wasting already?)",
+     "Day 9 (What can change before the vote?)",
+     "Day 11 (What the diesel is really costing)",
+     "Day 12 (The ferry is not the water problem)",
+     "Day 13 (What else comes off the ferry?)",
+     "Day 14 (Will there still be a school?)"
+    ],
+    "plaincards-debt.json": {
+     "over": 10,
+     "long": 3,
+     "worst": 10
+    },
+    "plainquestions-debt.json": {
+     "long": 10,
+     "wps": 14.3,
+     "spw": 1.599,
+     "grade": 7.09,
+     "over": 37,
+     "worst": 9.3
+    }
+   },
+   "storyDebt": [
+    "Day 1 (What does Vellan actually depend on?): no \"Today you …\" clause (recorded debt)",
+    "Day 1 (What does Vellan actually depend on?): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 4 (The salt warning): no \"Today you …\" clause (recorded debt)",
+    "Day 5 (How much can the bay replace?): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 6 (A rule nobody checks is not a rule): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 7 (What is Vellan wasting already?): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 9 (What can change before the vote?): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 10 (What is really happening to the reef?): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 11 (What the diesel is really costing): no \"Today you …\" clause (recorded debt)",
+    "Day 11 (What the diesel is really costing): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 12 (The ferry is not the water problem): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 15 (Should Vellan add the second ferry?): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it",
+    "Day 1 (What does Vellan actually depend on?): closing card reads at grade 6.9 (recorded debt)",
+    "Day 2 (How much water does Vellan actually get?): opening blurb runs 6 sentences (recorded debt)",
+    "Day 2 (How much water does Vellan actually get?): the opening blurb name somebody (recorded debt)",
+    "Day 2 (How much water does Vellan actually get?): closing card reads at grade 8.2 (recorded debt)",
+    "Day 3 (How much life can the island support?): closing card reads at grade 8.1 (recorded debt)",
+    "Day 4 (The salt warning): opening blurb runs 5 sentences (recorded debt)",
+    "Day 4 (The salt warning): the closing card name somebody (recorded debt)",
+    "Day 4 (The salt warning): closing card reads at grade 9.6 (recorded debt)",
+    "Day 5 (How much can the bay replace?): opening blurb runs 6 sentences (recorded debt)",
+    "Day 5 (How much can the bay replace?): the opening blurb name somebody (recorded debt)",
+    "Day 5 (How much can the bay replace?): closing card reads at grade 8.4 (recorded debt)",
+    "Day 6 (A rule nobody checks is not a rule): opening blurb runs 5 sentences (recorded debt)",
+    "Day 6 (A rule nobody checks is not a rule): the opening blurb name somebody (recorded debt)",
+    "Day 6 (A rule nobody checks is not a rule): closing card reads at grade 8.0 (recorded debt)",
+    "Day 7 (What is Vellan wasting already?): the opening blurb name somebody (recorded debt)",
+    "Day 7 (What is Vellan wasting already?): closing card reads at grade 8.1 (recorded debt)",
+    "Day 8 (The school tap): opening blurb runs 5 sentences (recorded debt)",
+    "Day 8 (The school tap): the opening blurb name somebody (recorded debt)",
+    "Day 9 (What can change before the vote?): opening blurb runs 5 sentences (recorded debt)",
+    "Day 9 (What can change before the vote?): the opening blurb name somebody (recorded debt)",
+    "Day 9 (What can change before the vote?): closing card reads at grade 8.9 (recorded debt)",
+    "Day 10 (What is really happening to the reef?): the opening blurb name somebody (recorded debt)",
+    "Day 11 (What the diesel is really costing): opening blurb runs 5 sentences (recorded debt)",
+    "Day 11 (What the diesel is really costing): closing card reads at grade 7.2 (recorded debt)",
+    "Day 12 (The ferry is not the water problem): opening blurb runs 6 sentences (recorded debt)",
+    "Day 12 (The ferry is not the water problem): closing card reads at grade 8.9 (recorded debt)",
+    "Day 13 (What else comes off the ferry?): the closing card name somebody (recorded debt)",
+    "Day 13 (What else comes off the ferry?): closing card reads at grade 10.5 (recorded debt)",
+    "Day 14 (Will there still be a school?): opening blurb runs 5 sentences (recorded debt)",
+    "Day 14 (Will there still be a school?): the opening blurb name somebody (recorded debt)",
+    "Day 14 (Will there still be a school?): closing card reads at grade 7.4 (recorded debt)",
+    "Day 15 (Should Vellan add the second ferry?): opening blurb runs 6 sentences (recorded debt)",
+    "the opening card runs 9 sentences (recorded debt)"
+   ],
+   "tell": "theme \"carrying\" tells a story: 8/15 cards name the cast, 15/15 say when, 12/15 say what you decide, 52 words and grade 6.9 on average",
+   "notes": [
+    "15 of 15 cards are brief stakes, so the roster is met on the calls and in the debrief rather than on the plan card (8 of 15 name anybody)",
+    "15/14 day(s) carry a debrief segue (rule 11) — coverage, not a gate, while this rule is adopted"
+   ]
+  },
+  {
+   "id": "changeover",
+   "title": "Changeover",
+   "subtitle": "Chief Economist · Halvern Currency Board",
+   "course": "AP Macroeconomics",
+   "dayNoun": "day",
+   "delivery": "The Halvern Rate Book",
+   "files": {
+    "taskclause-debt.json": [
+     "Day 2 (The economy shrank while the jobless rate fell)",
+     "Day 5 (Twelve million that could become six hundred)",
+     "Day 12 (Rehearse 4.15 before you sign it)"
+    ],
+    "stakelength-debt.json": [
+     "Day 4 (The basket prices a vanished city)",
+     "Day 5 (Twelve million that could become six hundred)",
+     "Day 7 (The chair's rate fails the reserve clock)",
+     "Day 10 (Prices up, output down)",
+     "Day 14 (The reserves cannot pay for everything)",
+     "Day 15 (Sign the rate)"
+    ],
+    "namefree-debt.json": [
+     "Day 4 (The basket prices a vanished city)",
+     "Day 7 (The chair's rate fails the reserve clock)"
+    ],
+    "openinglength-debt.json": [
+     "opening"
+    ],
+    "plaincards-debt.json": {
+     "over": 12,
+     "long": 0,
+     "worst": 11.7
+    },
+    "plainquestions-debt.json": {
+     "long": 10,
+     "wps": 14.2,
+     "spw": 1.584,
+     "grade": 7.37,
+     "over": 40,
+     "worst": 9.9
+    }
+   },
+   "storyDebt": [
+    "Day 2 (The economy shrank while the jobless rate fell): no \"Today you …\" clause (recorded debt)",
+    "Day 5 (Twelve million that could become six hundred): no \"Today you …\" clause (recorded debt)",
+    "Day 12 (Rehearse 4.15 before you sign it): no \"Today you …\" clause (recorded debt)",
+    "Day 4 (The basket prices a vanished city): opening blurb runs 5 sentences (recorded debt)",
+    "Day 4 (The basket prices a vanished city): the opening blurb name somebody (recorded debt)",
+    "Day 5 (Twelve million that could become six hundred): opening blurb runs 5 sentences (recorded debt)",
+    "Day 7 (The chair's rate fails the reserve clock): opening blurb runs 5 sentences (recorded debt)",
+    "Day 7 (The chair's rate fails the reserve clock): the opening blurb name somebody (recorded debt)",
+    "Day 10 (Prices up, output down): opening blurb runs 5 sentences (recorded debt)",
+    "Day 14 (The reserves cannot pay for everything): opening blurb runs 5 sentences (recorded debt)",
+    "Day 15 (Sign the rate): opening blurb runs 5 sentences (recorded debt)",
+    "the opening card runs 6 sentences (recorded debt)"
+   ],
+   "tell": "theme \"changeover\" tells a story: 2/15 cards name the cast, 15/15 say when, 12/15 say what you decide, 43 words and grade 7.1 on average",
+   "notes": [
+    "15 of 15 cards are brief stakes, so the roster is met on the calls and in the debrief rather than on the plan card (2 of 15 name anybody)",
+    "14/14 day(s) carry a debrief segue (rule 11) — every one that can have one does"
+   ]
+  },
+  {
+   "id": "darkfibre",
+   "title": "Dark Fibre",
+   "subtitle": "Optical Measurements Lead · Pellow Head Island · twelve days to guide one repair attempt",
+   "course": "AP Physics 2 — optics and modern",
+   "dayNoun": "day",
+   "delivery": "The Repair Order",
+   "files": {
+    "taskclause-debt.json": [
+     "Day 1 (Is the problem here, or out at sea?)",
+     "Day 2 (Turn the echo into a distance)",
+     "Day 3 (Is the cable actually broken?)",
+     "Day 4 (How close is the link to failing?)",
+     "Day 5 (Can you trust the weak signal?)",
+     "Day 6 (Calibrate the instruments)",
+     "Day 7 (Choose the tests before the ship arrives)",
+     "Day 8 (Build the test that separates the suspects)",
+     "Day 9 (Make the replacement ready)",
+     "Day 10 (Where exactly should the ship go?)",
+     "Day 11 (Make one diagnosis fit every clue)",
+     "Day 12 (Give the captain one repair order)"
+    ],
+    "stakelength-debt.json": [
+     "Day 1 (Is the problem here, or out at sea?)",
+     "Day 2 (Turn the echo into a distance)",
+     "Day 3 (Is the cable actually broken?)",
+     "Day 4 (How close is the link to failing?)",
+     "Day 5 (Can you trust the weak signal?)",
+     "Day 6 (Calibrate the instruments)",
+     "Day 7 (Choose the tests before the ship arrives)",
+     "Day 8 (Build the test that separates the suspects)",
+     "Day 9 (Make the replacement ready)",
+     "Day 10 (Where exactly should the ship go?)",
+     "Day 11 (Make one diagnosis fit every clue)",
+     "Day 12 (Give the captain one repair order)"
+    ],
+    "namefree-debt.json": [
+     "Day 1 (Is the problem here, or out at sea?)",
+     "Day 2 (Turn the echo into a distance)",
+     "Day 8 (Build the test that separates the suspects)",
+     "Day 9 (Make the replacement ready)",
+     "Day 10 (Where exactly should the ship go?)"
+    ],
+    "openinglength-debt.json": [
+     "opening"
+    ],
+    "segue-drama-debt.json": [
+     "Day 3 (Is the cable actually broken?)",
+     "Day 6 (Calibrate the instruments)",
+     "Day 7 (Choose the tests before the ship arrives)",
+     "Day 8 (Build the test that separates the suspects)",
+     "Day 9 (Make the replacement ready)",
+     "Day 11 (Make one diagnosis fit every clue)",
+     "Day 12 (Give the captain one repair order)"
+    ],
+    "seguegrade-debt.json": [
+     "Day 3 (Is the cable actually broken?)",
+     "Day 5 (Can you trust the weak signal?)",
+     "Day 7 (Choose the tests before the ship arrives)",
+     "Day 8 (Build the test that separates the suspects)"
+    ],
+    "plaincards-debt.json": {
+     "over": 5,
+     "long": 2,
+     "worst": 9.2
+    },
+    "plainquestions-debt.json": {
+     "long": 8,
+     "wps": 14,
+     "spw": 1.602,
+     "grade": 7.5,
+     "over": 31,
+     "worst": 10.2
+    }
+   },
+   "storyDebt": [
+    "Day 1 (Is the problem here, or out at sea?): no \"Today you …\" clause (recorded debt)",
+    "Day 2 (Turn the echo into a distance): no \"Today you …\" clause (recorded debt)",
+    "Day 3 (Is the cable actually broken?): no \"Today you …\" clause (recorded debt)",
+    "Day 3 (Is the cable actually broken?): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it",
+    "Day 4 (How close is the link to failing?): no \"Today you …\" clause (recorded debt)",
+    "Day 5 (Can you trust the weak signal?): no \"Today you …\" clause (recorded debt)",
+    "Day 6 (Calibrate the instruments): no \"Today you …\" clause (recorded debt)",
+    "Day 6 (Calibrate the instruments): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 7 (Choose the tests before the ship arrives): no \"Today you …\" clause (recorded debt)",
+    "Day 7 (Choose the tests before the ship arrives): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 8 (Build the test that separates the suspects): no \"Today you …\" clause (recorded debt)",
+    "Day 8 (Build the test that separates the suspects): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 9 (Make the replacement ready): no \"Today you …\" clause (recorded debt)",
+    "Day 9 (Make the replacement ready): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 10 (Where exactly should the ship go?): no \"Today you …\" clause (recorded debt)",
+    "Day 11 (Make one diagnosis fit every clue): no \"Today you …\" clause (recorded debt)",
+    "Day 11 (Make one diagnosis fit every clue): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 12 (Give the captain one repair order): no \"Today you …\" clause (recorded debt)",
+    "Day 12 (Give the captain one repair order): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 1 (Is the problem here, or out at sea?): opening blurb runs 6 sentences (recorded debt)",
+    "Day 1 (Is the problem here, or out at sea?): the opening blurb name somebody (recorded debt)",
+    "Day 2 (Turn the echo into a distance): opening blurb runs 6 sentences (recorded debt)",
+    "Day 2 (Turn the echo into a distance): the opening blurb name somebody (recorded debt)",
+    "Day 3 (Is the cable actually broken?): opening blurb runs 5 sentences (recorded debt)",
+    "Day 3 (Is the cable actually broken?): closing card reads at grade 8.9 (recorded debt)",
+    "Day 4 (How close is the link to failing?): opening blurb runs 6 sentences (recorded debt)",
+    "Day 5 (Can you trust the weak signal?): opening blurb runs 5 sentences (recorded debt)",
+    "Day 5 (Can you trust the weak signal?): closing card reads at grade 8.4 (recorded debt)",
+    "Day 6 (Calibrate the instruments): opening blurb runs 6 sentences (recorded debt)",
+    "Day 7 (Choose the tests before the ship arrives): opening blurb runs 6 sentences (recorded debt)",
+    "Day 7 (Choose the tests before the ship arrives): closing card reads at grade 8.0 (recorded debt)",
+    "Day 8 (Build the test that separates the suspects): opening blurb runs 5 sentences (recorded debt)",
+    "Day 8 (Build the test that separates the suspects): the opening blurb and the closing card name somebody (recorded debt)",
+    "Day 8 (Build the test that separates the suspects): closing card reads at grade 10.4 (recorded debt)",
+    "Day 9 (Make the replacement ready): opening blurb runs 5 sentences (recorded debt)",
+    "Day 9 (Make the replacement ready): the closing card name somebody (recorded debt)",
+    "Day 10 (Where exactly should the ship go?): opening blurb runs 5 sentences (recorded debt)",
+    "Day 10 (Where exactly should the ship go?): the opening blurb name somebody (recorded debt)",
+    "Day 11 (Make one diagnosis fit every clue): opening blurb runs 5 sentences (recorded debt)",
+    "Day 12 (Give the captain one repair order): opening blurb runs 6 sentences (recorded debt)",
+    "the opening card runs 10 sentences (recorded debt)"
+   ],
+   "tell": "theme \"darkfibre\" tells a story: 4/12 cards name the cast, 12/12 say when, 0/12 say what you decide, 47 words and grade 5.7 on average",
+   "notes": [
+    "Day 1 (Is the problem here, or out at sea?): the card introduces 8 terms — the day's questions are written in that much new vocabulary",
+    "12 of 12 cards are brief stakes, so the roster is met on the calls and in the debrief rather than on the plan card (4 of 12 name anybody)",
+    "12/11 day(s) carry a debrief segue (rule 11) — coverage, not a gate, while this rule is adopted"
+   ]
+  },
+  {
+   "id": "ghostlight",
+   "title": "Ghost Light",
+   "subtitle": "Production Manager · The Ellery Variety Theatre",
+   "course": "AP Precalculus",
+   "dayNoun": "day",
+   "delivery": "The Ellery Licence File",
+   "files": {
+    "stakelength-debt.json": [
+     "Day 15 (The signature)"
+    ],
+    "namefree-debt.json": [
+     "Day 9 (The load the tickets do not show)",
+     "Day 14 (Everything at once, and one rehearsal left)",
+     "Day 15 (The signature)"
+    ],
+    "segue-drama-debt.json": [
+     "Day 9 (The load the tickets do not show)",
+     "Day 14 (Everything at once, and one rehearsal left)"
+    ],
+    "seguegrade-debt.json": [
+     "Day 7 (The room is the instrument)",
+     "Day 9 (The load the tickets do not show)",
+     "Day 13 (The rig, in the coordinates it was drawn in)"
+    ],
+    "plaincards-debt.json": {
+     "over": 3,
+     "long": 3,
+     "worst": 7.8
+    },
+    "plainquestions-debt.json": {
+     "long": 7,
+     "wps": 14.4,
+     "spw": 1.582,
+     "grade": 7.27,
+     "over": 35,
+     "worst": 10.1
+    }
+   },
+   "storyDebt": [
+    "Day 9 (The load the tickets do not show): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 14 (Everything at once, and one rehearsal left): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 7 (The room is the instrument): closing card reads at grade 7.3 (recorded debt)",
+    "Day 9 (The load the tickets do not show): the closing card name somebody (recorded debt)",
+    "Day 9 (The load the tickets do not show): closing card reads at grade 8.1 (recorded debt)",
+    "Day 13 (The rig, in the coordinates it was drawn in): closing card reads at grade 8.3 (recorded debt)",
+    "Day 14 (Everything at once, and one rehearsal left): the closing card name somebody (recorded debt)",
+    "Day 15 (The signature): opening blurb runs 5 sentences (recorded debt)",
+    "Day 15 (The signature): the opening blurb name somebody (recorded debt)"
+   ],
+   "tell": "theme \"ghostlight\" tells a story: 1/15 cards name the cast, 15/15 say when, 15/15 say what you decide, 43 words and grade 4.9 on average",
+   "notes": [
+    "15 of 15 cards are brief stakes, so the roster is met on the calls and in the debrief rather than on the plan card (1 of 15 name anybody)",
+    "14/14 day(s) carry a debrief segue (rule 11) — every one that can have one does"
+   ]
+  },
+  {
+   "id": "groundtruth",
+   "title": "Ground Truth",
+   "subtitle": "Measurements Lead · Station 12, where lightning is made on purpose",
+   "course": "AP Physics C: E&M, in ten derivations",
+   "dayNoun": "day",
+   "delivery": "The Station 12 Season Report",
+   "files": {
+    "taskclause-debt.json": [
+     "Day 1 (Write the rule before the storm)",
+     "Day 4 (Why the mast starts hissing)",
+     "Day 5 (How much can the storm hold?)",
+     "Day 6 (What 1,500 joules can do)",
+     "Day 7 (Four instruments agree. Do they?)",
+     "Day 8 (What 30 kA does two metres away)",
+     "Day 10 (Why six metres of copper can still be dangerous)",
+     "Day 11 (Where did eleven kiloamps go?)",
+     "Day 12 (The rule fails on a fast cell)",
+     "Day 13 (What the instruments missed)",
+     "Day 14 (One shot left)",
+     "Day 15 (Sign what the season can prove)"
+    ],
+    "stakelength-debt.json": [
+     "Day 1 (Write the rule before the storm)",
+     "Day 2 (Turn the sky into charge)",
+     "Day 3 (Name the two places)",
+     "Day 4 (Why the mast starts hissing)",
+     "Day 6 (What 1,500 joules can do)",
+     "Day 8 (What 30 kA does two metres away)",
+     "Day 10 (Why six metres of copper can still be dangerous)",
+     "Day 11 (Where did eleven kiloamps go?)",
+     "Day 12 (The rule fails on a fast cell)",
+     "Day 14 (One shot left)",
+     "Day 15 (Sign what the season can prove)"
+    ],
+    "namefree-debt.json": [
+     "Day 8 (What 30 kA does two metres away)",
+     "Day 12 (The rule fails on a fast cell)"
+    ],
+    "segue-drama-debt.json": [
+     "Day 1 (Write the rule before the storm)",
+     "Day 2 (Turn the sky into charge)",
+     "Day 3 (Name the two places)",
+     "Day 10 (Why six metres of copper can still be dangerous)",
+     "Day 11 (Where did eleven kiloamps go?)",
+     "Day 13 (What the instruments missed)"
+    ],
+    "seguegrade-debt.json": [
+     "Day 1 (Write the rule before the storm)",
+     "Day 4 (Why the mast starts hissing)",
+     "Day 6 (What 1,500 joules can do)",
+     "Day 7 (Four instruments agree. Do they?)",
+     "Day 9 (How lightning reached a trailer it never touched)",
+     "Day 10 (Why six metres of copper can still be dangerous)",
+     "Day 11 (Where did eleven kiloamps go?)",
+     "Day 12 (The rule fails on a fast cell)",
+     "Day 13 (What the instruments missed)",
+     "Day 14 (One shot left)"
+    ],
+    "plaincards-debt.json": {
+     "over": 7,
+     "long": 0,
+     "worst": 9.6
+    },
+    "plainquestions-debt.json": {
+     "long": 99,
+     "wps": 16.1,
+     "spw": 1.625,
+     "grade": 8.21,
+     "over": 51,
+     "worst": 9.8
+    }
+   },
+   "storyDebt": [
+    "Day 1 (Write the rule before the storm): no \"Today you …\" clause (recorded debt)",
+    "Day 1 (Write the rule before the storm): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 2 (Turn the sky into charge): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 3 (Name the two places): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 4 (Why the mast starts hissing): no \"Today you …\" clause (recorded debt)",
+    "Day 5 (How much can the storm hold?): no \"Today you …\" clause (recorded debt)",
+    "Day 6 (What 1,500 joules can do): no \"Today you …\" clause (recorded debt)",
+    "Day 7 (Four instruments agree. Do they?): no \"Today you …\" clause (recorded debt)",
+    "Day 8 (What 30 kA does two metres away): no \"Today you …\" clause (recorded debt)",
+    "Day 10 (Why six metres of copper can still be dangerous): no \"Today you …\" clause (recorded debt)",
+    "Day 10 (Why six metres of copper can still be dangerous): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 11 (Where did eleven kiloamps go?): no \"Today you …\" clause (recorded debt)",
+    "Day 11 (Where did eleven kiloamps go?): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 12 (The rule fails on a fast cell): no \"Today you …\" clause (recorded debt)",
+    "Day 13 (What the instruments missed): no \"Today you …\" clause (recorded debt)",
+    "Day 13 (What the instruments missed): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 14 (One shot left): no \"Today you …\" clause (recorded debt)",
+    "Day 15 (Sign what the season can prove): no \"Today you …\" clause (recorded debt)",
+    "Day 1 (Write the rule before the storm): opening blurb runs 5 sentences (recorded debt)",
+    "Day 1 (Write the rule before the storm): closing card reads at grade 6.6 (recorded debt)",
+    "Day 2 (Turn the sky into charge): opening blurb runs 5 sentences (recorded debt)",
+    "Day 3 (Name the two places): opening blurb runs 6 sentences (recorded debt)",
+    "Day 4 (Why the mast starts hissing): opening blurb runs 5 sentences (recorded debt)",
+    "Day 4 (Why the mast starts hissing): closing card reads at grade 6.6 (recorded debt)",
+    "Day 6 (What 1,500 joules can do): opening blurb runs 5 sentences (recorded debt)",
+    "Day 6 (What 1,500 joules can do): closing card reads at grade 7.2 (recorded debt)",
+    "Day 7 (Four instruments agree. Do they?): closing card reads at grade 8.5 (recorded debt)",
+    "Day 8 (What 30 kA does two metres away): opening blurb runs 5 sentences (recorded debt)",
+    "Day 8 (What 30 kA does two metres away): the closing card name somebody (recorded debt)",
+    "Day 9 (How lightning reached a trailer it never touched): closing card reads at grade 8.1 (recorded debt)",
+    "Day 10 (Why six metres of copper can still be dangerous): opening blurb runs 5 sentences (recorded debt)",
+    "Day 10 (Why six metres of copper can still be dangerous): closing card reads at grade 7.0 (recorded debt)",
+    "Day 11 (Where did eleven kiloamps go?): opening blurb runs 5 sentences (recorded debt)",
+    "Day 11 (Where did eleven kiloamps go?): closing card reads at grade 7.8 (recorded debt)",
+    "Day 12 (The rule fails on a fast cell): opening blurb runs 6 sentences (recorded debt)",
+    "Day 12 (The rule fails on a fast cell): the closing card name somebody (recorded debt)",
+    "Day 12 (The rule fails on a fast cell): closing card reads at grade 7.6 (recorded debt)",
+    "Day 13 (What the instruments missed): closing card reads at grade 6.5 (recorded debt)",
+    "Day 14 (One shot left): opening blurb runs 5 sentences (recorded debt)",
+    "Day 14 (One shot left): closing card reads at grade 7.2 (recorded debt)",
+    "Day 15 (Sign what the season can prove): opening blurb runs 6 sentences (recorded debt)"
+   ],
+   "tell": "theme \"groundtruth\" tells a story: 0/15 cards name the cast, 15/15 say when, 3/15 say what you decide, 40 words and grade 6.5 on average",
+   "notes": [
+    "15 of 15 cards are brief stakes, so the roster is met on the calls and in the debrief rather than on the plan card (0 of 15 name anybody)",
+    "14/14 day(s) carry a debrief segue (rule 11) — every one that can have one does"
+   ]
+  },
+  {
+   "id": "headwater",
+   "title": "Headwater",
+   "subtitle": "Duty Engineer · Ashfell Dam",
+   "course": "Calculus",
+   "dayNoun": "day",
+   "delivery": "The Ashfell Release Rules",
+   "files": {
+    "taskclause-debt.json": [
+     "Day 1 (88%)",
+     "Day 2 (The same water, moving faster)",
+     "Day 3 (What fell, and what arrived)",
+     "Day 4 (The release that could have been smaller)",
+     "Day 5 (The last half metre)",
+     "Day 6 (Has it peaked?)",
+     "Day 7 (What the wall is carrying)",
+     "Day 8 (The release that just clears it)",
+     "Day 9 (The ledger that will not close)",
+     "Day 10 (Every number again)",
+     "Day 11 (A day when nothing happens)",
+     "Day 13 (Three things before nine)",
+     "Day 14 (The last reversible moment)",
+     "Day 15 (Sign the rules)"
+    ],
+    "stakelength-debt.json": [
+     "Day 1 (88%)",
+     "Day 2 (The same water, moving faster)",
+     "Day 4 (The release that could have been smaller)",
+     "Day 6 (Has it peaked?)",
+     "Day 10 (Every number again)",
+     "Day 14 (The last reversible moment)",
+     "Day 15 (Sign the rules)"
+    ],
+    "namefree-debt.json": [
+     "Day 1 (88%)",
+     "Day 3 (What fell, and what arrived)",
+     "Day 4 (The release that could have been smaller)",
+     "Day 9 (The ledger that will not close)",
+     "Day 11 (A day when nothing happens)",
+     "Day 12 (The front that never came)"
+    ],
+    "segue-drama-debt.json": [
+     "Day 2 (The same water, moving faster)",
+     "Day 3 (What fell, and what arrived)",
+     "Day 10 (Every number again)",
+     "Day 11 (A day when nothing happens)",
+     "Day 12 (The front that never came)",
+     "Day 14 (The last reversible moment)"
+    ],
+    "seguegrade-debt.json": [
+     "Day 1 (88%)",
+     "Day 2 (The same water, moving faster)",
+     "Day 3 (What fell, and what arrived)",
+     "Day 6 (Has it peaked?)",
+     "Day 10 (Every number again)",
+     "Day 11 (A day when nothing happens)",
+     "Day 14 (The last reversible moment)"
+    ],
+    "plaincards-debt.json": {
+     "over": 10,
+     "long": 2,
+     "worst": 8.4
+    },
+    "plainquestions-debt.json": {
+     "long": 16,
+     "wps": 14.1,
+     "spw": 1.606,
+     "grade": 7.17,
+     "over": 36,
+     "worst": 10.8
+    }
+   },
+   "storyDebt": [
+    "Day 1 (88%): no \"Today you …\" clause (recorded debt)",
+    "Day 2 (The same water, moving faster): no \"Today you …\" clause (recorded debt)",
+    "Day 2 (The same water, moving faster): segue owes its drama gate (recorded debt) — names no number, clock or person — nothing concrete is at risk in it",
+    "Day 3 (What fell, and what arrived): no \"Today you …\" clause (recorded debt)",
+    "Day 3 (What fell, and what arrived): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 4 (The release that could have been smaller): no \"Today you …\" clause (recorded debt)",
+    "Day 5 (The last half metre): no \"Today you …\" clause (recorded debt)",
+    "Day 6 (Has it peaked?): no \"Today you …\" clause (recorded debt)",
+    "Day 7 (What the wall is carrying): no \"Today you …\" clause (recorded debt)",
+    "Day 8 (The release that just clears it): no \"Today you …\" clause (recorded debt)",
+    "Day 9 (The ledger that will not close): no \"Today you …\" clause (recorded debt)",
+    "Day 10 (Every number again): no \"Today you …\" clause (recorded debt)",
+    "Day 10 (Every number again): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 11 (A day when nothing happens): no \"Today you …\" clause (recorded debt)",
+    "Day 11 (A day when nothing happens): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 12 (The front that never came): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 13 (Three things before nine): no \"Today you …\" clause (recorded debt)",
+    "Day 14 (The last reversible moment): no \"Today you …\" clause (recorded debt)",
+    "Day 14 (The last reversible moment): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it",
+    "Day 15 (Sign the rules): no \"Today you …\" clause (recorded debt)",
+    "Day 1 (88%): opening blurb runs 5 sentences (recorded debt)",
+    "Day 1 (88%): the closing card name somebody (recorded debt)",
+    "Day 1 (88%): closing card reads at grade 8.5 (recorded debt)",
+    "Day 2 (The same water, moving faster): opening blurb runs 5 sentences (recorded debt)",
+    "Day 2 (The same water, moving faster): closing card reads at grade 8.1 (recorded debt)",
+    "Day 3 (What fell, and what arrived): the closing card name somebody (recorded debt)",
+    "Day 3 (What fell, and what arrived): closing card reads at grade 7.9 (recorded debt)",
+    "Day 4 (The release that could have been smaller): opening blurb runs 5 sentences (recorded debt)",
+    "Day 4 (The release that could have been smaller): the opening blurb and the closing card name somebody (recorded debt)",
+    "Day 6 (Has it peaked?): opening blurb runs 5 sentences (recorded debt)",
+    "Day 6 (Has it peaked?): closing card reads at grade 7.7 (recorded debt)",
+    "Day 9 (The ledger that will not close): the opening blurb name somebody (recorded debt)",
+    "Day 10 (Every number again): opening blurb runs 5 sentences (recorded debt)",
+    "Day 10 (Every number again): closing card reads at grade 9.6 (recorded debt)",
+    "Day 11 (A day when nothing happens): the closing card name somebody (recorded debt)",
+    "Day 11 (A day when nothing happens): closing card reads at grade 10.1 (recorded debt)",
+    "Day 12 (The front that never came): the closing card name somebody (recorded debt)",
+    "Day 14 (The last reversible moment): opening blurb runs 5 sentences (recorded debt)",
+    "Day 14 (The last reversible moment): closing card reads at grade 9.1 (recorded debt)",
+    "Day 15 (Sign the rules): opening blurb runs 5 sentences (recorded debt)"
+   ],
+   "tell": "theme \"headwater\" tells a story: 2/15 cards name the cast, 15/15 say when, 1/15 say what you decide, 40 words and grade 6.5 on average",
+   "notes": [
+    "Day 1 (88%): the card introduces 9 terms — the day's questions are written in that much new vocabulary",
+    "Day 2 (The same water, moving faster): the card introduces 8 terms — the day's questions are written in that much new vocabulary",
+    "15 of 15 cards are brief stakes, so the roster is met on the calls and in the debrief rather than on the plan card (2 of 15 name anybody)",
+    "14/14 day(s) carry a debrief segue (rule 11) — every one that can have one does"
+   ]
+  },
+  {
+   "id": "midway",
+   "title": "Safety Factor",
+   "subtitle": "Ride Engineer · Corbin Park",
+   "course": "AP Physics 1, in derivations",
+   "dayNoun": "day",
+   "delivery": "The Corbin Park Certificate",
+   "files": {
+    "taskclause-debt.json": [
+     "Day 15 (The signature)"
+    ],
+    "stakelength-debt.json": [
+     "Day 1 (Seven rides, eleven notebooks, no proof)",
+     "Day 13 (Three things and one crew)",
+     "Day 15 (The signature)"
+    ],
+    "openinglength-debt.json": [
+     "opening"
+    ],
+    "plaincards-debt.json": {
+     "over": 4,
+     "long": 0,
+     "worst": 8.1
+    },
+    "plainquestions-debt.json": {
+     "long": 6,
+     "wps": 14.2,
+     "spw": 1.609,
+     "grade": 7.16,
+     "over": 39,
+     "worst": 9.4
+    }
+   },
+   "storyDebt": [
+    "Day 15 (The signature): no \"Today you …\" clause (recorded debt)",
+    "Day 1 (Seven rides, eleven notebooks, no proof): opening blurb runs 5 sentences (recorded debt)",
+    "Day 13 (Three things and one crew): opening blurb runs 5 sentences (recorded debt)",
+    "Day 15 (The signature): opening blurb runs 6 sentences (recorded debt)",
+    "the opening card runs 6 sentences (recorded debt)"
+   ],
+   "tell": "theme \"midway\" tells a story: 0/15 cards name the cast, 15/15 say when, 14/15 say what you decide, 44 words and grade 5.5 on average",
+   "notes": [
+    "Day 1 (Seven rides, eleven notebooks, no proof): the card introduces 8 terms — the day's questions are written in that much new vocabulary",
+    "15 of 15 cards are brief stakes, so the roster is met on the calls and in the debrief rather than on the plan card (0 of 15 name anybody)",
+    "14/14 day(s) carry a debrief segue (rule 11) — every one that can have one does"
+   ]
+  },
+  {
+   "id": "outbreak_riverton",
+   "title": "Outbreak: Riverton",
+   "subtitle": "Scientific Response Director · Riverton",
+   "course": "Epidemiology",
+   "dayNoun": "stage",
+   "delivery": "The Riverton Outbreak File",
+   "files": {
+    "taskclause-debt.json": [
+     "Stage 1 (The First Cluster)",
+     "Stage 2 (What Kind of Agent?)",
+     "Stage 3 (Why the Lungs?)",
+     "Stage 5 (A Test Before Morning)",
+     "Stage 7 (When Defense Becomes Damage)",
+     "Stage 10 (A Variant Rises)"
+    ],
+    "stakelength-debt.json": [
+     "Stage 1 (The First Cluster)",
+     "Stage 2 (What Kind of Agent?)",
+     "Stage 3 (Why the Lungs?)",
+     "Stage 4 (The Cell Is Hijacked)",
+     "Stage 5 (A Test Before Morning)",
+     "Stage 6 (Why Is Elias Crashing?)",
+     "Stage 7 (When Defense Becomes Damage)",
+     "Stage 8 (The Hidden Spread)",
+     "Stage 9 (The River Animals)",
+     "Stage 10 (A Variant Rises)",
+     "Stage 11 (The Drug Stops Working)",
+     "Stage 12 (What Do We Deploy?)",
+     "Stage 13 (Did the Treatment Work?)",
+     "Stage 14 (How Close to the Edge?)",
+     "Stage 15 (Sign the Briefing)"
+    ],
+    "namefree-debt.json": [
+     "Stage 4 (The Cell Is Hijacked)",
+     "Stage 12 (What Do We Deploy?)"
+    ],
+    "segue-drama-debt.json": [
+     "Stage 6 (Why Is Elias Crashing?)",
+     "Stage 7 (When Defense Becomes Damage)",
+     "Stage 8 (The Hidden Spread)",
+     "Stage 9 (The River Animals)",
+     "Stage 10 (A Variant Rises)",
+     "Stage 11 (The Drug Stops Working)",
+     "Stage 13 (Did the Treatment Work?)",
+     "Stage 14 (How Close to the Edge?)"
+    ],
+    "seguegrade-debt.json": [
+     "Stage 1 (The First Cluster)",
+     "Stage 2 (What Kind of Agent?)",
+     "Stage 3 (Why the Lungs?)",
+     "Stage 4 (The Cell Is Hijacked)",
+     "Stage 5 (A Test Before Morning)",
+     "Stage 6 (Why Is Elias Crashing?)",
+     "Stage 7 (When Defense Becomes Damage)",
+     "Stage 8 (The Hidden Spread)",
+     "Stage 9 (The River Animals)",
+     "Stage 10 (A Variant Rises)",
+     "Stage 11 (The Drug Stops Working)",
+     "Stage 12 (What Do We Deploy?)",
+     "Stage 13 (Did the Treatment Work?)",
+     "Stage 14 (How Close to the Edge?)"
+    ],
+    "plaincards-debt.json": {
+     "over": 11,
+     "long": 3,
+     "worst": 11.8
+    },
+    "plainquestions-debt.json": {
+     "long": 36,
+     "wps": 13.9,
+     "spw": 1.63,
+     "grade": 7.07,
+     "over": 35,
+     "worst": 9.1
+    }
+   },
+   "storyDebt": [
+    "Stage 1 (The First Cluster): no \"Today you …\" clause (recorded debt)",
+    "Stage 2 (What Kind of Agent?): no \"Today you …\" clause (recorded debt)",
+    "Stage 3 (Why the Lungs?): no \"Today you …\" clause (recorded debt)",
+    "Stage 5 (A Test Before Morning): no \"Today you …\" clause (recorded debt)",
+    "Stage 6 (Why Is Elias Crashing?): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it",
+    "Stage 7 (When Defense Becomes Damage): no \"Today you …\" clause (recorded debt)",
+    "Stage 7 (When Defense Becomes Damage): segue owes its drama gate (recorded debt) — names no number, clock or person — nothing concrete is at risk in it",
+    "Stage 8 (The Hidden Spread): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it",
+    "Stage 9 (The River Animals): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Stage 10 (A Variant Rises): no \"Today you …\" clause (recorded debt)",
+    "Stage 10 (A Variant Rises): segue owes its drama gate (recorded debt) — names no number, clock or person — nothing concrete is at risk in it",
+    "Stage 11 (The Drug Stops Working): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Stage 13 (Did the Treatment Work?): segue owes its drama gate (recorded debt) — names no number, clock or person — nothing concrete is at risk in it",
+    "Stage 14 (How Close to the Edge?): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Stage 1 (The First Cluster): opening blurb runs 6 sentences (recorded debt)",
+    "Stage 1 (The First Cluster): closing card reads at grade 10.5 (recorded debt)",
+    "Stage 2 (What Kind of Agent?): opening blurb runs 6 sentences (recorded debt)",
+    "Stage 2 (What Kind of Agent?): closing card reads at grade 7.8 (recorded debt)",
+    "Stage 3 (Why the Lungs?): opening blurb runs 6 sentences (recorded debt)",
+    "Stage 3 (Why the Lungs?): closing card reads at grade 8.4 (recorded debt)",
+    "Stage 4 (The Cell Is Hijacked): opening blurb runs 6 sentences (recorded debt)",
+    "Stage 4 (The Cell Is Hijacked): the closing card name somebody (recorded debt)",
+    "Stage 4 (The Cell Is Hijacked): closing card reads at grade 11.4 (recorded debt)",
+    "Stage 5 (A Test Before Morning): opening blurb runs 6 sentences (recorded debt)",
+    "Stage 5 (A Test Before Morning): closing card reads at grade 11.7 (recorded debt)",
+    "Stage 6 (Why Is Elias Crashing?): opening blurb runs 6 sentences (recorded debt)",
+    "Stage 6 (Why Is Elias Crashing?): closing card reads at grade 11.5 (recorded debt)",
+    "Stage 7 (When Defense Becomes Damage): opening blurb runs 7 sentences (recorded debt)",
+    "Stage 7 (When Defense Becomes Damage): closing card reads at grade 12.6 (recorded debt)",
+    "Stage 8 (The Hidden Spread): opening blurb runs 6 sentences (recorded debt)",
+    "Stage 8 (The Hidden Spread): closing card reads at grade 13.2 (recorded debt)",
+    "Stage 9 (The River Animals): opening blurb runs 6 sentences (recorded debt)",
+    "Stage 9 (The River Animals): closing card reads at grade 9.6 (recorded debt)",
+    "Stage 10 (A Variant Rises): opening blurb runs 6 sentences (recorded debt)",
+    "Stage 10 (A Variant Rises): closing card reads at grade 11.4 (recorded debt)",
+    "Stage 11 (The Drug Stops Working): opening blurb runs 6 sentences (recorded debt)",
+    "Stage 11 (The Drug Stops Working): closing card reads at grade 9.9 (recorded debt)",
+    "Stage 12 (What Do We Deploy?): opening blurb runs 6 sentences (recorded debt)",
+    "Stage 12 (What Do We Deploy?): the closing card name somebody (recorded debt)",
+    "Stage 12 (What Do We Deploy?): closing card reads at grade 9.9 (recorded debt)",
+    "Stage 13 (Did the Treatment Work?): opening blurb runs 6 sentences (recorded debt)",
+    "Stage 13 (Did the Treatment Work?): closing card reads at grade 12.3 (recorded debt)",
+    "Stage 14 (How Close to the Edge?): opening blurb runs 6 sentences (recorded debt)",
+    "Stage 14 (How Close to the Edge?): closing card reads at grade 7.9 (recorded debt)",
+    "Stage 15 (Sign the Briefing): opening blurb runs 7 sentences (recorded debt)"
+   ],
+   "tell": "theme \"outbreak_riverton\" tells a story: 0/15 cards name the cast, 15/15 say when, 9/15 say what you decide, 38 words and grade 7.4 on average",
+   "notes": [
+    "15 of 15 cards are brief stakes, so the roster is met on the calls and in the debrief rather than on the plan card (0 of 15 name anybody)",
+    "14/14 day(s) carry a debrief segue (rule 11) — every one that can have one does"
+   ]
+  },
+  {
+   "id": "overwind",
+   "title": "Overwind",
+   "subtitle": "Mine Lift Safety Engineer · Kerrow Mine No. 3, twelve days to the inspection",
+   "course": "AP Physics C: Mechanics, in derivations",
+   "dayNoun": "day",
+   "delivery": "The Safe Winding Plan",
+   "files": {
+    "stakelength-debt.json": [
+     "Day 9 (Can the rope keep the cage moving?)",
+     "Day 10 (What really happened in March?)"
+    ],
+    "namefree-debt.json": [
+     "Day 3 (How hard is the rope really pulling?)",
+     "Day 6 (What happens when a moving load is stopped?)",
+     "Day 7 (Does gravity change at the bottom of the mine?)",
+     "Day 9 (Can the rope keep the cage moving?)"
+    ],
+    "openinglength-debt.json": [
+     "opening"
+    ],
+    "segue-drama-debt.json": [
+     "Day 1 (Turn the faster plan into a real ride)",
+     "Day 2 (Can we trust the machine's old numbers?)",
+     "Day 5 (How much energy is in one trip?)",
+     "Day 9 (Can the rope keep the cage moving?)"
+    ],
+    "seguegrade-debt.json": [
+     "Day 2 (Can we trust the machine's old numbers?)",
+     "Day 3 (How hard is the rope really pulling?)",
+     "Day 5 (How much energy is in one trip?)",
+     "Day 7 (Does gravity change at the bottom of the mine?)",
+     "Day 8 (When is the motor working hardest?)",
+     "Day 11 (Can the brakes survive an emergency stop?)"
+    ],
+    "plaincards-debt.json": {
+     "over": 8,
+     "long": 1,
+     "worst": 10
+    },
+    "plainquestions-debt.json": {
+     "long": 0,
+     "wps": 13.1,
+     "spw": 1.511,
+     "grade": 5.87,
+     "over": 9,
+     "worst": 8
+    }
+   },
+   "storyDebt": [
+    "Day 1 (Turn the faster plan into a real ride): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 2 (Can we trust the machine's old numbers?): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it",
+    "Day 5 (How much energy is in one trip?): segue owes its drama gate (recorded debt) — names no number, clock or person — nothing concrete is at risk in it",
+    "Day 9 (Can the rope keep the cage moving?): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 2 (Can we trust the machine's old numbers?): closing card reads at grade 9.3 (recorded debt)",
+    "Day 3 (How hard is the rope really pulling?): the closing card name somebody (recorded debt)",
+    "Day 3 (How hard is the rope really pulling?): closing card reads at grade 6.7 (recorded debt)",
+    "Day 5 (How much energy is in one trip?): closing card reads at grade 12.0 (recorded debt)",
+    "Day 6 (What happens when a moving load is stopped?): the closing card name somebody (recorded debt)",
+    "Day 7 (Does gravity change at the bottom of the mine?): the opening blurb name somebody (recorded debt)",
+    "Day 7 (Does gravity change at the bottom of the mine?): closing card reads at grade 7.2 (recorded debt)",
+    "Day 8 (When is the motor working hardest?): closing card reads at grade 7.8 (recorded debt)",
+    "Day 9 (Can the rope keep the cage moving?): opening blurb runs 5 sentences (recorded debt)",
+    "Day 9 (Can the rope keep the cage moving?): the opening blurb and the closing card name somebody (recorded debt)",
+    "Day 10 (What really happened in March?): opening blurb runs 5 sentences (recorded debt)",
+    "Day 11 (Can the brakes survive an emergency stop?): closing card reads at grade 8.0 (recorded debt)",
+    "the opening card runs 6 sentences (recorded debt)"
+   ],
+   "tell": "theme \"overwind\" tells a story: 2/12 cards name the cast, 12/12 say when, 12/12 say what you decide, 55 words and grade 6.5 on average",
+   "notes": [
+    "Day 1 (Turn the faster plan into a real ride): the card introduces 12 terms — the day's questions are written in that much new vocabulary",
+    "12 of 12 cards are brief stakes, so the roster is met on the calls and in the debrief rather than on the plan card (2 of 12 name anybody)",
+    "11/11 day(s) carry a debrief segue (rule 11) — every one that can have one does"
+   ]
+  },
+  {
+   "id": "slackwater",
+   "title": "Slack Water",
+   "subtitle": "Flood Prediction Lead · Sarn Barrage, twelve days to the storm tide",
+   "course": "AP Calculus BC — parametric, polar and series",
+   "dayNoun": "day",
+   "delivery": "The Flood Gate Plan",
+   "files": {
+    "stakelength-debt.json": [
+     "Day 1 (The tide everyone is betting on)",
+     "Day 10 (A perfect bound can still miss the storm)"
+    ],
+    "namefree-debt.json": [
+     "Day 1 (The tide everyone is betting on)",
+     "Day 2 (Follow the real water)",
+     "Day 3 (Where the water actually goes)",
+     "Day 4 (How wrong can the forecast be?)",
+     "Day 10 (A perfect bound can still miss the storm)"
+    ],
+    "openinglength-debt.json": [
+     "opening"
+    ],
+    "segue-drama-debt.json": [
+     "Day 1 (The tide everyone is betting on)",
+     "Day 3 (Where the water actually goes)",
+     "Day 7 (Closing the gates changes the water)",
+     "Day 8 (What never quite reaches zero)",
+     "Day 9 (The 'noise' was a missing tide)",
+     "Day 11 (The last assumptions before sign-off)"
+    ],
+    "seguegrade-debt.json": [
+     "Day 2 (Follow the real water)",
+     "Day 3 (Where the water actually goes)",
+     "Day 4 (How wrong can the forecast be?)",
+     "Day 5 (The tide turns, but the water does not)",
+     "Day 6 (When one wave comes back again and again)",
+     "Day 7 (Closing the gates changes the water)",
+     "Day 8 (What never quite reaches zero)",
+     "Day 9 (The 'noise' was a missing tide)",
+     "Day 10 (A perfect bound can still miss the storm)",
+     "Day 11 (The last assumptions before sign-off)"
+    ],
+    "plaincards-debt.json": {
+     "over": 13,
+     "long": 9,
+     "worst": 12.3
+    },
+    "plainquestions-debt.json": {
+     "long": 5,
+     "wps": 12.9,
+     "spw": 1.539,
+     "grade": 5.92,
+     "over": 11,
+     "worst": 10.3
+    }
+   },
+   "storyDebt": [
+    "Day 1 (The tide everyone is betting on): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 3 (Where the water actually goes): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 7 (Closing the gates changes the water): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 8 (What never quite reaches zero): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 9 (The 'noise' was a missing tide): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word); names no number, clock or person — nothing concrete is at risk in it",
+    "Day 11 (The last assumptions before sign-off): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 1 (The tide everyone is betting on): opening blurb runs 5 sentences (recorded debt)",
+    "Day 1 (The tide everyone is betting on): the closing card name somebody (recorded debt)",
+    "Day 2 (Follow the real water): the opening blurb name somebody (recorded debt)",
+    "Day 2 (Follow the real water): closing card reads at grade 7.6 (recorded debt)",
+    "Day 3 (Where the water actually goes): the closing card name somebody (recorded debt)",
+    "Day 3 (Where the water actually goes): closing card reads at grade 6.8 (recorded debt)",
+    "Day 4 (How wrong can the forecast be?): the opening blurb and the closing card name somebody (recorded debt)",
+    "Day 4 (How wrong can the forecast be?): closing card reads at grade 7.2 (recorded debt)",
+    "Day 5 (The tide turns, but the water does not): closing card reads at grade 8.8 (recorded debt)",
+    "Day 6 (When one wave comes back again and again): closing card reads at grade 8.9 (recorded debt)",
+    "Day 7 (Closing the gates changes the water): closing card reads at grade 10.9 (recorded debt)",
+    "Day 8 (What never quite reaches zero): closing card reads at grade 7.1 (recorded debt)",
+    "Day 9 (The 'noise' was a missing tide): closing card reads at grade 6.7 (recorded debt)",
+    "Day 10 (A perfect bound can still miss the storm): opening blurb runs 5 sentences (recorded debt)",
+    "Day 10 (A perfect bound can still miss the storm): the opening blurb and the closing card name somebody (recorded debt)",
+    "Day 10 (A perfect bound can still miss the storm): closing card reads at grade 13.0 (recorded debt)",
+    "Day 11 (The last assumptions before sign-off): closing card reads at grade 7.4 (recorded debt)",
+    "the opening card runs 8 sentences (recorded debt)"
+   ],
+   "tell": "theme \"slackwater\" tells a story: 1/12 cards name the cast, 10/12 say when, 12/12 say what you decide, 47 words and grade 10.8 on average",
+   "notes": [
+    "Day 1 (The tide everyone is betting on): the card introduces 9 terms — the day's questions are written in that much new vocabulary",
+    "12 of 12 cards are brief stakes, so the roster is met on the calls and in the debrief rather than on the plan card (1 of 12 name anybody)",
+    "11/11 day(s) carry a debrief segue (rule 11) — every one that can have one does"
+   ]
+  },
+  {
+   "id": "yellowbay",
+   "title": "Yellow Bay",
+   "subtitle": "Semiconductor Process Engineer · Ardley Fab 7 · fifteen days to the proving batch",
+   "course": "AP Chemistry — structure half",
+   "dayNoun": "day",
+   "delivery": "The Qualification Case",
+   "files": {
+    "taskclause-debt.json": [
+     "Day 1 (Is the silicon itself wrong?)",
+     "Day 2 (Why Yellow Bay is yellow)",
+     "Day 3 (When a correct measurement answers the wrong question)",
+     "Day 4 (Is something wrong inside the chamber?)",
+     "Day 5 (The first failed wafer under the spectrometer)",
+     "Day 6 (How four measurements agreed and all misled us)",
+     "Day 7 (The supplier was wrong. Something else is too.)",
+     "Day 8 (Turn the recipe argument into predictions)",
+     "Day 9 (The furnace was running cold)",
+     "Day 10 (Clear the rest of the line)",
+     "Day 11 (The wafer changes while it waits)",
+     "Day 12 (Three days left: measure only what matters)",
+     "Day 13 (Freeze the process)",
+     "Day 14 (The dress rehearsal)",
+     "Day 15 (The batch that decides the plant)"
+    ],
+    "stakelength-debt.json": [
+     "Day 1 (Is the silicon itself wrong?)",
+     "Day 6 (How four measurements agreed and all misled us)"
+    ],
+    "namefree-debt.json": [
+     "Day 1 (Is the silicon itself wrong?)",
+     "Day 5 (The first failed wafer under the spectrometer)",
+     "Day 6 (How four measurements agreed and all misled us)",
+     "Day 9 (The furnace was running cold)"
+    ],
+    "openinglength-debt.json": [
+     "opening"
+    ],
+    "segue-drama-debt.json": [
+     "Day 1 (Is the silicon itself wrong?)",
+     "Day 2 (Why Yellow Bay is yellow)",
+     "Day 3 (When a correct measurement answers the wrong question)",
+     "Day 8 (Turn the recipe argument into predictions)",
+     "Day 9 (The furnace was running cold)",
+     "Day 10 (Clear the rest of the line)",
+     "Day 13 (Freeze the process)",
+     "Day 14 (The dress rehearsal)",
+     "Day 15 (The batch that decides the plant)"
+    ],
+    "seguegrade-debt.json": [
+     "Day 1 (Is the silicon itself wrong?)",
+     "Day 2 (Why Yellow Bay is yellow)",
+     "Day 3 (When a correct measurement answers the wrong question)",
+     "Day 4 (Is something wrong inside the chamber?)",
+     "Day 5 (The first failed wafer under the spectrometer)",
+     "Day 7 (The supplier was wrong. Something else is too.)",
+     "Day 8 (Turn the recipe argument into predictions)",
+     "Day 10 (Clear the rest of the line)",
+     "Day 11 (The wafer changes while it waits)",
+     "Day 12 (Three days left: measure only what matters)",
+     "Day 13 (Freeze the process)"
+    ],
+    "plaincards-debt.json": {
+     "over": 14,
+     "long": 7,
+     "worst": 12.3
+    },
+    "plainquestions-debt.json": {
+     "long": 0,
+     "wps": 15.9,
+     "spw": 1.636,
+     "grade": 8.16,
+     "over": 49,
+     "worst": 10.4
+    }
+   },
+   "storyDebt": [
+    "Day 1 (Is the silicon itself wrong?): no \"Today you …\" clause (recorded debt)",
+    "Day 1 (Is the silicon itself wrong?): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 2 (Why Yellow Bay is yellow): no \"Today you …\" clause (recorded debt)",
+    "Day 2 (Why Yellow Bay is yellow): segue owes its drama gate (recorded debt) — names no number, clock or person — nothing concrete is at risk in it",
+    "Day 3 (When a correct measurement answers the wrong question): no \"Today you …\" clause (recorded debt)",
+    "Day 3 (When a correct measurement answers the wrong question): segue owes its drama gate (recorded debt) — names no number, clock or person — nothing concrete is at risk in it",
+    "Day 4 (Is something wrong inside the chamber?): no \"Today you …\" clause (recorded debt)",
+    "Day 5 (The first failed wafer under the spectrometer): no \"Today you …\" clause (recorded debt)",
+    "Day 6 (How four measurements agreed and all misled us): no \"Today you …\" clause (recorded debt)",
+    "Day 7 (The supplier was wrong. Something else is too.): no \"Today you …\" clause (recorded debt)",
+    "Day 8 (Turn the recipe argument into predictions): no \"Today you …\" clause (recorded debt)",
+    "Day 8 (Turn the recipe argument into predictions): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 9 (The furnace was running cold): no \"Today you …\" clause (recorded debt)",
+    "Day 9 (The furnace was running cold): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 10 (Clear the rest of the line): no \"Today you …\" clause (recorded debt)",
+    "Day 10 (Clear the rest of the line): segue owes its drama gate (recorded debt) — names no number, clock or person — nothing concrete is at risk in it",
+    "Day 11 (The wafer changes while it waits): no \"Today you …\" clause (recorded debt)",
+    "Day 12 (Three days left: measure only what matters): no \"Today you …\" clause (recorded debt)",
+    "Day 13 (Freeze the process): no \"Today you …\" clause (recorded debt)",
+    "Day 13 (Freeze the process): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 14 (The dress rehearsal): no \"Today you …\" clause (recorded debt)",
+    "Day 14 (The dress rehearsal): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 15 (The batch that decides the plant): no \"Today you …\" clause (recorded debt)",
+    "Day 15 (The batch that decides the plant): segue owes its drama gate (recorded debt) — does not turn — it carries no complication and no forced consequence, which is the But-or-Therefore rule 11 is named for (any wording will do: \"yet\", \"however\", clause-initial \"so\" or \"now\", \"that leaves\" — the idea, not the word)",
+    "Day 1 (Is the silicon itself wrong?): opening blurb runs 6 sentences (recorded debt)",
+    "Day 1 (Is the silicon itself wrong?): the opening blurb name somebody (recorded debt)",
+    "Day 1 (Is the silicon itself wrong?): closing card reads at grade 7.6 (recorded debt)",
+    "Day 2 (Why Yellow Bay is yellow): closing card reads at grade 7.3 (recorded debt)",
+    "Day 3 (When a correct measurement answers the wrong question): closing card reads at grade 7.6 (recorded debt)",
+    "Day 4 (Is something wrong inside the chamber?): closing card reads at grade 6.7 (recorded debt)",
+    "Day 5 (The first failed wafer under the spectrometer): the closing card name somebody (recorded debt)",
+    "Day 5 (The first failed wafer under the spectrometer): closing card reads at grade 11.7 (recorded debt)",
+    "Day 6 (How four measurements agreed and all misled us): opening blurb runs 5 sentences (recorded debt)",
+    "Day 6 (How four measurements agreed and all misled us): the closing card name somebody (recorded debt)",
+    "Day 7 (The supplier was wrong. Something else is too.): closing card reads at grade 11.4 (recorded debt)",
+    "Day 8 (Turn the recipe argument into predictions): closing card reads at grade 10.5 (recorded debt)",
+    "Day 9 (The furnace was running cold): the opening blurb name somebody (recorded debt)",
+    "Day 10 (Clear the rest of the line): closing card reads at grade 9.4 (recorded debt)",
+    "Day 11 (The wafer changes while it waits): closing card reads at grade 7.0 (recorded debt)",
+    "Day 12 (Three days left: measure only what matters): closing card reads at grade 7.6 (recorded debt)",
+    "Day 13 (Freeze the process): closing card reads at grade 8.2 (recorded debt)",
+    "the opening card runs 8 sentences (recorded debt)"
+   ],
+   "tell": "theme \"yellowbay\" tells a story: 1/15 cards name the cast, 15/15 say when, 0/15 say what you decide, 35 words and grade 8.8 on average",
+   "notes": [
+    "15 of 15 cards are brief stakes, so the roster is met on the calls and in the debrief rather than on the plan card (1 of 15 name anybody)",
+    "15/14 day(s) carry a debrief segue (rule 11) — coverage, not a gate, while this rule is adopted"
+   ]
+  }
+ ]
+}

@@ -169,10 +169,10 @@ export default {
   // opening card is usually the wrong delivery**: a full tank needs none, and the
   // card is 68 words instead of 126 because of it.
   opening: [
-    'The rocket on the pad leaves when Mars and Earth line up, and it has to lift off full. You are '
-    + 'the propellant lead at Arcadia Rise, and the propellant is made here out of Martian air and ground. '
-    + 'You hold the desk on fifteen critical sols between the first shortfall and flight release. By the last '
-    + 'one, the tanks must hold what six people need to leave Mars. Miss the window and they wait twenty-six months.',
+    'The rocket must leave when Mars and Earth line up. You lead the propellant plant at Arcadia Rise, which makes '
+    + 'rocket fuel from Martian air and ground. Over fifteen key sols you fill A Full Tank: enough methane and oxygen '
+    + 'for six people to fly home. If the tanks fall short, the rocket stays on Mars. The crew then waits twenty-six '
+    + 'months for another way home.',
   ],
 
   // The last thing anybody reads. What happened, what it cost, what is left

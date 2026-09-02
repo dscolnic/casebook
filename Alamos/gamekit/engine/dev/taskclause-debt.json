@@ -82,6 +82,23 @@
       "Day 13 (Freeze the process)",
       "Day 14 (The dress rehearsal)",
       "Day 15 (The batch that decides the plant)"
+    ],
+    "bring_them_home": [
+      "Shift 1 (The Failure)",
+      "Shift 2 (Find the Spacecraft)",
+      "Shift 3 (The Wrong Trajectory)",
+      "Shift 4 (Turn Without Wasting Fuel)",
+      "Shift 5 (The Power Budget)",
+      "Shift 6 (A Dangerous Battery Configuration)",
+      "Shift 7 (The Cabin Is Cooling)",
+      "Shift 8 (The Air Problem)",
+      "Shift 9 (Communication Fades)",
+      "Shift 10 (A Blind Maneuver)",
+      "Shift 11 (Crossing the Atmosphere)",
+      "Shift 12 (The Structure Is Vibrating)",
+      "Shift 13 (Choose the Return Path)",
+      "Shift 14 (The Last Correction)",
+      "Shift 15 (Reentry)"
     ]
   }
 }

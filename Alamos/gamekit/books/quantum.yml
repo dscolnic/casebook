@@ -1329,7 +1329,7 @@ missions:
               The fault is usually not in the join you are struggling with. It is in one you made early and
               stopped questioning.
         takesAsRead:
-          - Calibration drift, and the tuning that has to happen daily
+          - "Superposition as an amplitude, not a mixture"
         assumes:
           - a second measurement is only a check if it could disagree
         takeaway: A useful replication shares enough method to repeat the experiment while keeping independent the choices that are actually being tested.

@@ -18,23 +18,6 @@
       "Day 14 (Can the Water Be Released?)",
       "Day 15 (Reopen the City)"
     ],
-    "projecty": [
-      "Stage 1 (Read the atomic world)",
-      "Stage 2 (Account for nuclear energy)",
-      "Stage 3 (Follow radioactivity through the laboratory)",
-      "Stage 4 (Measure interactions, not impressions)",
-      "Stage 5 (Track neutrons through matter)",
-      "Stage 6 (Recognize the design pivot)",
-      "Stage 7 (Understand matter under compression)",
-      "Stage 8 (Make symmetry measurable)",
-      "Stage 9 (Build evidence with real materials)",
-      "Stage 10 (Synchronize many channels)",
-      "Stage 11 (Build an uncertainty budget)",
-      "Stage 12 (Design the integrated non-nuclear campaign)",
-      "Stage 13 (Treat Trinity as an experiment)",
-      "Stage 14 (Reconcile evidence and freeze the design)",
-      "Stage 15 (Complete the evidence chain—and confront responsibility)"
-    ],
     "hospital": [
       "Shift 1 (Morning Rush)",
       "Shift 2 (Lunch Shift)",
@@ -68,42 +51,14 @@
       "Watch 15 (Deep Watch)"
     ],
     "bring_them_home": [
-      "Shift 1 (The Failure)",
       "Shift 2 (Find the Spacecraft)",
-      "Shift 3 (The Wrong Trajectory)",
-      "Shift 4 (Turn Without Wasting Fuel)",
       "Shift 5 (The Power Budget)",
       "Shift 6 (A Dangerous Battery Configuration)",
-      "Shift 7 (The Cabin Is Cooling)",
-      "Shift 8 (The Air Problem)",
-      "Shift 9 (Communication Fades)",
-      "Shift 10 (A Blind Maneuver)",
-      "Shift 11 (Crossing the Atmosphere)",
-      "Shift 12 (The Structure Is Vibrating)",
-      "Shift 13 (Choose the Return Path)",
-      "Shift 14 (The Last Correction)",
-      "Shift 15 (Reentry)"
+      "Shift 9 (Communication Fades)"
     ],
     "outbreak_riverton": [
       "Stage 4 (The Cell Is Hijacked)",
       "Stage 12 (What Do We Deploy?)"
-    ],
-    "blackout": [
-      "Day 1 (Enough in the tank)",
-      "Day 2 (Three things at once)",
-      "Day 3 (The number on the wall)",
-      "Day 4 (What the line can carry)",
-      "Day 5 (The last few kilometres)",
-      "Day 6 (Is that number the number)",
-      "Day 7 (Where the current actually goes)",
-      "Day 8 (80 milliseconds)",
-      "Day 9 (The system splits)",
-      "Day 10 (Cranking path)",
-      "Day 11 (6 hours, not 40 minutes)",
-      "Day 12 (A shift where nothing happens)",
-      "Day 13 (Merit order)",
-      "Day 14 (The last morning it can be changed)",
-      "Day 15 (What we know, and how well)"
     ],
     "aftershock": [
       "Day 1 (Two towns, one earthquake)",
@@ -167,27 +122,6 @@
       "Day 14 (The last reversible moment)",
       "Day 15 (What it is worth saying)"
     ],
-    "icecore": [
-      "Day 1 (What the plateau has been writing down)",
-      "Day 2 (Three kilometres of one attempt)",
-      "Day 3 (Counting to 2000)",
-      "Day 4 (One aircraft, and what leaves on it)",
-      "Day 5 (Turning a ratio into a temperature)",
-      "Day 6 (Air that stopped moving)",
-      "Day 7 (What the wind brought)",
-      "Day 8 (The year that is written everywhere)",
-      "Day 9 (Where the record runs out)",
-      "Day 10 (Two records, side by side)",
-      "Day 11 (The offset that was not climate)",
-      "Day 12 (A day when nothing is wrong)",
-      "Day 13 (The night the generator stopped)",
-      "Day 14 (What the season is allowed to say)",
-      "Day 15 (What is known, and how well)"
-    ],
-    "redsand": [
-      "Sol 5 (The ceiling on running hotter)",
-      "Sol 8 (The assay bench)"
-    ],
     "planetary_defense_ms": [
       "Phase 1 (The Discovery Image)",
       "Phase 2 (Confirm the Motion)",
@@ -237,21 +171,16 @@
       "Day 10 (What is known, and how well)"
     ],
     "sightline": [
-      "Day 1 (What the file claims)",
-      "Day 2 (What a face is at that distance)",
-      "Day 3 (Walk it)",
-      "Day 4 (Two lamps and a wet road)",
-      "Day 5 (Four days before anybody asked)",
-      "Day 6 (The photograph in the evening paper)",
-      "Day 7 (Two witnesses who agree)",
-      "Day 8 (How the six were chosen)",
+      "Day 2 (What could she see from twenty-two metres?)",
+      "Day 6 (The photograph arrives)",
+      "Day 7 (Two witnesses, one source)",
+      "Day 8 (Did the array point at Ward?)",
       "Day 9 (Thirty-four metres)",
-      "Day 10 (Who was standing behind her)",
-      "Day 11 (How sure, and when)",
-      "Day 12 (The nineteenth hour)",
-      "Day 13 (What a match is worth)",
+      "Day 10 (What did the administrator change?)",
+      "Day 11 (The streetlamp was out)",
+      "Day 13 (What is one identification worth?)",
       "Day 14 (The last reversible moment)",
-      "Day 15 (Disposition)"
+      "Day 15 (Sign the referral)"
     ],
     "seedbank_ms": [
       "Day 1 (What is actually in the vault)",

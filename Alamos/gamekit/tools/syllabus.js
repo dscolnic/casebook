@@ -8098,7 +8098,15 @@ export function symbolSignature(s){
     // range `⁰-⁹` covers. So the three most common exponents in the whole corpus
     // were the three this normaliser could not see, and `I²R` never matched `I^2R`.
     .replace(/[₀-₉ₑₐₒₓ⁰-⁹ⁿ¹²³]/g, c => SUB[c] ?? c)
-    .replace(/[÷]/g, '/').replace(/[×·]/g, '*')
+    .replace(/[÷]/g, '/')
+    // MULTIPLICATION IS INVISIBLE. The syllabus writes `λ(z) = λ₀ (H − z) / H` with
+    // implicit multiplication; Ice Core's book wrote the same equation with `×`. The
+    // signatures were `λ0(h-z)/h` and `λ0*(h-z)/h`, the match is a substring test,
+    // and so `curriculumDelivery` reported an equation six cards lean on as computed
+    // nowhere — a published finding, and false. One `*` character. Any syllabus
+    // equation written with implicit multiplication was unmatchable by a book that
+    // wrote the sign, which is most of them.
+    .replace(/[×·*]/g, '')
     // And `^` goes, so that a superscript and a caret spell one thing: `I²R` became
     // `i2r` above while `I^2R` stayed `i^2r`, which is the same defect one character
     // along.
@@ -8352,7 +8360,15 @@ const CONCEPT_ZONE_FLOOR = 2;
 
 const flatZone = (parts) => ' ' + parts.filter(Boolean).map(String).join('  ')
   .toLowerCase().replace(/\s+/g, ' ') + ' ';
-const zoneLabel = (c) => (typeof c === 'string' ? c : c?.label ?? c?.text ?? '');
+// EVERYTHING THE PLAYER READS ON AN OPTION, not the first field that exists. This
+// was `c?.label ?? c?.text`, and a SCIENCETANK proposal is `{ label: 'A', text: '…' }`
+// — so the option zone of a nineteen-stop campaign was the string "A B C". Four
+// agents reported it independently, one on a card whose option literally contained
+// the keyword the gate said was missing. `mechanism` is here for the same reason:
+// questionUI renders it under the label, so it is option text the player answers
+// from.
+const zoneLabel = (c) => (typeof c === 'string' ? c
+  : [c?.label, c?.text, c?.mechanism, c?.say, c?.name].filter(Boolean).join(' '));
 
 /**
  * One stop's words, split by how much each part says about what it is about.
@@ -8369,11 +8385,31 @@ export function conceptZones(s = {}, game = {}, assumes = []){
     ask: flatZone([game.question, game.task, game.headline, game.prompt]),
     takeaway: flatZone([s.takeaway]),
     scene: flatZone([s.scene, s.story]),
-    why: flatZone([game.why, game.explanation, game.answer, game.setup]),
+    // A REBUTTAL IS A VERDICT, NOT AN OPTION. It prints after the answer is in —
+    // the same reason `why` is its own zone and weighted low. It sat in `option`,
+    // so a card could be scored as naming its concept through text the player only
+    // reaches once it is too late to use.
+    why: flatZone([game.why, game.explanation, game.answer, game.setup,
+      ...(game.rebuttals ?? []).map(zoneLabel)]),
     option: flatZone([
       ...(game.cards ?? []).map(zoneLabel), ...(game.choices ?? []).map(zoneLabel),
       ...(game.scenarios ?? []).map(zoneLabel), ...(game.proposals ?? []).map(zoneLabel),
-      ...(game.rebuttals ?? []).map(zoneLabel), ...(game.givens ?? []).map(zoneLabel),
+      ...(game.givens ?? []).map(zoneLabel),
+      // The instrument payloads. Each of these is a label on a panel the player
+      // operates, and every one of them was invisible: ALLOCATE items, DELEGATE
+      // problems, VALUE options, ATTEST claims, SPOT targets and rules, TRACE
+      // channels, CONTROL variables, PROBE stations, DEGENERACY controls.
+      ...(game.allocate?.items ?? []).map(zoneLabel),
+      ...(game.delegate?.problems ?? []).map(zoneLabel),
+      ...(game.value?.options ?? []).map(zoneLabel),
+      ...(game.attest?.claims ?? []).map(zoneLabel),
+      ...(game.spot?.targets ?? []).map(zoneLabel),
+      ...(game.spot?.rules ?? []).map(zoneLabel),
+      ...(game.trace?.channels ?? []).map(zoneLabel),
+      ...(game.control?.variables ?? []).map(zoneLabel),
+      ...(game.probe?.stations ?? []).map(zoneLabel),
+      ...(game.degeneracy?.controls ?? []).map(zoneLabel),
+      ...(game.belt?.items ?? []).map(zoneLabel),
       ...(game.readings ?? []).flatMap(r => [r?.label, r?.name, r?.note, r?.purpose]),
       ...assumes]),
   };
@@ -8551,6 +8587,14 @@ export function keywordHit(hay, phrase){
   const exact = phrase.endsWith('!') || phrase.replace(/!$/, '').trim().length <= 3;
   const w = phrase.replace(/!$/, '').toLowerCase().trim();
   const e = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    // A HYPHEN IS NOT A DIFFERENT WORD. The syllabus writes `freezing point
+    // depression`; The Contaminated City's card wrote `freezing-point depression`,
+    // in the ask zone — and `conceptVisible` reported the concept as reaching no
+    // question in the entire campaign, on one character no player can see. It was a
+    // published finding before it was found to be false. So a run of hyphens and
+    // spaces in a keyword matches a run of either in the text, which also means
+    // `free-body` finds `free body` and `load shed` finds `load-shed`.
+    .replace(/[-\s]+/g, '[-\\s]+')
     // A ratio is the same ratio however it is spaced: the keyword is written `3:1`
     // and a book writing `3 : 1` was not matched, so a stop that computed the
     // monohybrid ratio in as many words read as merely mentioning it. Same rule as

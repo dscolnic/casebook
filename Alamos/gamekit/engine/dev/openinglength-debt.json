@@ -1,0 +1,149 @@
+{
+  "_comment": "Themes whose opening card runs past five sentences (checkStory.mjs). The day blurb is capped at four and the opening at five, counted by the same splitter in dayCard.mjs. A theme not listed fails now if it runs long; one listed here that has since been cut fails too, naming the line to delete. Recorded when the cap went in, so the 46 openings that predate it are visible debt rather than a wall of failures nobody reads.",
+  "themes": {
+    "hospital": [
+      "opening"
+    ],
+    "deepwatch": [
+      "opening"
+    ],
+    "planetary_defense": [
+      "opening"
+    ],
+    "quantum": [
+      "opening"
+    ],
+    "seedbank": [
+      "opening"
+    ],
+    "midway": [
+      "opening"
+    ],
+    "planetary_defense_ms": [
+      "opening"
+    ],
+    "deepwatch_ms": [
+      "opening"
+    ],
+    "aftershock_ms": [
+      "opening"
+    ],
+    "icecore_ms": [
+      "opening"
+    ],
+    "seedbank_ms": [
+      "opening"
+    ],
+    "outbreak_riverton_ms": [
+      "opening"
+    ],
+    "blackout_ms": [
+      "opening"
+    ],
+    "bring_them_home_ms": [
+      "opening"
+    ],
+    "contamcity_ms": [
+      "opening"
+    ],
+    "blackout_fable": [
+      "opening"
+    ],
+    "yellowbay": [
+      "opening"
+    ],
+    "sightline_ms": [
+      "opening"
+    ],
+    "redsand_ms": [
+      "opening"
+    ],
+    "the_trial_ms": [
+      "opening"
+    ],
+    "deepwatch_hs": [
+      "opening"
+    ],
+    "contamcity_hs": [
+      "opening"
+    ],
+    "the_trial_hs": [
+      "opening"
+    ],
+    "carrying": [
+      "opening"
+    ],
+    "changeover": [
+      "opening"
+    ],
+    "slackwater": [
+      "opening"
+    ],
+    "overwind": [
+      "opening"
+    ],
+    "darkfibre": [
+      "opening"
+    ],
+    "qd_accel": [
+      "opening"
+    ],
+    "qd_dna": [
+      "opening"
+    ],
+    "qd_nucleus": [
+      "opening"
+    ],
+    "qd_tectonics": [
+      "opening"
+    ],
+    "qd_higgs": [
+      "opening"
+    ],
+    "qd_eclipse": [
+      "opening"
+    ],
+    "qd_exo": [
+      "opening"
+    ],
+    "qd_ligo": [
+      "opening"
+    ],
+    "qd_cmb": [
+      "opening"
+    ],
+    "qd_hubble": [
+      "opening"
+    ],
+    "qd_penicillin": [
+      "opening"
+    ],
+    "qd_germ": [
+      "opening"
+    ],
+    "qd_mendel": [
+      "opening"
+    ],
+    "qd_crispr": [
+      "opening"
+    ],
+    "qd_oxygen": [
+      "opening"
+    ],
+    "qd_periodic": [
+      "opening"
+    ],
+    "qd_stroop": [
+      "opening"
+    ],
+    "qd_memory": [
+      "opening"
+    ],
+    "qd_keynes": [
+      "opening"
+    ],
+    "qd_bankrun": [
+      "opening"
+    ]
+  }
+}

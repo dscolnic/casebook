@@ -360,24 +360,25 @@ glossary:
 # ---------------------------------------------------------------- the days
 missions:
   - title: Four degrees colder
+
+
+
+
     objective: Decide how much reserve is real enough to count when tomorrow is colder than planned and the battery delivered less than promised.
     briefing: Tomorrow's cold peak will push the Calder corridor harder, and the battery returned less energy than the plan assumed.
     stake: >-
-      Monday night. Tomorrow will be four degrees colder than anyone planned for, and Calder Valley
-      already depends on a transmission corridor with little spare margin. Sten Lindgren can estimate
-      the centre of the evening peak, but not exactly how high it will go. Rafael Alvarez has worse
-      news: the battery being counted as reserve returned less energy than its brochure promised.
-      Dolores Reyes has to sign tonight for how much power is held back instead of sold. Count reserve
-      that is not really there and the missing power appears at the coldest hour, when the corridor is
-      hardest to relieve and customers may have to be switched off. Today you decide what the system can
-      honestly promise.
+      Monday night, and tomorrow will be four degrees colder than planned. The battery counted as reserve gave back less than its label promised. Today you decide how much of that reserve is real.
     takeaway: Reserve is useful only if the energy is actually there when uncertainty becomes demand.
     stops:
       - group: LOAD
+
+
         task: Estimate what the store gives back
         title: What comes out against what went in
+        reason: >-
+          Reyes will only credit this store as reserve if somebody says what it actually gave back
         place: Load & Forecasting
-        scene: The battery is supposed to cover part of tomorrow's cold peak. Alvarez has the measured energy that went in Saturday night, the energy that came back Sunday, and the brochure rating. Reyes wants to know how much of tomorrow's reserve she can safely credit to it.
+        scene: The battery is supposed to cover part of tomorrow's cold peak. Alvarez, the demand analyst, has the energy that went in on Saturday and the energy that came back on Sunday, plus the brochure rating. Reyes, the shift supervisor, wants to know how much reserve she can credit to it.
         guide: >-
           Four numbers, and two of them are the power rating and the rated duration.
           Those say how fast and for how long, not how much came back. Ask of each
@@ -387,14 +388,10 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build.
         takesAsRead:
           - Electrical power and energy over time
         assumes:
@@ -429,11 +426,15 @@ missions:
             - Energy returned was 187 MWh
           relationship: Round-trip efficiency = the energy out ÷ the energy in, measured over a full cycle.
       - group: GEN
+
+
         task: Explain why replacement power must be stepped up before it crosses the corridor.
         title: The reason the wires are not at wall voltage
+        reason: >-
+          The replacement power is far away, and nobody has said what stepping it up actually buys
         concept: Transformers, turns ratio and losses
         place: Generation Hall
-        scene: "The replacement generation for tomorrow's peak is far from Calder Valley. Haddad points to the station transformer: the generator makes power at 20 kV, while the transmission line runs at 400 kV. Reyes wants to know what that voltage change buys before she counts the distant plant as useful reserve."
+        scene: "The replacement generation for tomorrow's peak is far from Calder Valley. Haddad, the generation lead, points to the station transformer: the generator makes power at 20 kV, while the transmission line runs at 400 kV. Reyes wants to know what that voltage change buys before she counts the distant plant as useful reserve."
         guide: >-
           All four options pair a change in current with a change in loss. Two of them
           get the current right and disagree about the heat. Ask what the loss depends
@@ -449,17 +450,13 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested.
         takesAsRead:
           - Electrical power and energy over time
           - Faraday's law and electromagnetic induction
@@ -481,8 +478,13 @@ missions:
           - The insulation requirement does change, but the electrical reason for stepping up voltage is the large reduction in current and I²R loss.
           - Raising voltage for the same power reduces current; it does not increase it.
       - group: OPS
+
+
         task: Say what the busbar meter can and cannot tell you
         title: What a node has to add up to
+        reason: >-
+          One meter reads the pair of circuits, and tonight the desk needs to know what that rules
+          out
         place: System Operations
         scene: The busbar meter reads 900 A out. Reyes wants to know what that single figure rules out about the two circuits underneath it. A printed network diagram lies on the desk.
         guide: >-
@@ -500,17 +502,13 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested.
         takesAsRead:
           - Ohm's law and resistive networks
           - Charge, current, voltage and resistance
@@ -532,22 +530,27 @@ missions:
           - Parallel branches share voltage, not current; the node law constrains only the sum of the branch currents.
           - A nonzero higher-impedance branch still carries current, so the lower-impedance path cannot take the full total by itself.
   - title: Three things at once
+
+
+
+
     objective: Rank three simultaneous problems, and hold the reasoning while they interfere.
     briefing: A feeder fault, a 200 MW forecast miss and a fuel-limited plant collide before the evening peak.
     stake: >-
-      Tuesday, 16:40. Three problems land at once. A cable fault has cut power to 3,300 homes. Actual
-      demand is already 200 MW above the forecast and the gap is still growing. The gas station carrying
-      the evening peak must shut at 18:00 because it is running out of fuel. Each problem is manageable
-      alone; together they can consume the reserve and push more power through the Calder corridor just
-      as the cold evening arrives. Reyes can keep only one problem in her own hands. Today you decide
-      which problem is stealing options fastest, and exactly how the other two are handed off.
+      Tuesday, 16:40, and three problems land together. A cable fault has cut 3,300 homes, demand is 200
+      megawatts over forecast, and the gas station carrying the peak runs dry at six. Today you rank
+      them and hand two of them away.
     takeaway: Ranking is not about which problem is worst but about which one gets worse fastest and which one is cheapest to remove.
     stops:
       - group: OPS
+
+
         task: Keep the one condition that cannot safely wait and delegate the rest with an owner, first action and return condition.
         title: Which of the three cannot wait
+        reason: >-
+          Three live problems, one attention channel, and Whitlock will not accept a handoff that only says to watch it
         place: System Operations
-        scene: Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock is ready to take a handoff, but she refuses any instruction that amounts to simply “watch it.”
+        scene: Reyes has three live problems on the board and only one attention channel she can keep herself. Aaron Whitlock, the assistant operator, is ready to take a handoff, but she refuses any instruction that amounts to simply “watch it.”
         guide: >-
           Three live problems and one attention channel you can keep. For each of the
           other two, name an owner, the first real action they will take, and the
@@ -561,9 +564,7 @@ missions:
               first action is what lets somebody hold a problem without you, and naming it
               is the difference between delegating and deferring.
           - >-
-              What a return condition is for. It is not a promise to check in. It is the
-              threshold at which the problem stops being theirs, agreed in advance, so
-              nobody has to judge in the moment whether this is bad enough to interrupt you.
+              What a return condition is for. It is not a promise to check in. It is the threshold at which the problem stops being theirs, agreed in advance. Nobody then has to judge in the moment whether this is bad enough to interrupt you.
           - >-
               How to choose what to keep. Compare the three on how fast they are getting
               worse, on whether they are already contained, and on what happens if nobody
@@ -621,8 +622,13 @@ missions:
         answerText: Keep the growing forecast error. Delegate the cable fault to the field coordinator. Send the scheduled machine loss to the generation desk, with a first action and return threshold for each.
         why: "The cable outage is loud but stable: customers are already off and a crew is moving. The fuel-limited machine has a known time and quantity, so another operator can prepare its replacement. The forecast error is different. It is still growing, and reserve procurement needs lead time before the evening peak. Every update that passes without action removes options that cannot be recovered later. Delegation is therefore not “watch it.” Each handoff needs an owner, a first action and a condition that brings the problem back."
       - group: TRANS
+
+
         task: Work out the corridor's loss at the higher flow
         title: Loss when the load turns up anyway
+        reason: >-
+          The feeder is out, the corridor is carrying more, and the heat figure is wanted before any
+          switching change
         concept: Transmission losses and conductor sizing
         place: Transmission & Protection
         scene: With the feeder out, flow has redistributed and the corridor is carrying more. Novak, the protection engineer, wants the heat figure before he decides whether the evening needs a switching change. A printed network diagram lies on the desk.
@@ -635,14 +641,10 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build.
         takesAsRead:
           - Ohm's law and resistive networks
           - Electrical power and energy over time
@@ -679,11 +681,16 @@ missions:
             - There are three phases
           relationship: Total three-phase loss = 3 × I_rms² × R_phase, so a small rise in current makes a larger rise in heat.
       - group: LOAD
+
+
         task: Order the evening's moves so none of them undoes another
         title: An order that survives being carried out
+        reason: >-
+          Four moves for the evening, two of them change what the others are worth, and one cannot
+          be reversed
         place: Load & Forecasting
         scene: |-
-          Lindgren has four moves for the evening and no view on the order. Two of them change what the others are worth, and one of them cannot be reversed inside the shift.
+          Lindgren, the load forecasting analyst, has four moves for the evening and no view on the order. Two of them change what the others are worth, and one of them cannot be reversed inside the shift.
         guide: >-
           All four moves are available right now, so this is not a clock. Ask of each
           two things. What does it improve about the numbers you are working from? And
@@ -722,21 +729,26 @@ missions:
         axis: Order the four moves by what each one commits you to, not by the clock. All four are available now; what differs is how much they improve the figures you are working from, and how easily they can be taken back.
         ends: [Improves your information, Cannot be taken back]
   - title: The number on the wall
+
+
+
+
     objective: Use the first seconds after a generator trip to determine how much power vanished and what the low frequency actually means.
     briefing: The biggest station tripped at 04:12; frequency has stopped falling, but it has not recovered.
     stake: >-
-      Wednesday, 04:12. The biggest power station on the system trips without warning. Frequency falls,
-      then settles low. Reyes says the flattening is not a recovery: it means the system has found a new
-      balance at the wrong frequency. Haddad can start more generation, but the first clean clue to how
-      much vanished is already disappearing from the frequency trace. Whatever replaces the missing
-      power will also change the flow through the Calder corridor. Today you use the first seconds of
-      the event to measure the shortfall before slower controls blur the evidence, and you decide which
-      records are trustworthy enough to act on.
+      Wednesday, 04:12, and the biggest station on the system trips. The frequency falls, then settles
+      low: a new balance at the wrong speed, not a recovery. Today you read the first seconds to see how
+      much power went missing.
     takeaway: Frequency is not a reading from a place; it is the whole system's supply and demand, arriving as a number.
     stops:
       - group: OPS
+
+
         task: From a falling trend to a statement about the system
         title: What a frequency trend is evidence of
+        reason: >-
+          Two people have already named a cause, and Whitlock wants a statement the record can
+          defend
         concept: Frequency as the balance of supply and demand
         place: System Operations
         scene: The wall shows frequency dropping for eight seconds, then flattening low. Aaron Whitlock, the assistant operator, has the log open. Two people have already named a cause, and he wants a statement the record can defend.
@@ -762,9 +774,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every response used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two joins. That is worth remembering when the last
-              pair looks forced: the fault is usually not in the join you are struggling
-              with, but in one you made early and stopped questioning.
+              therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         takesAsRead:
           - Synchronous machines and synchronisation
           - Electrical power and energy over time
@@ -772,7 +782,7 @@ missions:
           - an alternating supply has a frequency measured in cycles per second
         takeaway: Frequency is a system-wide balance signal; its rate of change depends on both the power mismatch and stored kinetic energy.
         format: PROTOCOL
-        why: System frequency reflects the balance between real power entering the interconnection and real power being demanded. After a sudden generation loss, stored kinetic energy in synchronized machines supplies the deficit briefly, so frequency begins to fall. The initial rate of change depends on both the power mismatch and that stored energy. A later flattening can be governor response at a lower frequency, not full recovery. Frequency is therefore strong evidence of a system-wide imbalance, while voltage is much more local.
+        why: System frequency reflects the balance between real power entering the interconnection and real power being demanded. After a sudden generation loss, stored kinetic energy in synchronized machines supplies the deficit briefly. So frequency begins to fall. The initial rate of change depends on the power mismatch and on that stored energy. A later flattening can be governor response at a lower frequency. It is not full recovery. Frequency is therefore strong evidence of a system-wide imbalance. Voltage is much more local.
         rebuttals:
           - A common frequency across the system is the machines turning in step, not a coincidence of separate meters.
           - The rate of fall measures the size of the mismatch against the inertia available, which is why it is the first number to read.
@@ -790,8 +800,13 @@ missions:
           - Voltage is local, which is what makes it useful for saying where rather than whether.
         mapping: [0, 1, 2, 3]
       - group: GEN
+
+
         task: Estimate the generation that went missing
         title: How much power actually left the system
+        reason: >-
+          A number is needed before anything is started, and the only clean evidence is the first
+          two seconds
         concept: Frequency as the balance of supply and demand
         place: Generation Hall
         scene: Haddad, the generation lead, needs a number before starting anything. The only clean evidence is the first two seconds of the trend and the stored-energy figure for the machines that were online overnight.
@@ -805,14 +820,10 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build.
         takesAsRead:
           - Synchronous machines and synchronisation
           - Electrical power and energy over time
@@ -850,8 +861,13 @@ missions:
             - Nominal frequency is 50 Hz
           relationship: Power imbalance magnitude = 2 × stored kinetic energy × |df/dt| ÷ nominal frequency.
       - group: METER
-        task: Open the timing dependencies, keep the evidence that stands independently, and name the failed time source.
+
+
+        task: Open the timing of each telemetry record, keep the evidence that stands independently, and name the failed time source.
         title: The order the records claim things happened in
+        reason: >-
+          Three records of the same eight seconds disagree, and one clock has not been checked since
+          spring
         place: Metering & Standards
         scene: June Farrow, the metering engineer, has three records of the same eight seconds. They disagree about what happened first. One record was stamped by a clock nobody has checked since spring.
         guide: >-
@@ -868,9 +884,7 @@ missions:
               false ordering look consistent.
           - >-
               How to tell dependence from agreement. Two records agreeing prove nothing if
-              both were stamped by the same clock. What matters is whether a record's timing
-              came from somewhere else — a synchronised source, a physical input with its
-              own time base — because only those constrain the order independently.
+              both were stamped by the same clock. What matters is whether a record's timing came from somewhere else: a synchronised source, or a physical input with its own time base. Only those constrain the order independently.
           - >-
               What the order is for. Sequence-of-events analysis is how a blackout is
               explained: what tripped first decides whether this was a protection failure,
@@ -884,7 +898,7 @@ missions:
           - two channels can agree because they share the same source
         takeaway: Agreement is independent evidence only when the channels do not share the same dependency.
         format: TRACE
-        question: Which records still support the event order, and what shared source explains the false early timestamps?
+        question: Which telemetry records still support the event order, and what shared source explains the false early timestamps?
         trace:
           hint: Open each channel to see which clock and physical input it depends on. Keep only the claims each channel can support, then name the shared source behind the false early time.
           channels:
@@ -935,21 +949,25 @@ missions:
         answerText: Keep the GPS disturbance recorder for event order and the SCADA record only for coarse breaker state. The relay event log and local relay annunciator share the drifted relay clock; that clock is the failed source.
         why: A timestamp contains a physical event and a clock claim. Those can fail separately. Two relay-derived records can agree because they share one internal clock, so their agreement is not two independent measurements. The GPS disturbance recorder uses a different time source and preserves the physical ordering. The slower SCADA record can still confirm breaker state, even though its two-second scan cannot resolve sub-second order. Dependency tracing keeps useful evidence instead of discarding every channel touched by the bad clock.
   - title: Forty minutes
+
+
+
+
     objective: Decide whether the Calder corridor can be held safely, and act before its emergency margin is gone.
     briefing: The Calder corridor is above its continuous rating, and the room believes it has about forty minutes of emergency margin.
     stake: >-
-      Thursday. Replacement power from Wednesday's trip is being pushed through the two Calder circuits,
-      and both are running hot. Novak says the operating model gives the corridor a little emergency
-      margin before protection takes it out. Farrow points out that the margin comes from a temperature
-      record nobody has independently checked. Dube is in the yard waiting for a switching order. Today
-      you decide how early to move generation away from Calder and how hard the corridor can be pushed
-      while that move arrives. If protection opens the corridor first, the valley loses the choice of
-      how the next minutes happen.
+      Thursday, and both Calder circuits are running hot. The room thinks it has forty minutes of
+      emergency margin, and that number came from a heat record nobody checked. Today you decide how
+      hard to push the line.
     takeaway: A thermal rating is a temperature under stated conditions, not a magic current wall; an action threshold must leave enough time for the action to arrive.
     stops:
       - group: TRANS
+
+
         task: Set the overload action thresholds before the corridor trend is released.
         title: What you do before a relay does it for you
+        reason: >-
+          The corridor is at 108 per cent and rising, and a relay will choose for you if you do not
         place: Transmission Control
         scene: The corridor is at 108% of continuous rating and rising slowly. Novak, the transmission engineer, wants a response he can hand to Dube, the switching operator, before the relay makes the choice for them.
         guide: >-
@@ -1066,8 +1084,13 @@ missions:
         answerText: Commit the redispatch at about 111% of continuous rating. At the observed rise of roughly 1.5 percentage points per hour, that leaves the six hours needed to finish the move before the corridor reaches 120%.
         why: The emergency ceiling is not the point at which a slow action should begin. At roughly 1.5 percentage points per hour, six hours consumes about nine percentage points of loading margin. Working backward from 120% therefore puts the redispatch trigger near 111%. The calculation matters because an action can be physically correct and still be useless if it starts too late to arrive.
       - group: LOAD
-        task: Estimate the loss in the loaded corridor
+
+
+        task: Estimate the resistive loss in the loaded corridor
         title: The power that never arrives
+        reason: >-
+          The argument about moving generation is really an argument about waste, and nobody has put
+          a number on it
         concept: Ohm's law and resistive networks
         place: Load & Forecasting
         scene: Sten Lindgren, who forecasts demand, wants the loss figure before the morning call. The argument about moving generation is really an argument about waste. The yard radio is still live beside them.
@@ -1080,21 +1103,17 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build.
         takesAsRead:
           - Charge, current, voltage and resistance
         assumes:
           - current through a resistance dissipates power as heat
         takeaway: Loss rises with the square of current, which is why a small overload costs more than it looks.
         format: BALLPARK
-        question: Estimate the power lost as heat in the loaded corridor.
+        question: Estimate the power lost as heat in the corridor's resistive path.
         answerText: About 17 MW.
         why: Resistive loss in one phase is the RMS current squared times that phase resistance. A balanced three-phase corridor has three such conductors, so the total is three times I squared R. The square is the key. 10% more current means about 21% more heat. High transmission voltage helps because the same real power can be moved with less current. Lower current then cuts resistive loss sharply, which is why a modest overload can consume thermal margin faster than its percentage suggests.
         estimate:
@@ -1119,20 +1138,23 @@ missions:
             About 17 megawatts, turned into warm air. The line voltage and the power factor both belong to other calculations — voltage sets what current is needed for a given power, and power factor decides how much of the apparent power does work — but neither enters the loss itself.
           givens:
             - RMS current is 1,150 A in each phase
-            - Resistance is 4.2 Ω per phase over the corridor
+            - Resistance is 4.2 ohms per phase over the corridor
             - There are three phases
           relationship: Line loss = 3 × I_rms² × R_phase, the electrical power P = I²R paid once per phase. The current is RMS, the resistance per phase.
       - group: OPS
+
+
         task: Work out what the path opposes before the order is signed
         title: What the path opposes at 50 hertz
+        reason: >-
+          The second switching order will not be signed until one figure for the path is on the sheet
         concept: Reactance, impedance and phasors
         place: System Operations
         scene: "Reyes has the switching order for the second circuit in front of her. Novak has read the path's own figures out of the records: 3.1 ohms of resistance, and 12.4 ohms of reactance at 50 hertz. She wants one number before she signs."
         guide: >-
           Five numbers, and only two of them are properties of the path. Ask of each
           whether it describes what the path is, or what is being pushed through it.
-          Resistance and reactance are both measured in ohms and both oppose the current,
-          but they do it at different moments in the cycle, so they do not add end to end.
+          Resistance and reactance are both measured in ohms, and both oppose the current. But they do it at different moments in the cycle, so they do not add end to end.
           Combine them the way you would two sides of a right-angled triangle, and notice
           before you commit how little the smaller one moves the answer.
         background:
@@ -1144,15 +1166,10 @@ missions:
               arithmetically would count a maximum that never happens.
           - >-
               Why an overhead path is mostly reactance. A long circuit is a large loop of wire,
-              and its inductance grows with the area that loop encloses. At the spacings a
-              400 kV tower needs, that inductance dominates: on this path the reactance is four
-              times the resistance, so the resistance contributes about three per cent of the
-              total, and heat is a small part of the story.
+              and its inductance grows with the area that loop encloses. At the spacings a 400 kV tower needs, that inductance dominates. On this path the reactance is four times the resistance. So the resistance contributes about three per cent of the total, and heat is a small part of the story.
           - >-
               What the frequency has to do with it. Reactance is proportional to frequency, so a
-              figure like this one is only true at the frequency it was measured at. Resistance
-              is nearly a property of the metal; reactance is a property of the metal and the
-              cycle together, which is why a record of it has to say 50 hertz.
+              figure like this one is only true at the frequency it was measured at. Resistance is nearly a property of the metal. Reactance is a property of the metal and the cycle together. That is why a record of it has to say 50 hertz.
         takesAsRead:
           - "AC waveforms: frequency, period and phase"
           - Capacitance, inductance and stored energy
@@ -1164,7 +1181,7 @@ missions:
         format: BALLPARK
         question: Estimate what the corridor path opposes at 50 hertz.
         answerText: About 12.8 ohms.
-        why: Resistance opposes the current itself and turns part of it into heat. Reactance opposes the change of current, because an inductance answers a rising current by pushing back, and it does that a quarter of a cycle away from the resistance. Two oppositions that peak at different moments cannot be added end to end; they combine as the two shorter sides of a right-angled triangle. Here the reactance is four times the resistance, so the resistance moves the total by about three per cent.
+        why: Resistance opposes the current itself and turns part of it into heat. Reactance opposes the change of current, because an inductance answers a rising current by pushing back. It does that a quarter of a cycle away from the resistance. Two oppositions that peak at different moments cannot be added end to end; they combine as the two shorter sides of a right-angled triangle. Here the reactance is four times the resistance, so the resistance moves the total by about three per cent.
         estimate:
           prompt: The path has 3.1 ohms of resistance and 12.4 ohms of reactance at 50 hertz. The corridor is carrying 1,150 A at a nominal 400 kV.
           question: Choose the two figures that are properties of the path.
@@ -1190,21 +1207,26 @@ missions:
             - Reactance of the path at 50 Hz is 12.4 Ω
           relationship: Z = √(R² + X²), the resistance and the reactance of the same path combined at right angles because they oppose the current a quarter of a cycle apart.
   - title: Who gets power first
+
+
+
+
     objective: Restore customers in an order that protects the people for whom waiting costs the most.
     briefing: Eleven feeders are still dead; three crews cannot reach all of them, and one feeder serves a dialysis clinic.
     stake: >-
-      Friday. The big lines are steady again. Eleven street-level circuits are still dead. Chinelo
-      Obi, the distribution lead, has three crews and fourteen thousand homes with no power. One
-      circuit feeds a dialysis clinic. Another feeds a thousand houses. Ewa Kowalczyk, the field crew
-      lead, is at the first fault, and it is a fallen tree. The far end of one long circuit is running
-      below its proper voltage, and nobody in the room can say why. Today you pick which circuit gets
-      the first crew. Every hour is somebody sitting in a cold house, and an inquiry will read your
-      order back to you later.
+      Friday, and the big lines are steady while eleven street circuits are still dead. Three crews
+      cannot reach fourteen thousand cold homes at once, and one circuit feeds a kidney clinic. Today
+      you choose which circuit gets the first crew, knowing an inquiry will read the order back.
     takeaway: Restoration is a series of choices about people, made with instruments that only see the substation.
     stops:
       - group: DIST
+
+
         task: Match each connection to what it shares
         title: What is common and what divides
+        reason: >-
+          Obi is training a new starter at the depot whiteboard, and the depot has eleven dead
+          circuits tonight
         place: Distribution Depot
         scene: Obi, the distribution supervisor, is training a new starter. Four circuit sketches are on the whiteboard, and he wants each matched to the quantity that stays common across that arrangement.
         guide: >-
@@ -1229,9 +1251,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every response used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two joins. That is worth remembering when the last
-              pair looks forced: the fault is usually not in the join you are struggling
-              with, but in one you made early and stopped questioning.
+              therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         takesAsRead:
           - Kirchhoff's laws and nodal analysis
         assumes:
@@ -1259,8 +1279,13 @@ missions:
           - The combined impedance rises, so the current falls everywhere in the loop.
         mapping: [0, 1, 2, 3]
       - group: TRANS
+
+
         task: Match each observation to what it constrains
         title: What actually limits a conductor
+        reason: >-
+          Somebody has asked for more current down a circuit this afternoon, and every reason to
+          refuse is about something different
         place: Transmission & Protection
         scene: Novak is asked to allow more current down a circuit for the afternoon. He wants each reason for saying no matched to the thing it is actually about. The shift log is open beside them.
         guide: >-
@@ -1285,9 +1310,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every response used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two joins. That is worth remembering when the last
-              pair looks forced: the fault is usually not in the join you are struggling
-              with, but in one you made early and stopped questioning.
+              therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         takesAsRead:
           - Electrical power and energy over time
         assumes:
@@ -1315,8 +1338,13 @@ missions:
           - A clearance limit, which is where a heat limit turns into a safety one.
         mapping: [0, 1, 2, 3]
       - group: OPS
+
+
         task: Decide which circuit gets the crew first
         title: The order somebody will read back to you
+        reason: >-
+          Three crews, eleven dead circuits, and the first one you pick is the one an inquiry will
+          ask about
         place: System Operations
         scene: Three crews, eleven dead feeders, and a list in front of Reyes that mixes household counts with one dialysis clinic and one pumping station. The control-room phone is already ringing. The shift log and network board are open beside them.
         guide: >-
@@ -1334,17 +1362,13 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested.
         assumes:
           - a crew can only work one fault at a time
         takeaway: The first crew goes where the consequence of waiting is worst, not where the count is biggest.
@@ -1362,20 +1386,26 @@ missions:
           - A fault nobody has located cannot be given a duration, so it cannot be scheduled against the others.
           - The pumping station is running on its standby supply, so it is not off, and it can wait.
   - title: Can we trust the numbers?
+
+
+
+
     objective: Decide which measurements the incident report can rely on, and which apparent disagreements are only different definitions.
     briefing: The report is due, but two key readings have not been independently checked and two calibrated instruments appear to disagree.
     stake: >-
-      Monday. Wednesday night has to be written up, and Reyes wants it filed today. Farrow will not
-      sign it. Two of its numbers come from instruments last checked in the spring. Nadia Haddad needs
-      a machine back on the system before the evening peak, and there is a correct order for switching
-      it in. Today you work out what the system was really delivering, and settle a fight between two
-      instruments that disagree. Farrow is right to wait. A number in a report lasts longer than the
-      people who knew what it meant.
+      Monday, and Wednesday night has to be written up today. Two of its numbers come from meters last
+      checked in the spring, and two more meters disagree. Today you settle what the system was really
+      giving.
     takeaway: A reading is a claim about one quantity, and two instruments can disagree while both are right.
     stops:
       - group: METER
+
+
         task: Estimate the power the circuit was delivering
         title: What three phases actually add up to
+        reason: >-
+          Farrow will not sign a delivered-power figure that nobody in the room has reproduced from
+          the readings
         concept: Real, reactive and apparent power
         place: Metering & Standards
         scene: Farrow has line voltage, line current and a power factor from the night of the event. The report claims a figure for delivered power that nobody has reproduced. A printed network diagram lies on the desk.
@@ -1389,14 +1419,10 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build.
         takesAsRead:
           - Electrical power and energy over time
         assumes:
@@ -1435,8 +1461,12 @@ missions:
           relationship: |-
             Real power = √3 × the line voltage × the line current × the power factor, with the voltage measured between lines rather than to neutral.
       - group: GEN
+
+
         task: Put the steps of synchronising in the order physics requires
         title: Four things that have to agree before the breaker closes
+        reason: >-
+          The machine has to be back before the evening peak, and the sequence is wanted before anybody stands at the panel
         concept: Synchronous machines and synchronisation
         place: Generation Hall
         scene: Haddad has a machine at rest and a system running at nominal. She wants the sequence written down before anybody is standing at the panel. The next operating call is minutes away.
@@ -1479,8 +1509,13 @@ missions:
           - Close the breaker.
         order: [0, 1, 2, 3]
       - group: TRANS
+
+
         task: Check whether the scope and meter are consistent with the same sine-wave voltage.
         title: Two instruments, two quantities
+        reason: >-
+          A scope says 325 volts and the meter beside it says 230, and both were calibrated last
+          month
         place: Transmission & Protection
         scene: An oscilloscope on the busbar shows a peak of 325 volts. The panel meter beside it reads 230. Both were calibrated last month and neither has moved. The yard radio is still live beside them.
         guide: >-
@@ -1499,17 +1534,13 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested.
         takesAsRead:
           - "AC waveforms: frequency, period and phase"
         assumes:
@@ -1530,19 +1561,24 @@ missions:
           - RMS is smaller than peak, so multiplying the peak by root two moves in the wrong direction.
           - Halving gives about 163 V, not the meter reading.
   - title: The easier path
+
+
+
+
     objective: Work out how the two Calder circuits actually share current before one of them is switched out.
     briefing: Two circuits share the Calder corridor, but the lower-impedance one is carrying twice the current of the other.
     stake: >-
-      Tuesday, a week on. The Calder corridor has two parallel circuits, but that does not mean the
-      current splits in half. The newer circuit has about half the impedance of the older one, so it is
-      carrying roughly twice the current and using thermal margin much faster. Dube is waiting to hear
-      which circuit can be taken out for maintenance. Today you calculate the split before anybody opens
-      a breaker. Take out the wrong path and the circuit left behind inherits all of the flow.
+      Tuesday, a week on. The Calder line has two circuits, and the newer one carries twice the current
+      because its impedance is half. Today you work out the split before a breaker is opened.
     takeaway: Current divides between parallel paths in inverse proportion to their impedance, whatever anybody intended.
     stops:
       - group: TRANS
-        task: Estimate the current in the older circuit
+
+
+        task: Estimate the current in the older circuit, in parallel with the newer
         title: How the flow splits between two paths
+        reason: >-
+          Dube is waiting to hear which circuit can come out, and only the total current is metered
         concept: Series, parallel and equivalent circuits
         place: Transmission & Protection
         scene: 900 amps leave the busbar for the same destination by 2 routes. The older circuit is six ohms, the newer one three, and only the total is metered. The control-room phone is already ringing.
@@ -1555,19 +1591,15 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build.
         assumes:
           - two paths between the same two points carry the same voltage across them
         takeaway: The lower-impedance path takes the larger share, in inverse proportion.
         format: BALLPARK
-        question: Estimate the current flowing in the older, higher-impedance circuit.
+        question: The two circuits are in parallel across the corridor. Estimate the current flowing in the older, higher-impedance one.
         answerText: About 300 A in the older 6 Ω path and 600 A in the newer 3 Ω path.
         why: Both circuits connect the same two busbars, so they have the same voltage across them. Current therefore divides inversely with impedance. With 6 Ω and 3 Ω, the lower-impedance circuit carries twice the current of the older one. The total busbar current fixes the sum; the impedances determine the share. This is why adding a parallel circuit does not guarantee an even split.
         estimate:
@@ -1596,8 +1628,13 @@ missions:
           relationship: |-
             Current in one of two parallel paths = the total × the other path's impedance ÷ the sum of the two impedances.
       - group: OPS
+
+
         task: Spend the evidence budget on measurements that can change the reserve decision before the evening peak.
         title: What is worth knowing before the peak
+        reason: >-
+          There is money for a few checks before the evening peak, and only some of them could
+          change anything
         place: System Operations
         scene: Reyes has a small budget and four things she could find out before the evening peak. Only some of them would change what she does about the reserve. The shift log is open beside them.
         guide: >-
@@ -1609,14 +1646,10 @@ missions:
         background:
           - >-
               What makes evidence worth its credit. Two possible results that point at
-              different actions. If both outcomes leave you doing the same thing about the
-              reserve, the measurement is interesting and not useful — and tonight the
-              difference between those two words is a credit you cannot get back.
+              different actions. If both outcomes leave you doing the same thing about the reserve, the measurement is interesting and not useful. Tonight, the difference between those two words is a credit you cannot get back.
           - >-
               Why the deadline is part of the question. A result that arrives at seven is a
-              result about a decision already made. So a slower, better measurement can be
-              worth less than a rough one in time, which is the opposite of how the same
-              choice would be scored in a laboratory.
+              result about a decision already made. So a slower, better measurement can be worth less than a rough one in time. That is the opposite of how the same choice would be scored in a laboratory.
           - >-
               What the shift log is doing open beside her. It records what has already been
               decided and why, which is the fastest way to see which of the four questions
@@ -1663,8 +1696,13 @@ missions:
         answerText: Buy the current-winter cold-load sensitivity and the peak-rate storage test. Together they cost the full five-credit budget and address two independent uncertainties that can still change tonight’s reserve.
         why: Reserve depends on uncertainty in demand and on resources that can actually deliver when called. Measuring this winter’s cold-load sensitivity can change the forecast width before the peak. Re-testing storage at the relevant discharge rate can change how much reserve the store deserves credit for. Repeating a generator test that is already current mainly buys reassurance. A feeder survey that arrives in six weeks may be useful planning evidence, but it cannot change tonight. Evidence has value only when its result can still alter the decision.
       - group: DIST
+
+
         task: Estimate the volt drop to the end of the feeder
         title: Why the far end sits low
+        reason: >-
+          Customers four kilometres along the feeder are complaining, and the only meter is back at
+          the substation
         place: Distribution Depot
         scene: The substation end of the feeder is at nominal voltage. Customers four kilometres along it are complaining, and the only meter is back at the substation. The room is waiting for a written instruction.
         guide: >-
@@ -1676,14 +1714,10 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build.
         assumes:
           - current flowing through a resistance produces a drop in voltage
         takeaway: Volt drop is set by the current and by both parts of the line's impedance.
@@ -1718,21 +1752,26 @@ missions:
             - Power factor is 0.95, so sin φ is 0.31
           relationship: For a balanced three-phase feeder, line-to-line drop ≈ √3 × I × (R cos φ + X sin φ), using per-phase R and X.
   - title: 80 milliseconds
+
+
+
+
     objective: Establish what a fault does before anybody can respond to it.
     briefing: A cable failed at the substation and the protection cleared it before the alarm reached the room.
     stake: >-
-      Wednesday. A cable failed inside the substation at 13:40. The protection cut it off in less than
-      a tenth of a second. Nobody in the room saw the fault happen. They only saw what was left. Novak
-      will not sign the switchgear back into use until somebody works out how big the current was.
-      Farrow wants to know how an instrument reads a wire it never touches. Kowalczyk has a crew at
-      the gate and an earthing rule they are impatient with. Today you work out the fault current, and
-      decide who is allowed near it. The numbers here are huge and the times are tiny, so nobody
-      guesses either one.
+      Wednesday, 13:40, and a cable failed inside the substation. Protection cut it off in less than a
+      tenth of a second, so nobody saw the fault happen. Today you work out how big that current was,
+      and decide who may go near it.
     takeaway: Once source voltage and fault type are fixed, network impedance controls how large fault current becomes; that is why protection has to act in milliseconds.
     stops:
       - group: TRANS
+
+
         task: Estimate the current the fault drew
         title: What a short circuit is limited by
+        reason: >-
+          Novak will not sign the switchgear back into use until somebody says what it had to
+          interrupt
         place: Transmission & Protection
         scene: |-
           The cable failed phase to earth. Phase voltage is 6,350 volts and the total impedance back to the source is 0.42 ohms. Novak wants the current the switchgear had to interrupt.
@@ -1745,14 +1784,10 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build.
         assumes:
           - a short circuit leaves almost no impedance in the path
         takeaway: Fault current is the driving voltage over the impedance of the path, and nothing else limits it.
@@ -1786,8 +1821,13 @@ missions:
           relationship: |-
             Fault current = the driving phase voltage ÷ the total impedance of the path back to the source, with the load bypassed and contributing nothing.
       - group: METER
+
+
         task: Use the test loop to isolate what makes the current transformer produce a secondary signal.
         title: A reading taken without a connection
+        reason: >-
+          Farrow wants a cause, not a remembered definition, for how an instrument reads a wire it
+          never touches
         place: Metering & Standards
         scene: June Farrow, the metering engineer, has a protected low-voltage current-transformer test loop beside the yard diagram. The bench shows primary current, secondary current and a movable core. She wants a cause, not a remembered definition.
         guide: >-
@@ -1801,9 +1841,7 @@ missions:
               How a current transformer works, and why nothing touches the conductor.
               Current in the primary makes a changing magnetic field, the core carries that
               field around the winding, and the changing field induces a proportional
-              current in it. Nothing is connected to the primary at all — which is exactly
-              why the instrument is safe on a live circuit, and why what it needs is change
-              rather than contact.
+              current in it. Nothing is connected to the primary at all. That is exactly why the instrument is safe on a live circuit. And why what it needs is change rather than contact.
           - >-
               Why a steady current reads nothing. Induction responds to a field that is
               changing. Hold the primary current constant and the field stops changing, so
@@ -1823,7 +1861,7 @@ missions:
           - the bench current transformer has 1 primary turn and 20 secondary turns
         takeaway: A current transformer responds to changing magnetic flux; a steady primary current produces no sustained secondary signal.
         format: CONTROL
-        question: Which change makes the secondary current disappear, and does the signal return when that change is reversed?
+        question: Which change stops the flux from inducing a secondary current, and does the signal return when that change is reversed?
         control:
           hint: Change one control at a time and run the test. To commit a cause, remove the suspect while the other controls stay fixed, then restore it and confirm the response returns.
           noise: 0.05
@@ -1843,8 +1881,12 @@ missions:
         answerText: The waveform is the causal control. With the core closed and 100 A primary current, AC gives about 5.0 A secondary. Changing only AC to steady DC drops the settled signal to about 0.05 A; restoring AC brings it back to 5.0 A.
         why: A current transformer needs no electrical connection between primary and secondary. Alternating primary current creates changing magnetic flux in the core. Faraday’s law then induces an emf in the secondary, and the turns ratio sets the secondary current approximately. A steady DC current can still create a magnetic field. After the switching transient, however, the flux stops changing and the secondary signal falls almost to zero. Removing the suspected cause and then restoring it is stronger evidence than changing several controls together.
       - group: LOAD
+
+
         task: Estimate tomorrow's peak from the curve
         title: The peak, and how far the cold moves it
+        reason: >-
+          Tomorrow is minus four, and the base curve alone does not say where the peak lands
         place: Load & Forecasting
         scene: |-
           The base peak for a Friday in this week of the year is 6,400 megawatts. Lindgren's own figure for this winter is 120 megawatts of extra demand per degree below 0, and tomorrow is minus 4.
@@ -1857,14 +1899,10 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build.
         takesAsRead:
           - Electrical power and energy over time
         assumes:
@@ -1901,20 +1939,26 @@ missions:
           relationship: |-
             Forecast peak = the base peak for that day and season + the demand sensitivity × the degrees below zero, with the sensitivity measured from this winter's own data.
   - title: The valley breaks away
+
+
+
+
     objective: Use the island frequency to decide whether Calder Valley can stay alive on its own, and shed load before it collapses.
     briefing: The Calder corridor trips at the evening peak; the valley is still lit, but it is now electrically on its own.
     stake: >-
-      Friday, 18:20. The route into the valley tripped at the worst hour of the week. It is the same
-      route the room pushed hard a week ago, using a heat record nobody had checked. The valley did
-      not go dark. It broke away from the rest of the system, and it is now on its own with one gas
-      machine and the wind ridge. Reyes has minutes to choose. She can help the valley survive on its
-      own, or shut it down on purpose. Nadia Haddad says the one machine in there has very little
-      spare power behind it. Today you decide whether the valley keeps its power or loses it.
+      Friday, 18:20, and the route into the valley trips at the worst hour of the week. The valley is
+      still lit, but it is on its own now, with one gas machine and the wind ridge. Today you decide in
+      minutes whether it keeps its power or is shut down on purpose.
     takeaway: An island lives or dies on whether generation inside it can follow the load inside it.
     stops:
       - group: OPS
+
+
         task: Find every shortfall-and-inertia pair that fits the measured frequency slope, then use an independent inertia estimate to break the ambiguity.
         title: Why the island's frequency is falling slowly
+        reason: >-
+          The island is losing speed, and the wall gives you the slope rather than the shortfall
+          behind it
         place: System Operations
         scene: The island frequency is falling at 0.10 hertz per second. Its dispatchable machine is already at full output, while inverter-connected ridge generation is low. Haddad wants the power shortfall, but the wall gives only the slope.
         guide: >-
@@ -1994,8 +2038,12 @@ missions:
         answerText: At 50 Hz, a 0.10 Hz/s fall satisfies |ΔP|/E_k = 0.004 s⁻¹. The independent inertia estimate is 25,000 MW·s, so the shortfall is about 100 MW.
         why: "The initial frequency slope comes from two quantities at once: the real-power mismatch and the stored kinetic energy resisting it. A slow fall can therefore mean a small shortfall, large inertia, or a matching combination of both. Inverter-connected wind can add real power without adding the same synchronous kinetic energy, so installed megawatts do not settle the question. First trace the combinations that reproduce 0.10 Hz/s. Then use an independent estimate of stored kinetic energy to select the matching power shortfall."
       - group: METER
+
+
         task: Say where an island's short-term energy actually comes from
         title: What is stored, and for how long
+        reason: >-
+          Two of the four things the room is counting on cannot help in the first ten seconds
         concept: Capacitance, inductance and stored energy
         place: Metering & Standards
         scene: |-
@@ -2021,9 +2069,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every response used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two joins. That is worth remembering when the last
-              pair looks forced: the fault is usually not in the join you are struggling
-              with, but in one you made early and stopped questioning.
+              therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         takesAsRead:
           - "AC waveforms: frequency, period and phase"
           - Charge, current, voltage and resistance
@@ -2052,8 +2098,13 @@ missions:
           - After several minutes, which suits the recovery rather than the emergency.
         mapping: [0, 1, 2, 3]
       - group: DIST
+
+
         task: Choose what to do about the island
         title: Keeping it, or collapsing it on purpose
+        reason: >-
+          Twenty-six thousand households are inside the island, and the frequency is still falling
+          while you decide
         place: Distribution Depot
         scene: Obi has 26,000 households inside the island and a frequency still falling. Holding it needs demand off. Collapsing it means all of them, and a longer way back. The event board is still showing the overnight state.
         guide: >-
@@ -2071,17 +2122,13 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested.
         assumes:
           - restoring a collapsed island takes longer than holding a live one
         takeaway: Shedding some load to keep an island alive is usually cheaper than restoring it from nothing.
@@ -2099,20 +2146,28 @@ missions:
           - Waiting on the wind bets the island on a forecast, with nothing in reserve if the forecast is late.
           - Two systems at different frequencies cannot be joined; attempting it trips the machine and collapses the island.
   - title: The lights go out
+
+
+
+
     objective: Rebuild Calder Valley from the one hydro unit that can start without power from the dead grid.
-    briefing: The load shed bought forty-four minutes. Then the wind fell, the island collapsed, and every large machine lost the power it needs to restart.
+    briefing: >-
+      The load shed bought forty-four minutes, then the wind fell, the island collapsed, and every large
+      machine lost the power it needs to restart.
     stake: >-
-      Friday, 19:04. The load shed at 18:20 kept most of Calder Valley alive for forty-four minutes.
-      Then the ridge wind fell faster than forecast, the remaining shortfall returned, and the island
-      collapsed. Now the valley is dark. The gas station cannot start because its pumps, fans and
-      controls all need electricity first. Haddad has one small hydro unit above the valley that can
-      start with no outside power. Dube has a yard full of open switches and no safe sequence yet. Today
-      you build a live system out of a dead one, one energised link at a time.
+      Friday, 19:04, and the valley is dark. The gas station cannot start, because its own pumps, fans
+      and controls all need electricity first. Today you build a live system out of a dead one, from the
+      small hydro set that needs nothing.
     takeaway: A dead system is rebuilt from one machine that needs nothing, outward along a path chosen in advance.
     stops:
       - group: GEN
+
+
         task: Estimate the energy the valley has not had
         title: What the dark hours actually cost
+        reason: >-
+          The report will want the dark hours in energy rather than power, and the restoration is
+          only starting
         concept: Electrical power and energy over time
         place: Generation Hall
         scene: |-
@@ -2126,14 +2181,10 @@ missions:
         background:
           - >-
               Why an estimate rather than a calculation. Every quantity on this board is
-              already measured or stated, so nothing here has to be derived. What is being
-              tested is whether you can pick the quantities the relationship actually needs,
-              and whether the size of the answer looks right once they are in place.
+              already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.
           - >-
               Why the tiles carry labels. A bare number cannot be checked against the
-              relationship it is going into. Reading the label is how a unit mismatch, or a
-              quantity belonging to a different part of the problem, is caught before it is
-              placed — which is the habit this format exists to build.
+              relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build.
         takesAsRead:
           - Charge, current, voltage and resistance
         assumes:
@@ -2168,16 +2219,19 @@ missions:
             - Restoration is expected to take about 2.5 hours
           relationship: Energy = the power × the time it is sustained for, in megawatt-hours when power is in megawatts.
       - group: OPS
+
+
         task: Build the black-start power path in order, then identify the link that governs whether the large station can start.
         title: The order physics allows
+        reason: >-
+          Everybody wants the big station back first, and it cannot turn until something else gives
+          it power
         place: System Operations
         scene: One hydro set that can start unaided, a dead network, and a room full of people who want the big station back first. Reyes needs the sequence written before anybody switches anything.
         guide: >-
           Build the path in the order the energy actually travels, from the machine that
           can start unaided to the one that cannot. Then name the required link that
-          limits it. The biggest station is not the answer, and neither is the largest
-          number on the board: a path is limited by the link with the least to give, and
-          the readings tell you which.
+          limits it. The biggest station is not the answer, and neither is the largest number on the board. A path is limited by the link with the least to give. The readings tell you which.
         background:
           - >-
               What black start means. Almost every generator needs power to start:
@@ -2239,8 +2293,13 @@ missions:
         answerText: Order the path from reservoir gate to hydro turbine, hydro generator, startup feeder, station auxiliaries and then the large generator. The 8 MW startup feeder is the governing link; the 500 MW generator is the obvious distractor.
         why: A dead network cannot start from its biggest generator if that machine needs pumps, fans and controls before it can turn. The black-start hydro unit works because water can supply torque without outside electrical power. Its generator then energises a bus and a narrow startup feeder to the large station. The feeder only needs to carry the station auxiliaries, not the future 500 MW output. That modest link governs the restart. Once the auxiliaries are live, the large machine can start and the system can grow outward.
       - group: DIST
+
+
         task: Match each restoration step to the reason it is limited
         title: Why it cannot go faster
+        reason: >-
+          Crews are asking why restoration moves a few streets at a time when the whole feeder could
+          be closed
         place: Distribution Depot
         scene: Obi has crews asking why restoration is moving a few streets at a time. The substation is live, and the whole feeder could be closed in one movement. The switching sheet is open beside her.
         guide: >-
@@ -2265,9 +2324,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every explanation used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two. That is worth remembering when the last pair
-              looks forced: the fault is usually not in the join you are struggling with,
-              but in one you made early and stopped questioning.
+              therefore involves at least two. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         assumes:
           - a small live system is disturbed more by a given block of load than a large one
         takeaway: Every restoration step is limited by something different, and hurrying the wrong one collapses it again.
@@ -2293,21 +2350,28 @@ missions:
           - A matching limit, because frequency, voltage and angle must agree before the breaker closes.
         mapping: [0, 1, 2, 3]
   - title: Six hours, not forty minutes
+
+
+
+
     objective: Re-read the blackout with the corrected corridor temperature and determine which earlier decisions still stand.
-    briefing: Farrow's independent checks show the corridor sensor was reading 11 °C low; the room's supposed forty-minute margin was built on the wrong temperature.
+    briefing: >-
+      Independent checks show the corridor sensor was reading 11 °C low; the room's supposed forty-
+      minute margin was built on the wrong temperature.
     stake: >-
-      Sunday. Farrow has finished checking the heat records for the route into the valley. The number
-      that bought the room forty minutes came from one sensor. That sensor was reading eleven degrees
-      too low, and had been since a software update in the spring. So the route was never forty
-      minutes from its limit. It had already been over its safe limit for six hours, and twice before
-      that. Every call made this week used that number somewhere. Today you decide which of those
-      calls still stand. Nobody reasoned badly. Everybody reasoned from a number, and the number was
-      wrong.
+      Sunday, and the heat records for the route into the valley have been checked at last. The sensor
+      that bought the room forty minutes was reading eleven degrees low, and had been since a spring
+      software update. Today you decide which of this week's calls still stand.
     takeaway: A conclusion is only as good as the measurement under it, and a drifted instrument leaves the reasoning intact and the answer wrong.
     stops:
       - group: METER
+
+
         task: Choose the explanation that fits the sensor, infrared survey and sag estimate together.
         title: The sensor that was confident and wrong
+        reason: >-
+          Three sources for the corridor's temperature that week, and two of them agree against the
+          sensor
         place: Metering & Standards
         scene: "Farrow has three sources for the corridor's temperature that week: the sensor, an infrared survey from the ground. The sag measured off a photograph. Two of them agree with each other."
         guide: >-
@@ -2325,17 +2389,13 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested.
         assumes:
           - an instrument can be precise and still be offset from the truth
         takeaway: Precision is repeatability; accuracy is being right. A drifted sensor has the first and not the second.
@@ -2376,10 +2436,15 @@ missions:
           - A long conductor does vary along its length, and not by 11 degrees in the same direction on every survey.
           - Sag is sensitive to tension, which makes it weak alone and useful as the second independent method.
       - group: TRANS
+
+
         task: Say what the corrected temperature does to the rating
         title: What a rating is a statement about
+        reason: >-
+          Novak wants the current the corrected weather actually allows before the corridor is
+          trusted again
         place: Transmission & Protection
-        scene: The corridor's continuous operating limit corresponds to a conductor temperature of 75 °C under the stated weather assumptions. Above that, sag increases immediately, while sufficiently hot or prolonged operation can also accelerate creep and annealing. Novak wants the current that reaches the 75 °C operating limit under the corrected conditions.
+        scene: The corridor is rated to hold its conductor at 75 °C all day. It ran at 1,280 A last night, with a sensor reading 11 degrees low. Novak, the protection engineer, wants the current the corrected weather figures allow.
         guide: >-
           Drag the corridor current. The readout is the conductor's own temperature, not
           its rating, and only the currents you stop at get plotted. You want the
@@ -2391,22 +2456,16 @@ missions:
           - >-
               What sets the temperature. Current heats a conductor as the square of itself,
               and the conductor loses that heat to the air by convection and to the sky by
-              radiation. The temperature settles where the two balance, which is why the
-              curve is not a straight line: doubling the current asks the cooling to remove
-              four times as much heat.
+              radiation. The temperature settles where the two balance. That is why the curve is not a straight line: doubling the current asks the cooling to remove four times as much heat.
           - >-
               Why a rating is a temperature. The ampere figure printed on a corridor is the
               current that reaches the temperature limit under an assumed ambient, an
               assumed wind and an assumed sun. Change any of those and the same amps arrive
-              at a different temperature. That is why a corrected weather figure can move a
-              rating without anybody touching the line, and why a rating quoted without its
-              assumptions is not a limit at all.
+              at a different temperature. That is why a corrected weather figure can move a rating without anybody touching the line. And why a rating quoted without its assumptions is not a limit at all.
           - >-
               What happens above the limit. Aluminium held above its continuous temperature
               begins to anneal, losing strength it does not get back, and the hotter span
-              stretches and sags. The clearance over the road below is a legal minimum, so
-              the temperature limit is doing two jobs at once: protecting the conductor, and
-              keeping the line where the survey says it is.
+              stretches and sags. The clearance over the road below is a legal minimum. So the temperature limit is doing two jobs at once: protecting the conductor, and keeping the line where the survey says it is.
         assumes:
           - a conductor's rating is a limit on temperature rather than on current
           - resistive heating rises faster than the current that causes it
@@ -2446,8 +2505,13 @@ missions:
           start: 600
           commit: Mark the continuous rating
       - group: OPS
+
+
         task: Decide which of the week's conclusions still stand
         title: What survives a bad number
+        reason: >-
+          One wrong input sits under several of this week's decisions, and each has to be marked
+          before the report goes
         place: System Operations
         scene: Reyes has the week's decisions on the board and one wrong input underneath several of them. She wants each one marked as still good, now unsupported, or wrong. The yard radio is still live beside them.
         guide: >-
@@ -2472,9 +2536,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every explanation used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two. That is worth remembering when the last pair
-              looks forced: the fault is usually not in the join you are struggling with,
-              but in one you made early and stopped questioning.
+              therefore involves at least two. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         assumes:
           - a conclusion can depend on one input or on several
         takeaway: A bad input invalidates what rested on it and leaves the rest standing, and telling them apart is the work.
@@ -2500,8 +2562,13 @@ missions:
           - Stands, and should be said out loud. It was taken on frequency, which the sensor never touched.
         mapping: [0, 1, 2, 3]
       - group: LOAD
-        task: Sort the feeder list before the shed order goes out.
+
+
+        task: Sort the feeder list before the order to shed load goes out.
         title: What can come off, and what cannot
+        reason: >-
+          A shed order needs a list in ten minutes, and some feeders cannot simply be switched back
+          on
         concept: Load shedding as a decision under uncertainty
         place: Load Dispatch
         scene: A shed order needs a list in ten minutes. Some feeders can be dropped and restored an hour later with nobody harmed. Others carry something that cannot simply be switched off and switched back.
@@ -2517,24 +2584,15 @@ missions:
               prominence have nothing to do with it, which is why the list is written in advance and
               not argued out at the time.
           - >-
-              What makes a load unsheddable. Something behind it that fails unsafely without power,
-              or that cannot be brought back on demand — a furnace that sets solid, a pumped drain
-              that floods, a process that has to be run to a finish once started.
+              What makes a load unsheddable. Something behind it that fails unsafely without power, or that cannot be brought back on demand. A furnace that sets solid. A pumped drain that floods. A process that has to be run to a finish once started.
         assumes:
           - some loads can be interrupted and restored, and some cannot
         takeaway: What can be shed is decided by what is behind the feeder, not by how important it sounds.
         format: BELT
-        question: Send each feeder to the bin that says whether the shed order can take it.
+        question: Send each feeder to the bin that says whether tonight's order to shed load can take it.
         answerText: Anything that can be dropped and restored with nothing harmed goes left. Anything that fails unsafely or cannot be restarted goes right.
         why: >-
-          A shed order is written to the state of what is behind each feeder. On one side sit
-          the loads that tolerate an hour off and come back exactly as they went — cold stores
-          with thermal mass, offices, street lighting, a works with its own standby set. On the
-          other side are loads where an hour without power is not an hour of inconvenience: a
-          hospital on one supply, a smelter whose bath sets solid, a pumped drain under a
-          town, a process that has to run to a finish once it has started. None of that maps
-          onto size or importance, which is exactly why the list is prepared cold and not
-          decided at four in the morning by whoever is loudest on the phone. The one thing a
+          A shed order is written to the state of what is behind each feeder. On one side sit the loads that tolerate an hour off and come back exactly as they went. Cold stores with thermal mass, offices, street lighting, a works with its own standby set. On the other side are loads where an hour without power is not an hour of inconvenience. A hospital on one supply. A smelter whose bath sets solid. A pumped drain under a town. A process that has to run to a finish once it has started. None of that maps onto size or importance. That is exactly why the list is prepared cold, and not decided at four in the morning by whoever is loudest on the phone. The one thing a
           dispatcher cannot do is work it out during the event.
         belt:
           left: { name: Can be shed }
@@ -2572,21 +2630,26 @@ missions:
             - { name: Chemical reactor mid-batch, bin: right }
           commit: Start the line
   - title: The quiet shift
+
+
+
+
     objective: Use a calm night to identify the assumptions that could change the next emergency before an emergency forces the test.
     briefing: Nothing is wrong tonight, which makes this the only cheap time to find out which comforting numbers are only inherited assumptions.
     stake: >-
-      Monday, and nothing is going wrong. The forecast is holding to within thirty megawatts. Every
-      line is well inside its limit. The wind ridge is steady, and there is nothing on the board to
-      decide. Aaron Whitlock, the assistant operator, has almost nothing to write in the log. Reyes
-      walks the room on evenings like this and asks people what they are assuming, because a quiet
-      shift is the only time there is. Today you sort tonight's comforts into two piles: the ones
-      somebody measured, and the ones everybody has got used to. Nothing will go wrong tonight.
-      Nothing went wrong two Mondays ago either.
+      Monday, and nothing is going wrong. Every line is well inside its limit, and there is nothing on
+      the board to decide. Today you sort tonight's comforts into the ones that were measured and the
+      ones the room got used to.
     takeaway: A quiet system is a set of assumptions nobody is currently being forced to check.
     stops:
       - group: OPS
+
+
         task: Say what the contingency check is actually asking
         title: The failure that has not happened
+        reason: >-
+          The screen says every single contingency is survivable tonight, and Whitlock asks what the
+          check does not cover
         place: System Operations
         scene: The screen says every single contingency is survivable tonight. Whitlock asks what the check does not cover, and Reyes says that is the right question on a quiet shift. The event board is still showing the overnight state.
         guide: >-
@@ -2604,24 +2667,20 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested.
         assumes:
           - a system is required to survive any one credible failure
         takeaway: An N-1 check is a statement about single failures, and it says nothing about 2.
         format: CHOICE
         question: What does a clean contingency check tell you tonight?
         answerText: A clean N-1 check says each listed single failure leaves the modeled system inside limits. It says nothing about failure probability or simultaneous failures.
-        why: "The check is exactly as broad as its list. It takes each credible single failure in turn, works out the flows afterwards, and confirms nothing ends up over a limit. That is a genuinely strong statement and a narrow one. It does not cover two failures at once, it does not cover a failure outside the list. It says nothing at all about what is likely — only about what is survivable. Last Friday was two things: a corridor already above a limit nobody knew about, and then the trip. When a second thing lands on neighbours checked only one at a time, each trips correctly in turn, and the sequence of events is what has to be reconstructed afterwards."
+        why: "The check is exactly as broad as its list. It takes each credible single failure in turn, works out the flows afterwards, and confirms nothing ends up over a limit. That is a genuinely strong statement and a narrow one. It does not cover two failures at once, it does not cover a failure outside the list. It says nothing at all about what is likely — only about what is survivable. Last Friday was two things: a corridor already above a limit nobody knew about, and then the trip. When a second thing lands on neighbours checked only one at a time, each trips correctly in turn. The sequence of events is what has to be reconstructed afterwards."
         choices:
           - Every listed single failure can occur without any element exceeding its operating limit afterward.
           - No listed element is likely to fail tonight because the post-contingency flows are acceptable.
@@ -2633,8 +2692,13 @@ missions:
           - An N-1 study is explicitly a one-at-a-time test. It does not establish N-2 survivability.
           - A clean result is conditional on the modeled dispatch and list of failures; it does not make later checks unnecessary.
       - group: LOAD
+
+
         task: Read a forecast that is behaving
         title: The trend with nothing wrong with it
+        reason: >-
+          The forecast has tracked within thirty megawatts all evening, and the room is already
+          treating that as a promise
         place: Load & Forecasting
         scene: Lindgren's forecast has tracked within 30 megawatts all evening. He wants to know what that does and does not license the room to assume about tomorrow. The room is waiting for a written instruction.
         guide: >-
@@ -2659,9 +2723,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every response used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two joins. That is worth remembering when the last
-              pair looks forced: the fault is usually not in the join you are struggling
-              with, but in one you made early and stopped questioning.
+              therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         takesAsRead:
           - Charge, current, voltage and resistance
         assumes:
@@ -2689,8 +2751,13 @@ missions:
           - The only one of these that is evidence about the method rather than about a night.
         mapping: [0, 1, 2, 3]
       - group: GEN
+
+
         task: Spend the quiet-shift check budget on the assumption most likely to change the fast-frequency plan.
         title: Which of these is a measurement
+        reason: >-
+          Four reasons the room feels safe tonight, and only a quiet shift is cheap enough to test
+          one
         place: Generation Hall
         scene: Haddad lists four reasons the room feels comfortable tonight. Three are current measurements or long-run evidence. One is an inherited stored-energy figure written before the inverter-connected fleet became much larger.
         guide: >-
@@ -2753,13 +2820,18 @@ missions:
               decisive: false
               reveals: The seasonal width remains well calibrated; this does not restore missing synchronous kinetic energy.
         answerText: Buy the current machine-data inertia audit. It reveals about 18,000 MW·s rather than the inherited 25,000. For a 300 MW loss at 50 Hz, |df/dt| rises from 0.30 Hz/s to about 0.42 Hz/s.
-        why: "Three comforting numbers are current measurements or long-run evidence. The inherited inertia figure is different: the fleet has changed, and inverter-connected generation can supply real power without the same directly coupled synchronous kinetic energy. Recomputing stored kinetic energy from current machine data therefore changes the expected rate of frequency fall. If the old 25,000 MW·s estimate has fallen to 18,000 MW·s, the same 300 MW trip moves frequency about 40% faster."
+        why: "Three comforting numbers are current measurements or long-run evidence. The inherited inertia figure is different. The fleet has changed, and inverter-connected generation can supply real power without the same directly coupled synchronous kinetic energy. Recomputing stored kinetic energy from current machine data therefore changes the expected rate of frequency fall. The old estimate was 25,000 MW·s. If it has fallen to 18,000, the same 300 MW trip moves frequency about 40% faster."
       - group: DIST
-        task: Work the fault board while the standing instruction changes.
+
+
+        task: Work the fault board while the restoration order changes.
         title: What the desk is chasing now
+        reason: >-
+          Faults keep arriving, and the standing priority is replaced during the evening without
+          anybody announcing it
         concept: "Islanding, black start and restoration order"
         place: Distribution Control
-        scene: Faults arrive on the board all evening. The desk works to one standing priority, and the shift manager changes it as the picture changes — after the storm crosses, after the hospital calls, after the count of customers off passes ten thousand.
+        scene: Faults arrive on the board all evening. The desk works to one standing priority, and the shift manager changes it as the picture changes. After the storm crosses. After the hospital calls. After the count of customers off passes ten thousand.
         guide: >-
           Take the faults the standing priority currently wants and leave the rest. The
           priority at the top of the board is replaced during the evening and nobody
@@ -2772,14 +2844,12 @@ missions:
               After midnight it is whatever cannot be left overnight in the weather. Each of those
               is a different order of the same list.
           - >-
-              Why the changeover is where it goes wrong. A desk that keeps dispatching to the old
-              priority for ten more minutes sends its last free crew to the job that mattered an
-              hour ago, and nothing on the board says that is what happened.
+              Why the changeover is where it goes wrong. A desk that keeps dispatching to the old priority for ten more minutes sends its last free crew to the job that mattered an hour ago. Nothing on the board says that is what happened.
         assumes:
           - a control desk works to a stated priority that somebody can change
         takeaway: The cost of a withdrawn instruction is paid by whoever is still working to it.
         format: SPOT
-        question: Dispatch to the priority on the board, and keep watching the board.
+        question: Dispatch to the restoration priority on the board, and keep watching the board.
         answerText: Read the top of the board, not the fault list. Every change leaves a few minutes in which the old priority still feels like the right one.
         why: >-
           Three priorities run across the evening. Each one wants a different part of the board.
@@ -2829,21 +2899,25 @@ missions:
               want: [weather]
           commit: Open the board
   - title: Cheapest is not enough
+
+
+
+
     objective: Choose tomorrow’s generation and reserve when the cheapest power is uncertain and the corridor cannot carry everything available.
     briefing: Tomorrow’s power must be scheduled tonight; the cheapest fleet is variable, and the Calder corridor is still the bottleneck.
     stake: >-
-      Thursday. Tomorrow's power has to be bought tonight. Lindgren has a peak that moves with the
-      temperature and a range he will not narrow. Mina Sarraf, the wind fleet controller, has a ridge
-      that costs almost nothing to run and cannot promise anything. She is tired of being asked to
-      promise. Nadia Haddad has expensive machines that do exactly what they are told. Reyes has to
-      sign an order that puts them in a sequence. Today you decide what cheapest really means when the
-      cheapest power is the least certain. The ridge may also make more power than the lines can
-      carry.
+      Thursday, and tomorrow's power has to be bought tonight. The ridge is nearly free to run and can
+      promise nothing, while the costly machines do as they are told. Today you decide what cheapest
+      means when it is also the least sure.
     takeaway: Dispatch orders plant by cost, and the value of certainty is what stops that being the whole story.
     stops:
       - group: DIST
+
+
         task: Choose the last protection step before the crew approaches the conductor.
         title: The ground is not at one voltage
+        reason: >-
+          The tester reads dead at the work point, and Kowalczyk has stopped the crew anyway
         place: Distribution Depot
         scene: The cable is isolated at both ends and a tester reads dead at the work point. Kowalczyk, the safety lead, stops the crew because one protection step is still missing. The substation remains connected to live equipment nearby.
         guide: >-
@@ -2861,17 +2935,13 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested.
         takesAsRead:
           - Charge, current, voltage and resistance
         assumes:
@@ -2892,8 +2962,12 @@ missions:
           - A floating conductor can rise to a dangerous potential by induction or mistaken energisation.
           - Deliberately re-energising the work zone is not a protection test; the safe state is isolation, proving dead, then earthing.
       - group: OPS
+
+
         task: Match each plant to why it is dispatched where it is
         title: Cheapest first, and the exceptions that are not exceptions
+        reason: >-
+          Four plants and an order to sign, and price alone does not explain where any of them sits
         place: System Operations
         scene: |-
           Four plants and an order to sign. Reyes wants each one matched to the actual reason it sits where it does in the stack, rather than to its price alone.
@@ -2919,9 +2993,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every explanation used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two. That is worth remembering when the last pair
-              looks forced: the fault is usually not in the join you are struggling with,
-              but in one you made early and stopped questioning.
+              therefore involves at least two. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         assumes:
           - generation is scheduled in order of what it costs to run
         takeaway: Merit order is cost order, corrected for what the system also needs from a machine.
@@ -2947,11 +3019,16 @@ missions:
           - Run out of merit order because of where it is, not what it costs.
         mapping: [0, 1, 2, 3]
       - group: GEN
-        task: Decide what to do with more wind than the corridor can carry
+
+
+        task: Decide what merit order does with more wind than the corridor can carry
         title: When the cheapest power cannot get out
+        reason: >-
+          The ridge can make 340 megawatts tonight and the corridor carries about 190, with no other
+          way out
         concept: Economic dispatch and merit order
         place: Generation Hall
-        scene: Sarraf can produce 340 MW from the ridge tonight, but the Calder export corridor can carry only about 190 MW under the current operating limit. There is no other export path available. A printed network diagram lies on the desk.
+        scene: Sarraf, the wind fleet controller, can produce 340 MW from the ridge tonight. The Calder export corridor can carry only about 190 MW under the current operating limit. There is no other export path available. A printed network diagram lies on the desk.
         guide: >-
           The ridge can produce 340 MW tonight and the corridor is limited to about 190 MW under the
           current operating case. Nights like this occur perhaps forty times a winter. Storage at the
@@ -2969,10 +3046,7 @@ missions:
           should not be left under twenty.
         background:
           - >-
-              Why the whole spread is graded. Funding is not a vote for one idea. A
-              portfolio says what you think is likely, what is worth hedging against, and
-              what is not worth pursuing at all — and the last two are where most of the
-              information is. Backing the right proposal while quietly funding a bad one is
+              Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says three things: what you think is likely, what is worth hedging against, and what is not worth pursuing at all. The last two are where most of the information is. Backing the right proposal while quietly funding a bad one is
               a worse answer than it looks. That is why the small numbers count as much as
               the big one.
           - >-
@@ -3004,33 +3078,29 @@ missions:
           A: 45
           C: 25
       - group: OPS
+
+
         task: Hold the system frequency while the evening load comes on.
         title: Fifty hertz, through the evening rise
+        reason: >-
+          The evening rise is starting, the frequency is drifting under it, and the raise-lower
+          control is all that is left
         concept: Frequency as the balance of supply and demand
         place: Control Room
         scene: The evening rise is starting and the frequency is drifting under it. Governors are answering, and the only thing left on the desk is the regulating set's raise-lower control.
         guide: >-
-          Hold the frequency inside the band on the wall display. The band narrows as the
-          evening goes on, because the tolerance a system can live with at seven o'clock is
-          not the one it can live with at peak. The raise-lower control is what you have,
+          Hold the frequency inside the band on the wall display. The band narrows as the evening goes on. The tolerance a system can live with at seven o'clock is not the one it can live with at peak. The raise-lower control is what you have,
           and every load that comes on is a mismatch that keeps pushing until generation
           answers it.
         background:
           - >-
               Why frequency drifts at all. Frequency is the running balance between what is being
-              generated and what is being drawn. A load that comes on is not a step in the
-              frequency — it is a step in the *rate*, and the machines slow for as long as the
-              mismatch lasts.
+              generated and what is being drawn. A load that comes on is not a step in the frequency. It is a step in the *rate*, and the machines slow for as long as the mismatch lasts.
           - >-
-              What the governors have already done. Droop has answered part of each step
-              automatically and left an offset behind: that is what droop is for, and it is why the
-              frequency settles low rather than returning. Bringing it back to fifty is the
+              What the governors have already done. Droop has answered part of each step automatically and left an offset behind. That is what droop is for. It is why the frequency settles low rather than returning. Bringing it back to fifty is the
               operator's job, and it is what this control is.
           - >-
-              Why the band narrows. Early evening the system has inertia and reserve to spare. At
-              peak, with less spinning and more load, the same excursion is closer to the settings
-              that shed feeders — so the same skill has to be exercised more tightly on exactly the
-              hour it is hardest.
+              Why the band narrows. Early evening the system has inertia and reserve to spare. At peak, with less spinning and more load, the same excursion is closer to the settings that shed feeders. So the same skill has to be exercised more tightly, on exactly the hour it is hardest.
         assumes:
           - frequency falls when demand exceeds generation
         takeaway: A mismatch you do not answer is not a mismatch that goes away.
@@ -3038,17 +3108,7 @@ missions:
         question: Hold the system at fifty hertz through the evening rise.
         answerText: Inside the band for most of the rise, with the regulating set moved to a new output for each step rather than nudged after the frequency has already left the band.
         why: >-
-          Every event here is a step in the rate rather than a step in the reading. A block of
-          load coming on does not drop the frequency by twenty millihertz and stop; it makes the
-          system lose speed and it goes on losing while the mismatch stands. That is why the
-          raise-lower control has to be moved to a new position and left there rather than
-          nudged and released, and it is the whole difference between operating a system and
-          chasing a needle. Droop has already answered part of each step and left an offset — a
-          system that settles at 49.94 has done exactly what it was designed to do — so
-          returning to fifty is a separate action taken by somebody. And the band narrows for a
-          reason that is not arbitrary: at peak there is less inertia spinning and less reserve
-          behind it, so the same excursion sits closer to the frequency at which feeders start
-          coming off on their own.
+          Every event here is a step in the rate rather than a step in the reading. A block of load coming on does not drop the frequency by twenty millihertz and stop. It makes the system lose speed, and it goes on losing while the mismatch stands. That is why the raise-lower control has to be moved to a new position and left there, rather than nudged and released. It is the whole difference between operating a system and chasing a needle. Droop has already answered part of each step and left an offset. A system that settles at 49.94 has done exactly what it was designed to do. Returning to fifty is a separate action, taken by somebody. And the band narrows for a reason that is not arbitrary. At peak there is less inertia spinning and less reserve behind it. So the same excursion sits closer to the frequency at which feeders start coming off on their own.
         hold:
           quantity: System frequency
           unit: Hz
@@ -3067,21 +3127,26 @@ missions:
             - { label: "Second block, and a unit trips off", at: 38, amount: -0.045 }
           commit: Report the evening
   - title: The last morning
+
+
+
+
     objective: Commit the corridor to a course before the construction window closes, using the corrected evidence rather than assumed damage.
     briefing: The construction window closes at 17:00; the corrected record proves repeated high-temperature operation, but the exact remaining conductor strength is still being verified.
     stake: >-
-      Monday morning. The reinforcement decision comes back for the last time before the construction
-      window closes at five. The next window is eighteen months away. Farrow's corrected record shows
-      about ninety hours above the continuous operating limit over three years. That establishes
-      repeated thermal exposure, not an exact remaining tensile strength. Alvarez has a storage quote
-      that expires today, and the board will not fund every option. Today you decide what can be
-      justified now, what still needs verification, and whether the system spends another eighteen
-      months managing the Calder bottleneck.
+      Monday morning, and the construction window closes at five. The next one is eighteen months away,
+      and the record proves ninety hours over the limit but not what the metal lost. Today you decide
+      what the evidence can pay for.
     takeaway: When a reversible option expires, the decision must use what is measured now while keeping unresolved asset-condition claims explicitly unresolved.
     stops:
       - group: METER
+
+
         task: State what the corrected thermal history proves — and what it does not.
         title: Hours over limit, added up
+        reason: >-
+          The board wants one sentence about ninety hours over limit, and it must not claim more
+          than the record proves
         place: Metering & Standards
         scene: "Farrow's corrected record has the corridor above its continuous operating temperature for about ninety hours over three years. She wants one sentence for the board: what does that record justify saying before a conductor sample is tested?"
         guide: >-
@@ -3098,24 +3163,20 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested.
         assumes:
           - thermal effects depend on both temperature and exposure time
           - an operating record can establish exposure without directly measuring remaining tensile strength
         takeaway: Cumulative high-temperature exposure is a design concern, but the operating record alone does not measure the conductor’s remaining strength.
         format: CHOICE
         question: What does the ninety-hour record justify saying now?
-        why: The corrected history matters because thermal effects do not reset simply because the conductor cools between events. Higher temperatures increase sag immediately, and long or hot exposure can contribute to permanent creep or annealing. But the record is an exposure history, not a tensile test. The defensible conclusion is that the conductor’s remaining margin must be evaluated; claiming a specific permanent strength loss before modeling or testing would turn an inference into a measurement.
+        why: The corrected history matters. Thermal effects do not reset simply because the conductor cools between events. Higher temperatures increase sag immediately, and long or hot exposure can contribute to permanent creep or annealing. But the record is an exposure history, not a tensile test. The defensible conclusion is that the conductor’s remaining margin must be evaluated. Claiming a specific permanent strength loss before modeling or testing would turn an inference into a measurement.
         choices:
           - The record proves repeated high-temperature exposure that may have reduced long-term margin; quantify remaining strength before assuming the original design margin still holds.
           - Nothing, because cooling after each event resets both conductor temperature and material condition.
@@ -3127,8 +3188,13 @@ missions:
           - Surviving an operating point is not the same as establishing a safe continuous rating; ratings include thermal and clearance assumptions.
           - The exposure history supports concern, but a specific remaining-strength claim requires a conductor model or direct test.
       - group: TRANS
-        task: Commit the money before the window closes
+
+
+        task: Commit the money, or keep curtailing, before the window closes
         title: What the window is worth
+        reason: >-
+          One budget, one afternoon, and one of these options stops existing when the window closes
+          at five
         place: Transmission & Protection
         scene: Two options, one budget, one afternoon. Novak points out that only one option removes the corridor bottleneck; Haddad points out that only one construction window disappears at five. The corrected thermal record is on the table, and the exact conductor-strength test is still pending.
         guide: >-
@@ -3147,10 +3213,7 @@ missions:
           should not be left under twenty.
         background:
           - >-
-              Why the whole spread is graded. Funding is not a vote for one idea. A
-              portfolio says what you think is likely, what is worth hedging against, and
-              what is not worth pursuing at all — and the last two are where most of the
-              information is. Backing the right proposal while quietly funding a bad one is
+              Why the whole spread is graded. Funding is not a vote for one idea. A portfolio says three things: what you think is likely, what is worth hedging against, and what is not worth pursuing at all. The last two are where most of the information is. Backing the right proposal while quietly funding a bad one is
               a worse answer than it looks. That is why the small numbers count as much as
               the big one.
           - >-
@@ -3182,8 +3245,13 @@ missions:
           A: 55
           B: 25
       - group: OPS
+
+
         task: Say what the decision commits the room to
         title: The 18 months you just bought
+        reason: >-
+          Reyes wants the consequences written down before the signature, so the next shift inherits
+          a plan rather than a mood
         place: System Operations
         scene: Reyes wants the consequences written down before the decision is signed, so that the next shift inherits a plan rather than a mood. The room is waiting for a written instruction.
         guide: >-
@@ -3208,9 +3276,7 @@ missions:
           - >-
               Why you cannot be wrong about exactly one. With every response used once,
               three correct joins leave the fourth with only one place to go. Any error
-              therefore involves at least two joins. That is worth remembering when the last
-              pair looks forced: the fault is usually not in the join you are struggling
-              with, but in one you made early and stopped questioning.
+              therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
         assumes:
           - a decision to build something is also a decision about the years before it exists
         takeaway: Committing to a fix commits you to running the system without it until it arrives, and that has to be planned too.
@@ -3236,20 +3302,26 @@ missions:
           - Is closed, which is what lets a shift act at 16:40 without reopening it.
         mapping: [0, 1, 2, 3]
   - title: Sign what you can prove
+
+
+
+
     objective: Separate measured facts from inferences, verify the claims that still matter, and sign the one operating rule that should survive the emergency.
     briefing: The winter case is due today; the final signature has to distinguish what is measured, what is inferred and what is still unknown.
     stake: >-
-      Friday. The winter case is on Reyes's desk for signature. The sensor offset is well supported. The
-      exact conductor strength is still being tested. One proposed relay cause is plausible but
-      unproved. Lindgren will not let his winter peak be written as a single certain number. The last
-      page asks which emergency practice becomes a permanent operating rule. Today you decide what the
-      report is allowed to call a finding, where uncertainty must stay visible, and what rule the next
-      night shift will inherit.
+      Friday, and the winter case is on the desk to sign. The sensor offset is well backed, the
+      conductor is still being tested, and one relay cause is only a guess. Today you decide what the
+      report may call a finding.
     takeaway: A signed finding is worth only the evidence under it; uncertainty belongs in the report, not hidden behind confident wording.
     stops:
       - group: METER
+
+
         task: Choose which report claims to verify before signing, with fewer checks than claims.
         title: Measured, inferred, assumed
+        reason: >-
+          Four statements are ready for the report, and there are only two verification slots left
+          before sign-off
         place: Metering & Standards
         scene: June Farrow, the metering engineer, has four statements ready for the final report and only two verification slots left before sign-off. Some claims are already backed. Others are still inference or suspicion.
         guide: >-
@@ -3279,7 +3351,7 @@ missions:
           - verification time is limited before the report closes
         takeaway: A signed claim is still only as strong as the evidence behind it; verification should go first to critical claims that remain unbacked.
         format: ATTEST
-        question: Which claims deserve the limited verification budget before they become findings?
+        question: The storage round-trip figure is one of four claims. Which of them deserve the limited verification budget before they become findings?
         attest:
           hint: You may verify only two claims. Read what currently backs each one, then spend checks where a wrong critical claim would most damage the report.
           checks: 2
@@ -3314,8 +3386,12 @@ missions:
         answerText: Use the two checks on conductor strength and the proposed relay cause. The sensor offset is already independently backed, while the storage-efficiency result is lower-stakes for the inquiry finding.
         why: The report contains claims at different evidence levels. The sensor offset is critical but already backed by two independent methods and a firmware date. Permanent conductor-strength loss is plausible metallurgy, yet no sample has tested it. The storage result is measured but not central to the cause finding. The proposed relay cause is both critical and still unproved. With only two verification slots, checking everything is impossible. Spend them on the critical claims whose present evidence cannot support a final finding.
       - group: LOAD
+
+
         task: Put a range on the forecast rather than a number
         title: The number that has to be a range
+        reason: >-
+          The winter peak will not go in as one certain number, and the desk wants to know what the width is for
         place: Load & Forecasting
         scene: Lindgren's winter peak goes into the report. He wants the width in the sentence, and Reyes wants to know what the width is for. The control-room phone is already ringing.
         guide: >-
@@ -3333,24 +3409,20 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested.
         takesAsRead:
           - Charge, current, voltage and resistance
         assumes:
           - a forecast is a distribution rather than a single value
         takeaway: A prediction is only usable by a planner if it says how wrong it might be.
         format: CHOICE
-        question: Why does the winter peak go in as a range rather than as a single figure?
+        question: Why does the winter peak — a power figure in megawatts — go in as a range rather than as a single number?
         answerText: The width quantifies how far the actual peak could plausibly sit above the centre. That upper-tail uncertainty is what reserve planning has to cover.
         why: "Reserve is not held against the expected peak. It is held against the amount by which the peak might exceed it. That is a property of the width and not of the centre. A report that states a single megawatt figure has deleted the only quantity a planner needs. The planner then invents one — usually badly, and usually optimistically. The width is also the honest part: it says which conditions the model was calibrated for and which it was not."
         choices:
@@ -3364,8 +3436,13 @@ missions:
           - Both centre and width are estimated from data before the season; neither requires waiting for the realized peak.
           - The forecast distribution and the reserve decision are separate. The width informs reserve; it does not already contain it.
       - group: OPS
+
+
         task: Sign the one operating rule that should outlive the emergency.
         title: The rule you sign
+        reason: >-
+          The last page asks which emergency practice is cheap enough to become a standing rule on
+          ordinary nights
         place: System Operations
         scene: Reyes turns the last page toward you. Four emergency practices are listed, but only one is cheap enough and powerful enough to become a standing rule on ordinary nights. Your choice is the final instruction in the winter case.
         guide: >-
@@ -3383,17 +3460,13 @@ missions:
               can be reached on instinct and teach nothing.
           - >-
               Why the shape of an option tells you nothing. A correct answer collects the
-              qualifying clause and the unit. So across a whole game the key used to be the
-              longest option far more often than chance — 88 per cent of passage quizzes
-              here, before it was fixed. It is now checked per game as a binomial tail, so
+              qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
               length, hedging and specificity have had the signal taken out of them
               deliberately.
           - >-
               What the verdict adds. Every wrong option carries its own rebuttal, and the
               verdict prints them — the reason that option fails, not a restatement of the
-              right one. They are worth reading after a correct answer as well: a right
-              choice made for an approximate reason is indistinguishable from a sound one
-              until the day the approximation is what is being tested.
+              right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested.
         assumes:
           - a practice adopted under pressure has a cost that only shows up later
         takeaway: Keep the practice that would have exposed the hidden failure before the crisis, without making every ordinary shift pay for an emergency-level response.
@@ -3585,14 +3658,10 @@ lessons:
     background:
       - >-
           Why an estimate rather than a calculation. Every quantity on this board is
-          already measured or stated, so nothing here has to be derived. What is being
-          tested is whether you can pick the quantities the relationship actually needs,
-          and whether the size of the answer looks right once they are in place.
+          already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.
       - >-
           Why the tiles carry labels. A bare number cannot be checked against the
-          relationship it is going into. Reading the label is how a unit mismatch, or a
-          quantity belonging to a different part of the problem, is caught before it is
-          placed — which is the habit this format exists to build.
+          relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build.
     takesAsRead:
       - Electrical power and energy over time
     assumes:
@@ -3662,17 +3731,13 @@ lessons:
           can be reached on instinct and teach nothing.
       - >-
           Why the shape of an option tells you nothing. A correct answer collects the
-          qualifying clause and the unit. So across a whole game the key used to be the
-          longest option far more often than chance — 88 per cent of passage quizzes
-          here, before it was fixed. It is now checked per game as a binomial tail, so
+          qualifying clause and the unit. So across a whole game the key used to be the longest option far more often than chance. It ran to 88 per cent of passage quizzes here, before it was fixed. It is now checked per game as a binomial tail, so
           length, hedging and specificity have had the signal taken out of them
           deliberately.
       - >-
           What the verdict adds. Every wrong option carries its own rebuttal, and the
           verdict prints them — the reason that option fails, not a restatement of the
-          right one. They are worth reading after a correct answer as well: a right
-          choice made for an approximate reason is indistinguishable from a sound one
-          until the day the approximation is what is being tested.
+          right one. They are worth reading after a correct answer as well. A right choice made for an approximate reason looks exactly like a sound one. The difference shows up on the day the approximation is what is being tested.
     takesAsRead:
       - Electrical power and energy over time
       - Faraday's law and electromagnetic induction
@@ -3685,9 +3750,7 @@ lessons:
     why: >-
       A transformer has two families of loss and they answer to different things. Copper
       loss is dissipated in the windings by the current through them, so it rises and
-      falls with the load and disappears when the load does. Iron loss is dissipated in
-      the core by the flux reversing fifty times a second, and the flux is set by the
-      applied voltage rather than by the load. Energise the bank and you pay it, all
+      falls with the load and disappears when the load does. Iron loss is dissipated in the core by the flux reversing fifty times a second. The flux is set by the applied voltage rather than by the load. Energise the bank and you pay it, all
       night, carrying nothing.
     choices:
       - The core loss carries on at close to its full-load figure while the winding loss falls away with the load.
@@ -3731,9 +3794,7 @@ lessons:
       - >-
           Why you cannot be wrong about exactly one. With every response used once,
           three correct joins leave the fourth with only one place to go. Any error
-          therefore involves at least two joins. That is worth remembering when the last
-          pair looks forced: the fault is usually not in the join you are struggling
-          with, but in one you made early and stopped questioning.
+          therefore involves at least two joins. That is worth remembering when the last pair looks forced. The fault is usually not in the join you are struggling with. It is in one you made early and stopped questioning.
     takesAsRead:
       - Charge, current, voltage and resistance
       - Ohm's law and resistive networks
@@ -3784,14 +3845,10 @@ lessons:
     background:
       - >-
           Why an estimate rather than a calculation. Every quantity on this board is
-          already measured or stated, so nothing here has to be derived. What is being
-          tested is whether you can pick the quantities the relationship actually needs,
-          and whether the size of the answer looks right once they are in place.
+          already measured or stated, so nothing here has to be derived. What is being tested is whether you can pick the quantities the relationship actually needs. And whether the size of the answer looks right once they are in place.
       - >-
           Why the tiles carry labels. A bare number cannot be checked against the
-          relationship it is going into. Reading the label is how a unit mismatch, or a
-          quantity belonging to a different part of the problem, is caught before it is
-          placed — which is the habit this format exists to build.
+          relationship it is going into. Reading the label is how you catch a unit mismatch before you place it. It also catches a quantity that belongs to a different part of the problem. That habit is what this format exists to build.
     takesAsRead:
       - Ohm's law and resistive networks
       - Electrical power and energy over time
@@ -3806,9 +3863,7 @@ lessons:
       Resistive heating in one phase is the current squared times the resistance, and three
       phases carry three times that. This circuit is holding twice its usual flow, so it
       sheds four times its usual heat — about thirteen megawatts against a little over
-      three. What matters is what that does to the margin. A conductor's limit is a
-      temperature reached over time, and it is the heat that drives the temperature, so a
-      doubled current spends the margin far faster than the current figure suggests.
+      three. What matters is what that does to the margin. A conductor's limit is a temperature reached over time, and it is the heat that drives the temperature. So a doubled current spends the margin far faster than the current figure suggests.
     estimate:
       prompt: >-
         The circuit is carrying 820 A RMS in each phase. Each phase has 6.5 ohms of resistance

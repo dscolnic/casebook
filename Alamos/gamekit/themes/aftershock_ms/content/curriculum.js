@@ -995,7 +995,15 @@ export const CURRICULUM = {
       },
       "assumes": [
         "a habit taken up in an emergency has a cost that only shows later"
-      ]
+      ],
+      "concept": {
+        "n": 3,
+        "c": "How big the earthquake was, and how hard the shaking felt, are two different things",
+        "of": 16,
+        "rests": [
+          "An earthquake sends waves through the ground, and some arrive first"
+        ]
+      }
     }
   ],
   "GEO": [
@@ -1711,6 +1719,26 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A percentage is a share out of a hundred, so it becomes a decimal before anything is multiplied by it.",
+          "computed": true
+        },
+        {
+          "e": "how many times = bigger ÷ smaller",
+          "c": "comparing two shakings, or two strengths",
+          "v": [
+            [
+              "how many times",
+              "the ratio"
+            ],
+            [
+              "bigger",
+              "the larger measurement"
+            ],
+            [
+              "smaller",
+              "the one it is compared with"
+            ]
+          ],
+          "s": "Dividing one measurement by another says how many times bigger it is, which is usually the useful comparison.",
           "computed": true
         }
       ],

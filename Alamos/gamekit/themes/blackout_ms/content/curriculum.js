@@ -2029,6 +2029,28 @@ export const CURRICULUM = {
       "assumes": [
         "power says how fast energy is being delivered, and energy is what actually gets used"
       ],
+      "equations": [
+        {
+          "e": "energy = power × time",
+          "c": "how much electricity something uses",
+          "v": [
+            [
+              "energy",
+              "in kilowatt hours"
+            ],
+            [
+              "power",
+              "in kilowatts"
+            ],
+            [
+              "time",
+              "in hours"
+            ]
+          ],
+          "s": "A kettle drawing two kilowatts for half an hour uses one kilowatt hour, and the bill is in those units.",
+          "computed": true
+        }
+      ],
       "concept": {
         "n": 6,
         "c": "Energy used is power multiplied by time",

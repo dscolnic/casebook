@@ -30,7 +30,7 @@ import { themeDir } from '../engine/dev/registry.mjs';
 import { pathToFileURL } from 'node:url';
 import { agreesWithPanel, claimedWords, claimsPhrase, conceptMatches, conceptZones,
   demandsEquation, deriveWork, EQUATIONS, keywordHit, panelWork, pickKeyConcept,
-  SYLLABUS } from './syllabus.js';
+  symbolSignature, SYLLABUS } from './syllabus.js';
 
 const here = dirname(new URL(import.meta.url).pathname);
 const gamekit = resolve(here, '..');
@@ -232,7 +232,17 @@ function equationsFor(s, game, assumes){
     ...(game.rebuttals ?? []).map(lbl), ...(game.choices ?? []).map(lbl)]);
   const out = [];
   for(const eq of list){
-    const computed = eq.k.some(k => hit(formula, k));
+    // TWO DEFINITIONS OF "COMPUTED", AND THIS WAS THE WEAKER ONE. `equationCoverage`
+    // in tools/syllabus.js tests the symbol signature OR a keyword; this stamped
+    // `computed` from a keyword alone. `equationOrder` reads the field stamped here,
+    // so Ice Core's day 1 computed `b = λ × ρ_snow / ρ_ice` with a signature matching
+    // the syllabus exactly, and the gate still reported it first computed on day 6
+    // and a derived equation asked before its base. That is this repo's own
+    // two-copies-of-one-rule tripwire, sitting in the field the whole equation audit
+    // turns on — and the comment directly below already cited the precedent.
+    const signed = !!symbolSignature(eq.e)
+      && symbolSignature(formula).includes(symbolSignature(eq.e));
+    const computed = signed || eq.k.some(k => hit(formula, k));
     if(!computed && !eq.k.some(k => hit(text, k))) continue;
     const demanded = !computed && demandsEquation(eq, shown);
     // v and s ride along because the card has to define the symbols where it

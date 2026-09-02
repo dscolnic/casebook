@@ -108,14 +108,11 @@ export default {
   },
 
   opening: [
-    'Three days after a magnitude 6.8 earthquake, four hundred Kestrel Bay households are still '
-    + 'sleeping in halls. Every building has a card on its door: green for use, yellow for restricted '
-    + 'use, red for nobody inside. You are the building safety coordinator, and those colours are your '
-    + 'decisions. Aftershocks are still coming. If a card is too confident, somebody can walk back into '
-    + 'a building that cannot take the next shake. If it is too cautious, homes stay empty, a school '
-    + 'stays shut and hospital care moves sixty kilometres away. In fifteen days you sign the Placard '
-    + 'Register: what every building may be used for, what evidence supports that call, and what nobody '
-    + 'has checked yet.',
+    'Three days after a magnitude 6.8 quake, four hundred Kestrel Bay homes still sleep in halls. '
+    + 'Every door has a card: green to use, yellow for limits, red for nobody. You are the building '
+    + 'safety coordinator, and aftershocks keep coming. In fifteen days you sign the Placard Register: '
+    + 'what each building may be used for, and what proves it. Too bold, and a child goes back into a '
+    + 'wall that will not hold; too shy, and a school stays shut.'
   ],
 
   ending: [

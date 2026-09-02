@@ -208,6 +208,32 @@ export const CURRICULUM = {
       "assumes": [
         "the layer can be treated as a single sharp boundary between two speeds"
       ],
+      "equations": [
+        {
+          "e": "n₁sinθ₁ = n₂sinθ₂",
+          "c": "Snell's law at a boundary",
+          "v": [
+            [
+              "n₁",
+              "refractive index of the first medium"
+            ],
+            [
+              "θ₁",
+              "angle to the normal in it"
+            ],
+            [
+              "n₂",
+              "refractive index of the second"
+            ],
+            [
+              "θ₂",
+              "angle to the normal there"
+            ]
+          ],
+          "s": "Light entering a slower medium bends toward the normal, by however much the two indices differ.",
+          "computed": true
+        }
+      ],
       "concept": {
         "n": 20,
         "c": "Refraction and Snell's law at the surface",
@@ -400,7 +426,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A contact closing on you raises the frequency you hear, by a fraction equal to the closing speed over the speed of sound.",
-          "demanded": true
+          "computed": true
         }
       ],
       "concept": {
@@ -3032,6 +3058,36 @@ export const CURRICULUM = {
       },
       "assumes": [
         "the ion is singly charged and enters the field at right angles"
+      ],
+      "equations": [
+        {
+          "e": "r = mv / (qB)",
+          "c": "the radius a magnetic field bends a moving charge to",
+          "v": [
+            [
+              "r",
+              "radius of the path, in metres"
+            ],
+            [
+              "m",
+              "mass of the ion, in kilograms"
+            ],
+            [
+              "v",
+              "its speed, in metres per second"
+            ],
+            [
+              "q",
+              "its charge, in coulombs"
+            ],
+            [
+              "B",
+              "magnetic field strength, in tesla"
+            ]
+          ],
+          "s": "A heavier ion at the same speed and charge swings wider, which is how a mass spectrometer separates them.",
+          "computed": true
+        }
       ],
       "concept": {
         "n": 16,

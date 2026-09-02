@@ -36,6 +36,15 @@ export default {
   // where the default label is the true one.
   dayNoun: 'Day',
 
+  // The brief plan card. What the day cards were carrying was a fortnight of
+  // context read fifteen times — eleven to fifteen sentences, the whole cast
+  // named on the plan card, and the argument between the trial chair and the
+  // trial statistician restated every morning. `stakeStyle: 'brief'` is the
+  // opt-in that says the card carries the one thing true this morning and the
+  // one thing the player does about it; the cast now arrives on each call's
+  // own `reason`, where the player is standing in front of them.
+  stakeStyle: 'brief',
+
   // The place. `site.kind` picks the world module in vite.config.js:
   //   'interior'  engine/world/interiorSite.js — a spine with rooms off it
   //   'outdoor'   engine/world/outdoorTown.js — buildings on terrain
@@ -106,14 +115,10 @@ export default {
     ],
   },
   opening: [
-    'CLARION-3 has 2,400 people at 31 hospitals. Half were assigned the new drug and half the usual '
-    + 'treatment, and the people running the trial are not supposed to know which is winning. In three '
-    + 'weeks an independent board decides whether the trial keeps going. You are the methods and '
-    + 'operations lead. In fifteen working days you sign the pack that board will use. Stop on a lucky '
-    + 'early signal and a useful treatment can be buried. Keep randomising after prespecified evidence '
-    + 'has made one arm clearly worse, and people are exposed to a comparison that no longer has honest '
-    + 'uncertainty behind it. Your job is to show the board what was promised, what was actually measured, '
-    + 'what may be biased, and what is still unknown — without letting anybody\'s hope choose the answer.',
+    'CLARION-3 tests a new drug against the usual care. 2,400 people at 31 hospitals have joined it. '
+    + 'Nobody running the trial may know which arm is ahead. You are the methods and operations lead, '
+    + 'and in fifteen days you build The Monitoring Board Pack. A board of outsiders reads it in three '
+    + 'weeks and decides whether more people are asked to join.'
   ],
 
   // The last thing anybody reads. Says what happened, what it cost and what is

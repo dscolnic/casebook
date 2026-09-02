@@ -629,6 +629,28 @@ export const CURRICULUM = {
         "the unit can be treated as a point source at these distances",
         "a function as a rule, its domain and what the domain rules out — taken as read"
       ],
+      "equations": [
+        {
+          "e": "I = P ÷ (4πd²)",
+          "c": "the inverse square law",
+          "v": [
+            [
+              "I",
+              "intensity at the surface, in lux or watts per square metre"
+            ],
+            [
+              "P",
+              "output of the source"
+            ],
+            [
+              "d",
+              "distance from it"
+            ]
+          ],
+          "s": "The same light spread over a sphere four times the area is a quarter as bright, so doubling the throw quarters the level.",
+          "demanded": true
+        }
+      ],
       "takesAsRead": [
         {
           "n": 1,
@@ -788,7 +810,7 @@ export const CURRICULUM = {
             ]
           ],
           "s": "A larger coefficient inside the function squeezes the cycle, so the period is inversely proportional to it.",
-          "demanded": true
+          "computed": true
         }
       ],
       "takesAsRead": [
@@ -1983,6 +2005,28 @@ export const CURRICULUM = {
       "assumes": [
         "the two lines are symmetric and the piece hangs level",
         "vectors: components, magnitude and direction — taken as read"
+      ],
+      "equations": [
+        {
+          "e": "T = W ÷ (2·cos θ)",
+          "c": "the tension in two symmetric lines",
+          "v": [
+            [
+              "T",
+              "tension in each line"
+            ],
+            [
+              "W",
+              "the weight being carried"
+            ],
+            [
+              "θ",
+              "the angle each line makes with the vertical"
+            ]
+          ],
+          "s": "Only the vertical component of each line carries the load, so the further the lines lean, the harder both pull.",
+          "computed": true
+        }
       ],
       "takesAsRead": [
         {

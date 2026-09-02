@@ -3071,27 +3071,22 @@ export const CURRICULUM = {
       "assumes": [
         "a timestamp combines a measured event with a clock reference",
         "two channels can agree because they share the same source",
-        "rMS against peak and average — taken as read",
-        "faraday's law and electromagnetic induction — taken as read"
+        "charge, current, voltage and resistance — taken as read"
       ],
       "takesAsRead": [
         {
-          "n": 7,
-          "c": "RMS against peak and average"
-        },
-        {
-          "n": 17,
-          "c": "Faraday's law and electromagnetic induction"
+          "n": 1,
+          "c": "Charge, current, voltage and resistance"
         }
       ],
       "concept": {
-        "n": 31,
-        "c": "Metering, instrument transformers and measurement error",
-        "t": "Every number on the screen arrived through a transducer, a link and a timestamp, any of which can be wrong on its own. A reading is evidence about the instrument as much as about the system, and the two have to be told apart.",
+        "n": 23,
+        "c": "Protection: relays, breakers and coordination",
+        "t": "A relay decides from what it can measure locally, and a breaker carries the decision out. Coordination is the deliberate delay that makes the device nearest a fault act first, so a local problem does not clear a whole region.",
         "of": 32,
         "rests": [
-          "RMS against peak and average",
-          "Faraday's law and electromagnetic induction"
+          "Charge, current, voltage and resistance",
+          "Ohm's law and resistive networks"
         ]
       }
     },
@@ -3552,12 +3547,13 @@ export const CURRICULUM = {
         "verification time is limited before the report closes"
       ],
       "concept": {
-        "n": 29,
-        "c": "Storage, round-trip efficiency and ramp rate",
-        "t": "Storage returns less than it takes in, and round-trip efficiency is that fraction. What it is worth depends as much on how fast it can change output as on how much it holds, since some jobs are energy and others are speed.",
+        "n": 23,
+        "c": "Protection: relays, breakers and coordination",
+        "t": "A relay decides from what it can measure locally, and a breaker carries the decision out. Coordination is the deliberate delay that makes the device nearest a fault act first, so a local problem does not clear a whole region.",
         "of": 32,
         "rests": [
-          "Electrical power and energy over time"
+          "Charge, current, voltage and resistance",
+          "Ohm's law and resistive networks"
         ]
       }
     },

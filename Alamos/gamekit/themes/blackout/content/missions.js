@@ -7,23 +7,26 @@ export const MISSIONS = [
     "title": "Four degrees colder",
     "objective": "Decide how much reserve is real enough to count when tomorrow is colder than planned and the battery delivered less than promised.",
     "briefing": "Tomorrow's cold peak will push the Calder corridor harder, and the battery returned less energy than the plan assumed.",
-    "stake": "Monday night. Tomorrow will be four degrees colder than anyone planned for, and Calder Valley already depends on a transmission corridor with little spare margin. Sten Lindgren can estimate the centre of the evening peak, but not exactly how high it will go. Rafael Alvarez has worse news: the battery being counted as reserve returned less energy than its brochure promised. Dolores Reyes has to sign tonight for how much power is held back instead of sold. Count reserve that is not really there and the missing power appears at the coldest hour, when the corridor is hardest to relieve and customers may have to be switched off. Today you decide what the system can honestly promise.",
+    "stake": "Monday night, and tomorrow will be four degrees colder than planned. The battery counted as reserve gave back less than its label promised. Today you decide how much of that reserve is real.",
     "takeaway": "Reserve is useful only if the energy is actually there when uncertainty becomes demand.",
     "stops": [
       {
         "group": "LOAD",
         "lesson": 0,
-        "task": "Estimate what the store gives back"
+        "task": "Estimate what the store gives back",
+        "reason": "Reyes will only credit this store as reserve if somebody says what it actually gave back"
       },
       {
         "group": "GEN",
         "lesson": 0,
-        "task": "Explain why replacement power must be stepped up before it crosses the corridor."
+        "task": "Explain why replacement power must be stepped up before it crosses the corridor.",
+        "reason": "The replacement power is far away, and nobody has said what stepping it up actually buys"
       },
       {
         "group": "OPS",
         "lesson": 0,
-        "task": "Say what the busbar meter can and cannot tell you"
+        "task": "Say what the busbar meter can and cannot tell you",
+        "reason": "One meter reads the pair of circuits, and tonight the desk needs to know what that rules out"
       }
     ]
   },
@@ -31,23 +34,26 @@ export const MISSIONS = [
     "title": "Three things at once",
     "objective": "Rank three simultaneous problems, and hold the reasoning while they interfere.",
     "briefing": "A feeder fault, a 200 MW forecast miss and a fuel-limited plant collide before the evening peak.",
-    "stake": "Tuesday, 16:40. Three problems land at once. A cable fault has cut power to 3,300 homes. Actual demand is already 200 MW above the forecast and the gap is still growing. The gas station carrying the evening peak must shut at 18:00 because it is running out of fuel. Each problem is manageable alone; together they can consume the reserve and push more power through the Calder corridor just as the cold evening arrives. Reyes can keep only one problem in her own hands. Today you decide which problem is stealing options fastest, and exactly how the other two are handed off.",
+    "stake": "Tuesday, 16:40, and three problems land together. A cable fault has cut 3,300 homes, demand is 200 megawatts over forecast, and the gas station carrying the peak runs dry at six. Today you rank them and hand two of them away.",
     "takeaway": "Ranking is not about which problem is worst but about which one gets worse fastest and which one is cheapest to remove.",
     "stops": [
       {
         "group": "OPS",
         "lesson": 1,
-        "task": "Keep the one condition that cannot safely wait and delegate the rest with an owner, first action and return condition."
+        "task": "Keep the one condition that cannot safely wait and delegate the rest with an owner, first action and return condition.",
+        "reason": "Three live problems, one attention channel, and Whitlock will not accept a handoff that only says to watch it"
       },
       {
         "group": "TRANS",
         "lesson": 0,
-        "task": "Work out the corridor's loss at the higher flow"
+        "task": "Work out the corridor's loss at the higher flow",
+        "reason": "The feeder is out, the corridor is carrying more, and the heat figure is wanted before any switching change"
       },
       {
         "group": "LOAD",
         "lesson": 1,
-        "task": "Order the evening's moves so none of them undoes another"
+        "task": "Order the evening's moves so none of them undoes another",
+        "reason": "Four moves for the evening, two of them change what the others are worth, and one cannot be reversed"
       }
     ]
   },
@@ -55,23 +61,26 @@ export const MISSIONS = [
     "title": "The number on the wall",
     "objective": "Use the first seconds after a generator trip to determine how much power vanished and what the low frequency actually means.",
     "briefing": "The biggest station tripped at 04:12; frequency has stopped falling, but it has not recovered.",
-    "stake": "Wednesday, 04:12. The biggest power station on the system trips without warning. Frequency falls, then settles low. Reyes says the flattening is not a recovery: it means the system has found a new balance at the wrong frequency. Haddad can start more generation, but the first clean clue to how much vanished is already disappearing from the frequency trace. Whatever replaces the missing power will also change the flow through the Calder corridor. Today you use the first seconds of the event to measure the shortfall before slower controls blur the evidence, and you decide which records are trustworthy enough to act on.",
+    "stake": "Wednesday, 04:12, and the biggest station on the system trips. The frequency falls, then settles low: a new balance at the wrong speed, not a recovery. Today you read the first seconds to see how much power went missing.",
     "takeaway": "Frequency is not a reading from a place; it is the whole system's supply and demand, arriving as a number.",
     "stops": [
       {
         "group": "OPS",
         "lesson": 2,
-        "task": "From a falling trend to a statement about the system"
+        "task": "From a falling trend to a statement about the system",
+        "reason": "Two people have already named a cause, and Whitlock wants a statement the record can defend"
       },
       {
         "group": "GEN",
         "lesson": 1,
-        "task": "Estimate the generation that went missing"
+        "task": "Estimate the generation that went missing",
+        "reason": "A number is needed before anything is started, and the only clean evidence is the first two seconds"
       },
       {
         "group": "METER",
         "lesson": 0,
-        "task": "Open the timing dependencies, keep the evidence that stands independently, and name the failed time source."
+        "task": "Open the timing of each telemetry record, keep the evidence that stands independently, and name the failed time source.",
+        "reason": "Three records of the same eight seconds disagree, and one clock has not been checked since spring"
       }
     ]
   },
@@ -79,23 +88,26 @@ export const MISSIONS = [
     "title": "Forty minutes",
     "objective": "Decide whether the Calder corridor can be held safely, and act before its emergency margin is gone.",
     "briefing": "The Calder corridor is above its continuous rating, and the room believes it has about forty minutes of emergency margin.",
-    "stake": "Thursday. Replacement power from Wednesday's trip is being pushed through the two Calder circuits, and both are running hot. Novak says the operating model gives the corridor a little emergency margin before protection takes it out. Farrow points out that the margin comes from a temperature record nobody has independently checked. Dube is in the yard waiting for a switching order. Today you decide how early to move generation away from Calder and how hard the corridor can be pushed while that move arrives. If protection opens the corridor first, the valley loses the choice of how the next minutes happen.",
+    "stake": "Thursday, and both Calder circuits are running hot. The room thinks it has forty minutes of emergency margin, and that number came from a heat record nobody checked. Today you decide how hard to push the line.",
     "takeaway": "A thermal rating is a temperature under stated conditions, not a magic current wall; an action threshold must leave enough time for the action to arrive.",
     "stops": [
       {
         "group": "TRANS",
         "lesson": 1,
-        "task": "Set the overload action thresholds before the corridor trend is released."
+        "task": "Set the overload action thresholds before the corridor trend is released.",
+        "reason": "The corridor is at 108 per cent and rising, and a relay will choose for you if you do not"
       },
       {
         "group": "LOAD",
         "lesson": 2,
-        "task": "Estimate the loss in the loaded corridor"
+        "task": "Estimate the resistive loss in the loaded corridor",
+        "reason": "The argument about moving generation is really an argument about waste, and nobody has put a number on it"
       },
       {
         "group": "OPS",
         "lesson": 3,
-        "task": "Work out what the path opposes before the order is signed"
+        "task": "Work out what the path opposes before the order is signed",
+        "reason": "The second switching order will not be signed until one figure for the path is on the sheet"
       }
     ]
   },
@@ -103,23 +115,26 @@ export const MISSIONS = [
     "title": "Who gets power first",
     "objective": "Restore customers in an order that protects the people for whom waiting costs the most.",
     "briefing": "Eleven feeders are still dead; three crews cannot reach all of them, and one feeder serves a dialysis clinic.",
-    "stake": "Friday. The big lines are steady again. Eleven street-level circuits are still dead. Chinelo Obi, the distribution lead, has three crews and fourteen thousand homes with no power. One circuit feeds a dialysis clinic. Another feeds a thousand houses. Ewa Kowalczyk, the field crew lead, is at the first fault, and it is a fallen tree. The far end of one long circuit is running below its proper voltage, and nobody in the room can say why. Today you pick which circuit gets the first crew. Every hour is somebody sitting in a cold house, and an inquiry will read your order back to you later.",
+    "stake": "Friday, and the big lines are steady while eleven street circuits are still dead. Three crews cannot reach fourteen thousand cold homes at once, and one circuit feeds a kidney clinic. Today you choose which circuit gets the first crew, knowing an inquiry will read the order back.",
     "takeaway": "Restoration is a series of choices about people, made with instruments that only see the substation.",
     "stops": [
       {
         "group": "DIST",
         "lesson": 0,
-        "task": "Match each connection to what it shares"
+        "task": "Match each connection to what it shares",
+        "reason": "Obi is training a new starter at the depot whiteboard, and the depot has eleven dead circuits tonight"
       },
       {
         "group": "TRANS",
         "lesson": 2,
-        "task": "Match each observation to what it constrains"
+        "task": "Match each observation to what it constrains",
+        "reason": "Somebody has asked for more current down a circuit this afternoon, and every reason to refuse is about something different"
       },
       {
         "group": "OPS",
         "lesson": 4,
-        "task": "Decide which circuit gets the crew first"
+        "task": "Decide which circuit gets the crew first",
+        "reason": "Three crews, eleven dead circuits, and the first one you pick is the one an inquiry will ask about"
       }
     ]
   },
@@ -127,23 +142,26 @@ export const MISSIONS = [
     "title": "Can we trust the numbers?",
     "objective": "Decide which measurements the incident report can rely on, and which apparent disagreements are only different definitions.",
     "briefing": "The report is due, but two key readings have not been independently checked and two calibrated instruments appear to disagree.",
-    "stake": "Monday. Wednesday night has to be written up, and Reyes wants it filed today. Farrow will not sign it. Two of its numbers come from instruments last checked in the spring. Nadia Haddad needs a machine back on the system before the evening peak, and there is a correct order for switching it in. Today you work out what the system was really delivering, and settle a fight between two instruments that disagree. Farrow is right to wait. A number in a report lasts longer than the people who knew what it meant.",
+    "stake": "Monday, and Wednesday night has to be written up today. Two of its numbers come from meters last checked in the spring, and two more meters disagree. Today you settle what the system was really giving.",
     "takeaway": "A reading is a claim about one quantity, and two instruments can disagree while both are right.",
     "stops": [
       {
         "group": "METER",
         "lesson": 1,
-        "task": "Estimate the power the circuit was delivering"
+        "task": "Estimate the power the circuit was delivering",
+        "reason": "Farrow will not sign a delivered-power figure that nobody in the room has reproduced from the readings"
       },
       {
         "group": "GEN",
         "lesson": 2,
-        "task": "Put the steps of synchronising in the order physics requires"
+        "task": "Put the steps of synchronising in the order physics requires",
+        "reason": "The machine has to be back before the evening peak, and the sequence is wanted before anybody stands at the panel"
       },
       {
         "group": "TRANS",
         "lesson": 3,
-        "task": "Check whether the scope and meter are consistent with the same sine-wave voltage."
+        "task": "Check whether the scope and meter are consistent with the same sine-wave voltage.",
+        "reason": "A scope says 325 volts and the meter beside it says 230, and both were calibrated last month"
       }
     ]
   },
@@ -151,23 +169,26 @@ export const MISSIONS = [
     "title": "The easier path",
     "objective": "Work out how the two Calder circuits actually share current before one of them is switched out.",
     "briefing": "Two circuits share the Calder corridor, but the lower-impedance one is carrying twice the current of the other.",
-    "stake": "Tuesday, a week on. The Calder corridor has two parallel circuits, but that does not mean the current splits in half. The newer circuit has about half the impedance of the older one, so it is carrying roughly twice the current and using thermal margin much faster. Dube is waiting to hear which circuit can be taken out for maintenance. Today you calculate the split before anybody opens a breaker. Take out the wrong path and the circuit left behind inherits all of the flow.",
+    "stake": "Tuesday, a week on. The Calder line has two circuits, and the newer one carries twice the current because its impedance is half. Today you work out the split before a breaker is opened.",
     "takeaway": "Current divides between parallel paths in inverse proportion to their impedance, whatever anybody intended.",
     "stops": [
       {
         "group": "TRANS",
         "lesson": 4,
-        "task": "Estimate the current in the older circuit"
+        "task": "Estimate the current in the older circuit, in parallel with the newer",
+        "reason": "Dube is waiting to hear which circuit can come out, and only the total current is metered"
       },
       {
         "group": "OPS",
         "lesson": 5,
-        "task": "Spend the evidence budget on measurements that can change the reserve decision before the evening peak."
+        "task": "Spend the evidence budget on measurements that can change the reserve decision before the evening peak.",
+        "reason": "There is money for a few checks before the evening peak, and only some of them could change anything"
       },
       {
         "group": "DIST",
         "lesson": 1,
-        "task": "Estimate the volt drop to the end of the feeder"
+        "task": "Estimate the volt drop to the end of the feeder",
+        "reason": "Customers four kilometres along the feeder are complaining, and the only meter is back at the substation"
       }
     ]
   },
@@ -175,23 +196,26 @@ export const MISSIONS = [
     "title": "80 milliseconds",
     "objective": "Establish what a fault does before anybody can respond to it.",
     "briefing": "A cable failed at the substation and the protection cleared it before the alarm reached the room.",
-    "stake": "Wednesday. A cable failed inside the substation at 13:40. The protection cut it off in less than a tenth of a second. Nobody in the room saw the fault happen. They only saw what was left. Novak will not sign the switchgear back into use until somebody works out how big the current was. Farrow wants to know how an instrument reads a wire it never touches. Kowalczyk has a crew at the gate and an earthing rule they are impatient with. Today you work out the fault current, and decide who is allowed near it. The numbers here are huge and the times are tiny, so nobody guesses either one.",
+    "stake": "Wednesday, 13:40, and a cable failed inside the substation. Protection cut it off in less than a tenth of a second, so nobody saw the fault happen. Today you work out how big that current was, and decide who may go near it.",
     "takeaway": "Once source voltage and fault type are fixed, network impedance controls how large fault current becomes; that is why protection has to act in milliseconds.",
     "stops": [
       {
         "group": "TRANS",
         "lesson": 5,
-        "task": "Estimate the current the fault drew"
+        "task": "Estimate the current the fault drew",
+        "reason": "Novak will not sign the switchgear back into use until somebody says what it had to interrupt"
       },
       {
         "group": "METER",
         "lesson": 2,
-        "task": "Use the test loop to isolate what makes the current transformer produce a secondary signal."
+        "task": "Use the test loop to isolate what makes the current transformer produce a secondary signal.",
+        "reason": "Farrow wants a cause, not a remembered definition, for how an instrument reads a wire it never touches"
       },
       {
         "group": "LOAD",
         "lesson": 3,
-        "task": "Estimate tomorrow's peak from the curve"
+        "task": "Estimate tomorrow's peak from the curve",
+        "reason": "Tomorrow is minus four, and the base curve alone does not say where the peak lands"
       }
     ]
   },
@@ -199,76 +223,86 @@ export const MISSIONS = [
     "title": "The valley breaks away",
     "objective": "Use the island frequency to decide whether Calder Valley can stay alive on its own, and shed load before it collapses.",
     "briefing": "The Calder corridor trips at the evening peak; the valley is still lit, but it is now electrically on its own.",
-    "stake": "Friday, 18:20. The route into the valley tripped at the worst hour of the week. It is the same route the room pushed hard a week ago, using a heat record nobody had checked. The valley did not go dark. It broke away from the rest of the system, and it is now on its own with one gas machine and the wind ridge. Reyes has minutes to choose. She can help the valley survive on its own, or shut it down on purpose. Nadia Haddad says the one machine in there has very little spare power behind it. Today you decide whether the valley keeps its power or loses it.",
+    "stake": "Friday, 18:20, and the route into the valley trips at the worst hour of the week. The valley is still lit, but it is on its own now, with one gas machine and the wind ridge. Today you decide in minutes whether it keeps its power or is shut down on purpose.",
     "takeaway": "An island lives or dies on whether generation inside it can follow the load inside it.",
     "stops": [
       {
         "group": "OPS",
         "lesson": 6,
-        "task": "Find every shortfall-and-inertia pair that fits the measured frequency slope, then use an independent inertia estimate to break the ambiguity."
+        "task": "Find every shortfall-and-inertia pair that fits the measured frequency slope, then use an independent inertia estimate to break the ambiguity.",
+        "reason": "The island is losing speed, and the wall gives you the slope rather than the shortfall behind it"
       },
       {
         "group": "METER",
         "lesson": 3,
-        "task": "Say where an island's short-term energy actually comes from"
+        "task": "Say where an island's short-term energy actually comes from",
+        "reason": "Two of the four things the room is counting on cannot help in the first ten seconds"
       },
       {
         "group": "DIST",
         "lesson": 2,
-        "task": "Choose what to do about the island"
+        "task": "Choose what to do about the island",
+        "reason": "Twenty-six thousand households are inside the island, and the frequency is still falling while you decide"
       }
     ]
   },
   {
     "title": "The lights go out",
     "objective": "Rebuild Calder Valley from the one hydro unit that can start without power from the dead grid.",
-    "briefing": "The load shed bought forty-four minutes. Then the wind fell, the island collapsed, and every large machine lost the power it needs to restart.",
-    "stake": "Friday, 19:04. The load shed at 18:20 kept most of Calder Valley alive for forty-four minutes. Then the ridge wind fell faster than forecast, the remaining shortfall returned, and the island collapsed. Now the valley is dark. The gas station cannot start because its pumps, fans and controls all need electricity first. Haddad has one small hydro unit above the valley that can start with no outside power. Dube has a yard full of open switches and no safe sequence yet. Today you build a live system out of a dead one, one energised link at a time.",
+    "briefing": "The load shed bought forty-four minutes, then the wind fell, the island collapsed, and every large machine lost the power it needs to restart.",
+    "stake": "Friday, 19:04, and the valley is dark. The gas station cannot start, because its own pumps, fans and controls all need electricity first. Today you build a live system out of a dead one, from the small hydro set that needs nothing.",
     "takeaway": "A dead system is rebuilt from one machine that needs nothing, outward along a path chosen in advance.",
     "stops": [
       {
         "group": "GEN",
         "lesson": 3,
-        "task": "Estimate the energy the valley has not had"
+        "task": "Estimate the energy the valley has not had",
+        "reason": "The report will want the dark hours in energy rather than power, and the restoration is only starting"
       },
       {
         "group": "OPS",
         "lesson": 7,
-        "task": "Build the black-start power path in order, then identify the link that governs whether the large station can start."
+        "task": "Build the black-start power path in order, then identify the link that governs whether the large station can start.",
+        "reason": "Everybody wants the big station back first, and it cannot turn until something else gives it power"
       },
       {
         "group": "DIST",
         "lesson": 3,
-        "task": "Match each restoration step to the reason it is limited"
+        "task": "Match each restoration step to the reason it is limited",
+        "reason": "Crews are asking why restoration moves a few streets at a time when the whole feeder could be closed"
       }
     ]
   },
   {
     "title": "Six hours, not forty minutes",
     "objective": "Re-read the blackout with the corrected corridor temperature and determine which earlier decisions still stand.",
-    "briefing": "Farrow's independent checks show the corridor sensor was reading 11 °C low; the room's supposed forty-minute margin was built on the wrong temperature.",
-    "stake": "Sunday. Farrow has finished checking the heat records for the route into the valley. The number that bought the room forty minutes came from one sensor. That sensor was reading eleven degrees too low, and had been since a software update in the spring. So the route was never forty minutes from its limit. It had already been over its safe limit for six hours, and twice before that. Every call made this week used that number somewhere. Today you decide which of those calls still stand. Nobody reasoned badly. Everybody reasoned from a number, and the number was wrong.",
+    "briefing": "Independent checks show the corridor sensor was reading 11 °C low; the room's supposed forty- minute margin was built on the wrong temperature.",
+    "stake": "Sunday, and the heat records for the route into the valley have been checked at last. The sensor that bought the room forty minutes was reading eleven degrees low, and had been since a spring software update. Today you decide which of this week's calls still stand.",
     "takeaway": "A conclusion is only as good as the measurement under it, and a drifted instrument leaves the reasoning intact and the answer wrong.",
     "stops": [
       {
         "group": "METER",
         "lesson": 4,
-        "task": "Choose the explanation that fits the sensor, infrared survey and sag estimate together."
+        "task": "Choose the explanation that fits the sensor, infrared survey and sag estimate together.",
+        "reason": "Three sources for the corridor's temperature that week, and two of them agree against the sensor"
       },
       {
         "group": "TRANS",
         "lesson": 6,
-        "task": "Say what the corrected temperature does to the rating"
+        "task": "Say what the corrected temperature does to the rating",
+        "reason": "Novak wants the current the corrected weather actually allows before the corridor is trusted again"
       },
       {
         "group": "OPS",
         "lesson": 8,
-        "task": "Decide which of the week's conclusions still stand"
+        "task": "Decide which of the week's conclusions still stand",
+        "reason": "One wrong input sits under several of this week's decisions, and each has to be marked before the report goes"
       },
       {
         "group": "LOAD",
         "lesson": 4,
-        "task": "Sort the feeder list before the shed order goes out."
+        "task": "Sort the feeder list before the order to shed load goes out.",
+        "reason": "A shed order needs a list in ten minutes, and some feeders cannot simply be switched back on"
       }
     ]
   },
@@ -276,28 +310,32 @@ export const MISSIONS = [
     "title": "The quiet shift",
     "objective": "Use a calm night to identify the assumptions that could change the next emergency before an emergency forces the test.",
     "briefing": "Nothing is wrong tonight, which makes this the only cheap time to find out which comforting numbers are only inherited assumptions.",
-    "stake": "Monday, and nothing is going wrong. The forecast is holding to within thirty megawatts. Every line is well inside its limit. The wind ridge is steady, and there is nothing on the board to decide. Aaron Whitlock, the assistant operator, has almost nothing to write in the log. Reyes walks the room on evenings like this and asks people what they are assuming, because a quiet shift is the only time there is. Today you sort tonight's comforts into two piles: the ones somebody measured, and the ones everybody has got used to. Nothing will go wrong tonight. Nothing went wrong two Mondays ago either.",
+    "stake": "Monday, and nothing is going wrong. Every line is well inside its limit, and there is nothing on the board to decide. Today you sort tonight's comforts into the ones that were measured and the ones the room got used to.",
     "takeaway": "A quiet system is a set of assumptions nobody is currently being forced to check.",
     "stops": [
       {
         "group": "OPS",
         "lesson": 9,
-        "task": "Say what the contingency check is actually asking"
+        "task": "Say what the contingency check is actually asking",
+        "reason": "The screen says every single contingency is survivable tonight, and Whitlock asks what the check does not cover"
       },
       {
         "group": "LOAD",
         "lesson": 5,
-        "task": "Read a forecast that is behaving"
+        "task": "Read a forecast that is behaving",
+        "reason": "The forecast has tracked within thirty megawatts all evening, and the room is already treating that as a promise"
       },
       {
         "group": "GEN",
         "lesson": 4,
-        "task": "Spend the quiet-shift check budget on the assumption most likely to change the fast-frequency plan."
+        "task": "Spend the quiet-shift check budget on the assumption most likely to change the fast-frequency plan.",
+        "reason": "Four reasons the room feels safe tonight, and only a quiet shift is cheap enough to test one"
       },
       {
         "group": "DIST",
         "lesson": 4,
-        "task": "Work the fault board while the standing instruction changes."
+        "task": "Work the fault board while the restoration order changes.",
+        "reason": "Faults keep arriving, and the standing priority is replaced during the evening without anybody announcing it"
       }
     ]
   },
@@ -305,28 +343,32 @@ export const MISSIONS = [
     "title": "Cheapest is not enough",
     "objective": "Choose tomorrow’s generation and reserve when the cheapest power is uncertain and the corridor cannot carry everything available.",
     "briefing": "Tomorrow’s power must be scheduled tonight; the cheapest fleet is variable, and the Calder corridor is still the bottleneck.",
-    "stake": "Thursday. Tomorrow's power has to be bought tonight. Lindgren has a peak that moves with the temperature and a range he will not narrow. Mina Sarraf, the wind fleet controller, has a ridge that costs almost nothing to run and cannot promise anything. She is tired of being asked to promise. Nadia Haddad has expensive machines that do exactly what they are told. Reyes has to sign an order that puts them in a sequence. Today you decide what cheapest really means when the cheapest power is the least certain. The ridge may also make more power than the lines can carry.",
+    "stake": "Thursday, and tomorrow's power has to be bought tonight. The ridge is nearly free to run and can promise nothing, while the costly machines do as they are told. Today you decide what cheapest means when it is also the least sure.",
     "takeaway": "Dispatch orders plant by cost, and the value of certainty is what stops that being the whole story.",
     "stops": [
       {
         "group": "DIST",
         "lesson": 5,
-        "task": "Choose the last protection step before the crew approaches the conductor."
+        "task": "Choose the last protection step before the crew approaches the conductor.",
+        "reason": "The tester reads dead at the work point, and Kowalczyk has stopped the crew anyway"
       },
       {
         "group": "OPS",
         "lesson": 10,
-        "task": "Match each plant to why it is dispatched where it is"
+        "task": "Match each plant to why it is dispatched where it is",
+        "reason": "Four plants and an order to sign, and price alone does not explain where any of them sits"
       },
       {
         "group": "GEN",
         "lesson": 5,
-        "task": "Decide what to do with more wind than the corridor can carry"
+        "task": "Decide what merit order does with more wind than the corridor can carry",
+        "reason": "The ridge can make 340 megawatts tonight and the corridor carries about 190, with no other way out"
       },
       {
         "group": "OPS",
         "lesson": 11,
-        "task": "Hold the system frequency while the evening load comes on."
+        "task": "Hold the system frequency while the evening load comes on.",
+        "reason": "The evening rise is starting, the frequency is drifting under it, and the raise-lower control is all that is left"
       }
     ]
   },
@@ -334,23 +376,26 @@ export const MISSIONS = [
     "title": "The last morning",
     "objective": "Commit the corridor to a course before the construction window closes, using the corrected evidence rather than assumed damage.",
     "briefing": "The construction window closes at 17:00; the corrected record proves repeated high-temperature operation, but the exact remaining conductor strength is still being verified.",
-    "stake": "Monday morning. The reinforcement decision comes back for the last time before the construction window closes at five. The next window is eighteen months away. Farrow's corrected record shows about ninety hours above the continuous operating limit over three years. That establishes repeated thermal exposure, not an exact remaining tensile strength. Alvarez has a storage quote that expires today, and the board will not fund every option. Today you decide what can be justified now, what still needs verification, and whether the system spends another eighteen months managing the Calder bottleneck.",
+    "stake": "Monday morning, and the construction window closes at five. The next one is eighteen months away, and the record proves ninety hours over the limit but not what the metal lost. Today you decide what the evidence can pay for.",
     "takeaway": "When a reversible option expires, the decision must use what is measured now while keeping unresolved asset-condition claims explicitly unresolved.",
     "stops": [
       {
         "group": "METER",
         "lesson": 5,
-        "task": "State what the corrected thermal history proves — and what it does not."
+        "task": "State what the corrected thermal history proves — and what it does not.",
+        "reason": "The board wants one sentence about ninety hours over limit, and it must not claim more than the record proves"
       },
       {
         "group": "TRANS",
         "lesson": 7,
-        "task": "Commit the money before the window closes"
+        "task": "Commit the money, or keep curtailing, before the window closes",
+        "reason": "One budget, one afternoon, and one of these options stops existing when the window closes at five"
       },
       {
         "group": "OPS",
         "lesson": 12,
-        "task": "Say what the decision commits the room to"
+        "task": "Say what the decision commits the room to",
+        "reason": "Reyes wants the consequences written down before the signature, so the next shift inherits a plan rather than a mood"
       }
     ]
   },
@@ -358,23 +403,26 @@ export const MISSIONS = [
     "title": "Sign what you can prove",
     "objective": "Separate measured facts from inferences, verify the claims that still matter, and sign the one operating rule that should survive the emergency.",
     "briefing": "The winter case is due today; the final signature has to distinguish what is measured, what is inferred and what is still unknown.",
-    "stake": "Friday. The winter case is on Reyes's desk for signature. The sensor offset is well supported. The exact conductor strength is still being tested. One proposed relay cause is plausible but unproved. Lindgren will not let his winter peak be written as a single certain number. The last page asks which emergency practice becomes a permanent operating rule. Today you decide what the report is allowed to call a finding, where uncertainty must stay visible, and what rule the next night shift will inherit.",
+    "stake": "Friday, and the winter case is on the desk to sign. The sensor offset is well backed, the conductor is still being tested, and one relay cause is only a guess. Today you decide what the report may call a finding.",
     "takeaway": "A signed finding is worth only the evidence under it; uncertainty belongs in the report, not hidden behind confident wording.",
     "stops": [
       {
         "group": "METER",
         "lesson": 6,
-        "task": "Choose which report claims to verify before signing, with fewer checks than claims."
+        "task": "Choose which report claims to verify before signing, with fewer checks than claims.",
+        "reason": "Four statements are ready for the report, and there are only two verification slots left before sign-off"
       },
       {
         "group": "LOAD",
         "lesson": 6,
-        "task": "Put a range on the forecast rather than a number"
+        "task": "Put a range on the forecast rather than a number",
+        "reason": "The winter peak will not go in as one certain number, and the desk wants to know what the width is for"
       },
       {
         "group": "OPS",
         "lesson": 13,
-        "task": "Sign the one operating rule that should outlive the emergency."
+        "task": "Sign the one operating rule that should outlive the emergency.",
+        "reason": "The last page asks which emergency practice is cheap enough to become a standing rule on ordinary nights"
       }
     ]
   }

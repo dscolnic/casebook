@@ -89,7 +89,7 @@ export const ROSTER = [
     "quiz": [
       {
         "q": "Why does Raghunathan reject the idea that fear makes a memory more complete?",
-        "a": "Threat can narrow attention, making peripheral details less likely to be encoded well",
+        "a": "Fear changes where attention lands rather than how much of a scene gets in",
         "wrong": [
           "Memories formed under fear are stored in a separate system that decays faster than ordinary memory",
           "People under threat close their eyes for most of the event and encode almost nothing",

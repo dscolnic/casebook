@@ -21,14 +21,62 @@ import { resolve, dirname } from 'node:path';
 import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { themeDir as resolveTheme } from './registry.mjs';
 import { hasTurn, turnSelftest } from './turnRule.mjs';
-import { dayBlurb, blurbSentenceCount } from './dayCard.mjs';
+import { dayBlurb, blurbSentenceCount, sentencesOf, openingSentenceCount,
+  OPENING_SENTENCE_CAP } from './dayCard.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
+
+// A time marker: a clock, a calendar, or an elapsed-time phrase. Deliberately
+// broad — the rule is that a reader can tell *when*, not that they are told in
+// any particular format.
+//
+// TWO DEFECTS PAID FOR, both found by reading a campaign this gate had passed.
+//
+// 1. `may` was in the month list, case-insensitively, so the modal verb matched
+//    it. Red Sand's sol 8 — "the bed may be at its ceiling" — counted as a card
+//    that says when it is happening, and the reported 7 of 15 was really 6. A
+//    gate that passes a card for containing the word "may" is a gate reporting a
+//    number nobody can act on. `May`, `March` and `August` are months only when
+//    capitalised, so they are matched case-sensitively and separately; every
+//    other month is unambiguous in English and stays in the insensitive set.
+//
+// 2. The day-noun list was literal — `day|shift|stage|phase|watch` — so a
+//    campaign that counts in sols or levels could not say when it was happening
+//    in its own calendar. "On sol 292" tells a reader exactly when. The noun now
+//    comes from `manifest.dayNoun`, which is the campaign's own answer, rather
+//    than from a list here that has to be extended every time a game picks a new
+//    word for a day.
+const TIME_INSENSITIVE = new RegExp([
+  '\\b(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|eleventh|twelfth|thirteenth|fourteenth|fifteenth|twentieth|twenty-\\w+)\\b',
+  '\\b(day|days|hour|hours|week|weeks|month|months|year|years|watch|shift|stage|phase|minute|minutes)\\b',
+  '\\b(january|february|april|june|july|september|october|november|december)\\b',
+  '\\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\\b',
+  '\\b(this morning|tonight|overnight|last night|since|ago|before|after|by sunrise|at dawn)\\b',
+  '\\b(19|20)\\d\\d\\b',
+].join('|'), 'i');
+// Capitalised only. "the bed may be at its ceiling" is not a date; "in May" is.
+const TIME_MONTHS_CASED = /\b(May|March|August)\b/;
+
+/**
+ * Whether a card says when it is happening.
+ *
+ * `dayNoun` is the campaign's own word for a day — sol, shift, stage, level —
+ * and a card counting in it is a card a reader can place. Pass it in rather than
+ * listing the nouns here.
+ */
+export function saysWhen(text, dayNoun){
+  const t = String(text ?? '');
+  if(TIME_INSENSITIVE.test(t) || TIME_MONTHS_CASED.test(t)) return true;
+  const noun = String(dayNoun ?? '').trim().toLowerCase();
+  if(!noun) return false;
+  const e = noun.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`(^|[^a-z0-9])${e}s?([^a-z0-9]|$)`, 'i').test(t);
+}
 
 const argv = process.argv.slice(2);
 const themeName = argv.find(a => !a.startsWith('--'));
 const writeDebt = argv.includes('--write-debt');
-if(argv.includes('--selftest')){ turnSelftest(); process.exit(0); }
+if(argv.includes('--selftest')){ turnSelftest(); timeSelftest(); process.exit(0); }
 if(!themeName){
   console.error('usage: node engine/dev/checkStory.mjs <theme|path-to-theme-dir> [--write-debt] [--selftest]');
   process.exit(2);
@@ -84,7 +132,11 @@ normalizeContent({
 // ——— helpers ————————————————————————————————————————————————————————
 const plain = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
 const words = (s) => String(s ?? '').trim().split(/\s+/).filter(Boolean);
-const sentences = (s) => String(s ?? '').split(/(?<=[.!?])\s+/).filter(Boolean);
+// One copy of the split, shared with the day-card gate. It had its own regex here
+// for a while, which is the two-descriptions-of-one-rule defect: the opening card's
+// cap and the day blurb's cap have to count the same sentences or a card can pass
+// one and fail the other on nothing but punctuation.
+const sentences = (s) => sentencesOf(s);
 
 const SYL = (w) => {
   w = String(w).toLowerCase().replace(/[^a-z]/g, '');
@@ -99,18 +151,6 @@ const fk = (text) => {
   const s = (text.match(/[.!?]+/g) || []).length || 1;
   return 0.39 * (w.length / s) + 11.8 * (w.reduce((n, x) => n + SYL(x), 0) / w.length) - 15.59;
 };
-
-// A time marker: a clock, a calendar, or an elapsed-time phrase. Deliberately
-// broad — the rule is that a reader can tell *when*, not that they are told in
-// any particular format.
-const TIME = new RegExp([
-  '\\b(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|eleventh|twelfth|thirteenth|fourteenth|fifteenth|twentieth|twenty-\\w+)\\b',
-  '\\b(day|days|hour|hours|week|weeks|month|months|year|years|watch|shift|stage|phase|minute|minutes)\\b',
-  '\\b(january|february|march|april|may|june|july|august|september|october|november|december)\\b',
-  '\\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\\b',
-  '\\b(this morning|tonight|overnight|last night|since|ago|before|after|by sunrise|at dawn)\\b',
-  '\\b(19|20)\\d\\d\\b',
-].join('|'), 'i');
 
 // What the player will be asked to do today, in the second person.
 const TASK = /\b(today|this (shift|watch|stage|phase|day))\b[^.]{0,80}\byou\b/i;
@@ -263,7 +303,7 @@ MISSIONS.forEach((m, i) => {
 
   // 4. A reader can tell when this is happening, from the first two sentences.
   const opening = sentences(stake).slice(0, 2).join(' ');
-  if(TIME.test(opening)) dated++;
+  if(saysWhen(opening, manifest.dayNoun)) dated++;
 
   // 5. It says what the player will be asked to do.
   //
@@ -395,18 +435,22 @@ MISSIONS.forEach((m, i) => {
 // in the debt file fails now if it violates; one listed there that has since
 // been fixed fails too, naming the line to delete.
 const STAKE_LENGTH_DEBT_FILE = resolve(HERE, 'stakelength-debt.json');
+const OPENING_LENGTH_DEBT_FILE = resolve(HERE, 'openinglength-debt.json');
 const NAMEFREE_DEBT_FILE = resolve(HERE, 'namefree-debt.json');
 const REASON_DEBT_FILE = resolve(HERE, 'reasoncoverage-debt.json');
 const SEGUE_GRADE_DEBT_FILE = resolve(HERE, 'seguegrade-debt.json');
 const stakeLengthDebt = readListDebt(STAKE_LENGTH_DEBT_FILE);
+const openingLengthDebt = readListDebt(OPENING_LENGTH_DEBT_FILE);
 const nameFreeDebt = readListDebt(NAMEFREE_DEBT_FILE);
 const reasonDebt = readListDebt(REASON_DEBT_FILE);
 const segueGradeDebt = readListDebt(SEGUE_GRADE_DEBT_FILE);
 const stakeLengthDebtList = new Set(stakeLengthDebt.themes?.[themeName] ?? []);
+const openingLengthDebtList = new Set(openingLengthDebt.themes?.[themeName] ?? []);
 const nameFreeDebtList = new Set(nameFreeDebt.themes?.[themeName] ?? []);
 const reasonDebtList = new Set(reasonDebt.themes?.[themeName] ?? []);
 const segueGradeDebtList = new Set(segueGradeDebt.themes?.[themeName] ?? []);
 const stakeLengthGaps = [];
+const openingLengthGaps = [];
 const nameFreeGaps = [];
 const reasonGaps = [];
 const segueGradeGaps = [];
@@ -497,9 +541,28 @@ const total = MISSIONS.length;
 // direction that matters. A brief campaign that *does* name people everywhere is
 // still fine; one that names nobody anywhere and is NOT brief is the failure this
 // was written for.
-if(!briefCards && named < Math.ceil(total * 0.8)){
-  fail(`only ${named} of ${total} cards name anybody from the ${ROSTER.length}-person roster — `
-     + `a campaign of problem statements rather than a story`);
+// AND THE CAST COUNTS WHEREVER IT IS MET, which is the fix for a contradiction
+// this file carried in two rules a hundred lines apart. The rule just above fails
+// each day whose plan card names somebody — "that belongs on the call's own
+// reason" — while this one failed the campaign if fewer than 80% of plan cards
+// named somebody. Both read the same surname list, so a non-brief campaign not
+// listed in `namefree-debt.json` could satisfy neither: Project Y wrote fifteen
+// stakes with a person in each, went from 18 problems to 15, and reverted to
+// reach 1. 57 of 62 themes only escaped through the debt file.
+//
+// So a campaign that moved its cast onto the calls has met the roster, and the
+// count says so. What still fails is the campaign this rule was written for — one
+// where the cast appears nowhere the player reads at all.
+const namedOnCalls = MISSIONS.filter(m => (m.stops ?? []).some(st => namesSomebody(st.reason)))
+  .length;
+const metAnywhere = Math.max(named, namedOnCalls);
+if(!briefCards && metAnywhere < Math.ceil(total * 0.8)){
+  fail(`only ${metAnywhere} of ${total} cards meet anybody from the ${ROSTER.length}-person roster, `
+     + 'on the plan card or on one of the day\'s own calls — a campaign of problem statements '
+     + 'rather than a story');
+} else if(!briefCards && named < Math.ceil(total * 0.8)){
+  note(`${named} of ${total} plan cards name the cast, and ${namedOnCalls} of ${total} days meet `
+     + 'somebody on a call instead — which is where the name-free rule above puts them');
 } else if(briefCards && named < Math.ceil(total * 0.8)){
   note(`${briefCards} of ${total} cards are brief stakes, so the roster is met on the calls `
      + `and in the debrief rather than on the plan card (${named} of ${total} name anybody)`);
@@ -614,6 +677,31 @@ if(total >= SEGUE_MIN_DAYS){
     if(paras.length > 1){
       fail(`the opening is ${paras.length} paragraphs — it is one paragraph of situation, and the `
          + 'second one has always turned out to be mechanics or a disclaimer');
+    }
+    // FIVE SENTENCES. The day blurb is capped at four, and for most of this
+    // engine's life the opening card was capped at nothing but a word count — so
+    // openings drifted to nine, twelve and seventeen sentences while every gate
+    // stayed green, because 180 words of short sentences is under the word note
+    // and unreadable before a single day has started. One more sentence than a
+    // day card, because the opening carries four beats and a day card carries
+    // one. Counted with the day gate's own splitter, so the two caps cannot
+    // disagree about what a sentence is.
+    //
+    // Ratcheted like the stake-length gate beside it: a theme not listed in the
+    // debt file fails now if it runs long, and a theme listed there whose card
+    // has since been cut fails too, naming the line to delete.
+    const openingSentences = openingSentenceCount(paras);
+    if(openingSentences > OPENING_SENTENCE_CAP){
+      if(openingLengthDebtList.has('opening')){
+        note(`the opening card runs ${openingSentences} sentences (recorded debt)`);
+      } else {
+        fail(`the opening card runs ${openingSentences} sentences — ${OPENING_SENTENCE_CAP} is `
+           + 'the limit, and a day card is four');
+      }
+      openingLengthGaps.push('opening');
+    } else if(openingLengthDebtList.has('opening')){
+      fail(`${OPENING_LENGTH_DEBT_FILE.split('/').pop()} lists this opening as owing the length `
+         + `gate, and it now runs ${openingSentences} sentence(s) — delete the line`);
     }
     // Thin cards cannot carry four beats; long ones stop being read. Outbreak's
     // was 41 words and said nothing about what being late costs.
@@ -747,6 +835,11 @@ if(writeDebt){
     'Missions whose opening blurb (stake + any distinct briefing) runs past four sentences '
     + '(checkStory.mjs). A day not listed fails now if it regresses; one listed here that has '
     + 'since been fixed fails too, naming the line to delete.', stakeLengthGaps);
+  writeListDebt(OPENING_LENGTH_DEBT_FILE, openingLengthDebt,
+    'Themes whose opening card runs past five sentences (checkStory.mjs). The day blurb is '
+    + 'capped at four and the opening at five, counted by the same splitter. A theme not listed '
+    + 'fails now if it runs long; one listed here that has since been cut fails too, naming the '
+    + 'line to delete.', openingLengthGaps);
   writeListDebt(NAMEFREE_DEBT_FILE, nameFreeDebt,
     'Missions whose opening blurb or closing card names somebody (checkStory.mjs) — names belong '
     + "on the call's own reason instead. Same ratchet as the other debt files here.", nameFreeGaps);
@@ -774,3 +867,56 @@ if(problems.length){
 console.log(`\n✓ theme "${themeName}" tells a story: ${named}/${total} cards name the cast, `
   + `${dated}/${total} say when, ${tasked}/${total} say what you decide, `
   + `${Math.round(mean(lengths))} words and grade ${mean(grades).toFixed(1)} on average`);
+
+
+// ——— the time-anchor selftest ——————————————————————————————————————————
+/**
+ * The pairs are the point again.
+ *
+ * This rule passed a card for containing the word "may", which is how a
+ * measurement reports a number nobody can act on. So the cases below are mostly
+ * pairs: the modal against the month, and one campaign's day noun against
+ * another's, which have to score the same as each other and differently from the
+ * words that only look like dates.
+ *
+ * PUT THE BUG BACK to see it work. Move `may` into `TIME_INSENSITIVE` and the
+ * modal case fails and only it. Drop the `dayNoun` clause from `saysWhen` and
+ * the sol/level cases fail and only they do.
+ */
+function timeSelftest(){
+  const cases = [];
+  const yes = (name, text, noun) => cases.push({ name, ok: saysWhen(text, noun) === true, text });
+  const no = (name, text, noun) => cases.push({ name, ok: saysWhen(text, noun) === false, text });
+  const eq = (name, a, b) => cases.push({ name, ok: a === b, text: `${a} vs ${b}` });
+
+  // THE DEFECT. A modal verb is not a month.
+  no('the modal "may" is not a date', 'The bed may be at its ceiling already.', 'Sol');
+  yes('the month May is', 'The window closes in May and nothing moves it.', 'Sol');
+  no('"march" as a verb is not a date', 'They march the crew back to the gate.', 'Day');
+  yes('the month March is', 'Nothing was measured until March.', 'Day');
+
+  // THE DAY-NOUN PAIR. A campaign counting in sols is as placeable as one
+  // counting in days, and the rule must not prefer the word "day".
+  eq('a campaign\'s own day noun counts like "day" does',
+    saysWhen('On sol 292 the hot run made 11.4 kilograms.', 'Sol'),
+    saysWhen('On day 292 the hot run made 11.4 kilograms.', 'Day'));
+  yes('sols count for a sol campaign', 'On sol 292 the run went long.', 'Sol');
+  yes('levels count for a level campaign', 'Level 3 opens with the tank already warm.', 'Level');
+  yes('and the plural does too', 'Two sols of margin are gone.', 'Sol');
+  no('a noun no campaign uses is not a date', 'The tank is warm and the crew is waiting.', 'Sol');
+
+  // The ordinary anchors, which must keep working.
+  yes('an elapsed phrase counts', 'Since this morning the pressure has climbed.', 'Sol');
+  yes('a clock year counts', 'Nothing has been checked since 2019.', 'Day');
+  yes('a weekday counts', 'The samples leave on Thursday.', 'Day');
+  no('a card with no anchor at all', 'The valve is open and nobody has signed for it.', 'Day');
+
+  for(const c of cases) console.log(`  ${c.ok ? '✓' : '✗'} ${c.name}`);
+  const bad = cases.filter(c => !c.ok);
+  if(bad.length){
+    console.log(`\n✗ time anchors: ${bad.length} of ${cases.length} case(s) wrong`);
+    for(const c of bad) console.log(`  ✗ ${c.name}: "${c.text}"`);
+    process.exit(1);
+  }
+  console.log(`\n✓ time anchors: ${cases.length} cases, and a modal verb is not a month.`);
+}
