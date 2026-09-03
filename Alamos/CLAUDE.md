@@ -39,6 +39,7 @@ skill you are in.
 | `gamekit/ACCESSIBILITY_PASS.md` | The sixth-grader pass — a card's reading level down with the course's judgement intact. Worked on `redsand KINET-1`, 7.9 → 4.2. |
 | `gamekit/QUESTION_BRIEF.md` | The card shape every stop is rewritten to. |
 | `gamekit/FORMATS.md` | The instrument catalogue. |
+| `gamekit/QUESTION_TYPES.md` | **The summary of all 44 question formats** — what each asks, whether it belongs to a person, a room or a fixture, and how many stops and games author it (counted, not quoted). Read to pick a format or to find out what is thin. |
 | `gamekit/ARCADE.md` | The fun-first formats, and why FLOW as specified should not be one. |
 | `gamekit/MIDDLE_SCHOOL_EDITIONS.md` | The junior-edition plan. |
 | `gamekit/FOURTH_GAME.md` | The plan the Project Y flip came from. |
